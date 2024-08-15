@@ -1944,13 +1944,13 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 查询批量实例可升级的版本和升级类型
+     * 查询批量实例可升级的版本和升级类型。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询批量实例可升级的版本和升级类型
+     * @summary 查询批量实例可升级的版本和升级类型。
      * @param {UpgradeInstancesRequestBody} showBatchUpgradeCandidateVersionsRequestBody 请求体
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言[zh-cn, en-us]
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言[zh-cn, en-us]。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2204,13 +2204,13 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 查询实例可升级版本
+     * 查询实例可升级版本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例可升级版本
      * @param {string} instanceId 实例ID。
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言[zh-cn, en-us]
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言[zh-cn, en-us]。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2366,7 +2366,7 @@ export class GaussDBforopenGaussClient {
      * @summary 实例内核版本升级
      * @param {string} instanceId 实例ID。
      * @param {OpenGaussUpgradeRequest} upgradeInstanceVersionRequestBody 请求体
-     * @param {string} [xLanguage] 语言
+     * @param {string} [xLanguage] 语言。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2397,7 +2397,7 @@ export class GaussDBforopenGaussClient {
      *
      * @summary 批量实例内核版本升级
      * @param {GaussDBUpgradeInstancesVersionRequest} upgradeInstancesVersionRequestBody 请求体
-     * @param {string} [xLanguage] 语言
+     * @param {string} [xLanguage] 语言。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6546,7 +6546,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询批量实例可升级的版本和升级类型
+         * 查询批量实例可升级的版本和升级类型。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7127,7 +7127,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询实例可升级版本
+         * 查询实例可升级版本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

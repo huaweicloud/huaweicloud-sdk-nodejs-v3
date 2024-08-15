@@ -33,6 +33,7 @@ export class ShowComponentInfoResponse extends SdkResponse {
     private 'request_memory'?: number;
     public replica?: number;
     public version?: string;
+    private 'swimlane_id'?: string;
     public envs?: Array<ComponentEnvironment>;
     public storages?: Array<ComponentStorage>;
     public command?: ComponentCommand;
@@ -151,6 +152,16 @@ export class ShowComponentInfoResponse extends SdkResponse {
     public withVersion(version: string): ShowComponentInfoResponse {
         this['version'] = version;
         return this;
+    }
+    public withSwimlaneId(swimlaneId: string): ShowComponentInfoResponse {
+        this['swimlane_id'] = swimlaneId;
+        return this;
+    }
+    public set swimlaneId(swimlaneId: string  | undefined) {
+        this['swimlane_id'] = swimlaneId;
+    }
+    public get swimlaneId(): string | undefined {
+        return this['swimlane_id'];
     }
     public withEnvs(envs: Array<ComponentEnvironment>): ShowComponentInfoResponse {
         this['envs'] = envs;

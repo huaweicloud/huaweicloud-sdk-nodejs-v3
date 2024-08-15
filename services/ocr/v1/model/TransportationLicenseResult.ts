@@ -13,6 +13,9 @@ export class TransportationLicenseResult {
     private 'economic_type'?: string;
     private 'business_certificate'?: string;
     private 'business_scope'?: string;
+    private 'expiry_date'?: string;
+    private 'review_expiry_date'?: string;
+    private 'assessed_technical_level'?: string;
     public confidence?: object;
     public constructor() { 
     }
@@ -135,6 +138,36 @@ export class TransportationLicenseResult {
     }
     public get businessScope(): string | undefined {
         return this['business_scope'];
+    }
+    public withExpiryDate(expiryDate: string): TransportationLicenseResult {
+        this['expiry_date'] = expiryDate;
+        return this;
+    }
+    public set expiryDate(expiryDate: string  | undefined) {
+        this['expiry_date'] = expiryDate;
+    }
+    public get expiryDate(): string | undefined {
+        return this['expiry_date'];
+    }
+    public withReviewExpiryDate(reviewExpiryDate: string): TransportationLicenseResult {
+        this['review_expiry_date'] = reviewExpiryDate;
+        return this;
+    }
+    public set reviewExpiryDate(reviewExpiryDate: string  | undefined) {
+        this['review_expiry_date'] = reviewExpiryDate;
+    }
+    public get reviewExpiryDate(): string | undefined {
+        return this['review_expiry_date'];
+    }
+    public withAssessedTechnicalLevel(assessedTechnicalLevel: string): TransportationLicenseResult {
+        this['assessed_technical_level'] = assessedTechnicalLevel;
+        return this;
+    }
+    public set assessedTechnicalLevel(assessedTechnicalLevel: string  | undefined) {
+        this['assessed_technical_level'] = assessedTechnicalLevel;
+    }
+    public get assessedTechnicalLevel(): string | undefined {
+        return this['assessed_technical_level'];
     }
     public withConfidence(confidence: object): TransportationLicenseResult {
         this['confidence'] = confidence;

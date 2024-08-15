@@ -13,6 +13,7 @@ export class PutTaskReq {
     private 'region_id'?: string;
     private 'start_target_server'?: boolean;
     private 'enterprise_project_id'?: string;
+    private 'exist_server'?: boolean;
     private 'migration_ip'?: string;
     private 'region_name'?: string;
     private 'speed_limit'?: number;
@@ -92,6 +93,16 @@ export class PutTaskReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withExistServer(existServer: boolean): PutTaskReq {
+        this['exist_server'] = existServer;
+        return this;
+    }
+    public set existServer(existServer: boolean  | undefined) {
+        this['exist_server'] = existServer;
+    }
+    public get existServer(): boolean | undefined {
+        return this['exist_server'];
     }
     public withMigrationIp(migrationIp: string): PutTaskReq {
         this['migration_ip'] = migrationIp;

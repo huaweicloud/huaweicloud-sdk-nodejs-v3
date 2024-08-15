@@ -687,7 +687,8 @@ export enum UpdateImageResponseVirtualEnvTypeEnum {
     */
 export enum UpdateImageResponseVisibilityEnum {
     PRIVATE = 'private',
-    PUBLIC = 'public'
+    PUBLIC = 'public',
+    SHARED = 'shared'
 }
 /**
     * @export

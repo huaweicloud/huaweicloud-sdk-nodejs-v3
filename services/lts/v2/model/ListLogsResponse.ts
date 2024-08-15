@@ -6,6 +6,7 @@ export class ListLogsResponse extends SdkResponse {
     public count?: number;
     public logs?: Array<LogContents>;
     public isQueryComplete?: boolean;
+    public analysisLogs?: Array<{ [key: string]: string; }>;
     public constructor() { 
         super();
     }
@@ -19,6 +20,10 @@ export class ListLogsResponse extends SdkResponse {
     }
     public withIsQueryComplete(isQueryComplete: boolean): ListLogsResponse {
         this['isQueryComplete'] = isQueryComplete;
+        return this;
+    }
+    public withAnalysisLogs(analysisLogs: Array<{ [key: string]: string; }>): ListLogsResponse {
+        this['analysisLogs'] = analysisLogs;
         return this;
     }
 }

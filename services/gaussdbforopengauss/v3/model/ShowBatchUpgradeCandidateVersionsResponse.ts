@@ -8,6 +8,7 @@ export class ShowBatchUpgradeCandidateVersionsResponse extends SdkResponse {
     private 'target_version'?: string;
     private 'upgrade_candidate_versions'?: Array<string>;
     private 'hotfix_upgrade_infos'?: Array<HotfixInfo>;
+    private 'hotfix_rollback_infos'?: Array<HotfixInfo>;
     public constructor() { 
         super();
     }
@@ -50,5 +51,15 @@ export class ShowBatchUpgradeCandidateVersionsResponse extends SdkResponse {
     }
     public get hotfixUpgradeInfos(): Array<HotfixInfo> | undefined {
         return this['hotfix_upgrade_infos'];
+    }
+    public withHotfixRollbackInfos(hotfixRollbackInfos: Array<HotfixInfo>): ShowBatchUpgradeCandidateVersionsResponse {
+        this['hotfix_rollback_infos'] = hotfixRollbackInfos;
+        return this;
+    }
+    public set hotfixRollbackInfos(hotfixRollbackInfos: Array<HotfixInfo>  | undefined) {
+        this['hotfix_rollback_infos'] = hotfixRollbackInfos;
+    }
+    public get hotfixRollbackInfos(): Array<HotfixInfo> | undefined {
+        return this['hotfix_rollback_infos'];
     }
 }

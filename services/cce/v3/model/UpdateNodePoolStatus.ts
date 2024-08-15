@@ -1,4 +1,5 @@
 import { NodePoolCondition } from './NodePoolCondition';
+import { ScaleGroupStatus } from './ScaleGroupStatus';
 
 
 export class UpdateNodePoolStatus {
@@ -7,6 +8,7 @@ export class UpdateNodePoolStatus {
     public deletingNode?: number;
     public phase?: UpdateNodePoolStatusPhaseEnum | string;
     public conditions?: Array<NodePoolCondition>;
+    public scaleGroupStatuses?: Array<ScaleGroupStatus>;
     public constructor() { 
     }
     public withCurrentNode(currentNode: number): UpdateNodePoolStatus {
@@ -27,6 +29,10 @@ export class UpdateNodePoolStatus {
     }
     public withConditions(conditions: Array<NodePoolCondition>): UpdateNodePoolStatus {
         this['conditions'] = conditions;
+        return this;
+    }
+    public withScaleGroupStatuses(scaleGroupStatuses: Array<ScaleGroupStatus>): UpdateNodePoolStatus {
+        this['scaleGroupStatuses'] = scaleGroupStatuses;
         return this;
     }
 }

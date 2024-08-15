@@ -47,5 +47,5 @@ export class PolicyStatement {
     */
 export enum PolicyStatementEffectEnum {
     ALLOW = 'Allow',
-    REFUSE = 'Refuse'
+    DENY = 'Deny'
 }

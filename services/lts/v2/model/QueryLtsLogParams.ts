@@ -13,6 +13,8 @@ export class QueryLtsLogParams {
     public limit?: number;
     public highlight?: boolean;
     private 'is_iterative'?: boolean;
+    public query?: string;
+    private 'is_analysis_query'?: boolean;
     public constructor(startTime?: string, endTime?: string) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -112,6 +114,20 @@ export class QueryLtsLogParams {
     }
     public get isIterative(): boolean | undefined {
         return this['is_iterative'];
+    }
+    public withQuery(query: string): QueryLtsLogParams {
+        this['query'] = query;
+        return this;
+    }
+    public withIsAnalysisQuery(isAnalysisQuery: boolean): QueryLtsLogParams {
+        this['is_analysis_query'] = isAnalysisQuery;
+        return this;
+    }
+    public set isAnalysisQuery(isAnalysisQuery: boolean  | undefined) {
+        this['is_analysis_query'] = isAnalysisQuery;
+    }
+    public get isAnalysisQuery(): boolean | undefined {
+        return this['is_analysis_query'];
     }
 }
 

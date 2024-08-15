@@ -56,6 +56,7 @@ import { DeleteEnvironmentRequest } from './model/DeleteEnvironmentRequest';
 import { DeleteEnvironmentResponse } from './model/DeleteEnvironmentResponse';
 import { DeployStrategy } from './model/DeployStrategy';
 import { DeployStrategyGrayRelease } from './model/DeployStrategyGrayRelease';
+import { DeployStrategyGrayReleaseRules } from './model/DeployStrategyGrayReleaseRules';
 import { DeployStrategyRollingRelease } from './model/DeployStrategyRollingRelease';
 import { EnvironmentCreate } from './model/EnvironmentCreate';
 import { EnvironmentCreateLabels } from './model/EnvironmentCreateLabels';

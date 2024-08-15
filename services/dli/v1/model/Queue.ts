@@ -24,6 +24,14 @@ export class Queue {
     private 'cu_scale_out_limit'?: number;
     private 'cu_scale_in_limit'?: number;
     private 'elastic_resource_pool_name'?: string;
+    private 'support_spark_versions'?: Array<string>;
+    private 'default_spark_version'?: string;
+    private 'support_hetu_engine_versions'?: Array<string>;
+    private 'default_hetu_engine_version'?: string;
+    private 'support_flink_sql_versions'?: Array<string>;
+    private 'default_flink_sql_version'?: string;
+    private 'support_flink_jar_versions'?: Array<string>;
+    private 'default_flink_jar_version'?: string;
     public constructor() { 
     }
     public withQueueId(queueId: number): Queue {
@@ -225,5 +233,85 @@ export class Queue {
     }
     public get elasticResourcePoolName(): string | undefined {
         return this['elastic_resource_pool_name'];
+    }
+    public withSupportSparkVersions(supportSparkVersions: Array<string>): Queue {
+        this['support_spark_versions'] = supportSparkVersions;
+        return this;
+    }
+    public set supportSparkVersions(supportSparkVersions: Array<string>  | undefined) {
+        this['support_spark_versions'] = supportSparkVersions;
+    }
+    public get supportSparkVersions(): Array<string> | undefined {
+        return this['support_spark_versions'];
+    }
+    public withDefaultSparkVersion(defaultSparkVersion: string): Queue {
+        this['default_spark_version'] = defaultSparkVersion;
+        return this;
+    }
+    public set defaultSparkVersion(defaultSparkVersion: string  | undefined) {
+        this['default_spark_version'] = defaultSparkVersion;
+    }
+    public get defaultSparkVersion(): string | undefined {
+        return this['default_spark_version'];
+    }
+    public withSupportHetuEngineVersions(supportHetuEngineVersions: Array<string>): Queue {
+        this['support_hetu_engine_versions'] = supportHetuEngineVersions;
+        return this;
+    }
+    public set supportHetuEngineVersions(supportHetuEngineVersions: Array<string>  | undefined) {
+        this['support_hetu_engine_versions'] = supportHetuEngineVersions;
+    }
+    public get supportHetuEngineVersions(): Array<string> | undefined {
+        return this['support_hetu_engine_versions'];
+    }
+    public withDefaultHetuEngineVersion(defaultHetuEngineVersion: string): Queue {
+        this['default_hetu_engine_version'] = defaultHetuEngineVersion;
+        return this;
+    }
+    public set defaultHetuEngineVersion(defaultHetuEngineVersion: string  | undefined) {
+        this['default_hetu_engine_version'] = defaultHetuEngineVersion;
+    }
+    public get defaultHetuEngineVersion(): string | undefined {
+        return this['default_hetu_engine_version'];
+    }
+    public withSupportFlinkSqlVersions(supportFlinkSqlVersions: Array<string>): Queue {
+        this['support_flink_sql_versions'] = supportFlinkSqlVersions;
+        return this;
+    }
+    public set supportFlinkSqlVersions(supportFlinkSqlVersions: Array<string>  | undefined) {
+        this['support_flink_sql_versions'] = supportFlinkSqlVersions;
+    }
+    public get supportFlinkSqlVersions(): Array<string> | undefined {
+        return this['support_flink_sql_versions'];
+    }
+    public withDefaultFlinkSqlVersion(defaultFlinkSqlVersion: string): Queue {
+        this['default_flink_sql_version'] = defaultFlinkSqlVersion;
+        return this;
+    }
+    public set defaultFlinkSqlVersion(defaultFlinkSqlVersion: string  | undefined) {
+        this['default_flink_sql_version'] = defaultFlinkSqlVersion;
+    }
+    public get defaultFlinkSqlVersion(): string | undefined {
+        return this['default_flink_sql_version'];
+    }
+    public withSupportFlinkJarVersions(supportFlinkJarVersions: Array<string>): Queue {
+        this['support_flink_jar_versions'] = supportFlinkJarVersions;
+        return this;
+    }
+    public set supportFlinkJarVersions(supportFlinkJarVersions: Array<string>  | undefined) {
+        this['support_flink_jar_versions'] = supportFlinkJarVersions;
+    }
+    public get supportFlinkJarVersions(): Array<string> | undefined {
+        return this['support_flink_jar_versions'];
+    }
+    public withDefaultFlinkJarVersion(defaultFlinkJarVersion: string): Queue {
+        this['default_flink_jar_version'] = defaultFlinkJarVersion;
+        return this;
+    }
+    public set defaultFlinkJarVersion(defaultFlinkJarVersion: string  | undefined) {
+        this['default_flink_jar_version'] = defaultFlinkJarVersion;
+    }
+    public get defaultFlinkJarVersion(): string | undefined {
+        return this['default_flink_jar_version'];
     }
 }

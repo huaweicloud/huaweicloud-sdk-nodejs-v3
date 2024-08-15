@@ -8,7 +8,7 @@ export class InstanceVnicResp {
     private 'port_id'?: string;
     public mac?: string;
     public vtep?: string;
-    public vni?: number;
+    public vni?: string;
     private 'instance_id'?: string;
     private 'instance_type'?: string;
     private 'port_profile'?: string;
@@ -72,7 +72,7 @@ export class InstanceVnicResp {
         this['vtep'] = vtep;
         return this;
     }
-    public withVni(vni: number): InstanceVnicResp {
+    public withVni(vni: string): InstanceVnicResp {
         this['vni'] = vni;
         return this;
     }

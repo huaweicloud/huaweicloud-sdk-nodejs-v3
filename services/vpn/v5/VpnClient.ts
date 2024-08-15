@@ -192,6 +192,8 @@ import { UpdateP2cVgwRequest } from './model/UpdateP2cVgwRequest';
 import { UpdateP2cVgwRequestBody } from './model/UpdateP2cVgwRequestBody';
 import { UpdateP2cVgwRequestBodyContent } from './model/UpdateP2cVgwRequestBodyContent';
 import { UpdateP2cVgwResponse } from './model/UpdateP2cVgwResponse';
+import { UpdatePostpaidVgwSpecificationRequest } from './model/UpdatePostpaidVgwSpecificationRequest';
+import { UpdatePostpaidVgwSpecificationResponse } from './model/UpdatePostpaidVgwSpecificationResponse';
 import { UpdateRequestPolicyTemplate } from './model/UpdateRequestPolicyTemplate';
 import { UpdateResponseVpnConnection } from './model/UpdateResponseVpnConnection';
 import { UpdateResponseVpnGateway } from './model/UpdateResponseVpnGateway';
@@ -207,6 +209,8 @@ import { UpdateVgwRequest } from './model/UpdateVgwRequest';
 import { UpdateVgwRequestBody } from './model/UpdateVgwRequestBody';
 import { UpdateVgwRequestBodyContent } from './model/UpdateVgwRequestBodyContent';
 import { UpdateVgwResponse } from './model/UpdateVgwResponse';
+import { UpdateVgwSpecificationRequestBody } from './model/UpdateVgwSpecificationRequestBody';
+import { UpdateVgwSpecificationRequestBodyContent } from './model/UpdateVgwSpecificationRequestBodyContent';
 import { UpdateVpnAccessPolicyRequest } from './model/UpdateVpnAccessPolicyRequest';
 import { UpdateVpnAccessPolicyRequestBody } from './model/UpdateVpnAccessPolicyRequestBody';
 import { UpdateVpnAccessPolicyRequestBodyContent } from './model/UpdateVpnAccessPolicyRequestBodyContent';
@@ -1048,6 +1052,26 @@ export class VpnClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对单个网关规格进行修改，可以升配或降配
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改网关规格
+     * @param {string} vgwId VPN网关实例ID
+     * @param {UpdateVgwSpecificationRequestBody} updateVgwSpecificationRequestBody 请求参数对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePostpaidVgwSpecification(updatePostpaidVgwSpecificationRequest?: UpdatePostpaidVgwSpecificationRequest): Promise<UpdatePostpaidVgwSpecificationResponse> {
+        const options = ParamCreater().updatePostpaidVgwSpecification(updatePostpaidVgwSpecificationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3302,6 +3326,52 @@ export const ParamCreater = function () {
             throw new RequiredError('vgwId','Required parameter vgwId was null or undefined when calling showVgw.');
             }
 
+            options.pathParams = { 'vgw_id': vgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对单个网关规格进行修改，可以升配或降配
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePostpaidVgwSpecification(updatePostpaidVgwSpecificationRequest?: UpdatePostpaidVgwSpecificationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/vpn-gateways/{vgw_id}/update-specification",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vgwId;
+
+            if (updatePostpaidVgwSpecificationRequest !== null && updatePostpaidVgwSpecificationRequest !== undefined) {
+                if (updatePostpaidVgwSpecificationRequest instanceof UpdatePostpaidVgwSpecificationRequest) {
+                    vgwId = updatePostpaidVgwSpecificationRequest.vgwId;
+                    body = updatePostpaidVgwSpecificationRequest.body
+                } else {
+                    vgwId = updatePostpaidVgwSpecificationRequest['vgw_id'];
+                    body = updatePostpaidVgwSpecificationRequest['body'];
+                }
+            }
+
+        
+            if (vgwId === null || vgwId === undefined) {
+            throw new RequiredError('vgwId','Required parameter vgwId was null or undefined when calling updatePostpaidVgwSpecification.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'vgw_id': vgwId, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -803,6 +803,27 @@ export class IamClient {
     }
 
     /**
+     * 该接口可以用于绑定MFA设备。
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定MFA设备
+     * @param {BindMfaDevice} createBindingDeviceRequestBody 绑定mfa Device
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest): Promise<CreateBindingDeviceResponse> {
+        const options = ParamCreater().createBindingDevice(createBindingDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建云服务自定义策略。
      * 
      * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -864,6 +885,27 @@ export class IamClient {
      */
     public createMetadata(createMetadataRequest?: CreateMetadataRequest): Promise<CreateMetadataResponse> {
         const options = ParamCreater().createMetadata(createMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于创建MFA设备。
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建MFA设备
+     * @param {CreateMfaDeviceReq} createMfaDeviceRequestBody 创建mfa_device的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createMfaDevice(createMfaDeviceRequest?: CreateMfaDeviceRequest): Promise<CreateMfaDeviceResponse> {
+        const options = ParamCreater().createMfaDevice(createMfaDeviceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -954,6 +996,27 @@ export class IamClient {
     }
 
     /**
+     * 该接口可以用于解绑MFA设备
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑MFA设备
+     * @param {UnbindMfaDevice} deleteBindingDeviceRequestBody 解绑的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest): Promise<DeleteBindingDeviceResponse> {
+        const options = ParamCreater().deleteBindingDevice(deleteBindingDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除自定义策略。
      * 
      * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -990,6 +1053,28 @@ export class IamClient {
      */
     public deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest?: DeleteDomainGroupInheritedRoleRequest): Promise<DeleteDomainGroupInheritedRoleResponse> {
         const options = ParamCreater().deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除MFA设备。
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除MFA设备
+     * @param {string} userId 绑定MFA设备的IAM 用户ID。
+     * @param {string} serialNumber MFA设备序列号。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest): Promise<DeleteMfaDeviceResponse> {
+        const options = ParamCreater().deleteMfaDevice(deleteMfaDeviceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2302,7 +2387,7 @@ export class IamClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询用户关联的企业项目
+     * @summary 查询用户直接关联的企业项目
      * @param {string} userId 待查询用户ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2365,7 +2450,7 @@ export class IamClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询企业项目已关联用户组的权限
+     * @summary 查询企业项目关联用户组的权限
      * @param {string} enterpriseProjectId 待查询企业项目ID。
      * @param {string} groupId 待查询用户组。
      * @param {*} [options] Override http request option.
@@ -3232,48 +3317,6 @@ export class IamClient {
     }
 
     /**
-     * 该接口可以用于绑定MFA设备。
-     * 
-     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 绑定MFA设备
-     * @param {BindMfaDevice} createBindingDeviceRequestBody 绑定mfa Device
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest): Promise<CreateBindingDeviceResponse> {
-        const options = ParamCreater().createBindingDevice(createBindingDeviceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口可以用于创建MFA设备。
-     * 
-     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建MFA设备
-     * @param {CreateMfaDeviceReq} createMfaDeviceRequestBody 创建mfa_device的请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createMfaDevice(createMfaDeviceRequest?: CreateMfaDeviceRequest): Promise<CreateMfaDeviceResponse> {
-        const options = ParamCreater().createMfaDevice(createMfaDeviceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建IAM用户。
      * 
      * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3287,49 +3330,6 @@ export class IamClient {
      */
     public createUser(createUserRequest?: CreateUserRequest): Promise<CreateUserResponse> {
         const options = ParamCreater().createUser(createUserRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口可以用于解绑MFA设备
-     * 
-     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 解绑MFA设备
-     * @param {UnbindMfaDevice} deleteBindingDeviceRequestBody 解绑的请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest): Promise<DeleteBindingDeviceResponse> {
-        const options = ParamCreater().deleteBindingDevice(deleteBindingDeviceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除MFA设备。
-     * 
-     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除MFA设备
-     * @param {string} userId 绑定MFA设备的IAM 用户ID。
-     * @param {string} serialNumber MFA设备序列号。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest): Promise<DeleteMfaDeviceResponse> {
-        const options = ParamCreater().deleteMfaDevice(deleteMfaDeviceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3537,7 +3537,7 @@ export class IamClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 该接口可以用于获取MFA设备。
+     * @summary 查询IAM用户的MFA绑定信息列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4322,6 +4322,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口可以用于绑定MFA设备。
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3.0/OS-MFA/mfa-devices/bind",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createBindingDeviceRequest !== null && createBindingDeviceRequest !== undefined) {
+                if (createBindingDeviceRequest instanceof CreateBindingDeviceRequest) {
+                    body = createBindingDeviceRequest.body
+                } else {
+                    body = createBindingDeviceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建云服务自定义策略。
          * 
          * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -4456,6 +4496,46 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'idp_id': idpId,'protocol_id': protocolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于创建MFA设备。
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createMfaDevice(createMfaDeviceRequest?: CreateMfaDeviceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.0/OS-MFA/virtual-mfa-devices",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createMfaDeviceRequest !== null && createMfaDeviceRequest !== undefined) {
+                if (createMfaDeviceRequest instanceof CreateMfaDeviceRequest) {
+                    body = createMfaDeviceRequest.body
+                } else {
+                    body = createMfaDeviceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4642,6 +4722,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口可以用于解绑MFA设备
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3.0/OS-MFA/mfa-devices/unbind",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteBindingDeviceRequest !== null && deleteBindingDeviceRequest !== undefined) {
+                if (deleteBindingDeviceRequest instanceof DeleteBindingDeviceRequest) {
+                    body = deleteBindingDeviceRequest.body
+                } else {
+                    body = deleteBindingDeviceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除自定义策略。
          * 
          * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -4729,6 +4849,58 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除MFA设备。
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3.0/OS-MFA/virtual-mfa-devices",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let userId;
+            
+            let serialNumber;
+
+            if (deleteMfaDeviceRequest !== null && deleteMfaDeviceRequest !== undefined) {
+                if (deleteMfaDeviceRequest instanceof DeleteMfaDeviceRequest) {
+                    userId = deleteMfaDeviceRequest.userId;
+                    serialNumber = deleteMfaDeviceRequest.serialNumber;
+                } else {
+                    userId = deleteMfaDeviceRequest['user_id'];
+                    serialNumber = deleteMfaDeviceRequest['serial_number'];
+                }
+            }
+
+        
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteMfaDevice.');
+            }
+            if (userId !== null && userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+            if (serialNumber === null || serialNumber === undefined) {
+                throw new RequiredError('serialNumber','Required parameter serialNumber was null or undefined when calling deleteMfaDevice.');
+            }
+            if (serialNumber !== null && serialNumber !== undefined) {
+                localVarQueryParameter['serial_number'] = serialNumber;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9217,86 +9389,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口可以用于绑定MFA设备。
-         * 
-         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3.0/OS-MFA/mfa-devices/bind",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createBindingDeviceRequest !== null && createBindingDeviceRequest !== undefined) {
-                if (createBindingDeviceRequest instanceof CreateBindingDeviceRequest) {
-                    body = createBindingDeviceRequest.body
-                } else {
-                    body = createBindingDeviceRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口可以用于创建MFA设备。
-         * 
-         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createMfaDevice(createMfaDeviceRequest?: CreateMfaDeviceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3.0/OS-MFA/virtual-mfa-devices",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createMfaDeviceRequest !== null && createMfaDeviceRequest !== undefined) {
-                if (createMfaDeviceRequest instanceof CreateMfaDeviceRequest) {
-                    body = createMfaDeviceRequest.body
-                } else {
-                    body = createMfaDeviceRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建IAM用户。
          * 
          * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -9332,98 +9424,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口可以用于解绑MFA设备
-         * 
-         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3.0/OS-MFA/mfa-devices/unbind",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (deleteBindingDeviceRequest !== null && deleteBindingDeviceRequest !== undefined) {
-                if (deleteBindingDeviceRequest instanceof DeleteBindingDeviceRequest) {
-                    body = deleteBindingDeviceRequest.body
-                } else {
-                    body = deleteBindingDeviceRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除MFA设备。
-         * 
-         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v3.0/OS-MFA/virtual-mfa-devices",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let userId;
-            
-            let serialNumber;
-
-            if (deleteMfaDeviceRequest !== null && deleteMfaDeviceRequest !== undefined) {
-                if (deleteMfaDeviceRequest instanceof DeleteMfaDeviceRequest) {
-                    userId = deleteMfaDeviceRequest.userId;
-                    serialNumber = deleteMfaDeviceRequest.serialNumber;
-                } else {
-                    userId = deleteMfaDeviceRequest['user_id'];
-                    serialNumber = deleteMfaDeviceRequest['serial_number'];
-                }
-            }
-
-        
-            if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteMfaDevice.');
-            }
-            if (userId !== null && userId !== undefined) {
-                localVarQueryParameter['user_id'] = userId;
-            }
-            if (serialNumber === null || serialNumber === undefined) {
-                throw new RequiredError('serialNumber','Required parameter serialNumber was null or undefined when calling deleteMfaDevice.');
-            }
-            if (serialNumber !== null && serialNumber !== undefined) {
-                localVarQueryParameter['serial_number'] = serialNumber;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

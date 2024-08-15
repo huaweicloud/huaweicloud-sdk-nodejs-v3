@@ -5,10 +5,9 @@ export class AgencyPolicyStatement {
     private 'Action'?: Array<AgencyPolicyStatementActionEnum> | Array<string>;
     private 'Effect'?: AgencyPolicyStatementEffectEnum | string;
     private 'Resource'?: AgencyPolicyResource;
-    public constructor(action?: Array<string>, effect?: string, resource?: AgencyPolicyResource) { 
+    public constructor(action?: Array<string>, effect?: string) { 
         this['Action'] = action;
         this['Effect'] = effect;
-        this['Resource'] = resource;
     }
     public withAction(action: Array<AgencyPolicyStatementActionEnum> | Array<string>): AgencyPolicyStatement {
         this['Action'] = action;

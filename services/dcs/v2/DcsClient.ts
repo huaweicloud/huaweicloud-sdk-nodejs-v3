@@ -21,6 +21,10 @@ import { BatchDeleteBody } from './model/BatchDeleteBody';
 import { BatchDeleteInstancesRequest } from './model/BatchDeleteInstancesRequest';
 import { BatchDeleteInstancesResponse } from './model/BatchDeleteInstancesResponse';
 import { BatchOpsResult } from './model/BatchOpsResult';
+import { BatchRestartMigrationTaskResult } from './model/BatchRestartMigrationTaskResult';
+import { BatchRestartOnlineMigrationTasksBody } from './model/BatchRestartOnlineMigrationTasksBody';
+import { BatchRestartOnlineMigrationTasksRequest } from './model/BatchRestartOnlineMigrationTasksRequest';
+import { BatchRestartOnlineMigrationTasksResponse } from './model/BatchRestartOnlineMigrationTasksResponse';
 import { BatchShowNodesInformationRequest } from './model/BatchShowNodesInformationRequest';
 import { BatchShowNodesInformationResponse } from './model/BatchShowNodesInformationResponse';
 import { BatchStopMigrationTasksBody } from './model/BatchStopMigrationTasksBody';
@@ -402,6 +406,25 @@ export class DcsClient {
      */
     public batchDeleteInstances(batchDeleteInstancesRequest?: BatchDeleteInstancesRequest): Promise<BatchDeleteInstancesResponse> {
         const options = ParamCreater().batchDeleteInstances(batchDeleteInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量重启在线迁移任务，接口响应成功，返回重启在线迁移任务下发结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量重启在线迁移任务
+     * @param {BatchRestartOnlineMigrationTasksBody} restartMigrationTasksRequestBody 迁移任务ID列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchRestartOnlineMigrationTasks(batchRestartOnlineMigrationTasksRequest?: BatchRestartOnlineMigrationTasksRequest): Promise<BatchRestartOnlineMigrationTasksResponse> {
+        const options = ParamCreater().batchRestartOnlineMigrationTasks(batchRestartOnlineMigrationTasksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2834,6 +2857,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量重启在线迁移任务，接口响应成功，返回重启在线迁移任务下发结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchRestartOnlineMigrationTasks(batchRestartOnlineMigrationTasksRequest?: BatchRestartOnlineMigrationTasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/migration-tasks/batch-restart",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchRestartOnlineMigrationTasksRequest !== null && batchRestartOnlineMigrationTasksRequest !== undefined) {
+                if (batchRestartOnlineMigrationTasksRequest instanceof BatchRestartOnlineMigrationTasksRequest) {
+                    body = batchRestartOnlineMigrationTasksRequest.body
+                } else {
+                    body = batchRestartOnlineMigrationTasksRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

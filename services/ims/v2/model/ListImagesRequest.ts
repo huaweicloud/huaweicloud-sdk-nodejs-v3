@@ -479,7 +479,8 @@ export enum ListImagesRequestVirtualEnvTypeEnum {
     */
 export enum ListImagesRequestVisibilityEnum {
     PUBLIC = 'public',
-    PRIVATE = 'private'
+    PRIVATE = 'private',
+    SHARED = 'shared'
 }
 /**
     * @export

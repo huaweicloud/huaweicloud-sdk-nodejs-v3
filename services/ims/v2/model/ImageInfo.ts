@@ -705,7 +705,8 @@ export enum ImageInfoVirtualEnvTypeEnum {
     */
 export enum ImageInfoVisibilityEnum {
     PRIVATE = 'private',
-    PUBLIC = 'public'
+    PUBLIC = 'public',
+    SHARED = 'shared'
 }
 /**
     * @export

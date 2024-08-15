@@ -27,6 +27,8 @@ import { CollectAllResourcesSummaryRequest } from './model/CollectAllResourcesSu
 import { CollectAllResourcesSummaryResponse } from './model/CollectAllResourcesSummaryResponse';
 import { CollectConformancePackComplianceSummaryRequest } from './model/CollectConformancePackComplianceSummaryRequest';
 import { CollectConformancePackComplianceSummaryResponse } from './model/CollectConformancePackComplianceSummaryResponse';
+import { CollectRemediationExecutionStatusesSummaryRequest } from './model/CollectRemediationExecutionStatusesSummaryRequest';
+import { CollectRemediationExecutionStatusesSummaryResponse } from './model/CollectRemediationExecutionStatusesSummaryResponse';
 import { CollectTrackedResourcesSummaryRequest } from './model/CollectTrackedResourcesSummaryRequest';
 import { CollectTrackedResourcesSummaryResponse } from './model/CollectTrackedResourcesSummaryResponse';
 import { Compliance } from './model/Compliance';
@@ -184,6 +186,9 @@ import { RemediationConfigurationRequestBody } from './model/RemediationConfigur
 import { RemediationException } from './model/RemediationException';
 import { RemediationExceptionRequest } from './model/RemediationExceptionRequest';
 import { RemediationExecution } from './model/RemediationExecution';
+import { RemediationExecutionStatus } from './model/RemediationExecutionStatus';
+import { RemediationExecutionStatusesSummaryRequestBody } from './model/RemediationExecutionStatusesSummaryRequestBody';
+import { RemediationResourceKey } from './model/RemediationResourceKey';
 import { RemediationResourceParameter } from './model/RemediationResourceParameter';
 import { RemediationRunRequestBody } from './model/RemediationRunRequestBody';
 import { RemediationStaticParameter } from './model/RemediationStaticParameter';
@@ -1124,6 +1129,28 @@ export class ConfigClient {
      */
     public batchDeleteRemediationExceptions(batchDeleteRemediationExceptionsRequest?: BatchDeleteRemediationExceptionsRequest): Promise<BatchDeleteRemediationExceptionsResponse> {
         const options = ParamCreater().batchDeleteRemediationExceptions(batchDeleteRemediationExceptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举合规规则修正最新记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举修正最新记录
+     * @param {string} policyAssignmentId 规则ID
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {RemediationExecutionStatusesSummaryRequestBody} [remediationExecutionStatusesSummaryRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectRemediationExecutionStatusesSummary(collectRemediationExecutionStatusesSummaryRequest?: CollectRemediationExecutionStatusesSummaryRequest): Promise<CollectRemediationExecutionStatusesSummaryResponse> {
+        const options = ParamCreater().collectRemediationExecutionStatusesSummary(collectRemediationExecutionStatusesSummaryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4295,6 +4322,64 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举合规规则修正最新记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectRemediationExecutionStatusesSummary(collectRemediationExecutionStatusesSummaryRequest?: CollectRemediationExecutionStatusesSummaryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-execution-statuses/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let policyAssignmentId;
+            
+            let limit;
+            
+            let marker;
+
+            if (collectRemediationExecutionStatusesSummaryRequest !== null && collectRemediationExecutionStatusesSummaryRequest !== undefined) {
+                if (collectRemediationExecutionStatusesSummaryRequest instanceof CollectRemediationExecutionStatusesSummaryRequest) {
+                    policyAssignmentId = collectRemediationExecutionStatusesSummaryRequest.policyAssignmentId;
+                    limit = collectRemediationExecutionStatusesSummaryRequest.limit;
+                    marker = collectRemediationExecutionStatusesSummaryRequest.marker;
+                    body = collectRemediationExecutionStatusesSummaryRequest.body
+                } else {
+                    policyAssignmentId = collectRemediationExecutionStatusesSummaryRequest['policy_assignment_id'];
+                    limit = collectRemediationExecutionStatusesSummaryRequest['limit'];
+                    marker = collectRemediationExecutionStatusesSummaryRequest['marker'];
+                    body = collectRemediationExecutionStatusesSummaryRequest['body'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling collectRemediationExecutionStatusesSummary.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
             options.headers = localVarHeaderParameter;
             return options;

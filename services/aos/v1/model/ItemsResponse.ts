@@ -8,6 +8,7 @@ export class ItemsResponse {
     private 'resource_type'?: string;
     private 'resource_name'?: string;
     public index?: string;
+    private 'module_address'?: string;
     public supported?: boolean;
     private 'unsupported_message'?: string;
     private 'resource_price'?: Array<ResourcePriceResponse>;
@@ -36,6 +37,16 @@ export class ItemsResponse {
     public withIndex(index: string): ItemsResponse {
         this['index'] = index;
         return this;
+    }
+    public withModuleAddress(moduleAddress: string): ItemsResponse {
+        this['module_address'] = moduleAddress;
+        return this;
+    }
+    public set moduleAddress(moduleAddress: string  | undefined) {
+        this['module_address'] = moduleAddress;
+    }
+    public get moduleAddress(): string | undefined {
+        return this['module_address'];
     }
     public withSupported(supported: boolean): ItemsResponse {
         this['supported'] = supported;

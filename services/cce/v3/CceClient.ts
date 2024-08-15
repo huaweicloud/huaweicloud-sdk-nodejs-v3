@@ -358,6 +358,9 @@ import { RollbackAutopilotAddonInstanceResponse } from './model/RollbackAutopilo
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
 import { ScaleGroupAutoscaling } from './model/ScaleGroupAutoscaling';
+import { ScaleGroupStatus } from './model/ScaleGroupStatus';
+import { ScaleGroupStatusExistingNodeCount } from './model/ScaleGroupStatusExistingNodeCount';
+import { ScaleGroupStatusUpcomingNodeCount } from './model/ScaleGroupStatusUpcomingNodeCount';
 import { ScaleNodePoolOptions } from './model/ScaleNodePoolOptions';
 import { ScaleNodePoolRequest } from './model/ScaleNodePoolRequest';
 import { ScaleNodePoolRequestBody } from './model/ScaleNodePoolRequestBody';

@@ -31,6 +31,7 @@ export class ComponentCreate {
     private 'request_memory'?: number;
     public replica?: number;
     public version?: string;
+    private 'swimlane_id'?: string;
     public envs?: Array<ComponentEnvironment>;
     public storages?: Array<ComponentStorage>;
     private 'deploy_strategy'?: DeployStrategy;
@@ -144,6 +145,16 @@ export class ComponentCreate {
     public withVersion(version: string): ComponentCreate {
         this['version'] = version;
         return this;
+    }
+    public withSwimlaneId(swimlaneId: string): ComponentCreate {
+        this['swimlane_id'] = swimlaneId;
+        return this;
+    }
+    public set swimlaneId(swimlaneId: string  | undefined) {
+        this['swimlane_id'] = swimlaneId;
+    }
+    public get swimlaneId(): string | undefined {
+        return this['swimlane_id'];
     }
     public withEnvs(envs: Array<ComponentEnvironment>): ComponentCreate {
         this['envs'] = envs;

@@ -3,13 +3,22 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionProgress } from './model/ActionProgress';
+import { CdmClusterAvailabilityZone } from './model/CdmClusterAvailabilityZone';
+import { CdmClusterDatastore } from './model/CdmClusterDatastore';
+import { CdmClusterDatastoreVersion } from './model/CdmClusterDatastoreVersion';
+import { CdmClusterEnterpriseProject } from './model/CdmClusterEnterpriseProject';
+import { CdmClusterFlavor } from './model/CdmClusterFlavor';
+import { CdmClusterVersion } from './model/CdmClusterVersion';
 import { CdmCreateAndUpdateLinkReq } from './model/CdmCreateAndUpdateLinkReq';
 import { CdmCreateClusterReq } from './model/CdmCreateClusterReq';
 import { CdmCreateClusterReqCluster } from './model/CdmCreateClusterReqCluster';
 import { CdmCreateJobJsonReq } from './model/CdmCreateJobJsonReq';
 import { CdmDeleteClusterReq } from './model/CdmDeleteClusterReq';
+import { CdmModifyClusterReq } from './model/CdmModifyClusterReq';
 import { CdmQueryClusterDetailsRepsonseMaintainWindow } from './model/CdmQueryClusterDetailsRepsonseMaintainWindow';
 import { CdmQueryClusterDetailsRepsonsePublicEndpointStatus } from './model/CdmQueryClusterDetailsRepsonsePublicEndpointStatus';
+import { CdmQueryClusterInstanceDetail } from './model/CdmQueryClusterInstanceDetail';
+import { CdmQueryClusterInstanceDetailFlavor } from './model/CdmQueryClusterInstanceDetailFlavor';
 import { CdmRandomCreateAndStartJobJsonReq } from './model/CdmRandomCreateAndStartJobJsonReq';
 import { CdmRestartClusterReq } from './model/CdmRestartClusterReq';
 import { CdmRestartClusterReqRestart } from './model/CdmRestartClusterReqRestart';
@@ -49,6 +58,7 @@ import { ExtendedConfigs } from './model/ExtendedConfigs';
 import { ExtendedProperties } from './model/ExtendedProperties';
 import { FailedReasons } from './model/FailedReasons';
 import { FailedReasonsCREATEFAILED } from './model/FailedReasonsCREATEFAILED';
+import { FlavorAttribute } from './model/FlavorAttribute';
 import { Input } from './model/Input';
 import { Instance } from './model/Instance';
 import { Job } from './model/Job';
@@ -58,12 +68,28 @@ import { LinksLinkconfigvalues } from './model/LinksLinkconfigvalues';
 import { LinksLinkconfigvaluesExtendedconfigs } from './model/LinksLinkconfigvaluesExtendedconfigs';
 import { ListClustersRequest } from './model/ListClustersRequest';
 import { ListClustersResponse } from './model/ListClustersResponse';
+import { ModifyClusterRequest } from './model/ModifyClusterRequest';
+import { ModifyClusterResponse } from './model/ModifyClusterResponse';
 import { Nics } from './model/Nics';
 import { Resource } from './model/Resource';
 import { RestartClusterRequest } from './model/RestartClusterRequest';
 import { RestartClusterResponse } from './model/RestartClusterResponse';
+import { ShowAvailabilityZonesRequest } from './model/ShowAvailabilityZonesRequest';
+import { ShowAvailabilityZonesResponse } from './model/ShowAvailabilityZonesResponse';
 import { ShowClusterDetailRequest } from './model/ShowClusterDetailRequest';
 import { ShowClusterDetailResponse } from './model/ShowClusterDetailResponse';
+import { ShowClusterEnterpriseProjectsRequest } from './model/ShowClusterEnterpriseProjectsRequest';
+import { ShowClusterEnterpriseProjectsResponse } from './model/ShowClusterEnterpriseProjectsResponse';
+import { ShowDatastoresRequest } from './model/ShowDatastoresRequest';
+import { ShowDatastoresResponse } from './model/ShowDatastoresResponse';
+import { ShowEnterpriseProjectsRequest } from './model/ShowEnterpriseProjectsRequest';
+import { ShowEnterpriseProjectsResponse } from './model/ShowEnterpriseProjectsResponse';
+import { ShowFlavorDetailRequest } from './model/ShowFlavorDetailRequest';
+import { ShowFlavorDetailResponse } from './model/ShowFlavorDetailResponse';
+import { ShowFlavorsRequest } from './model/ShowFlavorsRequest';
+import { ShowFlavorsResponse } from './model/ShowFlavorsResponse';
+import { ShowInstanceDetailRequest } from './model/ShowInstanceDetailRequest';
+import { ShowInstanceDetailResponse } from './model/ShowInstanceDetailResponse';
 import { ShowJobStatusRequest } from './model/ShowJobStatusRequest';
 import { ShowJobStatusResponse } from './model/ShowJobStatusResponse';
 import { ShowJobsRequest } from './model/ShowJobsRequest';
@@ -266,6 +292,28 @@ export class CdmClient {
     }
 
     /**
+     * 修改CDM集群配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改集群
+     * @param {string} clusterId 集群ID
+     * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {string} xLanguage 请求语言。
+     * @param {CdmModifyClusterReq} cdmModifyClusterReq 修改集群请求JSON体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyCluster(modifyClusterRequest?: ModifyClusterRequest): Promise<ModifyClusterResponse> {
+        const options = ParamCreater().modifyCluster(modifyClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重启集群接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -286,6 +334,25 @@ export class CdmClient {
     }
 
     /**
+     * 查询CDM集群的所有可用区。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有可用区
+     * @param {string} regionId 区域ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvailabilityZones(showAvailabilityZonesRequest?: ShowAvailabilityZonesRequest): Promise<ShowAvailabilityZonesResponse> {
+        const options = ParamCreater().showAvailabilityZones(showAvailabilityZonesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询集群详情接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -297,6 +364,118 @@ export class CdmClient {
      */
     public showClusterDetail(showClusterDetailRequest?: ShowClusterDetailRequest): Promise<ShowClusterDetailResponse> {
         const options = ParamCreater().showClusterDetail(showClusterDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定集群的企业项目ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群的企业项目ID
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterEnterpriseProjects(showClusterEnterpriseProjectsRequest?: ShowClusterEnterpriseProjectsRequest): Promise<ShowClusterEnterpriseProjectsResponse> {
+        const options = ParamCreater().showClusterEnterpriseProjects(showClusterEnterpriseProjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询CDM集群支持的版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询支持的版本
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDatastores(showDatastoresRequest?: ShowDatastoresRequest): Promise<ShowDatastoresResponse> {
+        const options = ParamCreater().showDatastores();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前项目下的所有集群的企业项目ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有集群的企业项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showEnterpriseProjects(showEnterpriseProjectsRequest?: ShowEnterpriseProjectsRequest): Promise<ShowEnterpriseProjectsResponse> {
+        const options = ParamCreater().showEnterpriseProjects();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定规格ID的规格详请。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规格详情
+     * @param {string} flavorId 规格ID，获取方法请参见[查询版本规格](ShowFlavors.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFlavorDetail(showFlavorDetailRequest?: ShowFlavorDetailRequest): Promise<ShowFlavorDetailResponse> {
+        const options = ParamCreater().showFlavorDetail(showFlavorDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按版本ID查询所有兼容规格。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询版本规格
+     * @param {string} datastoreId 版本ID，获取方法请参见[CDM支持的版本](ShowDatastores.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFlavors(showFlavorsRequest?: ShowFlavorsRequest): Promise<ShowFlavorsResponse> {
+        const options = ParamCreater().showFlavors(showFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群实例信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群实例信息
+     * @param {string} instanceId 实例ID，获取方法请参见[获取集群列表](ListClusters.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceDetail(showInstanceDetailRequest?: ShowInstanceDetailRequest): Promise<ShowInstanceDetailResponse> {
+        const options = ParamCreater().showInstanceDetail(showInstanceDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -861,6 +1040,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改CDM集群配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyCluster(modifyClusterRequest?: ModifyClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.1/{project_id}/cluster/modify/{cluster_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (modifyClusterRequest !== null && modifyClusterRequest !== undefined) {
+                if (modifyClusterRequest instanceof ModifyClusterRequest) {
+                    clusterId = modifyClusterRequest.clusterId;
+                    contentType = modifyClusterRequest.contentType;
+                    xLanguage = modifyClusterRequest.xLanguage;
+                    body = modifyClusterRequest.body
+                } else {
+                    clusterId = modifyClusterRequest['cluster_id'];
+                    contentType = modifyClusterRequest['Content-Type'];
+                    xLanguage = modifyClusterRequest['X-Language'];
+                    body = modifyClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling modifyCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重启集群接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -907,6 +1146,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询CDM集群的所有可用区。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvailabilityZones(showAvailabilityZonesRequest?: ShowAvailabilityZonesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/regions/{region_id}/availability_zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let regionId;
+
+            if (showAvailabilityZonesRequest !== null && showAvailabilityZonesRequest !== undefined) {
+                if (showAvailabilityZonesRequest instanceof ShowAvailabilityZonesRequest) {
+                    regionId = showAvailabilityZonesRequest.regionId;
+                } else {
+                    regionId = showAvailabilityZonesRequest['region_id'];
+                }
+            }
+
+        
+            if (regionId === null || regionId === undefined) {
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling showAvailabilityZones.');
+            }
+
+            options.pathParams = { 'region_id': regionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询集群详情接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -939,6 +1215,196 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定集群的企业项目ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterEnterpriseProjects(showClusterEnterpriseProjectsRequest?: ShowClusterEnterpriseProjectsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/clusters/{cluster_id}/enterprise-projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showClusterEnterpriseProjectsRequest !== null && showClusterEnterpriseProjectsRequest !== undefined) {
+                if (showClusterEnterpriseProjectsRequest instanceof ShowClusterEnterpriseProjectsRequest) {
+                    clusterId = showClusterEnterpriseProjectsRequest.clusterId;
+                } else {
+                    clusterId = showClusterEnterpriseProjectsRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterEnterpriseProjects.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询CDM集群支持的版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDatastores() {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/datastores",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前项目下的所有集群的企业项目ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEnterpriseProjects() {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/enterprise-projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定规格ID的规格详请。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFlavorDetail(showFlavorDetailRequest?: ShowFlavorDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/flavors/{flavor_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let flavorId;
+
+            if (showFlavorDetailRequest !== null && showFlavorDetailRequest !== undefined) {
+                if (showFlavorDetailRequest instanceof ShowFlavorDetailRequest) {
+                    flavorId = showFlavorDetailRequest.flavorId;
+                } else {
+                    flavorId = showFlavorDetailRequest['flavor_id'];
+                }
+            }
+
+        
+            if (flavorId === null || flavorId === undefined) {
+            throw new RequiredError('flavorId','Required parameter flavorId was null or undefined when calling showFlavorDetail.');
+            }
+
+            options.pathParams = { 'flavor_id': flavorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按版本ID查询所有兼容规格。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFlavors(showFlavorsRequest?: ShowFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/datastores/{datastore_id}/flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let datastoreId;
+
+            if (showFlavorsRequest !== null && showFlavorsRequest !== undefined) {
+                if (showFlavorsRequest instanceof ShowFlavorsRequest) {
+                    datastoreId = showFlavorsRequest.datastoreId;
+                } else {
+                    datastoreId = showFlavorsRequest['datastore_id'];
+                }
+            }
+
+        
+            if (datastoreId === null || datastoreId === undefined) {
+            throw new RequiredError('datastoreId','Required parameter datastoreId was null or undefined when calling showFlavors.');
+            }
+
+            options.pathParams = { 'datastore_id': datastoreId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群实例信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceDetail(showInstanceDetailRequest?: ShowInstanceDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceDetailRequest !== null && showInstanceDetailRequest !== undefined) {
+                if (showInstanceDetailRequest instanceof ShowInstanceDetailRequest) {
+                    instanceId = showInstanceDetailRequest.instanceId;
+                } else {
+                    instanceId = showInstanceDetailRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceDetail.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

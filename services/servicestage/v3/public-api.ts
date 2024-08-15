@@ -54,6 +54,7 @@ export * from './model/DeleteEnvironmentRequest';
 export * from './model/DeleteEnvironmentResponse';
 export * from './model/DeployStrategy';
 export * from './model/DeployStrategyGrayRelease';
+export * from './model/DeployStrategyGrayReleaseRules';
 export * from './model/DeployStrategyRollingRelease';
 export * from './model/EnvironmentCreate';
 export * from './model/EnvironmentCreateLabels';

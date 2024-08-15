@@ -12,7 +12,7 @@ export class NodePoolSpec {
     public autoscaling?: NodePoolNodeAutoscaling;
     public nodeManagement?: NodeManagement;
     public podSecurityGroups?: Array<SecurityID>;
-    public extensionScaleGroups?: ExtensionScaleGroup;
+    public extensionScaleGroups?: Array<ExtensionScaleGroup>;
     public customSecurityGroups?: Array<string>;
     public constructor(nodeTemplate?: NodeSpec) { 
         this['nodeTemplate'] = nodeTemplate;
@@ -41,7 +41,7 @@ export class NodePoolSpec {
         this['podSecurityGroups'] = podSecurityGroups;
         return this;
     }
-    public withExtensionScaleGroups(extensionScaleGroups: ExtensionScaleGroup): NodePoolSpec {
+    public withExtensionScaleGroups(extensionScaleGroups: Array<ExtensionScaleGroup>): NodePoolSpec {
         this['extensionScaleGroups'] = extensionScaleGroups;
         return this;
     }
