@@ -4,6 +4,7 @@ export class DecryptDataRequestBody {
     private 'cipher_text'?: string;
     private 'encryption_algorithm'?: DecryptDataRequestBodyEncryptionAlgorithmEnum | string;
     private 'key_id'?: string;
+    private 'additional_authenticated_data'?: string;
     public sequence?: string;
     public constructor(cipherText?: string) { 
         this['cipher_text'] = cipherText;
@@ -37,6 +38,16 @@ export class DecryptDataRequestBody {
     }
     public get keyId(): string | undefined {
         return this['key_id'];
+    }
+    public withAdditionalAuthenticatedData(additionalAuthenticatedData: string): DecryptDataRequestBody {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+        return this;
+    }
+    public set additionalAuthenticatedData(additionalAuthenticatedData: string  | undefined) {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+    }
+    public get additionalAuthenticatedData(): string | undefined {
+        return this['additional_authenticated_data'];
     }
     public withSequence(sequence: string): DecryptDataRequestBody {
         this['sequence'] = sequence;

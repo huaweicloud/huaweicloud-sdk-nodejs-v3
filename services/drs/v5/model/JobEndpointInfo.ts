@@ -93,7 +93,8 @@ export enum JobEndpointInfoDbTypeEnum {
     GAUSSDBV5 = 'gaussdbv5',
     REDIS = 'redis',
     REDISCLUSTER = 'rediscluster',
-    GAUSSREDIS = 'gaussredis'
+    GAUSSREDIS = 'gaussredis',
+    MYSQL = 'mysql'
 }
 /**
     * @export

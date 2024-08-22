@@ -5,7 +5,8 @@ export class GaussDBUpgradeInstancesVersionRequest {
     private 'upgrade_type'?: GaussDBUpgradeInstancesVersionRequestUpgradeTypeEnum | string;
     private 'upgrade_action'?: GaussDBUpgradeInstancesVersionRequestUpgradeActionEnum | string;
     private 'target_version'?: string;
-    public constructor(upgradeType?: string) { 
+    public constructor(instanceIds?: Array<string>, upgradeType?: string) { 
+        this['instance_ids'] = instanceIds;
         this['upgrade_type'] = upgradeType;
     }
     public withInstanceIds(instanceIds: Array<string>): GaussDBUpgradeInstancesVersionRequest {

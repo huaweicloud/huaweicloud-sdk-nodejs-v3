@@ -13,6 +13,7 @@ export class ActionParams {
     private 'start_time'?: string;
     private 'compare_task_param'?: CompareTaskParams;
     private 'is_sync_re_edit'?: boolean;
+    private 'is_only_init_task'?: boolean;
     private 'force_delete'?: boolean;
     private 'public_ip_config'?: PublicIpConfig;
     private 'replay_config'?: ReplayConfigInfo;
@@ -81,6 +82,16 @@ export class ActionParams {
     }
     public get isSyncReEdit(): boolean | undefined {
         return this['is_sync_re_edit'];
+    }
+    public withIsOnlyInitTask(isOnlyInitTask: boolean): ActionParams {
+        this['is_only_init_task'] = isOnlyInitTask;
+        return this;
+    }
+    public set isOnlyInitTask(isOnlyInitTask: boolean  | undefined) {
+        this['is_only_init_task'] = isOnlyInitTask;
+    }
+    public get isOnlyInitTask(): boolean | undefined {
+        return this['is_only_init_task'];
     }
     public withForceDelete(forceDelete: boolean): ActionParams {
         this['force_delete'] = forceDelete;

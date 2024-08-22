@@ -22,6 +22,7 @@ export class CreateTaskReq {
     private 'dst_storage_policy'?: CreateTaskReqDstStoragePolicyEnum | string;
     private 'consistency_check'?: CreateTaskReqConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
+    private 'task_priority'?: CreateTaskReqTaskPriorityEnum | string;
     public constructor(srcNode?: SrcNodeReq, dstNode?: DstNodeReq) { 
         this['src_node'] = srcNode;
         this['dst_node'] = dstNode;
@@ -180,6 +181,16 @@ export class CreateTaskReq {
     public get enableRequesterPays(): boolean | undefined {
         return this['enable_requester_pays'];
     }
+    public withTaskPriority(taskPriority: CreateTaskReqTaskPriorityEnum | string): CreateTaskReq {
+        this['task_priority'] = taskPriority;
+        return this;
+    }
+    public set taskPriority(taskPriority: CreateTaskReqTaskPriorityEnum | string  | undefined) {
+        this['task_priority'] = taskPriority;
+    }
+    public get taskPriority(): CreateTaskReqTaskPriorityEnum | string | undefined {
+        return this['task_priority'];
+    }
 }
 
 /**
@@ -221,4 +232,13 @@ export enum CreateTaskReqConsistencyCheckEnum {
     SIZE_LAST_MODIFIED = 'size_last_modified',
     CRC64 = 'crc64',
     NO_CHECK = 'no_check'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTaskReqTaskPriorityEnum {
+    HIGH = 'HIGH',
+    MEDIUM = 'MEDIUM',
+    LOW = 'LOW'
 }

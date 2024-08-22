@@ -4,6 +4,7 @@ export class CreateDatakeyRequestBody {
     private 'key_id'?: string;
     private 'key_spec'?: CreateDatakeyRequestBodyKeySpecEnum | string;
     private 'datakey_length'?: string;
+    private 'additional_authenticated_data'?: string;
     public sequence?: string;
     public constructor(keyId?: string) { 
         this['key_id'] = keyId;
@@ -37,6 +38,16 @@ export class CreateDatakeyRequestBody {
     }
     public get datakeyLength(): string | undefined {
         return this['datakey_length'];
+    }
+    public withAdditionalAuthenticatedData(additionalAuthenticatedData: string): CreateDatakeyRequestBody {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+        return this;
+    }
+    public set additionalAuthenticatedData(additionalAuthenticatedData: string  | undefined) {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+    }
+    public get additionalAuthenticatedData(): string | undefined {
+        return this['additional_authenticated_data'];
     }
     public withSequence(sequence: string): CreateDatakeyRequestBody {
         this['sequence'] = sequence;

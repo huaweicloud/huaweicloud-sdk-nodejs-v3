@@ -47,6 +47,7 @@ export class ShowTaskResponse extends SdkResponse {
     private 'dst_storage_policy'?: ShowTaskResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowTaskResponseConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
+    private 'task_priority'?: ShowTaskResponseTaskPriorityEnum | string;
     public constructor() { 
         super();
     }
@@ -400,6 +401,16 @@ export class ShowTaskResponse extends SdkResponse {
     public get enableRequesterPays(): boolean | undefined {
         return this['enable_requester_pays'];
     }
+    public withTaskPriority(taskPriority: ShowTaskResponseTaskPriorityEnum | string): ShowTaskResponse {
+        this['task_priority'] = taskPriority;
+        return this;
+    }
+    public set taskPriority(taskPriority: ShowTaskResponseTaskPriorityEnum | string  | undefined) {
+        this['task_priority'] = taskPriority;
+    }
+    public get taskPriority(): ShowTaskResponseTaskPriorityEnum | string | undefined {
+        return this['task_priority'];
+    }
 }
 
 /**
@@ -450,4 +461,13 @@ export enum ShowTaskResponseConsistencyCheckEnum {
     SIZE_LAST_MODIFIED = 'size_last_modified',
     CRC64 = 'crc64',
     NO_CHECK = 'no_check'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowTaskResponseTaskPriorityEnum {
+    HIGH = 'HIGH',
+    MEDIUM = 'MEDIUM',
+    LOW = 'LOW'
 }

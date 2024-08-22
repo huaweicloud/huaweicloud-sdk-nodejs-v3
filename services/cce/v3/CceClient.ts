@@ -52,6 +52,8 @@ import { BatchDeleteAutopilotClusterTagsResponse } from './model/BatchDeleteAuto
 import { BatchDeleteClusterTagsRequest } from './model/BatchDeleteClusterTagsRequest';
 import { BatchDeleteClusterTagsRequestBody } from './model/BatchDeleteClusterTagsRequestBody';
 import { BatchDeleteClusterTagsResponse } from './model/BatchDeleteClusterTagsResponse';
+import { BatchSyncNodesRequest } from './model/BatchSyncNodesRequest';
+import { BatchSyncNodesResponse } from './model/BatchSyncNodesResponse';
 import { CapacityReservationSpecification } from './model/CapacityReservationSpecification';
 import { CertDuration } from './model/CertDuration';
 import { ChartResp } from './model/ChartResp';
@@ -467,6 +469,10 @@ import { SupportVersions } from './model/SupportVersions';
 import { SyncNodePoolRequest } from './model/SyncNodePoolRequest';
 import { SyncNodePoolResp } from './model/SyncNodePoolResp';
 import { SyncNodePoolResponse } from './model/SyncNodePoolResponse';
+import { SyncNodeRequest } from './model/SyncNodeRequest';
+import { SyncNodeResp } from './model/SyncNodeResp';
+import { SyncNodeResponse } from './model/SyncNodeResponse';
+import { SyncNodesResp } from './model/SyncNodesResp';
 import { TagFilter } from './model/TagFilter';
 import { Taint } from './model/Taint';
 import { TaskStatus } from './model/TaskStatus';
@@ -673,6 +679,26 @@ export class CceClient {
      */
     public batchDeleteClusterTags(batchDeleteClusterTagsRequest?: BatchDeleteClusterTagsRequest): Promise<BatchDeleteClusterTagsResponse> {
         const options = ParamCreater().batchDeleteClusterTags(batchDeleteClusterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量同步节点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量同步节点
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSyncNodes(batchSyncNodesRequest?: BatchSyncNodesRequest): Promise<BatchSyncNodesResponse> {
+        const options = ParamCreater().batchSyncNodes(batchSyncNodesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2147,6 +2173,27 @@ export class CceClient {
      */
     public showUserChartsQuotas(showUserChartsQuotasRequest?: ShowUserChartsQuotasRequest): Promise<ShowUserChartsQuotasResponse> {
         const options = ParamCreater().showUserChartsQuotas(showUserChartsQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于同步节点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步节点
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncNode(syncNodeRequest?: SyncNodeRequest): Promise<SyncNodeResponse> {
+        const options = ParamCreater().syncNode(syncNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3822,6 +3869,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量同步节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSyncNodes(batchSyncNodesRequest?: BatchSyncNodesRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (batchSyncNodesRequest !== null && batchSyncNodesRequest !== undefined) {
+                if (batchSyncNodesRequest instanceof BatchSyncNodesRequest) {
+                    clusterId = batchSyncNodesRequest.clusterId;
+                    contentType = batchSyncNodesRequest.contentType;
+                } else {
+                    clusterId = batchSyncNodesRequest['cluster_id'];
+                    contentType = batchSyncNodesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling batchSyncNodes.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7265,6 +7356,57 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于同步节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncNode(syncNodeRequest?: SyncNodeRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v2/projects/{project_id}/clusters/{cluster_id}/nodes/{node_id}/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let nodeId;
+            
+            let contentType;
+
+            if (syncNodeRequest !== null && syncNodeRequest !== undefined) {
+                if (syncNodeRequest instanceof SyncNodeRequest) {
+                    clusterId = syncNodeRequest.clusterId;
+                    nodeId = syncNodeRequest.nodeId;
+                    contentType = syncNodeRequest.contentType;
+                } else {
+                    clusterId = syncNodeRequest['cluster_id'];
+                    nodeId = syncNodeRequest['node_id'];
+                    contentType = syncNodeRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling syncNode.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling syncNode.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

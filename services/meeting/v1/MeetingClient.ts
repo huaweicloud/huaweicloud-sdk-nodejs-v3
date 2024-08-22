@@ -4,6 +4,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
 import { ActiveDTO } from './model/ActiveDTO';
+import { AddAppIdRequest } from './model/AddAppIdRequest';
+import { AddAppIdRequestBody } from './model/AddAppIdRequestBody';
+import { AddAppIdResponse } from './model/AddAppIdResponse';
 import { AddCorpAdminRequest } from './model/AddCorpAdminRequest';
 import { AddCorpAdminResponse } from './model/AddCorpAdminResponse';
 import { AddCorpDTO } from './model/AddCorpDTO';
@@ -38,6 +41,7 @@ import { AllowGuestUnmuteRequest } from './model/AllowGuestUnmuteRequest';
 import { AllowGuestUnmuteResponse } from './model/AllowGuestUnmuteResponse';
 import { AllowWaitingParticipantRequest } from './model/AllowWaitingParticipantRequest';
 import { AllowWaitingParticipantResponse } from './model/AllowWaitingParticipantResponse';
+import { AppIdInfoDTO } from './model/AppIdInfoDTO';
 import { AssociateVmrRequest } from './model/AssociateVmrRequest';
 import { AssociateVmrResponse } from './model/AssociateVmrResponse';
 import { Attendee } from './model/Attendee';
@@ -57,6 +61,8 @@ import { BatchDeleteUsersRequest } from './model/BatchDeleteUsersRequest';
 import { BatchDeleteUsersResponse } from './model/BatchDeleteUsersResponse';
 import { BatchHandRequest } from './model/BatchHandRequest';
 import { BatchHandResponse } from './model/BatchHandResponse';
+import { BatchSearchAppIdRequest } from './model/BatchSearchAppIdRequest';
+import { BatchSearchAppIdResponse } from './model/BatchSearchAppIdResponse';
 import { BatchShowUserDetailsRequest } from './model/BatchShowUserDetailsRequest';
 import { BatchShowUserDetailsResponse } from './model/BatchShowUserDetailsResponse';
 import { BatchUpdateDevicesStatusRequest } from './model/BatchUpdateDevicesStatusRequest';
@@ -112,6 +118,8 @@ import { CycleParams } from './model/CycleParams';
 import { CycleSubConf } from './model/CycleSubConf';
 import { CycleSubConfConfigDTO } from './model/CycleSubConfConfigDTO';
 import { DelAttendInfo } from './model/DelAttendInfo';
+import { DeleteAppIdRequest } from './model/DeleteAppIdRequest';
+import { DeleteAppIdResponse } from './model/DeleteAppIdResponse';
 import { DeleteAttendeesRequest } from './model/DeleteAttendeesRequest';
 import { DeleteAttendeesResponse } from './model/DeleteAttendeesResponse';
 import { DeleteCorpRequest } from './model/DeleteCorpRequest';
@@ -266,6 +274,8 @@ import { RenameParticipantResponse } from './model/RenameParticipantResponse';
 import { ResDetailDTO } from './model/ResDetailDTO';
 import { ResetActivecodeRequest } from './model/ResetActivecodeRequest';
 import { ResetActivecodeResponse } from './model/ResetActivecodeResponse';
+import { ResetAppKeyRequest } from './model/ResetAppKeyRequest';
+import { ResetAppKeyResponse } from './model/ResetAppKeyResponse';
 import { ResetPwdByAdminRequest } from './model/ResetPwdByAdminRequest';
 import { ResetPwdByAdminResponse } from './model/ResetPwdByAdminResponse';
 import { ResetPwdReqDTOV1 } from './model/ResetPwdReqDTOV1';
@@ -503,6 +513,9 @@ import { SwitchModeRequest } from './model/SwitchModeRequest';
 import { SwitchModeResponse } from './model/SwitchModeResponse';
 import { ThresholdData } from './model/ThresholdData';
 import { TokenInfo } from './model/TokenInfo';
+import { UpdateAppIdRequest } from './model/UpdateAppIdRequest';
+import { UpdateAppIdRequestBody } from './model/UpdateAppIdRequestBody';
+import { UpdateAppIdResponse } from './model/UpdateAppIdResponse';
 import { UpdateContactRequest } from './model/UpdateContactRequest';
 import { UpdateContactResponse } from './model/UpdateContactResponse';
 import { UpdateCorpBasicInfoRequest } from './model/UpdateCorpBasicInfoRequest';
@@ -581,6 +594,26 @@ export class MeetingClient {
         return __dirname;
     }
 
+
+    /**
+     * 企业默认管理员添加应用，添加应用后，记录返回信息，后续可通过[[执行App ID鉴权](https://support.huaweicloud.com/api-meeting/meeting_21_0311.html)](tag:hws) [[执行App ID鉴权](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0311.html)](tag:hk)获取accessToken
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加企业应用
+     * @param {AddAppIdRequestBody} addAppIdRequestBody 添加企业应用请求信息
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addAppId(addAppIdRequest?: AddAppIdRequest): Promise<AddAppIdResponse> {
+        const options = ParamCreater().addAppId(addAppIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 创建企业，默认管理员及分配资源。
@@ -1033,6 +1066,28 @@ export class MeetingClient {
     }
 
     /**
+     * 企业默认管理员分页查询企业应用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询企业应用
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
+     * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页的数据。 默认值：0。 
+     * @param {number} [limit] 查询数量。 默认值：10。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSearchAppId(batchSearchAppIdRequest?: BatchSearchAppIdRequest): Promise<BatchSearchAppIdResponse> {
+        const options = ParamCreater().batchSearchAppId(batchSearchAppIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量查询用户详情，支持指定第三方账号查询详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1456,6 +1511,27 @@ export class MeetingClient {
      */
     public createWebinar(createWebinarRequest?: CreateWebinarRequest): Promise<CreateWebinarResponse> {
         const options = ParamCreater().createWebinar(createWebinarRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 企业管理员删除企业应用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除企业应用
+     * @param {string} appId 需要修改的app
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAppId(deleteAppIdRequest?: DeleteAppIdRequest): Promise<DeleteAppIdResponse> {
+        const options = ParamCreater().deleteAppId(deleteAppIdRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2173,6 +2249,27 @@ export class MeetingClient {
      */
     public resetActivecode(resetActivecodeRequest?: ResetActivecodeRequest): Promise<ResetActivecodeResponse> {
         const options = ParamCreater().resetActivecode(resetActivecodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 企业默认管理员重置企业应用appkey
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置企业应用appkey
+     * @param {string} appId 需要修改的app
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetAppKey(resetAppKeyRequest?: ResetAppKeyRequest): Promise<ResetAppKeyResponse> {
+        const options = ParamCreater().resetAppKey(resetAppKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3943,6 +4040,28 @@ export class MeetingClient {
     }
 
     /**
+     * 企业默认管理员修改企业应用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改企业应用
+     * @param {string} appId 需要修改的app
+     * @param {UpdateAppIdRequestBody} updateAppIdRequestBody 更新企业应用入参
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppId(updateAppIdRequest?: UpdateAppIdRequest): Promise<UpdateAppIdResponse> {
+        const options = ParamCreater().updateAppId(updateAppIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 企业用户通过该接口修改手机或邮箱，需要先获取验证码，验证多次失败会禁止修改。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4666,6 +4785,51 @@ export class MeetingClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 企业默认管理员添加应用，添加应用后，记录返回信息，后续可通过[[执行App ID鉴权](https://support.huaweicloud.com/api-meeting/meeting_21_0311.html)](tag:hws) [[执行App ID鉴权](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0311.html)](tag:hk)获取accessToken
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addAppId(addAppIdRequest?: AddAppIdRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/usg/acs/corp/app",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xRequestId;
+
+            if (addAppIdRequest !== null && addAppIdRequest !== undefined) {
+                if (addAppIdRequest instanceof AddAppIdRequest) {
+                    body = addAppIdRequest.body
+                    xRequestId = addAppIdRequest.xRequestId;
+                } else {
+                    body = addAppIdRequest['body'];
+                    xRequestId = addAppIdRequest['X-Request-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 创建企业，默认管理员及分配资源。
@@ -5841,6 +6005,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 企业默认管理员分页查询企业应用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSearchAppId(batchSearchAppIdRequest?: BatchSearchAppIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/usg/acs/corp/apps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xRequestId;
+            
+            let acceptLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (batchSearchAppIdRequest !== null && batchSearchAppIdRequest !== undefined) {
+                if (batchSearchAppIdRequest instanceof BatchSearchAppIdRequest) {
+                    xRequestId = batchSearchAppIdRequest.xRequestId;
+                    acceptLanguage = batchSearchAppIdRequest.acceptLanguage;
+                    offset = batchSearchAppIdRequest.offset;
+                    limit = batchSearchAppIdRequest.limit;
+                } else {
+                    xRequestId = batchSearchAppIdRequest['X-Request-Id'];
+                    acceptLanguage = batchSearchAppIdRequest['Accept-Language'];
+                    offset = batchSearchAppIdRequest['offset'];
+                    limit = batchSearchAppIdRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (acceptLanguage !== undefined && acceptLanguage !== null) {
+                localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量查询用户详情，支持指定第三方账号查询详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6975,6 +7197,57 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 企业管理员删除企业应用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAppId(deleteAppIdRequest?: DeleteAppIdRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/usg/acs/corp/app/{app_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let appId;
+            
+            let xRequestId;
+            
+            let acceptLanguage;
+
+            if (deleteAppIdRequest !== null && deleteAppIdRequest !== undefined) {
+                if (deleteAppIdRequest instanceof DeleteAppIdRequest) {
+                    appId = deleteAppIdRequest.appId;
+                    xRequestId = deleteAppIdRequest.xRequestId;
+                    acceptLanguage = deleteAppIdRequest.acceptLanguage;
+                } else {
+                    appId = deleteAppIdRequest['app_id'];
+                    xRequestId = deleteAppIdRequest['X-Request-Id'];
+                    acceptLanguage = deleteAppIdRequest['Accept-Language'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppId.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (acceptLanguage !== undefined && acceptLanguage !== null) {
+                localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
+            }
+
+            options.pathParams = { 'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8917,6 +9190,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'sn': sn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 企业默认管理员重置企业应用appkey
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetAppKey(resetAppKeyRequest?: ResetAppKeyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/usg/acs/corp/app/{app_id}/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let appId;
+            
+            let xRequestId;
+            
+            let acceptLanguage;
+
+            if (resetAppKeyRequest !== null && resetAppKeyRequest !== undefined) {
+                if (resetAppKeyRequest instanceof ResetAppKeyRequest) {
+                    appId = resetAppKeyRequest.appId;
+                    xRequestId = resetAppKeyRequest.xRequestId;
+                    acceptLanguage = resetAppKeyRequest.acceptLanguage;
+                } else {
+                    appId = resetAppKeyRequest['app_id'];
+                    xRequestId = resetAppKeyRequest['X-Request-Id'];
+                    acceptLanguage = resetAppKeyRequest['Accept-Language'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling resetAppKey.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (acceptLanguage !== undefined && acceptLanguage !== null) {
+                localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
+            }
+
+            options.pathParams = { 'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13797,6 +14121,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 企业默认管理员修改企业应用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppId(updateAppIdRequest?: UpdateAppIdRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/usg/acs/corp/app/{app_id}",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let appId;
+            
+            let xRequestId;
+            
+            let acceptLanguage;
+
+            if (updateAppIdRequest !== null && updateAppIdRequest !== undefined) {
+                if (updateAppIdRequest instanceof UpdateAppIdRequest) {
+                    appId = updateAppIdRequest.appId;
+                    body = updateAppIdRequest.body
+                    xRequestId = updateAppIdRequest.xRequestId;
+                    acceptLanguage = updateAppIdRequest.acceptLanguage;
+                } else {
+                    appId = updateAppIdRequest['app_id'];
+                    body = updateAppIdRequest['body'];
+                    xRequestId = updateAppIdRequest['X-Request-Id'];
+                    acceptLanguage = updateAppIdRequest['Accept-Language'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateAppId.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (acceptLanguage !== undefined && acceptLanguage !== null) {
+                localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

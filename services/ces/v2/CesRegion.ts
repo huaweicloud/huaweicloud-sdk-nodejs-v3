@@ -30,6 +30,7 @@ export class CesRegion {
     public static EU_WEST_0 = new Region("eu-west-0", ["https://ces.eu-west-0.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://ces.ru-moscow-1.myhuaweicloud.com"]);
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://ces.cn-south-2.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://ces.cn-south-4.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +57,8 @@ export class CesRegion {
         "cn-east-5":CesRegion.CN_EAST_5,
         "eu-west-0":CesRegion.EU_WEST_0,
         "ru-moscow-1":CesRegion.RU_MOSCOW_1,
-        "cn-south-2":CesRegion.CN_SOUTH_2
+        "cn-south-2":CesRegion.CN_SOUTH_2,
+        "cn-south-4":CesRegion.CN_SOUTH_4
     };
   
     public static valueOf(regionId: string) {

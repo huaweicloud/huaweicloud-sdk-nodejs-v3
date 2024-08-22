@@ -4,6 +4,7 @@ export class DecryptDatakeyRequestBody {
     private 'key_id'?: string;
     private 'cipher_text'?: string;
     private 'datakey_cipher_length'?: string;
+    private 'additional_authenticated_data'?: string;
     public sequence?: string;
     public constructor(keyId?: string, cipherText?: string, datakeyCipherLength?: string) { 
         this['key_id'] = keyId;
@@ -39,6 +40,16 @@ export class DecryptDatakeyRequestBody {
     }
     public get datakeyCipherLength(): string | undefined {
         return this['datakey_cipher_length'];
+    }
+    public withAdditionalAuthenticatedData(additionalAuthenticatedData: string): DecryptDatakeyRequestBody {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+        return this;
+    }
+    public set additionalAuthenticatedData(additionalAuthenticatedData: string  | undefined) {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+    }
+    public get additionalAuthenticatedData(): string | undefined {
+        return this['additional_authenticated_data'];
     }
     public withSequence(sequence: string): DecryptDatakeyRequestBody {
         this['sequence'] = sequence;

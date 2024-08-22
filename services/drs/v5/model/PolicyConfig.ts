@@ -10,6 +10,7 @@ export class PolicyConfig {
     private 'sync_type_policy'?: string;
     private 'increment_read_mode'?: string;
     private 'dml_types'?: string;
+    private 'is_create_table_with_index'?: boolean;
     public constructor() { 
     }
     public withFilterDdlPolicy(filterDdlPolicy: PolicyConfigFilterDdlPolicyEnum | string): PolicyConfig {
@@ -101,6 +102,16 @@ export class PolicyConfig {
     }
     public get dmlTypes(): string | undefined {
         return this['dml_types'];
+    }
+    public withIsCreateTableWithIndex(isCreateTableWithIndex: boolean): PolicyConfig {
+        this['is_create_table_with_index'] = isCreateTableWithIndex;
+        return this;
+    }
+    public set isCreateTableWithIndex(isCreateTableWithIndex: boolean  | undefined) {
+        this['is_create_table_with_index'] = isCreateTableWithIndex;
+    }
+    public get isCreateTableWithIndex(): boolean | undefined {
+        return this['is_create_table_with_index'];
     }
 }
 

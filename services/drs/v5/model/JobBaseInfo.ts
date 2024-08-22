@@ -158,7 +158,8 @@ export enum JobBaseInfoJobTypeEnum {
 export enum JobBaseInfoEngineTypeEnum {
     ORACLE_TO_GAUSSDBV5 = 'oracle-to-gaussdbv5',
     REDIS_TO_GAUSSREDIS = 'redis-to-gaussredis',
-    REDISCLUSTER_TO_GAUSSREDIS = 'rediscluster-to-gaussredis'
+    REDISCLUSTER_TO_GAUSSREDIS = 'rediscluster-to-gaussredis',
+    MYSQL_TO_MYSQL = 'mysql-to-mysql'
 }
 /**
     * @export

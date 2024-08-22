@@ -4,6 +4,7 @@ export class EncryptDatakeyRequestBody {
     private 'key_id'?: string;
     private 'plain_text'?: string;
     private 'datakey_plain_length'?: string;
+    private 'additional_authenticated_data'?: string;
     public sequence?: string;
     public constructor(keyId?: string, plainText?: string, datakeyPlainLength?: string) { 
         this['key_id'] = keyId;
@@ -39,6 +40,16 @@ export class EncryptDatakeyRequestBody {
     }
     public get datakeyPlainLength(): string | undefined {
         return this['datakey_plain_length'];
+    }
+    public withAdditionalAuthenticatedData(additionalAuthenticatedData: string): EncryptDatakeyRequestBody {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+        return this;
+    }
+    public set additionalAuthenticatedData(additionalAuthenticatedData: string  | undefined) {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+    }
+    public get additionalAuthenticatedData(): string | undefined {
+        return this['additional_authenticated_data'];
     }
     public withSequence(sequence: string): EncryptDatakeyRequestBody {
         this['sequence'] = sequence;

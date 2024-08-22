@@ -74,7 +74,6 @@ import { CountInstanceByTagsRequest } from './model/CountInstanceByTagsRequest';
 import { CountInstanceByTagsResponse } from './model/CountInstanceByTagsResponse';
 import { CreateJobReq } from './model/CreateJobReq';
 import { CreateJobRequest } from './model/CreateJobRequest';
-import { CreateJobResp } from './model/CreateJobResp';
 import { CreateJobResponse } from './model/CreateJobResponse';
 import { CustomizedDns } from './model/CustomizedDns';
 import { DataFilteringCondition } from './model/DataFilteringCondition';
@@ -94,6 +93,9 @@ import { DeleteJdbcDriverResponse } from './model/DeleteJdbcDriverResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
 import { DeleteJobResp } from './model/DeleteJobResp';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
+import { DeleteUserDriverReq } from './model/DeleteUserDriverReq';
+import { DeleteUserJdbcDriverRequest } from './model/DeleteUserJdbcDriverRequest';
+import { DeleteUserJdbcDriverResponse } from './model/DeleteUserJdbcDriverResponse';
 import { DirtyData } from './model/DirtyData';
 import { DownloadBatchCreateTemplateRequest } from './model/DownloadBatchCreateTemplateRequest';
 import { DownloadBatchCreateTemplateResponse } from './model/DownloadBatchCreateTemplateResponse';
@@ -154,6 +156,8 @@ import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListUserJdbcDriversRequest } from './model/ListUserJdbcDriversRequest';
+import { ListUserJdbcDriversResponse } from './model/ListUserJdbcDriversResponse';
 import { ListsAgencyPermissionsRequest } from './model/ListsAgencyPermissionsRequest';
 import { ListsAgencyPermissionsResponse } from './model/ListsAgencyPermissionsResponse';
 import { MigrationObjectOverviewInfo } from './model/MigrationObjectOverviewInfo';
@@ -261,6 +265,8 @@ import { StopJobActionResponse } from './model/StopJobActionResponse';
 import { SupportImportFileResult } from './model/SupportImportFileResult';
 import { SyncJdbcDriverRequest } from './model/SyncJdbcDriverRequest';
 import { SyncJdbcDriverResponse } from './model/SyncJdbcDriverResponse';
+import { SyncUserJdbcDriverRequest } from './model/SyncUserJdbcDriverRequest';
+import { SyncUserJdbcDriverResponse } from './model/SyncUserJdbcDriverResponse';
 import { TableLineCompareDetailInfo } from './model/TableLineCompareDetailInfo';
 import { TableObject } from './model/TableObject';
 import { Tag } from './model/Tag';
@@ -284,12 +290,16 @@ import { UpdateJobRequest } from './model/UpdateJobRequest';
 import { UpdateJobResponse } from './model/UpdateJobResponse';
 import { UpdateStartPositionRequest } from './model/UpdateStartPositionRequest';
 import { UpdateStartPositionResponse } from './model/UpdateStartPositionResponse';
+import { UpdateUserDriverReq } from './model/UpdateUserDriverReq';
 import { UploadDbObjectTemplateRequest } from './model/UploadDbObjectTemplateRequest';
 import { UploadDbObjectTemplateRequestBody } from './model/UploadDbObjectTemplateRequestBody';
 import { UploadDbObjectTemplateResponse } from './model/UploadDbObjectTemplateResponse';
 import { UploadJdbcDriverRequest } from './model/UploadJdbcDriverRequest';
 import { UploadJdbcDriverRequestBody } from './model/UploadJdbcDriverRequestBody';
 import { UploadJdbcDriverResponse } from './model/UploadJdbcDriverResponse';
+import { UploadUserJdbcDriverRequest } from './model/UploadUserJdbcDriverRequest';
+import { UploadUserJdbcDriverRequestBody } from './model/UploadUserJdbcDriverRequestBody';
+import { UploadUserJdbcDriverResponse } from './model/UploadUserJdbcDriverResponse';
 import { UserMigrationInfo } from './model/UserMigrationInfo';
 import { UserMigrationList } from './model/UserMigrationList';
 import { UserMigrationRole } from './model/UserMigrationRole';
@@ -694,6 +704,26 @@ export class DrsClient {
     }
 
     /**
+     * 删除驱动文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除驱动文件
+     * @param {DeleteUserDriverReq} deleteUserJdbcDriverRequestBody 删除驱动请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteUserJdbcDriver(deleteUserJdbcDriverRequest?: DeleteUserJdbcDriverRequest): Promise<DeleteUserJdbcDriverResponse> {
+        const options = ParamCreater().deleteUserJdbcDriver(deleteUserJdbcDriverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 下载批量导入任务模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1068,6 +1098,28 @@ export class DrsClient {
      */
     public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
         const options = ParamCreater().listTags(listTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询驱动文件列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询驱动文件列表
+     * @param {'db2' | 'informix'} driverType 指定待查询的驱动文件类型。取值范围： - db2：DB2 for LUW - informix：Informix
+     * @param {number} [limit] 每页显示的条目数量。默认为10。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset 大于等于 0。默认为0。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUserJdbcDrivers(listUserJdbcDriversRequest?: ListUserJdbcDriversRequest): Promise<ListUserJdbcDriversResponse> {
+        const options = ParamCreater().listUserJdbcDrivers(listUserJdbcDriversRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1721,6 +1773,27 @@ export class DrsClient {
     }
 
     /**
+     * 同步驱动文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步驱动文件
+     * @param {string} jobId 任务ID。
+     * @param {UpdateUserDriverReq} syncUserJdbcDriverRequestBody 同步驱动请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncUserJdbcDriver(syncUserJdbcDriverRequest?: SyncUserJdbcDriverRequest): Promise<SyncUserJdbcDriverResponse> {
+        const options = ParamCreater().syncUserJdbcDriver(syncUserJdbcDriverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新租户指定ID批量异步任务详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1877,13 +1950,34 @@ export class DrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上传驱动文件
-     * @param {any} file 驱动文件，驱动文件名称长度5-64，以jar结尾，name相同会替换远程驱动文件
+     * @param {any} file 驱动文件，驱动文件名称长度5-64，以jar结尾，文件名相同会替换远程驱动文件
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public uploadJdbcDriver(uploadJdbcDriverRequest?: UploadJdbcDriverRequest): Promise<UploadJdbcDriverResponse> {
         const options = ParamCreater().uploadJdbcDriver(uploadJdbcDriverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传驱动文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传驱动文件
+     * @param {'db2' | 'informix'} driverType 指定待上传的驱动文件类型。取值范围： - db2：DB2 for LUW - informix：Informix
+     * @param {any} file 驱动文件，驱动文件名称长度5-64，以jar结尾，文件名相同会替换远程驱动文件。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadUserJdbcDriver(uploadUserJdbcDriverRequest?: UploadUserJdbcDriverRequest): Promise<UploadUserJdbcDriverResponse> {
+        const options = ParamCreater().uploadUserJdbcDriver(uploadUserJdbcDriverRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2848,6 +2942,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除驱动文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteUserJdbcDriver(deleteUserJdbcDriverRequest?: DeleteUserJdbcDriverRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/drivers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (deleteUserJdbcDriverRequest !== null && deleteUserJdbcDriverRequest !== undefined) {
+                if (deleteUserJdbcDriverRequest instanceof DeleteUserJdbcDriverRequest) {
+                    body = deleteUserJdbcDriverRequest.body
+                    xLanguage = deleteUserJdbcDriverRequest.xLanguage;
+                } else {
+                    body = deleteUserJdbcDriverRequest['body'];
+                    xLanguage = deleteUserJdbcDriverRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3902,6 +4041,67 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询驱动文件列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUserJdbcDrivers(listUserJdbcDriversRequest?: ListUserJdbcDriversRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/drivers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let driverType;
+            
+            let limit;
+            
+            let offset;
+            
+            let xLanguage;
+
+            if (listUserJdbcDriversRequest !== null && listUserJdbcDriversRequest !== undefined) {
+                if (listUserJdbcDriversRequest instanceof ListUserJdbcDriversRequest) {
+                    driverType = listUserJdbcDriversRequest.driverType;
+                    limit = listUserJdbcDriversRequest.limit;
+                    offset = listUserJdbcDriversRequest.offset;
+                    xLanguage = listUserJdbcDriversRequest.xLanguage;
+                } else {
+                    driverType = listUserJdbcDriversRequest['driver_type'];
+                    limit = listUserJdbcDriversRequest['limit'];
+                    offset = listUserJdbcDriversRequest['offset'];
+                    xLanguage = listUserJdbcDriversRequest['X-Language'];
+                }
+            }
+
+        
+            if (driverType === null || driverType === undefined) {
+                throw new RequiredError('driverType','Required parameter driverType was null or undefined when calling listUserJdbcDrivers.');
+            }
+            if (driverType !== null && driverType !== undefined) {
+                localVarQueryParameter['driver_type'] = driverType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5656,6 +5856,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 同步驱动文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncUserJdbcDriver(syncUserJdbcDriverRequest?: SyncUserJdbcDriverRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/jobs/{job_id}/update-driver",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (syncUserJdbcDriverRequest !== null && syncUserJdbcDriverRequest !== undefined) {
+                if (syncUserJdbcDriverRequest instanceof SyncUserJdbcDriverRequest) {
+                    jobId = syncUserJdbcDriverRequest.jobId;
+                    body = syncUserJdbcDriverRequest.body
+                    xLanguage = syncUserJdbcDriverRequest.xLanguage;
+                } else {
+                    jobId = syncUserJdbcDriverRequest['job_id'];
+                    body = syncUserJdbcDriverRequest['body'];
+                    xLanguage = syncUserJdbcDriverRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling syncUserJdbcDriver.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新租户指定ID批量异步任务详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6088,6 +6341,67 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传驱动文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadUserJdbcDriver(uploadUserJdbcDriverRequest?: UploadUserJdbcDriverRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/driver",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let driverType;
+            let file;
+            
+            
+            let xLanguage;
+
+            if (uploadUserJdbcDriverRequest !== null && uploadUserJdbcDriverRequest !== undefined) {
+                if (uploadUserJdbcDriverRequest instanceof UploadUserJdbcDriverRequest) {
+                    driverType = uploadUserJdbcDriverRequest.driverType;
+                    file = uploadUserJdbcDriverRequest.body?.file;
+                    xLanguage = uploadUserJdbcDriverRequest.xLanguage;
+                } else {
+                    driverType = uploadUserJdbcDriverRequest['driver_type'];
+                    file = uploadUserJdbcDriverRequest['body']['file'];
+                    xLanguage = uploadUserJdbcDriverRequest['X-Language'];
+                }
+            }
+
+        
+            if (driverType === null || driverType === undefined) {
+                throw new RequiredError('driverType','Required parameter driverType was null or undefined when calling uploadUserJdbcDriver.');
+            }
+            if (driverType !== null && driverType !== undefined) {
+                localVarQueryParameter['driver_type'] = driverType;
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadUserJdbcDriver.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

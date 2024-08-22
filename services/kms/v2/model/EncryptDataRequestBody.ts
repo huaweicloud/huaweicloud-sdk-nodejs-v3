@@ -4,6 +4,7 @@ export class EncryptDataRequestBody {
     private 'key_id'?: string;
     private 'plain_text'?: string;
     private 'encryption_algorithm'?: EncryptDataRequestBodyEncryptionAlgorithmEnum | string;
+    private 'additional_authenticated_data'?: string;
     public sequence?: string;
     public constructor(keyId?: string, plainText?: string) { 
         this['key_id'] = keyId;
@@ -38,6 +39,16 @@ export class EncryptDataRequestBody {
     }
     public get encryptionAlgorithm(): EncryptDataRequestBodyEncryptionAlgorithmEnum | string | undefined {
         return this['encryption_algorithm'];
+    }
+    public withAdditionalAuthenticatedData(additionalAuthenticatedData: string): EncryptDataRequestBody {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+        return this;
+    }
+    public set additionalAuthenticatedData(additionalAuthenticatedData: string  | undefined) {
+        this['additional_authenticated_data'] = additionalAuthenticatedData;
+    }
+    public get additionalAuthenticatedData(): string | undefined {
+        return this['additional_authenticated_data'];
     }
     public withSequence(sequence: string): EncryptDataRequestBody {
         this['sequence'] = sequence;

@@ -46,6 +46,7 @@ export class TaskResp {
     private 'dst_storage_policy'?: TaskRespDstStoragePolicyEnum | string;
     private 'consistency_check'?: TaskRespConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
+    private 'task_priority'?: TaskRespTaskPriorityEnum | string;
     public constructor() { 
     }
     public withBandwidthPolicy(bandwidthPolicy: Array<BandwidthPolicyDto>): TaskResp {
@@ -398,6 +399,16 @@ export class TaskResp {
     public get enableRequesterPays(): boolean | undefined {
         return this['enable_requester_pays'];
     }
+    public withTaskPriority(taskPriority: TaskRespTaskPriorityEnum | string): TaskResp {
+        this['task_priority'] = taskPriority;
+        return this;
+    }
+    public set taskPriority(taskPriority: TaskRespTaskPriorityEnum | string  | undefined) {
+        this['task_priority'] = taskPriority;
+    }
+    public get taskPriority(): TaskRespTaskPriorityEnum | string | undefined {
+        return this['task_priority'];
+    }
 }
 
 /**
@@ -448,4 +459,13 @@ export enum TaskRespConsistencyCheckEnum {
     SIZE_LAST_MODIFIED = 'size_last_modified',
     CRC64 = 'crc64',
     NO_CHECK = 'no_check'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskRespTaskPriorityEnum {
+    HIGH = 'HIGH',
+    MEDIUM = 'MEDIUM',
+    LOW = 'LOW'
 }

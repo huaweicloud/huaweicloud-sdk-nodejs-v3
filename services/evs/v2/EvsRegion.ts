@@ -32,6 +32,11 @@ export class EvsRegion {
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://evs.cn-south-4.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://evs.ru-moscow-1.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://evs.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://evs.cn-east-4.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://evs.cn-east-5.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://evs.cn-north-11.myhuaweicloud.com"]);
+    public static RU_NORTHWEST_2 = new Region("ru-northwest-2", ["https://evs.ru-northwest-2.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://evs.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -60,7 +65,12 @@ export class EvsRegion {
         "eu-west-0":EvsRegion.EU_WEST_0,
         "cn-south-4":EvsRegion.CN_SOUTH_4,
         "ru-moscow-1":EvsRegion.RU_MOSCOW_1,
-        "my-kualalumpur-1":EvsRegion.MY_KUALALUMPUR_1
+        "my-kualalumpur-1":EvsRegion.MY_KUALALUMPUR_1,
+        "cn-east-4":EvsRegion.CN_EAST_4,
+        "cn-east-5":EvsRegion.CN_EAST_5,
+        "cn-north-11":EvsRegion.CN_NORTH_11,
+        "ru-northwest-2":EvsRegion.RU_NORTHWEST_2,
+        "af-north-1":EvsRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

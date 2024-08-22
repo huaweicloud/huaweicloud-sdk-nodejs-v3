@@ -14,7 +14,7 @@ export class CreateEndpointRequestBody {
     private 'enable_whitelist'?: boolean;
     public description?: string;
     private 'policy_statement'?: Array<PolicyStatement>;
-    private 'policy_document'?: string;
+    private 'policy_document'?: object;
     private 'ip_version'?: CreateEndpointRequestBodyIpVersionEnum | string;
     private 'ipv6_address'?: string;
     public constructor(endpointServiceId?: string, vpcId?: string) { 
@@ -107,14 +107,14 @@ export class CreateEndpointRequestBody {
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
     }
-    public withPolicyDocument(policyDocument: string): CreateEndpointRequestBody {
+    public withPolicyDocument(policyDocument: object): CreateEndpointRequestBody {
         this['policy_document'] = policyDocument;
         return this;
     }
-    public set policyDocument(policyDocument: string  | undefined) {
+    public set policyDocument(policyDocument: object  | undefined) {
         this['policy_document'] = policyDocument;
     }
-    public get policyDocument(): string | undefined {
+    public get policyDocument(): object | undefined {
         return this['policy_document'];
     }
     public withIpVersion(ipVersion: CreateEndpointRequestBodyIpVersionEnum | string): CreateEndpointRequestBody {

@@ -23,7 +23,7 @@ import { UserMigrationInfo } from './UserMigrationInfo';
 
 export class JobDetailResp {
     public id?: string;
-    public status?: string;
+    public status?: JobDetailRespStatusEnum | string;
     private 'create_time'?: string;
     private 'total_count'?: number;
     private 'master_job_id'?: string;
@@ -59,7 +59,7 @@ export class JobDetailResp {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: string): JobDetailResp {
+    public withStatus(status: JobDetailRespStatusEnum | string): JobDetailResp {
         this['status'] = status;
         return this;
     }
@@ -337,6 +337,41 @@ export class JobDetailResp {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum JobDetailRespStatusEnum {
+    CREATING = 'CREATING',
+    CREATE_FAILED = 'CREATE_FAILED',
+    CONFIGURATION = 'CONFIGURATION',
+    STARTJOBING = 'STARTJOBING',
+    WAITING_FOR_START = 'WAITING_FOR_START',
+    START_JOB_FAILED = 'START_JOB_FAILED',
+    PAUSING = 'PAUSING',
+    FULL_TRANSFER_STARTED = 'FULL_TRANSFER_STARTED',
+    FULL_TRANSFER_FAILED = 'FULL_TRANSFER_FAILED',
+    FULL_TRANSFER_COMPLETE = 'FULL_TRANSFER_COMPLETE',
+    INCRE_TRANSFER_STARTED = 'INCRE_TRANSFER_STARTED',
+    INCRE_TRANSFER_FAILED = 'INCRE_TRANSFER_FAILED',
+    RELEASE_RESOURCE_STARTED = 'RELEASE_RESOURCE_STARTED',
+    RELEASE_RESOURCE_FAILED = 'RELEASE_RESOURCE_FAILED',
+    RELEASE_RESOURCE_COMPLETE = 'RELEASE_RESOURCE_COMPLETE',
+    REBUILD_NODE_STARTED = 'REBUILD_NODE_STARTED',
+    REBUILD_NODE_FAILED = 'REBUILD_NODE_FAILED',
+    CHANGE_JOB_STARTED = 'CHANGE_JOB_STARTED',
+    CHANGE_JOB_FAILED = 'CHANGE_JOB_FAILED',
+    DELETED = 'DELETED',
+    CHILD_TRANSFER_STARTING = 'CHILD_TRANSFER_STARTING',
+    CHILD_TRANSFER_STARTED = 'CHILD_TRANSFER_STARTED',
+    CHILD_TRANSFER_COMPLETE = 'CHILD_TRANSFER_COMPLETE',
+    CHILD_TRANSFER_FAILED = 'CHILD_TRANSFER_FAILED',
+    RELEASE_CHILD_TRANSFER_STARTED = 'RELEASE_CHILD_TRANSFER_STARTED',
+    RELEASE_CHILD_TRANSFER_COMPLETE = 'RELEASE_CHILD_TRANSFER_COMPLETE',
+    NODE_UPGRADE_START = 'NODE_UPGRADE_START',
+    NODE_UPGRADE_COMPLETE = 'NODE_UPGRADE_COMPLETE',
+    NODE_UPGRADE_FAILED = 'NODE_UPGRADE_FAILED'
+}
 /**
     * @export
     * @enum {string}

@@ -24,7 +24,7 @@ export class UpdateEndpointPolicyResponse extends SdkResponse {
     public routetables?: Array<string>;
     public description?: string;
     private 'policy_statement'?: Array<PolicyStatement>;
-    private 'policy_document'?: string;
+    private 'policy_document'?: object;
     private 'endpoint_pool_id'?: string;
     private 'public_border_group'?: string;
     public constructor() { 
@@ -172,14 +172,14 @@ export class UpdateEndpointPolicyResponse extends SdkResponse {
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
     }
-    public withPolicyDocument(policyDocument: string): UpdateEndpointPolicyResponse {
+    public withPolicyDocument(policyDocument: object): UpdateEndpointPolicyResponse {
         this['policy_document'] = policyDocument;
         return this;
     }
-    public set policyDocument(policyDocument: string  | undefined) {
+    public set policyDocument(policyDocument: object  | undefined) {
         this['policy_document'] = policyDocument;
     }
-    public get policyDocument(): string | undefined {
+    public get policyDocument(): object | undefined {
         return this['policy_document'];
     }
     public withEndpointPoolId(endpointPoolId: string): UpdateEndpointPolicyResponse {
