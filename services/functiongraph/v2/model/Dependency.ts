@@ -12,7 +12,7 @@ export class Dependency {
     private 'file_name'?: string;
     public version?: number;
     private 'dep_id'?: string;
-    private 'last_modified'?: Date;
+    private 'last_modified'?: number;
     public constructor(owner?: string, link?: string, runtime?: string, etag?: string, size?: number, name?: string, description?: string) { 
         this['owner'] = owner;
         this['link'] = link;
@@ -78,14 +78,14 @@ export class Dependency {
     public get depId(): string | undefined {
         return this['dep_id'];
     }
-    public withLastModified(lastModified: Date): Dependency {
+    public withLastModified(lastModified: number): Dependency {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: Date  | undefined) {
+    public set lastModified(lastModified: number  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified(): Date | undefined {
+    public get lastModified(): number | undefined {
         return this['last_modified'];
     }
 }

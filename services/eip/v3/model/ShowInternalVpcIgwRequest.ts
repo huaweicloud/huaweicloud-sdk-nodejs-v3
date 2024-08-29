@@ -1,12 +1,12 @@
 
 
 export class ShowInternalVpcIgwRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     private 'vpc_igw_id'?: string;
     public constructor(vpcIgwId?: string) { 
         this['vpc_igw_id'] = vpcIgwId;
     }
-    public withFields(fields: string): ShowInternalVpcIgwRequest {
+    public withFields(fields: Array<string>): ShowInternalVpcIgwRequest {
         this['fields'] = fields;
         return this;
     }

@@ -5,6 +5,7 @@ export class ReplicationAssetInfo {
     private 'asset_id'?: string;
     private 'asset_info'?: string;
     private 'encryption_info'?: ReplicationEncInfo;
+    private 'expire_time'?: number;
     public constructor() { 
     }
     public withAssetId(assetId: string): ReplicationAssetInfo {
@@ -36,5 +37,15 @@ export class ReplicationAssetInfo {
     }
     public get encryptionInfo(): ReplicationEncInfo | undefined {
         return this['encryption_info'];
+    }
+    public withExpireTime(expireTime: number): ReplicationAssetInfo {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: number  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): number | undefined {
+        return this['expire_time'];
     }
 }

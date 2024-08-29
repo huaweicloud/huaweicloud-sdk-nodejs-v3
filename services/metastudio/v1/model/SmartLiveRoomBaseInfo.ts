@@ -21,6 +21,7 @@ export class SmartLiveRoomBaseInfo {
     private 'last_job_start_time'?: string;
     private 'last_job_end_time'?: string;
     private 'last_job_status'?: SmartLiveRoomBaseInfoLastJobStatusEnum | string;
+    private 'priv_data'?: string;
     public constructor() { 
     }
     public withRoomId(roomId: string): SmartLiveRoomBaseInfo {
@@ -186,6 +187,16 @@ export class SmartLiveRoomBaseInfo {
     }
     public get lastJobStatus(): SmartLiveRoomBaseInfoLastJobStatusEnum | string | undefined {
         return this['last_job_status'];
+    }
+    public withPrivData(privData: string): SmartLiveRoomBaseInfo {
+        this['priv_data'] = privData;
+        return this;
+    }
+    public set privData(privData: string  | undefined) {
+        this['priv_data'] = privData;
+    }
+    public get privData(): string | undefined {
+        return this['priv_data'];
     }
 }
 

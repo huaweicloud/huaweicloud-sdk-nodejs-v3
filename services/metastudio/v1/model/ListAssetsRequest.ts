@@ -8,6 +8,7 @@ export class ListAssetsRequest {
     public offset?: number;
     public name?: string;
     public tag?: string;
+    private 'tag_combination_type'?: ListAssetsRequestTagCombinationTypeEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'asset_type'?: string;
@@ -16,12 +17,14 @@ export class ListAssetsRequest {
     private 'asset_source'?: ListAssetsRequestAssetSourceEnum | string;
     private 'asset_state'?: string;
     private 'style_id'?: string;
+    private 'accurate_query_field'?: Array<string>;
     private 'render_engine'?: string;
     private 'asset_id'?: Array<string>;
     public sex?: string;
     public language?: string;
     private 'system_property'?: string;
     private 'action_editable'?: boolean;
+    private 'is_with_action_library'?: boolean;
     private 'is_movable'?: boolean;
     private 'voice_provider'?: string;
     public role?: ListAssetsRequestRoleEnum | string;
@@ -29,6 +32,7 @@ export class ListAssetsRequest {
     private 'human_model_2d_version'?: string;
     private 'include_device_name'?: string;
     private 'exclude_device_name'?: string;
+    private 'supported_service'?: ListAssetsRequestSupportedServiceEnum | string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListAssetsRequest {
@@ -76,6 +80,16 @@ export class ListAssetsRequest {
     public withTag(tag: string): ListAssetsRequest {
         this['tag'] = tag;
         return this;
+    }
+    public withTagCombinationType(tagCombinationType: ListAssetsRequestTagCombinationTypeEnum | string): ListAssetsRequest {
+        this['tag_combination_type'] = tagCombinationType;
+        return this;
+    }
+    public set tagCombinationType(tagCombinationType: ListAssetsRequestTagCombinationTypeEnum | string  | undefined) {
+        this['tag_combination_type'] = tagCombinationType;
+    }
+    public get tagCombinationType(): ListAssetsRequestTagCombinationTypeEnum | string | undefined {
+        return this['tag_combination_type'];
     }
     public withStartTime(startTime: string): ListAssetsRequest {
         this['start_time'] = startTime;
@@ -157,6 +171,16 @@ export class ListAssetsRequest {
     public get styleId(): string | undefined {
         return this['style_id'];
     }
+    public withAccurateQueryField(accurateQueryField: Array<string>): ListAssetsRequest {
+        this['accurate_query_field'] = accurateQueryField;
+        return this;
+    }
+    public set accurateQueryField(accurateQueryField: Array<string>  | undefined) {
+        this['accurate_query_field'] = accurateQueryField;
+    }
+    public get accurateQueryField(): Array<string> | undefined {
+        return this['accurate_query_field'];
+    }
     public withRenderEngine(renderEngine: string): ListAssetsRequest {
         this['render_engine'] = renderEngine;
         return this;
@@ -204,6 +228,16 @@ export class ListAssetsRequest {
     }
     public get actionEditable(): boolean | undefined {
         return this['action_editable'];
+    }
+    public withIsWithActionLibrary(isWithActionLibrary: boolean): ListAssetsRequest {
+        this['is_with_action_library'] = isWithActionLibrary;
+        return this;
+    }
+    public set isWithActionLibrary(isWithActionLibrary: boolean  | undefined) {
+        this['is_with_action_library'] = isWithActionLibrary;
+    }
+    public get isWithActionLibrary(): boolean | undefined {
+        return this['is_with_action_library'];
     }
     public withIsMovable(isMovable: boolean): ListAssetsRequest {
         this['is_movable'] = isMovable;
@@ -269,8 +303,26 @@ export class ListAssetsRequest {
     public get excludeDeviceName(): string | undefined {
         return this['exclude_device_name'];
     }
+    public withSupportedService(supportedService: ListAssetsRequestSupportedServiceEnum | string): ListAssetsRequest {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: ListAssetsRequestSupportedServiceEnum | string  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): ListAssetsRequestSupportedServiceEnum | string | undefined {
+        return this['supported_service'];
+    }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAssetsRequestTagCombinationTypeEnum {
+    INTERSECTION = 'INTERSECTION',
+    UNION_SET = 'UNION_SET'
+}
 /**
     * @export
     * @enum {string}
@@ -287,4 +339,13 @@ export enum ListAssetsRequestAssetSourceEnum {
 export enum ListAssetsRequestRoleEnum {
     SHARER = 'SHARER',
     SHAREE = 'SHAREE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAssetsRequestSupportedServiceEnum {
+    VIDEO_2D = 'VIDEO_2D',
+    LIVE_2D = 'LIVE_2D',
+    CHAT_2D = 'CHAT_2D'
 }

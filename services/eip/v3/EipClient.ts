@@ -128,6 +128,7 @@ export class EipClient {
      * @param {string} [limit] - 功能说明：每页返回的个数 - 取值范围：取值范围：1~[2000]，其中2000为局点差异项，具体取值由局点决定
      * @param {string} [marker] - 功能说明：分页查询起始的资源ID，为空时为查询第一页
      * @param {string} [id] - 功能说明：带宽唯一标识
+     * @param {Array<string>} [fields] display in the form \&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  Supported fields：id/name/tenant_id/size/ratio_95peak_plus/ingress_size/bandwidth_type/admin_state/billing_info/charge_mode/type/publicip_info/enable_bandwidth_rules/rule_quota/bandwidth_rules/public_border_group/created_at/updated_at/lock_infos
      * @param {string} [bandwidthType] - 功能说明：带宽类型，共享带宽默认为share。 - 取值范围：share，bgp，telcom，sbgp等。   - share：共享带宽   - bgp：动态bgp   - telcom ：联通   - sbgp：静态bgp
      * @param {string} [name] - 功能说明：宽带名称，按照宽带名称过滤
      * @param {string} [nameLike] - 功能说明：根据宽带名称模糊查询过滤
@@ -183,7 +184,7 @@ export class EipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公共池列表
-     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/status/type/used/allow_share_bandwidth_types/public_border_group
+     * @param {Array<string>} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/status/type/used/allow_share_bandwidth_types/public_border_group/description
      * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
      * @param {number} [offset] 分页查询起始的资源序号
      * @param {string} [name] 公共池名称
@@ -208,6 +209,7 @@ export class EipClient {
      * @summary 查询带宽列表
      * @param {string} [limit] - 功能说明：每页返回的个数 - 取值范围：取值范围：1~[2000]，其中2000为局点差异项，具体取值由局点决定
      * @param {string} [marker] - 功能说明：分页查询起始的资源ID，为空时为查询第一页
+     * @param {Array<string>} [fields] display in the form \&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  Supported fields：id/name/tenant_id/size/ratio_95peak_plus/ingress_size/bandwidth_type/admin_state/billing_info/charge_mode/type/publicip_info/enable_bandwidth_rules/rule_quota/bandwidth_rules/public_border_group/created_at/updated_at/lock_infos
      * @param {string} [id] - 功能说明：带宽唯一标识
      * @param {string} [bandwidthType] - 功能说明：带宽类型，共享带宽默认为share。 - 取值范围：share，bgp，telcom，sbgp等。   - share：共享带宽   - bgp：动态bgp   - telcom ：联通   - sbgp：静态bgp
      * @param {string} [name] - 功能说明：宽带名称，按照宽带名称过滤
@@ -262,7 +264,7 @@ export class EipClient {
      * @summary 查询公网IP池列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
      * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
-     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
+     * @param {Array<string>} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
      * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;id&amp;sort_dir&#x3D;asc\&quot;  支持字段：id/name/created_at/updated_at/public_border_group
      * @param {string} [sortDir] 排序方向  取值范围：asc、desc
      * @param {string} [id] 根据id过滤
@@ -290,7 +292,7 @@ export class EipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定租户下的共享带宽类型列表
-     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;bandwidth_type&amp;...\\\&quot;，支持字段：id/bandwidth_type/name_en/name_zh/created_at/update_at/public_border_group/description
+     * @param {Array<string>} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;bandwidth_type&amp;...\\\&quot;，支持字段：id/bandwidth_type/name_en/name_zh/created_at/update_at/public_border_group/description
      * @param {string} [id] 支持带宽类型的id
      * @param {string} [bandwidthType] 带宽支持类型
      * @param {string} [nameEn] 带宽类型英文表述
@@ -320,7 +322,7 @@ export class EipClient {
      *
      * @summary 查询公网IP池详情
      * @param {string} publicipPoolId 公网IP池ID唯一标识
-     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
+     * @param {Array<string>} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -339,7 +341,7 @@ export class EipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询GEIP与实例绑定关系的租户列表
-     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;geip_id&amp;fields&#x3D;geip_ip_address&amp;...\\\&quot;，支持字段：geip_id/geip_ip_address/instance_type/instance_id/vnic/vn_list/public_border_group/gcbandwidth/version/created_at/updated_at/instance_vpc_id
+     * @param {Array<string>} [fields] 形式为\\\&quot;fields&#x3D;geip_id&amp;fields&#x3D;geip_ip_address&amp;...\\\&quot;，支持字段：geip_id/geip_ip_address/instance_type/instance_id/vnic/vn_list/public_border_group/gcbandwidth/version/created_at/updated_at/instance_vpc_id
      * @param {string} [geipId] GEIP的uuid
      * @param {string} [geipIpAddress] GEIP的ip地址
      * @param {string} [publicBorderGroup] GEIP所处的出口位置
@@ -383,7 +385,7 @@ export class EipClient {
      *
      * @summary 创建虚拟igw
      * @param {CreateTenantVpcIgwRequestBody} createTenantVpcIgwRequestBody 创建虚拟igw对象
-     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
+     * @param {Array<string>} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -421,7 +423,7 @@ export class EipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定租户下的虚拟igw列表
-     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
+     * @param {Array<string>} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
      * @param {string} [id] 虚拟IGW的uuid
      * @param {string} [vpcId] 虚拟igw所在的vpcid
      * @param {string} [name] 虚拟igw的名称
@@ -449,7 +451,7 @@ export class EipClient {
      *
      * @summary 查询虚拟igw详情
      * @param {string} vpcIgwId 虚拟igw的uuid
-     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/igw_cluster
+     * @param {Array<string>} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/igw_cluster
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -470,7 +472,7 @@ export class EipClient {
      * @summary 修改虚拟igw
      * @param {string} vpcIgwId vpc-igw的uuid
      * @param {UpdateTenantVpcIgwRequestBody} updateTenantVpcIgwRequestBody 修改虚拟igw
-     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
+     * @param {Array<string>} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -783,6 +785,8 @@ export const ParamCreater = function () {
             
             let id;
             
+            let fields;
+            
             let bandwidthType;
             
             let name;
@@ -814,6 +818,7 @@ export const ParamCreater = function () {
                     limit = listBandwidthRequest.limit;
                     marker = listBandwidthRequest.marker;
                     id = listBandwidthRequest.id;
+                    fields = listBandwidthRequest.fields;
                     bandwidthType = listBandwidthRequest.bandwidthType;
                     name = listBandwidthRequest.name;
                     nameLike = listBandwidthRequest.nameLike;
@@ -831,6 +836,7 @@ export const ParamCreater = function () {
                     limit = listBandwidthRequest['limit'];
                     marker = listBandwidthRequest['marker'];
                     id = listBandwidthRequest['id'];
+                    fields = listBandwidthRequest['fields'];
                     bandwidthType = listBandwidthRequest['bandwidth_type'];
                     name = listBandwidthRequest['name'];
                     nameLike = listBandwidthRequest['name_like'];
@@ -856,6 +862,9 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
             }
             if (bandwidthType !== null && bandwidthType !== undefined) {
                 localVarQueryParameter['bandwidth_type'] = bandwidthType;
@@ -1060,6 +1069,8 @@ export const ParamCreater = function () {
             
             let marker;
             
+            let fields;
+            
             let id;
             
             let bandwidthType;
@@ -1094,6 +1105,7 @@ export const ParamCreater = function () {
                 if (listEipBandwidthsRequest instanceof ListEipBandwidthsRequest) {
                     limit = listEipBandwidthsRequest.limit;
                     marker = listEipBandwidthsRequest.marker;
+                    fields = listEipBandwidthsRequest.fields;
                     id = listEipBandwidthsRequest.id;
                     bandwidthType = listEipBandwidthsRequest.bandwidthType;
                     name = listEipBandwidthsRequest.name;
@@ -1112,6 +1124,7 @@ export const ParamCreater = function () {
                 } else {
                     limit = listEipBandwidthsRequest['limit'];
                     marker = listEipBandwidthsRequest['marker'];
+                    fields = listEipBandwidthsRequest['fields'];
                     id = listEipBandwidthsRequest['id'];
                     bandwidthType = listEipBandwidthsRequest['bandwidth_type'];
                     name = listEipBandwidthsRequest['name'];
@@ -1136,6 +1149,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;

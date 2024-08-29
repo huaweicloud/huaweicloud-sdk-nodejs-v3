@@ -1,3 +1,4 @@
+import { ResetActiveCodeReq } from './ResetActiveCodeReq';
 
 
 export class ResetActiveCodeRequest {
@@ -6,6 +7,7 @@ export class ResetActiveCodeRequest {
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
     private 'active_code_id'?: string;
+    public body?: ResetActiveCodeReq;
     public constructor(activeCodeId?: string) { 
         this['active_code_id'] = activeCodeId;
     }
@@ -58,5 +60,9 @@ export class ResetActiveCodeRequest {
     }
     public get activeCodeId(): string | undefined {
         return this['active_code_id'];
+    }
+    public withBody(body: ResetActiveCodeReq): ResetActiveCodeRequest {
+        this['body'] = body;
+        return this;
     }
 }

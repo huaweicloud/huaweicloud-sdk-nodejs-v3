@@ -23,6 +23,7 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     private 'create_type'?: CreateType;
     public tag?: JobTag;
     public phone?: string;
+    private 'dhtms_job_id'?: string;
     public constructor() { 
         super();
     }
@@ -165,5 +166,15 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     public withPhone(phone: string): ShowVoiceTrainingJobResponse {
         this['phone'] = phone;
         return this;
+    }
+    public withDhtmsJobId(dhtmsJobId: string): ShowVoiceTrainingJobResponse {
+        this['dhtms_job_id'] = dhtmsJobId;
+        return this;
+    }
+    public set dhtmsJobId(dhtmsJobId: string  | undefined) {
+        this['dhtms_job_id'] = dhtmsJobId;
+    }
+    public get dhtmsJobId(): string | undefined {
+        return this['dhtms_job_id'];
     }
 }

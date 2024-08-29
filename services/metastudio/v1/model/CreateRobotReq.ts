@@ -3,6 +3,7 @@ import { IflytekAiuiConfig } from './IflytekAiuiConfig';
 import { IflytekSpark } from './IflytekSpark';
 import { LanguageEnum } from './LanguageEnum';
 import { MobvoiConfig } from './MobvoiConfig';
+import { RobotTypeEnum } from './RobotTypeEnum';
 import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
 
 
@@ -10,6 +11,7 @@ export class CreateRobotReq {
     public name?: string;
     private 'app_type'?: number;
     private 'room_id'?: string;
+    private 'robot_type'?: RobotTypeEnum;
     public language?: LanguageEnum;
     private 'tail_silence_time'?: number;
     private 'enable_question_audit'?: boolean;
@@ -45,6 +47,16 @@ export class CreateRobotReq {
     }
     public get roomId(): string | undefined {
         return this['room_id'];
+    }
+    public withRobotType(robotType: RobotTypeEnum): CreateRobotReq {
+        this['robot_type'] = robotType;
+        return this;
+    }
+    public set robotType(robotType: RobotTypeEnum  | undefined) {
+        this['robot_type'] = robotType;
+    }
+    public get robotType(): RobotTypeEnum | undefined {
+        return this['robot_type'];
     }
     public withLanguage(language: LanguageEnum): CreateRobotReq {
         this['language'] = language;

@@ -34,6 +34,8 @@ npm install @huaweicloud/huaweicloud-sdk-core
 npm install @huaweicloud/huaweicloud-sdk-vpc
 ```
 
+You can get the SDK version information through [SDK center](https://console-intl.huaweicloud.com/apiexplorer/#/sdkcenter?language=NodeJs) or [NPM](https://www.npmjs.com/search?q=huaweicloud-sdk&page=0&perPage=20).
+
 ## Code Example
 
 - The following example shows how to query vpcs, you need to substitute your real `{Service}Client`
@@ -87,7 +89,7 @@ ts-node ./index.ts
 
 ## Online Debugging
 
-[API Explorer](https://apiexplorer.developer.intl.huaweicloud.com/apiexplorer/overview) provides api retrieval and online debugging, supports full fast retrieval, visual debugging, help document viewing, and online consultation.
+[API Explorer](https://apiexplorer.developer.intl.huaweicloud.com/apiexplorer/overview) provides api retrieval, SDK samples and online debugging, supports full fast retrieval, visual debugging, help document viewing, and online consultation.
 
 ## Changelog
 

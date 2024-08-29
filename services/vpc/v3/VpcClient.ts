@@ -141,6 +141,7 @@ import { DeleteVpcResponse } from './model/DeleteVpcResponse';
 import { DisassociateSubnetFirewallRequest } from './model/DisassociateSubnetFirewallRequest';
 import { DisassociateSubnetFirewallRequestBody } from './model/DisassociateSubnetFirewallRequestBody';
 import { DisassociateSubnetFirewallResponse } from './model/DisassociateSubnetFirewallResponse';
+import { ExtraDhcpOpt } from './model/ExtraDhcpOpt';
 import { FirewallAssociation } from './model/FirewallAssociation';
 import { FirewallDetail } from './model/FirewallDetail';
 import { FirewallInsertRuleItemOption } from './model/FirewallInsertRuleItemOption';

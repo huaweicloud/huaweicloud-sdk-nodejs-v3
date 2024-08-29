@@ -40,6 +40,8 @@ import { CreateDbInstanceRequest } from './model/CreateDbInstanceRequest';
 import { CreateDbInstanceResponse } from './model/CreateDbInstanceResponse';
 import { CreateDbUserRequest } from './model/CreateDbUserRequest';
 import { CreateDbUserResponse } from './model/CreateDbUserResponse';
+import { CreateGaussDbInstanceRequest } from './model/CreateGaussDbInstanceRequest';
+import { CreateGaussDbInstanceResponse } from './model/CreateGaussDbInstanceResponse';
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceRespItem } from './model/CreateInstanceRespItem';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
@@ -556,6 +558,27 @@ export class GaussDBforopenGaussClient {
      */
     public createDbUser(createDbUserRequest?: CreateDbUserRequest): Promise<CreateDbUserResponse> {
         const options = ParamCreater().createDbUser(createDbUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据库实例，仅支持IAM5的新平面认证方式（AK/SK认证方式）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据库实例
+     * @param {OpenGaussInstanceRequestBody} createInstanceV5RequestBody 请求体
+     * @param {string} [xLanguage] 语言
+     * @param {string} [subscriptionAgency] 委托urn。使用RAM共享的KMS秘钥创建包周期实例时必填,格式iam::{account_id}:agency:{agency_name}。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGaussDbInstance(createGaussDbInstanceRequest?: CreateGaussDbInstanceRequest): Promise<CreateGaussDbInstanceResponse> {
+        const options = ParamCreater().createGaussDbInstance(createGaussDbInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2962,6 +2985,58 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据库实例，仅支持IAM5的新平面认证方式（AK/SK认证方式）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGaussDbInstance(createGaussDbInstanceRequest?: CreateGaussDbInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/instances",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let subscriptionAgency;
+
+            if (createGaussDbInstanceRequest !== null && createGaussDbInstanceRequest !== undefined) {
+                if (createGaussDbInstanceRequest instanceof CreateGaussDbInstanceRequest) {
+                    body = createGaussDbInstanceRequest.body
+                    xLanguage = createGaussDbInstanceRequest.xLanguage;
+                    subscriptionAgency = createGaussDbInstanceRequest.subscriptionAgency;
+                } else {
+                    body = createGaussDbInstanceRequest['body'];
+                    xLanguage = createGaussDbInstanceRequest['X-Language'];
+                    subscriptionAgency = createGaussDbInstanceRequest['Subscription-Agency'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (subscriptionAgency !== undefined && subscriptionAgency !== null) {
+                localVarHeaderParameter['Subscription-Agency'] = String(subscriptionAgency);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

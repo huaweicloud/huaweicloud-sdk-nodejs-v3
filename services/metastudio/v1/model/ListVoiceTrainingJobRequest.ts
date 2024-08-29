@@ -10,6 +10,7 @@ export class ListVoiceTrainingJobRequest {
     private 'job_id'?: string;
     private 'voice_name'?: string;
     public tag?: string;
+    private 'job_type'?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListVoiceTrainingJobRequest {
@@ -77,5 +78,15 @@ export class ListVoiceTrainingJobRequest {
     public withTag(tag: string): ListVoiceTrainingJobRequest {
         this['tag'] = tag;
         return this;
+    }
+    public withJobType(jobType: string): ListVoiceTrainingJobRequest {
+        this['job_type'] = jobType;
+        return this;
+    }
+    public set jobType(jobType: string  | undefined) {
+        this['job_type'] = jobType;
+    }
+    public get jobType(): string | undefined {
+        return this['job_type'];
     }
 }

@@ -12,6 +12,8 @@ export class VoiceModelAssetMeta {
     private 'is_realtime_voice'?: boolean;
     private 'voice_capability'?: VoiceCapability;
     private 'external_voice_meta'?: ExternalVoiceAssetMeta;
+    private 'is_support_vc_process'?: boolean;
+    private 'is_flexus'?: boolean;
     public constructor() { 
     }
     public withOrder(order: number): VoiceModelAssetMeta {
@@ -85,6 +87,26 @@ export class VoiceModelAssetMeta {
     }
     public get externalVoiceMeta(): ExternalVoiceAssetMeta | undefined {
         return this['external_voice_meta'];
+    }
+    public withIsSupportVcProcess(isSupportVcProcess: boolean): VoiceModelAssetMeta {
+        this['is_support_vc_process'] = isSupportVcProcess;
+        return this;
+    }
+    public set isSupportVcProcess(isSupportVcProcess: boolean  | undefined) {
+        this['is_support_vc_process'] = isSupportVcProcess;
+    }
+    public get isSupportVcProcess(): boolean | undefined {
+        return this['is_support_vc_process'];
+    }
+    public withIsFlexus(isFlexus: boolean): VoiceModelAssetMeta {
+        this['is_flexus'] = isFlexus;
+        return this;
+    }
+    public set isFlexus(isFlexus: boolean  | undefined) {
+        this['is_flexus'] = isFlexus;
+    }
+    public get isFlexus(): boolean | undefined {
+        return this['is_flexus'];
     }
 }
 

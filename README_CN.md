@@ -32,6 +32,8 @@ npm install @huaweicloud/huaweicloud-sdk-core
 npm install @huaweicloud/huaweicloud-sdk-vpc
 ```
 
+您可以通过 [SDK中心](https://console.huaweicloud.com/apiexplorer/#/sdkcenter?language=NodeJs) 或 [NPM](https://www.npmjs.com/search?q=huaweicloud-sdk&page=0&perPage=20) 查询SDK版本信息。
+
 ## 代码示例
 
 - 使用如下代码查询VPC列表，调用前请根据实际情况替换如下变量：`{your endpoint}`、`{your project id}`
@@ -81,6 +83,11 @@ npm install -g ts-node typescript
 ts-node ./index.ts
 
 ```
+
+## 在线调试
+
+[API Explorer](https://apiexplorer.developer.huaweicloud.com/apiexplorer/overview)
+提供API检索、SDK示例及平台调试，支持全量快速检索、可视化调试、帮助文档查看、在线咨询。
 
 ## 变更日志
 

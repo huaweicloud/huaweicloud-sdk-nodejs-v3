@@ -1,7 +1,7 @@
 
 
 export class ListProjectGeipBindingsRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     private 'geip_id'?: string;
     private 'geip_ip_address'?: string;
     private 'public_border_group'?: string;
@@ -28,7 +28,7 @@ export class ListProjectGeipBindingsRequest {
     public marker?: string;
     public constructor() { 
     }
-    public withFields(fields: string): ListProjectGeipBindingsRequest {
+    public withFields(fields: Array<string>): ListProjectGeipBindingsRequest {
         this['fields'] = fields;
         return this;
     }

@@ -1,3 +1,4 @@
+import { ActionTagInfo } from './ActionTagInfo';
 
 
 export class HumanModel2DAssetMeta {
@@ -7,6 +8,9 @@ export class HumanModel2DAssetMeta {
     private 'model_version'?: HumanModel2DAssetMetaModelVersionEnum | string;
     private 'model_resolution'?: string;
     private 'device_names'?: Array<string>;
+    private 'is_with_action_library'?: boolean;
+    private 'action_tag_map'?: Array<ActionTagInfo>;
+    private 'is_flexus'?: boolean;
     public constructor() { 
     }
     public withIsActionEditable(isActionEditable: boolean): HumanModel2DAssetMeta {
@@ -68,6 +72,36 @@ export class HumanModel2DAssetMeta {
     }
     public get deviceNames(): Array<string> | undefined {
         return this['device_names'];
+    }
+    public withIsWithActionLibrary(isWithActionLibrary: boolean): HumanModel2DAssetMeta {
+        this['is_with_action_library'] = isWithActionLibrary;
+        return this;
+    }
+    public set isWithActionLibrary(isWithActionLibrary: boolean  | undefined) {
+        this['is_with_action_library'] = isWithActionLibrary;
+    }
+    public get isWithActionLibrary(): boolean | undefined {
+        return this['is_with_action_library'];
+    }
+    public withActionTagMap(actionTagMap: Array<ActionTagInfo>): HumanModel2DAssetMeta {
+        this['action_tag_map'] = actionTagMap;
+        return this;
+    }
+    public set actionTagMap(actionTagMap: Array<ActionTagInfo>  | undefined) {
+        this['action_tag_map'] = actionTagMap;
+    }
+    public get actionTagMap(): Array<ActionTagInfo> | undefined {
+        return this['action_tag_map'];
+    }
+    public withIsFlexus(isFlexus: boolean): HumanModel2DAssetMeta {
+        this['is_flexus'] = isFlexus;
+        return this;
+    }
+    public set isFlexus(isFlexus: boolean  | undefined) {
+        this['is_flexus'] = isFlexus;
+    }
+    public get isFlexus(): boolean | undefined {
+        return this['is_flexus'];
     }
 }
 

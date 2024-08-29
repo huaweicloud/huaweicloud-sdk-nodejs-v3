@@ -1,7 +1,7 @@
 
 
 export class ListShareBandwidthTypesRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     public id?: string;
     private 'bandwidth_type'?: string;
     private 'name_en'?: string;
@@ -14,7 +14,7 @@ export class ListShareBandwidthTypesRequest {
     public offset?: number;
     public constructor() { 
     }
-    public withFields(fields: string): ListShareBandwidthTypesRequest {
+    public withFields(fields: Array<string>): ListShareBandwidthTypesRequest {
         this['fields'] = fields;
         return this;
     }

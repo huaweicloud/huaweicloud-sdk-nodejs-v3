@@ -138,7 +138,7 @@ export class CbhClient {
      *
      * @summary 修改单机堡垒机实例类型
      * @param {string} serverId 实例id
-     * @param {string} [availabilityZone] 可用分区名称。  可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取
+     * @param {string} [availabilityZone] 可用分区名称。  可参考接口\&quot;获取服务可用区\&quot;获取
      * @param {number} [isAutoPay] 是否自动支付，下单订购后，是否自动从客户的华为云账户中支付，而不需要客户手动去进行支付。 - 1：是（会自动选择折扣和优惠券进行优惠，然后自动从客户华为云账户中支付），自动支付失败后会生成订单成功(该订单应付金额是优惠后金额)、但订单状态为“待支付”，等待客户手动支付(手动支付时，客户还可以修改系统自动选择的折扣和优惠券) - 0：否（需要客户手动去支付，客户可以选择折扣和优惠券。）  默认值为“0”
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -215,7 +215,7 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 堡垒机实例绑定弹性公网IP
-     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  [实例ID获取方式](https://support.huaweicloud.com/usermanual-cbh/cbh_02_1003.html)。
+     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  获取方法详见用户指南里面的实例\&quot;查看实例详情\&quot;
      * @param {OperateEipRequestBody} installInstanceEipRequestBody InstallInstanceEipRequestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -350,7 +350,7 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 用户登录堡垒机实例admin的console
-     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  [实例ID获取方式](https://support.huaweicloud.com/usermanual-cbh/cbh_02_1003.html)。
+     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  获取方法详见用户指南里面的实例\&quot;查看实例详情\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -501,8 +501,8 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取创建堡垒机实例所需ECS资源配额
-     * @param {string} availabilityZone 可用分区名称。  可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取
-     * @param {string} resourceSpecCode 待创建云堡垒机规格ID，例如： - cbh.basic.10  10资产标准版 - cbh.enhance.10  10资产专业版  已上线的规格详情请参见《云堡垒机常见问题》的购买，[云堡垒机实例有哪些规格](https://support.huaweicloud.com/cbh_faq/cbh_03_0025.html)章节或调用接口[查询云堡垒机规格信息](https://support.huaweicloud.com/api-cbh/ShowSpecInfo.html)获取。
+     * @param {string} availabilityZone 可用分区名称。  可参考接口\&quot;获取服务可用区\&quot;获取
+     * @param {string} resourceSpecCode 待创建云堡垒机规格ID，例如： - cbh.basic.10  10资产标准版 - cbh.enhance.10  10资产专业版  可参考接口\&quot;查询云堡垒机规格信息\&quot;获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -521,7 +521,7 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取堡垒机实例状态信息
-     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  [实例ID获取方式](https://support.huaweicloud.com/usermanual-cbh/cbh_02_1003.html)。
+     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  获取方法详见用户指南里面的实例\&quot;查看实例详情\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -655,7 +655,7 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 堡垒机实例解绑弹性公网IP
-     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  [实例ID获取方式](https://support.huaweicloud.com/usermanual-cbh/cbh_02_1003.html)。
+     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  获取方法详见用户指南里面的实例\&quot;查看实例详情\&quot;
      * @param {OperateEipRequestBody} uninstallInstanceEipRequestBody UninstallInstanceEipRequestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -675,7 +675,7 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改堡垒机实例安全组
-     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  [实例ID获取方式](https://support.huaweicloud.com/usermanual-cbh/cbh_02_1003.html)。
+     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  获取方法详见用户指南里面的实例\&quot;查看实例详情\&quot;
      * @param {ChangeInstanceSecurityGroups} updateInstanceSecurityGroupRequestBody UpdateInstanceSecurityGroupRequestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

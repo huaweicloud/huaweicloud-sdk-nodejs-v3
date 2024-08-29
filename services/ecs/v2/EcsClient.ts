@@ -74,6 +74,7 @@ import { ChangeVpcRequest } from './model/ChangeVpcRequest';
 import { ChangeVpcRequestBody } from './model/ChangeVpcRequestBody';
 import { ChangeVpcResponse } from './model/ChangeVpcResponse';
 import { ChangeVpcSecurityGroups } from './model/ChangeVpcSecurityGroups';
+import { CloudServer } from './model/CloudServer';
 import { CpuOptions } from './model/CpuOptions';
 import { CreatePostPaidServersRequest } from './model/CreatePostPaidServersRequest';
 import { CreatePostPaidServersRequestBody } from './model/CreatePostPaidServersRequestBody';
@@ -105,18 +106,23 @@ import { DisassociateServerVirtualIpOption } from './model/DisassociateServerVir
 import { DisassociateServerVirtualIpRequest } from './model/DisassociateServerVirtualIpRequest';
 import { DisassociateServerVirtualIpRequestBody } from './model/DisassociateServerVirtualIpRequestBody';
 import { DisassociateServerVirtualIpResponse } from './model/DisassociateServerVirtualIpResponse';
+import { Fault } from './model/Fault';
 import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
 import { FlavorLink } from './model/FlavorLink';
+import { FlavorQuasar } from './model/FlavorQuasar';
 import { FlavorSpotOptions } from './model/FlavorSpotOptions';
 import { GetServerRemoteConsoleOption } from './model/GetServerRemoteConsoleOption';
 import { GpuInfo } from './model/GpuInfo';
 import { Hypervisor } from './model/Hypervisor';
+import { Image } from './model/Image';
 import { InterfaceAttachableQuantity } from './model/InterfaceAttachableQuantity';
 import { InterfaceAttachment } from './model/InterfaceAttachment';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobEntities } from './model/JobEntities';
 import { Link } from './model/Link';
+import { ListCloudServersRequest } from './model/ListCloudServersRequest';
+import { ListCloudServersResponse } from './model/ListCloudServersResponse';
 import { ListFlavorSellPoliciesRequest } from './model/ListFlavorSellPoliciesRequest';
 import { ListFlavorSellPoliciesResponse } from './model/ListFlavorSellPoliciesResponse';
 import { ListFlavorSellPoliciesResult } from './model/ListFlavorSellPoliciesResult';
@@ -140,10 +146,13 @@ import { ListServersByTagRequestBody } from './model/ListServersByTagRequestBody
 import { ListServersByTagResponse } from './model/ListServersByTagResponse';
 import { ListServersDetailsRequest } from './model/ListServersDetailsRequest';
 import { ListServersDetailsResponse } from './model/ListServersDetailsResponse';
+import { MarketModel } from './model/MarketModel';
+import { MarketModelPrepaidInfo } from './model/MarketModelPrepaidInfo';
 import { MigrateServerOption } from './model/MigrateServerOption';
 import { MigrateServerRequest } from './model/MigrateServerRequest';
 import { MigrateServerRequestBody } from './model/MigrateServerRequestBody';
 import { MigrateServerResponse } from './model/MigrateServerResponse';
+import { NetworkAddresses } from './model/NetworkAddresses';
 import { NovaAddSecurityGroupOption } from './model/NovaAddSecurityGroupOption';
 import { NovaAssociateSecurityGroupRequest } from './model/NovaAssociateSecurityGroupRequest';
 import { NovaAssociateSecurityGroupRequestBody } from './model/NovaAssociateSecurityGroupRequestBody';
@@ -279,6 +288,7 @@ import { ResizeServerRequest } from './model/ResizeServerRequest';
 import { ResizeServerRequestBody } from './model/ResizeServerRequestBody';
 import { ResizeServerResponse } from './model/ResizeServerResponse';
 import { ResourceTag } from './model/ResourceTag';
+import { SecurityGroup } from './model/SecurityGroup';
 import { ServerAddress } from './model/ServerAddress';
 import { ServerAttachableQuantity } from './model/ServerAttachableQuantity';
 import { ServerBlockDevice } from './model/ServerBlockDevice';
@@ -338,6 +348,7 @@ import { UpdateServerRequest } from './model/UpdateServerRequest';
 import { UpdateServerRequestBody } from './model/UpdateServerRequestBody';
 import { UpdateServerResponse } from './model/UpdateServerResponse';
 import { UpdateServerResult } from './model/UpdateServerResult';
+import { VolumeAttach } from './model/VolumeAttach';
 
 export class EcsClient {
     public static newBuilder(): ClientBuilder<EcsClient> {
@@ -957,6 +968,43 @@ export class EcsClient {
      */
     public disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest): Promise<DisassociateServerVirtualIpResponse> {
         const options = ParamCreater().disassociateServerVirtualIp(disassociateServerVirtualIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云服务器列表接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云服务器列表接口
+     * @param {string} [id] 云服务器ID，格式为UUID，匹配规则为精确匹配。
+     * @param {string} [name] 云服务器名称，匹配规则为模糊匹配。
+     * @param {string} [status] 云服务器状态。  取值范围：  ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  弹性云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)
+     * @param {boolean} [inRecycleBin] 云服务器是否处于回收站中
+     * @param {string} [spodId] 共池裸机按整机柜发放的同一批次的批创id。
+     * @param {string} [flavorName] 云服务器规格名称。
+     * @param {string} [imageId] 镜像ID。
+     * @param {string} [metadata] 元数据过滤，支持key&#x3D;value过滤。
+     * @param {string} [metadataKey] 元数据key过滤。
+     * @param {string} [tags] 查询tag字段中包含该值的云服务器。
+     * @param {string} [notTags]  查询tag字段中不包含该值的云服务器
+     * @param {string} [availabilityZone] 云服务器所在的AZ，匹配规则为模糊匹配。
+     * @param {string} [availabilityZoneEq] 云服务器所在的AZ，匹配规则为精确匹配。
+     * @param {string} [chargingMode] 云服务器的计费类型。
+     * @param {string} [keyName] 云服务器使用的密钥对名称。
+     * @param {string} [launchedSince] 过滤在launched_since时间之后启动的云服务器。格式为ISO8601时间格式，例如：2013-06-09T06:42:18Z。
+     * @param {string} [enterpriseProjectId] 过滤绑定某个企业项目的云服务器。 若需要查询当前用户所有企业项目绑定的云服务，请传参all_granted_eps。
+     * @param {Array<string>} [expectFields] 控制查询输出的字段。在默认字段的基础上选择是否查询，有管理员字段。
+     * @param {number} [limit] 查询返回VM数量限制。 limit 默认为10，最大为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudServers(listCloudServersRequest?: ListCloudServersRequest): Promise<ListCloudServersResponse> {
+        const options = ParamCreater().listCloudServers(listCloudServersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3211,6 +3259,169 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'nic_id': nicId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云服务器列表接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudServers(listCloudServersRequest?: ListCloudServersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/cloudservers/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let status;
+            
+            let inRecycleBin;
+            
+            let spodId;
+            
+            let flavorName;
+            
+            let imageId;
+            
+            let metadata;
+            
+            let metadataKey;
+            
+            let tags;
+            
+            let notTags;
+            
+            let availabilityZone;
+            
+            let availabilityZoneEq;
+            
+            let chargingMode;
+            
+            let keyName;
+            
+            let launchedSince;
+            
+            let enterpriseProjectId;
+            
+            let expectFields;
+            
+            let limit;
+
+            if (listCloudServersRequest !== null && listCloudServersRequest !== undefined) {
+                if (listCloudServersRequest instanceof ListCloudServersRequest) {
+                    id = listCloudServersRequest.id;
+                    name = listCloudServersRequest.name;
+                    status = listCloudServersRequest.status;
+                    inRecycleBin = listCloudServersRequest.inRecycleBin;
+                    spodId = listCloudServersRequest.spodId;
+                    flavorName = listCloudServersRequest.flavorName;
+                    imageId = listCloudServersRequest.imageId;
+                    metadata = listCloudServersRequest.metadata;
+                    metadataKey = listCloudServersRequest.metadataKey;
+                    tags = listCloudServersRequest.tags;
+                    notTags = listCloudServersRequest.notTags;
+                    availabilityZone = listCloudServersRequest.availabilityZone;
+                    availabilityZoneEq = listCloudServersRequest.availabilityZoneEq;
+                    chargingMode = listCloudServersRequest.chargingMode;
+                    keyName = listCloudServersRequest.keyName;
+                    launchedSince = listCloudServersRequest.launchedSince;
+                    enterpriseProjectId = listCloudServersRequest.enterpriseProjectId;
+                    expectFields = listCloudServersRequest.expectFields;
+                    limit = listCloudServersRequest.limit;
+                } else {
+                    id = listCloudServersRequest['id'];
+                    name = listCloudServersRequest['name'];
+                    status = listCloudServersRequest['status'];
+                    inRecycleBin = listCloudServersRequest['in_recycle_bin'];
+                    spodId = listCloudServersRequest['spod_id'];
+                    flavorName = listCloudServersRequest['flavor_name'];
+                    imageId = listCloudServersRequest['image_id'];
+                    metadata = listCloudServersRequest['metadata'];
+                    metadataKey = listCloudServersRequest['metadata-key'];
+                    tags = listCloudServersRequest['tags'];
+                    notTags = listCloudServersRequest['not-tags'];
+                    availabilityZone = listCloudServersRequest['availability_zone'];
+                    availabilityZoneEq = listCloudServersRequest['availability_zone_eq'];
+                    chargingMode = listCloudServersRequest['charging_mode'];
+                    keyName = listCloudServersRequest['key_name'];
+                    launchedSince = listCloudServersRequest['launched_since'];
+                    enterpriseProjectId = listCloudServersRequest['enterprise_project_id'];
+                    expectFields = listCloudServersRequest['expect-fields'];
+                    limit = listCloudServersRequest['limit'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (inRecycleBin !== null && inRecycleBin !== undefined) {
+                localVarQueryParameter['in_recycle_bin'] = inRecycleBin;
+            }
+            if (spodId !== null && spodId !== undefined) {
+                localVarQueryParameter['spod_id'] = spodId;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+            if (imageId !== null && imageId !== undefined) {
+                localVarQueryParameter['image_id'] = imageId;
+            }
+            if (metadata !== null && metadata !== undefined) {
+                localVarQueryParameter['metadata'] = metadata;
+            }
+            if (metadataKey !== null && metadataKey !== undefined) {
+                localVarQueryParameter['metadata-key'] = metadataKey;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (notTags !== null && notTags !== undefined) {
+                localVarQueryParameter['not-tags'] = notTags;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (availabilityZoneEq !== null && availabilityZoneEq !== undefined) {
+                localVarQueryParameter['availability_zone_eq'] = availabilityZoneEq;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (keyName !== null && keyName !== undefined) {
+                localVarQueryParameter['key_name'] = keyName;
+            }
+            if (launchedSince !== null && launchedSince !== undefined) {
+                localVarQueryParameter['launched_since'] = launchedSince;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (expectFields !== null && expectFields !== undefined) {
+                localVarQueryParameter['expect-fields'] = expectFields;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

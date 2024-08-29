@@ -12,6 +12,7 @@ export class ListDigitalHumanVideoRequest {
     private 'sort_dir'?: string;
     private 'create_until'?: string;
     private 'create_since'?: string;
+    private 'fuzzy_query_field'?: Array<string>;
     private 'script_id'?: string;
     private 'asset_name'?: string;
     private 'job_type'?: string;
@@ -109,6 +110,16 @@ export class ListDigitalHumanVideoRequest {
     }
     public get createSince(): string | undefined {
         return this['create_since'];
+    }
+    public withFuzzyQueryField(fuzzyQueryField: Array<string>): ListDigitalHumanVideoRequest {
+        this['fuzzy_query_field'] = fuzzyQueryField;
+        return this;
+    }
+    public set fuzzyQueryField(fuzzyQueryField: Array<string>  | undefined) {
+        this['fuzzy_query_field'] = fuzzyQueryField;
+    }
+    public get fuzzyQueryField(): Array<string> | undefined {
+        return this['fuzzy_query_field'];
     }
     public withScriptId(scriptId: string): ListDigitalHumanVideoRequest {
         this['script_id'] = scriptId;

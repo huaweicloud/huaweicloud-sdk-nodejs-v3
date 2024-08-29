@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
 import { ActionMarkItem } from './model/ActionMarkItem';
+import { ActionTagInfo } from './model/ActionTagInfo';
 import { ActiveCodeInfo } from './model/ActiveCodeInfo';
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
 import { AnimationItem } from './model/AnimationItem';
@@ -30,7 +31,6 @@ import { Cancel2DDigitalHumanVideoResponse } from './model/Cancel2DDigitalHumanV
 import { CancelPhotoDigitalHumanVideoRequest } from './model/CancelPhotoDigitalHumanVideoRequest';
 import { CancelPhotoDigitalHumanVideoResponse } from './model/CancelPhotoDigitalHumanVideoResponse';
 import { ChatSubtitleConfig } from './model/ChatSubtitleConfig';
-import { ChatVideoConfigRsp } from './model/ChatVideoConfigRsp';
 import { CoStreamerConfig } from './model/CoStreamerConfig';
 import { CommentData } from './model/CommentData';
 import { CommentLogInfo } from './model/CommentLogInfo';
@@ -260,6 +260,8 @@ import { ListHotWordsRequest } from './model/ListHotWordsRequest';
 import { ListHotWordsResponse } from './model/ListHotWordsResponse';
 import { ListInteractionRuleGroupsRequest } from './model/ListInteractionRuleGroupsRequest';
 import { ListInteractionRuleGroupsResponse } from './model/ListInteractionRuleGroupsResponse';
+import { ListJobOperationLogRequest } from './model/ListJobOperationLogRequest';
+import { ListJobOperationLogResponse } from './model/ListJobOperationLogResponse';
 import { ListKnowledgeIntentRequest } from './model/ListKnowledgeIntentRequest';
 import { ListKnowledgeIntentResponse } from './model/ListKnowledgeIntentResponse';
 import { ListKnowledgeQuestionRequest } from './model/ListKnowledgeQuestionRequest';
@@ -310,6 +312,7 @@ import { MobvoiConfig } from './model/MobvoiConfig';
 import { ModelInfo } from './model/ModelInfo';
 import { MotionItem } from './model/MotionItem';
 import { MultipartUploadInfo } from './model/MultipartUploadInfo';
+import { OpExternalInfo } from './model/OpExternalInfo';
 import { OperationLogInfo } from './model/OperationLogInfo';
 import { OutputAssetConfig } from './model/OutputAssetConfig';
 import { OutputAssetInfo } from './model/OutputAssetInfo';
@@ -336,12 +339,14 @@ import { ReplicationAssetInfo } from './model/ReplicationAssetInfo';
 import { ReplicationEncInfo } from './model/ReplicationEncInfo';
 import { ReplyAudioInfo } from './model/ReplyAudioInfo';
 import { ReportLiveEventReq } from './model/ReportLiveEventReq';
+import { ResetActiveCodeReq } from './model/ResetActiveCodeReq';
 import { ResetActiveCodeRequest } from './model/ResetActiveCodeRequest';
 import { ResetActiveCodeResponse } from './model/ResetActiveCodeResponse';
 import { RestoreAssetRequest } from './model/RestoreAssetRequest';
 import { RestoreAssetResponse } from './model/RestoreAssetResponse';
 import { ReviewConfig } from './model/ReviewConfig';
 import { RobotInfo } from './model/RobotInfo';
+import { RobotTypeEnum } from './model/RobotTypeEnum';
 import { SceneAssetMeta } from './model/SceneAssetMeta';
 import { SceneComponentInfo } from './model/SceneComponentInfo';
 import { SetProductAssetRequest } from './model/SetProductAssetRequest';
@@ -418,7 +423,10 @@ import { ShowWelcomeSpeechRequest } from './model/ShowWelcomeSpeechRequest';
 import { ShowWelcomeSpeechResponse } from './model/ShowWelcomeSpeechResponse';
 import { ShowWelcomeSpeechSwitchRequest } from './model/ShowWelcomeSpeechSwitchRequest';
 import { ShowWelcomeSpeechSwitchResponse } from './model/ShowWelcomeSpeechSwitchResponse';
+import { SmartChatJobsReq } from './model/SmartChatJobsReq';
 import { SmartChatRoomBaseInfo } from './model/SmartChatRoomBaseInfo';
+import { SmartChatSubtitleConfig } from './model/SmartChatSubtitleConfig';
+import { SmartChatVideoConfig } from './model/SmartChatVideoConfig';
 import { SmartImageLayerConfig } from './model/SmartImageLayerConfig';
 import { SmartLayerConfig } from './model/SmartLayerConfig';
 import { SmartLiveJob } from './model/SmartLiveJob';
@@ -440,6 +448,8 @@ import { StyleAssetItem } from './model/StyleAssetItem';
 import { StyleExtraMeta } from './model/StyleExtraMeta';
 import { StyleInfo } from './model/StyleInfo';
 import { SubtitleConfig } from './model/SubtitleConfig';
+import { SubtitleFileInfo } from './model/SubtitleFileInfo';
+import { SupportedServiceEnum } from './model/SupportedServiceEnum';
 import { SystemProperty } from './model/SystemProperty';
 import { TTSAJob } from './model/TTSAJob';
 import { TextConfig } from './model/TextConfig';
@@ -613,6 +623,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {ResetActiveCodeReq} [resetActiveCodeRequestBody] 重置激活码请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -678,7 +689,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建委托
-     * @param {'CBS' | 'SIS'} roleType 委托授权类型 * CBS:对话机器人服务（CBS）访客 * SIS:语音交互服务(SIS)调用
+     * @param {'CBS' | 'SIS'} roleType 委托授权类型 * CBS:对话机器人服务(CBS)访客 * SIS:语音交互服务(SIS)调用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -697,7 +708,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除委托
-     * @param {'CBS' | 'SIS'} roleType 委托授权类型 * CBS:对话机器人服务（CBS）访客 * SIS:语音交互服务(SIS)调用
+     * @param {'CBS' | 'SIS'} roleType 委托授权类型 * CBS:对话机器人服务(CBS)访客 * SIS:语音交互服务(SIS)调用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -716,7 +727,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询委托
-     * @param {'CBS' | 'SIS'} [roleType] 委托授权类型 * CBS:对话机器人服务（CBS）访客 * SIS:语音交互服务(SIS)调用
+     * @param {'CBS' | 'SIS'} [roleType] 委托授权类型 * CBS:对话机器人服务(CBS)访客 * SIS:语音交互服务(SIS)调用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -788,6 +799,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {SmartChatJobsReq} [startSmartChatJobRequestBody] 启动智能交互任务请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -951,20 +963,23 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {string} [name] 按名称模糊查询。
      * @param {string} [tag] 按标签模糊查询。
-     * @param {string} [startTime] 起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
-     * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
+     * @param {'INTERSECTION' | 'UNION_SET'} [tagCombinationType] 标签查询组合方式 INTERSECTION：交集 UNION_SET：并集
+     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
+     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {string} [assetType] 资产类型。多个类型使用英文逗号分割。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {'SYSTEM' | 'CUSTOMIZATION' | 'ALL'} [assetSource] 资产来源。 * SYSTEM：系统资产 * CUSTOMIZATION：租户资产 * ALL：所有资产  默认查询租户资产。
      * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分割。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 默认查询所有状态的资产。
      * @param {string} [styleId] 基于风格化ID查询关联资产。 * system_male_001：男性风格01 * system_female_001：女性风格01 * system_male_002：男性风格02  * system_female_002：女性风格02
+     * @param {Array<string>} [accurateQueryField] 使用精确查询的字段
      * @param {string} [renderEngine] 可用引擎。 * UE：UE引擎 * MetaEngine：MetaEngine引擎 &gt; 该字段当前只对MetaEngine白名单用户生效
      * @param {Array<string>} [assetId] 资产id
      * @param {string} [sex] 性别。多选使用英文逗号分隔。
      * @param {string} [language] 语言。多选使用英文逗号分隔。
      * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes * TO_BE_TRANSLATED_VIDEO: 视频翻译的源视频。可取值Yes  3D数字人资产属性： * STYLE_ID：风格Id * RENDER_ENGINE：引擎类型，可取值UE或MetaEngine * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）
      * @param {boolean} [actionEditable] 动作是否可编辑。仅在分身数字人模型查询时有效。
+     * @param {boolean} [isWithActionLibrary] 分身数字人是否带原子动作库。 &gt; * 带原子动作库的分身数字人可做动作编排。
      * @param {boolean} [isMovable] 分身数字人是否支持走动。仅在分身数字人模型查询时有效。
      * @param {string} [voiceProvider] 取值：HUAWEI_METASTUDIO、MOBVOI。 HUAWEI_METASTUDIO：MetaStudio自研音色 MOBVOI：出门问问音色
      * @param {'SHARER' | 'SHAREE'} [role] 角色。 SHARER：共享方，SHAREE：被共享方
@@ -972,6 +987,7 @@ export class MetaStudioClient {
      * @param {string} [humanModel2dVersion] 模型版本
      * @param {string} [includeDeviceName] 资产已执行的任务名称
      * @param {string} [excludeDeviceName] 资产已执行的任务名称
+     * @param {'VIDEO_2D' | 'LIVE_2D' | 'CHAT_2D'} [supportedService] 资产支持的业务类型。默认查询所有资产。 * VIDEO_2D：分身数字人视频制作 * LIVE_2D：分身数字人直播 * CHAT_2D：分身数字人智能交互
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1132,7 +1148,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
@@ -1209,10 +1225,11 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {Array<string>} [fuzzyQueryField] 使用模糊查询的字段
      * @param {string} [scriptId] 剧本ID。
      * @param {string} [assetName] 输出视频资产名称。
      * @param {string} [jobType] 任务类型。 * 2D_DIGITAL_HUMAN_VIDEO: 分身数字人视频制作任务 * PHOTO_DIGITAL_HUMAN_VIDEO: 照片数字人视频制作任务
@@ -2320,7 +2337,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
@@ -2417,7 +2434,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
@@ -2566,6 +2583,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [roomId] 智能交互对话房间ID。
+     * @param {'LIVE' | 'CHAT'} [robotType] 交互对接类型  * LIVE:直播交互  * CHAT:智能交互
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2785,7 +2803,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
@@ -2814,7 +2832,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
@@ -3166,7 +3184,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
@@ -3332,6 +3350,27 @@ export class MetaStudioClient {
     }
 
     /**
+     * 查询任务操作日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务操作日志
+     * @param {string} jobId 任务id
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobOperationLog(listJobOperationLogRequest?: ListJobOperationLogRequest): Promise<ListJobOperationLogResponse> {
+        const options = ParamCreater().listJobOperationLog(listJobOperationLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询语音训练任务列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3346,6 +3385,7 @@ export class MetaStudioClient {
      * @param {string} [jobId] 任务id。
      * @param {string} [voiceName] 声音名称。
      * @param {string} [tag] 任务标签。
+     * @param {string} [jobType] 训练类型。 * BASIC: 基础版(20句话) * MIDDLE: 进阶版(100句话) * ADVANCE: 高级版 * THIRD_PARTY: 第三方出门问问训练版 * THIRD_PARTY_LJZN: 第三方逻辑智能训练版 * FLEXUS: Flexus版---用的是大模型特征提取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3521,7 +3561,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
@@ -4403,10 +4443,12 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let activeCodeId;
             
@@ -4425,12 +4467,14 @@ export const ParamCreater = function () {
                     xSdkDate = resetActiveCodeRequest.xSdkDate;
                     xProjectId = resetActiveCodeRequest.xProjectId;
                     xAppUserId = resetActiveCodeRequest.xAppUserId;
+                    body = resetActiveCodeRequest.body
                 } else {
                     activeCodeId = resetActiveCodeRequest['active_code_id'];
                     authorization = resetActiveCodeRequest['Authorization'];
                     xSdkDate = resetActiveCodeRequest['X-Sdk-Date'];
                     xProjectId = resetActiveCodeRequest['X-Project-Id'];
                     xAppUserId = resetActiveCodeRequest['X-App-UserId'];
+                    body = resetActiveCodeRequest['body'];
                 }
             }
 
@@ -4450,7 +4494,9 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'active_code_id': activeCodeId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4856,10 +4902,12 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            let body: any;
             
             let roomId;
             
@@ -4881,6 +4929,7 @@ export const ParamCreater = function () {
                     xSdkDate = startSmartChatJobRequest.xSdkDate;
                     xProjectId = startSmartChatJobRequest.xProjectId;
                     xAppUserId = startSmartChatJobRequest.xAppUserId;
+                    body = startSmartChatJobRequest.body
                 } else {
                     roomId = startSmartChatJobRequest['room_id'];
                     robotId = startSmartChatJobRequest['robot_id'];
@@ -4888,6 +4937,7 @@ export const ParamCreater = function () {
                     xSdkDate = startSmartChatJobRequest['X-Sdk-Date'];
                     xProjectId = startSmartChatJobRequest['X-Project-Id'];
                     xAppUserId = startSmartChatJobRequest['X-App-UserId'];
+                    body = startSmartChatJobRequest['body'];
                 }
             }
 
@@ -4913,7 +4963,9 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'room_id': roomId, };
             options.headers = localVarHeaderParameter;
@@ -5325,6 +5377,8 @@ export const ParamCreater = function () {
             
             let tag;
             
+            let tagCombinationType;
+            
             let startTime;
             
             let endTime;
@@ -5341,6 +5395,8 @@ export const ParamCreater = function () {
             
             let styleId;
             
+            let accurateQueryField;
+            
             let renderEngine;
             
             let assetId;
@@ -5352,6 +5408,8 @@ export const ParamCreater = function () {
             let systemProperty;
             
             let actionEditable;
+            
+            let isWithActionLibrary;
             
             let isMovable;
             
@@ -5366,6 +5424,8 @@ export const ParamCreater = function () {
             let includeDeviceName;
             
             let excludeDeviceName;
+            
+            let supportedService;
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
@@ -5376,6 +5436,7 @@ export const ParamCreater = function () {
                     offset = listAssetsRequest.offset;
                     name = listAssetsRequest.name;
                     tag = listAssetsRequest.tag;
+                    tagCombinationType = listAssetsRequest.tagCombinationType;
                     startTime = listAssetsRequest.startTime;
                     endTime = listAssetsRequest.endTime;
                     assetType = listAssetsRequest.assetType;
@@ -5384,12 +5445,14 @@ export const ParamCreater = function () {
                     assetSource = listAssetsRequest.assetSource;
                     assetState = listAssetsRequest.assetState;
                     styleId = listAssetsRequest.styleId;
+                    accurateQueryField = listAssetsRequest.accurateQueryField;
                     renderEngine = listAssetsRequest.renderEngine;
                     assetId = listAssetsRequest.assetId;
                     sex = listAssetsRequest.sex;
                     language = listAssetsRequest.language;
                     systemProperty = listAssetsRequest.systemProperty;
                     actionEditable = listAssetsRequest.actionEditable;
+                    isWithActionLibrary = listAssetsRequest.isWithActionLibrary;
                     isMovable = listAssetsRequest.isMovable;
                     voiceProvider = listAssetsRequest.voiceProvider;
                     role = listAssetsRequest.role;
@@ -5397,6 +5460,7 @@ export const ParamCreater = function () {
                     humanModel2dVersion = listAssetsRequest.humanModel2dVersion;
                     includeDeviceName = listAssetsRequest.includeDeviceName;
                     excludeDeviceName = listAssetsRequest.excludeDeviceName;
+                    supportedService = listAssetsRequest.supportedService;
                 } else {
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
@@ -5405,6 +5469,7 @@ export const ParamCreater = function () {
                     offset = listAssetsRequest['offset'];
                     name = listAssetsRequest['name'];
                     tag = listAssetsRequest['tag'];
+                    tagCombinationType = listAssetsRequest['tag_combination_type'];
                     startTime = listAssetsRequest['start_time'];
                     endTime = listAssetsRequest['end_time'];
                     assetType = listAssetsRequest['asset_type'];
@@ -5413,12 +5478,14 @@ export const ParamCreater = function () {
                     assetSource = listAssetsRequest['asset_source'];
                     assetState = listAssetsRequest['asset_state'];
                     styleId = listAssetsRequest['style_id'];
+                    accurateQueryField = listAssetsRequest['accurate_query_field'];
                     renderEngine = listAssetsRequest['render_engine'];
                     assetId = listAssetsRequest['asset_id'];
                     sex = listAssetsRequest['sex'];
                     language = listAssetsRequest['language'];
                     systemProperty = listAssetsRequest['system_property'];
                     actionEditable = listAssetsRequest['action_editable'];
+                    isWithActionLibrary = listAssetsRequest['is_with_action_library'];
                     isMovable = listAssetsRequest['is_movable'];
                     voiceProvider = listAssetsRequest['voice_provider'];
                     role = listAssetsRequest['role'];
@@ -5426,6 +5493,7 @@ export const ParamCreater = function () {
                     humanModel2dVersion = listAssetsRequest['human_model_2d_version'];
                     includeDeviceName = listAssetsRequest['include_device_name'];
                     excludeDeviceName = listAssetsRequest['exclude_device_name'];
+                    supportedService = listAssetsRequest['supported_service'];
                 }
             }
 
@@ -5441,6 +5509,9 @@ export const ParamCreater = function () {
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
+            }
+            if (tagCombinationType !== null && tagCombinationType !== undefined) {
+                localVarQueryParameter['tag_combination_type'] = tagCombinationType;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;
@@ -5466,6 +5537,9 @@ export const ParamCreater = function () {
             if (styleId !== null && styleId !== undefined) {
                 localVarQueryParameter['style_id'] = styleId;
             }
+            if (accurateQueryField !== null && accurateQueryField !== undefined) {
+                localVarQueryParameter['accurate_query_field'] = accurateQueryField;
+            }
             if (renderEngine !== null && renderEngine !== undefined) {
                 localVarQueryParameter['render_engine'] = renderEngine;
             }
@@ -5483,6 +5557,9 @@ export const ParamCreater = function () {
             }
             if (actionEditable !== null && actionEditable !== undefined) {
                 localVarQueryParameter['action_editable'] = actionEditable;
+            }
+            if (isWithActionLibrary !== null && isWithActionLibrary !== undefined) {
+                localVarQueryParameter['is_with_action_library'] = isWithActionLibrary;
             }
             if (isMovable !== null && isMovable !== undefined) {
                 localVarQueryParameter['is_movable'] = isMovable;
@@ -5504,6 +5581,9 @@ export const ParamCreater = function () {
             }
             if (excludeDeviceName !== null && excludeDeviceName !== undefined) {
                 localVarQueryParameter['exclude_device_name'] = excludeDeviceName;
+            }
+            if (supportedService !== null && supportedService !== undefined) {
+                localVarQueryParameter['supported_service'] = supportedService;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -6184,6 +6264,8 @@ export const ParamCreater = function () {
             
             let createSince;
             
+            let fuzzyQueryField;
+            
             let scriptId;
             
             let assetName;
@@ -6205,6 +6287,7 @@ export const ParamCreater = function () {
                     sortDir = listDigitalHumanVideoRequest.sortDir;
                     createUntil = listDigitalHumanVideoRequest.createUntil;
                     createSince = listDigitalHumanVideoRequest.createSince;
+                    fuzzyQueryField = listDigitalHumanVideoRequest.fuzzyQueryField;
                     scriptId = listDigitalHumanVideoRequest.scriptId;
                     assetName = listDigitalHumanVideoRequest.assetName;
                     jobType = listDigitalHumanVideoRequest.jobType;
@@ -6221,6 +6304,7 @@ export const ParamCreater = function () {
                     sortDir = listDigitalHumanVideoRequest['sort_dir'];
                     createUntil = listDigitalHumanVideoRequest['create_until'];
                     createSince = listDigitalHumanVideoRequest['create_since'];
+                    fuzzyQueryField = listDigitalHumanVideoRequest['fuzzy_query_field'];
                     scriptId = listDigitalHumanVideoRequest['script_id'];
                     assetName = listDigitalHumanVideoRequest['asset_name'];
                     jobType = listDigitalHumanVideoRequest['job_type'];
@@ -6249,6 +6333,9 @@ export const ParamCreater = function () {
             }
             if (createSince !== null && createSince !== undefined) {
                 localVarQueryParameter['create_since'] = createSince;
+            }
+            if (fuzzyQueryField !== null && fuzzyQueryField !== undefined) {
+                localVarQueryParameter['fuzzy_query_field'] = fuzzyQueryField;
             }
             if (scriptId !== null && scriptId !== undefined) {
                 localVarQueryParameter['script_id'] = scriptId;
@@ -10266,6 +10353,8 @@ export const ParamCreater = function () {
             let limit;
             
             let roomId;
+            
+            let robotType;
 
             if (listRobotRequest !== null && listRobotRequest !== undefined) {
                 if (listRobotRequest instanceof ListRobotRequest) {
@@ -10276,6 +10365,7 @@ export const ParamCreater = function () {
                     offset = listRobotRequest.offset;
                     limit = listRobotRequest.limit;
                     roomId = listRobotRequest.roomId;
+                    robotType = listRobotRequest.robotType;
                 } else {
                     authorization = listRobotRequest['Authorization'];
                     xSdkDate = listRobotRequest['X-Sdk-Date'];
@@ -10284,6 +10374,7 @@ export const ParamCreater = function () {
                     offset = listRobotRequest['offset'];
                     limit = listRobotRequest['limit'];
                     roomId = listRobotRequest['room_id'];
+                    robotType = listRobotRequest['robot_type'];
                 }
             }
 
@@ -10296,6 +10387,9 @@ export const ParamCreater = function () {
             }
             if (roomId !== null && roomId !== undefined) {
                 localVarQueryParameter['room_id'] = roomId;
+            }
+            if (robotType !== null && robotType !== undefined) {
+                localVarQueryParameter['robot_type'] = robotType;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -12638,6 +12732,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询任务操作日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJobOperationLog(listJobOperationLogRequest?: ListJobOperationLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs/{job_id}/op-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listJobOperationLogRequest !== null && listJobOperationLogRequest !== undefined) {
+                if (listJobOperationLogRequest instanceof ListJobOperationLogRequest) {
+                    jobId = listJobOperationLogRequest.jobId;
+                    offset = listJobOperationLogRequest.offset;
+                    limit = listJobOperationLogRequest.limit;
+                } else {
+                    jobId = listJobOperationLogRequest['job_id'];
+                    offset = listJobOperationLogRequest['offset'];
+                    limit = listJobOperationLogRequest['limit'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listJobOperationLog.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询语音训练任务列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12671,6 +12817,8 @@ export const ParamCreater = function () {
             let voiceName;
             
             let tag;
+            
+            let jobType;
 
             if (listVoiceTrainingJobRequest !== null && listVoiceTrainingJobRequest !== undefined) {
                 if (listVoiceTrainingJobRequest instanceof ListVoiceTrainingJobRequest) {
@@ -12683,6 +12831,7 @@ export const ParamCreater = function () {
                     jobId = listVoiceTrainingJobRequest.jobId;
                     voiceName = listVoiceTrainingJobRequest.voiceName;
                     tag = listVoiceTrainingJobRequest.tag;
+                    jobType = listVoiceTrainingJobRequest.jobType;
                 } else {
                     offset = listVoiceTrainingJobRequest['offset'];
                     limit = listVoiceTrainingJobRequest['limit'];
@@ -12693,6 +12842,7 @@ export const ParamCreater = function () {
                     jobId = listVoiceTrainingJobRequest['job_id'];
                     voiceName = listVoiceTrainingJobRequest['voice_name'];
                     tag = listVoiceTrainingJobRequest['tag'];
+                    jobType = listVoiceTrainingJobRequest['job_type'];
                 }
             }
 
@@ -12720,6 +12870,9 @@ export const ParamCreater = function () {
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
+            }
+            if (jobType !== null && jobType !== undefined) {
+                localVarQueryParameter['job_type'] = jobType;
             }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);

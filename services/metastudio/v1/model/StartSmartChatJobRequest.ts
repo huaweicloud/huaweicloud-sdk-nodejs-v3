@@ -1,3 +1,4 @@
+import { SmartChatJobsReq } from './SmartChatJobsReq';
 
 
 export class StartSmartChatJobRequest {
@@ -7,6 +8,7 @@ export class StartSmartChatJobRequest {
     private 'X-App-UserId'?: string;
     private 'room_id'?: string;
     private 'robot_id'?: string;
+    public body?: SmartChatJobsReq;
     public constructor(roomId?: string, robotId?: string) { 
         this['room_id'] = roomId;
         this['robot_id'] = robotId;
@@ -70,5 +72,9 @@ export class StartSmartChatJobRequest {
     }
     public get robotId(): string | undefined {
         return this['robot_id'];
+    }
+    public withBody(body: SmartChatJobsReq): StartSmartChatJobRequest {
+        this['body'] = body;
+        return this;
     }
 }

@@ -38,6 +38,8 @@ export * from './model/CreateDbInstanceRequest';
 export * from './model/CreateDbInstanceResponse';
 export * from './model/CreateDbUserRequest';
 export * from './model/CreateDbUserResponse';
+export * from './model/CreateGaussDbInstanceRequest';
+export * from './model/CreateGaussDbInstanceResponse';
 export * from './model/CreateInstanceRequest';
 export * from './model/CreateInstanceRespItem';
 export * from './model/CreateInstanceResponse';

@@ -1,5 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetFileInfo } from './AssetFileInfo';
+import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -20,6 +21,8 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
     public files?: Array<AssetFileInfo>;
+    private 'asset_order'?: number;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -155,6 +158,26 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     public withFiles(files: Array<AssetFileInfo>): UpdateDigitalAssetResponse {
         this['files'] = files;
         return this;
+    }
+    public withAssetOrder(assetOrder: number): UpdateDigitalAssetResponse {
+        this['asset_order'] = assetOrder;
+        return this;
+    }
+    public set assetOrder(assetOrder: number  | undefined) {
+        this['asset_order'] = assetOrder;
+    }
+    public get assetOrder(): number | undefined {
+        return this['asset_order'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): UpdateDigitalAssetResponse {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
     }
     public withXRequestId(xRequestId: string): UpdateDigitalAssetResponse {
         this['X-Request-Id'] = xRequestId;

@@ -1,10 +1,12 @@
 import { ShootScriptDetail } from './ShootScriptDetail';
 import { ShootScriptItemBaseInfo } from './ShootScriptItemBaseInfo';
+import { SubtitleFileInfo } from './SubtitleFileInfo';
 
 
 export class ShootScriptShowItem {
     private 'sequence_no'?: number;
     private 'shoot_script'?: ShootScriptDetail;
+    private 'subtitle_file_info'?: SubtitleFileInfo;
     public constructor() { 
     }
     public withSequenceNo(sequenceNo: number): ShootScriptShowItem {
@@ -26,5 +28,15 @@ export class ShootScriptShowItem {
     }
     public get shootScript(): ShootScriptDetail | undefined {
         return this['shoot_script'];
+    }
+    public withSubtitleFileInfo(subtitleFileInfo: SubtitleFileInfo): ShootScriptShowItem {
+        this['subtitle_file_info'] = subtitleFileInfo;
+        return this;
+    }
+    public set subtitleFileInfo(subtitleFileInfo: SubtitleFileInfo  | undefined) {
+        this['subtitle_file_info'] = subtitleFileInfo;
+    }
+    public get subtitleFileInfo(): SubtitleFileInfo | undefined {
+        return this['subtitle_file_info'];
     }
 }

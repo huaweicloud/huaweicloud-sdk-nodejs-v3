@@ -6,6 +6,7 @@ export class ShowAssetReplicationInfoResponse extends SdkResponse {
     private 'asset_id'?: string;
     private 'asset_info'?: string;
     private 'encryption_info'?: ReplicationEncInfo;
+    private 'expire_time'?: number;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -39,6 +40,16 @@ export class ShowAssetReplicationInfoResponse extends SdkResponse {
     }
     public get encryptionInfo(): ReplicationEncInfo | undefined {
         return this['encryption_info'];
+    }
+    public withExpireTime(expireTime: number): ShowAssetReplicationInfoResponse {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: number  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): number | undefined {
+        return this['expire_time'];
     }
     public withXRequestId(xRequestId: string): ShowAssetReplicationInfoResponse {
         this['X-Request-Id'] = xRequestId;

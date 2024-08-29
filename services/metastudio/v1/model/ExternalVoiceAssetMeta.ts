@@ -21,6 +21,6 @@ export enum ExternalVoiceAssetMetaProviderEnum {
     MOBVOI = 'MOBVOI',
     AUDIOX = 'AUDIOX',
     SINOVOICE = 'SINOVOICE',
-    DATABACK = 'DATABACK',
+    DATABAKER = 'DATABAKER',
     AISPEECH = 'AISPEECH'
 }

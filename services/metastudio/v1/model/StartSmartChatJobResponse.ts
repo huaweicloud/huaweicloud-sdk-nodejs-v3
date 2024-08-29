@@ -1,15 +1,20 @@
-import { ChatSubtitleConfig } from './ChatSubtitleConfig';
-import { ChatVideoConfigRsp } from './ChatVideoConfigRsp';
+import { LanguageEnum } from './LanguageEnum';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
+import { SmartChatSubtitleConfig } from './SmartChatSubtitleConfig';
+import { SmartChatVideoConfig } from './SmartChatVideoConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class StartSmartChatJobResponse extends SdkResponse {
     private 'job_id'?: string;
+    public language?: LanguageEnum;
     private 'rtc_room_info'?: RTCRoomInfoList;
-    private 'chat_subtitle_config'?: ChatSubtitleConfig;
-    private 'video_config'?: ChatVideoConfigRsp;
+    private 'chat_subtitle_config'?: SmartChatSubtitleConfig;
+    private 'video_config'?: SmartChatVideoConfig;
     private 'chat_video_type'?: StartSmartChatJobResponseChatVideoTypeEnum | string;
+    public region?: string;
+    private 'chat_access_address'?: string;
+    private 'is_transparent'?: boolean;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -24,6 +29,10 @@ export class StartSmartChatJobResponse extends SdkResponse {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
+    public withLanguage(language: LanguageEnum): StartSmartChatJobResponse {
+        this['language'] = language;
+        return this;
+    }
     public withRtcRoomInfo(rtcRoomInfo: RTCRoomInfoList): StartSmartChatJobResponse {
         this['rtc_room_info'] = rtcRoomInfo;
         return this;
@@ -34,24 +43,24 @@ export class StartSmartChatJobResponse extends SdkResponse {
     public get rtcRoomInfo(): RTCRoomInfoList | undefined {
         return this['rtc_room_info'];
     }
-    public withChatSubtitleConfig(chatSubtitleConfig: ChatSubtitleConfig): StartSmartChatJobResponse {
+    public withChatSubtitleConfig(chatSubtitleConfig: SmartChatSubtitleConfig): StartSmartChatJobResponse {
         this['chat_subtitle_config'] = chatSubtitleConfig;
         return this;
     }
-    public set chatSubtitleConfig(chatSubtitleConfig: ChatSubtitleConfig  | undefined) {
+    public set chatSubtitleConfig(chatSubtitleConfig: SmartChatSubtitleConfig  | undefined) {
         this['chat_subtitle_config'] = chatSubtitleConfig;
     }
-    public get chatSubtitleConfig(): ChatSubtitleConfig | undefined {
+    public get chatSubtitleConfig(): SmartChatSubtitleConfig | undefined {
         return this['chat_subtitle_config'];
     }
-    public withVideoConfig(videoConfig: ChatVideoConfigRsp): StartSmartChatJobResponse {
+    public withVideoConfig(videoConfig: SmartChatVideoConfig): StartSmartChatJobResponse {
         this['video_config'] = videoConfig;
         return this;
     }
-    public set videoConfig(videoConfig: ChatVideoConfigRsp  | undefined) {
+    public set videoConfig(videoConfig: SmartChatVideoConfig  | undefined) {
         this['video_config'] = videoConfig;
     }
-    public get videoConfig(): ChatVideoConfigRsp | undefined {
+    public get videoConfig(): SmartChatVideoConfig | undefined {
         return this['video_config'];
     }
     public withChatVideoType(chatVideoType: StartSmartChatJobResponseChatVideoTypeEnum | string): StartSmartChatJobResponse {
@@ -63,6 +72,30 @@ export class StartSmartChatJobResponse extends SdkResponse {
     }
     public get chatVideoType(): StartSmartChatJobResponseChatVideoTypeEnum | string | undefined {
         return this['chat_video_type'];
+    }
+    public withRegion(region: string): StartSmartChatJobResponse {
+        this['region'] = region;
+        return this;
+    }
+    public withChatAccessAddress(chatAccessAddress: string): StartSmartChatJobResponse {
+        this['chat_access_address'] = chatAccessAddress;
+        return this;
+    }
+    public set chatAccessAddress(chatAccessAddress: string  | undefined) {
+        this['chat_access_address'] = chatAccessAddress;
+    }
+    public get chatAccessAddress(): string | undefined {
+        return this['chat_access_address'];
+    }
+    public withIsTransparent(isTransparent: boolean): StartSmartChatJobResponse {
+        this['is_transparent'] = isTransparent;
+        return this;
+    }
+    public set isTransparent(isTransparent: boolean  | undefined) {
+        this['is_transparent'] = isTransparent;
+    }
+    public get isTransparent(): boolean | undefined {
+        return this['is_transparent'];
     }
     public withXRequestId(xRequestId: string): StartSmartChatJobResponse {
         this['X-Request-Id'] = xRequestId;

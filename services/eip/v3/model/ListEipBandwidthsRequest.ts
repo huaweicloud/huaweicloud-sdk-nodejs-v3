@@ -3,6 +3,7 @@
 export class ListEipBandwidthsRequest {
     public limit?: string;
     public marker?: string;
+    public fields?: Array<string>;
     public id?: string;
     private 'bandwidth_type'?: string;
     public name?: string;
@@ -26,6 +27,10 @@ export class ListEipBandwidthsRequest {
     }
     public withMarker(marker: string): ListEipBandwidthsRequest {
         this['marker'] = marker;
+        return this;
+    }
+    public withFields(fields: Array<string>): ListEipBandwidthsRequest {
+        this['fields'] = fields;
         return this;
     }
     public withId(id: string): ListEipBandwidthsRequest {

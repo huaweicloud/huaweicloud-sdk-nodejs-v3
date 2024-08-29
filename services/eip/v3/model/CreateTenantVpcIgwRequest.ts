@@ -2,11 +2,11 @@ import { CreateTenantVpcIgwRequestBody } from './CreateTenantVpcIgwRequestBody';
 
 
 export class CreateTenantVpcIgwRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     public body?: CreateTenantVpcIgwRequestBody;
     public constructor() { 
     }
-    public withFields(fields: string): CreateTenantVpcIgwRequest {
+    public withFields(fields: Array<string>): CreateTenantVpcIgwRequest {
         this['fields'] = fields;
         return this;
     }

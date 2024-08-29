@@ -2,13 +2,13 @@ import { UpdateTenantVpcIgwRequestBody } from './UpdateTenantVpcIgwRequestBody';
 
 
 export class UpdateTenantVpcIgwRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     private 'vpc_igw_id'?: string;
     public body?: UpdateTenantVpcIgwRequestBody;
     public constructor(vpcIgwId?: string) { 
         this['vpc_igw_id'] = vpcIgwId;
     }
-    public withFields(fields: string): UpdateTenantVpcIgwRequest {
+    public withFields(fields: Array<string>): UpdateTenantVpcIgwRequest {
         this['fields'] = fields;
         return this;
     }

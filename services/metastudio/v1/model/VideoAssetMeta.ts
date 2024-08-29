@@ -13,6 +13,7 @@ export class VideoAssetMeta {
     private 'audio_channels'?: number;
     public sample?: number;
     public mode?: VideoAssetMetaModeEnum | string;
+    private 'video_transcoding_status'?: VideoAssetMetaVideoTranscodingStatusEnum | string;
     private 'error_info'?: ErrorResponse;
     public constructor() { 
     }
@@ -96,6 +97,16 @@ export class VideoAssetMeta {
         this['mode'] = mode;
         return this;
     }
+    public withVideoTranscodingStatus(videoTranscodingStatus: VideoAssetMetaVideoTranscodingStatusEnum | string): VideoAssetMeta {
+        this['video_transcoding_status'] = videoTranscodingStatus;
+        return this;
+    }
+    public set videoTranscodingStatus(videoTranscodingStatus: VideoAssetMetaVideoTranscodingStatusEnum | string  | undefined) {
+        this['video_transcoding_status'] = videoTranscodingStatus;
+    }
+    public get videoTranscodingStatus(): VideoAssetMetaVideoTranscodingStatusEnum | string | undefined {
+        return this['video_transcoding_status'];
+    }
     public withErrorInfo(errorInfo: ErrorResponse): VideoAssetMeta {
         this['error_info'] = errorInfo;
         return this;
@@ -115,4 +126,14 @@ export class VideoAssetMeta {
 export enum VideoAssetMetaModeEnum {
     HORIZONTAL = 'Horizontal',
     VERTICAL = 'Vertical'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VideoAssetMetaVideoTranscodingStatusEnum {
+    WAITING = 'WAITING',
+    TRANSCODING = 'TRANSCODING',
+    FAILED = 'FAILED',
+    SUCCEEDED = 'SUCCEEDED'
 }

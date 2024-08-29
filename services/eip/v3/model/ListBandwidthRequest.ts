@@ -4,6 +4,7 @@ export class ListBandwidthRequest {
     public limit?: string;
     public marker?: string;
     public id?: string;
+    public fields?: Array<string>;
     private 'bandwidth_type'?: string;
     public name?: string;
     private 'name_like'?: string;
@@ -29,6 +30,10 @@ export class ListBandwidthRequest {
     }
     public withId(id: string): ListBandwidthRequest {
         this['id'] = id;
+        return this;
+    }
+    public withFields(fields: Array<string>): ListBandwidthRequest {
+        this['fields'] = fields;
         return this;
     }
     public withBandwidthType(bandwidthType: string): ListBandwidthRequest {

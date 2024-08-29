@@ -1,6 +1,7 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetSharedConfig } from './AssetSharedConfig';
 import { ReviewConfig } from './ReviewConfig';
+import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
 
 
@@ -15,6 +16,8 @@ export class CreateDigitalAssetRequestBody {
     private 'system_properties'?: Array<SystemProperty>;
     private 'shared_config'?: AssetSharedConfig;
     private 'is_need_generate_cover'?: boolean;
+    private 'asset_order'?: number;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     public constructor(assetName?: string, assetType?: string) { 
         this['asset_name'] = assetName;
         this['asset_type'] = assetType;
@@ -112,6 +115,26 @@ export class CreateDigitalAssetRequestBody {
     }
     public get isNeedGenerateCover(): boolean | undefined {
         return this['is_need_generate_cover'];
+    }
+    public withAssetOrder(assetOrder: number): CreateDigitalAssetRequestBody {
+        this['asset_order'] = assetOrder;
+        return this;
+    }
+    public set assetOrder(assetOrder: number  | undefined) {
+        this['asset_order'] = assetOrder;
+    }
+    public get assetOrder(): number | undefined {
+        return this['asset_order'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): CreateDigitalAssetRequestBody {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
     }
 }
 

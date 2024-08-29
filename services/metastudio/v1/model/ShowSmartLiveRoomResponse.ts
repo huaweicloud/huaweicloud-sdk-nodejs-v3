@@ -29,6 +29,7 @@ export class ShowSmartLiveRoomResponse extends SdkResponse {
     private 'shared_config'?: SharedConfig;
     private 'view_mode'?: ShowSmartLiveRoomResponseViewModeEnum | string;
     private 'co_streamer_config'?: CoStreamerConfig;
+    private 'priv_data'?: string;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -200,6 +201,16 @@ export class ShowSmartLiveRoomResponse extends SdkResponse {
     }
     public get coStreamerConfig(): CoStreamerConfig | undefined {
         return this['co_streamer_config'];
+    }
+    public withPrivData(privData: string): ShowSmartLiveRoomResponse {
+        this['priv_data'] = privData;
+        return this;
+    }
+    public set privData(privData: string  | undefined) {
+        this['priv_data'] = privData;
+    }
+    public get privData(): string | undefined {
+        return this['priv_data'];
     }
     public withRoomId(roomId: string): ShowSmartLiveRoomResponse {
         this['room_id'] = roomId;

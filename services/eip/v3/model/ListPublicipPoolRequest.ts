@@ -3,7 +3,7 @@
 export class ListPublicipPoolRequest {
     public marker?: string;
     public limit?: number;
-    public fields?: string;
+    public fields?: Array<string>;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     public id?: string;
@@ -23,7 +23,7 @@ export class ListPublicipPoolRequest {
         this['limit'] = limit;
         return this;
     }
-    public withFields(fields: string): ListPublicipPoolRequest {
+    public withFields(fields: Array<string>): ListPublicipPoolRequest {
         this['fields'] = fields;
         return this;
     }

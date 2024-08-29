@@ -11,6 +11,7 @@ export class WhiteBlackIpResponseBody {
     public addr?: string;
     public white?: number;
     private 'ip_group'?: IpGroup;
+    private 'time_mode'?: string;
     public constructor() { 
     }
     public withId(id: string): WhiteBlackIpResponseBody {
@@ -54,5 +55,15 @@ export class WhiteBlackIpResponseBody {
     }
     public get ipGroup(): IpGroup | undefined {
         return this['ip_group'];
+    }
+    public withTimeMode(timeMode: string): WhiteBlackIpResponseBody {
+        this['time_mode'] = timeMode;
+        return this;
+    }
+    public set timeMode(timeMode: string  | undefined) {
+        this['time_mode'] = timeMode;
+    }
+    public get timeMode(): string | undefined {
+        return this['time_mode'];
     }
 }

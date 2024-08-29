@@ -22,6 +22,7 @@ export class TrainingJobInfo {
     private 'create_type'?: CreateType;
     public tag?: JobTag;
     public phone?: string;
+    private 'dhtms_job_id'?: string;
     public constructor() { 
     }
     public withJobType(jobType: JobType): TrainingJobInfo {
@@ -163,5 +164,15 @@ export class TrainingJobInfo {
     public withPhone(phone: string): TrainingJobInfo {
         this['phone'] = phone;
         return this;
+    }
+    public withDhtmsJobId(dhtmsJobId: string): TrainingJobInfo {
+        this['dhtms_job_id'] = dhtmsJobId;
+        return this;
+    }
+    public set dhtmsJobId(dhtmsJobId: string  | undefined) {
+        this['dhtms_job_id'] = dhtmsJobId;
+    }
+    public get dhtmsJobId(): string | undefined {
+        return this['dhtms_job_id'];
     }
 }

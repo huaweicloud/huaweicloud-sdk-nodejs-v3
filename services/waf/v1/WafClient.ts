@@ -2675,6 +2675,7 @@ export class WafClient {
      * @param {string} id ip地址组id
      * @param {UpdateIpGroupRequestBody} updateIpGroupRequestBody 创建ip地址组请求体
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [action] 增量修改ip地址组时，此为必传字段，传入“add”;删除一个或者多个ip时传入“delete”
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9251,6 +9252,8 @@ export const ParamCreater = function () {
             let id;
             
             let enterpriseProjectId;
+            
+            let action;
 
             if (updateIpGroupRequest !== null && updateIpGroupRequest !== undefined) {
                 if (updateIpGroupRequest instanceof UpdateIpGroupRequest) {
@@ -9258,11 +9261,13 @@ export const ParamCreater = function () {
                     id = updateIpGroupRequest.id;
                     body = updateIpGroupRequest.body
                     enterpriseProjectId = updateIpGroupRequest.enterpriseProjectId;
+                    action = updateIpGroupRequest.action;
                 } else {
                     contentType = updateIpGroupRequest['Content-Type'];
                     id = updateIpGroupRequest['id'];
                     body = updateIpGroupRequest['body'];
                     enterpriseProjectId = updateIpGroupRequest['enterprise_project_id'];
+                    action = updateIpGroupRequest['action'];
                 }
             }
 
@@ -9275,6 +9280,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

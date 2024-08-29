@@ -1,5 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetFileInfo } from './AssetFileInfo';
+import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
 
 
@@ -19,6 +20,8 @@ export class DigitalAssetInfo {
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
     public files?: Array<AssetFileInfo>;
+    private 'asset_order'?: number;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     public constructor() { 
     }
     public withProjectId(projectId: string): DigitalAssetInfo {
@@ -152,6 +155,26 @@ export class DigitalAssetInfo {
     public withFiles(files: Array<AssetFileInfo>): DigitalAssetInfo {
         this['files'] = files;
         return this;
+    }
+    public withAssetOrder(assetOrder: number): DigitalAssetInfo {
+        this['asset_order'] = assetOrder;
+        return this;
+    }
+    public set assetOrder(assetOrder: number  | undefined) {
+        this['asset_order'] = assetOrder;
+    }
+    public get assetOrder(): number | undefined {
+        return this['asset_order'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): DigitalAssetInfo {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
     }
 }
 

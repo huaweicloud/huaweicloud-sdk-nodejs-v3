@@ -139,6 +139,7 @@ export * from './model/DeleteVpcResponse';
 export * from './model/DisassociateSubnetFirewallRequest';
 export * from './model/DisassociateSubnetFirewallRequestBody';
 export * from './model/DisassociateSubnetFirewallResponse';
+export * from './model/ExtraDhcpOpt';
 export * from './model/FirewallAssociation';
 export * from './model/FirewallDetail';
 export * from './model/FirewallInsertRuleItemOption';

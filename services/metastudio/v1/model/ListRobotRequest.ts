@@ -8,6 +8,7 @@ export class ListRobotRequest {
     public offset?: number;
     public limit?: number;
     private 'room_id'?: string;
+    private 'robot_type'?: ListRobotRequestRobotTypeEnum | string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListRobotRequest {
@@ -68,4 +69,23 @@ export class ListRobotRequest {
     public get roomId(): string | undefined {
         return this['room_id'];
     }
+    public withRobotType(robotType: ListRobotRequestRobotTypeEnum | string): ListRobotRequest {
+        this['robot_type'] = robotType;
+        return this;
+    }
+    public set robotType(robotType: ListRobotRequestRobotTypeEnum | string  | undefined) {
+        this['robot_type'] = robotType;
+    }
+    public get robotType(): ListRobotRequestRobotTypeEnum | string | undefined {
+        return this['robot_type'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListRobotRequestRobotTypeEnum {
+    LIVE = 'LIVE',
+    CHAT = 'CHAT'
 }

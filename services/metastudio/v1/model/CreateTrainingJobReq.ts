@@ -10,6 +10,7 @@ export class CreateTrainingJobReq {
     public language?: string;
     private 'create_type'?: CreateType;
     public phone?: string;
+    private 'dhtms_job_id'?: string;
     public constructor(voiceName?: string) { 
         this['voice_name'] = voiceName;
     }
@@ -52,6 +53,16 @@ export class CreateTrainingJobReq {
     public withPhone(phone: string): CreateTrainingJobReq {
         this['phone'] = phone;
         return this;
+    }
+    public withDhtmsJobId(dhtmsJobId: string): CreateTrainingJobReq {
+        this['dhtms_job_id'] = dhtmsJobId;
+        return this;
+    }
+    public set dhtmsJobId(dhtmsJobId: string  | undefined) {
+        this['dhtms_job_id'] = dhtmsJobId;
+    }
+    public get dhtmsJobId(): string | undefined {
+        return this['dhtms_job_id'];
     }
 }
 

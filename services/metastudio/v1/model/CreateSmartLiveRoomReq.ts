@@ -26,6 +26,7 @@ export class CreateSmartLiveRoomReq {
     private 'shared_config'?: SharedConfig;
     private 'view_mode'?: CreateSmartLiveRoomReqViewModeEnum | string;
     private 'co_streamer_config'?: CoStreamerConfig;
+    private 'priv_data'?: string;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -188,6 +189,16 @@ export class CreateSmartLiveRoomReq {
     }
     public get coStreamerConfig(): CoStreamerConfig | undefined {
         return this['co_streamer_config'];
+    }
+    public withPrivData(privData: string): CreateSmartLiveRoomReq {
+        this['priv_data'] = privData;
+        return this;
+    }
+    public set privData(privData: string  | undefined) {
+        this['priv_data'] = privData;
+    }
+    public get privData(): string | undefined {
+        return this['priv_data'];
     }
 }
 

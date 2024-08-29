@@ -279,6 +279,8 @@ import { NodeRisks } from './model/NodeRisks';
 import { NodeSelector } from './model/NodeSelector';
 import { NodeSpec } from './model/NodeSpec';
 import { NodeSpecUpdate } from './model/NodeSpecUpdate';
+import { NodeSpecUpdateNodeNicSpecUpdate } from './model/NodeSpecUpdateNodeNicSpecUpdate';
+import { NodeSpecUpdateNodeNicSpecUpdatePrimaryNic } from './model/NodeSpecUpdateNodeNicSpecUpdatePrimaryNic';
 import { NodeStageStatus } from './model/NodeStageStatus';
 import { NodeStatus } from './model/NodeStatus';
 import { NodeTemplate } from './model/NodeTemplate';

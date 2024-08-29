@@ -1,7 +1,7 @@
 
 
 export class ListTenantVpcIgwsRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     public id?: string;
     private 'vpc_id'?: string;
     public name?: string;
@@ -12,7 +12,7 @@ export class ListTenantVpcIgwsRequest {
     public marker?: string;
     public constructor() { 
     }
-    public withFields(fields: string): ListTenantVpcIgwsRequest {
+    public withFields(fields: Array<string>): ListTenantVpcIgwsRequest {
         this['fields'] = fields;
         return this;
     }

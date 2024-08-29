@@ -225,6 +225,9 @@ import { StartPipelineResponse } from './model/StartPipelineResponse';
 import { StartPublicWhitelistReq } from './model/StartPublicWhitelistReq';
 import { StartPublicWhitelistRequest } from './model/StartPublicWhitelistRequest';
 import { StartPublicWhitelistResponse } from './model/StartPublicWhitelistResponse';
+import { StartTargetClusterConnectivityTestReq } from './model/StartTargetClusterConnectivityTestReq';
+import { StartTargetClusterConnectivityTestRequest } from './model/StartTargetClusterConnectivityTestRequest';
+import { StartTargetClusterConnectivityTestResponse } from './model/StartTargetClusterConnectivityTestResponse';
 import { StartVpecpReq } from './model/StartVpecpReq';
 import { StartVpecpRequest } from './model/StartVpecpRequest';
 import { StartVpecpResponse } from './model/StartVpecpResponse';
@@ -1242,6 +1245,7 @@ export class CssClient {
      * @summary 开启日志功能
      * @param {string} clusterId 指定开启日志的集群ID。
      * @param {StartLogsReq} startLogsReq 开启日志请求体。
+     * @param {'base_log_collect' | 'real_time_log_collect'} [action] action支持base_log_collect和real_time_log_collect两种，base就是之前历史的能力，real_time为实时采集能力，默认不传就是base，兼容之前的逻辑
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1267,6 +1271,26 @@ export class CssClient {
      */
     public startPublicWhitelist(startPublicWhitelistRequest?: StartPublicWhitelistRequest): Promise<StartPublicWhitelistResponse> {
         const options = ParamCreater().startPublicWhitelist(startPublicWhitelistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于连通性测试。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 连通性测试。
+     * @param {string} clusterId 指定待测试的集群ID。
+     * @param {StartTargetClusterConnectivityTestReq} startConnectivityTestReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startTargetClusterConnectivityTest(startTargetClusterConnectivityTestRequest?: StartTargetClusterConnectivityTestRequest): Promise<StartTargetClusterConnectivityTestResponse> {
+        const options = ParamCreater().startTargetClusterConnectivityTest(startTargetClusterConnectivityTestRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4188,18 +4212,22 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let clusterId;
+            
+            let action;
 
             if (startLogsRequest !== null && startLogsRequest !== undefined) {
                 if (startLogsRequest instanceof StartLogsRequest) {
                     clusterId = startLogsRequest.clusterId;
                     body = startLogsRequest.body
+                    action = startLogsRequest.action;
                 } else {
                     clusterId = startLogsRequest['cluster_id'];
                     body = startLogsRequest['body'];
+                    action = startLogsRequest['action'];
                 }
             }
 
@@ -4210,9 +4238,13 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4252,6 +4284,52 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling startPublicWhitelist.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于连通性测试。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startTargetClusterConnectivityTest(startTargetClusterConnectivityTestRequest?: StartTargetClusterConnectivityTestRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/logs/connectivity",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (startTargetClusterConnectivityTestRequest !== null && startTargetClusterConnectivityTestRequest !== undefined) {
+                if (startTargetClusterConnectivityTestRequest instanceof StartTargetClusterConnectivityTestRequest) {
+                    clusterId = startTargetClusterConnectivityTestRequest.clusterId;
+                    body = startTargetClusterConnectivityTestRequest.body
+                } else {
+                    clusterId = startTargetClusterConnectivityTestRequest['cluster_id'];
+                    body = startTargetClusterConnectivityTestRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling startTargetClusterConnectivityTest.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

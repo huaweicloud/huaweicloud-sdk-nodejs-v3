@@ -51,6 +51,13 @@ export class TriggerEventDataRequestBody {
     private 'exchange_name'?: string;
     public vhost?: string;
     private 'ssl_enable'?: boolean;
+    private 'Key_encode'?: boolean;
+    public agency?: string;
+    private 'channel_name'?: string;
+    private 'source_name'?: string;
+    private 'created_time'?: Date;
+    public status?: string;
+    private 'trigger_name'?: string;
     public constructor() { 
     }
     public withName(name: string): TriggerEventDataRequestBody {
@@ -470,6 +477,64 @@ export class TriggerEventDataRequestBody {
     }
     public get sslEnable(): boolean | undefined {
         return this['ssl_enable'];
+    }
+    public withKeyEncode(keyEncode: boolean): TriggerEventDataRequestBody {
+        this['Key_encode'] = keyEncode;
+        return this;
+    }
+    public set keyEncode(keyEncode: boolean  | undefined) {
+        this['Key_encode'] = keyEncode;
+    }
+    public get keyEncode(): boolean | undefined {
+        return this['Key_encode'];
+    }
+    public withAgency(agency: string): TriggerEventDataRequestBody {
+        this['agency'] = agency;
+        return this;
+    }
+    public withChannelName(channelName: string): TriggerEventDataRequestBody {
+        this['channel_name'] = channelName;
+        return this;
+    }
+    public set channelName(channelName: string  | undefined) {
+        this['channel_name'] = channelName;
+    }
+    public get channelName(): string | undefined {
+        return this['channel_name'];
+    }
+    public withSourceName(sourceName: string): TriggerEventDataRequestBody {
+        this['source_name'] = sourceName;
+        return this;
+    }
+    public set sourceName(sourceName: string  | undefined) {
+        this['source_name'] = sourceName;
+    }
+    public get sourceName(): string | undefined {
+        return this['source_name'];
+    }
+    public withCreatedTime(createdTime: Date): TriggerEventDataRequestBody {
+        this['created_time'] = createdTime;
+        return this;
+    }
+    public set createdTime(createdTime: Date  | undefined) {
+        this['created_time'] = createdTime;
+    }
+    public get createdTime(): Date | undefined {
+        return this['created_time'];
+    }
+    public withStatus(status: string): TriggerEventDataRequestBody {
+        this['status'] = status;
+        return this;
+    }
+    public withTriggerName(triggerName: string): TriggerEventDataRequestBody {
+        this['trigger_name'] = triggerName;
+        return this;
+    }
+    public set triggerName(triggerName: string  | undefined) {
+        this['trigger_name'] = triggerName;
+    }
+    public get triggerName(): string | undefined {
+        return this['trigger_name'];
     }
 }
 

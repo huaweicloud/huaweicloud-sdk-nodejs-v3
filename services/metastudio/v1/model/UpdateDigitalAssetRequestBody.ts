@@ -1,6 +1,7 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetSharedConfig } from './AssetSharedConfig';
 import { ReviewConfig } from './ReviewConfig';
+import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
 
 
@@ -15,6 +16,8 @@ export class UpdateDigitalAssetRequestBody {
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
     private 'shared_config'?: AssetSharedConfig;
+    private 'asset_order'?: number;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     public constructor() { 
     }
     public withAssetName(assetName: string): UpdateDigitalAssetRequestBody {
@@ -110,6 +113,26 @@ export class UpdateDigitalAssetRequestBody {
     }
     public get sharedConfig(): AssetSharedConfig | undefined {
         return this['shared_config'];
+    }
+    public withAssetOrder(assetOrder: number): UpdateDigitalAssetRequestBody {
+        this['asset_order'] = assetOrder;
+        return this;
+    }
+    public set assetOrder(assetOrder: number  | undefined) {
+        this['asset_order'] = assetOrder;
+    }
+    public get assetOrder(): number | undefined {
+        return this['asset_order'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): UpdateDigitalAssetRequestBody {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
     }
 }
 

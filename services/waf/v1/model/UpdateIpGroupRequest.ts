@@ -5,6 +5,7 @@ export class UpdateIpGroupRequest {
     private 'Content-Type'?: string;
     private 'enterprise_project_id'?: string;
     public id?: string;
+    public action?: string;
     public body?: UpdateIpGroupRequestBody;
     public constructor(contentType?: string, id?: string) { 
         this['Content-Type'] = contentType;
@@ -32,6 +33,10 @@ export class UpdateIpGroupRequest {
     }
     public withId(id: string): UpdateIpGroupRequest {
         this['id'] = id;
+        return this;
+    }
+    public withAction(action: string): UpdateIpGroupRequest {
+        this['action'] = action;
         return this;
     }
     public withBody(body: UpdateIpGroupRequestBody): UpdateIpGroupRequest {

@@ -1,4 +1,5 @@
 import { LanguageEnum } from './LanguageEnum';
+import { RobotTypeEnum } from './RobotTypeEnum';
 
 
 export class RobotInfo {
@@ -8,6 +9,7 @@ export class RobotInfo {
     private 'app_id'?: string;
     private 'app_type'?: number;
     private 'app_key'?: string;
+    private 'robot_type'?: RobotTypeEnum;
     public language?: LanguageEnum;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -78,6 +80,16 @@ export class RobotInfo {
     }
     public get appKey(): string | undefined {
         return this['app_key'];
+    }
+    public withRobotType(robotType: RobotTypeEnum): RobotInfo {
+        this['robot_type'] = robotType;
+        return this;
+    }
+    public set robotType(robotType: RobotTypeEnum  | undefined) {
+        this['robot_type'] = robotType;
+    }
+    public get robotType(): RobotTypeEnum | undefined {
+        return this['robot_type'];
     }
     public withLanguage(language: LanguageEnum): RobotInfo {
         this['language'] = language;

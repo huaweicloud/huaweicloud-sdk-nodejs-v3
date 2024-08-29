@@ -276,6 +276,8 @@ export * from './model/NodeRisks';
 export * from './model/NodeSelector';
 export * from './model/NodeSpec';
 export * from './model/NodeSpecUpdate';
+export * from './model/NodeSpecUpdateNodeNicSpecUpdate';
+export * from './model/NodeSpecUpdateNodeNicSpecUpdatePrimaryNic';
 export * from './model/NodeStageStatus';
 export * from './model/NodeStatus';
 export * from './model/NodeTemplate';

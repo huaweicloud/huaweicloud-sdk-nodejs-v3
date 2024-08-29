@@ -33,6 +33,7 @@ export class ClusterList {
     public failedReason?: ClusterListFailedReasons;
     public period?: boolean;
     public bandwidthResourceId?: string;
+    public ipv6Endpoint?: string;
     public constructor() { 
     }
     public withDatastore(datastore: ClusterListDatastore): ClusterList {
@@ -137,6 +138,10 @@ export class ClusterList {
     }
     public withBandwidthResourceId(bandwidthResourceId: string): ClusterList {
         this['bandwidthResourceId'] = bandwidthResourceId;
+        return this;
+    }
+    public withIpv6Endpoint(ipv6Endpoint: string): ClusterList {
+        this['ipv6Endpoint'] = ipv6Endpoint;
         return this;
     }
 }

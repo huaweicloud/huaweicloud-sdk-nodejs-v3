@@ -13,6 +13,7 @@ import { BatchDeleteVolumeTagsResponse } from './model/BatchDeleteVolumeTagsResp
 import { BssParam2 } from './model/BssParam2';
 import { BssParamForCreateVolume } from './model/BssParamForCreateVolume';
 import { BssParamForResizeVolume } from './model/BssParamForResizeVolume';
+import { BssParamForRetypeVolume } from './model/BssParamForRetypeVolume';
 import { ChangeVolumeChargeModeRequest } from './model/ChangeVolumeChargeModeRequest';
 import { ChangeVolumeChargeModeRequestBody } from './model/ChangeVolumeChargeModeRequestBody';
 import { ChangeVolumeChargeModeResponse } from './model/ChangeVolumeChargeModeResponse';
@@ -96,6 +97,10 @@ import { ResizeVolumeRequest } from './model/ResizeVolumeRequest';
 import { ResizeVolumeRequestBody } from './model/ResizeVolumeRequestBody';
 import { ResizeVolumeResponse } from './model/ResizeVolumeResponse';
 import { Resource } from './model/Resource';
+import { RetypeVolume } from './model/RetypeVolume';
+import { RetypeVolumeRequest } from './model/RetypeVolumeRequest';
+import { RetypeVolumeRequestBody } from './model/RetypeVolumeRequestBody';
+import { RetypeVolumeResponse } from './model/RetypeVolumeResponse';
 import { RollbackInfo } from './model/RollbackInfo';
 import { RollbackSnapshotOption } from './model/RollbackSnapshotOption';
 import { RollbackSnapshotRequest } from './model/RollbackSnapshotRequest';
@@ -593,6 +598,31 @@ export class EvsClient {
      */
     public resizeVolume(resizeVolumeRequest?: ResizeVolumeRequest): Promise<ResizeVolumeResponse> {
         const options = ParamCreater().resizeVolume(resizeVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对按需或者包周期云硬盘进行磁盘类型变更。
+     * [在磁盘类型变更包周期云硬盘的场景下：](tag:hws)
+     * - [如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。](tag:hws)
+     * - [如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/api_order_00030.html)\&quot;。](tag:hws)
+     * - [如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。](tag:hws)
+     * - [如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。](tag:hws)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 磁盘类型变更
+     * @param {string} volumeId 磁盘ID。
+     * @param {RetypeVolumeRequestBody} retypeVolumeRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retypeVolume(retypeVolumeRequest?: RetypeVolumeRequest): Promise<RetypeVolumeResponse> {
+        const options = ParamCreater().retypeVolume(retypeVolumeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1787,6 +1817,57 @@ export const ParamCreater = function () {
         
             if (volumeId === null || volumeId === undefined) {
             throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling resizeVolume.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对按需或者包周期云硬盘进行磁盘类型变更。
+         * [在磁盘类型变更包周期云硬盘的场景下：](tag:hws)
+         * - [如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。](tag:hws)
+         * - [如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/api_order_00030.html)\&quot;。](tag:hws)
+         * - [如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。](tag:hws)
+         * - [如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。](tag:hws)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retypeVolume(retypeVolumeRequest?: RetypeVolumeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/volumes/{volume_id}/retype",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let volumeId;
+
+            if (retypeVolumeRequest !== null && retypeVolumeRequest !== undefined) {
+                if (retypeVolumeRequest instanceof RetypeVolumeRequest) {
+                    volumeId = retypeVolumeRequest.volumeId;
+                    body = retypeVolumeRequest.body
+                } else {
+                    volumeId = retypeVolumeRequest['volume_id'];
+                    body = retypeVolumeRequest['body'];
+                }
+            }
+
+        
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling retypeVolume.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

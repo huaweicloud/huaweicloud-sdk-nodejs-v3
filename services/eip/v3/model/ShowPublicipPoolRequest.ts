@@ -2,7 +2,7 @@
 
 export class ShowPublicipPoolRequest {
     private 'publicip_pool_id'?: string;
-    public fields?: string;
+    public fields?: Array<string>;
     public constructor(publicipPoolId?: string) { 
         this['publicip_pool_id'] = publicipPoolId;
     }
@@ -16,7 +16,7 @@ export class ShowPublicipPoolRequest {
     public get publicipPoolId(): string | undefined {
         return this['publicip_pool_id'];
     }
-    public withFields(fields: string): ShowPublicipPoolRequest {
+    public withFields(fields: Array<string>): ShowPublicipPoolRequest {
         this['fields'] = fields;
         return this;
     }

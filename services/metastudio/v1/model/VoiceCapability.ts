@@ -1,6 +1,7 @@
 
 
 export class VoiceCapability {
+    private 'is_support_phoneme_en'?: boolean;
     private 'is_support_phoneme'?: boolean;
     private 'is_support_break_time'?: boolean;
     private 'is_support_break_strength'?: boolean;
@@ -10,6 +11,16 @@ export class VoiceCapability {
     private 'is_support_ssml_sub'?: boolean;
     private 'is_support_word'?: boolean;
     public constructor() { 
+    }
+    public withIsSupportPhonemeEn(isSupportPhonemeEn: boolean): VoiceCapability {
+        this['is_support_phoneme_en'] = isSupportPhonemeEn;
+        return this;
+    }
+    public set isSupportPhonemeEn(isSupportPhonemeEn: boolean  | undefined) {
+        this['is_support_phoneme_en'] = isSupportPhonemeEn;
+    }
+    public get isSupportPhonemeEn(): boolean | undefined {
+        return this['is_support_phoneme_en'];
     }
     public withIsSupportPhoneme(isSupportPhoneme: boolean): VoiceCapability {
         this['is_support_phoneme'] = isSupportPhoneme;

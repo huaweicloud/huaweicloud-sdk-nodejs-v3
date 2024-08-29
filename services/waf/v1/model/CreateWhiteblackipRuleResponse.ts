@@ -8,6 +8,7 @@ export class CreateWhiteblackipRuleResponse extends SdkResponse {
     public policyid?: string;
     public addr?: string;
     public white?: number;
+    private 'time_mode'?: string;
     private 'ip_group'?: IpGroup;
     public status?: number;
     public description?: string;
@@ -34,6 +35,16 @@ export class CreateWhiteblackipRuleResponse extends SdkResponse {
     public withWhite(white: number): CreateWhiteblackipRuleResponse {
         this['white'] = white;
         return this;
+    }
+    public withTimeMode(timeMode: string): CreateWhiteblackipRuleResponse {
+        this['time_mode'] = timeMode;
+        return this;
+    }
+    public set timeMode(timeMode: string  | undefined) {
+        this['time_mode'] = timeMode;
+    }
+    public get timeMode(): string | undefined {
+        return this['time_mode'];
     }
     public withIpGroup(ipGroup: IpGroup): CreateWhiteblackipRuleResponse {
         this['ip_group'] = ipGroup;

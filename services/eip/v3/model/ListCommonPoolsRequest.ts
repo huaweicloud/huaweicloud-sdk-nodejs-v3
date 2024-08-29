@@ -1,14 +1,14 @@
 
 
 export class ListCommonPoolsRequest {
-    public fields?: string;
+    public fields?: Array<string>;
     public limit?: number;
     public offset?: number;
     public name?: string;
     private 'public_border_group'?: string;
     public constructor() { 
     }
-    public withFields(fields: string): ListCommonPoolsRequest {
+    public withFields(fields: Array<string>): ListCommonPoolsRequest {
         this['fields'] = fields;
         return this;
     }
