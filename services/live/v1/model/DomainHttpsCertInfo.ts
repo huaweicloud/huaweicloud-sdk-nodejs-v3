@@ -1,3 +1,5 @@
+import { GmCertificateInfo } from './GmCertificateInfo';
+import { TlsCertificateInfo } from './TlsCertificateInfo';
 
 
 export class DomainHttpsCertInfo {
@@ -5,9 +7,9 @@ export class DomainHttpsCertInfo {
     public certificate?: string;
     private 'certificate_key'?: string;
     private 'force_redirect'?: boolean;
-    public constructor(certificate?: string, certificateKey?: string) { 
-        this['certificate'] = certificate;
-        this['certificate_key'] = certificateKey;
+    private 'gm_certificate'?: GmCertificateInfo;
+    private 'tls_certificate'?: TlsCertificateInfo;
+    public constructor() { 
     }
     public withCertificateFormat(certificateFormat: DomainHttpsCertInfoCertificateFormatEnum | string): DomainHttpsCertInfo {
         this['certificate_format'] = certificateFormat;
@@ -42,6 +44,26 @@ export class DomainHttpsCertInfo {
     }
     public get forceRedirect(): boolean | undefined {
         return this['force_redirect'];
+    }
+    public withGmCertificate(gmCertificate: GmCertificateInfo): DomainHttpsCertInfo {
+        this['gm_certificate'] = gmCertificate;
+        return this;
+    }
+    public set gmCertificate(gmCertificate: GmCertificateInfo  | undefined) {
+        this['gm_certificate'] = gmCertificate;
+    }
+    public get gmCertificate(): GmCertificateInfo | undefined {
+        return this['gm_certificate'];
+    }
+    public withTlsCertificate(tlsCertificate: TlsCertificateInfo): DomainHttpsCertInfo {
+        this['tls_certificate'] = tlsCertificate;
+        return this;
+    }
+    public set tlsCertificate(tlsCertificate: TlsCertificateInfo  | undefined) {
+        this['tls_certificate'] = tlsCertificate;
+    }
+    public get tlsCertificate(): TlsCertificateInfo | undefined {
+        return this['tls_certificate'];
     }
 }
 

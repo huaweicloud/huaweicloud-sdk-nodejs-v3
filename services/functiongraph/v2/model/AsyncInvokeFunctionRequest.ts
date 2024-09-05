@@ -3,6 +3,7 @@
 export class AsyncInvokeFunctionRequest {
     private 'function_urn'?: string;
     private 'Content-Type'?: string;
+    private 'X-Cff-Instance-Memory'?: string;
     public body?: { [key: string]: object; };
     public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
@@ -27,6 +28,16 @@ export class AsyncInvokeFunctionRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withXCffInstanceMemory(xCffInstanceMemory: string): AsyncInvokeFunctionRequest {
+        this['X-Cff-Instance-Memory'] = xCffInstanceMemory;
+        return this;
+    }
+    public set xCffInstanceMemory(xCffInstanceMemory: string  | undefined) {
+        this['X-Cff-Instance-Memory'] = xCffInstanceMemory;
+    }
+    public get xCffInstanceMemory(): string | undefined {
+        return this['X-Cff-Instance-Memory'];
     }
     public withBody(body: { [key: string]: object; }): AsyncInvokeFunctionRequest {
         this['body'] = body;

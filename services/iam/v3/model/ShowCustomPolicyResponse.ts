@@ -1,13 +1,13 @@
-import { PolicyRoleResult } from './PolicyRoleResult';
+import { ShowPolicyRoleResult } from './ShowPolicyRoleResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCustomPolicyResponse extends SdkResponse {
-    public role?: PolicyRoleResult;
+    public role?: ShowPolicyRoleResult;
     public constructor() { 
         super();
     }
-    public withRole(role: PolicyRoleResult): ShowCustomPolicyResponse {
+    public withRole(role: ShowPolicyRoleResult): ShowCustomPolicyResponse {
         this['role'] = role;
         return this;
     }

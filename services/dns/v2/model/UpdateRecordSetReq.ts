@@ -6,9 +6,7 @@ export class UpdateRecordSetReq {
     public type?: string;
     public ttl?: number;
     public records?: Array<string>;
-    public constructor(name?: string, type?: string) { 
-        this['name'] = name;
-        this['type'] = type;
+    public constructor() { 
     }
     public withName(name: string): UpdateRecordSetReq {
         this['name'] = name;

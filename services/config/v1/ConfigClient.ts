@@ -90,6 +90,7 @@ import { DisablePolicyAssignmentRequest } from './model/DisablePolicyAssignmentR
 import { DisablePolicyAssignmentResponse } from './model/DisablePolicyAssignmentResponse';
 import { EnablePolicyAssignmentRequest } from './model/EnablePolicyAssignmentRequest';
 import { EnablePolicyAssignmentResponse } from './model/EnablePolicyAssignmentResponse';
+import { FrozenStatus } from './model/FrozenStatus';
 import { GroupedResourceCount } from './model/GroupedResourceCount';
 import { HistoryItem } from './model/HistoryItem';
 import { ListAggregateComplianceByPolicyAssignmentRequest } from './model/ListAggregateComplianceByPolicyAssignmentRequest';

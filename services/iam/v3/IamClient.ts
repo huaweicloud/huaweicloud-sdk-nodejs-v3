@@ -329,6 +329,7 @@ import { ListGroupsForEnterpriseProjectResDetail } from './model/ListGroupsForEn
 import { ListGroupsForEnterpriseProjectResponse } from './model/ListGroupsForEnterpriseProjectResponse';
 import { ListPermanentAccessKeysRequest } from './model/ListPermanentAccessKeysRequest';
 import { ListPermanentAccessKeysResponse } from './model/ListPermanentAccessKeysResponse';
+import { ListPolicyRoleResult } from './model/ListPolicyRoleResult';
 import { ListProjectPermissionsForAgencyRequest } from './model/ListProjectPermissionsForAgencyRequest';
 import { ListProjectPermissionsForAgencyResponse } from './model/ListProjectPermissionsForAgencyResponse';
 import { ListRolesForGroupOnEnterpriseProjectRequest } from './model/ListRolesForGroupOnEnterpriseProjectRequest';
@@ -367,7 +368,6 @@ import { OsfederationProtocol } from './model/OsfederationProtocol';
 import { PasswordPolicyOption } from './model/PasswordPolicyOption';
 import { PasswordPolicyResult } from './model/PasswordPolicyResult';
 import { PolicyDepends } from './model/PolicyDepends';
-import { PolicyRoleResult } from './model/PolicyRoleResult';
 import { PolicyStatement } from './model/PolicyStatement';
 import { ProjectDetailsAndStatusResult } from './model/ProjectDetailsAndStatusResult';
 import { ProjectInfo } from './model/ProjectInfo';
@@ -455,6 +455,7 @@ import { ShowOpenIdConnectConfigRequest } from './model/ShowOpenIdConnectConfigR
 import { ShowOpenIdConnectConfigResponse } from './model/ShowOpenIdConnectConfigResponse';
 import { ShowPermanentAccessKeyRequest } from './model/ShowPermanentAccessKeyRequest';
 import { ShowPermanentAccessKeyResponse } from './model/ShowPermanentAccessKeyResponse';
+import { ShowPolicyRoleResult } from './model/ShowPolicyRoleResult';
 import { ShowProjectDetailsAndStatusRequest } from './model/ShowProjectDetailsAndStatusRequest';
 import { ShowProjectDetailsAndStatusResponse } from './model/ShowProjectDetailsAndStatusResponse';
 import { ShowProjectQuotaRequest } from './model/ShowProjectQuotaRequest';
@@ -2281,6 +2282,8 @@ export class IamClient {
      * @param {string} domainId 委托方账号ID，获取方式请参见：[获取账号ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} [trustDomainId] 被委托方账号ID，获取方式请参见：[获取账号ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} [name] 委托名，获取方式请参见：[获取委托名、委托ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
+     * @param {number} [page] 分页查询时数据的页数，查询值最小为1。需要与per_page同时存在。
+     * @param {number} [perPage] 分页查询时每页的数据个数，取值范围为[1,500]。需要与page同时存在。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2827,8 +2830,8 @@ export class IamClient {
      * @param {string} [scopeEnterpriseProjectsId] 授权的企业项目ID。
      * @param {boolean} [isInherited] 是否包含基于所有项目授权的记录，默认为false。当参数scope&#x3D;domain或者scope.domain_id存在时生效。true：查询基于所有项目授权的记录。 false：查询基于全局服务授权的记录。
      * @param {boolean} [includeGroup] 是否包含基于IAM用户所属用户组授权的记录，默认为true。当参数subject&#x3D;user或者subject.user_id存在时生效。true：查询基于IAM用户授权、IAM用户所属用户组授权的记录。 false：仅查询基于IAM用户授权的记录。
-     * @param {string} [page] 分页查询时数据的页数，查询值最小为1。需要与per_page同时存在。
-     * @param {string} [perPage] 分页查询时每页的数据个数，取值范围为[1,50]。需要与page同时存在。
+     * @param {number} [page] 分页查询时数据的页数，查询值最小为1。需要与per_page同时存在。
+     * @param {number} [perPage] 分页查询时每页的数据个数，取值范围为[1,50]。需要与page同时存在。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7239,16 +7242,24 @@ export const ParamCreater = function () {
             let trustDomainId;
             
             let name;
+            
+            let page;
+            
+            let perPage;
 
             if (listAgenciesRequest !== null && listAgenciesRequest !== undefined) {
                 if (listAgenciesRequest instanceof ListAgenciesRequest) {
                     domainId = listAgenciesRequest.domainId;
                     trustDomainId = listAgenciesRequest.trustDomainId;
                     name = listAgenciesRequest.name;
+                    page = listAgenciesRequest.page;
+                    perPage = listAgenciesRequest.perPage;
                 } else {
                     domainId = listAgenciesRequest['domain_id'];
                     trustDomainId = listAgenciesRequest['trust_domain_id'];
                     name = listAgenciesRequest['name'];
+                    page = listAgenciesRequest['page'];
+                    perPage = listAgenciesRequest['per_page'];
                 }
             }
 
@@ -7264,6 +7275,12 @@ export const ParamCreater = function () {
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (perPage !== null && perPage !== undefined) {
+                localVarQueryParameter['per_page'] = perPage;
             }
 
             options.queryParams = localVarQueryParameter;

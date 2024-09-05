@@ -13,8 +13,8 @@ export class ShowDomainRoleAssignmentsRequest {
     private 'scope.enterprise_projects_id'?: string;
     private 'is_inherited'?: boolean;
     private 'include_group'?: boolean;
-    public page?: string;
-    private 'per_page'?: string;
+    public page?: number;
+    private 'per_page'?: number;
     public constructor(domainId?: string) { 
         this['domain_id'] = domainId;
     }
@@ -126,18 +126,18 @@ export class ShowDomainRoleAssignmentsRequest {
     public get includeGroup(): boolean | undefined {
         return this['include_group'];
     }
-    public withPage(page: string): ShowDomainRoleAssignmentsRequest {
+    public withPage(page: number): ShowDomainRoleAssignmentsRequest {
         this['page'] = page;
         return this;
     }
-    public withPerPage(perPage: string): ShowDomainRoleAssignmentsRequest {
+    public withPerPage(perPage: number): ShowDomainRoleAssignmentsRequest {
         this['per_page'] = perPage;
         return this;
     }
-    public set perPage(perPage: string  | undefined) {
+    public set perPage(perPage: number  | undefined) {
         this['per_page'] = perPage;
     }
-    public get perPage(): string | undefined {
+    public get perPage(): number | undefined {
         return this['per_page'];
     }
 }

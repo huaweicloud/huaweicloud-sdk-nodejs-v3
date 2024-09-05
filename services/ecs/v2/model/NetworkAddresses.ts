@@ -6,6 +6,7 @@ export class NetworkAddresses {
     private 'OS-EXT-IPS:port_id'?: string;
     private 'OS-EXT-IPS-MAC:mac_addr'?: string;
     private 'OS-EXT-IPS:type'?: string;
+    public primary?: boolean;
     public constructor(addr?: string, version?: number, oSEXTIPSPortId?: string, oSEXTIPSMACMacAddr?: string, oSEXTIPSType?: string) { 
         this['addr'] = addr;
         this['version'] = version;
@@ -50,6 +51,10 @@ export class NetworkAddresses {
     }
     public get oSEXTIPSType(): string | undefined {
         return this['OS-EXT-IPS:type'];
+    }
+    public withPrimary(primary: boolean): NetworkAddresses {
+        this['primary'] = primary;
+        return this;
     }
 }
 

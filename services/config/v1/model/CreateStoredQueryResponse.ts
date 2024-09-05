@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreateStoredQueryResponse extends SdkResponse {
     public id?: string;
     public name?: string;
+    public type?: CreateStoredQueryResponseTypeEnum | string;
     public description?: string;
     public expression?: string;
     public created?: string;
@@ -17,6 +18,10 @@ export class CreateStoredQueryResponse extends SdkResponse {
     }
     public withName(name: string): CreateStoredQueryResponse {
         this['name'] = name;
+        return this;
+    }
+    public withType(type: CreateStoredQueryResponseTypeEnum | string): CreateStoredQueryResponse {
+        this['type'] = type;
         return this;
     }
     public withDescription(description: string): CreateStoredQueryResponse {
@@ -35,4 +40,13 @@ export class CreateStoredQueryResponse extends SdkResponse {
         this['updated'] = updated;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateStoredQueryResponseTypeEnum {
+    ACCOUNT = 'account',
+    AGGREGATOR = 'aggregator'
 }

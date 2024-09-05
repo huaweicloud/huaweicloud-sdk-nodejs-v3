@@ -3,6 +3,7 @@
 export class StoredQuery {
     public id?: string;
     public name?: string;
+    public type?: StoredQueryTypeEnum | string;
     public description?: string;
     public expression?: string;
     public created?: string;
@@ -15,6 +16,10 @@ export class StoredQuery {
     }
     public withName(name: string): StoredQuery {
         this['name'] = name;
+        return this;
+    }
+    public withType(type: StoredQueryTypeEnum | string): StoredQuery {
+        this['type'] = type;
         return this;
     }
     public withDescription(description: string): StoredQuery {
@@ -33,4 +38,13 @@ export class StoredQuery {
         this['updated'] = updated;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StoredQueryTypeEnum {
+    ACCOUNT = 'account',
+    AGGREGATOR = 'aggregator'
 }

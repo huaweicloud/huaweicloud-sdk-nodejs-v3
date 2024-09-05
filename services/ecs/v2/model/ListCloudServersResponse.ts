@@ -4,16 +4,11 @@ import { PageLink } from './PageLink';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCloudServersResponse extends SdkResponse {
-    public count?: number;
     public servers?: Array<CloudServer>;
     private 'servers_links'?: Array<PageLink>;
     private 'request_id'?: string;
     public constructor() { 
         super();
-    }
-    public withCount(count: number): ListCloudServersResponse {
-        this['count'] = count;
-        return this;
     }
     public withServers(servers: Array<CloudServer>): ListCloudServersResponse {
         this['servers'] = servers;

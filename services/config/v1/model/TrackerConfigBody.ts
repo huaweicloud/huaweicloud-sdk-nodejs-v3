@@ -1,4 +1,5 @@
 import { ChannelConfigBody } from './ChannelConfigBody';
+import { FrozenStatus } from './FrozenStatus';
 import { SelectorConfigBody } from './SelectorConfigBody';
 
 
@@ -7,6 +8,8 @@ export class TrackerConfigBody {
     public selector?: SelectorConfigBody;
     private 'retention_period_in_days'?: number;
     private 'agency_name'?: string;
+    private 'domain_id'?: string;
+    private 'frozen_status'?: FrozenStatus;
     public constructor(channel?: ChannelConfigBody, selector?: SelectorConfigBody, agencyName?: string) { 
         this['channel'] = channel;
         this['selector'] = selector;
@@ -39,5 +42,25 @@ export class TrackerConfigBody {
     }
     public get agencyName(): string | undefined {
         return this['agency_name'];
+    }
+    public withDomainId(domainId: string): TrackerConfigBody {
+        this['domain_id'] = domainId;
+        return this;
+    }
+    public set domainId(domainId: string  | undefined) {
+        this['domain_id'] = domainId;
+    }
+    public get domainId(): string | undefined {
+        return this['domain_id'];
+    }
+    public withFrozenStatus(frozenStatus: FrozenStatus): TrackerConfigBody {
+        this['frozen_status'] = frozenStatus;
+        return this;
+    }
+    public set frozenStatus(frozenStatus: FrozenStatus  | undefined) {
+        this['frozen_status'] = frozenStatus;
+    }
+    public get frozenStatus(): FrozenStatus | undefined {
+        return this['frozen_status'];
     }
 }

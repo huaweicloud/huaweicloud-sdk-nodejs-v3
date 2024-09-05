@@ -5,6 +5,7 @@ export class VolumeAttach {
     private 'delete_on_termination'?: boolean;
     public device?: string;
     public bootIndex?: string;
+    public size?: number;
     public constructor(id?: string) { 
         this['id'] = id;
     }
@@ -28,6 +29,10 @@ export class VolumeAttach {
     }
     public withBootIndex(bootIndex: string): VolumeAttach {
         this['bootIndex'] = bootIndex;
+        return this;
+    }
+    public withSize(size: number): VolumeAttach {
+        this['size'] = size;
         return this;
     }
 }

@@ -96,6 +96,8 @@ export * from './model/CorpBasicDTO';
 export * from './model/CorpBasicInfoDTO';
 export * from './model/CreateAnonymousAuthRandomRequest';
 export * from './model/CreateAnonymousAuthRandomResponse';
+export * from './model/CreateAuthRandomRequest';
+export * from './model/CreateAuthRandomResponse';
 export * from './model/CreateConfTokenRequest';
 export * from './model/CreateConfTokenResponse';
 export * from './model/CreateMeetingRequest';

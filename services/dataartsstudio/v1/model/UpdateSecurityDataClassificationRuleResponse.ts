@@ -13,6 +13,7 @@ export class UpdateSecurityDataClassificationRuleResponse extends SdkResponse {
     private 'content_expression'?: string;
     private 'column_expression'?: string;
     private 'commit_expression'?: string;
+    private 'combine_expression'?: string;
     private 'project_id'?: string;
     public description?: string;
     private 'created_by'?: string;
@@ -105,6 +106,16 @@ export class UpdateSecurityDataClassificationRuleResponse extends SdkResponse {
     }
     public get commitExpression(): string | undefined {
         return this['commit_expression'];
+    }
+    public withCombineExpression(combineExpression: string): UpdateSecurityDataClassificationRuleResponse {
+        this['combine_expression'] = combineExpression;
+        return this;
+    }
+    public set combineExpression(combineExpression: string  | undefined) {
+        this['combine_expression'] = combineExpression;
+    }
+    public get combineExpression(): string | undefined {
+        return this['combine_expression'];
     }
     public withProjectId(projectId: string): UpdateSecurityDataClassificationRuleResponse {
         this['project_id'] = projectId;
@@ -217,5 +228,6 @@ export enum UpdateSecurityDataClassificationRuleResponseRuleTypeEnum {
 export enum UpdateSecurityDataClassificationRuleResponseMethodEnum {
     REGULAR = 'REGULAR',
     NONE = 'NONE',
-    DEFAULT = 'DEFAULT'
+    DEFAULT = 'DEFAULT',
+    COMBINE = 'COMBINE'
 }

@@ -4,6 +4,8 @@ export class ListAgenciesRequest {
     private 'domain_id'?: string;
     private 'trust_domain_id'?: string;
     public name?: string;
+    public page?: number;
+    private 'per_page'?: number;
     public constructor(domainId?: string) { 
         this['domain_id'] = domainId;
     }
@@ -30,5 +32,19 @@ export class ListAgenciesRequest {
     public withName(name: string): ListAgenciesRequest {
         this['name'] = name;
         return this;
+    }
+    public withPage(page: number): ListAgenciesRequest {
+        this['page'] = page;
+        return this;
+    }
+    public withPerPage(perPage: number): ListAgenciesRequest {
+        this['per_page'] = perPage;
+        return this;
+    }
+    public set perPage(perPage: number  | undefined) {
+        this['per_page'] = perPage;
+    }
+    public get perPage(): number | undefined {
+        return this['per_page'];
     }
 }

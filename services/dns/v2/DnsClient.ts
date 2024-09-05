@@ -446,7 +446,7 @@ export class DnsClient {
      *
      * @summary 设置弹性IP的PTR记录
      * @param {string} region 租户的区域信息。
-     * @param {string} floatingipId 弹性IP的ID。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {CreatePtrReq} createPtrReq 设置弹性IP的PTR记录请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -491,7 +491,7 @@ export class DnsClient {
      *
      * @summary 将弹性IP的PTR记录恢复为默认值
      * @param {string} region 域名所属的区域。
-     * @param {string} floatingipId 待删除PTR ID。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {RestorePtrReq} [restorePtrReq] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -512,7 +512,7 @@ export class DnsClient {
      *
      * @summary 查询单个弹性IP的PTR记录
      * @param {string} region 租户的区域信息。 
-     * @param {string} floatingipId 弹性IP的ID。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -532,7 +532,7 @@ export class DnsClient {
      *
      * @summary 修改弹性IP的PTR记录
      * @param {string} region 域名所属的区域。
-     * @param {string} floatingipId 待修改弹性IP的PTR记录ID信息。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {UpdatePtrReq} [updatePtrReq] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -649,7 +649,7 @@ export class DnsClient {
     }
 
     /**
-     * 删除单个Record Set. 删除有添加智能解析的记录集时、需要用Record Set多线路管理模块中删除接口进行删除.
+     * 删除单个Record Set。删除有添加智能解析的记录集时，需要用Record Set多线路管理模块中删除接口进行删除。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1190,7 +1190,7 @@ export class DnsClient {
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。  多个标签之间为“与”的关系。  关于资源标签，请参见添加资源标签。  搜索模式为精确搜索。如果资源标签值value是以*开头时，则按照*后面的值全模糊匹配。  默认值为空。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。  多个标签之间为“与”的关系。  关于资源标签，请参见添加资源标签。  搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  默认值为空。
      * @param {string} [name] zone名称。  搜索模式默认为模糊搜索。
      * @param {string} [status] 资源状态。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
@@ -2387,7 +2387,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除单个Record Set. 删除有添加智能解析的记录集时、需要用Record Set多线路管理模块中删除接口进行删除.
+         * 删除单个Record Set。删除有添加智能解析的记录集时，需要用Record Set多线路管理模块中删除接口进行删除。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

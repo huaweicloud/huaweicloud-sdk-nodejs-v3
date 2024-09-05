@@ -308,6 +308,7 @@ export class FunctionGraphClient {
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} contentType 消息体的类型（格式）
      * @param {{ [key: string]: object; }} asyncInvokeFunctionRequestBody 异步执行函数请求体
+     * @param {string} [xCffInstanceMemory] 设置本次执行函数使用的内存规格,取值： 128、256、512、768、1024、1280、1536、1792、2048、2560、3072、3584、4096、8192、10240
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -898,6 +899,7 @@ export class FunctionGraphClient {
      * @param {{ [key: string]: object; }} invokeFunctionRequestBody 执行函数请求体
      * @param {string} [xCffLogType] 取值为：tail（返回函数执行后的4K日志），或者为空（不返回日志）。
      * @param {string} [xCFFRequestVersion] 返回体格式，取值v0,v1。 v0:默认返回文本格式 v1:默认返回json格式，sdk需要使用此值。
+     * @param {string} [xCffInstanceMemory] 设置本次执行函数使用的内存规格,取值： 128、256、512、768、1024、1280、1536、1792、2048、2560、3072、3584、4096、8192、10240
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2298,16 +2300,20 @@ export const ParamCreater = function () {
             let functionUrn;
             
             let contentType;
+            
+            let xCffInstanceMemory;
 
             if (asyncInvokeFunctionRequest !== null && asyncInvokeFunctionRequest !== undefined) {
                 if (asyncInvokeFunctionRequest instanceof AsyncInvokeFunctionRequest) {
                     functionUrn = asyncInvokeFunctionRequest.functionUrn;
                     contentType = asyncInvokeFunctionRequest.contentType;
                     body = asyncInvokeFunctionRequest.body
+                    xCffInstanceMemory = asyncInvokeFunctionRequest.xCffInstanceMemory;
                 } else {
                     functionUrn = asyncInvokeFunctionRequest['function_urn'];
                     contentType = asyncInvokeFunctionRequest['Content-Type'];
                     body = asyncInvokeFunctionRequest['body'];
+                    xCffInstanceMemory = asyncInvokeFunctionRequest['X-Cff-Instance-Memory'];
                 }
             }
 
@@ -2320,6 +2326,9 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xCffInstanceMemory !== undefined && xCffInstanceMemory !== null) {
+                localVarHeaderParameter['X-Cff-Instance-Memory'] = String(xCffInstanceMemory);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3688,6 +3697,8 @@ export const ParamCreater = function () {
             let xCffLogType;
             
             let xCFFRequestVersion;
+            
+            let xCffInstanceMemory;
 
             if (invokeFunctionRequest !== null && invokeFunctionRequest !== undefined) {
                 if (invokeFunctionRequest instanceof InvokeFunctionRequest) {
@@ -3696,12 +3707,14 @@ export const ParamCreater = function () {
                     body = invokeFunctionRequest.body
                     xCffLogType = invokeFunctionRequest.xCffLogType;
                     xCFFRequestVersion = invokeFunctionRequest.xCFFRequestVersion;
+                    xCffInstanceMemory = invokeFunctionRequest.xCffInstanceMemory;
                 } else {
                     functionUrn = invokeFunctionRequest['function_urn'];
                     contentType = invokeFunctionRequest['Content-Type'];
                     body = invokeFunctionRequest['body'];
                     xCffLogType = invokeFunctionRequest['X-Cff-Log-Type'];
                     xCFFRequestVersion = invokeFunctionRequest['X-CFF-Request-Version'];
+                    xCffInstanceMemory = invokeFunctionRequest['X-Cff-Instance-Memory'];
                 }
             }
 
@@ -3720,6 +3733,9 @@ export const ParamCreater = function () {
             }
             if (xCFFRequestVersion !== undefined && xCFFRequestVersion !== null) {
                 localVarHeaderParameter['X-CFF-Request-Version'] = String(xCFFRequestVersion);
+            }
+            if (xCffInstanceMemory !== undefined && xCffInstanceMemory !== null) {
+                localVarHeaderParameter['X-Cff-Instance-Memory'] = String(xCffInstanceMemory);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

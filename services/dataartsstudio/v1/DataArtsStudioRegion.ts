@@ -27,6 +27,7 @@ export class DataArtsStudioRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://dayu.tr-west-1.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://dayu.me-east-1.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://dayu.eu-west-101.myhuaweicloud.com"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://dayu.ae-ad-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -50,7 +51,8 @@ export class DataArtsStudioRegion {
         "ap-southeast-4":DataArtsStudioRegion.AP_SOUTHEAST_4,
         "tr-west-1":DataArtsStudioRegion.TR_WEST_1,
         "me-east-1":DataArtsStudioRegion.ME_EAST_1,
-        "eu-west-101":DataArtsStudioRegion.EU_WEST_101
+        "eu-west-101":DataArtsStudioRegion.EU_WEST_101,
+        "ae-ad-1":DataArtsStudioRegion.AE_AD_1
     };
   
     public static valueOf(regionId: string) {

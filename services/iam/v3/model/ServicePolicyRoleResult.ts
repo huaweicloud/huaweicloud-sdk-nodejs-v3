@@ -15,7 +15,6 @@ export class ServicePolicyRoleResult {
     public name?: string;
     private 'updated_time'?: string;
     private 'created_time'?: string;
-    public references?: string;
     public constructor(catalog?: string, displayName?: string, description?: string, links?: LinksSelf, policy?: ServicePolicy, domainId?: string, type?: string, id?: string, name?: string) { 
         this['catalog'] = catalog;
         this['display_name'] = displayName;
@@ -104,9 +103,5 @@ export class ServicePolicyRoleResult {
     }
     public get createdTime(): string | undefined {
         return this['created_time'];
-    }
-    public withReferences(references: string): ServicePolicyRoleResult {
-        this['references'] = references;
-        return this;
     }
 }

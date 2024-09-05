@@ -23,7 +23,7 @@ export class CloudServer {
     private 'in_recycle_bin'?: boolean;
     private 'spod_id'?: string;
     public updated?: string;
-    public launched?: string;
+    private 'launched_at'?: string;
     public description?: string;
     private 'key_name'?: string;
     public locked?: boolean;
@@ -166,9 +166,15 @@ export class CloudServer {
         this['updated'] = updated;
         return this;
     }
-    public withLaunched(launched: string): CloudServer {
-        this['launched'] = launched;
+    public withLaunchedAt(launchedAt: string): CloudServer {
+        this['launched_at'] = launchedAt;
         return this;
+    }
+    public set launchedAt(launchedAt: string  | undefined) {
+        this['launched_at'] = launchedAt;
+    }
+    public get launchedAt(): string | undefined {
+        return this['launched_at'];
     }
     public withDescription(description: string): CloudServer {
         this['description'] = description;

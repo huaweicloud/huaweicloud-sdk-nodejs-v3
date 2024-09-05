@@ -98,6 +98,8 @@ import { CorpBasicDTO } from './model/CorpBasicDTO';
 import { CorpBasicInfoDTO } from './model/CorpBasicInfoDTO';
 import { CreateAnonymousAuthRandomRequest } from './model/CreateAnonymousAuthRandomRequest';
 import { CreateAnonymousAuthRandomResponse } from './model/CreateAnonymousAuthRandomResponse';
+import { CreateAuthRandomRequest } from './model/CreateAuthRandomRequest';
+import { CreateAuthRandomResponse } from './model/CreateAuthRandomResponse';
 import { CreateConfTokenRequest } from './model/CreateConfTokenRequest';
 import { CreateConfTokenResponse } from './model/CreateConfTokenResponse';
 import { CreateMeetingRequest } from './model/CreateMeetingRequest';
@@ -4532,6 +4534,27 @@ export class MeetingClient {
      */
     public uploadFile(uploadFileRequest?: UploadFileRequest): Promise<UploadFileResponse> {
         const options = ParamCreater().uploadFile(uploadFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取会议鉴权随机数
+     * @param {string} confId 会议ID
+     * @param {number} [guestWaiting] 0-不支持来宾会前等待页能力（默认）、1-支持来宾会前等待页能力
+     * @param {string} [xPassword] 会议密码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAuthRandom(createAuthRandomRequest?: CreateAuthRandomRequest): Promise<CreateAuthRandomResponse> {
+        const options = ParamCreater().createAuthRandom(createAuthRandomRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -15463,6 +15486,60 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAuthRandom(createAuthRandomRequest?: CreateAuthRandomRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/mms/ncms/conferences/auth/random",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let confId;
+            
+            let guestWaiting;
+            
+            let xPassword;
+
+            if (createAuthRandomRequest !== null && createAuthRandomRequest !== undefined) {
+                if (createAuthRandomRequest instanceof CreateAuthRandomRequest) {
+                    confId = createAuthRandomRequest.confId;
+                    guestWaiting = createAuthRandomRequest.guestWaiting;
+                    xPassword = createAuthRandomRequest.xPassword;
+                } else {
+                    confId = createAuthRandomRequest['conf_id'];
+                    guestWaiting = createAuthRandomRequest['guest_waiting'];
+                    xPassword = createAuthRandomRequest['X-Password'];
+                }
+            }
+
+        
+            if (confId === null || confId === undefined) {
+                throw new RequiredError('confId','Required parameter confId was null or undefined when calling createAuthRandom.');
+            }
+            if (confId !== null && confId !== undefined) {
+                localVarQueryParameter['conf_id'] = confId;
+            }
+            if (guestWaiting !== null && guestWaiting !== undefined) {
+                localVarQueryParameter['guest_waiting'] = guestWaiting;
+            }
+            if (xPassword !== undefined && xPassword !== null) {
+                localVarHeaderParameter['X-Password'] = String(xPassword);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

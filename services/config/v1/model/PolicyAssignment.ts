@@ -19,6 +19,8 @@ export class PolicyAssignment {
     public parameters?: { [key: string]: PolicyParameterValue; };
     public tags?: Array<ResourceTag>;
     private 'created_by'?: string;
+    private 'target_type'?: string;
+    private 'target_id'?: string;
     public constructor() { 
     }
     public withPolicyAssignmentType(policyAssignmentType: PolicyAssignmentPolicyAssignmentTypeEnum | string): PolicyAssignment {
@@ -106,6 +108,26 @@ export class PolicyAssignment {
     }
     public get createdBy(): string | undefined {
         return this['created_by'];
+    }
+    public withTargetType(targetType: string): PolicyAssignment {
+        this['target_type'] = targetType;
+        return this;
+    }
+    public set targetType(targetType: string  | undefined) {
+        this['target_type'] = targetType;
+    }
+    public get targetType(): string | undefined {
+        return this['target_type'];
+    }
+    public withTargetId(targetId: string): PolicyAssignment {
+        this['target_id'] = targetId;
+        return this;
+    }
+    public set targetId(targetId: string  | undefined) {
+        this['target_id'] = targetId;
+    }
+    public get targetId(): string | undefined {
+        return this['target_id'];
     }
 }
 

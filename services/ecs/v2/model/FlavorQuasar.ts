@@ -1,3 +1,5 @@
+import { ASICAcceleratorInfo } from './ASICAcceleratorInfo';
+import { GpuInfo } from './GpuInfo';
 
 
 export class FlavorQuasar {
@@ -6,9 +8,8 @@ export class FlavorQuasar {
     public vcpus?: number;
     public ram?: number;
     public disk?: number;
-    private 'root_gb'?: number;
-    private 'ephemeral_gb'?: number;
-    private 'extra_specs'?: { [key: string]: string; };
+    public gpus?: Array<GpuInfo>;
+    private 'asic_accelerators'?: Array<ASICAcceleratorInfo>;
     public constructor() { 
     }
     public withId(id: string): FlavorQuasar {
@@ -31,34 +32,18 @@ export class FlavorQuasar {
         this['disk'] = disk;
         return this;
     }
-    public withRootGb(rootGb: number): FlavorQuasar {
-        this['root_gb'] = rootGb;
+    public withGpus(gpus: Array<GpuInfo>): FlavorQuasar {
+        this['gpus'] = gpus;
         return this;
     }
-    public set rootGb(rootGb: number  | undefined) {
-        this['root_gb'] = rootGb;
-    }
-    public get rootGb(): number | undefined {
-        return this['root_gb'];
-    }
-    public withEphemeralGb(ephemeralGb: number): FlavorQuasar {
-        this['ephemeral_gb'] = ephemeralGb;
+    public withAsicAccelerators(asicAccelerators: Array<ASICAcceleratorInfo>): FlavorQuasar {
+        this['asic_accelerators'] = asicAccelerators;
         return this;
     }
-    public set ephemeralGb(ephemeralGb: number  | undefined) {
-        this['ephemeral_gb'] = ephemeralGb;
+    public set asicAccelerators(asicAccelerators: Array<ASICAcceleratorInfo>  | undefined) {
+        this['asic_accelerators'] = asicAccelerators;
     }
-    public get ephemeralGb(): number | undefined {
-        return this['ephemeral_gb'];
-    }
-    public withExtraSpecs(extraSpecs: { [key: string]: string; }): FlavorQuasar {
-        this['extra_specs'] = extraSpecs;
-        return this;
-    }
-    public set extraSpecs(extraSpecs: { [key: string]: string; }  | undefined) {
-        this['extra_specs'] = extraSpecs;
-    }
-    public get extraSpecs(): { [key: string]: string; } | undefined {
-        return this['extra_specs'];
+    public get asicAccelerators(): Array<ASICAcceleratorInfo> | undefined {
+        return this['asic_accelerators'];
     }
 }

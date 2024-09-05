@@ -5,6 +5,7 @@ export class InvokeFunctionRequest {
     private 'Content-Type'?: string;
     private 'X-Cff-Log-Type'?: string;
     private 'X-CFF-Request-Version'?: string;
+    private 'X-Cff-Instance-Memory'?: string;
     public body?: { [key: string]: object; };
     public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
@@ -49,6 +50,16 @@ export class InvokeFunctionRequest {
     }
     public get xCFFRequestVersion(): string | undefined {
         return this['X-CFF-Request-Version'];
+    }
+    public withXCffInstanceMemory(xCffInstanceMemory: string): InvokeFunctionRequest {
+        this['X-Cff-Instance-Memory'] = xCffInstanceMemory;
+        return this;
+    }
+    public set xCffInstanceMemory(xCffInstanceMemory: string  | undefined) {
+        this['X-Cff-Instance-Memory'] = xCffInstanceMemory;
+    }
+    public get xCffInstanceMemory(): string | undefined {
+        return this['X-Cff-Instance-Memory'];
     }
     public withBody(body: { [key: string]: object; }): InvokeFunctionRequest {
         this['body'] = body;

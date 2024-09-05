@@ -56,6 +56,7 @@ import { BatchSyncNodesRequest } from './model/BatchSyncNodesRequest';
 import { BatchSyncNodesResponse } from './model/BatchSyncNodesResponse';
 import { CapacityReservationSpecification } from './model/CapacityReservationSpecification';
 import { CertDuration } from './model/CertDuration';
+import { CertRevokeConfigRequestBody } from './model/CertRevokeConfigRequestBody';
 import { ChartResp } from './model/ChartResp';
 import { ChartValueValues } from './model/ChartValueValues';
 import { Cluster } from './model/Cluster';
@@ -354,6 +355,8 @@ import { RetryAutopilotUpgradeClusterTaskRequest } from './model/RetryAutopilotU
 import { RetryAutopilotUpgradeClusterTaskResponse } from './model/RetryAutopilotUpgradeClusterTaskResponse';
 import { RetryUpgradeClusterTaskRequest } from './model/RetryUpgradeClusterTaskRequest';
 import { RetryUpgradeClusterTaskResponse } from './model/RetryUpgradeClusterTaskResponse';
+import { RevokeKubernetesClusterCertRequest } from './model/RevokeKubernetesClusterCertRequest';
+import { RevokeKubernetesClusterCertResponse } from './model/RevokeKubernetesClusterCertResponse';
 import { RiskSource } from './model/RiskSource';
 import { RollbackAddonInstanceRequest } from './model/RollbackAddonInstanceRequest';
 import { RollbackAddonInstanceResponse } from './model/RollbackAddonInstanceResponse';
@@ -1608,6 +1611,29 @@ export class CceClient {
      */
     public retryUpgradeClusterTask(retryUpgradeClusterTaskRequest?: RetryUpgradeClusterTaskRequest): Promise<RetryUpgradeClusterTaskResponse> {
         const options = ParamCreater().retryUpgradeClusterTask(retryUpgradeClusterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于吊销指定集群的用户证书
+     * 
+     * &gt; 吊销操作完成后，此证书申请人之前下载的证书和 kubectl 配置文件无法再用于连接集群。此证书申请人可以重新下载证书或 kubectl 配置文件，并使用新下载的文件连接集群
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 吊销用户的集群证书
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {CertRevokeConfigRequestBody} certRevokeConfigRequestBody 吊销用户证书的请求Body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public revokeKubernetesClusterCert(revokeKubernetesClusterCertRequest?: RevokeKubernetesClusterCertRequest): Promise<RevokeKubernetesClusterCertResponse> {
+        const options = ParamCreater().revokeKubernetesClusterCert(revokeKubernetesClusterCertRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6039,6 +6065,61 @@ export const ParamCreater = function () {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling retryUpgradeClusterTask.');
             }
 
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于吊销指定集群的用户证书
+         * 
+         * &gt; 吊销操作完成后，此证书申请人之前下载的证书和 kubectl 配置文件无法再用于连接集群。此证书申请人可以重新下载证书或 kubectl 配置文件，并使用新下载的文件连接集群
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        revokeKubernetesClusterCert(revokeKubernetesClusterCertRequest?: RevokeKubernetesClusterCertRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/clustercertrevoke",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (revokeKubernetesClusterCertRequest !== null && revokeKubernetesClusterCertRequest !== undefined) {
+                if (revokeKubernetesClusterCertRequest instanceof RevokeKubernetesClusterCertRequest) {
+                    clusterId = revokeKubernetesClusterCertRequest.clusterId;
+                    contentType = revokeKubernetesClusterCertRequest.contentType;
+                    body = revokeKubernetesClusterCertRequest.body
+                } else {
+                    clusterId = revokeKubernetesClusterCertRequest['cluster_id'];
+                    contentType = revokeKubernetesClusterCertRequest['Content-Type'];
+                    body = revokeKubernetesClusterCertRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling revokeKubernetesClusterCert.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;

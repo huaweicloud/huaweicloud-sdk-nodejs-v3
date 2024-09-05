@@ -1,11 +1,11 @@
 import { Links } from './Links';
-import { PolicyRoleResult } from './PolicyRoleResult';
+import { ListPolicyRoleResult } from './ListPolicyRoleResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCustomPoliciesResponse extends SdkResponse {
     public links?: Links;
-    public roles?: Array<PolicyRoleResult>;
+    public roles?: Array<ListPolicyRoleResult>;
     private 'total_number'?: number;
     public constructor() { 
         super();
@@ -14,7 +14,7 @@ export class ListCustomPoliciesResponse extends SdkResponse {
         this['links'] = links;
         return this;
     }
-    public withRoles(roles: Array<PolicyRoleResult>): ListCustomPoliciesResponse {
+    public withRoles(roles: Array<ListPolicyRoleResult>): ListCustomPoliciesResponse {
         this['roles'] = roles;
         return this;
     }

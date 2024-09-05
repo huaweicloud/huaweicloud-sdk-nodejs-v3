@@ -88,6 +88,7 @@ export * from './model/DisablePolicyAssignmentRequest';
 export * from './model/DisablePolicyAssignmentResponse';
 export * from './model/EnablePolicyAssignmentRequest';
 export * from './model/EnablePolicyAssignmentResponse';
+export * from './model/FrozenStatus';
 export * from './model/GroupedResourceCount';
 export * from './model/HistoryItem';
 export * from './model/ListAggregateComplianceByPolicyAssignmentRequest';

@@ -2,9 +2,8 @@ import { CustomPolicy } from './CustomPolicy';
 import { LinksSelf } from './LinksSelf';
 
 
-export class PolicyRoleResult {
+export class ListPolicyRoleResult {
     private 'domain_id'?: string;
-    public references?: number;
     private 'updated_time'?: string;
     private 'created_time'?: string;
     private 'description_cn'?: string;
@@ -27,7 +26,7 @@ export class PolicyRoleResult {
         this['type'] = type;
         this['policy'] = policy;
     }
-    public withDomainId(domainId: string): PolicyRoleResult {
+    public withDomainId(domainId: string): ListPolicyRoleResult {
         this['domain_id'] = domainId;
         return this;
     }
@@ -37,11 +36,7 @@ export class PolicyRoleResult {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withReferences(references: number): PolicyRoleResult {
-        this['references'] = references;
-        return this;
-    }
-    public withUpdatedTime(updatedTime: string): PolicyRoleResult {
+    public withUpdatedTime(updatedTime: string): ListPolicyRoleResult {
         this['updated_time'] = updatedTime;
         return this;
     }
@@ -51,7 +46,7 @@ export class PolicyRoleResult {
     public get updatedTime(): string | undefined {
         return this['updated_time'];
     }
-    public withCreatedTime(createdTime: string): PolicyRoleResult {
+    public withCreatedTime(createdTime: string): ListPolicyRoleResult {
         this['created_time'] = createdTime;
         return this;
     }
@@ -61,7 +56,7 @@ export class PolicyRoleResult {
     public get createdTime(): string | undefined {
         return this['created_time'];
     }
-    public withDescriptionCn(descriptionCn: string): PolicyRoleResult {
+    public withDescriptionCn(descriptionCn: string): ListPolicyRoleResult {
         this['description_cn'] = descriptionCn;
         return this;
     }
@@ -71,27 +66,27 @@ export class PolicyRoleResult {
     public get descriptionCn(): string | undefined {
         return this['description_cn'];
     }
-    public withCatalog(catalog: string): PolicyRoleResult {
+    public withCatalog(catalog: string): ListPolicyRoleResult {
         this['catalog'] = catalog;
         return this;
     }
-    public withName(name: string): PolicyRoleResult {
+    public withName(name: string): ListPolicyRoleResult {
         this['name'] = name;
         return this;
     }
-    public withDescription(description: string): PolicyRoleResult {
+    public withDescription(description: string): ListPolicyRoleResult {
         this['description'] = description;
         return this;
     }
-    public withLinks(links: LinksSelf): PolicyRoleResult {
+    public withLinks(links: LinksSelf): ListPolicyRoleResult {
         this['links'] = links;
         return this;
     }
-    public withId(id: string): PolicyRoleResult {
+    public withId(id: string): ListPolicyRoleResult {
         this['id'] = id;
         return this;
     }
-    public withDisplayName(displayName: string): PolicyRoleResult {
+    public withDisplayName(displayName: string): ListPolicyRoleResult {
         this['display_name'] = displayName;
         return this;
     }
@@ -101,11 +96,11 @@ export class PolicyRoleResult {
     public get displayName(): string | undefined {
         return this['display_name'];
     }
-    public withType(type: string): PolicyRoleResult {
+    public withType(type: string): ListPolicyRoleResult {
         this['type'] = type;
         return this;
     }
-    public withPolicy(policy: CustomPolicy): PolicyRoleResult {
+    public withPolicy(policy: CustomPolicy): ListPolicyRoleResult {
         this['policy'] = policy;
         return this;
     }

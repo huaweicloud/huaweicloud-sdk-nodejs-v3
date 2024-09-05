@@ -20,6 +20,7 @@ export class ListCloudServersRequest {
     private 'enterprise_project_id'?: string;
     private 'expect-fields'?: Array<string>;
     public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: string): ListCloudServersRequest {
@@ -174,6 +175,10 @@ export class ListCloudServersRequest {
     }
     public withLimit(limit: number): ListCloudServersRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListCloudServersRequest {
+        this['marker'] = marker;
         return this;
     }
 }

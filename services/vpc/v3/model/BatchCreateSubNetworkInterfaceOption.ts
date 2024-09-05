@@ -1,5 +1,4 @@
 import { AllowedAddressPair } from './AllowedAddressPair';
-import { ResourceTag } from './ResourceTag';
 
 
 export class BatchCreateSubNetworkInterfaceOption {
@@ -10,9 +9,6 @@ export class BatchCreateSubNetworkInterfaceOption {
     private 'ipv6_enable'?: boolean;
     private 'project_id'?: string;
     private 'allowed_address_pairs'?: Array<AllowedAddressPair>;
-    private 'instance_id'?: string;
-    private 'instance_type'?: string;
-    public tags?: Array<ResourceTag>;
     public constructor(virsubnetId?: string, parentId?: string) { 
         this['virsubnet_id'] = virsubnetId;
         this['parent_id'] = parentId;
@@ -80,29 +76,5 @@ export class BatchCreateSubNetworkInterfaceOption {
     }
     public get allowedAddressPairs(): Array<AllowedAddressPair> | undefined {
         return this['allowed_address_pairs'];
-    }
-    public withInstanceId(instanceId: string): BatchCreateSubNetworkInterfaceOption {
-        this['instance_id'] = instanceId;
-        return this;
-    }
-    public set instanceId(instanceId: string  | undefined) {
-        this['instance_id'] = instanceId;
-    }
-    public get instanceId(): string | undefined {
-        return this['instance_id'];
-    }
-    public withInstanceType(instanceType: string): BatchCreateSubNetworkInterfaceOption {
-        this['instance_type'] = instanceType;
-        return this;
-    }
-    public set instanceType(instanceType: string  | undefined) {
-        this['instance_type'] = instanceType;
-    }
-    public get instanceType(): string | undefined {
-        return this['instance_type'];
-    }
-    public withTags(tags: Array<ResourceTag>): BatchCreateSubNetworkInterfaceOption {
-        this['tags'] = tags;
-        return this;
     }
 }

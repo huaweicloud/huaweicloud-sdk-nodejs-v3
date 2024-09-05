@@ -19,6 +19,7 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     public detail?: string;
     private 'user_conf'?: string;
     private 'result_path'?: string;
+    private 'execution_details_path'?: string;
     private 'result_format'?: string;
     public statement?: string;
     private 'is_success'?: boolean;
@@ -163,6 +164,16 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     }
     public get resultPath(): string | undefined {
         return this['result_path'];
+    }
+    public withExecutionDetailsPath(executionDetailsPath: string): ShowSqlJobStatusResponse {
+        this['execution_details_path'] = executionDetailsPath;
+        return this;
+    }
+    public set executionDetailsPath(executionDetailsPath: string  | undefined) {
+        this['execution_details_path'] = executionDetailsPath;
+    }
+    public get executionDetailsPath(): string | undefined {
+        return this['execution_details_path'];
     }
     public withResultFormat(resultFormat: string): ShowSqlJobStatusResponse {
         this['result_format'] = resultFormat;
