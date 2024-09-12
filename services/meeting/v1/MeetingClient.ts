@@ -268,6 +268,7 @@ import { RealTimeConfInfo } from './model/RealTimeConfInfo';
 import { RealTimeParticipant } from './model/RealTimeParticipant';
 import { RecordDownloadInfoBO } from './model/RecordDownloadInfoBO';
 import { RecordDownloadUrlDO } from './model/RecordDownloadUrlDO';
+import { RecordInfoReq } from './model/RecordInfoReq';
 import { RecordRequest } from './model/RecordRequest';
 import { RecordResponse } from './model/RecordResponse';
 import { RecordResultDO } from './model/RecordResultDO';
@@ -394,6 +395,8 @@ import { SearchUsersRequest } from './model/SearchUsersRequest';
 import { SearchUsersResponse } from './model/SearchUsersResponse';
 import { SearchVisionActiveCodeRequest } from './model/SearchVisionActiveCodeRequest';
 import { SearchVisionActiveCodeResponse } from './model/SearchVisionActiveCodeResponse';
+import { SegmentDO } from './model/SegmentDO';
+import { SegmentFileDO } from './model/SegmentFileDO';
 import { SendSlideVerifyCodeRequest } from './model/SendSlideVerifyCodeRequest';
 import { SendSlideVerifyCodeResponse } from './model/SendSlideVerifyCodeResponse';
 import { SendVeriCodeForChangePwdRequest } from './model/SendVeriCodeForChangePwdRequest';
@@ -477,6 +480,8 @@ import { ShowQosThresholdRequest } from './model/ShowQosThresholdRequest';
 import { ShowQosThresholdResponse } from './model/ShowQosThresholdResponse';
 import { ShowRealTimeInfoOfMeetingRequest } from './model/ShowRealTimeInfoOfMeetingRequest';
 import { ShowRealTimeInfoOfMeetingResponse } from './model/ShowRealTimeInfoOfMeetingResponse';
+import { ShowRecordInfoRequest } from './model/ShowRecordInfoRequest';
+import { ShowRecordInfoResponse } from './model/ShowRecordInfoResponse';
 import { ShowRecordingDetailRequest } from './model/ShowRecordingDetailRequest';
 import { ShowRecordingDetailResponse } from './model/ShowRecordingDetailResponse';
 import { ShowRecordingFileDownloadUrlsRequest } from './model/ShowRecordingFileDownloadUrlsRequest';
@@ -1364,6 +1369,27 @@ export class MeetingClient {
      */
     public createAnonymousAuthRandom(createAnonymousAuthRandomRequest?: CreateAnonymousAuthRandomRequest): Promise<CreateAnonymousAuthRandomResponse> {
         const options = ParamCreater().createAnonymousAuthRandom(createAnonymousAuthRandomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取会议鉴权随机数
+     * @param {string} confId 会议ID
+     * @param {number} [guestWaiting] 0-不支持来宾会前等待页能力（默认）、1-支持来宾会前等待页能力
+     * @param {string} [xPassword] 会议密码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAuthRandom(createAuthRandomRequest?: CreateAuthRandomRequest): Promise<CreateAuthRandomResponse> {
+        const options = ParamCreater().createAuthRandom(createAuthRandomRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3770,6 +3796,25 @@ export class MeetingClient {
     }
 
     /**
+     * 查询单会议录制文件信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单会议录制文件信息
+     * @param {RecordInfoReq} recordInfoReq 查询单会议录制文件信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecordInfo(showRecordInfoRequest?: ShowRecordInfoRequest): Promise<ShowRecordInfoResponse> {
+        const options = ParamCreater().showRecordInfo(showRecordInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 改接口用于查询某个会议录制的详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4534,27 +4579,6 @@ export class MeetingClient {
      */
     public uploadFile(uploadFileRequest?: UploadFileRequest): Promise<UploadFileResponse> {
         const options = ParamCreater().uploadFile(uploadFileRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取会议鉴权随机数
-     * @param {string} confId 会议ID
-     * @param {number} [guestWaiting] 0-不支持来宾会前等待页能力（默认）、1-支持来宾会前等待页能力
-     * @param {string} [xPassword] 会议密码
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createAuthRandom(createAuthRandomRequest?: CreateAuthRandomRequest): Promise<CreateAuthRandomResponse> {
-        const options = ParamCreater().createAuthRandom(createAuthRandomRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6832,6 +6856,60 @@ export const ParamCreater = function () {
             }
             if (conferenceID !== null && conferenceID !== undefined) {
                 localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (xPassword !== undefined && xPassword !== null) {
+                localVarHeaderParameter['X-Password'] = String(xPassword);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAuthRandom(createAuthRandomRequest?: CreateAuthRandomRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/mms/ncms/conferences/auth/random",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let confId;
+            
+            let guestWaiting;
+            
+            let xPassword;
+
+            if (createAuthRandomRequest !== null && createAuthRandomRequest !== undefined) {
+                if (createAuthRandomRequest instanceof CreateAuthRandomRequest) {
+                    confId = createAuthRandomRequest.confId;
+                    guestWaiting = createAuthRandomRequest.guestWaiting;
+                    xPassword = createAuthRandomRequest.xPassword;
+                } else {
+                    confId = createAuthRandomRequest['conf_id'];
+                    guestWaiting = createAuthRandomRequest['guest_waiting'];
+                    xPassword = createAuthRandomRequest['X-Password'];
+                }
+            }
+
+        
+            if (confId === null || confId === undefined) {
+                throw new RequiredError('confId','Required parameter confId was null or undefined when calling createAuthRandom.');
+            }
+            if (confId !== null && confId !== undefined) {
+                localVarQueryParameter['conf_id'] = confId;
+            }
+            if (guestWaiting !== null && guestWaiting !== undefined) {
+                localVarQueryParameter['guest_waiting'] = guestWaiting;
             }
             if (xPassword !== undefined && xPassword !== null) {
                 localVarHeaderParameter['X-Password'] = String(xPassword);
@@ -13514,6 +13592,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询单会议录制文件信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecordInfo(showRecordInfoRequest?: ShowRecordInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/mmc/rlm/record/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (showRecordInfoRequest !== null && showRecordInfoRequest !== undefined) {
+                if (showRecordInfoRequest instanceof ShowRecordInfoRequest) {
+                    body = showRecordInfoRequest.body
+                } else {
+                    body = showRecordInfoRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 改接口用于查询某个会议录制的详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -15486,60 +15602,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createAuthRandom(createAuthRandomRequest?: CreateAuthRandomRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/mms/ncms/conferences/auth/random",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let confId;
-            
-            let guestWaiting;
-            
-            let xPassword;
-
-            if (createAuthRandomRequest !== null && createAuthRandomRequest !== undefined) {
-                if (createAuthRandomRequest instanceof CreateAuthRandomRequest) {
-                    confId = createAuthRandomRequest.confId;
-                    guestWaiting = createAuthRandomRequest.guestWaiting;
-                    xPassword = createAuthRandomRequest.xPassword;
-                } else {
-                    confId = createAuthRandomRequest['conf_id'];
-                    guestWaiting = createAuthRandomRequest['guest_waiting'];
-                    xPassword = createAuthRandomRequest['X-Password'];
-                }
-            }
-
-        
-            if (confId === null || confId === undefined) {
-                throw new RequiredError('confId','Required parameter confId was null or undefined when calling createAuthRandom.');
-            }
-            if (confId !== null && confId !== undefined) {
-                localVarQueryParameter['conf_id'] = confId;
-            }
-            if (guestWaiting !== null && guestWaiting !== undefined) {
-                localVarQueryParameter['guest_waiting'] = guestWaiting;
-            }
-            if (xPassword !== undefined && xPassword !== null) {
-                localVarHeaderParameter['X-Password'] = String(xPassword);
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

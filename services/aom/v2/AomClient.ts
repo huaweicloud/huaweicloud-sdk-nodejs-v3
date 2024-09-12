@@ -139,6 +139,7 @@ import { NoDataCondition } from './model/NoDataCondition';
 import { NodeInfo } from './model/NodeInfo';
 import { Notifications } from './model/Notifications';
 import { NotifiedHistoriesResult } from './model/NotifiedHistoriesResult';
+import { PageInfo } from './model/PageInfo';
 import { PromConfigModel } from './model/PromConfigModel';
 import { PromInstanceEpsCreateModel } from './model/PromInstanceEpsCreateModel';
 import { PromInstanceEpsModel } from './model/PromInstanceEpsModel';
@@ -508,8 +509,8 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机安装的ICAgent信息
-     * @param {string} clusterId - 查询集群主机时，填写集群id。 - 查询用户自定义主机时，填写“apm”。
-     * @param {string} namespace - 查询集群主机时，填写命名空间。 - 查询用户自定义主机时，填写“apm”。
+     * @param {string} clusterId - 查询集群主机时，填写集群id。 - 查询用户自定义主机时，填写“APM”。
+     * @param {string} namespace - 查询集群主机时，填写命名空间。 - 查询用户自定义主机时，填写“APM”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -569,6 +570,8 @@ export class AomClient {
      * @param {EventQueryParam2} listEventsRequestBody 查询事件或者告警列表请求参数。
      * @param {'history_alert' | 'active_alert'} [type] 查询类型。type&#x3D;active_alert代表查询活动告警，type&#x3D;history_alert代表查询历史告警。不传或者传其他值则返回指定查询条件的所有信息。
      * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {number} [limit] 不填默认值为1000
+     * @param {string} [marker] 分页标记，初始为0，后续值为返回体中的next_marker
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -970,7 +973,7 @@ export class AomClient {
      *
      * @summary 卸载托管Prometheus实例
      * @param {string} promId Prometheus实例id。
-     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {string} enterpriseProjectId 企业项目id。 - 删除单个企业项目下实例，填写企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1931,16 +1934,24 @@ export const ParamCreater = function () {
             let type;
             
             let enterpriseProjectId;
+            
+            let limit;
+            
+            let marker;
 
             if (listEventsRequest !== null && listEventsRequest !== undefined) {
                 if (listEventsRequest instanceof ListEventsRequest) {
                     body = listEventsRequest.body
                     type = listEventsRequest.type;
                     enterpriseProjectId = listEventsRequest.enterpriseProjectId;
+                    limit = listEventsRequest.limit;
+                    marker = listEventsRequest.marker;
                 } else {
                     body = listEventsRequest['body'];
                     type = listEventsRequest['type'];
                     enterpriseProjectId = listEventsRequest['Enterprise-Project-Id'];
+                    limit = listEventsRequest['limit'];
+                    marker = listEventsRequest['marker'];
                 }
             }
 
@@ -1950,6 +1961,12 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
             if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
                 localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);

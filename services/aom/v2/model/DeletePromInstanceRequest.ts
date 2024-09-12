@@ -3,8 +3,9 @@
 export class DeletePromInstanceRequest {
     private 'prom_id'?: string;
     private 'Enterprise-Project-Id'?: string;
-    public constructor(promId?: string) { 
+    public constructor(promId?: string, enterpriseProjectId?: string) { 
         this['prom_id'] = promId;
+        this['Enterprise-Project-Id'] = enterpriseProjectId;
     }
     public withPromId(promId: string): DeletePromInstanceRequest {
         this['prom_id'] = promId;

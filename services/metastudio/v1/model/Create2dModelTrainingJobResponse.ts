@@ -4,6 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class Create2dModelTrainingJobResponse extends SdkResponse {
     private 'job_id'?: string;
     private 'training_video_upload_url'?: Array<string>;
+    private 'action_video_upload_url'?: Array<string>;
+    private 'audio_upload_url'?: string;
     private 'cover_upload_url'?: string;
     private 'id_card_image1_upload_url'?: string;
     private 'id_card_image2_upload_url'?: string;
@@ -31,6 +33,26 @@ export class Create2dModelTrainingJobResponse extends SdkResponse {
     }
     public get trainingVideoUploadUrl(): Array<string> | undefined {
         return this['training_video_upload_url'];
+    }
+    public withActionVideoUploadUrl(actionVideoUploadUrl: Array<string>): Create2dModelTrainingJobResponse {
+        this['action_video_upload_url'] = actionVideoUploadUrl;
+        return this;
+    }
+    public set actionVideoUploadUrl(actionVideoUploadUrl: Array<string>  | undefined) {
+        this['action_video_upload_url'] = actionVideoUploadUrl;
+    }
+    public get actionVideoUploadUrl(): Array<string> | undefined {
+        return this['action_video_upload_url'];
+    }
+    public withAudioUploadUrl(audioUploadUrl: string): Create2dModelTrainingJobResponse {
+        this['audio_upload_url'] = audioUploadUrl;
+        return this;
+    }
+    public set audioUploadUrl(audioUploadUrl: string  | undefined) {
+        this['audio_upload_url'] = audioUploadUrl;
+    }
+    public get audioUploadUrl(): string | undefined {
+        return this['audio_upload_url'];
     }
     public withCoverUploadUrl(coverUploadUrl: string): Create2dModelTrainingJobResponse {
         this['cover_upload_url'] = coverUploadUrl;

@@ -16,6 +16,7 @@ export class UpdateEndpointServiceResponse extends SdkResponse {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'project_id'?: string;
+    public ip?: string;
     public ports?: Array<PortList>;
     private 'tcp_proxy'?: string;
     public tags?: Array<TagList>;
@@ -132,6 +133,10 @@ export class UpdateEndpointServiceResponse extends SdkResponse {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withIp(ip: string): UpdateEndpointServiceResponse {
+        this['ip'] = ip;
+        return this;
     }
     public withPorts(ports: Array<PortList>): UpdateEndpointServiceResponse {
         this['ports'] = ports;

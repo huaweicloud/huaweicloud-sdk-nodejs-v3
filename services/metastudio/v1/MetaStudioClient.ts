@@ -3,7 +3,9 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
+import { ActionBasicSampleInfo } from './model/ActionBasicSampleInfo';
 import { ActionMarkItem } from './model/ActionMarkItem';
+import { ActionSampleInfo } from './model/ActionSampleInfo';
 import { ActionTagInfo } from './model/ActionTagInfo';
 import { ActiveCodeInfo } from './model/ActiveCodeInfo';
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
@@ -13,6 +15,7 @@ import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
 import { AssetSharedConfig } from './model/AssetSharedConfig';
 import { AudioAssetMeta } from './model/AudioAssetMeta';
+import { AudioDriveActionConfig } from './model/AudioDriveActionConfig';
 import { AuditResultAdminAuditResult } from './model/AuditResultAdminAuditResult';
 import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResult';
 import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAuditResultErrors';
@@ -512,6 +515,7 @@ import { UpdateWelcomeSpeechResponse } from './model/UpdateWelcomeSpeechResponse
 import { UpdateWelcomeSpeechSwitchReq } from './model/UpdateWelcomeSpeechSwitchReq';
 import { UpdateWelcomeSpeechSwitchRequest } from './model/UpdateWelcomeSpeechSwitchRequest';
 import { UpdateWelcomeSpeechSwitchResponse } from './model/UpdateWelcomeSpeechSwitchResponse';
+import { VerifyVideoMattingInfo } from './model/VerifyVideoMattingInfo';
 import { VideoAssetMeta } from './model/VideoAssetMeta';
 import { VideoConfig } from './model/VideoConfig';
 import { VideoLayerConfig } from './model/VideoLayerConfig';
@@ -524,6 +528,7 @@ import { VideoScriptsSimpleInfo } from './model/VideoScriptsSimpleInfo';
 import { VoiceCapability } from './model/VoiceCapability';
 import { VoiceConfig } from './model/VoiceConfig';
 import { VoiceModelAssetMeta } from './model/VoiceModelAssetMeta';
+import { VoiceProperties } from './model/VoiceProperties';
 import { WelcomeSpeechInfo } from './model/WelcomeSpeechInfo';
 
 export class MetaStudioClient {
@@ -964,8 +969,8 @@ export class MetaStudioClient {
      * @param {string} [name] 按名称模糊查询。
      * @param {string} [tag] 按标签模糊查询。
      * @param {'INTERSECTION' | 'UNION_SET'} [tagCombinationType] 标签查询组合方式 INTERSECTION：交集 UNION_SET：并集
-     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
-     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
+     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
+     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如“2021-01-10T10:43:17Z”。
      * @param {string} [assetType] 资产类型。多个类型使用英文逗号分割。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
      * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
@@ -2703,8 +2708,8 @@ export class MetaStudioClient {
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [roomName] 按智能交互对话名称模糊查询。
      * @param {string} [modelName] 按形象名称模糊查询。
-     * @param {string} [startTime] 最近智能交互对话任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
-     * @param {string} [endTime] 最近智能交互对话任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
+     * @param {string} [startTime] 最近智能交互对话任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
+     * @param {string} [endTime] 最近智能交互对话任务结束时间。格式遵循：RFC 3339 如“2021-01-10T10:43:17Z”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2863,7 +2868,7 @@ export class MetaStudioClient {
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [authKey] 鉴权Key。通过HmacSHA256生成的鉴权key
-     * @param {number} [expiresTime] 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
+     * @param {number} [expiresTime] **参数解释**： 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
      * @param {boolean} [refreshUrl] 是否刷新URL
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3084,9 +3089,9 @@ export class MetaStudioClient {
      * @param {string} [dhId] 按数字人形象ID查询。
      * @param {string} [modelName] 按形象名称模糊查询。
      * @param {string} [liveState] 当前直播间直播状态。 WAITING，PROCESSING，SUCCESS，FAILED，CANCELED对应直播任务状态 NULL 对应没有直播任务 可多个状态查询，使用英文逗号分隔。
-     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
-     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
-     * @param {string} [roomType] 按直播间类型查询。直播间类型。 * NORMAL: 普通直播间，直播间一直存在，可以反复开播 * TEMP: 临时直播间,直播任务结束后自动清理直播间。 * TEMPLATE: 直播间模板。
+     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
+     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如“2021-01-10T10:43:17Z”。
+     * @param {string} [roomType] 按直播间类型查询。直播间类型。 * NORMAL：普通直播间，直播间一直存在，可以反复开播 * TEMP：临时直播间，直播任务结束后自动清理直播间。 * TEMPLATE：直播间模板。
      * @param {string} [templateOwnType] 按照自己拥有的和别人分享以及公共的模板进行查询 * OWNED 自己拥有且暂未共享的 * SHARED_TO_OHTERS 分享给别人的 * SHARED_FROM_OHTERS 别人分享给我的 * PUBLIC 公共模板
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3572,6 +3577,7 @@ export class MetaStudioClient {
      * @param {string} [jobId] 任务ID。
      * @param {string} [name] 分身数字人模型名称
      * @param {string} [modelResolution] 模型分辨率
+     * @param {boolean} [isFlexus] 是否是flexus任务
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3989,7 +3995,7 @@ export class MetaStudioClient {
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [name] 按名称模糊查询。
      * @param {'VIDEO_DRAFT' | 'SYSTEM_VIDEO_TEMPLET'} [scriptCatalog] 剧本类型。默认查询VIDEO_DRAFT。 * VIDEO_DRAFT：视频草稿。 * SYSTEM_VIDEO_TEMPLET： 系统视频模板。
-     * @param {'LANDSCAPE' | 'VERTICAL'} [viewMode] 横竖屏类型（内部参数，不对外开放）。默认值是LANDSCAPE。 * LANDSCAPE：横屏。 * VERTICAL： 竖屏。
+     * @param {'LANDSCAPE' | 'VERTICAL'} [viewMode] 横竖屏类型（内部参数，不对外开放）。默认值是LANDSCAPE。 * LANDSCAPE：横屏。 * VERTICAL：竖屏。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -13318,6 +13324,8 @@ export const ParamCreater = function () {
             let name;
             
             let modelResolution;
+            
+            let isFlexus;
 
             if (list2dModelTrainingJobRequest !== null && list2dModelTrainingJobRequest !== undefined) {
                 if (list2dModelTrainingJobRequest instanceof List2dModelTrainingJobRequest) {
@@ -13338,6 +13346,7 @@ export const ParamCreater = function () {
                     jobId = list2dModelTrainingJobRequest.jobId;
                     name = list2dModelTrainingJobRequest.name;
                     modelResolution = list2dModelTrainingJobRequest.modelResolution;
+                    isFlexus = list2dModelTrainingJobRequest.isFlexus;
                 } else {
                     authorization = list2dModelTrainingJobRequest['Authorization'];
                     xSdkDate = list2dModelTrainingJobRequest['X-Sdk-Date'];
@@ -13356,6 +13365,7 @@ export const ParamCreater = function () {
                     jobId = list2dModelTrainingJobRequest['job_id'];
                     name = list2dModelTrainingJobRequest['name'];
                     modelResolution = list2dModelTrainingJobRequest['model_resolution'];
+                    isFlexus = list2dModelTrainingJobRequest['is_flexus'];
                 }
             }
 
@@ -13398,6 +13408,9 @@ export const ParamCreater = function () {
             }
             if (modelResolution !== null && modelResolution !== undefined) {
                 localVarQueryParameter['model_resolution'] = modelResolution;
+            }
+            if (isFlexus !== null && isFlexus !== undefined) {
+                localVarQueryParameter['is_flexus'] = isFlexus;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);

@@ -16,6 +16,7 @@ export class ListServiceDetailsResponse extends SdkResponse {
     private 'updated_at'?: Date;
     private 'project_id'?: string;
     private 'cidr_type'?: string;
+    public ip?: string;
     public ports?: Array<PortList>;
     private 'tcp_proxy'?: string;
     public tags?: Array<TagList>;
@@ -132,6 +133,10 @@ export class ListServiceDetailsResponse extends SdkResponse {
     }
     public get cidrType(): string | undefined {
         return this['cidr_type'];
+    }
+    public withIp(ip: string): ListServiceDetailsResponse {
+        this['ip'] = ip;
+        return this;
     }
     public withPorts(ports: Array<PortList>): ListServiceDetailsResponse {
         this['ports'] = ports;

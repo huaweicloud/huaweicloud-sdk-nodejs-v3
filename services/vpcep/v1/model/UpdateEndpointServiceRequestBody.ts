@@ -8,6 +8,7 @@ export class UpdateEndpointServiceRequestBody {
     private 'port_id'?: string;
     private 'tcp_proxy'?: UpdateEndpointServiceRequestBodyTcpProxyEnum | string;
     public description?: string;
+    public ip?: string;
     public constructor() { 
     }
     public withApprovalEnabled(approvalEnabled: boolean): UpdateEndpointServiceRequestBody {
@@ -56,6 +57,10 @@ export class UpdateEndpointServiceRequestBody {
     }
     public withDescription(description: string): UpdateEndpointServiceRequestBody {
         this['description'] = description;
+        return this;
+    }
+    public withIp(ip: string): UpdateEndpointServiceRequestBody {
+        this['ip'] = ip;
         return this;
     }
 }

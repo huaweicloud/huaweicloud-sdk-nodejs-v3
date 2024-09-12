@@ -1,3 +1,4 @@
+import { AudioDriveActionConfig } from './AudioDriveActionConfig';
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
 import { LayerConfig } from './LayerConfig';
 import { ShootScript } from './ShootScript';
@@ -7,6 +8,7 @@ import { TextConfig } from './TextConfig';
 export class ShootScriptDetail {
     private 'script_type'?: ShootScriptDetailScriptTypeEnum | string;
     private 'text_config'?: TextConfig;
+    private 'audio_drive_action_config'?: Array<AudioDriveActionConfig>;
     private 'background_config'?: Array<BackgroundConfigInfo>;
     private 'layer_config'?: Array<LayerConfig>;
     private 'thumbnail_url'?: string;
@@ -31,6 +33,16 @@ export class ShootScriptDetail {
     }
     public get textConfig(): TextConfig | undefined {
         return this['text_config'];
+    }
+    public withAudioDriveActionConfig(audioDriveActionConfig: Array<AudioDriveActionConfig>): ShootScriptDetail {
+        this['audio_drive_action_config'] = audioDriveActionConfig;
+        return this;
+    }
+    public set audioDriveActionConfig(audioDriveActionConfig: Array<AudioDriveActionConfig>  | undefined) {
+        this['audio_drive_action_config'] = audioDriveActionConfig;
+    }
+    public get audioDriveActionConfig(): Array<AudioDriveActionConfig> | undefined {
+        return this['audio_drive_action_config'];
     }
     public withBackgroundConfig(backgroundConfig: Array<BackgroundConfigInfo>): ShootScriptDetail {
         this['background_config'] = backgroundConfig;

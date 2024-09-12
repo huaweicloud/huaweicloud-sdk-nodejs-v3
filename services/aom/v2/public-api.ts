@@ -137,6 +137,7 @@ export * from './model/NoDataCondition';
 export * from './model/NodeInfo';
 export * from './model/Notifications';
 export * from './model/NotifiedHistoriesResult';
+export * from './model/PageInfo';
 export * from './model/PromConfigModel';
 export * from './model/PromInstanceEpsCreateModel';
 export * from './model/PromInstanceEpsModel';

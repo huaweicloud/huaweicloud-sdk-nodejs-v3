@@ -10,6 +10,7 @@ export class ListEndpointServiceRequest {
     public limit?: number;
     public offset?: number;
     private 'public_border_group'?: string;
+    private 'net_type'?: ListEndpointServiceRequestNetTypeEnum | string;
     public constructor() { 
     }
     public withContentType(contentType: string): ListEndpointServiceRequest {
@@ -78,6 +79,16 @@ export class ListEndpointServiceRequest {
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
+    public withNetType(netType: ListEndpointServiceRequestNetTypeEnum | string): ListEndpointServiceRequest {
+        this['net_type'] = netType;
+        return this;
+    }
+    public set netType(netType: ListEndpointServiceRequestNetTypeEnum | string  | undefined) {
+        this['net_type'] = netType;
+    }
+    public get netType(): ListEndpointServiceRequestNetTypeEnum | string | undefined {
+        return this['net_type'];
+    }
 }
 
 /**
@@ -105,4 +116,13 @@ export enum ListEndpointServiceRequestSortKeyEnum {
 export enum ListEndpointServiceRequestSortDirEnum {
     ASC = 'asc',
     DESC = 'desc'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEndpointServiceRequestNetTypeEnum {
+    VLAN = 'vlan',
+    VXLAN = 'vxlan',
+    ALL = 'all'
 }

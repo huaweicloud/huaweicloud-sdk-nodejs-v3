@@ -10,6 +10,7 @@ export class CreateElasticResourcePoolRequestBody {
     private 'min_cu'?: number;
     private 'enterprise_project_id'?: string;
     public tags?: Array<Tag>;
+    public label?: { [key: string]: string; };
     public constructor(elasticResourcePoolName?: string, maxCu?: number, minCu?: number) { 
         this['elastic_resource_pool_name'] = elasticResourcePoolName;
         this['max_cu'] = maxCu;
@@ -81,6 +82,10 @@ export class CreateElasticResourcePoolRequestBody {
     }
     public withTags(tags: Array<Tag>): CreateElasticResourcePoolRequestBody {
         this['tags'] = tags;
+        return this;
+    }
+    public withLabel(label: { [key: string]: string; }): CreateElasticResourcePoolRequestBody {
+        this['label'] = label;
         return this;
     }
 }

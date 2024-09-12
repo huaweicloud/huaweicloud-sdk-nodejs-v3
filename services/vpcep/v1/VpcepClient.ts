@@ -345,6 +345,7 @@ export class VpcepClient {
      * @param {number} [limit] 查询返回的终端节点服务数量限制，即每页返回的终端节点服务的个数。 取值范围：0~1000，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {string} [publicBorderGroup] 筛选结果中匹配边缘属性的EPS
+     * @param {'vlan' | 'vxlan' | 'all'} [netType] 后端类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1297,6 +1298,8 @@ export const ParamCreater = function () {
             let offset;
             
             let publicBorderGroup;
+            
+            let netType;
 
             if (listEndpointServiceRequest !== null && listEndpointServiceRequest !== undefined) {
                 if (listEndpointServiceRequest instanceof ListEndpointServiceRequest) {
@@ -1309,6 +1312,7 @@ export const ParamCreater = function () {
                     limit = listEndpointServiceRequest.limit;
                     offset = listEndpointServiceRequest.offset;
                     publicBorderGroup = listEndpointServiceRequest.publicBorderGroup;
+                    netType = listEndpointServiceRequest.netType;
                 } else {
                     contentType = listEndpointServiceRequest['Content-Type'];
                     endpointServiceName = listEndpointServiceRequest['endpoint_service_name'];
@@ -1319,6 +1323,7 @@ export const ParamCreater = function () {
                     limit = listEndpointServiceRequest['limit'];
                     offset = listEndpointServiceRequest['offset'];
                     publicBorderGroup = listEndpointServiceRequest['public_border_group'];
+                    netType = listEndpointServiceRequest['net_type'];
                 }
             }
 
@@ -1346,6 +1351,9 @@ export const ParamCreater = function () {
             }
             if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
                 localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+            if (netType !== null && netType !== undefined) {
+                localVarQueryParameter['net_type'] = netType;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

@@ -6,6 +6,7 @@ export class Execute2dModelTrainingCommandByUserResponse extends SdkResponse {
     private 'commond_result'?: Execute2dModelTrainingCommandByUserResponseCommondResultEnum | string;
     private 'attachment_upload_url'?: Array<string>;
     private 'multipart_data'?: Array<MultipartUploadInfo>;
+    private 'excute_failed_msg'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -39,6 +40,16 @@ export class Execute2dModelTrainingCommandByUserResponse extends SdkResponse {
     }
     public get multipartData(): Array<MultipartUploadInfo> | undefined {
         return this['multipart_data'];
+    }
+    public withExcuteFailedMsg(excuteFailedMsg: string): Execute2dModelTrainingCommandByUserResponse {
+        this['excute_failed_msg'] = excuteFailedMsg;
+        return this;
+    }
+    public set excuteFailedMsg(excuteFailedMsg: string  | undefined) {
+        this['excute_failed_msg'] = excuteFailedMsg;
+    }
+    public get excuteFailedMsg(): string | undefined {
+        return this['excute_failed_msg'];
     }
     public withXRequestId(xRequestId: string): Execute2dModelTrainingCommandByUserResponse {
         this['X-Request-Id'] = xRequestId;

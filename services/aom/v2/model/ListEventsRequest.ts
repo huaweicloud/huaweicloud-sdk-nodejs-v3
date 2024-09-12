@@ -4,6 +4,8 @@ import { EventQueryParam2 } from './EventQueryParam2';
 export class ListEventsRequest {
     public type?: ListEventsRequestTypeEnum | string;
     private 'Enterprise-Project-Id'?: string;
+    public limit?: number;
+    public marker?: string;
     public body?: EventQueryParam2;
     public constructor() { 
     }
@@ -20,6 +22,14 @@ export class ListEventsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['Enterprise-Project-Id'];
+    }
+    public withLimit(limit: number): ListEventsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListEventsRequest {
+        this['marker'] = marker;
+        return this;
     }
     public withBody(body: EventQueryParam2): ListEventsRequest {
         this['body'] = body;

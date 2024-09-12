@@ -9,6 +9,7 @@ export class CreateEndpointServiceRequestBody {
     private 'approval_enabled'?: boolean;
     private 'service_type'?: CreateEndpointServiceRequestBodyServiceTypeEnum | string;
     private 'server_type'?: CreateEndpointServiceRequestBodyServerTypeEnum | string;
+    public ip?: string;
     public ports?: Array<PortList>;
     private 'tcp_proxy'?: CreateEndpointServiceRequestBodyTcpProxyEnum | string;
     public tags?: Array<TagList>;
@@ -79,6 +80,10 @@ export class CreateEndpointServiceRequestBody {
     }
     public get serverType(): CreateEndpointServiceRequestBodyServerTypeEnum | string | undefined {
         return this['server_type'];
+    }
+    public withIp(ip: string): CreateEndpointServiceRequestBody {
+        this['ip'] = ip;
+        return this;
     }
     public withPorts(ports: Array<PortList>): CreateEndpointServiceRequestBody {
         this['ports'] = ports;

@@ -16,6 +16,7 @@ export class ServiceList {
     private 'project_id'?: string;
     private 'domain_id'?: string;
     public ports?: Array<PortList>;
+    public ip?: string;
     public tags?: Array<TagList>;
     private 'connection_count'?: number;
     private 'tcp_proxy'?: string;
@@ -135,6 +136,10 @@ export class ServiceList {
     }
     public withPorts(ports: Array<PortList>): ServiceList {
         this['ports'] = ports;
+        return this;
+    }
+    public withIp(ip: string): ServiceList {
+        this['ip'] = ip;
         return this;
     }
     public withTags(tags: Array<TagList>): ServiceList {

@@ -1,3 +1,5 @@
+import { SupportedServiceEnum } from './SupportedServiceEnum';
+import { VoiceProperties } from './VoiceProperties';
 
 
 export class Create2dModelTrainingJobReq {
@@ -5,10 +7,15 @@ export class Create2dModelTrainingJobReq {
     public contact?: string;
     private 'command_message'?: Create2dModelTrainingJobReqCommandMessageEnum | string;
     private 'video_multipart_count'?: number;
+    private 'action_video_multipart_count'?: number;
     private 'is_background_replacement'?: boolean;
     private 'batch_name'?: string;
     public tags?: Array<string>;
     private 'model_version'?: Create2dModelTrainingJobReqModelVersionEnum | string;
+    private 'is_flexus'?: boolean;
+    private 'audio_source_type'?: Create2dModelTrainingJobReqAudioSourceTypeEnum | string;
+    private 'voice_properties'?: VoiceProperties;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -39,6 +46,16 @@ export class Create2dModelTrainingJobReq {
     }
     public get videoMultipartCount(): number | undefined {
         return this['video_multipart_count'];
+    }
+    public withActionVideoMultipartCount(actionVideoMultipartCount: number): Create2dModelTrainingJobReq {
+        this['action_video_multipart_count'] = actionVideoMultipartCount;
+        return this;
+    }
+    public set actionVideoMultipartCount(actionVideoMultipartCount: number  | undefined) {
+        this['action_video_multipart_count'] = actionVideoMultipartCount;
+    }
+    public get actionVideoMultipartCount(): number | undefined {
+        return this['action_video_multipart_count'];
     }
     public withIsBackgroundReplacement(isBackgroundReplacement: boolean): Create2dModelTrainingJobReq {
         this['is_background_replacement'] = isBackgroundReplacement;
@@ -74,6 +91,46 @@ export class Create2dModelTrainingJobReq {
     public get modelVersion(): Create2dModelTrainingJobReqModelVersionEnum | string | undefined {
         return this['model_version'];
     }
+    public withIsFlexus(isFlexus: boolean): Create2dModelTrainingJobReq {
+        this['is_flexus'] = isFlexus;
+        return this;
+    }
+    public set isFlexus(isFlexus: boolean  | undefined) {
+        this['is_flexus'] = isFlexus;
+    }
+    public get isFlexus(): boolean | undefined {
+        return this['is_flexus'];
+    }
+    public withAudioSourceType(audioSourceType: Create2dModelTrainingJobReqAudioSourceTypeEnum | string): Create2dModelTrainingJobReq {
+        this['audio_source_type'] = audioSourceType;
+        return this;
+    }
+    public set audioSourceType(audioSourceType: Create2dModelTrainingJobReqAudioSourceTypeEnum | string  | undefined) {
+        this['audio_source_type'] = audioSourceType;
+    }
+    public get audioSourceType(): Create2dModelTrainingJobReqAudioSourceTypeEnum | string | undefined {
+        return this['audio_source_type'];
+    }
+    public withVoiceProperties(voiceProperties: VoiceProperties): Create2dModelTrainingJobReq {
+        this['voice_properties'] = voiceProperties;
+        return this;
+    }
+    public set voiceProperties(voiceProperties: VoiceProperties  | undefined) {
+        this['voice_properties'] = voiceProperties;
+    }
+    public get voiceProperties(): VoiceProperties | undefined {
+        return this['voice_properties'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): Create2dModelTrainingJobReq {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
+    }
 }
 
 /**
@@ -82,7 +139,9 @@ export class Create2dModelTrainingJobReq {
     */
 export enum Create2dModelTrainingJobReqCommandMessageEnum {
     UPDATE_VIDEO = 'UPDATE_VIDEO',
-    UPLOAD_VIDEO = 'UPLOAD_VIDEO'
+    UPLOAD_VIDEO = 'UPLOAD_VIDEO',
+    CONFIRM_ACTION_VIDEO = 'CONFIRM_ACTION_VIDEO',
+    GET_ACTION_VIDEO_MULTIPART = 'GET_ACTION_VIDEO_MULTIPART'
 }
 /**
     * @export
@@ -92,4 +151,12 @@ export enum Create2dModelTrainingJobReqModelVersionEnum {
     V2 = 'V2',
     V3 = 'V3',
     V3_2 = 'V3.2'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Create2dModelTrainingJobReqAudioSourceTypeEnum {
+    VIDEO = 'VIDEO',
+    AUDIO = 'AUDIO'
 }

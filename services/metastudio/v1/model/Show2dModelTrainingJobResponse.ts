@@ -1,9 +1,12 @@
+import { ActionSampleInfo } from './ActionSampleInfo';
 import { CommentLogInfo } from './CommentLogInfo';
 import { InferenceActionMarkInfo } from './InferenceActionMarkInfo';
 import { InferenceEyeCorrectionMarkInfo } from './InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './InferenceVideoMarkInfo';
 import { OperationLogInfo } from './OperationLogInfo';
+import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { TrainingJobBasicInfo } from './TrainingJobBasicInfo';
+import { VerifyVideoMattingInfo } from './VerifyVideoMattingInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -23,12 +26,17 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     private 'matting_type'?: Show2dModelTrainingJobResponseMattingTypeEnum | string;
     private 'model_resolution'?: string;
     private 'app_user_id'?: string;
+    private 'is_flexus'?: boolean;
     private 'training_video_download_url'?: string;
     private 'id_card_image1_download_url'?: string;
     private 'id_card_image2_download_url'?: string;
     private 'grant_file_download_url'?: string;
+    private 'action_video_download_url'?: string;
+    private 'audio_file_download_url'?: string;
     private 'operation_logs'?: Array<OperationLogInfo>;
+    private 'verify_video_matting_info'?: Array<VerifyVideoMattingInfo>;
     private 'comment_logs'?: Array<CommentLogInfo>;
+    public samples?: Array<ActionSampleInfo>;
     private 'is_mask_file_uploaded'?: boolean;
     private 'mask_file_download_url'?: string;
     private 'verify_video_download_url'?: string;
@@ -38,6 +46,10 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     private 'inference_data_process_eye_correction_mark_info'?: InferenceEyeCorrectionMarkInfo;
     private 'is_background_replacement'?: boolean;
     private 'worker_type'?: Array<string>;
+    private 'voice_train_job_id'?: string;
+    private 'flexus_retry_count'?: number;
+    private 'audio_source_type'?: Show2dModelTrainingJobResponseAudioSourceTypeEnum | string;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     private 'X-Request-Id'?: string;
     public constructor(jobId?: string, name?: string, state?: string) { 
         super();
@@ -171,6 +183,16 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get appUserId(): string | undefined {
         return this['app_user_id'];
     }
+    public withIsFlexus(isFlexus: boolean): Show2dModelTrainingJobResponse {
+        this['is_flexus'] = isFlexus;
+        return this;
+    }
+    public set isFlexus(isFlexus: boolean  | undefined) {
+        this['is_flexus'] = isFlexus;
+    }
+    public get isFlexus(): boolean | undefined {
+        return this['is_flexus'];
+    }
     public withTrainingVideoDownloadUrl(trainingVideoDownloadUrl: string): Show2dModelTrainingJobResponse {
         this['training_video_download_url'] = trainingVideoDownloadUrl;
         return this;
@@ -211,6 +233,26 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get grantFileDownloadUrl(): string | undefined {
         return this['grant_file_download_url'];
     }
+    public withActionVideoDownloadUrl(actionVideoDownloadUrl: string): Show2dModelTrainingJobResponse {
+        this['action_video_download_url'] = actionVideoDownloadUrl;
+        return this;
+    }
+    public set actionVideoDownloadUrl(actionVideoDownloadUrl: string  | undefined) {
+        this['action_video_download_url'] = actionVideoDownloadUrl;
+    }
+    public get actionVideoDownloadUrl(): string | undefined {
+        return this['action_video_download_url'];
+    }
+    public withAudioFileDownloadUrl(audioFileDownloadUrl: string): Show2dModelTrainingJobResponse {
+        this['audio_file_download_url'] = audioFileDownloadUrl;
+        return this;
+    }
+    public set audioFileDownloadUrl(audioFileDownloadUrl: string  | undefined) {
+        this['audio_file_download_url'] = audioFileDownloadUrl;
+    }
+    public get audioFileDownloadUrl(): string | undefined {
+        return this['audio_file_download_url'];
+    }
     public withOperationLogs(operationLogs: Array<OperationLogInfo>): Show2dModelTrainingJobResponse {
         this['operation_logs'] = operationLogs;
         return this;
@@ -221,6 +263,16 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get operationLogs(): Array<OperationLogInfo> | undefined {
         return this['operation_logs'];
     }
+    public withVerifyVideoMattingInfo(verifyVideoMattingInfo: Array<VerifyVideoMattingInfo>): Show2dModelTrainingJobResponse {
+        this['verify_video_matting_info'] = verifyVideoMattingInfo;
+        return this;
+    }
+    public set verifyVideoMattingInfo(verifyVideoMattingInfo: Array<VerifyVideoMattingInfo>  | undefined) {
+        this['verify_video_matting_info'] = verifyVideoMattingInfo;
+    }
+    public get verifyVideoMattingInfo(): Array<VerifyVideoMattingInfo> | undefined {
+        return this['verify_video_matting_info'];
+    }
     public withCommentLogs(commentLogs: Array<CommentLogInfo>): Show2dModelTrainingJobResponse {
         this['comment_logs'] = commentLogs;
         return this;
@@ -230,6 +282,10 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get commentLogs(): Array<CommentLogInfo> | undefined {
         return this['comment_logs'];
+    }
+    public withSamples(samples: Array<ActionSampleInfo>): Show2dModelTrainingJobResponse {
+        this['samples'] = samples;
+        return this;
     }
     public withIsMaskFileUploaded(isMaskFileUploaded: boolean): Show2dModelTrainingJobResponse {
         this['is_mask_file_uploaded'] = isMaskFileUploaded;
@@ -321,6 +377,46 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get workerType(): Array<string> | undefined {
         return this['worker_type'];
     }
+    public withVoiceTrainJobId(voiceTrainJobId: string): Show2dModelTrainingJobResponse {
+        this['voice_train_job_id'] = voiceTrainJobId;
+        return this;
+    }
+    public set voiceTrainJobId(voiceTrainJobId: string  | undefined) {
+        this['voice_train_job_id'] = voiceTrainJobId;
+    }
+    public get voiceTrainJobId(): string | undefined {
+        return this['voice_train_job_id'];
+    }
+    public withFlexusRetryCount(flexusRetryCount: number): Show2dModelTrainingJobResponse {
+        this['flexus_retry_count'] = flexusRetryCount;
+        return this;
+    }
+    public set flexusRetryCount(flexusRetryCount: number  | undefined) {
+        this['flexus_retry_count'] = flexusRetryCount;
+    }
+    public get flexusRetryCount(): number | undefined {
+        return this['flexus_retry_count'];
+    }
+    public withAudioSourceType(audioSourceType: Show2dModelTrainingJobResponseAudioSourceTypeEnum | string): Show2dModelTrainingJobResponse {
+        this['audio_source_type'] = audioSourceType;
+        return this;
+    }
+    public set audioSourceType(audioSourceType: Show2dModelTrainingJobResponseAudioSourceTypeEnum | string  | undefined) {
+        this['audio_source_type'] = audioSourceType;
+    }
+    public get audioSourceType(): Show2dModelTrainingJobResponseAudioSourceTypeEnum | string | undefined {
+        return this['audio_source_type'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): Show2dModelTrainingJobResponse {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
+    }
     public withXRequestId(xRequestId: string): Show2dModelTrainingJobResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -342,6 +438,7 @@ export enum Show2dModelTrainingJobResponseStateEnum {
     AUTO_VERIFYING = 'AUTO_VERIFYING',
     AUTO_VERIFY_FAILED = 'AUTO_VERIFY_FAILED',
     MANUAL_VERIFYING = 'MANUAL_VERIFYING',
+    WAIT_TRAINING_DATA_PREPROCESS = 'WAIT_TRAINING_DATA_PREPROCESS',
     MANUAL_VERIFY_FAILED = 'MANUAL_VERIFY_FAILED',
     MANUAL_VERIFY_SUCCESS = 'MANUAL_VERIFY_SUCCESS',
     TRAINING_DATA_PREPROCESSING = 'TRAINING_DATA_PREPROCESSING',
@@ -355,10 +452,35 @@ export enum Show2dModelTrainingJobResponseStateEnum {
     WAIT_MASK_UPLOAD = 'WAIT_MASK_UPLOAD',
     WAIT_MAIN_FILE_UPLOAD = 'WAIT_MAIN_FILE_UPLOAD',
     JOB_SUCCESS = 'JOB_SUCCESS',
+    MANUAL_STOP_INFERENCE_DATA_PREPROCESS = 'MANUAL_STOP_INFERENCE_DATA_PREPROCESS',
+    MANUAL_STOP_TRAIN = 'MANUAL_STOP_TRAIN',
+    MANUAL_STOP_TRAINING_DATA_PREPROCESS = 'MANUAL_STOP_TRAINING_DATA_PREPROCESS',
+    MANUAL_STOP_BEAUTY_PREPROCESS = 'MANUAL_STOP_BEAUTY_PREPROCESS',
     WAIT_USER_CONFIRM = 'WAIT_USER_CONFIRM',
     JOB_REJECT = 'JOB_REJECT',
     JOB_PENDING = 'JOB_PENDING',
-    JOB_FINISH = 'JOB_FINISH'
+    WAIT_ADMIN_CONFIRM = 'WAIT_ADMIN_CONFIRM',
+    JOB_FINISH = 'JOB_FINISH',
+    COMPILING = 'COMPILING',
+    WAIT_COMPILE = 'WAIT_COMPILE',
+    COMPILE_FAILED = 'COMPILE_FAILED',
+    WAIT_BEAUTY = 'WAIT_BEAUTY',
+    WAIT_GENERATE_ACTION = 'WAIT_GENERATE_ACTION',
+    WAIT_ARRANGE = 'WAIT_ARRANGE',
+    ACTION_GENERATE_DATA_PROCESSING = 'ACTION_GENERATE_DATA_PROCESSING',
+    MANUAL_STOP_ACTION_GENERATE_DATA_PROCESSING = 'MANUAL_STOP_ACTION_GENERATE_DATA_PROCESSING',
+    MANUAL_STOP_ACTION_GENERATE_ORI_PROCESSING = 'MANUAL_STOP_ACTION_GENERATE_ORI_PROCESSING',
+    ACTION_GENERATE_ORI_PROCESSING = 'ACTION_GENERATE_ORI_PROCESSING',
+    ACTION_GENERATE_DATA_FAILED = 'ACTION_GENERATE_DATA_FAILED',
+    ACTION_GENERATE_ORI_FAILED = 'ACTION_GENERATE_ORI_FAILED',
+    ACTION_GENERATE_ORI_SUCCESS = 'ACTION_GENERATE_ORI_SUCCESS',
+    GENERATE_ACTION_PREPROCESS_FAILED = 'GENERATE_ACTION_PREPROCESS_FAILED',
+    WAIT_ADMIN_CALIBRATION = 'WAIT_ADMIN_CALIBRATION',
+    BEAUTY_VIDEO_FILE_UPLOADED = 'BEAUTY_VIDEO_FILE_UPLOADED',
+    BEAUTYFACE_SUCCESS = 'BEAUTYFACE_SUCCESS',
+    BEAUTYFACE_FAILED = 'BEAUTYFACE_FAILED',
+    WAIT_BEAUTY_VIDEO_FILE_UPLOAD = 'WAIT_BEAUTY_VIDEO_FILE_UPLOAD',
+    BEAUTYFACE_ROCESSING = 'BEAUTYFACE_ROCESSING'
 }
 /**
     * @export
@@ -376,4 +498,12 @@ export enum Show2dModelTrainingJobResponseModelVersionEnum {
 export enum Show2dModelTrainingJobResponseMattingTypeEnum {
     AI = 'AI',
     MANUAL = 'MANUAL'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Show2dModelTrainingJobResponseAudioSourceTypeEnum {
+    VIDEO = 'VIDEO',
+    AUDIO = 'AUDIO'
 }

@@ -18,6 +18,7 @@ export class List2dModelTrainingJobRequest {
     private 'job_id'?: string;
     public name?: string;
     private 'model_resolution'?: string;
+    private 'is_flexus'?: boolean;
     public constructor() { 
     }
     public withAuthorization(authorization: string): List2dModelTrainingJobRequest {
@@ -159,5 +160,15 @@ export class List2dModelTrainingJobRequest {
     }
     public get modelResolution(): string | undefined {
         return this['model_resolution'];
+    }
+    public withIsFlexus(isFlexus: boolean): List2dModelTrainingJobRequest {
+        this['is_flexus'] = isFlexus;
+        return this;
+    }
+    public set isFlexus(isFlexus: boolean  | undefined) {
+        this['is_flexus'] = isFlexus;
+    }
+    public get isFlexus(): boolean | undefined {
+        return this['is_flexus'];
     }
 }
