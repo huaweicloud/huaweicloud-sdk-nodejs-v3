@@ -2,18 +2,15 @@ import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetSharedConfig } from './AssetSharedConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { SupportedServiceEnum } from './SupportedServiceEnum';
-import { SystemProperty } from './SystemProperty';
 
 
 export class CreateDigitalAssetRequestBody {
     private 'asset_name'?: string;
     private 'asset_description'?: string;
     private 'asset_type'?: CreateDigitalAssetRequestBodyAssetTypeEnum | string;
-    private 'asset_owner'?: string;
     private 'review_config'?: ReviewConfig;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
-    private 'system_properties'?: Array<SystemProperty>;
     private 'shared_config'?: AssetSharedConfig;
     private 'is_need_generate_cover'?: boolean;
     private 'asset_order'?: number;
@@ -52,16 +49,6 @@ export class CreateDigitalAssetRequestBody {
     public get assetType(): CreateDigitalAssetRequestBodyAssetTypeEnum | string | undefined {
         return this['asset_type'];
     }
-    public withAssetOwner(assetOwner: string): CreateDigitalAssetRequestBody {
-        this['asset_owner'] = assetOwner;
-        return this;
-    }
-    public set assetOwner(assetOwner: string  | undefined) {
-        this['asset_owner'] = assetOwner;
-    }
-    public get assetOwner(): string | undefined {
-        return this['asset_owner'];
-    }
     public withReviewConfig(reviewConfig: ReviewConfig): CreateDigitalAssetRequestBody {
         this['review_config'] = reviewConfig;
         return this;
@@ -85,16 +72,6 @@ export class CreateDigitalAssetRequestBody {
     }
     public get assetExtraMeta(): AssetExtraMeta | undefined {
         return this['asset_extra_meta'];
-    }
-    public withSystemProperties(systemProperties: Array<SystemProperty>): CreateDigitalAssetRequestBody {
-        this['system_properties'] = systemProperties;
-        return this;
-    }
-    public set systemProperties(systemProperties: Array<SystemProperty>  | undefined) {
-        this['system_properties'] = systemProperties;
-    }
-    public get systemProperties(): Array<SystemProperty> | undefined {
-        return this['system_properties'];
     }
     public withSharedConfig(sharedConfig: AssetSharedConfig): CreateDigitalAssetRequestBody {
         this['shared_config'] = sharedConfig;

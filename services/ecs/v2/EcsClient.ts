@@ -1205,6 +1205,7 @@ export class EcsClient {
      * @param {string} [tags] 查询tag字段中包含该值的云服务器。
      * @param {string} [ipEq] IPv4地址过滤结果，匹配规则为精确匹配。
      * @param {string} [serverId] 云服务器ID，格式为UUID，匹配规则为精确匹配  示例: server_id&#x3D;{id1},{id2}  说明： 在使用server_id作为过滤条件时，不能同时使用其他过滤条件。如果同时指定server_id及其他过滤条件，则以server_id条件为准，其他过滤条件会被忽略 当server_id中含有不存在的云服务器ID时，返回的响应参数中该云服务器ID对应的servers结构体中除了id和fault其它字段均为null 为了避免API的URI过长，建议一次查询的server_id个数不超过100个
+     * @param {string} [marker] 以单页最后一条server的id作为分页标记。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3880,6 +3881,8 @@ export const ParamCreater = function () {
             let ipEq;
             
             let serverId;
+            
+            let marker;
 
             if (listServersDetailsRequest !== null && listServersDetailsRequest !== undefined) {
                 if (listServersDetailsRequest instanceof ListServersDetailsRequest) {
@@ -3895,6 +3898,7 @@ export const ParamCreater = function () {
                     tags = listServersDetailsRequest.tags;
                     ipEq = listServersDetailsRequest.ipEq;
                     serverId = listServersDetailsRequest.serverId;
+                    marker = listServersDetailsRequest.marker;
                 } else {
                     enterpriseProjectId = listServersDetailsRequest['enterprise_project_id'];
                     flavor = listServersDetailsRequest['flavor'];
@@ -3908,6 +3912,7 @@ export const ParamCreater = function () {
                     tags = listServersDetailsRequest['tags'];
                     ipEq = listServersDetailsRequest['ip_eq'];
                     serverId = listServersDetailsRequest['server_id'];
+                    marker = listServersDetailsRequest['marker'];
                 }
             }
 
@@ -3947,6 +3952,9 @@ export const ParamCreater = function () {
             }
             if (serverId !== null && serverId !== undefined) {
                 localVarQueryParameter['server_id'] = serverId;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;

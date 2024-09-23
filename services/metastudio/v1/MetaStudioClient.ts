@@ -970,12 +970,12 @@ export class MetaStudioClient {
      * @param {string} [tag] 按标签模糊查询。
      * @param {'INTERSECTION' | 'UNION_SET'} [tagCombinationType] 标签查询组合方式 INTERSECTION：交集 UNION_SET：并集
      * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
-     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如“2021-01-10T10:43:17Z”。
+     * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {string} [assetType] 资产类型。多个类型使用英文逗号分割。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
      * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {'SYSTEM' | 'CUSTOMIZATION' | 'ALL'} [assetSource] 资产来源。 * SYSTEM：系统资产 * CUSTOMIZATION：租户资产 * ALL：所有资产  默认查询租户资产。
-     * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分割。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 默认查询所有状态的资产。
+     * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分割。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 * WAITING_DELETE：资产将被下线 默认查询所有状态的资产。
      * @param {string} [styleId] 基于风格化ID查询关联资产。 * system_male_001：男性风格01 * system_female_001：女性风格01 * system_male_002：男性风格02  * system_female_002：女性风格02
      * @param {Array<string>} [accurateQueryField] 使用精确查询的字段
      * @param {string} [renderEngine] 可用引擎。 * UE：UE引擎 * MetaEngine：MetaEngine引擎 &gt; 该字段当前只对MetaEngine白名单用户生效
@@ -1958,7 +1958,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建知识库问法
-     * @param {CreateBatchKnowledgeQuestionReq} createBatchKnowledgeQuestionRequestBody 创建知识库问法请求。
+     * @param {CreateBatchKnowledgeQuestionReq} createBatchKnowledgeQuestionRequestBody 批量创建知识库问法请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -2709,7 +2709,7 @@ export class MetaStudioClient {
      * @param {string} [roomName] 按智能交互对话名称模糊查询。
      * @param {string} [modelName] 按形象名称模糊查询。
      * @param {string} [startTime] 最近智能交互对话任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
-     * @param {string} [endTime] 最近智能交互对话任务结束时间。格式遵循：RFC 3339 如“2021-01-10T10:43:17Z”。
+     * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3090,7 +3090,7 @@ export class MetaStudioClient {
      * @param {string} [modelName] 按形象名称模糊查询。
      * @param {string} [liveState] 当前直播间直播状态。 WAITING，PROCESSING，SUCCESS，FAILED，CANCELED对应直播任务状态 NULL 对应没有直播任务 可多个状态查询，使用英文逗号分隔。
      * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
-     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如“2021-01-10T10:43:17Z”。
+     * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {string} [roomType] 按直播间类型查询。直播间类型。 * NORMAL：普通直播间，直播间一直存在，可以反复开播 * TEMP：临时直播间，直播任务结束后自动清理直播间。 * TEMPLATE：直播间模板。
      * @param {string} [templateOwnType] 按照自己拥有的和别人分享以及公共的模板进行查询 * OWNED 自己拥有且暂未共享的 * SHARED_TO_OHTERS 分享给别人的 * SHARED_FROM_OHTERS 别人分享给我的 * PUBLIC 公共模板
      * @param {*} [options] Override http request option.

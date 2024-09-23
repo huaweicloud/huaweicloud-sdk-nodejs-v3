@@ -10,6 +10,7 @@ export class VoiceCapability {
     private 'is_support_ssml_say_as'?: boolean;
     private 'is_support_ssml_sub'?: boolean;
     private 'is_support_word'?: boolean;
+    private 'is_support_voice_cache'?: boolean;
     public constructor() { 
     }
     public withIsSupportPhonemeEn(isSupportPhonemeEn: boolean): VoiceCapability {
@@ -101,5 +102,15 @@ export class VoiceCapability {
     }
     public get isSupportWord(): boolean | undefined {
         return this['is_support_word'];
+    }
+    public withIsSupportVoiceCache(isSupportVoiceCache: boolean): VoiceCapability {
+        this['is_support_voice_cache'] = isSupportVoiceCache;
+        return this;
+    }
+    public set isSupportVoiceCache(isSupportVoiceCache: boolean  | undefined) {
+        this['is_support_voice_cache'] = isSupportVoiceCache;
+    }
+    public get isSupportVoiceCache(): boolean | undefined {
+        return this['is_support_voice_cache'];
     }
 }

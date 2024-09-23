@@ -1,12 +1,34 @@
 
 
 export class CertificatesGetBody {
+    private 'certificate_source'?: number;
+    private 'scm_certificate_id'?: string;
     private 'certificate_type'?: string;
     private 'certificate_name'?: string;
     private 'certificate_value'?: string;
     private 'enc_certificate_value'?: string;
     private 'expire_time'?: number;
     public constructor() { 
+    }
+    public withCertificateSource(certificateSource: number): CertificatesGetBody {
+        this['certificate_source'] = certificateSource;
+        return this;
+    }
+    public set certificateSource(certificateSource: number  | undefined) {
+        this['certificate_source'] = certificateSource;
+    }
+    public get certificateSource(): number | undefined {
+        return this['certificate_source'];
+    }
+    public withScmCertificateId(scmCertificateId: string): CertificatesGetBody {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
     }
     public withCertificateType(certificateType: string): CertificatesGetBody {
         this['certificate_type'] = certificateType;

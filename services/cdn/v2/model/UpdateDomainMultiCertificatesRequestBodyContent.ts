@@ -12,6 +12,7 @@ export class UpdateDomainMultiCertificatesRequestBodyContent {
     public certificate?: string;
     private 'private_key'?: string;
     private 'certificate_type'?: number;
+    private 'scm_certificate_id'?: string;
     public constructor(domainName?: string, httpsSwitch?: number) { 
         this['domain_name'] = domainName;
         this['https_switch'] = httpsSwitch;
@@ -103,5 +104,15 @@ export class UpdateDomainMultiCertificatesRequestBodyContent {
     }
     public get certificateType(): number | undefined {
         return this['certificate_type'];
+    }
+    public withScmCertificateId(scmCertificateId: string): UpdateDomainMultiCertificatesRequestBodyContent {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
     }
 }

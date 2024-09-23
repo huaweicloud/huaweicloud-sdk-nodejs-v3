@@ -6,17 +6,19 @@ export class HandshakeDto {
     public urn?: string;
     private 'updated_at'?: Date;
     private 'created_at'?: Date;
+    private 'expired_at'?: Date;
     private 'management_account_id'?: string;
     private 'management_account_name'?: string;
     private 'organization_id'?: string;
     public notes?: string;
     public target?: TargetDto;
     public status?: string;
-    public constructor(id?: string, urn?: string, updatedAt?: Date, createdAt?: Date, managementAccountId?: string, managementAccountName?: string, organizationId?: string, notes?: string, target?: TargetDto, status?: string) { 
+    public constructor(id?: string, urn?: string, updatedAt?: Date, createdAt?: Date, expiredAt?: Date, managementAccountId?: string, managementAccountName?: string, organizationId?: string, notes?: string, target?: TargetDto, status?: string) { 
         this['id'] = id;
         this['urn'] = urn;
         this['updated_at'] = updatedAt;
         this['created_at'] = createdAt;
+        this['expired_at'] = expiredAt;
         this['management_account_id'] = managementAccountId;
         this['management_account_name'] = managementAccountName;
         this['organization_id'] = organizationId;
@@ -51,6 +53,16 @@ export class HandshakeDto {
     }
     public get createdAt(): Date | undefined {
         return this['created_at'];
+    }
+    public withExpiredAt(expiredAt: Date): HandshakeDto {
+        this['expired_at'] = expiredAt;
+        return this;
+    }
+    public set expiredAt(expiredAt: Date  | undefined) {
+        this['expired_at'] = expiredAt;
+    }
+    public get expiredAt(): Date | undefined {
+        return this['expired_at'];
     }
     public withManagementAccountId(managementAccountId: string): HandshakeDto {
         this['management_account_id'] = managementAccountId;

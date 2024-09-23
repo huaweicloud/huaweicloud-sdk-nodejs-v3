@@ -41,6 +41,7 @@ export class VolumeDetail {
     private 'serial_number'?: string;
     public iops?: Iops;
     public throughput?: Throughput;
+    private 'snapshot_policy_id'?: string;
     public constructor(id?: string, links?: Array<Link>, name?: string, status?: string, attachments?: Array<Attachment>, availabilityZone?: string, osVolHostAttrHost?: string, snapshotId?: string, description?: string, createdAt?: string, osVolTenantAttrTenantId?: string, volumeImageMetadata?: { [key: string]: object; }, volumeType?: string, size?: number, bootable?: string, metadata?: { [key: string]: object; }, updatedAt?: string, replicationStatus?: string, osVolumeReplicationExtendedStatus?: string, osVolMigStatusAttrMigstat?: string, osVolMigStatusAttrNameId?: string, shareable?: string, userId?: string, serviceType?: string, multiattach?: boolean, tags?: { [key: string]: string; }) { 
         this['id'] = id;
         this['links'] = links;
@@ -332,5 +333,15 @@ export class VolumeDetail {
     public withThroughput(throughput: Throughput): VolumeDetail {
         this['throughput'] = throughput;
         return this;
+    }
+    public withSnapshotPolicyId(snapshotPolicyId: string): VolumeDetail {
+        this['snapshot_policy_id'] = snapshotPolicyId;
+        return this;
+    }
+    public set snapshotPolicyId(snapshotPolicyId: string  | undefined) {
+        this['snapshot_policy_id'] = snapshotPolicyId;
+    }
+    public get snapshotPolicyId(): string | undefined {
+        return this['snapshot_policy_id'];
     }
 }

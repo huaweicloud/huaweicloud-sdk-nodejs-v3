@@ -1230,7 +1230,7 @@ export class WafClient {
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
-     * @param {string} [type] JS脚本反爬虫规则防护模式   - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则   - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则
+     * @param {string} [type] JS脚本反爬虫规则防护模式   - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则   - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则   - 默认值：anticrawler_except_url
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

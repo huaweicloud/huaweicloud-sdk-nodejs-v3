@@ -10,7 +10,6 @@ export class UpdateDigitalAssetRequestBody {
     private 'asset_description'?: string;
     private 'asset_type'?: UpdateDigitalAssetRequestBodyAssetTypeEnum | string;
     private 'asset_state'?: UpdateDigitalAssetRequestBodyAssetStateEnum | string;
-    private 'asset_owner'?: string;
     private 'review_config'?: ReviewConfig;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
@@ -59,16 +58,6 @@ export class UpdateDigitalAssetRequestBody {
     }
     public get assetState(): UpdateDigitalAssetRequestBodyAssetStateEnum | string | undefined {
         return this['asset_state'];
-    }
-    public withAssetOwner(assetOwner: string): UpdateDigitalAssetRequestBody {
-        this['asset_owner'] = assetOwner;
-        return this;
-    }
-    public set assetOwner(assetOwner: string  | undefined) {
-        this['asset_owner'] = assetOwner;
-    }
-    public get assetOwner(): string | undefined {
-        return this['asset_owner'];
     }
     public withReviewConfig(reviewConfig: ReviewConfig): UpdateDigitalAssetRequestBody {
         this['review_config'] = reviewConfig;
@@ -162,5 +151,6 @@ export enum UpdateDigitalAssetRequestBodyAssetTypeEnum {
     */
 export enum UpdateDigitalAssetRequestBodyAssetStateEnum {
     UNACTIVED = 'UNACTIVED',
-    ACTIVED = 'ACTIVED'
+    ACTIVED = 'ACTIVED',
+    WAITING_DELETE = 'WAITING_DELETE'
 }

@@ -1,11 +1,22 @@
 
 
 export class ShowEffectivePoliciesRequest {
+    private 'X-Security-Token'?: string;
     private 'entity_id'?: string;
     private 'policy_type'?: ShowEffectivePoliciesRequestPolicyTypeEnum | string;
     public constructor(entityId?: string, policyType?: string) { 
         this['entity_id'] = entityId;
         this['policy_type'] = policyType;
+    }
+    public withXSecurityToken(xSecurityToken: string): ShowEffectivePoliciesRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withEntityId(entityId: string): ShowEffectivePoliciesRequest {
         this['entity_id'] = entityId;

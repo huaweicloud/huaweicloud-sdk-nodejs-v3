@@ -40,7 +40,6 @@ export * from './model/DeleteTemplateResponse';
 export * from './model/DeleteTemplatesRequest';
 export * from './model/DeleteTemplatesResponse';
 export * from './model/DeletetemplatesReq';
-export * from './model/Disk';
 export * from './model/DiskIntargetServer';
 export * from './model/EnvironmentCheck';
 export * from './model/InitTargetServer';

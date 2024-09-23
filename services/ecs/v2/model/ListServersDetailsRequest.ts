@@ -13,6 +13,7 @@ export class ListServersDetailsRequest {
     public tags?: string;
     private 'ip_eq'?: string;
     private 'server_id'?: string;
+    public marker?: string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListServersDetailsRequest {
@@ -92,5 +93,9 @@ export class ListServersDetailsRequest {
     }
     public get serverId(): string | undefined {
         return this['server_id'];
+    }
+    public withMarker(marker: string): ListServersDetailsRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

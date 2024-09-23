@@ -1,22 +1,22 @@
 
 
 export class PageInfo {
-    private 'current_count'?: string;
+    private 'current_count'?: number;
     private 'previous_marker'?: string;
     private 'next_marker'?: string;
-    public constructor(currentCount?: string, previousMarker?: string, nextMarker?: string) { 
+    public constructor(currentCount?: number, previousMarker?: string, nextMarker?: string) { 
         this['current_count'] = currentCount;
         this['previous_marker'] = previousMarker;
         this['next_marker'] = nextMarker;
     }
-    public withCurrentCount(currentCount: string): PageInfo {
+    public withCurrentCount(currentCount: number): PageInfo {
         this['current_count'] = currentCount;
         return this;
     }
-    public set currentCount(currentCount: string  | undefined) {
+    public set currentCount(currentCount: number  | undefined) {
         this['current_count'] = currentCount;
     }
-    public get currentCount(): string | undefined {
+    public get currentCount(): number | undefined {
         return this['current_count'];
     }
     public withPreviousMarker(previousMarker: string): PageInfo {

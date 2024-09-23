@@ -1,6 +1,7 @@
 
 
 export class ListTagResourcesRequest {
+    private 'X-Security-Token'?: string;
     private 'resource_type'?: ListTagResourcesRequestResourceTypeEnum | string;
     private 'resource_id'?: string;
     public limit?: number;
@@ -8,6 +9,16 @@ export class ListTagResourcesRequest {
     public constructor(resourceType?: string, resourceId?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
+    }
+    public withXSecurityToken(xSecurityToken: string): ListTagResourcesRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withResourceType(resourceType: ListTagResourcesRequestResourceTypeEnum | string): ListTagResourcesRequest {
         this['resource_type'] = resourceType;

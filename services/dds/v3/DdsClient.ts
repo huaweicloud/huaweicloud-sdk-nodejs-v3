@@ -72,6 +72,7 @@ import { CreateManualBackupOption } from './model/CreateManualBackupOption';
 import { CreateManualBackupRequest } from './model/CreateManualBackupRequest';
 import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequestBody';
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
+import { DatabaseInfoItem } from './model/DatabaseInfoItem';
 import { Datastore } from './model/Datastore';
 import { DatastoreItem } from './model/DatastoreItem';
 import { DatastoreResult } from './model/DatastoreResult';
@@ -156,6 +157,8 @@ import { ListDatabaseRolesRequest } from './model/ListDatabaseRolesRequest';
 import { ListDatabaseRolesResponse } from './model/ListDatabaseRolesResponse';
 import { ListDatabaseUsersRequest } from './model/ListDatabaseUsersRequest';
 import { ListDatabaseUsersResponse } from './model/ListDatabaseUsersResponse';
+import { ListDatabasesRequest } from './model/ListDatabasesRequest';
+import { ListDatabasesResponse } from './model/ListDatabasesResponse';
 import { ListDatastoreVersionsRequest } from './model/ListDatastoreVersionsRequest';
 import { ListDatastoreVersionsResponse } from './model/ListDatastoreVersionsResponse';
 import { ListErrorLogsRequest } from './model/ListErrorLogsRequest';
@@ -1169,6 +1172,27 @@ export class DdsClient {
      */
     public listDatabaseUsers(listDatabaseUsersRequest?: ListDatabaseUsersRequest): Promise<ListDatabaseUsersResponse> {
         const options = ParamCreater().listDatabaseUsers(listDatabaseUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库列表
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {number} [offset] 索引位置偏移量。 取值大于或等于0。不传该参数时，查询偏移量默认为0。
+     * @param {number} [limit] 查询实例个数上限值。 取值范围：1~100。不传该参数时，默认查询前100条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDatabases(listDatabasesRequest?: ListDatabasesRequest): Promise<ListDatabasesResponse> {
+        const options = ParamCreater().listDatabases(listDatabasesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4507,6 +4531,58 @@ export const ParamCreater = function () {
             }
             if (dbName !== null && dbName !== undefined) {
                 localVarQueryParameter['db_name'] = dbName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDatabases(listDatabasesRequest?: ListDatabasesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDatabasesRequest !== null && listDatabasesRequest !== undefined) {
+                if (listDatabasesRequest instanceof ListDatabasesRequest) {
+                    instanceId = listDatabasesRequest.instanceId;
+                    offset = listDatabasesRequest.offset;
+                    limit = listDatabasesRequest.limit;
+                } else {
+                    instanceId = listDatabasesRequest['instance_id'];
+                    offset = listDatabasesRequest['offset'];
+                    limit = listDatabasesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDatabases.');
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;

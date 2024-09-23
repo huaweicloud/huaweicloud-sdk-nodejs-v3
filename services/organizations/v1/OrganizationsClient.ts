@@ -147,6 +147,9 @@ import { TrustedServiceReqBody } from './model/TrustedServiceReqBody';
 import { UntagResourceReqBody } from './model/UntagResourceReqBody';
 import { UntagResourceRequest } from './model/UntagResourceRequest';
 import { UntagResourceResponse } from './model/UntagResourceResponse';
+import { UpdateAccountReqBody } from './model/UpdateAccountReqBody';
+import { UpdateAccountRequest } from './model/UpdateAccountRequest';
+import { UpdateAccountResponse } from './model/UpdateAccountResponse';
 import { UpdateOrganizationalUnitReqBody } from './model/UpdateOrganizationalUnitReqBody';
 import { UpdateOrganizationalUnitRequest } from './model/UpdateOrganizationalUnitRequest';
 import { UpdateOrganizationalUnitResponse } from './model/UpdateOrganizationalUnitResponse';
@@ -176,6 +179,7 @@ export class OrganizationsClient {
      *
      * @summary 关闭账号
      * @param {string} accountId 账号的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -195,6 +199,7 @@ export class OrganizationsClient {
      *
      * @summary 创建账号
      * @param {CreateAccountReqBody} createAccountReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -214,6 +219,7 @@ export class OrganizationsClient {
      *
      * @summary 邀请账号加入组织
      * @param {InviteAccountReqBody} inviteAccountReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -232,7 +238,9 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出组织中的账号
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {string} [parentId] 父节点（根或组织单元）的唯一标识符（ID）。
+     * @param {boolean} [withRegisterContactInfo] 是否返回账号邮箱、手机号信息。若此参数为True，Limit最多200。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -253,6 +261,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出关闭账号的状态
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {Array<'pending_closure' | 'suspended'>} [states] 要包含在响应中的一个或多个状态的列表。如果此参数不存在，则所有请求都包含在响应中。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -272,6 +281,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出创建账号的状态
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {Array<'in_progress' | 'succeeded' | 'failed'>} [states] 要包含在响应中的一个或多个状态的列表。如果此参数不存在，则所有请求都包含在响应中。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
@@ -295,6 +305,7 @@ export class OrganizationsClient {
      * @summary 移动账号
      * @param {string} accountId 账号的唯一标识符（ID）。
      * @param {MoveAccountReqBody} moveAccountReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -314,6 +325,7 @@ export class OrganizationsClient {
      *
      * @summary 移除指定的账号
      * @param {string} accountId 账号的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -333,6 +345,8 @@ export class OrganizationsClient {
      *
      * @summary 查询账号信息
      * @param {string} accountId 账号的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {boolean} [withRegisterContactInfo] 是否返回账号邮箱、手机号信息。若此参数为True，Limit最多200。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -352,11 +366,33 @@ export class OrganizationsClient {
      *
      * @summary 查询有关创建账号状态的信息
      * @param {string} createAccountStatusId 指定唯一标识CreateAccount请求的ID值。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showCreateAccountStatus(showCreateAccountStatusRequest?: ShowCreateAccountStatusRequest): Promise<ShowCreateAccountStatusResponse> {
         const options = ParamCreater().showCreateAccountStatus(showCreateAccountStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新指定的账号信息。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新账号信息
+     * @param {string} accountId 账号的唯一标识符（ID）。
+     * @param {UpdateAccountReqBody} updateAccountReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAccount(updateAccountRequest?: UpdateAccountRequest): Promise<UpdateAccountResponse> {
+        const options = ParamCreater().updateAccount(updateAccountRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -371,6 +407,7 @@ export class OrganizationsClient {
      *
      * @summary 注销服务的委托管理员
      * @param {DelegatedAdministratorReqBody} delegatedAdministratorReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -389,6 +426,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出此组织中指定为委托管理员的账号
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {string} [servicePrincipal] 服务主体的名称。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
@@ -411,6 +449,7 @@ export class OrganizationsClient {
      *
      * @summary 列出指定账号是其委托管理员的服务
      * @param {string} accountId 账号的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -432,6 +471,7 @@ export class OrganizationsClient {
      *
      * @summary 注册作为服务委托管理员
      * @param {DelegatedAdministratorReqBody} delegatedAdministratorReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -451,6 +491,7 @@ export class OrganizationsClient {
      *
      * @summary 接受邀请
      * @param {string} handshakeId 邀请的唯一标识符（ID）。账号在发起邀请时创建ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -470,6 +511,7 @@ export class OrganizationsClient {
      *
      * @summary 取消邀请
      * @param {string} handshakeId 邀请的唯一标识符（ID）。账号在发起邀请时创建ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -489,6 +531,7 @@ export class OrganizationsClient {
      *
      * @summary 拒绝邀请
      * @param {string} handshakeId 邀请的唯一标识符（ID）。账号在发起邀请时创建ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -507,6 +550,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出发送的邀请
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -527,6 +571,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出收到的邀请
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -548,6 +593,7 @@ export class OrganizationsClient {
      *
      * @summary 查询邀请相关信息
      * @param {string} handshakeId 邀请的唯一标识符（ID）。账号在发起邀请时创建ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -566,8 +612,9 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出组织中的根、组织单元和账号
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {string} [parentId] 父节点（根或组织单元）的唯一标识符（ID）。
-     * @param {string} [childId] 子节点（根或组织单元）的唯一标识符（ID）。
+     * @param {string} [childId] 子节点（组织单元）的唯一标识符（ID）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -588,11 +635,12 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出租户的组织配额
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
-        const options = ParamCreater().listQuotas();
+        const options = ParamCreater().listQuotas(listQuotasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -606,11 +654,12 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出所有可以与组织服务集成的云服务
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listServices(listServicesRequest?: ListServicesRequest): Promise<ListServicesResponse> {
-        const options = ParamCreater().listServices();
+        const options = ParamCreater().listServices(listServicesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -624,11 +673,12 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出被添加到标签策略强制执行的资源类型
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listTagPolicyServices(listTagPolicyServicesRequest?: ListTagPolicyServicesRequest): Promise<ListTagPolicyServicesResponse> {
-        const options = ParamCreater().listTagPolicyServices();
+        const options = ParamCreater().listTagPolicyServices(listTagPolicyServicesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -637,13 +687,14 @@ export class OrganizationsClient {
     }
 
     /**
-     * 查询指定策略类型和账户的有效策略信息。当前此接口不支持查询服务控制策略（service_control_policy）。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 查询指定策略类型和账号的有效策略信息。当前此接口不支持查询服务控制策略（service_control_policy）。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询有效的策略
      * @param {string} entityId 账号的唯一标识符（ID）。当前还不支持指定根、组织单元。
      * @param {'tag_policy'} policyType 策略类型的名称，tag_policy标签策略。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -662,11 +713,12 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建组织
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createOrganization(createOrganizationRequest?: CreateOrganizationRequest): Promise<CreateOrganizationResponse> {
-        const options = ParamCreater().createOrganization();
+        const options = ParamCreater().createOrganization(createOrganizationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -680,11 +732,12 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除组织
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteOrganization(deleteOrganizationRequest?: DeleteOrganizationRequest): Promise<DeleteOrganizationResponse> {
-        const options = ParamCreater().deleteOrganization();
+        const options = ParamCreater().deleteOrganization(deleteOrganizationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -693,16 +746,17 @@ export class OrganizationsClient {
     }
 
     /**
-     * 此操作只能由组织的成员账号调用。只有当组织账号配置了作为独立账号运行所需的信息时，您才能作为成员账户离开组织。要离开的账号不能是组织启用的任何服务的委托管理员账号。
+     * 此操作只能由组织的成员账号调用。只有当组织账号配置了作为独立账号运行所需的信息时，您才能作为成员账号离开组织。要离开的账号不能是组织启用的任何服务的委托管理员账号。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 离开当前组织
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public leaveOrganization(leaveOrganizationRequest?: LeaveOrganizationRequest): Promise<LeaveOrganizationResponse> {
-        const options = ParamCreater().leaveOrganization();
+        const options = ParamCreater().leaveOrganization(leaveOrganizationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -716,6 +770,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出组织的根
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -736,11 +791,12 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所属组织信息
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showOrganization(showOrganizationRequest?: ShowOrganizationRequest): Promise<ShowOrganizationResponse> {
-        const options = ParamCreater().showOrganization();
+        const options = ParamCreater().showOrganization(showOrganizationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -755,6 +811,7 @@ export class OrganizationsClient {
      *
      * @summary 创建组织单元
      * @param {CreateOrganizationalUnitReqBody} createOrganizationalUnitReqBody 组织单元信息。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -774,6 +831,7 @@ export class OrganizationsClient {
      *
      * @summary 删除组织单元
      * @param {string} organizationalUnitId 与组织单元关联的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -792,6 +850,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出组织单元
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {string} [parentId] 父节点（根或组织单元）的唯一标识符（ID）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
@@ -814,6 +873,7 @@ export class OrganizationsClient {
      *
      * @summary 查询有关组织单元的信息
      * @param {string} organizationalUnitId 与组织单元关联的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -834,6 +894,7 @@ export class OrganizationsClient {
      * @summary 更改组织单元名称
      * @param {string} organizationalUnitId 与组织单元关联的唯一标识符（ID）。
      * @param {UpdateOrganizationalUnitReqBody} updateOrganizationalUnitReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -847,13 +908,14 @@ export class OrganizationsClient {
     }
 
     /**
-     * 绑定策略到根、组织单元或个人账户。此操作只能由组织的管理账号调用。
+     * 绑定策略到根、组织单元或个人账号。此操作只能由组织的管理账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 将策略跟实体绑定
      * @param {string} policyId 策略的唯一标识符（ID）。
      * @param {PolicyTachReqBody} policyTachReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -873,6 +935,7 @@ export class OrganizationsClient {
      *
      * @summary 创建策略
      * @param {CreatePolicyReqBody} createPolicyReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -893,6 +956,7 @@ export class OrganizationsClient {
      *
      * @summary 删除策略
      * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -913,6 +977,7 @@ export class OrganizationsClient {
      * @summary 将策略跟实体解绑
      * @param {string} policyId 策略的唯一标识符（ID）。
      * @param {PolicyTachReqBody} policyTachReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -932,6 +997,7 @@ export class OrganizationsClient {
      *
      * @summary 禁用根中的策略类型
      * @param {PolicyTypeReqBody} policyTypeReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -951,6 +1017,7 @@ export class OrganizationsClient {
      *
      * @summary 在根中启用策略类型
      * @param {PolicyTypeReqBody} policyTypeReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -970,6 +1037,7 @@ export class OrganizationsClient {
      *
      * @summary 列出跟指定策略绑定的所有实体
      * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -990,6 +1058,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出策略
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {string} [attachedEntityId] 根、组织单元或账号的唯一标识符（ID）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
@@ -1013,6 +1082,7 @@ export class OrganizationsClient {
      *
      * @summary 查询策略相关信息
      * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1034,6 +1104,7 @@ export class OrganizationsClient {
      * @summary 更新策略
      * @param {string} policyId 策略的唯一标识符（ID）。
      * @param {UpdatePolicyReqBody} updatePolicyReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1048,14 +1119,15 @@ export class OrganizationsClient {
     }
 
     /**
-     * 向指定的资源添加一个或多个标签。目前，您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
+     * 向指定的资源类型添加一个或多个标签。目前，您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 为指定资源添加标签
-     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts账号信息 organizations:roots根
+     * @summary 为指定资源类型添加标签
+     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
      * @param {string} resourceId 根、组织单元、账号或策略的唯一标识符（ID）。
      * @param {TagResourceReqBody} tagResourceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1069,14 +1141,15 @@ export class OrganizationsClient {
     }
 
     /**
-     * 从指定资源中删除具有指定主键的任何标签。您可以将标签绑定到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
+     * 从指定资源类型中删除具有指定主键的任何标签。您可以将标签绑定到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 从指定资源中删除指定主键标签
-     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts账号信息 organizations:roots根
+     * @summary 从指定资源类型中删除指定主键标签
+     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
      * @param {string} resourceId 根、组织单元、账号或策略的唯一标识符（ID）。
      * @param {TagResourceReqBody} tagResourceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1095,8 +1168,9 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据资源类型及标签信息查询实例列表
-     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts账号信息 organizations:roots根
+     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
      * @param {ResourceInstanceReqBody} resourceInstanceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [offset] 分页标记。
      * @param {*} [options] Override http request option.
@@ -1117,7 +1191,8 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts账号信息 organizations:roots根
+     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1131,13 +1206,14 @@ export class OrganizationsClient {
     }
 
     /**
-     * 列出绑定到指定资源的标签。您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 列出绑定到指定资源类型的标签。您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 列出绑定到指定资源的标签
-     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts账号信息 organizations:roots根
+     * @summary 列出绑定到指定资源类型的标签
+     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
      * @param {string} resourceId 根、组织单元、账号或策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -1159,6 +1235,7 @@ export class OrganizationsClient {
      *
      * @summary 列出绑定到指定资源的标签
      * @param {string} resourceId 根、组织单元、账号或策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -1179,8 +1256,9 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据资源类型及标签信息查询实例数量
-     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts账号信息 organizations:roots根
+     * @param {'organizations:policies' | 'organizations:ous' | 'organizations:accounts' | 'organizations:roots'} resourceType 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
      * @param {ResourceInstanceReqBody} resourceInstanceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1201,6 +1279,7 @@ export class OrganizationsClient {
      * @summary 为指定资源添加标签
      * @param {string} resourceId 根、组织单元、账号或策略的唯一标识符（ID）。
      * @param {TagResourceReqBody} tagResourceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1221,6 +1300,7 @@ export class OrganizationsClient {
      * @summary 从指定资源中删除指定主键标签
      * @param {string} resourceId 根、组织单元、账号或策略的唯一标识符（ID）。
      * @param {UntagResourceReqBody} untagResourceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1240,6 +1320,7 @@ export class OrganizationsClient {
      *
      * @summary 禁用受信任服务
      * @param {TrustedServiceReqBody} trustedServiceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1259,6 +1340,7 @@ export class OrganizationsClient {
      *
      * @summary 启用可信服务
      * @param {TrustedServiceReqBody} trustedServiceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1277,6 +1359,7 @@ export class OrganizationsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出组织的可信服务列表
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 页面中最大结果数量。
      * @param {string} [marker] 分页标记。
      * @param {*} [options] Override http request option.
@@ -1313,18 +1396,25 @@ export const ParamCreater = function () {
 
             
             let accountId;
+            
+            let xSecurityToken;
 
             if (closeAccountRequest !== null && closeAccountRequest !== undefined) {
                 if (closeAccountRequest instanceof CloseAccountRequest) {
                     accountId = closeAccountRequest.accountId;
+                    xSecurityToken = closeAccountRequest.xSecurityToken;
                 } else {
                     accountId = closeAccountRequest['account_id'];
+                    xSecurityToken = closeAccountRequest['X-Security-Token'];
                 }
             }
 
         
             if (accountId === null || accountId === undefined) {
             throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling closeAccount.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'account_id': accountId, };
@@ -1350,18 +1440,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (createAccountRequest !== null && createAccountRequest !== undefined) {
                 if (createAccountRequest instanceof CreateAccountRequest) {
                     body = createAccountRequest.body
+                    xSecurityToken = createAccountRequest.xSecurityToken;
                 } else {
                     body = createAccountRequest['body'];
+                    xSecurityToken = createAccountRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1388,18 +1485,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (inviteAccountRequest !== null && inviteAccountRequest !== undefined) {
                 if (inviteAccountRequest instanceof InviteAccountRequest) {
                     body = inviteAccountRequest.body
+                    xSecurityToken = inviteAccountRequest.xSecurityToken;
                 } else {
                     body = inviteAccountRequest['body'];
+                    xSecurityToken = inviteAccountRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1425,7 +1529,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let parentId;
+            
+            let withRegisterContactInfo;
             
             let limit;
             
@@ -1433,11 +1541,15 @@ export const ParamCreater = function () {
 
             if (listAccountsRequest !== null && listAccountsRequest !== undefined) {
                 if (listAccountsRequest instanceof ListAccountsRequest) {
+                    xSecurityToken = listAccountsRequest.xSecurityToken;
                     parentId = listAccountsRequest.parentId;
+                    withRegisterContactInfo = listAccountsRequest.withRegisterContactInfo;
                     limit = listAccountsRequest.limit;
                     marker = listAccountsRequest.marker;
                 } else {
+                    xSecurityToken = listAccountsRequest['X-Security-Token'];
                     parentId = listAccountsRequest['parent_id'];
+                    withRegisterContactInfo = listAccountsRequest['with_register_contact_info'];
                     limit = listAccountsRequest['limit'];
                     marker = listAccountsRequest['marker'];
                 }
@@ -1447,11 +1559,17 @@ export const ParamCreater = function () {
             if (parentId !== null && parentId !== undefined) {
                 localVarQueryParameter['parent_id'] = parentId;
             }
+            if (withRegisterContactInfo !== null && withRegisterContactInfo !== undefined) {
+                localVarQueryParameter['with_register_contact_info'] = withRegisterContactInfo;
+            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1476,12 +1594,16 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let states;
 
             if (listCloseAccountStatusesRequest !== null && listCloseAccountStatusesRequest !== undefined) {
                 if (listCloseAccountStatusesRequest instanceof ListCloseAccountStatusesRequest) {
+                    xSecurityToken = listCloseAccountStatusesRequest.xSecurityToken;
                     states = listCloseAccountStatusesRequest.states;
                 } else {
+                    xSecurityToken = listCloseAccountStatusesRequest['X-Security-Token'];
                     states = listCloseAccountStatusesRequest['states'];
                 }
             }
@@ -1489,6 +1611,9 @@ export const ParamCreater = function () {
         
             if (states !== null && states !== undefined) {
                 localVarQueryParameter['states'] = states;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1513,6 +1638,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let states;
             
             let limit;
@@ -1521,10 +1648,12 @@ export const ParamCreater = function () {
 
             if (listCreateAccountStatusesRequest !== null && listCreateAccountStatusesRequest !== undefined) {
                 if (listCreateAccountStatusesRequest instanceof ListCreateAccountStatusesRequest) {
+                    xSecurityToken = listCreateAccountStatusesRequest.xSecurityToken;
                     states = listCreateAccountStatusesRequest.states;
                     limit = listCreateAccountStatusesRequest.limit;
                     marker = listCreateAccountStatusesRequest.marker;
                 } else {
+                    xSecurityToken = listCreateAccountStatusesRequest['X-Security-Token'];
                     states = listCreateAccountStatusesRequest['states'];
                     limit = listCreateAccountStatusesRequest['limit'];
                     marker = listCreateAccountStatusesRequest['marker'];
@@ -1540,6 +1669,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1567,14 +1699,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let accountId;
+            
+            let xSecurityToken;
 
             if (moveAccountRequest !== null && moveAccountRequest !== undefined) {
                 if (moveAccountRequest instanceof MoveAccountRequest) {
                     accountId = moveAccountRequest.accountId;
                     body = moveAccountRequest.body
+                    xSecurityToken = moveAccountRequest.xSecurityToken;
                 } else {
                     accountId = moveAccountRequest['account_id'];
                     body = moveAccountRequest['body'];
+                    xSecurityToken = moveAccountRequest['X-Security-Token'];
                 }
             }
 
@@ -1584,6 +1720,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1611,18 +1750,25 @@ export const ParamCreater = function () {
 
             
             let accountId;
+            
+            let xSecurityToken;
 
             if (removeAccountRequest !== null && removeAccountRequest !== undefined) {
                 if (removeAccountRequest instanceof RemoveAccountRequest) {
                     accountId = removeAccountRequest.accountId;
+                    xSecurityToken = removeAccountRequest.xSecurityToken;
                 } else {
                     accountId = removeAccountRequest['account_id'];
+                    xSecurityToken = removeAccountRequest['X-Security-Token'];
                 }
             }
 
         
             if (accountId === null || accountId === undefined) {
             throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling removeAccount.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'account_id': accountId, };
@@ -1645,15 +1791,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let accountId;
+            
+            let xSecurityToken;
+            
+            let withRegisterContactInfo;
 
             if (showAccountRequest !== null && showAccountRequest !== undefined) {
                 if (showAccountRequest instanceof ShowAccountRequest) {
                     accountId = showAccountRequest.accountId;
+                    xSecurityToken = showAccountRequest.xSecurityToken;
+                    withRegisterContactInfo = showAccountRequest.withRegisterContactInfo;
                 } else {
                     accountId = showAccountRequest['account_id'];
+                    xSecurityToken = showAccountRequest['X-Security-Token'];
+                    withRegisterContactInfo = showAccountRequest['with_register_contact_info'];
                 }
             }
 
@@ -1661,7 +1815,14 @@ export const ParamCreater = function () {
             if (accountId === null || accountId === undefined) {
             throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling showAccount.');
             }
+            if (withRegisterContactInfo !== null && withRegisterContactInfo !== undefined) {
+                localVarQueryParameter['with_register_contact_info'] = withRegisterContactInfo;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'account_id': accountId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1685,12 +1846,16 @@ export const ParamCreater = function () {
 
             
             let createAccountStatusId;
+            
+            let xSecurityToken;
 
             if (showCreateAccountStatusRequest !== null && showCreateAccountStatusRequest !== undefined) {
                 if (showCreateAccountStatusRequest instanceof ShowCreateAccountStatusRequest) {
                     createAccountStatusId = showCreateAccountStatusRequest.createAccountStatusId;
+                    xSecurityToken = showCreateAccountStatusRequest.xSecurityToken;
                 } else {
                     createAccountStatusId = showCreateAccountStatusRequest['create_account_status_id'];
+                    xSecurityToken = showCreateAccountStatusRequest['X-Security-Token'];
                 }
             }
 
@@ -1698,8 +1863,64 @@ export const ParamCreater = function () {
             if (createAccountStatusId === null || createAccountStatusId === undefined) {
             throw new RequiredError('createAccountStatusId','Required parameter createAccountStatusId was null or undefined when calling showCreateAccountStatus.');
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.pathParams = { 'create_account_status_id': createAccountStatusId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新指定的账号信息。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAccount(updateAccountRequest?: UpdateAccountRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/organizations/accounts/{account_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accountId;
+            
+            let xSecurityToken;
+
+            if (updateAccountRequest !== null && updateAccountRequest !== undefined) {
+                if (updateAccountRequest instanceof UpdateAccountRequest) {
+                    accountId = updateAccountRequest.accountId;
+                    body = updateAccountRequest.body
+                    xSecurityToken = updateAccountRequest.xSecurityToken;
+                } else {
+                    accountId = updateAccountRequest['account_id'];
+                    body = updateAccountRequest['body'];
+                    xSecurityToken = updateAccountRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (accountId === null || accountId === undefined) {
+            throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling updateAccount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'account_id': accountId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1722,18 +1943,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (deregisterDelegatedAdministratorRequest !== null && deregisterDelegatedAdministratorRequest !== undefined) {
                 if (deregisterDelegatedAdministratorRequest instanceof DeregisterDelegatedAdministratorRequest) {
                     body = deregisterDelegatedAdministratorRequest.body
+                    xSecurityToken = deregisterDelegatedAdministratorRequest.xSecurityToken;
                 } else {
                     body = deregisterDelegatedAdministratorRequest['body'];
+                    xSecurityToken = deregisterDelegatedAdministratorRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1759,6 +1987,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let servicePrincipal;
             
             let limit;
@@ -1767,10 +1997,12 @@ export const ParamCreater = function () {
 
             if (listDelegatedAdministratorsRequest !== null && listDelegatedAdministratorsRequest !== undefined) {
                 if (listDelegatedAdministratorsRequest instanceof ListDelegatedAdministratorsRequest) {
+                    xSecurityToken = listDelegatedAdministratorsRequest.xSecurityToken;
                     servicePrincipal = listDelegatedAdministratorsRequest.servicePrincipal;
                     limit = listDelegatedAdministratorsRequest.limit;
                     marker = listDelegatedAdministratorsRequest.marker;
                 } else {
+                    xSecurityToken = listDelegatedAdministratorsRequest['X-Security-Token'];
                     servicePrincipal = listDelegatedAdministratorsRequest['service_principal'];
                     limit = listDelegatedAdministratorsRequest['limit'];
                     marker = listDelegatedAdministratorsRequest['marker'];
@@ -1786,6 +2018,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1812,6 +2047,8 @@ export const ParamCreater = function () {
             
             let accountId;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
@@ -1819,10 +2056,12 @@ export const ParamCreater = function () {
             if (listDelegatedServicesRequest !== null && listDelegatedServicesRequest !== undefined) {
                 if (listDelegatedServicesRequest instanceof ListDelegatedServicesRequest) {
                     accountId = listDelegatedServicesRequest.accountId;
+                    xSecurityToken = listDelegatedServicesRequest.xSecurityToken;
                     limit = listDelegatedServicesRequest.limit;
                     marker = listDelegatedServicesRequest.marker;
                 } else {
                     accountId = listDelegatedServicesRequest['account_id'];
+                    xSecurityToken = listDelegatedServicesRequest['X-Security-Token'];
                     limit = listDelegatedServicesRequest['limit'];
                     marker = listDelegatedServicesRequest['marker'];
                 }
@@ -1837,6 +2076,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1863,18 +2105,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (registerDelegatedAdministratorRequest !== null && registerDelegatedAdministratorRequest !== undefined) {
                 if (registerDelegatedAdministratorRequest instanceof RegisterDelegatedAdministratorRequest) {
                     body = registerDelegatedAdministratorRequest.body
+                    xSecurityToken = registerDelegatedAdministratorRequest.xSecurityToken;
                 } else {
                     body = registerDelegatedAdministratorRequest['body'];
+                    xSecurityToken = registerDelegatedAdministratorRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1901,18 +2150,25 @@ export const ParamCreater = function () {
 
             
             let handshakeId;
+            
+            let xSecurityToken;
 
             if (acceptHandshakeRequest !== null && acceptHandshakeRequest !== undefined) {
                 if (acceptHandshakeRequest instanceof AcceptHandshakeRequest) {
                     handshakeId = acceptHandshakeRequest.handshakeId;
+                    xSecurityToken = acceptHandshakeRequest.xSecurityToken;
                 } else {
                     handshakeId = acceptHandshakeRequest['handshake_id'];
+                    xSecurityToken = acceptHandshakeRequest['X-Security-Token'];
                 }
             }
 
         
             if (handshakeId === null || handshakeId === undefined) {
             throw new RequiredError('handshakeId','Required parameter handshakeId was null or undefined when calling acceptHandshake.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'handshake_id': handshakeId, };
@@ -1938,18 +2194,25 @@ export const ParamCreater = function () {
 
             
             let handshakeId;
+            
+            let xSecurityToken;
 
             if (cancelHandshakeRequest !== null && cancelHandshakeRequest !== undefined) {
                 if (cancelHandshakeRequest instanceof CancelHandshakeRequest) {
                     handshakeId = cancelHandshakeRequest.handshakeId;
+                    xSecurityToken = cancelHandshakeRequest.xSecurityToken;
                 } else {
                     handshakeId = cancelHandshakeRequest['handshake_id'];
+                    xSecurityToken = cancelHandshakeRequest['X-Security-Token'];
                 }
             }
 
         
             if (handshakeId === null || handshakeId === undefined) {
             throw new RequiredError('handshakeId','Required parameter handshakeId was null or undefined when calling cancelHandshake.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'handshake_id': handshakeId, };
@@ -1975,18 +2238,25 @@ export const ParamCreater = function () {
 
             
             let handshakeId;
+            
+            let xSecurityToken;
 
             if (declineHandshakeRequest !== null && declineHandshakeRequest !== undefined) {
                 if (declineHandshakeRequest instanceof DeclineHandshakeRequest) {
                     handshakeId = declineHandshakeRequest.handshakeId;
+                    xSecurityToken = declineHandshakeRequest.xSecurityToken;
                 } else {
                     handshakeId = declineHandshakeRequest['handshake_id'];
+                    xSecurityToken = declineHandshakeRequest['X-Security-Token'];
                 }
             }
 
         
             if (handshakeId === null || handshakeId === undefined) {
             throw new RequiredError('handshakeId','Required parameter handshakeId was null or undefined when calling declineHandshake.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'handshake_id': handshakeId, };
@@ -2011,15 +2281,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
 
             if (listHandshakesRequest !== null && listHandshakesRequest !== undefined) {
                 if (listHandshakesRequest instanceof ListHandshakesRequest) {
+                    xSecurityToken = listHandshakesRequest.xSecurityToken;
                     limit = listHandshakesRequest.limit;
                     marker = listHandshakesRequest.marker;
                 } else {
+                    xSecurityToken = listHandshakesRequest['X-Security-Token'];
                     limit = listHandshakesRequest['limit'];
                     marker = listHandshakesRequest['marker'];
                 }
@@ -2031,6 +2305,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2055,15 +2332,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
 
             if (listReceivedHandshakesRequest !== null && listReceivedHandshakesRequest !== undefined) {
                 if (listReceivedHandshakesRequest instanceof ListReceivedHandshakesRequest) {
+                    xSecurityToken = listReceivedHandshakesRequest.xSecurityToken;
                     limit = listReceivedHandshakesRequest.limit;
                     marker = listReceivedHandshakesRequest.marker;
                 } else {
+                    xSecurityToken = listReceivedHandshakesRequest['X-Security-Token'];
                     limit = listReceivedHandshakesRequest['limit'];
                     marker = listReceivedHandshakesRequest['marker'];
                 }
@@ -2075,6 +2356,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2100,18 +2384,25 @@ export const ParamCreater = function () {
 
             
             let handshakeId;
+            
+            let xSecurityToken;
 
             if (showHandshakeRequest !== null && showHandshakeRequest !== undefined) {
                 if (showHandshakeRequest instanceof ShowHandshakeRequest) {
                     handshakeId = showHandshakeRequest.handshakeId;
+                    xSecurityToken = showHandshakeRequest.xSecurityToken;
                 } else {
                     handshakeId = showHandshakeRequest['handshake_id'];
+                    xSecurityToken = showHandshakeRequest['X-Security-Token'];
                 }
             }
 
         
             if (handshakeId === null || handshakeId === undefined) {
             throw new RequiredError('handshakeId','Required parameter handshakeId was null or undefined when calling showHandshake.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'handshake_id': handshakeId, };
@@ -2136,6 +2427,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let parentId;
             
             let childId;
@@ -2146,11 +2439,13 @@ export const ParamCreater = function () {
 
             if (listEntitiesRequest !== null && listEntitiesRequest !== undefined) {
                 if (listEntitiesRequest instanceof ListEntitiesRequest) {
+                    xSecurityToken = listEntitiesRequest.xSecurityToken;
                     parentId = listEntitiesRequest.parentId;
                     childId = listEntitiesRequest.childId;
                     limit = listEntitiesRequest.limit;
                     marker = listEntitiesRequest.marker;
                 } else {
+                    xSecurityToken = listEntitiesRequest['X-Security-Token'];
                     parentId = listEntitiesRequest['parent_id'];
                     childId = listEntitiesRequest['child_id'];
                     limit = listEntitiesRequest['limit'];
@@ -2171,6 +2466,9 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -2182,7 +2480,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listQuotas() {
+        listQuotas(listQuotasRequest?: ListQuotasRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/organizations/quotas",
@@ -2193,6 +2491,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (listQuotasRequest !== null && listQuotasRequest !== undefined) {
+                if (listQuotasRequest instanceof ListQuotasRequest) {
+                    xSecurityToken = listQuotasRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = listQuotasRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2203,7 +2516,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listServices() {
+        listServices(listServicesRequest?: ListServicesRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/organizations/services",
@@ -2214,6 +2527,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (listServicesRequest !== null && listServicesRequest !== undefined) {
+                if (listServicesRequest instanceof ListServicesRequest) {
+                    xSecurityToken = listServicesRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = listServicesRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2224,7 +2552,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listTagPolicyServices() {
+        listTagPolicyServices(listTagPolicyServicesRequest?: ListTagPolicyServicesRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/organizations/tag-policy-services",
@@ -2235,13 +2563,28 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (listTagPolicyServicesRequest !== null && listTagPolicyServicesRequest !== undefined) {
+                if (listTagPolicyServicesRequest instanceof ListTagPolicyServicesRequest) {
+                    xSecurityToken = listTagPolicyServicesRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = listTagPolicyServicesRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询指定策略类型和账户的有效策略信息。当前此接口不支持查询服务控制策略（service_control_policy）。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 查询指定策略类型和账号的有效策略信息。当前此接口不支持查询服务控制策略（service_control_policy）。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2260,14 +2603,18 @@ export const ParamCreater = function () {
             let entityId;
             
             let policyType;
+            
+            let xSecurityToken;
 
             if (showEffectivePoliciesRequest !== null && showEffectivePoliciesRequest !== undefined) {
                 if (showEffectivePoliciesRequest instanceof ShowEffectivePoliciesRequest) {
                     entityId = showEffectivePoliciesRequest.entityId;
                     policyType = showEffectivePoliciesRequest.policyType;
+                    xSecurityToken = showEffectivePoliciesRequest.xSecurityToken;
                 } else {
                     entityId = showEffectivePoliciesRequest['entity_id'];
                     policyType = showEffectivePoliciesRequest['policy_type'];
+                    xSecurityToken = showEffectivePoliciesRequest['X-Security-Token'];
                 }
             }
 
@@ -2284,6 +2631,9 @@ export const ParamCreater = function () {
             if (policyType !== null && policyType !== undefined) {
                 localVarQueryParameter['policy_type'] = policyType;
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -2295,7 +2645,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createOrganization() {
+        createOrganization(createOrganizationRequest?: CreateOrganizationRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/organizations",
@@ -2306,6 +2656,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (createOrganizationRequest !== null && createOrganizationRequest !== undefined) {
+                if (createOrganizationRequest instanceof CreateOrganizationRequest) {
+                    xSecurityToken = createOrganizationRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = createOrganizationRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2316,7 +2681,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteOrganization() {
+        deleteOrganization(deleteOrganizationRequest?: DeleteOrganizationRequest) {
             const options = {
                 method: "DELETE",
                 url: "/v1/organizations",
@@ -2327,17 +2692,32 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (deleteOrganizationRequest !== null && deleteOrganizationRequest !== undefined) {
+                if (deleteOrganizationRequest instanceof DeleteOrganizationRequest) {
+                    xSecurityToken = deleteOrganizationRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = deleteOrganizationRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 此操作只能由组织的成员账号调用。只有当组织账号配置了作为独立账号运行所需的信息时，您才能作为成员账户离开组织。要离开的账号不能是组织启用的任何服务的委托管理员账号。
+         * 此操作只能由组织的成员账号调用。只有当组织账号配置了作为独立账号运行所需的信息时，您才能作为成员账号离开组织。要离开的账号不能是组织启用的任何服务的委托管理员账号。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        leaveOrganization() {
+        leaveOrganization(leaveOrganizationRequest?: LeaveOrganizationRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/organizations/leave",
@@ -2348,6 +2728,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (leaveOrganizationRequest !== null && leaveOrganizationRequest !== undefined) {
+                if (leaveOrganizationRequest instanceof LeaveOrganizationRequest) {
+                    xSecurityToken = leaveOrganizationRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = leaveOrganizationRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2370,15 +2765,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
 
             if (listRootsRequest !== null && listRootsRequest !== undefined) {
                 if (listRootsRequest instanceof ListRootsRequest) {
+                    xSecurityToken = listRootsRequest.xSecurityToken;
                     limit = listRootsRequest.limit;
                     marker = listRootsRequest.marker;
                 } else {
+                    xSecurityToken = listRootsRequest['X-Security-Token'];
                     limit = listRootsRequest['limit'];
                     marker = listRootsRequest['marker'];
                 }
@@ -2391,6 +2790,9 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -2402,7 +2804,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showOrganization() {
+        showOrganization(showOrganizationRequest?: ShowOrganizationRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/organizations",
@@ -2413,6 +2815,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (showOrganizationRequest !== null && showOrganizationRequest !== undefined) {
+                if (showOrganizationRequest instanceof ShowOrganizationRequest) {
+                    xSecurityToken = showOrganizationRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = showOrganizationRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2436,18 +2853,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (createOrganizationalUnitRequest !== null && createOrganizationalUnitRequest !== undefined) {
                 if (createOrganizationalUnitRequest instanceof CreateOrganizationalUnitRequest) {
                     body = createOrganizationalUnitRequest.body
+                    xSecurityToken = createOrganizationalUnitRequest.xSecurityToken;
                 } else {
                     body = createOrganizationalUnitRequest['body'];
+                    xSecurityToken = createOrganizationalUnitRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2474,18 +2898,25 @@ export const ParamCreater = function () {
 
             
             let organizationalUnitId;
+            
+            let xSecurityToken;
 
             if (deleteOrganizationalUnitRequest !== null && deleteOrganizationalUnitRequest !== undefined) {
                 if (deleteOrganizationalUnitRequest instanceof DeleteOrganizationalUnitRequest) {
                     organizationalUnitId = deleteOrganizationalUnitRequest.organizationalUnitId;
+                    xSecurityToken = deleteOrganizationalUnitRequest.xSecurityToken;
                 } else {
                     organizationalUnitId = deleteOrganizationalUnitRequest['organizational_unit_id'];
+                    xSecurityToken = deleteOrganizationalUnitRequest['X-Security-Token'];
                 }
             }
 
         
             if (organizationalUnitId === null || organizationalUnitId === undefined) {
             throw new RequiredError('organizationalUnitId','Required parameter organizationalUnitId was null or undefined when calling deleteOrganizationalUnit.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'organizational_unit_id': organizationalUnitId, };
@@ -2510,6 +2941,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let parentId;
             
             let limit;
@@ -2518,10 +2951,12 @@ export const ParamCreater = function () {
 
             if (listOrganizationalUnitsRequest !== null && listOrganizationalUnitsRequest !== undefined) {
                 if (listOrganizationalUnitsRequest instanceof ListOrganizationalUnitsRequest) {
+                    xSecurityToken = listOrganizationalUnitsRequest.xSecurityToken;
                     parentId = listOrganizationalUnitsRequest.parentId;
                     limit = listOrganizationalUnitsRequest.limit;
                     marker = listOrganizationalUnitsRequest.marker;
                 } else {
+                    xSecurityToken = listOrganizationalUnitsRequest['X-Security-Token'];
                     parentId = listOrganizationalUnitsRequest['parent_id'];
                     limit = listOrganizationalUnitsRequest['limit'];
                     marker = listOrganizationalUnitsRequest['marker'];
@@ -2537,6 +2972,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2562,18 +3000,25 @@ export const ParamCreater = function () {
 
             
             let organizationalUnitId;
+            
+            let xSecurityToken;
 
             if (showOrganizationalUnitRequest !== null && showOrganizationalUnitRequest !== undefined) {
                 if (showOrganizationalUnitRequest instanceof ShowOrganizationalUnitRequest) {
                     organizationalUnitId = showOrganizationalUnitRequest.organizationalUnitId;
+                    xSecurityToken = showOrganizationalUnitRequest.xSecurityToken;
                 } else {
                     organizationalUnitId = showOrganizationalUnitRequest['organizational_unit_id'];
+                    xSecurityToken = showOrganizationalUnitRequest['X-Security-Token'];
                 }
             }
 
         
             if (organizationalUnitId === null || organizationalUnitId === undefined) {
             throw new RequiredError('organizationalUnitId','Required parameter organizationalUnitId was null or undefined when calling showOrganizationalUnit.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'organizational_unit_id': organizationalUnitId, };
@@ -2601,14 +3046,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let organizationalUnitId;
+            
+            let xSecurityToken;
 
             if (updateOrganizationalUnitRequest !== null && updateOrganizationalUnitRequest !== undefined) {
                 if (updateOrganizationalUnitRequest instanceof UpdateOrganizationalUnitRequest) {
                     organizationalUnitId = updateOrganizationalUnitRequest.organizationalUnitId;
                     body = updateOrganizationalUnitRequest.body
+                    xSecurityToken = updateOrganizationalUnitRequest.xSecurityToken;
                 } else {
                     organizationalUnitId = updateOrganizationalUnitRequest['organizational_unit_id'];
                     body = updateOrganizationalUnitRequest['body'];
+                    xSecurityToken = updateOrganizationalUnitRequest['X-Security-Token'];
                 }
             }
 
@@ -2619,6 +3068,9 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -2628,7 +3080,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 绑定策略到根、组织单元或个人账户。此操作只能由组织的管理账号调用。
+         * 绑定策略到根、组织单元或个人账号。此操作只能由组织的管理账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2647,14 +3099,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let policyId;
+            
+            let xSecurityToken;
 
             if (attachPolicyRequest !== null && attachPolicyRequest !== undefined) {
                 if (attachPolicyRequest instanceof AttachPolicyRequest) {
                     policyId = attachPolicyRequest.policyId;
                     body = attachPolicyRequest.body
+                    xSecurityToken = attachPolicyRequest.xSecurityToken;
                 } else {
                     policyId = attachPolicyRequest['policy_id'];
                     body = attachPolicyRequest['body'];
+                    xSecurityToken = attachPolicyRequest['X-Security-Token'];
                 }
             }
 
@@ -2664,6 +3120,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2692,14 +3151,18 @@ export const ParamCreater = function () {
 
             let body: any;
             
+            let xSecurityToken;
+            
             let xLanguage;
 
             if (createPolicyRequest !== null && createPolicyRequest !== undefined) {
                 if (createPolicyRequest instanceof CreatePolicyRequest) {
                     body = createPolicyRequest.body
+                    xSecurityToken = createPolicyRequest.xSecurityToken;
                     xLanguage = createPolicyRequest.xLanguage;
                 } else {
                     body = createPolicyRequest['body'];
+                    xSecurityToken = createPolicyRequest['X-Security-Token'];
                     xLanguage = createPolicyRequest['X-Language'];
                 }
             }
@@ -2707,6 +3170,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -2736,18 +3202,25 @@ export const ParamCreater = function () {
 
             
             let policyId;
+            
+            let xSecurityToken;
 
             if (deletePolicyRequest !== null && deletePolicyRequest !== undefined) {
                 if (deletePolicyRequest instanceof DeletePolicyRequest) {
                     policyId = deletePolicyRequest.policyId;
+                    xSecurityToken = deletePolicyRequest.xSecurityToken;
                 } else {
                     policyId = deletePolicyRequest['policy_id'];
+                    xSecurityToken = deletePolicyRequest['X-Security-Token'];
                 }
             }
 
         
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deletePolicy.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'policy_id': policyId, };
@@ -2775,14 +3248,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let policyId;
+            
+            let xSecurityToken;
 
             if (detachPolicyRequest !== null && detachPolicyRequest !== undefined) {
                 if (detachPolicyRequest instanceof DetachPolicyRequest) {
                     policyId = detachPolicyRequest.policyId;
                     body = detachPolicyRequest.body
+                    xSecurityToken = detachPolicyRequest.xSecurityToken;
                 } else {
                     policyId = detachPolicyRequest['policy_id'];
                     body = detachPolicyRequest['body'];
+                    xSecurityToken = detachPolicyRequest['X-Security-Token'];
                 }
             }
 
@@ -2792,6 +3269,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2819,18 +3299,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (disablePolicyTypeRequest !== null && disablePolicyTypeRequest !== undefined) {
                 if (disablePolicyTypeRequest instanceof DisablePolicyTypeRequest) {
                     body = disablePolicyTypeRequest.body
+                    xSecurityToken = disablePolicyTypeRequest.xSecurityToken;
                 } else {
                     body = disablePolicyTypeRequest['body'];
+                    xSecurityToken = disablePolicyTypeRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2857,18 +3344,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (enablePolicyTypeRequest !== null && enablePolicyTypeRequest !== undefined) {
                 if (enablePolicyTypeRequest instanceof EnablePolicyTypeRequest) {
                     body = enablePolicyTypeRequest.body
+                    xSecurityToken = enablePolicyTypeRequest.xSecurityToken;
                 } else {
                     body = enablePolicyTypeRequest['body'];
+                    xSecurityToken = enablePolicyTypeRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2896,6 +3390,8 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
@@ -2903,10 +3399,12 @@ export const ParamCreater = function () {
             if (listEntitiesForPolicyRequest !== null && listEntitiesForPolicyRequest !== undefined) {
                 if (listEntitiesForPolicyRequest instanceof ListEntitiesForPolicyRequest) {
                     policyId = listEntitiesForPolicyRequest.policyId;
+                    xSecurityToken = listEntitiesForPolicyRequest.xSecurityToken;
                     limit = listEntitiesForPolicyRequest.limit;
                     marker = listEntitiesForPolicyRequest.marker;
                 } else {
                     policyId = listEntitiesForPolicyRequest['policy_id'];
+                    xSecurityToken = listEntitiesForPolicyRequest['X-Security-Token'];
                     limit = listEntitiesForPolicyRequest['limit'];
                     marker = listEntitiesForPolicyRequest['marker'];
                 }
@@ -2921,6 +3419,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2946,6 +3447,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let attachedEntityId;
             
             let limit;
@@ -2956,11 +3459,13 @@ export const ParamCreater = function () {
 
             if (listPoliciesRequest !== null && listPoliciesRequest !== undefined) {
                 if (listPoliciesRequest instanceof ListPoliciesRequest) {
+                    xSecurityToken = listPoliciesRequest.xSecurityToken;
                     attachedEntityId = listPoliciesRequest.attachedEntityId;
                     limit = listPoliciesRequest.limit;
                     marker = listPoliciesRequest.marker;
                     xLanguage = listPoliciesRequest.xLanguage;
                 } else {
+                    xSecurityToken = listPoliciesRequest['X-Security-Token'];
                     attachedEntityId = listPoliciesRequest['attached_entity_id'];
                     limit = listPoliciesRequest['limit'];
                     marker = listPoliciesRequest['marker'];
@@ -2977,6 +3482,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -3006,14 +3514,18 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let xSecurityToken;
+            
             let xLanguage;
 
             if (showPolicyRequest !== null && showPolicyRequest !== undefined) {
                 if (showPolicyRequest instanceof ShowPolicyRequest) {
                     policyId = showPolicyRequest.policyId;
+                    xSecurityToken = showPolicyRequest.xSecurityToken;
                     xLanguage = showPolicyRequest.xLanguage;
                 } else {
                     policyId = showPolicyRequest['policy_id'];
+                    xSecurityToken = showPolicyRequest['X-Security-Token'];
                     xLanguage = showPolicyRequest['X-Language'];
                 }
             }
@@ -3021,6 +3533,9 @@ export const ParamCreater = function () {
         
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showPolicy.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -3052,16 +3567,20 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let xSecurityToken;
+            
             let xLanguage;
 
             if (updatePolicyRequest !== null && updatePolicyRequest !== undefined) {
                 if (updatePolicyRequest instanceof UpdatePolicyRequest) {
                     policyId = updatePolicyRequest.policyId;
                     body = updatePolicyRequest.body
+                    xSecurityToken = updatePolicyRequest.xSecurityToken;
                     xLanguage = updatePolicyRequest.xLanguage;
                 } else {
                     policyId = updatePolicyRequest['policy_id'];
                     body = updatePolicyRequest['body'];
+                    xSecurityToken = updatePolicyRequest['X-Security-Token'];
                     xLanguage = updatePolicyRequest['X-Language'];
                 }
             }
@@ -3072,6 +3591,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -3085,7 +3607,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 向指定的资源添加一个或多个标签。目前，您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
+         * 向指定的资源类型添加一个或多个标签。目前，您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3106,16 +3628,20 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
+            
+            let xSecurityToken;
 
             if (createTagResourceRequest !== null && createTagResourceRequest !== undefined) {
                 if (createTagResourceRequest instanceof CreateTagResourceRequest) {
                     resourceType = createTagResourceRequest.resourceType;
                     resourceId = createTagResourceRequest.resourceId;
                     body = createTagResourceRequest.body
+                    xSecurityToken = createTagResourceRequest.xSecurityToken;
                 } else {
                     resourceType = createTagResourceRequest['resource_type'];
                     resourceId = createTagResourceRequest['resource_id'];
                     body = createTagResourceRequest['body'];
+                    xSecurityToken = createTagResourceRequest['X-Security-Token'];
                 }
             }
 
@@ -3129,6 +3655,9 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -3138,7 +3667,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 从指定资源中删除具有指定主键的任何标签。您可以将标签绑定到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
+         * 从指定资源类型中删除具有指定主键的任何标签。您可以将标签绑定到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3159,16 +3688,20 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
+            
+            let xSecurityToken;
 
             if (deleteTagResourceRequest !== null && deleteTagResourceRequest !== undefined) {
                 if (deleteTagResourceRequest instanceof DeleteTagResourceRequest) {
                     resourceType = deleteTagResourceRequest.resourceType;
                     resourceId = deleteTagResourceRequest.resourceId;
                     body = deleteTagResourceRequest.body
+                    xSecurityToken = deleteTagResourceRequest.xSecurityToken;
                 } else {
                     resourceType = deleteTagResourceRequest['resource_type'];
                     resourceId = deleteTagResourceRequest['resource_id'];
                     body = deleteTagResourceRequest['body'];
+                    xSecurityToken = deleteTagResourceRequest['X-Security-Token'];
                 }
             }
 
@@ -3181,6 +3714,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3211,6 +3747,8 @@ export const ParamCreater = function () {
             
             let resourceType;
             
+            let xSecurityToken;
+            
             let limit;
             
             let offset;
@@ -3219,11 +3757,13 @@ export const ParamCreater = function () {
                 if (listResourceInstancesRequest instanceof ListResourceInstancesRequest) {
                     resourceType = listResourceInstancesRequest.resourceType;
                     body = listResourceInstancesRequest.body
+                    xSecurityToken = listResourceInstancesRequest.xSecurityToken;
                     limit = listResourceInstancesRequest.limit;
                     offset = listResourceInstancesRequest.offset;
                 } else {
                     resourceType = listResourceInstancesRequest['resource_type'];
                     body = listResourceInstancesRequest['body'];
+                    xSecurityToken = listResourceInstancesRequest['X-Security-Token'];
                     limit = listResourceInstancesRequest['limit'];
                     offset = listResourceInstancesRequest['offset'];
                 }
@@ -3241,6 +3781,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3269,18 +3812,25 @@ export const ParamCreater = function () {
 
             
             let resourceType;
+            
+            let xSecurityToken;
 
             if (listResourceTagsRequest !== null && listResourceTagsRequest !== undefined) {
                 if (listResourceTagsRequest instanceof ListResourceTagsRequest) {
                     resourceType = listResourceTagsRequest.resourceType;
+                    xSecurityToken = listResourceTagsRequest.xSecurityToken;
                 } else {
                     resourceType = listResourceTagsRequest['resource_type'];
+                    xSecurityToken = listResourceTagsRequest['X-Security-Token'];
                 }
             }
 
         
             if (resourceType === null || resourceType === undefined) {
             throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listResourceTags.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'resource_type': resourceType, };
@@ -3289,7 +3839,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 列出绑定到指定资源的标签。您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 列出绑定到指定资源类型的标签。您可以将标签附加到组织中的账号、组织单元、根和策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3309,6 +3859,8 @@ export const ParamCreater = function () {
             
             let resourceId;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
@@ -3317,11 +3869,13 @@ export const ParamCreater = function () {
                 if (listTagResourcesRequest instanceof ListTagResourcesRequest) {
                     resourceType = listTagResourcesRequest.resourceType;
                     resourceId = listTagResourcesRequest.resourceId;
+                    xSecurityToken = listTagResourcesRequest.xSecurityToken;
                     limit = listTagResourcesRequest.limit;
                     marker = listTagResourcesRequest.marker;
                 } else {
                     resourceType = listTagResourcesRequest['resource_type'];
                     resourceId = listTagResourcesRequest['resource_id'];
+                    xSecurityToken = listTagResourcesRequest['X-Security-Token'];
                     limit = listTagResourcesRequest['limit'];
                     marker = listTagResourcesRequest['marker'];
                 }
@@ -3339,6 +3893,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3366,6 +3923,8 @@ export const ParamCreater = function () {
             
             let resourceId;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
@@ -3373,10 +3932,12 @@ export const ParamCreater = function () {
             if (listTagsForResourceRequest !== null && listTagsForResourceRequest !== undefined) {
                 if (listTagsForResourceRequest instanceof ListTagsForResourceRequest) {
                     resourceId = listTagsForResourceRequest.resourceId;
+                    xSecurityToken = listTagsForResourceRequest.xSecurityToken;
                     limit = listTagsForResourceRequest.limit;
                     marker = listTagsForResourceRequest.marker;
                 } else {
                     resourceId = listTagsForResourceRequest['resource_id'];
+                    xSecurityToken = listTagsForResourceRequest['X-Security-Token'];
                     limit = listTagsForResourceRequest['limit'];
                     marker = listTagsForResourceRequest['marker'];
                 }
@@ -3391,6 +3952,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3419,14 +3983,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceType;
+            
+            let xSecurityToken;
 
             if (showResourceInstancesCountRequest !== null && showResourceInstancesCountRequest !== undefined) {
                 if (showResourceInstancesCountRequest instanceof ShowResourceInstancesCountRequest) {
                     resourceType = showResourceInstancesCountRequest.resourceType;
                     body = showResourceInstancesCountRequest.body
+                    xSecurityToken = showResourceInstancesCountRequest.xSecurityToken;
                 } else {
                     resourceType = showResourceInstancesCountRequest['resource_type'];
                     body = showResourceInstancesCountRequest['body'];
+                    xSecurityToken = showResourceInstancesCountRequest['X-Security-Token'];
                 }
             }
 
@@ -3436,6 +4004,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3465,14 +4036,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceId;
+            
+            let xSecurityToken;
 
             if (tagResourceRequest !== null && tagResourceRequest !== undefined) {
                 if (tagResourceRequest instanceof TagResourceRequest) {
                     resourceId = tagResourceRequest.resourceId;
                     body = tagResourceRequest.body
+                    xSecurityToken = tagResourceRequest.xSecurityToken;
                 } else {
                     resourceId = tagResourceRequest['resource_id'];
                     body = tagResourceRequest['body'];
+                    xSecurityToken = tagResourceRequest['X-Security-Token'];
                 }
             }
 
@@ -3482,6 +4057,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3511,14 +4089,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceId;
+            
+            let xSecurityToken;
 
             if (untagResourceRequest !== null && untagResourceRequest !== undefined) {
                 if (untagResourceRequest instanceof UntagResourceRequest) {
                     resourceId = untagResourceRequest.resourceId;
                     body = untagResourceRequest.body
+                    xSecurityToken = untagResourceRequest.xSecurityToken;
                 } else {
                     resourceId = untagResourceRequest['resource_id'];
                     body = untagResourceRequest['body'];
+                    xSecurityToken = untagResourceRequest['X-Security-Token'];
                 }
             }
 
@@ -3528,6 +4110,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3555,18 +4140,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (disableTrustedServiceRequest !== null && disableTrustedServiceRequest !== undefined) {
                 if (disableTrustedServiceRequest instanceof DisableTrustedServiceRequest) {
                     body = disableTrustedServiceRequest.body
+                    xSecurityToken = disableTrustedServiceRequest.xSecurityToken;
                 } else {
                     body = disableTrustedServiceRequest['body'];
+                    xSecurityToken = disableTrustedServiceRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3593,18 +4185,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (enableTrustedServiceRequest !== null && enableTrustedServiceRequest !== undefined) {
                 if (enableTrustedServiceRequest instanceof EnableTrustedServiceRequest) {
                     body = enableTrustedServiceRequest.body
+                    xSecurityToken = enableTrustedServiceRequest.xSecurityToken;
                 } else {
                     body = enableTrustedServiceRequest['body'];
+                    xSecurityToken = enableTrustedServiceRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3630,15 +4229,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
 
             if (listTrustedServicesRequest !== null && listTrustedServicesRequest !== undefined) {
                 if (listTrustedServicesRequest instanceof ListTrustedServicesRequest) {
+                    xSecurityToken = listTrustedServicesRequest.xSecurityToken;
                     limit = listTrustedServicesRequest.limit;
                     marker = listTrustedServicesRequest.marker;
                 } else {
+                    xSecurityToken = listTrustedServicesRequest['X-Security-Token'];
                     limit = listTrustedServicesRequest['limit'];
                     marker = listTrustedServicesRequest['marker'];
                 }
@@ -3650,6 +4253,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;

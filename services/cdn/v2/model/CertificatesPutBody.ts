@@ -1,6 +1,8 @@
 
 
 export class CertificatesPutBody {
+    private 'certificate_source'?: number;
+    private 'scm_certificate_id'?: string;
     private 'certificate_type'?: string;
     private 'certificate_name'?: string;
     private 'certificate_value'?: string;
@@ -12,6 +14,26 @@ export class CertificatesPutBody {
         this['certificate_name'] = certificateName;
         this['certificate_value'] = certificateValue;
         this['private_key'] = privateKey;
+    }
+    public withCertificateSource(certificateSource: number): CertificatesPutBody {
+        this['certificate_source'] = certificateSource;
+        return this;
+    }
+    public set certificateSource(certificateSource: number  | undefined) {
+        this['certificate_source'] = certificateSource;
+    }
+    public get certificateSource(): number | undefined {
+        return this['certificate_source'];
+    }
+    public withScmCertificateId(scmCertificateId: string): CertificatesPutBody {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
     }
     public withCertificateType(certificateType: string): CertificatesPutBody {
         this['certificate_type'] = certificateType;

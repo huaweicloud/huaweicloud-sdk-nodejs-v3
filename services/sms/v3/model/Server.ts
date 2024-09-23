@@ -1,5 +1,4 @@
 import { BtrfsFileSystem } from './BtrfsFileSystem';
-import { Disk } from './Disk';
 import { NetWork } from './NetWork';
 import { VolumeGroups } from './VolumeGroups';
 
@@ -14,7 +13,6 @@ export class Server {
     public firmware?: ServerFirmwareEnum | string;
     private 'cpu_quantity'?: number;
     public memory?: number;
-    public disks?: Array<Disk>;
     private 'btrfs_list'?: Array<BtrfsFileSystem>;
     public networks?: Array<NetWork>;
     private 'domain_id'?: string;
@@ -84,10 +82,6 @@ export class Server {
     }
     public withMemory(memory: number): Server {
         this['memory'] = memory;
-        return this;
-    }
-    public withDisks(disks: Array<Disk>): Server {
-        this['disks'] = disks;
         return this;
     }
     public withBtrfsList(btrfsList: Array<BtrfsFileSystem>): Server {

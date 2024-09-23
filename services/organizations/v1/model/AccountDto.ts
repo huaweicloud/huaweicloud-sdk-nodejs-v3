@@ -7,6 +7,10 @@ export class AccountDto {
     public status?: string;
     private 'joined_at'?: Date;
     public name?: string;
+    private 'mobile_phone'?: string;
+    private 'intl_number_prefix'?: string;
+    public email?: string;
+    public description?: string;
     public constructor(id?: string, urn?: string, joinMethod?: string, status?: string, joinedAt?: Date, name?: string) { 
         this['id'] = id;
         this['urn'] = urn;
@@ -49,6 +53,34 @@ export class AccountDto {
     }
     public withName(name: string): AccountDto {
         this['name'] = name;
+        return this;
+    }
+    public withMobilePhone(mobilePhone: string): AccountDto {
+        this['mobile_phone'] = mobilePhone;
+        return this;
+    }
+    public set mobilePhone(mobilePhone: string  | undefined) {
+        this['mobile_phone'] = mobilePhone;
+    }
+    public get mobilePhone(): string | undefined {
+        return this['mobile_phone'];
+    }
+    public withIntlNumberPrefix(intlNumberPrefix: string): AccountDto {
+        this['intl_number_prefix'] = intlNumberPrefix;
+        return this;
+    }
+    public set intlNumberPrefix(intlNumberPrefix: string  | undefined) {
+        this['intl_number_prefix'] = intlNumberPrefix;
+    }
+    public get intlNumberPrefix(): string | undefined {
+        return this['intl_number_prefix'];
+    }
+    public withEmail(email: string): AccountDto {
+        this['email'] = email;
+        return this;
+    }
+    public withDescription(description: string): AccountDto {
+        this['description'] = description;
         return this;
     }
 }

@@ -2,12 +2,23 @@ import { ResourceInstanceReqBody } from './ResourceInstanceReqBody';
 
 
 export class ListResourceInstancesRequest {
+    private 'X-Security-Token'?: string;
     public limit?: number;
     public offset?: string;
     private 'resource_type'?: ListResourceInstancesRequestResourceTypeEnum | string;
     public body?: ResourceInstanceReqBody;
     public constructor(resourceType?: string) { 
         this['resource_type'] = resourceType;
+    }
+    public withXSecurityToken(xSecurityToken: string): ListResourceInstancesRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withLimit(limit: number): ListResourceInstancesRequest {
         this['limit'] = limit;

@@ -82,6 +82,7 @@ import { ListAlarmRuleRequest } from './model/ListAlarmRuleRequest';
 import { ListAlarmRuleResponse } from './model/ListAlarmRuleResponse';
 import { ListEvent2alarmRuleRequest } from './model/ListEvent2alarmRuleRequest';
 import { ListEvent2alarmRuleResponse } from './model/ListEvent2alarmRuleResponse';
+import { ListEventModel } from './model/ListEventModel';
 import { ListEventsRequest } from './model/ListEventsRequest';
 import { ListEventsResponse } from './model/ListEventsResponse';
 import { ListInstantQueryAomPromGetRequest } from './model/ListInstantQueryAomPromGetRequest';

@@ -3,6 +3,7 @@
 export class DigitalAssetSummary {
     private 'asset_id'?: string;
     private 'asset_name'?: string;
+    private 'asset_state'?: DigitalAssetSummaryAssetStateEnum | string;
     private 'asset_type'?: DigitalAssetSummaryAssetTypeEnum | string;
     private 'cover_url'?: string;
     private 'thumbnail_url'?: string;
@@ -27,6 +28,16 @@ export class DigitalAssetSummary {
     }
     public get assetName(): string | undefined {
         return this['asset_name'];
+    }
+    public withAssetState(assetState: DigitalAssetSummaryAssetStateEnum | string): DigitalAssetSummary {
+        this['asset_state'] = assetState;
+        return this;
+    }
+    public set assetState(assetState: DigitalAssetSummaryAssetStateEnum | string  | undefined) {
+        this['asset_state'] = assetState;
+    }
+    public get assetState(): DigitalAssetSummaryAssetStateEnum | string | undefined {
+        return this['asset_state'];
     }
     public withAssetType(assetType: DigitalAssetSummaryAssetTypeEnum | string): DigitalAssetSummary {
         this['asset_type'] = assetType;
@@ -60,6 +71,20 @@ export class DigitalAssetSummary {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DigitalAssetSummaryAssetStateEnum {
+    CREATING = 'CREATING',
+    FAILED = 'FAILED',
+    UNACTIVED = 'UNACTIVED',
+    ACTIVED = 'ACTIVED',
+    DELETING = 'DELETING',
+    DELETED = 'DELETED',
+    BLOCK = 'BLOCK',
+    WAITING_DELETE = 'WAITING_DELETE'
+}
 /**
     * @export
     * @enum {string}

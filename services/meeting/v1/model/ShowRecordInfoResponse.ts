@@ -1,20 +1,14 @@
-import { SegmentDO } from './SegmentDO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRecordInfoResponse extends SdkResponse {
-    public code?: number;
+    public code?: string;
     public message?: string;
-    public subject?: string;
-    public beginTime?: string;
-    public segmentOffset?: number;
-    public segmentLimit?: number;
-    public segmentCount?: number;
-    public segmentList?: Array<SegmentDO>;
+    public data?: object;
     public constructor() { 
         super();
     }
-    public withCode(code: number): ShowRecordInfoResponse {
+    public withCode(code: string): ShowRecordInfoResponse {
         this['code'] = code;
         return this;
     }
@@ -22,28 +16,8 @@ export class ShowRecordInfoResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withSubject(subject: string): ShowRecordInfoResponse {
-        this['subject'] = subject;
-        return this;
-    }
-    public withBeginTime(beginTime: string): ShowRecordInfoResponse {
-        this['beginTime'] = beginTime;
-        return this;
-    }
-    public withSegmentOffset(segmentOffset: number): ShowRecordInfoResponse {
-        this['segmentOffset'] = segmentOffset;
-        return this;
-    }
-    public withSegmentLimit(segmentLimit: number): ShowRecordInfoResponse {
-        this['segmentLimit'] = segmentLimit;
-        return this;
-    }
-    public withSegmentCount(segmentCount: number): ShowRecordInfoResponse {
-        this['segmentCount'] = segmentCount;
-        return this;
-    }
-    public withSegmentList(segmentList: Array<SegmentDO>): ShowRecordInfoResponse {
-        this['segmentList'] = segmentList;
+    public withData(data: object): ShowRecordInfoResponse {
+        this['data'] = data;
         return this;
     }
 }

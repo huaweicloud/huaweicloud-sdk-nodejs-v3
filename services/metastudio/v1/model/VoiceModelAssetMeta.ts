@@ -10,6 +10,7 @@ export class VoiceModelAssetMeta {
     private 'speed_ratio'?: number;
     private 'volume_ratio'?: number;
     private 'is_realtime_voice'?: boolean;
+    public style?: string;
     private 'voice_capability'?: VoiceCapability;
     private 'external_voice_meta'?: ExternalVoiceAssetMeta;
     private 'is_support_vc_process'?: boolean;
@@ -67,6 +68,10 @@ export class VoiceModelAssetMeta {
     }
     public get isRealtimeVoice(): boolean | undefined {
         return this['is_realtime_voice'];
+    }
+    public withStyle(style: string): VoiceModelAssetMeta {
+        this['style'] = style;
+        return this;
     }
     public withVoiceCapability(voiceCapability: VoiceCapability): VoiceModelAssetMeta {
         this['voice_capability'] = voiceCapability;

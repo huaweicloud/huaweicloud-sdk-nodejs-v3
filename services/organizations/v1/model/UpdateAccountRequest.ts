@@ -1,13 +1,14 @@
+import { UpdateAccountReqBody } from './UpdateAccountReqBody';
 
 
-export class ShowAccountRequest {
+export class UpdateAccountRequest {
     private 'X-Security-Token'?: string;
-    private 'with_register_contact_info'?: boolean;
     private 'account_id'?: string;
+    public body?: UpdateAccountReqBody;
     public constructor(accountId?: string) { 
         this['account_id'] = accountId;
     }
-    public withXSecurityToken(xSecurityToken: string): ShowAccountRequest {
+    public withXSecurityToken(xSecurityToken: string): UpdateAccountRequest {
         this['X-Security-Token'] = xSecurityToken;
         return this;
     }
@@ -17,17 +18,7 @@ export class ShowAccountRequest {
     public get xSecurityToken(): string | undefined {
         return this['X-Security-Token'];
     }
-    public withWithRegisterContactInfo(withRegisterContactInfo: boolean): ShowAccountRequest {
-        this['with_register_contact_info'] = withRegisterContactInfo;
-        return this;
-    }
-    public set withRegisterContactInfo(withRegisterContactInfo: boolean  | undefined) {
-        this['with_register_contact_info'] = withRegisterContactInfo;
-    }
-    public get withRegisterContactInfo(): boolean | undefined {
-        return this['with_register_contact_info'];
-    }
-    public withAccountId(accountId: string): ShowAccountRequest {
+    public withAccountId(accountId: string): UpdateAccountRequest {
         this['account_id'] = accountId;
         return this;
     }
@@ -36,5 +27,9 @@ export class ShowAccountRequest {
     }
     public get accountId(): string | undefined {
         return this['account_id'];
+    }
+    public withBody(body: UpdateAccountReqBody): UpdateAccountRequest {
+        this['body'] = body;
+        return this;
     }
 }

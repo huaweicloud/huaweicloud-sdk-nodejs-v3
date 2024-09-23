@@ -29,6 +29,7 @@ export class SmnRegion {
     public static EU_WEST_0 = new Region("eu-west-0", ["https://smn.eu-west-0.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://smn.my-kualalumpur-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://smn.ru-moscow-1.myhuaweicloud.com"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://smn.ae-ad-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -54,7 +55,8 @@ export class SmnRegion {
         "eu-west-101":SmnRegion.EU_WEST_101,
         "eu-west-0":SmnRegion.EU_WEST_0,
         "my-kualalumpur-1":SmnRegion.MY_KUALALUMPUR_1,
-        "ru-moscow-1":SmnRegion.RU_MOSCOW_1
+        "ru-moscow-1":SmnRegion.RU_MOSCOW_1,
+        "ae-ad-1":SmnRegion.AE_AD_1
     };
   
     public static valueOf(regionId: string) {

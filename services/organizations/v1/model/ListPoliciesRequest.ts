@@ -1,11 +1,22 @@
 
 
 export class ListPoliciesRequest {
+    private 'X-Security-Token'?: string;
     private 'attached_entity_id'?: string;
     public limit?: number;
     public marker?: string;
     private 'X-Language'?: ListPoliciesRequestXLanguageEnum | string;
     public constructor() { 
+    }
+    public withXSecurityToken(xSecurityToken: string): ListPoliciesRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withAttachedEntityId(attachedEntityId: string): ListPoliciesRequest {
         this['attached_entity_id'] = attachedEntityId;

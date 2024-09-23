@@ -6,6 +6,7 @@ export class CreateAccountReqBody {
     public email?: string;
     public phone?: string;
     private 'agency_name'?: string;
+    public description?: string;
     public tags?: Array<TagDto>;
     public constructor(name?: string) { 
         this['name'] = name;
@@ -31,6 +32,10 @@ export class CreateAccountReqBody {
     }
     public get agencyName(): string | undefined {
         return this['agency_name'];
+    }
+    public withDescription(description: string): CreateAccountReqBody {
+        this['description'] = description;
+        return this;
     }
     public withTags(tags: Array<TagDto>): CreateAccountReqBody {
         this['tags'] = tags;

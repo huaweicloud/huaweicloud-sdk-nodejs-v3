@@ -393,8 +393,6 @@ export * from './model/SearchUsersRequest';
 export * from './model/SearchUsersResponse';
 export * from './model/SearchVisionActiveCodeRequest';
 export * from './model/SearchVisionActiveCodeResponse';
-export * from './model/SegmentDO';
-export * from './model/SegmentFileDO';
 export * from './model/SendSlideVerifyCodeRequest';
 export * from './model/SendSlideVerifyCodeResponse';
 export * from './model/SendVeriCodeForChangePwdRequest';

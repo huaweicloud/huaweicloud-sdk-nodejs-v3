@@ -14,7 +14,6 @@ export class TargetServer {
     public firmware?: TargetServerFirmwareEnum | string;
     private 'cpu_quantity'?: number;
     public memory?: number;
-    public disks?: Array<TargetDisk>;
     private 'btrfs_list'?: Array<string>;
     public networks?: Array<NetWork>;
     private 'domain_id'?: string;
@@ -29,6 +28,7 @@ export class TargetServer {
     private 'volume_groups'?: Array<VolumeGroups>;
     private 'vm_id'?: string;
     public flavor?: string;
+    public disks?: Array<TargetDisk>;
     private 'image_disk_id'?: string;
     private 'snapshot_ids'?: string;
     private 'cutovered_snapshot_ids'?: string;
@@ -90,10 +90,6 @@ export class TargetServer {
     }
     public withMemory(memory: number): TargetServer {
         this['memory'] = memory;
-        return this;
-    }
-    public withDisks(disks: Array<TargetDisk>): TargetServer {
-        this['disks'] = disks;
         return this;
     }
     public withBtrfsList(btrfsList: Array<string>): TargetServer {
@@ -216,6 +212,10 @@ export class TargetServer {
     }
     public withFlavor(flavor: string): TargetServer {
         this['flavor'] = flavor;
+        return this;
+    }
+    public withDisks(disks: Array<TargetDisk>): TargetServer {
+        this['disks'] = disks;
         return this;
     }
     public withImageDiskId(imageDiskId: string): TargetServer {

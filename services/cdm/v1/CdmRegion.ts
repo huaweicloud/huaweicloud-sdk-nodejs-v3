@@ -25,6 +25,7 @@ export class CdmRegion {
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://cdm.ap-southeast-3.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://cdm.ap-southeast-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://cdm.tr-west-1.myhuaweicloud.com"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://cdm.ae-ad-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -46,7 +47,8 @@ export class CdmRegion {
         "la-north-2":CdmRegion.LA_NORTH_2,
         "ap-southeast-3":CdmRegion.AP_SOUTHEAST_3,
         "ap-southeast-4":CdmRegion.AP_SOUTHEAST_4,
-        "tr-west-1":CdmRegion.TR_WEST_1
+        "tr-west-1":CdmRegion.TR_WEST_1,
+        "ae-ad-1":CdmRegion.AE_AD_1
     };
   
     public static valueOf(regionId: string) {

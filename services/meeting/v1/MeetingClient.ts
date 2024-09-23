@@ -395,8 +395,6 @@ import { SearchUsersRequest } from './model/SearchUsersRequest';
 import { SearchUsersResponse } from './model/SearchUsersResponse';
 import { SearchVisionActiveCodeRequest } from './model/SearchVisionActiveCodeRequest';
 import { SearchVisionActiveCodeResponse } from './model/SearchVisionActiveCodeResponse';
-import { SegmentDO } from './model/SegmentDO';
-import { SegmentFileDO } from './model/SegmentFileDO';
 import { SendSlideVerifyCodeRequest } from './model/SendSlideVerifyCodeRequest';
 import { SendSlideVerifyCodeResponse } from './model/SendSlideVerifyCodeResponse';
 import { SendVeriCodeForChangePwdRequest } from './model/SendVeriCodeForChangePwdRequest';

@@ -5,6 +5,7 @@ export class HttpGetBody {
     private 'https_status'?: string;
     private 'certificate_type'?: string;
     private 'certificate_source'?: number;
+    private 'scm_certificate_id'?: string;
     private 'certificate_name'?: string;
     private 'certificate_value'?: string;
     private 'expire_time'?: number;
@@ -44,6 +45,16 @@ export class HttpGetBody {
     }
     public get certificateSource(): number | undefined {
         return this['certificate_source'];
+    }
+    public withScmCertificateId(scmCertificateId: string): HttpGetBody {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
     }
     public withCertificateName(certificateName: string): HttpGetBody {
         this['certificate_name'] = certificateName;

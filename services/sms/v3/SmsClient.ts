@@ -42,7 +42,6 @@ import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
 import { DeleteTemplatesRequest } from './model/DeleteTemplatesRequest';
 import { DeleteTemplatesResponse } from './model/DeleteTemplatesResponse';
 import { DeletetemplatesReq } from './model/DeletetemplatesReq';
-import { Disk } from './model/Disk';
 import { DiskIntargetServer } from './model/DiskIntargetServer';
 import { EnvironmentCheck } from './model/EnvironmentCheck';
 import { InitTargetServer } from './model/InitTargetServer';

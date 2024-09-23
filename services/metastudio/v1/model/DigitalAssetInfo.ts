@@ -209,7 +209,8 @@ export enum DigitalAssetInfoAssetStateEnum {
     ACTIVED = 'ACTIVED',
     DELETING = 'DELETING',
     DELETED = 'DELETED',
-    BLOCK = 'BLOCK'
+    BLOCK = 'BLOCK',
+    WAITING_DELETE = 'WAITING_DELETE'
 }
 /**
     * @export

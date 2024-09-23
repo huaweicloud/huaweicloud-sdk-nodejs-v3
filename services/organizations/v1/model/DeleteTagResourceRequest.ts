@@ -2,12 +2,23 @@ import { TagResourceReqBody } from './TagResourceReqBody';
 
 
 export class DeleteTagResourceRequest {
+    private 'X-Security-Token'?: string;
     private 'resource_type'?: DeleteTagResourceRequestResourceTypeEnum | string;
     private 'resource_id'?: string;
     public body?: TagResourceReqBody;
     public constructor(resourceType?: string, resourceId?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
+    }
+    public withXSecurityToken(xSecurityToken: string): DeleteTagResourceRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withResourceType(resourceType: DeleteTagResourceRequestResourceTypeEnum | string): DeleteTagResourceRequest {
         this['resource_type'] = resourceType;

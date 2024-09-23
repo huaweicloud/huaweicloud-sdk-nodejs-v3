@@ -3,6 +3,7 @@
 export class UserAgentFilter {
     public type?: string;
     public value?: string;
+    private 'include_empty'?: boolean;
     private 'ua_list'?: Array<string>;
     public constructor(type?: string) { 
         this['type'] = type;
@@ -14,6 +15,16 @@ export class UserAgentFilter {
     public withValue(value: string): UserAgentFilter {
         this['value'] = value;
         return this;
+    }
+    public withIncludeEmpty(includeEmpty: boolean): UserAgentFilter {
+        this['include_empty'] = includeEmpty;
+        return this;
+    }
+    public set includeEmpty(includeEmpty: boolean  | undefined) {
+        this['include_empty'] = includeEmpty;
+    }
+    public get includeEmpty(): boolean | undefined {
+        return this['include_empty'];
     }
     public withUaList(uaList: Array<string>): UserAgentFilter {
         this['ua_list'] = uaList;

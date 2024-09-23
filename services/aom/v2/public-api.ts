@@ -80,6 +80,7 @@ export * from './model/ListAlarmRuleRequest';
 export * from './model/ListAlarmRuleResponse';
 export * from './model/ListEvent2alarmRuleRequest';
 export * from './model/ListEvent2alarmRuleResponse';
+export * from './model/ListEventModel';
 export * from './model/ListEventsRequest';
 export * from './model/ListEventsResponse';
 export * from './model/ListInstantQueryAomPromGetRequest';

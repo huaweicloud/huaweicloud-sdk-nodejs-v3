@@ -9,6 +9,7 @@ export class AgencyResult {
     public name?: string;
     private 'trust_domain_id'?: string;
     private 'trust_domain_name'?: string;
+    private 'agency_urn'?: string;
     public constructor(createTime?: string, description?: string, expireTime?: string, id?: string, name?: string) { 
         this['create_time'] = createTime;
         this['description'] = description;
@@ -77,5 +78,15 @@ export class AgencyResult {
     }
     public get trustDomainName(): string | undefined {
         return this['trust_domain_name'];
+    }
+    public withAgencyUrn(agencyUrn: string): AgencyResult {
+        this['agency_urn'] = agencyUrn;
+        return this;
+    }
+    public set agencyUrn(agencyUrn: string  | undefined) {
+        this['agency_urn'] = agencyUrn;
+    }
+    public get agencyUrn(): string | undefined {
+        return this['agency_urn'];
     }
 }

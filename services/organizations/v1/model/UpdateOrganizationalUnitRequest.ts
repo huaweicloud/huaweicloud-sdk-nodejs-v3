@@ -2,10 +2,21 @@ import { UpdateOrganizationalUnitReqBody } from './UpdateOrganizationalUnitReqBo
 
 
 export class UpdateOrganizationalUnitRequest {
+    private 'X-Security-Token'?: string;
     private 'organizational_unit_id'?: string;
     public body?: UpdateOrganizationalUnitReqBody;
     public constructor(organizationalUnitId?: string) { 
         this['organizational_unit_id'] = organizationalUnitId;
+    }
+    public withXSecurityToken(xSecurityToken: string): UpdateOrganizationalUnitRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withOrganizationalUnitId(organizationalUnitId: string): UpdateOrganizationalUnitRequest {
         this['organizational_unit_id'] = organizationalUnitId;
