@@ -2,6 +2,8 @@ import { CentralNetworkPolicyDocument } from './CentralNetworkPolicyDocument';
 import { Description } from './Description';
 import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { Name } from './Name';
+import { NonRequiredAutoAssociateRouteEnabled } from './NonRequiredAutoAssociateRouteEnabled';
+import { NonRequiredAutoPropagateRouteEnabled } from './NonRequiredAutoPropagateRouteEnabled';
 import { Tag } from './Tag';
 import { Tags } from './Tags';
 

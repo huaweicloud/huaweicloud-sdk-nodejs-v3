@@ -14,7 +14,7 @@ import { ResourceType } from './ResourceType';
 import { SpecCode } from './SpecCode';
 import { Tag } from './Tag';
 import { Tags } from './Tags';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID32Identifier } from './UUID32Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

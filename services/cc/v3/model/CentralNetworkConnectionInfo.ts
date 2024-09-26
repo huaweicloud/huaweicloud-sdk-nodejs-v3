@@ -1,4 +1,5 @@
 import { BandwidthSize } from './BandwidthSize';
+import { CentralNetworkConnectionPlaneId } from './CentralNetworkConnectionPlaneId';
 import { CentralNetworkConnectionState } from './CentralNetworkConnectionState';
 import { CentralNetworkConnectionStateEnum } from './CentralNetworkConnectionStateEnum';
 import { ConnectionPoint } from './ConnectionPoint';
@@ -6,8 +7,7 @@ import { ConnectionPointPair } from './ConnectionPointPair';
 import { ConnectionType } from './ConnectionType';
 import { ConnectionTypeEnum } from './ConnectionTypeEnum';
 import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
-import { PlaneId } from './PlaneId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class CentralNetworkConnectionInfo {

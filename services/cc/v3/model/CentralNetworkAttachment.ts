@@ -1,4 +1,8 @@
+import { AttachmentId } from './AttachmentId';
 import { AttachmentInstanceId } from './AttachmentInstanceId';
+import { AttachmentInstanceProjectId } from './AttachmentInstanceProjectId';
+import { AttachmentInstanceRegionId } from './AttachmentInstanceRegionId';
+import { AttachmentInstanceSiteCode } from './AttachmentInstanceSiteCode';
 import { AttachmentInstanceType } from './AttachmentInstanceType';
 import { AttachmentInstanceTypeEnum } from './AttachmentInstanceTypeEnum';
 import { BandwidthSize } from './BandwidthSize';
@@ -16,10 +20,11 @@ import { EnterpriseRouterAttachmentId } from './EnterpriseRouterAttachmentId';
 import { EnterpriseRouterId } from './EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './EnterpriseRouterRegionId';
+import { EnterpriseRouterSiteCode } from './EnterpriseRouterSiteCode';
 import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
 import { IsFrozen } from './IsFrozen';
 import { Name } from './Name';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

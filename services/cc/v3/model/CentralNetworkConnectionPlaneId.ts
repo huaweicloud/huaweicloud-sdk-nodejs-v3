@@ -1,11 +1,11 @@
 
 
-export class PlaneId {
+export class CentralNetworkConnectionPlaneId {
     private 'plane_id'?: string;
     public constructor(planeId?: string) { 
         this['plane_id'] = planeId;
     }
-    public withPlaneId(planeId: string): PlaneId {
+    public withPlaneId(planeId: string): CentralNetworkConnectionPlaneId {
         this['plane_id'] = planeId;
         return this;
     }

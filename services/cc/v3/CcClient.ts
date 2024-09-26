@@ -18,16 +18,26 @@ import { AssociateGlobalConnectionBandwidthInstanceRequestBody } from './model/A
 import { AssociateGlobalConnectionBandwidthInstanceRequestInfo } from './model/AssociateGlobalConnectionBandwidthInstanceRequestInfo';
 import { AssociateGlobalConnectionBandwidthInstanceResponse } from './model/AssociateGlobalConnectionBandwidthInstanceResponse';
 import { AssociateGlobalConnectionBandwidthInstanceResponseInfo } from './model/AssociateGlobalConnectionBandwidthInstanceResponseInfo';
+import { AttachmentId } from './model/AttachmentId';
 import { AttachmentInstanceId } from './model/AttachmentInstanceId';
+import { AttachmentInstanceProjectId } from './model/AttachmentInstanceProjectId';
+import { AttachmentInstanceRegionId } from './model/AttachmentInstanceRegionId';
+import { AttachmentInstanceSiteCode } from './model/AttachmentInstanceSiteCode';
 import { AttachmentInstanceType } from './model/AttachmentInstanceType';
 import { AttachmentInstanceTypeEnum } from './model/AttachmentInstanceTypeEnum';
 import { Authorisation } from './model/Authorisation';
+import { AutoAssociateRouteEnabled } from './model/AutoAssociateRouteEnabled';
+import { AutoPropagateRouteEnabled } from './model/AutoPropagateRouteEnabled';
 import { BandwidthPackage } from './model/BandwidthPackage';
 import { BandwidthPackageId } from './model/BandwidthPackageId';
 import { BandwidthSize } from './model/BandwidthSize';
 import { BandwidthSizeDefine } from './model/BandwidthSizeDefine';
 import { BandwidthType } from './model/BandwidthType';
 import { BandwidthTypeEnum } from './model/BandwidthTypeEnum';
+import { BatchCreateGcbResourceTagsRequest } from './model/BatchCreateGcbResourceTagsRequest';
+import { BatchCreateGcbResourceTagsResponse } from './model/BatchCreateGcbResourceTagsResponse';
+import { BatchDeleteGcbResourceTagsRequest } from './model/BatchDeleteGcbResourceTagsRequest';
+import { BatchDeleteGcbResourceTagsResponse } from './model/BatchDeleteGcbResourceTagsResponse';
 import { BillingMode } from './model/BillingMode';
 import { BillingModeEnum } from './model/BillingModeEnum';
 import { CentralNetwork } from './model/CentralNetwork';
@@ -37,8 +47,10 @@ import { CentralNetworkCapability } from './model/CentralNetworkCapability';
 import { CentralNetworkCapabilityEnum } from './model/CentralNetworkCapabilityEnum';
 import { CentralNetworkConnection } from './model/CentralNetworkConnection';
 import { CentralNetworkConnectionInfo } from './model/CentralNetworkConnectionInfo';
+import { CentralNetworkConnectionPlaneId } from './model/CentralNetworkConnectionPlaneId';
 import { CentralNetworkConnectionState } from './model/CentralNetworkConnectionState';
 import { CentralNetworkConnectionStateEnum } from './model/CentralNetworkConnectionStateEnum';
+import { CentralNetworkDefaultPlaneId } from './model/CentralNetworkDefaultPlaneId';
 import { CentralNetworkElementChange } from './model/CentralNetworkElementChange';
 import { CentralNetworkErInstance } from './model/CentralNetworkErInstance';
 import { CentralNetworkErRouteTableAttachment } from './model/CentralNetworkErRouteTableAttachment';
@@ -65,6 +77,8 @@ import { ConnectionPointPair } from './model/ConnectionPointPair';
 import { ConnectionPointTypeEnum } from './model/ConnectionPointTypeEnum';
 import { ConnectionType } from './model/ConnectionType';
 import { ConnectionTypeEnum } from './model/ConnectionTypeEnum';
+import { CountGcbResourceByTagRequest } from './model/CountGcbResourceByTagRequest';
+import { CountGcbResourceByTagResponse } from './model/CountGcbResourceByTagResponse';
 import { CreateAuthorisation } from './model/CreateAuthorisation';
 import { CreateAuthorisationRequest } from './model/CreateAuthorisationRequest';
 import { CreateAuthorisationRequestBody } from './model/CreateAuthorisationRequestBody';
@@ -92,6 +106,10 @@ import { CreateCloudConnection } from './model/CreateCloudConnection';
 import { CreateCloudConnectionRequest } from './model/CreateCloudConnectionRequest';
 import { CreateCloudConnectionRequestBody } from './model/CreateCloudConnectionRequestBody';
 import { CreateCloudConnectionResponse } from './model/CreateCloudConnectionResponse';
+import { CreateDeleteGcbTagsRequestBody } from './model/CreateDeleteGcbTagsRequestBody';
+import { CreateGcbResourceTagRequest } from './model/CreateGcbResourceTagRequest';
+import { CreateGcbResourceTagResponse } from './model/CreateGcbResourceTagResponse';
+import { CreateGcbTagRequestBody } from './model/CreateGcbTagRequestBody';
 import { CreateGlobalConnectionBandwidth } from './model/CreateGlobalConnectionBandwidth';
 import { CreateGlobalConnectionBandwidthRequest } from './model/CreateGlobalConnectionBandwidthRequest';
 import { CreateGlobalConnectionBandwidthRequestBody } from './model/CreateGlobalConnectionBandwidthRequestBody';
@@ -117,6 +135,8 @@ import { DeleteCentralNetworkRequest } from './model/DeleteCentralNetworkRequest
 import { DeleteCentralNetworkResponse } from './model/DeleteCentralNetworkResponse';
 import { DeleteCloudConnectionRequest } from './model/DeleteCloudConnectionRequest';
 import { DeleteCloudConnectionResponse } from './model/DeleteCloudConnectionResponse';
+import { DeleteGcbResourceTagRequest } from './model/DeleteGcbResourceTagRequest';
+import { DeleteGcbResourceTagResponse } from './model/DeleteGcbResourceTagResponse';
 import { DeleteGlobalConnectionBandwidthRequest } from './model/DeleteGlobalConnectionBandwidthRequest';
 import { DeleteGlobalConnectionBandwidthResponse } from './model/DeleteGlobalConnectionBandwidthResponse';
 import { DeleteInterRegionBandwidthRequest } from './model/DeleteInterRegionBandwidthRequest';
@@ -142,6 +162,7 @@ import { EnterpriseRouterAttachmentId } from './model/EnterpriseRouterAttachment
 import { EnterpriseRouterId } from './model/EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './model/EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './model/EnterpriseRouterRegionId';
+import { EnterpriseRouterSiteCode } from './model/EnterpriseRouterSiteCode';
 import { EnterpriseRouterTableId } from './model/EnterpriseRouterTableId';
 import { GcbAdminState } from './model/GcbAdminState';
 import { GcbBindingServiceAll } from './model/GcbBindingServiceAll';
@@ -172,6 +193,8 @@ import { GlobalConnectionBandwidthSizeRange } from './model/GlobalConnectionBand
 import { GlobalConnectionBandwidthSpecCode } from './model/GlobalConnectionBandwidthSpecCode';
 import { GlobalDcGatewayId } from './model/GlobalDcGatewayId';
 import { GlobalDcGatewayPeerLinkId } from './model/GlobalDcGatewayPeerLinkId';
+import { GlobalDcGatewayProjectId } from './model/GlobalDcGatewayProjectId';
+import { GlobalDcGatewayRegionId } from './model/GlobalDcGatewayRegionId';
 import { HostedCloudEnum } from './model/HostedCloudEnum';
 import { InstanceDomainId } from './model/InstanceDomainId';
 import { InstanceId } from './model/InstanceId';
@@ -221,6 +244,12 @@ import { ListCloudConnectionsByTagsRequestBody } from './model/ListCloudConnecti
 import { ListCloudConnectionsByTagsResponse } from './model/ListCloudConnectionsByTagsResponse';
 import { ListCloudConnectionsRequest } from './model/ListCloudConnectionsRequest';
 import { ListCloudConnectionsResponse } from './model/ListCloudConnectionsResponse';
+import { ListGcbResourceByTagRequest } from './model/ListGcbResourceByTagRequest';
+import { ListGcbResourceByTagResponse } from './model/ListGcbResourceByTagResponse';
+import { ListGcbResourceTagsRequest } from './model/ListGcbResourceTagsRequest';
+import { ListGcbResourceTagsResponse } from './model/ListGcbResourceTagsResponse';
+import { ListGcbTenantTagsRequest } from './model/ListGcbTenantTagsRequest';
+import { ListGcbTenantTagsResponse } from './model/ListGcbTenantTagsResponse';
 import { ListGlobalConnectionBandwidthConfigs } from './model/ListGlobalConnectionBandwidthConfigs';
 import { ListGlobalConnectionBandwidthConfigsRequest } from './model/ListGlobalConnectionBandwidthConfigsRequest';
 import { ListGlobalConnectionBandwidthConfigsResponse } from './model/ListGlobalConnectionBandwidthConfigsResponse';
@@ -247,13 +276,21 @@ import { Name } from './model/Name';
 import { NameDef } from './model/NameDef';
 import { NetworkInstance } from './model/NetworkInstance';
 import { NextMarker } from './model/NextMarker';
+import { NonDefaultAutoAssociateRouteEnabled } from './model/NonDefaultAutoAssociateRouteEnabled';
+import { NonDefaultAutoPropagateRouteEnabled } from './model/NonDefaultAutoPropagateRouteEnabled';
+import { NonRequiredAutoAssociateRouteEnabled } from './model/NonRequiredAutoAssociateRouteEnabled';
+import { NonRequiredAutoPropagateRouteEnabled } from './model/NonRequiredAutoPropagateRouteEnabled';
+import { NonRequiredCentralNetworkPlaneId } from './model/NonRequiredCentralNetworkPlaneId';
+import { NonRequiredGcbChargeMode } from './model/NonRequiredGcbChargeMode';
+import { NonRequiredGcbSize } from './model/NonRequiredGcbSize';
 import { NonRequiredName } from './model/NonRequiredName';
 import { PageInfo } from './model/PageInfo';
 import { Permission } from './model/Permission';
-import { PlaneId } from './model/PlaneId';
 import { PreviousMarker } from './model/PreviousMarker';
 import { ProjectId } from './model/ProjectId';
 import { ProjectIdDef } from './model/ProjectIdDef';
+import { QueryResourceByTagRequestBody } from './model/QueryResourceByTagRequestBody';
+import { QueryTag } from './model/QueryTag';
 import { QuotaLimit } from './model/QuotaLimit';
 import { QuotaUnit } from './model/QuotaUnit';
 import { QuotaUsed } from './model/QuotaUsed';
@@ -261,6 +298,7 @@ import { RegionId } from './model/RegionId';
 import { RegionIdDef } from './model/RegionIdDef';
 import { RemoteAreaId } from './model/RemoteAreaId';
 import { RequestId } from './model/RequestId';
+import { RequiredTag } from './model/RequiredTag';
 import { ResourceId } from './model/ResourceId';
 import { ResourceType } from './model/ResourceType';
 import { ShowBandwidthPackageRequest } from './model/ShowBandwidthPackageRequest';
@@ -299,8 +337,13 @@ import { TagCloudConnectionResponse } from './model/TagCloudConnectionResponse';
 import { TagKey } from './model/TagKey';
 import { TagValue } from './model/TagValue';
 import { Tags } from './model/Tags';
-import { UUIDDef } from './model/UUIDDef';
-import { UUIDIdentifier } from './model/UUIDIdentifier';
+import { TmsMatch } from './model/TmsMatch';
+import { TmsResource } from './model/TmsResource';
+import { TmsTagValues } from './model/TmsTagValues';
+import { UUID32Def } from './model/UUID32Def';
+import { UUID32Identifier } from './model/UUID32Identifier';
+import { UUID64Def } from './model/UUID64Def';
+import { UUID64Identifier } from './model/UUID64Identifier';
 import { UntagBandwidthPackageRequest } from './model/UntagBandwidthPackageRequest';
 import { UntagBandwidthPackageRequestBody } from './model/UntagBandwidthPackageRequestBody';
 import { UntagBandwidthPackageResponse } from './model/UntagBandwidthPackageResponse';
@@ -394,7 +437,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除授权
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -465,7 +508,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新授权
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UpdateAuthorisationRequestBody} updateAuthorisationRequestBody 更新授权实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -485,7 +528,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 将带宽包实例绑定到云连接实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {AssociateBandwidthPackageRequestBody} associateBandwidthPackageRequestBody 将带宽包实例关联到资源的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -524,7 +567,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除带宽包实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -543,7 +586,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解除带宽包实例与云连接实例的绑定
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {DisassociateBandwidthPackageRequestBody} disassociateBandwidthPackageRequestBody 将带宽包实例与资源解关联的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -628,7 +671,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽包实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -647,7 +690,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建带宽包标签
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {TagBandwidthPackageRequestBody} tagBandwidthPackageRequestBody 创建带宽包标签请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -667,7 +710,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除带宽包标签
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UntagBandwidthPackageRequestBody} untagBandwidthPackageRequestBody 删除带宽包标签请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -687,7 +730,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新带宽包实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UpdateBandwidthPackageRequestBody} updateBandwidthPackageRequestBody 更新带宽包实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1339,7 +1382,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云连接实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1423,7 +1466,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云连接实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1442,7 +1485,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云连接实例标签
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {TagCloudConnectionRequestBody} tagCloudConnectionRequestBody 创建云连接实例标签请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1462,7 +1505,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云连接实例标签
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UntagCloudConnectionRequestBody} untagCloudConnectionRequestBody 删除云连接实例标签请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1482,7 +1525,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新云连接实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UpdateCloudConnectionRequestBody} updateCloudConnectionRequestBody 更新云连接实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1551,7 +1594,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云连接路由条目详情
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1565,12 +1608,169 @@ export class CcClient {
     }
 
     /**
+     * TMS批量添加资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加账户全域互联带宽资源标签
+     * @param {string} resourceId 资源唯一标识符。
+     * @param {CreateDeleteGcbTagsRequestBody} createDeleteGcbTagsRequestBody 批量添加账户全域互联带宽资源标签。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateGcbResourceTags(batchCreateGcbResourceTagsRequest?: BatchCreateGcbResourceTagsRequest): Promise<BatchCreateGcbResourceTagsResponse> {
+        const options = ParamCreater().batchCreateGcbResourceTags(batchCreateGcbResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除账户全域互联带宽资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除账户全域互联带宽资源标签
+     * @param {string} resourceId 资源唯一标识符。
+     * @param {CreateDeleteGcbTagsRequestBody} createDeleteGcbTagsRequestBody 批量删除账户全域互联带宽资源标签。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteGcbResourceTags(batchDeleteGcbResourceTagsRequest?: BatchDeleteGcbResourceTagsRequest): Promise<BatchDeleteGcbResourceTagsResponse> {
+        const options = ParamCreater().batchDeleteGcbResourceTags(batchDeleteGcbResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账户全域互联带宽资源标签数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账户全域互联带宽资源标签数量
+     * @param {QueryResourceByTagRequestBody} queryResourceByTagRequestBody 查询账户全域互联带宽资源标签数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countGcbResourceByTag(countGcbResourceByTagRequest?: CountGcbResourceByTagRequest): Promise<CountGcbResourceByTagResponse> {
+        const options = ParamCreater().countGcbResourceByTag(countGcbResourceByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加账户全域互联带宽资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加账户全域互联带宽资源标签
+     * @param {string} resourceId 资源唯一标识符。
+     * @param {CreateGcbTagRequestBody} createGcbTagRequestBody 添加账户全域互联带宽资源标签。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGcbResourceTag(createGcbResourceTagRequest?: CreateGcbResourceTagRequest): Promise<CreateGcbResourceTagResponse> {
+        const options = ParamCreater().createGcbResourceTag(createGcbResourceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除账户全域互联带宽资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除账户全域互联带宽资源标签
+     * @param {string} resourceId 资源唯一标识符。
+     * @param {string} tagKey 删除的tag的key。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGcbResourceTag(deleteGcbResourceTagRequest?: DeleteGcbResourceTagRequest): Promise<DeleteGcbResourceTagResponse> {
+        const options = ParamCreater().deleteGcbResourceTag(deleteGcbResourceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账户全域互联带宽资源实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账户全域互联带宽资源实例列表
+     * @param {QueryResourceByTagRequestBody} queryResourceByTagRequestBody 查询账户全域互联带宽资源实例列表。
+     * @param {number} [limit] 查询记录数。
+     * @param {number} [offset] 索引位置，偏移量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGcbResourceByTag(listGcbResourceByTagRequest?: ListGcbResourceByTagRequest): Promise<ListGcbResourceByTagResponse> {
+        const options = ParamCreater().listGcbResourceByTag(listGcbResourceByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账户全域互联带宽资源的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账户全域互联带宽资源的标签
+     * @param {string} resourceId 资源唯一标识符。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGcbResourceTags(listGcbResourceTagsRequest?: ListGcbResourceTagsRequest): Promise<ListGcbResourceTagsResponse> {
+        const options = ParamCreater().listGcbResourceTags(listGcbResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账户全域互联带宽所有资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账户全域互联带宽所有资源标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGcbTenantTags(listGcbTenantTagsRequest?: ListGcbTenantTagsRequest): Promise<ListGcbTenantTagsResponse> {
+        const options = ParamCreater().listGcbTenantTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 全域互联带宽绑定实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 全域互联带宽绑定实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {AssociateGlobalConnectionBandwidthInstanceRequestBody} associateGlobalConnectionBandwidthInstanceRequestBody 全域互联带宽绑定实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1609,7 +1809,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域互联带宽
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1628,7 +1828,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 全域互联带宽解绑实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {DisassociateGlobalConnectionBandwidthInstanceRequestBody} disassociateGlobalConnectionBandwidthInstanceRequestBody 全域互联带宽解绑实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1695,6 +1895,8 @@ export class CcClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
      * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
      * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [nameEn] 站点信息自定义英文名称。
+     * @param {string} [nameCn] 站点信息自定义中文名称。
      * @param {string} [siteCode] 站点编码。
      * @param {'Area' | 'SubArea' | 'Region'} [siteType] 站点类型： - Area: 大区 - SubArea: 区域 - Region: 城域
      * @param {*} [options] Override http request option.
@@ -1746,9 +1948,12 @@ export class CcClient {
      * @param {Array<string>} [id] 根据id查询，可查询多个id。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
+     * @param {Array<string>} [instanceId] 根据绑定实例id过滤全域互联带宽列表。
+     * @param {Array<'CC' | 'GEIP' | 'GCN' | 'GSN'>} [instanceType] 根据绑定实例类型过滤全域互联带宽列表。实例类型： - CC: 云连接 - GEIP: 全域弹性公网IP - GCN: 中心网络 - GSN: 分支网络
      * @param {Array<'CC' | 'GEIP' | 'GCN' | 'GSN'>} [bindingService] 根据支持绑定实例类型过滤全域互联带宽列表。实例类型： - CC: 云连接 - GEIP: 全域弹性公网IP - GCN: 中心网络 - GSN: 分支网络
      * @param {Array<'TrsArea' | 'Area' | 'SubArea' | 'Region'>} [type] 根据带宽类型过滤全域互联带宽列表。带宽类型： - TrsArea: 跨区带宽 - Area: 大区带宽 - SubArea: 区域带宽 - Region: 城域带宽
-     * @param {Array<'bwd' | '95'>} [chargeMode] 根据计费方式过滤全域互联带宽列表： - bwd: 按带宽计费 - 95: 按传统型95计费
+     * @param {Array<'NORMAL' | 'FREEZED'>} [adminState] 根据带宽状态过滤全域互联带宽列表： - NORMAL: 正常 - FREEZED: 冻结
+     * @param {Array<'bwd' | '95' | '95avr'>} [chargeMode] 根据计费方式过滤全域互联带宽列表： - bwd: 按带宽计费 - 95: 按传统型95计费 - 95avr (日95计费)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1768,12 +1973,12 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询符合绑定条件的全域互联带宽列表
-     * @param {'CC' | 'GEIP' | 'GCN' | 'GSN'} bindingService 根据支持绑定实例类型过滤全域互联带宽列表。实例类型： - CC: 云连接 - GEIP: 全域弹性公网IP - GCN: 中心网络 - GSN: 分支网络
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
      * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
      * @param {string} [localArea] 功能说明：本端接入点。   如果是region类型，则返回所有满足条件的城域带宽，不进行该字段的匹配过滤   如果是其他类型，则会用该字段跟全域互联带宽的local_area进行匹配过滤   附带过滤条件：会通过local_area和remote_area推算最佳全域互联带宽类型进行过滤查询   限制：local_area和remote_area同为空或者同不为空，且站点类型需一致
      * @param {string} [remoteArea] 功能说明：远端接入点。   如果是region类型，则返回所有满足条件的城域带宽，不进行该字段的匹配过滤   如果是其他类型，则会用该字段跟全域互联带宽的remote_area进行匹配过滤   附带过滤条件：会通过local_area和remote_area推算最佳全域互联带宽类型进行过滤查询   限制：local_area和remote_area同为空或者同不为空，且站点类型需一致
+     * @param {'CC' | 'GEIP' | 'GCN' | 'GSN'} [bindingService] 根据支持绑定实例类型过滤全域互联带宽列表。实例类型： - CC: 云连接 - GEIP: 全域弹性公网IP - GCN: 中心网络 - GSN: 分支网络
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1792,7 +1997,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域互联带宽详情
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1811,7 +2016,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新全域互联带宽详情
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UpdateGlobalConnectionBandwidthRequestBody} updateGlobalConnectionBandwidthRequestBody 更新全域互联带宽详情的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1850,7 +2055,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除域间带宽实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1894,7 +2099,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域间带宽实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1913,7 +2118,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新域间带宽实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UpdateInterRegionBandwidthRequestBody} updateInterRegionBandwidthRequestBody 更新域间带宽实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1952,7 +2157,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除网络实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2000,7 +2205,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询网络实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2019,7 +2224,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新网络实例
-     * @param {string} id 资源的Id。
+     * @param {string} id 实例ID。
      * @param {UpdateNetworkInstanceRequestBody} updateNetworkInstanceRequestBody 更新网络实例的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4986,6 +5191,337 @@ export const ParamCreater = function () {
         },
     
         /**
+         * TMS批量添加资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateGcbResourceTags(batchCreateGcbResourceTagsRequest?: BatchCreateGcbResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/gcb/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (batchCreateGcbResourceTagsRequest !== null && batchCreateGcbResourceTagsRequest !== undefined) {
+                if (batchCreateGcbResourceTagsRequest instanceof BatchCreateGcbResourceTagsRequest) {
+                    resourceId = batchCreateGcbResourceTagsRequest.resourceId;
+                    body = batchCreateGcbResourceTagsRequest.body
+                } else {
+                    resourceId = batchCreateGcbResourceTagsRequest['resource_id'];
+                    body = batchCreateGcbResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateGcbResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除账户全域互联带宽资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteGcbResourceTags(batchDeleteGcbResourceTagsRequest?: BatchDeleteGcbResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/gcb/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (batchDeleteGcbResourceTagsRequest !== null && batchDeleteGcbResourceTagsRequest !== undefined) {
+                if (batchDeleteGcbResourceTagsRequest instanceof BatchDeleteGcbResourceTagsRequest) {
+                    resourceId = batchDeleteGcbResourceTagsRequest.resourceId;
+                    body = batchDeleteGcbResourceTagsRequest.body
+                } else {
+                    resourceId = batchDeleteGcbResourceTagsRequest['resource_id'];
+                    body = batchDeleteGcbResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchDeleteGcbResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账户全域互联带宽资源标签数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countGcbResourceByTag(countGcbResourceByTagRequest?: CountGcbResourceByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/gcb/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (countGcbResourceByTagRequest !== null && countGcbResourceByTagRequest !== undefined) {
+                if (countGcbResourceByTagRequest instanceof CountGcbResourceByTagRequest) {
+                    body = countGcbResourceByTagRequest.body
+                } else {
+                    body = countGcbResourceByTagRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加账户全域互联带宽资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGcbResourceTag(createGcbResourceTagRequest?: CreateGcbResourceTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/gcb/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (createGcbResourceTagRequest !== null && createGcbResourceTagRequest !== undefined) {
+                if (createGcbResourceTagRequest instanceof CreateGcbResourceTagRequest) {
+                    resourceId = createGcbResourceTagRequest.resourceId;
+                    body = createGcbResourceTagRequest.body
+                } else {
+                    resourceId = createGcbResourceTagRequest['resource_id'];
+                    body = createGcbResourceTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createGcbResourceTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除账户全域互联带宽资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGcbResourceTag(deleteGcbResourceTagRequest?: DeleteGcbResourceTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/gcb/{resource_id}/tags/{tag_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+            
+            let tagKey;
+
+            if (deleteGcbResourceTagRequest !== null && deleteGcbResourceTagRequest !== undefined) {
+                if (deleteGcbResourceTagRequest instanceof DeleteGcbResourceTagRequest) {
+                    resourceId = deleteGcbResourceTagRequest.resourceId;
+                    tagKey = deleteGcbResourceTagRequest.tagKey;
+                } else {
+                    resourceId = deleteGcbResourceTagRequest['resource_id'];
+                    tagKey = deleteGcbResourceTagRequest['tag_key'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteGcbResourceTag.');
+            }
+            if (tagKey === null || tagKey === undefined) {
+            throw new RequiredError('tagKey','Required parameter tagKey was null or undefined when calling deleteGcbResourceTag.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId,'tag_key': tagKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账户全域互联带宽资源实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGcbResourceByTag(listGcbResourceByTagRequest?: ListGcbResourceByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/gcb/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listGcbResourceByTagRequest !== null && listGcbResourceByTagRequest !== undefined) {
+                if (listGcbResourceByTagRequest instanceof ListGcbResourceByTagRequest) {
+                    body = listGcbResourceByTagRequest.body
+                    limit = listGcbResourceByTagRequest.limit;
+                    offset = listGcbResourceByTagRequest.offset;
+                } else {
+                    body = listGcbResourceByTagRequest['body'];
+                    limit = listGcbResourceByTagRequest['limit'];
+                    offset = listGcbResourceByTagRequest['offset'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账户全域互联带宽资源的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGcbResourceTags(listGcbResourceTagsRequest?: ListGcbResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/gcb/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+
+            if (listGcbResourceTagsRequest !== null && listGcbResourceTagsRequest !== undefined) {
+                if (listGcbResourceTagsRequest instanceof ListGcbResourceTagsRequest) {
+                    resourceId = listGcbResourceTagsRequest.resourceId;
+                } else {
+                    resourceId = listGcbResourceTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listGcbResourceTags.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账户全域互联带宽所有资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGcbTenantTags() {
+            const options = {
+                method: "GET",
+                url: "/v3/gcb/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 全域互联带宽绑定实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5270,6 +5806,10 @@ export const ParamCreater = function () {
             
             let id;
             
+            let nameEn;
+            
+            let nameCn;
+            
             let siteCode;
             
             let siteType;
@@ -5279,12 +5819,16 @@ export const ParamCreater = function () {
                     limit = listGlobalConnectionBandwidthSitesRequest.limit;
                     marker = listGlobalConnectionBandwidthSitesRequest.marker;
                     id = listGlobalConnectionBandwidthSitesRequest.id;
+                    nameEn = listGlobalConnectionBandwidthSitesRequest.nameEn;
+                    nameCn = listGlobalConnectionBandwidthSitesRequest.nameCn;
                     siteCode = listGlobalConnectionBandwidthSitesRequest.siteCode;
                     siteType = listGlobalConnectionBandwidthSitesRequest.siteType;
                 } else {
                     limit = listGlobalConnectionBandwidthSitesRequest['limit'];
                     marker = listGlobalConnectionBandwidthSitesRequest['marker'];
                     id = listGlobalConnectionBandwidthSitesRequest['id'];
+                    nameEn = listGlobalConnectionBandwidthSitesRequest['name_en'];
+                    nameCn = listGlobalConnectionBandwidthSitesRequest['name_cn'];
                     siteCode = listGlobalConnectionBandwidthSitesRequest['site_code'];
                     siteType = listGlobalConnectionBandwidthSitesRequest['site_type'];
                 }
@@ -5299,6 +5843,12 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+            if (nameEn !== null && nameEn !== undefined) {
+                localVarQueryParameter['name_en'] = nameEn;
+            }
+            if (nameCn !== null && nameCn !== undefined) {
+                localVarQueryParameter['name_cn'] = nameCn;
             }
             if (siteCode !== null && siteCode !== undefined) {
                 localVarQueryParameter['site_code'] = siteCode;
@@ -5413,9 +5963,15 @@ export const ParamCreater = function () {
             
             let enterpriseProjectId;
             
+            let instanceId;
+            
+            let instanceType;
+            
             let bindingService;
             
             let type;
+            
+            let adminState;
             
             let chargeMode;
 
@@ -5426,8 +5982,11 @@ export const ParamCreater = function () {
                     id = listGlobalConnectionBandwidthsRequest.id;
                     name = listGlobalConnectionBandwidthsRequest.name;
                     enterpriseProjectId = listGlobalConnectionBandwidthsRequest.enterpriseProjectId;
+                    instanceId = listGlobalConnectionBandwidthsRequest.instanceId;
+                    instanceType = listGlobalConnectionBandwidthsRequest.instanceType;
                     bindingService = listGlobalConnectionBandwidthsRequest.bindingService;
                     type = listGlobalConnectionBandwidthsRequest.type;
+                    adminState = listGlobalConnectionBandwidthsRequest.adminState;
                     chargeMode = listGlobalConnectionBandwidthsRequest.chargeMode;
                 } else {
                     limit = listGlobalConnectionBandwidthsRequest['limit'];
@@ -5435,8 +5994,11 @@ export const ParamCreater = function () {
                     id = listGlobalConnectionBandwidthsRequest['id'];
                     name = listGlobalConnectionBandwidthsRequest['name'];
                     enterpriseProjectId = listGlobalConnectionBandwidthsRequest['enterprise_project_id'];
+                    instanceId = listGlobalConnectionBandwidthsRequest['instance_id'];
+                    instanceType = listGlobalConnectionBandwidthsRequest['instance_type'];
                     bindingService = listGlobalConnectionBandwidthsRequest['binding_service'];
                     type = listGlobalConnectionBandwidthsRequest['type'];
+                    adminState = listGlobalConnectionBandwidthsRequest['admin_state'];
                     chargeMode = listGlobalConnectionBandwidthsRequest['charge_mode'];
                 }
             }
@@ -5457,11 +6019,20 @@ export const ParamCreater = function () {
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
+            }
             if (bindingService !== null && bindingService !== undefined) {
                 localVarQueryParameter['binding_service'] = bindingService;
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (adminState !== null && adminState !== undefined) {
+                localVarQueryParameter['admin_state'] = adminState;
             }
             if (chargeMode !== null && chargeMode !== undefined) {
                 localVarQueryParameter['charge_mode'] = chargeMode;
@@ -5490,8 +6061,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let bindingService;
-            
             let limit;
             
             let marker;
@@ -5501,32 +6070,28 @@ export const ParamCreater = function () {
             let localArea;
             
             let remoteArea;
+            
+            let bindingService;
 
             if (listSupportBindingConnectionBandwidthsRequest !== null && listSupportBindingConnectionBandwidthsRequest !== undefined) {
                 if (listSupportBindingConnectionBandwidthsRequest instanceof ListSupportBindingConnectionBandwidthsRequest) {
-                    bindingService = listSupportBindingConnectionBandwidthsRequest.bindingService;
                     limit = listSupportBindingConnectionBandwidthsRequest.limit;
                     marker = listSupportBindingConnectionBandwidthsRequest.marker;
                     enterpriseProjectId = listSupportBindingConnectionBandwidthsRequest.enterpriseProjectId;
                     localArea = listSupportBindingConnectionBandwidthsRequest.localArea;
                     remoteArea = listSupportBindingConnectionBandwidthsRequest.remoteArea;
+                    bindingService = listSupportBindingConnectionBandwidthsRequest.bindingService;
                 } else {
-                    bindingService = listSupportBindingConnectionBandwidthsRequest['binding_service'];
                     limit = listSupportBindingConnectionBandwidthsRequest['limit'];
                     marker = listSupportBindingConnectionBandwidthsRequest['marker'];
                     enterpriseProjectId = listSupportBindingConnectionBandwidthsRequest['enterprise_project_id'];
                     localArea = listSupportBindingConnectionBandwidthsRequest['local_area'];
                     remoteArea = listSupportBindingConnectionBandwidthsRequest['remote_area'];
+                    bindingService = listSupportBindingConnectionBandwidthsRequest['binding_service'];
                 }
             }
 
         
-            if (bindingService === null || bindingService === undefined) {
-                throw new RequiredError('bindingService','Required parameter bindingService was null or undefined when calling listSupportBindingConnectionBandwidths.');
-            }
-            if (bindingService !== null && bindingService !== undefined) {
-                localVarQueryParameter['binding_service'] = bindingService;
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -5541,6 +6106,9 @@ export const ParamCreater = function () {
             }
             if (remoteArea !== null && remoteArea !== undefined) {
                 localVarQueryParameter['remote_area'] = remoteArea;
+            }
+            if (bindingService !== null && bindingService !== undefined) {
+                localVarQueryParameter['binding_service'] = bindingService;
             }
 
             options.queryParams = localVarQueryParameter;

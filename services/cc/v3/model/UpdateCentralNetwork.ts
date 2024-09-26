@@ -1,4 +1,6 @@
 import { Description } from './Description';
+import { NonDefaultAutoAssociateRouteEnabled } from './NonDefaultAutoAssociateRouteEnabled';
+import { NonDefaultAutoPropagateRouteEnabled } from './NonDefaultAutoPropagateRouteEnabled';
 import { NonRequiredName } from './NonRequiredName';
 import { Tag } from './Tag';
 import { Tags } from './Tags';

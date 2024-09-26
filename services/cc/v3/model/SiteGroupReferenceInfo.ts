@@ -1,5 +1,5 @@
 import { Description } from './Description';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class SiteGroupReferenceInfo {

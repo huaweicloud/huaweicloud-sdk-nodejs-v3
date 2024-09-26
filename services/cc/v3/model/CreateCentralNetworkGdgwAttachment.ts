@@ -3,7 +3,12 @@ import { EnterpriseRouterId } from './EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './EnterpriseRouterRegionId';
 import { GlobalDcGatewayId } from './GlobalDcGatewayId';
+import { GlobalDcGatewayProjectId } from './GlobalDcGatewayProjectId';
+import { GlobalDcGatewayRegionId } from './GlobalDcGatewayRegionId';
 import { Name } from './Name';
+import { NonRequiredAutoAssociateRouteEnabled } from './NonRequiredAutoAssociateRouteEnabled';
+import { NonRequiredAutoPropagateRouteEnabled } from './NonRequiredAutoPropagateRouteEnabled';
+import { NonRequiredCentralNetworkPlaneId } from './NonRequiredCentralNetworkPlaneId';
 
 
 export class CreateCentralNetworkGdgwAttachment {
@@ -11,19 +16,19 @@ export class CreateCentralNetworkGdgwAttachment {
     public description?: string;
     private 'enterprise_router_id'?: string;
     private 'global_dc_gateway_id'?: string;
-    private 'enterprise_router_project_id'?: string;
-    private 'enterprise_router_region_id'?: string;
     private 'global_dc_gateway_project_id'?: string;
     private 'global_dc_gateway_region_id'?: string;
+    private 'enterprise_router_project_id'?: string;
+    private 'enterprise_router_region_id'?: string;
     private 'central_network_plane_id'?: string;
-    public constructor(name?: string, enterpriseRouterId?: string, globalDcGatewayId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, globalDcGatewayProjectId?: string, globalDcGatewayRegionId?: string) { 
+    public constructor(name?: string, enterpriseRouterId?: string, globalDcGatewayId?: string, globalDcGatewayProjectId?: string, globalDcGatewayRegionId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string) { 
         this['name'] = name;
         this['enterprise_router_id'] = enterpriseRouterId;
         this['global_dc_gateway_id'] = globalDcGatewayId;
-        this['enterprise_router_project_id'] = enterpriseRouterProjectId;
-        this['enterprise_router_region_id'] = enterpriseRouterRegionId;
         this['global_dc_gateway_project_id'] = globalDcGatewayProjectId;
         this['global_dc_gateway_region_id'] = globalDcGatewayRegionId;
+        this['enterprise_router_project_id'] = enterpriseRouterProjectId;
+        this['enterprise_router_region_id'] = enterpriseRouterRegionId;
     }
     public withName(name: string): CreateCentralNetworkGdgwAttachment {
         this['name'] = name;
@@ -53,26 +58,6 @@ export class CreateCentralNetworkGdgwAttachment {
     public get globalDcGatewayId(): string | undefined {
         return this['global_dc_gateway_id'];
     }
-    public withEnterpriseRouterProjectId(enterpriseRouterProjectId: string): CreateCentralNetworkGdgwAttachment {
-        this['enterprise_router_project_id'] = enterpriseRouterProjectId;
-        return this;
-    }
-    public set enterpriseRouterProjectId(enterpriseRouterProjectId: string  | undefined) {
-        this['enterprise_router_project_id'] = enterpriseRouterProjectId;
-    }
-    public get enterpriseRouterProjectId(): string | undefined {
-        return this['enterprise_router_project_id'];
-    }
-    public withEnterpriseRouterRegionId(enterpriseRouterRegionId: string): CreateCentralNetworkGdgwAttachment {
-        this['enterprise_router_region_id'] = enterpriseRouterRegionId;
-        return this;
-    }
-    public set enterpriseRouterRegionId(enterpriseRouterRegionId: string  | undefined) {
-        this['enterprise_router_region_id'] = enterpriseRouterRegionId;
-    }
-    public get enterpriseRouterRegionId(): string | undefined {
-        return this['enterprise_router_region_id'];
-    }
     public withGlobalDcGatewayProjectId(globalDcGatewayProjectId: string): CreateCentralNetworkGdgwAttachment {
         this['global_dc_gateway_project_id'] = globalDcGatewayProjectId;
         return this;
@@ -92,6 +77,26 @@ export class CreateCentralNetworkGdgwAttachment {
     }
     public get globalDcGatewayRegionId(): string | undefined {
         return this['global_dc_gateway_region_id'];
+    }
+    public withEnterpriseRouterProjectId(enterpriseRouterProjectId: string): CreateCentralNetworkGdgwAttachment {
+        this['enterprise_router_project_id'] = enterpriseRouterProjectId;
+        return this;
+    }
+    public set enterpriseRouterProjectId(enterpriseRouterProjectId: string  | undefined) {
+        this['enterprise_router_project_id'] = enterpriseRouterProjectId;
+    }
+    public get enterpriseRouterProjectId(): string | undefined {
+        return this['enterprise_router_project_id'];
+    }
+    public withEnterpriseRouterRegionId(enterpriseRouterRegionId: string): CreateCentralNetworkGdgwAttachment {
+        this['enterprise_router_region_id'] = enterpriseRouterRegionId;
+        return this;
+    }
+    public set enterpriseRouterRegionId(enterpriseRouterRegionId: string  | undefined) {
+        this['enterprise_router_region_id'] = enterpriseRouterRegionId;
+    }
+    public get enterpriseRouterRegionId(): string | undefined {
+        return this['enterprise_router_region_id'];
     }
     public withCentralNetworkPlaneId(centralNetworkPlaneId: string): CreateCentralNetworkGdgwAttachment {
         this['central_network_plane_id'] = centralNetworkPlaneId;

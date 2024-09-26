@@ -3,7 +3,7 @@ import { EnterpriseRouterId } from './EnterpriseRouterId';
 import { ProjectId } from './ProjectId';
 import { RegionId } from './RegionId';
 import { SiteCode } from './SiteCode';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class CentralNetworkErInstance {

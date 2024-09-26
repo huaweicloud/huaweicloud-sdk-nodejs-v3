@@ -173,6 +173,7 @@ export * from './model/Resource';
 export * from './model/ResourceCategory';
 export * from './model/ResourceGroupID';
 export * from './model/ResourceGroupTagRelation';
+export * from './model/ResourceTag';
 export * from './model/ResourcesInListResp';
 export * from './model/ResourcesReq';
 export * from './model/ResourcesReqV2';

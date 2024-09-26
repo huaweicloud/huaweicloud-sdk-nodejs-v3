@@ -2,7 +2,8 @@
 
 export class GcbType {
     public type?: GcbTypeTypeEnum | string;
-    public constructor() { 
+    public constructor(type?: string) { 
+        this['type'] = type;
     }
     public withType(type: GcbTypeTypeEnum | string): GcbType {
         this['type'] = type;

@@ -1,8 +1,13 @@
+import { AttachmentId } from './AttachmentId';
+import { CentralNetworkPlaneId } from './CentralNetworkPlaneId';
 import { Description } from './Description';
 import { EnterpriseRouterId } from './EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './EnterpriseRouterRegionId';
+import { EnterpriseRouterTableId } from './EnterpriseRouterTableId';
 import { Name } from './Name';
+import { NonRequiredAutoAssociateRouteEnabled } from './NonRequiredAutoAssociateRouteEnabled';
+import { NonRequiredAutoPropagateRouteEnabled } from './NonRequiredAutoPropagateRouteEnabled';
 
 
 export class CreateCentralNetworkErRouteTableAttachment {
@@ -11,25 +16,25 @@ export class CreateCentralNetworkErRouteTableAttachment {
     private 'enterprise_router_id'?: string;
     private 'enterprise_router_project_id'?: string;
     private 'enterprise_router_region_id'?: string;
+    private 'central_network_plane_id'?: string;
     private 'attachment_id'?: string;
     private 'enterprise_router_table_id'?: string;
     private 'attached_er_table_project_id'?: string;
     private 'attached_er_table_region_id'?: string;
     private 'attached_er_id'?: string;
     private 'attached_er_table_id'?: string;
-    private 'central_network_plane_id'?: string;
     private 'hosted_cloud'?: CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum | string;
-    public constructor(name?: string, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, enterpriseRouterTableId?: string, attachedErTableProjectId?: string, attachedErTableRegionId?: string, attachedErId?: string, attachedErTableId?: string, centralNetworkPlaneId?: string, hostedCloud?: string) { 
+    public constructor(name?: string, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, centralNetworkPlaneId?: string, enterpriseRouterTableId?: string, attachedErTableProjectId?: string, attachedErTableRegionId?: string, attachedErId?: string, attachedErTableId?: string, hostedCloud?: string) { 
         this['name'] = name;
         this['enterprise_router_id'] = enterpriseRouterId;
         this['enterprise_router_project_id'] = enterpriseRouterProjectId;
         this['enterprise_router_region_id'] = enterpriseRouterRegionId;
+        this['central_network_plane_id'] = centralNetworkPlaneId;
         this['enterprise_router_table_id'] = enterpriseRouterTableId;
         this['attached_er_table_project_id'] = attachedErTableProjectId;
         this['attached_er_table_region_id'] = attachedErTableRegionId;
         this['attached_er_id'] = attachedErId;
         this['attached_er_table_id'] = attachedErTableId;
-        this['central_network_plane_id'] = centralNetworkPlaneId;
         this['hosted_cloud'] = hostedCloud;
     }
     public withName(name: string): CreateCentralNetworkErRouteTableAttachment {
@@ -69,6 +74,16 @@ export class CreateCentralNetworkErRouteTableAttachment {
     }
     public get enterpriseRouterRegionId(): string | undefined {
         return this['enterprise_router_region_id'];
+    }
+    public withCentralNetworkPlaneId(centralNetworkPlaneId: string): CreateCentralNetworkErRouteTableAttachment {
+        this['central_network_plane_id'] = centralNetworkPlaneId;
+        return this;
+    }
+    public set centralNetworkPlaneId(centralNetworkPlaneId: string  | undefined) {
+        this['central_network_plane_id'] = centralNetworkPlaneId;
+    }
+    public get centralNetworkPlaneId(): string | undefined {
+        return this['central_network_plane_id'];
     }
     public withAttachmentId(attachmentId: string): CreateCentralNetworkErRouteTableAttachment {
         this['attachment_id'] = attachmentId;
@@ -129,16 +144,6 @@ export class CreateCentralNetworkErRouteTableAttachment {
     }
     public get attachedErTableId(): string | undefined {
         return this['attached_er_table_id'];
-    }
-    public withCentralNetworkPlaneId(centralNetworkPlaneId: string): CreateCentralNetworkErRouteTableAttachment {
-        this['central_network_plane_id'] = centralNetworkPlaneId;
-        return this;
-    }
-    public set centralNetworkPlaneId(centralNetworkPlaneId: string  | undefined) {
-        this['central_network_plane_id'] = centralNetworkPlaneId;
-    }
-    public get centralNetworkPlaneId(): string | undefined {
-        return this['central_network_plane_id'];
     }
     public withHostedCloud(hostedCloud: CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum | string): CreateCentralNetworkErRouteTableAttachment {
         this['hosted_cloud'] = hostedCloud;

@@ -1,3 +1,425 @@
+# 3.1.117 2024-09-26
+
+### HuaweiCloud SDK CC
+
+- _API Version_
+  - V2
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the following APIs:
+    - `ListGcbResourceTags`
+    - `CreateGcbResourceTag`
+    - `DeleteGcbResourceTag`
+    - `BatchCreateGcbResourceTags`
+    - `BatchDeleteGcbResourceTags`
+    - `CountGcbResourceByTag`
+    - `ListGcbResourceByTag`
+    - `ListGcbTenantTags`
+
+### HuaweiCloud SDK CC
+
+- _API Version_
+  - V3
+- _Features_
+  - Support the following APIs:
+    - `ListGcbResourceTags`
+    - `CreateGcbResourceTag`
+    - `DeleteGcbResourceTag`
+    - `BatchCreateGcbResourceTags`
+    - `BatchDeleteGcbResourceTags`
+    - `CountGcbResourceByTag`
+    - `ListGcbResourceByTag`
+    - `ListGcbTenantTags`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListNetworkInstances**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListCloudConnectionRoutes**
+    - changes of request param
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListAuthorisations**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+    - changes of response param
+      - `+ authorisations.is_loaded_by_cloud_connection`
+  - **CreateAuthorisation**
+    - changes of response param
+      - `+ authorisation.is_loaded_by_cloud_connection`
+  - **ListPermissions**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **UpdateAuthorisation**
+    - changes of response param
+      - `+ authorisation.is_loaded_by_cloud_connection`
+  - **ListCentralNetworkGdgwAttachments**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* global_dc_gateway_id: list<UUIDDef> -> list<UUID64Def>`
+    - changes of response param
+      - `+ central_network_gdgw_attachments.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachments.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachments.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **CreateCentralNetworkGdgwAttachment**
+    - changes of response param
+      - `+ central_network_gdgw_attachment.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachment.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ListCentralNetworkErRouteTableAttachments**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* attachment_instance_id: list<UUIDDef> -> list<UUID64Def>`
+    - changes of response param
+      - `+ central_network_er_route_table_attachments.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachments.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachments.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **CreateCentralNetworkErRouteTableAttachment**
+    - changes of request param
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+    - changes of response param
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ShowCentralNetworkErRouteTableAttachment**
+    - changes of response param
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **UpdateCentralNetworkErRouteTableAttachment**
+    - changes of response param
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ShowCentralNetworkGdgwAttachment**
+    - changes of response param
+      - `+ central_network_gdgw_attachment.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachment.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **UpdateCentralNetworkGdgwAttachment**
+    - changes of response param
+      - `+ central_network_gdgw_attachment.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachment.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ListCentralNetworkCapabilities**
+    - changes of response param
+      - `+ capabilities.capability: enum value [central-network.is-support-custom-er-table,connection-bandwidth.free-line,er-instance.support-sts5-regions,gdgw-instance.support-dscp-regions,gdgw-instance.support-freeze-regions]`
+  - **ListGlobalConnectionBandwidthConfigs**
+    - changes of response param
+      - `+ configs.charge_mode: enum value [95avr]`
+      - `+ configs.size_range.type: enum value [95avr]`
+  - **ListGlobalConnectionBandwidthSpecCodes**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+  - **ListGlobalConnectionBandwidthSites**
+    - changes of request param
+      - `+ name_en`
+      - `+ name_cn`
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+  - **ListGlobalConnectionBandwidthLineLevels**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+  - **ListCloudConnections**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListBandwidthPackages**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListInterRegionBandwidths**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListCentralNetworkConnections**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* global_connection_bandwidth_id: list<UUIDDef> -> list<UUID64Def>`
+    - changes of response param
+      - `+ central_network_connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_connections.connection_point_pair.parent_instance_id`
+  - **UpdateCentralNetworkConnection**
+    - changes of response param
+      - `+ central_network_connection.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_connection.connection_point_pair.parent_instance_id`
+  - **ListCentralNetworkAttachments**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* attachment_instance_id: list<UUIDDef> -> list<UUID64Def>`
+    - changes of response param
+      - `+ central_network_attachments.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_attachments.specification_value.auto_associate_route_enabled`
+      - `+ central_network_attachments.specification_value.auto_propagate_route_enabled`
+      - `+ central_network_attachments.specification_value.attachment_parent_instance_id`
+      - `- central_network_attachments.specification_value.attached_er_id`
+  - **DeleteCentralNetworkAttachment**
+    - changes of response param
+      - `+ central_network_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_attachment.specification_value.auto_associate_route_enabled`
+      - `+ central_network_attachment.specification_value.auto_propagate_route_enabled`
+      - `+ central_network_attachment.specification_value.attachment_parent_instance_id`
+      - `- central_network_attachment.specification_value.attached_er_id`
+  - **ListGlobalConnectionBandwidths**
+    - changes of request param
+      - `+ instance_id`
+      - `+ instance_type`
+      - `+ admin_state`
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+    - changes of response param
+      - `+ globalconnection_bandwidths.charge_mode: enum value [95avr]`
+  - **CreateGlobalConnectionBandwidth**
+    - changes of response param
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+  - **ShowGlobalConnectionBandwidth**
+    - changes of response param
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+  - **UpdateGlobalConnectionBandwidth**
+    - changes of request param
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+    - changes of response param
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+  - **ListSupportBindingConnectionBandwidths**
+    - changes of request param
+      - `* binding_service: required -> optional`
+    - changes of response param
+      - `+ globalconnection_bandwidths.charge_mode: enum value [95avr]`
+  - **ListCentralNetworks**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* enterprise_router_id: list<UUIDDef> -> list<UUID64Def>`
+      - `* attachment_instance_id: list<UUIDDef> -> list<UUID64Def>`
+      - `* global_connection_bandwidth_id: list<UUIDDef> -> list<UUID64Def>`
+      - `* connection_id: list<UUIDDef> -> list<UUID64Def>`
+    - changes of response param
+      - `+ central_networks.auto_associate_route_enabled`
+      - `+ central_networks.auto_propagate_route_enabled`
+      - `+ central_networks.state: enum value [RESTORING]`
+      - `+ central_networks.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_networks.connections.connection_point_pair.parent_instance_id`
+  - **CreateCentralNetwork**
+    - changes of request param
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+    - changes of response param
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **ShowCentralNetwork**
+    - changes of response param
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **UpdateCentralNetwork**
+    - changes of request param
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+    - changes of response param
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **DeleteCentralNetwork**
+    - changes of response param
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **ListCentralNetworksByTags**
+    - changes of response param
+      - `+ central_networks.auto_associate_route_enabled`
+      - `+ central_networks.auto_propagate_route_enabled`
+      - `+ central_networks.state: enum value [RESTORING]`
+      - `+ central_networks.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_networks.connections.connection_point_pair.parent_instance_id`
+  - **ListCentralNetworkPolicies**
+    - changes of request param
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+
+### HuaweiCloud SDK CCE
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowNode**
+    - changes of response param
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **UpdateNode**
+    - changes of response param
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **DeleteNode**
+    - changes of response param
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **CreateNode**
+    - changes of request param
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+    - changes of response param
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **ListNodes**
+    - changes of response param
+      - `+ items.spec.rootVolume.iops`
+      - `+ items.spec.rootVolume.throughput`
+      - `+ items.spec.storage.storageSelectors.matchLabels.iops`
+      - `+ items.spec.storage.storageSelectors.matchLabels.throughput`
+  - **ShowNodePool**
+    - changes of response param
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **UpdateNodePool**
+    - changes of response param
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **DeleteNodePool**
+    - changes of response param
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **AddNode**
+    - changes of request param
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.iops`
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.throughput`
+  - **ResetNode**
+    - changes of request param
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.iops`
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.throughput`
+  - **CreateNodePool**
+    - changes of request param
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+    - changes of response param
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **ListNodePools**
+    - changes of response param
+      - `+ items.spec.nodeTemplate.rootVolume.iops`
+      - `+ items.spec.nodeTemplate.rootVolume.throughput`
+      - `+ items.spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ items.spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+
+### HuaweiCloud SDK CES
+
+- _API Version_
+  - V2
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateAlarmRules**
+    - changes of request param
+      - `+ tags`
+
+### HuaweiCloud SDK DDS
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ResizeInstance**
+    - changes of request param
+      - `+ resize.target_type: enum value [config,readonly]`
+
+### HuaweiCloud SDK HSS
+
+- _API Version_
+  - V5
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the APIs `ListAccounts`, `BatchAddAccounts`, `DeleteAccount`, `ListOrganizationTree`
+
+### HuaweiCloud SDK Live
+
+- _API Version_
+  - V1
+- _Features_
+  - Support the following APIs:
+    - `ListHarvestTask`
+    - `ModifyHarvestTask`
+    - `CreateHarvestTask`
+    - `DeleteHarvestTask`
+    - `UpdateHarvestJobStatus`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK Meeting
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowRecordInfo**
+    - changes of response param
+      - `+ data.subject`
+      - `+ data.beginTime`
+      - `+ data.segmentOffset`
+      - `+ data.segmentLimit`
+      - `+ data.segmentCount`
+      - `+ data.segmentList`
+      - `* data: object -> object<RecordInfoDO>`
+
+### HuaweiCloud SDK VPCEP
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateEndpointService**
+    - changes of request param
+      - `+ snat_network_id`
+
 # 3.1.116 2024-09-23
 
 ### HuaweiCloud SDK AOM

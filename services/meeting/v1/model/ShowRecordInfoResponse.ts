@@ -1,10 +1,11 @@
+import { RecordInfoDO } from './RecordInfoDO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRecordInfoResponse extends SdkResponse {
     public code?: string;
     public message?: string;
-    public data?: object;
+    public data?: RecordInfoDO;
     public constructor() { 
         super();
     }
@@ -16,7 +17,7 @@ export class ShowRecordInfoResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withData(data: object): ShowRecordInfoResponse {
+    public withData(data: RecordInfoDO): ShowRecordInfoResponse {
         this['data'] = data;
         return this;
     }

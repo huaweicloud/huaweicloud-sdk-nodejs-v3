@@ -6,7 +6,7 @@ import { InstanceId } from './InstanceId';
 import { Name } from './Name';
 import { ProjectId } from './ProjectId';
 import { RegionId } from './RegionId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID32Identifier } from './UUID32Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 
@@ -24,6 +24,7 @@ export class Authorisation {
     public status?: string;
     private 'instance_type'?: string;
     private 'cloud_connection_domain_id'?: string;
+    private 'is_loaded_by_cloud_connection'?: boolean;
     public constructor(id?: string, name?: string, instanceId?: string, projectId?: string, regionId?: string, createdAt?: Date, updatedAt?: Date, domainId?: string, cloudConnectionId?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -140,5 +141,15 @@ export class Authorisation {
     }
     public get cloudConnectionDomainId(): string | undefined {
         return this['cloud_connection_domain_id'];
+    }
+    public withIsLoadedByCloudConnection(isLoadedByCloudConnection: boolean): Authorisation {
+        this['is_loaded_by_cloud_connection'] = isLoadedByCloudConnection;
+        return this;
+    }
+    public set isLoadedByCloudConnection(isLoadedByCloudConnection: boolean  | undefined) {
+        this['is_loaded_by_cloud_connection'] = isLoadedByCloudConnection;
+    }
+    public get isLoadedByCloudConnection(): boolean | undefined {
+        return this['is_loaded_by_cloud_connection'];
     }
 }

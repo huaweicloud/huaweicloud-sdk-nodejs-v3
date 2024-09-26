@@ -2,6 +2,7 @@ import { AlarmType } from './AlarmType';
 import { Dimension } from './Dimension';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
+import { ResourceTag } from './ResourceTag';
 
 
 export class PostAlarmsReqV2 {
@@ -11,6 +12,7 @@ export class PostAlarmsReqV2 {
     private 'resource_group_id'?: string;
     public resources?: Array<Array<Dimension>>;
     private 'alarm_template_id'?: string;
+    public tags?: Array<ResourceTag>;
     public policies?: Array<Policy>;
     public type?: AlarmType;
     private 'alarm_notifications'?: Array<Notification>;
@@ -63,6 +65,10 @@ export class PostAlarmsReqV2 {
     }
     public get alarmTemplateId(): string | undefined {
         return this['alarm_template_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): PostAlarmsReqV2 {
+        this['tags'] = tags;
+        return this;
     }
     public withPolicies(policies: Array<Policy>): PostAlarmsReqV2 {
         this['policies'] = policies;

@@ -3,6 +3,8 @@
 export class StorageSelectorsMatchLabels {
     public size?: string;
     public volumeType?: string;
+    public iops?: string;
+    public throughput?: string;
     public metadataEncrypted?: string;
     public metadataCmkid?: string;
     public count?: string;
@@ -14,6 +16,14 @@ export class StorageSelectorsMatchLabels {
     }
     public withVolumeType(volumeType: string): StorageSelectorsMatchLabels {
         this['volumeType'] = volumeType;
+        return this;
+    }
+    public withIops(iops: string): StorageSelectorsMatchLabels {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: string): StorageSelectorsMatchLabels {
+        this['throughput'] = throughput;
         return this;
     }
     public withMetadataEncrypted(metadataEncrypted: string): StorageSelectorsMatchLabels {

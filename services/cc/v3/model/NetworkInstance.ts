@@ -7,7 +7,7 @@ import { InstanceId } from './InstanceId';
 import { Name } from './Name';
 import { ProjectId } from './ProjectId';
 import { RegionId } from './RegionId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID32Identifier } from './UUID32Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

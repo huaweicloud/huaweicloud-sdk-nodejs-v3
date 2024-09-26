@@ -16,7 +16,7 @@ export class ListGlobalConnectionBandwidthConfigs {
     private 'enable_area_bandwidth'?: boolean;
     private 'enable_change_95'?: boolean;
     private 'enable_spec_code'?: boolean;
-    public constructor(sizeRange?: Array<GlobalConnectionBandwidthSizeRange>, chargeMode?: Array<string>, services?: Array<string>, gcbType?: Array<string>, crossborder?: boolean, quotas?: Array<GlobalConnectionBandwidthQuotas>, slaLevel?: Array<string>, bindLimit?: number) { 
+    public constructor(sizeRange?: Array<GlobalConnectionBandwidthSizeRange>, chargeMode?: Array<string>, services?: Array<string>, gcbType?: Array<string>, crossborder?: boolean, quotas?: Array<GlobalConnectionBandwidthQuotas>, slaLevel?: Array<string>, bindLimit?: number, enableAreaBandwidth?: boolean, enableChange95?: boolean) { 
         this['size_range'] = sizeRange;
         this['charge_mode'] = chargeMode;
         this['services'] = services;
@@ -25,6 +25,8 @@ export class ListGlobalConnectionBandwidthConfigs {
         this['quotas'] = quotas;
         this['sla_level'] = slaLevel;
         this['bind_limit'] = bindLimit;
+        this['enable_area_bandwidth'] = enableAreaBandwidth;
+        this['enable_change_95'] = enableChange95;
     }
     public withSizeRange(sizeRange: Array<GlobalConnectionBandwidthSizeRange>): ListGlobalConnectionBandwidthConfigs {
         this['size_range'] = sizeRange;
@@ -146,7 +148,8 @@ export class ListGlobalConnectionBandwidthConfigs {
     */
 export enum ListGlobalConnectionBandwidthConfigsChargeModeEnum {
     BWD = 'bwd',
-    E_95 = '95'
+    E_95 = '95',
+    E_95AVR = '95avr'
 }
 /**
     * @export

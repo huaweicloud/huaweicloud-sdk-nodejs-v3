@@ -1,14 +1,18 @@
 import { ApprovedStateEnum } from './ApprovedStateEnum';
+import { AutoAssociateRouteEnabled } from './AutoAssociateRouteEnabled';
+import { AutoPropagateRouteEnabled } from './AutoPropagateRouteEnabled';
+import { EnterpriseRouterTableId } from './EnterpriseRouterTableId';
 import { HostedCloudEnum } from './HostedCloudEnum';
 
 
 export class CentralNetworkAttachmentSpecificationValueInfo {
     private 'enterprise_router_table_id'?: string;
-    private 'attached_er_id'?: string;
+    private 'attachment_parent_instance_id'?: string;
     private 'approved_state'?: ApprovedStateEnum;
     private 'hosted_cloud'?: HostedCloudEnum;
     public reason?: string;
-    public constructor() { 
+    public constructor(enterpriseRouterTableId?: string) { 
+        this['enterprise_router_table_id'] = enterpriseRouterTableId;
     }
     public withEnterpriseRouterTableId(enterpriseRouterTableId: string): CentralNetworkAttachmentSpecificationValueInfo {
         this['enterprise_router_table_id'] = enterpriseRouterTableId;
@@ -20,15 +24,15 @@ export class CentralNetworkAttachmentSpecificationValueInfo {
     public get enterpriseRouterTableId(): string | undefined {
         return this['enterprise_router_table_id'];
     }
-    public withAttachedErId(attachedErId: string): CentralNetworkAttachmentSpecificationValueInfo {
-        this['attached_er_id'] = attachedErId;
+    public withAttachmentParentInstanceId(attachmentParentInstanceId: string): CentralNetworkAttachmentSpecificationValueInfo {
+        this['attachment_parent_instance_id'] = attachmentParentInstanceId;
         return this;
     }
-    public set attachedErId(attachedErId: string  | undefined) {
-        this['attached_er_id'] = attachedErId;
+    public set attachmentParentInstanceId(attachmentParentInstanceId: string  | undefined) {
+        this['attachment_parent_instance_id'] = attachmentParentInstanceId;
     }
-    public get attachedErId(): string | undefined {
-        return this['attached_er_id'];
+    public get attachmentParentInstanceId(): string | undefined {
+        return this['attachment_parent_instance_id'];
     }
     public withApprovedState(approvedState: ApprovedStateEnum): CentralNetworkAttachmentSpecificationValueInfo {
         this['approved_state'] = approvedState;

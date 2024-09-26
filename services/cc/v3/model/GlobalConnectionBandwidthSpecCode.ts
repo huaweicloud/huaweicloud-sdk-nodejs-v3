@@ -1,7 +1,7 @@
 import { CreatedAt } from './CreatedAt';
 import { GcbLocalArea } from './GcbLocalArea';
 import { GcbRemoteArea } from './GcbRemoteArea';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

@@ -1,7 +1,7 @@
 import { AssociateErInstanceDocument } from './AssociateErInstanceDocument';
 import { AssociateErTableDocument } from './AssociateErTableDocument';
 import { Name } from './Name';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class CentralNetworkPlane {

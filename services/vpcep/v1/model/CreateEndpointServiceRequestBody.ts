@@ -15,6 +15,7 @@ export class CreateEndpointServiceRequestBody {
     public tags?: Array<TagList>;
     public description?: string;
     private 'ip_version'?: CreateEndpointServiceRequestBodyIpVersionEnum | string;
+    private 'snat_network_id'?: string;
     public constructor(portId?: string, vpcId?: string, serverType?: string, ports?: Array<PortList>) { 
         this['port_id'] = portId;
         this['vpc_id'] = vpcId;
@@ -116,6 +117,16 @@ export class CreateEndpointServiceRequestBody {
     }
     public get ipVersion(): CreateEndpointServiceRequestBodyIpVersionEnum | string | undefined {
         return this['ip_version'];
+    }
+    public withSnatNetworkId(snatNetworkId: string): CreateEndpointServiceRequestBody {
+        this['snat_network_id'] = snatNetworkId;
+        return this;
+    }
+    public set snatNetworkId(snatNetworkId: string  | undefined) {
+        this['snat_network_id'] = snatNetworkId;
+    }
+    public get snatNetworkId(): string | undefined {
+        return this['snat_network_id'];
     }
 }
 

@@ -11,6 +11,9 @@ import { CreateDomainMappingRequest } from './model/CreateDomainMappingRequest';
 import { CreateDomainMappingResponse } from './model/CreateDomainMappingResponse';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
 import { CreateDomainResponse } from './model/CreateDomainResponse';
+import { CreateHarvestTaskInfoReq } from './model/CreateHarvestTaskInfoReq';
+import { CreateHarvestTaskRequest } from './model/CreateHarvestTaskRequest';
+import { CreateHarvestTaskResponse } from './model/CreateHarvestTaskResponse';
 import { CreateOttChannelInfoReq } from './model/CreateOttChannelInfoReq';
 import { CreateOttChannelInfoReqRecordSettings } from './model/CreateOttChannelInfoReqRecordSettings';
 import { CreateOttChannelInfoRequest } from './model/CreateOttChannelInfoRequest';
@@ -42,6 +45,8 @@ import { DeleteDomainMappingRequest } from './model/DeleteDomainMappingRequest';
 import { DeleteDomainMappingResponse } from './model/DeleteDomainMappingResponse';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteHarvestTaskRequest } from './model/DeleteHarvestTaskRequest';
+import { DeleteHarvestTaskResponse } from './model/DeleteHarvestTaskResponse';
 import { DeleteOttChannelInfoRequest } from './model/DeleteOttChannelInfoRequest';
 import { DeleteOttChannelInfoResponse } from './model/DeleteOttChannelInfoResponse';
 import { DeletePublishTemplateRequest } from './model/DeletePublishTemplateRequest';
@@ -68,6 +73,7 @@ import { FailoverConditions } from './model/FailoverConditions';
 import { GeoBlockingConfigInfo } from './model/GeoBlockingConfigInfo';
 import { GmCertificateInfo } from './model/GmCertificateInfo';
 import { HLSRecordConfig } from './model/HLSRecordConfig';
+import { HarvestTaskCreateSucRsp } from './model/HarvestTaskCreateSucRsp';
 import { HlsPackageItem } from './model/HlsPackageItem';
 import { IPAuthInfo } from './model/IPAuthInfo';
 import { InputStreamInfo } from './model/InputStreamInfo';
@@ -76,6 +82,8 @@ import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';
 import { ListDelayConfigResponse } from './model/ListDelayConfigResponse';
 import { ListGeoBlockingConfigRequest } from './model/ListGeoBlockingConfigRequest';
 import { ListGeoBlockingConfigResponse } from './model/ListGeoBlockingConfigResponse';
+import { ListHarvestTaskRequest } from './model/ListHarvestTaskRequest';
+import { ListHarvestTaskResponse } from './model/ListHarvestTaskResponse';
 import { ListHlsConfigRequest } from './model/ListHlsConfigRequest';
 import { ListHlsConfigResponse } from './model/ListHlsConfigResponse';
 import { ListIpAuthListRequest } from './model/ListIpAuthListRequest';
@@ -105,6 +113,9 @@ import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyHarvestTaskRequest } from './model/ModifyHarvestTaskRequest';
+import { ModifyHarvestTaskRequestBody } from './model/ModifyHarvestTaskRequestBody';
+import { ModifyHarvestTaskResponse } from './model/ModifyHarvestTaskResponse';
 import { ModifyHlsConfig } from './model/ModifyHlsConfig';
 import { ModifyOttChannelEncoderSettings } from './model/ModifyOttChannelEncoderSettings';
 import { ModifyOttChannelEncoderSettingsEncoderSettings } from './model/ModifyOttChannelEncoderSettingsEncoderSettings';
@@ -185,6 +196,9 @@ import { UpdateDomainRequest } from './model/UpdateDomainRequest';
 import { UpdateDomainResponse } from './model/UpdateDomainResponse';
 import { UpdateGeoBlockingConfigRequest } from './model/UpdateGeoBlockingConfigRequest';
 import { UpdateGeoBlockingConfigResponse } from './model/UpdateGeoBlockingConfigResponse';
+import { UpdateHarvestJobStatusRequest } from './model/UpdateHarvestJobStatusRequest';
+import { UpdateHarvestJobStatusRequestBody } from './model/UpdateHarvestJobStatusRequestBody';
+import { UpdateHarvestJobStatusResponse } from './model/UpdateHarvestJobStatusResponse';
 import { UpdateHlsConfigRequest } from './model/UpdateHlsConfigRequest';
 import { UpdateHlsConfigResponse } from './model/UpdateHlsConfigResponse';
 import { UpdateIpAuthListRequest } from './model/UpdateIpAuthListRequest';
@@ -207,6 +221,7 @@ import { UpdateTranscodingsTemplateRequest } from './model/UpdateTranscodingsTem
 import { UpdateTranscodingsTemplateResponse } from './model/UpdateTranscodingsTemplateResponse';
 import { VideoFormatVar } from './model/VideoFormatVar';
 import { VodInfoV2 } from './model/VodInfoV2';
+import { VodPackageInfo } from './model/VodPackageInfo';
 
 export class LiveClient {
     public static newBuilder(): ClientBuilder<LiveClient> {
@@ -1368,6 +1383,119 @@ export class LiveClient {
      */
     public updateDomainHttpsCert(updateDomainHttpsCertRequest?: UpdateDomainHttpsCertRequest): Promise<UpdateDomainHttpsCertResponse> {
         const options = ParamCreater().updateDomainHttpsCert(updateDomainHttpsCertRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Live2VOD任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Live2VOD任务
+     * @param {CreateHarvestTaskInfoReq} createHarvestTaskRequestBody CreateHarvestTaskRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHarvestTask(createHarvestTaskRequest?: CreateHarvestTaskRequest): Promise<CreateHarvestTaskResponse> {
+        const options = ParamCreater().createHarvestTask(createHarvestTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Live2VOD任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Live2VOD任务
+     * @param {string} jobId 任务ID
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHarvestTask(deleteHarvestTaskRequest?: DeleteHarvestTaskRequest): Promise<DeleteHarvestTaskResponse> {
+        const options = ParamCreater().deleteHarvestTask(deleteHarvestTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Live2VOD任务，支持批量查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Live2VOD任务
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {string} [domain] 推流域名
+     * @param {string} [appName] 组名或应用名
+     * @param {string} [id] 频道ID
+     * @param {string} [jobId] 任务ID
+     * @param {number} [startTime] 开始时间，Unix时间戳：单位是秒
+     * @param {number} [endTime] 结束，Unix时间戳：单位是秒
+     * @param {string} [eventName] 事件名称
+     * @param {number} [limit] 每页记录数，取值范围[1,100]，默认值10
+     * @param {number} [offset] 偏移量。表示从此偏移量开始查询，offset大于等于0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHarvestTask(listHarvestTaskRequest?: ListHarvestTaskRequest): Promise<ListHarvestTaskResponse> {
+        const options = ParamCreater().listHarvestTask(listHarvestTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改Live2VOD任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Live2VOD任务
+     * @param {ModifyHarvestTaskRequestBody} modifyHarvestTaskRequestBody ModifyHarvestTaskRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyHarvestTask(modifyHarvestTaskRequest?: ModifyHarvestTaskRequest): Promise<ModifyHarvestTaskResponse> {
+        const options = ParamCreater().modifyHarvestTask(modifyHarvestTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改Live2VOD任务状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Live2VOD任务状态
+     * @param {UpdateHarvestJobStatusRequestBody} updateHarvestJobStatusRequestBody UpdateHarvestJobStatusRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHarvestJobStatus(updateHarvestJobStatusRequest?: UpdateHarvestJobStatusRequest): Promise<UpdateHarvestJobStatusResponse> {
+        const options = ParamCreater().updateHarvestJobStatus(updateHarvestJobStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4187,6 +4315,323 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Live2VOD任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHarvestTask(createHarvestTaskRequest?: CreateHarvestTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ott/harvest/task",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (createHarvestTaskRequest !== null && createHarvestTaskRequest !== undefined) {
+                if (createHarvestTaskRequest instanceof CreateHarvestTaskRequest) {
+                    body = createHarvestTaskRequest.body
+                    accessControlAllowInternal = createHarvestTaskRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = createHarvestTaskRequest.accessControlAllowExternal;
+                } else {
+                    body = createHarvestTaskRequest['body'];
+                    accessControlAllowInternal = createHarvestTaskRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = createHarvestTaskRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Live2VOD任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHarvestTask(deleteHarvestTaskRequest?: DeleteHarvestTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/ott/harvest/task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (deleteHarvestTaskRequest !== null && deleteHarvestTaskRequest !== undefined) {
+                if (deleteHarvestTaskRequest instanceof DeleteHarvestTaskRequest) {
+                    jobId = deleteHarvestTaskRequest.jobId;
+                    accessControlAllowInternal = deleteHarvestTaskRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = deleteHarvestTaskRequest.accessControlAllowExternal;
+                } else {
+                    jobId = deleteHarvestTaskRequest['job_id'];
+                    accessControlAllowInternal = deleteHarvestTaskRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = deleteHarvestTaskRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteHarvestTask.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Live2VOD任务，支持批量查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHarvestTask(listHarvestTaskRequest?: ListHarvestTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ott/harvest/task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+            
+            let domain;
+            
+            let appName;
+            
+            let id;
+            
+            let jobId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let eventName;
+            
+            let limit;
+            
+            let offset;
+
+            if (listHarvestTaskRequest !== null && listHarvestTaskRequest !== undefined) {
+                if (listHarvestTaskRequest instanceof ListHarvestTaskRequest) {
+                    accessControlAllowInternal = listHarvestTaskRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = listHarvestTaskRequest.accessControlAllowExternal;
+                    domain = listHarvestTaskRequest.domain;
+                    appName = listHarvestTaskRequest.appName;
+                    id = listHarvestTaskRequest.id;
+                    jobId = listHarvestTaskRequest.jobId;
+                    startTime = listHarvestTaskRequest.startTime;
+                    endTime = listHarvestTaskRequest.endTime;
+                    eventName = listHarvestTaskRequest.eventName;
+                    limit = listHarvestTaskRequest.limit;
+                    offset = listHarvestTaskRequest.offset;
+                } else {
+                    accessControlAllowInternal = listHarvestTaskRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = listHarvestTaskRequest['Access-Control-Allow-External'];
+                    domain = listHarvestTaskRequest['domain'];
+                    appName = listHarvestTaskRequest['app_name'];
+                    id = listHarvestTaskRequest['id'];
+                    jobId = listHarvestTaskRequest['job_id'];
+                    startTime = listHarvestTaskRequest['start_time'];
+                    endTime = listHarvestTaskRequest['end_time'];
+                    eventName = listHarvestTaskRequest['event_name'];
+                    limit = listHarvestTaskRequest['limit'];
+                    offset = listHarvestTaskRequest['offset'];
+                }
+            }
+
+        
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (eventName !== null && eventName !== undefined) {
+                localVarQueryParameter['event_name'] = eventName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改Live2VOD任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyHarvestTask(modifyHarvestTaskRequest?: ModifyHarvestTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/harvest/task",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyHarvestTaskRequest !== null && modifyHarvestTaskRequest !== undefined) {
+                if (modifyHarvestTaskRequest instanceof ModifyHarvestTaskRequest) {
+                    body = modifyHarvestTaskRequest.body
+                    accessControlAllowInternal = modifyHarvestTaskRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyHarvestTaskRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyHarvestTaskRequest['body'];
+                    accessControlAllowInternal = modifyHarvestTaskRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyHarvestTaskRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改Live2VOD任务状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHarvestJobStatus(updateHarvestJobStatusRequest?: UpdateHarvestJobStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/harvest/task/status",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (updateHarvestJobStatusRequest !== null && updateHarvestJobStatusRequest !== undefined) {
+                if (updateHarvestJobStatusRequest instanceof UpdateHarvestJobStatusRequest) {
+                    body = updateHarvestJobStatusRequest.body
+                    accessControlAllowInternal = updateHarvestJobStatusRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = updateHarvestJobStatusRequest.accessControlAllowExternal;
+                } else {
+                    body = updateHarvestJobStatusRequest['body'];
+                    accessControlAllowInternal = updateHarvestJobStatusRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = updateHarvestJobStatusRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

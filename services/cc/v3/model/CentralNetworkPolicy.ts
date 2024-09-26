@@ -6,7 +6,7 @@ import { CreatedAt } from './CreatedAt';
 import { DocumentTemplateVersion } from './DocumentTemplateVersion';
 import { DocumentTemplateVersionEnum } from './DocumentTemplateVersionEnum';
 import { DomainId } from './DomainId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class CentralNetworkPolicy {

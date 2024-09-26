@@ -1,6 +1,6 @@
 import { CentralNetworkCapabilityEnum } from './CentralNetworkCapabilityEnum';
 import { DomainId } from './DomainId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class CentralNetworkCapability {

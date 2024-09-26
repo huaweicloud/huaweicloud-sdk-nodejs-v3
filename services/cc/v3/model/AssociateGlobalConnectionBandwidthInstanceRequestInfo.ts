@@ -1,4 +1,5 @@
 import { GcbProjectId } from './GcbProjectId';
+import { GcbRegionId } from './GcbRegionId';
 import { GcbResourceId } from './GcbResourceId';
 import { GcbResourceType } from './GcbResourceType';
 
@@ -6,8 +7,8 @@ import { GcbResourceType } from './GcbResourceType';
 export class AssociateGlobalConnectionBandwidthInstanceRequestInfo {
     private 'resource_id'?: string;
     private 'resource_type'?: string;
-    private 'project_id'?: string;
     private 'region_id'?: string;
+    private 'project_id'?: string;
     public constructor(resourceId?: string, resourceType?: string, projectId?: string) { 
         this['resource_id'] = resourceId;
         this['resource_type'] = resourceType;
@@ -33,16 +34,6 @@ export class AssociateGlobalConnectionBandwidthInstanceRequestInfo {
     public get resourceType(): string | undefined {
         return this['resource_type'];
     }
-    public withProjectId(projectId: string): AssociateGlobalConnectionBandwidthInstanceRequestInfo {
-        this['project_id'] = projectId;
-        return this;
-    }
-    public set projectId(projectId: string  | undefined) {
-        this['project_id'] = projectId;
-    }
-    public get projectId(): string | undefined {
-        return this['project_id'];
-    }
     public withRegionId(regionId: string): AssociateGlobalConnectionBandwidthInstanceRequestInfo {
         this['region_id'] = regionId;
         return this;
@@ -52,5 +43,15 @@ export class AssociateGlobalConnectionBandwidthInstanceRequestInfo {
     }
     public get regionId(): string | undefined {
         return this['region_id'];
+    }
+    public withProjectId(projectId: string): AssociateGlobalConnectionBandwidthInstanceRequestInfo {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
 }

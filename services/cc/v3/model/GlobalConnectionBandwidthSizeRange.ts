@@ -26,5 +26,6 @@ export class GlobalConnectionBandwidthSizeRange {
     */
 export enum GlobalConnectionBandwidthSizeRangeTypeEnum {
     BWD = 'bwd',
-    E_95 = '95'
+    E_95 = '95',
+    E_95AVR = '95avr'
 }

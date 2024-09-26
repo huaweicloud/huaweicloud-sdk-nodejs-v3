@@ -1,3 +1,425 @@
+# 3.1.117 2024-09-26
+
+### HuaweiCloud SDK CC
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除以下接口：
+    - `ListGcbResourceTags`
+    - `CreateGcbResourceTag`
+    - `DeleteGcbResourceTag`
+    - `BatchCreateGcbResourceTags`
+    - `BatchDeleteGcbResourceTags`
+    - `CountGcbResourceByTag`
+    - `ListGcbResourceByTag`
+    - `ListGcbTenantTags`
+
+### HuaweiCloud SDK CC
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 支持以下接口：
+    - `ListGcbResourceTags`
+    - `CreateGcbResourceTag`
+    - `DeleteGcbResourceTag`
+    - `BatchCreateGcbResourceTags`
+    - `BatchDeleteGcbResourceTags`
+    - `CountGcbResourceByTag`
+    - `ListGcbResourceByTag`
+    - `ListGcbTenantTags`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListNetworkInstances**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListCloudConnectionRoutes**
+    - 请求参数变更
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListAuthorisations**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+    - 响应参数变更
+      - `+ authorisations.is_loaded_by_cloud_connection`
+  - **CreateAuthorisation**
+    - 响应参数变更
+      - `+ authorisation.is_loaded_by_cloud_connection`
+  - **ListPermissions**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **UpdateAuthorisation**
+    - 响应参数变更
+      - `+ authorisation.is_loaded_by_cloud_connection`
+  - **ListCentralNetworkGdgwAttachments**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* global_dc_gateway_id: list<UUIDDef> -> list<UUID64Def>`
+    - 响应参数变更
+      - `+ central_network_gdgw_attachments.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachments.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachments.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **CreateCentralNetworkGdgwAttachment**
+    - 响应参数变更
+      - `+ central_network_gdgw_attachment.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachment.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ListCentralNetworkErRouteTableAttachments**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* attachment_instance_id: list<UUIDDef> -> list<UUID64Def>`
+    - 响应参数变更
+      - `+ central_network_er_route_table_attachments.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachments.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachments.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **CreateCentralNetworkErRouteTableAttachment**
+    - 请求参数变更
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+    - 响应参数变更
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ShowCentralNetworkErRouteTableAttachment**
+    - 响应参数变更
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **UpdateCentralNetworkErRouteTableAttachment**
+    - 响应参数变更
+      - `+ central_network_er_route_table_attachment.auto_associate_route_enabled`
+      - `+ central_network_er_route_table_attachment.auto_propagate_route_enabled`
+      - `+ central_network_er_route_table_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ShowCentralNetworkGdgwAttachment**
+    - 响应参数变更
+      - `+ central_network_gdgw_attachment.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachment.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **UpdateCentralNetworkGdgwAttachment**
+    - 响应参数变更
+      - `+ central_network_gdgw_attachment.auto_associate_route_enabled`
+      - `+ central_network_gdgw_attachment.auto_propagate_route_enabled`
+      - `+ central_network_gdgw_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+  - **ListCentralNetworkCapabilities**
+    - 响应参数变更
+      - `+ capabilities.capability: enum value [central-network.is-support-custom-er-table,connection-bandwidth.free-line,er-instance.support-sts5-regions,gdgw-instance.support-dscp-regions,gdgw-instance.support-freeze-regions]`
+  - **ListGlobalConnectionBandwidthConfigs**
+    - 响应参数变更
+      - `+ configs.charge_mode: enum value [95avr]`
+      - `+ configs.size_range.type: enum value [95avr]`
+  - **ListGlobalConnectionBandwidthSpecCodes**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+  - **ListGlobalConnectionBandwidthSites**
+    - 请求参数变更
+      - `+ name_en`
+      - `+ name_cn`
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+  - **ListGlobalConnectionBandwidthLineLevels**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+  - **ListCloudConnections**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListBandwidthPackages**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListInterRegionBandwidths**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID32Def>`
+      - `* cloud_connection_id: list<UUIDDef> -> list<UUID32Def>`
+  - **ListCentralNetworkConnections**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* global_connection_bandwidth_id: list<UUIDDef> -> list<UUID64Def>`
+    - 响应参数变更
+      - `+ central_network_connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_connections.connection_point_pair.parent_instance_id`
+  - **UpdateCentralNetworkConnection**
+    - 响应参数变更
+      - `+ central_network_connection.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_connection.connection_point_pair.parent_instance_id`
+  - **ListCentralNetworkAttachments**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* attachment_instance_id: list<UUIDDef> -> list<UUID64Def>`
+    - 响应参数变更
+      - `+ central_network_attachments.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_attachments.specification_value.auto_associate_route_enabled`
+      - `+ central_network_attachments.specification_value.auto_propagate_route_enabled`
+      - `+ central_network_attachments.specification_value.attachment_parent_instance_id`
+      - `- central_network_attachments.specification_value.attached_er_id`
+  - **DeleteCentralNetworkAttachment**
+    - 响应参数变更
+      - `+ central_network_attachment.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network_attachment.specification_value.auto_associate_route_enabled`
+      - `+ central_network_attachment.specification_value.auto_propagate_route_enabled`
+      - `+ central_network_attachment.specification_value.attachment_parent_instance_id`
+      - `- central_network_attachment.specification_value.attached_er_id`
+  - **ListGlobalConnectionBandwidths**
+    - 请求参数变更
+      - `+ instance_id`
+      - `+ instance_type`
+      - `+ admin_state`
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+    - 响应参数变更
+      - `+ globalconnection_bandwidths.charge_mode: enum value [95avr]`
+  - **CreateGlobalConnectionBandwidth**
+    - 响应参数变更
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+  - **ShowGlobalConnectionBandwidth**
+    - 响应参数变更
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+  - **UpdateGlobalConnectionBandwidth**
+    - 请求参数变更
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+    - 响应参数变更
+      - `+ globalconnection_bandwidth.charge_mode: enum value [95avr]`
+  - **ListSupportBindingConnectionBandwidths**
+    - 请求参数变更
+      - `* binding_service: required -> optional`
+    - 响应参数变更
+      - `+ globalconnection_bandwidths.charge_mode: enum value [95avr]`
+  - **ListCentralNetworks**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+      - `* enterprise_router_id: list<UUIDDef> -> list<UUID64Def>`
+      - `* attachment_instance_id: list<UUIDDef> -> list<UUID64Def>`
+      - `* global_connection_bandwidth_id: list<UUIDDef> -> list<UUID64Def>`
+      - `* connection_id: list<UUIDDef> -> list<UUID64Def>`
+    - 响应参数变更
+      - `+ central_networks.auto_associate_route_enabled`
+      - `+ central_networks.auto_propagate_route_enabled`
+      - `+ central_networks.state: enum value [RESTORING]`
+      - `+ central_networks.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_networks.connections.connection_point_pair.parent_instance_id`
+  - **CreateCentralNetwork**
+    - 请求参数变更
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+    - 响应参数变更
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **ShowCentralNetwork**
+    - 响应参数变更
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **UpdateCentralNetwork**
+    - 请求参数变更
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+    - 响应参数变更
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **DeleteCentralNetwork**
+    - 响应参数变更
+      - `+ central_network.auto_associate_route_enabled`
+      - `+ central_network.auto_propagate_route_enabled`
+      - `+ central_network.state: enum value [RESTORING]`
+      - `+ central_network.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_network.connections.connection_point_pair.parent_instance_id`
+  - **ListCentralNetworksByTags**
+    - 响应参数变更
+      - `+ central_networks.auto_associate_route_enabled`
+      - `+ central_networks.auto_propagate_route_enabled`
+      - `+ central_networks.state: enum value [RESTORING]`
+      - `+ central_networks.connections.state: enum value [APPROVING,APPROVED,UNAPPROVED]`
+      - `+ central_networks.connections.connection_point_pair.parent_instance_id`
+  - **ListCentralNetworkPolicies**
+    - 请求参数变更
+      - `* id: list<UUIDDef> -> list<UUID64Def>`
+
+### HuaweiCloud SDK CCE
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowNode**
+    - 响应参数变更
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **UpdateNode**
+    - 响应参数变更
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **DeleteNode**
+    - 响应参数变更
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **CreateNode**
+    - 请求参数变更
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+    - 响应参数变更
+      - `+ spec.rootVolume.iops`
+      - `+ spec.rootVolume.throughput`
+      - `+ spec.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.storage.storageSelectors.matchLabels.throughput`
+  - **ListNodes**
+    - 响应参数变更
+      - `+ items.spec.rootVolume.iops`
+      - `+ items.spec.rootVolume.throughput`
+      - `+ items.spec.storage.storageSelectors.matchLabels.iops`
+      - `+ items.spec.storage.storageSelectors.matchLabels.throughput`
+  - **ShowNodePool**
+    - 响应参数变更
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **UpdateNodePool**
+    - 响应参数变更
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **DeleteNodePool**
+    - 响应参数变更
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **AddNode**
+    - 请求参数变更
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.iops`
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.throughput`
+  - **ResetNode**
+    - 请求参数变更
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.iops`
+      - `+ nodeList.spec.volumeConfig.storage.storageSelectors.matchLabels.throughput`
+  - **CreateNodePool**
+    - 请求参数变更
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+    - 响应参数变更
+      - `+ spec.nodeTemplate.rootVolume.iops`
+      - `+ spec.nodeTemplate.rootVolume.throughput`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+  - **ListNodePools**
+    - 响应参数变更
+      - `+ items.spec.nodeTemplate.rootVolume.iops`
+      - `+ items.spec.nodeTemplate.rootVolume.throughput`
+      - `+ items.spec.nodeTemplate.storage.storageSelectors.matchLabels.iops`
+      - `+ items.spec.nodeTemplate.storage.storageSelectors.matchLabels.throughput`
+
+### HuaweiCloud SDK CES
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateAlarmRules**
+    - 请求参数变更
+      - `+ tags`
+
+### HuaweiCloud SDK DDS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ResizeInstance**
+    - 请求参数变更
+      - `+ resize.target_type: enum value [config,readonly]`
+
+### HuaweiCloud SDK HSS
+
+- _接口版本_
+  - V5
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`ListAccounts`、`BatchAddAccounts`、`DeleteAccount`、`ListOrganizationTree`
+
+### HuaweiCloud SDK Live
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持以下接口：
+    - `ListHarvestTask`
+    - `ModifyHarvestTask`
+    - `CreateHarvestTask`
+    - `DeleteHarvestTask`
+    - `UpdateHarvestJobStatus`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK Meeting
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowRecordInfo**
+    - 响应参数变更
+      - `+ data.subject`
+      - `+ data.beginTime`
+      - `+ data.segmentOffset`
+      - `+ data.segmentLimit`
+      - `+ data.segmentCount`
+      - `+ data.segmentList`
+      - `* data: object -> object<RecordInfoDO>`
+
+### HuaweiCloud SDK VPCEP
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateEndpointService**
+    - 请求参数变更
+      - `+ snat_network_id`
+
 # 3.1.116 2024-09-23
 
 ### HuaweiCloud SDK AOM

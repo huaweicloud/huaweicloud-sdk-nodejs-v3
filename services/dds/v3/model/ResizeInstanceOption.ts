@@ -46,5 +46,7 @@ export class ResizeInstanceOption {
     */
 export enum ResizeInstanceOptionTargetTypeEnum {
     MONGOS = 'mongos',
-    SHARD = 'shard'
+    SHARD = 'shard',
+    CONFIG = 'config',
+    READONLY = 'readonly'
 }

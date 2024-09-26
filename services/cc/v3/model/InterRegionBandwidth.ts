@@ -5,7 +5,7 @@ import { Description } from './Description';
 import { DomainId } from './DomainId';
 import { InterRegion } from './InterRegion';
 import { Name } from './Name';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID32Identifier } from './UUID32Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

@@ -1,5 +1,5 @@
 import { ProjectId } from './ProjectId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID32Identifier } from './UUID32Identifier';
 
 
 export class InterRegion {

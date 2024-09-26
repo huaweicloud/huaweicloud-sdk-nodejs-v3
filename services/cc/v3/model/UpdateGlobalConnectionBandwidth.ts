@@ -1,9 +1,9 @@
 import { Description } from './Description';
 import { GcbBindingServiceAll } from './GcbBindingServiceAll';
-import { GcbChargeMode } from './GcbChargeMode';
-import { GcbSize } from './GcbSize';
 import { GcbSlaLevel } from './GcbSlaLevel';
 import { GcbSpecCodeId } from './GcbSpecCodeId';
+import { NonRequiredGcbChargeMode } from './NonRequiredGcbChargeMode';
+import { NonRequiredGcbSize } from './NonRequiredGcbSize';
 import { NonRequiredName } from './NonRequiredName';
 
 
@@ -77,7 +77,8 @@ export class UpdateGlobalConnectionBandwidth {
     */
 export enum UpdateGlobalConnectionBandwidthChargeModeEnum {
     BWD = 'bwd',
-    E_95 = '95'
+    E_95 = '95',
+    E_95AVR = '95avr'
 }
 /**
     * @export

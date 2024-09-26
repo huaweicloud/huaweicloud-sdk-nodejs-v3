@@ -175,6 +175,7 @@ import { Resource } from './model/Resource';
 import { ResourceCategory } from './model/ResourceCategory';
 import { ResourceGroupID } from './model/ResourceGroupID';
 import { ResourceGroupTagRelation } from './model/ResourceGroupTagRelation';
+import { ResourceTag } from './model/ResourceTag';
 import { ResourcesInListResp } from './model/ResourcesInListResp';
 import { ResourcesReq } from './model/ResourcesReq';
 import { ResourcesReqV2 } from './model/ResourcesReqV2';

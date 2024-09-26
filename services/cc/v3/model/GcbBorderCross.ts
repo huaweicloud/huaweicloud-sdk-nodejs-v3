@@ -2,7 +2,8 @@
 
 export class GcbBorderCross {
     public bordercross?: boolean;
-    public constructor() { 
+    public constructor(bordercross?: boolean) { 
+        this['bordercross'] = bordercross;
     }
     public withBordercross(bordercross: boolean): GcbBorderCross {
         this['bordercross'] = bordercross;

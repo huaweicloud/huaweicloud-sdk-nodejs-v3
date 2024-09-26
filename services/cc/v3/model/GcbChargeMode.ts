@@ -2,7 +2,8 @@
 
 export class GcbChargeMode {
     private 'charge_mode'?: GcbChargeModeChargeModeEnum | string;
-    public constructor() { 
+    public constructor(chargeMode?: string) { 
+        this['charge_mode'] = chargeMode;
     }
     public withChargeMode(chargeMode: GcbChargeModeChargeModeEnum | string): GcbChargeMode {
         this['charge_mode'] = chargeMode;
@@ -22,5 +23,6 @@ export class GcbChargeMode {
     */
 export enum GcbChargeModeChargeModeEnum {
     BWD = 'bwd',
-    E_95 = '95'
+    E_95 = '95',
+    E_95AVR = '95avr'
 }

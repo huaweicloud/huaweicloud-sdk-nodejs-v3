@@ -1,4 +1,7 @@
+import { AutoAssociateRouteEnabled } from './AutoAssociateRouteEnabled';
+import { AutoPropagateRouteEnabled } from './AutoPropagateRouteEnabled';
 import { CentralNetworkConnectionInfo } from './CentralNetworkConnectionInfo';
+import { CentralNetworkDefaultPlaneId } from './CentralNetworkDefaultPlaneId';
 import { CentralNetworkErInstance } from './CentralNetworkErInstance';
 import { CentralNetworkPlane } from './CentralNetworkPlane';
 import { CentralNetworkState } from './CentralNetworkState';
@@ -10,7 +13,7 @@ import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { Name } from './Name';
 import { Tag } from './Tag';
 import { Tags } from './Tags';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 
@@ -24,17 +27,18 @@ export class CentralNetwork {
     public state?: CentralNetworkStateEnum;
     private 'enterprise_project_id'?: string;
     public tags?: Array<Tag>;
+    private 'default_plane_id'?: string;
     public planes?: Array<CentralNetworkPlane>;
     private 'er_instances'?: Array<CentralNetworkErInstance>;
     public connections?: Array<CentralNetworkConnectionInfo>;
-    private 'default_plane_id'?: string;
-    public constructor(id?: string, name?: string, createdAt?: Date, updatedAt?: Date, domainId?: string, state?: CentralNetworkStateEnum) { 
+    public constructor(id?: string, name?: string, createdAt?: Date, updatedAt?: Date, domainId?: string, state?: CentralNetworkStateEnum, defaultPlaneId?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['domain_id'] = domainId;
         this['state'] = state;
+        this['default_plane_id'] = defaultPlaneId;
     }
     public withId(id: string): CentralNetwork {
         this['id'] = id;
@@ -96,6 +100,16 @@ export class CentralNetwork {
         this['tags'] = tags;
         return this;
     }
+    public withDefaultPlaneId(defaultPlaneId: string): CentralNetwork {
+        this['default_plane_id'] = defaultPlaneId;
+        return this;
+    }
+    public set defaultPlaneId(defaultPlaneId: string  | undefined) {
+        this['default_plane_id'] = defaultPlaneId;
+    }
+    public get defaultPlaneId(): string | undefined {
+        return this['default_plane_id'];
+    }
     public withPlanes(planes: Array<CentralNetworkPlane>): CentralNetwork {
         this['planes'] = planes;
         return this;
@@ -113,15 +127,5 @@ export class CentralNetwork {
     public withConnections(connections: Array<CentralNetworkConnectionInfo>): CentralNetwork {
         this['connections'] = connections;
         return this;
-    }
-    public withDefaultPlaneId(defaultPlaneId: string): CentralNetwork {
-        this['default_plane_id'] = defaultPlaneId;
-        return this;
-    }
-    public set defaultPlaneId(defaultPlaneId: string  | undefined) {
-        this['default_plane_id'] = defaultPlaneId;
-    }
-    public get defaultPlaneId(): string | undefined {
-        return this['default_plane_id'];
     }
 }

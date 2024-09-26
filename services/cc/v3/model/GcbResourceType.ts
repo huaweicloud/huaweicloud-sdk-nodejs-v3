@@ -2,7 +2,8 @@
 
 export class GcbResourceType {
     private 'resource_type'?: string;
-    public constructor() { 
+    public constructor(resourceType?: string) { 
+        this['resource_type'] = resourceType;
     }
     public withResourceType(resourceType: string): GcbResourceType {
         this['resource_type'] = resourceType;

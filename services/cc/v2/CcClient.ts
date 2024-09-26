@@ -5,45 +5,21 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AggTag } from './model/AggTag';
 import { BatchCreateDeleteTagsRequest } from './model/BatchCreateDeleteTagsRequest';
 import { BatchCreateDeleteTagsResponse } from './model/BatchCreateDeleteTagsResponse';
-import { BatchCreateGcbResourceTagsRequest } from './model/BatchCreateGcbResourceTagsRequest';
-import { BatchCreateGcbResourceTagsResponse } from './model/BatchCreateGcbResourceTagsResponse';
-import { BatchDeleteGcbResourceTagsRequest } from './model/BatchDeleteGcbResourceTagsRequest';
-import { BatchDeleteGcbResourceTagsResponse } from './model/BatchDeleteGcbResourceTagsResponse';
-import { CountGcbResourceByTagRequest } from './model/CountGcbResourceByTagRequest';
-import { CountGcbResourceByTagResponse } from './model/CountGcbResourceByTagResponse';
-import { CreateDeleteGcbTagsRequestBody } from './model/CreateDeleteGcbTagsRequestBody';
-import { CreateGcbResourceTagRequest } from './model/CreateGcbResourceTagRequest';
-import { CreateGcbResourceTagResponse } from './model/CreateGcbResourceTagResponse';
-import { CreateGcbTagRequestBody } from './model/CreateGcbTagRequestBody';
 import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagRequestBody } from './model/CreateTagRequestBody';
 import { CreateTagResponse } from './model/CreateTagResponse';
-import { DeleteGcbResourceTagRequest } from './model/DeleteGcbResourceTagRequest';
-import { DeleteGcbResourceTagResponse } from './model/DeleteGcbResourceTagResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
 import { FilterTagResource } from './model/FilterTagResource';
 import { ListDomainTagsRequest } from './model/ListDomainTagsRequest';
 import { ListDomainTagsResponse } from './model/ListDomainTagsResponse';
-import { ListGcbResourceByTagRequest } from './model/ListGcbResourceByTagRequest';
-import { ListGcbResourceByTagResponse } from './model/ListGcbResourceByTagResponse';
-import { ListGcbResourceTagsRequest } from './model/ListGcbResourceTagsRequest';
-import { ListGcbResourceTagsResponse } from './model/ListGcbResourceTagsResponse';
-import { ListGcbTenantTagsRequest } from './model/ListGcbTenantTagsRequest';
-import { ListGcbTenantTagsResponse } from './model/ListGcbTenantTagsResponse';
 import { ListResourceByFilterTagRequest } from './model/ListResourceByFilterTagRequest';
 import { ListResourceByFilterTagRequestBody } from './model/ListResourceByFilterTagRequestBody';
 import { ListResourceByFilterTagResponse } from './model/ListResourceByFilterTagResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
-import { QueryResourceByTagRequestBody } from './model/QueryResourceByTagRequestBody';
-import { QueryTag } from './model/QueryTag';
-import { RequiredTag } from './model/RequiredTag';
 import { ResourceTags } from './model/ResourceTags';
 import { Tag } from './model/Tag';
-import { TmsMatch } from './model/TmsMatch';
-import { TmsResource } from './model/TmsResource';
-import { TmsTagValues } from './model/TmsTagValues';
 
 export class CcClient {
     public static newBuilder(): ClientBuilder<CcClient> {
@@ -61,164 +37,7 @@ export class CcClient {
 
 
     /**
-     * TMS批量添加资源标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量添加账户全域互联带宽资源标签
-     * @param {string} resourceId 资源唯一标识符。
-     * @param {CreateDeleteGcbTagsRequestBody} createDeleteGcbTagsRequestBody 批量添加账户全域互联带宽资源标签。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchCreateGcbResourceTags(batchCreateGcbResourceTagsRequest?: BatchCreateGcbResourceTagsRequest): Promise<BatchCreateGcbResourceTagsResponse> {
-        const options = ParamCreater().batchCreateGcbResourceTags(batchCreateGcbResourceTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量删除账户全域互联带宽资源标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除账户全域互联带宽资源标签
-     * @param {string} resourceId 资源唯一标识符。
-     * @param {CreateDeleteGcbTagsRequestBody} createDeleteGcbTagsRequestBody 批量删除账户全域互联带宽资源标签。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteGcbResourceTags(batchDeleteGcbResourceTagsRequest?: BatchDeleteGcbResourceTagsRequest): Promise<BatchDeleteGcbResourceTagsResponse> {
-        const options = ParamCreater().batchDeleteGcbResourceTags(batchDeleteGcbResourceTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询账户全域互联带宽资源标签数量
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账户全域互联带宽资源标签数量
-     * @param {QueryResourceByTagRequestBody} queryResourceByTagRequestBody 查询账户全域互联带宽资源标签数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public countGcbResourceByTag(countGcbResourceByTagRequest?: CountGcbResourceByTagRequest): Promise<CountGcbResourceByTagResponse> {
-        const options = ParamCreater().countGcbResourceByTag(countGcbResourceByTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 添加账户全域互联带宽资源标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 添加账户全域互联带宽资源标签
-     * @param {string} resourceId 资源唯一标识符。
-     * @param {CreateGcbTagRequestBody} createGcbTagRequestBody 添加账户全域互联带宽资源标签。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createGcbResourceTag(createGcbResourceTagRequest?: CreateGcbResourceTagRequest): Promise<CreateGcbResourceTagResponse> {
-        const options = ParamCreater().createGcbResourceTag(createGcbResourceTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除账户全域互联带宽资源标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除账户全域互联带宽资源标签
-     * @param {string} resourceId 资源唯一标识符。
-     * @param {string} tagKey 删除的tag的key。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteGcbResourceTag(deleteGcbResourceTagRequest?: DeleteGcbResourceTagRequest): Promise<DeleteGcbResourceTagResponse> {
-        const options = ParamCreater().deleteGcbResourceTag(deleteGcbResourceTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询账户全域互联带宽资源实例列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账户全域互联带宽资源实例列表
-     * @param {QueryResourceByTagRequestBody} queryResourceByTagRequestBody 查询账户全域互联带宽资源实例列表。
-     * @param {number} [limit] 查询记录数。
-     * @param {number} [offset] 索引位置，偏移量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listGcbResourceByTag(listGcbResourceByTagRequest?: ListGcbResourceByTagRequest): Promise<ListGcbResourceByTagResponse> {
-        const options = ParamCreater().listGcbResourceByTag(listGcbResourceByTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询账户全域互联带宽资源的标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账户全域互联带宽资源的标签
-     * @param {string} resourceId 资源唯一标识符。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listGcbResourceTags(listGcbResourceTagsRequest?: ListGcbResourceTagsRequest): Promise<ListGcbResourceTagsResponse> {
-        const options = ParamCreater().listGcbResourceTags(listGcbResourceTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询账户全域互联带宽所有资源标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账户全域互联带宽所有资源标签
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listGcbTenantTags(listGcbTenantTagsRequest?: ListGcbTenantTagsRequest): Promise<ListGcbTenantTagsResponse> {
-        const options = ParamCreater().listGcbTenantTags();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量创建和删除标签
+     * 批量创建和删除标签。此API为历史API，请优先使用《 创建云连接实例标签》、《 创建带宽包标签》、《 删除云连接实例标签》、《 删除带宽包标签》。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -239,7 +58,7 @@ export class CcClient {
     }
 
     /**
-     * 添加资源标签
+     * 添加资源标签。此API为历史API，请优先使用《 创建云连接实例标签》、《 创建带宽包标签》。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -260,7 +79,7 @@ export class CcClient {
     }
 
     /**
-     * 删除资源标签
+     * 删除资源标签。此API为历史API，请优先使用《 删除云连接实例标签》或《 删除带宽包标签》。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -281,7 +100,7 @@ export class CcClient {
     }
 
     /**
-     * 查询账户资源标签
+     * 查询账户资源标签。此API为历史API，请优先使用《查询云连接实例的标签信息》、《查询带宽包的标签信息》。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -300,7 +119,7 @@ export class CcClient {
     }
 
     /**
-     * 查询资源实例
+     * 查询资源实例。此API为历史API，请优先使用《通过标签过滤云连接实例》、《通过标签过滤带宽包实例》。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -320,7 +139,7 @@ export class CcClient {
     }
 
     /**
-     * 查询资源标签
+     * 查询资源标签。此API为历史API，请优先使用《查询云连接实例的标签信息》、《查询带宽包的标签信息》。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -344,338 +163,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * TMS批量添加资源标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchCreateGcbResourceTags(batchCreateGcbResourceTagsRequest?: BatchCreateGcbResourceTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/gcb/{resource_id}/tags/create",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let resourceId;
-
-            if (batchCreateGcbResourceTagsRequest !== null && batchCreateGcbResourceTagsRequest !== undefined) {
-                if (batchCreateGcbResourceTagsRequest instanceof BatchCreateGcbResourceTagsRequest) {
-                    resourceId = batchCreateGcbResourceTagsRequest.resourceId;
-                    body = batchCreateGcbResourceTagsRequest.body
-                } else {
-                    resourceId = batchCreateGcbResourceTagsRequest['resource_id'];
-                    body = batchCreateGcbResourceTagsRequest['body'];
-                }
-            }
-
-        
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateGcbResourceTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'resource_id': resourceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量删除账户全域互联带宽资源标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDeleteGcbResourceTags(batchDeleteGcbResourceTagsRequest?: BatchDeleteGcbResourceTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/gcb/{resource_id}/tags/delete",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let resourceId;
-
-            if (batchDeleteGcbResourceTagsRequest !== null && batchDeleteGcbResourceTagsRequest !== undefined) {
-                if (batchDeleteGcbResourceTagsRequest instanceof BatchDeleteGcbResourceTagsRequest) {
-                    resourceId = batchDeleteGcbResourceTagsRequest.resourceId;
-                    body = batchDeleteGcbResourceTagsRequest.body
-                } else {
-                    resourceId = batchDeleteGcbResourceTagsRequest['resource_id'];
-                    body = batchDeleteGcbResourceTagsRequest['body'];
-                }
-            }
-
-        
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchDeleteGcbResourceTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'resource_id': resourceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询账户全域互联带宽资源标签数量
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        countGcbResourceByTag(countGcbResourceByTagRequest?: CountGcbResourceByTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/gcb/resource-instances/count",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (countGcbResourceByTagRequest !== null && countGcbResourceByTagRequest !== undefined) {
-                if (countGcbResourceByTagRequest instanceof CountGcbResourceByTagRequest) {
-                    body = countGcbResourceByTagRequest.body
-                } else {
-                    body = countGcbResourceByTagRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 添加账户全域互联带宽资源标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createGcbResourceTag(createGcbResourceTagRequest?: CreateGcbResourceTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/gcb/{resource_id}/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let resourceId;
-
-            if (createGcbResourceTagRequest !== null && createGcbResourceTagRequest !== undefined) {
-                if (createGcbResourceTagRequest instanceof CreateGcbResourceTagRequest) {
-                    resourceId = createGcbResourceTagRequest.resourceId;
-                    body = createGcbResourceTagRequest.body
-                } else {
-                    resourceId = createGcbResourceTagRequest['resource_id'];
-                    body = createGcbResourceTagRequest['body'];
-                }
-            }
-
-        
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createGcbResourceTag.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'resource_id': resourceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除账户全域互联带宽资源标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteGcbResourceTag(deleteGcbResourceTagRequest?: DeleteGcbResourceTagRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v3/gcb/{resource_id}/tags/{tag_key}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let resourceId;
-            
-            let tagKey;
-
-            if (deleteGcbResourceTagRequest !== null && deleteGcbResourceTagRequest !== undefined) {
-                if (deleteGcbResourceTagRequest instanceof DeleteGcbResourceTagRequest) {
-                    resourceId = deleteGcbResourceTagRequest.resourceId;
-                    tagKey = deleteGcbResourceTagRequest.tagKey;
-                } else {
-                    resourceId = deleteGcbResourceTagRequest['resource_id'];
-                    tagKey = deleteGcbResourceTagRequest['tag_key'];
-                }
-            }
-
-        
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteGcbResourceTag.');
-            }
-            if (tagKey === null || tagKey === undefined) {
-            throw new RequiredError('tagKey','Required parameter tagKey was null or undefined when calling deleteGcbResourceTag.');
-            }
-
-            options.pathParams = { 'resource_id': resourceId,'tag_key': tagKey, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询账户全域互联带宽资源实例列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listGcbResourceByTag(listGcbResourceByTagRequest?: ListGcbResourceByTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/gcb/resource-instances/filter",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let limit;
-            
-            let offset;
-
-            if (listGcbResourceByTagRequest !== null && listGcbResourceByTagRequest !== undefined) {
-                if (listGcbResourceByTagRequest instanceof ListGcbResourceByTagRequest) {
-                    body = listGcbResourceByTagRequest.body
-                    limit = listGcbResourceByTagRequest.limit;
-                    offset = listGcbResourceByTagRequest.offset;
-                } else {
-                    body = listGcbResourceByTagRequest['body'];
-                    limit = listGcbResourceByTagRequest['limit'];
-                    offset = listGcbResourceByTagRequest['offset'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询账户全域互联带宽资源的标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listGcbResourceTags(listGcbResourceTagsRequest?: ListGcbResourceTagsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/gcb/{resource_id}/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let resourceId;
-
-            if (listGcbResourceTagsRequest !== null && listGcbResourceTagsRequest !== undefined) {
-                if (listGcbResourceTagsRequest instanceof ListGcbResourceTagsRequest) {
-                    resourceId = listGcbResourceTagsRequest.resourceId;
-                } else {
-                    resourceId = listGcbResourceTagsRequest['resource_id'];
-                }
-            }
-
-        
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listGcbResourceTags.');
-            }
-
-            options.pathParams = { 'resource_id': resourceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询账户全域互联带宽所有资源标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listGcbTenantTags() {
-            const options = {
-                method: "GET",
-                url: "/v3/gcb/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量创建和删除标签
+         * 批量创建和删除标签。此API为历史API，请优先使用《 创建云连接实例标签》、《 创建带宽包标签》、《 删除云连接实例标签》、《 删除带宽包标签》。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -725,7 +213,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加资源标签
+         * 添加资源标签。此API为历史API，请优先使用《 创建云连接实例标签》、《 创建带宽包标签》。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -775,7 +263,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除资源标签
+         * 删除资源标签。此API为历史API，请优先使用《 删除云连接实例标签》或《 删除带宽包标签》。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -826,7 +314,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询账户资源标签
+         * 查询账户资源标签。此API为历史API，请优先使用《查询云连接实例的标签信息》、《查询带宽包的标签信息》。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -863,7 +351,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询资源实例
+         * 查询资源实例。此API为历史API，请优先使用《通过标签过滤云连接实例》、《通过标签过滤带宽包实例》。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -906,7 +394,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询资源标签
+         * 查询资源标签。此API为历史API，请优先使用《查询云连接实例的标签信息》、《查询带宽包的标签信息》。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -6,8 +6,9 @@ import { GcbLocalArea } from './GcbLocalArea';
 import { GcbRemoteArea } from './GcbRemoteArea';
 import { GcbSize } from './GcbSize';
 import { GcbSlaLevel } from './GcbSlaLevel';
+import { GcbSpecCodeId } from './GcbSpecCodeId';
 import { GcbType } from './GcbType';
-import { NonRequiredName } from './NonRequiredName';
+import { Name } from './Name';
 import { Tag } from './Tag';
 import { Tags } from './Tags';
 
@@ -134,7 +135,8 @@ export enum CreateGlobalConnectionBandwidthTypeEnum {
     */
 export enum CreateGlobalConnectionBandwidthChargeModeEnum {
     BWD = 'bwd',
-    E_95 = '95'
+    E_95 = '95',
+    E_95AVR = '95avr'
 }
 /**
     * @export

@@ -11,7 +11,10 @@ export class AssociateGlobalConnectionBandwidthInstanceResponseInfo {
     private 'project_id'?: string;
     public result?: AssociateGlobalConnectionBandwidthInstanceResponseInfoResultEnum | string;
     public message?: string;
-    public constructor() { 
+    public constructor(resourceId?: string, resourceType?: string, projectId?: string) { 
+        this['resource_id'] = resourceId;
+        this['resource_type'] = resourceType;
+        this['project_id'] = projectId;
     }
     public withResourceId(resourceId: string): AssociateGlobalConnectionBandwidthInstanceResponseInfo {
         this['resource_id'] = resourceId;

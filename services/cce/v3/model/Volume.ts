@@ -4,6 +4,8 @@ import { VolumeMetadata } from './VolumeMetadata';
 export class Volume {
     public size?: number;
     public volumetype?: string;
+    public iops?: number;
+    public throughput?: number;
     public extendParam?: { [key: string]: object; };
     private 'cluster_id'?: string;
     private 'cluster_type'?: string;
@@ -19,6 +21,14 @@ export class Volume {
     }
     public withVolumetype(volumetype: string): Volume {
         this['volumetype'] = volumetype;
+        return this;
+    }
+    public withIops(iops: number): Volume {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): Volume {
+        this['throughput'] = throughput;
         return this;
     }
     public withExtendParam(extendParam: { [key: string]: object; }): Volume {

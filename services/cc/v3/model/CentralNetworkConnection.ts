@@ -16,7 +16,7 @@ import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
 import { IsFrozen } from './IsFrozen';
 import { Name } from './Name';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

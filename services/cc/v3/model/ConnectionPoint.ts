@@ -2,7 +2,7 @@ import { ConnectionPointTypeEnum } from './ConnectionPointTypeEnum';
 import { ProjectId } from './ProjectId';
 import { RegionId } from './RegionId';
 import { SiteCode } from './SiteCode';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 
 
 export class ConnectionPoint {
@@ -12,6 +12,7 @@ export class ConnectionPoint {
     private 'site_code'?: string;
     private 'instance_id'?: string;
     public type?: ConnectionPointTypeEnum;
+    private 'parent_instance_id'?: string;
     public constructor(id?: string, projectId?: string, regionId?: string, siteCode?: string, instanceId?: string, type?: ConnectionPointTypeEnum) { 
         this['id'] = id;
         this['project_id'] = projectId;
@@ -67,5 +68,15 @@ export class ConnectionPoint {
     public withType(type: ConnectionPointTypeEnum): ConnectionPoint {
         this['type'] = type;
         return this;
+    }
+    public withParentInstanceId(parentInstanceId: string): ConnectionPoint {
+        this['parent_instance_id'] = parentInstanceId;
+        return this;
+    }
+    public set parentInstanceId(parentInstanceId: string  | undefined) {
+        this['parent_instance_id'] = parentInstanceId;
+    }
+    public get parentInstanceId(): string | undefined {
+        return this['parent_instance_id'];
     }
 }

@@ -1,4 +1,6 @@
 import { ApprovedStateEnum } from './ApprovedStateEnum';
+import { AutoAssociateRouteEnabled } from './AutoAssociateRouteEnabled';
+import { AutoPropagateRouteEnabled } from './AutoPropagateRouteEnabled';
 import { BandwidthSize } from './BandwidthSize';
 import { BandwidthType } from './BandwidthType';
 import { BandwidthTypeEnum } from './BandwidthTypeEnum';
@@ -13,11 +15,13 @@ import { EnterpriseRouterAttachmentId } from './EnterpriseRouterAttachmentId';
 import { EnterpriseRouterId } from './EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './EnterpriseRouterRegionId';
+import { EnterpriseRouterSiteCode } from './EnterpriseRouterSiteCode';
+import { EnterpriseRouterTableId } from './EnterpriseRouterTableId';
 import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
 import { HostedCloudEnum } from './HostedCloudEnum';
 import { IsFrozen } from './IsFrozen';
 import { Name } from './Name';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 

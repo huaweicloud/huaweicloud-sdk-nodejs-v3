@@ -2,7 +2,8 @@
 
 export class GcbProjectId {
     private 'project_id'?: string;
-    public constructor() { 
+    public constructor(projectId?: string) { 
+        this['project_id'] = projectId;
     }
     public withProjectId(projectId: string): GcbProjectId {
         this['project_id'] = projectId;

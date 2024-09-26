@@ -3,7 +3,7 @@ import { DomainId } from './DomainId';
 import { InstanceId } from './InstanceId';
 import { ProjectId } from './ProjectId';
 import { RegionId } from './RegionId';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID32Identifier } from './UUID32Identifier';
 
 
 export class CloudConnectionRoute {

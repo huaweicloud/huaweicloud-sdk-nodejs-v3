@@ -2,7 +2,8 @@
 
 export class GcbResourceId {
     private 'resource_id'?: string;
-    public constructor() { 
+    public constructor(resourceId?: string) { 
+        this['resource_id'] = resourceId;
     }
     public withResourceId(resourceId: string): GcbResourceId {
         this['resource_id'] = resourceId;

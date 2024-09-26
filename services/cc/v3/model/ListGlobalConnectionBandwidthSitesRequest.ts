@@ -4,6 +4,8 @@ export class ListGlobalConnectionBandwidthSitesRequest {
     public limit?: number;
     public marker?: string;
     public id?: Array<string>;
+    private 'name_en'?: string;
+    private 'name_cn'?: string;
     private 'site_code'?: string;
     private 'site_type'?: ListGlobalConnectionBandwidthSitesRequestSiteTypeEnum | string;
     public constructor() { 
@@ -19,6 +21,26 @@ export class ListGlobalConnectionBandwidthSitesRequest {
     public withId(id: Array<string>): ListGlobalConnectionBandwidthSitesRequest {
         this['id'] = id;
         return this;
+    }
+    public withNameEn(nameEn: string): ListGlobalConnectionBandwidthSitesRequest {
+        this['name_en'] = nameEn;
+        return this;
+    }
+    public set nameEn(nameEn: string  | undefined) {
+        this['name_en'] = nameEn;
+    }
+    public get nameEn(): string | undefined {
+        return this['name_en'];
+    }
+    public withNameCn(nameCn: string): ListGlobalConnectionBandwidthSitesRequest {
+        this['name_cn'] = nameCn;
+        return this;
+    }
+    public set nameCn(nameCn: string  | undefined) {
+        this['name_cn'] = nameCn;
+    }
+    public get nameCn(): string | undefined {
+        return this['name_cn'];
     }
     public withSiteCode(siteCode: string): ListGlobalConnectionBandwidthSitesRequest {
         this['site_code'] = siteCode;

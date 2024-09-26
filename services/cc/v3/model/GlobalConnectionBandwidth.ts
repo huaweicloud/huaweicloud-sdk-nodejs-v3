@@ -16,10 +16,10 @@ import { GcbSlaLevel } from './GcbSlaLevel';
 import { GcbSpecCodeId } from './GcbSpecCodeId';
 import { GcbType } from './GcbType';
 import { GlobalConnectionBandwidthAssociatedInstance } from './GlobalConnectionBandwidthAssociatedInstance';
-import { NonRequiredName } from './NonRequiredName';
+import { Name } from './Name';
 import { Tag } from './Tag';
 import { Tags } from './Tags';
-import { UUIDIdentifier } from './UUIDIdentifier';
+import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
 
@@ -47,9 +47,14 @@ export class GlobalConnectionBandwidth {
     private 'updated_at'?: Date;
     private 'enable_share'?: boolean;
     public instances?: Array<GlobalConnectionBandwidthAssociatedInstance>;
-    public constructor(id?: string, domainId?: string, createdAt?: Date, updatedAt?: Date) { 
+    public constructor(id?: string, name?: string, domainId?: string, bordercross?: boolean, type?: string, chargeMode?: string, size?: number, createdAt?: Date, updatedAt?: Date) { 
         this['id'] = id;
+        this['name'] = name;
         this['domain_id'] = domainId;
+        this['bordercross'] = bordercross;
+        this['type'] = type;
+        this['charge_mode'] = chargeMode;
+        this['size'] = size;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
     }
@@ -258,7 +263,8 @@ export enum GlobalConnectionBandwidthBindingServiceEnum {
     */
 export enum GlobalConnectionBandwidthChargeModeEnum {
     BWD = 'bwd',
-    E_95 = '95'
+    E_95 = '95',
+    E_95AVR = '95avr'
 }
 /**
     * @export
