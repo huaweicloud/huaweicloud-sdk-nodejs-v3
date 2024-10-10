@@ -37,7 +37,7 @@ export class QueryJobResp {
     private 'filter_ddl_policy'?: string;
     private 'speed_limit'?: Array<SpeedLimitInfo>;
     private 'schema_type'?: QueryJobRespSchemaTypeEnum | string;
-    private 'node_num'?: string;
+    private 'node_num'?: number;
     private 'object_switch'?: boolean;
     private 'master_job_id'?: string;
     private 'full_mode'?: string;
@@ -301,14 +301,14 @@ export class QueryJobResp {
     public get schemaType(): QueryJobRespSchemaTypeEnum | string | undefined {
         return this['schema_type'];
     }
-    public withNodeNum(nodeNum: string): QueryJobResp {
+    public withNodeNum(nodeNum: number): QueryJobResp {
         this['node_num'] = nodeNum;
         return this;
     }
-    public set nodeNum(nodeNum: string  | undefined) {
+    public set nodeNum(nodeNum: number  | undefined) {
         this['node_num'] = nodeNum;
     }
-    public get nodeNum(): string | undefined {
+    public get nodeNum(): number | undefined {
         return this['node_num'];
     }
     public withObjectSwitch(objectSwitch: boolean): QueryJobResp {

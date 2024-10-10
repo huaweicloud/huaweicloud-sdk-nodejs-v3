@@ -546,6 +546,8 @@ import { ShowPostgresqlParamValueRequest } from './model/ShowPostgresqlParamValu
 import { ShowPostgresqlParamValueResponse } from './model/ShowPostgresqlParamValueResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
+import { ShowRecoveryTimeWindowRequest } from './model/ShowRecoveryTimeWindowRequest';
+import { ShowRecoveryTimeWindowResponse } from './model/ShowRecoveryTimeWindowResponse';
 import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
 import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
 import { ShowReplayDelayStatusRequest } from './model/ShowReplayDelayStatusRequest';
@@ -620,6 +622,7 @@ import { TagResp } from './model/TagResp';
 import { TagResponse } from './model/TagResponse';
 import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { TargetInstanceRequest } from './model/TargetInstanceRequest';
+import { ToPeriodReq } from './model/ToPeriodReq';
 import { UnchangeableParam } from './model/UnchangeableParam';
 import { UnlockNodeReadonlyStatusRequest } from './model/UnlockNodeReadonlyStatusRequest';
 import { UnlockNodeReadonlyStatusRequestBody } from './model/UnlockNodeReadonlyStatusRequestBody';
@@ -677,6 +680,8 @@ import { UpdateSqlLimitRuleReqV3 } from './model/UpdateSqlLimitRuleReqV3';
 import { UpdateTdeStatusRequest } from './model/UpdateTdeStatusRequest';
 import { UpdateTdeStatusRequestBody } from './model/UpdateTdeStatusRequestBody';
 import { UpdateTdeStatusResponse } from './model/UpdateTdeStatusResponse';
+import { UpdateToPeriodRequest } from './model/UpdateToPeriodRequest';
+import { UpdateToPeriodResponse } from './model/UpdateToPeriodResponse';
 import { UpgradeDbMajorVersionPreCheckRequest } from './model/UpgradeDbMajorVersionPreCheckRequest';
 import { UpgradeDbMajorVersionPreCheckResponse } from './model/UpgradeDbMajorVersionPreCheckResponse';
 import { UpgradeDbMajorVersionRequest } from './model/UpgradeDbMajorVersionRequest';
@@ -3737,6 +3742,27 @@ export class RdsClient {
     }
 
     /**
+     * RDS实例按需转包周期
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary RDS实例按需转包周期
+     * @param {string} instanceId 操作的实例ID
+     * @param {string} xLanguage 语言
+     * @param {ToPeriodReq} updateToPeriodRequestBody RDS实例按需转包周期请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateToPeriod(updateToPeriodRequest?: UpdateToPeriodRequest): Promise<UpdateToPeriodResponse> {
+        const options = ParamCreater().updateToPeriod(updateToPeriodRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * PostgreSQL数据库升级大版本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4718,6 +4744,26 @@ export class RdsClient {
      */
     public showPostgresqlParamValue(showPostgresqlParamValueRequest?: ShowPostgresqlParamValueRequest): Promise<ShowPostgresqlParamValueResponse> {
         const options = ParamCreater().showPostgresqlParamValue(showPostgresqlParamValueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询wal日志恢复时间窗
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询wal日志恢复时间窗
+     * @param {string} instanceId 操作的实例ID
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecoveryTimeWindow(showRecoveryTimeWindowRequest?: ShowRecoveryTimeWindowRequest): Promise<ShowRecoveryTimeWindowResponse> {
+        const options = ParamCreater().showRecoveryTimeWindow(showRecoveryTimeWindowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12921,6 +12967,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * RDS实例按需转包周期
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateToPeriod(updateToPeriodRequest?: UpdateToPeriodRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/to-period",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateToPeriodRequest !== null && updateToPeriodRequest !== undefined) {
+                if (updateToPeriodRequest instanceof UpdateToPeriodRequest) {
+                    instanceId = updateToPeriodRequest.instanceId;
+                    xLanguage = updateToPeriodRequest.xLanguage;
+                    body = updateToPeriodRequest.body
+                } else {
+                    instanceId = updateToPeriodRequest['instance_id'];
+                    xLanguage = updateToPeriodRequest['X-Language'];
+                    body = updateToPeriodRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateToPeriod.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * PostgreSQL数据库升级大版本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -15393,6 +15492,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'name': name, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询wal日志恢复时间窗
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecoveryTimeWindow(showRecoveryTimeWindowRequest?: ShowRecoveryTimeWindowRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/recovery-time",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showRecoveryTimeWindowRequest !== null && showRecoveryTimeWindowRequest !== undefined) {
+                if (showRecoveryTimeWindowRequest instanceof ShowRecoveryTimeWindowRequest) {
+                    instanceId = showRecoveryTimeWindowRequest.instanceId;
+                    xLanguage = showRecoveryTimeWindowRequest.xLanguage;
+                } else {
+                    instanceId = showRecoveryTimeWindowRequest['instance_id'];
+                    xLanguage = showRecoveryTimeWindowRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRecoveryTimeWindow.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

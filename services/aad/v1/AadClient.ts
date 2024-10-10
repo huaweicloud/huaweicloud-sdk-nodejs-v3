@@ -7,6 +7,8 @@ import { AddBlackWhiteIpListResponse } from './model/AddBlackWhiteIpListResponse
 import { AddPolicyBlackAndWhiteIpListRequest } from './model/AddPolicyBlackAndWhiteIpListRequest';
 import { AddPolicyBlackAndWhiteIpListResponse } from './model/AddPolicyBlackAndWhiteIpListResponse';
 import { AlarmBody } from './model/AlarmBody';
+import { AssociateIpToPolicyAndPackageRequest } from './model/AssociateIpToPolicyAndPackageRequest';
+import { AssociateIpToPolicyAndPackageResponse } from './model/AssociateIpToPolicyAndPackageResponse';
 import { AssociateIpToPolicyRequest } from './model/AssociateIpToPolicyRequest';
 import { AssociateIpToPolicyResponse } from './model/AssociateIpToPolicyResponse';
 import { BatchCreateInstanceIpRuleRequest } from './model/BatchCreateInstanceIpRuleRequest';
@@ -34,6 +36,8 @@ import { DeletePolicyBlackAndWhiteIpListRequest } from './model/DeletePolicyBlac
 import { DeletePolicyBlackAndWhiteIpListResponse } from './model/DeletePolicyBlackAndWhiteIpListResponse';
 import { DeletePolicyRequest } from './model/DeletePolicyRequest';
 import { DeletePolicyResponse } from './model/DeletePolicyResponse';
+import { DisassociateIpFromPolicyAndPackageRequest } from './model/DisassociateIpFromPolicyAndPackageRequest';
+import { DisassociateIpFromPolicyAndPackageResponse } from './model/DisassociateIpFromPolicyAndPackageResponse';
 import { DisassociateIpFromPolicyRequest } from './model/DisassociateIpFromPolicyRequest';
 import { DisassociateIpFromPolicyResponse } from './model/DisassociateIpFromPolicyResponse';
 import { DomainInfo } from './model/DomainInfo';
@@ -45,6 +49,7 @@ import { HostBody } from './model/HostBody';
 import { InstanceInfo } from './model/InstanceInfo';
 import { InstanceIpInfo } from './model/InstanceIpInfo';
 import { IpBindingBody } from './model/IpBindingBody';
+import { IpBindingV3Body } from './model/IpBindingV3Body';
 import { IpStatusDetail } from './model/IpStatusDetail';
 import { ListBlockIpsRequest } from './model/ListBlockIpsRequest';
 import { ListBlockIpsResponse } from './model/ListBlockIpsResponse';
@@ -282,6 +287,26 @@ export class AadClient {
     }
 
     /**
+     * 策略和防护包绑定防护对象
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 策略和防护包绑定防护对象
+     * @param {string} policyId 策略id
+     * @param {IpBindingV3Body} associateIpToPolicyAndPackageRequestBody 策略绑定ip的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateIpToPolicyAndPackage(associateIpToPolicyAndPackageRequest?: AssociateIpToPolicyAndPackageRequest): Promise<AssociateIpToPolicyAndPackageResponse> {
+        const options = ParamCreater().associateIpToPolicyAndPackage(associateIpToPolicyAndPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量创建高防实例IP的转发规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -450,6 +475,26 @@ export class AadClient {
      */
     public disassociateIpFromPolicy(disassociateIpFromPolicyRequest?: DisassociateIpFromPolicyRequest): Promise<DisassociateIpFromPolicyResponse> {
         const options = ParamCreater().disassociateIpFromPolicy(disassociateIpFromPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 策略和防护包解绑防护对象
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 策略和防护包解绑防护对象
+     * @param {string} policyId 策略id
+     * @param {IpBindingV3Body} disassociateIpFromPolicyAndPackageRequestBody 策略解绑ip的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateIpFromPolicyAndPackage(disassociateIpFromPolicyAndPackageRequest?: DisassociateIpFromPolicyAndPackageRequest): Promise<DisassociateIpFromPolicyAndPackageResponse> {
+        const options = ParamCreater().disassociateIpFromPolicyAndPackage(disassociateIpFromPolicyAndPackageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1221,6 +1266,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 策略和防护包绑定防护对象
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateIpToPolicyAndPackage(associateIpToPolicyAndPackageRequest?: AssociateIpToPolicyAndPackageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/cnad/policies/{policy_id}/bind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+
+            if (associateIpToPolicyAndPackageRequest !== null && associateIpToPolicyAndPackageRequest !== undefined) {
+                if (associateIpToPolicyAndPackageRequest instanceof AssociateIpToPolicyAndPackageRequest) {
+                    policyId = associateIpToPolicyAndPackageRequest.policyId;
+                    body = associateIpToPolicyAndPackageRequest.body
+                } else {
+                    policyId = associateIpToPolicyAndPackageRequest['policy_id'];
+                    body = associateIpToPolicyAndPackageRequest['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling associateIpToPolicyAndPackage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量创建高防实例IP的转发规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1578,6 +1669,52 @@ export const ParamCreater = function () {
         
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling disassociateIpFromPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 策略和防护包解绑防护对象
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateIpFromPolicyAndPackage(disassociateIpFromPolicyAndPackageRequest?: DisassociateIpFromPolicyAndPackageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/cnad/policies/{policy_id}/unbind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+
+            if (disassociateIpFromPolicyAndPackageRequest !== null && disassociateIpFromPolicyAndPackageRequest !== undefined) {
+                if (disassociateIpFromPolicyAndPackageRequest instanceof DisassociateIpFromPolicyAndPackageRequest) {
+                    policyId = disassociateIpFromPolicyAndPackageRequest.policyId;
+                    body = disassociateIpFromPolicyAndPackageRequest.body
+                } else {
+                    policyId = disassociateIpFromPolicyAndPackageRequest['policy_id'];
+                    body = disassociateIpFromPolicyAndPackageRequest['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling disassociateIpFromPolicyAndPackage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

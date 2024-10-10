@@ -6,6 +6,9 @@ export class UpdateWhiteBlackIpRuleRequestBody {
     public description?: string;
     public white?: number;
     private 'ip_group_id'?: string;
+    private 'time_mode'?: string;
+    public start?: number;
+    public terminal?: number;
     public constructor(name?: string, white?: number) { 
         this['name'] = name;
         this['white'] = white;
@@ -35,5 +38,23 @@ export class UpdateWhiteBlackIpRuleRequestBody {
     }
     public get ipGroupId(): string | undefined {
         return this['ip_group_id'];
+    }
+    public withTimeMode(timeMode: string): UpdateWhiteBlackIpRuleRequestBody {
+        this['time_mode'] = timeMode;
+        return this;
+    }
+    public set timeMode(timeMode: string  | undefined) {
+        this['time_mode'] = timeMode;
+    }
+    public get timeMode(): string | undefined {
+        return this['time_mode'];
+    }
+    public withStart(start: number): UpdateWhiteBlackIpRuleRequestBody {
+        this['start'] = start;
+        return this;
+    }
+    public withTerminal(terminal: number): UpdateWhiteBlackIpRuleRequestBody {
+        this['terminal'] = terminal;
+        return this;
     }
 }

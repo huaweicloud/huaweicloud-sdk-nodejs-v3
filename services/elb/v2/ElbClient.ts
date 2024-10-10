@@ -933,6 +933,7 @@ export class ElbClient {
      * @param {string} [subnetId] 后端云服务器所在的子网ID。
      * @param {boolean} [adminStateUp] 后端云服务器的管理状态。取值范围：true/false。
      * @param {number} [weight] 后端云服务器的权重。
+     * @param {string} [enterpriseProjectId] 企业项目ID。 不传时查询default企业项目（即enterprise_project_id&#x3D;0）下的资源，鉴权按照default企业项目鉴权。 如果传值enterprise_project_id&#x3D;all_granted_eps，则表示查询所有有权限的企业项目下的资源。 其他情况则传已存在的企业项目ID。此时会校验ID，若不存在或格式错误则报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3317,6 +3318,8 @@ export const ParamCreater = function () {
             let adminStateUp;
             
             let weight;
+            
+            let enterpriseProjectId;
 
             if (listMembersRequest !== null && listMembersRequest !== undefined) {
                 if (listMembersRequest instanceof ListMembersRequest) {
@@ -3331,6 +3334,7 @@ export const ParamCreater = function () {
                     subnetId = listMembersRequest.subnetId;
                     adminStateUp = listMembersRequest.adminStateUp;
                     weight = listMembersRequest.weight;
+                    enterpriseProjectId = listMembersRequest.enterpriseProjectId;
                 } else {
                     poolId = listMembersRequest['pool_id'];
                     limit = listMembersRequest['limit'];
@@ -3343,6 +3347,7 @@ export const ParamCreater = function () {
                     subnetId = listMembersRequest['subnet_id'];
                     adminStateUp = listMembersRequest['admin_state_up'];
                     weight = listMembersRequest['weight'];
+                    enterpriseProjectId = listMembersRequest['enterprise_project_id'];
                 }
             }
 
@@ -3379,6 +3384,9 @@ export const ParamCreater = function () {
             }
             if (weight !== null && weight !== undefined) {
                 localVarQueryParameter['weight'] = weight;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -9,6 +9,8 @@ export class CreateWhiteblackipRuleResponse extends SdkResponse {
     public addr?: string;
     public white?: number;
     private 'time_mode'?: string;
+    public start?: number;
+    public terminal?: number;
     private 'ip_group'?: IpGroup;
     public status?: number;
     public description?: string;
@@ -45,6 +47,14 @@ export class CreateWhiteblackipRuleResponse extends SdkResponse {
     }
     public get timeMode(): string | undefined {
         return this['time_mode'];
+    }
+    public withStart(start: number): CreateWhiteblackipRuleResponse {
+        this['start'] = start;
+        return this;
+    }
+    public withTerminal(terminal: number): CreateWhiteblackipRuleResponse {
+        this['terminal'] = terminal;
+        return this;
     }
     public withIpGroup(ipGroup: IpGroup): CreateWhiteblackipRuleResponse {
         this['ip_group'] = ipGroup;

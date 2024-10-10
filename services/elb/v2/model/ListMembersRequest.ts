@@ -12,6 +12,7 @@ export class ListMembersRequest {
     private 'subnet_id'?: string;
     private 'admin_state_up'?: boolean;
     public weight?: number;
+    private 'enterprise_project_id'?: string;
     public constructor(poolId?: string) { 
         this['pool_id'] = poolId;
     }
@@ -88,5 +89,15 @@ export class ListMembersRequest {
     public withWeight(weight: number): ListMembersRequest {
         this['weight'] = weight;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListMembersRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

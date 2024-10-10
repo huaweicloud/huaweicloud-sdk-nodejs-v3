@@ -19,7 +19,6 @@ export class ListVolumesRequest {
     public ids?: string;
     private 'enterprise_project_id'?: string;
     private 'server_id'?: string;
-    private 'snapshot_policy_id'?: string;
     public constructor() { 
     }
     public withMarker(marker: string): ListVolumesRequest {
@@ -147,15 +146,5 @@ export class ListVolumesRequest {
     }
     public get serverId(): string | undefined {
         return this['server_id'];
-    }
-    public withSnapshotPolicyId(snapshotPolicyId: string): ListVolumesRequest {
-        this['snapshot_policy_id'] = snapshotPolicyId;
-        return this;
-    }
-    public set snapshotPolicyId(snapshotPolicyId: string  | undefined) {
-        this['snapshot_policy_id'] = snapshotPolicyId;
-    }
-    public get snapshotPolicyId(): string | undefined {
-        return this['snapshot_policy_id'];
     }
 }

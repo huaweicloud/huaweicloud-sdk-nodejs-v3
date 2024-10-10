@@ -162,6 +162,7 @@ import { CodeTableVO } from './model/CodeTableVO';
 import { ColumnDetails } from './model/ColumnDetails';
 import { ColumnInfo } from './model/ColumnInfo';
 import { ColumnLineage } from './model/ColumnLineage';
+import { ColumnLineageV2 } from './model/ColumnLineageV2';
 import { ColumnsList } from './model/ColumnsList';
 import { CommonConditionVO } from './model/CommonConditionVO';
 import { CompoundMetricVO } from './model/CompoundMetricVO';
@@ -225,6 +226,8 @@ import { CreateFactorySupplementDataInstanceRequestBodyDependJobs } from './mode
 import { CreateFactorySupplementDataInstanceRequestBodySupplementDataInstanceTime } from './model/CreateFactorySupplementDataInstanceRequestBodySupplementDataInstanceTime';
 import { CreateFactorySupplementDataInstanceRequestBodySupplementDataRunTime } from './model/CreateFactorySupplementDataInstanceRequestBodySupplementDataRunTime';
 import { CreateFactorySupplementDataInstanceResponse } from './model/CreateFactorySupplementDataInstanceResponse';
+import { CreateLineageInfoRequest } from './model/CreateLineageInfoRequest';
+import { CreateLineageInfoResponse } from './model/CreateLineageInfoResponse';
 import { CreateManagerWorkSpaceRequest } from './model/CreateManagerWorkSpaceRequest';
 import { CreateManagerWorkSpaceResponse } from './model/CreateManagerWorkSpaceResponse';
 import { CreateOrUpdateAssetRequest } from './model/CreateOrUpdateAssetRequest';
@@ -456,6 +459,7 @@ import { L2Statistic } from './model/L2Statistic';
 import { L3 } from './model/L3';
 import { LayerPath } from './model/LayerPath';
 import { Lineage } from './model/Lineage';
+import { LineageInfoRequest } from './model/LineageInfoRequest';
 import { LineageRelation } from './model/LineageRelation';
 import { LinkAttributeAndElementVO } from './model/LinkAttributeAndElementVO';
 import { ListAggregationLogicTablesRequest } from './model/ListAggregationLogicTablesRequest';
@@ -967,8 +971,10 @@ import { SyncStatusEnum } from './model/SyncStatusEnum';
 import { SyncStatusStatisticVO } from './model/SyncStatusStatisticVO';
 import { TableColumnDTO } from './model/TableColumnDTO';
 import { TableInfo } from './model/TableInfo';
+import { TableInfoV2 } from './model/TableInfoV2';
 import { TableLineage } from './model/TableLineage';
 import { TableLineageInfo } from './model/TableLineageInfo';
+import { TableLineageV2 } from './model/TableLineageV2';
 import { TableMappingDetailVO } from './model/TableMappingDetailVO';
 import { TableMappingVO } from './model/TableMappingVO';
 import { TableModelAttributeVO } from './model/TableModelAttributeVO';
@@ -1959,6 +1965,26 @@ export class DataArtsStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建血缘信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建血缘信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)
+     * @param {LineageInfoRequest} createLineageInfoRequestBody 血缘信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLineageInfo(createLineageInfoRequest?: CreateLineageInfoRequest): Promise<CreateLineageInfoResponse> {
+        const options = ParamCreater().createLineageInfo(createLineageInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -10462,6 +10488,51 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建血缘信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLineageInfo(createLineageInfoRequest?: CreateLineageInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/lineage/lineage-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createLineageInfoRequest !== null && createLineageInfoRequest !== undefined) {
+                if (createLineageInfoRequest instanceof CreateLineageInfoRequest) {
+                    workspace = createLineageInfoRequest.workspace;
+                    body = createLineageInfoRequest.body
+                } else {
+                    workspace = createLineageInfoRequest['workspace'];
+                    body = createLineageInfoRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;

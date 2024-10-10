@@ -305,6 +305,7 @@ import { LiveEventCallBackConfig } from './model/LiveEventCallBackConfig';
 import { LiveEventReportRequest } from './model/LiveEventReportRequest';
 import { LiveEventReportResponse } from './model/LiveEventReportResponse';
 import { LiveJobLog } from './model/LiveJobLog';
+import { LiveRoomInteractionConfig } from './model/LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './model/LiveRoomInteractionRuleInfo';
 import { LiveShootScriptItem } from './model/LiveShootScriptItem';
 import { LiveVideoScriptInfo } from './model/LiveVideoScriptInfo';
@@ -3747,7 +3748,11 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建生成播报内容的语音试听文件任务。第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112
+     * 该接口用于创建生成播报内容的语音试听文件任务。
+     * 
+     * [第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112](tag:hc)
+     * 
+     * [第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/intl/contents/939bf377-3005-472b-a4e2-383911e6102f](tag:hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -13847,7 +13852,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建生成播报内容的语音试听文件任务。第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112
+         * 该接口用于创建生成播报内容的语音试听文件任务。
+         * 
+         * [第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112](tag:hc)
+         * 
+         * [第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/intl/contents/939bf377-3005-472b-a4e2-383911e6102f](tag:hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

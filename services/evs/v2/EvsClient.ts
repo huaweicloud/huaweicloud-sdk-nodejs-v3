@@ -529,7 +529,6 @@ export class EvsClient {
      * @param {string} [ids] 云硬盘id列表，格式为ids&#x3D;[\&#39;id1\&#39;,\&#39;id2\&#39;,...,\&#39;idx\&#39;]，返回“ids”中有效id的云硬盘详情，无效的id会被忽略。 支持查询最多60个id对应的云硬盘详情。 如果“id”和“ids”查询参数同时存在，“id”会被忽略。
      * @param {string} [enterpriseProjectId] 指定企业项目id进行过滤。 传入“all_granted_eps”，代表查询权限范围内的所有企业项目下的云硬盘。 &gt; 说明： &gt;  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参考：\&quot;[企业管理用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0123692049.html)\&quot;。
      * @param {string} [serverId] 云服务器id。
-     * @param {string} [snapshotPolicyId] 自动快照策略ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1591,8 +1590,6 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let serverId;
-            
-            let snapshotPolicyId;
 
             if (listVolumesRequest !== null && listVolumesRequest !== undefined) {
                 if (listVolumesRequest instanceof ListVolumesRequest) {
@@ -1614,7 +1611,6 @@ export const ParamCreater = function () {
                     ids = listVolumesRequest.ids;
                     enterpriseProjectId = listVolumesRequest.enterpriseProjectId;
                     serverId = listVolumesRequest.serverId;
-                    snapshotPolicyId = listVolumesRequest.snapshotPolicyId;
                 } else {
                     marker = listVolumesRequest['marker'];
                     name = listVolumesRequest['name'];
@@ -1634,7 +1630,6 @@ export const ParamCreater = function () {
                     ids = listVolumesRequest['ids'];
                     enterpriseProjectId = listVolumesRequest['enterprise_project_id'];
                     serverId = listVolumesRequest['server_id'];
-                    snapshotPolicyId = listVolumesRequest['snapshot_policy_id'];
                 }
             }
 
@@ -1692,9 +1687,6 @@ export const ParamCreater = function () {
             }
             if (serverId !== null && serverId !== undefined) {
                 localVarQueryParameter['server_id'] = serverId;
-            }
-            if (snapshotPolicyId !== null && snapshotPolicyId !== undefined) {
-                localVarQueryParameter['snapshot_policy_id'] = snapshotPolicyId;
             }
 
             options.queryParams = localVarQueryParameter;

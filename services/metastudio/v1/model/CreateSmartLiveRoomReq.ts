@@ -1,5 +1,6 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
+import { LiveRoomInteractionConfig } from './LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './LiveRoomInteractionRuleInfo';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
 import { PlayPolicy } from './PlayPolicy';
@@ -14,6 +15,7 @@ export class CreateSmartLiveRoomReq {
     private 'room_description'?: string;
     private 'room_type'?: CreateSmartLiveRoomReqRoomTypeEnum | string;
     private 'scene_scripts'?: Array<LiveVideoScriptInfo>;
+    private 'interaction_config'?: LiveRoomInteractionConfig;
     private 'interaction_rules'?: Array<LiveRoomInteractionRuleInfo>;
     private 'play_policy'?: PlayPolicy;
     private 'video_config'?: VideoConfig;
@@ -69,6 +71,16 @@ export class CreateSmartLiveRoomReq {
     }
     public get sceneScripts(): Array<LiveVideoScriptInfo> | undefined {
         return this['scene_scripts'];
+    }
+    public withInteractionConfig(interactionConfig: LiveRoomInteractionConfig): CreateSmartLiveRoomReq {
+        this['interaction_config'] = interactionConfig;
+        return this;
+    }
+    public set interactionConfig(interactionConfig: LiveRoomInteractionConfig  | undefined) {
+        this['interaction_config'] = interactionConfig;
+    }
+    public get interactionConfig(): LiveRoomInteractionConfig | undefined {
+        return this['interaction_config'];
     }
     public withInteractionRules(interactionRules: Array<LiveRoomInteractionRuleInfo>): CreateSmartLiveRoomReq {
         this['interaction_rules'] = interactionRules;

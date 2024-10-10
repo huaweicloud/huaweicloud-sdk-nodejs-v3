@@ -12,6 +12,7 @@ export class TriggerProcess {
     private 'reply_order'?: TriggerProcessReplyOrderEnum | string;
     private 'reply_role'?: TriggerProcessReplyRoleEnum | string;
     private 'robot_id'?: string;
+    private 'play_type'?: TriggerProcessPlayTypeEnum | string;
     public constructor() { 
     }
     public withTimeWindow(timeWindow: number): TriggerProcess {
@@ -104,6 +105,16 @@ export class TriggerProcess {
     public get robotId(): string | undefined {
         return this['robot_id'];
     }
+    public withPlayType(playType: TriggerProcessPlayTypeEnum | string): TriggerProcess {
+        this['play_type'] = playType;
+        return this;
+    }
+    public set playType(playType: TriggerProcessPlayTypeEnum | string  | undefined) {
+        this['play_type'] = playType;
+    }
+    public get playType(): TriggerProcessPlayTypeEnum | string | undefined {
+        return this['play_type'];
+    }
 }
 
 /**
@@ -131,4 +142,13 @@ export enum TriggerProcessReplyOrderEnum {
 export enum TriggerProcessReplyRoleEnum {
     STREAMER = 'STREAMER',
     CO_STREAMER = 'CO_STREAMER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TriggerProcessPlayTypeEnum {
+    APPEND = 'APPEND',
+    INSERT = 'INSERT',
+    PLAY_NOW = 'PLAY_NOW'
 }

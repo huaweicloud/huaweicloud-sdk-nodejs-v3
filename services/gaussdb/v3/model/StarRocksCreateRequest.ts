@@ -20,6 +20,7 @@ export class StarRocksCreateRequest {
     private 'az_code'?: string;
     private 'time_zone'?: string;
     private 'tags_info'?: StarRocksCreateRequestTagsInfo;
+    private 'security_group_id'?: string;
     public constructor(name?: string, engine?: StarRocksCreateRequestEngine, ha?: StarRocksCreateRequestHa, feFlavorId?: string, beFlavorId?: string, dbRootPwd?: string, feCount?: number, beCount?: number, azMode?: string, feVolume?: StarRocksCreateRequestFeVolume, beVolume?: StarRocksCreateRequestBeVolume, azCode?: string, tagsInfo?: StarRocksCreateRequestTagsInfo) { 
         this['name'] = name;
         this['engine'] = engine;
@@ -156,6 +157,16 @@ export class StarRocksCreateRequest {
     }
     public get tagsInfo(): StarRocksCreateRequestTagsInfo | undefined {
         return this['tags_info'];
+    }
+    public withSecurityGroupId(securityGroupId: string): StarRocksCreateRequest {
+        this['security_group_id'] = securityGroupId;
+        return this;
+    }
+    public set securityGroupId(securityGroupId: string  | undefined) {
+        this['security_group_id'] = securityGroupId;
+    }
+    public get securityGroupId(): string | undefined {
+        return this['security_group_id'];
     }
 }
 

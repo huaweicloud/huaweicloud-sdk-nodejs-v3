@@ -302,6 +302,7 @@ export * from './model/LiveEventCallBackConfig';
 export * from './model/LiveEventReportRequest';
 export * from './model/LiveEventReportResponse';
 export * from './model/LiveJobLog';
+export * from './model/LiveRoomInteractionConfig';
 export * from './model/LiveRoomInteractionRuleInfo';
 export * from './model/LiveShootScriptItem';
 export * from './model/LiveVideoScriptInfo';
