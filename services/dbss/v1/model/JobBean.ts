@@ -6,6 +6,7 @@ export class JobBean {
     private 'job_type'?: string;
     private 'server_id'?: string;
     private 'server_name'?: string;
+    private 'resource_id'?: string;
     private 'begin_time'?: number;
     private 'end_time'?: number;
     private 'charge_mode'?: string;
@@ -13,12 +14,13 @@ export class JobBean {
     private 'fail_reason'?: string;
     private 'ha_id'?: string;
     private 'ha_name'?: string;
-    public constructor(jobId?: string, status?: string, jobType?: string, serverId?: string, serverName?: string, beginTime?: number, endTime?: number, chargeMode?: string) { 
+    public constructor(jobId?: string, status?: string, jobType?: string, serverId?: string, serverName?: string, resourceId?: string, beginTime?: number, endTime?: number, chargeMode?: string) { 
         this['job_id'] = jobId;
         this['status'] = status;
         this['job_type'] = jobType;
         this['server_id'] = serverId;
         this['server_name'] = serverName;
+        this['resource_id'] = resourceId;
         this['begin_time'] = beginTime;
         this['end_time'] = endTime;
         this['charge_mode'] = chargeMode;
@@ -66,6 +68,16 @@ export class JobBean {
     }
     public get serverName(): string | undefined {
         return this['server_name'];
+    }
+    public withResourceId(resourceId: string): JobBean {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
     }
     public withBeginTime(beginTime: number): JobBean {
         this['begin_time'] = beginTime;

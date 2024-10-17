@@ -14,7 +14,12 @@ export class DataBase {
     private 'audit_status'?: string;
     private 'agent_url'?: Array<string>;
     private 'db_classification'?: string;
-    public constructor(name?: string, type?: string, version?: string, charset?: string, ip?: string, port?: string, os?: string, instanceName?: string, dbClassification?: string) { 
+    private 'rds_audit_switch_mismatch'?: boolean;
+    private 'rds_id'?: string;
+    private 'rds_obj_info'?: string;
+    private 'dws_obj_info'?: string;
+    private 'clouddb_obj_info'?: string;
+    public constructor(name?: string, type?: string, version?: string, charset?: string, ip?: string, port?: string, os?: string, status?: string, instanceName?: string, dbClassification?: string) { 
         this['name'] = name;
         this['type'] = type;
         this['version'] = version;
@@ -22,6 +27,7 @@ export class DataBase {
         this['ip'] = ip;
         this['port'] = port;
         this['os'] = os;
+        this['status'] = status;
         this['instance_name'] = instanceName;
         this['db_classification'] = dbClassification;
     }
@@ -100,5 +106,55 @@ export class DataBase {
     }
     public get dbClassification(): string | undefined {
         return this['db_classification'];
+    }
+    public withRdsAuditSwitchMismatch(rdsAuditSwitchMismatch: boolean): DataBase {
+        this['rds_audit_switch_mismatch'] = rdsAuditSwitchMismatch;
+        return this;
+    }
+    public set rdsAuditSwitchMismatch(rdsAuditSwitchMismatch: boolean  | undefined) {
+        this['rds_audit_switch_mismatch'] = rdsAuditSwitchMismatch;
+    }
+    public get rdsAuditSwitchMismatch(): boolean | undefined {
+        return this['rds_audit_switch_mismatch'];
+    }
+    public withRdsId(rdsId: string): DataBase {
+        this['rds_id'] = rdsId;
+        return this;
+    }
+    public set rdsId(rdsId: string  | undefined) {
+        this['rds_id'] = rdsId;
+    }
+    public get rdsId(): string | undefined {
+        return this['rds_id'];
+    }
+    public withRdsObjInfo(rdsObjInfo: string): DataBase {
+        this['rds_obj_info'] = rdsObjInfo;
+        return this;
+    }
+    public set rdsObjInfo(rdsObjInfo: string  | undefined) {
+        this['rds_obj_info'] = rdsObjInfo;
+    }
+    public get rdsObjInfo(): string | undefined {
+        return this['rds_obj_info'];
+    }
+    public withDwsObjInfo(dwsObjInfo: string): DataBase {
+        this['dws_obj_info'] = dwsObjInfo;
+        return this;
+    }
+    public set dwsObjInfo(dwsObjInfo: string  | undefined) {
+        this['dws_obj_info'] = dwsObjInfo;
+    }
+    public get dwsObjInfo(): string | undefined {
+        return this['dws_obj_info'];
+    }
+    public withClouddbObjInfo(clouddbObjInfo: string): DataBase {
+        this['clouddb_obj_info'] = clouddbObjInfo;
+        return this;
+    }
+    public set clouddbObjInfo(clouddbObjInfo: string  | undefined) {
+        this['clouddb_obj_info'] = clouddbObjInfo;
+    }
+    public get clouddbObjInfo(): string | undefined {
+        return this['clouddb_obj_info'];
     }
 }

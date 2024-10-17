@@ -932,8 +932,8 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询刷新预热URL记录
-     * @param {number} [startTime] 起始时间戳（毫秒），默认当天00:00。
-     * @param {number} [endTime] 结束时间戳（毫秒），默认次日00:00。
+     * @param {number} [startTime] 查询起始时间戳（毫秒），不传默认当天00:00，需与结束时间戳同时指定，时间跨度不能超过24小时。
+     * @param {number} [endTime] 查询结束时间戳（毫秒），不传默认次日00:00，需与开始时间戳同时指定，时间跨度不能超过24小时。
      * @param {number} [offset] 偏移量：特定数据字段与起始数据字段位置的距离，默认为0。
      * @param {number} [limit] 单次查询数据条数，上限为100，默认为10。
      * @param {string} [url] 刷新预热url。

@@ -210,6 +210,8 @@ export * from './model/NovaServerNetwork';
 export * from './model/NovaServerSchedulerHints';
 export * from './model/NovaServerSecurityGroup';
 export * from './model/NovaServerVolume';
+export * from './model/NovaShowFlavorExtraSpecsRequest';
+export * from './model/NovaShowFlavorExtraSpecsResponse';
 export * from './model/NovaShowKeypairRequest';
 export * from './model/NovaShowKeypairResponse';
 export * from './model/NovaShowServerInterfaceRequest';

@@ -12,13 +12,12 @@ export class Policies {
     public count?: number;
     private 'alarm_level'?: number;
     private 'suppress_duration'?: PoliciesSuppressDurationEnum | number;
-    public constructor(namespace?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, value?: number, count?: number, suppressDuration?: number) { 
+    public constructor(namespace?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number, suppressDuration?: number) { 
         this['namespace'] = namespace;
         this['metric_name'] = metricName;
         this['period'] = period;
         this['filter'] = filter;
         this['comparison_operator'] = comparisonOperator;
-        this['value'] = value;
         this['count'] = count;
         this['suppress_duration'] = suppressDuration;
     }

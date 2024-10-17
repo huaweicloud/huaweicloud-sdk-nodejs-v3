@@ -3,9 +3,7 @@
 export class ProjectResourceTagResponseTags {
     public key?: string;
     public values?: Array<string>;
-    public constructor(key?: string, values?: Array<string>) { 
-        this['key'] = key;
-        this['values'] = values;
+    public constructor() { 
     }
     public withKey(key: string): ProjectResourceTagResponseTags {
         this['key'] = key;

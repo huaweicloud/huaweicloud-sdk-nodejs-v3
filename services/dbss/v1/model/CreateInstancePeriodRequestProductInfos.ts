@@ -6,12 +6,11 @@ export class CreateInstancePeriodRequestProductInfos {
     private 'resource_type'?: string;
     private 'resource_spec_code'?: string;
     private 'product_spec_desc'?: string;
-    public constructor(productId?: string, cloudServiceType?: string, resourceType?: string, resourceSpecCode?: string, productSpecDesc?: string) { 
+    public constructor(productId?: string, cloudServiceType?: string, resourceType?: string, resourceSpecCode?: string) { 
         this['product_id'] = productId;
         this['cloud_service_type'] = cloudServiceType;
         this['resource_type'] = resourceType;
         this['resource_spec_code'] = resourceSpecCode;
-        this['product_spec_desc'] = productSpecDesc;
     }
     public withProductId(productId: string): CreateInstancePeriodRequestProductInfos {
         this['product_id'] = productId;

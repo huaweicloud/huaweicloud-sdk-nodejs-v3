@@ -1,3 +1,7 @@
+import { AttachedEnterpriseRouterId } from './AttachedEnterpriseRouterId';
+import { AttachedEnterpriseRouterProjectId } from './AttachedEnterpriseRouterProjectId';
+import { AttachedEnterpriseRouterRegionId } from './AttachedEnterpriseRouterRegionId';
+import { AttachedEnterpriseRouterTableId } from './AttachedEnterpriseRouterTableId';
 import { AttachmentId } from './AttachmentId';
 import { CentralNetworkPlaneId } from './CentralNetworkPlaneId';
 import { Description } from './Description';
@@ -5,6 +9,7 @@ import { EnterpriseRouterId } from './EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './EnterpriseRouterRegionId';
 import { EnterpriseRouterTableId } from './EnterpriseRouterTableId';
+import { HostedCloudEnum } from './HostedCloudEnum';
 import { Name } from './Name';
 import { NonRequiredAutoAssociateRouteEnabled } from './NonRequiredAutoAssociateRouteEnabled';
 import { NonRequiredAutoPropagateRouteEnabled } from './NonRequiredAutoPropagateRouteEnabled';
@@ -23,8 +28,8 @@ export class CreateCentralNetworkErRouteTableAttachment {
     private 'attached_er_table_region_id'?: string;
     private 'attached_er_id'?: string;
     private 'attached_er_table_id'?: string;
-    private 'hosted_cloud'?: CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum | string;
-    public constructor(name?: string, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, centralNetworkPlaneId?: string, enterpriseRouterTableId?: string, attachedErTableProjectId?: string, attachedErTableRegionId?: string, attachedErId?: string, attachedErTableId?: string, hostedCloud?: string) { 
+    private 'hosted_cloud'?: HostedCloudEnum;
+    public constructor(name?: string, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, centralNetworkPlaneId?: string, enterpriseRouterTableId?: string, attachedErTableProjectId?: string, attachedErTableRegionId?: string, attachedErId?: string, attachedErTableId?: string, hostedCloud?: HostedCloudEnum) { 
         this['name'] = name;
         this['enterprise_router_id'] = enterpriseRouterId;
         this['enterprise_router_project_id'] = enterpriseRouterProjectId;
@@ -145,23 +150,14 @@ export class CreateCentralNetworkErRouteTableAttachment {
     public get attachedErTableId(): string | undefined {
         return this['attached_er_table_id'];
     }
-    public withHostedCloud(hostedCloud: CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum | string): CreateCentralNetworkErRouteTableAttachment {
+    public withHostedCloud(hostedCloud: HostedCloudEnum): CreateCentralNetworkErRouteTableAttachment {
         this['hosted_cloud'] = hostedCloud;
         return this;
     }
-    public set hostedCloud(hostedCloud: CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum | string  | undefined) {
+    public set hostedCloud(hostedCloud: HostedCloudEnum  | undefined) {
         this['hosted_cloud'] = hostedCloud;
     }
-    public get hostedCloud(): CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum | string | undefined {
+    public get hostedCloud(): HostedCloudEnum | undefined {
         return this['hosted_cloud'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateCentralNetworkErRouteTableAttachmentHostedCloudEnum {
-    HWCLOUD = 'HWCloud',
-    IRELAND = 'Ireland'
 }

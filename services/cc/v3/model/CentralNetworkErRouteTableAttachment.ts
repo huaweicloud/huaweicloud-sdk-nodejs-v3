@@ -1,4 +1,10 @@
 import { ApprovedStateEnum } from './ApprovedStateEnum';
+import { AttachedEnterpriseRouterAttachmentId } from './AttachedEnterpriseRouterAttachmentId';
+import { AttachedEnterpriseRouterId } from './AttachedEnterpriseRouterId';
+import { AttachedEnterpriseRouterProjectId } from './AttachedEnterpriseRouterProjectId';
+import { AttachedEnterpriseRouterRegionId } from './AttachedEnterpriseRouterRegionId';
+import { AttachedEnterpriseRouterSiteCode } from './AttachedEnterpriseRouterSiteCode';
+import { AttachedEnterpriseRouterTableId } from './AttachedEnterpriseRouterTableId';
 import { AutoAssociateRouteEnabled } from './AutoAssociateRouteEnabled';
 import { AutoPropagateRouteEnabled } from './AutoPropagateRouteEnabled';
 import { BandwidthSize } from './BandwidthSize';
@@ -45,16 +51,16 @@ export class CentralNetworkErRouteTableAttachment {
     private 'enterprise_router_attachment_id'?: string;
     private 'enterprise_router_table_id'?: string;
     private 'enterprise_router_site_code'?: string;
-    private 'attached_er_table_id'?: string;
-    private 'attached_er_table_region_id'?: string;
     private 'attached_er_table_project_id'?: string;
-    private 'attached_er_table_site_code'?: string;
+    private 'attached_er_table_region_id'?: string;
     private 'attached_er_id'?: string;
+    private 'attached_er_table_id'?: string;
     private 'attached_er_attachment_id'?: string;
+    private 'attached_er_table_site_code'?: string;
     private 'approved_state'?: ApprovedStateEnum;
     private 'hosted_cloud'?: HostedCloudEnum;
     public reason?: string;
-    public constructor(id?: string, name?: string, domainId?: string, state?: CentralNetworkConnectionStateEnum, createdAt?: Date, updatedAt?: Date, centralNetworkId?: string, centralNetworkPlaneId?: string, isFrozen?: boolean, bandwidthType?: BandwidthTypeEnum, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, enterpriseRouterTableId?: string, enterpriseRouterSiteCode?: string, attachedErTableId?: string, attachedErTableRegionId?: string, attachedErTableProjectId?: string, attachedErTableSiteCode?: string, attachedErId?: string, approvedState?: ApprovedStateEnum) { 
+    public constructor(id?: string, name?: string, domainId?: string, state?: CentralNetworkConnectionStateEnum, createdAt?: Date, updatedAt?: Date, centralNetworkId?: string, centralNetworkPlaneId?: string, isFrozen?: boolean, bandwidthType?: BandwidthTypeEnum, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, enterpriseRouterTableId?: string, enterpriseRouterSiteCode?: string, attachedErTableProjectId?: string, attachedErTableRegionId?: string, attachedErId?: string, attachedErTableId?: string, attachedErTableSiteCode?: string, approvedState?: ApprovedStateEnum) { 
         this['id'] = id;
         this['name'] = name;
         this['domain_id'] = domainId;
@@ -70,11 +76,11 @@ export class CentralNetworkErRouteTableAttachment {
         this['enterprise_router_region_id'] = enterpriseRouterRegionId;
         this['enterprise_router_table_id'] = enterpriseRouterTableId;
         this['enterprise_router_site_code'] = enterpriseRouterSiteCode;
-        this['attached_er_table_id'] = attachedErTableId;
-        this['attached_er_table_region_id'] = attachedErTableRegionId;
         this['attached_er_table_project_id'] = attachedErTableProjectId;
-        this['attached_er_table_site_code'] = attachedErTableSiteCode;
+        this['attached_er_table_region_id'] = attachedErTableRegionId;
         this['attached_er_id'] = attachedErId;
+        this['attached_er_table_id'] = attachedErTableId;
+        this['attached_er_table_site_code'] = attachedErTableSiteCode;
         this['approved_state'] = approvedState;
     }
     public withId(id: string): CentralNetworkErRouteTableAttachment {
@@ -243,15 +249,15 @@ export class CentralNetworkErRouteTableAttachment {
     public get enterpriseRouterSiteCode(): string | undefined {
         return this['enterprise_router_site_code'];
     }
-    public withAttachedErTableId(attachedErTableId: string): CentralNetworkErRouteTableAttachment {
-        this['attached_er_table_id'] = attachedErTableId;
+    public withAttachedErTableProjectId(attachedErTableProjectId: string): CentralNetworkErRouteTableAttachment {
+        this['attached_er_table_project_id'] = attachedErTableProjectId;
         return this;
     }
-    public set attachedErTableId(attachedErTableId: string  | undefined) {
-        this['attached_er_table_id'] = attachedErTableId;
+    public set attachedErTableProjectId(attachedErTableProjectId: string  | undefined) {
+        this['attached_er_table_project_id'] = attachedErTableProjectId;
     }
-    public get attachedErTableId(): string | undefined {
-        return this['attached_er_table_id'];
+    public get attachedErTableProjectId(): string | undefined {
+        return this['attached_er_table_project_id'];
     }
     public withAttachedErTableRegionId(attachedErTableRegionId: string): CentralNetworkErRouteTableAttachment {
         this['attached_er_table_region_id'] = attachedErTableRegionId;
@@ -263,26 +269,6 @@ export class CentralNetworkErRouteTableAttachment {
     public get attachedErTableRegionId(): string | undefined {
         return this['attached_er_table_region_id'];
     }
-    public withAttachedErTableProjectId(attachedErTableProjectId: string): CentralNetworkErRouteTableAttachment {
-        this['attached_er_table_project_id'] = attachedErTableProjectId;
-        return this;
-    }
-    public set attachedErTableProjectId(attachedErTableProjectId: string  | undefined) {
-        this['attached_er_table_project_id'] = attachedErTableProjectId;
-    }
-    public get attachedErTableProjectId(): string | undefined {
-        return this['attached_er_table_project_id'];
-    }
-    public withAttachedErTableSiteCode(attachedErTableSiteCode: string): CentralNetworkErRouteTableAttachment {
-        this['attached_er_table_site_code'] = attachedErTableSiteCode;
-        return this;
-    }
-    public set attachedErTableSiteCode(attachedErTableSiteCode: string  | undefined) {
-        this['attached_er_table_site_code'] = attachedErTableSiteCode;
-    }
-    public get attachedErTableSiteCode(): string | undefined {
-        return this['attached_er_table_site_code'];
-    }
     public withAttachedErId(attachedErId: string): CentralNetworkErRouteTableAttachment {
         this['attached_er_id'] = attachedErId;
         return this;
@@ -293,6 +279,16 @@ export class CentralNetworkErRouteTableAttachment {
     public get attachedErId(): string | undefined {
         return this['attached_er_id'];
     }
+    public withAttachedErTableId(attachedErTableId: string): CentralNetworkErRouteTableAttachment {
+        this['attached_er_table_id'] = attachedErTableId;
+        return this;
+    }
+    public set attachedErTableId(attachedErTableId: string  | undefined) {
+        this['attached_er_table_id'] = attachedErTableId;
+    }
+    public get attachedErTableId(): string | undefined {
+        return this['attached_er_table_id'];
+    }
     public withAttachedErAttachmentId(attachedErAttachmentId: string): CentralNetworkErRouteTableAttachment {
         this['attached_er_attachment_id'] = attachedErAttachmentId;
         return this;
@@ -302,6 +298,16 @@ export class CentralNetworkErRouteTableAttachment {
     }
     public get attachedErAttachmentId(): string | undefined {
         return this['attached_er_attachment_id'];
+    }
+    public withAttachedErTableSiteCode(attachedErTableSiteCode: string): CentralNetworkErRouteTableAttachment {
+        this['attached_er_table_site_code'] = attachedErTableSiteCode;
+        return this;
+    }
+    public set attachedErTableSiteCode(attachedErTableSiteCode: string  | undefined) {
+        this['attached_er_table_site_code'] = attachedErTableSiteCode;
+    }
+    public get attachedErTableSiteCode(): string | undefined {
+        return this['attached_er_table_site_code'];
     }
     public withApprovedState(approvedState: ApprovedStateEnum): CentralNetworkErRouteTableAttachment {
         this['approved_state'] = approvedState;

@@ -212,6 +212,8 @@ import { NovaServerNetwork } from './model/NovaServerNetwork';
 import { NovaServerSchedulerHints } from './model/NovaServerSchedulerHints';
 import { NovaServerSecurityGroup } from './model/NovaServerSecurityGroup';
 import { NovaServerVolume } from './model/NovaServerVolume';
+import { NovaShowFlavorExtraSpecsRequest } from './model/NovaShowFlavorExtraSpecsRequest';
+import { NovaShowFlavorExtraSpecsResponse } from './model/NovaShowFlavorExtraSpecsResponse';
 import { NovaShowKeypairRequest } from './model/NovaShowKeypairRequest';
 import { NovaShowKeypairResponse } from './model/NovaShowKeypairResponse';
 import { NovaShowServerInterfaceRequest } from './model/NovaShowServerInterfaceRequest';
@@ -1468,6 +1470,25 @@ export class EcsClient {
      */
     public novaListServersDetails(novaListServersDetailsRequest?: NovaListServersDetailsRequest): Promise<NovaListServersDetailsResponse> {
         const options = ParamCreater().novaListServersDetails(novaListServersDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定的规格的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云服务器规格extra_specs的详情
+     * @param {string} flavorId 规格id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public novaShowFlavorExtraSpecs(novaShowFlavorExtraSpecsRequest?: NovaShowFlavorExtraSpecsRequest): Promise<NovaShowFlavorExtraSpecsResponse> {
+        const options = ParamCreater().novaShowFlavorExtraSpecs(novaShowFlavorExtraSpecsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4546,6 +4567,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定的规格的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        novaShowFlavorExtraSpecs(novaShowFlavorExtraSpecsRequest?: NovaShowFlavorExtraSpecsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/{project_id}/flavors/{flavor_id}/os-extra_specs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let flavorId;
+
+            if (novaShowFlavorExtraSpecsRequest !== null && novaShowFlavorExtraSpecsRequest !== undefined) {
+                if (novaShowFlavorExtraSpecsRequest instanceof NovaShowFlavorExtraSpecsRequest) {
+                    flavorId = novaShowFlavorExtraSpecsRequest.flavorId;
+                } else {
+                    flavorId = novaShowFlavorExtraSpecsRequest['flavor_id'];
+                }
+            }
+
+        
+            if (flavorId === null || flavorId === undefined) {
+            throw new RequiredError('flavorId','Required parameter flavorId was null or undefined when calling novaShowFlavorExtraSpecs.');
+            }
+
+            options.pathParams = { 'flavor_id': flavorId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

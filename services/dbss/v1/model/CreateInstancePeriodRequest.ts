@@ -5,8 +5,8 @@ import { KeyValueBean } from './KeyValueBean';
 
 
 export class CreateInstancePeriodRequest {
-    private 'flavor_ref'?: string;
     public name?: string;
+    private 'flavor_ref'?: string;
     private 'vpc_id'?: string;
     private 'availability_zone'?: string;
     private 'enterprise_project_id'?: string;
@@ -23,12 +23,11 @@ export class CreateInstancePeriodRequest {
     public tags?: Array<KeyValueBean>;
     private 'promotion_info'?: string;
     private 'is_auto_renew'?: number;
-    public constructor(flavorRef?: string, name?: string, vpcId?: string, availabilityZone?: string, enterpriseProjectId?: string, nics?: Array<CreateInstancePeriodRequestNics>, securityGroups?: Array<CreateInstancePeriodRequestSecurityGroups>, region?: string, cloudServiceType?: string, chargingMode?: number, periodType?: number, periodNum?: number, subscriptionNum?: number, productInfos?: Array<CreateInstancePeriodRequestProductInfos>) { 
-        this['flavor_ref'] = flavorRef;
+    public constructor(name?: string, flavorRef?: string, vpcId?: string, availabilityZone?: string, nics?: Array<CreateInstancePeriodRequestNics>, securityGroups?: Array<CreateInstancePeriodRequestSecurityGroups>, region?: string, cloudServiceType?: string, chargingMode?: number, periodType?: number, periodNum?: number, subscriptionNum?: number, productInfos?: Array<CreateInstancePeriodRequestProductInfos>) { 
         this['name'] = name;
+        this['flavor_ref'] = flavorRef;
         this['vpc_id'] = vpcId;
         this['availability_zone'] = availabilityZone;
-        this['enterprise_project_id'] = enterpriseProjectId;
         this['nics'] = nics;
         this['security_groups'] = securityGroups;
         this['region'] = region;
@@ -39,6 +38,10 @@ export class CreateInstancePeriodRequest {
         this['subscription_num'] = subscriptionNum;
         this['product_infos'] = productInfos;
     }
+    public withName(name: string): CreateInstancePeriodRequest {
+        this['name'] = name;
+        return this;
+    }
     public withFlavorRef(flavorRef: string): CreateInstancePeriodRequest {
         this['flavor_ref'] = flavorRef;
         return this;
@@ -48,10 +51,6 @@ export class CreateInstancePeriodRequest {
     }
     public get flavorRef(): string | undefined {
         return this['flavor_ref'];
-    }
-    public withName(name: string): CreateInstancePeriodRequest {
-        this['name'] = name;
-        return this;
     }
     public withVpcId(vpcId: string): CreateInstancePeriodRequest {
         this['vpc_id'] = vpcId;

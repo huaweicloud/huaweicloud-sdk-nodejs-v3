@@ -18,6 +18,12 @@ import { AssociateGlobalConnectionBandwidthInstanceRequestBody } from './model/A
 import { AssociateGlobalConnectionBandwidthInstanceRequestInfo } from './model/AssociateGlobalConnectionBandwidthInstanceRequestInfo';
 import { AssociateGlobalConnectionBandwidthInstanceResponse } from './model/AssociateGlobalConnectionBandwidthInstanceResponse';
 import { AssociateGlobalConnectionBandwidthInstanceResponseInfo } from './model/AssociateGlobalConnectionBandwidthInstanceResponseInfo';
+import { AttachedEnterpriseRouterAttachmentId } from './model/AttachedEnterpriseRouterAttachmentId';
+import { AttachedEnterpriseRouterId } from './model/AttachedEnterpriseRouterId';
+import { AttachedEnterpriseRouterProjectId } from './model/AttachedEnterpriseRouterProjectId';
+import { AttachedEnterpriseRouterRegionId } from './model/AttachedEnterpriseRouterRegionId';
+import { AttachedEnterpriseRouterSiteCode } from './model/AttachedEnterpriseRouterSiteCode';
+import { AttachedEnterpriseRouterTableId } from './model/AttachedEnterpriseRouterTableId';
 import { AttachmentId } from './model/AttachmentId';
 import { AttachmentInstanceId } from './model/AttachmentInstanceId';
 import { AttachmentInstanceProjectId } from './model/AttachmentInstanceProjectId';

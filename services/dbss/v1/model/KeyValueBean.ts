@@ -3,9 +3,8 @@
 export class KeyValueBean {
     public key?: string;
     public value?: string;
-    public constructor(key?: string, value?: string) { 
+    public constructor(key?: string) { 
         this['key'] = key;
-        this['value'] = value;
     }
     public withKey(key: string): KeyValueBean {
         this['key'] = key;

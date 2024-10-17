@@ -8,6 +8,7 @@ export class EcsSpecificationBean {
     public proxy?: number;
     public ram?: number;
     public vcpus?: number;
+    private 'az_type'?: string;
     public constructor(azs?: Array<string>, id?: string, level?: string, name?: string, proxy?: number, ram?: number, vcpus?: number) { 
         this['azs'] = azs;
         this['id'] = id;
@@ -44,5 +45,15 @@ export class EcsSpecificationBean {
     public withVcpus(vcpus: number): EcsSpecificationBean {
         this['vcpus'] = vcpus;
         return this;
+    }
+    public withAzType(azType: string): EcsSpecificationBean {
+        this['az_type'] = azType;
+        return this;
+    }
+    public set azType(azType: string  | undefined) {
+        this['az_type'] = azType;
+    }
+    public get azType(): string | undefined {
+        return this['az_type'];
     }
 }

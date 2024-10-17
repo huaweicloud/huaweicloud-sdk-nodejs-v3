@@ -4,8 +4,8 @@ export class OperateLogInfo {
     public id?: string;
     public user?: string;
     public time?: string;
-    private 'function'?: string;
     public action?: string;
+    private 'function'?: string;
     public name?: string;
     public description?: string;
     public result?: string;
@@ -23,6 +23,10 @@ export class OperateLogInfo {
         this['time'] = time;
         return this;
     }
+    public withAction(action: string): OperateLogInfo {
+        this['action'] = action;
+        return this;
+    }
     public withFunction(_function: string): OperateLogInfo {
         this['function'] = _function;
         return this;
@@ -32,10 +36,6 @@ export class OperateLogInfo {
     }
     public get _function(): string | undefined {
         return this['function'];
-    }
-    public withAction(action: string): OperateLogInfo {
-        this['action'] = action;
-        return this;
     }
     public withName(name: string): OperateLogInfo {
         this['name'] = name;

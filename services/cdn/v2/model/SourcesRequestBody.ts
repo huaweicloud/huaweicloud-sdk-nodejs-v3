@@ -7,6 +7,8 @@ export class SourcesRequestBody {
     private 'obs_bucket_type'?: string;
     private 'active_standby'?: number;
     private 'enable_obs_web_hosting'?: number;
+    private 'http_port'?: number;
+    private 'https_port'?: number;
     public constructor(ipOrDomain?: string, originType?: string, activeStandby?: number) { 
         this['ip_or_domain'] = ipOrDomain;
         this['origin_type'] = originType;
@@ -71,6 +73,26 @@ export class SourcesRequestBody {
     }
     public get enableObsWebHosting(): number | undefined {
         return this['enable_obs_web_hosting'];
+    }
+    public withHttpPort(httpPort: number): SourcesRequestBody {
+        this['http_port'] = httpPort;
+        return this;
+    }
+    public set httpPort(httpPort: number  | undefined) {
+        this['http_port'] = httpPort;
+    }
+    public get httpPort(): number | undefined {
+        return this['http_port'];
+    }
+    public withHttpsPort(httpsPort: number): SourcesRequestBody {
+        this['https_port'] = httpsPort;
+        return this;
+    }
+    public set httpsPort(httpsPort: number  | undefined) {
+        this['https_port'] = httpsPort;
+    }
+    public get httpsPort(): number | undefined {
+        return this['https_port'];
     }
 }
 

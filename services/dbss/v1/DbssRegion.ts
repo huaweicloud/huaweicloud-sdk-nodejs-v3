@@ -30,6 +30,7 @@ export class DbssRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://dbss.tr-west-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://dbss.cn-east-5.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dbss.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dbss.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +57,8 @@ export class DbssRegion {
         "ap-southeast-4":DbssRegion.AP_SOUTHEAST_4,
         "tr-west-1":DbssRegion.TR_WEST_1,
         "cn-east-5":DbssRegion.CN_EAST_5,
-        "my-kualalumpur-1":DbssRegion.MY_KUALALUMPUR_1
+        "my-kualalumpur-1":DbssRegion.MY_KUALALUMPUR_1,
+        "ru-moscow-1":DbssRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {

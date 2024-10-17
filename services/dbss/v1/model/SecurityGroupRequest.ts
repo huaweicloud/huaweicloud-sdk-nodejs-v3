@@ -1,21 +1,21 @@
 
 
 export class SecurityGroupRequest {
-    private 'resource_id'?: string;
+    private 'instance_id'?: string;
     private 'securitygroup_ids'?: Array<string>;
-    public constructor(resourceId?: string, securitygroupIds?: Array<string>) { 
-        this['resource_id'] = resourceId;
+    public constructor(instanceId?: string, securitygroupIds?: Array<string>) { 
+        this['instance_id'] = instanceId;
         this['securitygroup_ids'] = securitygroupIds;
     }
-    public withResourceId(resourceId: string): SecurityGroupRequest {
-        this['resource_id'] = resourceId;
+    public withInstanceId(instanceId: string): SecurityGroupRequest {
+        this['instance_id'] = instanceId;
         return this;
     }
-    public set resourceId(resourceId: string  | undefined) {
-        this['resource_id'] = resourceId;
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
     }
-    public get resourceId(): string | undefined {
-        return this['resource_id'];
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withSecuritygroupIds(securitygroupIds: Array<string>): SecurityGroupRequest {
         this['securitygroup_ids'] = securitygroupIds;

@@ -4,8 +4,8 @@ import { TimeRangeBean } from './TimeRangeBean';
 export class OperateLogGetRequest {
     public time?: TimeRangeBean;
     private 'user_name'?: string;
-    private 'operate_name'?: string;
-    public result?: string;
+    public action?: OperateLogGetRequestActionEnum | string;
+    public result?: OperateLogGetRequestResultEnum | string;
     public page?: string;
     public size?: string;
     public constructor() { 
@@ -24,17 +24,11 @@ export class OperateLogGetRequest {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withOperateName(operateName: string): OperateLogGetRequest {
-        this['operate_name'] = operateName;
+    public withAction(action: OperateLogGetRequestActionEnum | string): OperateLogGetRequest {
+        this['action'] = action;
         return this;
     }
-    public set operateName(operateName: string  | undefined) {
-        this['operate_name'] = operateName;
-    }
-    public get operateName(): string | undefined {
-        return this['operate_name'];
-    }
-    public withResult(result: string): OperateLogGetRequest {
+    public withResult(result: OperateLogGetRequestResultEnum | string): OperateLogGetRequest {
         this['result'] = result;
         return this;
     }
@@ -46,4 +40,23 @@ export class OperateLogGetRequest {
         this['size'] = size;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OperateLogGetRequestActionEnum {
+    CREATE = 'CREATE',
+    DELETE = 'DELETE',
+    DOWNLOAD = 'DOWNLOAD',
+    UPDATE = 'UPDATE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OperateLogGetRequestResultEnum {
+    SUCCESS = 'success',
+    FAIL = 'fail'
 }

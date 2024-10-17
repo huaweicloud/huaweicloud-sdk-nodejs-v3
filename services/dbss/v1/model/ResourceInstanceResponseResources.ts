@@ -3,26 +3,16 @@ import { ResourceInstanceResponseTags } from './ResourceInstanceResponseTags';
 
 
 export class ResourceInstanceResponseResources {
-    private 'resource_detail'?: object;
     private 'resource_id'?: string;
     private 'resource_name'?: string;
+    private 'resource_detail'?: object;
     public tags?: Array<ResourceInstanceResponseTags>;
     private 'sys_tags'?: Array<ResourceInstanceResponseSysTags>;
-    public constructor(resourceDetail?: object, resourceId?: string, resourceName?: string, tags?: Array<ResourceInstanceResponseTags>) { 
-        this['resource_detail'] = resourceDetail;
+    public constructor(resourceId?: string, resourceName?: string, resourceDetail?: object, tags?: Array<ResourceInstanceResponseTags>) { 
         this['resource_id'] = resourceId;
         this['resource_name'] = resourceName;
+        this['resource_detail'] = resourceDetail;
         this['tags'] = tags;
-    }
-    public withResourceDetail(resourceDetail: object): ResourceInstanceResponseResources {
-        this['resource_detail'] = resourceDetail;
-        return this;
-    }
-    public set resourceDetail(resourceDetail: object  | undefined) {
-        this['resource_detail'] = resourceDetail;
-    }
-    public get resourceDetail(): object | undefined {
-        return this['resource_detail'];
     }
     public withResourceId(resourceId: string): ResourceInstanceResponseResources {
         this['resource_id'] = resourceId;
@@ -43,6 +33,16 @@ export class ResourceInstanceResponseResources {
     }
     public get resourceName(): string | undefined {
         return this['resource_name'];
+    }
+    public withResourceDetail(resourceDetail: object): ResourceInstanceResponseResources {
+        this['resource_detail'] = resourceDetail;
+        return this;
+    }
+    public set resourceDetail(resourceDetail: object  | undefined) {
+        this['resource_detail'] = resourceDetail;
+    }
+    public get resourceDetail(): object | undefined {
+        return this['resource_detail'];
     }
     public withTags(tags: Array<ResourceInstanceResponseTags>): ResourceInstanceResponseResources {
         this['tags'] = tags;

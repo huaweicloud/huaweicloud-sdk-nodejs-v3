@@ -3,7 +3,7 @@
 export class ListAuditRuleRisksRequest {
     private 'instance_id'?: string;
     public name?: string;
-    private 'risk_levels'?: string;
+    private 'risk_levels'?: ListAuditRuleRisksRequestRiskLevelsEnum | string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -21,14 +21,25 @@ export class ListAuditRuleRisksRequest {
         this['name'] = name;
         return this;
     }
-    public withRiskLevels(riskLevels: string): ListAuditRuleRisksRequest {
+    public withRiskLevels(riskLevels: ListAuditRuleRisksRequestRiskLevelsEnum | string): ListAuditRuleRisksRequest {
         this['risk_levels'] = riskLevels;
         return this;
     }
-    public set riskLevels(riskLevels: string  | undefined) {
+    public set riskLevels(riskLevels: ListAuditRuleRisksRequestRiskLevelsEnum | string  | undefined) {
         this['risk_levels'] = riskLevels;
     }
-    public get riskLevels(): string | undefined {
+    public get riskLevels(): ListAuditRuleRisksRequestRiskLevelsEnum | string | undefined {
         return this['risk_levels'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAuditRuleRisksRequestRiskLevelsEnum {
+    LOW = 'LOW',
+    MEDIUM = 'MEDIUM',
+    HIGH = 'HIGH',
+    NO_RISK = 'NO_RISK'
 }

@@ -4,8 +4,7 @@ import { ServersList } from './ServersList';
 export class OsStopBodyType {
     public type?: OsStopBodyTypeTypeEnum | string;
     public servers?: Array<ServersList>;
-    public constructor(type?: string, servers?: Array<ServersList>) { 
-        this['type'] = type;
+    public constructor(servers?: Array<ServersList>) { 
         this['servers'] = servers;
     }
     public withType(type: OsStopBodyTypeTypeEnum | string): OsStopBodyType {

@@ -8,7 +8,12 @@ export class RuleRiskResponseRules {
     public status?: string;
     public rank?: number;
     private 'risk_level'?: string;
-    public constructor() { 
+    private 'rule_type'?: string;
+    public constructor(id?: string, name?: string, type?: string, status?: string) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['type'] = type;
+        this['status'] = status;
     }
     public withId(id: string): RuleRiskResponseRules {
         this['id'] = id;
@@ -43,5 +48,15 @@ export class RuleRiskResponseRules {
     }
     public get riskLevel(): string | undefined {
         return this['risk_level'];
+    }
+    public withRuleType(ruleType: string): RuleRiskResponseRules {
+        this['rule_type'] = ruleType;
+        return this;
+    }
+    public set ruleType(ruleType: string  | undefined) {
+        this['rule_type'] = ruleType;
+    }
+    public get ruleType(): string | undefined {
+        return this['rule_type'];
     }
 }

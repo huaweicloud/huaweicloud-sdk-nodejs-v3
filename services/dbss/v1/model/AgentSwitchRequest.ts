@@ -2,7 +2,7 @@
 
 export class AgentSwitchRequest {
     private 'agent_id'?: string;
-    public status?: number;
+    public status?: AgentSwitchRequestStatusEnum | number;
     public constructor(agentId?: string, status?: number) { 
         this['agent_id'] = agentId;
         this['status'] = status;
@@ -17,8 +17,17 @@ export class AgentSwitchRequest {
     public get agentId(): string | undefined {
         return this['agent_id'];
     }
-    public withStatus(status: number): AgentSwitchRequest {
+    public withStatus(status: AgentSwitchRequestStatusEnum | number): AgentSwitchRequest {
         this['status'] = status;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AgentSwitchRequestStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

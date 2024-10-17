@@ -3,7 +3,9 @@
 export class ResourceInstanceTagRequestMatches {
     public key?: string;
     public value?: string;
-    public constructor() { 
+    public constructor(key?: string, value?: string) { 
+        this['key'] = key;
+        this['value'] = value;
     }
     public withKey(key: string): ResourceInstanceTagRequestMatches {
         this['key'] = key;

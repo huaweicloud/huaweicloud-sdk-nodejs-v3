@@ -3,7 +3,7 @@
 export class TimeRangeBean {
     private 'end_time'?: string;
     private 'start_time'?: string;
-    private 'time_range'?: string;
+    private 'time_range'?: TimeRangeBeanTimeRangeEnum | string;
     public constructor() { 
     }
     public withEndTime(endTime: string): TimeRangeBean {
@@ -26,14 +26,28 @@ export class TimeRangeBean {
     public get startTime(): string | undefined {
         return this['start_time'];
     }
-    public withTimeRange(timeRange: string): TimeRangeBean {
+    public withTimeRange(timeRange: TimeRangeBeanTimeRangeEnum | string): TimeRangeBean {
         this['time_range'] = timeRange;
         return this;
     }
-    public set timeRange(timeRange: string  | undefined) {
+    public set timeRange(timeRange: TimeRangeBeanTimeRangeEnum | string  | undefined) {
         this['time_range'] = timeRange;
     }
-    public get timeRange(): string | undefined {
+    public get timeRange(): TimeRangeBeanTimeRangeEnum | string | undefined {
         return this['time_range'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TimeRangeBeanTimeRangeEnum {
+    HALF_HOUR = 'HALF_HOUR',
+    HOUR = ' HOUR',
+    THREE_HOUR = ' THREE_HOUR',
+    TWELVE_HOUR = ' TWELVE_HOUR',
+    DAY = ' DAY',
+    WEEK = ' WEEK',
+    MONTH = ' MONTH'
 }
