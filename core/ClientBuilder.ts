@@ -27,6 +27,7 @@ import { GlobalCredentials } from "./auth/GlobalCredentials";
 import { SdkException } from "./exception/SdkException";
 import { Region } from "./region/region";
 import { UserOptions } from "./UserOptions";
+import { LoggerOptions } from "./logger";
 import * as path from "path";
 
 interface CredParams {
@@ -46,6 +47,7 @@ export class ClientBuilder<T> {
     private envParams: CredParams = process.env;
     private region?: Region;
     private userOptions?: UserOptions;
+    private loggerOptions?: LoggerOptions;
     private credentials: { [key: string]: ICredential } = {};
 
     public constructor(init: (hcClient: HcClient) => T, credentialType?: string) {
@@ -85,6 +87,11 @@ export class ClientBuilder<T> {
         return this;
     }
 
+    public withLogger(loggerOptions: LoggerOptions): ClientBuilder<T> {
+        this.loggerOptions = loggerOptions;
+        return this;
+    }
+
     public build(): T {
         const axiosOptions: ClientOptions = {
             disableSslVerification: true
@@ -99,6 +106,14 @@ export class ClientBuilder<T> {
 
         if (this.userOptions?.axiosRequestConfig) {
             axiosOptions.axiosRequestConfig = this.userOptions.axiosRequestConfig;
+        }
+
+        if (this.loggerOptions?.logger) {
+            axiosOptions.logger = this.loggerOptions.logger;
+        }
+
+        if (this.loggerOptions?.logLevel) {
+            axiosOptions.logLevel = this.loggerOptions.logLevel;
         }
 
         if (!this.credential) {
