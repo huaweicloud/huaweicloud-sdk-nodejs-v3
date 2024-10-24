@@ -2,6 +2,7 @@ import { CoStreamerConfig } from './CoStreamerConfig';
 import { ErrorResponse } from './ErrorResponse';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveJobLog } from './LiveJobLog';
+import { PlatformLiveDetailInfo } from './PlatformLiveDetailInfo';
 import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 
@@ -27,6 +28,7 @@ export class ShowSmartLiveResponse extends SdkResponse {
     private 'cover_url'?: string;
     private 'co_streamer_config'?: CoStreamerConfig;
     private 'live_job_log'?: LiveJobLog;
+    private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -208,6 +210,16 @@ export class ShowSmartLiveResponse extends SdkResponse {
     }
     public get liveJobLog(): LiveJobLog | undefined {
         return this['live_job_log'];
+    }
+    public withRelationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveDetailInfo): ShowSmartLiveResponse {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+        return this;
+    }
+    public set relationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveDetailInfo  | undefined) {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+    }
+    public get relationLivePlatformInfo(): PlatformLiveDetailInfo | undefined {
+        return this['relation_live_platform_info'];
     }
     public withXRequestId(xRequestId: string): ShowSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;

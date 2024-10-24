@@ -114,6 +114,7 @@ export class RamClient {
      * @summary 绑定或替换共享资源权限
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {AssociatePermissionReqBody} associatePermissionReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -134,6 +135,7 @@ export class RamClient {
      * @summary 移除共享资源权限
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {DisassociatePermissionReqBody} disassociatePermissionReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -153,6 +155,7 @@ export class RamClient {
      *
      * @summary 检索绑定的共享资源权限
      * @param {string} resourceShareId 资源共享实例的ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {string} [permissionName] 共享资源权限的名称。
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
@@ -174,11 +177,12 @@ export class RamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源共享的配额
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listQuota(listQuotaRequest?: ListQuotaRequest): Promise<ListQuotaResponse> {
-        const options = ParamCreater().listQuota();
+        const options = ParamCreater().listQuota(listQuotaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -192,6 +196,7 @@ export class RamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 检索云服务资源类型
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
      * @param {*} [options] Override http request option.
@@ -212,11 +217,12 @@ export class RamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭与组织共享
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public disableOrganizationShare(disableOrganizationShareRequest?: DisableOrganizationShareRequest): Promise<DisableOrganizationShareResponse> {
-        const options = ParamCreater().disableOrganizationShare();
+        const options = ParamCreater().disableOrganizationShare(disableOrganizationShareRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -230,11 +236,12 @@ export class RamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启用与组织共享
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public enableOrganizationShare(enableOrganizationShareRequest?: EnableOrganizationShareRequest): Promise<EnableOrganizationShareResponse> {
-        const options = ParamCreater().enableOrganizationShare();
+        const options = ParamCreater().enableOrganizationShare(enableOrganizationShareRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -248,11 +255,12 @@ export class RamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 检索是否启用与组织共享
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showOrganizationShare(showOrganizationShareRequest?: ShowOrganizationShareRequest): Promise<ShowOrganizationShareResponse> {
-        const options = ParamCreater().showOrganizationShare();
+        const options = ParamCreater().showOrganizationShare(showOrganizationShareRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -267,6 +275,7 @@ export class RamClient {
      *
      * @summary 获取权限的所有版本
      * @param {string} permissionId 共享资源权限的ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
      * @param {*} [options] Override http request option.
@@ -287,6 +296,7 @@ export class RamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 检索共享资源权限列表
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
      * @param {string} [resourceType] 资源类型的名称。
@@ -310,6 +320,7 @@ export class RamClient {
      *
      * @summary 检索资源共享权限内容
      * @param {string} permissionId 共享资源权限的ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {number} [permissionVersion] 资源权限版本。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -330,6 +341,7 @@ export class RamClient {
      *
      * @summary 检索资源使用者
      * @param {SearchSharedPrincipalsReqBody} searchSharedPrincipalsReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -349,6 +361,7 @@ export class RamClient {
      *
      * @summary 检索共享的资源
      * @param {SearchSharedResourcesReqBody} searchSharedResourcesReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -368,6 +381,7 @@ export class RamClient {
      *
      * @summary 创建资源共享实例
      * @param {CreateResourceShareReqBody} createResourceShareReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -387,6 +401,7 @@ export class RamClient {
      *
      * @summary 删除资源共享实例
      * @param {string} resourceShareId 资源共享实例的ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -406,6 +421,7 @@ export class RamClient {
      *
      * @summary 检索资源共享实例
      * @param {SearchResourceSharesReqBody} searchResourceSharesReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -426,6 +442,7 @@ export class RamClient {
      * @summary 更新资源共享实例
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {UpdateResourceShareReqBody} updateResourceShareReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -446,6 +463,7 @@ export class RamClient {
      * @summary 绑定资源使用者和共享资源
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {ResourceShareAssociationReqBody} resourceShareAssociationReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -459,13 +477,14 @@ export class RamClient {
     }
 
     /**
-     * 将指定的资源使用者或共享资源从指定的资源共享实例中移除。
+     * 将指定的资源使用者或共享资源从指定的资源共享实例中移除。资源使用者也可以从指定的资源共享实例中主动退出。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 移除资源使用者和共享资源
+     * @summary 移除资源使用者或共享资源
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {ResourceShareAssociationReqBody} resourceShareAssociationReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -485,6 +504,7 @@ export class RamClient {
      *
      * @summary 检索绑定的资源使用者和共享资源
      * @param {SearchResourceShareAssociationsReqBody} searchResourceShareAssociationsReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -504,6 +524,7 @@ export class RamClient {
      *
      * @summary 接受共享邀请
      * @param {string} resourceShareInvitationId 资源共享邀请的ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -523,6 +544,7 @@ export class RamClient {
      *
      * @summary 拒绝共享邀请
      * @param {string} resourceShareInvitationId 资源共享邀请的ID。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -542,6 +564,7 @@ export class RamClient {
      *
      * @summary 检索共享邀请
      * @param {SearchResourceShareInvitationReqBody} searchResourceShareInvitationReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -562,6 +585,7 @@ export class RamClient {
      * @summary 资源共享实例增加标签
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {TagResourceReqBody} tagResourceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -582,6 +606,7 @@ export class RamClient {
      * @summary 删除资源共享实例的标签
      * @param {string} resourceShareId 资源共享实例的ID。
      * @param {UntagResourceReqBody} untagResourceReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -602,6 +627,7 @@ export class RamClient {
      * @summary 查询已使用的标签列表
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -623,6 +649,7 @@ export class RamClient {
      * @param {ResourceSharesByTagsReqBody} resourceSharesByTagsReqBody 
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [offset] 分页标记。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -642,6 +669,7 @@ export class RamClient {
      *
      * @summary 根据标签信息查询实例数量
      * @param {ResourceSharesByTagsReqBody} resourceSharesByTagsReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -678,14 +706,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (associateResourceSharePermissionRequest !== null && associateResourceSharePermissionRequest !== undefined) {
                 if (associateResourceSharePermissionRequest instanceof AssociateResourceSharePermissionRequest) {
                     resourceShareId = associateResourceSharePermissionRequest.resourceShareId;
                     body = associateResourceSharePermissionRequest.body
+                    xSecurityToken = associateResourceSharePermissionRequest.xSecurityToken;
                 } else {
                     resourceShareId = associateResourceSharePermissionRequest['resource_share_id'];
                     body = associateResourceSharePermissionRequest['body'];
+                    xSecurityToken = associateResourceSharePermissionRequest['X-Security-Token'];
                 }
             }
 
@@ -695,6 +727,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -724,14 +759,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (disassociateResourceSharePermissionRequest !== null && disassociateResourceSharePermissionRequest !== undefined) {
                 if (disassociateResourceSharePermissionRequest instanceof DisassociateResourceSharePermissionRequest) {
                     resourceShareId = disassociateResourceSharePermissionRequest.resourceShareId;
                     body = disassociateResourceSharePermissionRequest.body
+                    xSecurityToken = disassociateResourceSharePermissionRequest.xSecurityToken;
                 } else {
                     resourceShareId = disassociateResourceSharePermissionRequest['resource_share_id'];
                     body = disassociateResourceSharePermissionRequest['body'];
+                    xSecurityToken = disassociateResourceSharePermissionRequest['X-Security-Token'];
                 }
             }
 
@@ -741,6 +780,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -769,6 +811,8 @@ export const ParamCreater = function () {
             
             let resourceShareId;
             
+            let xSecurityToken;
+            
             let permissionName;
             
             let limit;
@@ -778,11 +822,13 @@ export const ParamCreater = function () {
             if (listResourceSharePermissionsRequest !== null && listResourceSharePermissionsRequest !== undefined) {
                 if (listResourceSharePermissionsRequest instanceof ListResourceSharePermissionsRequest) {
                     resourceShareId = listResourceSharePermissionsRequest.resourceShareId;
+                    xSecurityToken = listResourceSharePermissionsRequest.xSecurityToken;
                     permissionName = listResourceSharePermissionsRequest.permissionName;
                     limit = listResourceSharePermissionsRequest.limit;
                     marker = listResourceSharePermissionsRequest.marker;
                 } else {
                     resourceShareId = listResourceSharePermissionsRequest['resource_share_id'];
+                    xSecurityToken = listResourceSharePermissionsRequest['X-Security-Token'];
                     permissionName = listResourceSharePermissionsRequest['permission_name'];
                     limit = listResourceSharePermissionsRequest['limit'];
                     marker = listResourceSharePermissionsRequest['marker'];
@@ -802,6 +848,9 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'resource_share_id': resourceShareId, };
@@ -814,7 +863,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listQuota() {
+        listQuota(listQuotaRequest?: ListQuotaRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/resource-shares/quotas",
@@ -825,6 +874,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (listQuotaRequest !== null && listQuotaRequest !== undefined) {
+                if (listQuotaRequest instanceof ListQuotaRequest) {
+                    xSecurityToken = listQuotaRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = listQuotaRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -847,15 +911,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
 
             if (listResourceTypesRequest !== null && listResourceTypesRequest !== undefined) {
                 if (listResourceTypesRequest instanceof ListResourceTypesRequest) {
+                    xSecurityToken = listResourceTypesRequest.xSecurityToken;
                     limit = listResourceTypesRequest.limit;
                     marker = listResourceTypesRequest.marker;
                 } else {
+                    xSecurityToken = listResourceTypesRequest['X-Security-Token'];
                     limit = listResourceTypesRequest['limit'];
                     marker = listResourceTypesRequest['marker'];
                 }
@@ -868,6 +936,9 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -879,7 +950,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        disableOrganizationShare() {
+        disableOrganizationShare(disableOrganizationShareRequest?: DisableOrganizationShareRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/organization-share/disable",
@@ -890,6 +961,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (disableOrganizationShareRequest !== null && disableOrganizationShareRequest !== undefined) {
+                if (disableOrganizationShareRequest instanceof DisableOrganizationShareRequest) {
+                    xSecurityToken = disableOrganizationShareRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = disableOrganizationShareRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -900,7 +986,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        enableOrganizationShare() {
+        enableOrganizationShare(enableOrganizationShareRequest?: EnableOrganizationShareRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/organization-share/enable",
@@ -911,6 +997,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (enableOrganizationShareRequest !== null && enableOrganizationShareRequest !== undefined) {
+                if (enableOrganizationShareRequest instanceof EnableOrganizationShareRequest) {
+                    xSecurityToken = enableOrganizationShareRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = enableOrganizationShareRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -921,7 +1022,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showOrganizationShare() {
+        showOrganizationShare(showOrganizationShareRequest?: ShowOrganizationShareRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/organization-share",
@@ -932,6 +1033,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let xSecurityToken;
+
+            if (showOrganizationShareRequest !== null && showOrganizationShareRequest !== undefined) {
+                if (showOrganizationShareRequest instanceof ShowOrganizationShareRequest) {
+                    xSecurityToken = showOrganizationShareRequest.xSecurityToken;
+                } else {
+                    xSecurityToken = showOrganizationShareRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -956,6 +1072,8 @@ export const ParamCreater = function () {
             
             let permissionId;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
@@ -963,10 +1081,12 @@ export const ParamCreater = function () {
             if (listPermissionVersionsRequest !== null && listPermissionVersionsRequest !== undefined) {
                 if (listPermissionVersionsRequest instanceof ListPermissionVersionsRequest) {
                     permissionId = listPermissionVersionsRequest.permissionId;
+                    xSecurityToken = listPermissionVersionsRequest.xSecurityToken;
                     limit = listPermissionVersionsRequest.limit;
                     marker = listPermissionVersionsRequest.marker;
                 } else {
                     permissionId = listPermissionVersionsRequest['permission_id'];
+                    xSecurityToken = listPermissionVersionsRequest['X-Security-Token'];
                     limit = listPermissionVersionsRequest['limit'];
                     marker = listPermissionVersionsRequest['marker'];
                 }
@@ -981,6 +1101,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1006,6 +1129,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let xSecurityToken;
+            
             let limit;
             
             let marker;
@@ -1016,11 +1141,13 @@ export const ParamCreater = function () {
 
             if (listPermissionsRequest !== null && listPermissionsRequest !== undefined) {
                 if (listPermissionsRequest instanceof ListPermissionsRequest) {
+                    xSecurityToken = listPermissionsRequest.xSecurityToken;
                     limit = listPermissionsRequest.limit;
                     marker = listPermissionsRequest.marker;
                     resourceType = listPermissionsRequest.resourceType;
                     permissionType = listPermissionsRequest.permissionType;
                 } else {
+                    xSecurityToken = listPermissionsRequest['X-Security-Token'];
                     limit = listPermissionsRequest['limit'];
                     marker = listPermissionsRequest['marker'];
                     resourceType = listPermissionsRequest['resource_type'];
@@ -1040,6 +1167,9 @@ export const ParamCreater = function () {
             }
             if (permissionType !== null && permissionType !== undefined) {
                 localVarQueryParameter['permission_type'] = permissionType;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1066,14 +1196,18 @@ export const ParamCreater = function () {
             
             let permissionId;
             
+            let xSecurityToken;
+            
             let permissionVersion;
 
             if (showPermissionRequest !== null && showPermissionRequest !== undefined) {
                 if (showPermissionRequest instanceof ShowPermissionRequest) {
                     permissionId = showPermissionRequest.permissionId;
+                    xSecurityToken = showPermissionRequest.xSecurityToken;
                     permissionVersion = showPermissionRequest.permissionVersion;
                 } else {
                     permissionId = showPermissionRequest['permission_id'];
+                    xSecurityToken = showPermissionRequest['X-Security-Token'];
                     permissionVersion = showPermissionRequest['permission_version'];
                 }
             }
@@ -1084,6 +1218,9 @@ export const ParamCreater = function () {
             }
             if (permissionVersion !== null && permissionVersion !== undefined) {
                 localVarQueryParameter['permission_version'] = permissionVersion;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1110,18 +1247,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (searchSharedPrincipalsRequest !== null && searchSharedPrincipalsRequest !== undefined) {
                 if (searchSharedPrincipalsRequest instanceof SearchSharedPrincipalsRequest) {
                     body = searchSharedPrincipalsRequest.body
+                    xSecurityToken = searchSharedPrincipalsRequest.xSecurityToken;
                 } else {
                     body = searchSharedPrincipalsRequest['body'];
+                    xSecurityToken = searchSharedPrincipalsRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1148,18 +1292,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (searchSharedResourcesRequest !== null && searchSharedResourcesRequest !== undefined) {
                 if (searchSharedResourcesRequest instanceof SearchSharedResourcesRequest) {
                     body = searchSharedResourcesRequest.body
+                    xSecurityToken = searchSharedResourcesRequest.xSecurityToken;
                 } else {
                     body = searchSharedResourcesRequest['body'];
+                    xSecurityToken = searchSharedResourcesRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1186,18 +1337,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (createResourceShareRequest !== null && createResourceShareRequest !== undefined) {
                 if (createResourceShareRequest instanceof CreateResourceShareRequest) {
                     body = createResourceShareRequest.body
+                    xSecurityToken = createResourceShareRequest.xSecurityToken;
                 } else {
                     body = createResourceShareRequest['body'];
+                    xSecurityToken = createResourceShareRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1224,18 +1382,25 @@ export const ParamCreater = function () {
 
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (deleteResourceShareRequest !== null && deleteResourceShareRequest !== undefined) {
                 if (deleteResourceShareRequest instanceof DeleteResourceShareRequest) {
                     resourceShareId = deleteResourceShareRequest.resourceShareId;
+                    xSecurityToken = deleteResourceShareRequest.xSecurityToken;
                 } else {
                     resourceShareId = deleteResourceShareRequest['resource_share_id'];
+                    xSecurityToken = deleteResourceShareRequest['X-Security-Token'];
                 }
             }
 
         
             if (resourceShareId === null || resourceShareId === undefined) {
             throw new RequiredError('resourceShareId','Required parameter resourceShareId was null or undefined when calling deleteResourceShare.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'resource_share_id': resourceShareId, };
@@ -1261,18 +1426,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (searchResourceSharesRequest !== null && searchResourceSharesRequest !== undefined) {
                 if (searchResourceSharesRequest instanceof SearchResourceSharesRequest) {
                     body = searchResourceSharesRequest.body
+                    xSecurityToken = searchResourceSharesRequest.xSecurityToken;
                 } else {
                     body = searchResourceSharesRequest['body'];
+                    xSecurityToken = searchResourceSharesRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1301,14 +1473,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (updateResourceShareRequest !== null && updateResourceShareRequest !== undefined) {
                 if (updateResourceShareRequest instanceof UpdateResourceShareRequest) {
                     resourceShareId = updateResourceShareRequest.resourceShareId;
                     body = updateResourceShareRequest.body
+                    xSecurityToken = updateResourceShareRequest.xSecurityToken;
                 } else {
                     resourceShareId = updateResourceShareRequest['resource_share_id'];
                     body = updateResourceShareRequest['body'];
+                    xSecurityToken = updateResourceShareRequest['X-Security-Token'];
                 }
             }
 
@@ -1318,6 +1494,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1347,14 +1526,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (associateResourceShareRequest !== null && associateResourceShareRequest !== undefined) {
                 if (associateResourceShareRequest instanceof AssociateResourceShareRequest) {
                     resourceShareId = associateResourceShareRequest.resourceShareId;
                     body = associateResourceShareRequest.body
+                    xSecurityToken = associateResourceShareRequest.xSecurityToken;
                 } else {
                     resourceShareId = associateResourceShareRequest['resource_share_id'];
                     body = associateResourceShareRequest['body'];
+                    xSecurityToken = associateResourceShareRequest['X-Security-Token'];
                 }
             }
 
@@ -1365,6 +1548,9 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -1374,7 +1560,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将指定的资源使用者或共享资源从指定的资源共享实例中移除。
+         * 将指定的资源使用者或共享资源从指定的资源共享实例中移除。资源使用者也可以从指定的资源共享实例中主动退出。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1393,14 +1579,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (disassociateResourceShareRequest !== null && disassociateResourceShareRequest !== undefined) {
                 if (disassociateResourceShareRequest instanceof DisassociateResourceShareRequest) {
                     resourceShareId = disassociateResourceShareRequest.resourceShareId;
                     body = disassociateResourceShareRequest.body
+                    xSecurityToken = disassociateResourceShareRequest.xSecurityToken;
                 } else {
                     resourceShareId = disassociateResourceShareRequest['resource_share_id'];
                     body = disassociateResourceShareRequest['body'];
+                    xSecurityToken = disassociateResourceShareRequest['X-Security-Token'];
                 }
             }
 
@@ -1410,6 +1600,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1437,18 +1630,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (searchResourceShareAssociationsRequest !== null && searchResourceShareAssociationsRequest !== undefined) {
                 if (searchResourceShareAssociationsRequest instanceof SearchResourceShareAssociationsRequest) {
                     body = searchResourceShareAssociationsRequest.body
+                    xSecurityToken = searchResourceShareAssociationsRequest.xSecurityToken;
                 } else {
                     body = searchResourceShareAssociationsRequest['body'];
+                    xSecurityToken = searchResourceShareAssociationsRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1475,18 +1675,25 @@ export const ParamCreater = function () {
 
             
             let resourceShareInvitationId;
+            
+            let xSecurityToken;
 
             if (acceptResourceShareInvitationRequest !== null && acceptResourceShareInvitationRequest !== undefined) {
                 if (acceptResourceShareInvitationRequest instanceof AcceptResourceShareInvitationRequest) {
                     resourceShareInvitationId = acceptResourceShareInvitationRequest.resourceShareInvitationId;
+                    xSecurityToken = acceptResourceShareInvitationRequest.xSecurityToken;
                 } else {
                     resourceShareInvitationId = acceptResourceShareInvitationRequest['resource_share_invitation_id'];
+                    xSecurityToken = acceptResourceShareInvitationRequest['X-Security-Token'];
                 }
             }
 
         
             if (resourceShareInvitationId === null || resourceShareInvitationId === undefined) {
             throw new RequiredError('resourceShareInvitationId','Required parameter resourceShareInvitationId was null or undefined when calling acceptResourceShareInvitation.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'resource_share_invitation_id': resourceShareInvitationId, };
@@ -1512,18 +1719,25 @@ export const ParamCreater = function () {
 
             
             let resourceShareInvitationId;
+            
+            let xSecurityToken;
 
             if (rejectResourceShareInvitationRequest !== null && rejectResourceShareInvitationRequest !== undefined) {
                 if (rejectResourceShareInvitationRequest instanceof RejectResourceShareInvitationRequest) {
                     resourceShareInvitationId = rejectResourceShareInvitationRequest.resourceShareInvitationId;
+                    xSecurityToken = rejectResourceShareInvitationRequest.xSecurityToken;
                 } else {
                     resourceShareInvitationId = rejectResourceShareInvitationRequest['resource_share_invitation_id'];
+                    xSecurityToken = rejectResourceShareInvitationRequest['X-Security-Token'];
                 }
             }
 
         
             if (resourceShareInvitationId === null || resourceShareInvitationId === undefined) {
             throw new RequiredError('resourceShareInvitationId','Required parameter resourceShareInvitationId was null or undefined when calling rejectResourceShareInvitation.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.pathParams = { 'resource_share_invitation_id': resourceShareInvitationId, };
@@ -1549,18 +1763,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (searchResourceShareInvitationRequest !== null && searchResourceShareInvitationRequest !== undefined) {
                 if (searchResourceShareInvitationRequest instanceof SearchResourceShareInvitationRequest) {
                     body = searchResourceShareInvitationRequest.body
+                    xSecurityToken = searchResourceShareInvitationRequest.xSecurityToken;
                 } else {
                     body = searchResourceShareInvitationRequest['body'];
+                    xSecurityToken = searchResourceShareInvitationRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1589,14 +1810,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (batchCreateResourceShareTagsRequest !== null && batchCreateResourceShareTagsRequest !== undefined) {
                 if (batchCreateResourceShareTagsRequest instanceof BatchCreateResourceShareTagsRequest) {
                     resourceShareId = batchCreateResourceShareTagsRequest.resourceShareId;
                     body = batchCreateResourceShareTagsRequest.body
+                    xSecurityToken = batchCreateResourceShareTagsRequest.xSecurityToken;
                 } else {
                     resourceShareId = batchCreateResourceShareTagsRequest['resource_share_id'];
                     body = batchCreateResourceShareTagsRequest['body'];
+                    xSecurityToken = batchCreateResourceShareTagsRequest['X-Security-Token'];
                 }
             }
 
@@ -1606,6 +1831,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1635,14 +1863,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let resourceShareId;
+            
+            let xSecurityToken;
 
             if (batchDeleteResourceShareTagsRequest !== null && batchDeleteResourceShareTagsRequest !== undefined) {
                 if (batchDeleteResourceShareTagsRequest instanceof BatchDeleteResourceShareTagsRequest) {
                     resourceShareId = batchDeleteResourceShareTagsRequest.resourceShareId;
                     body = batchDeleteResourceShareTagsRequest.body
+                    xSecurityToken = batchDeleteResourceShareTagsRequest.xSecurityToken;
                 } else {
                     resourceShareId = batchDeleteResourceShareTagsRequest['resource_share_id'];
                     body = batchDeleteResourceShareTagsRequest['body'];
+                    xSecurityToken = batchDeleteResourceShareTagsRequest['X-Security-Token'];
                 }
             }
 
@@ -1652,6 +1884,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1681,14 +1916,18 @@ export const ParamCreater = function () {
             let limit;
             
             let marker;
+            
+            let xSecurityToken;
 
             if (listResourceShareTagsRequest !== null && listResourceShareTagsRequest !== undefined) {
                 if (listResourceShareTagsRequest instanceof ListResourceShareTagsRequest) {
                     limit = listResourceShareTagsRequest.limit;
                     marker = listResourceShareTagsRequest.marker;
+                    xSecurityToken = listResourceShareTagsRequest.xSecurityToken;
                 } else {
                     limit = listResourceShareTagsRequest['limit'];
                     marker = listResourceShareTagsRequest['marker'];
+                    xSecurityToken = listResourceShareTagsRequest['X-Security-Token'];
                 }
             }
 
@@ -1698,6 +1937,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1727,16 +1969,20 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let xSecurityToken;
 
             if (listResourceSharesByTagsRequest !== null && listResourceSharesByTagsRequest !== undefined) {
                 if (listResourceSharesByTagsRequest instanceof ListResourceSharesByTagsRequest) {
                     body = listResourceSharesByTagsRequest.body
                     limit = listResourceSharesByTagsRequest.limit;
                     offset = listResourceSharesByTagsRequest.offset;
+                    xSecurityToken = listResourceSharesByTagsRequest.xSecurityToken;
                 } else {
                     body = listResourceSharesByTagsRequest['body'];
                     limit = listResourceSharesByTagsRequest['limit'];
                     offset = listResourceSharesByTagsRequest['offset'];
+                    xSecurityToken = listResourceSharesByTagsRequest['X-Security-Token'];
                 }
             }
 
@@ -1749,6 +1995,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1776,18 +2025,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSecurityToken;
 
             if (searchResourceShareCountByTagsRequest !== null && searchResourceShareCountByTagsRequest !== undefined) {
                 if (searchResourceShareCountByTagsRequest instanceof SearchResourceShareCountByTagsRequest) {
                     body = searchResourceShareCountByTagsRequest.body
+                    xSecurityToken = searchResourceShareCountByTagsRequest.xSecurityToken;
                 } else {
                     body = searchResourceShareCountByTagsRequest['body'];
+                    xSecurityToken = searchResourceShareCountByTagsRequest['X-Security-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

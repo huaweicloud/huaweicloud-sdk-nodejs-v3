@@ -1,6 +1,9 @@
 export * from './LiveClient';
 
 export * from './model/AppQualityInfo';
+export * from './model/AudioSelectorLangSelection';
+export * from './model/AudioSelectorPidSelection';
+export * from './model/AudioSelectorSettings';
 export * from './model/BatchShowIpBelongsRequest';
 export * from './model/BatchShowIpBelongsResponse';
 export * from './model/CallbackUrl';
@@ -64,6 +67,8 @@ export * from './model/DeleteTranscodingsTemplateResponse';
 export * from './model/DomainHttpsCertInfo';
 export * from './model/DomainIpv6SwitchReq';
 export * from './model/DomainMapping';
+export * from './model/EncoderSettingsExpand';
+export * from './model/EncoderSettingsExpandAudioDescriptions';
 export * from './model/Encryption';
 export * from './model/EndpointItem';
 export * from './model/FLVRecordConfig';
@@ -73,7 +78,9 @@ export * from './model/GmCertificateInfo';
 export * from './model/HLSRecordConfig';
 export * from './model/HarvestTaskCreateSucRsp';
 export * from './model/HlsPackageItem';
+export * from './model/HttpHeader';
 export * from './model/IPAuthInfo';
+export * from './model/InputAudioSelector';
 export * from './model/InputStreamInfo';
 export * from './model/KeyChainInfo';
 export * from './model/ListDelayConfigRequest';

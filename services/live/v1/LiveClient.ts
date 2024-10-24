@@ -3,6 +3,9 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AppQualityInfo } from './model/AppQualityInfo';
+import { AudioSelectorLangSelection } from './model/AudioSelectorLangSelection';
+import { AudioSelectorPidSelection } from './model/AudioSelectorPidSelection';
+import { AudioSelectorSettings } from './model/AudioSelectorSettings';
 import { BatchShowIpBelongsRequest } from './model/BatchShowIpBelongsRequest';
 import { BatchShowIpBelongsResponse } from './model/BatchShowIpBelongsResponse';
 import { CallbackUrl } from './model/CallbackUrl';
@@ -66,6 +69,8 @@ import { DeleteTranscodingsTemplateResponse } from './model/DeleteTranscodingsTe
 import { DomainHttpsCertInfo } from './model/DomainHttpsCertInfo';
 import { DomainIpv6SwitchReq } from './model/DomainIpv6SwitchReq';
 import { DomainMapping } from './model/DomainMapping';
+import { EncoderSettingsExpand } from './model/EncoderSettingsExpand';
+import { EncoderSettingsExpandAudioDescriptions } from './model/EncoderSettingsExpandAudioDescriptions';
 import { Encryption } from './model/Encryption';
 import { EndpointItem } from './model/EndpointItem';
 import { FLVRecordConfig } from './model/FLVRecordConfig';
@@ -75,7 +80,9 @@ import { GmCertificateInfo } from './model/GmCertificateInfo';
 import { HLSRecordConfig } from './model/HLSRecordConfig';
 import { HarvestTaskCreateSucRsp } from './model/HarvestTaskCreateSucRsp';
 import { HlsPackageItem } from './model/HlsPackageItem';
+import { HttpHeader } from './model/HttpHeader';
 import { IPAuthInfo } from './model/IPAuthInfo';
+import { InputAudioSelector } from './model/InputAudioSelector';
 import { InputStreamInfo } from './model/InputStreamInfo';
 import { KeyChainInfo } from './model/KeyChainInfo';
 import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';

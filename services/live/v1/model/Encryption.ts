@@ -1,18 +1,23 @@
+import { HttpHeader } from './HttpHeader';
 
 
 export class Encryption {
     private 'key_rotation_interval_seconds'?: number;
     private 'encryption_method'?: EncryptionEncryptionMethodEnum | string;
     public level?: EncryptionLevelEnum | string;
-    private 'drm_content_id'?: string;
+    private 'resource_id'?: string;
     private 'system_ids'?: Array<EncryptionSystemIdsEnum> | Array<string>;
-    private 'auth_info'?: string;
-    private 'km_url'?: string;
-    public constructor(drmContentId?: string, systemIds?: Array<string>, authInfo?: string, kmUrl?: string) { 
-        this['drm_content_id'] = drmContentId;
+    public url?: string;
+    private 'speke_version'?: EncryptionSpekeVersionEnum | string;
+    private 'request_mode'?: EncryptionRequestModeEnum | string;
+    private 'http_headers'?: Array<HttpHeader>;
+    public urn?: string;
+    public constructor(resourceId?: string, systemIds?: Array<string>, url?: string, spekeVersion?: string, requestMode?: string) { 
+        this['resource_id'] = resourceId;
         this['system_ids'] = systemIds;
-        this['auth_info'] = authInfo;
-        this['km_url'] = kmUrl;
+        this['url'] = url;
+        this['speke_version'] = spekeVersion;
+        this['request_mode'] = requestMode;
     }
     public withKeyRotationIntervalSeconds(keyRotationIntervalSeconds: number): Encryption {
         this['key_rotation_interval_seconds'] = keyRotationIntervalSeconds;
@@ -38,15 +43,15 @@ export class Encryption {
         this['level'] = level;
         return this;
     }
-    public withDrmContentId(drmContentId: string): Encryption {
-        this['drm_content_id'] = drmContentId;
+    public withResourceId(resourceId: string): Encryption {
+        this['resource_id'] = resourceId;
         return this;
     }
-    public set drmContentId(drmContentId: string  | undefined) {
-        this['drm_content_id'] = drmContentId;
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
     }
-    public get drmContentId(): string | undefined {
-        return this['drm_content_id'];
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
     }
     public withSystemIds(systemIds: Array<EncryptionSystemIdsEnum> | Array<string>): Encryption {
         this['system_ids'] = systemIds;
@@ -58,25 +63,43 @@ export class Encryption {
     public get systemIds(): Array<EncryptionSystemIdsEnum> | Array<string> | undefined {
         return this['system_ids'];
     }
-    public withAuthInfo(authInfo: string): Encryption {
-        this['auth_info'] = authInfo;
+    public withUrl(url: string): Encryption {
+        this['url'] = url;
         return this;
     }
-    public set authInfo(authInfo: string  | undefined) {
-        this['auth_info'] = authInfo;
-    }
-    public get authInfo(): string | undefined {
-        return this['auth_info'];
-    }
-    public withKmUrl(kmUrl: string): Encryption {
-        this['km_url'] = kmUrl;
+    public withSpekeVersion(spekeVersion: EncryptionSpekeVersionEnum | string): Encryption {
+        this['speke_version'] = spekeVersion;
         return this;
     }
-    public set kmUrl(kmUrl: string  | undefined) {
-        this['km_url'] = kmUrl;
+    public set spekeVersion(spekeVersion: EncryptionSpekeVersionEnum | string  | undefined) {
+        this['speke_version'] = spekeVersion;
     }
-    public get kmUrl(): string | undefined {
-        return this['km_url'];
+    public get spekeVersion(): EncryptionSpekeVersionEnum | string | undefined {
+        return this['speke_version'];
+    }
+    public withRequestMode(requestMode: EncryptionRequestModeEnum | string): Encryption {
+        this['request_mode'] = requestMode;
+        return this;
+    }
+    public set requestMode(requestMode: EncryptionRequestModeEnum | string  | undefined) {
+        this['request_mode'] = requestMode;
+    }
+    public get requestMode(): EncryptionRequestModeEnum | string | undefined {
+        return this['request_mode'];
+    }
+    public withHttpHeaders(httpHeaders: Array<HttpHeader>): Encryption {
+        this['http_headers'] = httpHeaders;
+        return this;
+    }
+    public set httpHeaders(httpHeaders: Array<HttpHeader>  | undefined) {
+        this['http_headers'] = httpHeaders;
+    }
+    public get httpHeaders(): Array<HttpHeader> | undefined {
+        return this['http_headers'];
+    }
+    public withUrn(urn: string): Encryption {
+        this['urn'] = urn;
+        return this;
     }
 }
 
@@ -104,4 +127,19 @@ export enum EncryptionSystemIdsEnum {
     WIDEVINE = 'Widevine',
     PLAYREADY = 'PlayReady',
     FAIRPLAY = 'FairPlay'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EncryptionSpekeVersionEnum {
+    E_1_0 = '1.0'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EncryptionRequestModeEnum {
+    DIRECT_HTTP = 'direct_http',
+    FUNCTIONGRAPH_PROXY = 'functiongraph_proxy'
 }

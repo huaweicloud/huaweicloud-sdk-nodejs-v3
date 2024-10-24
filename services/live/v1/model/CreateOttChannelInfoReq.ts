@@ -1,4 +1,5 @@
 import { CreateOttChannelInfoReqRecordSettings } from './CreateOttChannelInfoReqRecordSettings';
+import { EncoderSettingsExpand } from './EncoderSettingsExpand';
 import { EndpointItem } from './EndpointItem';
 import { InputStreamInfo } from './InputStreamInfo';
 import { ModifyOttChannelEncoderSettingsEncoderSettings } from './ModifyOttChannelEncoderSettingsEncoderSettings';
@@ -14,6 +15,7 @@ export class CreateOttChannelInfoReq {
     private 'encoder_settings'?: Array<ModifyOttChannelEncoderSettingsEncoderSettings>;
     private 'record_settings'?: CreateOttChannelInfoReqRecordSettings;
     public endpoints?: Array<EndpointItem>;
+    private 'encoder_settings_expand'?: EncoderSettingsExpand;
     public constructor(domain?: string, appName?: string, id?: string, state?: string, input?: InputStreamInfo, recordSettings?: CreateOttChannelInfoReqRecordSettings, endpoints?: Array<EndpointItem>) { 
         this['domain'] = domain;
         this['app_name'] = appName;
@@ -76,6 +78,16 @@ export class CreateOttChannelInfoReq {
     public withEndpoints(endpoints: Array<EndpointItem>): CreateOttChannelInfoReq {
         this['endpoints'] = endpoints;
         return this;
+    }
+    public withEncoderSettingsExpand(encoderSettingsExpand: EncoderSettingsExpand): CreateOttChannelInfoReq {
+        this['encoder_settings_expand'] = encoderSettingsExpand;
+        return this;
+    }
+    public set encoderSettingsExpand(encoderSettingsExpand: EncoderSettingsExpand  | undefined) {
+        this['encoder_settings_expand'] = encoderSettingsExpand;
+    }
+    public get encoderSettingsExpand(): EncoderSettingsExpand | undefined {
+        return this['encoder_settings_expand'];
     }
 }
 

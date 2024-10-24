@@ -27,6 +27,7 @@ import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
 import { HostedCloudEnum } from './HostedCloudEnum';
 import { IsFrozen } from './IsFrozen';
 import { Name } from './Name';
+import { NonRequiredHostedCloud } from './NonRequiredHostedCloud';
 import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
 
@@ -57,8 +58,8 @@ export class CentralNetworkErRouteTableAttachment {
     private 'attached_er_table_id'?: string;
     private 'attached_er_attachment_id'?: string;
     private 'attached_er_table_site_code'?: string;
-    private 'approved_state'?: ApprovedStateEnum;
     private 'hosted_cloud'?: HostedCloudEnum;
+    private 'approved_state'?: ApprovedStateEnum;
     public reason?: string;
     public constructor(id?: string, name?: string, domainId?: string, state?: CentralNetworkConnectionStateEnum, createdAt?: Date, updatedAt?: Date, centralNetworkId?: string, centralNetworkPlaneId?: string, isFrozen?: boolean, bandwidthType?: BandwidthTypeEnum, enterpriseRouterId?: string, enterpriseRouterProjectId?: string, enterpriseRouterRegionId?: string, enterpriseRouterTableId?: string, enterpriseRouterSiteCode?: string, attachedErTableProjectId?: string, attachedErTableRegionId?: string, attachedErId?: string, attachedErTableId?: string, attachedErTableSiteCode?: string, approvedState?: ApprovedStateEnum) { 
         this['id'] = id;
@@ -309,16 +310,6 @@ export class CentralNetworkErRouteTableAttachment {
     public get attachedErTableSiteCode(): string | undefined {
         return this['attached_er_table_site_code'];
     }
-    public withApprovedState(approvedState: ApprovedStateEnum): CentralNetworkErRouteTableAttachment {
-        this['approved_state'] = approvedState;
-        return this;
-    }
-    public set approvedState(approvedState: ApprovedStateEnum  | undefined) {
-        this['approved_state'] = approvedState;
-    }
-    public get approvedState(): ApprovedStateEnum | undefined {
-        return this['approved_state'];
-    }
     public withHostedCloud(hostedCloud: HostedCloudEnum): CentralNetworkErRouteTableAttachment {
         this['hosted_cloud'] = hostedCloud;
         return this;
@@ -328,6 +319,16 @@ export class CentralNetworkErRouteTableAttachment {
     }
     public get hostedCloud(): HostedCloudEnum | undefined {
         return this['hosted_cloud'];
+    }
+    public withApprovedState(approvedState: ApprovedStateEnum): CentralNetworkErRouteTableAttachment {
+        this['approved_state'] = approvedState;
+        return this;
+    }
+    public set approvedState(approvedState: ApprovedStateEnum  | undefined) {
+        this['approved_state'] = approvedState;
+    }
+    public get approvedState(): ApprovedStateEnum | undefined {
+        return this['approved_state'];
     }
     public withReason(reason: string): CentralNetworkErRouteTableAttachment {
         this['reason'] = reason;

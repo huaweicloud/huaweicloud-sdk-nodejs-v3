@@ -1,15 +1,17 @@
 import { ApprovedStateEnum } from './ApprovedStateEnum';
+import { AttachmentParentInstanceId } from './AttachmentParentInstanceId';
 import { AutoAssociateRouteEnabled } from './AutoAssociateRouteEnabled';
 import { AutoPropagateRouteEnabled } from './AutoPropagateRouteEnabled';
 import { EnterpriseRouterTableId } from './EnterpriseRouterTableId';
 import { HostedCloudEnum } from './HostedCloudEnum';
+import { NonRequiredHostedCloud } from './NonRequiredHostedCloud';
 
 
 export class CentralNetworkAttachmentSpecificationValueInfo {
     private 'enterprise_router_table_id'?: string;
     private 'attachment_parent_instance_id'?: string;
-    private 'approved_state'?: ApprovedStateEnum;
     private 'hosted_cloud'?: HostedCloudEnum;
+    private 'approved_state'?: ApprovedStateEnum;
     public reason?: string;
     public constructor(enterpriseRouterTableId?: string) { 
         this['enterprise_router_table_id'] = enterpriseRouterTableId;
@@ -34,16 +36,6 @@ export class CentralNetworkAttachmentSpecificationValueInfo {
     public get attachmentParentInstanceId(): string | undefined {
         return this['attachment_parent_instance_id'];
     }
-    public withApprovedState(approvedState: ApprovedStateEnum): CentralNetworkAttachmentSpecificationValueInfo {
-        this['approved_state'] = approvedState;
-        return this;
-    }
-    public set approvedState(approvedState: ApprovedStateEnum  | undefined) {
-        this['approved_state'] = approvedState;
-    }
-    public get approvedState(): ApprovedStateEnum | undefined {
-        return this['approved_state'];
-    }
     public withHostedCloud(hostedCloud: HostedCloudEnum): CentralNetworkAttachmentSpecificationValueInfo {
         this['hosted_cloud'] = hostedCloud;
         return this;
@@ -53,6 +45,16 @@ export class CentralNetworkAttachmentSpecificationValueInfo {
     }
     public get hostedCloud(): HostedCloudEnum | undefined {
         return this['hosted_cloud'];
+    }
+    public withApprovedState(approvedState: ApprovedStateEnum): CentralNetworkAttachmentSpecificationValueInfo {
+        this['approved_state'] = approvedState;
+        return this;
+    }
+    public set approvedState(approvedState: ApprovedStateEnum  | undefined) {
+        this['approved_state'] = approvedState;
+    }
+    public get approvedState(): ApprovedStateEnum | undefined {
+        return this['approved_state'];
     }
     public withReason(reason: string): CentralNetworkAttachmentSpecificationValueInfo {
         this['reason'] = reason;

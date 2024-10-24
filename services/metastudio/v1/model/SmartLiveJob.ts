@@ -2,6 +2,7 @@ import { CoStreamerConfig } from './CoStreamerConfig';
 import { ErrorResponse } from './ErrorResponse';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveJobLog } from './LiveJobLog';
+import { PlatformLiveDetailInfo } from './PlatformLiveDetailInfo';
 import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 
@@ -26,6 +27,7 @@ export class SmartLiveJob {
     private 'cover_url'?: string;
     private 'co_streamer_config'?: CoStreamerConfig;
     private 'live_job_log'?: LiveJobLog;
+    private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
     public constructor() { 
     }
     public withJobId(jobId: string): SmartLiveJob {
@@ -205,6 +207,16 @@ export class SmartLiveJob {
     }
     public get liveJobLog(): LiveJobLog | undefined {
         return this['live_job_log'];
+    }
+    public withRelationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveDetailInfo): SmartLiveJob {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+        return this;
+    }
+    public set relationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveDetailInfo  | undefined) {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+    }
+    public get relationLivePlatformInfo(): PlatformLiveDetailInfo | undefined {
+        return this['relation_live_platform_info'];
     }
 }
 

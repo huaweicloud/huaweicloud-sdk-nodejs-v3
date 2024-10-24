@@ -1,4 +1,3 @@
-import { SourceRsp } from './SourceRsp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,7 +7,6 @@ export class DeleteOttChannelInfoResponse extends SdkResponse {
     public domain?: string;
     private 'app_name'?: string;
     public id?: string;
-    public sources?: Array<SourceRsp>;
     public constructor() { 
         super();
     }
@@ -48,10 +46,6 @@ export class DeleteOttChannelInfoResponse extends SdkResponse {
     }
     public withId(id: string): DeleteOttChannelInfoResponse {
         this['id'] = id;
-        return this;
-    }
-    public withSources(sources: Array<SourceRsp>): DeleteOttChannelInfoResponse {
-        this['sources'] = sources;
         return this;
     }
 }

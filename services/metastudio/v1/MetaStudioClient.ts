@@ -50,6 +50,8 @@ import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
 import { ControlSmartLiveReq } from './model/ControlSmartLiveReq';
 import { CopyVideoScriptsRequest } from './model/CopyVideoScriptsRequest';
 import { CopyVideoScriptsResponse } from './model/CopyVideoScriptsResponse';
+import { CountTenantResourcesRequest } from './model/CountTenantResourcesRequest';
+import { CountTenantResourcesResponse } from './model/CountTenantResourcesResponse';
 import { Create2DDigitalHumanVideoReq } from './model/Create2DDigitalHumanVideoReq';
 import { Create2DDigitalHumanVideoRequest } from './model/Create2DDigitalHumanVideoRequest';
 import { Create2DDigitalHumanVideoResponse } from './model/Create2DDigitalHumanVideoResponse';
@@ -127,6 +129,7 @@ import { CreateSmartChatRoomReq } from './model/CreateSmartChatRoomReq';
 import { CreateSmartChatRoomRequest } from './model/CreateSmartChatRoomRequest';
 import { CreateSmartChatRoomResponse } from './model/CreateSmartChatRoomResponse';
 import { CreateSmartLiveRoomReq } from './model/CreateSmartLiveRoomReq';
+import { CreateSmartLiveRoomReqBaseInfo } from './model/CreateSmartLiveRoomReqBaseInfo';
 import { CreateSmartLiveRoomRequest } from './model/CreateSmartLiveRoomRequest';
 import { CreateSmartLiveRoomResponse } from './model/CreateSmartLiveRoomResponse';
 import { CreateStyleRequestBody } from './model/CreateStyleRequestBody';
@@ -207,6 +210,7 @@ import { ExecuteVideoMotionCaptureCommandResponse } from './model/ExecuteVideoMo
 import { ExportKnowledgeSkillRequest } from './model/ExportKnowledgeSkillRequest';
 import { ExportKnowledgeSkillResponse } from './model/ExportKnowledgeSkillResponse';
 import { ExternalVoiceAssetMeta } from './model/ExternalVoiceAssetMeta';
+import { FileExtraMeta } from './model/FileExtraMeta';
 import { FilesCreateReq } from './model/FilesCreateReq';
 import { HitCondition } from './model/HitCondition';
 import { HitConditionTag } from './model/HitConditionTag';
@@ -287,6 +291,8 @@ import { ListSmartLiveRoomsRequest } from './model/ListSmartLiveRoomsRequest';
 import { ListSmartLiveRoomsResponse } from './model/ListSmartLiveRoomsResponse';
 import { ListStylesRequest } from './model/ListStylesRequest';
 import { ListStylesResponse } from './model/ListStylesResponse';
+import { ListTenantResourcesRequest } from './model/ListTenantResourcesRequest';
+import { ListTenantResourcesResponse } from './model/ListTenantResourcesResponse';
 import { ListTtsaDataRequest } from './model/ListTtsaDataRequest';
 import { ListTtsaDataResponse } from './model/ListTtsaDataResponse';
 import { ListTtsaJobsRequest } from './model/ListTtsaJobsRequest';
@@ -318,6 +324,7 @@ import { MotionItem } from './model/MotionItem';
 import { MultipartUploadInfo } from './model/MultipartUploadInfo';
 import { OpExternalInfo } from './model/OpExternalInfo';
 import { OperationLogInfo } from './model/OperationLogInfo';
+import { OperationLogItem } from './model/OperationLogItem';
 import { OutputAssetConfig } from './model/OutputAssetConfig';
 import { OutputAssetInfo } from './model/OutputAssetInfo';
 import { OutputInfo } from './model/OutputInfo';
@@ -327,7 +334,10 @@ import { Pages } from './model/Pages';
 import { PhotoVideoConfig } from './model/PhotoVideoConfig';
 import { PictureModelingByUrlReq } from './model/PictureModelingByUrlReq';
 import { PictureModelingInfo } from './model/PictureModelingInfo';
+import { PlatformLiveDetailInfo } from './model/PlatformLiveDetailInfo';
+import { PlatformLiveInfo } from './model/PlatformLiveInfo';
 import { PlayPolicy } from './model/PlayPolicy';
+import { PreviewInfo } from './model/PreviewInfo';
 import { ProductAssetReleation } from './model/ProductAssetReleation';
 import { ProductBasicInfo } from './model/ProductBasicInfo';
 import { ProductCoverDetailInfo } from './model/ProductCoverDetailInfo';
@@ -339,6 +349,7 @@ import { ProductTextInfo } from './model/ProductTextInfo';
 import { RTCLiveEventCallBackConfig } from './model/RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
+import { RelationProductInfo } from './model/RelationProductInfo';
 import { ReplicationAssetInfo } from './model/ReplicationAssetInfo';
 import { ReplicationEncInfo } from './model/ReplicationEncInfo';
 import { ReplyAudioInfo } from './model/ReplyAudioInfo';
@@ -346,6 +357,9 @@ import { ReportLiveEventReq } from './model/ReportLiveEventReq';
 import { ResetActiveCodeReq } from './model/ResetActiveCodeReq';
 import { ResetActiveCodeRequest } from './model/ResetActiveCodeRequest';
 import { ResetActiveCodeResponse } from './model/ResetActiveCodeResponse';
+import { ResourceItemInfo } from './model/ResourceItemInfo';
+import { ResourceUsageInfo } from './model/ResourceUsageInfo';
+import { ResourcesCount } from './model/ResourcesCount';
 import { RestoreAssetRequest } from './model/RestoreAssetRequest';
 import { RestoreAssetResponse } from './model/RestoreAssetResponse';
 import { ReviewConfig } from './model/ReviewConfig';
@@ -403,6 +417,8 @@ import { ShowPictureModelingJobRequest } from './model/ShowPictureModelingJobReq
 import { ShowPictureModelingJobResponse } from './model/ShowPictureModelingJobResponse';
 import { ShowProductRequest } from './model/ShowProductRequest';
 import { ShowProductResponse } from './model/ShowProductResponse';
+import { ShowResourceUsageRequest } from './model/ShowResourceUsageRequest';
+import { ShowResourceUsageResponse } from './model/ShowResourceUsageResponse';
 import { ShowRobotRequest } from './model/ShowRobotRequest';
 import { ShowRobotResponse } from './model/ShowRobotResponse';
 import { ShowSmartChatJobRequest } from './model/ShowSmartChatJobRequest';
@@ -453,6 +469,7 @@ import { StyleExtraMeta } from './model/StyleExtraMeta';
 import { StyleInfo } from './model/StyleInfo';
 import { SubtitleConfig } from './model/SubtitleConfig';
 import { SubtitleFileInfo } from './model/SubtitleFileInfo';
+import { SubtitleFiles } from './model/SubtitleFiles';
 import { SupportedServiceEnum } from './model/SupportedServiceEnum';
 import { SystemProperty } from './model/SystemProperty';
 import { TTSAJob } from './model/TTSAJob';
@@ -1220,6 +1237,7 @@ export class MetaStudioClient {
 
     /**
      * 该接口用于查询视频制作任务列表。可查询分身数字人视频制作列表，照片数字人视频制作列表等。
+     * &gt; - 默认查询最近一个月任务记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3199,6 +3217,86 @@ export class MetaStudioClient {
      */
     public listStyles(listStylesRequest?: ListStylesRequest): Promise<ListStylesResponse> {
         const options = ParamCreater().listStyles(listStylesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 统计时间段内资源数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 统计时间段内资源数量
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [business] 业务类型。
+     * @param {string} [resourceExpireStartTime] 资源过期时间段 开始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
+     * @param {string} [resourceExpireEndTime] 资源过期时间段 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countTenantResources(countTenantResourcesRequest?: CountTenantResourcesRequest): Promise<CountTenantResourcesResponse> {
+        const options = ParamCreater().countTenantResources(countTenantResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看租户资源列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看租户资源列表
+     * @param {string} resourceSource 资源来源。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {string} [resource] 资源类型。
+     * @param {string} [business] 业务类型。
+     * @param {string} [resourceName] 资源名称。
+     * @param {string} [resourceId] 资源id。
+     * @param {string} [orderId] 订单id。
+     * @param {string} [chargingMode] 计费模式。
+     * @param {string} [resourceExpireStartTime] 资源过期时间段 开始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
+     * @param {string} [resourceExpireEndTime] 资源过期时间段 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
+     * @param {string} [subResource] 子资源类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantResources(listTenantResourcesRequest?: ListTenantResourcesRequest): Promise<ListTenantResourcesResponse> {
+        const options = ParamCreater().listTenantResources(listTenantResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看租户资源用量信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看租户资源用量信息
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [resource] 资源类型。
+     * @param {string} [business] 业务类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceUsage(showResourceUsageRequest?: ShowResourceUsageRequest): Promise<ShowResourceUsageResponse> {
+        const options = ParamCreater().showResourceUsage(showResourceUsageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -6238,6 +6336,7 @@ export const ParamCreater = function () {
     
         /**
          * 该接口用于查询视频制作任务列表。可查询分身数字人视频制作列表，照片数字人视频制作列表等。
+         * &gt; - 默认查询最近一个月任务记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12356,6 +12455,281 @@ export const ParamCreater = function () {
             }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 统计时间段内资源数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countTenantResources(countTenantResourcesRequest?: CountTenantResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/tenants/resources-count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let business;
+            
+            let resourceExpireStartTime;
+            
+            let resourceExpireEndTime;
+
+            if (countTenantResourcesRequest !== null && countTenantResourcesRequest !== undefined) {
+                if (countTenantResourcesRequest instanceof CountTenantResourcesRequest) {
+                    authorization = countTenantResourcesRequest.authorization;
+                    xSdkDate = countTenantResourcesRequest.xSdkDate;
+                    xProjectId = countTenantResourcesRequest.xProjectId;
+                    business = countTenantResourcesRequest.business;
+                    resourceExpireStartTime = countTenantResourcesRequest.resourceExpireStartTime;
+                    resourceExpireEndTime = countTenantResourcesRequest.resourceExpireEndTime;
+                } else {
+                    authorization = countTenantResourcesRequest['Authorization'];
+                    xSdkDate = countTenantResourcesRequest['X-Sdk-Date'];
+                    xProjectId = countTenantResourcesRequest['X-Project-Id'];
+                    business = countTenantResourcesRequest['business'];
+                    resourceExpireStartTime = countTenantResourcesRequest['resource_expire_start_time'];
+                    resourceExpireEndTime = countTenantResourcesRequest['resource_expire_end_time'];
+                }
+            }
+
+        
+            if (business !== null && business !== undefined) {
+                localVarQueryParameter['business'] = business;
+            }
+            if (resourceExpireStartTime !== null && resourceExpireStartTime !== undefined) {
+                localVarQueryParameter['resource_expire_start_time'] = resourceExpireStartTime;
+            }
+            if (resourceExpireEndTime !== null && resourceExpireEndTime !== undefined) {
+                localVarQueryParameter['resource_expire_end_time'] = resourceExpireEndTime;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看租户资源列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantResources(listTenantResourcesRequest?: ListTenantResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/tenants/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceSource;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let resource;
+            
+            let business;
+            
+            let resourceName;
+            
+            let resourceId;
+            
+            let orderId;
+            
+            let chargingMode;
+            
+            let resourceExpireStartTime;
+            
+            let resourceExpireEndTime;
+            
+            let subResource;
+
+            if (listTenantResourcesRequest !== null && listTenantResourcesRequest !== undefined) {
+                if (listTenantResourcesRequest instanceof ListTenantResourcesRequest) {
+                    resourceSource = listTenantResourcesRequest.resourceSource;
+                    authorization = listTenantResourcesRequest.authorization;
+                    xSdkDate = listTenantResourcesRequest.xSdkDate;
+                    xProjectId = listTenantResourcesRequest.xProjectId;
+                    limit = listTenantResourcesRequest.limit;
+                    offset = listTenantResourcesRequest.offset;
+                    resource = listTenantResourcesRequest.resource;
+                    business = listTenantResourcesRequest.business;
+                    resourceName = listTenantResourcesRequest.resourceName;
+                    resourceId = listTenantResourcesRequest.resourceId;
+                    orderId = listTenantResourcesRequest.orderId;
+                    chargingMode = listTenantResourcesRequest.chargingMode;
+                    resourceExpireStartTime = listTenantResourcesRequest.resourceExpireStartTime;
+                    resourceExpireEndTime = listTenantResourcesRequest.resourceExpireEndTime;
+                    subResource = listTenantResourcesRequest.subResource;
+                } else {
+                    resourceSource = listTenantResourcesRequest['resource_source'];
+                    authorization = listTenantResourcesRequest['Authorization'];
+                    xSdkDate = listTenantResourcesRequest['X-Sdk-Date'];
+                    xProjectId = listTenantResourcesRequest['X-Project-Id'];
+                    limit = listTenantResourcesRequest['limit'];
+                    offset = listTenantResourcesRequest['offset'];
+                    resource = listTenantResourcesRequest['resource'];
+                    business = listTenantResourcesRequest['business'];
+                    resourceName = listTenantResourcesRequest['resource_name'];
+                    resourceId = listTenantResourcesRequest['resource_id'];
+                    orderId = listTenantResourcesRequest['order_id'];
+                    chargingMode = listTenantResourcesRequest['charging_mode'];
+                    resourceExpireStartTime = listTenantResourcesRequest['resource_expire_start_time'];
+                    resourceExpireEndTime = listTenantResourcesRequest['resource_expire_end_time'];
+                    subResource = listTenantResourcesRequest['sub_resource'];
+                }
+            }
+
+        
+            if (resourceSource === null || resourceSource === undefined) {
+                throw new RequiredError('resourceSource','Required parameter resourceSource was null or undefined when calling listTenantResources.');
+            }
+            if (resourceSource !== null && resourceSource !== undefined) {
+                localVarQueryParameter['resource_source'] = resourceSource;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (resource !== null && resource !== undefined) {
+                localVarQueryParameter['resource'] = resource;
+            }
+            if (business !== null && business !== undefined) {
+                localVarQueryParameter['business'] = business;
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (orderId !== null && orderId !== undefined) {
+                localVarQueryParameter['order_id'] = orderId;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (resourceExpireStartTime !== null && resourceExpireStartTime !== undefined) {
+                localVarQueryParameter['resource_expire_start_time'] = resourceExpireStartTime;
+            }
+            if (resourceExpireEndTime !== null && resourceExpireEndTime !== undefined) {
+                localVarQueryParameter['resource_expire_end_time'] = resourceExpireEndTime;
+            }
+            if (subResource !== null && subResource !== undefined) {
+                localVarQueryParameter['sub_resource'] = subResource;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看租户资源用量信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceUsage(showResourceUsageRequest?: ShowResourceUsageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/tenants/resources-usage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let resource;
+            
+            let business;
+
+            if (showResourceUsageRequest !== null && showResourceUsageRequest !== undefined) {
+                if (showResourceUsageRequest instanceof ShowResourceUsageRequest) {
+                    authorization = showResourceUsageRequest.authorization;
+                    xSdkDate = showResourceUsageRequest.xSdkDate;
+                    xProjectId = showResourceUsageRequest.xProjectId;
+                    resource = showResourceUsageRequest.resource;
+                    business = showResourceUsageRequest.business;
+                } else {
+                    authorization = showResourceUsageRequest['Authorization'];
+                    xSdkDate = showResourceUsageRequest['X-Sdk-Date'];
+                    xProjectId = showResourceUsageRequest['X-Project-Id'];
+                    resource = showResourceUsageRequest['resource'];
+                    business = showResourceUsageRequest['business'];
+                }
+            }
+
+        
+            if (resource !== null && resource !== undefined) {
+                localVarQueryParameter['resource'] = resource;
+            }
+            if (business !== null && business !== undefined) {
+                localVarQueryParameter['business'] = business;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
             }
 
             options.queryParams = localVarQueryParameter;

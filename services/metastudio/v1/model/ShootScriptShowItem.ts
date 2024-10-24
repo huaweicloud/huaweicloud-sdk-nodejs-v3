@@ -1,12 +1,14 @@
+import { PreviewInfo } from './PreviewInfo';
 import { ShootScriptDetail } from './ShootScriptDetail';
 import { ShootScriptItemBaseInfo } from './ShootScriptItemBaseInfo';
-import { SubtitleFileInfo } from './SubtitleFileInfo';
+import { SubtitleFiles } from './SubtitleFiles';
 
 
 export class ShootScriptShowItem {
     private 'sequence_no'?: number;
     private 'shoot_script'?: ShootScriptDetail;
-    private 'subtitle_file_info'?: SubtitleFileInfo;
+    private 'subtitle_file_info'?: SubtitleFiles;
+    private 'preview_info'?: PreviewInfo;
     public constructor() { 
     }
     public withSequenceNo(sequenceNo: number): ShootScriptShowItem {
@@ -29,14 +31,24 @@ export class ShootScriptShowItem {
     public get shootScript(): ShootScriptDetail | undefined {
         return this['shoot_script'];
     }
-    public withSubtitleFileInfo(subtitleFileInfo: SubtitleFileInfo): ShootScriptShowItem {
+    public withSubtitleFileInfo(subtitleFileInfo: SubtitleFiles): ShootScriptShowItem {
         this['subtitle_file_info'] = subtitleFileInfo;
         return this;
     }
-    public set subtitleFileInfo(subtitleFileInfo: SubtitleFileInfo  | undefined) {
+    public set subtitleFileInfo(subtitleFileInfo: SubtitleFiles  | undefined) {
         this['subtitle_file_info'] = subtitleFileInfo;
     }
-    public get subtitleFileInfo(): SubtitleFileInfo | undefined {
+    public get subtitleFileInfo(): SubtitleFiles | undefined {
         return this['subtitle_file_info'];
+    }
+    public withPreviewInfo(previewInfo: PreviewInfo): ShootScriptShowItem {
+        this['preview_info'] = previewInfo;
+        return this;
+    }
+    public set previewInfo(previewInfo: PreviewInfo  | undefined) {
+        this['preview_info'] = previewInfo;
+    }
+    public get previewInfo(): PreviewInfo | undefined {
+        return this['preview_info'];
     }
 }

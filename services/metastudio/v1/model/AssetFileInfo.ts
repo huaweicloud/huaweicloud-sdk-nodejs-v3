@@ -1,3 +1,4 @@
+import { FileExtraMeta } from './FileExtraMeta';
 
 
 export class AssetFileInfo {
@@ -10,6 +11,7 @@ export class AssetFileInfo {
     private 'download_url'?: string;
     public state?: AssetFileInfoStateEnum | string;
     public reason?: string;
+    private 'file_extra_meta'?: FileExtraMeta;
     public constructor() { 
     }
     public withFileId(fileId: string): AssetFileInfo {
@@ -89,6 +91,16 @@ export class AssetFileInfo {
     public withReason(reason: string): AssetFileInfo {
         this['reason'] = reason;
         return this;
+    }
+    public withFileExtraMeta(fileExtraMeta: FileExtraMeta): AssetFileInfo {
+        this['file_extra_meta'] = fileExtraMeta;
+        return this;
+    }
+    public set fileExtraMeta(fileExtraMeta: FileExtraMeta  | undefined) {
+        this['file_extra_meta'] = fileExtraMeta;
+    }
+    public get fileExtraMeta(): FileExtraMeta | undefined {
+        return this['file_extra_meta'];
     }
 }
 

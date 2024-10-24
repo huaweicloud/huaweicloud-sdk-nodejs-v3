@@ -1,9 +1,20 @@
 
 
 export class AcceptResourceShareInvitationRequest {
+    private 'X-Security-Token'?: string;
     private 'resource_share_invitation_id'?: string;
     public constructor(resourceShareInvitationId?: string) { 
         this['resource_share_invitation_id'] = resourceShareInvitationId;
+    }
+    public withXSecurityToken(xSecurityToken: string): AcceptResourceShareInvitationRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withResourceShareInvitationId(resourceShareInvitationId: string): AcceptResourceShareInvitationRequest {
         this['resource_share_invitation_id'] = resourceShareInvitationId;

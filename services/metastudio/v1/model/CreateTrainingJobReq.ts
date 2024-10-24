@@ -11,6 +11,7 @@ export class CreateTrainingJobReq {
     private 'create_type'?: CreateType;
     public phone?: string;
     private 'dhtms_job_id'?: string;
+    private 'batch_name'?: string;
     public constructor(voiceName?: string) { 
         this['voice_name'] = voiceName;
     }
@@ -63,6 +64,16 @@ export class CreateTrainingJobReq {
     }
     public get dhtmsJobId(): string | undefined {
         return this['dhtms_job_id'];
+    }
+    public withBatchName(batchName: string): CreateTrainingJobReq {
+        this['batch_name'] = batchName;
+        return this;
+    }
+    public set batchName(batchName: string  | undefined) {
+        this['batch_name'] = batchName;
+    }
+    public get batchName(): string | undefined {
+        return this['batch_name'];
     }
 }
 

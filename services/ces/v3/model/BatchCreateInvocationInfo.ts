@@ -2,10 +2,10 @@
 
 export class BatchCreateInvocationInfo {
     private 'instance_id'?: string;
-    private 'invocation_id'?: string;
     private 'ret_status'?: BatchCreateInvocationInfoRetStatusEnum | string;
-    private 'error_code'?: string;
     private 'error_msg'?: string;
+    private 'invocation_id'?: string;
+    private 'error_code'?: string;
     public constructor() { 
     }
     public withInstanceId(instanceId: string): BatchCreateInvocationInfo {
@@ -18,16 +18,6 @@ export class BatchCreateInvocationInfo {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withInvocationId(invocationId: string): BatchCreateInvocationInfo {
-        this['invocation_id'] = invocationId;
-        return this;
-    }
-    public set invocationId(invocationId: string  | undefined) {
-        this['invocation_id'] = invocationId;
-    }
-    public get invocationId(): string | undefined {
-        return this['invocation_id'];
-    }
     public withRetStatus(retStatus: BatchCreateInvocationInfoRetStatusEnum | string): BatchCreateInvocationInfo {
         this['ret_status'] = retStatus;
         return this;
@@ -38,16 +28,6 @@ export class BatchCreateInvocationInfo {
     public get retStatus(): BatchCreateInvocationInfoRetStatusEnum | string | undefined {
         return this['ret_status'];
     }
-    public withErrorCode(errorCode: string): BatchCreateInvocationInfo {
-        this['error_code'] = errorCode;
-        return this;
-    }
-    public set errorCode(errorCode: string  | undefined) {
-        this['error_code'] = errorCode;
-    }
-    public get errorCode(): string | undefined {
-        return this['error_code'];
-    }
     public withErrorMsg(errorMsg: string): BatchCreateInvocationInfo {
         this['error_msg'] = errorMsg;
         return this;
@@ -57,6 +37,26 @@ export class BatchCreateInvocationInfo {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withInvocationId(invocationId: string): BatchCreateInvocationInfo {
+        this['invocation_id'] = invocationId;
+        return this;
+    }
+    public set invocationId(invocationId: string  | undefined) {
+        this['invocation_id'] = invocationId;
+    }
+    public get invocationId(): string | undefined {
+        return this['invocation_id'];
+    }
+    public withErrorCode(errorCode: string): BatchCreateInvocationInfo {
+        this['error_code'] = errorCode;
+        return this;
+    }
+    public set errorCode(errorCode: string  | undefined) {
+        this['error_code'] = errorCode;
+    }
+    public get errorCode(): string | undefined {
+        return this['error_code'];
     }
 }
 

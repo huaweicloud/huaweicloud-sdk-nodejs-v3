@@ -1,4 +1,5 @@
 import { FailoverConditions } from './FailoverConditions';
+import { InputAudioSelector } from './InputAudioSelector';
 import { SecondarySourcesInfo } from './SecondarySourcesInfo';
 import { SourcesInfo } from './SourcesInfo';
 
@@ -10,6 +11,10 @@ export class InputStreamInfo {
     private 'failover_conditions'?: FailoverConditions;
     private 'max_bandwidth_limit'?: number;
     private 'ip_port_mode'?: boolean;
+    private 'ip_whitelist'?: string;
+    private 'scte35_source'?: string;
+    private 'ad_triggers'?: Array<string>;
+    private 'audio_selectors'?: Array<InputAudioSelector>;
     public constructor(inputProtocol?: string) { 
         this['input_protocol'] = inputProtocol;
     }
@@ -67,6 +72,46 @@ export class InputStreamInfo {
     public get ipPortMode(): boolean | undefined {
         return this['ip_port_mode'];
     }
+    public withIpWhitelist(ipWhitelist: string): InputStreamInfo {
+        this['ip_whitelist'] = ipWhitelist;
+        return this;
+    }
+    public set ipWhitelist(ipWhitelist: string  | undefined) {
+        this['ip_whitelist'] = ipWhitelist;
+    }
+    public get ipWhitelist(): string | undefined {
+        return this['ip_whitelist'];
+    }
+    public withScte35Source(scte35Source: string): InputStreamInfo {
+        this['scte35_source'] = scte35Source;
+        return this;
+    }
+    public set scte35Source(scte35Source: string  | undefined) {
+        this['scte35_source'] = scte35Source;
+    }
+    public get scte35Source(): string | undefined {
+        return this['scte35_source'];
+    }
+    public withAdTriggers(adTriggers: Array<string>): InputStreamInfo {
+        this['ad_triggers'] = adTriggers;
+        return this;
+    }
+    public set adTriggers(adTriggers: Array<string>  | undefined) {
+        this['ad_triggers'] = adTriggers;
+    }
+    public get adTriggers(): Array<string> | undefined {
+        return this['ad_triggers'];
+    }
+    public withAudioSelectors(audioSelectors: Array<InputAudioSelector>): InputStreamInfo {
+        this['audio_selectors'] = audioSelectors;
+        return this;
+    }
+    public set audioSelectors(audioSelectors: Array<InputAudioSelector>  | undefined) {
+        this['audio_selectors'] = audioSelectors;
+    }
+    public get audioSelectors(): Array<InputAudioSelector> | undefined {
+        return this['audio_selectors'];
+    }
 }
 
 /**
@@ -76,7 +121,6 @@ export class InputStreamInfo {
 export enum InputStreamInfoInputProtocolEnum {
     FLV_PULL = 'FLV_PULL',
     RTMP_PUSH = 'RTMP_PUSH',
-    RTMP_PULL = 'RTMP_PULL',
     HLS_PULL = 'HLS_PULL',
     SRT_PULL = 'SRT_PULL',
     SRT_PUSH = 'SRT_PUSH'

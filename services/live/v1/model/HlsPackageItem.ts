@@ -13,8 +13,10 @@ export class HlsPackageItem {
     public ads?: object;
     private 'ext_args'?: object;
     private 'request_args'?: PackageRequestArgs;
-    public constructor(url?: string) { 
+    private 'ad_marker'?: Array<string>;
+    public constructor(url?: string, segmentDurationSeconds?: number) { 
         this['url'] = url;
+        this['segment_duration_seconds'] = segmentDurationSeconds;
     }
     public withUrl(url: string): HlsPackageItem {
         this['url'] = url;
@@ -87,5 +89,15 @@ export class HlsPackageItem {
     }
     public get requestArgs(): PackageRequestArgs | undefined {
         return this['request_args'];
+    }
+    public withAdMarker(adMarker: Array<string>): HlsPackageItem {
+        this['ad_marker'] = adMarker;
+        return this;
+    }
+    public set adMarker(adMarker: Array<string>  | undefined) {
+        this['ad_marker'] = adMarker;
+    }
+    public get adMarker(): Array<string> | undefined {
+        return this['ad_marker'];
     }
 }

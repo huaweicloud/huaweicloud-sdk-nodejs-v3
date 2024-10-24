@@ -12,8 +12,9 @@ export class MssPackageItem {
     private 'ext_args'?: object;
     private 'delay_segment'?: number;
     private 'request_args'?: PackageRequestArgs;
-    public constructor(url?: string) { 
+    public constructor(url?: string, segmentDurationSeconds?: number) { 
         this['url'] = url;
+        this['segment_duration_seconds'] = segmentDurationSeconds;
     }
     public withUrl(url: string): MssPackageItem {
         this['url'] = url;

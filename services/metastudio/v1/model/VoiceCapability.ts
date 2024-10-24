@@ -13,6 +13,7 @@ export class VoiceCapability {
     private 'is_support_voice_cache'?: boolean;
     private 'conversion_rate'?: number;
     private 'conversion_rate_en'?: number;
+    private 'is_support_srt'?: boolean;
     public constructor() { 
     }
     public withIsSupportPhonemeEn(isSupportPhonemeEn: boolean): VoiceCapability {
@@ -134,5 +135,15 @@ export class VoiceCapability {
     }
     public get conversionRateEn(): number | undefined {
         return this['conversion_rate_en'];
+    }
+    public withIsSupportSrt(isSupportSrt: boolean): VoiceCapability {
+        this['is_support_srt'] = isSupportSrt;
+        return this;
+    }
+    public set isSupportSrt(isSupportSrt: boolean  | undefined) {
+        this['is_support_srt'] = isSupportSrt;
+    }
+    public get isSupportSrt(): boolean | undefined {
+        return this['is_support_srt'];
     }
 }

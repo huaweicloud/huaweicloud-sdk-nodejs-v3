@@ -1,12 +1,23 @@
 
 
 export class ListResourceSharePermissionsRequest {
+    private 'X-Security-Token'?: string;
     private 'resource_share_id'?: string;
     private 'permission_name'?: string;
     public limit?: number;
     public marker?: string;
     public constructor(resourceShareId?: string) { 
         this['resource_share_id'] = resourceShareId;
+    }
+    public withXSecurityToken(xSecurityToken: string): ListResourceSharePermissionsRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withResourceShareId(resourceShareId: string): ListResourceSharePermissionsRequest {
         this['resource_share_id'] = resourceShareId;

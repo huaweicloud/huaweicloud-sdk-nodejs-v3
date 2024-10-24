@@ -24,6 +24,7 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     public tag?: JobTag;
     public phone?: string;
     private 'dhtms_job_id'?: string;
+    private 'batch_name'?: string;
     public constructor() { 
         super();
     }
@@ -176,5 +177,15 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     }
     public get dhtmsJobId(): string | undefined {
         return this['dhtms_job_id'];
+    }
+    public withBatchName(batchName: string): ShowVoiceTrainingJobResponse {
+        this['batch_name'] = batchName;
+        return this;
+    }
+    public set batchName(batchName: string  | undefined) {
+        this['batch_name'] = batchName;
+    }
+    public get batchName(): string | undefined {
+        return this['batch_name'];
     }
 }

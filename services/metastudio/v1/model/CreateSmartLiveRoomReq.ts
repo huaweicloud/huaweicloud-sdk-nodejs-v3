@@ -1,8 +1,10 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
+import { CreateSmartLiveRoomReqBaseInfo } from './CreateSmartLiveRoomReqBaseInfo';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveRoomInteractionConfig } from './LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './LiveRoomInteractionRuleInfo';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
+import { PlatformLiveInfo } from './PlatformLiveInfo';
 import { PlayPolicy } from './PlayPolicy';
 import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { ReviewConfig } from './ReviewConfig';
@@ -29,6 +31,7 @@ export class CreateSmartLiveRoomReq {
     private 'view_mode'?: CreateSmartLiveRoomReqViewModeEnum | string;
     private 'co_streamer_config'?: CoStreamerConfig;
     private 'priv_data'?: string;
+    private 'relation_live_platform_info'?: PlatformLiveInfo;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -211,6 +214,16 @@ export class CreateSmartLiveRoomReq {
     }
     public get privData(): string | undefined {
         return this['priv_data'];
+    }
+    public withRelationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveInfo): CreateSmartLiveRoomReq {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+        return this;
+    }
+    public set relationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveInfo  | undefined) {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+    }
+    public get relationLivePlatformInfo(): PlatformLiveInfo | undefined {
+        return this['relation_live_platform_info'];
     }
 }
 

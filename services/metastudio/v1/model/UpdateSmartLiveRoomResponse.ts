@@ -1,10 +1,11 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
-import { CreateSmartLiveRoomReq } from './CreateSmartLiveRoomReq';
+import { CreateSmartLiveRoomReqBaseInfo } from './CreateSmartLiveRoomReqBaseInfo';
 import { ErrorResponse } from './ErrorResponse';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveRoomInteractionConfig } from './LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './LiveRoomInteractionRuleInfo';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
+import { PlatformLiveDetailInfo } from './PlatformLiveDetailInfo';
 import { PlayPolicy } from './PlayPolicy';
 import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { ReviewConfig } from './ReviewConfig';
@@ -33,6 +34,7 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     private 'co_streamer_config'?: CoStreamerConfig;
     private 'priv_data'?: string;
     private 'room_id'?: string;
+    private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'cover_url'?: string;
@@ -233,6 +235,16 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     }
     public get roomId(): string | undefined {
         return this['room_id'];
+    }
+    public withRelationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveDetailInfo): UpdateSmartLiveRoomResponse {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+        return this;
+    }
+    public set relationLivePlatformInfo(relationLivePlatformInfo: PlatformLiveDetailInfo  | undefined) {
+        this['relation_live_platform_info'] = relationLivePlatformInfo;
+    }
+    public get relationLivePlatformInfo(): PlatformLiveDetailInfo | undefined {
+        return this['relation_live_platform_info'];
     }
     public withCreateTime(createTime: string): UpdateSmartLiveRoomResponse {
         this['create_time'] = createTime;

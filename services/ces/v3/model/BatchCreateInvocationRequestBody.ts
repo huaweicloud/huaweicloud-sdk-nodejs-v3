@@ -7,6 +7,7 @@ export class BatchCreateInvocationRequestBody {
     private 'invocation_ids'?: Array<string>;
     private 'version_type'?: BatchCreateInvocationRequestBodyVersionTypeEnum | string;
     public origin?: BatchCreateInvocationRequestBodyOriginEnum | string;
+    public version?: string;
     public constructor(invocationType?: string) { 
         this['invocation_type'] = invocationType;
     }
@@ -62,6 +63,10 @@ export class BatchCreateInvocationRequestBody {
     }
     public withOrigin(origin: BatchCreateInvocationRequestBodyOriginEnum | string): BatchCreateInvocationRequestBody {
         this['origin'] = origin;
+        return this;
+    }
+    public withVersion(version: string): BatchCreateInvocationRequestBody {
+        this['version'] = version;
         return this;
     }
 }

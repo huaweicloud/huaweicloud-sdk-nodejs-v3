@@ -11,6 +11,8 @@ export class TableConfigCheckRequestV3 {
     private 'db_configs'?: Array<DbConfig>;
     private 'tables_configs'?: Array<TablesConfig>;
     private 'table_repl_config'?: TableReplConfig;
+    private 'target_database_name'?: string;
+    private 'is_create_task'?: string;
     public constructor() { 
     }
     public withSourceInstanceId(sourceInstanceId: string): TableConfigCheckRequestV3 {
@@ -82,5 +84,25 @@ export class TableConfigCheckRequestV3 {
     }
     public get tableReplConfig(): TableReplConfig | undefined {
         return this['table_repl_config'];
+    }
+    public withTargetDatabaseName(targetDatabaseName: string): TableConfigCheckRequestV3 {
+        this['target_database_name'] = targetDatabaseName;
+        return this;
+    }
+    public set targetDatabaseName(targetDatabaseName: string  | undefined) {
+        this['target_database_name'] = targetDatabaseName;
+    }
+    public get targetDatabaseName(): string | undefined {
+        return this['target_database_name'];
+    }
+    public withIsCreateTask(isCreateTask: string): TableConfigCheckRequestV3 {
+        this['is_create_task'] = isCreateTask;
+        return this;
+    }
+    public set isCreateTask(isCreateTask: string  | undefined) {
+        this['is_create_task'] = isCreateTask;
+    }
+    public get isCreateTask(): string | undefined {
+        return this['is_create_task'];
     }
 }

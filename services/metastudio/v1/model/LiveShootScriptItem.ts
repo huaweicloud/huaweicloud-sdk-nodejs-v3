@@ -1,4 +1,5 @@
 import { LiveAudioConfig } from './LiveAudioConfig';
+import { RelationProductInfo } from './RelationProductInfo';
 import { TextConfig } from './TextConfig';
 
 
@@ -7,6 +8,7 @@ export class LiveShootScriptItem {
     public title?: string;
     private 'text_config'?: TextConfig;
     private 'audio_config'?: LiveAudioConfig;
+    private 'relation_product'?: RelationProductInfo;
     public constructor() { 
     }
     public withSequenceNo(sequenceNo: number): LiveShootScriptItem {
@@ -42,5 +44,15 @@ export class LiveShootScriptItem {
     }
     public get audioConfig(): LiveAudioConfig | undefined {
         return this['audio_config'];
+    }
+    public withRelationProduct(relationProduct: RelationProductInfo): LiveShootScriptItem {
+        this['relation_product'] = relationProduct;
+        return this;
+    }
+    public set relationProduct(relationProduct: RelationProductInfo  | undefined) {
+        this['relation_product'] = relationProduct;
+    }
+    public get relationProduct(): RelationProductInfo | undefined {
+        return this['relation_product'];
     }
 }

@@ -12,8 +12,10 @@ export class DashPackageItem {
     public ads?: object;
     private 'ext_args'?: object;
     private 'request_args'?: PackageRequestArgs;
-    public constructor(url?: string) { 
+    private 'ad_marker'?: DashPackageItemAdMarkerEnum | string;
+    public constructor(url?: string, segmentDurationSeconds?: number) { 
         this['url'] = url;
+        this['segment_duration_seconds'] = segmentDurationSeconds;
     }
     public withUrl(url: string): DashPackageItem {
         this['url'] = url;
@@ -77,4 +79,23 @@ export class DashPackageItem {
     public get requestArgs(): PackageRequestArgs | undefined {
         return this['request_args'];
     }
+    public withAdMarker(adMarker: DashPackageItemAdMarkerEnum | string): DashPackageItem {
+        this['ad_marker'] = adMarker;
+        return this;
+    }
+    public set adMarker(adMarker: DashPackageItemAdMarkerEnum | string  | undefined) {
+        this['ad_marker'] = adMarker;
+    }
+    public get adMarker(): DashPackageItemAdMarkerEnum | string | undefined {
+        return this['ad_marker'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DashPackageItemAdMarkerEnum {
+    XMLBIN = 'xml+bin',
+    XML = 'xml'
 }
