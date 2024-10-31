@@ -6,8 +6,9 @@ export class AddDomainSetRequest {
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
     public body?: AddDomainSetInfoDto;
-    public constructor(projectId?: string) { 
+    public constructor(projectId?: string, fwInstanceId?: string) { 
         this['project_id'] = projectId;
+        this['fw_instance_id'] = fwInstanceId;
     }
     public withProjectId(projectId: string): AddDomainSetRequest {
         this['project_id'] = projectId;

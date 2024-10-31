@@ -1,13 +1,13 @@
-import { RuleId } from './RuleId';
+import { OrderRuleId } from './OrderRuleId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateAclRuleOrderResponse extends SdkResponse {
-    public data?: RuleId;
+    public data?: OrderRuleId;
     public constructor() { 
         super();
     }
-    public withData(data: RuleId): UpdateAclRuleOrderResponse {
+    public withData(data: OrderRuleId): UpdateAclRuleOrderResponse {
         this['data'] = data;
         return this;
     }

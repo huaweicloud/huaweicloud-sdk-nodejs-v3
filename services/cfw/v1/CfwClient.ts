@@ -32,10 +32,13 @@ import { AddServiceSetRequest } from './model/AddServiceSetRequest';
 import { AddServiceSetResponse } from './model/AddServiceSetResponse';
 import { AddServiceSetUsingPOSTRequestBody } from './model/AddServiceSetUsingPOSTRequestBody';
 import { AddressGroupVO } from './model/AddressGroupVO';
+import { AddressItemId } from './model/AddressItemId';
+import { AddressItemIdWithoutName } from './model/AddressItemIdWithoutName';
 import { AddressItemListResponseDTOData } from './model/AddressItemListResponseDTOData';
 import { AddressItemListResponseDTODataRecords } from './model/AddressItemListResponseDTODataRecords';
 import { AddressItems } from './model/AddressItems';
 import { AddressSetDetailResponseDTOData } from './model/AddressSetDetailResponseDTOData';
+import { AddressSetId } from './model/AddressSetId';
 import { AddressSetListResponseDTOData } from './model/AddressSetListResponseDTOData';
 import { AddressSetListResponseDTODataRecords } from './model/AddressSetListResponseDTODataRecords';
 import { BatchDeleteAclRulesRequest } from './model/BatchDeleteAclRulesRequest';
@@ -48,6 +51,7 @@ import { BatchDeleteServiceItemsRequest } from './model/BatchDeleteServiceItemsR
 import { BatchDeleteServiceItemsResponse } from './model/BatchDeleteServiceItemsResponse';
 import { BatchUpdateAclRuleActionsRequest } from './model/BatchUpdateAclRuleActionsRequest';
 import { BatchUpdateAclRuleActionsResponse } from './model/BatchUpdateAclRuleActionsResponse';
+import { BlackWhiteListId } from './model/BlackWhiteListId';
 import { BlackWhiteListResponseData } from './model/BlackWhiteListResponseData';
 import { BlackWhiteListResponseDataRecords } from './model/BlackWhiteListResponseDataRecords';
 import { CancelCaptureTaskDto } from './model/CancelCaptureTaskDto';
@@ -58,9 +62,11 @@ import { CaptureResultUrlVO } from './model/CaptureResultUrlVO';
 import { CaptureRuleAddressDto } from './model/CaptureRuleAddressDto';
 import { CaptureServiceDto } from './model/CaptureServiceDto';
 import { CaptureTaskDto } from './model/CaptureTaskDto';
+import { CaptureTaskId } from './model/CaptureTaskId';
 import { CaptureTaskVO } from './model/CaptureTaskVO';
 import { ChangeEastWestFirewallStatusRequest } from './model/ChangeEastWestFirewallStatusRequest';
 import { ChangeEastWestFirewallStatusResponse } from './model/ChangeEastWestFirewallStatusResponse';
+import { ChangeEastWestFirewallStatusResponseData } from './model/ChangeEastWestFirewallStatusResponseData';
 import { ChangeEipStatusRequest } from './model/ChangeEipStatusRequest';
 import { ChangeEipStatusResponse } from './model/ChangeEipStatusResponse';
 import { ChangeIpsProtectModeRequest } from './model/ChangeIpsProtectModeRequest';
@@ -113,6 +119,7 @@ import { DeleteRuleAclDto } from './model/DeleteRuleAclDto';
 import { DeleteServiceItemDto } from './model/DeleteServiceItemDto';
 import { DeleteServiceItemRequest } from './model/DeleteServiceItemRequest';
 import { DeleteServiceItemResponse } from './model/DeleteServiceItemResponse';
+import { DeleteServiceItemResponseBodyData } from './model/DeleteServiceItemResponseBodyData';
 import { DeleteServiceSetRequest } from './model/DeleteServiceSetRequest';
 import { DeleteServiceSetResponse } from './model/DeleteServiceSetResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
@@ -131,11 +138,12 @@ import { EipResource } from './model/EipResource';
 import { EipResponseData } from './model/EipResponseData';
 import { Er } from './model/Er';
 import { ErInstance } from './model/ErInstance';
-import { ErrorRsp } from './model/ErrorRsp';
 import { EwProtectResourceInfo } from './model/EwProtectResourceInfo';
+import { FailedEipInfo } from './model/FailedEipInfo';
 import { FirewallInstanceResource } from './model/FirewallInstanceResource';
 import { FirewallInstanceVO } from './model/FirewallInstanceVO';
 import { Flavor } from './model/Flavor';
+import { GetCreateFirewallJobResponseData } from './model/GetCreateFirewallJobResponseData';
 import { GetEastWestFirewallResponseBody } from './model/GetEastWestFirewallResponseBody';
 import { GetFirewallInstanceData } from './model/GetFirewallInstanceData';
 import { GetFirewallInstanceResponseRecord } from './model/GetFirewallInstanceResponseRecord';
@@ -149,7 +157,6 @@ import { HttpQueryCfwAttackLogsResponseDTOData } from './model/HttpQueryCfwAttac
 import { HttpQueryCfwAttackLogsResponseDTODataRecords } from './model/HttpQueryCfwAttackLogsResponseDTODataRecords';
 import { HttpQueryCfwFlowLogsResponseDTOData } from './model/HttpQueryCfwFlowLogsResponseDTOData';
 import { HttpQueryCfwFlowLogsResponseDTODataRecords } from './model/HttpQueryCfwFlowLogsResponseDTODataRecords';
-import { IdObject } from './model/IdObject';
 import { IpRegionDto } from './model/IpRegionDto';
 import { IpsProtectDTO } from './model/IpsProtectDTO';
 import { IpsProtectModeObject } from './model/IpsProtectModeObject';
@@ -218,6 +225,7 @@ import { ListServiceSetsRequest } from './model/ListServiceSetsRequest';
 import { ListServiceSetsResponse } from './model/ListServiceSetsResponse';
 import { LogConfigDto } from './model/LogConfigDto';
 import { OrderRuleAclDto } from './model/OrderRuleAclDto';
+import { OrderRuleId } from './model/OrderRuleId';
 import { PacketMessage } from './model/PacketMessage';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
@@ -241,9 +249,9 @@ import { ServiceItemListResponseDtoData } from './model/ServiceItemListResponseD
 import { ServiceItemListResponseDtoDataRecords } from './model/ServiceItemListResponseDtoDataRecords';
 import { ServiceSet } from './model/ServiceSet';
 import { ServiceSetDetailResponseDto } from './model/ServiceSetDetailResponseDto';
+import { ServiceSetId } from './model/ServiceSetId';
 import { ServiceSetRecords } from './model/ServiceSetRecords';
 import { SubnetInfo } from './model/SubnetInfo';
-import { SuccessRspData } from './model/SuccessRspData';
 import { TagInfo } from './model/TagInfo';
 import { TagsVO } from './model/TagsVO';
 import { UpdateAclRuleOrderRequest } from './model/UpdateAclRuleOrderRequest';
@@ -297,10 +305,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加地址组成员
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {AddAddressItemsInfoDto} addAddressItemsUsingPOSTRequestBody 添加地址组成员请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -319,10 +327,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加地址组
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {AddAddressSetDto} addAddressSetInfoUsingPOSTRequestBody 添加地址组请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -341,10 +349,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建黑白名单规则
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {AddBlackWhiteListDto} addBlackWhiteListUsingPOSTRequestBody 添加黑白名单请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)接口获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -363,10 +371,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加域名组
-     * @param {string} projectId 租户项目id
-     * @param {AddDomainSetInfoDto} addDomainSetInfoDto 添加域名组Dto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {AddDomainSetInfoDto} addDomainSetInfoDto 添加域名组请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -385,11 +393,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加域名列表
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 域名组id
-     * @param {AddDomainListDto} addDomainListDto 添加域名列表Dto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 域名组id，可通过[查询域名组列表接口](ListDomainSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {AddDomainListDto} addDomainListDto 添加域名列表请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -408,10 +416,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建日志配置
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
-     * @param {LogConfigDto} logConfigDto 日志配置Dto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {LogConfigDto} logConfigDto 添加LTS日志配置
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -430,10 +438,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新建服务成员
-     * @param {string} projectId 租户项目id
-     * @param {AddServiceItemsUsingPOSTRequestBody} addServiceItemsUsingPOSTRequestBody 创建服务组成员请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {AddServiceItemsUsingPOSTRequestBody} addServiceItemsUsingPOSTRequestBody 添加服务组成员请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -452,10 +460,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新建服务组
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {AddServiceSetUsingPOSTRequestBody} addServiceSetUsingPOSTRequestBody 创建服务组请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -474,10 +482,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除地址组成员
-     * @param {string} projectId 租户项目id
-     * @param {DeleteAddressItemsInfoDto} deleteAddressItemsInfoDto 批量删除地址组成员DTO
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {DeleteAddressItemsInfoDto} deleteAddressItemsInfoDto 批量删除地址组成员请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -496,10 +504,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除服务组成员信息
-     * @param {string} projectId 租户项目id
-     * @param {DeleteServiceItemDto} deleteServiceItemDto 批量删除服务组成员Dto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {DeleteServiceItemDto} deleteServiceItemDto 批量删除服务组成员请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -518,10 +526,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 取消抓包任务
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {CancelCaptureTaskDto} cancelCaptureTaskDto 停止抓包任务请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -535,15 +543,15 @@ export class CfwClient {
     }
 
     /**
-     * 东西向防护资源防护开启/关闭
+     * 东西向防护开启/关闭
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改东西向防火墙防护状态
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {ChangeProtectStatusRequestBody} changeEwProtectStatusRequestBody 修改东西向防护状态请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -557,15 +565,15 @@ export class CfwClient {
     }
 
     /**
-     * 创建抓包任务
+     * 创建抓包任务，每个任务只能执行一次。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建抓包任务
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {CaptureTaskDto} captureTaskDto 抓包任务请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {CaptureTaskDto} captureTaskDto 创建抓包任务请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -584,10 +592,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建东西向防火墙
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {CreateEastWestFirewallRequestBody} createEastWestFirewallRequestBody CreateEastWestFirewallRequestBody
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {CreateEastWestFirewallRequestBody} createEastWestFirewallRequestBody 创建东西向防火墙请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -606,7 +614,7 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建防火墙
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {CreateFirewallReq} createFirewallRequest 创建防火墙请求参数
      * @param {string} [xClientToken] 保证客户端请求幂等性的标识。  该标识为32位UUID格式，由客户端生成，且需确保不同请求之间该标识具有唯一性。
      * @param {*} [options] Override http request option.
@@ -627,8 +635,8 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 标签创建接口
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {CreateTagsDto} [createTagsDto] 创建标签DTO
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -648,10 +656,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除地址组成员
-     * @param {string} itemId 地址组成员id
-     * @param {string} projectId 租户项目id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} itemId 地址组成员id，可通过[查询地址组成员接口](ListAddressItems.xml)查询获得，通过返回值中的data.records.item_id（.表示各对象之间层级的区分）获得。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -670,10 +678,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除地址组
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 地址组id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 地址组id，可通过[查询地址组列表接口](ListAddressSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -692,10 +700,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除黑白名单规则
-     * @param {string} projectId 租户项目id
-     * @param {string} listId 黑白名单id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} listId 黑白名单列表id，可通过[查询黑白名单列表接口](ListBlackWhiteLists.xml)查询获得，通过返回值中的data.records.list_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -709,15 +717,15 @@ export class CfwClient {
     }
 
     /**
-     * 删除抓包任务
+     * 批量删除抓包任务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除抓包任务
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @summary 批量删除抓包任务
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {DeleteCaptureTaskDto} deleteCaptureTaskDto 删除抓包任务请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -736,10 +744,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除域名组
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 域名组id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 域名组id，可通过[查询域名组列表接口](ListDomainSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -758,10 +766,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除域名列表
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 域名组id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {DeleteDomainDto} [deleteDomainDto] 删除域名组列表dto
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 域名组id，可通过[查询域名组列表接口](ListDomainSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {DeleteDomainDto} [deleteDomainDto] 删除域名组列表请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -780,8 +789,8 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除防火墙
-     * @param {string} projectId 租户项目id
-     * @param {string} resourceId 资源id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} resourceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -800,10 +809,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务成员
-     * @param {string} projectId 租户项目id
-     * @param {string} itemId 服务组成员id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} itemId 服务组成员id，可通过[查询服务成员列表接口](ListServiceItems.xml)查询获得，通过返回值中的data.records.item_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -822,10 +831,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务组
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 服务集合id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 服务组id，可通过[获取服务组列表接口](ListServiceSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -844,8 +853,8 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除标签
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {DeleteTagsDto} [deleteTagsDto] 删除标签dto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -865,23 +874,23 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询访问控制日志
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} startTime 开始时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} endTime 结束时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} limit 每页显示个数，范围为1-1024
-     * @param {string} [ruleId] 规则ID
+     * @param {string} [ruleId] 规则id，可通过[查询防护规则接口](ListAclRules.xml)查询获得，通过返回值中的data.records.rule_id（.表示各对象之间层级的区分）获得。
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口
      * @param {string} [dstIp] 目的IP
      * @param {number} [dstPort] 目的端口
      * @param {string} [protocol] 协议类型，包含TCP, UDP,ICMP,ICMPV6等。
-     * @param {string} [app] 应用协议
+     * @param {string} [app] 规则应用类型包括：“HTTP”，\&quot;HTTPS\&quot;，\&quot;TLS1\&quot;，“DNS”，“SSH”，“MYSQL”，“SMTP”，“RDP”，“RDPS”，“VNC”，“POP3”，“IMAP4”，“SMTPS”，“POP3S”，“FTPS”，“ANY”,“BGP”等。
      * @param {string} [logId] 文档ID,第一页为空，其他页不为空，其他页可取上一次查询最后一条数据的log_id
      * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空，其他页可取上一次查询最后一条数据的start_time
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于0，首页时为空，非首页时不为空
      * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型包括：internet，vpc，nat
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {string} [dstHost] 目标主机
      * @param {string} [ruleName] 规则名称
      * @param {string} [action] 动作包含permit，deny
@@ -909,14 +918,14 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组成员
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 地址组id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 地址组id，可通过[查询地址组列表接口](ListAddressSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [keyWord] 关键字
+     * @param {string} [keyWord] 关键字，包括地址组成员名称或描述的一部分
      * @param {string} [address] ip地址
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -936,10 +945,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组详细信息
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 地址组id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 地址组id，可通过[查询地址组列表接口](ListAddressSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -959,16 +968,16 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组列表
-     * @param {string} projectId 租户项目id
-     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [keyWord] 关键字
+     * @param {string} [keyWord] 关键字，包括地址组名称或描述的一部分
      * @param {string} [address] ip地址
-     * @param {0 | 1} [addressType] 地址类型0 ipv4,1 ipv6
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
+     * @param {number} [addressType] 地址类型0 ipv4，1 ipv6
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组，当address_set_type不为0时，query_address_set_type为1时才可以生效。
      * @param {number} [addressSetType] 地址组类型，0表示自定义地址组，1表示WAF回源IP地址组，2表示DDoS回源IP地址组，3表示NAT64转换地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -988,17 +997,17 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询攻击日志
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {number} startTime 开始时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} endTime 结束时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} limit 每页显示个数，范围为1-1024
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口号
      * @param {string} [dstIp] 目的IP
      * @param {number} [dstPort] 目的端口号
      * @param {string} [protocol] 协议类型，包含TCP, UDP,ICMP,ICMPV6等。
-     * @param {string} [app] 应用协议
+     * @param {string} [app] 规则应用类型包括：“HTTP”，\&quot;HTTPS\&quot;，\&quot;TLS1\&quot;，“DNS”，“SSH”，“MYSQL”，“SMTP”，“RDP”，“RDPS”，“VNC”，“POP3”，“IMAP4”，“SMTPS”，“POP3S”，“FTPS”，“ANY”,“BGP”等。
      * @param {string} [logId] 文档ID,第一页为空，其他页不为空，其他页可取上一次查询最后一条数据的log_id
      * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空，其他页可取上一次查询最后一条数据的event_time
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于0，首页时为空，非首页时不为空
@@ -1007,7 +1016,7 @@ export class CfwClient {
      * @param {string} [attackType] 入侵事件类型
      * @param {string} [attackRule] 入侵事件规则
      * @param {string} [level] 威胁等级，包括CRITICAL、HIGH、MEDIUM、LOW
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {string} [dstHost] 目标主机
      * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型包括：internet，vpc，nat
      * @param {string} [attackRuleId] 入侵事件id
@@ -1035,16 +1044,16 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询黑白名单列表
-     * @param {string} projectId 租户项目id
-     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得
      * @param {4 | 5} listType 黑白名单类型4：黑名单，5：白名单
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {number} [addressType] IP地址类型0：ipv4,1:ipv6
+     * @param {number} [addressType] ip地址类型0：ipv4，1:ipv6
      * @param {string} [address] ip地址
      * @param {string} [port] 端口
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1063,12 +1072,12 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取抓包任务结果
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} taskId 抓包任务id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} taskId 抓包任务id，可通过[查询抓包任务接口](ListCaptureTask.xml)查询获得，通过返回值中的data.records.task_id（.表示各对象之间层级的区分）获得。
      * @param {number} [type] 是否指定公网ip下载，0：无限制，1：指定公网ip下载
      * @param {Array<string>} [ip] 指定公网ip
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1087,11 +1096,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询抓包任务
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1110,11 +1119,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询dns服务器列表
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)接口获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。若object_Id非空，默认返回object_Id对应墙的信息；填写时object_Id需要属于fw_instance_Id对应的墙。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {number} [limit] 每页显示个数，范围为1-1024
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1133,10 +1142,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名解析ip地址
-     * @param {string} projectId 租户项目id
-     * @param {string} domainName 域名
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} domainName 域名，如www.test.com
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} [addressType] 地址类型，0 ipv4,1 ipv6
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1156,15 +1165,15 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名组列表
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [keyWord] 关键字
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [keyWord] 关键字，可使用域名组名称或描述
      * @param {number} [domainSetType] 域名组类型，0表示应用域名组，1表示网络域名组
-     * @param {number} [configStatus] 配置状态
+     * @param {number} [configStatus] 配置状态，-1表示未配置态，0表示配置失败，1表示配置成功，2表示配置中，3表示正常，4表示配置异常
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1183,14 +1192,14 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取域名组下域名列表
-     * @param {string} projectId 租户项目ID
-     * @param {string} domainSetId 域名组id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} domainSetId 域名组id，可通过[查询域名组列表接口](ListDomainSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [domainName] 域名名称
-     * @param {string} [objectId] 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [domainName] 域名名称，如www.test.com
+     * @param {string} [objectId] 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1209,11 +1218,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取东西向防火墙信息
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1232,11 +1241,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防火墙详细信息
-     * @param {string} projectId 租户项目id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} limit 每页显示个数，范围为1-1024
-     * @param {0 | 1} serviceType 服务类型 0 南北向防火墙 1 东西向防火墙
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {number} serviceType 服务类型，目前仅支持0互联网防护
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [name] 防火墙名称
      * @param {*} [options] Override http request option.
@@ -1257,9 +1266,9 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防火墙列表
-     * @param {string} projectId 租户项目ID
-     * @param {QueryFireWallInstanceDto} queryFireWallInstanceDto 查询防火墙列表DTO
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {QueryFireWallInstanceDto} queryFireWallInstanceDto 查询防火墙列表请求体。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1278,8 +1287,8 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询流日志
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} startTime 开始时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} endTime 结束时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} limit 每页显示个数，范围为1-1024
@@ -1290,11 +1299,11 @@ export class CfwClient {
      * @param {string} [dstIp] 目的IP
      * @param {number} [dstPort] 目的端口
      * @param {string} [protocol] 协议类型，包含TCP, UDP,ICMP,ICMPV6等。
-     * @param {string} [app] 应用协议
+     * @param {string} [app] 规则应用类型包括：“HTTP”，\&quot;HTTPS\&quot;，\&quot;TLS1\&quot;，“DNS”，“SSH”，“MYSQL”，“SMTP”，“RDP”，“RDPS”，“VNC”，“POP3”，“IMAP4”，“SMTPS”，“POP3S”，“FTPS”，“ANY”,“BGP”等。
      * @param {string} [logId] 文档ID,第一页为空，其他页不为空，其他页可取上一次查询最后一条数据的log_id
      * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空，其他页可取上一次查询最后一条数据的start_time
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于0，首页时为空，非首页时不为空
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {string} [dstHost] 目的主机
      * @param {string} [srcRegionName] 源region名称
      * @param {string} [dstRegionName] 目的region名称
@@ -1320,8 +1329,8 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取CFW任务执行状态
-     * @param {string} projectId 项目ID
-     * @param {string} jobId 任务ID
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} jobId 创建按需防火墙返回的任务ID，可通过调用[创建防火墙接口](CreateFirewall.xml)返回值获得。返回值中job_id即为此处的job_id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1340,9 +1349,9 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取日志配置
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1361,10 +1370,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护VPC数
-     * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。此处仅取type为1的防护对象id，可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1383,13 +1392,13 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务成员列表
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 服务组id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 服务组id，可通过[获取服务组列表接口](ListServiceSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [keyWord] 查询字段
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [keyWord] 查询字段，可为服务组成员名称或服务组成员描述的一部分。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组。仅当set_id为预定义服务组id时生效
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1409,10 +1418,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务组详情
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 服务组id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 服务组id，可通过[获取服务组列表接口](ListServiceSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1432,13 +1441,13 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取服务组列表
-     * @param {string} projectId 租户项目id
-     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得
      * @param {number} limit 每页查询个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [keyWord] 关键字
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [keyWord] 关键字，可使用功能服务组名称和服务组描述的一部分
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1458,11 +1467,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新地址组信息
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 地址组id
-     * @param {UpdateAddressSetDto} updateAddressSetInfoUsingPUTRequestBody UpdateAddressSetInfoUsingPUTRequestBody
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 地址组id，可通过[查询地址组列表接口](ListAddressSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
+     * @param {UpdateAddressSetDto} updateAddressSetInfoUsingPUTRequestBody 更新地址组请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1481,11 +1490,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新黑白名单列表
-     * @param {string} projectId 租户项目id
-     * @param {string} listId 黑白名单列表id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} listId 黑白名单列表id，可通过[查询黑白名单列表接口](ListBlackWhiteLists.xml)查询获得，通过返回值中的data.records.list_id（.表示各对象之间层级的区分）获得。
      * @param {UpdateBlackWhiteListDto} updateBlackWhiteListUsingPUTRequestBody 更新黑白名单请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1504,10 +1513,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新dns服务器列表
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。若object_Id非空，默认返回object_Id对应墙的信息；填写时object_Id需要属于fw_instance_Id对应的墙。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {UpdateDnsServersRequestBody} updateDnsServersRequestBody 更新dns服务器列表请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1526,11 +1535,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新域名组
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 域名组id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 域名组id，可通过[查询域名组列表接口](ListDomainSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
      * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
-     * @param {UpdateDomainSetInfoDto} updateDomainSetInfoDto 更新域名组Dto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {UpdateDomainSetInfoDto} updateDomainSetInfoDto 更新域名组请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1549,10 +1558,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新日志配置
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
-     * @param {LogConfigDto} logConfigDto 日志配置DTO
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取(ListFirewallDetail.xml)。
+     * @param {LogConfigDto} logConfigDto 更新LTS日志配置请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1571,11 +1580,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改服务组
-     * @param {string} projectId 租户项目id
-     * @param {string} setId 服务组id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} setId 服务组id，可通过[获取服务组列表接口](ListServiceSets.xml)查询获得，通过返回值中的data.records.set_id（.表示各对象之间层级的区分）获得。
      * @param {UpdateServiceSetUsingPUTRequestBody} updateServiceSetUsingPUTRequestBody 更新服务组的请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1594,10 +1603,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建ACL规则
-     * @param {string} projectId 租户项目id
-     * @param {AddRuleAclDto} addRuleAclUsingPOSTRequestBody 添加aclDto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {AddRuleAclDto} addRuleAclUsingPOSTRequestBody 添加Acl规则请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1616,10 +1625,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除Acl规则
-     * @param {string} projectId 租户项目ID
-     * @param {DeleteRuleAclDto} deleteRuleAclDto 删除规则DTO
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {DeleteRuleAclDto} deleteRuleAclDto 批量删除规则请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1638,9 +1647,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量更新规则动作
-     * @param {string} projectId 租户项目ID
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {UpdateSecurityPolciesActionDto} updateSecurityPoliciesActionDto 更新规则动作请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1659,10 +1669,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除ACL规则
-     * @param {string} projectId 租户项目Id
-     * @param {string} aclRuleId 规则Id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} aclRuleId 规则id，可通过[查询防护规则接口](ListAclRules.xml)查询获得，通过返回值中的data.records.rule_id（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1681,10 +1691,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除规则击中次数
-     * @param {string} projectId project id
-     * @param {ClearAccessLogRuleHitCountsDto} deleteAclRuleCountRequestBody clear access log rule hit counts dto
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {ClearAccessLogRuleHitCountsDto} deleteAclRuleCountRequestBody 删除规则击中次数请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1703,10 +1713,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取规则击中次数
-     * @param {string} projectId 租户项目id
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {ListRuleHitCountDto} [listRuleHitCountRequestBody] 获取规则击中次数DTO
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {ListRuleHitCountDto} [listRuleHitCountRequestBody] 获取规则击中次数请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1726,23 +1736,23 @@ export class CfwClient {
      *
      * @summary 查询防护规则
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {0 | 1 | 2} [type] 规则Type0：互联网规则,1：vpc规则, 2:nat规则
+     * @param {0 | 1 | 2} [type] 规则类型，0：互联网规则，1：vpc规则，2：nat规则
      * @param {string} [ip] ip地址
-     * @param {string} [name] 名称
+     * @param {string} [name] 规则名称
      * @param {number} [direction] 方向0：外到内1：内到外
-     * @param {0 | 1} [status] 规则下发状态 0：禁用,1：启用
-     * @param {0 | 1} [actionType] 动作0：permit,1：deny
-     * @param {0 | 1 | 2} [addressType] 地址类型0 ipv4
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} [tagsId] 标签id
+     * @param {0 | 1} [status] 规则下发状态 0：禁用，1：启用
+     * @param {0 | 1} [actionType] 动作0：permit，1：deny
+     * @param {0 | 1} [addressType] 地址类型，0表示ipv4，1表示ipv6
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [tagsId] 规则标签id，创建规则时产生。
      * @param {string} [source] 源地址
      * @param {string} [destination] 目的地址
      * @param {string} [service] 服务端口
-     * @param {string} [application] 应用
+     * @param {string} [application] 规则应用类型包括：“HTTP”，\&quot;HTTPS\&quot;，\&quot;TLS1\&quot;，“DNS”，“SSH”，“MYSQL”，“SMTP”，“RDP”，“RDPS”，“VNC”，“POP3”，“IMAP4”，“SMTPS”，“POP3S”，“FTPS”，“ANY”,“BGP”等。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1761,11 +1771,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规则标签
-     * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} limit 每页显示个数，范围为1-1024
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1784,11 +1794,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新ACL规则
-     * @param {string} projectId 租户项目id
-     * @param {string} aclRuleId 规则Id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} aclRuleId 规则id，可通过[查询防护规则接口](ListAclRules.xml)查询获得，通过返回值中的data.records.rule_id（.表示各对象之间层级的区分）获得。
      * @param {UpdateRuleAclDto} updateRuleAclUsingPUTRequestBody 更新规则请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1807,11 +1817,11 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary ACL防护规则优先级设置
-     * @param {string} projectId 租户项目id
-     * @param {string} aclRuleId 规则id
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} aclRuleId 规则id，可通过[查询防护规则接口](ListAclRules.xml)查询获得，通过返回值中的data.records.rule_id（.表示各对象之间层级的区分）获得。
      * @param {OrderRuleAclDto} listRuleAclUsingPUTRequestBody 规则排序请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1830,10 +1840,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 弹性IP开启关闭
-     * @param {string} projectId 租户项目ID
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
      * @param {EipOperateProtectReq} changeProtectEipRequestBody 开启关闭EIP请求体
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1852,10 +1862,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Eip个数
-     * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。此处仅取type为0的防护对象id，可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1874,20 +1884,20 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 弹性IP列表查询
-     * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。此处仅取type为0的防护对象id，可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [keyWord] 弹性公网ID/弹性公网IP
-     * @param {'null' | '0' | '1'} [status] 防护状态 null-全部 0-开启防护 1-关闭防护
-     * @param {0 | 1} [sync] 是否同步租户EIP数据 0-不同步 1-同步
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [deviceKey] 设备键
-     * @param {number} [addressType] 地址类型0 ipv4,1 ipv6
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} [fwKeyWord] 所绑定防火墙id防火墙名称
-     * @param {string} [epsId] 弹性公网ip的企业项目id
-     * @param {string} [tags] 标签列表信息
+     * @param {string} [keyWord] 查询防护EIP列表关键字，可选用弹性公网ID和弹性公网IP
+     * @param {string} [status] 防护状态 null-全部 0-开启防护 1-关闭防护
+     * @param {number} [sync] 是否同步租户EIP数据 0-不同步 1-同步
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [deviceKey] 设备关键字，是eip绑定的资产的名称或id
+     * @param {number} [addressType] 地址类型0 ipv4，1 ipv6
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [fwKeyWord] 防火墙关键字，可使用防火墙id或名称查询，可通过[防火墙ID获取方式](cfw_02_0028.xml)
+     * @param {string} [epsId] 弹性公网ip的企业项目id，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，租户未开启企业项目时为0
+     * @param {string} [tags] 标签列表信息可通过查询EIP服务界面列表标签页签获得
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1906,10 +1916,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换防护模式
-     * @param {string} projectId 租户项目id
-     * @param {IpsProtectDTO} changeIpsProtectModeUsingPOSTRequestBody ChangeIpsProtectModeUsingPOSTRequestBody
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {IpsProtectDTO} changeIpsProtectModeUsingPOSTRequestBody 修改IPS防护模式请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1928,11 +1938,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary IPS特性开关操作
-     * @param {string} projectId project_id
-     * @param {IpsSwitchDTO} changeIpsSwitchUsingPOSTRequestBody ChangeIpsSwitchUsingPOSTRequestBody
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} [xLanguage] 语言头部，默认为zh-cn，如需使用英文，请选择en-us
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {IpsSwitchDTO} changeIpsSwitchUsingPOSTRequestBody 修改ips开关请求体
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1951,10 +1960,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护模式
-     * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。此处仅取type为0的防护对象id，可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1973,10 +1982,10 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询IPS特性开关状态
-     * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
-     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。此处仅取type为0的防护对象id，可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得。
+     * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
+     * @param {string} [fwInstanceId] 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2197,21 +2206,21 @@ export const ParamCreater = function () {
             
             let projectId;
             
-            let enterpriseProjectId;
-            
             let fwInstanceId;
+            
+            let enterpriseProjectId;
 
             if (addDomainSetRequest !== null && addDomainSetRequest !== undefined) {
                 if (addDomainSetRequest instanceof AddDomainSetRequest) {
                     projectId = addDomainSetRequest.projectId;
+                    fwInstanceId = addDomainSetRequest.fwInstanceId;
                     body = addDomainSetRequest.body
                     enterpriseProjectId = addDomainSetRequest.enterpriseProjectId;
-                    fwInstanceId = addDomainSetRequest.fwInstanceId;
                 } else {
                     projectId = addDomainSetRequest['project_id'];
+                    fwInstanceId = addDomainSetRequest['fw_instance_id'];
                     body = addDomainSetRequest['body'];
                     enterpriseProjectId = addDomainSetRequest['enterprise_project_id'];
-                    fwInstanceId = addDomainSetRequest['fw_instance_id'];
                 }
             }
 
@@ -2219,14 +2228,17 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling addDomainSet.');
             }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling addDomainSet.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (fwInstanceId !== null && fwInstanceId !== undefined) {
-                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2678,7 +2690,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 东西向防护资源防护开启/关闭
+         * 东西向防护开启/关闭
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2739,7 +2751,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建抓包任务
+         * 创建抓包任务，每个任务只能执行一次。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3147,7 +3159,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除抓包任务
+         * 批量删除抓包任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3296,17 +3308,21 @@ export const ParamCreater = function () {
             let setId;
             
             let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteDomainsRequest !== null && deleteDomainsRequest !== undefined) {
                 if (deleteDomainsRequest instanceof DeleteDomainsRequest) {
                     projectId = deleteDomainsRequest.projectId;
                     setId = deleteDomainsRequest.setId;
                     enterpriseProjectId = deleteDomainsRequest.enterpriseProjectId;
+                    fwInstanceId = deleteDomainsRequest.fwInstanceId;
                     body = deleteDomainsRequest.body
                 } else {
                     projectId = deleteDomainsRequest['project_id'];
                     setId = deleteDomainsRequest['set_id'];
                     enterpriseProjectId = deleteDomainsRequest['enterprise_project_id'];
+                    fwInstanceId = deleteDomainsRequest['fw_instance_id'];
                     body = deleteDomainsRequest['body'];
                 }
             }
@@ -3320,6 +3336,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -4510,33 +4529,39 @@ export const ParamCreater = function () {
             
             let projectId;
             
+            let fwInstanceId;
+            
             let limit;
             
             let offset;
             
             let enterpriseProjectId;
-            
-            let fwInstanceId;
 
             if (listCaptureTaskRequest !== null && listCaptureTaskRequest !== undefined) {
                 if (listCaptureTaskRequest instanceof ListCaptureTaskRequest) {
                     projectId = listCaptureTaskRequest.projectId;
+                    fwInstanceId = listCaptureTaskRequest.fwInstanceId;
                     limit = listCaptureTaskRequest.limit;
                     offset = listCaptureTaskRequest.offset;
                     enterpriseProjectId = listCaptureTaskRequest.enterpriseProjectId;
-                    fwInstanceId = listCaptureTaskRequest.fwInstanceId;
                 } else {
                     projectId = listCaptureTaskRequest['project_id'];
+                    fwInstanceId = listCaptureTaskRequest['fw_instance_id'];
                     limit = listCaptureTaskRequest['limit'];
                     offset = listCaptureTaskRequest['offset'];
                     enterpriseProjectId = listCaptureTaskRequest['enterprise_project_id'];
-                    fwInstanceId = listCaptureTaskRequest['fw_instance_id'];
                 }
             }
 
         
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listCaptureTask.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listCaptureTask.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             if (limit === null || limit === undefined) {
                 throw new RequiredError('limit','Required parameter limit was null or undefined when calling listCaptureTask.');
@@ -4552,9 +4577,6 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (fwInstanceId !== null && fwInstanceId !== undefined) {
-                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4582,26 +4604,26 @@ export const ParamCreater = function () {
             
             let projectId;
             
-            let fwInstanceId;
-            
             let limit;
             
             let offset;
+            
+            let fwInstanceId;
             
             let enterpriseProjectId;
 
             if (listDnsServersRequest !== null && listDnsServersRequest !== undefined) {
                 if (listDnsServersRequest instanceof ListDnsServersRequest) {
                     projectId = listDnsServersRequest.projectId;
-                    fwInstanceId = listDnsServersRequest.fwInstanceId;
                     limit = listDnsServersRequest.limit;
                     offset = listDnsServersRequest.offset;
+                    fwInstanceId = listDnsServersRequest.fwInstanceId;
                     enterpriseProjectId = listDnsServersRequest.enterpriseProjectId;
                 } else {
                     projectId = listDnsServersRequest['project_id'];
-                    fwInstanceId = listDnsServersRequest['fw_instance_id'];
                     limit = listDnsServersRequest['limit'];
                     offset = listDnsServersRequest['offset'];
+                    fwInstanceId = listDnsServersRequest['fw_instance_id'];
                     enterpriseProjectId = listDnsServersRequest['enterprise_project_id'];
                 }
             }
@@ -4610,17 +4632,14 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listDnsServers.');
             }
-            if (fwInstanceId === null || fwInstanceId === undefined) {
-                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listDnsServers.');
-            }
-            if (fwInstanceId !== null && fwInstanceId !== undefined) {
-                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -6295,16 +6314,20 @@ export const ParamCreater = function () {
             let projectId;
             
             let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (batchUpdateAclRuleActionsRequest !== null && batchUpdateAclRuleActionsRequest !== undefined) {
                 if (batchUpdateAclRuleActionsRequest instanceof BatchUpdateAclRuleActionsRequest) {
                     projectId = batchUpdateAclRuleActionsRequest.projectId;
                     body = batchUpdateAclRuleActionsRequest.body
                     enterpriseProjectId = batchUpdateAclRuleActionsRequest.enterpriseProjectId;
+                    fwInstanceId = batchUpdateAclRuleActionsRequest.fwInstanceId;
                 } else {
                     projectId = batchUpdateAclRuleActionsRequest['project_id'];
                     body = batchUpdateAclRuleActionsRequest['body'];
                     enterpriseProjectId = batchUpdateAclRuleActionsRequest['enterprise_project_id'];
+                    fwInstanceId = batchUpdateAclRuleActionsRequest['fw_instance_id'];
                 }
             }
 
@@ -6317,6 +6340,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -7225,8 +7251,6 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
-            
-            let xLanguage;
 
             if (changeIpsSwitchStatusRequest !== null && changeIpsSwitchStatusRequest !== undefined) {
                 if (changeIpsSwitchStatusRequest instanceof ChangeIpsSwitchStatusRequest) {
@@ -7234,13 +7258,11 @@ export const ParamCreater = function () {
                     body = changeIpsSwitchStatusRequest.body
                     enterpriseProjectId = changeIpsSwitchStatusRequest.enterpriseProjectId;
                     fwInstanceId = changeIpsSwitchStatusRequest.fwInstanceId;
-                    xLanguage = changeIpsSwitchStatusRequest.xLanguage;
                 } else {
                     projectId = changeIpsSwitchStatusRequest['project_id'];
                     body = changeIpsSwitchStatusRequest['body'];
                     enterpriseProjectId = changeIpsSwitchStatusRequest['enterprise_project_id'];
                     fwInstanceId = changeIpsSwitchStatusRequest['fw_instance_id'];
-                    xLanguage = changeIpsSwitchStatusRequest['X-Language'];
                 }
             }
 
@@ -7256,9 +7278,6 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

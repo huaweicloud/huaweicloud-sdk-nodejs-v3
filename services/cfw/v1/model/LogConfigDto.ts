@@ -10,13 +10,10 @@ export class LogConfigDto {
     private 'lts_access_log_stream_enable'?: number;
     private 'lts_flow_log_stream_id'?: string;
     private 'lts_flow_log_stream_enable'?: number;
-    public constructor(fwInstanceId?: string, ltsEnable?: number, ltsLogGroupId?: string, ltsAttackLogStreamEnable?: number, ltsAccessLogStreamEnable?: number, ltsFlowLogStreamEnable?: number) { 
+    public constructor(fwInstanceId?: string, ltsEnable?: number, ltsLogGroupId?: string) { 
         this['fw_instance_id'] = fwInstanceId;
         this['lts_enable'] = ltsEnable;
         this['lts_log_group_id'] = ltsLogGroupId;
-        this['lts_attack_log_stream_enable'] = ltsAttackLogStreamEnable;
-        this['lts_access_log_stream_enable'] = ltsAccessLogStreamEnable;
-        this['lts_flow_log_stream_enable'] = ltsFlowLogStreamEnable;
     }
     public withFwInstanceId(fwInstanceId: string): LogConfigDto {
         this['fw_instance_id'] = fwInstanceId;

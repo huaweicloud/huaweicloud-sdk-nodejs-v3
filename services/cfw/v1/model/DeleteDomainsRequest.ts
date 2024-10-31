@@ -5,6 +5,7 @@ export class DeleteDomainsRequest {
     private 'project_id'?: string;
     private 'set_id'?: string;
     private 'enterprise_project_id'?: string;
+    private 'fw_instance_id'?: string;
     public body?: DeleteDomainDto;
     public constructor(projectId?: string, setId?: string) { 
         this['project_id'] = projectId;
@@ -39,6 +40,16 @@ export class DeleteDomainsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): DeleteDomainsRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId(): string | undefined {
+        return this['fw_instance_id'];
     }
     public withBody(body: DeleteDomainDto): DeleteDomainsRequest {
         this['body'] = body;

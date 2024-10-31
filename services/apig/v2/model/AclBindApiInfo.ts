@@ -12,6 +12,7 @@ export class AclBindApiInfo {
     private 'bind_time'?: Date;
     private 'publish_id'?: string;
     private 'req_method'?: AclBindApiInfoReqMethodEnum | string;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withApiId(apiId: string): AclBindApiInfo {
@@ -123,6 +124,10 @@ export class AclBindApiInfo {
     }
     public get reqMethod(): AclBindApiInfoReqMethodEnum | string | undefined {
         return this['req_method'];
+    }
+    public withTags(tags: Array<string>): AclBindApiInfo {
+        this['tags'] = tags;
+        return this;
     }
 }
 

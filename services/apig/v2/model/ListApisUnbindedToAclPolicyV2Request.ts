@@ -9,6 +9,7 @@ export class ListApisUnbindedToAclPolicyV2Request {
     private 'api_name'?: string;
     private 'env_id'?: string;
     private 'group_id'?: string;
+    public tags?: string;
     public constructor(instanceId?: string, aclId?: string) { 
         this['instance_id'] = instanceId;
         this['acl_id'] = aclId;
@@ -80,5 +81,9 @@ export class ListApisUnbindedToAclPolicyV2Request {
     }
     public get groupId(): string | undefined {
         return this['group_id'];
+    }
+    public withTags(tags: string): ListApisUnbindedToAclPolicyV2Request {
+        this['tags'] = tags;
+        return this;
     }
 }

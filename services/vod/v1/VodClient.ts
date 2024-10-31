@@ -135,6 +135,8 @@ import { ShowCdnStatisticsRequest } from './model/ShowCdnStatisticsRequest';
 import { ShowCdnStatisticsResponse } from './model/ShowCdnStatisticsResponse';
 import { ShowPreheatingAssetRequest } from './model/ShowPreheatingAssetRequest';
 import { ShowPreheatingAssetResponse } from './model/ShowPreheatingAssetResponse';
+import { ShowStorageModeTypeRequest } from './model/ShowStorageModeTypeRequest';
+import { ShowStorageModeTypeResponse } from './model/ShowStorageModeTypeResponse';
 import { ShowTakeOverAssetDetailsRequest } from './model/ShowTakeOverAssetDetailsRequest';
 import { ShowTakeOverAssetDetailsResponse } from './model/ShowTakeOverAssetDetailsResponse';
 import { ShowTakeOverTaskDetailsRequest } from './model/ShowTakeOverTaskDetailsRequest';
@@ -178,6 +180,9 @@ import { UpdateCoverByThumbnailResponse } from './model/UpdateCoverByThumbnailRe
 import { UpdateStorageModeReq } from './model/UpdateStorageModeReq';
 import { UpdateStorageModeRequest } from './model/UpdateStorageModeRequest';
 import { UpdateStorageModeResponse } from './model/UpdateStorageModeResponse';
+import { UpdateStorageModeTypeReq } from './model/UpdateStorageModeTypeReq';
+import { UpdateStorageModeTypeRequest } from './model/UpdateStorageModeTypeRequest';
+import { UpdateStorageModeTypeResponse } from './model/UpdateStorageModeTypeResponse';
 import { UpdateTemplateGroupCollectionRequest } from './model/UpdateTemplateGroupCollectionRequest';
 import { UpdateTemplateGroupCollectionResponse } from './model/UpdateTemplateGroupCollectionResponse';
 import { UpdateTemplateGroupRequest } from './model/UpdateTemplateGroupRequest';
@@ -1101,6 +1106,24 @@ export class VodClient {
     }
 
     /**
+     * 查询媒资降冷配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询媒资降冷配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStorageModeType(showStorageModeTypeRequest?: ShowStorageModeTypeRequest): Promise<ShowStorageModeTypeResponse> {
+        const options = ParamCreater().showStorageModeType();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * ## 典型场景 ##
      *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
      * 
@@ -1286,6 +1309,27 @@ export class VodClient {
      */
     public updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest): Promise<UpdateStorageModeResponse> {
         const options = ParamCreater().updateStorageMode(updateStorageModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改媒资降冷粒度。
+     * 
+     * 默认为整个媒资粒度，支持转为仅原文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改媒资降冷粒度
+     * @param {UpdateStorageModeTypeReq} updateStorageModeTypeRequestBody 修改媒资存储方式
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStorageModeType(updateStorageModeTypeRequest?: UpdateStorageModeTypeRequest): Promise<UpdateStorageModeTypeResponse> {
+        const options = ParamCreater().updateStorageModeType(updateStorageModeTypeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3716,6 +3760,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询媒资降冷配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStorageModeType() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/storage-mode-type",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * ## 典型场景 ##
          *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
          * 
@@ -4126,6 +4191,46 @@ export const ParamCreater = function () {
                     body = updateStorageModeRequest.body
                 } else {
                     body = updateStorageModeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改媒资降冷粒度。
+         * 
+         * 默认为整个媒资粒度，支持转为仅原文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStorageModeType(updateStorageModeTypeRequest?: UpdateStorageModeTypeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/asset/storage-mode-type",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateStorageModeTypeRequest !== null && updateStorageModeTypeRequest !== undefined) {
+                if (updateStorageModeTypeRequest instanceof UpdateStorageModeTypeRequest) {
+                    body = updateStorageModeTypeRequest.body
+                } else {
+                    body = updateStorageModeTypeRequest['body'];
                 }
             }
 

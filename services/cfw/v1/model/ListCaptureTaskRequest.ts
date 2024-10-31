@@ -6,8 +6,9 @@ export class ListCaptureTaskRequest {
     private 'fw_instance_id'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(projectId?: string, limit?: number, offset?: number) { 
+    public constructor(projectId?: string, fwInstanceId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
+        this['fw_instance_id'] = fwInstanceId;
         this['limit'] = limit;
         this['offset'] = offset;
     }

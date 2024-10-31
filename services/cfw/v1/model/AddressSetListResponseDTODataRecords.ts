@@ -4,10 +4,10 @@ export class AddressSetListResponseDTODataRecords {
     private 'set_id'?: string;
     private 'ref_count'?: number;
     public description?: string;
-    public name?: string;
     private 'address_type'?: number;
     private 'object_id'?: string;
     private 'address_set_type'?: number;
+    public name?: string;
     public constructor() { 
     }
     public withSetId(setId: string): AddressSetListResponseDTODataRecords {
@@ -32,10 +32,6 @@ export class AddressSetListResponseDTODataRecords {
     }
     public withDescription(description: string): AddressSetListResponseDTODataRecords {
         this['description'] = description;
-        return this;
-    }
-    public withName(name: string): AddressSetListResponseDTODataRecords {
-        this['name'] = name;
         return this;
     }
     public withAddressType(addressType: number): AddressSetListResponseDTODataRecords {
@@ -67,5 +63,9 @@ export class AddressSetListResponseDTODataRecords {
     }
     public get addressSetType(): number | undefined {
         return this['address_set_type'];
+    }
+    public withName(name: string): AddressSetListResponseDTODataRecords {
+        this['name'] = name;
+        return this;
     }
 }

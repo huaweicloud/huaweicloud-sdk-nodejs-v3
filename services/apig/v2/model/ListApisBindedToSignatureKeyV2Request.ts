@@ -9,6 +9,7 @@ export class ListApisBindedToSignatureKeyV2Request {
     private 'api_id'?: string;
     private 'api_name'?: string;
     private 'group_id'?: string;
+    public tags?: string;
     public constructor(instanceId?: string, signId?: string) { 
         this['instance_id'] = instanceId;
         this['sign_id'] = signId;
@@ -80,5 +81,9 @@ export class ListApisBindedToSignatureKeyV2Request {
     }
     public get groupId(): string | undefined {
         return this['group_id'];
+    }
+    public withTags(tags: string): ListApisBindedToSignatureKeyV2Request {
+        this['tags'] = tags;
+        return this;
     }
 }

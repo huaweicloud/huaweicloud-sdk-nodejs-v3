@@ -45,6 +45,11 @@ import { CreateGaussDbInstanceResponse } from './model/CreateGaussDbInstanceResp
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceRespItem } from './model/CreateInstanceRespItem';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
+import { CreateLimitTaskNodeOption } from './model/CreateLimitTaskNodeOption';
+import { CreateLimitTaskNodeResult } from './model/CreateLimitTaskNodeResult';
+import { CreateLimitTaskRequest } from './model/CreateLimitTaskRequest';
+import { CreateLimitTaskRequestBody } from './model/CreateLimitTaskRequestBody';
+import { CreateLimitTaskResponse } from './model/CreateLimitTaskResponse';
 import { CreateManualBackupRequest } from './model/CreateManualBackupRequest';
 import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequestBody';
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
@@ -67,6 +72,8 @@ import { DeleteInstanceTagRequest } from './model/DeleteInstanceTagRequest';
 import { DeleteInstanceTagResponse } from './model/DeleteInstanceTagResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
+import { DeleteLimitTaskRequest } from './model/DeleteLimitTaskRequest';
+import { DeleteLimitTaskResponse } from './model/DeleteLimitTaskResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
 import { DownloadBackupErrorResponse } from './model/DownloadBackupErrorResponse';
@@ -74,6 +81,7 @@ import { DownloadBackupRequest } from './model/DownloadBackupRequest';
 import { DownloadBackupResponse } from './model/DownloadBackupResponse';
 import { DownloadObject } from './model/DownloadObject';
 import { EpsQuotasOption } from './model/EpsQuotasOption';
+import { ErrorResponse } from './model/ErrorResponse';
 import { Flavor } from './model/Flavor';
 import { FlavorErrorResponse } from './model/FlavorErrorResponse';
 import { FlavorResult } from './model/FlavorResult';
@@ -102,6 +110,7 @@ import { InstancesListResult } from './model/InstancesListResult';
 import { InstancesResult } from './model/InstancesResult';
 import { JobDetail } from './model/JobDetail';
 import { JobInstanceInfo } from './model/JobInstanceInfo';
+import { LimitTaskRuleInfoOption } from './model/LimitTaskRuleInfoOption';
 import { ListApplicableInstancesRequest } from './model/ListApplicableInstancesRequest';
 import { ListApplicableInstancesResponse } from './model/ListApplicableInstancesResponse';
 import { ListAppliedHistoriesRequest } from './model/ListAppliedHistoriesRequest';
@@ -162,6 +171,12 @@ import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesResult } from './model/ListInstancesResult';
 import { ListKernelPluginsRequest } from './model/ListKernelPluginsRequest';
 import { ListKernelPluginsResponse } from './model/ListKernelPluginsResponse';
+import { ListLimitTaskRequest } from './model/ListLimitTaskRequest';
+import { ListLimitTaskResponse } from './model/ListLimitTaskResponse';
+import { ListLimitTaskResponseResult } from './model/ListLimitTaskResponseResult';
+import { ListNodeLimitSqlModelRequest } from './model/ListNodeLimitSqlModelRequest';
+import { ListNodeLimitSqlModelResponse } from './model/ListNodeLimitSqlModelResponse';
+import { ListNodeLimitSqlModelResponseResult } from './model/ListNodeLimitSqlModelResponseResult';
 import { ListParamGroupTemplatesRequest } from './model/ListParamGroupTemplatesRequest';
 import { ListParamGroupTemplatesResponse } from './model/ListParamGroupTemplatesResponse';
 import { ListPluginExtensionsRequest } from './model/ListPluginExtensionsRequest';
@@ -296,6 +311,9 @@ import { ShowInstanceSnapshotRequest } from './model/ShowInstanceSnapshotRequest
 import { ShowInstanceSnapshotResponse } from './model/ShowInstanceSnapshotResponse';
 import { ShowJobDetailRequest } from './model/ShowJobDetailRequest';
 import { ShowJobDetailResponse } from './model/ShowJobDetailResponse';
+import { ShowLimitTaskNodeOption } from './model/ShowLimitTaskNodeOption';
+import { ShowLimitTaskRequest } from './model/ShowLimitTaskRequest';
+import { ShowLimitTaskResponse } from './model/ShowLimitTaskResponse';
 import { ShowProjectQuotasRequest } from './model/ShowProjectQuotasRequest';
 import { ShowProjectQuotasResponse } from './model/ShowProjectQuotasResponse';
 import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
@@ -310,8 +328,14 @@ import { SlowLogDownloadInfo } from './model/SlowLogDownloadInfo';
 import { StartInstanceRequest } from './model/StartInstanceRequest';
 import { StartInstanceRequestBody } from './model/StartInstanceRequestBody';
 import { StartInstanceResponse } from './model/StartInstanceResponse';
+import { StartMySQLCompatibilityRequestBody } from './model/StartMySQLCompatibilityRequestBody';
+import { StartMysqlCompatibilityRequest } from './model/StartMysqlCompatibilityRequest';
+import { StartMysqlCompatibilityResponse } from './model/StartMysqlCompatibilityResponse';
 import { StopBackupRequest } from './model/StopBackupRequest';
 import { StopBackupResponse } from './model/StopBackupResponse';
+import { StopInstanceRequest } from './model/StopInstanceRequest';
+import { StopInstanceRequestBody } from './model/StopInstanceRequestBody';
+import { StopInstanceResponse } from './model/StopInstanceResponse';
 import { Storage } from './model/Storage';
 import { SwitchConfigurationRequest } from './model/SwitchConfigurationRequest';
 import { SwitchConfigurationResponse } from './model/SwitchConfigurationResponse';
@@ -327,6 +351,12 @@ import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfig
 import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfigurationResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
 import { UpdateInstanceNameResponse } from './model/UpdateInstanceNameResponse';
+import { UpdateLimitTaskRequest } from './model/UpdateLimitTaskRequest';
+import { UpdateLimitTaskRequestBody } from './model/UpdateLimitTaskRequestBody';
+import { UpdateLimitTaskResponse } from './model/UpdateLimitTaskResponse';
+import { UpdateMySQLCompatibilityRequestBody } from './model/UpdateMySQLCompatibilityRequestBody';
+import { UpdateMysqlCompatibilityRequest } from './model/UpdateMysqlCompatibilityRequest';
+import { UpdateMysqlCompatibilityResponse } from './model/UpdateMysqlCompatibilityResponse';
 import { UpdateNameRequestBody } from './model/UpdateNameRequestBody';
 import { UpgradeActionInfo } from './model/UpgradeActionInfo';
 import { UpgradeErrorResponseBody } from './model/UpgradeErrorResponseBody';
@@ -2268,6 +2298,27 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 开启指定实例的MySQl兼容端口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启MySQl兼容端口服务
+     * @param {string} instanceId 实例ID。
+     * @param {StartMySQLCompatibilityRequestBody} startMySQLCompatibilityRequestBody 开启MySQL兼容端口服务请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认值：en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startMysqlCompatibility(startMysqlCompatibilityRequest?: StartMysqlCompatibilityRequest): Promise<StartMysqlCompatibilityResponse> {
+        const options = ParamCreater().startMysqlCompatibility(startMysqlCompatibilityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 停止进行中的备份，包括全备和差备。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2280,6 +2331,27 @@ export class GaussDBforopenGaussClient {
      */
     public stopBackup(stopBackupRequest?: StopBackupRequest): Promise<StopBackupResponse> {
         const options = ParamCreater().stopBackup(stopBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止数据库,同时支持节点级别的停止操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止数据库
+     * @param {string} instanceId 需要停止的实例的ID
+     * @param {StopInstanceRequestBody} stopInstanceRequestBody 启动实例请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopInstance(stopInstanceRequest?: StopInstanceRequest): Promise<StopInstanceResponse> {
+        const options = ParamCreater().stopInstance(stopInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2364,6 +2436,27 @@ export class GaussDBforopenGaussClient {
      */
     public updateInstanceName(updateInstanceNameRequest?: UpdateInstanceNameRequest): Promise<UpdateInstanceNameResponse> {
         const options = ParamCreater().updateInstanceName(updateInstanceNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新指定实例的MySQl兼容端口服务配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新/关闭MySQl兼容端口服务
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateMySQLCompatibilityRequestBody} updateMySQLCompatibilityRequestBody 更新启MySQL兼容端口服务配置请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认值：en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMysqlCompatibility(updateMysqlCompatibilityRequest?: UpdateMysqlCompatibilityRequest): Promise<UpdateMysqlCompatibilityResponse> {
+        const options = ParamCreater().updateMysqlCompatibility(updateMysqlCompatibilityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2466,6 +2559,139 @@ export class GaussDBforopenGaussClient {
      */
     public validateWeakPassword(validateWeakPasswordRequest?: ValidateWeakPasswordRequest): Promise<ValidateWeakPasswordResponse> {
         const options = ParamCreater().validateWeakPassword(validateWeakPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据具体范围和类型，进行限流任务的创建
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建限流任务
+     * @param {string} instanceId 实例ID。
+     * @param {CreateLimitTaskRequestBody} createLimitTaskRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLimitTask(createLimitTaskRequest?: CreateLimitTaskRequest): Promise<CreateLimitTaskResponse> {
+        const options = ParamCreater().createLimitTask(createLimitTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据task_id进行限流任务的删除
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除限流任务
+     * @param {string} taskId 限流任务id。
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLimitTask(deleteLimitTaskRequest?: DeleteLimitTaskRequest): Promise<DeleteLimitTaskResponse> {
+        const options = ParamCreater().deleteLimitTask(deleteLimitTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据指定条件查询限流任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据指定条件查询限流任务列表
+     * @param {string} instanceId 实例ID。
+     * @param {string} [taskScope] 限流任务范围，目前支持SQL,SESSION。
+     * @param {string} [limitType] 限流类型，支持SQL_ID、SQL_TYPE、SESSION_ACTIVE_MAX_COUNT类型。
+     * @param {string} [limitTypeValue] 限流类型值，支持模糊匹配。
+     * @param {string} [taskName] 限流任务名，支持模糊匹配。
+     * @param {string} [sqlModel] sql模板，支持模糊匹配。
+     * @param {string} [ruleName] 规则名。
+     * @param {string} [startTime] 限流任务开始时间，格式为yyyy-mm-ddThh:mm:ssZ,当前时间指UTC时间。
+     * @param {string} [endTime] 限流任务结束时间，格式为yyyy-mm-ddThh:mm:ssZ,当前时间指UTC时间。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。  取值范围：0 - 10000
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLimitTask(listLimitTaskRequest?: ListLimitTaskRequest): Promise<ListLimitTaskResponse> {
+        const options = ParamCreater().listLimitTask(listLimitTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询节点的sql模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询节点的sql模板列表
+     * @param {string} instanceId 实例ID。
+     * @param {string} nodeId 节点id。
+     * @param {string} [sqlModel] sql模板。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。  取值范围：0 - 10000
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNodeLimitSqlModel(listNodeLimitSqlModelRequest?: ListNodeLimitSqlModelRequest): Promise<ListNodeLimitSqlModelResponse> {
+        const options = ParamCreater().listNodeLimitSqlModel(listNodeLimitSqlModelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询限流任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询限流任务详情
+     * @param {string} taskId 限流任务id。
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLimitTask(showLimitTaskRequest?: ShowLimitTaskRequest): Promise<ShowLimitTaskResponse> {
+        const options = ParamCreater().showLimitTask(showLimitTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据新的条件进行限流任务的更新
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改限流任务
+     * @param {string} taskId 限流任务id。
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateLimitTaskRequestBody} updateLimitTaskRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLimitTask(updateLimitTaskRequest?: UpdateLimitTaskRequest): Promise<UpdateLimitTaskResponse> {
+        const options = ParamCreater().updateLimitTask(updateLimitTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7299,6 +7525,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启指定实例的MySQl兼容端口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startMysqlCompatibility(startMysqlCompatibilityRequest?: StartMysqlCompatibilityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/mysql-compatibility",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (startMysqlCompatibilityRequest !== null && startMysqlCompatibilityRequest !== undefined) {
+                if (startMysqlCompatibilityRequest instanceof StartMysqlCompatibilityRequest) {
+                    instanceId = startMysqlCompatibilityRequest.instanceId;
+                    body = startMysqlCompatibilityRequest.body
+                    xLanguage = startMysqlCompatibilityRequest.xLanguage;
+                } else {
+                    instanceId = startMysqlCompatibilityRequest['instance_id'];
+                    body = startMysqlCompatibilityRequest['body'];
+                    xLanguage = startMysqlCompatibilityRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startMysqlCompatibility.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 停止进行中的备份，包括全备和差备。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7337,6 +7616,59 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止数据库,同时支持节点级别的停止操作
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopInstance(stopInstanceRequest?: StopInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/db-stop",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (stopInstanceRequest !== null && stopInstanceRequest !== undefined) {
+                if (stopInstanceRequest instanceof StopInstanceRequest) {
+                    instanceId = stopInstanceRequest.instanceId;
+                    body = stopInstanceRequest.body
+                    xLanguage = stopInstanceRequest.xLanguage;
+                } else {
+                    instanceId = stopInstanceRequest['instance_id'];
+                    body = stopInstanceRequest['body'];
+                    xLanguage = stopInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling stopInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7539,6 +7871,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新指定实例的MySQl兼容端口服务配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMysqlCompatibility(updateMysqlCompatibilityRequest?: UpdateMysqlCompatibilityRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/mysql-compatibility",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateMysqlCompatibilityRequest !== null && updateMysqlCompatibilityRequest !== undefined) {
+                if (updateMysqlCompatibilityRequest instanceof UpdateMysqlCompatibilityRequest) {
+                    instanceId = updateMysqlCompatibilityRequest.instanceId;
+                    body = updateMysqlCompatibilityRequest.body
+                    xLanguage = updateMysqlCompatibilityRequest.xLanguage;
+                } else {
+                    instanceId = updateMysqlCompatibilityRequest['instance_id'];
+                    body = updateMysqlCompatibilityRequest['body'];
+                    xLanguage = updateMysqlCompatibilityRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateMysqlCompatibility.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7761,6 +8146,370 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据具体范围和类型，进行限流任务的创建
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLimitTask(createLimitTaskRequest?: CreateLimitTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/limit-task",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createLimitTaskRequest !== null && createLimitTaskRequest !== undefined) {
+                if (createLimitTaskRequest instanceof CreateLimitTaskRequest) {
+                    instanceId = createLimitTaskRequest.instanceId;
+                    body = createLimitTaskRequest.body
+                } else {
+                    instanceId = createLimitTaskRequest['instance_id'];
+                    body = createLimitTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createLimitTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据task_id进行限流任务的删除
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLimitTask(deleteLimitTaskRequest?: DeleteLimitTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/limit-task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (deleteLimitTaskRequest !== null && deleteLimitTaskRequest !== undefined) {
+                if (deleteLimitTaskRequest instanceof DeleteLimitTaskRequest) {
+                    taskId = deleteLimitTaskRequest.taskId;
+                    instanceId = deleteLimitTaskRequest.instanceId;
+                } else {
+                    taskId = deleteLimitTaskRequest['task_id'];
+                    instanceId = deleteLimitTaskRequest['instance_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteLimitTask.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteLimitTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据指定条件查询限流任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLimitTask(listLimitTaskRequest?: ListLimitTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/limit-task-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let taskScope;
+            
+            let limitType;
+            
+            let limitTypeValue;
+            
+            let taskName;
+            
+            let sqlModel;
+            
+            let ruleName;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+
+            if (listLimitTaskRequest !== null && listLimitTaskRequest !== undefined) {
+                if (listLimitTaskRequest instanceof ListLimitTaskRequest) {
+                    instanceId = listLimitTaskRequest.instanceId;
+                    taskScope = listLimitTaskRequest.taskScope;
+                    limitType = listLimitTaskRequest.limitType;
+                    limitTypeValue = listLimitTaskRequest.limitTypeValue;
+                    taskName = listLimitTaskRequest.taskName;
+                    sqlModel = listLimitTaskRequest.sqlModel;
+                    ruleName = listLimitTaskRequest.ruleName;
+                    startTime = listLimitTaskRequest.startTime;
+                    endTime = listLimitTaskRequest.endTime;
+                    offset = listLimitTaskRequest.offset;
+                    limit = listLimitTaskRequest.limit;
+                } else {
+                    instanceId = listLimitTaskRequest['instance_id'];
+                    taskScope = listLimitTaskRequest['task_scope'];
+                    limitType = listLimitTaskRequest['limit_type'];
+                    limitTypeValue = listLimitTaskRequest['limit_type_value'];
+                    taskName = listLimitTaskRequest['task_name'];
+                    sqlModel = listLimitTaskRequest['sql_model'];
+                    ruleName = listLimitTaskRequest['rule_name'];
+                    startTime = listLimitTaskRequest['start_time'];
+                    endTime = listLimitTaskRequest['end_time'];
+                    offset = listLimitTaskRequest['offset'];
+                    limit = listLimitTaskRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listLimitTask.');
+            }
+            if (taskScope !== null && taskScope !== undefined) {
+                localVarQueryParameter['task_scope'] = taskScope;
+            }
+            if (limitType !== null && limitType !== undefined) {
+                localVarQueryParameter['limit_type'] = limitType;
+            }
+            if (limitTypeValue !== null && limitTypeValue !== undefined) {
+                localVarQueryParameter['limit_type_value'] = limitTypeValue;
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
+            }
+            if (sqlModel !== null && sqlModel !== undefined) {
+                localVarQueryParameter['sql_model'] = sqlModel;
+            }
+            if (ruleName !== null && ruleName !== undefined) {
+                localVarQueryParameter['rule_name'] = ruleName;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询节点的sql模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNodeLimitSqlModel(listNodeLimitSqlModelRequest?: ListNodeLimitSqlModelRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/list-node-limit-sql-model",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let sqlModel;
+            
+            let offset;
+            
+            let limit;
+
+            if (listNodeLimitSqlModelRequest !== null && listNodeLimitSqlModelRequest !== undefined) {
+                if (listNodeLimitSqlModelRequest instanceof ListNodeLimitSqlModelRequest) {
+                    instanceId = listNodeLimitSqlModelRequest.instanceId;
+                    nodeId = listNodeLimitSqlModelRequest.nodeId;
+                    sqlModel = listNodeLimitSqlModelRequest.sqlModel;
+                    offset = listNodeLimitSqlModelRequest.offset;
+                    limit = listNodeLimitSqlModelRequest.limit;
+                } else {
+                    instanceId = listNodeLimitSqlModelRequest['instance_id'];
+                    nodeId = listNodeLimitSqlModelRequest['node_id'];
+                    sqlModel = listNodeLimitSqlModelRequest['sql_model'];
+                    offset = listNodeLimitSqlModelRequest['offset'];
+                    limit = listNodeLimitSqlModelRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listNodeLimitSqlModel.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listNodeLimitSqlModel.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (sqlModel !== null && sqlModel !== undefined) {
+                localVarQueryParameter['sql_model'] = sqlModel;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询限流任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLimitTask(showLimitTaskRequest?: ShowLimitTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/limit-task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (showLimitTaskRequest !== null && showLimitTaskRequest !== undefined) {
+                if (showLimitTaskRequest instanceof ShowLimitTaskRequest) {
+                    taskId = showLimitTaskRequest.taskId;
+                    instanceId = showLimitTaskRequest.instanceId;
+                } else {
+                    taskId = showLimitTaskRequest['task_id'];
+                    instanceId = showLimitTaskRequest['instance_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showLimitTask.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLimitTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据新的条件进行限流任务的更新
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLimitTask(updateLimitTaskRequest?: UpdateLimitTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/limit-task/{task_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (updateLimitTaskRequest !== null && updateLimitTaskRequest !== undefined) {
+                if (updateLimitTaskRequest instanceof UpdateLimitTaskRequest) {
+                    taskId = updateLimitTaskRequest.taskId;
+                    instanceId = updateLimitTaskRequest.instanceId;
+                    body = updateLimitTaskRequest.body
+                } else {
+                    taskId = updateLimitTaskRequest['task_id'];
+                    instanceId = updateLimitTaskRequest['instance_id'];
+                    body = updateLimitTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateLimitTask.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateLimitTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

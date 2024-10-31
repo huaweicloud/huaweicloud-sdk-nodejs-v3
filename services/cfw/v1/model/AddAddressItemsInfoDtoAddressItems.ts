@@ -1,16 +1,11 @@
 
 
 export class AddAddressItemsInfoDtoAddressItems {
-    public name?: string;
     private 'address_type'?: number;
     public address?: string;
     public description?: string;
-    public constructor(name?: string) { 
-        this['name'] = name;
-    }
-    public withName(name: string): AddAddressItemsInfoDtoAddressItems {
-        this['name'] = name;
-        return this;
+    public constructor(address?: string) { 
+        this['address'] = address;
     }
     public withAddressType(addressType: number): AddAddressItemsInfoDtoAddressItems {
         this['address_type'] = addressType;

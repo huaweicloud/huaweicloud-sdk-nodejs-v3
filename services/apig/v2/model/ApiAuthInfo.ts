@@ -22,6 +22,7 @@ export class ApiAuthInfo {
     private 'auth_blacklist'?: Array<string>;
     private 'visit_param'?: string;
     private 'roma_app_type'?: string;
+    public tags?: Array<string>;
     private 'env_name'?: string;
     private 'app_id'?: string;
     public constructor() { 
@@ -219,6 +220,10 @@ export class ApiAuthInfo {
     }
     public get romaAppType(): string | undefined {
         return this['roma_app_type'];
+    }
+    public withTags(tags: Array<string>): ApiAuthInfo {
+        this['tags'] = tags;
+        return this;
     }
     public withEnvName(envName: string): ApiAuthInfo {
         this['env_name'] = envName;

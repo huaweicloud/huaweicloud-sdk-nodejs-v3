@@ -8,11 +8,10 @@ export class CompareJobInfo {
     public status?: CompareJobInfoStatusEnum | string;
     private 'compute_type'?: string;
     private 'export_status'?: string;
-    private 'report_remain_seconds'?: string;
+    private 'report_remain_seconds'?: number;
     private 'compare_job_tag'?: { [key: string]: string; };
     public options?: { [key: string]: string; };
     private 'error_msg'?: string;
-    private 'dynamic_compare_delay'?: number;
     public constructor() { 
     }
     public withId(id: string): CompareJobInfo {
@@ -67,14 +66,14 @@ export class CompareJobInfo {
     public get exportStatus(): string | undefined {
         return this['export_status'];
     }
-    public withReportRemainSeconds(reportRemainSeconds: string): CompareJobInfo {
+    public withReportRemainSeconds(reportRemainSeconds: number): CompareJobInfo {
         this['report_remain_seconds'] = reportRemainSeconds;
         return this;
     }
-    public set reportRemainSeconds(reportRemainSeconds: string  | undefined) {
+    public set reportRemainSeconds(reportRemainSeconds: number  | undefined) {
         this['report_remain_seconds'] = reportRemainSeconds;
     }
-    public get reportRemainSeconds(): string | undefined {
+    public get reportRemainSeconds(): number | undefined {
         return this['report_remain_seconds'];
     }
     public withCompareJobTag(compareJobTag: { [key: string]: string; }): CompareJobInfo {
@@ -100,16 +99,6 @@ export class CompareJobInfo {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
-    }
-    public withDynamicCompareDelay(dynamicCompareDelay: number): CompareJobInfo {
-        this['dynamic_compare_delay'] = dynamicCompareDelay;
-        return this;
-    }
-    public set dynamicCompareDelay(dynamicCompareDelay: number  | undefined) {
-        this['dynamic_compare_delay'] = dynamicCompareDelay;
-    }
-    public get dynamicCompareDelay(): number | undefined {
-        return this['dynamic_compare_delay'];
     }
 }
 

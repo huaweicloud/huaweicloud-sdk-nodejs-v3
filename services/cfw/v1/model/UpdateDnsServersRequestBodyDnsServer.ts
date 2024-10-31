@@ -4,7 +4,10 @@ export class UpdateDnsServersRequestBodyDnsServer {
     private 'server_ip'?: string;
     private 'is_customized'?: number;
     private 'is_applied'?: number;
-    public constructor() { 
+    public constructor(serverIp?: string, isCustomized?: number, isApplied?: number) { 
+        this['server_ip'] = serverIp;
+        this['is_customized'] = isCustomized;
+        this['is_applied'] = isApplied;
     }
     public withServerIp(serverIp: string): UpdateDnsServersRequestBodyDnsServer {
         this['server_ip'] = serverIp;

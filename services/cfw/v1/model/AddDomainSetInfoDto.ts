@@ -8,12 +8,10 @@ export class AddDomainSetInfoDto {
     public description?: string;
     private 'domain_names'?: Array<DomainSetInfoDto>;
     private 'domain_set_type'?: number;
-    public constructor(fwInstanceId?: string, objectId?: string, name?: string, domainNames?: Array<DomainSetInfoDto>, domainSetType?: number) { 
-        this['fw_instance_id'] = fwInstanceId;
+    public constructor(objectId?: string, name?: string, domainNames?: Array<DomainSetInfoDto>) { 
         this['object_id'] = objectId;
         this['name'] = name;
         this['domain_names'] = domainNames;
-        this['domain_set_type'] = domainSetType;
     }
     public withFwInstanceId(fwInstanceId: string): AddDomainSetInfoDto {
         this['fw_instance_id'] = fwInstanceId;

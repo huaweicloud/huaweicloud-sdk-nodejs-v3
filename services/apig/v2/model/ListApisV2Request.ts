@@ -16,6 +16,7 @@ export class ListApisV2Request {
     private 'precise_search'?: string;
     private 'vpc_channel_name'?: string;
     private 'return_data_mode'?: string;
+    public tags?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -138,5 +139,9 @@ export class ListApisV2Request {
     }
     public get returnDataMode(): string | undefined {
         return this['return_data_mode'];
+    }
+    public withTags(tags: string): ListApisV2Request {
+        this['tags'] = tags;
+        return this;
     }
 }

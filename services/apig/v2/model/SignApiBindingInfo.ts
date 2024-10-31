@@ -15,6 +15,7 @@ export class SignApiBindingInfo {
     private 'sign_id'?: string;
     private 'sign_name'?: string;
     private 'req_method'?: SignApiBindingInfoReqMethodEnum | string;
+    public tags?: Array<string>;
     private 'sign_key'?: string;
     private 'sign_secret'?: string;
     private 'sign_type'?: SignApiBindingInfoSignTypeEnum | string;
@@ -143,6 +144,10 @@ export class SignApiBindingInfo {
     }
     public get reqMethod(): SignApiBindingInfoReqMethodEnum | string | undefined {
         return this['req_method'];
+    }
+    public withTags(tags: Array<string>): SignApiBindingInfo {
+        this['tags'] = tags;
+        return this;
     }
     public withSignKey(signKey: string): SignApiBindingInfo {
         this['sign_key'] = signKey;

@@ -1,13 +1,13 @@
-import { IdObject } from './IdObject';
+import { CaptureTaskId } from './CaptureTaskId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CancelCaptureTaskResponse extends SdkResponse {
-    public data?: IdObject;
+    public data?: CaptureTaskId;
     public constructor() { 
         super();
     }
-    public withData(data: IdObject): CancelCaptureTaskResponse {
+    public withData(data: CaptureTaskId): CancelCaptureTaskResponse {
         this['data'] = data;
         return this;
     }

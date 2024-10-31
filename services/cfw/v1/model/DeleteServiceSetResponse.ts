@@ -1,13 +1,13 @@
-import { IdObject } from './IdObject';
+import { ServiceSetId } from './ServiceSetId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteServiceSetResponse extends SdkResponse {
-    public data?: IdObject;
+    public data?: ServiceSetId;
     public constructor() { 
         super();
     }
-    public withData(data: IdObject): DeleteServiceSetResponse {
+    public withData(data: ServiceSetId): DeleteServiceSetResponse {
         this['data'] = data;
         return this;
     }

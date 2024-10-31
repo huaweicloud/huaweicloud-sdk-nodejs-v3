@@ -18,6 +18,7 @@ export class PluginApiInfo {
     private 'publish_id'?: string;
     private 'plugin_attach_id'?: string;
     private 'attached_time'?: Date;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withApiId(apiId: string): PluginApiInfo {
@@ -177,6 +178,10 @@ export class PluginApiInfo {
     }
     public get attachedTime(): Date | undefined {
         return this['attached_time'];
+    }
+    public withTags(tags: Array<string>): PluginApiInfo {
+        this['tags'] = tags;
+        return this;
     }
 }
 

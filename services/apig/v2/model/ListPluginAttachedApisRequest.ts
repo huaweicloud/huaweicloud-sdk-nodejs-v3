@@ -11,6 +11,7 @@ export class ListPluginAttachedApisRequest {
     private 'group_id'?: string;
     private 'req_method'?: string;
     private 'req_uri'?: string;
+    public tags?: string;
     public constructor(instanceId?: string, pluginId?: string) { 
         this['instance_id'] = instanceId;
         this['plugin_id'] = pluginId;
@@ -102,5 +103,9 @@ export class ListPluginAttachedApisRequest {
     }
     public get reqUri(): string | undefined {
         return this['req_uri'];
+    }
+    public withTags(tags: string): ListPluginAttachedApisRequest {
+        this['tags'] = tags;
+        return this;
     }
 }

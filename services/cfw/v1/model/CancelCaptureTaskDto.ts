@@ -2,7 +2,8 @@
 
 export class CancelCaptureTaskDto {
     private 'task_id'?: string;
-    public constructor() { 
+    public constructor(taskId?: string) { 
+        this['task_id'] = taskId;
     }
     public withTaskId(taskId: string): CancelCaptureTaskDto {
         this['task_id'] = taskId;

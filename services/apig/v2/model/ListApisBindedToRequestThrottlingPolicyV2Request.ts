@@ -9,6 +9,7 @@ export class ListApisBindedToRequestThrottlingPolicyV2Request {
     private 'group_id'?: string;
     private 'api_id'?: string;
     private 'api_name'?: string;
+    public tags?: string;
     public constructor(instanceId?: string, throttleId?: string) { 
         this['instance_id'] = instanceId;
         this['throttle_id'] = throttleId;
@@ -80,5 +81,9 @@ export class ListApisBindedToRequestThrottlingPolicyV2Request {
     }
     public get apiName(): string | undefined {
         return this['api_name'];
+    }
+    public withTags(tags: string): ListApisBindedToRequestThrottlingPolicyV2Request {
+        this['tags'] = tags;
+        return this;
     }
 }

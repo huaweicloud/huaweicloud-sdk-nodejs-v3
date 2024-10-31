@@ -14,6 +14,7 @@ export class UnbindApiForAcl {
     private 'req_uri'?: string;
     private 'auth_type'?: string;
     private 'req_method'?: UnbindApiForAclReqMethodEnum | string;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withId(id: string): UnbindApiForAcl {
@@ -121,6 +122,10 @@ export class UnbindApiForAcl {
     }
     public get reqMethod(): UnbindApiForAclReqMethodEnum | string | undefined {
         return this['req_method'];
+    }
+    public withTags(tags: Array<string>): UnbindApiForAcl {
+        this['tags'] = tags;
+        return this;
     }
 }
 

@@ -1,4 +1,3 @@
-import { OrderRuleAclDto } from './OrderRuleAclDto';
 import { RuleAddressDto } from './RuleAddressDto';
 import { RuleServiceDto } from './RuleServiceDto';
 import { TagsVO } from './TagsVO';
@@ -7,12 +6,10 @@ import { TagsVO } from './TagsVO';
 export class UpdateRuleAclDto {
     private 'address_type'?: UpdateRuleAclDtoAddressTypeEnum | number;
     public name?: string;
-    public sequence?: OrderRuleAclDto;
     public direction?: UpdateRuleAclDtoDirectionEnum | number;
     private 'action_type'?: UpdateRuleAclDtoActionTypeEnum | number;
     public status?: number;
     public applications?: Array<string>;
-    public applicationsJsonString?: string;
     public description?: string;
     private 'long_connect_time_hour'?: number;
     private 'long_connect_time_minute'?: number;
@@ -40,10 +37,6 @@ export class UpdateRuleAclDto {
         this['name'] = name;
         return this;
     }
-    public withSequence(sequence: OrderRuleAclDto): UpdateRuleAclDto {
-        this['sequence'] = sequence;
-        return this;
-    }
     public withDirection(direction: UpdateRuleAclDtoDirectionEnum | number): UpdateRuleAclDto {
         this['direction'] = direction;
         return this;
@@ -64,10 +57,6 @@ export class UpdateRuleAclDto {
     }
     public withApplications(applications: Array<string>): UpdateRuleAclDto {
         this['applications'] = applications;
-        return this;
-    }
-    public withApplicationsJsonString(applicationsJsonString: string): UpdateRuleAclDto {
-        this['applicationsJsonString'] = applicationsJsonString;
         return this;
     }
     public withDescription(description: string): UpdateRuleAclDto {

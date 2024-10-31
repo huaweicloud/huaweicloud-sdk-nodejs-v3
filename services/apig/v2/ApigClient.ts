@@ -460,11 +460,14 @@ import { MicroServiceInfoCCECreate } from './model/MicroServiceInfoCCECreate';
 import { MicroServiceInfoCSE } from './model/MicroServiceInfoCSE';
 import { MicroServiceInfoCSEBase } from './model/MicroServiceInfoCSEBase';
 import { MicroServiceInfoCSECreate } from './model/MicroServiceInfoCSECreate';
+import { MicroServiceInfoNacosBase } from './model/MicroServiceInfoNacosBase';
 import { MicroserviceApiCreate } from './model/MicroserviceApiCreate';
 import { MicroserviceGroup } from './model/MicroserviceGroup';
 import { MicroserviceImportApiResp } from './model/MicroserviceImportApiResp';
 import { MicroserviceImportReq } from './model/MicroserviceImportReq';
 import { MicroserviceLabel } from './model/MicroserviceLabel';
+import { NacosServerConfig } from './model/NacosServerConfig';
+import { NacosUserInfo } from './model/NacosUserInfo';
 import { NetworkTrafficStats } from './model/NetworkTrafficStats';
 import { NodeIps } from './model/NodeIps';
 import { OpenEngressEipReq } from './model/OpenEngressEipReq';
@@ -2017,6 +2020,7 @@ export class ApigClient {
      * @param {string} [apiId] API的编号
      * @param {string} [apiName] API名称
      * @param {string} [groupId] API分组编号
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2043,6 +2047,7 @@ export class ApigClient {
      * @param {string} [apiId] API编号
      * @param {string} [apiName] API名称
      * @param {string} [groupId] API分组编号
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2659,6 +2664,7 @@ export class ApigClient {
      * @param {string} [groupId] 分组编号
      * @param {string} [reqMethod] 请求方法
      * @param {string} [reqUri] 请求路径
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2691,6 +2697,7 @@ export class ApigClient {
      * @param {string} [groupId] 分组编号
      * @param {string} [reqMethod] 请求方法
      * @param {string} [reqUri] 请求路径
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4260,6 +4267,7 @@ export class ApigClient {
      * @param {string} [groupId] API分组编号
      * @param {string} [apiId] API编号
      * @param {string} [apiName] API名称
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4286,6 +4294,7 @@ export class ApigClient {
      * @param {string} [groupId] API分组编号
      * @param {string} [apiId] API编号
      * @param {string} [apiName] API名称
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4319,6 +4328,7 @@ export class ApigClient {
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name、req_uri
      * @param {string} [vpcChannelName] 负载通道名称
      * @param {string} [returnDataMode] 指定API详情中需要包含的额外返回结果，多个参数之间使用“,”隔开，当brief和其他include参数共同使用时，brief不生效。 目前仅支持brief，include_group，include_group_backend。 brief：默认值，不包含额外信息。 include_group：返回结果中包含api_group_info。 include_group_backend：返回结果中包含backend_api。
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4541,6 +4551,7 @@ export class ApigClient {
      * @param {string} [apiName] API名称
      * @param {string} [envId] 环境编号
      * @param {string} [groupId] API分组编号
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4567,6 +4578,7 @@ export class ApigClient {
      * @param {string} [apiName] API名称
      * @param {string} [envId] 环境编号
      * @param {string} [groupId] API分组编号
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4634,6 +4646,7 @@ export class ApigClient {
      * @param {string} [groupId] API分组编号
      * @param {string} [groupName] API分组名称
      * @param {string} [envId] 授权的环境编号
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4660,6 +4673,7 @@ export class ApigClient {
      * @param {string} [groupId] API分组编号
      * @param {string} [apiId] API编号
      * @param {string} [apiName] API名称
+     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5287,7 +5301,7 @@ export class ApigClient {
     }
 
     /**
-     * 更新指定VPC通道后端服务器组
+     * 更新指定VPC通道后端服务器组。当负载通道为nacos微服务类型时，不支持修改服务器组权重。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -8485,6 +8499,8 @@ export const ParamCreater = function () {
             let apiName;
             
             let groupId;
+            
+            let tags;
 
             if (listApisBindedToSignatureKeyV2Request !== null && listApisBindedToSignatureKeyV2Request !== undefined) {
                 if (listApisBindedToSignatureKeyV2Request instanceof ListApisBindedToSignatureKeyV2Request) {
@@ -8496,6 +8512,7 @@ export const ParamCreater = function () {
                     apiId = listApisBindedToSignatureKeyV2Request.apiId;
                     apiName = listApisBindedToSignatureKeyV2Request.apiName;
                     groupId = listApisBindedToSignatureKeyV2Request.groupId;
+                    tags = listApisBindedToSignatureKeyV2Request.tags;
                 } else {
                     instanceId = listApisBindedToSignatureKeyV2Request['instance_id'];
                     signId = listApisBindedToSignatureKeyV2Request['sign_id'];
@@ -8505,6 +8522,7 @@ export const ParamCreater = function () {
                     apiId = listApisBindedToSignatureKeyV2Request['api_id'];
                     apiName = listApisBindedToSignatureKeyV2Request['api_name'];
                     groupId = listApisBindedToSignatureKeyV2Request['group_id'];
+                    tags = listApisBindedToSignatureKeyV2Request['tags'];
                 }
             }
 
@@ -8535,6 +8553,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -8575,6 +8596,8 @@ export const ParamCreater = function () {
             let apiName;
             
             let groupId;
+            
+            let tags;
 
             if (listApisNotBoundWithSignatureKeyV2Request !== null && listApisNotBoundWithSignatureKeyV2Request !== undefined) {
                 if (listApisNotBoundWithSignatureKeyV2Request instanceof ListApisNotBoundWithSignatureKeyV2Request) {
@@ -8586,6 +8609,7 @@ export const ParamCreater = function () {
                     apiId = listApisNotBoundWithSignatureKeyV2Request.apiId;
                     apiName = listApisNotBoundWithSignatureKeyV2Request.apiName;
                     groupId = listApisNotBoundWithSignatureKeyV2Request.groupId;
+                    tags = listApisNotBoundWithSignatureKeyV2Request.tags;
                 } else {
                     instanceId = listApisNotBoundWithSignatureKeyV2Request['instance_id'];
                     signId = listApisNotBoundWithSignatureKeyV2Request['sign_id'];
@@ -8595,6 +8619,7 @@ export const ParamCreater = function () {
                     apiId = listApisNotBoundWithSignatureKeyV2Request['api_id'];
                     apiName = listApisNotBoundWithSignatureKeyV2Request['api_name'];
                     groupId = listApisNotBoundWithSignatureKeyV2Request['group_id'];
+                    tags = listApisNotBoundWithSignatureKeyV2Request['tags'];
                 }
             }
 
@@ -8625,6 +8650,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -10272,6 +10300,8 @@ export const ParamCreater = function () {
             let reqMethod;
             
             let reqUri;
+            
+            let tags;
 
             if (listPluginAttachableApisRequest !== null && listPluginAttachableApisRequest !== undefined) {
                 if (listPluginAttachableApisRequest instanceof ListPluginAttachableApisRequest) {
@@ -10285,6 +10315,7 @@ export const ParamCreater = function () {
                     groupId = listPluginAttachableApisRequest.groupId;
                     reqMethod = listPluginAttachableApisRequest.reqMethod;
                     reqUri = listPluginAttachableApisRequest.reqUri;
+                    tags = listPluginAttachableApisRequest.tags;
                 } else {
                     instanceId = listPluginAttachableApisRequest['instance_id'];
                     pluginId = listPluginAttachableApisRequest['plugin_id'];
@@ -10296,6 +10327,7 @@ export const ParamCreater = function () {
                     groupId = listPluginAttachableApisRequest['group_id'];
                     reqMethod = listPluginAttachableApisRequest['req_method'];
                     reqUri = listPluginAttachableApisRequest['req_uri'];
+                    tags = listPluginAttachableApisRequest['tags'];
                 }
             }
 
@@ -10332,6 +10364,9 @@ export const ParamCreater = function () {
             }
             if (reqUri !== null && reqUri !== undefined) {
                 localVarQueryParameter['req_uri'] = reqUri;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -10380,6 +10415,8 @@ export const ParamCreater = function () {
             let reqMethod;
             
             let reqUri;
+            
+            let tags;
 
             if (listPluginAttachedApisRequest !== null && listPluginAttachedApisRequest !== undefined) {
                 if (listPluginAttachedApisRequest instanceof ListPluginAttachedApisRequest) {
@@ -10393,6 +10430,7 @@ export const ParamCreater = function () {
                     groupId = listPluginAttachedApisRequest.groupId;
                     reqMethod = listPluginAttachedApisRequest.reqMethod;
                     reqUri = listPluginAttachedApisRequest.reqUri;
+                    tags = listPluginAttachedApisRequest.tags;
                 } else {
                     instanceId = listPluginAttachedApisRequest['instance_id'];
                     pluginId = listPluginAttachedApisRequest['plugin_id'];
@@ -10404,6 +10442,7 @@ export const ParamCreater = function () {
                     groupId = listPluginAttachedApisRequest['group_id'];
                     reqMethod = listPluginAttachedApisRequest['req_method'];
                     reqUri = listPluginAttachedApisRequest['req_uri'];
+                    tags = listPluginAttachedApisRequest['tags'];
                 }
             }
 
@@ -10437,6 +10476,9 @@ export const ParamCreater = function () {
             }
             if (reqUri !== null && reqUri !== undefined) {
                 localVarQueryParameter['req_uri'] = reqUri;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14220,6 +14262,8 @@ export const ParamCreater = function () {
             let apiId;
             
             let apiName;
+            
+            let tags;
 
             if (listApisBindedToRequestThrottlingPolicyV2Request !== null && listApisBindedToRequestThrottlingPolicyV2Request !== undefined) {
                 if (listApisBindedToRequestThrottlingPolicyV2Request instanceof ListApisBindedToRequestThrottlingPolicyV2Request) {
@@ -14231,6 +14275,7 @@ export const ParamCreater = function () {
                     groupId = listApisBindedToRequestThrottlingPolicyV2Request.groupId;
                     apiId = listApisBindedToRequestThrottlingPolicyV2Request.apiId;
                     apiName = listApisBindedToRequestThrottlingPolicyV2Request.apiName;
+                    tags = listApisBindedToRequestThrottlingPolicyV2Request.tags;
                 } else {
                     instanceId = listApisBindedToRequestThrottlingPolicyV2Request['instance_id'];
                     throttleId = listApisBindedToRequestThrottlingPolicyV2Request['throttle_id'];
@@ -14240,6 +14285,7 @@ export const ParamCreater = function () {
                     groupId = listApisBindedToRequestThrottlingPolicyV2Request['group_id'];
                     apiId = listApisBindedToRequestThrottlingPolicyV2Request['api_id'];
                     apiName = listApisBindedToRequestThrottlingPolicyV2Request['api_name'];
+                    tags = listApisBindedToRequestThrottlingPolicyV2Request['tags'];
                 }
             }
 
@@ -14270,6 +14316,9 @@ export const ParamCreater = function () {
             }
             if (apiName !== null && apiName !== undefined) {
                 localVarQueryParameter['api_name'] = apiName;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14310,6 +14359,8 @@ export const ParamCreater = function () {
             let apiId;
             
             let apiName;
+            
+            let tags;
 
             if (listApisUnbindedToRequestThrottlingPolicyV2Request !== null && listApisUnbindedToRequestThrottlingPolicyV2Request !== undefined) {
                 if (listApisUnbindedToRequestThrottlingPolicyV2Request instanceof ListApisUnbindedToRequestThrottlingPolicyV2Request) {
@@ -14321,6 +14372,7 @@ export const ParamCreater = function () {
                     groupId = listApisUnbindedToRequestThrottlingPolicyV2Request.groupId;
                     apiId = listApisUnbindedToRequestThrottlingPolicyV2Request.apiId;
                     apiName = listApisUnbindedToRequestThrottlingPolicyV2Request.apiName;
+                    tags = listApisUnbindedToRequestThrottlingPolicyV2Request.tags;
                 } else {
                     instanceId = listApisUnbindedToRequestThrottlingPolicyV2Request['instance_id'];
                     throttleId = listApisUnbindedToRequestThrottlingPolicyV2Request['throttle_id'];
@@ -14330,6 +14382,7 @@ export const ParamCreater = function () {
                     groupId = listApisUnbindedToRequestThrottlingPolicyV2Request['group_id'];
                     apiId = listApisUnbindedToRequestThrottlingPolicyV2Request['api_id'];
                     apiName = listApisUnbindedToRequestThrottlingPolicyV2Request['api_name'];
+                    tags = listApisUnbindedToRequestThrottlingPolicyV2Request['tags'];
                 }
             }
 
@@ -14360,6 +14413,9 @@ export const ParamCreater = function () {
             }
             if (apiName !== null && apiName !== undefined) {
                 localVarQueryParameter['api_name'] = apiName;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14414,6 +14470,8 @@ export const ParamCreater = function () {
             let vpcChannelName;
             
             let returnDataMode;
+            
+            let tags;
 
             if (listApisV2Request !== null && listApisV2Request !== undefined) {
                 if (listApisV2Request instanceof ListApisV2Request) {
@@ -14432,6 +14490,7 @@ export const ParamCreater = function () {
                     preciseSearch = listApisV2Request.preciseSearch;
                     vpcChannelName = listApisV2Request.vpcChannelName;
                     returnDataMode = listApisV2Request.returnDataMode;
+                    tags = listApisV2Request.tags;
                 } else {
                     instanceId = listApisV2Request['instance_id'];
                     offset = listApisV2Request['offset'];
@@ -14448,6 +14507,7 @@ export const ParamCreater = function () {
                     preciseSearch = listApisV2Request['precise_search'];
                     vpcChannelName = listApisV2Request['vpc_channel_name'];
                     returnDataMode = listApisV2Request['return_data_mode'];
+                    tags = listApisV2Request['tags'];
                 }
             }
 
@@ -14496,6 +14556,9 @@ export const ParamCreater = function () {
             }
             if (returnDataMode !== null && returnDataMode !== undefined) {
                 localVarQueryParameter['return_data_mode'] = returnDataMode;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15052,6 +15115,8 @@ export const ParamCreater = function () {
             let envId;
             
             let groupId;
+            
+            let tags;
 
             if (listApisBindedToAclPolicyV2Request !== null && listApisBindedToAclPolicyV2Request !== undefined) {
                 if (listApisBindedToAclPolicyV2Request instanceof ListApisBindedToAclPolicyV2Request) {
@@ -15063,6 +15128,7 @@ export const ParamCreater = function () {
                     apiName = listApisBindedToAclPolicyV2Request.apiName;
                     envId = listApisBindedToAclPolicyV2Request.envId;
                     groupId = listApisBindedToAclPolicyV2Request.groupId;
+                    tags = listApisBindedToAclPolicyV2Request.tags;
                 } else {
                     instanceId = listApisBindedToAclPolicyV2Request['instance_id'];
                     aclId = listApisBindedToAclPolicyV2Request['acl_id'];
@@ -15072,6 +15138,7 @@ export const ParamCreater = function () {
                     apiName = listApisBindedToAclPolicyV2Request['api_name'];
                     envId = listApisBindedToAclPolicyV2Request['env_id'];
                     groupId = listApisBindedToAclPolicyV2Request['group_id'];
+                    tags = listApisBindedToAclPolicyV2Request['tags'];
                 }
             }
 
@@ -15102,6 +15169,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15142,6 +15212,8 @@ export const ParamCreater = function () {
             let envId;
             
             let groupId;
+            
+            let tags;
 
             if (listApisUnbindedToAclPolicyV2Request !== null && listApisUnbindedToAclPolicyV2Request !== undefined) {
                 if (listApisUnbindedToAclPolicyV2Request instanceof ListApisUnbindedToAclPolicyV2Request) {
@@ -15153,6 +15225,7 @@ export const ParamCreater = function () {
                     apiName = listApisUnbindedToAclPolicyV2Request.apiName;
                     envId = listApisUnbindedToAclPolicyV2Request.envId;
                     groupId = listApisUnbindedToAclPolicyV2Request.groupId;
+                    tags = listApisUnbindedToAclPolicyV2Request.tags;
                 } else {
                     instanceId = listApisUnbindedToAclPolicyV2Request['instance_id'];
                     aclId = listApisUnbindedToAclPolicyV2Request['acl_id'];
@@ -15162,6 +15235,7 @@ export const ParamCreater = function () {
                     apiName = listApisUnbindedToAclPolicyV2Request['api_name'];
                     envId = listApisUnbindedToAclPolicyV2Request['env_id'];
                     groupId = listApisUnbindedToAclPolicyV2Request['group_id'];
+                    tags = listApisUnbindedToAclPolicyV2Request['tags'];
                 }
             }
 
@@ -15192,6 +15266,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15324,6 +15401,8 @@ export const ParamCreater = function () {
             let groupName;
             
             let envId;
+            
+            let tags;
 
             if (listApisBindedToAppV2Request !== null && listApisBindedToAppV2Request !== undefined) {
                 if (listApisBindedToAppV2Request instanceof ListApisBindedToAppV2Request) {
@@ -15336,6 +15415,7 @@ export const ParamCreater = function () {
                     groupId = listApisBindedToAppV2Request.groupId;
                     groupName = listApisBindedToAppV2Request.groupName;
                     envId = listApisBindedToAppV2Request.envId;
+                    tags = listApisBindedToAppV2Request.tags;
                 } else {
                     instanceId = listApisBindedToAppV2Request['instance_id'];
                     appId = listApisBindedToAppV2Request['app_id'];
@@ -15346,6 +15426,7 @@ export const ParamCreater = function () {
                     groupId = listApisBindedToAppV2Request['group_id'];
                     groupName = listApisBindedToAppV2Request['group_name'];
                     envId = listApisBindedToAppV2Request['env_id'];
+                    tags = listApisBindedToAppV2Request['tags'];
                 }
             }
 
@@ -15379,6 +15460,9 @@ export const ParamCreater = function () {
             }
             if (envId !== null && envId !== undefined) {
                 localVarQueryParameter['env_id'] = envId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15419,6 +15503,8 @@ export const ParamCreater = function () {
             let apiId;
             
             let apiName;
+            
+            let tags;
 
             if (listApisUnbindedToAppV2Request !== null && listApisUnbindedToAppV2Request !== undefined) {
                 if (listApisUnbindedToAppV2Request instanceof ListApisUnbindedToAppV2Request) {
@@ -15430,6 +15516,7 @@ export const ParamCreater = function () {
                     groupId = listApisUnbindedToAppV2Request.groupId;
                     apiId = listApisUnbindedToAppV2Request.apiId;
                     apiName = listApisUnbindedToAppV2Request.apiName;
+                    tags = listApisUnbindedToAppV2Request.tags;
                 } else {
                     instanceId = listApisUnbindedToAppV2Request['instance_id'];
                     appId = listApisUnbindedToAppV2Request['app_id'];
@@ -15439,6 +15526,7 @@ export const ParamCreater = function () {
                     groupId = listApisUnbindedToAppV2Request['group_id'];
                     apiId = listApisUnbindedToAppV2Request['api_id'];
                     apiName = listApisUnbindedToAppV2Request['api_name'];
+                    tags = listApisUnbindedToAppV2Request['tags'];
                 }
             }
 
@@ -15472,6 +15560,9 @@ export const ParamCreater = function () {
             }
             if (apiName !== null && apiName !== undefined) {
                 localVarQueryParameter['api_name'] = apiName;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -17104,7 +17195,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新指定VPC通道后端服务器组
+         * 更新指定VPC通道后端服务器组。当负载通道为nacos微服务类型时，不支持修改服务器组权重。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -12,7 +12,7 @@ export class GetFirewallInstanceResponseRecord {
     private 'engine_type'?: number;
     public flavor?: Flavor;
     private 'protect_objects'?: Array<ProtectObjectVO>;
-    public status?: GetFirewallInstanceResponseRecordStatusEnum | number;
+    public status?: number;
     private 'is_old_firewall_instance'?: boolean;
     private 'is_available_obs'?: boolean;
     private 'is_support_threat_tags'?: boolean;
@@ -94,7 +94,7 @@ export class GetFirewallInstanceResponseRecord {
     public get protectObjects(): Array<ProtectObjectVO> | undefined {
         return this['protect_objects'];
     }
-    public withStatus(status: GetFirewallInstanceResponseRecordStatusEnum | number): GetFirewallInstanceResponseRecord {
+    public withStatus(status: number): GetFirewallInstanceResponseRecord {
         this['status'] = status;
         return this;
     }
@@ -196,24 +196,4 @@ export class GetFirewallInstanceResponseRecord {
         this['tags'] = tags;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum GetFirewallInstanceResponseRecordStatusEnum {
-    NUMBER_MINUS_1 = -1,
-    NUMBER_0 = 0,
-    NUMBER_1 = 1,
-    NUMBER_2 = 2,
-    NUMBER_3 = 3,
-    NUMBER_4 = 4,
-    NUMBER_5 = 5,
-    NUMBER_6 = 6,
-    NUMBER_7 = 7,
-    NUMBER_8 = 8,
-    NUMBER_9 = 9,
-    NUMBER_10 = 10,
-    NUMBER_11 = 11
 }

@@ -8,6 +8,7 @@ export class ListBandwidthTimelineRequest {
     public hosts?: string;
     public instances?: string;
     private 'group_by'?: string;
+    private 'display_option'?: number;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
         this['from'] = from;
@@ -58,5 +59,15 @@ export class ListBandwidthTimelineRequest {
     }
     public get groupBy(): string | undefined {
         return this['group_by'];
+    }
+    public withDisplayOption(displayOption: number): ListBandwidthTimelineRequest {
+        this['display_option'] = displayOption;
+        return this;
+    }
+    public set displayOption(displayOption: number  | undefined) {
+        this['display_option'] = displayOption;
+    }
+    public get displayOption(): number | undefined {
+        return this['display_option'];
     }
 }

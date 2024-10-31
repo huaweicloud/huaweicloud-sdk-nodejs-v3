@@ -16,6 +16,7 @@ export class ApiForThrottle {
     public name?: string;
     public id?: string;
     private 'req_method'?: ApiForThrottleReqMethodEnum | string;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withAuthType(authType: string): ApiForThrottle {
@@ -143,6 +144,10 @@ export class ApiForThrottle {
     }
     public get reqMethod(): ApiForThrottleReqMethodEnum | string | undefined {
         return this['req_method'];
+    }
+    public withTags(tags: Array<string>): ApiForThrottle {
+        this['tags'] = tags;
+        return this;
     }
 }
 

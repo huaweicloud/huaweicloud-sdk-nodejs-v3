@@ -40,6 +40,5 @@ export class IpsSwitchDTO {
     * @enum {string}
     */
 export enum IpsSwitchDTOIpsTypeEnum {
-    NUMBER_1 = 1,
     NUMBER_2 = 2
 }

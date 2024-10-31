@@ -4,6 +4,7 @@ export class SmartDocumentRecognizerRequestBody {
     public data?: string;
     public url?: string;
     private 'single_orientation_mode'?: boolean;
+    public language?: string;
     public kv?: boolean;
     public table?: boolean;
     public layout?: boolean;
@@ -31,6 +32,10 @@ export class SmartDocumentRecognizerRequestBody {
     }
     public get singleOrientationMode(): boolean | undefined {
         return this['single_orientation_mode'];
+    }
+    public withLanguage(language: string): SmartDocumentRecognizerRequestBody {
+        this['language'] = language;
+        return this;
     }
     public withKv(kv: boolean): SmartDocumentRecognizerRequestBody {
         this['kv'] = kv;

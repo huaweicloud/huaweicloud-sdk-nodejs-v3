@@ -49,6 +49,7 @@ export class ShowGraphRespGraph {
     private 'enable_multi_label'?: boolean;
     private 'capacity_ratio'?: number;
     private 'sort_key_type'?: string;
+    private 'enable_lts'?: boolean;
     public constructor() { 
     }
     public withId(id: string): ShowGraphRespGraph {
@@ -446,5 +447,15 @@ export class ShowGraphRespGraph {
     }
     public get sortKeyType(): string | undefined {
         return this['sort_key_type'];
+    }
+    public withEnableLts(enableLts: boolean): ShowGraphRespGraph {
+        this['enable_lts'] = enableLts;
+        return this;
+    }
+    public set enableLts(enableLts: boolean  | undefined) {
+        this['enable_lts'] = enableLts;
+    }
+    public get enableLts(): boolean | undefined {
+        return this['enable_lts'];
     }
 }

@@ -4,7 +4,6 @@ export class VpcDetail {
     public id?: string;
     public name?: string;
     public cidr?: string;
-    public status?: string;
     public constructor() { 
     }
     public withId(id: string): VpcDetail {
@@ -17,10 +16,6 @@ export class VpcDetail {
     }
     public withCidr(cidr: string): VpcDetail {
         this['cidr'] = cidr;
-        return this;
-    }
-    public withStatus(status: string): VpcDetail {
-        this['status'] = status;
         return this;
     }
 }

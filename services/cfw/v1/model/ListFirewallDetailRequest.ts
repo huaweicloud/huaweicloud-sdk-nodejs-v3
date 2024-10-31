@@ -4,7 +4,7 @@ export class ListFirewallDetailRequest {
     private 'project_id'?: string;
     public offset?: number;
     public limit?: number;
-    private 'service_type'?: ListFirewallDetailRequestServiceTypeEnum | number;
+    private 'service_type'?: number;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
     public name?: string;
@@ -32,14 +32,14 @@ export class ListFirewallDetailRequest {
         this['limit'] = limit;
         return this;
     }
-    public withServiceType(serviceType: ListFirewallDetailRequestServiceTypeEnum | number): ListFirewallDetailRequest {
+    public withServiceType(serviceType: number): ListFirewallDetailRequest {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListFirewallDetailRequestServiceTypeEnum | number  | undefined) {
+    public set serviceType(serviceType: number  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): ListFirewallDetailRequestServiceTypeEnum | number | undefined {
+    public get serviceType(): number | undefined {
         return this['service_type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListFirewallDetailRequest {
@@ -66,13 +66,4 @@ export class ListFirewallDetailRequest {
         this['name'] = name;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListFirewallDetailRequestServiceTypeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
 }

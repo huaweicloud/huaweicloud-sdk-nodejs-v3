@@ -21,6 +21,7 @@ export class ApiAuthBase {
     private 'auth_blacklist'?: Array<string>;
     private 'visit_param'?: string;
     private 'roma_app_type'?: string;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withId(id: string): ApiAuthBase {
@@ -216,6 +217,10 @@ export class ApiAuthBase {
     }
     public get romaAppType(): string | undefined {
         return this['roma_app_type'];
+    }
+    public withTags(tags: Array<string>): ApiAuthBase {
+        this['tags'] = tags;
+        return this;
     }
 }
 

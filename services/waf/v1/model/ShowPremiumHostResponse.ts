@@ -19,6 +19,10 @@ export class ShowPremiumHostResponse extends SdkResponse {
     public cipher?: ShowPremiumHostResponseCipherEnum | string;
     public extend?: { [key: string]: string; };
     public flag?: Flag;
+    public mode?: string;
+    private 'loadbalancer_id'?: string;
+    private 'listener_id'?: string;
+    private 'protocol_port'?: number;
     public description?: string;
     public policyid?: string;
     public domainid?: string;
@@ -80,6 +84,40 @@ export class ShowPremiumHostResponse extends SdkResponse {
     public withFlag(flag: Flag): ShowPremiumHostResponse {
         this['flag'] = flag;
         return this;
+    }
+    public withMode(mode: string): ShowPremiumHostResponse {
+        this['mode'] = mode;
+        return this;
+    }
+    public withLoadbalancerId(loadbalancerId: string): ShowPremiumHostResponse {
+        this['loadbalancer_id'] = loadbalancerId;
+        return this;
+    }
+    public set loadbalancerId(loadbalancerId: string  | undefined) {
+        this['loadbalancer_id'] = loadbalancerId;
+    }
+    public get loadbalancerId(): string | undefined {
+        return this['loadbalancer_id'];
+    }
+    public withListenerId(listenerId: string): ShowPremiumHostResponse {
+        this['listener_id'] = listenerId;
+        return this;
+    }
+    public set listenerId(listenerId: string  | undefined) {
+        this['listener_id'] = listenerId;
+    }
+    public get listenerId(): string | undefined {
+        return this['listener_id'];
+    }
+    public withProtocolPort(protocolPort: number): ShowPremiumHostResponse {
+        this['protocol_port'] = protocolPort;
+        return this;
+    }
+    public set protocolPort(protocolPort: number  | undefined) {
+        this['protocol_port'] = protocolPort;
+    }
+    public get protocolPort(): number | undefined {
+        return this['protocol_port'];
     }
     public withDescription(description: string): ShowPremiumHostResponse {
         this['description'] = description;

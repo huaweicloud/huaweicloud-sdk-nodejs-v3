@@ -8,7 +8,6 @@ export class GetEastWestFirewallResponseBody {
     private 'object_id'?: string;
     private 'project_id'?: string;
     public status?: number;
-    private 'er_associated_subnet'?: SubnetInfo;
     private 'firewall_associated_subnets'?: Array<SubnetInfo>;
     public er?: ErInstance;
     private 'inspection_vpc'?: VpcDetail;
@@ -17,7 +16,6 @@ export class GetEastWestFirewallResponseBody {
     public offset?: number;
     public limit?: number;
     public mode?: string;
-    private 'ew_vpc_route_limit'?: number;
     public constructor() { 
     }
     public withObjectId(objectId: string): GetEastWestFirewallResponseBody {
@@ -43,16 +41,6 @@ export class GetEastWestFirewallResponseBody {
     public withStatus(status: number): GetEastWestFirewallResponseBody {
         this['status'] = status;
         return this;
-    }
-    public withErAssociatedSubnet(erAssociatedSubnet: SubnetInfo): GetEastWestFirewallResponseBody {
-        this['er_associated_subnet'] = erAssociatedSubnet;
-        return this;
-    }
-    public set erAssociatedSubnet(erAssociatedSubnet: SubnetInfo  | undefined) {
-        this['er_associated_subnet'] = erAssociatedSubnet;
-    }
-    public get erAssociatedSubnet(): SubnetInfo | undefined {
-        return this['er_associated_subnet'];
     }
     public withFirewallAssociatedSubnets(firewallAssociatedSubnets: Array<SubnetInfo>): GetEastWestFirewallResponseBody {
         this['firewall_associated_subnets'] = firewallAssociatedSubnets;
@@ -103,15 +91,5 @@ export class GetEastWestFirewallResponseBody {
     public withMode(mode: string): GetEastWestFirewallResponseBody {
         this['mode'] = mode;
         return this;
-    }
-    public withEwVpcRouteLimit(ewVpcRouteLimit: number): GetEastWestFirewallResponseBody {
-        this['ew_vpc_route_limit'] = ewVpcRouteLimit;
-        return this;
-    }
-    public set ewVpcRouteLimit(ewVpcRouteLimit: number  | undefined) {
-        this['ew_vpc_route_limit'] = ewVpcRouteLimit;
-    }
-    public get ewVpcRouteLimit(): number | undefined {
-        return this['ew_vpc_route_limit'];
     }
 }

@@ -1302,6 +1302,7 @@ export class WafClient {
      * @param {string} [hosts] 域名id，用于查询指定的防护域名在from到to这段时间内的带宽数据。通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
      * @param {string} [instances] 引擎实例id，用于查询指定的独享引擎实例所防护的域名在from到to这段时间内的带宽数据。
      * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示。
+     * @param {number} [displayOption] 发送/接受字节数，查看峰值请输入1，查看平均值请输入0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5378,6 +5379,8 @@ export const ParamCreater = function () {
             let instances;
             
             let groupBy;
+            
+            let displayOption;
 
             if (listBandwidthTimelineRequest !== null && listBandwidthTimelineRequest !== undefined) {
                 if (listBandwidthTimelineRequest instanceof ListBandwidthTimelineRequest) {
@@ -5388,6 +5391,7 @@ export const ParamCreater = function () {
                     hosts = listBandwidthTimelineRequest.hosts;
                     instances = listBandwidthTimelineRequest.instances;
                     groupBy = listBandwidthTimelineRequest.groupBy;
+                    displayOption = listBandwidthTimelineRequest.displayOption;
                 } else {
                     contentType = listBandwidthTimelineRequest['Content-Type'];
                     from = listBandwidthTimelineRequest['from'];
@@ -5396,6 +5400,7 @@ export const ParamCreater = function () {
                     hosts = listBandwidthTimelineRequest['hosts'];
                     instances = listBandwidthTimelineRequest['instances'];
                     groupBy = listBandwidthTimelineRequest['group_by'];
+                    displayOption = listBandwidthTimelineRequest['display_option'];
                 }
             }
 
@@ -5423,6 +5428,9 @@ export const ParamCreater = function () {
             }
             if (groupBy !== null && groupBy !== undefined) {
                 localVarQueryParameter['group_by'] = groupBy;
+            }
+            if (displayOption !== null && displayOption !== undefined) {
+                localVarQueryParameter['display_option'] = displayOption;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

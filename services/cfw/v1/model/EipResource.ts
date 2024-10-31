@@ -16,7 +16,6 @@ export class EipResource {
     private 'object_id'?: string;
     public tags?: string;
     private 'domain_id'?: string;
-    public owner?: string;
     private 'fw_domain_id'?: string;
     public constructor() { 
     }
@@ -151,10 +150,6 @@ export class EipResource {
     }
     public get domainId(): string | undefined {
         return this['domain_id'];
-    }
-    public withOwner(owner: string): EipResource {
-        this['owner'] = owner;
-        return this;
     }
     public withFwDomainId(fwDomainId: string): EipResource {
         this['fw_domain_id'] = fwDomainId;

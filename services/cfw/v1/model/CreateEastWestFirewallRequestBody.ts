@@ -4,7 +4,8 @@ export class CreateEastWestFirewallRequestBody {
     private 'er_id'?: string;
     private 'inspection_cidr'?: string;
     public mode?: string;
-    public constructor(inspectionCidr?: string, mode?: string) { 
+    public constructor(erId?: string, inspectionCidr?: string, mode?: string) { 
+        this['er_id'] = erId;
         this['inspection_cidr'] = inspectionCidr;
         this['mode'] = mode;
     }

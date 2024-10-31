@@ -5,7 +5,6 @@ export class ChangeIpsSwitchStatusRequest {
     private 'project_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
-    private 'X-Language'?: string;
     public body?: IpsSwitchDTO;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
@@ -39,16 +38,6 @@ export class ChangeIpsSwitchStatusRequest {
     }
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
-    }
-    public withXLanguage(xLanguage: string): ChangeIpsSwitchStatusRequest {
-        this['X-Language'] = xLanguage;
-        return this;
-    }
-    public set xLanguage(xLanguage: string  | undefined) {
-        this['X-Language'] = xLanguage;
-    }
-    public get xLanguage(): string | undefined {
-        return this['X-Language'];
     }
     public withBody(body: IpsSwitchDTO): ChangeIpsSwitchStatusRequest {
         this['body'] = body;

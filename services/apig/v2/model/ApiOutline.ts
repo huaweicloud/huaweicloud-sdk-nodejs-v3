@@ -11,6 +11,7 @@ export class ApiOutline {
     private 'run_env_id'?: string;
     public id?: string;
     private 'req_uri'?: string;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withAuthType(authType: string): ApiOutline {
@@ -94,5 +95,9 @@ export class ApiOutline {
     }
     public get reqUri(): string | undefined {
         return this['req_uri'];
+    }
+    public withTags(tags: Array<string>): ApiOutline {
+        this['tags'] = tags;
+        return this;
     }
 }

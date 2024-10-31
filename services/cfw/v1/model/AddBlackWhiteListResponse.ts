@@ -1,13 +1,13 @@
-import { IdObject } from './IdObject';
+import { BlackWhiteListId } from './BlackWhiteListId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AddBlackWhiteListResponse extends SdkResponse {
-    public data?: IdObject;
+    public data?: BlackWhiteListId;
     public constructor() { 
         super();
     }
-    public withData(data: IdObject): AddBlackWhiteListResponse {
+    public withData(data: BlackWhiteListId): AddBlackWhiteListResponse {
         this['data'] = data;
         return this;
     }

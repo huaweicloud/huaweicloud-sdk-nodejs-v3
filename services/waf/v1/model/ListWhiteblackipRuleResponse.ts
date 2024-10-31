@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListWhiteblackipRuleResponse extends SdkResponse {
     public total?: number;
     public items?: Array<WhiteBlackIpResponseBody>;
+    public size?: number;
     public constructor() { 
         super();
     }
@@ -14,6 +15,10 @@ export class ListWhiteblackipRuleResponse extends SdkResponse {
     }
     public withItems(items: Array<WhiteBlackIpResponseBody>): ListWhiteblackipRuleResponse {
         this['items'] = items;
+        return this;
+    }
+    public withSize(size: number): ListWhiteblackipRuleResponse {
+        this['size'] = size;
         return this;
     }
 }

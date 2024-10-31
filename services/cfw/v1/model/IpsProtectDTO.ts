@@ -3,7 +3,9 @@
 export class IpsProtectDTO {
     private 'object_id'?: string;
     public mode?: number;
-    public constructor() { 
+    public constructor(objectId?: string, mode?: number) { 
+        this['object_id'] = objectId;
+        this['mode'] = mode;
     }
     public withObjectId(objectId: string): IpsProtectDTO {
         this['object_id'] = objectId;

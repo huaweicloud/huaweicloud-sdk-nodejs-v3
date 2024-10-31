@@ -4,8 +4,8 @@ export class ListEipsRequest {
     private 'project_id'?: string;
     private 'object_id'?: string;
     private 'key_word'?: string;
-    public status?: ListEipsRequestStatusEnum | string;
-    public sync?: ListEipsRequestSyncEnum | number;
+    public status?: string;
+    public sync?: number;
     public limit?: number;
     public offset?: number;
     private 'enterprise_project_id'?: string;
@@ -51,11 +51,11 @@ export class ListEipsRequest {
     public get keyWord(): string | undefined {
         return this['key_word'];
     }
-    public withStatus(status: ListEipsRequestStatusEnum | string): ListEipsRequest {
+    public withStatus(status: string): ListEipsRequest {
         this['status'] = status;
         return this;
     }
-    public withSync(sync: ListEipsRequestSyncEnum | number): ListEipsRequest {
+    public withSync(sync: number): ListEipsRequest {
         this['sync'] = sync;
         return this;
     }
@@ -131,22 +131,4 @@ export class ListEipsRequest {
         this['tags'] = tags;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListEipsRequestStatusEnum {
-    NULL = 'null',
-    E_0 = '0',
-    E_1 = '1'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListEipsRequestSyncEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
 }

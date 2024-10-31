@@ -7,7 +7,7 @@ export class ListAddressSetsRequest {
     public limit?: number;
     public offset?: number;
     public address?: string;
-    private 'address_type'?: ListAddressSetsRequestAddressTypeEnum | number;
+    private 'address_type'?: number;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
     private 'query_address_set_type'?: number;
@@ -60,14 +60,14 @@ export class ListAddressSetsRequest {
         this['address'] = address;
         return this;
     }
-    public withAddressType(addressType: ListAddressSetsRequestAddressTypeEnum | number): ListAddressSetsRequest {
+    public withAddressType(addressType: number): ListAddressSetsRequest {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: ListAddressSetsRequestAddressTypeEnum | number  | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType(): ListAddressSetsRequestAddressTypeEnum | number | undefined {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListAddressSetsRequest {
@@ -110,13 +110,4 @@ export class ListAddressSetsRequest {
     public get addressSetType(): number | undefined {
         return this['address_set_type'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAddressSetsRequestAddressTypeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
 }

@@ -12,6 +12,7 @@ export class ApiForSign {
     private 'run_env_id'?: string;
     public id?: string;
     private 'req_uri'?: string;
+    public tags?: Array<string>;
     public type?: number;
     private 'signature_name'?: string;
     private 'req_method'?: ApiForSignReqMethodEnum | string;
@@ -98,6 +99,10 @@ export class ApiForSign {
     }
     public get reqUri(): string | undefined {
         return this['req_uri'];
+    }
+    public withTags(tags: Array<string>): ApiForSign {
+        this['tags'] = tags;
+        return this;
     }
     public withType(type: number): ApiForSign {
         this['type'] = type;

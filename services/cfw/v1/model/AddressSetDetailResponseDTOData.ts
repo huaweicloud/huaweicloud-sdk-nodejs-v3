@@ -5,7 +5,7 @@ export class AddressSetDetailResponseDTOData {
     public name?: string;
     public description?: string;
     private 'address_set_type'?: number;
-    private 'address_type'?: AddressSetDetailResponseDTODataAddressTypeEnum | number;
+    private 'address_type'?: number;
     public constructor() { 
     }
     public withId(id: string): AddressSetDetailResponseDTOData {
@@ -30,23 +30,14 @@ export class AddressSetDetailResponseDTOData {
     public get addressSetType(): number | undefined {
         return this['address_set_type'];
     }
-    public withAddressType(addressType: AddressSetDetailResponseDTODataAddressTypeEnum | number): AddressSetDetailResponseDTOData {
+    public withAddressType(addressType: number): AddressSetDetailResponseDTOData {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: AddressSetDetailResponseDTODataAddressTypeEnum | number  | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType(): AddressSetDetailResponseDTODataAddressTypeEnum | number | undefined {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AddressSetDetailResponseDTODataAddressTypeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
 }

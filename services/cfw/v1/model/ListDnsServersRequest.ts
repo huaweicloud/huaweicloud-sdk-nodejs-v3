@@ -6,9 +6,8 @@ export class ListDnsServersRequest {
     public offset?: number;
     private 'fw_instance_id'?: string;
     private 'enterprise_project_id'?: string;
-    public constructor(projectId?: string, fwInstanceId?: string) { 
+    public constructor(projectId?: string) { 
         this['project_id'] = projectId;
-        this['fw_instance_id'] = fwInstanceId;
     }
     public withProjectId(projectId: string): ListDnsServersRequest {
         this['project_id'] = projectId;

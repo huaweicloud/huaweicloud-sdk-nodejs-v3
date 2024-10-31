@@ -9,6 +9,7 @@ export class ListApisUnbindedToAppV2Request {
     private 'group_id'?: string;
     private 'api_id'?: string;
     private 'api_name'?: string;
+    public tags?: string;
     public constructor(instanceId?: string, appId?: string, envId?: string) { 
         this['instance_id'] = instanceId;
         this['app_id'] = appId;
@@ -81,5 +82,9 @@ export class ListApisUnbindedToAppV2Request {
     }
     public get apiName(): string | undefined {
         return this['api_name'];
+    }
+    public withTags(tags: string): ListApisUnbindedToAppV2Request {
+        this['tags'] = tags;
+        return this;
     }
 }

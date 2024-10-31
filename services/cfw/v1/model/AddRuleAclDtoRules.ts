@@ -11,7 +11,6 @@ export class AddRuleAclDtoRules {
     private 'action_type'?: number;
     public status?: AddRuleAclDtoRulesStatusEnum | number;
     public applications?: Array<string>;
-    public applicationsJsonString?: string;
     private 'long_connect_time'?: number;
     private 'long_connect_time_hour'?: number;
     private 'long_connect_time_minute'?: number;
@@ -68,10 +67,6 @@ export class AddRuleAclDtoRules {
     }
     public withApplications(applications: Array<string>): AddRuleAclDtoRules {
         this['applications'] = applications;
-        return this;
-    }
-    public withApplicationsJsonString(applicationsJsonString: string): AddRuleAclDtoRules {
-        this['applicationsJsonString'] = applicationsJsonString;
         return this;
     }
     public withLongConnectTime(longConnectTime: number): AddRuleAclDtoRules {

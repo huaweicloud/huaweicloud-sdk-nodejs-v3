@@ -10,6 +10,7 @@ export class ListApisBindedToAppV2Request {
     private 'group_id'?: string;
     private 'group_name'?: string;
     private 'env_id'?: string;
+    public tags?: string;
     public constructor(instanceId?: string, appId?: string) { 
         this['instance_id'] = instanceId;
         this['app_id'] = appId;
@@ -91,5 +92,9 @@ export class ListApisBindedToAppV2Request {
     }
     public get envId(): string | undefined {
         return this['env_id'];
+    }
+    public withTags(tags: string): ListApisBindedToAppV2Request {
+        this['tags'] = tags;
+        return this;
     }
 }

@@ -7,7 +7,6 @@ export class SubnetInfo {
     public id?: string;
     private 'gateway_ip'?: string;
     private 'vpc_id'?: string;
-    public status?: string;
     private 'ipv6_enable'?: boolean;
     public constructor() { 
     }
@@ -52,10 +51,6 @@ export class SubnetInfo {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
-    }
-    public withStatus(status: string): SubnetInfo {
-        this['status'] = status;
-        return this;
     }
     public withIpv6Enable(ipv6Enable: boolean): SubnetInfo {
         this['ipv6_enable'] = ipv6Enable;

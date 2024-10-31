@@ -8,7 +8,6 @@ export class DomainSetVo {
     private 'ref_count'?: number;
     private 'domain_set_type'?: number;
     private 'config_status'?: number;
-    public message?: string;
     public rules?: Array<UseRuleVO>;
     public constructor() { 
     }
@@ -59,10 +58,6 @@ export class DomainSetVo {
     }
     public get configStatus(): number | undefined {
         return this['config_status'];
-    }
-    public withMessage(message: string): DomainSetVo {
-        this['message'] = message;
-        return this;
     }
     public withRules(rules: Array<UseRuleVO>): DomainSetVo {
         this['rules'] = rules;

@@ -1,21 +1,10 @@
 
 
 export class EipCountRespData {
-    private 'object_id'?: string;
     private 'eip_total'?: number;
     private 'eip_protected'?: number;
     private 'eip_protected_self'?: number;
     public constructor() { 
-    }
-    public withObjectId(objectId: string): EipCountRespData {
-        this['object_id'] = objectId;
-        return this;
-    }
-    public set objectId(objectId: string  | undefined) {
-        this['object_id'] = objectId;
-    }
-    public get objectId(): string | undefined {
-        return this['object_id'];
     }
     public withEipTotal(eipTotal: number): EipCountRespData {
         this['eip_total'] = eipTotal;

@@ -1,13 +1,13 @@
+import { AddressItemIdWithoutName } from './AddressItemIdWithoutName';
 import { CoveredIPVO } from './CoveredIPVO';
-import { IdObject } from './IdObject';
 
 
 export class AddressItems {
-    public items?: Array<IdObject>;
+    public items?: Array<AddressItemIdWithoutName>;
     private 'covered_ip'?: Array<CoveredIPVO>;
     public constructor() { 
     }
-    public withItems(items: Array<IdObject>): AddressItems {
+    public withItems(items: Array<AddressItemIdWithoutName>): AddressItems {
         this['items'] = items;
         return this;
     }

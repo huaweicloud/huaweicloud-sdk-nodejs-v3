@@ -1,13 +1,13 @@
 
 
-export class ErrorRsp {
+export class ErrorResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
     public constructor(errorCode?: string, errorMsg?: string) { 
         this['error_code'] = errorCode;
         this['error_msg'] = errorMsg;
     }
-    public withErrorCode(errorCode: string): ErrorRsp {
+    public withErrorCode(errorCode: string): ErrorResponse {
         this['error_code'] = errorCode;
         return this;
     }
@@ -17,7 +17,7 @@ export class ErrorRsp {
     public get errorCode(): string | undefined {
         return this['error_code'];
     }
-    public withErrorMsg(errorMsg: string): ErrorRsp {
+    public withErrorMsg(errorMsg: string): ErrorResponse {
         this['error_msg'] = errorMsg;
         return this;
     }

@@ -14,6 +14,7 @@ export class SignApiBindingBase {
     private 'sign_id'?: string;
     private 'sign_name'?: string;
     private 'req_method'?: SignApiBindingBaseReqMethodEnum | string;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withPublishId(publishId: string): SignApiBindingBase {
@@ -139,6 +140,10 @@ export class SignApiBindingBase {
     }
     public get reqMethod(): SignApiBindingBaseReqMethodEnum | string | undefined {
         return this['req_method'];
+    }
+    public withTags(tags: Array<string>): SignApiBindingBase {
+        this['tags'] = tags;
+        return this;
     }
 }
 

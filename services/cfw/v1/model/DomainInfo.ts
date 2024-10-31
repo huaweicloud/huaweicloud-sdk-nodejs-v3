@@ -4,7 +4,6 @@ export class DomainInfo {
     private 'domain_address_id'?: string;
     private 'domain_name'?: string;
     public description?: string;
-    private 'dns_ips'?: Array<string>;
     public constructor() { 
     }
     public withDomainAddressId(domainAddressId: string): DomainInfo {
@@ -30,15 +29,5 @@ export class DomainInfo {
     public withDescription(description: string): DomainInfo {
         this['description'] = description;
         return this;
-    }
-    public withDnsIps(dnsIps: Array<string>): DomainInfo {
-        this['dns_ips'] = dnsIps;
-        return this;
-    }
-    public set dnsIps(dnsIps: Array<string>  | undefined) {
-        this['dns_ips'] = dnsIps;
-    }
-    public get dnsIps(): Array<string> | undefined {
-        return this['dns_ips'];
     }
 }

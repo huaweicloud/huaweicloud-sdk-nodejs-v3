@@ -4,6 +4,7 @@ import { UpdateSecurityPolciesActionDto } from './UpdateSecurityPolciesActionDto
 export class BatchUpdateAclRuleActionsRequest {
     private 'project_id'?: string;
     private 'enterprise_project_id'?: string;
+    private 'fw_instance_id'?: string;
     public body?: UpdateSecurityPolciesActionDto;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
@@ -27,6 +28,16 @@ export class BatchUpdateAclRuleActionsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): BatchUpdateAclRuleActionsRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId(): string | undefined {
+        return this['fw_instance_id'];
     }
     public withBody(body: UpdateSecurityPolciesActionDto): BatchUpdateAclRuleActionsRequest {
         this['body'] = body;

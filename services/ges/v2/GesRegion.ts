@@ -14,6 +14,7 @@ export class GesRegion {
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://ges.cn-south-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://ges.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://ges.ap-southeast-3.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://ges.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -24,7 +25,8 @@ export class GesRegion {
         "cn-east-3":GesRegion.CN_EAST_3,
         "cn-south-1":GesRegion.CN_SOUTH_1,
         "ap-southeast-1":GesRegion.AP_SOUTHEAST_1,
-        "ap-southeast-3":GesRegion.AP_SOUTHEAST_3
+        "ap-southeast-3":GesRegion.AP_SOUTHEAST_3,
+        "ru-moscow-1":GesRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {
