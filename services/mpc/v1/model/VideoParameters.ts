@@ -4,6 +4,8 @@ import { OutputPolicy } from './OutputPolicy';
 export class VideoParameters {
     private 'output_policy'?: VideoParametersOutputPolicyEnum | string;
     public codec?: number;
+    public crf?: object;
+    private 'max_bitrate'?: number;
     public bitrate?: number;
     public profile?: number;
     public level?: number;
@@ -29,6 +31,20 @@ export class VideoParameters {
     public withCodec(codec: number): VideoParameters {
         this['codec'] = codec;
         return this;
+    }
+    public withCrf(crf: object): VideoParameters {
+        this['crf'] = crf;
+        return this;
+    }
+    public withMaxBitrate(maxBitrate: number): VideoParameters {
+        this['max_bitrate'] = maxBitrate;
+        return this;
+    }
+    public set maxBitrate(maxBitrate: number  | undefined) {
+        this['max_bitrate'] = maxBitrate;
+    }
+    public get maxBitrate(): number | undefined {
+        return this['max_bitrate'];
     }
     public withBitrate(bitrate: number): VideoParameters {
         this['bitrate'] = bitrate;

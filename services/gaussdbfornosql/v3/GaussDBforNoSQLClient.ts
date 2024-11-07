@@ -18,6 +18,9 @@ import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionRequestBody } from './model/BatchTagActionRequestBody';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
 import { BatchTagActionTagOption } from './model/BatchTagActionTagOption';
+import { BatchUpgradeDatabaseVersionRequest } from './model/BatchUpgradeDatabaseVersionRequest';
+import { BatchUpgradeDatabaseVersionRequestBody } from './model/BatchUpgradeDatabaseVersionRequestBody';
+import { BatchUpgradeDatabaseVersionResponse } from './model/BatchUpgradeDatabaseVersionResponse';
 import { BigKeysInfoResponseBody } from './model/BigKeysInfoResponseBody';
 import { CassandraSlowLogDetail } from './model/CassandraSlowLogDetail';
 import { ChargeInfoOption } from './model/ChargeInfoOption';
@@ -359,6 +362,7 @@ import { UpdateSecurityGroupRequestBody } from './model/UpdateSecurityGroupReque
 import { UpdateSecurityGroupResponse } from './model/UpdateSecurityGroupResponse';
 import { UpgradeDbVersionRequest } from './model/UpgradeDbVersionRequest';
 import { UpgradeDbVersionResponse } from './model/UpgradeDbVersionResponse';
+import { UpgradeResult } from './model/UpgradeResult';
 import { Volume } from './model/Volume';
 
 export class GaussDBforNoSQLClient {
@@ -409,6 +413,25 @@ export class GaussDBforNoSQLClient {
      */
     public batchTagAction(batchTagActionRequest?: BatchTagActionRequest): Promise<BatchTagActionResponse> {
         const options = ParamCreater().batchTagAction(batchTagActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量升级数据库补丁版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量数据库补丁升级
+     * @param {BatchUpgradeDatabaseVersionRequestBody} batchUpgradeDatabaseVersionRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest?: BatchUpgradeDatabaseVersionRequest): Promise<BatchUpgradeDatabaseVersionResponse> {
+        const options = ParamCreater().batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2675,6 +2698,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量升级数据库补丁版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest?: BatchUpgradeDatabaseVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/db-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpgradeDatabaseVersionRequest !== null && batchUpgradeDatabaseVersionRequest !== undefined) {
+                if (batchUpgradeDatabaseVersionRequest instanceof BatchUpgradeDatabaseVersionRequest) {
+                    body = batchUpgradeDatabaseVersionRequest.body
+                } else {
+                    body = batchUpgradeDatabaseVersionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

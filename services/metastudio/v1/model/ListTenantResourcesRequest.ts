@@ -9,7 +9,6 @@ export class ListTenantResourcesRequest {
     public resource?: string;
     public business?: string;
     private 'resource_source'?: string;
-    private 'resource_name'?: string;
     private 'resource_id'?: string;
     private 'order_id'?: string;
     private 'charging_mode'?: string;
@@ -74,16 +73,6 @@ export class ListTenantResourcesRequest {
     }
     public get resourceSource(): string | undefined {
         return this['resource_source'];
-    }
-    public withResourceName(resourceName: string): ListTenantResourcesRequest {
-        this['resource_name'] = resourceName;
-        return this;
-    }
-    public set resourceName(resourceName: string  | undefined) {
-        this['resource_name'] = resourceName;
-    }
-    public get resourceName(): string | undefined {
-        return this['resource_name'];
     }
     public withResourceId(resourceId: string): ListTenantResourcesRequest {
         this['resource_id'] = resourceId;

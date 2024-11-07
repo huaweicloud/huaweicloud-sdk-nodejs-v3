@@ -23,6 +23,8 @@ import { AddDeviceProxy } from './model/AddDeviceProxy';
 import { AddDeviceRequest } from './model/AddDeviceRequest';
 import { AddDeviceResponse } from './model/AddDeviceResponse';
 import { AddFlowControlPolicy } from './model/AddFlowControlPolicy';
+import { AddFunctionsRequest } from './model/AddFunctionsRequest';
+import { AddFunctionsResponse } from './model/AddFunctionsResponse';
 import { AddProduct } from './model/AddProduct';
 import { AddQueueRequest } from './model/AddQueueRequest';
 import { AddQueueResponse } from './model/AddQueueResponse';
@@ -33,6 +35,7 @@ import { AddTunnelResponse } from './model/AddTunnelResponse';
 import { AmqpForwarding } from './model/AmqpForwarding';
 import { ApplicationDTO } from './model/ApplicationDTO';
 import { AsyncDeviceCommandRequest } from './model/AsyncDeviceCommandRequest';
+import { AsyncDeviceListCommand } from './model/AsyncDeviceListCommand';
 import { AuthInfo } from './model/AuthInfo';
 import { AuthInfoRes } from './model/AuthInfoRes';
 import { AuthInfoWithoutSecret } from './model/AuthInfoWithoutSecret';
@@ -62,6 +65,8 @@ import { Cmd } from './model/Cmd';
 import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
 import { ConnectState } from './model/ConnectState';
+import { CountAsyncHistoryCommandsRequest } from './model/CountAsyncHistoryCommandsRequest';
+import { CountAsyncHistoryCommandsResponse } from './model/CountAsyncHistoryCommandsResponse';
 import { CreateAccessCodeRequest } from './model/CreateAccessCodeRequest';
 import { CreateAccessCodeRequestBody } from './model/CreateAccessCodeRequestBody';
 import { CreateAccessCodeResponse } from './model/CreateAccessCodeResponse';
@@ -126,6 +131,8 @@ import { DeleteDeviceRequest } from './model/DeleteDeviceRequest';
 import { DeleteDeviceResponse } from './model/DeleteDeviceResponse';
 import { DeleteDeviceTunnelRequest } from './model/DeleteDeviceTunnelRequest';
 import { DeleteDeviceTunnelResponse } from './model/DeleteDeviceTunnelResponse';
+import { DeleteFunctionsRequest } from './model/DeleteFunctionsRequest';
+import { DeleteFunctionsResponse } from './model/DeleteFunctionsResponse';
 import { DeleteOtaPackageRequest } from './model/DeleteOtaPackageRequest';
 import { DeleteOtaPackageResponse } from './model/DeleteOtaPackageResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
@@ -169,10 +176,17 @@ import { FileLocation } from './model/FileLocation';
 import { FlowControlPolicyInfo } from './model/FlowControlPolicyInfo';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
+import { FunctionDTO } from './model/FunctionDTO';
 import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
+import { FunctionRequestDTO } from './model/FunctionRequestDTO';
+import { HistoryCommandPage } from './model/HistoryCommandPage';
 import { HttpForwarding } from './model/HttpForwarding';
 import { InfluxDBForwarding } from './model/InfluxDBForwarding';
 import { InitialDesired } from './model/InitialDesired';
+import { ListAsyncCommandsRequest } from './model/ListAsyncCommandsRequest';
+import { ListAsyncCommandsResponse } from './model/ListAsyncCommandsResponse';
+import { ListAsyncHistoryCommandsRequest } from './model/ListAsyncHistoryCommandsRequest';
+import { ListAsyncHistoryCommandsResponse } from './model/ListAsyncHistoryCommandsResponse';
 import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
 import { ListBatchTasksRequest } from './model/ListBatchTasksRequest';
@@ -199,6 +213,8 @@ import { ListDeviceTunnelsRequest } from './model/ListDeviceTunnelsRequest';
 import { ListDeviceTunnelsResponse } from './model/ListDeviceTunnelsResponse';
 import { ListDevicesRequest } from './model/ListDevicesRequest';
 import { ListDevicesResponse } from './model/ListDevicesResponse';
+import { ListFunctionsRequest } from './model/ListFunctionsRequest';
+import { ListFunctionsResponse } from './model/ListFunctionsResponse';
 import { ListOtaPackageInfoRequest } from './model/ListOtaPackageInfoRequest';
 import { ListOtaPackageInfoResponse } from './model/ListOtaPackageInfoResponse';
 import { ListProductsRequest } from './model/ListProductsRequest';
@@ -240,6 +256,7 @@ import { QueryDeviceProxySimplify } from './model/QueryDeviceProxySimplify';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
+import { QueueCommandPage } from './model/QueueCommandPage';
 import { QueueInfo } from './model/QueueInfo';
 import { ResetBridgeSecret } from './model/ResetBridgeSecret';
 import { ResetBridgeSecretRequest } from './model/ResetBridgeSecretRequest';
@@ -614,6 +631,30 @@ export class IoTDAClient {
     }
 
     /**
+     * 统计设备下的历史命令总数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 统计设备下的历史命令总数
+     * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [startTime] **参数说明**：查询命令下发时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [endTime] **参数说明**：查询命令下发时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [status] **参数说明**：命令状态。
+     * @param {string} [commandName] **参数说明**：命令名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countAsyncHistoryCommands(countAsyncHistoryCommandsRequest?: CountAsyncHistoryCommandsRequest): Promise<CountAsyncHistoryCommandsResponse> {
+        const options = ParamCreater().countAsyncHistoryCommands(countAsyncHistoryCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)](tag:hws)[[设备命令状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01212.html)](tag:hws_hk)。
      * 注意：
      * - 此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
@@ -624,12 +665,66 @@ export class IoTDAClient {
      * @summary 下发异步设备命令
      * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {AsyncDeviceCommandRequest} createAsyncCommandRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createAsyncCommand(createAsyncCommandRequest?: CreateAsyncCommandRequest): Promise<CreateAsyncCommandResponse> {
         const options = ParamCreater().createAsyncCommand(createAsyncCommandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询设备下队列中的命令（处理中的命令），包含PENDING、SENT、DELIVERED三种状态，注意：DELIVERED状态的命令经过系统设定的一段时间（具体以系统配置为准）仍然没有更新，就会从队列中移除，变为历史命令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备下队列中的命令
+     * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [startTime] **参数说明**：查询命令下发时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [endTime] **参数说明**：查询命令下发时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [status] **参数说明**：命令状态。
+     * @param {string} [commandName] **参数说明**：命令名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAsyncCommands(listAsyncCommandsRequest?: ListAsyncCommandsRequest): Promise<ListAsyncCommandsResponse> {
+        const options = ParamCreater().listAsyncCommands(listAsyncCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询设备下发的历史异步命令，包含EXPIRED、SUCCESSFUL、FAILED、TIMEOUT、DELIVERED五种状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备下的历史命令
+     * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [startTime] **参数说明**：查询命令下发时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [endTime] **参数说明**：查询命令下发时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [status] **参数说明**：命令状态。
+     * @param {string} [commandName] **参数说明**：命令名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAsyncHistoryCommands(listAsyncHistoryCommandsRequest?: ListAsyncHistoryCommandsRequest): Promise<ListAsyncHistoryCommandsResponse> {
+        const options = ParamCreater().listAsyncHistoryCommands(listAsyncHistoryCommandsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -645,7 +740,7 @@ export class IoTDAClient {
      * @summary 查询指定id的命令
      * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} commandId **参数说明**：下发命令的命令id，用于唯一标识一个消息，在下发命令时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2057,6 +2152,73 @@ export class IoTDAClient {
      */
     public updateRoutingFlowControlPolicy(updateRoutingFlowControlPolicyRequest?: UpdateRoutingFlowControlPolicyRequest): Promise<UpdateRoutingFlowControlPolicyResponse> {
         const options = ParamCreater().updateRoutingFlowControlPolicy(updateRoutingFlowControlPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供创建编解码函数的功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建编解码函数
+     * @param {FunctionRequestDTO} addFunctionsRequestBody 创建的编解码函数信息
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [spAuthToken] **参数说明**：Sp用户Token。通过调用IoBPS服务获取SP用户Token。
+     * @param {string} [stageAuthToken] **参数说明**：Stage用户的Token, 仅提供给IoStage服务使用。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addFunctions(addFunctionsRequest?: AddFunctionsRequest): Promise<AddFunctionsResponse> {
+        const options = ParamCreater().addFunctions(addFunctionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供删除编解码函数的功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除编解码函数
+     * @param {string} functionId **参数说明**：函数ID。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [spAuthToken] **参数说明**：Sp用户Token。通过调用IoBPS服务获取SP用户Token。
+     * @param {string} [stageAuthToken] **参数说明**：Stage用户的Token, 仅提供给IoStage服务使用。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFunctions(deleteFunctionsRequest?: DeleteFunctionsRequest): Promise<DeleteFunctionsResponse> {
+        const options = ParamCreater().deleteFunctions(deleteFunctionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供查询编解码函数的功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询编解码函数
+     * @param {string} productId **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [[创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)](tag:hws)[[创建产品](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0050.html)](tag:hws_hk)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [spAuthToken] **参数说明**：Sp用户Token。通过调用IoBPS服务获取SP用户Token。
+     * @param {string} [stageAuthToken] **参数说明**：Stage用户的Token, 仅提供给IoStage服务使用。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的产品列表，不携带该参数则会查询该用户下所有产品列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctions(listFunctionsRequest?: ListFunctionsRequest): Promise<ListFunctionsResponse> {
+        const options = ParamCreater().listFunctions(listFunctionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3643,6 +3805,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 统计设备下的历史命令总数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countAsyncHistoryCommands(countAsyncHistoryCommandsRequest?: CountAsyncHistoryCommandsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/devices/{device_id}/async-commands-history/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let deviceId;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let status;
+            
+            let commandName;
+
+            if (countAsyncHistoryCommandsRequest !== null && countAsyncHistoryCommandsRequest !== undefined) {
+                if (countAsyncHistoryCommandsRequest instanceof CountAsyncHistoryCommandsRequest) {
+                    deviceId = countAsyncHistoryCommandsRequest.deviceId;
+                    instanceId = countAsyncHistoryCommandsRequest.instanceId;
+                    startTime = countAsyncHistoryCommandsRequest.startTime;
+                    endTime = countAsyncHistoryCommandsRequest.endTime;
+                    status = countAsyncHistoryCommandsRequest.status;
+                    commandName = countAsyncHistoryCommandsRequest.commandName;
+                } else {
+                    deviceId = countAsyncHistoryCommandsRequest['device_id'];
+                    instanceId = countAsyncHistoryCommandsRequest['Instance-Id'];
+                    startTime = countAsyncHistoryCommandsRequest['start_time'];
+                    endTime = countAsyncHistoryCommandsRequest['end_time'];
+                    status = countAsyncHistoryCommandsRequest['status'];
+                    commandName = countAsyncHistoryCommandsRequest['command_name'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling countAsyncHistoryCommands.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (commandName !== null && commandName !== undefined) {
+                localVarQueryParameter['command_name'] = commandName;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)](tag:hws)[[设备命令状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01212.html)](tag:hws_hk)。
          * 注意：
          * - 此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
@@ -3693,6 +3928,194 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询设备下队列中的命令（处理中的命令），包含PENDING、SENT、DELIVERED三种状态，注意：DELIVERED状态的命令经过系统设定的一段时间（具体以系统配置为准）仍然没有更新，就会从队列中移除，变为历史命令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAsyncCommands(listAsyncCommandsRequest?: ListAsyncCommandsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/devices/{device_id}/async-commands",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let deviceId;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let status;
+            
+            let commandName;
+
+            if (listAsyncCommandsRequest !== null && listAsyncCommandsRequest !== undefined) {
+                if (listAsyncCommandsRequest instanceof ListAsyncCommandsRequest) {
+                    deviceId = listAsyncCommandsRequest.deviceId;
+                    instanceId = listAsyncCommandsRequest.instanceId;
+                    limit = listAsyncCommandsRequest.limit;
+                    marker = listAsyncCommandsRequest.marker;
+                    offset = listAsyncCommandsRequest.offset;
+                    startTime = listAsyncCommandsRequest.startTime;
+                    endTime = listAsyncCommandsRequest.endTime;
+                    status = listAsyncCommandsRequest.status;
+                    commandName = listAsyncCommandsRequest.commandName;
+                } else {
+                    deviceId = listAsyncCommandsRequest['device_id'];
+                    instanceId = listAsyncCommandsRequest['Instance-Id'];
+                    limit = listAsyncCommandsRequest['limit'];
+                    marker = listAsyncCommandsRequest['marker'];
+                    offset = listAsyncCommandsRequest['offset'];
+                    startTime = listAsyncCommandsRequest['start_time'];
+                    endTime = listAsyncCommandsRequest['end_time'];
+                    status = listAsyncCommandsRequest['status'];
+                    commandName = listAsyncCommandsRequest['command_name'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listAsyncCommands.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (commandName !== null && commandName !== undefined) {
+                localVarQueryParameter['command_name'] = commandName;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询设备下发的历史异步命令，包含EXPIRED、SUCCESSFUL、FAILED、TIMEOUT、DELIVERED五种状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAsyncHistoryCommands(listAsyncHistoryCommandsRequest?: ListAsyncHistoryCommandsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/devices/{device_id}/async-commands-history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let deviceId;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let status;
+            
+            let commandName;
+
+            if (listAsyncHistoryCommandsRequest !== null && listAsyncHistoryCommandsRequest !== undefined) {
+                if (listAsyncHistoryCommandsRequest instanceof ListAsyncHistoryCommandsRequest) {
+                    deviceId = listAsyncHistoryCommandsRequest.deviceId;
+                    instanceId = listAsyncHistoryCommandsRequest.instanceId;
+                    limit = listAsyncHistoryCommandsRequest.limit;
+                    marker = listAsyncHistoryCommandsRequest.marker;
+                    offset = listAsyncHistoryCommandsRequest.offset;
+                    startTime = listAsyncHistoryCommandsRequest.startTime;
+                    endTime = listAsyncHistoryCommandsRequest.endTime;
+                    status = listAsyncHistoryCommandsRequest.status;
+                    commandName = listAsyncHistoryCommandsRequest.commandName;
+                } else {
+                    deviceId = listAsyncHistoryCommandsRequest['device_id'];
+                    instanceId = listAsyncHistoryCommandsRequest['Instance-Id'];
+                    limit = listAsyncHistoryCommandsRequest['limit'];
+                    marker = listAsyncHistoryCommandsRequest['marker'];
+                    offset = listAsyncHistoryCommandsRequest['offset'];
+                    startTime = listAsyncHistoryCommandsRequest['start_time'];
+                    endTime = listAsyncHistoryCommandsRequest['end_time'];
+                    status = listAsyncHistoryCommandsRequest['status'];
+                    commandName = listAsyncHistoryCommandsRequest['command_name'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listAsyncHistoryCommands.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (commandName !== null && commandName !== undefined) {
+                localVarQueryParameter['command_name'] = commandName;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'device_id': deviceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7068,6 +7491,191 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供创建编解码函数的功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addFunctions(addFunctionsRequest?: AddFunctionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/product-functions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let spAuthToken;
+            
+            let stageAuthToken;
+
+            if (addFunctionsRequest !== null && addFunctionsRequest !== undefined) {
+                if (addFunctionsRequest instanceof AddFunctionsRequest) {
+                    body = addFunctionsRequest.body
+                    instanceId = addFunctionsRequest.instanceId;
+                    spAuthToken = addFunctionsRequest.spAuthToken;
+                    stageAuthToken = addFunctionsRequest.stageAuthToken;
+                } else {
+                    body = addFunctionsRequest['body'];
+                    instanceId = addFunctionsRequest['Instance-Id'];
+                    spAuthToken = addFunctionsRequest['Sp-Auth-Token'];
+                    stageAuthToken = addFunctionsRequest['Stage-Auth-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供删除编解码函数的功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFunctions(deleteFunctionsRequest?: DeleteFunctionsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/product-functions/{function_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let functionId;
+            
+            let instanceId;
+            
+            let spAuthToken;
+            
+            let stageAuthToken;
+
+            if (deleteFunctionsRequest !== null && deleteFunctionsRequest !== undefined) {
+                if (deleteFunctionsRequest instanceof DeleteFunctionsRequest) {
+                    functionId = deleteFunctionsRequest.functionId;
+                    instanceId = deleteFunctionsRequest.instanceId;
+                    spAuthToken = deleteFunctionsRequest.spAuthToken;
+                    stageAuthToken = deleteFunctionsRequest.stageAuthToken;
+                } else {
+                    functionId = deleteFunctionsRequest['function_id'];
+                    instanceId = deleteFunctionsRequest['Instance-Id'];
+                    spAuthToken = deleteFunctionsRequest['Sp-Auth-Token'];
+                    stageAuthToken = deleteFunctionsRequest['Stage-Auth-Token'];
+                }
+            }
+
+        
+            if (functionId === null || functionId === undefined) {
+            throw new RequiredError('functionId','Required parameter functionId was null or undefined when calling deleteFunctions.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
+            }
+
+            options.pathParams = { 'function_id': functionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供查询编解码函数的功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFunctions(listFunctionsRequest?: ListFunctionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/product-functions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let productId;
+            
+            let instanceId;
+            
+            let spAuthToken;
+            
+            let stageAuthToken;
+            
+            let appId;
+
+            if (listFunctionsRequest !== null && listFunctionsRequest !== undefined) {
+                if (listFunctionsRequest instanceof ListFunctionsRequest) {
+                    productId = listFunctionsRequest.productId;
+                    instanceId = listFunctionsRequest.instanceId;
+                    spAuthToken = listFunctionsRequest.spAuthToken;
+                    stageAuthToken = listFunctionsRequest.stageAuthToken;
+                    appId = listFunctionsRequest.appId;
+                } else {
+                    productId = listFunctionsRequest['product_id'];
+                    instanceId = listFunctionsRequest['Instance-Id'];
+                    spAuthToken = listFunctionsRequest['Sp-Auth-Token'];
+                    stageAuthToken = listFunctionsRequest['Stage-Auth-Token'];
+                    appId = listFunctionsRequest['app_id'];
+                }
+            }
+
+        
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling listFunctions.');
+            }
+            if (productId !== null && productId !== undefined) {
+                localVarQueryParameter['product_id'] = productId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

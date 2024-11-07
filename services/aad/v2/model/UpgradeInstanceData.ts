@@ -6,6 +6,8 @@ export class UpgradeInstanceData {
     private 'service_bandwidth'?: number;
     private 'port_num'?: number;
     private 'bind_domain_num'?: number;
+    private 'elastic_service_bandwidth_type'?: number;
+    private 'elastic_service_bandwidth'?: number;
     public constructor() { 
     }
     public withBasicBandwidth(basicBandwidth: string): UpgradeInstanceData {
@@ -57,5 +59,25 @@ export class UpgradeInstanceData {
     }
     public get bindDomainNum(): number | undefined {
         return this['bind_domain_num'];
+    }
+    public withElasticServiceBandwidthType(elasticServiceBandwidthType: number): UpgradeInstanceData {
+        this['elastic_service_bandwidth_type'] = elasticServiceBandwidthType;
+        return this;
+    }
+    public set elasticServiceBandwidthType(elasticServiceBandwidthType: number  | undefined) {
+        this['elastic_service_bandwidth_type'] = elasticServiceBandwidthType;
+    }
+    public get elasticServiceBandwidthType(): number | undefined {
+        return this['elastic_service_bandwidth_type'];
+    }
+    public withElasticServiceBandwidth(elasticServiceBandwidth: number): UpgradeInstanceData {
+        this['elastic_service_bandwidth'] = elasticServiceBandwidth;
+        return this;
+    }
+    public set elasticServiceBandwidth(elasticServiceBandwidth: number  | undefined) {
+        this['elastic_service_bandwidth'] = elasticServiceBandwidth;
+    }
+    public get elasticServiceBandwidth(): number | undefined {
+        return this['elastic_service_bandwidth'];
     }
 }

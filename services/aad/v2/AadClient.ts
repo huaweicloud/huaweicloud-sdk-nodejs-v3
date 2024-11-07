@@ -107,6 +107,25 @@ export class AadClient {
     }
 
     /**
+     * 删除防护域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除防护域名
+     * @param {DeleteDomainV2RequestBody} deleteDomainV2RequestBody 删除防护域名信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDomain(deleteDomainRequest?: DeleteDomainRequest): Promise<DeleteDomainResponse> {
+        const options = ParamCreater().deleteDomain(deleteDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询DDoS攻击事件列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -462,25 +481,6 @@ export class AadClient {
 
         return this.hcClient.sendRequest(options);
     }
-
-    /**
-     * 删除防护域名
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除防护域名
-     * @param {DeleteDomainV2RequestBody} deleteDomainV2RequestBody 删除防护域名信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteDomain(deleteDomainRequest?: DeleteDomainRequest): Promise<DeleteDomainResponse> {
-        const options = ParamCreater().deleteDomain(deleteDomainRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 }
 
 export const ParamCreater = function () {
@@ -510,6 +510,44 @@ export const ParamCreater = function () {
                     body = createDomainRequest.body
                 } else {
                     body = createDomainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除防护域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDomain(deleteDomainRequest?: DeleteDomainRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/aad/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteDomainRequest !== null && deleteDomainRequest !== undefined) {
+                if (deleteDomainRequest instanceof DeleteDomainRequest) {
+                    body = deleteDomainRequest.body
+                } else {
+                    body = deleteDomainRequest['body'];
                 }
             }
 
@@ -1445,44 +1483,6 @@ export const ParamCreater = function () {
                     body = upgradeInstanceSpecRequest.body
                 } else {
                     body = upgradeInstanceSpecRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除防护域名
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteDomain(deleteDomainRequest?: DeleteDomainRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/aad/domains",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (deleteDomainRequest !== null && deleteDomainRequest !== undefined) {
-                if (deleteDomainRequest instanceof DeleteDomainRequest) {
-                    body = deleteDomainRequest.body
-                } else {
-                    body = deleteDomainRequest['body'];
                 }
             }
 

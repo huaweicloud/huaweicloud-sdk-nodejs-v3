@@ -533,6 +533,9 @@ import { UpdateWelcomeSpeechResponse } from './model/UpdateWelcomeSpeechResponse
 import { UpdateWelcomeSpeechSwitchReq } from './model/UpdateWelcomeSpeechSwitchReq';
 import { UpdateWelcomeSpeechSwitchRequest } from './model/UpdateWelcomeSpeechSwitchRequest';
 import { UpdateWelcomeSpeechSwitchResponse } from './model/UpdateWelcomeSpeechSwitchResponse';
+import { ValidateRobotReq } from './model/ValidateRobotReq';
+import { ValidateRobotRequest } from './model/ValidateRobotRequest';
+import { ValidateRobotResponse } from './model/ValidateRobotResponse';
 import { VerifyVideoMattingInfo } from './model/VerifyVideoMattingInfo';
 import { VideoAssetMeta } from './model/VideoAssetMeta';
 import { VideoConfig } from './model/VideoConfig';
@@ -2668,6 +2671,29 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于校验应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验应用
+     * @param {ValidateRobotReq} validateRobotRequestBody 校验应用请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public validateRobot(validateRobotRequest?: ValidateRobotRequest): Promise<ValidateRobotResponse> {
+        const options = ParamCreater().validateRobot(validateRobotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建智能交互对话。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2887,7 +2913,7 @@ export class MetaStudioClient {
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [authKey] 鉴权Key。通过HmacSHA256生成的鉴权key
-     * @param {number} [expiresTime] **参数解释**： 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
+     * @param {number} [expiresTime] **参数解释**： 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。
      * @param {boolean} [refreshUrl] 是否刷新URL
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3225,15 +3251,15 @@ export class MetaStudioClient {
     }
 
     /**
-     * 统计时间段内资源数量
+     * 统计指定时间段内即将过期的包周期与一次性资源数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 统计时间段内资源数量
+     * @summary 统计时间段内过期的资源数量
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [business] 业务类型。
+     * @param {string} [business] 业务类型。可填多个用\&quot;,\&quot;分隔 * VOICE_CLONE：声音制作 * SYNTHETICS_SOUND：声音合成 * ASSET_MANAGER：资产管理 * MODELING_2D：形象制作 * LIVE_2D：分身数字人视频直播 * VIDEO_2D：分身数字人视频制作 * CHAT_2D：分身数字人智能交互 * BUSINESS_CARD_2D：分身数字人名片 * PICTURE_2D：照片数字人视频 * MODELING_3D：3D照片建模 * VDS_3D：3D视觉驱动 * TTSA_3D：3D语音驱动 * FLEXUS_2D：FLEXUS版本资源
      * @param {string} [resourceExpireStartTime] 资源过期时间段 开始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
      * @param {string} [resourceExpireEndTime] 资源过期时间段 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
      * @param {*} [options] Override http request option.
@@ -3249,26 +3275,27 @@ export class MetaStudioClient {
     }
 
     /**
-     * 查看租户资源列表
+     * 查看租户资源列表。
+     * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+     * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看租户资源列表
-     * @param {string} resourceSource 资源来源。
+     * @param {string} resourceSource 资源来源,可填多个 例如:PURCHASED,ADMIN_ALLOCATED,将返回商用资源与管理员分配资源。 * PURCHASED: 用户购买的资源 * SP_ALLOCATED: SP分配的资源 * ADMIN_ALLOCATED: 系统管理员分配的资源
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
-     * @param {string} [resource] 资源类型。
-     * @param {string} [business] 业务类型。
-     * @param {string} [resourceName] 资源名称。
+     * @param {string} [resource] 资源类型。可填多个，用\&quot;,\&quot;分隔。详见[资源类型](metastudio_02_0042.xml)。
+     * @param {string} [business] 业务类型。可填多个，用\&quot;,\&quot;分隔。 * VOICE_CLONE：声音制作 * SYNTHETICS_SOUND：声音合成 * ASSET_MANAGER：资产管理 * MODELING_2D：形象制作 * LIVE_2D：分身数字人视频直播 * VIDEO_2D：分身数字人视频制作 * CHAT_2D：分身数字人智能交互 * BUSINESS_CARD_2D：分身数字人名片 * PICTURE_2D：照片数字人视频 * MODELING_3D：3D照片建模 * VDS_3D：3D视觉驱动 * TTSA_3D：3D语音驱动 * FLEXUS_2D：FLEXUS版本资源
      * @param {string} [resourceId] 资源id。
      * @param {string} [orderId] 订单id。
-     * @param {string} [chargingMode] 计费模式。
+     * @param {string} [chargingMode] 计费类型。  * PERIODIC: 包周期  * ONE_TIME：一次性  * ON_DEMAND：按需 计费模式。
      * @param {string} [resourceExpireStartTime] 资源过期时间段 开始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
      * @param {string} [resourceExpireEndTime] 资源过期时间段 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
-     * @param {string} [subResource] 子资源类型。
+     * @param {string} [subResource] 子资源类型。当前只有flexus套餐包存在该字段 * voice_clone_flexus: 语音克隆Flexus版 * modeling_count_2d_model_flexus: 分身数字人形象制作Flexus版 * video_time_flexus_2d_model: 分身数字人Flexus版本视频制作
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3282,7 +3309,9 @@ export class MetaStudioClient {
     }
 
     /**
-     * 查看租户资源用量信息
+     * 查询租户一次性和包周期（包年/包月）资源用量信息。
+     * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+     * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3290,8 +3319,8 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [resource] 资源类型。
-     * @param {string} [business] 业务类型。
+     * @param {string} [resource] 资源类型。可填多个，用\&quot;,\&quot;分隔。详见[资源类型](metastudio_02_0042.xml)。
+     * @param {string} [business] 业务类型。可填多个，用\&quot;,\&quot;分隔。 * VOICE_CLONE：声音制作 * SYNTHETICS_SOUND：声音合成 * ASSET_MANAGER：资产管理 * MODELING_2D：形象制作 * LIVE_2D：分身数字人视频直播 * VIDEO_2D：分身数字人视频制作 * CHAT_2D：分身数字人智能交互 * BUSINESS_CARD_2D：分身数字人名片 * PICTURE_2D：照片数字人视频 * MODELING_3D：3D照片建模 * VDS_3D：3D视觉驱动 * TTSA_3D：3D语音驱动 * FLEXUS_2D：FLEXUS版本资源
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -10659,6 +10688,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于校验应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        validateRobot(validateRobotRequest?: ValidateRobotRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/robot/validate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (validateRobotRequest !== null && validateRobotRequest !== undefined) {
+                if (validateRobotRequest instanceof ValidateRobotRequest) {
+                    body = validateRobotRequest.body
+                    authorization = validateRobotRequest.authorization;
+                    xSdkDate = validateRobotRequest.xSdkDate;
+                    xProjectId = validateRobotRequest.xProjectId;
+                    xAppUserId = validateRobotRequest.xAppUserId;
+                } else {
+                    body = validateRobotRequest['body'];
+                    authorization = validateRobotRequest['Authorization'];
+                    xSdkDate = validateRobotRequest['X-Sdk-Date'];
+                    xProjectId = validateRobotRequest['X-Project-Id'];
+                    xAppUserId = validateRobotRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建智能交互对话。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12463,7 +12558,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 统计时间段内资源数量
+         * 统计指定时间段内即将过期的包周期与一次性资源数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12535,7 +12630,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看租户资源列表
+         * 查看租户资源列表。
+         * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+         * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12567,8 +12664,6 @@ export const ParamCreater = function () {
             
             let business;
             
-            let resourceName;
-            
             let resourceId;
             
             let orderId;
@@ -12591,7 +12686,6 @@ export const ParamCreater = function () {
                     offset = listTenantResourcesRequest.offset;
                     resource = listTenantResourcesRequest.resource;
                     business = listTenantResourcesRequest.business;
-                    resourceName = listTenantResourcesRequest.resourceName;
                     resourceId = listTenantResourcesRequest.resourceId;
                     orderId = listTenantResourcesRequest.orderId;
                     chargingMode = listTenantResourcesRequest.chargingMode;
@@ -12607,7 +12701,6 @@ export const ParamCreater = function () {
                     offset = listTenantResourcesRequest['offset'];
                     resource = listTenantResourcesRequest['resource'];
                     business = listTenantResourcesRequest['business'];
-                    resourceName = listTenantResourcesRequest['resource_name'];
                     resourceId = listTenantResourcesRequest['resource_id'];
                     orderId = listTenantResourcesRequest['order_id'];
                     chargingMode = listTenantResourcesRequest['charging_mode'];
@@ -12635,9 +12728,6 @@ export const ParamCreater = function () {
             }
             if (business !== null && business !== undefined) {
                 localVarQueryParameter['business'] = business;
-            }
-            if (resourceName !== null && resourceName !== undefined) {
-                localVarQueryParameter['resource_name'] = resourceName;
             }
             if (resourceId !== null && resourceId !== undefined) {
                 localVarQueryParameter['resource_id'] = resourceId;
@@ -12673,7 +12763,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看租户资源用量信息
+         * 查询租户一次性和包周期（包年/包月）资源用量信息。
+         * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+         * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

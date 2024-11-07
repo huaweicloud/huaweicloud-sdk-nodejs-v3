@@ -1,3 +1,4 @@
+import { CloudWafServer } from './CloudWafServer';
 import { Flag } from './Flag';
 
 
@@ -6,6 +7,7 @@ export class CloudWafHostItem {
     public hostid?: string;
     public region?: string;
     public description?: string;
+    public server?: Array<CloudWafServer>;
     public type?: number;
     public proxy?: boolean;
     public hostname?: string;
@@ -34,6 +36,10 @@ export class CloudWafHostItem {
     }
     public withDescription(description: string): CloudWafHostItem {
         this['description'] = description;
+        return this;
+    }
+    public withServer(server: Array<CloudWafServer>): CloudWafHostItem {
+        this['server'] = server;
         return this;
     }
     public withType(type: number): CloudWafHostItem {

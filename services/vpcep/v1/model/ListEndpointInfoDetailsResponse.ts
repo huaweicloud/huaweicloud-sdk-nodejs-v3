@@ -23,7 +23,7 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     private 'updated_at'?: Date;
     private 'project_id'?: string;
     public tags?: Array<TagList>;
-    public error?: QueryError;
+    public error?: Array<QueryError>;
     public whitelist?: Array<string>;
     private 'enable_whitelist'?: boolean;
     public routetables?: Array<string>;
@@ -192,7 +192,7 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
         this['tags'] = tags;
         return this;
     }
-    public withError(error: QueryError): ListEndpointInfoDetailsResponse {
+    public withError(error: Array<QueryError>): ListEndpointInfoDetailsResponse {
         this['error'] = error;
         return this;
     }

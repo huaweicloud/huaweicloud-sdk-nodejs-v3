@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ApplyCentralNetworkPolicyRequest } from './model/ApplyCentralNetworkPolicyRequest';
 import { ApplyCentralNetworkPolicyResponse } from './model/ApplyCentralNetworkPolicyResponse';
+import { ApplyPolicyId } from './model/ApplyPolicyId';
 import { ApprovedStateEnum } from './model/ApprovedStateEnum';
 import { AreaIdDef } from './model/AreaIdDef';
 import { Asn } from './model/Asn';
@@ -18,6 +19,10 @@ import { AssociateGlobalConnectionBandwidthInstanceRequestBody } from './model/A
 import { AssociateGlobalConnectionBandwidthInstanceRequestInfo } from './model/AssociateGlobalConnectionBandwidthInstanceRequestInfo';
 import { AssociateGlobalConnectionBandwidthInstanceResponse } from './model/AssociateGlobalConnectionBandwidthInstanceResponse';
 import { AssociateGlobalConnectionBandwidthInstanceResponseInfo } from './model/AssociateGlobalConnectionBandwidthInstanceResponseInfo';
+import { AssociateSiteConnectionBandwidth } from './model/AssociateSiteConnectionBandwidth';
+import { AssociateSiteConnectionBandwidthRequestBody } from './model/AssociateSiteConnectionBandwidthRequestBody';
+import { AssociateSiteNetworkBandwidthRequest } from './model/AssociateSiteNetworkBandwidthRequest';
+import { AssociateSiteNetworkBandwidthResponse } from './model/AssociateSiteNetworkBandwidthResponse';
 import { AttachedEnterpriseRouterAttachmentId } from './model/AttachedEnterpriseRouterAttachmentId';
 import { AttachedEnterpriseRouterId } from './model/AttachedEnterpriseRouterId';
 import { AttachedEnterpriseRouterProjectId } from './model/AttachedEnterpriseRouterProjectId';
@@ -37,6 +42,10 @@ import { AutoAssociateRouteEnabled } from './model/AutoAssociateRouteEnabled';
 import { AutoPropagateRouteEnabled } from './model/AutoPropagateRouteEnabled';
 import { BandwidthPackage } from './model/BandwidthPackage';
 import { BandwidthPackageId } from './model/BandwidthPackageId';
+import { BandwidthPackageLevel } from './model/BandwidthPackageLevel';
+import { BandwidthPackageLine } from './model/BandwidthPackageLine';
+import { BandwidthPackageLineSpecCode } from './model/BandwidthPackageLineSpecCode';
+import { BandwidthPackageSite } from './model/BandwidthPackageSite';
 import { BandwidthSize } from './model/BandwidthSize';
 import { BandwidthSizeDefine } from './model/BandwidthSizeDefine';
 import { BandwidthType } from './model/BandwidthType';
@@ -79,6 +88,8 @@ import { CloudConnection } from './model/CloudConnection';
 import { CloudConnectionId } from './model/CloudConnectionId';
 import { CloudConnectionQuota } from './model/CloudConnectionQuota';
 import { CloudConnectionRoute } from './model/CloudConnectionRoute';
+import { ConnectionBandwidthChargeModeEnum } from './model/ConnectionBandwidthChargeModeEnum';
+import { ConnectionBandwidthSizeRange } from './model/ConnectionBandwidthSizeRange';
 import { ConnectionPoint } from './model/ConnectionPoint';
 import { ConnectionPointInstanceId } from './model/ConnectionPointInstanceId';
 import { ConnectionPointPair } from './model/ConnectionPointPair';
@@ -131,7 +142,15 @@ import { CreateNetworkInstance } from './model/CreateNetworkInstance';
 import { CreateNetworkInstanceRequest } from './model/CreateNetworkInstanceRequest';
 import { CreateNetworkInstanceRequestBody } from './model/CreateNetworkInstanceRequestBody';
 import { CreateNetworkInstanceResponse } from './model/CreateNetworkInstanceResponse';
+import { CreateP2PSiteNetwork } from './model/CreateP2PSiteNetwork';
+import { CreateP2PSiteNetworkRequest } from './model/CreateP2PSiteNetworkRequest';
+import { CreateP2PSiteNetworkRequestBody } from './model/CreateP2PSiteNetworkRequestBody';
+import { CreateP2PSiteNetworkResponse } from './model/CreateP2PSiteNetworkResponse';
+import { CreateSiteInformation } from './model/CreateSiteInformation';
+import { CreateSiteInformationPair } from './model/CreateSiteInformationPair';
 import { CreatedAt } from './model/CreatedAt';
+import { CrossRegionType } from './model/CrossRegionType';
+import { CrossRegionTypeEnum } from './model/CrossRegionTypeEnum';
 import { DeleteAuthorisationRequest } from './model/DeleteAuthorisationRequest';
 import { DeleteAuthorisationResponse } from './model/DeleteAuthorisationResponse';
 import { DeleteBandwidthPackageRequest } from './model/DeleteBandwidthPackageRequest';
@@ -152,7 +171,11 @@ import { DeleteInterRegionBandwidthRequest } from './model/DeleteInterRegionBand
 import { DeleteInterRegionBandwidthResponse } from './model/DeleteInterRegionBandwidthResponse';
 import { DeleteNetworkInstanceRequest } from './model/DeleteNetworkInstanceRequest';
 import { DeleteNetworkInstanceResponse } from './model/DeleteNetworkInstanceResponse';
+import { DeleteSiteNetworkRequest } from './model/DeleteSiteNetworkRequest';
+import { DeleteSiteNetworkResponse } from './model/DeleteSiteNetworkResponse';
 import { Description } from './model/Description';
+import { DirectedEdge } from './model/DirectedEdge';
+import { DirectedEdgePair } from './model/DirectedEdgePair';
 import { DisassociateBandwidthPackage } from './model/DisassociateBandwidthPackage';
 import { DisassociateBandwidthPackageRequest } from './model/DisassociateBandwidthPackageRequest';
 import { DisassociateBandwidthPackageRequestBody } from './model/DisassociateBandwidthPackageRequestBody';
@@ -162,6 +185,8 @@ import { DisassociateGlobalConnectionBandwidthInstanceRequestBody } from './mode
 import { DisassociateGlobalConnectionBandwidthInstanceRequestInfo } from './model/DisassociateGlobalConnectionBandwidthInstanceRequestInfo';
 import { DisassociateGlobalConnectionBandwidthInstanceResponse } from './model/DisassociateGlobalConnectionBandwidthInstanceResponse';
 import { DisassociateGlobalConnectionBandwidthInstanceResponseInfo } from './model/DisassociateGlobalConnectionBandwidthInstanceResponseInfo';
+import { DisassociateSiteNetworkBandwidthRequest } from './model/DisassociateSiteNetworkBandwidthRequest';
+import { DisassociateSiteNetworkBandwidthResponse } from './model/DisassociateSiteNetworkBandwidthResponse';
 import { DocumentTemplateVersion } from './model/DocumentTemplateVersion';
 import { DocumentTemplateVersionEnum } from './model/DocumentTemplateVersionEnum';
 import { DomainId } from './model/DomainId';
@@ -173,6 +198,11 @@ import { EnterpriseRouterProjectId } from './model/EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './model/EnterpriseRouterRegionId';
 import { EnterpriseRouterSiteCode } from './model/EnterpriseRouterSiteCode';
 import { EnterpriseRouterTableId } from './model/EnterpriseRouterTableId';
+import { FrozenEffect } from './model/FrozenEffect';
+import { FrozenEffectEnum } from './model/FrozenEffectEnum';
+import { GatewayId } from './model/GatewayId';
+import { GatewayType } from './model/GatewayType';
+import { GatewayTypeEnum } from './model/GatewayTypeEnum';
 import { GcbAdminState } from './model/GcbAdminState';
 import { GcbBindingServiceAll } from './model/GcbBindingServiceAll';
 import { GcbBorderCross } from './model/GcbBorderCross';
@@ -213,6 +243,12 @@ import { InterRegionBandwidth } from './model/InterRegionBandwidth';
 import { IsFrozen } from './model/IsFrozen';
 import { ListAuthorisationsRequest } from './model/ListAuthorisationsRequest';
 import { ListAuthorisationsResponse } from './model/ListAuthorisationsResponse';
+import { ListBandwidthPackageLevelsRequest } from './model/ListBandwidthPackageLevelsRequest';
+import { ListBandwidthPackageLevelsResponse } from './model/ListBandwidthPackageLevelsResponse';
+import { ListBandwidthPackageLinesRequest } from './model/ListBandwidthPackageLinesRequest';
+import { ListBandwidthPackageLinesResponse } from './model/ListBandwidthPackageLinesResponse';
+import { ListBandwidthPackageSitesRequest } from './model/ListBandwidthPackageSitesRequest';
+import { ListBandwidthPackageSitesResponse } from './model/ListBandwidthPackageSitesResponse';
 import { ListBandwidthPackageTagsRequest } from './model/ListBandwidthPackageTagsRequest';
 import { ListBandwidthPackageTagsResponse } from './model/ListBandwidthPackageTagsResponse';
 import { ListBandwidthPackagesByTagsRequest } from './model/ListBandwidthPackagesByTagsRequest';
@@ -278,6 +314,12 @@ import { ListNetworkInstancesResponse } from './model/ListNetworkInstancesRespon
 import { ListPermissionsRequest } from './model/ListPermissionsRequest';
 import { ListPermissionsResponse } from './model/ListPermissionsResponse';
 import { ListResponseBody } from './model/ListResponseBody';
+import { ListSiteNetworkCapabilitiesRequest } from './model/ListSiteNetworkCapabilitiesRequest';
+import { ListSiteNetworkCapabilitiesResponse } from './model/ListSiteNetworkCapabilitiesResponse';
+import { ListSiteNetworkQuotasRequest } from './model/ListSiteNetworkQuotasRequest';
+import { ListSiteNetworkQuotasResponse } from './model/ListSiteNetworkQuotasResponse';
+import { ListSiteNetworksRequest } from './model/ListSiteNetworksRequest';
+import { ListSiteNetworksResponse } from './model/ListSiteNetworksResponse';
 import { ListSupportBindingConnectionBandwidthsRequest } from './model/ListSupportBindingConnectionBandwidthsRequest';
 import { ListSupportBindingConnectionBandwidthsResponse } from './model/ListSupportBindingConnectionBandwidthsResponse';
 import { LocalAreaId } from './model/LocalAreaId';
@@ -330,9 +372,26 @@ import { ShowInterRegionBandwidthRequest } from './model/ShowInterRegionBandwidt
 import { ShowInterRegionBandwidthResponse } from './model/ShowInterRegionBandwidthResponse';
 import { ShowNetworkInstanceRequest } from './model/ShowNetworkInstanceRequest';
 import { ShowNetworkInstanceResponse } from './model/ShowNetworkInstanceResponse';
+import { ShowSiteNetworkRequest } from './model/ShowSiteNetworkRequest';
+import { ShowSiteNetworkResponse } from './model/ShowSiteNetworkResponse';
 import { SiteCode } from './model/SiteCode';
 import { SiteCodeDef } from './model/SiteCodeDef';
+import { SiteConnection } from './model/SiteConnection';
+import { SiteConnectionState } from './model/SiteConnectionState';
+import { SiteConnectionStateEnum } from './model/SiteConnectionStateEnum';
 import { SiteGroupReferenceInfo } from './model/SiteGroupReferenceInfo';
+import { SiteInformation } from './model/SiteInformation';
+import { SiteNetworkCapabilityEntry } from './model/SiteNetworkCapabilityEntry';
+import { SiteNetworkEntry } from './model/SiteNetworkEntry';
+import { SiteNetworkId } from './model/SiteNetworkId';
+import { SiteNetworkQuota } from './model/SiteNetworkQuota';
+import { SiteNetworkQuotaKey } from './model/SiteNetworkQuotaKey';
+import { SiteNetworkQuotaKeyEnum } from './model/SiteNetworkQuotaKeyEnum';
+import { SiteNetworkSpecificationEnum } from './model/SiteNetworkSpecificationEnum';
+import { SiteNetworkState } from './model/SiteNetworkState';
+import { SiteNetworkStateEnum } from './model/SiteNetworkStateEnum';
+import { SiteNetworkTopology } from './model/SiteNetworkTopology';
+import { SiteNetworkTopologyEnum } from './model/SiteNetworkTopologyEnum';
 import { SortDir } from './model/SortDir';
 import { SpecCode } from './model/SpecCode';
 import { Tag } from './model/Tag';
@@ -404,6 +463,16 @@ import { UpdateNetworkInstance } from './model/UpdateNetworkInstance';
 import { UpdateNetworkInstanceRequest } from './model/UpdateNetworkInstanceRequest';
 import { UpdateNetworkInstanceRequestBody } from './model/UpdateNetworkInstanceRequestBody';
 import { UpdateNetworkInstanceResponse } from './model/UpdateNetworkInstanceResponse';
+import { UpdateSiteConnectionBandwidthSize } from './model/UpdateSiteConnectionBandwidthSize';
+import { UpdateSiteConnectionBandwidthSizeRequestBody } from './model/UpdateSiteConnectionBandwidthSizeRequestBody';
+import { UpdateSiteNetwork } from './model/UpdateSiteNetwork';
+import { UpdateSiteNetworkBandwidthRequest } from './model/UpdateSiteNetworkBandwidthRequest';
+import { UpdateSiteNetworkBandwidthResponse } from './model/UpdateSiteNetworkBandwidthResponse';
+import { UpdateSiteNetworkBandwidthSizeRequest } from './model/UpdateSiteNetworkBandwidthSizeRequest';
+import { UpdateSiteNetworkBandwidthSizeResponse } from './model/UpdateSiteNetworkBandwidthSizeResponse';
+import { UpdateSiteNetworkRequest } from './model/UpdateSiteNetworkRequest';
+import { UpdateSiteNetworkRequestBody } from './model/UpdateSiteNetworkRequestBody';
+import { UpdateSiteNetworkResponse } from './model/UpdateSiteNetworkResponse';
 import { UpdatedAt } from './model/UpdatedAt';
 import { Version } from './model/Version';
 import { VersionDef } from './model/VersionDef';
@@ -2242,6 +2311,297 @@ export class CcClient {
      */
     public updateNetworkInstance(updateNetworkInstanceRequest?: UpdateNetworkInstanceRequest): Promise<UpdateNetworkInstanceResponse> {
         const options = ParamCreater().updateNetworkInstance(updateNetworkInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关联分支连接带宽。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关联分支连接带宽
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {string} siteConnectionId 分支连接的ID
+     * @param {AssociateSiteConnectionBandwidthRequestBody} associateSiteConnectionBandwidthRequestBody 关联分支连接带宽的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateSiteNetworkBandwidth(associateSiteNetworkBandwidthRequest?: AssociateSiteNetworkBandwidthRequest): Promise<AssociateSiteNetworkBandwidthResponse> {
+        const options = ParamCreater().associateSiteNetworkBandwidth(associateSiteNetworkBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解关联分支连接带宽。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解关联分支连接带宽
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {string} siteConnectionId 分支连接的ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateSiteNetworkBandwidth(disassociateSiteNetworkBandwidthRequest?: DisassociateSiteNetworkBandwidthRequest): Promise<DisassociateSiteNetworkBandwidthResponse> {
+        const options = ParamCreater().disassociateSiteNetworkBandwidth(disassociateSiteNetworkBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更改分支连接带宽包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更改分支连接带宽包
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {string} siteConnectionId 分支连接的ID
+     * @param {AssociateSiteConnectionBandwidthRequestBody} associateSiteConnectionBandwidthRequestBody 更改分支连接带宽包的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSiteNetworkBandwidth(updateSiteNetworkBandwidthRequest?: UpdateSiteNetworkBandwidthRequest): Promise<UpdateSiteNetworkBandwidthResponse> {
+        const options = ParamCreater().updateSiteNetworkBandwidth(updateSiteNetworkBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更改分支连接带宽大小。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更改分支连接带宽大小
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {string} siteConnectionId 分支连接的ID
+     * @param {UpdateSiteConnectionBandwidthSizeRequestBody} updateSiteConnectionBandwidthSizeRequestBody 更改分支连接带宽大小的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSiteNetworkBandwidthSize(updateSiteNetworkBandwidthSizeRequest?: UpdateSiteNetworkBandwidthSizeRequest): Promise<UpdateSiteNetworkBandwidthSizeResponse> {
+        const options = ParamCreater().updateSiteNetworkBandwidthSize(updateSiteNetworkBandwidthSizeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建P2P类型的分支网络。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建P2P类型的分支网络
+     * @param {CreateP2PSiteNetworkRequestBody} createP2PSiteNetworkRequestBody 创建P2P分支网络的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createP2PSiteNetwork(createP2PSiteNetworkRequest?: CreateP2PSiteNetworkRequest): Promise<CreateP2PSiteNetworkResponse> {
+        const options = ParamCreater().createP2PSiteNetwork(createP2PSiteNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分支网络。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分支网络
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSiteNetwork(deleteSiteNetworkRequest?: DeleteSiteNetworkRequest): Promise<DeleteSiteNetworkResponse> {
+        const options = ParamCreater().deleteSiteNetwork(deleteSiteNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分支网络列表。
+     * 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分支网络列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [sortKey] 排序字段。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
+     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
+     * @param {Array<SiteNetworkStateEnum>} [state] 根据状态查询，可查询多个状态。
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
+     * @param {Array<string>} [globalDcGatewayId] 根据GDW实例ID过滤列表。
+     * @param {Array<string>} [globalConnectionBandwidthId] 根据带宽包ID过滤。
+     * @param {Array<string>} [connectionId] 分支连接的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSiteNetworks(listSiteNetworksRequest?: ListSiteNetworksRequest): Promise<ListSiteNetworksResponse> {
+        const options = ParamCreater().listSiteNetworks(listSiteNetworksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分支网络详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分支网络详情
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSiteNetwork(showSiteNetworkRequest?: ShowSiteNetworkRequest): Promise<ShowSiteNetworkResponse> {
+        const options = ParamCreater().showSiteNetwork(showSiteNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新分支网络详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新分支网络详情
+     * @param {string} siteNetworkId 分支网络的ID。
+     * @param {UpdateSiteNetworkRequestBody} updateSiteNetworkRequestBody 更新分支网络的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSiteNetwork(updateSiteNetworkRequest?: UpdateSiteNetworkRequest): Promise<UpdateSiteNetworkResponse> {
+        const options = ParamCreater().updateSiteNetwork(updateSiteNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分支网络的能力列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分支网络的能力列表
+     * @param {Array<SiteNetworkSpecificationEnum>} [specification] 根据分支网络租户能力名查询，可查询多个类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSiteNetworkCapabilities(listSiteNetworkCapabilitiesRequest?: ListSiteNetworkCapabilitiesRequest): Promise<ListSiteNetworkCapabilitiesResponse> {
+        const options = ParamCreater().listSiteNetworkCapabilities(listSiteNetworkCapabilitiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分支网络配额。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分支网络配额
+     * @param {Array<SiteNetworkQuotaKeyEnum>} [quotaType] 根据配额类型查询，可查询多个类型。
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSiteNetworkQuotas(listSiteNetworkQuotasRequest?: ListSiteNetworkQuotasRequest): Promise<ListSiteNetworkQuotasResponse> {
+        const options = ParamCreater().listSiteNetworkQuotas(listSiteNetworkQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询带宽包等级列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询带宽包等级列表
+     * @param {string} [level] 根据带宽包等级进行查询
+     * @param {string} [name] 根据名称进行模糊查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBandwidthPackageLevels(listBandwidthPackageLevelsRequest?: ListBandwidthPackageLevelsRequest): Promise<ListBandwidthPackageLevelsResponse> {
+        const options = ParamCreater().listBandwidthPackageLevels(listBandwidthPackageLevelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询带宽包线路列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询带宽包线路列表
+     * @param {string} [level] 根据带宽包等级进行查询
+     * @param {string} [name] 根据名称进行模糊查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBandwidthPackageLines(listBandwidthPackageLinesRequest?: ListBandwidthPackageLinesRequest): Promise<ListBandwidthPackageLinesResponse> {
+        const options = ParamCreater().listBandwidthPackageLines(listBandwidthPackageLinesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询带宽包站点列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询带宽包站点列表
+     * @param {string} [siteCode] 根据站点编码进行查询
+     * @param {string} [regionId] 根据区域ID进行查询
+     * @param {string} [name] 根据名称模糊查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBandwidthPackageSites(listBandwidthPackageSitesRequest?: ListBandwidthPackageSitesRequest): Promise<ListBandwidthPackageSitesResponse> {
+        const options = ParamCreater().listBandwidthPackageSites(listBandwidthPackageSitesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6696,6 +7056,702 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关联分支连接带宽。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateSiteNetworkBandwidth(associateSiteNetworkBandwidthRequest?: AssociateSiteNetworkBandwidthRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/dcaas/site-network/{site_network_id}/connections/{site_connection_id}/associate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let siteNetworkId;
+            
+            let siteConnectionId;
+
+            if (associateSiteNetworkBandwidthRequest !== null && associateSiteNetworkBandwidthRequest !== undefined) {
+                if (associateSiteNetworkBandwidthRequest instanceof AssociateSiteNetworkBandwidthRequest) {
+                    siteNetworkId = associateSiteNetworkBandwidthRequest.siteNetworkId;
+                    siteConnectionId = associateSiteNetworkBandwidthRequest.siteConnectionId;
+                    body = associateSiteNetworkBandwidthRequest.body
+                } else {
+                    siteNetworkId = associateSiteNetworkBandwidthRequest['site_network_id'];
+                    siteConnectionId = associateSiteNetworkBandwidthRequest['site_connection_id'];
+                    body = associateSiteNetworkBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling associateSiteNetworkBandwidth.');
+            }
+            if (siteConnectionId === null || siteConnectionId === undefined) {
+            throw new RequiredError('siteConnectionId','Required parameter siteConnectionId was null or undefined when calling associateSiteNetworkBandwidth.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'site_network_id': siteNetworkId,'site_connection_id': siteConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解关联分支连接带宽。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateSiteNetworkBandwidth(disassociateSiteNetworkBandwidthRequest?: DisassociateSiteNetworkBandwidthRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/dcaas/site-network/{site_network_id}/connections/{site_connection_id}/disassociate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let siteNetworkId;
+            
+            let siteConnectionId;
+
+            if (disassociateSiteNetworkBandwidthRequest !== null && disassociateSiteNetworkBandwidthRequest !== undefined) {
+                if (disassociateSiteNetworkBandwidthRequest instanceof DisassociateSiteNetworkBandwidthRequest) {
+                    siteNetworkId = disassociateSiteNetworkBandwidthRequest.siteNetworkId;
+                    siteConnectionId = disassociateSiteNetworkBandwidthRequest.siteConnectionId;
+                } else {
+                    siteNetworkId = disassociateSiteNetworkBandwidthRequest['site_network_id'];
+                    siteConnectionId = disassociateSiteNetworkBandwidthRequest['site_connection_id'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling disassociateSiteNetworkBandwidth.');
+            }
+            if (siteConnectionId === null || siteConnectionId === undefined) {
+            throw new RequiredError('siteConnectionId','Required parameter siteConnectionId was null or undefined when calling disassociateSiteNetworkBandwidth.');
+            }
+
+            options.pathParams = { 'site_network_id': siteNetworkId,'site_connection_id': siteConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更改分支连接带宽包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSiteNetworkBandwidth(updateSiteNetworkBandwidthRequest?: UpdateSiteNetworkBandwidthRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/dcaas/site-network/{site_network_id}/connections/{site_connection_id}/update-bandwidth",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let siteNetworkId;
+            
+            let siteConnectionId;
+
+            if (updateSiteNetworkBandwidthRequest !== null && updateSiteNetworkBandwidthRequest !== undefined) {
+                if (updateSiteNetworkBandwidthRequest instanceof UpdateSiteNetworkBandwidthRequest) {
+                    siteNetworkId = updateSiteNetworkBandwidthRequest.siteNetworkId;
+                    siteConnectionId = updateSiteNetworkBandwidthRequest.siteConnectionId;
+                    body = updateSiteNetworkBandwidthRequest.body
+                } else {
+                    siteNetworkId = updateSiteNetworkBandwidthRequest['site_network_id'];
+                    siteConnectionId = updateSiteNetworkBandwidthRequest['site_connection_id'];
+                    body = updateSiteNetworkBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling updateSiteNetworkBandwidth.');
+            }
+            if (siteConnectionId === null || siteConnectionId === undefined) {
+            throw new RequiredError('siteConnectionId','Required parameter siteConnectionId was null or undefined when calling updateSiteNetworkBandwidth.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'site_network_id': siteNetworkId,'site_connection_id': siteConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更改分支连接带宽大小。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSiteNetworkBandwidthSize(updateSiteNetworkBandwidthSizeRequest?: UpdateSiteNetworkBandwidthSizeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/dcaas/site-network/{site_network_id}/connections/{site_connection_id}/update-bandwidth-size",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let siteNetworkId;
+            
+            let siteConnectionId;
+
+            if (updateSiteNetworkBandwidthSizeRequest !== null && updateSiteNetworkBandwidthSizeRequest !== undefined) {
+                if (updateSiteNetworkBandwidthSizeRequest instanceof UpdateSiteNetworkBandwidthSizeRequest) {
+                    siteNetworkId = updateSiteNetworkBandwidthSizeRequest.siteNetworkId;
+                    siteConnectionId = updateSiteNetworkBandwidthSizeRequest.siteConnectionId;
+                    body = updateSiteNetworkBandwidthSizeRequest.body
+                } else {
+                    siteNetworkId = updateSiteNetworkBandwidthSizeRequest['site_network_id'];
+                    siteConnectionId = updateSiteNetworkBandwidthSizeRequest['site_connection_id'];
+                    body = updateSiteNetworkBandwidthSizeRequest['body'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling updateSiteNetworkBandwidthSize.');
+            }
+            if (siteConnectionId === null || siteConnectionId === undefined) {
+            throw new RequiredError('siteConnectionId','Required parameter siteConnectionId was null or undefined when calling updateSiteNetworkBandwidthSize.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'site_network_id': siteNetworkId,'site_connection_id': siteConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建P2P类型的分支网络。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createP2PSiteNetwork(createP2PSiteNetworkRequest?: CreateP2PSiteNetworkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/dcaas/p2p-site-networks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createP2PSiteNetworkRequest !== null && createP2PSiteNetworkRequest !== undefined) {
+                if (createP2PSiteNetworkRequest instanceof CreateP2PSiteNetworkRequest) {
+                    body = createP2PSiteNetworkRequest.body
+                } else {
+                    body = createP2PSiteNetworkRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分支网络。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSiteNetwork(deleteSiteNetworkRequest?: DeleteSiteNetworkRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{domain_id}/dcaas/site-networks/{site_network_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let siteNetworkId;
+
+            if (deleteSiteNetworkRequest !== null && deleteSiteNetworkRequest !== undefined) {
+                if (deleteSiteNetworkRequest instanceof DeleteSiteNetworkRequest) {
+                    siteNetworkId = deleteSiteNetworkRequest.siteNetworkId;
+                } else {
+                    siteNetworkId = deleteSiteNetworkRequest['site_network_id'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling deleteSiteNetwork.');
+            }
+
+            options.pathParams = { 'site_network_id': siteNetworkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分支网络列表。
+         * 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSiteNetworks(listSiteNetworksRequest?: ListSiteNetworksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/dcaas/site-networks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let id;
+            
+            let name;
+            
+            let state;
+            
+            let enterpriseProjectId;
+            
+            let globalDcGatewayId;
+            
+            let globalConnectionBandwidthId;
+            
+            let connectionId;
+
+            if (listSiteNetworksRequest !== null && listSiteNetworksRequest !== undefined) {
+                if (listSiteNetworksRequest instanceof ListSiteNetworksRequest) {
+                    limit = listSiteNetworksRequest.limit;
+                    marker = listSiteNetworksRequest.marker;
+                    sortKey = listSiteNetworksRequest.sortKey;
+                    sortDir = listSiteNetworksRequest.sortDir;
+                    id = listSiteNetworksRequest.id;
+                    name = listSiteNetworksRequest.name;
+                    state = listSiteNetworksRequest.state;
+                    enterpriseProjectId = listSiteNetworksRequest.enterpriseProjectId;
+                    globalDcGatewayId = listSiteNetworksRequest.globalDcGatewayId;
+                    globalConnectionBandwidthId = listSiteNetworksRequest.globalConnectionBandwidthId;
+                    connectionId = listSiteNetworksRequest.connectionId;
+                } else {
+                    limit = listSiteNetworksRequest['limit'];
+                    marker = listSiteNetworksRequest['marker'];
+                    sortKey = listSiteNetworksRequest['sort_key'];
+                    sortDir = listSiteNetworksRequest['sort_dir'];
+                    id = listSiteNetworksRequest['id'];
+                    name = listSiteNetworksRequest['name'];
+                    state = listSiteNetworksRequest['state'];
+                    enterpriseProjectId = listSiteNetworksRequest['enterprise_project_id'];
+                    globalDcGatewayId = listSiteNetworksRequest['global_dc_gateway_id'];
+                    globalConnectionBandwidthId = listSiteNetworksRequest['global_connection_bandwidth_id'];
+                    connectionId = listSiteNetworksRequest['connection_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (globalDcGatewayId !== null && globalDcGatewayId !== undefined) {
+                localVarQueryParameter['global_dc_gateway_id'] = globalDcGatewayId;
+            }
+            if (globalConnectionBandwidthId !== null && globalConnectionBandwidthId !== undefined) {
+                localVarQueryParameter['global_connection_bandwidth_id'] = globalConnectionBandwidthId;
+            }
+            if (connectionId !== null && connectionId !== undefined) {
+                localVarQueryParameter['connection_id'] = connectionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分支网络详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSiteNetwork(showSiteNetworkRequest?: ShowSiteNetworkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/dcaas/site-networks/{site_network_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let siteNetworkId;
+
+            if (showSiteNetworkRequest !== null && showSiteNetworkRequest !== undefined) {
+                if (showSiteNetworkRequest instanceof ShowSiteNetworkRequest) {
+                    siteNetworkId = showSiteNetworkRequest.siteNetworkId;
+                } else {
+                    siteNetworkId = showSiteNetworkRequest['site_network_id'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling showSiteNetwork.');
+            }
+
+            options.pathParams = { 'site_network_id': siteNetworkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新分支网络详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSiteNetwork(updateSiteNetworkRequest?: UpdateSiteNetworkRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{domain_id}/dcaas/site-networks/{site_network_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let siteNetworkId;
+
+            if (updateSiteNetworkRequest !== null && updateSiteNetworkRequest !== undefined) {
+                if (updateSiteNetworkRequest instanceof UpdateSiteNetworkRequest) {
+                    siteNetworkId = updateSiteNetworkRequest.siteNetworkId;
+                    body = updateSiteNetworkRequest.body
+                } else {
+                    siteNetworkId = updateSiteNetworkRequest['site_network_id'];
+                    body = updateSiteNetworkRequest['body'];
+                }
+            }
+
+        
+            if (siteNetworkId === null || siteNetworkId === undefined) {
+            throw new RequiredError('siteNetworkId','Required parameter siteNetworkId was null or undefined when calling updateSiteNetwork.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'site_network_id': siteNetworkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分支网络的能力列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSiteNetworkCapabilities(listSiteNetworkCapabilitiesRequest?: ListSiteNetworkCapabilitiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/dcaas/site-network/capabilities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let specification;
+
+            if (listSiteNetworkCapabilitiesRequest !== null && listSiteNetworkCapabilitiesRequest !== undefined) {
+                if (listSiteNetworkCapabilitiesRequest instanceof ListSiteNetworkCapabilitiesRequest) {
+                    specification = listSiteNetworkCapabilitiesRequest.specification;
+                } else {
+                    specification = listSiteNetworkCapabilitiesRequest['specification'];
+                }
+            }
+
+        
+            if (specification !== null && specification !== undefined) {
+                localVarQueryParameter['specification'] = specification;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分支网络配额。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSiteNetworkQuotas(listSiteNetworkQuotasRequest?: ListSiteNetworkQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/dcaas/site-network/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let quotaType;
+            
+            let limit;
+            
+            let marker;
+
+            if (listSiteNetworkQuotasRequest !== null && listSiteNetworkQuotasRequest !== undefined) {
+                if (listSiteNetworkQuotasRequest instanceof ListSiteNetworkQuotasRequest) {
+                    quotaType = listSiteNetworkQuotasRequest.quotaType;
+                    limit = listSiteNetworkQuotasRequest.limit;
+                    marker = listSiteNetworkQuotasRequest.marker;
+                } else {
+                    quotaType = listSiteNetworkQuotasRequest['quota_type'];
+                    limit = listSiteNetworkQuotasRequest['limit'];
+                    marker = listSiteNetworkQuotasRequest['marker'];
+                }
+            }
+
+        
+            if (quotaType !== null && quotaType !== undefined) {
+                localVarQueryParameter['quota_type'] = quotaType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询带宽包等级列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBandwidthPackageLevels(listBandwidthPackageLevelsRequest?: ListBandwidthPackageLevelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/bandwidth-packages/levels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let level;
+            
+            let name;
+
+            if (listBandwidthPackageLevelsRequest !== null && listBandwidthPackageLevelsRequest !== undefined) {
+                if (listBandwidthPackageLevelsRequest instanceof ListBandwidthPackageLevelsRequest) {
+                    level = listBandwidthPackageLevelsRequest.level;
+                    name = listBandwidthPackageLevelsRequest.name;
+                } else {
+                    level = listBandwidthPackageLevelsRequest['level'];
+                    name = listBandwidthPackageLevelsRequest['name'];
+                }
+            }
+
+        
+            if (level !== null && level !== undefined) {
+                localVarQueryParameter['level'] = level;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询带宽包线路列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBandwidthPackageLines(listBandwidthPackageLinesRequest?: ListBandwidthPackageLinesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/bandwidth-packages/lines",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let level;
+            
+            let name;
+
+            if (listBandwidthPackageLinesRequest !== null && listBandwidthPackageLinesRequest !== undefined) {
+                if (listBandwidthPackageLinesRequest instanceof ListBandwidthPackageLinesRequest) {
+                    level = listBandwidthPackageLinesRequest.level;
+                    name = listBandwidthPackageLinesRequest.name;
+                } else {
+                    level = listBandwidthPackageLinesRequest['level'];
+                    name = listBandwidthPackageLinesRequest['name'];
+                }
+            }
+
+        
+            if (level !== null && level !== undefined) {
+                localVarQueryParameter['level'] = level;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询带宽包站点列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBandwidthPackageSites(listBandwidthPackageSitesRequest?: ListBandwidthPackageSitesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/bandwidth-packages/sites",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let siteCode;
+            
+            let regionId;
+            
+            let name;
+
+            if (listBandwidthPackageSitesRequest !== null && listBandwidthPackageSitesRequest !== undefined) {
+                if (listBandwidthPackageSitesRequest instanceof ListBandwidthPackageSitesRequest) {
+                    siteCode = listBandwidthPackageSitesRequest.siteCode;
+                    regionId = listBandwidthPackageSitesRequest.regionId;
+                    name = listBandwidthPackageSitesRequest.name;
+                } else {
+                    siteCode = listBandwidthPackageSitesRequest['site_code'];
+                    regionId = listBandwidthPackageSitesRequest['region_id'];
+                    name = listBandwidthPackageSitesRequest['name'];
+                }
+            }
+
+        
+            if (siteCode !== null && siteCode !== undefined) {
+                localVarQueryParameter['site_code'] = siteCode;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

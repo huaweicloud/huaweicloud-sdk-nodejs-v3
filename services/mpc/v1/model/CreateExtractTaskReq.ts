@@ -1,4 +1,5 @@
 import { CommonCreateTaskReq } from './CommonCreateTaskReq';
+import { Encryption } from './Encryption';
 import { ObsObjInfo } from './ObsObjInfo';
 
 
@@ -7,6 +8,7 @@ export class CreateExtractTaskReq {
     public output?: ObsObjInfo;
     private 'user_data'?: string;
     public sync?: number;
+    public encryption?: Encryption;
     public constructor() { 
     }
     public withInput(input: ObsObjInfo): CreateExtractTaskReq {
@@ -29,6 +31,10 @@ export class CreateExtractTaskReq {
     }
     public withSync(sync: number): CreateExtractTaskReq {
         this['sync'] = sync;
+        return this;
+    }
+    public withEncryption(encryption: Encryption): CreateExtractTaskReq {
+        this['encryption'] = encryption;
         return this;
     }
 }

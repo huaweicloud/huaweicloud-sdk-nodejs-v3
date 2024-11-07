@@ -41,6 +41,10 @@ import { CreateListenerOption } from './model/CreateListenerOption';
 import { CreateListenerRequest } from './model/CreateListenerRequest';
 import { CreateListenerRequestBody } from './model/CreateListenerRequestBody';
 import { CreateListenerResponse } from './model/CreateListenerResponse';
+import { CreateLogtankOption } from './model/CreateLogtankOption';
+import { CreateLogtankRequest } from './model/CreateLogtankRequest';
+import { CreateLogtankRequestBody } from './model/CreateLogtankRequestBody';
+import { CreateLogtankResponse } from './model/CreateLogtankResponse';
 import { CreateTagsRequest } from './model/CreateTagsRequest';
 import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
 import { CreateTagsResponse } from './model/CreateTagsResponse';
@@ -56,6 +60,8 @@ import { DeleteIpGroupRequest } from './model/DeleteIpGroupRequest';
 import { DeleteIpGroupResponse } from './model/DeleteIpGroupResponse';
 import { DeleteListenerRequest } from './model/DeleteListenerRequest';
 import { DeleteListenerResponse } from './model/DeleteListenerResponse';
+import { DeleteLogtankRequest } from './model/DeleteLogtankRequest';
+import { DeleteLogtankResponse } from './model/DeleteLogtankResponse';
 import { DeleteTagsRequest } from './model/DeleteTagsRequest';
 import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
 import { DeleteTagsResponse } from './model/DeleteTagsResponse';
@@ -84,6 +90,8 @@ import { ListIpGroupsRequest } from './model/ListIpGroupsRequest';
 import { ListIpGroupsResponse } from './model/ListIpGroupsResponse';
 import { ListListenersRequest } from './model/ListListenersRequest';
 import { ListListenersResponse } from './model/ListListenersResponse';
+import { ListLogtanksRequest } from './model/ListLogtanksRequest';
+import { ListLogtanksResponse } from './model/ListLogtanksResponse';
 import { ListRegionsRequest } from './model/ListRegionsRequest';
 import { ListRegionsResponse } from './model/ListRegionsResponse';
 import { ListResourcesByTagRequest } from './model/ListResourcesByTagRequest';
@@ -95,6 +103,8 @@ import { ListenerAccessControlPolicy } from './model/ListenerAccessControlPolicy
 import { ListenerAccessControlType } from './model/ListenerAccessControlType';
 import { ListenerDetail } from './model/ListenerDetail';
 import { ListenerProtocol } from './model/ListenerProtocol';
+import { LogtankDetail } from './model/LogtankDetail';
+import { LogtankResourceType } from './model/LogtankResourceType';
 import { Match } from './model/Match';
 import { PageInfo } from './model/PageInfo';
 import { PortRange } from './model/PortRange';
@@ -117,6 +127,8 @@ import { ShowIpGroupRequest } from './model/ShowIpGroupRequest';
 import { ShowIpGroupResponse } from './model/ShowIpGroupResponse';
 import { ShowListenerRequest } from './model/ShowListenerRequest';
 import { ShowListenerResponse } from './model/ShowListenerResponse';
+import { ShowLogtankRequest } from './model/ShowLogtankRequest';
+import { ShowLogtankResponse } from './model/ShowLogtankResponse';
 import { ShowResourceTagsRequest } from './model/ShowResourceTagsRequest';
 import { ShowResourceTagsResponse } from './model/ShowResourceTagsResponse';
 import { Tag } from './model/Tag';
@@ -145,6 +157,10 @@ import { UpdateListenerOption } from './model/UpdateListenerOption';
 import { UpdateListenerRequest } from './model/UpdateListenerRequest';
 import { UpdateListenerRequestBody } from './model/UpdateListenerRequestBody';
 import { UpdateListenerResponse } from './model/UpdateListenerResponse';
+import { UpdateLogtankOption } from './model/UpdateLogtankOption';
+import { UpdateLogtankRequest } from './model/UpdateLogtankRequest';
+import { UpdateLogtankRequestBody } from './model/UpdateLogtankRequestBody';
+import { UpdateLogtankResponse } from './model/UpdateLogtankResponse';
 
 export class GaClient {
     public static newBuilder(): ClientBuilder<GaClient> {
@@ -850,6 +866,107 @@ export class GaClient {
      */
     public updateListener(updateListenerRequest?: UpdateListenerRequest): Promise<UpdateListenerResponse> {
         const options = ParamCreater().updateListener(updateListenerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建云日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建云日志
+     * @param {CreateLogtankRequestBody} createLogtankRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLogtank(createLogtankRequest?: CreateLogtankRequest): Promise<CreateLogtankResponse> {
+        const options = ParamCreater().createLogtank(createLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除云日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除云日志
+     * @param {string} logtankId 云日志ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLogtank(deleteLogtankRequest?: DeleteLogtankRequest): Promise<DeleteLogtankResponse> {
+        const options = ParamCreater().deleteLogtank(deleteLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云日志列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云日志列表
+     * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
+     * @param {string} [marker] 分页查询的起始的资源ID，表示上一页最后一条查询资源记录的ID。不指定时表示查询第一页。 必须与limit一起使用。
+     * @param {string} [id] 资源ID。
+     * @param {'ACTIVE' | 'PENDING' | 'ERROR' | 'DELETING'} [status] 配置状态，可选范围: - ACTIVE：运行中 - PENDING：待定 - ERROR：错误 - DELETING：正在删除
+     * @param {Array<string>} [resourceIds] 资源ID列表。
+     * @param {'LISTENER'} [resourceType] 关联云日志的资源类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogtanks(listLogtanksRequest?: ListLogtanksRequest): Promise<ListLogtanksResponse> {
+        const options = ParamCreater().listLogtanks(listLogtanksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云日志详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云日志详情
+     * @param {string} logtankId 云日志ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLogtank(showLogtankRequest?: ShowLogtankRequest): Promise<ShowLogtankResponse> {
+        const options = ParamCreater().showLogtank(showLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新云日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新云日志
+     * @param {string} logtankId 云日志ID。
+     * @param {UpdateLogtankRequestBody} updateLogtankRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogtank(updateLogtankRequest?: UpdateLogtankRequest): Promise<UpdateLogtankResponse> {
+        const options = ParamCreater().updateLogtank(updateLogtankRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2600,6 +2717,236 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'listener_id': listenerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建云日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLogtank(createLogtankRequest?: CreateLogtankRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/logtanks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createLogtankRequest !== null && createLogtankRequest !== undefined) {
+                if (createLogtankRequest instanceof CreateLogtankRequest) {
+                    body = createLogtankRequest.body
+                } else {
+                    body = createLogtankRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除云日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLogtank(deleteLogtankRequest?: DeleteLogtankRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/logtanks/{logtank_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let logtankId;
+
+            if (deleteLogtankRequest !== null && deleteLogtankRequest !== undefined) {
+                if (deleteLogtankRequest instanceof DeleteLogtankRequest) {
+                    logtankId = deleteLogtankRequest.logtankId;
+                } else {
+                    logtankId = deleteLogtankRequest['logtank_id'];
+                }
+            }
+
+        
+            if (logtankId === null || logtankId === undefined) {
+            throw new RequiredError('logtankId','Required parameter logtankId was null or undefined when calling deleteLogtank.');
+            }
+
+            options.pathParams = { 'logtank_id': logtankId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云日志列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogtanks(listLogtanksRequest?: ListLogtanksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/logtanks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let status;
+            
+            let resourceIds;
+            
+            let resourceType;
+
+            if (listLogtanksRequest !== null && listLogtanksRequest !== undefined) {
+                if (listLogtanksRequest instanceof ListLogtanksRequest) {
+                    limit = listLogtanksRequest.limit;
+                    marker = listLogtanksRequest.marker;
+                    id = listLogtanksRequest.id;
+                    status = listLogtanksRequest.status;
+                    resourceIds = listLogtanksRequest.resourceIds;
+                    resourceType = listLogtanksRequest.resourceType;
+                } else {
+                    limit = listLogtanksRequest['limit'];
+                    marker = listLogtanksRequest['marker'];
+                    id = listLogtanksRequest['id'];
+                    status = listLogtanksRequest['status'];
+                    resourceIds = listLogtanksRequest['resource_ids'];
+                    resourceType = listLogtanksRequest['resource_type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (resourceIds !== null && resourceIds !== undefined) {
+                localVarQueryParameter['resource_ids'] = resourceIds;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云日志详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLogtank(showLogtankRequest?: ShowLogtankRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/logtanks/{logtank_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let logtankId;
+
+            if (showLogtankRequest !== null && showLogtankRequest !== undefined) {
+                if (showLogtankRequest instanceof ShowLogtankRequest) {
+                    logtankId = showLogtankRequest.logtankId;
+                } else {
+                    logtankId = showLogtankRequest['logtank_id'];
+                }
+            }
+
+        
+            if (logtankId === null || logtankId === undefined) {
+            throw new RequiredError('logtankId','Required parameter logtankId was null or undefined when calling showLogtank.');
+            }
+
+            options.pathParams = { 'logtank_id': logtankId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新云日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogtank(updateLogtankRequest?: UpdateLogtankRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/logtanks/{logtank_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let logtankId;
+
+            if (updateLogtankRequest !== null && updateLogtankRequest !== undefined) {
+                if (updateLogtankRequest instanceof UpdateLogtankRequest) {
+                    logtankId = updateLogtankRequest.logtankId;
+                    body = updateLogtankRequest.body
+                } else {
+                    logtankId = updateLogtankRequest['logtank_id'];
+                    body = updateLogtankRequest['body'];
+                }
+            }
+
+        
+            if (logtankId === null || logtankId === undefined) {
+            throw new RequiredError('logtankId','Required parameter logtankId was null or undefined when calling updateLogtank.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'logtank_id': logtankId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
