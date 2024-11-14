@@ -437,12 +437,16 @@ import { SnapshotRegion } from './model/SnapshotRegion';
 import { SnapshotResp } from './model/SnapshotResp';
 import { Snapshots } from './model/Snapshots';
 import { SnapshotsStatistic } from './model/SnapshotsStatistic';
+import { StartClusterRequest } from './model/StartClusterRequest';
+import { StartClusterResponse } from './model/StartClusterResponse';
 import { StartDisasterRecoveryRequest } from './model/StartDisasterRecoveryRequest';
 import { StartDisasterRecoveryResponse } from './model/StartDisasterRecoveryResponse';
 import { StartWorkloadPlanRequest } from './model/StartWorkloadPlanRequest';
 import { StartWorkloadPlanResponse } from './model/StartWorkloadPlanResponse';
 import { Statistic } from './model/Statistic';
 import { StatusStatistics } from './model/StatusStatistics';
+import { StopClusterRequest } from './model/StopClusterRequest';
+import { StopClusterResponse } from './model/StopClusterResponse';
 import { StopRedistributionRequest } from './model/StopRedistributionRequest';
 import { StopRedistributionResponse } from './model/StopRedistributionResponse';
 import { StopWorkloadPlanRequest } from './model/StopWorkloadPlanRequest';
@@ -3341,6 +3345,25 @@ export class DwsClient {
     }
 
     /**
+     * 集群管理-启动集群
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动集群
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startCluster(startClusterRequest?: StartClusterRequest): Promise<StartClusterResponse> {
+        const options = ParamCreater().startCluster(startClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于启动容灾操作。
      * 容灾状态为“未启动”、“启动失败”和“已停止”时可以执行启动容灾操作。
      * 启动容灾后，生产集群和灾备集群将无法进行恢复、扩容、升级、重启、节点替换、更新密码等操作，此外，灾备集群将无法进行备份操作，请谨慎操作。
@@ -3376,6 +3399,25 @@ export class DwsClient {
      */
     public startWorkloadPlan(startWorkloadPlanRequest?: StartWorkloadPlanRequest): Promise<StartWorkloadPlanResponse> {
         const options = ParamCreater().startWorkloadPlan(startWorkloadPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群管理-停止集群
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止集群
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopCluster(stopClusterRequest?: StopClusterRequest): Promise<StopClusterResponse> {
+        const options = ParamCreater().stopCluster(stopClusterRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10207,6 +10249,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 集群管理-启动集群
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startCluster(startClusterRequest?: StartClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/start",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (startClusterRequest !== null && startClusterRequest !== undefined) {
+                if (startClusterRequest instanceof StartClusterRequest) {
+                    clusterId = startClusterRequest.clusterId;
+                } else {
+                    clusterId = startClusterRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling startCluster.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于启动容灾操作。
          * 容灾状态为“未启动”、“启动失败”和“已停止”时可以执行启动容灾操作。
          * 启动容灾后，生产集群和灾备集群将无法进行恢复、扩容、升级、重启、节点替换、更新密码等操作，此外，灾备集群将无法进行备份操作，请谨慎操作。
@@ -10287,6 +10366,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群管理-停止集群
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopCluster(stopClusterRequest?: StopClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (stopClusterRequest !== null && stopClusterRequest !== undefined) {
+                if (stopClusterRequest instanceof StopClusterRequest) {
+                    clusterId = stopClusterRequest.clusterId;
+                } else {
+                    clusterId = stopClusterRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling stopCluster.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

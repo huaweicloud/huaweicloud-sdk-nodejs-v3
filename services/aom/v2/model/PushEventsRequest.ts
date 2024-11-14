@@ -2,20 +2,20 @@ import { EventList } from './EventList';
 
 
 export class PushEventsRequest {
-    private 'x-enterprise-prject-id'?: string;
+    private 'enterprise-project-id'?: string;
     public action?: PushEventsRequestActionEnum | string;
     public body?: EventList;
     public constructor() { 
     }
-    public withXEnterprisePrjectId(xEnterprisePrjectId: string): PushEventsRequest {
-        this['x-enterprise-prject-id'] = xEnterprisePrjectId;
+    public withEnterpriseProjectId(enterpriseProjectId: string): PushEventsRequest {
+        this['enterprise-project-id'] = enterpriseProjectId;
         return this;
     }
-    public set xEnterprisePrjectId(xEnterprisePrjectId: string  | undefined) {
-        this['x-enterprise-prject-id'] = xEnterprisePrjectId;
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise-project-id'] = enterpriseProjectId;
     }
-    public get xEnterprisePrjectId(): string | undefined {
-        return this['x-enterprise-prject-id'];
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise-project-id'];
     }
     public withAction(action: PushEventsRequestActionEnum | string): PushEventsRequest {
         this['action'] = action;

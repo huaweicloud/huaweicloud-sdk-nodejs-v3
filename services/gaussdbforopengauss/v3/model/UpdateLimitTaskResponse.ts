@@ -12,7 +12,7 @@ export class UpdateLimitTaskResponse extends SdkResponse {
     private 'cpu_utilization'?: number;
     private 'memory_utilization'?: number;
     private 'rule_name'?: string;
-    public jobId?: string;
+    private 'job_id'?: string;
     public constructor() { 
         super();
     }
@@ -111,7 +111,13 @@ export class UpdateLimitTaskResponse extends SdkResponse {
         return this['rule_name'];
     }
     public withJobId(jobId: string): UpdateLimitTaskResponse {
-        this['jobId'] = jobId;
+        this['job_id'] = jobId;
         return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
 }

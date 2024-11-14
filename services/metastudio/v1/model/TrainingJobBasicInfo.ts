@@ -17,6 +17,7 @@ export class TrainingJobBasicInfo {
     private 'model_resolution'?: string;
     private 'app_user_id'?: string;
     private 'is_flexus'?: boolean;
+    private 'is_only_human_model'?: boolean;
     public constructor(jobId?: string, name?: string, state?: string) { 
         this['job_id'] = jobId;
         this['name'] = name;
@@ -158,6 +159,16 @@ export class TrainingJobBasicInfo {
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
     }
+    public withIsOnlyHumanModel(isOnlyHumanModel: boolean): TrainingJobBasicInfo {
+        this['is_only_human_model'] = isOnlyHumanModel;
+        return this;
+    }
+    public set isOnlyHumanModel(isOnlyHumanModel: boolean  | undefined) {
+        this['is_only_human_model'] = isOnlyHumanModel;
+    }
+    public get isOnlyHumanModel(): boolean | undefined {
+        return this['is_only_human_model'];
+    }
 }
 
 /**
@@ -190,6 +201,7 @@ export enum TrainingJobBasicInfoStateEnum {
     WAIT_USER_CONFIRM = 'WAIT_USER_CONFIRM',
     JOB_REJECT = 'JOB_REJECT',
     JOB_PENDING = 'JOB_PENDING',
+    WAIT_ASSET_SYNC = 'WAIT_ASSET_SYNC',
     WAIT_ADMIN_CONFIRM = 'WAIT_ADMIN_CONFIRM',
     JOB_FINISH = 'JOB_FINISH',
     COMPILING = 'COMPILING',

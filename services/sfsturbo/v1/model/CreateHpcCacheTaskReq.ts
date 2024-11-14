@@ -1,3 +1,4 @@
+import { ObsTargetAttributes } from './ObsTargetAttributes';
 
 
 export class CreateHpcCacheTaskReq {
@@ -6,6 +7,7 @@ export class CreateHpcCacheTaskReq {
     private 'src_prefix'?: string;
     private 'dest_target'?: string;
     private 'dest_prefix'?: string;
+    public attributes?: ObsTargetAttributes;
     public constructor(type?: string, srcTarget?: string, destTarget?: string) { 
         this['type'] = type;
         this['src_target'] = srcTarget;
@@ -54,6 +56,10 @@ export class CreateHpcCacheTaskReq {
     }
     public get destPrefix(): string | undefined {
         return this['dest_prefix'];
+    }
+    public withAttributes(attributes: ObsTargetAttributes): CreateHpcCacheTaskReq {
+        this['attributes'] = attributes;
+        return this;
     }
 }
 

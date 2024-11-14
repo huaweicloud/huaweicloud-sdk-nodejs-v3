@@ -79,6 +79,8 @@ export * from './model/CancelRecurringMeetingResponse';
 export * from './model/CancelRecurringSubMeetingRequest';
 export * from './model/CancelRecurringSubMeetingResponse';
 export * from './model/CategorySuggestions';
+export * from './model/CheckCallNumberInConfRequest';
+export * from './model/CheckCallNumberInConfResponse';
 export * from './model/CheckSlideVerifyCodeRequest';
 export * from './model/CheckSlideVerifyCodeResponse';
 export * from './model/CheckTokenRequest';

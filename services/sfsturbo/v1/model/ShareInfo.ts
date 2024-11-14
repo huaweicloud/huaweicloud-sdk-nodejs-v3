@@ -1,5 +1,6 @@
 import { ActionProgress } from './ActionProgress';
 import { ResourceTag } from './ResourceTag';
+import { ShareInfoFeatures } from './ShareInfoFeatures';
 
 
 export class ShareInfo {
@@ -26,6 +27,12 @@ export class ShareInfo {
     private 'vpc_id'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<ResourceTag>;
+    private 'optional_endpoint'?: string;
+    private 'hpc_bw'?: string;
+    public instanceId?: string;
+    public instanceType?: string;
+    public statusDetail?: string;
+    public features?: ShareInfoFeatures;
     public constructor() { 
     }
     public withActionProgress(actionProgress: ActionProgress): ShareInfo {
@@ -214,6 +221,42 @@ export class ShareInfo {
     }
     public withTags(tags: Array<ResourceTag>): ShareInfo {
         this['tags'] = tags;
+        return this;
+    }
+    public withOptionalEndpoint(optionalEndpoint: string): ShareInfo {
+        this['optional_endpoint'] = optionalEndpoint;
+        return this;
+    }
+    public set optionalEndpoint(optionalEndpoint: string  | undefined) {
+        this['optional_endpoint'] = optionalEndpoint;
+    }
+    public get optionalEndpoint(): string | undefined {
+        return this['optional_endpoint'];
+    }
+    public withHpcBw(hpcBw: string): ShareInfo {
+        this['hpc_bw'] = hpcBw;
+        return this;
+    }
+    public set hpcBw(hpcBw: string  | undefined) {
+        this['hpc_bw'] = hpcBw;
+    }
+    public get hpcBw(): string | undefined {
+        return this['hpc_bw'];
+    }
+    public withInstanceId(instanceId: string): ShareInfo {
+        this['instanceId'] = instanceId;
+        return this;
+    }
+    public withInstanceType(instanceType: string): ShareInfo {
+        this['instanceType'] = instanceType;
+        return this;
+    }
+    public withStatusDetail(statusDetail: string): ShareInfo {
+        this['statusDetail'] = statusDetail;
+        return this;
+    }
+    public withFeatures(features: ShareInfoFeatures): ShareInfo {
+        this['features'] = features;
         return this;
     }
 }

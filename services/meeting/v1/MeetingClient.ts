@@ -81,6 +81,8 @@ import { CancelRecurringMeetingResponse } from './model/CancelRecurringMeetingRe
 import { CancelRecurringSubMeetingRequest } from './model/CancelRecurringSubMeetingRequest';
 import { CancelRecurringSubMeetingResponse } from './model/CancelRecurringSubMeetingResponse';
 import { CategorySuggestions } from './model/CategorySuggestions';
+import { CheckCallNumberInConfRequest } from './model/CheckCallNumberInConfRequest';
+import { CheckCallNumberInConfResponse } from './model/CheckCallNumberInConfResponse';
 import { CheckSlideVerifyCodeRequest } from './model/CheckSlideVerifyCodeRequest';
 import { CheckSlideVerifyCodeResponse } from './model/CheckSlideVerifyCodeResponse';
 import { CheckTokenRequest } from './model/CheckTokenRequest';
@@ -1266,6 +1268,25 @@ export class MeetingClient {
      */
     public cancelRecurringSubMeeting(cancelRecurringSubMeetingRequest?: CancelRecurringSubMeetingRequest): Promise<CancelRecurringSubMeetingResponse> {
         const options = ParamCreater().cancelRecurringSubMeeting(cancelRecurringSubMeetingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过该接口查询号码，是否在会议中
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据号码，查询是否在会议中
+     * @param {string} callNumber 呼叫号码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkCallNumberInConf(checkCallNumberInConfRequest?: CheckCallNumberInConfRequest): Promise<CheckCallNumberInConfResponse> {
+        const options = ParamCreater().checkCallNumberInConf(checkCallNumberInConfRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6607,6 +6628,46 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过该接口查询号码，是否在会议中
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkCallNumberInConf(checkCallNumberInConfRequest?: CheckCallNumberInConfRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/mms/ncms/conferences/online/check-callnumber-in-conf",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let callNumber;
+
+            if (checkCallNumberInConfRequest !== null && checkCallNumberInConfRequest !== undefined) {
+                if (checkCallNumberInConfRequest instanceof CheckCallNumberInConfRequest) {
+                    callNumber = checkCallNumberInConfRequest.callNumber;
+                } else {
+                    callNumber = checkCallNumberInConfRequest['call_number'];
+                }
+            }
+
+        
+            if (callNumber === null || callNumber === undefined) {
+                throw new RequiredError('callNumber','Required parameter callNumber was null or undefined when calling checkCallNumberInConf.');
+            }
+            if (callNumber !== null && callNumber !== undefined) {
+                localVarQueryParameter['call_number'] = callNumber;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;

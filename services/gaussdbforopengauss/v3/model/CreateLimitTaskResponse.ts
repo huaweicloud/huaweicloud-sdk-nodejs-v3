@@ -10,7 +10,7 @@ export class CreateLimitTaskResponse extends SdkResponse {
     public databases?: string;
     private 'task_name'?: string;
     private 'sql_model'?: string;
-    private 'key_words'?: Array<string>;
+    private 'key_words'?: string;
     public status?: string;
     private 'instance_id'?: string;
     private 'rule_name'?: string;
@@ -24,7 +24,7 @@ export class CreateLimitTaskResponse extends SdkResponse {
     public creator?: string;
     public modifier?: string;
     private 'node_infos'?: Array<CreateLimitTaskNodeResult>;
-    public jobId?: string;
+    private 'job_id'?: string;
     public constructor() { 
         super();
     }
@@ -92,14 +92,14 @@ export class CreateLimitTaskResponse extends SdkResponse {
     public get sqlModel(): string | undefined {
         return this['sql_model'];
     }
-    public withKeyWords(keyWords: Array<string>): CreateLimitTaskResponse {
+    public withKeyWords(keyWords: string): CreateLimitTaskResponse {
         this['key_words'] = keyWords;
         return this;
     }
-    public set keyWords(keyWords: Array<string>  | undefined) {
+    public set keyWords(keyWords: string  | undefined) {
         this['key_words'] = keyWords;
     }
-    public get keyWords(): Array<string> | undefined {
+    public get keyWords(): string | undefined {
         return this['key_words'];
     }
     public withStatus(status: string): CreateLimitTaskResponse {
@@ -203,7 +203,13 @@ export class CreateLimitTaskResponse extends SdkResponse {
         return this['node_infos'];
     }
     public withJobId(jobId: string): CreateLimitTaskResponse {
-        this['jobId'] = jobId;
+        this['job_id'] = jobId;
         return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
 }

@@ -6,6 +6,7 @@ export class ActionSampleInfo {
     private 'action_name_en'?: string;
     private 'action_tag'?: string;
     public catalog?: string;
+    private 'recommended_value'?: number;
     private 'is_selected'?: boolean;
     private 'sample_download_url'?: string;
     public constructor(actionTag?: string) { 
@@ -44,6 +45,16 @@ export class ActionSampleInfo {
     public withCatalog(catalog: string): ActionSampleInfo {
         this['catalog'] = catalog;
         return this;
+    }
+    public withRecommendedValue(recommendedValue: number): ActionSampleInfo {
+        this['recommended_value'] = recommendedValue;
+        return this;
+    }
+    public set recommendedValue(recommendedValue: number  | undefined) {
+        this['recommended_value'] = recommendedValue;
+    }
+    public get recommendedValue(): number | undefined {
+        return this['recommended_value'];
     }
     public withIsSelected(isSelected: boolean): ActionSampleInfo {
         this['is_selected'] = isSelected;

@@ -10,6 +10,8 @@ export class Update2dModelTrainingJobResponse extends SdkResponse {
     private 'id_card_image1_upload_url'?: string;
     private 'id_card_image2_upload_url'?: string;
     private 'grant_file_upload_url'?: string;
+    private 'pre_beauty_image_upload_url'?: string;
+    private 'post_beauty_image_upload_url'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -93,6 +95,26 @@ export class Update2dModelTrainingJobResponse extends SdkResponse {
     }
     public get grantFileUploadUrl(): string | undefined {
         return this['grant_file_upload_url'];
+    }
+    public withPreBeautyImageUploadUrl(preBeautyImageUploadUrl: string): Update2dModelTrainingJobResponse {
+        this['pre_beauty_image_upload_url'] = preBeautyImageUploadUrl;
+        return this;
+    }
+    public set preBeautyImageUploadUrl(preBeautyImageUploadUrl: string  | undefined) {
+        this['pre_beauty_image_upload_url'] = preBeautyImageUploadUrl;
+    }
+    public get preBeautyImageUploadUrl(): string | undefined {
+        return this['pre_beauty_image_upload_url'];
+    }
+    public withPostBeautyImageUploadUrl(postBeautyImageUploadUrl: string): Update2dModelTrainingJobResponse {
+        this['post_beauty_image_upload_url'] = postBeautyImageUploadUrl;
+        return this;
+    }
+    public set postBeautyImageUploadUrl(postBeautyImageUploadUrl: string  | undefined) {
+        this['post_beauty_image_upload_url'] = postBeautyImageUploadUrl;
+    }
+    public get postBeautyImageUploadUrl(): string | undefined {
+        return this['post_beauty_image_upload_url'];
     }
     public withXRequestId(xRequestId: string): Update2dModelTrainingJobResponse {
         this['X-Request-Id'] = xRequestId;

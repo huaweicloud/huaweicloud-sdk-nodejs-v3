@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionProgress } from './model/ActionProgress';
+import { AutoExportPolicy } from './model/AutoExportPolicy';
 import { BatchAddSharedTagsRequest } from './model/BatchAddSharedTagsRequest';
 import { BatchAddSharedTagsRequestBody } from './model/BatchAddSharedTagsRequestBody';
 import { BatchAddSharedTagsResponse } from './model/BatchAddSharedTagsResponse';
@@ -16,7 +17,6 @@ import { ChangeShareNameReq } from './model/ChangeShareNameReq';
 import { ChangeShareNameRequest } from './model/ChangeShareNameRequest';
 import { ChangeShareNameResponse } from './model/ChangeShareNameResponse';
 import { ConfigNasTarget } from './model/ConfigNasTarget';
-import { ConfigObsTarget } from './model/ConfigObsTarget';
 import { CreateBackendTargetRequest } from './model/CreateBackendTargetRequest';
 import { CreateBackendTargetRequestBody } from './model/CreateBackendTargetRequestBody';
 import { CreateBackendTargetResponse } from './model/CreateBackendTargetResponse';
@@ -53,6 +53,8 @@ import { DeleteFsDirRequestBody } from './model/DeleteFsDirRequestBody';
 import { DeleteFsDirResponse } from './model/DeleteFsDirResponse';
 import { DeleteFsTaskRequest } from './model/DeleteFsTaskRequest';
 import { DeleteFsTaskResponse } from './model/DeleteFsTaskResponse';
+import { DeleteHpcCacheTaskRequest } from './model/DeleteHpcCacheTaskRequest';
+import { DeleteHpcCacheTaskResponse } from './model/DeleteHpcCacheTaskResponse';
 import { DeleteLdapConfigRequest } from './model/DeleteLdapConfigRequest';
 import { DeleteLdapConfigResponse } from './model/DeleteLdapConfigResponse';
 import { DeletePermRuleRequest } from './model/DeletePermRuleRequest';
@@ -85,6 +87,8 @@ import { ListSharesRequest } from './model/ListSharesRequest';
 import { ListSharesResponse } from './model/ListSharesResponse';
 import { Metadata } from './model/Metadata';
 import { ObsDataRepository } from './model/ObsDataRepository';
+import { ObsDataRepositoryPolicy } from './model/ObsDataRepositoryPolicy';
+import { ObsTargetAttributes } from './model/ObsTargetAttributes';
 import { OneFsTaskResp } from './model/OneFsTaskResp';
 import { OneHpcCacheTaskInfoResp } from './model/OneHpcCacheTaskInfoResp';
 import { OnePermRuleRequestInfo } from './model/OnePermRuleRequestInfo';
@@ -97,6 +101,8 @@ import { SetHpcCacheBackendRequest } from './model/SetHpcCacheBackendRequest';
 import { SetHpcCacheBackendResponse } from './model/SetHpcCacheBackendResponse';
 import { Share } from './model/Share';
 import { ShareInfo } from './model/ShareInfo';
+import { ShareInfoFeature } from './model/ShareInfoFeature';
+import { ShareInfoFeatures } from './model/ShareInfoFeatures';
 import { ShareName } from './model/ShareName';
 import { ShowBackendTargetInfoRequest } from './model/ShowBackendTargetInfoRequest';
 import { ShowBackendTargetInfoResponse } from './model/ShowBackendTargetInfoResponse';
@@ -131,6 +137,12 @@ import { UpdateHpcShareResponse } from './model/UpdateHpcShareResponse';
 import { UpdateLdapConfigRequest } from './model/UpdateLdapConfigRequest';
 import { UpdateLdapConfigRequestBody } from './model/UpdateLdapConfigRequestBody';
 import { UpdateLdapConfigResponse } from './model/UpdateLdapConfigResponse';
+import { UpdateObsTargetAttributesRequest } from './model/UpdateObsTargetAttributesRequest';
+import { UpdateObsTargetAttributesRequestBody } from './model/UpdateObsTargetAttributesRequestBody';
+import { UpdateObsTargetAttributesResponse } from './model/UpdateObsTargetAttributesResponse';
+import { UpdateObsTargetPolicyRequest } from './model/UpdateObsTargetPolicyRequest';
+import { UpdateObsTargetPolicyRequestBody } from './model/UpdateObsTargetPolicyRequestBody';
+import { UpdateObsTargetPolicyResponse } from './model/UpdateObsTargetPolicyResponse';
 import { UpdatePermRuleRequest } from './model/UpdatePermRuleRequest';
 import { UpdatePermRuleResponse } from './model/UpdatePermRuleResponse';
 
@@ -152,7 +164,7 @@ export class SFSTurboClient {
     /**
      * 指定共享批量添加标签。
      * 
-     * 一个共享上最多有10个标签。
+     * 一个共享上最多有20个标签。
      * 一个共享上的多个标签的key不允许重复。
      * 此接口为幂等接口：如果要添加的key在共享上已存在，则覆盖更新标签。
      * 
@@ -214,13 +226,13 @@ export class SFSTurboClient {
     }
 
     /**
-     * 为SFS Turbo HPC型文件系统绑定后端存储
+     * 为SFS Turbo 文件系统绑定后端存储
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 绑定后端存储
      * @param {string} shareId 文件系统id
-     * @param {CreateBackendTargetRequestBody} createBackendTargetRequestBody 创建文件系统后端存储库请求体
+     * @param {CreateBackendTargetRequestBody} createBackendTargetRequestBody 创建文件系统后端存储请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -274,13 +286,13 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建文件系统异步任务
+     * 创建文件系统异步任务，仅支持异步查询目录资源使用情况，API请求路径的feature取值为dir-usage，以下简称为DU任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建文件系统异步任务
      * @param {string} shareId 文件系统id
-     * @param {string} feature 任务类型。例，DU任务取值为dir-usage
+     * @param {string} feature 任务类型。当前仅支持取值\&quot;dir-usage\&quot;。
      * @param {FsDirReq} [createFsTaskRequestBody] 文件系统内合法的目录全路径，DU任务里，此为必选参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -315,7 +327,11 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建并绑定ldap配置
+     * 创建并绑定ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+     * 1. RFC2307（Openldap通常选择此Schema）
+     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+     * 
+     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -375,7 +391,7 @@ export class SFSTurboClient {
 
     /**
      * 指定共享添加一个标签。
-     * 一个共享上最多有10个标签。
+     * 一个共享上最多有20个标签。
      * 一个共享上的多个标签的key不允许重复。
      * 此接口为幂等接口：如果要添加的key在共享上已存在，则覆盖更新标签。
      * 
@@ -458,7 +474,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。
+     * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。仅支持删除目录资源使用情况的任务，API请求路径的feature取值为dir-usage，以下简称为DU任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -479,7 +495,31 @@ export class SFSTurboClient {
     }
 
     /**
-     * 删除ldap配置
+     * 删除数据导入导出任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据导入导出任务
+     * @param {string} shareId 文件系统ID
+     * @param {string} taskId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHpcCacheTask(deleteHpcCacheTaskRequest?: DeleteHpcCacheTaskRequest): Promise<DeleteHpcCacheTaskResponse> {
+        const options = ParamCreater().deleteHpcCacheTask(deleteHpcCacheTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+     * 1. RFC2307（Openldap通常选择此Schema）
+     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+     * 
+     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -543,7 +583,7 @@ export class SFSTurboClient {
      *
      * @summary 删除共享标签
      * @param {string} shareId 共享ID
-     * @param {string} key 标签的键,最大长度36个字符。  key不能为空，不能包含非打印字符ASCII(0-31)，“&#x3D;”,“*”,“&lt;”,“&gt;”,“\\”,“,”,“|”,“/”。只能包含大写字母、小写字母、数字，特殊字符\&quot;-\&quot;和\&quot;_\&quot;。  说明：调用删除共享标签接口删除标签时，如果标签的键中存在不被URL直接解析的特殊字符，需要对标签的键进行URL转义处理。
+     * @param {string} key 标签的键,最大长度128个字符。  key不能为空，不能包含非打印字符ASCII(0-31)，“&#x3D;”,“*”,“&lt;”,“&gt;”,“\\”,“,”,“|”,“/”。只能包含大写字母、小写字母、数字，特殊字符\&quot;-\&quot;和\&quot;_\&quot;。  说明：调用删除共享标签接口删除标签时，如果标签的键中存在不被URL直接解析的特殊字符，需要对标签的键进行URL转义处理。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -598,7 +638,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 获取文件系统异步任务列表
+     * 获取文件系统异步任务列表。仅支持查询目录资源使用情况的任务，API请求路径的feature取值为dir-usage，以下简称为DU任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -630,6 +670,8 @@ export class SFSTurboClient {
      * @param {string} [status] 任务状态
      * @param {number} [offset] offset，默认值为 0
      * @param {number} [limit] limit，默认值为 20
+     * @param {string} [startTime] start_time
+     * @param {string} [endTime] end_time
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -649,6 +691,8 @@ export class SFSTurboClient {
      *
      * @summary 查询文件系统的权限规则列表
      * @param {string} shareId 文件系统id
+     * @param {number} [limit] 返回的权限规则个数
+     * @param {number} [offset] 返回的权限规则的偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -667,11 +711,13 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户所有共享的标签
+     * @param {number} [limit] 返回的标签个数
+     * @param {number} [offset] 标签查询个数的偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listSharedTags(listSharedTagsRequest?: ListSharedTagsRequest): Promise<ListSharedTagsResponse> {
-        const options = ParamCreater().listSharedTags();
+        const options = ParamCreater().listSharedTags(listSharedTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -685,8 +731,8 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取文件系统列表
-     * @param {number} [limit] 返回的文件系统个数，最大值为200。
-     * @param {number} [offset] 文件系统查询个数的偏移量。
+     * @param {number} [limit] 设置返回的文件系统个数的最大值，不填默认为1000个
+     * @param {number} [offset] 设置返回的文件系统的偏移量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -760,7 +806,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询目标文件夹quota
+     * 查询目标文件夹quota。查询的used_capacity、used_inode数据可能有延迟。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -800,7 +846,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 获取文件系统异步任务详情
+     * 获取文件系统异步任务详情。仅支持查询目录资源使用情况的任务，API请求路径的feature取值为dir-usage，以下简称为DU任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -841,7 +887,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。
+     * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。例如：可使用调用创建并绑定ldap配置接口时返回的jobId，通过该接口查询job的执行状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -860,7 +906,11 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询Ldap的配置
+     * 查询Ldap的配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+     * 1. RFC2307（Openldap通常选择此Schema）
+     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+     * 
+     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -963,7 +1013,7 @@ export class SFSTurboClient {
      *
      * @summary 更新文件系统
      * @param {string} shareId 文件系统ID
-     * @param {UpdateHpcShareRequestBody} updateHpcShareRequestBody 更新 HPC 型文件系统请求体
+     * @param {UpdateHpcShareRequestBody} updateHpcShareRequestBody 更新文件系统请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -977,7 +1027,11 @@ export class SFSTurboClient {
     }
 
     /**
-     * 修改ldap配置
+     * 修改ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+     * 1. RFC2307（Openldap通常选择此Schema）
+     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+     * 
+     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -992,6 +1046,48 @@ export class SFSTurboClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新后端存储属性
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新后端存储属性
+     * @param {string} shareId 文件系统id
+     * @param {string} targetId 绑定关系id
+     * @param {UpdateObsTargetAttributesRequestBody} updateObsTargetAttributesRequestBody 更新后端存储属性请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateObsTargetAttributes(updateObsTargetAttributesRequest?: UpdateObsTargetAttributesRequest): Promise<UpdateObsTargetAttributesResponse> {
+        const options = ParamCreater().updateObsTargetAttributes(updateObsTargetAttributesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新后端存储自动同步策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新后端存储自动同步策略
+     * @param {string} shareId 文件系统id
+     * @param {string} targetId 绑定关系id
+     * @param {UpdateObsTargetPolicyRequestBody} updateObsTargetPolicyRequestBody 更新后端存储自动同步策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateObsTargetPolicy(updateObsTargetPolicyRequest?: UpdateObsTargetPolicyRequest): Promise<UpdateObsTargetPolicyResponse> {
+        const options = ParamCreater().updateObsTargetPolicy(updateObsTargetPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1024,7 +1120,7 @@ export const ParamCreater = function () {
         /**
          * 指定共享批量添加标签。
          * 
-         * 一个共享上最多有10个标签。
+         * 一个共享上最多有20个标签。
          * 一个共享上的多个标签的key不允许重复。
          * 此接口为幂等接口：如果要添加的key在共享上已存在，则覆盖更新标签。
          * 
@@ -1164,7 +1260,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 为SFS Turbo HPC型文件系统绑定后端存储
+         * 为SFS Turbo 文件系统绑定后端存储
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1302,7 +1398,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建文件系统异步任务
+         * 创建文件系统异步任务，仅支持异步查询目录资源使用情况，API请求路径的feature取值为dir-usage，以下简称为DU任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1398,7 +1494,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建并绑定ldap配置
+         * 创建并绑定ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+         * 1. RFC2307（Openldap通常选择此Schema）
+         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+         * 
+         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1529,7 +1629,7 @@ export const ParamCreater = function () {
     
         /**
          * 指定共享添加一个标签。
-         * 一个共享上最多有10个标签。
+         * 一个共享上最多有20个标签。
          * 一个共享上的多个标签的key不允许重复。
          * 此接口为幂等接口：如果要添加的key在共享上已存在，则覆盖更新标签。
          * 
@@ -1721,7 +1821,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。
+         * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。仅支持删除目录资源使用情况的任务，API请求路径的feature取值为dir-usage，以下简称为DU任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1772,7 +1872,55 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除ldap配置
+         * 删除数据导入导出任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHpcCacheTask(deleteHpcCacheTaskRequest?: DeleteHpcCacheTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/sfs-turbo/{share_id}/hpc-cache/task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let shareId;
+            
+            let taskId;
+
+            if (deleteHpcCacheTaskRequest !== null && deleteHpcCacheTaskRequest !== undefined) {
+                if (deleteHpcCacheTaskRequest instanceof DeleteHpcCacheTaskRequest) {
+                    shareId = deleteHpcCacheTaskRequest.shareId;
+                    taskId = deleteHpcCacheTaskRequest.taskId;
+                } else {
+                    shareId = deleteHpcCacheTaskRequest['share_id'];
+                    taskId = deleteHpcCacheTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling deleteHpcCacheTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteHpcCacheTask.');
+            }
+
+            options.pathParams = { 'share_id': shareId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+         * 1. RFC2307（Openldap通常选择此Schema）
+         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+         * 
+         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2032,7 +2180,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取文件系统异步任务列表
+         * 获取文件系统异步任务列表。仅支持查询目录资源使用情况的任务，API请求路径的feature取值为dir-usage，以下简称为DU任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2116,6 +2264,10 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let startTime;
+            
+            let endTime;
 
             if (listHpcCacheTasksRequest !== null && listHpcCacheTasksRequest !== undefined) {
                 if (listHpcCacheTasksRequest instanceof ListHpcCacheTasksRequest) {
@@ -2124,12 +2276,16 @@ export const ParamCreater = function () {
                     status = listHpcCacheTasksRequest.status;
                     offset = listHpcCacheTasksRequest.offset;
                     limit = listHpcCacheTasksRequest.limit;
+                    startTime = listHpcCacheTasksRequest.startTime;
+                    endTime = listHpcCacheTasksRequest.endTime;
                 } else {
                     shareId = listHpcCacheTasksRequest['share_id'];
                     type = listHpcCacheTasksRequest['type'];
                     status = listHpcCacheTasksRequest['status'];
                     offset = listHpcCacheTasksRequest['offset'];
                     limit = listHpcCacheTasksRequest['limit'];
+                    startTime = listHpcCacheTasksRequest['start_time'];
+                    endTime = listHpcCacheTasksRequest['end_time'];
                 }
             }
 
@@ -2148,6 +2304,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2171,15 +2333,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let shareId;
+            
+            let limit;
+            
+            let offset;
 
             if (listPermRulesRequest !== null && listPermRulesRequest !== undefined) {
                 if (listPermRulesRequest instanceof ListPermRulesRequest) {
                     shareId = listPermRulesRequest.shareId;
+                    limit = listPermRulesRequest.limit;
+                    offset = listPermRulesRequest.offset;
                 } else {
                     shareId = listPermRulesRequest['share_id'];
+                    limit = listPermRulesRequest['limit'];
+                    offset = listPermRulesRequest['offset'];
                 }
             }
 
@@ -2187,7 +2357,14 @@ export const ParamCreater = function () {
             if (shareId === null || shareId === undefined) {
             throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling listPermRules.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'share_id': shareId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2198,7 +2375,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listSharedTags() {
+        listSharedTags(listSharedTagsRequest?: ListSharedTagsRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/{project_id}/sfs-turbo/tags",
@@ -2208,8 +2385,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
 
+            if (listSharedTagsRequest !== null && listSharedTagsRequest !== undefined) {
+                if (listSharedTagsRequest instanceof ListSharedTagsRequest) {
+                    limit = listSharedTagsRequest.limit;
+                    offset = listSharedTagsRequest.offset;
+                } else {
+                    limit = listSharedTagsRequest['limit'];
+                    offset = listSharedTagsRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2397,7 +2597,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询目标文件夹quota
+         * 查询目标文件夹quota。查询的used_capacity、used_inode数据可能有延迟。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2493,7 +2693,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取文件系统异步任务详情
+         * 获取文件系统异步任务详情。仅支持查询目录资源使用情况的任务，API请求路径的feature取值为dir-usage，以下简称为DU任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2588,7 +2788,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。
+         * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。例如：可使用调用创建并绑定ldap配置接口时返回的jobId，通过该接口查询job的执行状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2625,7 +2825,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Ldap的配置
+         * 查询Ldap的配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+         * 1. RFC2307（Openldap通常选择此Schema）
+         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+         * 
+         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2872,7 +3076,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改ldap配置
+         * 修改ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
+         * 1. RFC2307（Openldap通常选择此Schema）
+         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
+         * 
+         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2913,6 +3121,112 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新后端存储属性
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateObsTargetAttributes(updateObsTargetAttributesRequest?: UpdateObsTargetAttributesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/targets/{target_id}/attributes",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+            
+            let targetId;
+
+            if (updateObsTargetAttributesRequest !== null && updateObsTargetAttributesRequest !== undefined) {
+                if (updateObsTargetAttributesRequest instanceof UpdateObsTargetAttributesRequest) {
+                    shareId = updateObsTargetAttributesRequest.shareId;
+                    targetId = updateObsTargetAttributesRequest.targetId;
+                    body = updateObsTargetAttributesRequest.body
+                } else {
+                    shareId = updateObsTargetAttributesRequest['share_id'];
+                    targetId = updateObsTargetAttributesRequest['target_id'];
+                    body = updateObsTargetAttributesRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling updateObsTargetAttributes.');
+            }
+            if (targetId === null || targetId === undefined) {
+            throw new RequiredError('targetId','Required parameter targetId was null or undefined when calling updateObsTargetAttributes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId,'target_id': targetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新后端存储自动同步策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateObsTargetPolicy(updateObsTargetPolicyRequest?: UpdateObsTargetPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/targets/{target_id}/policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+            
+            let targetId;
+
+            if (updateObsTargetPolicyRequest !== null && updateObsTargetPolicyRequest !== undefined) {
+                if (updateObsTargetPolicyRequest instanceof UpdateObsTargetPolicyRequest) {
+                    shareId = updateObsTargetPolicyRequest.shareId;
+                    targetId = updateObsTargetPolicyRequest.targetId;
+                    body = updateObsTargetPolicyRequest.body
+                } else {
+                    shareId = updateObsTargetPolicyRequest['share_id'];
+                    targetId = updateObsTargetPolicyRequest['target_id'];
+                    body = updateObsTargetPolicyRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling updateObsTargetPolicy.');
+            }
+            if (targetId === null || targetId === undefined) {
+            throw new RequiredError('targetId','Required parameter targetId was null or undefined when calling updateObsTargetPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId,'target_id': targetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

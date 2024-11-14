@@ -6,6 +6,10 @@ export class ShowLdapConfigResponse extends SdkResponse {
     private 'base_dn'?: string;
     private 'user_dn'?: string;
     private 'filter_condition'?: string;
+    private 'backup_url'?: string;
+    public schema?: string;
+    private 'search_timeout'?: number;
+    private 'allow_local_user'?: string;
     public constructor() { 
         super();
     }
@@ -42,5 +46,39 @@ export class ShowLdapConfigResponse extends SdkResponse {
     }
     public get filterCondition(): string | undefined {
         return this['filter_condition'];
+    }
+    public withBackupUrl(backupUrl: string): ShowLdapConfigResponse {
+        this['backup_url'] = backupUrl;
+        return this;
+    }
+    public set backupUrl(backupUrl: string  | undefined) {
+        this['backup_url'] = backupUrl;
+    }
+    public get backupUrl(): string | undefined {
+        return this['backup_url'];
+    }
+    public withSchema(schema: string): ShowLdapConfigResponse {
+        this['schema'] = schema;
+        return this;
+    }
+    public withSearchTimeout(searchTimeout: number): ShowLdapConfigResponse {
+        this['search_timeout'] = searchTimeout;
+        return this;
+    }
+    public set searchTimeout(searchTimeout: number  | undefined) {
+        this['search_timeout'] = searchTimeout;
+    }
+    public get searchTimeout(): number | undefined {
+        return this['search_timeout'];
+    }
+    public withAllowLocalUser(allowLocalUser: string): ShowLdapConfigResponse {
+        this['allow_local_user'] = allowLocalUser;
+        return this;
+    }
+    public set allowLocalUser(allowLocalUser: string  | undefined) {
+        this['allow_local_user'] = allowLocalUser;
+    }
+    public get allowLocalUser(): string | undefined {
+        return this['allow_local_user'];
     }
 }

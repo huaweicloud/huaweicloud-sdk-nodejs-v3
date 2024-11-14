@@ -54,10 +54,12 @@ export class TriggerEventDataRequestBody {
     private 'Key_encode'?: boolean;
     public agency?: string;
     private 'channel_name'?: string;
+    private 'channel_id'?: string;
     private 'source_name'?: string;
     private 'created_time'?: Date;
-    public status?: string;
+    public status?: TriggerEventDataRequestBodyStatusEnum | string;
     private 'trigger_name'?: string;
+    private 'event_types'?: Array<string>;
     public constructor() { 
     }
     public withName(name: string): TriggerEventDataRequestBody {
@@ -502,6 +504,16 @@ export class TriggerEventDataRequestBody {
     public get channelName(): string | undefined {
         return this['channel_name'];
     }
+    public withChannelId(channelId: string): TriggerEventDataRequestBody {
+        this['channel_id'] = channelId;
+        return this;
+    }
+    public set channelId(channelId: string  | undefined) {
+        this['channel_id'] = channelId;
+    }
+    public get channelId(): string | undefined {
+        return this['channel_id'];
+    }
     public withSourceName(sourceName: string): TriggerEventDataRequestBody {
         this['source_name'] = sourceName;
         return this;
@@ -522,7 +534,7 @@ export class TriggerEventDataRequestBody {
     public get createdTime(): Date | undefined {
         return this['created_time'];
     }
-    public withStatus(status: string): TriggerEventDataRequestBody {
+    public withStatus(status: TriggerEventDataRequestBodyStatusEnum | string): TriggerEventDataRequestBody {
         this['status'] = status;
         return this;
     }
@@ -535,6 +547,16 @@ export class TriggerEventDataRequestBody {
     }
     public get triggerName(): string | undefined {
         return this['trigger_name'];
+    }
+    public withEventTypes(eventTypes: Array<string>): TriggerEventDataRequestBody {
+        this['event_types'] = eventTypes;
+        return this;
+    }
+    public set eventTypes(eventTypes: Array<string>  | undefined) {
+        this['event_types'] = eventTypes;
+    }
+    public get eventTypes(): Array<string> | undefined {
+        return this['event_types'];
     }
 }
 
@@ -615,4 +637,12 @@ export enum TriggerEventDataRequestBodyPollingUnitEnum {
 export enum TriggerEventDataRequestBodyIsSerialEnum {
     TRUE = 'true',
     FALSE = 'false'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TriggerEventDataRequestBodyStatusEnum {
+    ACTIVE = 'ACTIVE',
+    DISABLE = 'DISABLE'
 }

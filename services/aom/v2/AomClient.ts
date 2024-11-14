@@ -779,7 +779,7 @@ export class AomClient {
      *
      * @summary 上报事件告警信息
      * @param {EventList} pushEventsRequestBody 事件或者告警列表。
-     * @param {string} [xEnterprisePrjectId] 告警所属的企业项目id。
+     * @param {string} [enterpriseProjectId] 告警所属的企业项目id。
      * @param {'clear'} [action] 接口请求动作。action&#x3D;clear代表清除告警，不传或者传其他值默认为上报动作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1124,11 +1124,11 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Prometheus实例
+     * @param {string} enterpriseProjectId 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {string} [promId] Prometheus实例id(prom_id与prom_type同时存在时，仅prom_id生效)。
      * @param {'default' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] Prometheus实例类型（暂时不支持VPC、KUBERNETES）。
      * @param {'true' | 'false'} [cceClusterEnable] cce集群开关。
      * @param {'DELETED' | 'NORMAL' | 'ALL'} [promStatus] Prometheus实例状态。
-     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2437,18 +2437,18 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
-            let xEnterprisePrjectId;
+            let enterpriseProjectId;
             
             let action;
 
             if (pushEventsRequest !== null && pushEventsRequest !== undefined) {
                 if (pushEventsRequest instanceof PushEventsRequest) {
                     body = pushEventsRequest.body
-                    xEnterprisePrjectId = pushEventsRequest.xEnterprisePrjectId;
+                    enterpriseProjectId = pushEventsRequest.enterpriseProjectId;
                     action = pushEventsRequest.action;
                 } else {
                     body = pushEventsRequest['body'];
-                    xEnterprisePrjectId = pushEventsRequest['x-enterprise-prject-id'];
+                    enterpriseProjectId = pushEventsRequest['enterprise-project-id'];
                     action = pushEventsRequest['action'];
                 }
             }
@@ -2460,8 +2460,8 @@ export const ParamCreater = function () {
             if (action !== null && action !== undefined) {
                 localVarQueryParameter['action'] = action;
             }
-            if (xEnterprisePrjectId !== undefined && xEnterprisePrjectId !== null) {
-                localVarHeaderParameter['x-enterprise-prject-id'] = String(xEnterprisePrjectId);
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['enterprise-project-id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3110,6 +3110,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let enterpriseProjectId;
+            
             let promId;
             
             let promType;
@@ -3117,22 +3119,20 @@ export const ParamCreater = function () {
             let cceClusterEnable;
             
             let promStatus;
-            
-            let enterpriseProjectId;
 
             if (listPromInstanceRequest !== null && listPromInstanceRequest !== undefined) {
                 if (listPromInstanceRequest instanceof ListPromInstanceRequest) {
+                    enterpriseProjectId = listPromInstanceRequest.enterpriseProjectId;
                     promId = listPromInstanceRequest.promId;
                     promType = listPromInstanceRequest.promType;
                     cceClusterEnable = listPromInstanceRequest.cceClusterEnable;
                     promStatus = listPromInstanceRequest.promStatus;
-                    enterpriseProjectId = listPromInstanceRequest.enterpriseProjectId;
                 } else {
+                    enterpriseProjectId = listPromInstanceRequest['Enterprise-Project-Id'];
                     promId = listPromInstanceRequest['prom_id'];
                     promType = listPromInstanceRequest['prom_type'];
                     cceClusterEnable = listPromInstanceRequest['cce_cluster_enable'];
                     promStatus = listPromInstanceRequest['prom_status'];
-                    enterpriseProjectId = listPromInstanceRequest['Enterprise-Project-Id'];
                 }
             }
 

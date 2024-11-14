@@ -8,6 +8,7 @@ export class Update2dModelTrainingJobReq {
     private 'command_message'?: Update2dModelTrainingJobReqCommandMessageEnum | string;
     private 'video_multipart_count'?: number;
     private 'action_video_multipart_count'?: number;
+    private 'beauty_level'?: number;
     private 'is_background_replacement'?: boolean;
     private 'batch_name'?: string;
     public tags?: Array<string>;
@@ -53,6 +54,16 @@ export class Update2dModelTrainingJobReq {
     }
     public get actionVideoMultipartCount(): number | undefined {
         return this['action_video_multipart_count'];
+    }
+    public withBeautyLevel(beautyLevel: number): Update2dModelTrainingJobReq {
+        this['beauty_level'] = beautyLevel;
+        return this;
+    }
+    public set beautyLevel(beautyLevel: number  | undefined) {
+        this['beauty_level'] = beautyLevel;
+    }
+    public get beautyLevel(): number | undefined {
+        return this['beauty_level'];
     }
     public withIsBackgroundReplacement(isBackgroundReplacement: boolean): Update2dModelTrainingJobReq {
         this['is_background_replacement'] = isBackgroundReplacement;

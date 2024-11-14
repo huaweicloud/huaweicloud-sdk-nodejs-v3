@@ -95,7 +95,7 @@ export class LiveClient {
      * @summary 查询直播各区域指标分布接口
      * @param {string} startTime 查询起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度1天，最大查询周期90天。 
      * @param {string} endTime 查询结束时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度1天，最大查询周期90天。 
-     * @param {Array<string>} area 需查询的计费大区，取值如下： - CN：中国内地。 - AP1：亚太1区。 - AP2：亚太2区。 - AP3：亚太3区。 - MEAA：中东非洲。 - SA：南美。 - EU：欧洲。 - ALL：全部。  中国内地返回结果为省份/直辖市的中文名称，比如：广东、上海； 海外大区与地区/国家的对应关系请参考[地区/国家代码对照表](live_03_0049.xml)。 
+     * @param {Array<string>} area 需查询的计费大区，取值如下： - CN：中国内地。 - AP1：亚太1区。 - AP2：亚太2区。 - AP3：亚太3区。 - MEAA：中东非洲。 - SA：南美。 - EU：欧洲。 - ALL：全部。  中国内地返回结果为省份/直辖市的中文名称，比如：广东、上海； 海外大区与地区/国家的对应关系请参考[地区/国家代码对照表](https://support.huaweicloud.com/api-live/live_03_0049.html)。 
      * @param {string} metric 指标，取值如下： - bandwidth：带宽 - traffic：流量 - player：观众数 
      * @param {Array<string>} [playDomains] 需查询的播放域名列表，最多支持查询100个域名。 
      * @param {string} [app] 需查询的app。 
@@ -130,8 +130,8 @@ export class LiveClient {
      * @param {Array<string>} [playDomains] 播放域名列表，最多支持查询100个域名，多个域名以逗号分隔。  如果不传入域名，则查询租户下所有播放域名的带宽数据。 
      * @param {string} [app] 应用名称。
      * @param {string} [stream] 流名。
-     * @param {Array<string>} [country] 国家列表。具体取值请参考[国家名称缩写](vod_08_0172.xml)，不填写查询所有国家。 
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [country] 国家列表。具体取值请参考[国家名称缩写](https://support.huaweicloud.com/api-live/vod_08_0172.html)，不填写查询所有国家。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {Array<string>} [isp] 运营商列表，取值如下： - CMCC ：移动 - CTCC ：电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
      * @param {'flv' | 'hls'} [protocol] 请求协议
      * @param {300 | 3600 | 86400} [interval] 查询数据的时间粒度。支持300（默认值）, 3600和86400秒。不传值时，使用默认值300秒。 
@@ -165,7 +165,7 @@ export class LiveClient {
      * @param {Array<string>} [playDomains] 播放域名列表，最多支持查询100个域名，多个域名以逗号分隔。  如果不传入域名，则查询租户下所有播放域名的带宽峰值。 
      * @param {string} [app] 应用名称。
      * @param {string} [stream] 流名。
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {Array<string>} [isp] 运营商列表，取值如下： - CMCC ：移动 - CTCC ： 电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
      * @param {'flv' | 'hls'} [protocol] 请求协议
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度31天，最大查询周期一年。  若参数为空，默认查询7天数据。 
@@ -198,7 +198,7 @@ export class LiveClient {
      * @param {Array<string>} [playDomains] 播放域名列表，最多支持查询100个域名，多个域名以逗号分隔。  如果不传入域名，则查询租户下所有播放域名的流量数据。 
      * @param {string} [app] 应用名称。
      * @param {string} [stream] 流名。
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {Array<string>} [isp] 运营商列表，取值如下： - CMCC ：移动 - CTCC ： 电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
      * @param {'flv' | 'hls'} [protocol] 请求协议
      * @param {number} [interval] 查询数据的时间粒度。支持300（默认值）, 3600和86400秒。不传值时，使用默认值300秒。 
@@ -232,7 +232,7 @@ export class LiveClient {
      * @param {Array<string>} [playDomains] 播放域名列表，最多支持查询100个域名，多个域名以逗号分隔。  如果不传入域名，则查询租户下所有播放域名的流量汇总量。 
      * @param {string} [app] 应用名称。
      * @param {string} [stream] 流名。
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {Array<string>} [isp] 运营商列表。取值如下： - CMCC ：移动 - CTCC ： 电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
      * @param {'flv' | 'hls'} [protocol] 请求协议
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度31天，最大查询周期一年。  若参数为空，默认查询7天数据。 
@@ -309,7 +309,7 @@ export class LiveClient {
      * @summary 查询直播拉流HTTP状态码接口
      * @param {Array<string>} playDomains 播放域名列表，最多支持查询100个域名，多个域名以逗号分隔。 
      * @param {Array<string>} [code] 状态码。 
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {Array<string>} [isp] 运营商列表，取值如下： - CMCC ：移动 - CTCC ： 电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。若参数为空，默认查询最近1小时数据。  最大查询跨度1天，最大查询周期7天。 
      * @param {string} [endTime] 结束时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。  若参数为空，默认为当前时间。结束时间需大于起始时间。  最大查询跨度1天，最大查询周期7天。 
@@ -399,8 +399,8 @@ export class LiveClient {
      * @param {string} [app] app名。 
      * @param {string} [stream] 流名。 
      * @param {Array<string>} [isp] 运营商列表，取值如下： - CMCC ：移动 - CTCC ： 电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
-     * @param {Array<string>} [country] 国家列表。具体取值请参考[国家名称缩写](vod_08_0172.xml)，不填写查询所有国家。 
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [country] 国家列表。具体取值请参考[国家名称缩写](https://support.huaweicloud.com/api-live/vod_08_0172.html)，不填写查询所有国家。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {'flv' | 'hls'} [protocol] 请求协议
      * @param {60 | 300} [interval] 查询数据的时间粒度，支持60（默认值）, 300秒。不传值时，使用默认值60秒。 
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度31天，最大查询周期一年。  若参数为空，默认查询7天数据。 
@@ -470,7 +470,7 @@ export class LiveClient {
      * @param {Array<string>} publishDomains 推流域名列表，最多支持查询100个域名，多个域名以逗号分隔，若查询多个域名，则返回的是多个域名合并数据。 
      * @param {string} [app] 应用名称。 
      * @param {string} [stream] 流名。 
-     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](live_03_0043.xml)，不填写查询所有区域。 
+     * @param {Array<string>} [region] 区域列表。具体取值请参考[省份名称缩写](https://support.huaweicloud.com/api-live/live_03_0043.html)，不填写查询所有区域。 
      * @param {Array<string>} [isp] 运营商列表，取值如下： - CMCC ：移动 - CTCC ： 电信 - CUCC ：联通 - OTHER ：其他  不填写查询所有运营商。 
      * @param {300 | 3600 | 86400} [interval] 查询数据的时间粒度。支持300（默认值），3600和86400秒。不传值时，使用默认值300秒。 
      * @param {'RELAY'} [type] 类型： - RELAY：转推 不填默认查询推流 

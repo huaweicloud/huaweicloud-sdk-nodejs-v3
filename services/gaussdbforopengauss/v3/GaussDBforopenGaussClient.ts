@@ -2298,13 +2298,13 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 开启指定实例的MySQl兼容端口。
+     * 开启指定实例的M兼容端口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 开启MySQl兼容端口服务
+     * @summary 开启M兼容端口服务
      * @param {string} instanceId 实例ID。
-     * @param {StartMySQLCompatibilityRequestBody} startMySQLCompatibilityRequestBody 开启MySQL兼容端口服务请求体。
+     * @param {StartMySQLCompatibilityRequestBody} startMySQLCompatibilityRequestBody 开启M兼容端口服务请求体。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认值：en-us。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2444,13 +2444,13 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 更新指定实例的MySQl兼容端口服务配置。
+     * 更新指定实例的M兼容端口服务配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新/关闭MySQl兼容端口服务
+     * @summary 更新/关闭M兼容端口服务
      * @param {string} instanceId 实例ID。
-     * @param {UpdateMySQLCompatibilityRequestBody} updateMySQLCompatibilityRequestBody 更新启MySQL兼容端口服务配置请求体。
+     * @param {UpdateMySQLCompatibilityRequestBody} updateMySQLCompatibilityRequestBody 更新启M兼容端口服务配置请求体。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认值：en-us。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7525,7 +7525,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 开启指定实例的MySQl兼容端口。
+         * 开启指定实例的M兼容端口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7887,7 +7887,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新指定实例的MySQl兼容端口服务配置。
+         * 更新指定实例的M兼容端口服务配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -640,6 +640,8 @@ export * from './model/ListTableModelsResultData';
 export * from './model/ListTableModelsResultDataValue';
 export * from './model/ListWorkspaceRolesRequest';
 export * from './model/ListWorkspaceRolesResponse';
+export * from './model/ListWorkspacesForUserRequest';
+export * from './model/ListWorkspacesForUserResponse';
 export * from './model/ListWorkspacesRequest';
 export * from './model/ListWorkspacesResponse';
 export * from './model/ListWorkspacesResultData';

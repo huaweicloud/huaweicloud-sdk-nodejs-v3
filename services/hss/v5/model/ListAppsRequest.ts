@@ -12,8 +12,7 @@ export class ListAppsRequest {
     public offset?: number;
     public category?: string;
     private 'part_match'?: boolean;
-    public constructor(hostId?: string) { 
-        this['host_id'] = hostId;
+    public constructor() { 
     }
     public withHostId(hostId: string): ListAppsRequest {
         this['host_id'] = hostId;

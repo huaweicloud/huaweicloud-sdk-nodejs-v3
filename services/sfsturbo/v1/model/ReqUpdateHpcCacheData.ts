@@ -1,12 +1,10 @@
 import { ConfigNasTarget } from './ConfigNasTarget';
-import { ConfigObsTarget } from './ConfigObsTarget';
 
 
 export class ReqUpdateHpcCacheData {
     private 'gc_time'?: number;
     private 'ck_time'?: number;
     public nas?: Array<ConfigNasTarget>;
-    public obs?: Array<ConfigObsTarget>;
     public constructor(gcTime?: number, ckTime?: number) { 
         this['gc_time'] = gcTime;
         this['ck_time'] = ckTime;
@@ -33,10 +31,6 @@ export class ReqUpdateHpcCacheData {
     }
     public withNas(nas: Array<ConfigNasTarget>): ReqUpdateHpcCacheData {
         this['nas'] = nas;
-        return this;
-    }
-    public withObs(obs: Array<ConfigObsTarget>): ReqUpdateHpcCacheData {
-        this['obs'] = obs;
         return this;
     }
 }

@@ -1,5 +1,6 @@
 import { ActionProgress } from './ActionProgress';
 import { ResourceTag } from './ResourceTag';
+import { ShareInfoFeatures } from './ShareInfoFeatures';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -27,6 +28,12 @@ export class ShowShareResponse extends SdkResponse {
     private 'vpc_id'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<ResourceTag>;
+    private 'optional_endpoint'?: string;
+    private 'hpc_bw'?: string;
+    public instanceId?: string;
+    public instanceType?: string;
+    public statusDetail?: string;
+    public features?: ShareInfoFeatures;
     public constructor() { 
         super();
     }
@@ -216,6 +223,42 @@ export class ShowShareResponse extends SdkResponse {
     }
     public withTags(tags: Array<ResourceTag>): ShowShareResponse {
         this['tags'] = tags;
+        return this;
+    }
+    public withOptionalEndpoint(optionalEndpoint: string): ShowShareResponse {
+        this['optional_endpoint'] = optionalEndpoint;
+        return this;
+    }
+    public set optionalEndpoint(optionalEndpoint: string  | undefined) {
+        this['optional_endpoint'] = optionalEndpoint;
+    }
+    public get optionalEndpoint(): string | undefined {
+        return this['optional_endpoint'];
+    }
+    public withHpcBw(hpcBw: string): ShowShareResponse {
+        this['hpc_bw'] = hpcBw;
+        return this;
+    }
+    public set hpcBw(hpcBw: string  | undefined) {
+        this['hpc_bw'] = hpcBw;
+    }
+    public get hpcBw(): string | undefined {
+        return this['hpc_bw'];
+    }
+    public withInstanceId(instanceId: string): ShowShareResponse {
+        this['instanceId'] = instanceId;
+        return this;
+    }
+    public withInstanceType(instanceType: string): ShowShareResponse {
+        this['instanceType'] = instanceType;
+        return this;
+    }
+    public withStatusDetail(statusDetail: string): ShowShareResponse {
+        this['statusDetail'] = statusDetail;
+        return this;
+    }
+    public withFeatures(features: ShareInfoFeatures): ShowShareResponse {
+        this['features'] = features;
         return this;
     }
 }

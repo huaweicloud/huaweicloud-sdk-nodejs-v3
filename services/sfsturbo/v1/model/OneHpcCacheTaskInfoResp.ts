@@ -3,7 +3,7 @@
 export class OneHpcCacheTaskInfoResp {
     private 'task_id'?: string;
     public type?: string;
-    public status?: string;
+    public status?: OneHpcCacheTaskInfoRespStatusEnum | string;
     private 'src_target'?: string;
     private 'src_prefix'?: string;
     private 'dest_target'?: string;
@@ -37,7 +37,7 @@ export class OneHpcCacheTaskInfoResp {
         this['type'] = type;
         return this;
     }
-    public withStatus(status: string): OneHpcCacheTaskInfoResp {
+    public withStatus(status: OneHpcCacheTaskInfoRespStatusEnum | string): OneHpcCacheTaskInfoResp {
         this['status'] = status;
         return this;
     }
@@ -105,4 +105,14 @@ export class OneHpcCacheTaskInfoResp {
         this['message'] = message;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OneHpcCacheTaskInfoRespStatusEnum {
+    SUCCESS = 'SUCCESS',
+    DOING = 'DOING',
+    FAIL = 'FAIL'
 }

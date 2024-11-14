@@ -2,6 +2,8 @@
 
 export class RetypeVolume {
     private 'new_type'?: string;
+    public iops?: number;
+    public throughput?: number;
     public constructor(newType?: string) { 
         this['new_type'] = newType;
     }
@@ -14,5 +16,13 @@ export class RetypeVolume {
     }
     public get newType(): string | undefined {
         return this['new_type'];
+    }
+    public withIops(iops: number): RetypeVolume {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): RetypeVolume {
+        this['throughput'] = throughput;
+        return this;
     }
 }

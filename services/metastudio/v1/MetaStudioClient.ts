@@ -68,6 +68,9 @@ import { CreateAssetByReplicationInfoResponse } from './model/CreateAssetByRepli
 import { CreateBatchKnowledgeQuestionReq } from './model/CreateBatchKnowledgeQuestionReq';
 import { CreateBatchKnowledgeQuestionRequest } from './model/CreateBatchKnowledgeQuestionRequest';
 import { CreateBatchKnowledgeQuestionResponse } from './model/CreateBatchKnowledgeQuestionResponse';
+import { CreateBeautyPreviewJobReq } from './model/CreateBeautyPreviewJobReq';
+import { CreateBeautyPreviewJobRequest } from './model/CreateBeautyPreviewJobRequest';
+import { CreateBeautyPreviewJobResponse } from './model/CreateBeautyPreviewJobResponse';
 import { CreateDialogUrlReq } from './model/CreateDialogUrlReq';
 import { CreateDialogUrlRequest } from './model/CreateDialogUrlRequest';
 import { CreateDialogUrlResponse } from './model/CreateDialogUrlResponse';
@@ -389,6 +392,8 @@ import { ShowAssetReplicationInfoRequest } from './model/ShowAssetReplicationInf
 import { ShowAssetReplicationInfoResponse } from './model/ShowAssetReplicationInfoResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
+import { ShowBeautyPreviewJobRequest } from './model/ShowBeautyPreviewJobRequest';
+import { ShowBeautyPreviewJobResponse } from './model/ShowBeautyPreviewJobResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
 import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
 import { ShowHotQuestionRequest } from './model/ShowHotQuestionRequest';
@@ -453,6 +458,8 @@ import { SmartLiveJob } from './model/SmartLiveJob';
 import { SmartLiveRoomBaseInfo } from './model/SmartLiveRoomBaseInfo';
 import { SmartTextLayerConfig } from './model/SmartTextLayerConfig';
 import { SmartVideoLayerConfig } from './model/SmartVideoLayerConfig';
+import { StartBeautyPreviewJobRequest } from './model/StartBeautyPreviewJobRequest';
+import { StartBeautyPreviewJobResponse } from './model/StartBeautyPreviewJobResponse';
 import { StartSmartChatJobRequest } from './model/StartSmartChatJobRequest';
 import { StartSmartChatJobResponse } from './model/StartSmartChatJobResponse';
 import { StartSmartLiveReq } from './model/StartSmartLiveReq';
@@ -476,8 +483,10 @@ import { TTSAJob } from './model/TTSAJob';
 import { TextConfig } from './model/TextConfig';
 import { TextLayerConfig } from './model/TextLayerConfig';
 import { ThirdPartyModelConfig } from './model/ThirdPartyModelConfig';
+import { TrainingAllocatedResource } from './model/TrainingAllocatedResource';
 import { TrainingJobBasicInfo } from './model/TrainingJobBasicInfo';
 import { TrainingJobInfo } from './model/TrainingJobInfo';
+import { TrainingVideoMarkInfo } from './model/TrainingVideoMarkInfo';
 import { TriggerProcess } from './model/TriggerProcess';
 import { Update2dModelTrainingJobReq } from './model/Update2dModelTrainingJobReq';
 import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
@@ -767,6 +776,75 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建美白预览任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建美白预览任务
+     * @param {CreateBeautyPreviewJobReq} createBeautyPreviewJobRequestBody 创建分身数字人模型训练任务请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createBeautyPreviewJob(createBeautyPreviewJobRequest?: CreateBeautyPreviewJobRequest): Promise<CreateBeautyPreviewJobResponse> {
+        const options = ParamCreater().createBeautyPreviewJob(createBeautyPreviewJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询美白预览任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询美白预览任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBeautyPreviewJob(showBeautyPreviewJobRequest?: ShowBeautyPreviewJobRequest): Promise<ShowBeautyPreviewJobResponse> {
+        const options = ParamCreater().showBeautyPreviewJob(showBeautyPreviewJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于启动美白预览任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动美白预览任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startBeautyPreviewJob(startBeautyPreviewJobRequest?: StartBeautyPreviewJobRequest): Promise<StartBeautyPreviewJobResponse> {
+        const options = ParamCreater().startBeautyPreviewJob(startBeautyPreviewJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建对话链接。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -992,11 +1070,11 @@ export class MetaStudioClient {
      * @param {'INTERSECTION' | 'UNION_SET'} [tagCombinationType] 标签查询组合方式 INTERSECTION：交集 UNION_SET：并集
      * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
      * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
-     * @param {string} [assetType] 资产类型。多个类型使用英文逗号分割。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
+     * @param {string} [assetType] 资产类型。多个类型使用英文逗号分隔。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
      * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {'SYSTEM' | 'CUSTOMIZATION' | 'ALL'} [assetSource] 资产来源。 * SYSTEM：系统资产 * CUSTOMIZATION：租户资产 * ALL：所有资产  默认查询租户资产。
-     * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分割。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 * WAITING_DELETE：资产将被下线 默认查询所有状态的资产。
+     * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分隔。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 * WAITING_DELETE：资产将被下线 默认查询所有状态的资产。
      * @param {string} [styleId] 基于风格化ID查询关联资产。 * system_male_001：男性风格01 * system_female_001：女性风格01 * system_male_002：男性风格02  * system_female_002：女性风格02
      * @param {Array<string>} [accurateQueryField] 使用精确查询的字段
      * @param {string} [renderEngine] 可用引擎。 * UE：UE引擎 * MetaEngine：MetaEngine引擎 &gt; 该字段当前只对MetaEngine白名单用户生效
@@ -4886,6 +4964,202 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建美白预览任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createBeautyPreviewJob(createBeautyPreviewJobRequest?: CreateBeautyPreviewJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-training-manage/beauty-preview/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createBeautyPreviewJobRequest !== null && createBeautyPreviewJobRequest !== undefined) {
+                if (createBeautyPreviewJobRequest instanceof CreateBeautyPreviewJobRequest) {
+                    body = createBeautyPreviewJobRequest.body
+                    authorization = createBeautyPreviewJobRequest.authorization;
+                    xSdkDate = createBeautyPreviewJobRequest.xSdkDate;
+                    xProjectId = createBeautyPreviewJobRequest.xProjectId;
+                    xAppUserId = createBeautyPreviewJobRequest.xAppUserId;
+                } else {
+                    body = createBeautyPreviewJobRequest['body'];
+                    authorization = createBeautyPreviewJobRequest['Authorization'];
+                    xSdkDate = createBeautyPreviewJobRequest['X-Sdk-Date'];
+                    xProjectId = createBeautyPreviewJobRequest['X-Project-Id'];
+                    xAppUserId = createBeautyPreviewJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询美白预览任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBeautyPreviewJob(showBeautyPreviewJobRequest?: ShowBeautyPreviewJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-training-manage/beauty-preview/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showBeautyPreviewJobRequest !== null && showBeautyPreviewJobRequest !== undefined) {
+                if (showBeautyPreviewJobRequest instanceof ShowBeautyPreviewJobRequest) {
+                    jobId = showBeautyPreviewJobRequest.jobId;
+                    authorization = showBeautyPreviewJobRequest.authorization;
+                    xSdkDate = showBeautyPreviewJobRequest.xSdkDate;
+                    xProjectId = showBeautyPreviewJobRequest.xProjectId;
+                    xAppUserId = showBeautyPreviewJobRequest.xAppUserId;
+                } else {
+                    jobId = showBeautyPreviewJobRequest['job_id'];
+                    authorization = showBeautyPreviewJobRequest['Authorization'];
+                    xSdkDate = showBeautyPreviewJobRequest['X-Sdk-Date'];
+                    xProjectId = showBeautyPreviewJobRequest['X-Project-Id'];
+                    xAppUserId = showBeautyPreviewJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showBeautyPreviewJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于启动美白预览任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startBeautyPreviewJob(startBeautyPreviewJobRequest?: StartBeautyPreviewJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-training-manage/beauty-preview/jobs/{job_id}/start",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (startBeautyPreviewJobRequest !== null && startBeautyPreviewJobRequest !== undefined) {
+                if (startBeautyPreviewJobRequest instanceof StartBeautyPreviewJobRequest) {
+                    jobId = startBeautyPreviewJobRequest.jobId;
+                    authorization = startBeautyPreviewJobRequest.authorization;
+                    xSdkDate = startBeautyPreviewJobRequest.xSdkDate;
+                    xProjectId = startBeautyPreviewJobRequest.xProjectId;
+                    xAppUserId = startBeautyPreviewJobRequest.xAppUserId;
+                } else {
+                    jobId = startBeautyPreviewJobRequest['job_id'];
+                    authorization = startBeautyPreviewJobRequest['Authorization'];
+                    xSdkDate = startBeautyPreviewJobRequest['X-Sdk-Date'];
+                    xProjectId = startBeautyPreviewJobRequest['X-Project-Id'];
+                    xAppUserId = startBeautyPreviewJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling startBeautyPreviewJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

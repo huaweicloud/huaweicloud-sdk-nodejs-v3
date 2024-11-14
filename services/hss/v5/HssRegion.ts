@@ -12,6 +12,7 @@ export class HssRegion {
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://hss.cn-southwest-2.myhuaweicloud.com"]);
     public static CN_EAST_2 = new Region("cn-east-2", ["https://hss.cn-east-2.myhuaweicloud.com"]);
     public static CN_EAST_3 = new Region("cn-east-3", ["https://hss.cn-east-3.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://hss.cn-east-4.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://hss.cn-south-1.myhuaweicloud.com"]);
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://hss.cn-south-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://hss.ap-southeast-1.myhuaweicloud.com"]);
@@ -41,6 +42,7 @@ export class HssRegion {
         "cn-southwest-2":HssRegion.CN_SOUTHWEST_2,
         "cn-east-2":HssRegion.CN_EAST_2,
         "cn-east-3":HssRegion.CN_EAST_3,
+        "cn-east-4":HssRegion.CN_EAST_4,
         "cn-south-1":HssRegion.CN_SOUTH_1,
         "cn-south-2":HssRegion.CN_SOUTH_2,
         "ap-southeast-1":HssRegion.AP_SOUTHEAST_1,

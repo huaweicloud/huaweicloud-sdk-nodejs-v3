@@ -59,6 +59,15 @@ export class TriggerEventDataResponseBody {
     private 'exchange_name'?: string;
     public vhost?: string;
     private 'ssl_enable'?: boolean;
+    private 'Key_encode'?: boolean;
+    public agency?: string;
+    private 'channel_name'?: string;
+    private 'channel_id'?: string;
+    private 'source_name'?: string;
+    private 'created_time'?: Date;
+    public status?: TriggerEventDataResponseBodyStatusEnum | string;
+    private 'trigger_name'?: string;
+    private 'event_types'?: Array<string>;
     public constructor() { 
     }
     public withName(name: string): TriggerEventDataResponseBody {
@@ -547,6 +556,84 @@ export class TriggerEventDataResponseBody {
     public get sslEnable(): boolean | undefined {
         return this['ssl_enable'];
     }
+    public withKeyEncode(keyEncode: boolean): TriggerEventDataResponseBody {
+        this['Key_encode'] = keyEncode;
+        return this;
+    }
+    public set keyEncode(keyEncode: boolean  | undefined) {
+        this['Key_encode'] = keyEncode;
+    }
+    public get keyEncode(): boolean | undefined {
+        return this['Key_encode'];
+    }
+    public withAgency(agency: string): TriggerEventDataResponseBody {
+        this['agency'] = agency;
+        return this;
+    }
+    public withChannelName(channelName: string): TriggerEventDataResponseBody {
+        this['channel_name'] = channelName;
+        return this;
+    }
+    public set channelName(channelName: string  | undefined) {
+        this['channel_name'] = channelName;
+    }
+    public get channelName(): string | undefined {
+        return this['channel_name'];
+    }
+    public withChannelId(channelId: string): TriggerEventDataResponseBody {
+        this['channel_id'] = channelId;
+        return this;
+    }
+    public set channelId(channelId: string  | undefined) {
+        this['channel_id'] = channelId;
+    }
+    public get channelId(): string | undefined {
+        return this['channel_id'];
+    }
+    public withSourceName(sourceName: string): TriggerEventDataResponseBody {
+        this['source_name'] = sourceName;
+        return this;
+    }
+    public set sourceName(sourceName: string  | undefined) {
+        this['source_name'] = sourceName;
+    }
+    public get sourceName(): string | undefined {
+        return this['source_name'];
+    }
+    public withCreatedTime(createdTime: Date): TriggerEventDataResponseBody {
+        this['created_time'] = createdTime;
+        return this;
+    }
+    public set createdTime(createdTime: Date  | undefined) {
+        this['created_time'] = createdTime;
+    }
+    public get createdTime(): Date | undefined {
+        return this['created_time'];
+    }
+    public withStatus(status: TriggerEventDataResponseBodyStatusEnum | string): TriggerEventDataResponseBody {
+        this['status'] = status;
+        return this;
+    }
+    public withTriggerName(triggerName: string): TriggerEventDataResponseBody {
+        this['trigger_name'] = triggerName;
+        return this;
+    }
+    public set triggerName(triggerName: string  | undefined) {
+        this['trigger_name'] = triggerName;
+    }
+    public get triggerName(): string | undefined {
+        return this['trigger_name'];
+    }
+    public withEventTypes(eventTypes: Array<string>): TriggerEventDataResponseBody {
+        this['event_types'] = eventTypes;
+        return this;
+    }
+    public set eventTypes(eventTypes: Array<string>  | undefined) {
+        this['event_types'] = eventTypes;
+    }
+    public get eventTypes(): Array<string> | undefined {
+        return this['event_types'];
+    }
 }
 
 /**
@@ -626,4 +713,12 @@ export enum TriggerEventDataResponseBodyPollingUnitEnum {
 export enum TriggerEventDataResponseBodyIsSerialEnum {
     TRUE = 'true',
     FALSE = 'false'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TriggerEventDataResponseBodyStatusEnum {
+    ACTIVE = 'ACTIVE',
+    DISABLE = 'DISABLE'
 }

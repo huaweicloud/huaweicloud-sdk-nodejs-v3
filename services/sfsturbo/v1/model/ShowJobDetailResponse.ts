@@ -3,7 +3,7 @@ import { GetSubJobDetail } from './GetSubJobDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowJobDetailResponse extends SdkResponse {
-    public status?: string;
+    public status?: ShowJobDetailResponseStatusEnum | string;
     private 'job_id'?: string;
     private 'job_type'?: string;
     private 'begin_time'?: string;
@@ -15,7 +15,7 @@ export class ShowJobDetailResponse extends SdkResponse {
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ShowJobDetailResponse {
+    public withStatus(status: ShowJobDetailResponseStatusEnum | string): ShowJobDetailResponse {
         this['status'] = status;
         return this;
     }
@@ -99,4 +99,15 @@ export class ShowJobDetailResponse extends SdkResponse {
     public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowJobDetailResponseStatusEnum {
+    SUCCESS = 'success',
+    FAILED = 'failed',
+    WAITING = 'waiting',
+    RUNNING = 'running'
 }

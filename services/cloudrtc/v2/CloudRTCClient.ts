@@ -4,7 +4,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { App } from './model/App';
 import { AppAuth } from './model/AppAuth';
-import { AppAuthReq } from './model/AppAuthReq';
 import { AppAutoRecordMode } from './model/AppAutoRecordMode';
 import { AppCallbackUrl } from './model/AppCallbackUrl';
 import { AppCallbackUrlReq } from './model/AppCallbackUrlReq';
@@ -63,8 +62,6 @@ import { ShowRecordCallbackRequest } from './model/ShowRecordCallbackRequest';
 import { ShowRecordCallbackResponse } from './model/ShowRecordCallbackResponse';
 import { ShowRecordRuleRequest } from './model/ShowRecordRuleRequest';
 import { ShowRecordRuleResponse } from './model/ShowRecordRuleResponse';
-import { ShowUrlAuthRequest } from './model/ShowUrlAuthRequest';
-import { ShowUrlAuthResponse } from './model/ShowUrlAuthResponse';
 import { StartAppRequest } from './model/StartAppRequest';
 import { StartAppResponse } from './model/StartAppResponse';
 import { StopAppRequest } from './model/StopAppRequest';
@@ -88,8 +85,6 @@ import { UpdateRecordCallbackRequest } from './model/UpdateRecordCallbackRequest
 import { UpdateRecordCallbackResponse } from './model/UpdateRecordCallbackResponse';
 import { UpdateRecordRuleRequest } from './model/UpdateRecordRuleRequest';
 import { UpdateRecordRuleResponse } from './model/UpdateRecordRuleResponse';
-import { UpdateUrlAuthRequest } from './model/UpdateUrlAuthRequest';
-import { UpdateUrlAuthResponse } from './model/UpdateUrlAuthResponse';
 
 export class CloudRTCClient {
     public static newBuilder(): ClientBuilder<CloudRTCClient> {
@@ -498,28 +493,6 @@ export class CloudRTCClient {
     }
 
     /**
-     * 查询应用鉴权配置参数
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询访问控制参数
-     * @param {string} appId 应用id
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showUrlAuth(showUrlAuthRequest?: ShowUrlAuthRequest): Promise<ShowUrlAuthResponse> {
-        const options = ParamCreater().showUrlAuth(showUrlAuthRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 调用此接口启用单个应用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -728,29 +701,6 @@ export class CloudRTCClient {
      */
     public updateRecordRule(updateRecordRuleRequest?: UpdateRecordRuleRequest): Promise<UpdateRecordRuleResponse> {
         const options = ParamCreater().updateRecordRule(updateRecordRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 调用此接口开启或关闭URL鉴权。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 开关访问控制
-     * @param {string} appId 应用id
-     * @param {AppAuthReq} updateUrlAuthRequestBody URL鉴权请求消息体
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateUrlAuth(updateUrlAuthRequest?: UpdateUrlAuthRequest): Promise<UpdateUrlAuthResponse> {
-        const options = ParamCreater().updateUrlAuth(updateUrlAuthRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-Id'];
@@ -1883,64 +1833,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询应用鉴权配置参数
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showUrlAuth(showUrlAuthRequest?: ShowUrlAuthRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/apps/{app_id}/authentication",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let appId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-
-            if (showUrlAuthRequest !== null && showUrlAuthRequest !== undefined) {
-                if (showUrlAuthRequest instanceof ShowUrlAuthRequest) {
-                    appId = showUrlAuthRequest.appId;
-                    authorization = showUrlAuthRequest.authorization;
-                    xSdkDate = showUrlAuthRequest.xSdkDate;
-                    xProjectId = showUrlAuthRequest.xProjectId;
-                } else {
-                    appId = showUrlAuthRequest['app_id'];
-                    authorization = showUrlAuthRequest['Authorization'];
-                    xSdkDate = showUrlAuthRequest['X-Sdk-Date'];
-                    xProjectId = showUrlAuthRequest['X-Project-Id'];
-                }
-            }
-
-        
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showUrlAuth.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-
-            options.pathParams = { 'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 调用此接口启用单个应用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2546,73 +2438,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'app_id': appId,'rule_id': ruleId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 调用此接口开启或关闭URL鉴权。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateUrlAuth(updateUrlAuthRequest?: UpdateUrlAuthRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/apps/{app_id}/authentication",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let appId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-
-            if (updateUrlAuthRequest !== null && updateUrlAuthRequest !== undefined) {
-                if (updateUrlAuthRequest instanceof UpdateUrlAuthRequest) {
-                    appId = updateUrlAuthRequest.appId;
-                    body = updateUrlAuthRequest.body
-                    authorization = updateUrlAuthRequest.authorization;
-                    xSdkDate = updateUrlAuthRequest.xSdkDate;
-                    xProjectId = updateUrlAuthRequest.xProjectId;
-                } else {
-                    appId = updateUrlAuthRequest['app_id'];
-                    body = updateUrlAuthRequest['body'];
-                    authorization = updateUrlAuthRequest['Authorization'];
-                    xSdkDate = updateUrlAuthRequest['X-Sdk-Date'];
-                    xProjectId = updateUrlAuthRequest['X-Project-Id'];
-                }
-            }
-
-        
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateUrlAuth.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

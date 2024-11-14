@@ -2,7 +2,8 @@
 
 export class UpdateMySQLCompatibilityRequestBody {
     public port?: string;
-    public constructor() { 
+    public constructor(port?: string) { 
+        this['port'] = port;
     }
     public withPort(port: string): UpdateMySQLCompatibilityRequestBody {
         this['port'] = port;

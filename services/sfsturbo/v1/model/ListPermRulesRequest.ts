@@ -2,6 +2,8 @@
 
 export class ListPermRulesRequest {
     private 'share_id'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(shareId?: string) { 
         this['share_id'] = shareId;
     }
@@ -14,5 +16,13 @@ export class ListPermRulesRequest {
     }
     public get shareId(): string | undefined {
         return this['share_id'];
+    }
+    public withLimit(limit: number): ListPermRulesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListPermRulesRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

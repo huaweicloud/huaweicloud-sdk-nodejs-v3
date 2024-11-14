@@ -26,11 +26,19 @@ import { BackupPolicyItem } from './model/BackupPolicyItem';
 import { BackupStrategy } from './model/BackupStrategy';
 import { BackupStrategyForItemResponse } from './model/BackupStrategyForItemResponse';
 import { BalancerActiveWindow } from './model/BalancerActiveWindow';
+import { BatchDeleteBackupRequest } from './model/BatchDeleteBackupRequest';
+import { BatchDeleteBackupRequestBody } from './model/BatchDeleteBackupRequestBody';
+import { BatchDeleteBackupResponse } from './model/BatchDeleteBackupResponse';
 import { BatchOperateInstanceTagRequestBody } from './model/BatchOperateInstanceTagRequestBody';
 import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
+import { BatchUpgradeDatabaseVersionRequest } from './model/BatchUpgradeDatabaseVersionRequest';
+import { BatchUpgradeDatabaseVersionRequestBody } from './model/BatchUpgradeDatabaseVersionRequestBody';
+import { BatchUpgradeDatabaseVersionResponse } from './model/BatchUpgradeDatabaseVersionResponse';
 import { CancelEipRequest } from './model/CancelEipRequest';
 import { CancelEipResponse } from './model/CancelEipResponse';
+import { CancelScheduledTaskRequest } from './model/CancelScheduledTaskRequest';
+import { CancelScheduledTaskResponse } from './model/CancelScheduledTaskResponse';
 import { CertInfo } from './model/CertInfo';
 import { ChangeOpsWindowRequest } from './model/ChangeOpsWindowRequest';
 import { ChangeOpsWindowResponse } from './model/ChangeOpsWindowResponse';
@@ -44,6 +52,7 @@ import { CheckWeakPasswordResponse } from './model/CheckWeakPasswordResponse';
 import { ClientNetworkRequestBody } from './model/ClientNetworkRequestBody';
 import { CompareConfigurationRequest } from './model/CompareConfigurationRequest';
 import { CompareConfigurationResponse } from './model/CompareConfigurationResponse';
+import { ConfigurationModifyHistoryInfo } from './model/ConfigurationModifyHistoryInfo';
 import { ConfigurationParametersResult } from './model/ConfigurationParametersResult';
 import { CopyConfigurationRequest } from './model/CopyConfigurationRequest';
 import { CopyConfigurationRequestBody } from './model/CopyConfigurationRequestBody';
@@ -106,6 +115,7 @@ import { DeleteSessionRequestBody } from './model/DeleteSessionRequestBody';
 import { DeleteSessionResponse } from './model/DeleteSessionResponse';
 import { DiffConfigurationRequest } from './model/DiffConfigurationRequest';
 import { DiffDetails } from './model/DiffDetails';
+import { DiskAutoExpansionPolicy } from './model/DiskAutoExpansionPolicy';
 import { DiskVolumes } from './model/DiskVolumes';
 import { DownloadErrorlogRequest } from './model/DownloadErrorlogRequest';
 import { DownloadErrorlogRequestBody } from './model/DownloadErrorlogRequestBody';
@@ -197,6 +207,8 @@ import { ListRestoreDatabasesResponse } from './model/ListRestoreDatabasesRespon
 import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
 import { ListRestoreTimesResponse } from './model/ListRestoreTimesResponse';
 import { ListRestoreTimesResponseBodyRestoreTime } from './model/ListRestoreTimesResponseBodyRestoreTime';
+import { ListScheduledTasksRequest } from './model/ListScheduledTasksRequest';
+import { ListScheduledTasksResponse } from './model/ListScheduledTasksResponse';
 import { ListSessionsRequest } from './model/ListSessionsRequest';
 import { ListSessionsResponse } from './model/ListSessionsResponse';
 import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
@@ -259,9 +271,13 @@ import { RestoreNewInstanceRequestBody } from './model/RestoreNewInstanceRequest
 import { RestoreNewInstanceResponse } from './model/RestoreNewInstanceResponse';
 import { RestorePoint } from './model/RestorePoint';
 import { RolesOption } from './model/RolesOption';
+import { ScheduledTasksRspSchedules } from './model/ScheduledTasksRspSchedules';
 import { SetAuditlogPolicyRequest } from './model/SetAuditlogPolicyRequest';
 import { SetAuditlogPolicyRequestBody } from './model/SetAuditlogPolicyRequestBody';
 import { SetAuditlogPolicyResponse } from './model/SetAuditlogPolicyResponse';
+import { SetAutoEnlargePoliciesRequest } from './model/SetAutoEnlargePoliciesRequest';
+import { SetAutoEnlargePoliciesRequestBody } from './model/SetAutoEnlargePoliciesRequestBody';
+import { SetAutoEnlargePoliciesResponse } from './model/SetAutoEnlargePoliciesResponse';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
 import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
 import { SetBackupPolicyResponse } from './model/SetBackupPolicyResponse';
@@ -275,6 +291,8 @@ import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
 import { ShowAuditlogPolicyRequest } from './model/ShowAuditlogPolicyRequest';
 import { ShowAuditlogPolicyResponse } from './model/ShowAuditlogPolicyResponse';
+import { ShowAutoEnlargePolicyRequest } from './model/ShowAutoEnlargePolicyRequest';
+import { ShowAutoEnlargePolicyResponse } from './model/ShowAutoEnlargePolicyResponse';
 import { ShowBackupDownloadLinkRequest } from './model/ShowBackupDownloadLinkRequest';
 import { ShowBackupDownloadLinkResponse } from './model/ShowBackupDownloadLinkResponse';
 import { ShowBackupPolicyRequest } from './model/ShowBackupPolicyRequest';
@@ -293,6 +311,8 @@ import { ShowDiskUsageRequest } from './model/ShowDiskUsageRequest';
 import { ShowDiskUsageResponse } from './model/ShowDiskUsageResponse';
 import { ShowEntityConfigurationRequest } from './model/ShowEntityConfigurationRequest';
 import { ShowEntityConfigurationResponse } from './model/ShowEntityConfigurationResponse';
+import { ShowInstanceConfigurationModifyHistoryRequest } from './model/ShowInstanceConfigurationModifyHistoryRequest';
+import { ShowInstanceConfigurationModifyHistoryResponse } from './model/ShowInstanceConfigurationModifyHistoryResponse';
 import { ShowJobDetailRequest } from './model/ShowJobDetailRequest';
 import { ShowJobDetailResponse } from './model/ShowJobDetailResponse';
 import { ShowKillOpRuleRuleListRequest } from './model/ShowKillOpRuleRuleListRequest';
@@ -372,6 +392,9 @@ import { UpdateSecurityGroupResponse } from './model/UpdateSecurityGroupResponse
 import { UpgradeDatabaseVersionRequest } from './model/UpgradeDatabaseVersionRequest';
 import { UpgradeDatabaseVersionRequestBody } from './model/UpgradeDatabaseVersionRequestBody';
 import { UpgradeDatabaseVersionResponse } from './model/UpgradeDatabaseVersionResponse';
+import { UpgradeResult } from './model/UpgradeResult';
+import { ValidateConfigurationNameRequest } from './model/ValidateConfigurationNameRequest';
+import { ValidateConfigurationNameResponse } from './model/ValidateConfigurationNameResponse';
 import { Volume } from './model/Volume';
 import { WeakPasswordCheckRequestBody } from './model/WeakPasswordCheckRequestBody';
 
@@ -471,6 +494,26 @@ export class DdsClient {
     }
 
     /**
+     * 批量删除数据库实例的手动备份。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除手动备份
+     * @param {BatchDeleteBackupRequestBody} batchDeleteBackupRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteBackup(batchDeleteBackupRequest?: BatchDeleteBackupRequest): Promise<BatchDeleteBackupResponse> {
+        const options = ParamCreater().batchDeleteBackup(batchDeleteBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量添加或删除指定实例的标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -491,6 +534,25 @@ export class DdsClient {
     }
 
     /**
+     * 批量升级数据库补丁版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量数据库补丁升级
+     * @param {BatchUpgradeDatabaseVersionRequestBody} batchUpgradeDatabaseVersionRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest?: BatchUpgradeDatabaseVersionRequest): Promise<BatchUpgradeDatabaseVersionResponse> {
+        const options = ParamCreater().batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解绑实例下节点已经绑定的弹性公网IP。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -502,6 +564,25 @@ export class DdsClient {
      */
     public cancelEip(cancelEipRequest?: CancelEipRequest): Promise<CancelEipResponse> {
         const options = ParamCreater().cancelEip(cancelEipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据任务ID取消定时任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消定时任务
+     * @param {string} jobId 任务ID，取值为定时任务列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelScheduledTask(cancelScheduledTaskRequest?: CancelScheduledTaskRequest): Promise<CancelScheduledTaskResponse> {
+        const options = ParamCreater().cancelScheduledTask(cancelScheduledTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1519,6 +1600,31 @@ export class DdsClient {
     }
 
     /**
+     * 根据指定条件查询定时任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询定时任务
+     * @param {string} [jobName] 任务名称，默认为空。对应取值如下：  \&quot;RESIZE_FLAVOR\&quot;：变更实例的CPU和内存规格
+     * @param {string} [jobStatus] 任务执行状态，默认为空。 取值：  值为\&quot;Pending\&quot;，表示任务未执行。  值为\&quot;Running\&quot;，表示任务正在执行。  值为\&quot;Completed\&quot;，表示任务执行成功。  值为\&quot;Failed\&quot;，表示任务执行失败。  值为\&quot;Canceled\&quot;，表示任务取消执行。
+     * @param {string} [instanceId] 实例ID，不传该值默认查所有符合条件的实例。
+     * @param {string} [startTime] 任务创建起始时间，格式为\&quot;yyyy-mm-ddThh:mm:ssZ\&quot;。 其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100，不传默认为当前时间前七天。
+     * @param {string} [endTime] 任务创建结束时间，格式为\&quot;yyyy-mm-ddThh:mm:ssZ\&quot;。 其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100，不传默认为当前时间。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0。
+     * @param {number} [limit] 查询记录数。不传该参数时，默认为10,取值范围1-100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduledTasks(listScheduledTasksRequest?: ListScheduledTasksRequest): Promise<ListScheduledTasksResponse> {
+        const options = ParamCreater().listScheduledTasks(listScheduledTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例节点会话。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1831,6 +1937,25 @@ export class DdsClient {
     }
 
     /**
+     * 设置磁盘自动扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置磁盘自动扩容策略
+     * @param {SetAutoEnlargePoliciesRequestBody} setAutoEnlargePoliciesRequestBody 请求body。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setAutoEnlargePolicies(setAutoEnlargePoliciesRequest?: SetAutoEnlargePoliciesRequest): Promise<SetAutoEnlargePoliciesResponse> {
+        const options = ParamCreater().setAutoEnlargePolicies(setAutoEnlargePoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置自动备份策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1922,6 +2047,25 @@ export class DdsClient {
      */
     public showAuditlogPolicy(showAuditlogPolicyRequest?: ShowAuditlogPolicyRequest): Promise<ShowAuditlogPolicyResponse> {
         const options = ParamCreater().showAuditlogPolicy(showAuditlogPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询磁盘自动扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询磁盘自动扩容策略
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoEnlargePolicy(showAutoEnlargePolicyRequest?: ShowAutoEnlargePolicyRequest): Promise<ShowAutoEnlargePolicyResponse> {
+        const options = ParamCreater().showAutoEnlargePolicy(showAutoEnlargePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2102,6 +2246,27 @@ export class DdsClient {
      */
     public showEntityConfiguration(showEntityConfigurationRequest?: ShowEntityConfigurationRequest): Promise<ShowEntityConfigurationResponse> {
         const options = ParamCreater().showEntityConfiguration(showEntityConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例参数的修改历史。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例参数的修改历史
+     * @param {string} instanceId 实例ID。
+     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 取值必须为数字，不能为负数。
+     * @param {number} [limit] 查询个数上限值。 - 取值范围: 1~100。 - 不传该参数时，默认查询前100条信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceConfigurationModifyHistory(showInstanceConfigurationModifyHistoryRequest?: ShowInstanceConfigurationModifyHistoryRequest): Promise<ShowInstanceConfigurationModifyHistoryResponse> {
+        const options = ParamCreater().showInstanceConfigurationModifyHistory(showInstanceConfigurationModifyHistoryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2669,6 +2834,25 @@ export class DdsClient {
     }
 
     /**
+     * 校验参数模板名称是否存在。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验参数模板名称是否存在
+     * @param {string} name 参数模板名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public validateConfigurationName(validateConfigurationNameRequest?: ValidateConfigurationNameRequest): Promise<ValidateConfigurationNameResponse> {
+        const options = ParamCreater().validateConfigurationName(validateConfigurationNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询当前支持的API版本信息列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2894,6 +3078,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除数据库实例的手动备份。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteBackup(batchDeleteBackupRequest?: BatchDeleteBackupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchDeleteBackupRequest !== null && batchDeleteBackupRequest !== undefined) {
+                if (batchDeleteBackupRequest instanceof BatchDeleteBackupRequest) {
+                    body = batchDeleteBackupRequest.body
+                    xLanguage = batchDeleteBackupRequest.xLanguage;
+                } else {
+                    body = batchDeleteBackupRequest['body'];
+                    xLanguage = batchDeleteBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量添加或删除指定实例的标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2940,6 +3169,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量升级数据库补丁版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest?: BatchUpgradeDatabaseVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/db-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpgradeDatabaseVersionRequest !== null && batchUpgradeDatabaseVersionRequest !== undefined) {
+                if (batchUpgradeDatabaseVersionRequest instanceof BatchUpgradeDatabaseVersionRequest) {
+                    body = batchUpgradeDatabaseVersionRequest.body
+                } else {
+                    body = batchUpgradeDatabaseVersionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 解绑实例下节点已经绑定的弹性公网IP。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2972,6 +3239,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据任务ID取消定时任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelScheduledTask(cancelScheduledTaskRequest?: CancelScheduledTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/scheduled-jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (cancelScheduledTaskRequest !== null && cancelScheduledTaskRequest !== undefined) {
+                if (cancelScheduledTaskRequest instanceof CancelScheduledTaskRequest) {
+                    jobId = cancelScheduledTaskRequest.jobId;
+                } else {
+                    jobId = cancelScheduledTaskRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling cancelScheduledTask.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5402,6 +5706,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据指定条件查询定时任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduledTasks(listScheduledTasksRequest?: ListScheduledTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/scheduled-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobName;
+            
+            let jobStatus;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+
+            if (listScheduledTasksRequest !== null && listScheduledTasksRequest !== undefined) {
+                if (listScheduledTasksRequest instanceof ListScheduledTasksRequest) {
+                    jobName = listScheduledTasksRequest.jobName;
+                    jobStatus = listScheduledTasksRequest.jobStatus;
+                    instanceId = listScheduledTasksRequest.instanceId;
+                    startTime = listScheduledTasksRequest.startTime;
+                    endTime = listScheduledTasksRequest.endTime;
+                    offset = listScheduledTasksRequest.offset;
+                    limit = listScheduledTasksRequest.limit;
+                } else {
+                    jobName = listScheduledTasksRequest['job_name'];
+                    jobStatus = listScheduledTasksRequest['job_status'];
+                    instanceId = listScheduledTasksRequest['instance_id'];
+                    startTime = listScheduledTasksRequest['start_time'];
+                    endTime = listScheduledTasksRequest['end_time'];
+                    offset = listScheduledTasksRequest['offset'];
+                    limit = listScheduledTasksRequest['limit'];
+                }
+            }
+
+        
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
+            }
+            if (jobStatus !== null && jobStatus !== undefined) {
+                localVarQueryParameter['job_status'] = jobStatus;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例节点会话。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6176,6 +6559,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置磁盘自动扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setAutoEnlargePolicies(setAutoEnlargePoliciesRequest?: SetAutoEnlargePoliciesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/auto-enlarge-volume-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setAutoEnlargePoliciesRequest !== null && setAutoEnlargePoliciesRequest !== undefined) {
+                if (setAutoEnlargePoliciesRequest instanceof SetAutoEnlargePoliciesRequest) {
+                    body = setAutoEnlargePoliciesRequest.body
+                } else {
+                    body = setAutoEnlargePoliciesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置自动备份策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6386,6 +6807,43 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询磁盘自动扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoEnlargePolicy(showAutoEnlargePolicyRequest?: ShowAutoEnlargePolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-enlarge-volume-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showAutoEnlargePolicyRequest !== null && showAutoEnlargePolicyRequest !== undefined) {
+                if (showAutoEnlargePolicyRequest instanceof ShowAutoEnlargePolicyRequest) {
+                    instanceId = showAutoEnlargePolicyRequest.instanceId;
+                } else {
+                    instanceId = showAutoEnlargePolicyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAutoEnlargePolicy.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -6794,6 +7252,58 @@ export const ParamCreater = function () {
             }
             if (entityId !== null && entityId !== undefined) {
                 localVarQueryParameter['entity_id'] = entityId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例参数的修改历史。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceConfigurationModifyHistory(showInstanceConfigurationModifyHistoryRequest?: ShowInstanceConfigurationModifyHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/configuration-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showInstanceConfigurationModifyHistoryRequest !== null && showInstanceConfigurationModifyHistoryRequest !== undefined) {
+                if (showInstanceConfigurationModifyHistoryRequest instanceof ShowInstanceConfigurationModifyHistoryRequest) {
+                    instanceId = showInstanceConfigurationModifyHistoryRequest.instanceId;
+                    offset = showInstanceConfigurationModifyHistoryRequest.offset;
+                    limit = showInstanceConfigurationModifyHistoryRequest.limit;
+                } else {
+                    instanceId = showInstanceConfigurationModifyHistoryRequest['instance_id'];
+                    offset = showInstanceConfigurationModifyHistoryRequest['offset'];
+                    limit = showInstanceConfigurationModifyHistoryRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceConfigurationModifyHistory.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -8036,6 +8546,46 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验参数模板名称是否存在。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        validateConfigurationName(validateConfigurationNameRequest?: ValidateConfigurationNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/name-validation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+
+            if (validateConfigurationNameRequest !== null && validateConfigurationNameRequest !== undefined) {
+                if (validateConfigurationNameRequest instanceof ValidateConfigurationNameRequest) {
+                    name = validateConfigurationNameRequest.name;
+                } else {
+                    name = validateConfigurationNameRequest['name'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling validateConfigurationName.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -643,6 +643,8 @@ import { ListTableModelsResultData } from './model/ListTableModelsResultData';
 import { ListTableModelsResultDataValue } from './model/ListTableModelsResultDataValue';
 import { ListWorkspaceRolesRequest } from './model/ListWorkspaceRolesRequest';
 import { ListWorkspaceRolesResponse } from './model/ListWorkspaceRolesResponse';
+import { ListWorkspacesForUserRequest } from './model/ListWorkspacesForUserRequest';
+import { ListWorkspacesForUserResponse } from './model/ListWorkspacesForUserResponse';
 import { ListWorkspacesRequest } from './model/ListWorkspacesRequest';
 import { ListWorkspacesResponse } from './model/ListWorkspacesResponse';
 import { ListWorkspacesResultData } from './model/ListWorkspacesResultData';
@@ -5042,6 +5044,26 @@ export class DataArtsStudioClient {
      */
     public listWorkspaces(listWorkspacesRequest?: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
         const options = ParamCreater().listWorkspaces(listWorkspacesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定用户所有的工作空间集合
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定用户所有的工作空间集合
+     * @param {string} instanceId DataArtsStudio实例id
+     * @param {string} userId 用户id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkspacesForUser(listWorkspacesForUserRequest?: ListWorkspacesForUserRequest): Promise<ListWorkspacesForUserResponse> {
+        const options = ParamCreater().listWorkspacesForUser(listWorkspacesForUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -19751,6 +19773,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定用户所有的工作空间集合
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWorkspacesForUser(listWorkspacesForUserRequest?: ListWorkspacesForUserRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/{instance_id}/workspaces/{user_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let userId;
+
+            if (listWorkspacesForUserRequest !== null && listWorkspacesForUserRequest !== undefined) {
+                if (listWorkspacesForUserRequest instanceof ListWorkspacesForUserRequest) {
+                    instanceId = listWorkspacesForUserRequest.instanceId;
+                    userId = listWorkspacesForUserRequest.userId;
+                } else {
+                    instanceId = listWorkspacesForUserRequest['instance_id'];
+                    userId = listWorkspacesForUserRequest['user_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listWorkspacesForUser.');
+            }
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling listWorkspacesForUser.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'user_id': userId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

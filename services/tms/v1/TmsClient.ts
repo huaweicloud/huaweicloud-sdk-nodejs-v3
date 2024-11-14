@@ -195,7 +195,7 @@ export class TmsClient {
      *
      * @summary 查询标签管理支持的服务
      * @param {'zh-cn' | 'en-us'} [locale] 指定显示语言
-     * @param {number} [limit] 查询记录数默认为200，limit最多为200，最小值为1。
+     * @param {number} [limit] 查询记录数默认为10，limit最多为200，最小值为1。
      * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询，必须为数字，不能为负数，默认为0。
      * @param {string} [provider] 云服务名称
      * @param {*} [options] Override http request option.

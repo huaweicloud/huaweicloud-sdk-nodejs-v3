@@ -797,7 +797,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询软件的服务器列表
-     * @param {string} hostId 主机id
+     * @param {string} [hostId] 主机id
      * @param {string} [hostName] 主机名称
      * @param {string} [appName] 软件名称
      * @param {string} [hostIp] 主机ip
@@ -3756,9 +3756,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listApps.');
-            }
             if (hostId !== null && hostId !== undefined) {
                 localVarQueryParameter['host_id'] = hostId;
             }

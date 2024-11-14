@@ -7,6 +7,7 @@ export class ApigDataSourceVo {
     private 'agent_id'?: string;
     private 'agent_name'?: string;
     private 'env_type'?: number;
+    public supportService?: number;
     public constructor(dwName?: string, dwType?: string, dwConfig?: object) { 
         this['dw_name'] = dwName;
         this['dw_type'] = dwType;
@@ -71,5 +72,9 @@ export class ApigDataSourceVo {
     }
     public get envType(): number | undefined {
         return this['env_type'];
+    }
+    public withSupportService(supportService: number): ApigDataSourceVo {
+        this['supportService'] = supportService;
+        return this;
     }
 }

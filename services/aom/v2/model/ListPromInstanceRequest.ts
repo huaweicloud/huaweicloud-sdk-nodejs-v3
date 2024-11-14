@@ -6,7 +6,8 @@ export class ListPromInstanceRequest {
     private 'cce_cluster_enable'?: ListPromInstanceRequestCceClusterEnableEnum | string;
     private 'prom_status'?: ListPromInstanceRequestPromStatusEnum | string;
     private 'Enterprise-Project-Id'?: string;
-    public constructor() { 
+    public constructor(enterpriseProjectId?: string) { 
+        this['Enterprise-Project-Id'] = enterpriseProjectId;
     }
     public withPromId(promId: string): ListPromInstanceRequest {
         this['prom_id'] = promId;

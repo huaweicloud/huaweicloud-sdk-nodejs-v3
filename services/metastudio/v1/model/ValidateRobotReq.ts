@@ -12,7 +12,8 @@ export class ValidateRobotReq {
     private 'iflytek_spark'?: IflytekSpark;
     private 'third_party_model_config'?: ThirdPartyModelConfig;
     private 'mobvoi_config'?: MobvoiConfig;
-    public constructor() { 
+    public constructor(appType?: number) { 
+        this['app_type'] = appType;
     }
     public withAppType(appType: number): ValidateRobotReq {
         this['app_type'] = appType;

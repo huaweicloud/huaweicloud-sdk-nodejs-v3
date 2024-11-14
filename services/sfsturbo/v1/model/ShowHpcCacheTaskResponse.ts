@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowHpcCacheTaskResponse extends SdkResponse {
     private 'task_id'?: string;
     public type?: string;
-    public status?: string;
+    public status?: ShowHpcCacheTaskResponseStatusEnum | string;
     private 'src_target'?: string;
     private 'src_prefix'?: string;
     private 'dest_target'?: string;
@@ -30,7 +30,7 @@ export class ShowHpcCacheTaskResponse extends SdkResponse {
         this['type'] = type;
         return this;
     }
-    public withStatus(status: string): ShowHpcCacheTaskResponse {
+    public withStatus(status: ShowHpcCacheTaskResponseStatusEnum | string): ShowHpcCacheTaskResponse {
         this['status'] = status;
         return this;
     }
@@ -108,4 +108,14 @@ export class ShowHpcCacheTaskResponse extends SdkResponse {
     public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowHpcCacheTaskResponseStatusEnum {
+    SUCCESS = 'SUCCESS',
+    DOING = 'DOING',
+    FAIL = 'FAIL'
 }

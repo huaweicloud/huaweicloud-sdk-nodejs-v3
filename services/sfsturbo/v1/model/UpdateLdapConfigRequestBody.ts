@@ -7,6 +7,10 @@ export class UpdateLdapConfigRequestBody {
     public password?: string;
     private 'vpc_id'?: string;
     private 'filter_condition'?: string;
+    private 'backup_url'?: string;
+    public schema?: string;
+    private 'search_timeout'?: number;
+    private 'allow_local_user'?: UpdateLdapConfigRequestBodyAllowLocalUserEnum | string;
     public constructor() { 
     }
     public withUrl(url: string): UpdateLdapConfigRequestBody {
@@ -57,4 +61,47 @@ export class UpdateLdapConfigRequestBody {
     public get filterCondition(): string | undefined {
         return this['filter_condition'];
     }
+    public withBackupUrl(backupUrl: string): UpdateLdapConfigRequestBody {
+        this['backup_url'] = backupUrl;
+        return this;
+    }
+    public set backupUrl(backupUrl: string  | undefined) {
+        this['backup_url'] = backupUrl;
+    }
+    public get backupUrl(): string | undefined {
+        return this['backup_url'];
+    }
+    public withSchema(schema: string): UpdateLdapConfigRequestBody {
+        this['schema'] = schema;
+        return this;
+    }
+    public withSearchTimeout(searchTimeout: number): UpdateLdapConfigRequestBody {
+        this['search_timeout'] = searchTimeout;
+        return this;
+    }
+    public set searchTimeout(searchTimeout: number  | undefined) {
+        this['search_timeout'] = searchTimeout;
+    }
+    public get searchTimeout(): number | undefined {
+        return this['search_timeout'];
+    }
+    public withAllowLocalUser(allowLocalUser: UpdateLdapConfigRequestBodyAllowLocalUserEnum | string): UpdateLdapConfigRequestBody {
+        this['allow_local_user'] = allowLocalUser;
+        return this;
+    }
+    public set allowLocalUser(allowLocalUser: UpdateLdapConfigRequestBodyAllowLocalUserEnum | string  | undefined) {
+        this['allow_local_user'] = allowLocalUser;
+    }
+    public get allowLocalUser(): UpdateLdapConfigRequestBodyAllowLocalUserEnum | string | undefined {
+        return this['allow_local_user'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateLdapConfigRequestBodyAllowLocalUserEnum {
+    YES = 'Yes',
+    NO = 'No'
 }

@@ -12,7 +12,9 @@ export class Create2dModelTrainingJobReq {
     private 'batch_name'?: string;
     public tags?: Array<string>;
     private 'model_version'?: Create2dModelTrainingJobReqModelVersionEnum | string;
+    private 'beauty_level'?: number;
     private 'is_flexus'?: boolean;
+    private 'is_only_human_model'?: boolean;
     private 'audio_source_type'?: Create2dModelTrainingJobReqAudioSourceTypeEnum | string;
     private 'voice_properties'?: VoiceProperties;
     private 'supported_service'?: Array<SupportedServiceEnum>;
@@ -91,6 +93,16 @@ export class Create2dModelTrainingJobReq {
     public get modelVersion(): Create2dModelTrainingJobReqModelVersionEnum | string | undefined {
         return this['model_version'];
     }
+    public withBeautyLevel(beautyLevel: number): Create2dModelTrainingJobReq {
+        this['beauty_level'] = beautyLevel;
+        return this;
+    }
+    public set beautyLevel(beautyLevel: number  | undefined) {
+        this['beauty_level'] = beautyLevel;
+    }
+    public get beautyLevel(): number | undefined {
+        return this['beauty_level'];
+    }
     public withIsFlexus(isFlexus: boolean): Create2dModelTrainingJobReq {
         this['is_flexus'] = isFlexus;
         return this;
@@ -100,6 +112,16 @@ export class Create2dModelTrainingJobReq {
     }
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
+    }
+    public withIsOnlyHumanModel(isOnlyHumanModel: boolean): Create2dModelTrainingJobReq {
+        this['is_only_human_model'] = isOnlyHumanModel;
+        return this;
+    }
+    public set isOnlyHumanModel(isOnlyHumanModel: boolean  | undefined) {
+        this['is_only_human_model'] = isOnlyHumanModel;
+    }
+    public get isOnlyHumanModel(): boolean | undefined {
+        return this['is_only_human_model'];
     }
     public withAudioSourceType(audioSourceType: Create2dModelTrainingJobReqAudioSourceTypeEnum | string): Create2dModelTrainingJobReq {
         this['audio_source_type'] = audioSourceType;
