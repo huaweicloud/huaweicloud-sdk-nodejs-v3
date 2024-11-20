@@ -38,6 +38,11 @@ export interface Logger {
     setName(name: string): void;
 }
 
+export interface LoggerOptions {
+    logger?: Logger;
+    logLevel?: LogLevel;
+}
+
 export class LoggerUtils {
 
     /** Map of severity as comparable numbers for each log level */
