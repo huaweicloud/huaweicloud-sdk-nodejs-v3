@@ -20,6 +20,8 @@ export class ShowUserResult {
     private 'is_domain_owner'?: boolean;
     private 'access_mode'?: string;
     public description?: string;
+    private 'pwd_create_time'?: string;
+    private 'modify_pwd_time'?: string;
     public constructor(enabled?: boolean, id?: string, domainId?: string, name?: string, links?: Links, isDomainOwner?: boolean, accessMode?: string, description?: string) { 
         this['enabled'] = enabled;
         this['id'] = id;
@@ -161,5 +163,25 @@ export class ShowUserResult {
     public withDescription(description: string): ShowUserResult {
         this['description'] = description;
         return this;
+    }
+    public withPwdCreateTime(pwdCreateTime: string): ShowUserResult {
+        this['pwd_create_time'] = pwdCreateTime;
+        return this;
+    }
+    public set pwdCreateTime(pwdCreateTime: string  | undefined) {
+        this['pwd_create_time'] = pwdCreateTime;
+    }
+    public get pwdCreateTime(): string | undefined {
+        return this['pwd_create_time'];
+    }
+    public withModifyPwdTime(modifyPwdTime: string): ShowUserResult {
+        this['modify_pwd_time'] = modifyPwdTime;
+        return this;
+    }
+    public set modifyPwdTime(modifyPwdTime: string  | undefined) {
+        this['modify_pwd_time'] = modifyPwdTime;
+    }
+    public get modifyPwdTime(): string | undefined {
+        return this['modify_pwd_time'];
     }
 }

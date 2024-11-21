@@ -8,6 +8,7 @@ export class ListWelcomeSpeechRequest {
     public offset?: number;
     public limit?: number;
     private 'robot_id'?: string;
+    public language?: ListWelcomeSpeechRequestLanguageEnum | string;
     public constructor(robotId?: string) { 
         this['robot_id'] = robotId;
     }
@@ -69,4 +70,17 @@ export class ListWelcomeSpeechRequest {
     public get robotId(): string | undefined {
         return this['robot_id'];
     }
+    public withLanguage(language: ListWelcomeSpeechRequestLanguageEnum | string): ListWelcomeSpeechRequest {
+        this['language'] = language;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListWelcomeSpeechRequestLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
 }

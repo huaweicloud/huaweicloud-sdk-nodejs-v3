@@ -8,6 +8,7 @@ interface RegionMap {
 export class LtsRegion {
     public static CN_EAST_2 = new Region("cn-east-2", ["https://lts.cn-east-2.myhuaweicloud.com"]);
     public static CN_EAST_3 = new Region("cn-east-3", ["https://lts.cn-east-3.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://lts.cn-east-5.myhuaweicloud.com"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://lts.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://lts.cn-north-2.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://lts.cn-north-4.myhuaweicloud.com"]);
@@ -35,6 +36,7 @@ export class LtsRegion {
     private static REGION_MAP: RegionMap = {
         "cn-east-2":LtsRegion.CN_EAST_2,
         "cn-east-3":LtsRegion.CN_EAST_3,
+        "cn-east-5":LtsRegion.CN_EAST_5,
         "cn-north-1":LtsRegion.CN_NORTH_1,
         "cn-north-2":LtsRegion.CN_NORTH_2,
         "cn-north-4":LtsRegion.CN_NORTH_4,

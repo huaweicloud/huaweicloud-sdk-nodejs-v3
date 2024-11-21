@@ -6,6 +6,7 @@ export class MobvoiConfig {
     private 'role_id'?: string;
     private 'sis_region'?: number;
     private 'sis_project_id'?: string;
+    private 'enable_hot_words'?: boolean;
     public constructor() { 
     }
     public withAppKey(appKey: string): MobvoiConfig {
@@ -57,5 +58,15 @@ export class MobvoiConfig {
     }
     public get sisProjectId(): string | undefined {
         return this['sis_project_id'];
+    }
+    public withEnableHotWords(enableHotWords: boolean): MobvoiConfig {
+        this['enable_hot_words'] = enableHotWords;
+        return this;
+    }
+    public set enableHotWords(enableHotWords: boolean  | undefined) {
+        this['enable_hot_words'] = enableHotWords;
+    }
+    public get enableHotWords(): boolean | undefined {
+        return this['enable_hot_words'];
     }
 }

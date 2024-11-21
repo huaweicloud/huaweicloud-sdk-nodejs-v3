@@ -35,5 +35,5 @@ export class BulkCreateAndDeleteVaultTagsReq {
     */
 export enum BulkCreateAndDeleteVaultTagsReqActionEnum {
     CREATE = 'create',
-    DELETE = ' delete'
+    DELETE = 'delete'
 }

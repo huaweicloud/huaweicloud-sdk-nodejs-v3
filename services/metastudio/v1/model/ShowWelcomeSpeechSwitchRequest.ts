@@ -6,6 +6,7 @@ export class ShowWelcomeSpeechSwitchRequest {
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
     private 'robot_id'?: string;
+    public language?: ShowWelcomeSpeechSwitchRequestLanguageEnum | string;
     public constructor(robotId?: string) { 
         this['robot_id'] = robotId;
     }
@@ -59,4 +60,17 @@ export class ShowWelcomeSpeechSwitchRequest {
     public get robotId(): string | undefined {
         return this['robot_id'];
     }
+    public withLanguage(language: ShowWelcomeSpeechSwitchRequestLanguageEnum | string): ShowWelcomeSpeechSwitchRequest {
+        this['language'] = language;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowWelcomeSpeechSwitchRequestLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
 }

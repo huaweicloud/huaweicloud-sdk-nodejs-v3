@@ -110,6 +110,6 @@ export class BackupExtendInfo {
     */
 export enum BackupExtendInfoSupportedRestoreModeEnum {
     NA = 'na',
-    BACKUP = ' backup',
-    SNAPSHOT = ' snapshot'
+    BACKUP = 'backup',
+    SNAPSHOT = 'snapshot'
 }

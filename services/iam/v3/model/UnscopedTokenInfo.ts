@@ -9,7 +9,7 @@ export class UnscopedTokenInfo {
     private 'issued_at'?: string;
     public user?: FederationUserBody;
     public roles?: Array<UnscopedTokenInfoRoles>;
-    public catalog?: Array<UnscopedTokenInfoCatalog>;
+    public catalog?: UnscopedTokenInfoCatalog;
     public constructor(expiresAt?: string, methods?: Array<string>, issuedAt?: string, user?: FederationUserBody) { 
         this['expires_at'] = expiresAt;
         this['methods'] = methods;
@@ -48,7 +48,7 @@ export class UnscopedTokenInfo {
         this['roles'] = roles;
         return this;
     }
-    public withCatalog(catalog: Array<UnscopedTokenInfoCatalog>): UnscopedTokenInfo {
+    public withCatalog(catalog: UnscopedTokenInfoCatalog): UnscopedTokenInfo {
         this['catalog'] = catalog;
         return this;
     }

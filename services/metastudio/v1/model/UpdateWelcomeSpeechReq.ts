@@ -2,6 +2,7 @@
 
 export class UpdateWelcomeSpeechReq {
     private 'welcome_speech'?: string;
+    private 'enable_welcome_speech'?: boolean;
     public constructor() { 
     }
     public withWelcomeSpeech(welcomeSpeech: string): UpdateWelcomeSpeechReq {
@@ -13,5 +14,15 @@ export class UpdateWelcomeSpeechReq {
     }
     public get welcomeSpeech(): string | undefined {
         return this['welcome_speech'];
+    }
+    public withEnableWelcomeSpeech(enableWelcomeSpeech: boolean): UpdateWelcomeSpeechReq {
+        this['enable_welcome_speech'] = enableWelcomeSpeech;
+        return this;
+    }
+    public set enableWelcomeSpeech(enableWelcomeSpeech: boolean  | undefined) {
+        this['enable_welcome_speech'] = enableWelcomeSpeech;
+    }
+    public get enableWelcomeSpeech(): boolean | undefined {
+        return this['enable_welcome_speech'];
     }
 }

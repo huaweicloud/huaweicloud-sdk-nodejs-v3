@@ -6,6 +6,7 @@ export class CreateTtsAuditionRequestBody {
     public speed?: number;
     public pitch?: number;
     public volume?: number;
+    private 'business_type'?: string;
     public constructor(text?: string, emotion?: string) { 
         this['text'] = text;
         this['emotion'] = emotion;
@@ -29,5 +30,15 @@ export class CreateTtsAuditionRequestBody {
     public withVolume(volume: number): CreateTtsAuditionRequestBody {
         this['volume'] = volume;
         return this;
+    }
+    public withBusinessType(businessType: string): CreateTtsAuditionRequestBody {
+        this['business_type'] = businessType;
+        return this;
+    }
+    public set businessType(businessType: string  | undefined) {
+        this['business_type'] = businessType;
+    }
+    public get businessType(): string | undefined {
+        return this['business_type'];
     }
 }

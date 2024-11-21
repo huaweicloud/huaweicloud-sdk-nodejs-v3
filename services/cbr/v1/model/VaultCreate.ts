@@ -19,7 +19,8 @@ export class VaultCreate {
     private 'smn_notify'?: boolean;
     private 'backup_name_prefix'?: string;
     private 'demand_billing'?: boolean;
-    private 'sys_lock_source_service'?: VaultCreateSysLockSourceServiceEnum | string;
+    private 'sys_lock_source_service'?: string;
+    public locked?: boolean;
     public constructor(billing?: BillingCreate, name?: string, resources?: Array<ResourceCreate>) { 
         this['billing'] = billing;
         this['name'] = name;
@@ -129,23 +130,18 @@ export class VaultCreate {
     public get demandBilling(): boolean | undefined {
         return this['demand_billing'];
     }
-    public withSysLockSourceService(sysLockSourceService: VaultCreateSysLockSourceServiceEnum | string): VaultCreate {
+    public withSysLockSourceService(sysLockSourceService: string): VaultCreate {
         this['sys_lock_source_service'] = sysLockSourceService;
         return this;
     }
-    public set sysLockSourceService(sysLockSourceService: VaultCreateSysLockSourceServiceEnum | string  | undefined) {
+    public set sysLockSourceService(sysLockSourceService: string  | undefined) {
         this['sys_lock_source_service'] = sysLockSourceService;
     }
-    public get sysLockSourceService(): VaultCreateSysLockSourceServiceEnum | string | undefined {
+    public get sysLockSourceService(): string | undefined {
         return this['sys_lock_source_service'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VaultCreateSysLockSourceServiceEnum {
-    SMB = 'SMB',
-    Empty = ''
+    public withLocked(locked: boolean): VaultCreate {
+        this['locked'] = locked;
+        return this;
+    }
 }

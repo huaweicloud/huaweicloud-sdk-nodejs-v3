@@ -113,8 +113,11 @@ import { BatchOperationVO } from './model/BatchOperationVO';
 import { BatchPublishRequest } from './model/BatchPublishRequest';
 import { BatchPublishResponse } from './model/BatchPublishResponse';
 import { BatchPublishResultData } from './model/BatchPublishResultData';
+import { BatchRecommendationRequest } from './model/BatchRecommendationRequest';
 import { BatchSyncMetadataRequest } from './model/BatchSyncMetadataRequest';
 import { BatchSyncMetadataResponse } from './model/BatchSyncMetadataResponse';
+import { BatchTagRequest } from './model/BatchTagRequest';
+import { BatchTagResponse } from './model/BatchTagResponse';
 import { BatchUpdateSecurityDlfDataWareHousesRequest } from './model/BatchUpdateSecurityDlfDataWareHousesRequest';
 import { BatchUpdateSecurityDlfDataWareHousesResponse } from './model/BatchUpdateSecurityDlfDataWareHousesResponse';
 import { BehaviorRestBody } from './model/BehaviorRestBody';
@@ -714,6 +717,7 @@ import { QueryTaskRequest } from './model/QueryTaskRequest';
 import { QueueSrcAssignCreateDTO } from './model/QueueSrcAssignCreateDTO';
 import { QueueSrcAssignEntity } from './model/QueueSrcAssignEntity';
 import { QueueSrcAssignUpdateDTO } from './model/QueueSrcAssignUpdateDTO';
+import { Recommendation } from './model/Recommendation';
 import { RecordForApplyDetail } from './model/RecordForApplyDetail';
 import { RecordForGetAllCatalog } from './model/RecordForGetAllCatalog';
 import { RecordForGetAuthApp } from './model/RecordForGetAuthApp';
@@ -1427,6 +1431,26 @@ export class DataArtsStudioClient {
      */
     public batchSyncMetadata(batchSyncMetadataRequest?: BatchSyncMetadataRequest): Promise<BatchSyncMetadataResponse> {
         const options = ParamCreater().batchSyncMetadata(batchSyncMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量给资产打标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量打标签(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {BatchRecommendationRequest} batchLabelingRequestBody 批量打标签请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchTag(batchTagRequest?: BatchTagRequest): Promise<BatchTagResponse> {
+        const options = ParamCreater().batchTag(batchTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9143,6 +9167,51 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量给资产打标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchTag(batchTagRequest?: BatchTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/datamap/entities/guids/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instance;
+
+            if (batchTagRequest !== null && batchTagRequest !== undefined) {
+                if (batchTagRequest instanceof BatchTagRequest) {
+                    instance = batchTagRequest.instance;
+                    body = batchTagRequest.body
+                } else {
+                    instance = batchTagRequest['instance'];
+                    body = batchTagRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;

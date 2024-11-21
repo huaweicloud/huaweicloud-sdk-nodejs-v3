@@ -22,6 +22,7 @@ export class Vault {
     private 'smn_notify'?: boolean;
     public threshold?: number;
     private 'sys_lock_source_service'?: string;
+    public locked?: boolean;
     public constructor(billing?: Billing, id?: string, name?: string, projectId?: string, providerId?: string, resources?: Array<ResourceResp>) { 
         this['billing'] = billing;
         this['id'] = id;
@@ -157,5 +158,9 @@ export class Vault {
     }
     public get sysLockSourceService(): string | undefined {
         return this['sys_lock_source_service'];
+    }
+    public withLocked(locked: boolean): Vault {
+        this['locked'] = locked;
+        return this;
     }
 }

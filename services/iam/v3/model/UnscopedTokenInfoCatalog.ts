@@ -1,43 +1,32 @@
+import { UnscopedTokenInfoCatalogEndpoints } from './UnscopedTokenInfoCatalogEndpoints';
 
 
 export class UnscopedTokenInfoCatalog {
     public id?: string;
-    private 'interface'?: string;
-    public region?: string;
-    private 'region_id'?: string;
-    public url?: string;
+    public name?: string;
+    public type?: string;
+    public endpoints?: Array<UnscopedTokenInfoCatalogEndpoints>;
+    public description?: object;
     public constructor() { 
     }
     public withId(id: string): UnscopedTokenInfoCatalog {
         this['id'] = id;
         return this;
     }
-    public withInterface(_interface: string): UnscopedTokenInfoCatalog {
-        this['interface'] = _interface;
+    public withName(name: string): UnscopedTokenInfoCatalog {
+        this['name'] = name;
         return this;
     }
-    public set _interface(_interface: string  | undefined) {
-        this['interface'] = _interface;
-    }
-    public get _interface(): string | undefined {
-        return this['interface'];
-    }
-    public withRegion(region: string): UnscopedTokenInfoCatalog {
-        this['region'] = region;
+    public withType(type: string): UnscopedTokenInfoCatalog {
+        this['type'] = type;
         return this;
     }
-    public withRegionId(regionId: string): UnscopedTokenInfoCatalog {
-        this['region_id'] = regionId;
+    public withEndpoints(endpoints: Array<UnscopedTokenInfoCatalogEndpoints>): UnscopedTokenInfoCatalog {
+        this['endpoints'] = endpoints;
         return this;
     }
-    public set regionId(regionId: string  | undefined) {
-        this['region_id'] = regionId;
-    }
-    public get regionId(): string | undefined {
-        return this['region_id'];
-    }
-    public withUrl(url: string): UnscopedTokenInfoCatalog {
-        this['url'] = url;
+    public withDescription(description: object): UnscopedTokenInfoCatalog {
+        this['description'] = description;
         return this;
     }
 }

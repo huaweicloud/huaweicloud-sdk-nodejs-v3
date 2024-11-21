@@ -2,12 +2,12 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateScalingPolicyResponse extends SdkResponse {
-    public body?: string;
+    public result?: string;
     public constructor() { 
         super();
     }
-    public withBody(body: string): CreateScalingPolicyResponse {
-        this['body'] = body;
+    public withResult(result: string): CreateScalingPolicyResponse {
+        this['result'] = result;
         return this;
     }
 }

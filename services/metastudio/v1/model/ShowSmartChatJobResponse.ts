@@ -3,6 +3,7 @@ import { LanguageEnum } from './LanguageEnum';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 import { SmartChatSubtitleConfig } from './SmartChatSubtitleConfig';
 import { SmartChatVideoConfig } from './SmartChatVideoConfig';
+import { SmartChatVoiceConfig } from './SmartChatVoiceConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -18,11 +19,13 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     private 'rtc_room_info'?: RTCRoomInfoList;
     private 'chat_subtitle_config'?: SmartChatSubtitleConfig;
     private 'video_config'?: SmartChatVideoConfig;
+    private 'voice_config_list'?: Array<SmartChatVoiceConfig>;
     private 'chat_state'?: number;
     public language?: LanguageEnum;
     private 'chat_video_type'?: ShowSmartChatJobResponseChatVideoTypeEnum | string;
     private 'chat_access_address'?: string;
     private 'is_transparent'?: boolean;
+    private 'default_language'?: ShowSmartChatJobResponseDefaultLanguageEnum | string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -125,6 +128,16 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public get videoConfig(): SmartChatVideoConfig | undefined {
         return this['video_config'];
     }
+    public withVoiceConfigList(voiceConfigList: Array<SmartChatVoiceConfig>): ShowSmartChatJobResponse {
+        this['voice_config_list'] = voiceConfigList;
+        return this;
+    }
+    public set voiceConfigList(voiceConfigList: Array<SmartChatVoiceConfig>  | undefined) {
+        this['voice_config_list'] = voiceConfigList;
+    }
+    public get voiceConfigList(): Array<SmartChatVoiceConfig> | undefined {
+        return this['voice_config_list'];
+    }
     public withChatState(chatState: number): ShowSmartChatJobResponse {
         this['chat_state'] = chatState;
         return this;
@@ -169,6 +182,16 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public get isTransparent(): boolean | undefined {
         return this['is_transparent'];
     }
+    public withDefaultLanguage(defaultLanguage: ShowSmartChatJobResponseDefaultLanguageEnum | string): ShowSmartChatJobResponse {
+        this['default_language'] = defaultLanguage;
+        return this;
+    }
+    public set defaultLanguage(defaultLanguage: ShowSmartChatJobResponseDefaultLanguageEnum | string  | undefined) {
+        this['default_language'] = defaultLanguage;
+    }
+    public get defaultLanguage(): ShowSmartChatJobResponseDefaultLanguageEnum | string | undefined {
+        return this['default_language'];
+    }
     public withXRequestId(xRequestId: string): ShowSmartChatJobResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -201,4 +224,12 @@ export enum ShowSmartChatJobResponseChatVideoTypeEnum {
     COMPUTER = 'COMPUTER',
     MOBILE = 'MOBILE',
     HUB = 'HUB'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSmartChatJobResponseDefaultLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
 }

@@ -117,7 +117,7 @@ export class VaultResourceInstancesReq {
     */
 export enum VaultResourceInstancesReqCloudTypeEnum {
     PUBLIC = 'public',
-    HYBRID = ' hybrid'
+    HYBRID = 'hybrid'
 }
 /**
     * @export

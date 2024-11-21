@@ -5,6 +5,7 @@ export class KeystoneCreateUserResult {
     private 'domain_id'?: string;
     public name?: string;
     public description?: string;
+    private 'pwd_status'?: boolean;
     private 'password_expires_at'?: string;
     public links?: LinksSelf;
     public id?: string;
@@ -34,6 +35,16 @@ export class KeystoneCreateUserResult {
     public withDescription(description: string): KeystoneCreateUserResult {
         this['description'] = description;
         return this;
+    }
+    public withPwdStatus(pwdStatus: boolean): KeystoneCreateUserResult {
+        this['pwd_status'] = pwdStatus;
+        return this;
+    }
+    public set pwdStatus(pwdStatus: boolean  | undefined) {
+        this['pwd_status'] = pwdStatus;
+    }
+    public get pwdStatus(): boolean | undefined {
+        return this['pwd_status'];
     }
     public withPasswordExpiresAt(passwordExpiresAt: string): KeystoneCreateUserResult {
         this['password_expires_at'] = passwordExpiresAt;

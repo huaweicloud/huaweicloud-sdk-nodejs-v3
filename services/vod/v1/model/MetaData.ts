@@ -7,6 +7,7 @@ export class MetaData {
     private 'video_size'?: number;
     public width?: number;
     public hight?: number;
+    public height?: number;
     private 'bit_rate'?: number;
     private 'frame_rate'?: number;
     public quality?: string;
@@ -47,6 +48,10 @@ export class MetaData {
     }
     public withHight(hight: number): MetaData {
         this['hight'] = hight;
+        return this;
+    }
+    public withHeight(height: number): MetaData {
+        this['height'] = height;
         return this;
     }
     public withBitRate(bitRate: number): MetaData {

@@ -1,6 +1,6 @@
 
 
-export class AgencyResult {
+export class AgencyUpdateResult {
     private 'create_time'?: string;
     public description?: string;
     private 'domain_id'?: string;
@@ -8,8 +8,6 @@ export class AgencyResult {
     public id?: string;
     public name?: string;
     private 'trust_domain_id'?: string;
-    private 'trust_domain_name'?: string;
-    private 'agency_urn'?: string;
     public constructor(createTime?: string, description?: string, expireTime?: string, id?: string, name?: string) { 
         this['create_time'] = createTime;
         this['description'] = description;
@@ -17,7 +15,7 @@ export class AgencyResult {
         this['id'] = id;
         this['name'] = name;
     }
-    public withCreateTime(createTime: string): AgencyResult {
+    public withCreateTime(createTime: string): AgencyUpdateResult {
         this['create_time'] = createTime;
         return this;
     }
@@ -27,11 +25,11 @@ export class AgencyResult {
     public get createTime(): string | undefined {
         return this['create_time'];
     }
-    public withDescription(description: string): AgencyResult {
+    public withDescription(description: string): AgencyUpdateResult {
         this['description'] = description;
         return this;
     }
-    public withDomainId(domainId: string): AgencyResult {
+    public withDomainId(domainId: string): AgencyUpdateResult {
         this['domain_id'] = domainId;
         return this;
     }
@@ -41,7 +39,7 @@ export class AgencyResult {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withExpireTime(expireTime: string): AgencyResult {
+    public withExpireTime(expireTime: string): AgencyUpdateResult {
         this['expire_time'] = expireTime;
         return this;
     }
@@ -51,15 +49,15 @@ export class AgencyResult {
     public get expireTime(): string | undefined {
         return this['expire_time'];
     }
-    public withId(id: string): AgencyResult {
+    public withId(id: string): AgencyUpdateResult {
         this['id'] = id;
         return this;
     }
-    public withName(name: string): AgencyResult {
+    public withName(name: string): AgencyUpdateResult {
         this['name'] = name;
         return this;
     }
-    public withTrustDomainId(trustDomainId: string): AgencyResult {
+    public withTrustDomainId(trustDomainId: string): AgencyUpdateResult {
         this['trust_domain_id'] = trustDomainId;
         return this;
     }
@@ -68,25 +66,5 @@ export class AgencyResult {
     }
     public get trustDomainId(): string | undefined {
         return this['trust_domain_id'];
-    }
-    public withTrustDomainName(trustDomainName: string): AgencyResult {
-        this['trust_domain_name'] = trustDomainName;
-        return this;
-    }
-    public set trustDomainName(trustDomainName: string  | undefined) {
-        this['trust_domain_name'] = trustDomainName;
-    }
-    public get trustDomainName(): string | undefined {
-        return this['trust_domain_name'];
-    }
-    public withAgencyUrn(agencyUrn: string): AgencyResult {
-        this['agency_urn'] = agencyUrn;
-        return this;
-    }
-    public set agencyUrn(agencyUrn: string  | undefined) {
-        this['agency_urn'] = agencyUrn;
-    }
-    public get agencyUrn(): string | undefined {
-        return this['agency_urn'];
     }
 }

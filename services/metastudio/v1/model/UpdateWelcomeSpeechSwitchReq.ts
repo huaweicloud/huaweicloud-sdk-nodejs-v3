@@ -1,8 +1,10 @@
+import { LanguageEnum } from './LanguageEnum';
 
 
 export class UpdateWelcomeSpeechSwitchReq {
     private 'robot_id'?: string;
     private 'enable_welcome_speech'?: boolean;
+    public language?: LanguageEnum;
     public constructor(robotId?: string, enableWelcomeSpeech?: boolean) { 
         this['robot_id'] = robotId;
         this['enable_welcome_speech'] = enableWelcomeSpeech;
@@ -26,5 +28,9 @@ export class UpdateWelcomeSpeechSwitchReq {
     }
     public get enableWelcomeSpeech(): boolean | undefined {
         return this['enable_welcome_speech'];
+    }
+    public withLanguage(language: LanguageEnum): UpdateWelcomeSpeechSwitchReq {
+        this['language'] = language;
+        return this;
     }
 }

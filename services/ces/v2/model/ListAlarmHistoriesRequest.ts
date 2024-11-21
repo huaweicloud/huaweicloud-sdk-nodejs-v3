@@ -11,6 +11,7 @@ export class ListAlarmHistoriesRequest {
     public to?: string;
     public offset?: number;
     public limit?: number;
+    private 'order_by'?: ListAlarmHistoriesRequestOrderByEnum | string;
     public constructor() { 
     }
     public withAlarmId(alarmId: string): ListAlarmHistoriesRequest {
@@ -65,4 +66,25 @@ export class ListAlarmHistoriesRequest {
         this['limit'] = limit;
         return this;
     }
+    public withOrderBy(orderBy: ListAlarmHistoriesRequestOrderByEnum | string): ListAlarmHistoriesRequest {
+        this['order_by'] = orderBy;
+        return this;
+    }
+    public set orderBy(orderBy: ListAlarmHistoriesRequestOrderByEnum | string  | undefined) {
+        this['order_by'] = orderBy;
+    }
+    public get orderBy(): ListAlarmHistoriesRequestOrderByEnum | string | undefined {
+        return this['order_by'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmHistoriesRequestOrderByEnum {
+    FIRST_ALARM_TIME = 'first_alarm_time',
+    UPDATE_TIME = 'update_time',
+    ALARM_LEVEL = 'alarm_level',
+    RECORD_ID = 'record_id'
 }

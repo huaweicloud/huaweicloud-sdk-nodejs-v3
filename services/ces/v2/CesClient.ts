@@ -724,6 +724,7 @@ export class CesClient {
      * @param {string} [to] 查询告警记录的截止时间，例如：2022-02-10T10:05:47+08:00
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
+     * @param {'first_alarm_time' | 'update_time' | 'alarm_level' | 'record_id'} [orderBy] 按关键字排序, 默认为update_time, {first_alarm_time: 告警产生时间, update_time: 更新时间, alarm_level: 告警级别, record_id：表记录主键} 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2272,6 +2273,8 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let orderBy;
 
             if (listAlarmHistoriesRequest !== null && listAlarmHistoriesRequest !== undefined) {
                 if (listAlarmHistoriesRequest instanceof ListAlarmHistoriesRequest) {
@@ -2285,6 +2288,7 @@ export const ParamCreater = function () {
                     to = listAlarmHistoriesRequest.to;
                     offset = listAlarmHistoriesRequest.offset;
                     limit = listAlarmHistoriesRequest.limit;
+                    orderBy = listAlarmHistoriesRequest.orderBy;
                 } else {
                     alarmId = listAlarmHistoriesRequest['alarm_id'];
                     name = listAlarmHistoriesRequest['name'];
@@ -2296,6 +2300,7 @@ export const ParamCreater = function () {
                     to = listAlarmHistoriesRequest['to'];
                     offset = listAlarmHistoriesRequest['offset'];
                     limit = listAlarmHistoriesRequest['limit'];
+                    orderBy = listAlarmHistoriesRequest['order_by'];
                 }
             }
 
@@ -2329,6 +2334,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
             }
 
             options.queryParams = localVarQueryParameter;

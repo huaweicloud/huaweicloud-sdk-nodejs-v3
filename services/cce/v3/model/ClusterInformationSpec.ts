@@ -9,6 +9,7 @@ export class ClusterInformationSpec {
     public containerNetwork?: ContainerNetworkUpdate;
     public eniNetwork?: EniNetworkUpdate;
     public hostNetwork?: ClusterInformationSpecHostNetwork;
+    public deletionProtection?: boolean;
     public constructor() { 
     }
     public withDescription(description: string): ClusterInformationSpec {
@@ -29,6 +30,10 @@ export class ClusterInformationSpec {
     }
     public withHostNetwork(hostNetwork: ClusterInformationSpecHostNetwork): ClusterInformationSpec {
         this['hostNetwork'] = hostNetwork;
+        return this;
+    }
+    public withDeletionProtection(deletionProtection: boolean): ClusterInformationSpec {
+        this['deletionProtection'] = deletionProtection;
         return this;
     }
 }

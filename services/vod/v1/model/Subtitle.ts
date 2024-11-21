@@ -4,6 +4,7 @@ export class Subtitle {
     public id?: number;
     public type?: SubtitleTypeEnum | string;
     public language?: SubtitleLanguageEnum | string;
+    public name?: string;
     public md5?: string;
     public description?: string;
     public constructor(id?: number, type?: string, language?: string) { 
@@ -21,6 +22,10 @@ export class Subtitle {
     }
     public withLanguage(language: SubtitleLanguageEnum | string): Subtitle {
         this['language'] = language;
+        return this;
+    }
+    public withName(name: string): Subtitle {
+        this['name'] = name;
         return this;
     }
     public withMd5(md5: string): Subtitle {

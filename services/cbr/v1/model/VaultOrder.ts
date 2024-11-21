@@ -19,6 +19,7 @@ export class VaultOrder {
     private 'smn_notify'?: boolean;
     public parameters?: VaultCreateParameters;
     private 'auto_expand'?: boolean;
+    public locked?: boolean;
     public constructor(billing?: BillingCreate, resources?: Array<ResourceCreate>) { 
         this['billing'] = billing;
         this['resources'] = resources;
@@ -110,5 +111,9 @@ export class VaultOrder {
     }
     public get autoExpand(): boolean | undefined {
         return this['auto_expand'];
+    }
+    public withLocked(locked: boolean): VaultOrder {
+        this['locked'] = locked;
+        return this;
     }
 }

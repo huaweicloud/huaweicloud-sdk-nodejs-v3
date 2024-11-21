@@ -11,6 +11,7 @@ export class KeystoneShowUserResult {
     public links?: Links;
     public id?: string;
     public enabled?: boolean;
+    private 'access_mode'?: string;
     public constructor(domainId?: string, name?: string, passwordExpiresAt?: string, links?: Links, id?: string, enabled?: boolean) { 
         this['domain_id'] = domainId;
         this['name'] = name;
@@ -78,5 +79,15 @@ export class KeystoneShowUserResult {
     public withEnabled(enabled: boolean): KeystoneShowUserResult {
         this['enabled'] = enabled;
         return this;
+    }
+    public withAccessMode(accessMode: string): KeystoneShowUserResult {
+        this['access_mode'] = accessMode;
+        return this;
+    }
+    public set accessMode(accessMode: string  | undefined) {
+        this['access_mode'] = accessMode;
+    }
+    public get accessMode(): string | undefined {
+        return this['access_mode'];
     }
 }

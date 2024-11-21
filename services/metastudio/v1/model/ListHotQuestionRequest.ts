@@ -9,6 +9,7 @@ export class ListHotQuestionRequest {
     public limit?: number;
     private 'sort_dir'?: string;
     private 'robot_id'?: string;
+    public language?: ListHotQuestionRequestLanguageEnum | string;
     public constructor(robotId?: string) { 
         this['robot_id'] = robotId;
     }
@@ -80,4 +81,17 @@ export class ListHotQuestionRequest {
     public get robotId(): string | undefined {
         return this['robot_id'];
     }
+    public withLanguage(language: ListHotQuestionRequestLanguageEnum | string): ListHotQuestionRequest {
+        this['language'] = language;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListHotQuestionRequestLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
 }

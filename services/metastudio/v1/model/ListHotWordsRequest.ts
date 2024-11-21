@@ -87,5 +87,7 @@ export class ListHotWordsRequest {
     */
 export enum ListHotWordsRequestLanguageEnum {
     ZH_CN = 'zh_CN',
-    EN_US = 'en_US'
+    EN_US = 'en_US',
+    CN = 'CN',
+    EN = 'EN'
 }

@@ -849,7 +849,7 @@ export class CbrClient {
      * @param {string} regionId 区域ID
      * @param {number} [limit] 每页显示条目数
      * @param {number} [offset] 偏移值
-     * @param {'backup;replication;hybrid'} [protectType] [保护类型。取值为backup，replication和hybrid。](tag:hws,hws_hk) [保护类型。取值为backup和replication。](tag:ocb) [保护类型。取值为backup。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,tm,tlf,cmcc,hcso_dt)
+     * @param {string} [protectType] [保护类型。取值为backup，replication和hybrid。](tag:hws,hws_hk) [保护类型。取值为backup和replication。](tag:ocb) [保护类型。取值为backup。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,tm,tlf,cmcc,hcso_dt)
      * @param {string} [objcetType] 资源类型
      * @param {string} [cloudType] [云类型。取值为public和hybrid。](tag:hws,hws_hk) [云类型。取值为public。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,ocb,tm,tlf,cmcc,hcso_dt)
      * @param {string} [vaultId] 存储库ID，指定存储ID时其他过滤条件不生效。
@@ -1013,7 +1013,7 @@ export class CbrClient {
      * @param {Array<string>} [id] 存储库ID
      * @param {string} [policyId] 策略ID
      * @param {string} [status] 状态
-     * @param {string} [resourceIds] 资源id，支持多资源，以英文逗号分割
+     * @param {string} [resourceIds] 资源id，支持多资源，以英文逗号分隔
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

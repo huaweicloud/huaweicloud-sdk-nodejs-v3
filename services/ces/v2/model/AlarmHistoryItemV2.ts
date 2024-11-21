@@ -16,6 +16,9 @@ export class AlarmHistoryItemV2 {
     private 'action_enabled'?: boolean;
     private 'begin_time'?: Date;
     private 'end_time'?: Date;
+    private 'first_alarm_time'?: Date;
+    private 'last_alarm_time'?: Date;
+    private 'alarm_recovery_time'?: Date;
     public metric?: Metric;
     public condition?: AlarmCondition;
     private 'additional_info'?: AdditionalInfo;
@@ -89,6 +92,36 @@ export class AlarmHistoryItemV2 {
     }
     public get endTime(): Date | undefined {
         return this['end_time'];
+    }
+    public withFirstAlarmTime(firstAlarmTime: Date): AlarmHistoryItemV2 {
+        this['first_alarm_time'] = firstAlarmTime;
+        return this;
+    }
+    public set firstAlarmTime(firstAlarmTime: Date  | undefined) {
+        this['first_alarm_time'] = firstAlarmTime;
+    }
+    public get firstAlarmTime(): Date | undefined {
+        return this['first_alarm_time'];
+    }
+    public withLastAlarmTime(lastAlarmTime: Date): AlarmHistoryItemV2 {
+        this['last_alarm_time'] = lastAlarmTime;
+        return this;
+    }
+    public set lastAlarmTime(lastAlarmTime: Date  | undefined) {
+        this['last_alarm_time'] = lastAlarmTime;
+    }
+    public get lastAlarmTime(): Date | undefined {
+        return this['last_alarm_time'];
+    }
+    public withAlarmRecoveryTime(alarmRecoveryTime: Date): AlarmHistoryItemV2 {
+        this['alarm_recovery_time'] = alarmRecoveryTime;
+        return this;
+    }
+    public set alarmRecoveryTime(alarmRecoveryTime: Date  | undefined) {
+        this['alarm_recovery_time'] = alarmRecoveryTime;
+    }
+    public get alarmRecoveryTime(): Date | undefined {
+        return this['alarm_recovery_time'];
     }
     public withMetric(metric: Metric): AlarmHistoryItemV2 {
         this['metric'] = metric;

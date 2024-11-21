@@ -1,9 +1,11 @@
+import { LanguageEnum } from './LanguageEnum';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateHotQuestionResponse extends SdkResponse {
     private 'hot_question_id'?: string;
     private 'hot_question'?: string;
+    public language?: LanguageEnum;
     private 'robot_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -30,6 +32,10 @@ export class UpdateHotQuestionResponse extends SdkResponse {
     }
     public get hotQuestion(): string | undefined {
         return this['hot_question'];
+    }
+    public withLanguage(language: LanguageEnum): UpdateHotQuestionResponse {
+        this['language'] = language;
+        return this;
     }
     public withRobotId(robotId: string): UpdateHotQuestionResponse {
         this['robot_id'] = robotId;

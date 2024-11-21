@@ -1,8 +1,10 @@
+import { LanguageEnum } from './LanguageEnum';
 
 
 export class CreateWelcomeSpeechReq {
     private 'robot_id'?: string;
     private 'welcome_speech'?: string;
+    public language?: LanguageEnum;
     public constructor(robotId?: string, welcomeSpeech?: string) { 
         this['robot_id'] = robotId;
         this['welcome_speech'] = welcomeSpeech;
@@ -26,5 +28,9 @@ export class CreateWelcomeSpeechReq {
     }
     public get welcomeSpeech(): string | undefined {
         return this['welcome_speech'];
+    }
+    public withLanguage(language: LanguageEnum): CreateWelcomeSpeechReq {
+        this['language'] = language;
+        return this;
     }
 }

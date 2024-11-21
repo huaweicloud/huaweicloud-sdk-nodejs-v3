@@ -10,6 +10,7 @@ export class VaultUpdate {
     private 'auto_expand'?: boolean;
     private 'smn_notify'?: boolean;
     public threshold?: number;
+    public locked?: boolean;
     public constructor() { 
     }
     public withBilling(billing: BillingUpdate): VaultUpdate {
@@ -62,6 +63,10 @@ export class VaultUpdate {
     }
     public withThreshold(threshold: number): VaultUpdate {
         this['threshold'] = threshold;
+        return this;
+    }
+    public withLocked(locked: boolean): VaultUpdate {
+        this['locked'] = locked;
         return this;
     }
 }

@@ -33,6 +33,7 @@ export class ClusterSpec {
     public supportIstio?: boolean;
     public enableMasterVolumeEncryption?: boolean;
     public enableDistMgt?: boolean;
+    public deletionProtection?: boolean;
     public configurationsOverride?: Array<PackageConfiguration>;
     public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork) { 
         this['flavor'] = flavor;
@@ -129,6 +130,10 @@ export class ClusterSpec {
     }
     public withEnableDistMgt(enableDistMgt: boolean): ClusterSpec {
         this['enableDistMgt'] = enableDistMgt;
+        return this;
+    }
+    public withDeletionProtection(deletionProtection: boolean): ClusterSpec {
+        this['deletionProtection'] = deletionProtection;
         return this;
     }
     public withConfigurationsOverride(configurationsOverride: Array<PackageConfiguration>): ClusterSpec {

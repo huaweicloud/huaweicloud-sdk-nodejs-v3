@@ -9,11 +9,14 @@ export class CommonInfo {
     private 'hls_interval'?: number;
     public upsample?: boolean;
     public adaptation?: CommonInfoAdaptationEnum | string;
-    public constructor(pvc?: boolean, videoCodec?: string, format?: string, hlsInterval?: number) { 
+    public preset?: number;
+    private 'max_iframes_interval'?: number;
+    private 'hls_audio_separate'?: boolean;
+    private 'hls_segment_type'?: CommonInfoHlsSegmentTypeEnum | string;
+    public constructor(pvc?: boolean, videoCodec?: string, format?: string) { 
         this['pvc'] = pvc;
         this['video_codec'] = videoCodec;
         this['format'] = format;
-        this['hls_interval'] = hlsInterval;
     }
     public withPvc(pvc: boolean): CommonInfo {
         this['pvc'] = pvc;
@@ -71,6 +74,40 @@ export class CommonInfo {
         this['adaptation'] = adaptation;
         return this;
     }
+    public withPreset(preset: number): CommonInfo {
+        this['preset'] = preset;
+        return this;
+    }
+    public withMaxIframesInterval(maxIframesInterval: number): CommonInfo {
+        this['max_iframes_interval'] = maxIframesInterval;
+        return this;
+    }
+    public set maxIframesInterval(maxIframesInterval: number  | undefined) {
+        this['max_iframes_interval'] = maxIframesInterval;
+    }
+    public get maxIframesInterval(): number | undefined {
+        return this['max_iframes_interval'];
+    }
+    public withHlsAudioSeparate(hlsAudioSeparate: boolean): CommonInfo {
+        this['hls_audio_separate'] = hlsAudioSeparate;
+        return this;
+    }
+    public set hlsAudioSeparate(hlsAudioSeparate: boolean  | undefined) {
+        this['hls_audio_separate'] = hlsAudioSeparate;
+    }
+    public get hlsAudioSeparate(): boolean | undefined {
+        return this['hls_audio_separate'];
+    }
+    public withHlsSegmentType(hlsSegmentType: CommonInfoHlsSegmentTypeEnum | string): CommonInfo {
+        this['hls_segment_type'] = hlsSegmentType;
+        return this;
+    }
+    public set hlsSegmentType(hlsSegmentType: CommonInfoHlsSegmentTypeEnum | string  | undefined) {
+        this['hls_segment_type'] = hlsSegmentType;
+    }
+    public get hlsSegmentType(): CommonInfoHlsSegmentTypeEnum | string | undefined {
+        return this['hls_segment_type'];
+    }
 }
 
 /**
@@ -112,4 +149,12 @@ export enum CommonInfoAdaptationEnum {
     SHORT = 'SHORT',
     LONG = 'LONG',
     NONE = 'NONE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CommonInfoHlsSegmentTypeEnum {
+    TS = 'TS',
+    FMP4 = 'FMP4'
 }

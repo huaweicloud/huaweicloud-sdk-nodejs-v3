@@ -1,8 +1,10 @@
+import { LanguageEnum } from './LanguageEnum';
 
 
 export class CreateHotQuestionReq {
     private 'robot_id'?: string;
     private 'hot_question'?: string;
+    public language?: LanguageEnum;
     public constructor(robotId?: string, hotQuestion?: string) { 
         this['robot_id'] = robotId;
         this['hot_question'] = hotQuestion;
@@ -26,5 +28,9 @@ export class CreateHotQuestionReq {
     }
     public get hotQuestion(): string | undefined {
         return this['hot_question'];
+    }
+    public withLanguage(language: LanguageEnum): CreateHotQuestionReq {
+        this['language'] = language;
+        return this;
     }
 }

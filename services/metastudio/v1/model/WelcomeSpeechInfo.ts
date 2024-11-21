@@ -1,8 +1,11 @@
+import { LanguageEnum } from './LanguageEnum';
 
 
 export class WelcomeSpeechInfo {
     private 'welcome_speech_id'?: string;
     private 'welcome_speech'?: string;
+    private 'enable_welcome_speech'?: boolean;
+    public language?: LanguageEnum;
     private 'robot_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -27,6 +30,20 @@ export class WelcomeSpeechInfo {
     }
     public get welcomeSpeech(): string | undefined {
         return this['welcome_speech'];
+    }
+    public withEnableWelcomeSpeech(enableWelcomeSpeech: boolean): WelcomeSpeechInfo {
+        this['enable_welcome_speech'] = enableWelcomeSpeech;
+        return this;
+    }
+    public set enableWelcomeSpeech(enableWelcomeSpeech: boolean  | undefined) {
+        this['enable_welcome_speech'] = enableWelcomeSpeech;
+    }
+    public get enableWelcomeSpeech(): boolean | undefined {
+        return this['enable_welcome_speech'];
+    }
+    public withLanguage(language: LanguageEnum): WelcomeSpeechInfo {
+        this['language'] = language;
+        return this;
     }
     public withRobotId(robotId: string): WelcomeSpeechInfo {
         this['robot_id'] = robotId;

@@ -65,6 +65,9 @@ import { CreateAgencyWithRoleTypeRequest } from './model/CreateAgencyWithRoleTyp
 import { CreateAgencyWithRoleTypeResponse } from './model/CreateAgencyWithRoleTypeResponse';
 import { CreateAssetByReplicationInfoRequest } from './model/CreateAssetByReplicationInfoRequest';
 import { CreateAssetByReplicationInfoResponse } from './model/CreateAssetByReplicationInfoResponse';
+import { CreateAsyncTtsJobRequest } from './model/CreateAsyncTtsJobRequest';
+import { CreateAsyncTtsJobRequestBody } from './model/CreateAsyncTtsJobRequestBody';
+import { CreateAsyncTtsJobResponse } from './model/CreateAsyncTtsJobResponse';
 import { CreateBatchKnowledgeQuestionReq } from './model/CreateBatchKnowledgeQuestionReq';
 import { CreateBatchKnowledgeQuestionRequest } from './model/CreateBatchKnowledgeQuestionRequest';
 import { CreateBatchKnowledgeQuestionResponse } from './model/CreateBatchKnowledgeQuestionResponse';
@@ -110,6 +113,9 @@ import { CreateLargeFileRequest } from './model/CreateLargeFileRequest';
 import { CreateLargeFileResponse } from './model/CreateLargeFileResponse';
 import { CreateOnceCodeRequest } from './model/CreateOnceCodeRequest';
 import { CreateOnceCodeResponse } from './model/CreateOnceCodeResponse';
+import { CreatePacifyWordsReq } from './model/CreatePacifyWordsReq';
+import { CreatePacifyWordsRequest } from './model/CreatePacifyWordsRequest';
+import { CreatePacifyWordsResponse } from './model/CreatePacifyWordsResponse';
 import { CreatePhotoDetectionReq } from './model/CreatePhotoDetectionReq';
 import { CreatePhotoDetectionRequest } from './model/CreatePhotoDetectionRequest';
 import { CreatePhotoDetectionResponse } from './model/CreatePhotoDetectionResponse';
@@ -136,6 +142,9 @@ import { CreateSmartLiveRoomReqBaseInfo } from './model/CreateSmartLiveRoomReqBa
 import { CreateSmartLiveRoomRequest } from './model/CreateSmartLiveRoomRequest';
 import { CreateSmartLiveRoomResponse } from './model/CreateSmartLiveRoomResponse';
 import { CreateStyleRequestBody } from './model/CreateStyleRequestBody';
+import { CreateSubtitleFileReq } from './model/CreateSubtitleFileReq';
+import { CreateSubtitleFileRequest } from './model/CreateSubtitleFileRequest';
+import { CreateSubtitleFileResponse } from './model/CreateSubtitleFileResponse';
 import { CreateTTSAReq } from './model/CreateTTSAReq';
 import { CreateTrainingAdvanceJobRequest } from './model/CreateTrainingAdvanceJobRequest';
 import { CreateTrainingAdvanceJobResponse } from './model/CreateTrainingAdvanceJobResponse';
@@ -183,6 +192,8 @@ import { DeleteKnowledgeQuestionRequest } from './model/DeleteKnowledgeQuestionR
 import { DeleteKnowledgeQuestionResponse } from './model/DeleteKnowledgeQuestionResponse';
 import { DeleteKnowledgeSkillRequest } from './model/DeleteKnowledgeSkillRequest';
 import { DeleteKnowledgeSkillResponse } from './model/DeleteKnowledgeSkillResponse';
+import { DeletePacifyWordsRequest } from './model/DeletePacifyWordsRequest';
+import { DeletePacifyWordsResponse } from './model/DeletePacifyWordsResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
 import { DeleteProductResponse } from './model/DeleteProductResponse';
 import { DeleteRobotRequest } from './model/DeleteRobotRequest';
@@ -244,6 +255,7 @@ import { KnowledgeQuestionCreateInfo } from './model/KnowledgeQuestionCreateInfo
 import { KnowledgeQuestionInfo } from './model/KnowledgeQuestionInfo';
 import { KnowledgeQuestionUpdateInfo } from './model/KnowledgeQuestionUpdateInfo';
 import { KnowledgeSkillInfo } from './model/KnowledgeSkillInfo';
+import { Language } from './model/Language';
 import { LanguageEnum } from './model/LanguageEnum';
 import { LargeFilesCreateReq } from './model/LargeFilesCreateReq';
 import { LayerConfig } from './model/LayerConfig';
@@ -278,6 +290,8 @@ import { ListKnowledgeQuestionRequest } from './model/ListKnowledgeQuestionReque
 import { ListKnowledgeQuestionResponse } from './model/ListKnowledgeQuestionResponse';
 import { ListKnowledgeSkillRequest } from './model/ListKnowledgeSkillRequest';
 import { ListKnowledgeSkillResponse } from './model/ListKnowledgeSkillResponse';
+import { ListPacifyWordsRequest } from './model/ListPacifyWordsRequest';
+import { ListPacifyWordsResponse } from './model/ListPacifyWordsResponse';
 import { ListPictureModelingJobsRequest } from './model/ListPictureModelingJobsRequest';
 import { ListPictureModelingJobsResponse } from './model/ListPictureModelingJobsResponse';
 import { ListProductsRequest } from './model/ListProductsRequest';
@@ -333,6 +347,8 @@ import { OutputAssetInfo } from './model/OutputAssetInfo';
 import { OutputInfo } from './model/OutputInfo';
 import { PPTAssetMeta } from './model/PPTAssetMeta';
 import { PPTPageInfo } from './model/PPTPageInfo';
+import { PacifyWordsInfo } from './model/PacifyWordsInfo';
+import { PacifyWordsIntentInfo } from './model/PacifyWordsIntentInfo';
 import { Pages } from './model/Pages';
 import { PhotoVideoConfig } from './model/PhotoVideoConfig';
 import { PictureModelingByUrlReq } from './model/PictureModelingByUrlReq';
@@ -392,6 +408,8 @@ import { ShowAssetReplicationInfoRequest } from './model/ShowAssetReplicationInf
 import { ShowAssetReplicationInfoResponse } from './model/ShowAssetReplicationInfoResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
+import { ShowAsyncTtsJobRequest } from './model/ShowAsyncTtsJobRequest';
+import { ShowAsyncTtsJobResponse } from './model/ShowAsyncTtsJobResponse';
 import { ShowBeautyPreviewJobRequest } from './model/ShowBeautyPreviewJobRequest';
 import { ShowBeautyPreviewJobResponse } from './model/ShowBeautyPreviewJobResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
@@ -414,6 +432,14 @@ import { ShowKnowledgeQuestionRequest } from './model/ShowKnowledgeQuestionReque
 import { ShowKnowledgeQuestionResponse } from './model/ShowKnowledgeQuestionResponse';
 import { ShowKnowledgeSkillRequest } from './model/ShowKnowledgeSkillRequest';
 import { ShowKnowledgeSkillResponse } from './model/ShowKnowledgeSkillResponse';
+import { ShowPacifyWordsIntentRequest } from './model/ShowPacifyWordsIntentRequest';
+import { ShowPacifyWordsIntentResponse } from './model/ShowPacifyWordsIntentResponse';
+import { ShowPacifyWordsRequest } from './model/ShowPacifyWordsRequest';
+import { ShowPacifyWordsResponse } from './model/ShowPacifyWordsResponse';
+import { ShowPacifyWordsSwitchRequest } from './model/ShowPacifyWordsSwitchRequest';
+import { ShowPacifyWordsSwitchResponse } from './model/ShowPacifyWordsSwitchResponse';
+import { ShowPacifyWordsTriggerTimeRequest } from './model/ShowPacifyWordsTriggerTimeRequest';
+import { ShowPacifyWordsTriggerTimeResponse } from './model/ShowPacifyWordsTriggerTimeResponse';
 import { ShowPhotoDetectionRequest } from './model/ShowPhotoDetectionRequest';
 import { ShowPhotoDetectionResponse } from './model/ShowPhotoDetectionResponse';
 import { ShowPhotoDigitalHumanVideoRequest } from './model/ShowPhotoDigitalHumanVideoRequest';
@@ -434,6 +460,8 @@ import { ShowSmartLiveRequest } from './model/ShowSmartLiveRequest';
 import { ShowSmartLiveResponse } from './model/ShowSmartLiveResponse';
 import { ShowSmartLiveRoomRequest } from './model/ShowSmartLiveRoomRequest';
 import { ShowSmartLiveRoomResponse } from './model/ShowSmartLiveRoomResponse';
+import { ShowSubtitleFileRequest } from './model/ShowSubtitleFileRequest';
+import { ShowSubtitleFileResponse } from './model/ShowSubtitleFileResponse';
 import { ShowTrainingSegmentInfoRequest } from './model/ShowTrainingSegmentInfoRequest';
 import { ShowTrainingSegmentInfoResponse } from './model/ShowTrainingSegmentInfoResponse';
 import { ShowTtsAuditionFileRequest } from './model/ShowTtsAuditionFileRequest';
@@ -452,6 +480,7 @@ import { SmartChatJobsReq } from './model/SmartChatJobsReq';
 import { SmartChatRoomBaseInfo } from './model/SmartChatRoomBaseInfo';
 import { SmartChatSubtitleConfig } from './model/SmartChatSubtitleConfig';
 import { SmartChatVideoConfig } from './model/SmartChatVideoConfig';
+import { SmartChatVoiceConfig } from './model/SmartChatVoiceConfig';
 import { SmartImageLayerConfig } from './model/SmartImageLayerConfig';
 import { SmartLayerConfig } from './model/SmartLayerConfig';
 import { SmartLiveJob } from './model/SmartLiveJob';
@@ -475,6 +504,7 @@ import { StyleAssetItem } from './model/StyleAssetItem';
 import { StyleExtraMeta } from './model/StyleExtraMeta';
 import { StyleInfo } from './model/StyleInfo';
 import { SubtitleConfig } from './model/SubtitleConfig';
+import { SubtitleFileDetail } from './model/SubtitleFileDetail';
 import { SubtitleFileInfo } from './model/SubtitleFileInfo';
 import { SubtitleFiles } from './model/SubtitleFiles';
 import { SupportedServiceEnum } from './model/SupportedServiceEnum';
@@ -522,6 +552,15 @@ import { UpdateKnowledgeQuestionResponse } from './model/UpdateKnowledgeQuestion
 import { UpdateKnowledgeSkillReq } from './model/UpdateKnowledgeSkillReq';
 import { UpdateKnowledgeSkillRequest } from './model/UpdateKnowledgeSkillRequest';
 import { UpdateKnowledgeSkillResponse } from './model/UpdateKnowledgeSkillResponse';
+import { UpdatePacifyWordsReq } from './model/UpdatePacifyWordsReq';
+import { UpdatePacifyWordsRequest } from './model/UpdatePacifyWordsRequest';
+import { UpdatePacifyWordsResponse } from './model/UpdatePacifyWordsResponse';
+import { UpdatePacifyWordsSwitchReq } from './model/UpdatePacifyWordsSwitchReq';
+import { UpdatePacifyWordsSwitchRequest } from './model/UpdatePacifyWordsSwitchRequest';
+import { UpdatePacifyWordsSwitchResponse } from './model/UpdatePacifyWordsSwitchResponse';
+import { UpdatePacifyWordsTriggerTimeReq } from './model/UpdatePacifyWordsTriggerTimeReq';
+import { UpdatePacifyWordsTriggerTimeRequest } from './model/UpdatePacifyWordsTriggerTimeRequest';
+import { UpdatePacifyWordsTriggerTimeResponse } from './model/UpdatePacifyWordsTriggerTimeResponse';
 import { UpdateProductRequest } from './model/UpdateProductRequest';
 import { UpdateProductRequestBody } from './model/UpdateProductRequestBody';
 import { UpdateProductResponse } from './model/UpdateProductResponse';
@@ -873,7 +912,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数字人智能交互任务
-     * @param {string} roomId 智能交互对话ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[创建智能交互对话直播间](CreateSmartChatRoom.xml)。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -897,8 +936,8 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动数字人智能交互任务
-     * @param {string} roomId 智能交互对话ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
-     * @param {string} robotId 应用ID，获取方法请参考[[创建应用](https://support.huaweicloud.com/api-metastudio/CreateRobot.html)](tag:hc,hk)[“创建应用”](tag:cmcc)。
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[创建智能交互对话直播间](CreateSmartChatRoom.xml)。
+     * @param {string} robotId 应用ID，获取方法请参考[创建应用](CreateRobot.xml)。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -922,7 +961,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 结束数字人智能交互任务
-     * @param {string} roomId 智能交互对话ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[创建智能交互对话直播间](CreateSmartChatRoom.xml)。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -1686,6 +1725,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
+     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1805,7 +1845,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [region] sis服务所在区域
-     * @param {'zh_CN' | 'en_US'} [language] 智能交互语言  * zh_CN:简体中文  * en_US:英语
+     * @param {'zh_CN' | 'en_US' | 'CN' | 'EN'} [language] 智能交互语言  * zh_CN：简体中文（已下线，请使用CN）  * en_US：英语（已下线，请使用EN）  * CN: 中文  * EN: 英文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2373,6 +2413,244 @@ export class MetaStudioClient {
      */
     public createOnceCode(createOnceCodeRequest?: CreateOnceCodeRequest): Promise<CreateOnceCodeResponse> {
         const options = ParamCreater().createOnceCode(createOnceCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建安抚话术。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建安抚话术
+     * @param {CreatePacifyWordsReq} createPacifyWordsRequestBody 创建安抚话术请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPacifyWords(createPacifyWordsRequest?: CreatePacifyWordsRequest): Promise<CreatePacifyWordsResponse> {
+        const options = ParamCreater().createPacifyWords(createPacifyWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除安抚话术。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除安抚话术
+     * @param {string} pacifyWordsId 安抚话术ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePacifyWords(deletePacifyWordsRequest?: DeletePacifyWordsRequest): Promise<DeletePacifyWordsResponse> {
+        const options = ParamCreater().deletePacifyWords(deletePacifyWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询安抚话术列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安抚话术列表
+     * @param {string} robotId 应用ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
+     * @param {number} [pacifyWordsType] 安抚话术类型 &gt; 0:通用安抚话术, 1:基于意图匹配安抚话术
+     * @param {string} [intent] 安抚话术意图
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPacifyWords(listPacifyWordsRequest?: ListPacifyWordsRequest): Promise<ListPacifyWordsResponse> {
+        const options = ParamCreater().listPacifyWords(listPacifyWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询安抚话术详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安抚话术详情
+     * @param {string} pacifyWordsId 安抚话术ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPacifyWords(showPacifyWordsRequest?: ShowPacifyWordsRequest): Promise<ShowPacifyWordsResponse> {
+        const options = ParamCreater().showPacifyWords(showPacifyWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询安抚话术意图。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安抚话术意图
+     * @param {string} robotId 应用ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPacifyWordsIntent(showPacifyWordsIntentRequest?: ShowPacifyWordsIntentRequest): Promise<ShowPacifyWordsIntentResponse> {
+        const options = ParamCreater().showPacifyWordsIntent(showPacifyWordsIntentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询安抚话术功能开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安抚话术功能开关
+     * @param {string} robotId 应用ID。
+     * @param {'CN' | 'EN'} language 智能交互语言  * CN:中文  * EN:英文
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPacifyWordsSwitch(showPacifyWordsSwitchRequest?: ShowPacifyWordsSwitchRequest): Promise<ShowPacifyWordsSwitchResponse> {
+        const options = ParamCreater().showPacifyWordsSwitch(showPacifyWordsSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询等待触发时长。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安抚话术等待触发时长
+     * @param {string} robotId 应用ID。
+     * @param {'CN' | 'EN'} language 智能交互语言  * CN:中文  * EN:英文
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPacifyWordsTriggerTime(showPacifyWordsTriggerTimeRequest?: ShowPacifyWordsTriggerTimeRequest): Promise<ShowPacifyWordsTriggerTimeResponse> {
+        const options = ParamCreater().showPacifyWordsTriggerTime(showPacifyWordsTriggerTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改安抚话术。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改安抚话术
+     * @param {string} pacifyWordsId 安抚话术ID。
+     * @param {UpdatePacifyWordsReq} updatePacifyWordsRequestBody 修改安抚话术请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePacifyWords(updatePacifyWordsRequest?: UpdatePacifyWordsRequest): Promise<UpdatePacifyWordsResponse> {
+        const options = ParamCreater().updatePacifyWords(updatePacifyWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改安抚话术功能开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改安抚话术功能开关
+     * @param {UpdatePacifyWordsSwitchReq} updatePacifyWordsSwitchRequestBody 修改安抚话术功能开关请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePacifyWordsSwitch(updatePacifyWordsSwitchRequest?: UpdatePacifyWordsSwitchRequest): Promise<UpdatePacifyWordsSwitchResponse> {
+        const options = ParamCreater().updatePacifyWordsSwitch(updatePacifyWordsSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改安抚话术等待触发时长。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改安抚话术等待触发时长
+     * @param {UpdatePacifyWordsTriggerTimeReq} updatePacifyWordsTriggerTimeRequestBody 修改安抚话术等待触发时长。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePacifyWordsTriggerTime(updatePacifyWordsTriggerTimeRequest?: UpdatePacifyWordsTriggerTimeRequest): Promise<UpdatePacifyWordsTriggerTimeResponse> {
+        const options = ParamCreater().updatePacifyWordsTriggerTime(updatePacifyWordsTriggerTimeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3329,6 +3607,52 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建分身数字人视频字幕文件任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分身数字人视频字幕文件
+     * @param {CreateSubtitleFileReq} createSubtitleFileRequestBody 分身数字人字幕文件生成请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubtitleFile(createSubtitleFileRequest?: CreateSubtitleFileRequest): Promise<CreateSubtitleFileResponse> {
+        const options = ParamCreater().createSubtitleFile(createSubtitleFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询分身数字人视频字幕文件任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分身数字人视频字幕文件任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSubtitleFile(showSubtitleFileRequest?: ShowSubtitleFileRequest): Promise<ShowSubtitleFileResponse> {
+        const options = ParamCreater().showSubtitleFile(showSubtitleFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 统计指定时间段内即将过期的包周期与一次性资源数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3953,6 +4277,29 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于对外生成音频文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建TTS语音异步任务
+     * @param {CreateAsyncTtsJobRequestBody} createAsyncTtsJobRequestBody 创建文本转音频文件请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAsyncTtsJob(createAsyncTtsJobRequest?: CreateAsyncTtsJobRequest): Promise<CreateAsyncTtsJobResponse> {
+        const options = ParamCreater().createAsyncTtsJob(createAsyncTtsJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建生成播报内容的语音试听文件任务。
      * 
      * [第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112](tag:hc)
@@ -3973,6 +4320,29 @@ export class MetaStudioClient {
      */
     public createTtsAudition(createTtsAuditionRequest?: CreateTtsAuditionRequest): Promise<CreateTtsAuditionResponse> {
         const options = ParamCreater().createTtsAudition(createTtsAuditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS音频文件下载链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取音频语音文件
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAsyncTtsJob(showAsyncTtsJobRequest?: ShowAsyncTtsJobRequest): Promise<ShowAsyncTtsJobResponse> {
+        const options = ParamCreater().showAsyncTtsJob(showAsyncTtsJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4324,6 +4694,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
+     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4370,6 +4741,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7726,6 +8098,8 @@ export const ParamCreater = function () {
             let limit;
             
             let sortDir;
+            
+            let language;
 
             if (listHotQuestionRequest !== null && listHotQuestionRequest !== undefined) {
                 if (listHotQuestionRequest instanceof ListHotQuestionRequest) {
@@ -7737,6 +8111,7 @@ export const ParamCreater = function () {
                     offset = listHotQuestionRequest.offset;
                     limit = listHotQuestionRequest.limit;
                     sortDir = listHotQuestionRequest.sortDir;
+                    language = listHotQuestionRequest.language;
                 } else {
                     robotId = listHotQuestionRequest['robot_id'];
                     authorization = listHotQuestionRequest['Authorization'];
@@ -7746,6 +8121,7 @@ export const ParamCreater = function () {
                     offset = listHotQuestionRequest['offset'];
                     limit = listHotQuestionRequest['limit'];
                     sortDir = listHotQuestionRequest['sort_dir'];
+                    language = listHotQuestionRequest['language'];
                 }
             }
 
@@ -7764,6 +8140,9 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -9799,6 +10178,735 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建安抚话术。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPacifyWords(createPacifyWordsRequest?: CreatePacifyWordsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createPacifyWordsRequest !== null && createPacifyWordsRequest !== undefined) {
+                if (createPacifyWordsRequest instanceof CreatePacifyWordsRequest) {
+                    body = createPacifyWordsRequest.body
+                    authorization = createPacifyWordsRequest.authorization;
+                    xSdkDate = createPacifyWordsRequest.xSdkDate;
+                    xProjectId = createPacifyWordsRequest.xProjectId;
+                    xAppUserId = createPacifyWordsRequest.xAppUserId;
+                } else {
+                    body = createPacifyWordsRequest['body'];
+                    authorization = createPacifyWordsRequest['Authorization'];
+                    xSdkDate = createPacifyWordsRequest['X-Sdk-Date'];
+                    xProjectId = createPacifyWordsRequest['X-Project-Id'];
+                    xAppUserId = createPacifyWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除安抚话术。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePacifyWords(deletePacifyWordsRequest?: DeletePacifyWordsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words/{pacify_words_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let pacifyWordsId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deletePacifyWordsRequest !== null && deletePacifyWordsRequest !== undefined) {
+                if (deletePacifyWordsRequest instanceof DeletePacifyWordsRequest) {
+                    pacifyWordsId = deletePacifyWordsRequest.pacifyWordsId;
+                    authorization = deletePacifyWordsRequest.authorization;
+                    xSdkDate = deletePacifyWordsRequest.xSdkDate;
+                    xProjectId = deletePacifyWordsRequest.xProjectId;
+                    xAppUserId = deletePacifyWordsRequest.xAppUserId;
+                } else {
+                    pacifyWordsId = deletePacifyWordsRequest['pacify_words_id'];
+                    authorization = deletePacifyWordsRequest['Authorization'];
+                    xSdkDate = deletePacifyWordsRequest['X-Sdk-Date'];
+                    xProjectId = deletePacifyWordsRequest['X-Project-Id'];
+                    xAppUserId = deletePacifyWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (pacifyWordsId === null || pacifyWordsId === undefined) {
+            throw new RequiredError('pacifyWordsId','Required parameter pacifyWordsId was null or undefined when calling deletePacifyWords.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'pacify_words_id': pacifyWordsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询安抚话术列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPacifyWords(listPacifyWordsRequest?: ListPacifyWordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let language;
+            
+            let pacifyWordsType;
+            
+            let intent;
+
+            if (listPacifyWordsRequest !== null && listPacifyWordsRequest !== undefined) {
+                if (listPacifyWordsRequest instanceof ListPacifyWordsRequest) {
+                    robotId = listPacifyWordsRequest.robotId;
+                    authorization = listPacifyWordsRequest.authorization;
+                    xSdkDate = listPacifyWordsRequest.xSdkDate;
+                    xProjectId = listPacifyWordsRequest.xProjectId;
+                    xAppUserId = listPacifyWordsRequest.xAppUserId;
+                    offset = listPacifyWordsRequest.offset;
+                    limit = listPacifyWordsRequest.limit;
+                    language = listPacifyWordsRequest.language;
+                    pacifyWordsType = listPacifyWordsRequest.pacifyWordsType;
+                    intent = listPacifyWordsRequest.intent;
+                } else {
+                    robotId = listPacifyWordsRequest['robot_id'];
+                    authorization = listPacifyWordsRequest['Authorization'];
+                    xSdkDate = listPacifyWordsRequest['X-Sdk-Date'];
+                    xProjectId = listPacifyWordsRequest['X-Project-Id'];
+                    xAppUserId = listPacifyWordsRequest['X-App-UserId'];
+                    offset = listPacifyWordsRequest['offset'];
+                    limit = listPacifyWordsRequest['limit'];
+                    language = listPacifyWordsRequest['language'];
+                    pacifyWordsType = listPacifyWordsRequest['pacify_words_type'];
+                    intent = listPacifyWordsRequest['intent'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling listPacifyWords.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (pacifyWordsType !== null && pacifyWordsType !== undefined) {
+                localVarQueryParameter['pacify_words_type'] = pacifyWordsType;
+            }
+            if (intent !== null && intent !== undefined) {
+                localVarQueryParameter['intent'] = intent;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询安抚话术详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPacifyWords(showPacifyWordsRequest?: ShowPacifyWordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words/{pacify_words_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let pacifyWordsId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPacifyWordsRequest !== null && showPacifyWordsRequest !== undefined) {
+                if (showPacifyWordsRequest instanceof ShowPacifyWordsRequest) {
+                    pacifyWordsId = showPacifyWordsRequest.pacifyWordsId;
+                    authorization = showPacifyWordsRequest.authorization;
+                    xSdkDate = showPacifyWordsRequest.xSdkDate;
+                    xProjectId = showPacifyWordsRequest.xProjectId;
+                    xAppUserId = showPacifyWordsRequest.xAppUserId;
+                } else {
+                    pacifyWordsId = showPacifyWordsRequest['pacify_words_id'];
+                    authorization = showPacifyWordsRequest['Authorization'];
+                    xSdkDate = showPacifyWordsRequest['X-Sdk-Date'];
+                    xProjectId = showPacifyWordsRequest['X-Project-Id'];
+                    xAppUserId = showPacifyWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (pacifyWordsId === null || pacifyWordsId === undefined) {
+            throw new RequiredError('pacifyWordsId','Required parameter pacifyWordsId was null or undefined when calling showPacifyWords.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'pacify_words_id': pacifyWordsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询安抚话术意图。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPacifyWordsIntent(showPacifyWordsIntentRequest?: ShowPacifyWordsIntentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words-intent",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPacifyWordsIntentRequest !== null && showPacifyWordsIntentRequest !== undefined) {
+                if (showPacifyWordsIntentRequest instanceof ShowPacifyWordsIntentRequest) {
+                    robotId = showPacifyWordsIntentRequest.robotId;
+                    authorization = showPacifyWordsIntentRequest.authorization;
+                    xSdkDate = showPacifyWordsIntentRequest.xSdkDate;
+                    xProjectId = showPacifyWordsIntentRequest.xProjectId;
+                    xAppUserId = showPacifyWordsIntentRequest.xAppUserId;
+                } else {
+                    robotId = showPacifyWordsIntentRequest['robot_id'];
+                    authorization = showPacifyWordsIntentRequest['Authorization'];
+                    xSdkDate = showPacifyWordsIntentRequest['X-Sdk-Date'];
+                    xProjectId = showPacifyWordsIntentRequest['X-Project-Id'];
+                    xAppUserId = showPacifyWordsIntentRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling showPacifyWordsIntent.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询安抚话术功能开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPacifyWordsSwitch(showPacifyWordsSwitchRequest?: ShowPacifyWordsSwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let language;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPacifyWordsSwitchRequest !== null && showPacifyWordsSwitchRequest !== undefined) {
+                if (showPacifyWordsSwitchRequest instanceof ShowPacifyWordsSwitchRequest) {
+                    robotId = showPacifyWordsSwitchRequest.robotId;
+                    language = showPacifyWordsSwitchRequest.language;
+                    authorization = showPacifyWordsSwitchRequest.authorization;
+                    xSdkDate = showPacifyWordsSwitchRequest.xSdkDate;
+                    xProjectId = showPacifyWordsSwitchRequest.xProjectId;
+                    xAppUserId = showPacifyWordsSwitchRequest.xAppUserId;
+                } else {
+                    robotId = showPacifyWordsSwitchRequest['robot_id'];
+                    language = showPacifyWordsSwitchRequest['language'];
+                    authorization = showPacifyWordsSwitchRequest['Authorization'];
+                    xSdkDate = showPacifyWordsSwitchRequest['X-Sdk-Date'];
+                    xProjectId = showPacifyWordsSwitchRequest['X-Project-Id'];
+                    xAppUserId = showPacifyWordsSwitchRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling showPacifyWordsSwitch.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling showPacifyWordsSwitch.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询等待触发时长。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPacifyWordsTriggerTime(showPacifyWordsTriggerTimeRequest?: ShowPacifyWordsTriggerTimeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words-time",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let language;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPacifyWordsTriggerTimeRequest !== null && showPacifyWordsTriggerTimeRequest !== undefined) {
+                if (showPacifyWordsTriggerTimeRequest instanceof ShowPacifyWordsTriggerTimeRequest) {
+                    robotId = showPacifyWordsTriggerTimeRequest.robotId;
+                    language = showPacifyWordsTriggerTimeRequest.language;
+                    authorization = showPacifyWordsTriggerTimeRequest.authorization;
+                    xSdkDate = showPacifyWordsTriggerTimeRequest.xSdkDate;
+                    xProjectId = showPacifyWordsTriggerTimeRequest.xProjectId;
+                    xAppUserId = showPacifyWordsTriggerTimeRequest.xAppUserId;
+                } else {
+                    robotId = showPacifyWordsTriggerTimeRequest['robot_id'];
+                    language = showPacifyWordsTriggerTimeRequest['language'];
+                    authorization = showPacifyWordsTriggerTimeRequest['Authorization'];
+                    xSdkDate = showPacifyWordsTriggerTimeRequest['X-Sdk-Date'];
+                    xProjectId = showPacifyWordsTriggerTimeRequest['X-Project-Id'];
+                    xAppUserId = showPacifyWordsTriggerTimeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling showPacifyWordsTriggerTime.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling showPacifyWordsTriggerTime.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改安抚话术。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePacifyWords(updatePacifyWordsRequest?: UpdatePacifyWordsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words/{pacify_words_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let pacifyWordsId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updatePacifyWordsRequest !== null && updatePacifyWordsRequest !== undefined) {
+                if (updatePacifyWordsRequest instanceof UpdatePacifyWordsRequest) {
+                    pacifyWordsId = updatePacifyWordsRequest.pacifyWordsId;
+                    body = updatePacifyWordsRequest.body
+                    authorization = updatePacifyWordsRequest.authorization;
+                    xSdkDate = updatePacifyWordsRequest.xSdkDate;
+                    xProjectId = updatePacifyWordsRequest.xProjectId;
+                    xAppUserId = updatePacifyWordsRequest.xAppUserId;
+                } else {
+                    pacifyWordsId = updatePacifyWordsRequest['pacify_words_id'];
+                    body = updatePacifyWordsRequest['body'];
+                    authorization = updatePacifyWordsRequest['Authorization'];
+                    xSdkDate = updatePacifyWordsRequest['X-Sdk-Date'];
+                    xProjectId = updatePacifyWordsRequest['X-Project-Id'];
+                    xAppUserId = updatePacifyWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (pacifyWordsId === null || pacifyWordsId === undefined) {
+            throw new RequiredError('pacifyWordsId','Required parameter pacifyWordsId was null or undefined when calling updatePacifyWords.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'pacify_words_id': pacifyWordsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改安抚话术功能开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePacifyWordsSwitch(updatePacifyWordsSwitchRequest?: UpdatePacifyWordsSwitchRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updatePacifyWordsSwitchRequest !== null && updatePacifyWordsSwitchRequest !== undefined) {
+                if (updatePacifyWordsSwitchRequest instanceof UpdatePacifyWordsSwitchRequest) {
+                    body = updatePacifyWordsSwitchRequest.body
+                    authorization = updatePacifyWordsSwitchRequest.authorization;
+                    xSdkDate = updatePacifyWordsSwitchRequest.xSdkDate;
+                    xProjectId = updatePacifyWordsSwitchRequest.xProjectId;
+                    xAppUserId = updatePacifyWordsSwitchRequest.xAppUserId;
+                } else {
+                    body = updatePacifyWordsSwitchRequest['body'];
+                    authorization = updatePacifyWordsSwitchRequest['Authorization'];
+                    xSdkDate = updatePacifyWordsSwitchRequest['X-Sdk-Date'];
+                    xProjectId = updatePacifyWordsSwitchRequest['X-Project-Id'];
+                    xAppUserId = updatePacifyWordsSwitchRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改安抚话术等待触发时长。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePacifyWordsTriggerTime(updatePacifyWordsTriggerTimeRequest?: UpdatePacifyWordsTriggerTimeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words-time",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updatePacifyWordsTriggerTimeRequest !== null && updatePacifyWordsTriggerTimeRequest !== undefined) {
+                if (updatePacifyWordsTriggerTimeRequest instanceof UpdatePacifyWordsTriggerTimeRequest) {
+                    body = updatePacifyWordsTriggerTimeRequest.body
+                    authorization = updatePacifyWordsTriggerTimeRequest.authorization;
+                    xSdkDate = updatePacifyWordsTriggerTimeRequest.xSdkDate;
+                    xProjectId = updatePacifyWordsTriggerTimeRequest.xProjectId;
+                    xAppUserId = updatePacifyWordsTriggerTimeRequest.xAppUserId;
+                } else {
+                    body = updatePacifyWordsTriggerTimeRequest['body'];
+                    authorization = updatePacifyWordsTriggerTimeRequest['Authorization'];
+                    xSdkDate = updatePacifyWordsTriggerTimeRequest['X-Sdk-Date'];
+                    xProjectId = updatePacifyWordsTriggerTimeRequest['X-Project-Id'];
+                    xAppUserId = updatePacifyWordsTriggerTimeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12832,6 +13940,137 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建分身数字人视频字幕文件任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubtitleFile(createSubtitleFileRequest?: CreateSubtitleFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/subtitle-files",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createSubtitleFileRequest !== null && createSubtitleFileRequest !== undefined) {
+                if (createSubtitleFileRequest instanceof CreateSubtitleFileRequest) {
+                    body = createSubtitleFileRequest.body
+                    authorization = createSubtitleFileRequest.authorization;
+                    xSdkDate = createSubtitleFileRequest.xSdkDate;
+                    xProjectId = createSubtitleFileRequest.xProjectId;
+                    xAppUserId = createSubtitleFileRequest.xAppUserId;
+                } else {
+                    body = createSubtitleFileRequest['body'];
+                    authorization = createSubtitleFileRequest['Authorization'];
+                    xSdkDate = createSubtitleFileRequest['X-Sdk-Date'];
+                    xProjectId = createSubtitleFileRequest['X-Project-Id'];
+                    xAppUserId = createSubtitleFileRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询分身数字人视频字幕文件任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSubtitleFile(showSubtitleFileRequest?: ShowSubtitleFileRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/subtitle-files/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showSubtitleFileRequest !== null && showSubtitleFileRequest !== undefined) {
+                if (showSubtitleFileRequest instanceof ShowSubtitleFileRequest) {
+                    jobId = showSubtitleFileRequest.jobId;
+                    authorization = showSubtitleFileRequest.authorization;
+                    xSdkDate = showSubtitleFileRequest.xSdkDate;
+                    xProjectId = showSubtitleFileRequest.xProjectId;
+                    xAppUserId = showSubtitleFileRequest.xAppUserId;
+                } else {
+                    jobId = showSubtitleFileRequest['job_id'];
+                    authorization = showSubtitleFileRequest['Authorization'];
+                    xSdkDate = showSubtitleFileRequest['X-Sdk-Date'];
+                    xProjectId = showSubtitleFileRequest['X-Project-Id'];
+                    xAppUserId = showSubtitleFileRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showSubtitleFile.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 统计指定时间段内即将过期的包周期与一次性资源数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14592,6 +15831,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于对外生成音频文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAsyncTtsJob(createAsyncTtsJobRequest?: CreateAsyncTtsJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ttsc/async-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createAsyncTtsJobRequest !== null && createAsyncTtsJobRequest !== undefined) {
+                if (createAsyncTtsJobRequest instanceof CreateAsyncTtsJobRequest) {
+                    body = createAsyncTtsJobRequest.body
+                    authorization = createAsyncTtsJobRequest.authorization;
+                    xSdkDate = createAsyncTtsJobRequest.xSdkDate;
+                    xProjectId = createAsyncTtsJobRequest.xProjectId;
+                    xAppUserId = createAsyncTtsJobRequest.xAppUserId;
+                } else {
+                    body = createAsyncTtsJobRequest['body'];
+                    authorization = createAsyncTtsJobRequest['Authorization'];
+                    xSdkDate = createAsyncTtsJobRequest['X-Sdk-Date'];
+                    xProjectId = createAsyncTtsJobRequest['X-Project-Id'];
+                    xAppUserId = createAsyncTtsJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建生成播报内容的语音试听文件任务。
          * 
          * [第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112](tag:hc)
@@ -14664,6 +15969,71 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS音频文件下载链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAsyncTtsJob(showAsyncTtsJobRequest?: ShowAsyncTtsJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/async-jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showAsyncTtsJobRequest !== null && showAsyncTtsJobRequest !== undefined) {
+                if (showAsyncTtsJobRequest instanceof ShowAsyncTtsJobRequest) {
+                    jobId = showAsyncTtsJobRequest.jobId;
+                    authorization = showAsyncTtsJobRequest.authorization;
+                    xSdkDate = showAsyncTtsJobRequest.xSdkDate;
+                    xProjectId = showAsyncTtsJobRequest.xProjectId;
+                    xAppUserId = showAsyncTtsJobRequest.xAppUserId;
+                } else {
+                    jobId = showAsyncTtsJobRequest['job_id'];
+                    authorization = showAsyncTtsJobRequest['Authorization'];
+                    xSdkDate = showAsyncTtsJobRequest['X-Sdk-Date'];
+                    xProjectId = showAsyncTtsJobRequest['X-Project-Id'];
+                    xAppUserId = showAsyncTtsJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showAsyncTtsJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -15679,6 +17049,8 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let language;
 
             if (listWelcomeSpeechRequest !== null && listWelcomeSpeechRequest !== undefined) {
                 if (listWelcomeSpeechRequest instanceof ListWelcomeSpeechRequest) {
@@ -15689,6 +17061,7 @@ export const ParamCreater = function () {
                     xAppUserId = listWelcomeSpeechRequest.xAppUserId;
                     offset = listWelcomeSpeechRequest.offset;
                     limit = listWelcomeSpeechRequest.limit;
+                    language = listWelcomeSpeechRequest.language;
                 } else {
                     robotId = listWelcomeSpeechRequest['robot_id'];
                     authorization = listWelcomeSpeechRequest['Authorization'];
@@ -15697,6 +17070,7 @@ export const ParamCreater = function () {
                     xAppUserId = listWelcomeSpeechRequest['X-App-UserId'];
                     offset = listWelcomeSpeechRequest['offset'];
                     limit = listWelcomeSpeechRequest['limit'];
+                    language = listWelcomeSpeechRequest['language'];
                 }
             }
 
@@ -15712,6 +17086,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -15822,6 +17199,8 @@ export const ParamCreater = function () {
             let xProjectId;
             
             let xAppUserId;
+            
+            let language;
 
             if (showWelcomeSpeechSwitchRequest !== null && showWelcomeSpeechSwitchRequest !== undefined) {
                 if (showWelcomeSpeechSwitchRequest instanceof ShowWelcomeSpeechSwitchRequest) {
@@ -15830,12 +17209,14 @@ export const ParamCreater = function () {
                     xSdkDate = showWelcomeSpeechSwitchRequest.xSdkDate;
                     xProjectId = showWelcomeSpeechSwitchRequest.xProjectId;
                     xAppUserId = showWelcomeSpeechSwitchRequest.xAppUserId;
+                    language = showWelcomeSpeechSwitchRequest.language;
                 } else {
                     robotId = showWelcomeSpeechSwitchRequest['robot_id'];
                     authorization = showWelcomeSpeechSwitchRequest['Authorization'];
                     xSdkDate = showWelcomeSpeechSwitchRequest['X-Sdk-Date'];
                     xProjectId = showWelcomeSpeechSwitchRequest['X-Project-Id'];
                     xAppUserId = showWelcomeSpeechSwitchRequest['X-App-UserId'];
+                    language = showWelcomeSpeechSwitchRequest['language'];
                 }
             }
 
@@ -15845,6 +17226,9 @@ export const ParamCreater = function () {
             }
             if (robotId !== null && robotId !== undefined) {
                 localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);

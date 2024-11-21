@@ -119,5 +119,5 @@ export class OrganizationPolicy {
     */
 export enum OrganizationPolicyOperationTypeEnum {
     BACKUP = 'backup',
-    REPLICATION = ' replication'
+    REPLICATION = 'replication'
 }

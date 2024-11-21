@@ -14,6 +14,7 @@ export class KeystoneUserResult {
     public enabled?: boolean;
     private 'pwd_strength'?: string;
     public extra?: KeystoneUserResultExtra;
+    private 'access_mode'?: string;
     public constructor(domainId?: string, name?: string, passwordExpiresAt?: string, links?: Links, id?: string, enabled?: boolean) { 
         this['domain_id'] = domainId;
         this['name'] = name;
@@ -95,5 +96,15 @@ export class KeystoneUserResult {
     public withExtra(extra: KeystoneUserResultExtra): KeystoneUserResult {
         this['extra'] = extra;
         return this;
+    }
+    public withAccessMode(accessMode: string): KeystoneUserResult {
+        this['access_mode'] = accessMode;
+        return this;
+    }
+    public set accessMode(accessMode: string  | undefined) {
+        this['access_mode'] = accessMode;
+    }
+    public get accessMode(): string | undefined {
+        return this['access_mode'];
     }
 }

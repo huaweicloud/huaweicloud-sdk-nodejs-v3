@@ -380,6 +380,7 @@ export class EvsClient {
      *
      * @summary 创建云硬盘
      * @param {CreateVolumeRequestBody} createVolumeRequestBody This is a auto create Body Object
+     * @param {string} [xClientToken] 请求的幂等标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1229,18 +1230,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xClientToken;
 
             if (createVolumeRequest !== null && createVolumeRequest !== undefined) {
                 if (createVolumeRequest instanceof CreateVolumeRequest) {
                     body = createVolumeRequest.body
+                    xClientToken = createVolumeRequest.xClientToken;
                 } else {
                     body = createVolumeRequest['body'];
+                    xClientToken = createVolumeRequest['X-Client-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 

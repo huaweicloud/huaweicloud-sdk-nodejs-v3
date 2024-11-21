@@ -19,6 +19,7 @@ export class CreateUserResult {
     private 'xdomain_type'?: string;
     public id?: string;
     private 'password_expires_at'?: string;
+    private 'default_project_id'?: string;
     public constructor(name?: string, domainId?: string, enabled?: boolean, id?: string) { 
         this['name'] = name;
         this['domain_id'] = domainId;
@@ -156,5 +157,15 @@ export class CreateUserResult {
     }
     public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
+    }
+    public withDefaultProjectId(defaultProjectId: string): CreateUserResult {
+        this['default_project_id'] = defaultProjectId;
+        return this;
+    }
+    public set defaultProjectId(defaultProjectId: string  | undefined) {
+        this['default_project_id'] = defaultProjectId;
+    }
+    public get defaultProjectId(): string | undefined {
+        return this['default_project_id'];
     }
 }

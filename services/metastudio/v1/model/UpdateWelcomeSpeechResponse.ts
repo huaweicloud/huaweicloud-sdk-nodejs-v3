@@ -1,9 +1,12 @@
+import { LanguageEnum } from './LanguageEnum';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateWelcomeSpeechResponse extends SdkResponse {
     private 'welcome_speech_id'?: string;
     private 'welcome_speech'?: string;
+    private 'enable_welcome_speech'?: boolean;
+    public language?: LanguageEnum;
     private 'robot_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -30,6 +33,20 @@ export class UpdateWelcomeSpeechResponse extends SdkResponse {
     }
     public get welcomeSpeech(): string | undefined {
         return this['welcome_speech'];
+    }
+    public withEnableWelcomeSpeech(enableWelcomeSpeech: boolean): UpdateWelcomeSpeechResponse {
+        this['enable_welcome_speech'] = enableWelcomeSpeech;
+        return this;
+    }
+    public set enableWelcomeSpeech(enableWelcomeSpeech: boolean  | undefined) {
+        this['enable_welcome_speech'] = enableWelcomeSpeech;
+    }
+    public get enableWelcomeSpeech(): boolean | undefined {
+        return this['enable_welcome_speech'];
+    }
+    public withLanguage(language: LanguageEnum): UpdateWelcomeSpeechResponse {
+        this['language'] = language;
+        return this;
     }
     public withRobotId(robotId: string): UpdateWelcomeSpeechResponse {
         this['robot_id'] = robotId;

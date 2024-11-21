@@ -1,4 +1,5 @@
 import { ExternalVoiceAssetMeta } from './ExternalVoiceAssetMeta';
+import { Language } from './Language';
 import { VoiceCapability } from './VoiceCapability';
 
 
@@ -7,6 +8,7 @@ export class VoiceModelAssetMeta {
     private 'model_type'?: VoiceModelAssetMetaModelTypeEnum | string;
     public sex?: VoiceModelAssetMetaSexEnum | string;
     public language?: VoiceModelAssetMetaLanguageEnum | string;
+    public languages?: Array<Language>;
     private 'speed_ratio'?: number;
     private 'volume_ratio'?: number;
     private 'is_realtime_voice'?: boolean;
@@ -37,6 +39,10 @@ export class VoiceModelAssetMeta {
     }
     public withLanguage(language: VoiceModelAssetMetaLanguageEnum | string): VoiceModelAssetMeta {
         this['language'] = language;
+        return this;
+    }
+    public withLanguages(languages: Array<Language>): VoiceModelAssetMeta {
+        this['languages'] = languages;
         return this;
     }
     public withSpeedRatio(speedRatio: number): VoiceModelAssetMeta {

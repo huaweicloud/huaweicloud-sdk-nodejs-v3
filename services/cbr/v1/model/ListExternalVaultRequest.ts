@@ -4,7 +4,7 @@ export class ListExternalVaultRequest {
     private 'external_project_id'?: string;
     public limit?: number;
     public offset?: number;
-    private 'protect_type'?: ListExternalVaultRequestProtectTypeEnum | string;
+    private 'protect_type'?: string;
     private 'region_id'?: string;
     private 'objcet_type'?: string;
     private 'cloud_type'?: string;
@@ -31,14 +31,14 @@ export class ListExternalVaultRequest {
         this['offset'] = offset;
         return this;
     }
-    public withProtectType(protectType: ListExternalVaultRequestProtectTypeEnum | string): ListExternalVaultRequest {
+    public withProtectType(protectType: string): ListExternalVaultRequest {
         this['protect_type'] = protectType;
         return this;
     }
-    public set protectType(protectType: ListExternalVaultRequestProtectTypeEnum | string  | undefined) {
+    public set protectType(protectType: string  | undefined) {
         this['protect_type'] = protectType;
     }
-    public get protectType(): ListExternalVaultRequestProtectTypeEnum | string | undefined {
+    public get protectType(): string | undefined {
         return this['protect_type'];
     }
     public withRegionId(regionId: string): ListExternalVaultRequest {
@@ -81,12 +81,4 @@ export class ListExternalVaultRequest {
     public get vaultId(): string | undefined {
         return this['vault_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListExternalVaultRequestProtectTypeEnum {
-    BACKUPREPLICATIONHYBRID = 'backup;replication;hybrid'
 }
