@@ -5,6 +5,7 @@ export class Path {
     public status?: string;
     private 'agent_id'?: string;
     private 'dir_path'?: string;
+    private 'exclude_paths'?: string;
     public constructor() { 
     }
     public withId(id: string): Path {
@@ -34,5 +35,15 @@ export class Path {
     }
     public get dirPath(): string | undefined {
         return this['dir_path'];
+    }
+    public withExcludePaths(excludePaths: string): Path {
+        this['exclude_paths'] = excludePaths;
+        return this;
+    }
+    public set excludePaths(excludePaths: string  | undefined) {
+        this['exclude_paths'] = excludePaths;
+    }
+    public get excludePaths(): string | undefined {
+        return this['exclude_paths'];
     }
 }

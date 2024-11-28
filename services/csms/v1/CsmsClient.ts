@@ -3,9 +3,13 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionResources } from './model/ActionResources';
+import { Agency } from './model/Agency';
 import { BatchCreateOrDeleteTagsRequest } from './model/BatchCreateOrDeleteTagsRequest';
 import { BatchCreateOrDeleteTagsRequestBody } from './model/BatchCreateOrDeleteTagsRequestBody';
 import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTagsResponse';
+import { CreateAgencyRequest } from './model/CreateAgencyRequest';
+import { CreateAgencyRequestBody } from './model/CreateAgencyRequestBody';
+import { CreateAgencyResponse } from './model/CreateAgencyResponse';
 import { CreateSecretEventRequest } from './model/CreateSecretEventRequest';
 import { CreateSecretEventRequestBody } from './model/CreateSecretEventRequestBody';
 import { CreateSecretEventResponse } from './model/CreateSecretEventResponse';
@@ -43,6 +47,8 @@ import { ListSecretEventsRequest } from './model/ListSecretEventsRequest';
 import { ListSecretEventsResponse } from './model/ListSecretEventsResponse';
 import { ListSecretTagsRequest } from './model/ListSecretTagsRequest';
 import { ListSecretTagsResponse } from './model/ListSecretTagsResponse';
+import { ListSecretTaskRequest } from './model/ListSecretTaskRequest';
+import { ListSecretTaskResponse } from './model/ListSecretTaskResponse';
 import { ListSecretVersionsRequest } from './model/ListSecretVersionsRequest';
 import { ListSecretVersionsResponse } from './model/ListSecretVersionsResponse';
 import { ListSecretsRequest } from './model/ListSecretsRequest';
@@ -55,8 +61,13 @@ import { RestoreSecretResponse } from './model/RestoreSecretResponse';
 import { RotateSecretRequest } from './model/RotateSecretRequest';
 import { RotateSecretResponse } from './model/RotateSecretResponse';
 import { Secret } from './model/Secret';
+import { SecretTask } from './model/SecretTask';
+import { ShowAgencyRequest } from './model/ShowAgencyRequest';
+import { ShowAgencyResponse } from './model/ShowAgencyResponse';
 import { ShowSecretEventRequest } from './model/ShowSecretEventRequest';
 import { ShowSecretEventResponse } from './model/ShowSecretEventResponse';
+import { ShowSecretFunctionTemplatesRequest } from './model/ShowSecretFunctionTemplatesRequest';
+import { ShowSecretFunctionTemplatesResponse } from './model/ShowSecretFunctionTemplatesResponse';
 import { ShowSecretRequest } from './model/ShowSecretRequest';
 import { ShowSecretResponse } from './model/ShowSecretResponse';
 import { ShowSecretStageRequest } from './model/ShowSecretStageRequest';
@@ -115,6 +126,25 @@ export class CsmsClient {
      */
     public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<BatchCreateOrDeleteTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建服务委托。用于创建凭据管理服务相关委托和函数工作流相关委托。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建服务委托
+     * @param {CreateAgencyRequestBody} createAgencyRequestBody 创建服务委托的请求消息体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAgency(createAgencyRequest?: CreateAgencyRequest): Promise<CreateAgencyResponse> {
+        const options = ParamCreater().createAgency(createAgencyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -327,13 +357,11 @@ export class CsmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已触发的事件通知记录
-     * @param {string} [limit] 每页返回的个数。  默认值：50。
-     * @param {string} [marker] 分页查询起始的事件通知记录时间，为空时为查询第一页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listNotificationRecords(listNotificationRecordsRequest?: ListNotificationRecordsRequest): Promise<ListNotificationRecordsResponse> {
-        const options = ParamCreater().listNotificationRecords(listNotificationRecordsRequest);
+        const options = ParamCreater().listNotificationRecords();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -386,7 +414,7 @@ export class CsmsClient {
      *
      * @summary 查询事件列表
      * @param {string} [limit] 每页返回的个数。  默认值：50。
-     * @param {string} [marker] 分页查询起始的资源id，为空时为查询第一页
+     * @param {string} [marker] 分页查询起始的事件名称，为空时为查询第一页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -411,6 +439,29 @@ export class CsmsClient {
      */
     public listSecretTags(listSecretTagsRequest?: ListSecretTagsRequest): Promise<ListSecretTagsResponse> {
         const options = ParamCreater().listSecretTags(listSecretTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务列表
+     * @param {string} [secretName] 凭据的名称。
+     * @param {'SUCCESS' | 'FAILED'} [status] 任务状态。取值 ：  - SUCCESS ：任务轮转成功。 - FAILED ：任务轮转失败。
+     * @param {string} [taskId] 任务ID。 该参数与其他参数不能同时存在。
+     * @param {number} [limit] 每页返回的个数。 默认值：50。
+     * @param {string} [marker] 分页查询起始的任务ID，为空时为查询第一页。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecretTask(listSecretTaskRequest?: ListSecretTaskRequest): Promise<ListSecretTaskResponse> {
+        const options = ParamCreater().listSecretTask(listSecretTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -499,6 +550,25 @@ export class CsmsClient {
     }
 
     /**
+     * 查看是否有服务委托
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看是否有服务委托
+     * @param {'RDS-FG' | 'GaussDB-FG'} secretType 凭据类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgency(showAgencyRequest?: ShowAgencyRequest): Promise<ShowAgencyResponse> {
+        const options = ParamCreater().showAgency(showAgencyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定凭据的信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -529,6 +599,27 @@ export class CsmsClient {
      */
     public showSecretEvent(showSecretEventRequest?: ShowSecretEventRequest): Promise<ShowSecretEventResponse> {
         const options = ParamCreater().showSecretEvent(showSecretEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取凭据轮转函数模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取凭据轮转函数模板
+     * @param {'RDS-FG' | 'GaussDB-FG'} secretType 凭据类型。
+     * @param {'SingleUser' | 'MultiUser'} secretSubType 凭据轮转账号类型。 - SingleUser：单用户模式轮转 - MultiUser：双用户模式轮转
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} [engine] 数据库类型。凭据类型为RDS-FG时为必填参数，可传入mysql、postgresql、sqlserver。其余凭据类型不支持。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecretFunctionTemplates(showSecretFunctionTemplatesRequest?: ShowSecretFunctionTemplatesRequest): Promise<ShowSecretFunctionTemplatesResponse> {
+        const options = ParamCreater().showSecretFunctionTemplates(showSecretFunctionTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -724,6 +815,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_id': secretId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建服务委托。用于创建凭据管理服务相关委托和函数工作流相关委托。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAgency(createAgencyRequest?: CreateAgencyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/csms/agencies",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAgencyRequest !== null && createAgencyRequest !== undefined) {
+                if (createAgencyRequest instanceof CreateAgencyRequest) {
+                    body = createAgencyRequest.body
+                } else {
+                    body = createAgencyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1150,7 +1279,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listNotificationRecords(listNotificationRecordsRequest?: ListNotificationRecordsRequest) {
+        listNotificationRecords() {
             const options = {
                 method: "GET",
                 url: "/v1/{project_id}/csms/notification-records",
@@ -1160,31 +1289,8 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let limit;
-            
-            let marker;
 
-            if (listNotificationRecordsRequest !== null && listNotificationRecordsRequest !== undefined) {
-                if (listNotificationRecordsRequest instanceof ListNotificationRecordsRequest) {
-                    limit = listNotificationRecordsRequest.limit;
-                    marker = listNotificationRecordsRequest.marker;
-                } else {
-                    limit = listNotificationRecordsRequest['limit'];
-                    marker = listNotificationRecordsRequest['marker'];
-                }
-            }
 
-        
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1333,6 +1439,71 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'secret_id': secretId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecretTask(listSecretTaskRequest?: ListSecretTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/csms/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let secretName;
+            
+            let status;
+            
+            let taskId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listSecretTaskRequest !== null && listSecretTaskRequest !== undefined) {
+                if (listSecretTaskRequest instanceof ListSecretTaskRequest) {
+                    secretName = listSecretTaskRequest.secretName;
+                    status = listSecretTaskRequest.status;
+                    taskId = listSecretTaskRequest.taskId;
+                    limit = listSecretTaskRequest.limit;
+                    marker = listSecretTaskRequest.marker;
+                } else {
+                    secretName = listSecretTaskRequest['secret_name'];
+                    status = listSecretTaskRequest['status'];
+                    taskId = listSecretTaskRequest['task_id'];
+                    limit = listSecretTaskRequest['limit'];
+                    marker = listSecretTaskRequest['marker'];
+                }
+            }
+
+        
+            if (secretName !== null && secretName !== undefined) {
+                localVarQueryParameter['secret_name'] = secretName;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1515,6 +1686,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查看是否有服务委托
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgency(showAgencyRequest?: ShowAgencyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/csms/agencies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let secretType;
+
+            if (showAgencyRequest !== null && showAgencyRequest !== undefined) {
+                if (showAgencyRequest instanceof ShowAgencyRequest) {
+                    secretType = showAgencyRequest.secretType;
+                } else {
+                    secretType = showAgencyRequest['secret_type'];
+                }
+            }
+
+        
+            if (secretType === null || secretType === undefined) {
+                throw new RequiredError('secretType','Required parameter secretType was null or undefined when calling showAgency.');
+            }
+            if (secretType !== null && secretType !== undefined) {
+                localVarQueryParameter['secret_type'] = secretType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定凭据的信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1584,6 +1795,63 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'event_name': eventName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取凭据轮转函数模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecretFunctionTemplates(showSecretFunctionTemplatesRequest?: ShowSecretFunctionTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/csms/function-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let secretType;
+            
+            let secretSubType;
+            
+            let engine;
+
+            if (showSecretFunctionTemplatesRequest !== null && showSecretFunctionTemplatesRequest !== undefined) {
+                if (showSecretFunctionTemplatesRequest instanceof ShowSecretFunctionTemplatesRequest) {
+                    secretType = showSecretFunctionTemplatesRequest.secretType;
+                    secretSubType = showSecretFunctionTemplatesRequest.secretSubType;
+                    engine = showSecretFunctionTemplatesRequest.engine;
+                } else {
+                    secretType = showSecretFunctionTemplatesRequest['secret_type'];
+                    secretSubType = showSecretFunctionTemplatesRequest['secret_sub_type'];
+                    engine = showSecretFunctionTemplatesRequest['engine'];
+                }
+            }
+
+        
+            if (secretType === null || secretType === undefined) {
+                throw new RequiredError('secretType','Required parameter secretType was null or undefined when calling showSecretFunctionTemplates.');
+            }
+            if (secretType !== null && secretType !== undefined) {
+                localVarQueryParameter['secret_type'] = secretType;
+            }
+            if (secretSubType === null || secretSubType === undefined) {
+                throw new RequiredError('secretSubType','Required parameter secretSubType was null or undefined when calling showSecretFunctionTemplates.');
+            }
+            if (secretSubType !== null && secretSubType !== undefined) {
+                localVarQueryParameter['secret_sub_type'] = secretSubType;
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

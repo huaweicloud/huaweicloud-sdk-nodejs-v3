@@ -12,6 +12,7 @@ export class NodeSpecUpdate {
     public login?: Login;
     public serverEnterpriseProjectID?: string;
     public nodeNicSpecUpdate?: NodeSpecUpdateNodeNicSpecUpdate;
+    public securityReinforcementType?: NodeSpecUpdateSecurityReinforcementTypeEnum | string;
     public constructor(taints?: Array<Taint>, k8sTags?: { [key: string]: string; }, userTags?: Array<UserTag>) { 
         this['taints'] = taints;
         this['k8sTags'] = k8sTags;
@@ -45,4 +46,17 @@ export class NodeSpecUpdate {
         this['nodeNicSpecUpdate'] = nodeNicSpecUpdate;
         return this;
     }
+    public withSecurityReinforcementType(securityReinforcementType: NodeSpecUpdateSecurityReinforcementTypeEnum | string): NodeSpecUpdate {
+        this['securityReinforcementType'] = securityReinforcementType;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NodeSpecUpdateSecurityReinforcementTypeEnum {
+    NULL = 'null',
+    CYBERSECURITY = 'cybersecurity'
 }

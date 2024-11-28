@@ -64,5 +64,8 @@ export class ListProtectableRequest {
     */
 export enum ListProtectableRequestProtectableTypeEnum {
     SERVER = 'server',
-    DISK = 'disk'
+    DISK = 'disk',
+    TURBO = 'turbo',
+    WORKSPACE = 'workspace',
+    WORKSPACE_V2 = 'workspace_v2'
 }

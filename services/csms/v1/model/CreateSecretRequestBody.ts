@@ -6,12 +6,13 @@ export class CreateSecretRequestBody {
     public description?: string;
     private 'secret_binary'?: string;
     private 'secret_string'?: string;
-    private 'secret_type'?: string;
+    private 'secret_type'?: CreateSecretRequestBodySecretTypeEnum | string;
     private 'auto_rotation'?: boolean;
     private 'rotation_period'?: string;
     private 'rotation_config'?: string;
     private 'event_subscriptions'?: Array<string>;
     private 'enterprise_project_id'?: string;
+    private 'rotation_func_urn'?: string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -53,14 +54,14 @@ export class CreateSecretRequestBody {
     public get secretString(): string | undefined {
         return this['secret_string'];
     }
-    public withSecretType(secretType: string): CreateSecretRequestBody {
+    public withSecretType(secretType: CreateSecretRequestBodySecretTypeEnum | string): CreateSecretRequestBody {
         this['secret_type'] = secretType;
         return this;
     }
-    public set secretType(secretType: string  | undefined) {
+    public set secretType(secretType: CreateSecretRequestBodySecretTypeEnum | string  | undefined) {
         this['secret_type'] = secretType;
     }
-    public get secretType(): string | undefined {
+    public get secretType(): CreateSecretRequestBodySecretTypeEnum | string | undefined {
         return this['secret_type'];
     }
     public withAutoRotation(autoRotation: boolean): CreateSecretRequestBody {
@@ -113,4 +114,24 @@ export class CreateSecretRequestBody {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withRotationFuncUrn(rotationFuncUrn: string): CreateSecretRequestBody {
+        this['rotation_func_urn'] = rotationFuncUrn;
+        return this;
+    }
+    public set rotationFuncUrn(rotationFuncUrn: string  | undefined) {
+        this['rotation_func_urn'] = rotationFuncUrn;
+    }
+    public get rotationFuncUrn(): string | undefined {
+        return this['rotation_func_urn'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSecretRequestBodySecretTypeEnum {
+    COMMON = 'COMMON',
+    RDS_FG = 'RDS-FG',
+    GAUSSDB_FG = 'GaussDB-FG'
 }

@@ -9,7 +9,7 @@ export class Secret {
     private 'create_time'?: number;
     private 'update_time'?: number;
     private 'scheduled_delete_time'?: number;
-    private 'secret_type'?: string;
+    private 'secret_type'?: SecretSecretTypeEnum | string;
     private 'auto_rotation'?: boolean;
     private 'rotation_period'?: string;
     private 'rotation_config'?: string;
@@ -17,6 +17,7 @@ export class Secret {
     private 'next_rotation_time'?: number;
     private 'event_subscriptions'?: Array<string>;
     private 'enterprise_project_id'?: string;
+    private 'rotation_func_urn'?: string;
     public constructor() { 
     }
     public withId(id: string): Secret {
@@ -75,14 +76,14 @@ export class Secret {
     public get scheduledDeleteTime(): number | undefined {
         return this['scheduled_delete_time'];
     }
-    public withSecretType(secretType: string): Secret {
+    public withSecretType(secretType: SecretSecretTypeEnum | string): Secret {
         this['secret_type'] = secretType;
         return this;
     }
-    public set secretType(secretType: string  | undefined) {
+    public set secretType(secretType: SecretSecretTypeEnum | string  | undefined) {
         this['secret_type'] = secretType;
     }
-    public get secretType(): string | undefined {
+    public get secretType(): SecretSecretTypeEnum | string | undefined {
         return this['secret_type'];
     }
     public withAutoRotation(autoRotation: boolean): Secret {
@@ -155,4 +156,24 @@ export class Secret {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withRotationFuncUrn(rotationFuncUrn: string): Secret {
+        this['rotation_func_urn'] = rotationFuncUrn;
+        return this;
+    }
+    public set rotationFuncUrn(rotationFuncUrn: string  | undefined) {
+        this['rotation_func_urn'] = rotationFuncUrn;
+    }
+    public get rotationFuncUrn(): string | undefined {
+        return this['rotation_func_urn'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SecretSecretTypeEnum {
+    COMMON = 'COMMON',
+    RDS_FG = 'RDS-FG',
+    GAUSSDB_FG = 'GaussDB-FG'
 }

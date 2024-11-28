@@ -2,6 +2,7 @@ import { CreateType } from './CreateType';
 import { JobState } from './JobState';
 import { JobTag } from './JobTag';
 import { JobType } from './JobType';
+import { VoiceTrainingAllocatedResource } from './VoiceTrainingAllocatedResource';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -25,6 +26,7 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     public phone?: string;
     private 'dhtms_job_id'?: string;
     private 'batch_name'?: string;
+    private 'allocated_resource'?: VoiceTrainingAllocatedResource;
     public constructor() { 
         super();
     }
@@ -187,5 +189,15 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     }
     public get batchName(): string | undefined {
         return this['batch_name'];
+    }
+    public withAllocatedResource(allocatedResource: VoiceTrainingAllocatedResource): ShowVoiceTrainingJobResponse {
+        this['allocated_resource'] = allocatedResource;
+        return this;
+    }
+    public set allocatedResource(allocatedResource: VoiceTrainingAllocatedResource  | undefined) {
+        this['allocated_resource'] = allocatedResource;
+    }
+    public get allocatedResource(): VoiceTrainingAllocatedResource | undefined {
+        return this['allocated_resource'];
     }
 }

@@ -13,9 +13,7 @@ export class CommonInfo {
     private 'max_iframes_interval'?: number;
     private 'hls_audio_separate'?: boolean;
     private 'hls_segment_type'?: CommonInfoHlsSegmentTypeEnum | string;
-    public constructor(pvc?: boolean, videoCodec?: string, format?: string) { 
-        this['pvc'] = pvc;
-        this['video_codec'] = videoCodec;
+    public constructor(format?: string) { 
         this['format'] = format;
     }
     public withPvc(pvc: boolean): CommonInfo {

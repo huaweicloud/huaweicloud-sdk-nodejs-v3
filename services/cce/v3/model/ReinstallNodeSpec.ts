@@ -20,6 +20,7 @@ export class ReinstallNodeSpec {
     public initializedConditions?: Array<string>;
     public extendParam?: ReinstallExtendParam;
     public hostnameConfig?: HostnameConfig;
+    public securityReinforcementType?: ReinstallNodeSpecSecurityReinforcementTypeEnum | string;
     public constructor(os?: string, login?: Login) { 
         this['os'] = os;
         this['login'] = login;
@@ -68,4 +69,17 @@ export class ReinstallNodeSpec {
         this['hostnameConfig'] = hostnameConfig;
         return this;
     }
+    public withSecurityReinforcementType(securityReinforcementType: ReinstallNodeSpecSecurityReinforcementTypeEnum | string): ReinstallNodeSpec {
+        this['securityReinforcementType'] = securityReinforcementType;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ReinstallNodeSpecSecurityReinforcementTypeEnum {
+    NULL = 'null',
+    CYBERSECURITY = 'cybersecurity'
 }

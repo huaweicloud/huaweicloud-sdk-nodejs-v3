@@ -2,14 +2,14 @@
 
 export class Record {
     private 'event_name'?: string;
-    private 'trigger_event_type'?: string;
+    private 'trigger_event_type'?: RecordTriggerEventTypeEnum | string;
     private 'create_time'?: number;
     private 'secret_name'?: string;
-    private 'secret_type'?: string;
+    private 'secret_type'?: RecordSecretTypeEnum | string;
     private 'notification_target_name'?: string;
     private 'notification_target_id'?: string;
     private 'notification_content'?: string;
-    private 'notification_status'?: string;
+    private 'notification_status'?: RecordNotificationStatusEnum | string;
     public constructor() { 
     }
     public withEventName(eventName: string): Record {
@@ -22,14 +22,14 @@ export class Record {
     public get eventName(): string | undefined {
         return this['event_name'];
     }
-    public withTriggerEventType(triggerEventType: string): Record {
+    public withTriggerEventType(triggerEventType: RecordTriggerEventTypeEnum | string): Record {
         this['trigger_event_type'] = triggerEventType;
         return this;
     }
-    public set triggerEventType(triggerEventType: string  | undefined) {
+    public set triggerEventType(triggerEventType: RecordTriggerEventTypeEnum | string  | undefined) {
         this['trigger_event_type'] = triggerEventType;
     }
-    public get triggerEventType(): string | undefined {
+    public get triggerEventType(): RecordTriggerEventTypeEnum | string | undefined {
         return this['trigger_event_type'];
     }
     public withCreateTime(createTime: number): Record {
@@ -52,14 +52,14 @@ export class Record {
     public get secretName(): string | undefined {
         return this['secret_name'];
     }
-    public withSecretType(secretType: string): Record {
+    public withSecretType(secretType: RecordSecretTypeEnum | string): Record {
         this['secret_type'] = secretType;
         return this;
     }
-    public set secretType(secretType: string  | undefined) {
+    public set secretType(secretType: RecordSecretTypeEnum | string  | undefined) {
         this['secret_type'] = secretType;
     }
-    public get secretType(): string | undefined {
+    public get secretType(): RecordSecretTypeEnum | string | undefined {
         return this['secret_type'];
     }
     public withNotificationTargetName(notificationTargetName: string): Record {
@@ -92,14 +92,44 @@ export class Record {
     public get notificationContent(): string | undefined {
         return this['notification_content'];
     }
-    public withNotificationStatus(notificationStatus: string): Record {
+    public withNotificationStatus(notificationStatus: RecordNotificationStatusEnum | string): Record {
         this['notification_status'] = notificationStatus;
         return this;
     }
-    public set notificationStatus(notificationStatus: string  | undefined) {
+    public set notificationStatus(notificationStatus: RecordNotificationStatusEnum | string  | undefined) {
         this['notification_status'] = notificationStatus;
     }
-    public get notificationStatus(): string | undefined {
+    public get notificationStatus(): RecordNotificationStatusEnum | string | undefined {
         return this['notification_status'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RecordTriggerEventTypeEnum {
+    SECRET_VERSION_CREATED = 'SECRET_VERSION_CREATED',
+    SECRET_VERSION_EXPIRED = 'SECRET_VERSION_EXPIRED',
+    SECRET_ROTATED = 'SECRET_ROTATED',
+    SECRET_DELETED = 'SECRET_DELETED',
+    SECRET_ROTATED_FAILED = 'SECRET_ROTATED_FAILED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RecordSecretTypeEnum {
+    COMMON = 'COMMON',
+    RDS_FG = 'RDS-FG',
+    GAUSSDB_FG = 'GaussDB-FG'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RecordNotificationStatusEnum {
+    SUCCESS = 'SUCCESS',
+    FAIL = 'FAIL',
+    INVALID = 'INVALID'
 }

@@ -8,6 +8,7 @@ export class GeneralTextRequestBody {
     private 'character_mode'?: boolean;
     public language?: string;
     private 'single_orientation_mode'?: boolean;
+    private 'pdf_page_number'?: number;
     public constructor() { 
     }
     public withImage(image: string): GeneralTextRequestBody {
@@ -61,5 +62,15 @@ export class GeneralTextRequestBody {
     }
     public get singleOrientationMode(): boolean | undefined {
         return this['single_orientation_mode'];
+    }
+    public withPdfPageNumber(pdfPageNumber: number): GeneralTextRequestBody {
+        this['pdf_page_number'] = pdfPageNumber;
+        return this;
+    }
+    public set pdfPageNumber(pdfPageNumber: number  | undefined) {
+        this['pdf_page_number'] = pdfPageNumber;
+    }
+    public get pdfPageNumber(): number | undefined {
+        return this['pdf_page_number'];
     }
 }

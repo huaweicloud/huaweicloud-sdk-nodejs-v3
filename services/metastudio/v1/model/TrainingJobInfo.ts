@@ -2,6 +2,7 @@ import { CreateType } from './CreateType';
 import { JobState } from './JobState';
 import { JobTag } from './JobTag';
 import { JobType } from './JobType';
+import { VoiceTrainingAllocatedResource } from './VoiceTrainingAllocatedResource';
 
 
 export class TrainingJobInfo {
@@ -24,6 +25,7 @@ export class TrainingJobInfo {
     public phone?: string;
     private 'dhtms_job_id'?: string;
     private 'batch_name'?: string;
+    private 'allocated_resource'?: VoiceTrainingAllocatedResource;
     public constructor() { 
     }
     public withJobType(jobType: JobType): TrainingJobInfo {
@@ -185,5 +187,15 @@ export class TrainingJobInfo {
     }
     public get batchName(): string | undefined {
         return this['batch_name'];
+    }
+    public withAllocatedResource(allocatedResource: VoiceTrainingAllocatedResource): TrainingJobInfo {
+        this['allocated_resource'] = allocatedResource;
+        return this;
+    }
+    public set allocatedResource(allocatedResource: VoiceTrainingAllocatedResource  | undefined) {
+        this['allocated_resource'] = allocatedResource;
+    }
+    public get allocatedResource(): VoiceTrainingAllocatedResource | undefined {
+        return this['allocated_resource'];
     }
 }

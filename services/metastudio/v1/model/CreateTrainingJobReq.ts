@@ -12,6 +12,8 @@ export class CreateTrainingJobReq {
     public phone?: string;
     private 'dhtms_job_id'?: string;
     private 'batch_name'?: string;
+    private 'output_language'?: string;
+    private 'custom_text'?: string;
     public constructor(voiceName?: string) { 
         this['voice_name'] = voiceName;
     }
@@ -74,6 +76,26 @@ export class CreateTrainingJobReq {
     }
     public get batchName(): string | undefined {
         return this['batch_name'];
+    }
+    public withOutputLanguage(outputLanguage: string): CreateTrainingJobReq {
+        this['output_language'] = outputLanguage;
+        return this;
+    }
+    public set outputLanguage(outputLanguage: string  | undefined) {
+        this['output_language'] = outputLanguage;
+    }
+    public get outputLanguage(): string | undefined {
+        return this['output_language'];
+    }
+    public withCustomText(customText: string): CreateTrainingJobReq {
+        this['custom_text'] = customText;
+        return this;
+    }
+    public set customText(customText: string  | undefined) {
+        this['custom_text'] = customText;
+    }
+    public get customText(): string | undefined {
+        return this['custom_text'];
     }
 }
 

@@ -163,6 +163,7 @@ export * from './model/DownloadChartRequest';
 export * from './model/DownloadChartResponse';
 export * from './model/EipSpec';
 export * from './model/EipSpecBandwidth';
+export * from './model/EncryptionConfig';
 export * from './model/EniNetwork';
 export * from './model/EniNetworkUpdate';
 export * from './model/ExtensionScaleGroup';

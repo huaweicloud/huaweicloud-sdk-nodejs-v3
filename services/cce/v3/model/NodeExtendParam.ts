@@ -22,6 +22,7 @@ export class NodeExtendParam {
     public kubeReservedMem?: number;
     public systemReservedMem?: number;
     private 'init-node-password'?: string;
+    public securityReinforcementType?: NodeExtendParamSecurityReinforcementTypeEnum | string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): NodeExtendParam {
@@ -150,4 +151,17 @@ export class NodeExtendParam {
     public get initNodePassword(): string | undefined {
         return this['init-node-password'];
     }
+    public withSecurityReinforcementType(securityReinforcementType: NodeExtendParamSecurityReinforcementTypeEnum | string): NodeExtendParam {
+        this['securityReinforcementType'] = securityReinforcementType;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NodeExtendParamSecurityReinforcementTypeEnum {
+    NULL = 'null',
+    CYBERSECURITY = 'cybersecurity'
 }

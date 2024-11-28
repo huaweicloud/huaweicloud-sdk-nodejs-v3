@@ -28,6 +28,7 @@ export class SecMasterRegion {
     public static AF_NORTH_1 = new Region("af-north-1", ["https://secmaster.af-north-1.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://secmaster.af-south-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://secmaster.la-south-2.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://secmaster.eu-west-101.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -52,7 +53,8 @@ export class SecMasterRegion {
         "tr-west-1":SecMasterRegion.TR_WEST_1,
         "af-north-1":SecMasterRegion.AF_NORTH_1,
         "af-south-1":SecMasterRegion.AF_SOUTH_1,
-        "la-south-2":SecMasterRegion.LA_SOUTH_2
+        "la-south-2":SecMasterRegion.LA_SOUTH_2,
+        "eu-west-101":SecMasterRegion.EU_WEST_101
     };
   
     public static valueOf(regionId: string) {

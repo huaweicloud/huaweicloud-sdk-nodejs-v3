@@ -166,6 +166,7 @@ import { DownloadChartRequest } from './model/DownloadChartRequest';
 import { DownloadChartResponse } from './model/DownloadChartResponse';
 import { EipSpec } from './model/EipSpec';
 import { EipSpecBandwidth } from './model/EipSpecBandwidth';
+import { EncryptionConfig } from './model/EncryptionConfig';
 import { EniNetwork } from './model/EniNetwork';
 import { EniNetworkUpdate } from './model/EniNetworkUpdate';
 import { ExtensionScaleGroup } from './model/ExtensionScaleGroup';

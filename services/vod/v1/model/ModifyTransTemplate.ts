@@ -11,10 +11,8 @@ export class ModifyTransTemplate {
     private 'watermark_template_ids'?: Array<string>;
     public description?: string;
     public common?: CommonInfo;
-    public constructor(groupId?: string, qualityInfoList?: Array<QualityInfoList>, common?: CommonInfo) { 
+    public constructor(groupId?: string) { 
         this['group_id'] = groupId;
-        this['quality_info_list'] = qualityInfoList;
-        this['common'] = common;
     }
     public withGroupId(groupId: string): ModifyTransTemplate {
         this['group_id'] = groupId;

@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ADDomainInfo } from './model/ADDomainInfo';
+import { AddCopyDatabaseRequestBody } from './model/AddCopyDatabaseRequestBody';
 import { AddLogConfigResponseBody } from './model/AddLogConfigResponseBody';
 import { AddLogConfigs } from './model/AddLogConfigs';
 import { AddMsdtcRequestBody } from './model/AddMsdtcRequestBody';
@@ -74,6 +75,8 @@ import { ConfigurationSummary } from './model/ConfigurationSummary';
 import { ConfigurationSummaryForCreate } from './model/ConfigurationSummaryForCreate';
 import { CopyConfigurationRequest } from './model/CopyConfigurationRequest';
 import { CopyConfigurationResponse } from './model/CopyConfigurationResponse';
+import { CopyDatabaseRequest } from './model/CopyDatabaseRequest';
+import { CopyDatabaseResponse } from './model/CopyDatabaseResponse';
 import { CreateConfigurationRequest } from './model/CreateConfigurationRequest';
 import { CreateConfigurationResponse } from './model/CreateConfigurationResponse';
 import { CreateDatabaseRequest } from './model/CreateDatabaseRequest';
@@ -149,6 +152,9 @@ import { DeleteLogLtsConfigsRequest } from './model/DeleteLogLtsConfigsRequest';
 import { DeleteLogLtsConfigsResponse } from './model/DeleteLogLtsConfigsResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
+import { DeleteMsdtcLocalHostRequest } from './model/DeleteMsdtcLocalHostRequest';
+import { DeleteMsdtcLocalHostRequestBody } from './model/DeleteMsdtcLocalHostRequestBody';
+import { DeleteMsdtcLocalHostResponse } from './model/DeleteMsdtcLocalHostResponse';
 import { DeletePostgresqlDatabaseRequest } from './model/DeletePostgresqlDatabaseRequest';
 import { DeletePostgresqlDatabaseResponse } from './model/DeletePostgresqlDatabaseResponse';
 import { DeletePostgresqlDbUserRequest } from './model/DeletePostgresqlDbUserRequest';
@@ -5040,6 +5046,26 @@ export class RdsClient {
     }
 
     /**
+     * 复制数据库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制数据库
+     * @param {string} instanceId 实例ID
+     * @param {AddCopyDatabaseRequestBody} addCopyDatabaseRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyDatabase(copyDatabaseRequest?: CopyDatabaseRequest): Promise<CopyDatabaseResponse> {
+        const options = ParamCreater().copyDatabase(copyDatabaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建数据库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5074,6 +5100,26 @@ export class RdsClient {
      */
     public createSqlserverDbUser(createSqlserverDbUserRequest?: CreateSqlserverDbUserRequest): Promise<CreateSqlserverDbUserResponse> {
         const options = ParamCreater().createSqlserverDbUser(createSqlserverDbUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除MSDTC相关主机host地址
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除MSDTC
+     * @param {string} instanceId 实例ID
+     * @param {DeleteMsdtcLocalHostRequestBody} deleteMsdtcLocalHostRequestBody 删除msdtc信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteMsdtcLocalHost(deleteMsdtcLocalHostRequest?: DeleteMsdtcLocalHostRequest): Promise<DeleteMsdtcLocalHostResponse> {
+        const options = ParamCreater().deleteMsdtcLocalHost(deleteMsdtcLocalHostRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16195,6 +16241,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 复制数据库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyDatabase(copyDatabaseRequest?: CopyDatabaseRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/database/procedure",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (copyDatabaseRequest !== null && copyDatabaseRequest !== undefined) {
+                if (copyDatabaseRequest instanceof CopyDatabaseRequest) {
+                    instanceId = copyDatabaseRequest.instanceId;
+                    body = copyDatabaseRequest.body
+                } else {
+                    instanceId = copyDatabaseRequest['instance_id'];
+                    body = copyDatabaseRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling copyDatabase.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16291,6 +16383,52 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除MSDTC相关主机host地址
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteMsdtcLocalHost(deleteMsdtcLocalHostRequest?: DeleteMsdtcLocalHostRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/msdtc/host",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteMsdtcLocalHostRequest !== null && deleteMsdtcLocalHostRequest !== undefined) {
+                if (deleteMsdtcLocalHostRequest instanceof DeleteMsdtcLocalHostRequest) {
+                    instanceId = deleteMsdtcLocalHostRequest.instanceId;
+                    body = deleteMsdtcLocalHostRequest.body
+                } else {
+                    instanceId = deleteMsdtcLocalHostRequest['instance_id'];
+                    body = deleteMsdtcLocalHostRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteMsdtcLocalHost.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

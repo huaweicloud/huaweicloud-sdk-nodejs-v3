@@ -32,7 +32,6 @@ export class AutopilotClusterSpec {
     public az?: string;
     public extendParam?: AutopilotClusterExtendParam;
     public configurationsOverride?: Array<AutopilotPackageConfiguration>;
-    public deletionProtection?: boolean;
     public constructor(flavor?: string, hostNetwork?: AutopilotHostNetwork, containerNetwork?: AutopilotContainerNetwork) { 
         this['flavor'] = flavor;
         this['hostNetwork'] = hostNetwork;
@@ -128,10 +127,6 @@ export class AutopilotClusterSpec {
     }
     public withConfigurationsOverride(configurationsOverride: Array<AutopilotPackageConfiguration>): AutopilotClusterSpec {
         this['configurationsOverride'] = configurationsOverride;
-        return this;
-    }
-    public withDeletionProtection(deletionProtection: boolean): AutopilotClusterSpec {
-        this['deletionProtection'] = deletionProtection;
         return this;
     }
 }

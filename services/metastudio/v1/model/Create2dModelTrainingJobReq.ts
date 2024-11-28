@@ -12,7 +12,6 @@ export class Create2dModelTrainingJobReq {
     private 'batch_name'?: string;
     public tags?: Array<string>;
     private 'model_version'?: Create2dModelTrainingJobReqModelVersionEnum | string;
-    private 'beauty_level'?: number;
     private 'is_flexus'?: boolean;
     private 'is_only_human_model'?: boolean;
     private 'audio_source_type'?: Create2dModelTrainingJobReqAudioSourceTypeEnum | string;
@@ -92,16 +91,6 @@ export class Create2dModelTrainingJobReq {
     }
     public get modelVersion(): Create2dModelTrainingJobReqModelVersionEnum | string | undefined {
         return this['model_version'];
-    }
-    public withBeautyLevel(beautyLevel: number): Create2dModelTrainingJobReq {
-        this['beauty_level'] = beautyLevel;
-        return this;
-    }
-    public set beautyLevel(beautyLevel: number  | undefined) {
-        this['beauty_level'] = beautyLevel;
-    }
-    public get beautyLevel(): number | undefined {
-        return this['beauty_level'];
     }
     public withIsFlexus(isFlexus: boolean): Create2dModelTrainingJobReq {
         this['is_flexus'] = isFlexus;

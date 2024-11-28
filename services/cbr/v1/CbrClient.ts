@@ -41,9 +41,13 @@ import { BillingCreate } from './model/BillingCreate';
 import { BillingUpdate } from './model/BillingUpdate';
 import { BindRulesTags } from './model/BindRulesTags';
 import { BulkCreateAndDeleteVaultTagsReq } from './model/BulkCreateAndDeleteVaultTagsReq';
+import { CbcOrderChange } from './model/CbcOrderChange';
 import { CbcOrderResult } from './model/CbcOrderResult';
+import { CbcProductInfoOrderChange } from './model/CbcProductInfoOrderChange';
 import { CbcProductInfoUpdate } from './model/CbcProductInfoUpdate';
 import { CbcUpdate } from './model/CbcUpdate';
+import { ChangeOrderRequest } from './model/ChangeOrderRequest';
+import { ChangeOrderResponse } from './model/ChangeOrderResponse';
 import { CheckAgentRequest } from './model/CheckAgentRequest';
 import { CheckAgentResponse } from './model/CheckAgentResponse';
 import { CheckpointCreate } from './model/CheckpointCreate';
@@ -90,6 +94,7 @@ import { DisassociateVaultPolicyResponse } from './model/DisassociateVaultPolicy
 import { DomainMigrate } from './model/DomainMigrate';
 import { DomainMigrateProjectStatus } from './model/DomainMigrateProjectStatus';
 import { DomainProjectsInfo } from './model/DomainProjectsInfo';
+import { ExcludePath } from './model/ExcludePath';
 import { ImageData } from './model/ImageData';
 import { ImportBackupRequest } from './model/ImportBackupRequest';
 import { ImportBackupResponse } from './model/ImportBackupResponse';
@@ -410,6 +415,26 @@ export class CbrClient {
     }
 
     /**
+     * 订单更新，调用该接口更新包周期产品订单信息,返回待支付订单信息。
+     * &gt; 该接口目前属于公测阶段，部分region暂时无法使用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 变更
+     * @param {CbcOrderChange} changeOrderRequestBody 变更请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeOrder(changeOrderRequest?: ChangeOrderRequest): Promise<ChangeOrderResponse> {
+        const options = ParamCreater().changeOrder(changeOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 检查应用一致性Agent状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -628,7 +653,7 @@ export class CbrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除组织策略
-     * @param {string} organizationPolicyId 资源策略ID
+     * @param {string} organizationPolicyId 组织策略ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -902,6 +927,8 @@ export class CbrClient {
      *
      * @summary 查询组织策略列表
      * @param {string} operationType 组织策略类型
+     * @param {number} [limit] 每页显示的条目数量，正整数
+     * @param {number} [offset] 偏移值，正整数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -977,7 +1004,7 @@ export class CbrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可保护资源
-     * @param {'server' | 'disk'} protectableType 对象类型
+     * @param {'server' | 'disk' | 'turbo' | 'workspace' | 'workspace_v2'} protectableType 对象类型
      * @param {number} [limit] 每页显示的条目数量，每页最多支持50条
      * @param {string} [marker] 上一次查询最后一条的ID
      * @param {string} [name] 按名称过滤
@@ -1619,11 +1646,11 @@ export class CbrClient {
     }
 
     /**
-     * 订单更新，支付cbc订单后，调用该接口更新包周期产品订单信息。
+     * 订单更新，支付cbc订单后，调用该接口更新包周期产品订单信息。该接口已废弃。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 变更
+     * @summary 变更（废弃）
      * @param {string} orderId 订单ID
      * @param {CbcUpdate} updateOrderRequestBody 变更请求body
      * @param {*} [options] Override http request option.
@@ -1960,6 +1987,45 @@ export const ParamCreater = function () {
                     body = batchUpdateVaultRequest.body
                 } else {
                     body = batchUpdateVaultRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 订单更新，调用该接口更新包周期产品订单信息,返回待支付订单信息。
+         * &gt; 该接口目前属于公测阶段，部分region暂时无法使用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeOrder(changeOrderRequest?: ChangeOrderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/orders/change",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeOrderRequest !== null && changeOrderRequest !== undefined) {
+                if (changeOrderRequest instanceof ChangeOrderRequest) {
+                    body = changeOrderRequest.body
+                } else {
+                    body = changeOrderRequest['body'];
                 }
             }
 
@@ -3198,12 +3264,20 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let operationType;
+            
+            let limit;
+            
+            let offset;
 
             if (listOrganizationPoliciesRequest !== null && listOrganizationPoliciesRequest !== undefined) {
                 if (listOrganizationPoliciesRequest instanceof ListOrganizationPoliciesRequest) {
                     operationType = listOrganizationPoliciesRequest.operationType;
+                    limit = listOrganizationPoliciesRequest.limit;
+                    offset = listOrganizationPoliciesRequest.offset;
                 } else {
                     operationType = listOrganizationPoliciesRequest['operation_type'];
+                    limit = listOrganizationPoliciesRequest['limit'];
+                    offset = listOrganizationPoliciesRequest['offset'];
                 }
             }
 
@@ -3213,6 +3287,12 @@ export const ParamCreater = function () {
             }
             if (operationType !== null && operationType !== undefined) {
                 localVarQueryParameter['operation_type'] = operationType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4750,7 +4830,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 订单更新，支付cbc订单后，调用该接口更新包周期产品订单信息。
+         * 订单更新，支付cbc订单后，调用该接口更新包周期产品订单信息。该接口已废弃。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

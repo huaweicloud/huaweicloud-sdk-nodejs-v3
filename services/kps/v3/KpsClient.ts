@@ -9,6 +9,10 @@ import { Auth } from './model/Auth';
 import { BatchAssociateKeypairRequest } from './model/BatchAssociateKeypairRequest';
 import { BatchAssociateKeypairRequestBody } from './model/BatchAssociateKeypairRequestBody';
 import { BatchAssociateKeypairResponse } from './model/BatchAssociateKeypairResponse';
+import { BatchExportPrivateKeyRequest } from './model/BatchExportPrivateKeyRequest';
+import { BatchExportPrivateKeyResponse } from './model/BatchExportPrivateKeyResponse';
+import { BatchImportKeypairRequest } from './model/BatchImportKeypairRequest';
+import { BatchImportKeypairResponse } from './model/BatchImportKeypairResponse';
 import { ClearPrivateKeyRequest } from './model/ClearPrivateKeyRequest';
 import { ClearPrivateKeyResponse } from './model/ClearPrivateKeyResponse';
 import { CreateKeypairAction } from './model/CreateKeypairAction';
@@ -16,6 +20,7 @@ import { CreateKeypairRequest } from './model/CreateKeypairRequest';
 import { CreateKeypairRequestBody } from './model/CreateKeypairRequestBody';
 import { CreateKeypairResp } from './model/CreateKeypairResp';
 import { CreateKeypairResponse } from './model/CreateKeypairResponse';
+import { CreateKeypairResponseBody } from './model/CreateKeypairResponseBody';
 import { DeleteAllFailedTaskRequest } from './model/DeleteAllFailedTaskRequest';
 import { DeleteAllFailedTaskResponse } from './model/DeleteAllFailedTaskResponse';
 import { DeleteFailedTaskRequest } from './model/DeleteFailedTaskRequest';
@@ -32,6 +37,7 @@ import { ExportPrivateKeyKeypairBean } from './model/ExportPrivateKeyKeypairBean
 import { ExportPrivateKeyRequest } from './model/ExportPrivateKeyRequest';
 import { ExportPrivateKeyRequestBody } from './model/ExportPrivateKeyRequestBody';
 import { ExportPrivateKeyResponse } from './model/ExportPrivateKeyResponse';
+import { FailedKeypair } from './model/FailedKeypair';
 import { FailedTasks } from './model/FailedTasks';
 import { ImportPrivateKeyAction } from './model/ImportPrivateKeyAction';
 import { ImportPrivateKeyKeypairBean } from './model/ImportPrivateKeyKeypairBean';
@@ -108,6 +114,44 @@ export class KpsClient {
      */
     public batchAssociateKeypair(batchAssociateKeypairRequest?: BatchAssociateKeypairRequest): Promise<BatchAssociateKeypairResponse> {
         const options = ParamCreater().batchAssociateKeypair(batchAssociateKeypairRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量导出密钥对私钥，单次最多导出10条数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量导出密钥对私钥
+     * @param {Array<Keypairs>} batchExportPrivateKeyRequestBody 待导出的密钥列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchExportPrivateKey(batchExportPrivateKeyRequest?: BatchExportPrivateKeyRequest): Promise<BatchExportPrivateKeyResponse> {
+        const options = ParamCreater().batchExportPrivateKey(batchExportPrivateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量导入SSH密钥对,单次批量导入不得超过10条记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量导入SSH密钥对
+     * @param {Array<CreateKeypairRequestBody>} batchImportKeypairRequestBody 待批量导入的密钥对列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchImportKeypair(batchImportKeypairRequest?: BatchImportKeypairRequest): Promise<BatchImportKeypairResponse> {
+        const options = ParamCreater().batchImportKeypair(batchImportKeypairRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -450,6 +494,82 @@ export const ParamCreater = function () {
                     body = batchAssociateKeypairRequest.body
                 } else {
                     body = batchAssociateKeypairRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量导出密钥对私钥，单次最多导出10条数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchExportPrivateKey(batchExportPrivateKeyRequest?: BatchExportPrivateKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/keypairs/private-key/batch-export",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchExportPrivateKeyRequest !== null && batchExportPrivateKeyRequest !== undefined) {
+                if (batchExportPrivateKeyRequest instanceof BatchExportPrivateKeyRequest) {
+                    body = batchExportPrivateKeyRequest.body
+                } else {
+                    body = batchExportPrivateKeyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量导入SSH密钥对,单次批量导入不得超过10条记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchImportKeypair(batchImportKeypairRequest?: BatchImportKeypairRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/keypairs/batch-import",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchImportKeypairRequest !== null && batchImportKeypairRequest !== undefined) {
+                if (batchImportKeypairRequest instanceof BatchImportKeypairRequest) {
+                    body = batchImportKeypairRequest.body
+                } else {
+                    body = batchImportKeypairRequest['body'];
                 }
             }
 

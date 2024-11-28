@@ -194,6 +194,8 @@ import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListRecycleInstancesRequest } from './model/ListRecycleInstancesRequest';
 import { ListRecycleInstancesResponse } from './model/ListRecycleInstancesResponse';
+import { ListRedisPitrRestoreTimeRequest } from './model/ListRedisPitrRestoreTimeRequest';
+import { ListRedisPitrRestoreTimeResponse } from './model/ListRedisPitrRestoreTimeResponse';
 import { ListRedisSlowLogsRequest } from './model/ListRedisSlowLogsRequest';
 import { ListRedisSlowLogsRequestBody } from './model/ListRedisSlowLogsRequestBody';
 import { ListRedisSlowLogsResponse } from './model/ListRedisSlowLogsResponse';
@@ -284,6 +286,9 @@ import { RestorableTime } from './model/RestorableTime';
 import { RestoreExistingInstanceRequest } from './model/RestoreExistingInstanceRequest';
 import { RestoreExistingInstanceResponse } from './model/RestoreExistingInstanceResponse';
 import { RestoreInfo } from './model/RestoreInfo';
+import { RestoreRedisPitrRequest } from './model/RestoreRedisPitrRequest';
+import { RestoreRedisPitrRequestBody } from './model/RestoreRedisPitrRequestBody';
+import { RestoreRedisPitrResponse } from './model/RestoreRedisPitrResponse';
 import { RestoreRequestBody } from './model/RestoreRequestBody';
 import { SaveLtsConfigsRequest } from './model/SaveLtsConfigsRequest';
 import { SaveLtsConfigsRequestBody } from './model/SaveLtsConfigsRequestBody';
@@ -300,6 +305,9 @@ import { SetInstanceDataDumpRequestBody } from './model/SetInstanceDataDumpReque
 import { SetInstanceDataDumpResponse } from './model/SetInstanceDataDumpResponse';
 import { SetRecyclePolicyRequest } from './model/SetRecyclePolicyRequest';
 import { SetRecyclePolicyResponse } from './model/SetRecyclePolicyResponse';
+import { SetRedisPitrPolicyRequest } from './model/SetRedisPitrPolicyRequest';
+import { SetRedisPitrPolicyRequestBody } from './model/SetRedisPitrPolicyRequestBody';
+import { SetRedisPitrPolicyResponse } from './model/SetRedisPitrPolicyResponse';
 import { ShowAllInstancesBackupsNewRequest } from './model/ShowAllInstancesBackupsNewRequest';
 import { ShowAllInstancesBackupsNewResponse } from './model/ShowAllInstancesBackupsNewResponse';
 import { ShowAllInstancesBackupsRequest } from './model/ShowAllInstancesBackupsRequest';
@@ -346,6 +354,10 @@ import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
 import { ShowRedisBigKeysRequest } from './model/ShowRedisBigKeysRequest';
 import { ShowRedisBigKeysRequestBody } from './model/ShowRedisBigKeysRequestBody';
 import { ShowRedisBigKeysResponse } from './model/ShowRedisBigKeysResponse';
+import { ShowRedisPitrInfoRequest } from './model/ShowRedisPitrInfoRequest';
+import { ShowRedisPitrInfoResponse } from './model/ShowRedisPitrInfoResponse';
+import { ShowRedisPitrPolicyRequest } from './model/ShowRedisPitrPolicyRequest';
+import { ShowRedisPitrPolicyResponse } from './model/ShowRedisPitrPolicyResponse';
 import { ShowResourcesDetailResponseBody } from './model/ShowResourcesDetailResponseBody';
 import { ShowResourcesListResponseBody } from './model/ShowResourcesListResponseBody';
 import { ShowRestorableListRequest } from './model/ShowRestorableListRequest';
@@ -358,6 +370,9 @@ import { ShrinkInstanceNodeRequest } from './model/ShrinkInstanceNodeRequest';
 import { ShrinkInstanceNodeRequestBody } from './model/ShrinkInstanceNodeRequestBody';
 import { ShrinkInstanceNodeResponse } from './model/ShrinkInstanceNodeResponse';
 import { SlowlogResult } from './model/SlowlogResult';
+import { StopBackupRequest } from './model/StopBackupRequest';
+import { StopBackupRequestBody } from './model/StopBackupRequestBody';
+import { StopBackupResponse } from './model/StopBackupResponse';
 import { SwitchIpGroupRequest } from './model/SwitchIpGroupRequest';
 import { SwitchIpGroupRequestBody } from './model/SwitchIpGroupRequestBody';
 import { SwitchIpGroupRequestBodyIpGroups } from './model/SwitchIpGroupRequestBodyIpGroups';
@@ -1584,6 +1599,29 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 查询Redis可恢复时间点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis可恢复时间点
+     * @param {string} instanceId 实例ID。
+     * @param {string} startTime 查询可恢复时间点的开始时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。
+     * @param {string} endTime 查询可恢复时间点的结束时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录，默认值为0。
+     * @param {number} [limit] 查询返回记录的数量上限值，取值范围为1~100，默认值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRedisPitrRestoreTime(listRedisPitrRestoreTimeRequest?: ListRedisPitrRestoreTimeRequest): Promise<ListRedisPitrRestoreTimeResponse> {
+        const options = ParamCreater().listRedisPitrRestoreTime(listRedisPitrRestoreTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询GeminiDB(for Redis)数据库慢日志信息，支持日志关键字搜索。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2015,6 +2053,26 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 恢复当前Redis实例到指定时间点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复当前Redis实例到指定时间点
+     * @param {string} instanceId 实例ID。
+     * @param {RestoreRedisPitrRequestBody} restoreRedisPitrRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreRedisPitr(restoreRedisPitrRequest?: RestoreRedisPitrRequest): Promise<RestoreRedisPitrResponse> {
+        const options = ParamCreater().restoreRedisPitr(restoreRedisPitrRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 将实例日志与LTS日志流关联，后台将自动上传实例日志到关联的LTS日志流里。
      * - 关联成功后，会产生一定费用，具体计费可参考云日志服务（LTS）的定价详情。
      * - 系统会为当前选择的日志流创建对应日志类型的结构化配置，若该日志流已存在其他日志类型的结构化配置，系统会进行覆盖。
@@ -2108,6 +2166,26 @@ export class GaussDBforNoSQLClient {
      */
     public setRecyclePolicy(setRecyclePolicyRequest?: SetRecyclePolicyRequest): Promise<SetRecyclePolicyResponse> {
         const options = ParamCreater().setRecyclePolicy(setRecyclePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置Redis恢复到指定时间点策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置Redis恢复到指定时间点策略
+     * @param {string} instanceId 实例ID。
+     * @param {SetRedisPitrPolicyRequestBody} setRedisPitrPolicyRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setRedisPitrPolicy(setRedisPitrPolicyRequest?: SetRedisPitrPolicyRequest): Promise<SetRedisPitrPolicyResponse> {
+        const options = ParamCreater().setRedisPitrPolicy(setRedisPitrPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2548,6 +2626,44 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 查询Redis实例指定时间点恢复所占用的存储空间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis实例指定时间点恢复所占用的存储空间
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRedisPitrInfo(showRedisPitrInfoRequest?: ShowRedisPitrInfoRequest): Promise<ShowRedisPitrInfoResponse> {
+        const options = ParamCreater().showRedisPitrInfo(showRedisPitrInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Redis恢复到指定时间点策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis恢复到指定时间点策略
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRedisPitrPolicy(showRedisPitrPolicyRequest?: ShowRedisPitrPolicyRequest): Promise<ShowRedisPitrPolicyResponse> {
+        const options = ParamCreater().showRedisPitrPolicy(showRedisPitrPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户可恢复的实例列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2619,6 +2735,26 @@ export class GaussDBforNoSQLClient {
      */
     public shrinkInstanceNode(shrinkInstanceNodeRequest?: ShrinkInstanceNodeRequest): Promise<ShrinkInstanceNodeResponse> {
         const options = ParamCreater().shrinkInstanceNode(shrinkInstanceNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持紧急情况下停止备份功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止备份
+     * @param {string} backupId 备份ID。
+     * @param {StopBackupRequestBody} stopBackupRequestBody 停止备份请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopBackup(stopBackupRequest?: StopBackupRequest): Promise<StopBackupResponse> {
+        const options = ParamCreater().stopBackup(stopBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5652,6 +5788,78 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Redis可恢复时间点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRedisPitrRestoreTime(listRedisPitrRestoreTimeRequest?: ListRedisPitrRestoreTimeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/pitr/restorable-time-periods",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+
+            if (listRedisPitrRestoreTimeRequest !== null && listRedisPitrRestoreTimeRequest !== undefined) {
+                if (listRedisPitrRestoreTimeRequest instanceof ListRedisPitrRestoreTimeRequest) {
+                    instanceId = listRedisPitrRestoreTimeRequest.instanceId;
+                    startTime = listRedisPitrRestoreTimeRequest.startTime;
+                    endTime = listRedisPitrRestoreTimeRequest.endTime;
+                    offset = listRedisPitrRestoreTimeRequest.offset;
+                    limit = listRedisPitrRestoreTimeRequest.limit;
+                } else {
+                    instanceId = listRedisPitrRestoreTimeRequest['instance_id'];
+                    startTime = listRedisPitrRestoreTimeRequest['start_time'];
+                    endTime = listRedisPitrRestoreTimeRequest['end_time'];
+                    offset = listRedisPitrRestoreTimeRequest['offset'];
+                    limit = listRedisPitrRestoreTimeRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listRedisPitrRestoreTime.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listRedisPitrRestoreTime.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listRedisPitrRestoreTime.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询GeminiDB(for Redis)数据库慢日志信息，支持日志关键字搜索。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6683,6 +6891,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 恢复当前Redis实例到指定时间点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreRedisPitr(restoreRedisPitrRequest?: RestoreRedisPitrRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/pitr",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (restoreRedisPitrRequest !== null && restoreRedisPitrRequest !== undefined) {
+                if (restoreRedisPitrRequest instanceof RestoreRedisPitrRequest) {
+                    instanceId = restoreRedisPitrRequest.instanceId;
+                    body = restoreRedisPitrRequest.body
+                } else {
+                    instanceId = restoreRedisPitrRequest['instance_id'];
+                    body = restoreRedisPitrRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restoreRedisPitr.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 将实例日志与LTS日志流关联，后台将自动上传实例日志到关联的LTS日志流里。
          * - 关联成功后，会产生一定费用，具体计费可参考云日志服务（LTS）的定价详情。
          * - 系统会为当前选择的日志流创建对应日志类型的结构化配置，若该日志流已存在其他日志类型的结构化配置，系统会进行覆盖。
@@ -6894,6 +7148,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置Redis恢复到指定时间点策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setRedisPitrPolicy(setRedisPitrPolicyRequest?: SetRedisPitrPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/pitr/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setRedisPitrPolicyRequest !== null && setRedisPitrPolicyRequest !== undefined) {
+                if (setRedisPitrPolicyRequest instanceof SetRedisPitrPolicyRequest) {
+                    instanceId = setRedisPitrPolicyRequest.instanceId;
+                    body = setRedisPitrPolicyRequest.body
+                } else {
+                    instanceId = setRedisPitrPolicyRequest['instance_id'];
+                    body = setRedisPitrPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setRedisPitrPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7931,6 +8231,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Redis实例指定时间点恢复所占用的存储空间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRedisPitrInfo(showRedisPitrInfoRequest?: ShowRedisPitrInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/pitr",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showRedisPitrInfoRequest !== null && showRedisPitrInfoRequest !== undefined) {
+                if (showRedisPitrInfoRequest instanceof ShowRedisPitrInfoRequest) {
+                    instanceId = showRedisPitrInfoRequest.instanceId;
+                } else {
+                    instanceId = showRedisPitrInfoRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRedisPitrInfo.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Redis恢复到指定时间点策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRedisPitrPolicy(showRedisPitrPolicyRequest?: ShowRedisPitrPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/pitr/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showRedisPitrPolicyRequest !== null && showRedisPitrPolicyRequest !== undefined) {
+                if (showRedisPitrPolicyRequest instanceof ShowRedisPitrPolicyRequest) {
+                    instanceId = showRedisPitrPolicyRequest.instanceId;
+                } else {
+                    instanceId = showRedisPitrPolicyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRedisPitrPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户可恢复的实例列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8098,6 +8472,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持紧急情况下停止备份功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopBackup(stopBackupRequest?: StopBackupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/backups/{backup_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let backupId;
+
+            if (stopBackupRequest !== null && stopBackupRequest !== undefined) {
+                if (stopBackupRequest instanceof StopBackupRequest) {
+                    backupId = stopBackupRequest.backupId;
+                    body = stopBackupRequest.body
+                } else {
+                    backupId = stopBackupRequest['backup_id'];
+                    body = stopBackupRequest['body'];
+                }
+            }
+
+        
+            if (backupId === null || backupId === undefined) {
+            throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling stopBackup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'backup_id': backupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

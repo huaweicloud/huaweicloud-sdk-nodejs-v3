@@ -5,6 +5,8 @@ import { DeleteSubtitle } from './DeleteSubtitle';
 export class SubtitleModifyReq {
     private 'asset_id'?: string;
     private 'default_language'?: string;
+    private 'repackage_mode'?: SubtitleModifyReqRepackageModeEnum | string;
+    private 'delete_mode'?: SubtitleModifyReqDeleteModeEnum | string;
     private 'add_subtitles'?: Array<AddSubtitle>;
     private 'delete_subtitles'?: Array<DeleteSubtitle>;
     public constructor(assetId?: string) { 
@@ -30,6 +32,26 @@ export class SubtitleModifyReq {
     public get defaultLanguage(): string | undefined {
         return this['default_language'];
     }
+    public withRepackageMode(repackageMode: SubtitleModifyReqRepackageModeEnum | string): SubtitleModifyReq {
+        this['repackage_mode'] = repackageMode;
+        return this;
+    }
+    public set repackageMode(repackageMode: SubtitleModifyReqRepackageModeEnum | string  | undefined) {
+        this['repackage_mode'] = repackageMode;
+    }
+    public get repackageMode(): SubtitleModifyReqRepackageModeEnum | string | undefined {
+        return this['repackage_mode'];
+    }
+    public withDeleteMode(deleteMode: SubtitleModifyReqDeleteModeEnum | string): SubtitleModifyReq {
+        this['delete_mode'] = deleteMode;
+        return this;
+    }
+    public set deleteMode(deleteMode: SubtitleModifyReqDeleteModeEnum | string  | undefined) {
+        this['delete_mode'] = deleteMode;
+    }
+    public get deleteMode(): SubtitleModifyReqDeleteModeEnum | string | undefined {
+        return this['delete_mode'];
+    }
     public withAddSubtitles(addSubtitles: Array<AddSubtitle>): SubtitleModifyReq {
         this['add_subtitles'] = addSubtitles;
         return this;
@@ -50,4 +72,21 @@ export class SubtitleModifyReq {
     public get deleteSubtitles(): Array<DeleteSubtitle> | undefined {
         return this['delete_subtitles'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SubtitleModifyReqRepackageModeEnum {
+    E_0 = '0',
+    E_1 = '1'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SubtitleModifyReqDeleteModeEnum {
+    E_0 = '0',
+    E_1 = '1'
 }

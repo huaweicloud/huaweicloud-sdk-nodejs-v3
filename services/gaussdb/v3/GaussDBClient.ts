@@ -209,6 +209,9 @@ import { DeleteTaskRecordResponse } from './model/DeleteTaskRecordResponse';
 import { DescribeBackupEncryptStatusRequest } from './model/DescribeBackupEncryptStatusRequest';
 import { DescribeBackupEncryptStatusResponse } from './model/DescribeBackupEncryptStatusResponse';
 import { DiagnosisInfo } from './model/DiagnosisInfo';
+import { DownloadSlowLogFileItem } from './model/DownloadSlowLogFileItem';
+import { DownloadSlowLogFileRequest } from './model/DownloadSlowLogFileRequest';
+import { DownloadSlowLogFileResponse } from './model/DownloadSlowLogFileResponse';
 import { EnlargeProxyRequest } from './model/EnlargeProxyRequest';
 import { EnterpriseProjectItem } from './model/EnterpriseProjectItem';
 import { ExpandGaussMySqlInstanceVolumeRequest } from './model/ExpandGaussMySqlInstanceVolumeRequest';
@@ -393,6 +396,7 @@ import { NodeSqlFilterRulePattern } from './model/NodeSqlFilterRulePattern';
 import { NodesWeight } from './model/NodesWeight';
 import { OpenMysqlProxyRequestBody } from './model/OpenMysqlProxyRequestBody';
 import { OperateAuditLogRequestV3Body } from './model/OperateAuditLogRequestV3Body';
+import { OperateMultiTenantReq } from './model/OperateMultiTenantReq';
 import { OperateSqlFilterControlReq } from './model/OperateSqlFilterControlReq';
 import { OperateSqlFilterRuleReq } from './model/OperateSqlFilterRuleReq';
 import { ParamGroup } from './model/ParamGroup';
@@ -529,6 +533,8 @@ import { ShowIntelligentDiagnosisInstanceInfosPerMetricRequest } from './model/S
 import { ShowIntelligentDiagnosisInstanceInfosPerMetricResponse } from './model/ShowIntelligentDiagnosisInstanceInfosPerMetricResponse';
 import { ShowLtsConfigsRequest } from './model/ShowLtsConfigsRequest';
 import { ShowLtsConfigsResponse } from './model/ShowLtsConfigsResponse';
+import { ShowMultiTenantRequest } from './model/ShowMultiTenantRequest';
+import { ShowMultiTenantResponse } from './model/ShowMultiTenantResponse';
 import { ShowProxyConfigurationsRequest } from './model/ShowProxyConfigurationsRequest';
 import { ShowProxyConfigurationsResponse } from './model/ShowProxyConfigurationsResponse';
 import { ShowProxyIpgroupRequest } from './model/ShowProxyIpgroupRequest';
@@ -539,6 +545,10 @@ import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
 import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
+import { ShowSlowLogStatisticsItem } from './model/ShowSlowLogStatisticsItem';
+import { ShowSlowLogStatisticsRequest } from './model/ShowSlowLogStatisticsRequest';
+import { ShowSlowLogStatisticsRequestBody } from './model/ShowSlowLogStatisticsRequestBody';
+import { ShowSlowLogStatisticsResponse } from './model/ShowSlowLogStatisticsResponse';
 import { ShowSlowlogSensitiveStatusRequest } from './model/ShowSlowlogSensitiveStatusRequest';
 import { ShowSlowlogSensitiveStatusResponse } from './model/ShowSlowlogSensitiveStatusResponse';
 import { ShowSqlFilterControlRequest } from './model/ShowSqlFilterControlRequest';
@@ -663,6 +673,8 @@ import { UpdateInstanceConfigurationsRequestBody } from './model/UpdateInstanceC
 import { UpdateInstanceConfigurationsResponse } from './model/UpdateInstanceConfigurationsResponse';
 import { UpdateInstanceMonitorRequest } from './model/UpdateInstanceMonitorRequest';
 import { UpdateInstanceMonitorResponse } from './model/UpdateInstanceMonitorResponse';
+import { UpdateMultiTenantRequest } from './model/UpdateMultiTenantRequest';
+import { UpdateMultiTenantResponse } from './model/UpdateMultiTenantResponse';
 import { UpdateNewNodeAutoAddSwitchRequest } from './model/UpdateNewNodeAutoAddSwitchRequest';
 import { UpdateNewNodeAutoAddSwitchRequestBody } from './model/UpdateNewNodeAutoAddSwitchRequestBody';
 import { UpdateNewNodeAutoAddSwitchResponse } from './model/UpdateNewNodeAutoAddSwitchResponse';
@@ -1373,6 +1385,27 @@ export class GaussDBClient {
      */
     public describeBackupEncryptStatus(describeBackupEncryptStatusRequest?: DescribeBackupEncryptStatusRequest): Promise<DescribeBackupEncryptStatusResponse> {
         const options = ParamCreater().describeBackupEncryptStatus(describeBackupEncryptStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取慢日志下载链接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取慢日志下载链接
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} nodeId 节点ID。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadSlowLogFile(downloadSlowLogFileRequest?: DownloadSlowLogFileRequest): Promise<DownloadSlowLogFileResponse> {
+        const options = ParamCreater().downloadSlowLogFile(downloadSlowLogFileRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2768,6 +2801,26 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询多租特性开关状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询多租特性开关状态
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMultiTenant(showMultiTenantRequest?: ShowMultiTenantRequest): Promise<ShowMultiTenantResponse> {
+        const options = ParamCreater().showMultiTenant(showMultiTenantRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库代理内核参数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2870,6 +2923,27 @@ export class GaussDBClient {
      */
     public showRestoreTables(showRestoreTablesRequest?: ShowRestoreTablesRequest): Promise<ShowRestoreTablesResponse> {
         const options = ParamCreater().showRestoreTables(showRestoreTablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询慢日志统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询慢日志统计信息
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {ShowSlowLogStatisticsRequestBody} showSlowLogStatisticsRequestBody 查询慢日志统计信息请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSlowLogStatistics(showSlowLogStatisticsRequest?: ShowSlowLogStatisticsRequest): Promise<ShowSlowLogStatisticsResponse> {
+        const options = ParamCreater().showSlowLogStatistics(showSlowLogStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3355,6 +3429,27 @@ export class GaussDBClient {
      */
     public updateInstanceMonitor(updateInstanceMonitorRequest?: UpdateInstanceMonitorRequest): Promise<UpdateInstanceMonitorResponse> {
         const options = ParamCreater().updateInstanceMonitor(updateInstanceMonitorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或者关闭多租特性。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或者关闭多租特性
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {OperateMultiTenantReq} operateMultiTenantReq 请求体
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMultiTenant(updateMultiTenantRequest?: UpdateMultiTenantRequest): Promise<UpdateMultiTenantResponse> {
+        const options = ParamCreater().updateMultiTenant(updateMultiTenantRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6527,6 +6622,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取慢日志下载链接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadSlowLogFile(downloadSlowLogFileRequest?: DownloadSlowLogFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/{node_id}/slowlog-download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+
+            if (downloadSlowLogFileRequest !== null && downloadSlowLogFileRequest !== undefined) {
+                if (downloadSlowLogFileRequest instanceof DownloadSlowLogFileRequest) {
+                    instanceId = downloadSlowLogFileRequest.instanceId;
+                    nodeId = downloadSlowLogFileRequest.nodeId;
+                    xLanguage = downloadSlowLogFileRequest.xLanguage;
+                } else {
+                    instanceId = downloadSlowLogFileRequest['instance_id'];
+                    nodeId = downloadSlowLogFileRequest['node_id'];
+                    xLanguage = downloadSlowLogFileRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling downloadSlowLogFile.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling downloadSlowLogFile.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10155,6 +10301,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询多租特性开关状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMultiTenant(showMultiTenantRequest?: ShowMultiTenantRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/multi-tenant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showMultiTenantRequest !== null && showMultiTenantRequest !== undefined) {
+                if (showMultiTenantRequest instanceof ShowMultiTenantRequest) {
+                    instanceId = showMultiTenantRequest.instanceId;
+                    xLanguage = showMultiTenantRequest.xLanguage;
+                } else {
+                    instanceId = showMultiTenantRequest['instance_id'];
+                    xLanguage = showMultiTenantRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showMultiTenant.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库代理内核参数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10446,6 +10636,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询慢日志统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSlowLogStatistics(showSlowLogStatisticsRequest?: ShowSlowLogStatisticsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/slow-logs/statistics",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showSlowLogStatisticsRequest !== null && showSlowLogStatisticsRequest !== undefined) {
+                if (showSlowLogStatisticsRequest instanceof ShowSlowLogStatisticsRequest) {
+                    instanceId = showSlowLogStatisticsRequest.instanceId;
+                    body = showSlowLogStatisticsRequest.body
+                    xLanguage = showSlowLogStatisticsRequest.xLanguage;
+                } else {
+                    instanceId = showSlowLogStatisticsRequest['instance_id'];
+                    body = showSlowLogStatisticsRequest['body'];
+                    xLanguage = showSlowLogStatisticsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSlowLogStatistics.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -11657,6 +11900,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceMonitor.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或者关闭多租特性。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMultiTenant(updateMultiTenantRequest?: UpdateMultiTenantRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/multi-tenant",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateMultiTenantRequest !== null && updateMultiTenantRequest !== undefined) {
+                if (updateMultiTenantRequest instanceof UpdateMultiTenantRequest) {
+                    instanceId = updateMultiTenantRequest.instanceId;
+                    body = updateMultiTenantRequest.body
+                    xLanguage = updateMultiTenantRequest.xLanguage;
+                } else {
+                    instanceId = updateMultiTenantRequest['instance_id'];
+                    body = updateMultiTenantRequest['body'];
+                    xLanguage = updateMultiTenantRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateMultiTenant.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -1,6 +1,7 @@
 export * from './RdsClient';
 
 export * from './model/ADDomainInfo';
+export * from './model/AddCopyDatabaseRequestBody';
 export * from './model/AddLogConfigResponseBody';
 export * from './model/AddLogConfigs';
 export * from './model/AddMsdtcRequestBody';
@@ -72,6 +73,8 @@ export * from './model/ConfigurationSummary';
 export * from './model/ConfigurationSummaryForCreate';
 export * from './model/CopyConfigurationRequest';
 export * from './model/CopyConfigurationResponse';
+export * from './model/CopyDatabaseRequest';
+export * from './model/CopyDatabaseResponse';
 export * from './model/CreateConfigurationRequest';
 export * from './model/CreateConfigurationResponse';
 export * from './model/CreateDatabaseRequest';
@@ -147,6 +150,9 @@ export * from './model/DeleteLogLtsConfigsRequest';
 export * from './model/DeleteLogLtsConfigsResponse';
 export * from './model/DeleteManualBackupRequest';
 export * from './model/DeleteManualBackupResponse';
+export * from './model/DeleteMsdtcLocalHostRequest';
+export * from './model/DeleteMsdtcLocalHostRequestBody';
+export * from './model/DeleteMsdtcLocalHostResponse';
 export * from './model/DeletePostgresqlDatabaseRequest';
 export * from './model/DeletePostgresqlDatabaseResponse';
 export * from './model/DeletePostgresqlDbUserRequest';

@@ -5,6 +5,7 @@ export class TopUrl {
     private 'asset_id'?: string;
     public title?: string;
     public duration?: number;
+    private 'duration_ms'?: number;
     public size?: number;
     public constructor() { 
     }
@@ -29,6 +30,16 @@ export class TopUrl {
     public withDuration(duration: number): TopUrl {
         this['duration'] = duration;
         return this;
+    }
+    public withDurationMs(durationMs: number): TopUrl {
+        this['duration_ms'] = durationMs;
+        return this;
+    }
+    public set durationMs(durationMs: number  | undefined) {
+        this['duration_ms'] = durationMs;
+    }
+    public get durationMs(): number | undefined {
+        return this['duration_ms'];
     }
     public withSize(size: number): TopUrl {
         this['size'] = size;

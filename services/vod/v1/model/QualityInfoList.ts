@@ -5,8 +5,7 @@ import { VideoInfo } from './VideoInfo';
 export class QualityInfoList {
     public video?: VideoInfo;
     public audio?: AudioInfo;
-    public constructor(video?: VideoInfo) { 
-        this['video'] = video;
+    public constructor() { 
     }
     public withVideo(video: VideoInfo): QualityInfoList {
         this['video'] = video;

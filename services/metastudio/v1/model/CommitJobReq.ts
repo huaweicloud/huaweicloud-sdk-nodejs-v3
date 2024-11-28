@@ -9,6 +9,8 @@ export class CommitJobReq {
     public language?: string;
     public phone?: string;
     private 'app_user_id'?: string;
+    private 'output_language'?: string;
+    private 'custom_text'?: string;
     public constructor() { 
     }
     public withTag(tag: JobTag): CommitJobReq {
@@ -50,6 +52,26 @@ export class CommitJobReq {
     }
     public get appUserId(): string | undefined {
         return this['app_user_id'];
+    }
+    public withOutputLanguage(outputLanguage: string): CommitJobReq {
+        this['output_language'] = outputLanguage;
+        return this;
+    }
+    public set outputLanguage(outputLanguage: string  | undefined) {
+        this['output_language'] = outputLanguage;
+    }
+    public get outputLanguage(): string | undefined {
+        return this['output_language'];
+    }
+    public withCustomText(customText: string): CommitJobReq {
+        this['custom_text'] = customText;
+        return this;
+    }
+    public set customText(customText: string  | undefined) {
+        this['custom_text'] = customText;
+    }
+    public get customText(): string | undefined {
+        return this['custom_text'];
     }
 }
 

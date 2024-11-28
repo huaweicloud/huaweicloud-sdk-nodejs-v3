@@ -11,6 +11,7 @@ export class ListVoiceTrainingJobRequest {
     private 'voice_name'?: string;
     public tag?: string;
     private 'job_type'?: string;
+    private 'batch_name'?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListVoiceTrainingJobRequest {
@@ -88,5 +89,15 @@ export class ListVoiceTrainingJobRequest {
     }
     public get jobType(): string | undefined {
         return this['job_type'];
+    }
+    public withBatchName(batchName: string): ListVoiceTrainingJobRequest {
+        this['batch_name'] = batchName;
+        return this;
+    }
+    public set batchName(batchName: string  | undefined) {
+        this['batch_name'] = batchName;
+    }
+    public get batchName(): string | undefined {
+        return this['batch_name'];
     }
 }

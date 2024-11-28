@@ -2,6 +2,8 @@
 
 export class ListOrganizationPoliciesRequest {
     private 'operation_type'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(operationType?: string) { 
         this['operation_type'] = operationType;
     }
@@ -14,5 +16,13 @@ export class ListOrganizationPoliciesRequest {
     }
     public get operationType(): string | undefined {
         return this['operation_type'];
+    }
+    public withLimit(limit: number): ListOrganizationPoliciesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListOrganizationPoliciesRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

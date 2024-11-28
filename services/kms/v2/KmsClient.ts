@@ -3,8 +3,12 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionResources } from './model/ActionResources';
+import { AliasEntity } from './model/AliasEntity';
 import { ApiLink } from './model/ApiLink';
 import { ApiVersionDetail } from './model/ApiVersionDetail';
+import { AssociateAliasRequest } from './model/AssociateAliasRequest';
+import { AssociateAliasRequestBody } from './model/AssociateAliasRequestBody';
+import { AssociateAliasResponse } from './model/AssociateAliasResponse';
 import { BatchCreateKmsTagsRequest } from './model/BatchCreateKmsTagsRequest';
 import { BatchCreateKmsTagsRequestBody } from './model/BatchCreateKmsTagsRequestBody';
 import { BatchCreateKmsTagsResponse } from './model/BatchCreateKmsTagsResponse';
@@ -14,6 +18,9 @@ import { CancelKeyDeletionRequest } from './model/CancelKeyDeletionRequest';
 import { CancelKeyDeletionResponse } from './model/CancelKeyDeletionResponse';
 import { CancelSelfGrantRequest } from './model/CancelSelfGrantRequest';
 import { CancelSelfGrantResponse } from './model/CancelSelfGrantResponse';
+import { CreateAliasRequest } from './model/CreateAliasRequest';
+import { CreateAliasRequestBody } from './model/CreateAliasRequestBody';
+import { CreateAliasResponse } from './model/CreateAliasResponse';
 import { CreateDatakeyRequest } from './model/CreateDatakeyRequest';
 import { CreateDatakeyRequestBody } from './model/CreateDatakeyRequestBody';
 import { CreateDatakeyResponse } from './model/CreateDatakeyResponse';
@@ -41,6 +48,9 @@ import { DecryptDataResponse } from './model/DecryptDataResponse';
 import { DecryptDatakeyRequest } from './model/DecryptDatakeyRequest';
 import { DecryptDatakeyRequestBody } from './model/DecryptDatakeyRequestBody';
 import { DecryptDatakeyResponse } from './model/DecryptDatakeyResponse';
+import { DeleteAliasRequest } from './model/DeleteAliasRequest';
+import { DeleteAliasRequestBody } from './model/DeleteAliasRequestBody';
+import { DeleteAliasResponse } from './model/DeleteAliasResponse';
 import { DeleteImportedKeyMaterialRequest } from './model/DeleteImportedKeyMaterialRequest';
 import { DeleteImportedKeyMaterialResponse } from './model/DeleteImportedKeyMaterialResponse';
 import { DeleteKeyRequest } from './model/DeleteKeyRequest';
@@ -84,6 +94,9 @@ import { KeyStatusInfo } from './model/KeyStatusInfo';
 import { KeyStoreStateInfo } from './model/KeyStoreStateInfo';
 import { KeystoreDetails } from './model/KeystoreDetails';
 import { KeystoreInfo } from './model/KeystoreInfo';
+import { ListAliasResponseBody } from './model/ListAliasResponseBody';
+import { ListAliasesRequest } from './model/ListAliasesRequest';
+import { ListAliasesResponse } from './model/ListAliasesResponse';
 import { ListGrantsRequest } from './model/ListGrantsRequest';
 import { ListGrantsRequestBody } from './model/ListGrantsRequestBody';
 import { ListGrantsResponse } from './model/ListGrantsResponse';
@@ -105,6 +118,7 @@ import { ListRetirableGrantsResponse } from './model/ListRetirableGrantsResponse
 import { ListSupportRegionsRequest } from './model/ListSupportRegionsRequest';
 import { ListSupportRegionsResponse } from './model/ListSupportRegionsResponse';
 import { OperateKeyRequestBody } from './model/OperateKeyRequestBody';
+import { PageInfo } from './model/PageInfo';
 import { Quotas } from './model/Quotas';
 import { ReplicateKeyRequest } from './model/ReplicateKeyRequest';
 import { ReplicateKeyRequestBody } from './model/ReplicateKeyRequestBody';
@@ -166,6 +180,25 @@ export class KmsClient {
         return __dirname;
     }
 
+
+    /**
+     * 关联别名。
+     * 你可以将别名从原密钥关联到另一个新的密钥
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {AssociateAliasRequestBody} associateAliasReuqestBody 关联别名请求消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateAlias(associateAliasRequest?: AssociateAliasRequest): Promise<AssociateAliasResponse> {
+        const options = ParamCreater().associateAlias(associateAliasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * - 功能介绍：批量添加删除密钥标签。
@@ -247,6 +280,23 @@ export class KmsClient {
      */
     public cancelSelfGrant(cancelSelfGrantRequest?: CancelSelfGrantRequest): Promise<CancelSelfGrantResponse> {
         const options = ParamCreater().cancelSelfGrant(cancelSelfGrantRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {CreateAliasRequestBody} createAliasRequestBody 创建别名请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAlias(createAliasRequest?: CreateAliasRequest): Promise<CreateAliasResponse> {
+        const options = ParamCreater().createAlias(createAliasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -444,6 +494,24 @@ export class KmsClient {
      */
     public decryptDatakey(decryptDatakeyRequest?: DecryptDatakeyRequest): Promise<DecryptDatakeyResponse> {
         const options = ParamCreater().decryptDatakey(decryptDatakeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除别名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {DeleteAliasRequestBody} deleteAliasRequestBody 删除别名请求消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAlias(deleteAliasRequest?: DeleteAliasRequest): Promise<DeleteAliasResponse> {
+        const options = ParamCreater().deleteAlias(deleteAliasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -724,6 +792,26 @@ export class KmsClient {
     }
 
     /**
+     * 查询一个密钥关联的所有别名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} [keyId] 密钥ID
+     * @param {string} [limit] 指定查询返回记录条数
+     * @param {string} [marker] 分页查询起始位置标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAliases(listAliasesRequest?: ListAliasesRequest): Promise<ListAliasesResponse> {
+        const options = ParamCreater().listAliases(listAliasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：查询密钥的授权列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -863,11 +951,13 @@ export class KmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询跨区域密钥所支持的区域
+     * @param {number} [limit] 指定查询返回记录条数，默认值10。
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listSupportRegions(listSupportRegionsRequest?: ListSupportRegionsRequest): Promise<ListSupportRegionsResponse> {
-        const options = ParamCreater().listSupportRegions();
+        const options = ParamCreater().listSupportRegions(listSupportRegionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1189,6 +1279,45 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 关联别名。
+         * 你可以将别名从原密钥关联到另一个新的密钥
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateAlias(associateAliasRequest?: AssociateAliasRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/alias/associate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (associateAliasRequest !== null && associateAliasRequest !== undefined) {
+                if (associateAliasRequest instanceof AssociateAliasRequest) {
+                    body = associateAliasRequest.body
+                } else {
+                    body = associateAliasRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：批量添加删除密钥标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1352,6 +1481,43 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAlias(createAliasRequest?: CreateAliasRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/aliases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAliasRequest !== null && createAliasRequest !== undefined) {
+                if (createAliasRequest instanceof CreateAliasRequest) {
+                    body = createAliasRequest.body
+                } else {
+                    body = createAliasRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -1746,6 +1912,44 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除别名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAlias(deleteAliasRequest?: DeleteAliasRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/kms/aliases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteAliasRequest !== null && deleteAliasRequest !== undefined) {
+                if (deleteAliasRequest instanceof DeleteAliasRequest) {
+                    body = deleteAliasRequest.body
+                } else {
+                    body = deleteAliasRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -2293,6 +2497,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询一个密钥关联的所有别名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAliases(listAliasesRequest?: ListAliasesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/kms/aliases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keyId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listAliasesRequest !== null && listAliasesRequest !== undefined) {
+                if (listAliasesRequest instanceof ListAliasesRequest) {
+                    keyId = listAliasesRequest.keyId;
+                    limit = listAliasesRequest.limit;
+                    marker = listAliasesRequest.marker;
+                } else {
+                    keyId = listAliasesRequest['key_id'];
+                    limit = listAliasesRequest['limit'];
+                    marker = listAliasesRequest['marker'];
+                }
+            }
+
+        
+            if (keyId !== null && keyId !== undefined) {
+                localVarQueryParameter['key_id'] = keyId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：查询密钥的授权列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2560,7 +2815,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listSupportRegions() {
+        listSupportRegions(listSupportRegionsRequest?: ListSupportRegionsRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/kms/regions",
@@ -2570,8 +2825,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
 
+            if (listSupportRegionsRequest !== null && listSupportRegionsRequest !== undefined) {
+                if (listSupportRegionsRequest instanceof ListSupportRegionsRequest) {
+                    limit = listSupportRegionsRequest.limit;
+                    offset = listSupportRegionsRequest.offset;
+                } else {
+                    limit = listSupportRegionsRequest['limit'];
+                    offset = listSupportRegionsRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

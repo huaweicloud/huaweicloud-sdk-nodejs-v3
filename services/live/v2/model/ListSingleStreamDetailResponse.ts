@@ -8,7 +8,6 @@ export class ListSingleStreamDetailResponse extends SdkResponse {
     public stream?: string;
     private 'video_framerate'?: Array<StreamDetail>;
     private 'video_bitrate'?: Array<StreamDetail>;
-    private 'audio_framerate'?: Array<StreamDetail>;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -50,16 +49,6 @@ export class ListSingleStreamDetailResponse extends SdkResponse {
     }
     public get videoBitrate(): Array<StreamDetail> | undefined {
         return this['video_bitrate'];
-    }
-    public withAudioFramerate(audioFramerate: Array<StreamDetail>): ListSingleStreamDetailResponse {
-        this['audio_framerate'] = audioFramerate;
-        return this;
-    }
-    public set audioFramerate(audioFramerate: Array<StreamDetail>  | undefined) {
-        this['audio_framerate'] = audioFramerate;
-    }
-    public get audioFramerate(): Array<StreamDetail> | undefined {
-        return this['audio_framerate'];
     }
     public withXRequestId(xRequestId: string): ListSingleStreamDetailResponse {
         this['X-Request-Id'] = xRequestId;

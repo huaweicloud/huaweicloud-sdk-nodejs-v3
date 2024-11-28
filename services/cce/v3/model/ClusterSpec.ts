@@ -1,6 +1,7 @@
 import { Authentication } from './Authentication';
 import { ClusterExtendParam } from './ClusterExtendParam';
 import { ContainerNetwork } from './ContainerNetwork';
+import { EncryptionConfig } from './EncryptionConfig';
 import { EniNetwork } from './EniNetwork';
 import { HostNetwork } from './HostNetwork';
 import { MasterSpec } from './MasterSpec';
@@ -35,6 +36,7 @@ export class ClusterSpec {
     public enableDistMgt?: boolean;
     public deletionProtection?: boolean;
     public configurationsOverride?: Array<PackageConfiguration>;
+    public encryptionConfig?: EncryptionConfig;
     public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork) { 
         this['flavor'] = flavor;
         this['hostNetwork'] = hostNetwork;
@@ -138,6 +140,10 @@ export class ClusterSpec {
     }
     public withConfigurationsOverride(configurationsOverride: Array<PackageConfiguration>): ClusterSpec {
         this['configurationsOverride'] = configurationsOverride;
+        return this;
+    }
+    public withEncryptionConfig(encryptionConfig: EncryptionConfig): ClusterSpec {
+        this['encryptionConfig'] = encryptionConfig;
         return this;
     }
 }

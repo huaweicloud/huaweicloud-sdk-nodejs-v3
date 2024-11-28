@@ -53,7 +53,6 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     private 'inference_data_process_eye_correction_mark_info'?: InferenceEyeCorrectionMarkInfo;
     private 'is_background_replacement'?: boolean;
     private 'worker_type'?: Array<string>;
-    private 'beauty_level'?: number;
     private 'voice_train_job_id'?: string;
     private 'flexus_retry_count'?: number;
     private 'audio_source_type'?: Show2dModelTrainingJobResponseAudioSourceTypeEnum | string;
@@ -435,16 +434,6 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get workerType(): Array<string> | undefined {
         return this['worker_type'];
-    }
-    public withBeautyLevel(beautyLevel: number): Show2dModelTrainingJobResponse {
-        this['beauty_level'] = beautyLevel;
-        return this;
-    }
-    public set beautyLevel(beautyLevel: number  | undefined) {
-        this['beauty_level'] = beautyLevel;
-    }
-    public get beautyLevel(): number | undefined {
-        return this['beauty_level'];
     }
     public withVoiceTrainJobId(voiceTrainJobId: string): Show2dModelTrainingJobResponse {
         this['voice_train_job_id'] = voiceTrainJobId;

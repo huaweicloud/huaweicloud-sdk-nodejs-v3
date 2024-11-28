@@ -9,7 +9,7 @@ export class BackupResp {
     private 'expired_at'?: Date;
     private 'extend_info'?: BackupExtendInfo;
     public id?: string;
-    private 'image_type'?: BackupRespImageTypeEnum | string;
+    private 'image_type'?: string;
     public name?: string;
     private 'parent_id'?: string;
     private 'project_id'?: string;
@@ -18,7 +18,7 @@ export class BackupResp {
     private 'resource_id'?: string;
     private 'resource_name'?: string;
     private 'resource_size'?: number;
-    private 'resource_type'?: BackupRespResourceTypeEnum | string;
+    private 'resource_type'?: string;
     public status?: BackupRespStatusEnum | string;
     private 'updated_at'?: Date;
     private 'vault_id'?: string;
@@ -27,6 +27,7 @@ export class BackupResp {
     private 'provider_id'?: string;
     public children?: Array<BackupResp>;
     public incremental?: boolean;
+    public version?: number;
     public constructor(checkpointId?: string, createdAt?: Date, description?: string, expiredAt?: Date, extendInfo?: BackupExtendInfo, id?: string, imageType?: string, name?: string, parentId?: string, projectId?: string, protectedAt?: string, resourceAz?: string, resourceId?: string, resourceName?: string, resourceSize?: number, resourceType?: string, status?: string, updatedAt?: Date, vaultId?: string, providerId?: string) { 
         this['checkpoint_id'] = checkpointId;
         this['created_at'] = createdAt;
@@ -97,14 +98,14 @@ export class BackupResp {
         this['id'] = id;
         return this;
     }
-    public withImageType(imageType: BackupRespImageTypeEnum | string): BackupResp {
+    public withImageType(imageType: string): BackupResp {
         this['image_type'] = imageType;
         return this;
     }
-    public set imageType(imageType: BackupRespImageTypeEnum | string  | undefined) {
+    public set imageType(imageType: string  | undefined) {
         this['image_type'] = imageType;
     }
-    public get imageType(): BackupRespImageTypeEnum | string | undefined {
+    public get imageType(): string | undefined {
         return this['image_type'];
     }
     public withName(name: string): BackupResp {
@@ -181,14 +182,14 @@ export class BackupResp {
     public get resourceSize(): number | undefined {
         return this['resource_size'];
     }
-    public withResourceType(resourceType: BackupRespResourceTypeEnum | string): BackupResp {
+    public withResourceType(resourceType: string): BackupResp {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: BackupRespResourceTypeEnum | string  | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType(): BackupRespResourceTypeEnum | string | undefined {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
     public withStatus(status: BackupRespStatusEnum | string): BackupResp {
@@ -253,25 +254,12 @@ export class BackupResp {
         this['incremental'] = incremental;
         return this;
     }
+    public withVersion(version: number): BackupResp {
+        this['version'] = version;
+        return this;
+    }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BackupRespImageTypeEnum {
-    BACKUP = 'backup',
-    REPLICATION = 'replication'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BackupRespResourceTypeEnum {
-    OSNOVASERVER = 'OS::Nova::Server',
-    OSCINDERVOLUME = 'OS::Cinder::Volume',
-    OSWORKSPACEDESKTOPV2 = 'OS::Workspace::DesktopV2'
-}
 /**
     * @export
     * @enum {string}
