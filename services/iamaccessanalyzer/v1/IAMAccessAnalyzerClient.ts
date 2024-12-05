@@ -122,7 +122,8 @@ import { ValidatePolicyResponse } from './model/ValidatePolicyResponse';
 
 export class IAMAccessAnalyzerClient {
     public static newBuilder(): ClientBuilder<IAMAccessAnalyzerClient> {
-            return new ClientBuilder<IAMAccessAnalyzerClient>(newClient);
+            let client = new ClientBuilder<IAMAccessAnalyzerClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

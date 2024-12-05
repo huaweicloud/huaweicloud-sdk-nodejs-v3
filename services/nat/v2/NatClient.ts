@@ -171,7 +171,8 @@ import { UpdatePrivateSnatResponse } from './model/UpdatePrivateSnatResponse';
 
 export class NatClient {
     public static newBuilder(): ClientBuilder<NatClient> {
-            return new ClientBuilder<NatClient>(newClient);
+            let client = new ClientBuilder<NatClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

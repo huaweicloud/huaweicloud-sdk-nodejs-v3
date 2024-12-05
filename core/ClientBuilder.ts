@@ -47,6 +47,7 @@ export class ClientBuilder<T> {
     private region?: Region;
     private userOptions?: UserOptions;
     private credentials: { [key: string]: ICredential } = {};
+    private derivedAuthServiceName?: string;
 
     public constructor(init: (hcClient: HcClient) => T, credentialType?: string) {
         this.init = init;
@@ -85,6 +86,11 @@ export class ClientBuilder<T> {
         return this;
     }
 
+    public withDerivedAuthServiceName(derivedAuthServiceName: string): ClientBuilder<T> {
+        this.derivedAuthServiceName = derivedAuthServiceName;
+        return this;
+    }
+
     public build(): T {
         const axiosOptions: ClientOptions = {
             disableSslVerification: true
@@ -116,6 +122,10 @@ export class ClientBuilder<T> {
         const hcClient = new HcClient(client);
 
         this.region && hcClient.withRegion(this.region);
+
+        if (this.derivedAuthServiceName && this.credential instanceof BasicCredentials) {
+            this.credential.processDerivedAuthParams(this.derivedAuthServiceName, this.region?.id);
+        }
 
         hcClient.withCredential(this.credential).withEndpoints(this.endpoints);
         return this.init(hcClient);

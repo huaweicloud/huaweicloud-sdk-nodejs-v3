@@ -277,7 +277,8 @@ import { UpdateUserReq } from './model/UpdateUserReq';
 
 export class KafkaClient {
     public static newBuilder(): ClientBuilder<KafkaClient> {
-            return new ClientBuilder<KafkaClient>(newClient);
+            let client = new ClientBuilder<KafkaClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

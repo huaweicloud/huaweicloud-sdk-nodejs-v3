@@ -227,7 +227,8 @@ import { WidgetMetric } from './model/WidgetMetric';
 
 export class CesClient {
     public static newBuilder(): ClientBuilder<CesClient> {
-            return new ClientBuilder<CesClient>(newClient);
+            let client = new ClientBuilder<CesClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -715,6 +716,7 @@ export class CesClient {
      *
      * @summary 查询告警记录列表
      * @param {string} [alarmId] 告警ID,以al开头，后跟22位由字母或数字组成的字符串
+     * @param {string} [recordId] 告警记录ID,以ah开头，后跟22位由字母或数字组成的字符串
      * @param {string} [name] 告警规则名称
      * @param {string} [status] 告警规则状态, ok为正常，alarm为告警，invalid为已失效
      * @param {number} [level] 告警级别, 1为紧急，2为重要，3为次要，4为提示
@@ -2256,6 +2258,8 @@ export const ParamCreater = function () {
             
             let alarmId;
             
+            let recordId;
+            
             let name;
             
             let status;
@@ -2279,6 +2283,7 @@ export const ParamCreater = function () {
             if (listAlarmHistoriesRequest !== null && listAlarmHistoriesRequest !== undefined) {
                 if (listAlarmHistoriesRequest instanceof ListAlarmHistoriesRequest) {
                     alarmId = listAlarmHistoriesRequest.alarmId;
+                    recordId = listAlarmHistoriesRequest.recordId;
                     name = listAlarmHistoriesRequest.name;
                     status = listAlarmHistoriesRequest.status;
                     level = listAlarmHistoriesRequest.level;
@@ -2291,6 +2296,7 @@ export const ParamCreater = function () {
                     orderBy = listAlarmHistoriesRequest.orderBy;
                 } else {
                     alarmId = listAlarmHistoriesRequest['alarm_id'];
+                    recordId = listAlarmHistoriesRequest['record_id'];
                     name = listAlarmHistoriesRequest['name'];
                     status = listAlarmHistoriesRequest['status'];
                     level = listAlarmHistoriesRequest['level'];
@@ -2307,6 +2313,9 @@ export const ParamCreater = function () {
         
             if (alarmId !== null && alarmId !== undefined) {
                 localVarQueryParameter['alarm_id'] = alarmId;
+            }
+            if (recordId !== null && recordId !== undefined) {
+                localVarQueryParameter['record_id'] = recordId;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;

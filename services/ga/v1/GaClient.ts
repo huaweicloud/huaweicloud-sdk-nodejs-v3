@@ -164,7 +164,8 @@ import { UpdateLogtankResponse } from './model/UpdateLogtankResponse';
 
 export class GaClient {
     public static newBuilder(): ClientBuilder<GaClient> {
-            return new ClientBuilder<GaClient>(newClient);
+            let client = new ClientBuilder<GaClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

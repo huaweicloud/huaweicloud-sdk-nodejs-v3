@@ -47,7 +47,8 @@ import { WeeklyTop10 } from './model/WeeklyTop10';
 
 export class AntiDDoSClient {
     public static newBuilder(): ClientBuilder<AntiDDoSClient> {
-            return new ClientBuilder<AntiDDoSClient>(newClient);
+            let client = new ClientBuilder<AntiDDoSClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

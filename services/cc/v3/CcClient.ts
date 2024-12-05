@@ -479,7 +479,8 @@ import { VersionDef } from './model/VersionDef';
 
 export class CcClient {
     public static newBuilder(): ClientBuilder<CcClient> {
-            return new ClientBuilder<CcClient>(newClient, 'GlobalCredentials');
+            let client = new ClientBuilder<CcClient>(newClient, 'GlobalCredentials');
+            return client;
     }
 
     private hcClient: HcClient;

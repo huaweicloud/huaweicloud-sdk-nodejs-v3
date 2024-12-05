@@ -66,7 +66,8 @@ import { V2UserData } from './model/V2UserData';
 
 export class LiveClient {
     public static newBuilder(): ClientBuilder<LiveClient> {
-            return new ClientBuilder<LiveClient>(newClient);
+            let client = new ClientBuilder<LiveClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

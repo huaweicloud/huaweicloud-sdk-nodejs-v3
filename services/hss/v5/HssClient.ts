@@ -373,7 +373,8 @@ import { WtpProtectHostResponseInfo } from './model/WtpProtectHostResponseInfo';
 
 export class HssClient {
     public static newBuilder(): ClientBuilder<HssClient> {
-            return new ClientBuilder<HssClient>(newClient);
+            let client = new ClientBuilder<HssClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -739,7 +740,7 @@ export class HssClient {
      * @param {string} region Region ID
      * @param {string} clusterId 集群id
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [invokedService] 调用服务，标识cce免费体检报告，cce调用传参为cce |    - hss： hss服务    - cce： cce服务
+     * @param {string} [invokedService] 调用服务,默认hss，cce集成防护调用场景使用，包括:    - hss： hss服务    - cce： cce服务，cce集成防护调用需要传参cce
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1358,7 +1359,7 @@ export class HssClient {
      * @summary 查询镜像指定安全配置项的检查项列表
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
-     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
+     * @param {string} standard 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 云安全实践标准
      * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
@@ -1398,7 +1399,7 @@ export class HssClient {
      * @param {string} [imageVersion] 镜像版本名称
      * @param {string} [checkName] 基线名称
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危
-     * @param {string} [standard] 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 华为标准   - qt_standard : 青腾标准
+     * @param {string} [standard] 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 云安全实践标准
      * @param {string} [instanceId] 企业仓库实例ID，swr共享版无需使用该参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2389,7 +2390,7 @@ export class HssClient {
      * @param {string} checkName 基线名称
      * @param {string} checkType 基线类型
      * @param {string} checkRuleId 检查项id
-     * @param {string} standard 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 华为标准   - qt_standard : 青腾标准
+     * @param {string} standard 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 云安全实践标准
      * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [namespace] 组织名称（没有镜像相关信息时，表示查询所有镜像）

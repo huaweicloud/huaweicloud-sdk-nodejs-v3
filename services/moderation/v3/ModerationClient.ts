@@ -80,7 +80,8 @@ import { VideoStreamCreateRequestData } from './model/VideoStreamCreateRequestDa
 
 export class ModerationClient {
     public static newBuilder(): ClientBuilder<ModerationClient> {
-            return new ClientBuilder<ModerationClient>(newClient);
+            let client = new ClientBuilder<ModerationClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

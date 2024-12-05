@@ -706,7 +706,8 @@ import { VolumeForInstanceResponse } from './model/VolumeForInstanceResponse';
 
 export class RdsClient {
     public static newBuilder(): ClientBuilder<RdsClient> {
-            return new ClientBuilder<RdsClient>(newClient);
+            let client = new ClientBuilder<RdsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

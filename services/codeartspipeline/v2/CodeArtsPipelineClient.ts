@@ -286,7 +286,8 @@ import { Workflow } from './model/Workflow';
 
 export class CodeArtsPipelineClient {
     public static newBuilder(): ClientBuilder<CodeArtsPipelineClient> {
-            return new ClientBuilder<CodeArtsPipelineClient>(newClient);
+            let client = new ClientBuilder<CodeArtsPipelineClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

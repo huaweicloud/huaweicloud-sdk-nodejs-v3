@@ -717,7 +717,8 @@ import { UserSyncReq } from './model/UserSyncReq';
 
 export class GaussDBClient {
     public static newBuilder(): ClientBuilder<GaussDBClient> {
-            return new ClientBuilder<GaussDBClient>(newClient);
+            let client = new ClientBuilder<GaussDBClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

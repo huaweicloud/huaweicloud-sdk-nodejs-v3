@@ -178,6 +178,8 @@ import { ListNetworkQualityRequest } from './model/ListNetworkQualityRequest';
 import { ListNetworkQualityResponse } from './model/ListNetworkQualityResponse';
 import { ListOngoingWebinarsRequest } from './model/ListOngoingWebinarsRequest';
 import { ListOngoingWebinarsResponse } from './model/ListOngoingWebinarsResponse';
+import { ListOnlineConfAttendeeRequest } from './model/ListOnlineConfAttendeeRequest';
+import { ListOnlineConfAttendeeResponse } from './model/ListOnlineConfAttendeeResponse';
 import { ListUpComingWebinarsRequest } from './model/ListUpComingWebinarsRequest';
 import { ListUpComingWebinarsResponse } from './model/ListUpComingWebinarsResponse';
 import { LiveRequest } from './model/LiveRequest';
@@ -208,6 +210,7 @@ import { MuteMeetingRequest } from './model/MuteMeetingRequest';
 import { MuteMeetingResponse } from './model/MuteMeetingResponse';
 import { MuteParticipantRequest } from './model/MuteParticipantRequest';
 import { MuteParticipantResponse } from './model/MuteParticipantResponse';
+import { OnlineAttendeeRecordInfo } from './model/OnlineAttendeeRecordInfo';
 import { OpenAttendeeEntity } from './model/OpenAttendeeEntity';
 import { OpenEditConfReq } from './model/OpenEditConfReq';
 import { OpenNotifySetting } from './model/OpenNotifySetting';
@@ -592,7 +595,8 @@ import { YesNoEnum } from './model/YesNoEnum';
 
 export class MeetingClient {
     public static newBuilder(): ClientBuilder<MeetingClient> {
-            return new ClientBuilder<MeetingClient>(newClient, 'MeetingCredentials');
+            let client = new ClientBuilder<MeetingClient>(newClient, 'MeetingCredentials');
+            return client;
     }
 
     private hcClient: HcClient;
@@ -2062,6 +2066,28 @@ export class MeetingClient {
      */
     public listOngoingWebinars(listOngoingWebinarsRequest?: ListOngoingWebinarsRequest): Promise<ListOngoingWebinarsResponse> {
         const options = ParamCreater().listOngoingWebinars(listOngoingWebinarsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询指定会议的在线与会者信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定会议的在线与会者信息
+     * @param {string} confId 会议ID
+     * @param {number} [offset] 记录数偏移
+     * @param {number} [limit] 返回的与会者记录数，最大500条
+     * @param {string} [searchKey] 查询条件,支持third-account查询返回
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOnlineConfAttendee(listOnlineConfAttendeeRequest?: ListOnlineConfAttendeeRequest): Promise<ListOnlineConfAttendeeResponse> {
+        const options = ParamCreater().listOnlineConfAttendee(listOnlineConfAttendeeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8694,6 +8720,67 @@ export const ParamCreater = function () {
             }
             if (acceptLanguage !== undefined && acceptLanguage !== null) {
                 localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询指定会议的在线与会者信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOnlineConfAttendee(listOnlineConfAttendeeRequest?: ListOnlineConfAttendeeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/mmc/management/conferences/online/conf-attendee",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let confId;
+            
+            let offset;
+            
+            let limit;
+            
+            let searchKey;
+
+            if (listOnlineConfAttendeeRequest !== null && listOnlineConfAttendeeRequest !== undefined) {
+                if (listOnlineConfAttendeeRequest instanceof ListOnlineConfAttendeeRequest) {
+                    confId = listOnlineConfAttendeeRequest.confId;
+                    offset = listOnlineConfAttendeeRequest.offset;
+                    limit = listOnlineConfAttendeeRequest.limit;
+                    searchKey = listOnlineConfAttendeeRequest.searchKey;
+                } else {
+                    confId = listOnlineConfAttendeeRequest['conf_id'];
+                    offset = listOnlineConfAttendeeRequest['offset'];
+                    limit = listOnlineConfAttendeeRequest['limit'];
+                    searchKey = listOnlineConfAttendeeRequest['search_key'];
+                }
+            }
+
+        
+            if (confId === null || confId === undefined) {
+                throw new RequiredError('confId','Required parameter confId was null or undefined when calling listOnlineConfAttendee.');
+            }
+            if (confId !== null && confId !== undefined) {
+                localVarQueryParameter['conf_id'] = confId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (searchKey !== null && searchKey !== undefined) {
+                localVarQueryParameter['search_key'] = searchKey;
             }
 
             options.queryParams = localVarQueryParameter;

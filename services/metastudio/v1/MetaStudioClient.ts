@@ -621,7 +621,8 @@ import { WelcomeSpeechInfo } from './model/WelcomeSpeechInfo';
 
 export class MetaStudioClient {
     public static newBuilder(): ClientBuilder<MetaStudioClient> {
-            return new ClientBuilder<MetaStudioClient>(newClient);
+            let client = new ClientBuilder<MetaStudioClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

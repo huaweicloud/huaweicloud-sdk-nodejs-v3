@@ -71,7 +71,8 @@ import { UpdateLeagueResponse } from './model/UpdateLeagueResponse';
 
 export class TicsClient {
     public static newBuilder(): ClientBuilder<TicsClient> {
-            return new ClientBuilder<TicsClient>(newClient);
+            let client = new ClientBuilder<TicsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

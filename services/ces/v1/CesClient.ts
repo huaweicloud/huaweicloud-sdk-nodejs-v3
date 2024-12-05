@@ -99,7 +99,8 @@ import { UpdateResourceGroupResponse } from './model/UpdateResourceGroupResponse
 
 export class CesClient {
     public static newBuilder(): ClientBuilder<CesClient> {
-            return new ClientBuilder<CesClient>(newClient);
+            let client = new ClientBuilder<CesClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

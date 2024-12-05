@@ -247,7 +247,8 @@ import { VpnUserInGroup } from './model/VpnUserInGroup';
 
 export class VpnClient {
     public static newBuilder(): ClientBuilder<VpnClient> {
-            return new ClientBuilder<VpnClient>(newClient);
+            let client = new ClientBuilder<VpnClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

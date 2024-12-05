@@ -221,7 +221,8 @@ import { VmMetaData } from './model/VmMetaData';
 
 export class AsClient {
     public static newBuilder(): ClientBuilder<AsClient> {
-            return new ClientBuilder<AsClient>(newClient);
+            let client = new ClientBuilder<AsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

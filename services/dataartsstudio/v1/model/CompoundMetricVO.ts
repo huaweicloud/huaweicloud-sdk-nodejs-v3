@@ -36,12 +36,13 @@ export class CompoundMetricVO {
     public l2?: string;
     public l3?: string;
     private 'summary_table_id'?: string;
-    public constructor(nameEn?: string, nameCh?: string, dimensionGroup?: string, metricIds?: Array<string>, calExp?: string) { 
+    public constructor(nameEn?: string, nameCh?: string, dimensionGroup?: string, compoundType?: string, l3Id?: string, dataType?: string) { 
         this['name_en'] = nameEn;
         this['name_ch'] = nameCh;
         this['dimension_group'] = dimensionGroup;
-        this['metric_ids'] = metricIds;
-        this['cal_exp'] = calExp;
+        this['compound_type'] = compoundType;
+        this['l3_id'] = l3Id;
+        this['data_type'] = dataType;
     }
     public withId(id: string): CompoundMetricVO {
         this['id'] = id;

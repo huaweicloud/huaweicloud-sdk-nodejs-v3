@@ -119,7 +119,8 @@ import { WasmPlugin } from './model/WasmPlugin';
 
 export class CseClient {
     public static newBuilder(): ClientBuilder<CseClient> {
-            return new ClientBuilder<CseClient>(newClient);
+            let client = new ClientBuilder<CseClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -332,7 +332,8 @@ import { UpdatelogConvergeConfig } from './model/UpdatelogConvergeConfig';
 
 export class LtsClient {
     public static newBuilder(): ClientBuilder<LtsClient> {
-            return new ClientBuilder<LtsClient>(newClient);
+            let client = new ClientBuilder<LtsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

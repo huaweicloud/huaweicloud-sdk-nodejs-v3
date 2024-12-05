@@ -70,7 +70,8 @@ import { UpdateKeypairDescriptionResponse } from './model/UpdateKeypairDescripti
 
 export class KpsClient {
     public static newBuilder(): ClientBuilder<KpsClient> {
-            return new ClientBuilder<KpsClient>(newClient);
+            let client = new ClientBuilder<KpsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -143,7 +143,8 @@ import { VpcAttachmentDetails } from './model/VpcAttachmentDetails';
 
 export class ErClient {
     public static newBuilder(): ClientBuilder<ErClient> {
-            return new ClientBuilder<ErClient>(newClient);
+            let client = new ClientBuilder<ErClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -218,6 +218,8 @@ import { KeystoneListEndpointsRequest } from './model/KeystoneListEndpointsReque
 import { KeystoneListEndpointsResponse } from './model/KeystoneListEndpointsResponse';
 import { KeystoneListFederationDomainsRequest } from './model/KeystoneListFederationDomainsRequest';
 import { KeystoneListFederationDomainsResponse } from './model/KeystoneListFederationDomainsResponse';
+import { KeystoneListFederationProjectsRequest } from './model/KeystoneListFederationProjectsRequest';
+import { KeystoneListFederationProjectsResponse } from './model/KeystoneListFederationProjectsResponse';
 import { KeystoneListGroupsForUserRequest } from './model/KeystoneListGroupsForUserRequest';
 import { KeystoneListGroupsForUserResponse } from './model/KeystoneListGroupsForUserResponse';
 import { KeystoneListGroupsRequest } from './model/KeystoneListGroupsRequest';
@@ -310,7 +312,6 @@ import { KeystoneUpdateUserPasswordRequest } from './model/KeystoneUpdateUserPas
 import { KeystoneUpdateUserPasswordRequestBody } from './model/KeystoneUpdateUserPasswordRequestBody';
 import { KeystoneUpdateUserPasswordResponse } from './model/KeystoneUpdateUserPasswordResponse';
 import { KeystoneUserResult } from './model/KeystoneUserResult';
-import { KeystoneUserResultExtra } from './model/KeystoneUserResultExtra';
 import { KeystoneValidateTokenRequest } from './model/KeystoneValidateTokenRequest';
 import { KeystoneValidateTokenResponse } from './model/KeystoneValidateTokenResponse';
 import { Links } from './model/Links';
@@ -487,7 +488,7 @@ import { TokenUserResult } from './model/TokenUserResult';
 import { UnbindMfaDevice } from './model/UnbindMfaDevice';
 import { UnscopedTokenInfo } from './model/UnscopedTokenInfo';
 import { UnscopedTokenInfoCatalog } from './model/UnscopedTokenInfoCatalog';
-import { UnscopedTokenInfoCatalogEndpoints } from './model/UnscopedTokenInfoCatalogEndpoints';
+import { UnscopedTokenInfoEndpoints } from './model/UnscopedTokenInfoEndpoints';
 import { UnscopedTokenInfoRoles } from './model/UnscopedTokenInfoRoles';
 import { UpdateAgencyCustomPolicyRequest } from './model/UpdateAgencyCustomPolicyRequest';
 import { UpdateAgencyCustomPolicyRequestBody } from './model/UpdateAgencyCustomPolicyRequestBody';
@@ -552,7 +553,8 @@ import { Versions } from './model/Versions';
 
 export class IamClient {
     public static newBuilder(): ClientBuilder<IamClient> {
-            return new ClientBuilder<IamClient>(newClient);
+            let client = new ClientBuilder<IamClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -1579,6 +1581,27 @@ export class IamClient {
      */
     public keystoneListFederationDomains(keystoneListFederationDomainsRequest?: KeystoneListFederationDomainsRequest): Promise<KeystoneListFederationDomainsResponse> {
         const options = ParamCreater().keystoneListFederationDomains();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询联邦用户可以访问的项目列表。
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * &gt; - 推荐使用[查询IAM用户可以访问的项目列表](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;IAM&amp;api&#x3D;KeystoneListAccessibleProjectsToUser)，该接口可以返回相同的响应格式。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询联邦用户可以访问的项目列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public keystoneListFederationProjects(keystoneListFederationProjectsRequest?: KeystoneListFederationProjectsRequest): Promise<KeystoneListFederationProjectsResponse> {
+        const options = ParamCreater().keystoneListFederationProjects();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5891,6 +5914,30 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/v3/OS-FEDERATION/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询联邦用户可以访问的项目列表。
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * &gt; - 推荐使用[查询IAM用户可以访问的项目列表](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;IAM&amp;api&#x3D;KeystoneListAccessibleProjectsToUser)，该接口可以返回相同的响应格式。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        keystoneListFederationProjects() {
+            const options = {
+                method: "GET",
+                url: "/v3/OS-FEDERATION/projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

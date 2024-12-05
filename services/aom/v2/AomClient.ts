@@ -185,7 +185,8 @@ import { ValueData } from './model/ValueData';
 
 export class AomClient {
     public static newBuilder(): ClientBuilder<AomClient> {
-            return new ClientBuilder<AomClient>(newClient);
+            let client = new ClientBuilder<AomClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

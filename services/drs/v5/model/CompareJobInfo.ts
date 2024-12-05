@@ -12,6 +12,7 @@ export class CompareJobInfo {
     private 'compare_job_tag'?: { [key: string]: string; };
     public options?: { [key: string]: string; };
     private 'error_msg'?: string;
+    private 'dynamic_compare_delay'?: number;
     public constructor() { 
     }
     public withId(id: string): CompareJobInfo {
@@ -99,6 +100,16 @@ export class CompareJobInfo {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withDynamicCompareDelay(dynamicCompareDelay: number): CompareJobInfo {
+        this['dynamic_compare_delay'] = dynamicCompareDelay;
+        return this;
+    }
+    public set dynamicCompareDelay(dynamicCompareDelay: number  | undefined) {
+        this['dynamic_compare_delay'] = dynamicCompareDelay;
+    }
+    public get dynamicCompareDelay(): number | undefined {
+        return this['dynamic_compare_delay'];
     }
 }
 

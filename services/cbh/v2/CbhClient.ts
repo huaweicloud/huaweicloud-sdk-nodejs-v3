@@ -98,7 +98,8 @@ import { UpgradeInstanceResponse } from './model/UpgradeInstanceResponse';
 
 export class CbhClient {
     public static newBuilder(): ClientBuilder<CbhClient> {
-            return new ClientBuilder<CbhClient>(newClient);
+            let client = new ClientBuilder<CbhClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

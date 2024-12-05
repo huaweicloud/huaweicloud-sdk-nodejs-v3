@@ -105,7 +105,8 @@ import { VersionObject } from './model/VersionObject';
 
 export class VpcepClient {
     public static newBuilder(): ClientBuilder<VpcepClient> {
-            return new ClientBuilder<VpcepClient>(newClient);
+            let client = new ClientBuilder<VpcepClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

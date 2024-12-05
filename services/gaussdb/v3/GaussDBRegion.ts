@@ -20,6 +20,9 @@ export class GaussDBRegion {
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://gaussdbformysql.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://gaussdbformysql.ap-southeast-2.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://gaussdb-mysql.af-south-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://gaussdb.cn-south-4.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://gaussdbformysql.cn-north-11.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://gaussdbformysql.me-east-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -36,7 +39,10 @@ export class GaussDBRegion {
         "sa-brazil-1":GaussDBRegion.SA_BRAZIL_1,
         "ap-southeast-1":GaussDBRegion.AP_SOUTHEAST_1,
         "ap-southeast-2":GaussDBRegion.AP_SOUTHEAST_2,
-        "af-south-1":GaussDBRegion.AF_SOUTH_1
+        "af-south-1":GaussDBRegion.AF_SOUTH_1,
+        "cn-south-4":GaussDBRegion.CN_SOUTH_4,
+        "cn-north-11":GaussDBRegion.CN_NORTH_11,
+        "me-east-1":GaussDBRegion.ME_EAST_1
     };
   
     public static valueOf(regionId: string) {

@@ -4,7 +4,9 @@ export class UpdateVifPeer {
     public name?: string;
     public description?: string;
     private 'remote_ep_group'?: Array<string>;
-    public constructor() { 
+    public constructor(name?: string, remoteEpGroup?: Array<string>) { 
+        this['name'] = name;
+        this['remote_ep_group'] = remoteEpGroup;
     }
     public withName(name: string): UpdateVifPeer {
         this['name'] = name;

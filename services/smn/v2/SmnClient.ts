@@ -151,7 +151,8 @@ import { VersionItem } from './model/VersionItem';
 
 export class SmnClient {
     public static newBuilder(): ClientBuilder<SmnClient> {
-            return new ClientBuilder<SmnClient>(newClient);
+            let client = new ClientBuilder<SmnClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

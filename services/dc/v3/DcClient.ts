@@ -2,18 +2,39 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { BandwidthInfoExternal } from './model/BandwidthInfoExternal';
 import { BatchCreateResourceTagsRequest } from './model/BatchCreateResourceTagsRequest';
 import { BatchCreateResourceTagsResponse } from './model/BatchCreateResourceTagsResponse';
 import { BatchOperateResourceTagsRequestBody } from './model/BatchOperateResourceTagsRequestBody';
+import { BindGlobalEipsRequest } from './model/BindGlobalEipsRequest';
+import { BindGlobalEipsResponse } from './model/BindGlobalEipsResponse';
+import { BindingGeipBody } from './model/BindingGeipBody';
+import { ConnectGatewayResponse } from './model/ConnectGatewayResponse';
+import { CreateBindingGeipRequestBody } from './model/CreateBindingGeipRequestBody';
+import { CreateConnectGateway } from './model/CreateConnectGateway';
+import { CreateConnectGatewayRequest } from './model/CreateConnectGatewayRequest';
+import { CreateConnectGatewayRequestBody } from './model/CreateConnectGatewayRequestBody';
+import { CreateConnectGatewayResponse } from './model/CreateConnectGatewayResponse';
+import { CreateGlobalDcGatewayRequest } from './model/CreateGlobalDcGatewayRequest';
+import { CreateGlobalDcGatewayRequestBody } from './model/CreateGlobalDcGatewayRequestBody';
+import { CreateGlobalDcGatewayRequestBodyGlobalDcGateway } from './model/CreateGlobalDcGatewayRequestBodyGlobalDcGateway';
+import { CreateGlobalDcGatewayRequestBodyGlobalDcGatewayTags } from './model/CreateGlobalDcGatewayRequestBodyGlobalDcGatewayTags';
+import { CreateGlobalDcGatewayResponse } from './model/CreateGlobalDcGatewayResponse';
 import { CreateHostedDirectConnect } from './model/CreateHostedDirectConnect';
 import { CreateHostedDirectConnectRequest } from './model/CreateHostedDirectConnectRequest';
 import { CreateHostedDirectConnectRequestBody } from './model/CreateHostedDirectConnectRequestBody';
 import { CreateHostedDirectConnectResponse } from './model/CreateHostedDirectConnectResponse';
+import { CreatePeerLinkRequest } from './model/CreatePeerLinkRequest';
+import { CreatePeerLinkRequestBody } from './model/CreatePeerLinkRequestBody';
+import { CreatePeerLinkRequestBodyPeerLink } from './model/CreatePeerLinkRequestBodyPeerLink';
+import { CreatePeerLinkRequestBodyPeerLinkPeerSite } from './model/CreatePeerLinkRequestBodyPeerLinkPeerSite';
+import { CreatePeerLinkResponse } from './model/CreatePeerLinkResponse';
 import { CreateResourceTagRequest } from './model/CreateResourceTagRequest';
 import { CreateResourceTagRequestBody } from './model/CreateResourceTagRequestBody';
 import { CreateResourceTagResponse } from './model/CreateResourceTagResponse';
 import { CreateSwitchoverTest } from './model/CreateSwitchoverTest';
 import { CreateSwitchoverTestRequestBody } from './model/CreateSwitchoverTestRequestBody';
+import { CreateUnbindingGeipRequestBody } from './model/CreateUnbindingGeipRequestBody';
 import { CreateVifPeer } from './model/CreateVifPeer';
 import { CreateVifPeerRequest } from './model/CreateVifPeerRequest';
 import { CreateVifPeerRequestBody } from './model/CreateVifPeerRequestBody';
@@ -26,10 +47,16 @@ import { CreateVirtualInterface } from './model/CreateVirtualInterface';
 import { CreateVirtualInterfaceRequest } from './model/CreateVirtualInterfaceRequest';
 import { CreateVirtualInterfaceRequestBody } from './model/CreateVirtualInterfaceRequestBody';
 import { CreateVirtualInterfaceResponse } from './model/CreateVirtualInterfaceResponse';
+import { DeleteConnectGatewayRequest } from './model/DeleteConnectGatewayRequest';
+import { DeleteConnectGatewayResponse } from './model/DeleteConnectGatewayResponse';
 import { DeleteDirectConnectRequest } from './model/DeleteDirectConnectRequest';
 import { DeleteDirectConnectResponse } from './model/DeleteDirectConnectResponse';
+import { DeleteGlobalDcGatewayRequest } from './model/DeleteGlobalDcGatewayRequest';
+import { DeleteGlobalDcGatewayResponse } from './model/DeleteGlobalDcGatewayResponse';
 import { DeleteHostedDirectConnectRequest } from './model/DeleteHostedDirectConnectRequest';
 import { DeleteHostedDirectConnectResponse } from './model/DeleteHostedDirectConnectResponse';
+import { DeletePeerLinkRequest } from './model/DeletePeerLinkRequest';
+import { DeletePeerLinkResponse } from './model/DeletePeerLinkResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
 import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
 import { DeleteVifPeerRequest } from './model/DeleteVifPeerRequest';
@@ -39,14 +66,35 @@ import { DeleteVirtualGatewayResponse } from './model/DeleteVirtualGatewayRespon
 import { DeleteVirtualInterfaceRequest } from './model/DeleteVirtualInterfaceRequest';
 import { DeleteVirtualInterfaceResponse } from './model/DeleteVirtualInterfaceResponse';
 import { DirectConnect } from './model/DirectConnect';
+import { ExternalCreateGlobalDcGateway } from './model/ExternalCreateGlobalDcGateway';
+import { ExternalCreatePeerLink } from './model/ExternalCreatePeerLink';
+import { ExternalListGlobalDcGateways } from './model/ExternalListGlobalDcGateways';
+import { ExternalListPeerLinks } from './model/ExternalListPeerLinks';
+import { ExternalShowGlobalDcGateway } from './model/ExternalShowGlobalDcGateway';
+import { ExternalShowPeerLink } from './model/ExternalShowPeerLink';
+import { ExternalUpdateGlobalDcGateway } from './model/ExternalUpdateGlobalDcGateway';
+import { ExternalUpdatePeerLink } from './model/ExternalUpdatePeerLink';
 import { HostedDirectConnect } from './model/HostedDirectConnect';
 import { Info } from './model/Info';
+import { ListBindingGeip } from './model/ListBindingGeip';
+import { ListConnectGatewaysRequest } from './model/ListConnectGatewaysRequest';
+import { ListConnectGatewaysResponse } from './model/ListConnectGatewaysResponse';
 import { ListDirectConnectsRequest } from './model/ListDirectConnectsRequest';
 import { ListDirectConnectsResponse } from './model/ListDirectConnectsResponse';
+import { ListGdgwRouteTablesRequest } from './model/ListGdgwRouteTablesRequest';
+import { ListGdgwRouteTablesResponse } from './model/ListGdgwRouteTablesResponse';
+import { ListGlobalDcGatewayRequest } from './model/ListGlobalDcGatewayRequest';
+import { ListGlobalDcGatewayResponse } from './model/ListGlobalDcGatewayResponse';
+import { ListGlobalEipsRequest } from './model/ListGlobalEipsRequest';
+import { ListGlobalEipsResponse } from './model/ListGlobalEipsResponse';
 import { ListHostedDirectConnectsRequest } from './model/ListHostedDirectConnectsRequest';
 import { ListHostedDirectConnectsResponse } from './model/ListHostedDirectConnectsResponse';
+import { ListPeerLinksRequest } from './model/ListPeerLinksRequest';
+import { ListPeerLinksResponse } from './model/ListPeerLinksResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListRmsGlobalDcGatewayRequest } from './model/ListRmsGlobalDcGatewayRequest';
+import { ListRmsGlobalDcGatewayResponse } from './model/ListRmsGlobalDcGatewayResponse';
 import { ListSwitchoverTestRecordsRequest } from './model/ListSwitchoverTestRecordsRequest';
 import { ListSwitchoverTestRecordsResponse } from './model/ListSwitchoverTestRecordsResponse';
 import { ListTagResourceInstancesRequest } from './model/ListTagResourceInstancesRequest';
@@ -56,19 +104,32 @@ import { ListVirtualGatewaysRequest } from './model/ListVirtualGatewaysRequest';
 import { ListVirtualGatewaysResponse } from './model/ListVirtualGatewaysResponse';
 import { ListVirtualInterfacesRequest } from './model/ListVirtualInterfacesRequest';
 import { ListVirtualInterfacesResponse } from './model/ListVirtualInterfacesResponse';
+import { Locale } from './model/Locale';
 import { LocalesBody } from './model/LocalesBody';
 import { Match } from './model/Match';
 import { PageInfo } from './model/PageInfo';
+import { PeerSiteExternal } from './model/PeerSiteExternal';
 import { Resource } from './model/Resource';
+import { RmsListGlobalDcGateways } from './model/RmsListGlobalDcGateways';
+import { RmsShowGlobalDcGateway } from './model/RmsShowGlobalDcGateway';
+import { ShowConnectGatewayRequest } from './model/ShowConnectGatewayRequest';
+import { ShowConnectGatewayResponse } from './model/ShowConnectGatewayResponse';
 import { ShowDirectConnectRequest } from './model/ShowDirectConnectRequest';
 import { ShowDirectConnectResponse } from './model/ShowDirectConnectResponse';
+import { ShowGdgwRoutetable } from './model/ShowGdgwRoutetable';
+import { ShowGlobalDcGatewayRequest } from './model/ShowGlobalDcGatewayRequest';
+import { ShowGlobalDcGatewayResponse } from './model/ShowGlobalDcGatewayResponse';
 import { ShowHostedDirectConnectRequest } from './model/ShowHostedDirectConnectRequest';
 import { ShowHostedDirectConnectResponse } from './model/ShowHostedDirectConnectResponse';
+import { ShowPeerLinkRequest } from './model/ShowPeerLinkRequest';
+import { ShowPeerLinkResponse } from './model/ShowPeerLinkResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowQuotasResponseBodyQuotas } from './model/ShowQuotasResponseBodyQuotas';
 import { ShowResourceTagRequest } from './model/ShowResourceTagRequest';
 import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
+import { ShowRmsGlobalDcGatewayRequest } from './model/ShowRmsGlobalDcGatewayRequest';
+import { ShowRmsGlobalDcGatewayResponse } from './model/ShowRmsGlobalDcGatewayResponse';
 import { ShowVirtualGatewayRequest } from './model/ShowVirtualGatewayRequest';
 import { ShowVirtualGatewayResponse } from './model/ShowVirtualGatewayResponse';
 import { ShowVirtualInterfaceRequest } from './model/ShowVirtualInterfaceRequest';
@@ -79,14 +140,36 @@ import { SwitchoverTestResponse } from './model/SwitchoverTestResponse';
 import { Tag } from './model/Tag';
 import { Tags } from './model/Tags';
 import { TenantIdDef } from './model/TenantIdDef';
+import { UnbindGlobalEipsRequest } from './model/UnbindGlobalEipsRequest';
+import { UnbindGlobalEipsResponse } from './model/UnbindGlobalEipsResponse';
+import { UnbindingGeipBody } from './model/UnbindingGeipBody';
+import { UpdateConnectGateway } from './model/UpdateConnectGateway';
+import { UpdateConnectGatewayRequest } from './model/UpdateConnectGatewayRequest';
+import { UpdateConnectGatewayRequestBody } from './model/UpdateConnectGatewayRequestBody';
+import { UpdateConnectGatewayResponse } from './model/UpdateConnectGatewayResponse';
 import { UpdateDirectConnect } from './model/UpdateDirectConnect';
 import { UpdateDirectConnectRequest } from './model/UpdateDirectConnectRequest';
 import { UpdateDirectConnectRequestBody } from './model/UpdateDirectConnectRequestBody';
 import { UpdateDirectConnectResponse } from './model/UpdateDirectConnectResponse';
+import { UpdateGdgwRouteTableRequest } from './model/UpdateGdgwRouteTableRequest';
+import { UpdateGdgwRouteTableResponse } from './model/UpdateGdgwRouteTableResponse';
+import { UpdateGdgwRoutetableRequestBody } from './model/UpdateGdgwRoutetableRequestBody';
+import { UpdateGdgwRoutetableRequestBodyGdgwRoutetable } from './model/UpdateGdgwRoutetableRequestBodyGdgwRoutetable';
+import { UpdateGdgwRoutetableRequestBodyGdgwRoutetableAddRoutes } from './model/UpdateGdgwRoutetableRequestBodyGdgwRoutetableAddRoutes';
+import { UpdateGdgwRoutetableRequestBodyGdgwRoutetableDelRoutes } from './model/UpdateGdgwRoutetableRequestBodyGdgwRoutetableDelRoutes';
+import { UpdateGdgwRoutetableRequestBodyGdgwRoutetableUpdateRoutes } from './model/UpdateGdgwRoutetableRequestBodyGdgwRoutetableUpdateRoutes';
+import { UpdateGlobalDcGatewayRequest } from './model/UpdateGlobalDcGatewayRequest';
+import { UpdateGlobalDcGatewayRequestBody } from './model/UpdateGlobalDcGatewayRequestBody';
+import { UpdateGlobalDcGatewayRequestBodyGlobalDcGateway } from './model/UpdateGlobalDcGatewayRequestBodyGlobalDcGateway';
+import { UpdateGlobalDcGatewayResponse } from './model/UpdateGlobalDcGatewayResponse';
 import { UpdateHostedDirectConnect } from './model/UpdateHostedDirectConnect';
 import { UpdateHostedDirectConnectRequest } from './model/UpdateHostedDirectConnectRequest';
 import { UpdateHostedDirectConnectRequestBody } from './model/UpdateHostedDirectConnectRequestBody';
 import { UpdateHostedDirectConnectResponse } from './model/UpdateHostedDirectConnectResponse';
+import { UpdatePeerLinkRequest } from './model/UpdatePeerLinkRequest';
+import { UpdatePeerLinkRequestBody } from './model/UpdatePeerLinkRequestBody';
+import { UpdatePeerLinkRequestBodyPeerLink } from './model/UpdatePeerLinkRequestBodyPeerLink';
+import { UpdatePeerLinkResponse } from './model/UpdatePeerLinkResponse';
 import { UpdateVifPeer } from './model/UpdateVifPeer';
 import { UpdateVifPeerRequest } from './model/UpdateVifPeerRequest';
 import { UpdateVifPeerRequestBody } from './model/UpdateVifPeerRequestBody';
@@ -106,7 +189,8 @@ import { VirtualInterface } from './model/VirtualInterface';
 
 export class DcClient {
     public static newBuilder(): ClientBuilder<DcClient> {
-            return new ClientBuilder<DcClient>(newClient);
+            let client = new ClientBuilder<DcClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -118,6 +202,182 @@ export class DcClient {
         return __dirname;
     }
 
+
+    /**
+     * 绑定GEIP操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定GEIP操作
+     * @param {string} connectGatewayId 互联网关ID
+     * @param {CreateBindingGeipRequestBody} createBindingGeipRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindGlobalEips(bindGlobalEipsRequest?: BindGlobalEipsRequest): Promise<BindGlobalEipsResponse> {
+        const options = ParamCreater().bindGlobalEips(bindGlobalEipsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询已经绑定的GEIP列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已经绑定的GEIP列表
+     * @param {string} connectGatewayId 互联网关ID
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {number} [offset] 
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {boolean} [pageReverse] 
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [globalEipId] 全局弹性IP的ID
+     * @param {Array<string>} [globalEipSegmentId] 全局弹性IP(有掩码)的ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalEips(listGlobalEipsRequest?: ListGlobalEipsRequest): Promise<ListGlobalEipsResponse> {
+        const options = ParamCreater().listGlobalEips(listGlobalEipsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解绑GEIP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑GEIP
+     * @param {string} connectGatewayId 互联网关ID
+     * @param {CreateUnbindingGeipRequestBody} createUnbindingGeipRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unbindGlobalEips(unbindGlobalEipsRequest?: UnbindGlobalEipsRequest): Promise<UnbindGlobalEipsResponse> {
+        const options = ParamCreater().unbindGlobalEips(unbindGlobalEipsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建互联网关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建互联网关
+     * @param {CreateConnectGatewayRequestBody} createConnectGatewayRequestBody 创建Connect Gateway
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConnectGateway(createConnectGatewayRequest?: CreateConnectGatewayRequest): Promise<CreateConnectGatewayResponse> {
+        const options = ParamCreater().createConnectGateway(createConnectGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除互联网关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除互联网关
+     * @param {string} connectGatewayId 互联网关ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConnectGateway(deleteConnectGatewayRequest?: DeleteConnectGatewayRequest): Promise<DeleteConnectGatewayResponse> {
+        const options = ParamCreater().deleteConnectGateway(deleteConnectGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询互联网关列表信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询互联网关列表信息
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {number} [offset] 
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {boolean} [pageReverse] 
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {Array<string>} [id] 根据资源ID过滤实例
+     * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
+     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConnectGateways(listConnectGatewaysRequest?: ListConnectGatewaysRequest): Promise<ListConnectGatewaysResponse> {
+        const options = ParamCreater().listConnectGateways(listConnectGatewaysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询互联网关详细信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询互联网关详细信息
+     * @param {string} connectGatewayId 互联网关ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConnectGateway(showConnectGatewayRequest?: ShowConnectGatewayRequest): Promise<ShowConnectGatewayResponse> {
+        const options = ParamCreater().showConnectGateway(showConnectGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新互联网关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新互联网关
+     * @param {string} connectGatewayId 互联网关ID
+     * @param {UpdateConnectGatewayRequestBody} [updateConnectGatewayRequestBody] 创建Connect Gateway
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateConnectGateway(updateConnectGatewayRequest?: UpdateConnectGatewayRequest): Promise<UpdateConnectGatewayResponse> {
+        const options = ParamCreater().updateConnectGateway(updateConnectGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 用于合作伙伴用户最终租户创建托管专线
@@ -311,6 +571,333 @@ export class DcClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询全球接入网关路由表，返回查询到的全球接入网关路由表的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全球接入网关路由表
+     * @param {string} gdgwId 全球接入网关ID
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {Array<string>} [nexthop] 下一条ID
+     * @param {Array<string>} [destination] 目的地址
+     * @param {Array<'ipv4' | 'ipv6'>} [addressFamily] 地址簇
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGdgwRouteTables(listGdgwRouteTablesRequest?: ListGdgwRouteTablesRequest): Promise<ListGdgwRouteTablesResponse> {
+        const options = ParamCreater().listGdgwRouteTables(listGdgwRouteTablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改全球接入网关路由表，返回修改全球接入网关路由表的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改全球接入网关路由表
+     * @param {string} gdgwId 全球接入网关ID
+     * @param {UpdateGdgwRoutetableRequestBody} updateGdgwRoutetableRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGdgwRouteTable(updateGdgwRouteTableRequest?: UpdateGdgwRouteTableRequest): Promise<UpdateGdgwRouteTableResponse> {
+        const options = ParamCreater().updateGdgwRouteTable(updateGdgwRouteTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建全球接入网关，返回创建全球接入网关的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建全球接入网关
+     * @param {CreateGlobalDcGatewayRequestBody} createGlobalDcGatewayRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGlobalDcGateway(createGlobalDcGatewayRequest?: CreateGlobalDcGatewayRequest): Promise<CreateGlobalDcGatewayResponse> {
+        const options = ParamCreater().createGlobalDcGateway(createGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建全球接入网关对等链接，返回创建全球接入网关对等链接的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建全球接入网关对等链接
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {CreatePeerLinkRequestBody} createPeerLinkRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPeerLink(createPeerLinkRequest?: CreatePeerLinkRequest): Promise<CreatePeerLinkResponse> {
+        const options = ParamCreater().createPeerLink(createPeerLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID删除全球接入网关，返回删除全球接入网关的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除全球接入网关
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGlobalDcGateway(deleteGlobalDcGatewayRequest?: DeleteGlobalDcGatewayRequest): Promise<DeleteGlobalDcGatewayResponse> {
+        const options = ParamCreater().deleteGlobalDcGateway(deleteGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID删除全球接入网关对等链接，返回删除全球接入网关对等链接的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除全球接入网关对等链接
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {string} peerLinkId 全球接入网关对等体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePeerLink(deletePeerLinkRequest?: DeletePeerLinkRequest): Promise<DeletePeerLinkResponse> {
+        const options = ParamCreater().deletePeerLink(deletePeerLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询 全球接入网关列表，返回列表中包含全球接入网关的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全球接入网关列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {Array<string>} [hostingId] 根椐运营专线ID过滤托管专线列表
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
+     * @param {Array<string>} [id] 根据资源ID过滤实例
+     * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
+     * @param {Array<string>} [globalCenterNetworkId] 全球中心网络ID
+     * @param {Array<string>} [siteNetworkId] 站点网络ID
+     * @param {Array<string>} [cloudConnectionId] 云连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalDcGateway(listGlobalDcGatewayRequest?: ListGlobalDcGatewayRequest): Promise<ListGlobalDcGatewayResponse> {
+        const options = ParamCreater().listGlobalDcGateway(listGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询全球接入网关对等链接，返回查询到的全球接入网关对等链接的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全球接入网关对等链接
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {number} [offset] 
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {boolean} [pageReverse] 
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {Array<string>} [id] 根据资源ID过滤实例
+     * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPeerLinks(listPeerLinksRequest?: ListPeerLinksRequest): Promise<ListPeerLinksResponse> {
+        const options = ParamCreater().listPeerLinks(listPeerLinksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据类型、domain_id、region_id,资源类型查询资源，返回查询到的资源的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询RMS全球接入网关
+     * @param {string} rpName 通过rp_name过滤记录
+     * @param {string} domainId domain_id
+     * @param {string} regionId region_id
+     * @param {string} resourceType resource_type
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {number} [offset] 
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {boolean} [pageReverse] 
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {Array<string>} [id] 根据资源ID过滤实例
+     * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
+     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
+     * @param {Array<string>} [globalCenterNetworkId] 全球中心网络ID
+     * @param {Array<string>} [siteNetworkId] 站点网络ID
+     * @param {Array<string>} [cloudConnectionId] 云连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRmsGlobalDcGateway(listRmsGlobalDcGatewayRequest?: ListRmsGlobalDcGatewayRequest): Promise<ListRmsGlobalDcGatewayResponse> {
+        const options = ParamCreater().listRmsGlobalDcGateway(listRmsGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID查询全球接入网关，返回查询到的全球接入网关的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全球接入网关详情
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGlobalDcGateway(showGlobalDcGatewayRequest?: ShowGlobalDcGatewayRequest): Promise<ShowGlobalDcGatewayResponse> {
+        const options = ParamCreater().showGlobalDcGateway(showGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID查询全球接入网关对等链接，返回查询到的全球接入网关对等链接的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全球接入网关对等链接
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {string} peerLinkId 全球接入网关对等体
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPeerLink(showPeerLinkRequest?: ShowPeerLinkRequest): Promise<ShowPeerLinkResponse> {
+        const options = ParamCreater().showPeerLink(showPeerLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据类型、domain_id、region_id,资源类型，全球接入网关ID查询资源,返回查询到的资源的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询RMS全球接入网关
+     * @param {string} rpName 通过rp_name过滤记录
+     * @param {string} domainId domain_id
+     * @param {string} regionId region_id
+     * @param {string} resourceType resource_type
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRmsGlobalDcGateway(showRmsGlobalDcGatewayRequest?: ShowRmsGlobalDcGatewayRequest): Promise<ShowRmsGlobalDcGatewayResponse> {
+        const options = ParamCreater().showRmsGlobalDcGateway(showRmsGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID修改全球接入网关，返回修改全球接入网关的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改全球接入网关
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {UpdateGlobalDcGatewayRequestBody} updateGlobalDcGatewayRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGlobalDcGateway(updateGlobalDcGatewayRequest?: UpdateGlobalDcGatewayRequest): Promise<UpdateGlobalDcGatewayResponse> {
+        const options = ParamCreater().updateGlobalDcGateway(updateGlobalDcGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID修改全球接入网关对等链接，返回修改全球接入网关对等链接的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改全球接入网关对等链接
+     * @param {string} globalDcGatewayId 全球接入网关ID
+     * @param {string} peerLinkId 全球接入网关对等体
+     * @param {UpdatePeerLinkRequestBody} updatePeerLinkRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePeerLink(updatePeerLinkRequest?: UpdatePeerLinkRequest): Promise<UpdatePeerLinkResponse> {
+        const options = ParamCreater().updatePeerLink(updatePeerLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -775,6 +1362,475 @@ export class DcClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 绑定GEIP操作
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindGlobalEips(bindGlobalEipsRequest?: BindGlobalEipsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}/binding-global-eips",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectGatewayId;
+
+            if (bindGlobalEipsRequest !== null && bindGlobalEipsRequest !== undefined) {
+                if (bindGlobalEipsRequest instanceof BindGlobalEipsRequest) {
+                    connectGatewayId = bindGlobalEipsRequest.connectGatewayId;
+                    body = bindGlobalEipsRequest.body
+                } else {
+                    connectGatewayId = bindGlobalEipsRequest['connect_gateway_id'];
+                    body = bindGlobalEipsRequest['body'];
+                }
+            }
+
+        
+            if (connectGatewayId === null || connectGatewayId === undefined) {
+            throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling bindGlobalEips.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connect_gateway_id': connectGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询已经绑定的GEIP列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalEips(listGlobalEipsRequest?: ListGlobalEipsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}/binding-global-eips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let connectGatewayId;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let pageReverse;
+            
+            let fields;
+            
+            let extFields;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let status;
+            
+            let globalEipId;
+            
+            let globalEipSegmentId;
+
+            if (listGlobalEipsRequest !== null && listGlobalEipsRequest !== undefined) {
+                if (listGlobalEipsRequest instanceof ListGlobalEipsRequest) {
+                    connectGatewayId = listGlobalEipsRequest.connectGatewayId;
+                    limit = listGlobalEipsRequest.limit;
+                    offset = listGlobalEipsRequest.offset;
+                    marker = listGlobalEipsRequest.marker;
+                    pageReverse = listGlobalEipsRequest.pageReverse;
+                    fields = listGlobalEipsRequest.fields;
+                    extFields = listGlobalEipsRequest.extFields;
+                    sortKey = listGlobalEipsRequest.sortKey;
+                    sortDir = listGlobalEipsRequest.sortDir;
+                    status = listGlobalEipsRequest.status;
+                    globalEipId = listGlobalEipsRequest.globalEipId;
+                    globalEipSegmentId = listGlobalEipsRequest.globalEipSegmentId;
+                } else {
+                    connectGatewayId = listGlobalEipsRequest['connect_gateway_id'];
+                    limit = listGlobalEipsRequest['limit'];
+                    offset = listGlobalEipsRequest['offset'];
+                    marker = listGlobalEipsRequest['marker'];
+                    pageReverse = listGlobalEipsRequest['page_reverse'];
+                    fields = listGlobalEipsRequest['fields'];
+                    extFields = listGlobalEipsRequest['ext_fields'];
+                    sortKey = listGlobalEipsRequest['sort_key'];
+                    sortDir = listGlobalEipsRequest['sort_dir'];
+                    status = listGlobalEipsRequest['status'];
+                    globalEipId = listGlobalEipsRequest['global_eip_id'];
+                    globalEipSegmentId = listGlobalEipsRequest['global_eip_segment_id'];
+                }
+            }
+
+        
+            if (connectGatewayId === null || connectGatewayId === undefined) {
+            throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling listGlobalEips.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (globalEipId !== null && globalEipId !== undefined) {
+                localVarQueryParameter['global_eip_id'] = globalEipId;
+            }
+            if (globalEipSegmentId !== null && globalEipSegmentId !== undefined) {
+                localVarQueryParameter['global_eip_segment_id'] = globalEipSegmentId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'connect_gateway_id': connectGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑GEIP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unbindGlobalEips(unbindGlobalEipsRequest?: UnbindGlobalEipsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}/unbinding-global-eips",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectGatewayId;
+
+            if (unbindGlobalEipsRequest !== null && unbindGlobalEipsRequest !== undefined) {
+                if (unbindGlobalEipsRequest instanceof UnbindGlobalEipsRequest) {
+                    connectGatewayId = unbindGlobalEipsRequest.connectGatewayId;
+                    body = unbindGlobalEipsRequest.body
+                } else {
+                    connectGatewayId = unbindGlobalEipsRequest['connect_gateway_id'];
+                    body = unbindGlobalEipsRequest['body'];
+                }
+            }
+
+        
+            if (connectGatewayId === null || connectGatewayId === undefined) {
+            throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling unbindGlobalEips.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connect_gateway_id': connectGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建互联网关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConnectGateway(createConnectGatewayRequest?: CreateConnectGatewayRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/connect-gateways",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createConnectGatewayRequest !== null && createConnectGatewayRequest !== undefined) {
+                if (createConnectGatewayRequest instanceof CreateConnectGatewayRequest) {
+                    body = createConnectGatewayRequest.body
+                } else {
+                    body = createConnectGatewayRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除互联网关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConnectGateway(deleteConnectGatewayRequest?: DeleteConnectGatewayRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectGatewayId;
+
+            if (deleteConnectGatewayRequest !== null && deleteConnectGatewayRequest !== undefined) {
+                if (deleteConnectGatewayRequest instanceof DeleteConnectGatewayRequest) {
+                    connectGatewayId = deleteConnectGatewayRequest.connectGatewayId;
+                } else {
+                    connectGatewayId = deleteConnectGatewayRequest['connect_gateway_id'];
+                }
+            }
+
+        
+            if (connectGatewayId === null || connectGatewayId === undefined) {
+            throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling deleteConnectGateway.');
+            }
+
+            options.pathParams = { 'connect_gateway_id': connectGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询互联网关列表信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConnectGateways(listConnectGatewaysRequest?: ListConnectGatewaysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/connect-gateways",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let pageReverse;
+            
+            let fields;
+            
+            let extFields;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let id;
+            
+            let name;
+            
+            let status;
+
+            if (listConnectGatewaysRequest !== null && listConnectGatewaysRequest !== undefined) {
+                if (listConnectGatewaysRequest instanceof ListConnectGatewaysRequest) {
+                    limit = listConnectGatewaysRequest.limit;
+                    offset = listConnectGatewaysRequest.offset;
+                    marker = listConnectGatewaysRequest.marker;
+                    pageReverse = listConnectGatewaysRequest.pageReverse;
+                    fields = listConnectGatewaysRequest.fields;
+                    extFields = listConnectGatewaysRequest.extFields;
+                    sortKey = listConnectGatewaysRequest.sortKey;
+                    sortDir = listConnectGatewaysRequest.sortDir;
+                    id = listConnectGatewaysRequest.id;
+                    name = listConnectGatewaysRequest.name;
+                    status = listConnectGatewaysRequest.status;
+                } else {
+                    limit = listConnectGatewaysRequest['limit'];
+                    offset = listConnectGatewaysRequest['offset'];
+                    marker = listConnectGatewaysRequest['marker'];
+                    pageReverse = listConnectGatewaysRequest['page_reverse'];
+                    fields = listConnectGatewaysRequest['fields'];
+                    extFields = listConnectGatewaysRequest['ext_fields'];
+                    sortKey = listConnectGatewaysRequest['sort_key'];
+                    sortDir = listConnectGatewaysRequest['sort_dir'];
+                    id = listConnectGatewaysRequest['id'];
+                    name = listConnectGatewaysRequest['name'];
+                    status = listConnectGatewaysRequest['status'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询互联网关详细信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConnectGateway(showConnectGatewayRequest?: ShowConnectGatewayRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectGatewayId;
+
+            if (showConnectGatewayRequest !== null && showConnectGatewayRequest !== undefined) {
+                if (showConnectGatewayRequest instanceof ShowConnectGatewayRequest) {
+                    connectGatewayId = showConnectGatewayRequest.connectGatewayId;
+                } else {
+                    connectGatewayId = showConnectGatewayRequest['connect_gateway_id'];
+                }
+            }
+
+        
+            if (connectGatewayId === null || connectGatewayId === undefined) {
+            throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling showConnectGateway.');
+            }
+
+            options.pathParams = { 'connect_gateway_id': connectGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新互联网关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateConnectGateway(updateConnectGatewayRequest?: UpdateConnectGatewayRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectGatewayId;
+
+            if (updateConnectGatewayRequest !== null && updateConnectGatewayRequest !== undefined) {
+                if (updateConnectGatewayRequest instanceof UpdateConnectGatewayRequest) {
+                    connectGatewayId = updateConnectGatewayRequest.connectGatewayId;
+                    body = updateConnectGatewayRequest.body
+                } else {
+                    connectGatewayId = updateConnectGatewayRequest['connect_gateway_id'];
+                    body = updateConnectGatewayRequest['body'];
+                }
+            }
+
+        
+            if (connectGatewayId === null || connectGatewayId === undefined) {
+            throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling updateConnectGateway.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connect_gateway_id': connectGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 用于合作伙伴用户最终租户创建托管专线
@@ -1272,6 +2328,966 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'hosted_connect_id': hostedConnectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询全球接入网关路由表，返回查询到的全球接入网关路由表的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGdgwRouteTables(listGdgwRouteTablesRequest?: ListGdgwRouteTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/gdgw/{gdgw_id}/routetables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let gdgwId;
+            
+            let fields;
+            
+            let extFields;
+            
+            let nexthop;
+            
+            let destination;
+            
+            let addressFamily;
+
+            if (listGdgwRouteTablesRequest !== null && listGdgwRouteTablesRequest !== undefined) {
+                if (listGdgwRouteTablesRequest instanceof ListGdgwRouteTablesRequest) {
+                    gdgwId = listGdgwRouteTablesRequest.gdgwId;
+                    fields = listGdgwRouteTablesRequest.fields;
+                    extFields = listGdgwRouteTablesRequest.extFields;
+                    nexthop = listGdgwRouteTablesRequest.nexthop;
+                    destination = listGdgwRouteTablesRequest.destination;
+                    addressFamily = listGdgwRouteTablesRequest.addressFamily;
+                } else {
+                    gdgwId = listGdgwRouteTablesRequest['gdgw_id'];
+                    fields = listGdgwRouteTablesRequest['fields'];
+                    extFields = listGdgwRouteTablesRequest['ext_fields'];
+                    nexthop = listGdgwRouteTablesRequest['nexthop'];
+                    destination = listGdgwRouteTablesRequest['destination'];
+                    addressFamily = listGdgwRouteTablesRequest['address_family'];
+                }
+            }
+
+        
+            if (gdgwId === null || gdgwId === undefined) {
+            throw new RequiredError('gdgwId','Required parameter gdgwId was null or undefined when calling listGdgwRouteTables.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+            if (nexthop !== null && nexthop !== undefined) {
+                localVarQueryParameter['nexthop'] = nexthop;
+            }
+            if (destination !== null && destination !== undefined) {
+                localVarQueryParameter['destination'] = destination;
+            }
+            if (addressFamily !== null && addressFamily !== undefined) {
+                localVarQueryParameter['address_family'] = addressFamily;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'gdgw_id': gdgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改全球接入网关路由表，返回修改全球接入网关路由表的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGdgwRouteTable(updateGdgwRouteTableRequest?: UpdateGdgwRouteTableRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/dcaas/gdgw/{gdgw_id}/routetables",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let gdgwId;
+
+            if (updateGdgwRouteTableRequest !== null && updateGdgwRouteTableRequest !== undefined) {
+                if (updateGdgwRouteTableRequest instanceof UpdateGdgwRouteTableRequest) {
+                    gdgwId = updateGdgwRouteTableRequest.gdgwId;
+                    body = updateGdgwRouteTableRequest.body
+                } else {
+                    gdgwId = updateGdgwRouteTableRequest['gdgw_id'];
+                    body = updateGdgwRouteTableRequest['body'];
+                }
+            }
+
+        
+            if (gdgwId === null || gdgwId === undefined) {
+            throw new RequiredError('gdgwId','Required parameter gdgwId was null or undefined when calling updateGdgwRouteTable.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'gdgw_id': gdgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建全球接入网关，返回创建全球接入网关的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGlobalDcGateway(createGlobalDcGatewayRequest?: CreateGlobalDcGatewayRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createGlobalDcGatewayRequest !== null && createGlobalDcGatewayRequest !== undefined) {
+                if (createGlobalDcGatewayRequest instanceof CreateGlobalDcGatewayRequest) {
+                    body = createGlobalDcGatewayRequest.body
+                } else {
+                    body = createGlobalDcGatewayRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建全球接入网关对等链接，返回创建全球接入网关对等链接的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPeerLink(createPeerLinkRequest?: CreatePeerLinkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}/peer-links",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let globalDcGatewayId;
+
+            if (createPeerLinkRequest !== null && createPeerLinkRequest !== undefined) {
+                if (createPeerLinkRequest instanceof CreatePeerLinkRequest) {
+                    globalDcGatewayId = createPeerLinkRequest.globalDcGatewayId;
+                    body = createPeerLinkRequest.body
+                } else {
+                    globalDcGatewayId = createPeerLinkRequest['global_dc_gateway_id'];
+                    body = createPeerLinkRequest['body'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling createPeerLink.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID删除全球接入网关，返回删除全球接入网关的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGlobalDcGateway(deleteGlobalDcGatewayRequest?: DeleteGlobalDcGatewayRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let globalDcGatewayId;
+
+            if (deleteGlobalDcGatewayRequest !== null && deleteGlobalDcGatewayRequest !== undefined) {
+                if (deleteGlobalDcGatewayRequest instanceof DeleteGlobalDcGatewayRequest) {
+                    globalDcGatewayId = deleteGlobalDcGatewayRequest.globalDcGatewayId;
+                } else {
+                    globalDcGatewayId = deleteGlobalDcGatewayRequest['global_dc_gateway_id'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling deleteGlobalDcGateway.');
+            }
+
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID删除全球接入网关对等链接，返回删除全球接入网关对等链接的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePeerLink(deletePeerLinkRequest?: DeletePeerLinkRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}/peer-links/{peer_link_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let globalDcGatewayId;
+            
+            let peerLinkId;
+
+            if (deletePeerLinkRequest !== null && deletePeerLinkRequest !== undefined) {
+                if (deletePeerLinkRequest instanceof DeletePeerLinkRequest) {
+                    globalDcGatewayId = deletePeerLinkRequest.globalDcGatewayId;
+                    peerLinkId = deletePeerLinkRequest.peerLinkId;
+                } else {
+                    globalDcGatewayId = deletePeerLinkRequest['global_dc_gateway_id'];
+                    peerLinkId = deletePeerLinkRequest['peer_link_id'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling deletePeerLink.');
+            }
+            if (peerLinkId === null || peerLinkId === undefined) {
+            throw new RequiredError('peerLinkId','Required parameter peerLinkId was null or undefined when calling deletePeerLink.');
+            }
+
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId,'peer_link_id': peerLinkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询 全球接入网关列表，返回列表中包含全球接入网关的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalDcGateway(listGlobalDcGatewayRequest?: ListGlobalDcGatewayRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let fields;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let hostingId;
+            
+            let enterpriseProjectId;
+            
+            let id;
+            
+            let name;
+            
+            let globalCenterNetworkId;
+            
+            let siteNetworkId;
+            
+            let cloudConnectionId;
+
+            if (listGlobalDcGatewayRequest !== null && listGlobalDcGatewayRequest !== undefined) {
+                if (listGlobalDcGatewayRequest instanceof ListGlobalDcGatewayRequest) {
+                    limit = listGlobalDcGatewayRequest.limit;
+                    marker = listGlobalDcGatewayRequest.marker;
+                    fields = listGlobalDcGatewayRequest.fields;
+                    sortKey = listGlobalDcGatewayRequest.sortKey;
+                    sortDir = listGlobalDcGatewayRequest.sortDir;
+                    hostingId = listGlobalDcGatewayRequest.hostingId;
+                    enterpriseProjectId = listGlobalDcGatewayRequest.enterpriseProjectId;
+                    id = listGlobalDcGatewayRequest.id;
+                    name = listGlobalDcGatewayRequest.name;
+                    globalCenterNetworkId = listGlobalDcGatewayRequest.globalCenterNetworkId;
+                    siteNetworkId = listGlobalDcGatewayRequest.siteNetworkId;
+                    cloudConnectionId = listGlobalDcGatewayRequest.cloudConnectionId;
+                } else {
+                    limit = listGlobalDcGatewayRequest['limit'];
+                    marker = listGlobalDcGatewayRequest['marker'];
+                    fields = listGlobalDcGatewayRequest['fields'];
+                    sortKey = listGlobalDcGatewayRequest['sort_key'];
+                    sortDir = listGlobalDcGatewayRequest['sort_dir'];
+                    hostingId = listGlobalDcGatewayRequest['hosting_id'];
+                    enterpriseProjectId = listGlobalDcGatewayRequest['enterprise_project_id'];
+                    id = listGlobalDcGatewayRequest['id'];
+                    name = listGlobalDcGatewayRequest['name'];
+                    globalCenterNetworkId = listGlobalDcGatewayRequest['global_center_network_id'];
+                    siteNetworkId = listGlobalDcGatewayRequest['site_network_id'];
+                    cloudConnectionId = listGlobalDcGatewayRequest['cloud_connection_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (hostingId !== null && hostingId !== undefined) {
+                localVarQueryParameter['hosting_id'] = hostingId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (globalCenterNetworkId !== null && globalCenterNetworkId !== undefined) {
+                localVarQueryParameter['global_center_network_id'] = globalCenterNetworkId;
+            }
+            if (siteNetworkId !== null && siteNetworkId !== undefined) {
+                localVarQueryParameter['site_network_id'] = siteNetworkId;
+            }
+            if (cloudConnectionId !== null && cloudConnectionId !== undefined) {
+                localVarQueryParameter['cloud_connection_id'] = cloudConnectionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询全球接入网关对等链接，返回查询到的全球接入网关对等链接的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPeerLinks(listPeerLinksRequest?: ListPeerLinksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}/peer-links",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let globalDcGatewayId;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let pageReverse;
+            
+            let fields;
+            
+            let extFields;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let id;
+            
+            let name;
+
+            if (listPeerLinksRequest !== null && listPeerLinksRequest !== undefined) {
+                if (listPeerLinksRequest instanceof ListPeerLinksRequest) {
+                    globalDcGatewayId = listPeerLinksRequest.globalDcGatewayId;
+                    limit = listPeerLinksRequest.limit;
+                    offset = listPeerLinksRequest.offset;
+                    marker = listPeerLinksRequest.marker;
+                    pageReverse = listPeerLinksRequest.pageReverse;
+                    fields = listPeerLinksRequest.fields;
+                    extFields = listPeerLinksRequest.extFields;
+                    sortKey = listPeerLinksRequest.sortKey;
+                    sortDir = listPeerLinksRequest.sortDir;
+                    id = listPeerLinksRequest.id;
+                    name = listPeerLinksRequest.name;
+                } else {
+                    globalDcGatewayId = listPeerLinksRequest['global_dc_gateway_id'];
+                    limit = listPeerLinksRequest['limit'];
+                    offset = listPeerLinksRequest['offset'];
+                    marker = listPeerLinksRequest['marker'];
+                    pageReverse = listPeerLinksRequest['page_reverse'];
+                    fields = listPeerLinksRequest['fields'];
+                    extFields = listPeerLinksRequest['ext_fields'];
+                    sortKey = listPeerLinksRequest['sort_key'];
+                    sortDir = listPeerLinksRequest['sort_dir'];
+                    id = listPeerLinksRequest['id'];
+                    name = listPeerLinksRequest['name'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling listPeerLinks.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据类型、domain_id、region_id,资源类型查询资源，返回查询到的资源的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRmsGlobalDcGateway(listRmsGlobalDcGatewayRequest?: ListRmsGlobalDcGatewayRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/providers/{rp_name}/domains/{domain_id}/regions/{region_id}/{resource_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let rpName;
+            
+            let domainId;
+            
+            let regionId;
+            
+            let resourceType;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let pageReverse;
+            
+            let fields;
+            
+            let extFields;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let id;
+            
+            let name;
+            
+            let status;
+            
+            let enterpriseProjectId;
+            
+            let globalCenterNetworkId;
+            
+            let siteNetworkId;
+            
+            let cloudConnectionId;
+
+            if (listRmsGlobalDcGatewayRequest !== null && listRmsGlobalDcGatewayRequest !== undefined) {
+                if (listRmsGlobalDcGatewayRequest instanceof ListRmsGlobalDcGatewayRequest) {
+                    rpName = listRmsGlobalDcGatewayRequest.rpName;
+                    domainId = listRmsGlobalDcGatewayRequest.domainId;
+                    regionId = listRmsGlobalDcGatewayRequest.regionId;
+                    resourceType = listRmsGlobalDcGatewayRequest.resourceType;
+                    limit = listRmsGlobalDcGatewayRequest.limit;
+                    offset = listRmsGlobalDcGatewayRequest.offset;
+                    marker = listRmsGlobalDcGatewayRequest.marker;
+                    pageReverse = listRmsGlobalDcGatewayRequest.pageReverse;
+                    fields = listRmsGlobalDcGatewayRequest.fields;
+                    extFields = listRmsGlobalDcGatewayRequest.extFields;
+                    sortKey = listRmsGlobalDcGatewayRequest.sortKey;
+                    sortDir = listRmsGlobalDcGatewayRequest.sortDir;
+                    id = listRmsGlobalDcGatewayRequest.id;
+                    name = listRmsGlobalDcGatewayRequest.name;
+                    status = listRmsGlobalDcGatewayRequest.status;
+                    enterpriseProjectId = listRmsGlobalDcGatewayRequest.enterpriseProjectId;
+                    globalCenterNetworkId = listRmsGlobalDcGatewayRequest.globalCenterNetworkId;
+                    siteNetworkId = listRmsGlobalDcGatewayRequest.siteNetworkId;
+                    cloudConnectionId = listRmsGlobalDcGatewayRequest.cloudConnectionId;
+                } else {
+                    rpName = listRmsGlobalDcGatewayRequest['rp_name'];
+                    domainId = listRmsGlobalDcGatewayRequest['domain_id'];
+                    regionId = listRmsGlobalDcGatewayRequest['region_id'];
+                    resourceType = listRmsGlobalDcGatewayRequest['resource_type'];
+                    limit = listRmsGlobalDcGatewayRequest['limit'];
+                    offset = listRmsGlobalDcGatewayRequest['offset'];
+                    marker = listRmsGlobalDcGatewayRequest['marker'];
+                    pageReverse = listRmsGlobalDcGatewayRequest['page_reverse'];
+                    fields = listRmsGlobalDcGatewayRequest['fields'];
+                    extFields = listRmsGlobalDcGatewayRequest['ext_fields'];
+                    sortKey = listRmsGlobalDcGatewayRequest['sort_key'];
+                    sortDir = listRmsGlobalDcGatewayRequest['sort_dir'];
+                    id = listRmsGlobalDcGatewayRequest['id'];
+                    name = listRmsGlobalDcGatewayRequest['name'];
+                    status = listRmsGlobalDcGatewayRequest['status'];
+                    enterpriseProjectId = listRmsGlobalDcGatewayRequest['enterprise_project_id'];
+                    globalCenterNetworkId = listRmsGlobalDcGatewayRequest['global_center_network_id'];
+                    siteNetworkId = listRmsGlobalDcGatewayRequest['site_network_id'];
+                    cloudConnectionId = listRmsGlobalDcGatewayRequest['cloud_connection_id'];
+                }
+            }
+
+        
+            if (rpName === null || rpName === undefined) {
+            throw new RequiredError('rpName','Required parameter rpName was null or undefined when calling listRmsGlobalDcGateway.');
+            }
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listRmsGlobalDcGateway.');
+            }
+            if (regionId === null || regionId === undefined) {
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling listRmsGlobalDcGateway.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listRmsGlobalDcGateway.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (globalCenterNetworkId !== null && globalCenterNetworkId !== undefined) {
+                localVarQueryParameter['global_center_network_id'] = globalCenterNetworkId;
+            }
+            if (siteNetworkId !== null && siteNetworkId !== undefined) {
+                localVarQueryParameter['site_network_id'] = siteNetworkId;
+            }
+            if (cloudConnectionId !== null && cloudConnectionId !== undefined) {
+                localVarQueryParameter['cloud_connection_id'] = cloudConnectionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'rp_name': rpName,'domain_id': domainId,'region_id': regionId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID查询全球接入网关，返回查询到的全球接入网关的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGlobalDcGateway(showGlobalDcGatewayRequest?: ShowGlobalDcGatewayRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let globalDcGatewayId;
+            
+            let fields;
+            
+            let extFields;
+
+            if (showGlobalDcGatewayRequest !== null && showGlobalDcGatewayRequest !== undefined) {
+                if (showGlobalDcGatewayRequest instanceof ShowGlobalDcGatewayRequest) {
+                    globalDcGatewayId = showGlobalDcGatewayRequest.globalDcGatewayId;
+                    fields = showGlobalDcGatewayRequest.fields;
+                    extFields = showGlobalDcGatewayRequest.extFields;
+                } else {
+                    globalDcGatewayId = showGlobalDcGatewayRequest['global_dc_gateway_id'];
+                    fields = showGlobalDcGatewayRequest['fields'];
+                    extFields = showGlobalDcGatewayRequest['ext_fields'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling showGlobalDcGateway.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID查询全球接入网关对等链接，返回查询到的全球接入网关对等链接的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPeerLink(showPeerLinkRequest?: ShowPeerLinkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}/peer-links/{peer_link_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let globalDcGatewayId;
+            
+            let peerLinkId;
+            
+            let fields;
+            
+            let extFields;
+
+            if (showPeerLinkRequest !== null && showPeerLinkRequest !== undefined) {
+                if (showPeerLinkRequest instanceof ShowPeerLinkRequest) {
+                    globalDcGatewayId = showPeerLinkRequest.globalDcGatewayId;
+                    peerLinkId = showPeerLinkRequest.peerLinkId;
+                    fields = showPeerLinkRequest.fields;
+                    extFields = showPeerLinkRequest.extFields;
+                } else {
+                    globalDcGatewayId = showPeerLinkRequest['global_dc_gateway_id'];
+                    peerLinkId = showPeerLinkRequest['peer_link_id'];
+                    fields = showPeerLinkRequest['fields'];
+                    extFields = showPeerLinkRequest['ext_fields'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling showPeerLink.');
+            }
+            if (peerLinkId === null || peerLinkId === undefined) {
+            throw new RequiredError('peerLinkId','Required parameter peerLinkId was null or undefined when calling showPeerLink.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId,'peer_link_id': peerLinkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据类型、domain_id、region_id,资源类型，全球接入网关ID查询资源,返回查询到的资源的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRmsGlobalDcGateway(showRmsGlobalDcGatewayRequest?: ShowRmsGlobalDcGatewayRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/providers/{rp_name}/domains/{domain_id}/regions/{region_id}/{resource_type}/{global_dc_gateway_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let rpName;
+            
+            let domainId;
+            
+            let regionId;
+            
+            let resourceType;
+            
+            let globalDcGatewayId;
+            
+            let fields;
+            
+            let extFields;
+
+            if (showRmsGlobalDcGatewayRequest !== null && showRmsGlobalDcGatewayRequest !== undefined) {
+                if (showRmsGlobalDcGatewayRequest instanceof ShowRmsGlobalDcGatewayRequest) {
+                    rpName = showRmsGlobalDcGatewayRequest.rpName;
+                    domainId = showRmsGlobalDcGatewayRequest.domainId;
+                    regionId = showRmsGlobalDcGatewayRequest.regionId;
+                    resourceType = showRmsGlobalDcGatewayRequest.resourceType;
+                    globalDcGatewayId = showRmsGlobalDcGatewayRequest.globalDcGatewayId;
+                    fields = showRmsGlobalDcGatewayRequest.fields;
+                    extFields = showRmsGlobalDcGatewayRequest.extFields;
+                } else {
+                    rpName = showRmsGlobalDcGatewayRequest['rp_name'];
+                    domainId = showRmsGlobalDcGatewayRequest['domain_id'];
+                    regionId = showRmsGlobalDcGatewayRequest['region_id'];
+                    resourceType = showRmsGlobalDcGatewayRequest['resource_type'];
+                    globalDcGatewayId = showRmsGlobalDcGatewayRequest['global_dc_gateway_id'];
+                    fields = showRmsGlobalDcGatewayRequest['fields'];
+                    extFields = showRmsGlobalDcGatewayRequest['ext_fields'];
+                }
+            }
+
+        
+            if (rpName === null || rpName === undefined) {
+            throw new RequiredError('rpName','Required parameter rpName was null or undefined when calling showRmsGlobalDcGateway.');
+            }
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showRmsGlobalDcGateway.');
+            }
+            if (regionId === null || regionId === undefined) {
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling showRmsGlobalDcGateway.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showRmsGlobalDcGateway.');
+            }
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling showRmsGlobalDcGateway.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'rp_name': rpName,'domain_id': domainId,'region_id': regionId,'resource_type': resourceType,'global_dc_gateway_id': globalDcGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID修改全球接入网关，返回修改全球接入网关的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGlobalDcGateway(updateGlobalDcGatewayRequest?: UpdateGlobalDcGatewayRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let globalDcGatewayId;
+
+            if (updateGlobalDcGatewayRequest !== null && updateGlobalDcGatewayRequest !== undefined) {
+                if (updateGlobalDcGatewayRequest instanceof UpdateGlobalDcGatewayRequest) {
+                    globalDcGatewayId = updateGlobalDcGatewayRequest.globalDcGatewayId;
+                    body = updateGlobalDcGatewayRequest.body
+                } else {
+                    globalDcGatewayId = updateGlobalDcGatewayRequest['global_dc_gateway_id'];
+                    body = updateGlobalDcGatewayRequest['body'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling updateGlobalDcGateway.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID修改全球接入网关对等链接，返回修改全球接入网关对等链接的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePeerLink(updatePeerLinkRequest?: UpdatePeerLinkRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/dcaas/global-dc-gateways/{global_dc_gateway_id}/peer-links/{peer_link_id}",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let globalDcGatewayId;
+            
+            let peerLinkId;
+
+            if (updatePeerLinkRequest !== null && updatePeerLinkRequest !== undefined) {
+                if (updatePeerLinkRequest instanceof UpdatePeerLinkRequest) {
+                    globalDcGatewayId = updatePeerLinkRequest.globalDcGatewayId;
+                    peerLinkId = updatePeerLinkRequest.peerLinkId;
+                    body = updatePeerLinkRequest.body
+                } else {
+                    globalDcGatewayId = updatePeerLinkRequest['global_dc_gateway_id'];
+                    peerLinkId = updatePeerLinkRequest['peer_link_id'];
+                    body = updatePeerLinkRequest['body'];
+                }
+            }
+
+        
+            if (globalDcGatewayId === null || globalDcGatewayId === undefined) {
+            throw new RequiredError('globalDcGatewayId','Required parameter globalDcGatewayId was null or undefined when calling updatePeerLink.');
+            }
+            if (peerLinkId === null || peerLinkId === undefined) {
+            throw new RequiredError('peerLinkId','Required parameter peerLinkId was null or undefined when calling updatePeerLink.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'global_dc_gateway_id': globalDcGatewayId,'peer_link_id': peerLinkId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

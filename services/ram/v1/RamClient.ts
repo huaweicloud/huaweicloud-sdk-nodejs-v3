@@ -93,7 +93,8 @@ import { UpdateResourceShareResponse } from './model/UpdateResourceShareResponse
 
 export class RamClient {
     public static newBuilder(): ClientBuilder<RamClient> {
-            return new ClientBuilder<RamClient>(newClient);
+            let client = new ClientBuilder<RamClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -188,7 +188,8 @@ import { UpdateStoredQueryResponse } from './model/UpdateStoredQueryResponse';
 
 export class RmsClient {
     public static newBuilder(): ClientBuilder<RmsClient> {
-            return new ClientBuilder<RmsClient>(newClient);
+            let client = new ClientBuilder<RmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -26,20 +26,29 @@ import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
 import { HcClient } from "../HcClient";
 import { IamService } from "../internal/services/iam.service";
 import { AuthCache } from "../internal/services/authcache";
+import { DerivedAKSKSigner } from './DerivedAKSKSigner';
 
 export class BasicCredentials implements ICredential {
+    private static DEFAULT_ENDPOINT_REG = /^(?<firstDomainNameLetter>[a-z])(?<firstDomainName>[a-z0-9-]+)(?<middleDomainName>(\.[a-z]{2,}-[a-z]+-\d{1,2})?)(?<lastDomainName>\.(my)?(huaweicloud|myhwclouds)).(?<domainSuffix>(com|cn))$/;
+
     ak?: string;
     sk?: string;
+    regionId?: string;
+    derivedPredicate?: (httpRequest: IHttpRequest) => boolean;
     securityToken?: string;
     projectId?: string;
     iamEndpoint?: string;
+    derivedAuthServiceName?: string;
 
     constructor(data?: Partial<BasicCredentials>) {
         this.ak = data?.ak;
         this.sk = data?.sk;
+        this.regionId = data?.regionId;
+        this.derivedPredicate = data?.derivedPredicate;
         this.securityToken = data?.securityToken;
         this.projectId = data?.projectId;
         this.iamEndpoint = data?.iamEndpoint;
+        this.derivedAuthServiceName = data?.derivedAuthServiceName;
     }
 
     public withAk(ak?: string): BasicCredentials {
@@ -49,6 +58,11 @@ export class BasicCredentials implements ICredential {
 
     public withSk(sk?: string): BasicCredentials {
         this.sk = sk;
+        return this;
+    }
+
+    public withDerivedPredicate(derivedPredicate?: (httpRequest: IHttpRequest) => boolean): BasicCredentials {
+        this.derivedPredicate = derivedPredicate;
         return this;
     }
 
@@ -72,6 +86,14 @@ export class BasicCredentials implements ICredential {
     }
     public getSk(): string | undefined {
         return this.sk;
+    }
+
+    public getRegionId(): string | undefined {
+        return this.regionId;
+    }
+
+    public getDerivedAuthServiceName(): string | undefined {
+        return this.derivedAuthServiceName;
     }
 
     public setProjectId(value: string) {
@@ -120,7 +142,9 @@ export class BasicCredentials implements ICredential {
         builder.addAllHeaders(httpRequest.headers);
         Object.assign(httpRequest, builder.build());
 
-        const headers = AKSKSigner.sign(httpRequest, this);
+        const headers = this.isDerivedAuth(httpRequest)
+          ? DerivedAKSKSigner.sign(httpRequest, this)
+          : AKSKSigner.sign(httpRequest, this);
 
         builder.addAllHeaders(headers);
 
@@ -146,6 +170,15 @@ export class BasicCredentials implements ICredential {
         return this;
     }
 
+    processDerivedAuthParams(derivedAuthServiceName: string, regionId: string | undefined) {
+        if (derivedAuthServiceName) {
+            this.derivedAuthServiceName = derivedAuthServiceName;
+        }
+        if (regionId) {
+            this.regionId = regionId;
+        }
+    }
+
     parsePath(path: string | undefined, params: any): string {
         if (!path || !params) {
             return <string>path;
@@ -154,5 +187,17 @@ export class BasicCredentials implements ICredential {
             const value = encodeURIComponent(params[param]);
             return parsedPath.replace(new RegExp(`{${param}}`), value);
         }, path);
+    }
+
+    isDerivedAuth(httpRequest: IHttpRequest) {
+        if (!this.derivedPredicate) {
+            return false;
+        }
+        return this.derivedPredicate(httpRequest);
+    }
+  
+    static getDefaultDerivedPredicate(request: IHttpRequest) {
+        const hostname = new URL(request?.endpoint)?.hostname;
+        return !this.DEFAULT_ENDPOINT_REG.test(hostname);
     }
 }

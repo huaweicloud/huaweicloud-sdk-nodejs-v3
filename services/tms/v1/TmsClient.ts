@@ -57,7 +57,8 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class TmsClient {
     public static newBuilder(): ClientBuilder<TmsClient> {
-            return new ClientBuilder<TmsClient>(newClient);
+            let client = new ClientBuilder<TmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

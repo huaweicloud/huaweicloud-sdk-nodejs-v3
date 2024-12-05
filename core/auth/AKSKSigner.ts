@@ -27,15 +27,15 @@ import * as _ from "lodash";
 import { ICredential } from "./ICredential";
 
 export class AKSKSigner {
-    private static EMPTY_BODY_SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-    private static SDK_SIGNING_ALGORITHM = "SDK-HMAC-SHA256";
-    private static BasicDateFormat = "YYYYMMDDTHHmmss";
-    private static HeaderXDate = "X-Sdk-Date";
-    private static HeaderHost = "host";
-    private static HeaderContentSha256 = "X-Sdk-Content-Sha256";
+    protected static EMPTY_BODY_SHA256 = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
+    protected static SDK_SIGNING_ALGORITHM = 'SDK-HMAC-SHA256';
+    protected static BasicDateFormat = 'YYYYMMDDTHHmmss';
+    protected static HeaderXDate = 'X-Sdk-Date';
+    protected static HeaderHost = 'host';
+    protected static HeaderContentSha256 = 'X-Sdk-Content-Sha256';
 
-    private static hex: string[] = [];
-    private static hexTable(): string[] {
+    protected static hex: string[] = [];
+    protected static hexTable(): string[] {
         if (this.hex.length <= 0) {
             for (let i = 0; i < 256; ++i) {
                 this.hex[i] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
@@ -43,7 +43,8 @@ export class AKSKSigner {
         }
         return this.hex;
     }
-    private static noEscape: number[] = [
+
+    protected static noEscape: number[] = [
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0 - 15
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 16 - 31
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, // 32 - 47
@@ -107,7 +108,7 @@ export class AKSKSigner {
         return allHeaders;
     }
 
-    private static CanonicalURI(inputUri?: string) {
+    protected static CanonicalURI(inputUri?: string) {
         if (!inputUri) {
             return inputUri;
         }
@@ -124,7 +125,7 @@ export class AKSKSigner {
         return urlpath;
     }
 
-    private static Hex = (str: string) => {
+    protected static Hex = (str: string) => {
         return crypto
             .createHash("sha256")
             .update(str)
@@ -132,7 +133,7 @@ export class AKSKSigner {
     };
 
 
-    private static hmacSHA256 = (secretKey: string | undefined, str: string) => {
+    protected static hmacSHA256 = (secretKey: string | undefined, str: string) => {
         return crypto
             // @ts-ignore
             .createHmac("sha256", secretKey)
@@ -140,20 +141,21 @@ export class AKSKSigner {
             .digest("hex");
     };
 
-    private static getStringToSign(sdkSigningHash: string, dateTimeStamp: string, canonicalRequestHash: string) {
+    protected static getStringToSign(sdkSigningHash: string, dateTimeStamp: string, canonicalRequestHash: string) {
         const arr = [sdkSigningHash, dateTimeStamp, canonicalRequestHash];
 
         return arr.join("\n");
     }
 
     // eslint-disable-next-line max-params
-    private static buildCanonicalRequest(method: string | undefined, canonicalURI: string | undefined, canonicalQueryString: string, canonicalHeaders: string, signedHeaderNames: string, payloadHash: string | undefined) {
+    protected static buildCanonicalRequest(method: string | undefined, canonicalURI: string | undefined, canonicalQueryString: string, 
+        canonicalHeaders: string, signedHeaderNames: string, payloadHash: string | undefined) {
         const arr = [method, canonicalURI, canonicalQueryString, canonicalHeaders, signedHeaderNames, payloadHash];
 
         return arr.join("\n");
     }
 
-    private static buildPayloadHash(request: IHttpRequest) {
+    protected static buildPayloadHash(request: IHttpRequest) {
         if (request.headers[this.HeaderContentSha256]) {
             return request.headers[this.HeaderContentSha256];
         }
@@ -163,7 +165,7 @@ export class AKSKSigner {
         return this.EMPTY_BODY_SHA256;
     }
 
-    private static buildCanonicalHeaders(allHeaders: any) {
+    protected static buildCanonicalHeaders(allHeaders: any) {
         const headers = Object.keys(allHeaders).map(key => ({ key, value: allHeaders[key] }));
         headers.sort((a, b) => a.key.toLocaleLowerCase().localeCompare(b.key.toLocaleLowerCase()));
         let canonicalHeaders = "";
@@ -174,7 +176,7 @@ export class AKSKSigner {
         return canonicalHeaders;
     }
 
-    private static CanonicalQueryString(r: any) {
+    protected static CanonicalQueryString(r: any) {
         const keys = Object.keys(r.queryParams);
         keys.sort();
         const a = [];
@@ -193,7 +195,7 @@ export class AKSKSigner {
         return a.join('&');
     }
 
-    private static urlEncode(str: any) {
+    protected static urlEncode(str: any) {
         if (typeof str !== 'string') {
             if (typeof str === 'object')
                 str = String(str);

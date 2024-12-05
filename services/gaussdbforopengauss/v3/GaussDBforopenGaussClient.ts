@@ -374,7 +374,8 @@ import { WeakPasswordRequestBody } from './model/WeakPasswordRequestBody';
 
 export class GaussDBforopenGaussClient {
     public static newBuilder(): ClientBuilder<GaussDBforopenGaussClient> {
-            return new ClientBuilder<GaussDBforopenGaussClient>(newClient);
+            let client = new ClientBuilder<GaussDBforopenGaussClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

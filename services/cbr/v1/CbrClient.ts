@@ -275,7 +275,8 @@ import { VaultUpdateReq } from './model/VaultUpdateReq';
 
 export class CbrClient {
     public static newBuilder(): ClientBuilder<CbrClient> {
-            return new ClientBuilder<CbrClient>(newClient);
+            let client = new ClientBuilder<CbrClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

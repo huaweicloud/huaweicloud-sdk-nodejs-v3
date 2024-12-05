@@ -561,7 +561,8 @@ import { WorkFlowStatus } from './model/WorkFlowStatus';
 
 export class CceClient {
     public static newBuilder(): ClientBuilder<CceClient> {
-            return new ClientBuilder<CceClient>(newClient);
+            let client = new ClientBuilder<CceClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -2429,15 +2430,15 @@ export class CceClient {
     }
 
     /**
-     * 该API用于节点池升级。
+     * 该API用于同步节点池中已有节点的配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 节点池升级
+     * @summary 同步节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
-     * @param {UpgradeNodePool} upgradeNodePoolRequestBody 升级节点池的请求体
+     * @param {UpgradeNodePool} upgradeNodePoolRequestBody 同步节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7964,7 +7965,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于节点池升级。
+         * 该API用于同步节点池中已有节点的配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

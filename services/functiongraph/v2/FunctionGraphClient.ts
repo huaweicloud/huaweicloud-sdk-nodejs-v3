@@ -286,7 +286,8 @@ import { WorkflowUrn } from './model/WorkflowUrn';
 
 export class FunctionGraphClient {
     public static newBuilder(): ClientBuilder<FunctionGraphClient> {
-            return new ClientBuilder<FunctionGraphClient>(newClient);
+            let client = new ClientBuilder<FunctionGraphClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

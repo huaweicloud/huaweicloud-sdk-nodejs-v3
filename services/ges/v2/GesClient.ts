@@ -121,7 +121,8 @@ import { UploadFromObsReqEncryption } from './model/UploadFromObsReqEncryption';
 
 export class GesClient {
     public static newBuilder(): ClientBuilder<GesClient> {
-            return new ClientBuilder<GesClient>(newClient);
+            let client = new ClientBuilder<GesClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

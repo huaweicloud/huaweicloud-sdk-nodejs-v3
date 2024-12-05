@@ -74,7 +74,8 @@ import { WafPolicyOptions } from './model/WafPolicyOptions';
 
 export class AadClient {
     public static newBuilder(): ClientBuilder<AadClient> {
-            return new ClientBuilder<AadClient>(newClient, 'GlobalCredentials');
+            let client = new ClientBuilder<AadClient>(newClient, 'GlobalCredentials');
+            return client;
     }
 
     private hcClient: HcClient;

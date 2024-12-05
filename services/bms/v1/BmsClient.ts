@@ -146,7 +146,8 @@ import { VolumeAttachments } from './model/VolumeAttachments';
 
 export class BmsClient {
     public static newBuilder(): ClientBuilder<BmsClient> {
-            return new ClientBuilder<BmsClient>(newClient);
+            let client = new ClientBuilder<BmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

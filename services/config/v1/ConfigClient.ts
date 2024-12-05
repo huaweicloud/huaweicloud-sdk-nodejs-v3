@@ -303,7 +303,8 @@ import { VarsStructure } from './model/VarsStructure';
 
 export class ConfigClient {
     public static newBuilder(): ClientBuilder<ConfigClient> {
-            return new ClientBuilder<ConfigClient>(newClient);
+            let client = new ClientBuilder<ConfigClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

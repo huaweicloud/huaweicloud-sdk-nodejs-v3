@@ -214,7 +214,8 @@ import { UserInfo } from './model/UserInfo';
 
 export class CodeArtsDeployClient {
     public static newBuilder(): ClientBuilder<CodeArtsDeployClient> {
-            return new ClientBuilder<CodeArtsDeployClient>(newClient);
+            let client = new ClientBuilder<CodeArtsDeployClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

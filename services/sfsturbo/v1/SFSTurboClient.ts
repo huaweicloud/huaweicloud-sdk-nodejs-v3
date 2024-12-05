@@ -83,6 +83,9 @@ import { ListPermRulesRequest } from './model/ListPermRulesRequest';
 import { ListPermRulesResponse } from './model/ListPermRulesResponse';
 import { ListSharedTagsRequest } from './model/ListSharedTagsRequest';
 import { ListSharedTagsResponse } from './model/ListSharedTagsResponse';
+import { ListSharesByTagRequest } from './model/ListSharesByTagRequest';
+import { ListSharesByTagRequestBody } from './model/ListSharesByTagRequestBody';
+import { ListSharesByTagResponse } from './model/ListSharesByTagResponse';
 import { ListSharesRequest } from './model/ListSharesRequest';
 import { ListSharesResponse } from './model/ListSharesResponse';
 import { Metadata } from './model/Metadata';
@@ -148,7 +151,8 @@ import { UpdatePermRuleResponse } from './model/UpdatePermRuleResponse';
 
 export class SFSTurboClient {
     public static newBuilder(): ClientBuilder<SFSTurboClient> {
-            return new ClientBuilder<SFSTurboClient>(newClient);
+            let client = new ClientBuilder<SFSTurboClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -741,6 +745,25 @@ export class SFSTurboClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过标签查询文件系统列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过标签查询文件系统列表
+     * @param {ListSharesByTagRequestBody} listSharesByTagRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSharesByTag(listSharesByTagRequest?: ListSharesByTagRequest): Promise<ListSharesByTagResponse> {
+        const options = ParamCreater().listSharesByTag(listSharesByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2454,6 +2477,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过标签查询文件系统列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSharesByTag(listSharesByTagRequest?: ListSharesByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/sfs-turbo/resource_instances/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listSharesByTagRequest !== null && listSharesByTagRequest !== undefined) {
+                if (listSharesByTagRequest instanceof ListSharesByTagRequest) {
+                    body = listSharesByTagRequest.body
+                } else {
+                    body = listSharesByTagRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

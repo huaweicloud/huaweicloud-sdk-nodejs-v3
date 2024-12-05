@@ -45,7 +45,8 @@ import { WordInfo } from './model/WordInfo';
 
 export class SisClient {
     public static newBuilder(): ClientBuilder<SisClient> {
-            return new ClientBuilder<SisClient>(newClient);
+            let client = new ClientBuilder<SisClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

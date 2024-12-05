@@ -115,7 +115,8 @@ import { WarningList } from './model/WarningList';
 
 export class FrsClient {
     public static newBuilder(): ClientBuilder<FrsClient> {
-            return new ClientBuilder<FrsClient>(newClient);
+            let client = new ClientBuilder<FrsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

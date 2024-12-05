@@ -14,6 +14,7 @@ export class PermissionSetPermissionCreateDTO {
     private 'column_name'?: string;
     private 'row_level_security'?: string;
     public url?: string;
+    private 'auto_sync'?: boolean;
     public constructor() { 
     }
     public withDwId(dwId: string): PermissionSetPermissionCreateDTO {
@@ -133,6 +134,16 @@ export class PermissionSetPermissionCreateDTO {
     public withUrl(url: string): PermissionSetPermissionCreateDTO {
         this['url'] = url;
         return this;
+    }
+    public withAutoSync(autoSync: boolean): PermissionSetPermissionCreateDTO {
+        this['auto_sync'] = autoSync;
+        return this;
+    }
+    public set autoSync(autoSync: boolean  | undefined) {
+        this['auto_sync'] = autoSync;
+    }
+    public get autoSync(): boolean | undefined {
+        return this['auto_sync'];
     }
 }
 

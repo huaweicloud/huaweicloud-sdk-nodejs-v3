@@ -8,9 +8,7 @@ export class ClusterConfigResponseInfo {
     private 'node_total_num'?: number;
     private 'cluster_name'?: string;
     private 'charging_mode'?: string;
-    private 'auto_upgrade'?: boolean;
     private 'prefer_packet_cycle'?: number;
-    private 'vpc_id'?: string;
     private 'protect_type'?: string;
     private 'protect_status'?: string;
     private 'cluster_type'?: string;
@@ -87,16 +85,6 @@ export class ClusterConfigResponseInfo {
     public get chargingMode(): string | undefined {
         return this['charging_mode'];
     }
-    public withAutoUpgrade(autoUpgrade: boolean): ClusterConfigResponseInfo {
-        this['auto_upgrade'] = autoUpgrade;
-        return this;
-    }
-    public set autoUpgrade(autoUpgrade: boolean  | undefined) {
-        this['auto_upgrade'] = autoUpgrade;
-    }
-    public get autoUpgrade(): boolean | undefined {
-        return this['auto_upgrade'];
-    }
     public withPreferPacketCycle(preferPacketCycle: number): ClusterConfigResponseInfo {
         this['prefer_packet_cycle'] = preferPacketCycle;
         return this;
@@ -106,16 +94,6 @@ export class ClusterConfigResponseInfo {
     }
     public get preferPacketCycle(): number | undefined {
         return this['prefer_packet_cycle'];
-    }
-    public withVpcId(vpcId: string): ClusterConfigResponseInfo {
-        this['vpc_id'] = vpcId;
-        return this;
-    }
-    public set vpcId(vpcId: string  | undefined) {
-        this['vpc_id'] = vpcId;
-    }
-    public get vpcId(): string | undefined {
-        return this['vpc_id'];
     }
     public withProtectType(protectType: string): ClusterConfigResponseInfo {
         this['protect_type'] = protectType;

@@ -360,7 +360,8 @@ import { Whitelist } from './model/Whitelist';
 
 export class DcsClient {
     public static newBuilder(): ClientBuilder<DcsClient> {
-            return new ClientBuilder<DcsClient>(newClient);
+            let client = new ClientBuilder<DcsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -261,7 +261,8 @@ import { UserRoleVO } from './model/UserRoleVO';
 
 export class DrsClient {
     public static newBuilder(): ClientBuilder<DrsClient> {
-            return new ClientBuilder<DrsClient>(newClient);
+            let client = new ClientBuilder<DrsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

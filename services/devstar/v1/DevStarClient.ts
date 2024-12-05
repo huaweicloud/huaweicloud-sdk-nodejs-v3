@@ -97,7 +97,8 @@ import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
 
 export class DevStarClient {
     public static newBuilder(): ClientBuilder<DevStarClient> {
-            return new ClientBuilder<DevStarClient>(newClient);
+            let client = new ClientBuilder<DevStarClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

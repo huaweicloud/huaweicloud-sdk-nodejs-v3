@@ -413,7 +413,9 @@ import { VerifyCertificateDTO } from './model/VerifyCertificateDTO';
 
 export class IoTDAClient {
     public static newBuilder(): ClientBuilder<IoTDAClient> {
-            return new ClientBuilder<IoTDAClient>(newClient);
+            let client = new ClientBuilder<IoTDAClient>(newClient);
+            client.withDerivedAuthServiceName("iotdm");
+            return client;
     }
 
     private hcClient: HcClient;

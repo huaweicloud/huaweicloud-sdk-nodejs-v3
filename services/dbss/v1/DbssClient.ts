@@ -140,7 +140,8 @@ import { UpdateAuditSecurityGroupResponse } from './model/UpdateAuditSecurityGro
 
 export class DbssClient {
     public static newBuilder(): ClientBuilder<DbssClient> {
-            return new ClientBuilder<DbssClient>(newClient);
+            let client = new ClientBuilder<DbssClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

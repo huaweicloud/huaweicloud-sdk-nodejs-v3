@@ -283,6 +283,7 @@ import { SimplePremiumWafHost } from './model/SimplePremiumWafHost';
 import { StatisticsTimelineItem } from './model/StatisticsTimelineItem';
 import { TimeLineItem } from './model/TimeLineItem';
 import { TimeoutConfig } from './model/TimeoutConfig';
+import { TmsResourceTag } from './model/TmsResourceTag';
 import { TrafficMark } from './model/TrafficMark';
 import { UpdateAlertNoticeConfigRequest } from './model/UpdateAlertNoticeConfigRequest';
 import { UpdateAlertNoticeConfigRequestBody } from './model/UpdateAlertNoticeConfigRequestBody';
@@ -361,7 +362,8 @@ import { WhiteBlackIpResponseBody } from './model/WhiteBlackIpResponseBody';
 
 export class WafClient {
     public static newBuilder(): ClientBuilder<WafClient> {
-            return new ClientBuilder<WafClient>(newClient);
+            let client = new ClientBuilder<WafClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

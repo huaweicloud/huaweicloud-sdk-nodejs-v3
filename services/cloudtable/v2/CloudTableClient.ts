@@ -42,7 +42,8 @@ import { UpdateClusterSettingResponse } from './model/UpdateClusterSettingRespon
 
 export class CloudTableClient {
     public static newBuilder(): ClientBuilder<CloudTableClient> {
-            return new ClientBuilder<CloudTableClient>(newClient);
+            let client = new ClientBuilder<CloudTableClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

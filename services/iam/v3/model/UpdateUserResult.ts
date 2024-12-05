@@ -16,6 +16,10 @@ export class UpdateUserResult {
     public id?: string;
     public links?: LinksSelf;
     private 'password_expires_at'?: string;
+    private 'create_time'?: string;
+    private 'xdomain_id'?: string;
+    private 'xdomain_type'?: string;
+    private 'is_domain_owner'?: boolean;
     public constructor(name?: string, domainId?: string, enabled?: boolean, id?: string, links?: LinksSelf) { 
         this['name'] = name;
         this['domain_id'] = domainId;
@@ -114,5 +118,45 @@ export class UpdateUserResult {
     }
     public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
+    }
+    public withCreateTime(createTime: string): UpdateUserResult {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): string | undefined {
+        return this['create_time'];
+    }
+    public withXdomainId(xdomainId: string): UpdateUserResult {
+        this['xdomain_id'] = xdomainId;
+        return this;
+    }
+    public set xdomainId(xdomainId: string  | undefined) {
+        this['xdomain_id'] = xdomainId;
+    }
+    public get xdomainId(): string | undefined {
+        return this['xdomain_id'];
+    }
+    public withXdomainType(xdomainType: string): UpdateUserResult {
+        this['xdomain_type'] = xdomainType;
+        return this;
+    }
+    public set xdomainType(xdomainType: string  | undefined) {
+        this['xdomain_type'] = xdomainType;
+    }
+    public get xdomainType(): string | undefined {
+        return this['xdomain_type'];
+    }
+    public withIsDomainOwner(isDomainOwner: boolean): UpdateUserResult {
+        this['is_domain_owner'] = isDomainOwner;
+        return this;
+    }
+    public set isDomainOwner(isDomainOwner: boolean  | undefined) {
+        this['is_domain_owner'] = isDomainOwner;
+    }
+    public get isDomainOwner(): boolean | undefined {
+        return this['is_domain_owner'];
     }
 }

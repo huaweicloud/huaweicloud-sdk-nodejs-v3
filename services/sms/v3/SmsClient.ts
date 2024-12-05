@@ -178,7 +178,8 @@ import { VpcObject } from './model/VpcObject';
 
 export class SmsClient {
     public static newBuilder(): ClientBuilder<SmsClient> {
-            return new ClientBuilder<SmsClient>(newClient);
+            let client = new ClientBuilder<SmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

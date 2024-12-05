@@ -133,7 +133,8 @@ import { UpdateImageResponse } from './model/UpdateImageResponse';
 
 export class ImsClient {
     public static newBuilder(): ClientBuilder<ImsClient> {
-            return new ClientBuilder<ImsClient>(newClient);
+            let client = new ClientBuilder<ImsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

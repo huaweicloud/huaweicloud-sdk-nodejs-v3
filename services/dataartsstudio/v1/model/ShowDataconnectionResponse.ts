@@ -13,6 +13,7 @@ export class ShowDataconnectionResponse extends SdkResponse {
     private 'create_user'?: string;
     private 'create_time'?: number;
     private 'dw_catagory'?: string;
+    public description?: string;
     private 'update_type'?: number;
     public constructor() { 
         super();
@@ -126,6 +127,10 @@ export class ShowDataconnectionResponse extends SdkResponse {
     }
     public get dwCatagory(): string | undefined {
         return this['dw_catagory'];
+    }
+    public withDescription(description: string): ShowDataconnectionResponse {
+        this['description'] = description;
+        return this;
     }
     public withUpdateType(updateType: number): ShowDataconnectionResponse {
         this['update_type'] = updateType;

@@ -159,7 +159,8 @@ import { UpdatePolicyResponse } from './model/UpdatePolicyResponse';
 
 export class OrganizationsClient {
     public static newBuilder(): ClientBuilder<OrganizationsClient> {
-            return new ClientBuilder<OrganizationsClient>(newClient);
+            let client = new ClientBuilder<OrganizationsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

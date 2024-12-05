@@ -73,7 +73,8 @@ import { UpdateNotMavenRepoDO } from './model/UpdateNotMavenRepoDO';
 
 export class CodeArtsArtifactClient {
     public static newBuilder(): ClientBuilder<CodeArtsArtifactClient> {
-            return new ClientBuilder<CodeArtsArtifactClient>(newClient);
+            let client = new ClientBuilder<CodeArtsArtifactClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

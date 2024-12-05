@@ -69,7 +69,8 @@ import { UserResource } from './model/UserResource';
 
 export class CtsClient {
     public static newBuilder(): ClientBuilder<CtsClient> {
-            return new ClientBuilder<CtsClient>(newClient);
+            let client = new ClientBuilder<CtsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

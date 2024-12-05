@@ -139,7 +139,8 @@ import { ZoneState } from './model/ZoneState';
 
 export class EvsClient {
     public static newBuilder(): ClientBuilder<EvsClient> {
-            return new ClientBuilder<EvsClient>(newClient);
+            let client = new ClientBuilder<EvsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

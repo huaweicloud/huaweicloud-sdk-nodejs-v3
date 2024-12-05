@@ -1,3 +1,4 @@
+import { TmsResourceTag } from './TmsResourceTag';
 
 
 export class CreateInstanceRequestBody {
@@ -14,6 +15,7 @@ export class CreateInstanceRequestBody {
     public count?: number;
     private 'res_tenant'?: boolean;
     private 'anti_affinity'?: boolean;
+    public tags?: Array<TmsResourceTag>;
     public constructor(region?: string, availableZone?: string, arch?: string, instancename?: string, specification?: string, vpcId?: string, subnetId?: string, securityGroup?: Array<string>, count?: number) { 
         this['region'] = region;
         this['available_zone'] = availableZone;
@@ -118,5 +120,9 @@ export class CreateInstanceRequestBody {
     }
     public get antiAffinity(): boolean | undefined {
         return this['anti_affinity'];
+    }
+    public withTags(tags: Array<TmsResourceTag>): CreateInstanceRequestBody {
+        this['tags'] = tags;
+        return this;
     }
 }

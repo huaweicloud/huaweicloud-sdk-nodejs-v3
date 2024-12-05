@@ -119,7 +119,8 @@ import { UpdateDefaultTopicResponse } from './model/UpdateDefaultTopicResponse';
 
 export class DscClient {
     public static newBuilder(): ClientBuilder<DscClient> {
-            return new ClientBuilder<DscClient>(newClient);
+            let client = new ClientBuilder<DscClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

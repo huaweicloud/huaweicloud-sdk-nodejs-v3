@@ -1,12 +1,11 @@
-import { UnscopedTokenInfoCatalogEndpoints } from './UnscopedTokenInfoCatalogEndpoints';
+import { UnscopedTokenInfoEndpoints } from './UnscopedTokenInfoEndpoints';
 
 
 export class UnscopedTokenInfoCatalog {
     public id?: string;
     public name?: string;
     public type?: string;
-    public endpoints?: Array<UnscopedTokenInfoCatalogEndpoints>;
-    public description?: object;
+    public endpoints?: Array<UnscopedTokenInfoEndpoints>;
     public constructor() { 
     }
     public withId(id: string): UnscopedTokenInfoCatalog {
@@ -21,12 +20,8 @@ export class UnscopedTokenInfoCatalog {
         this['type'] = type;
         return this;
     }
-    public withEndpoints(endpoints: Array<UnscopedTokenInfoCatalogEndpoints>): UnscopedTokenInfoCatalog {
+    public withEndpoints(endpoints: Array<UnscopedTokenInfoEndpoints>): UnscopedTokenInfoCatalog {
         this['endpoints'] = endpoints;
-        return this;
-    }
-    public withDescription(description: object): UnscopedTokenInfoCatalog {
-        this['description'] = description;
         return this;
     }
 }

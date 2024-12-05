@@ -222,7 +222,8 @@ import { UpdateTemplates } from './model/UpdateTemplates';
 
 export class ServiceStageClient {
     public static newBuilder(): ClientBuilder<ServiceStageClient> {
-            return new ClientBuilder<ServiceStageClient>(newClient);
+            let client = new ClientBuilder<ServiceStageClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -106,7 +106,8 @@ import { VpcIgwsTenantResp } from './model/VpcIgwsTenantResp';
 
 export class EipClient {
     public static newBuilder(): ClientBuilder<EipClient> {
-            return new ClientBuilder<EipClient>(newClient);
+            let client = new ClientBuilder<EipClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

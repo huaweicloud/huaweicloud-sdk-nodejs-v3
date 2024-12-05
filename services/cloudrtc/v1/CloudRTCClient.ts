@@ -46,7 +46,8 @@ import { TimeValueData } from './model/TimeValueData';
 
 export class CloudRTCClient {
     public static newBuilder(): ClientBuilder<CloudRTCClient> {
-            return new ClientBuilder<CloudRTCClient>(newClient);
+            let client = new ClientBuilder<CloudRTCClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

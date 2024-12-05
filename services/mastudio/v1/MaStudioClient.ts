@@ -16,7 +16,8 @@ import { TextCompletionReq } from './model/TextCompletionReq';
 
 export class MaStudioClient {
     public static newBuilder(): ClientBuilder<MaStudioClient> {
-            return new ClientBuilder<MaStudioClient>(newClient);
+            let client = new ClientBuilder<MaStudioClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

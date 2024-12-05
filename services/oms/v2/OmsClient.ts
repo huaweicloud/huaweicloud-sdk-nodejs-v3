@@ -114,7 +114,8 @@ import { Version } from './model/Version';
 
 export class OmsClient {
     public static newBuilder(): ClientBuilder<OmsClient> {
-            return new ClientBuilder<OmsClient>(newClient);
+            let client = new ClientBuilder<OmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

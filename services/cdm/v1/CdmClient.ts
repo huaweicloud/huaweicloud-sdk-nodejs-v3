@@ -119,7 +119,8 @@ import { ValidationResult } from './model/ValidationResult';
 
 export class CdmClient {
     public static newBuilder(): ClientBuilder<CdmClient> {
-            return new ClientBuilder<CdmClient>(newClient);
+            let client = new ClientBuilder<CdmClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

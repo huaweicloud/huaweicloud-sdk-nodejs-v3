@@ -9,7 +9,6 @@ export class VirtualInterface {
     private 'admin_state_up'?: boolean;
     public bandwidth?: number;
     private 'create_time'?: Date;
-    private 'update_time'?: Date;
     public description?: string;
     private 'direct_connect_id'?: string;
     private 'service_type'?: VirtualInterfaceServiceTypeEnum | string;
@@ -74,16 +73,6 @@ export class VirtualInterface {
     }
     public get createTime(): Date | undefined {
         return this['create_time'];
-    }
-    public withUpdateTime(updateTime: Date): VirtualInterface {
-        this['update_time'] = updateTime;
-        return this;
-    }
-    public set updateTime(updateTime: Date  | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime(): Date | undefined {
-        return this['update_time'];
     }
     public withDescription(description: string): VirtualInterface {
         this['description'] = description;

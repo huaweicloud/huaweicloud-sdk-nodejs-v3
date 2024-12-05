@@ -248,7 +248,8 @@ import { UpdatePlaybookVersionResponse } from './model/UpdatePlaybookVersionResp
 
 export class SecMasterClient {
     public static newBuilder(): ClientBuilder<SecMasterClient> {
-            return new ClientBuilder<SecMasterClient>(newClient);
+            let client = new ClientBuilder<SecMasterClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -400,7 +400,8 @@ import { WeakPasswordCheckRequestBody } from './model/WeakPasswordCheckRequestBo
 
 export class DdsClient {
     public static newBuilder(): ClientBuilder<DdsClient> {
-            return new ClientBuilder<DdsClient>(newClient);
+            let client = new ClientBuilder<DdsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -2260,6 +2261,7 @@ export class DdsClient {
      *
      * @summary 查询实例参数的修改历史
      * @param {string} instanceId 实例ID。
+     * @param {string} entityId 实例ID或组ID或节点ID。可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
      * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 取值必须为数字，不能为负数。
      * @param {number} [limit] 查询个数上限值。 - 取值范围: 1~100。 - 不传该参数时，默认查询前100条信息。
      * @param {*} [options] Override http request option.
@@ -7279,6 +7281,8 @@ export const ParamCreater = function () {
             
             let instanceId;
             
+            let entityId;
+            
             let offset;
             
             let limit;
@@ -7286,10 +7290,12 @@ export const ParamCreater = function () {
             if (showInstanceConfigurationModifyHistoryRequest !== null && showInstanceConfigurationModifyHistoryRequest !== undefined) {
                 if (showInstanceConfigurationModifyHistoryRequest instanceof ShowInstanceConfigurationModifyHistoryRequest) {
                     instanceId = showInstanceConfigurationModifyHistoryRequest.instanceId;
+                    entityId = showInstanceConfigurationModifyHistoryRequest.entityId;
                     offset = showInstanceConfigurationModifyHistoryRequest.offset;
                     limit = showInstanceConfigurationModifyHistoryRequest.limit;
                 } else {
                     instanceId = showInstanceConfigurationModifyHistoryRequest['instance_id'];
+                    entityId = showInstanceConfigurationModifyHistoryRequest['entity_id'];
                     offset = showInstanceConfigurationModifyHistoryRequest['offset'];
                     limit = showInstanceConfigurationModifyHistoryRequest['limit'];
                 }
@@ -7298,6 +7304,12 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceConfigurationModifyHistory.');
+            }
+            if (entityId === null || entityId === undefined) {
+                throw new RequiredError('entityId','Required parameter entityId was null or undefined when calling showInstanceConfigurationModifyHistory.');
+            }
+            if (entityId !== null && entityId !== undefined) {
+                localVarQueryParameter['entity_id'] = entityId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;

@@ -521,7 +521,8 @@ import { WorkloadStatusReq } from './model/WorkloadStatusReq';
 
 export class DwsClient {
     public static newBuilder(): ClientBuilder<DwsClient> {
-            return new ClientBuilder<DwsClient>(newClient);
+            let client = new ClientBuilder<DwsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

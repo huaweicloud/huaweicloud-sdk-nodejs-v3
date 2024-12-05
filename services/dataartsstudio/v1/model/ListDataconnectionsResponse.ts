@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListDataconnectionsResponse extends SdkResponse {
     public count?: number;
     private 'max_records'?: number;
+    private 'total_size'?: number;
     private 'data_connection_lists'?: Array<ApigDataSourceView>;
     public constructor() { 
         super();
@@ -22,6 +23,16 @@ export class ListDataconnectionsResponse extends SdkResponse {
     }
     public get maxRecords(): number | undefined {
         return this['max_records'];
+    }
+    public withTotalSize(totalSize: number): ListDataconnectionsResponse {
+        this['total_size'] = totalSize;
+        return this;
+    }
+    public set totalSize(totalSize: number  | undefined) {
+        this['total_size'] = totalSize;
+    }
+    public get totalSize(): number | undefined {
+        return this['total_size'];
     }
     public withDataConnectionLists(dataConnectionLists: Array<ApigDataSourceView>): ListDataconnectionsResponse {
         this['data_connection_lists'] = dataConnectionLists;

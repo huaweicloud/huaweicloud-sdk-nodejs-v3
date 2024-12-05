@@ -207,7 +207,8 @@ import { WatermarkTemplate } from './model/WatermarkTemplate';
 
 export class VodClient {
     public static newBuilder(): ClientBuilder<VodClient> {
-            return new ClientBuilder<VodClient>(newClient);
+            let client = new ClientBuilder<VodClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

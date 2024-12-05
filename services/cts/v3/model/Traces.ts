@@ -25,6 +25,8 @@ export class Traces {
     private 'resource_url'?: string;
     private 'enterprise_project_id'?: string;
     private 'resource_account_id'?: string;
+    private 'read_only'?: boolean;
+    private 'operation_id'?: string;
     public constructor() { 
     }
     public withResourceId(resourceId: string): Traces {
@@ -214,6 +216,26 @@ export class Traces {
     }
     public get resourceAccountId(): string | undefined {
         return this['resource_account_id'];
+    }
+    public withReadOnly(readOnly: boolean): Traces {
+        this['read_only'] = readOnly;
+        return this;
+    }
+    public set readOnly(readOnly: boolean  | undefined) {
+        this['read_only'] = readOnly;
+    }
+    public get readOnly(): boolean | undefined {
+        return this['read_only'];
+    }
+    public withOperationId(operationId: string): Traces {
+        this['operation_id'] = operationId;
+        return this;
+    }
+    public set operationId(operationId: string  | undefined) {
+        this['operation_id'] = operationId;
+    }
+    public get operationId(): string | undefined {
+        return this['operation_id'];
     }
 }
 

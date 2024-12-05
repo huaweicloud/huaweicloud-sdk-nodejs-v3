@@ -9,7 +9,7 @@ export class DirectoryVO {
     private 'prev_id'?: string;
     private 'root_id'?: string;
     private 'qualified_name'?: string;
-    private 'from_public'?: string;
+    private 'from_public'?: boolean;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
     private 'create_by'?: string;
@@ -78,14 +78,14 @@ export class DirectoryVO {
     public get qualifiedName(): string | undefined {
         return this['qualified_name'];
     }
-    public withFromPublic(fromPublic: string): DirectoryVO {
+    public withFromPublic(fromPublic: boolean): DirectoryVO {
         this['from_public'] = fromPublic;
         return this;
     }
-    public set fromPublic(fromPublic: string  | undefined) {
+    public set fromPublic(fromPublic: boolean  | undefined) {
         this['from_public'] = fromPublic;
     }
-    public get fromPublic(): string | undefined {
+    public get fromPublic(): boolean | undefined {
         return this['from_public'];
     }
     public withCreateTime(createTime: Date): DirectoryVO {

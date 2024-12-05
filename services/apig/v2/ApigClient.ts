@@ -653,7 +653,8 @@ import { VpcMemberModify } from './model/VpcMemberModify';
 
 export class ApigClient {
     public static newBuilder(): ClientBuilder<ApigClient> {
-            return new ClientBuilder<ApigClient>(newClient);
+            let client = new ClientBuilder<ApigClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -100,7 +100,8 @@ import { VersionMetadata } from './model/VersionMetadata';
 
 export class CsmsClient {
     public static newBuilder(): ClientBuilder<CsmsClient> {
-            return new ClientBuilder<CsmsClient>(newClient);
+            let client = new ClientBuilder<CsmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -221,7 +221,8 @@ import { UpdateInternetBandwidthResponse } from './model/UpdateInternetBandwidth
 
 export class GeipClient {
     public static newBuilder(): ClientBuilder<GeipClient> {
-            return new ClientBuilder<GeipClient>(newClient, 'GlobalCredentials');
+            let client = new ClientBuilder<GeipClient>(newClient, 'GlobalCredentials');
+            return client;
     }
 
     private hcClient: HcClient;

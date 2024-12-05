@@ -44,7 +44,8 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class EpsClient {
     public static newBuilder(): ClientBuilder<EpsClient> {
-            return new ClientBuilder<EpsClient>(newClient);
+            let client = new ClientBuilder<EpsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -58,7 +58,8 @@ import { UploadSignatureFileResponse } from './model/UploadSignatureFileResponse
 
 export class MsgsmsClient {
     public static newBuilder(): ClientBuilder<MsgsmsClient> {
-            return new ClientBuilder<MsgsmsClient>(newClient);
+            let client = new ClientBuilder<MsgsmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -354,7 +354,8 @@ import { VolumeAttach } from './model/VolumeAttach';
 
 export class EcsClient {
     public static newBuilder(): ClientBuilder<EcsClient> {
-            return new ClientBuilder<EcsClient>(newClient);
+            let client = new ClientBuilder<EcsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

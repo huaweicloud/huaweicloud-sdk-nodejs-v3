@@ -16,7 +16,8 @@ import { TextCompletionReq } from './model/TextCompletionReq';
 
 export class PanguLargeModelsClient {
     public static newBuilder(): ClientBuilder<PanguLargeModelsClient> {
-            return new ClientBuilder<PanguLargeModelsClient>(newClient);
+            let client = new ClientBuilder<PanguLargeModelsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

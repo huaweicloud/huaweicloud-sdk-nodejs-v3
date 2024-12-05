@@ -43,7 +43,8 @@ import { RunRecaptureDetectResponse } from './model/RunRecaptureDetectResponse';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
-            return new ClientBuilder<ImageClient>(newClient);
+            let client = new ClientBuilder<ImageClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -273,7 +273,8 @@ import { WordsRegionList } from './model/WordsRegionList';
 
 export class OcrClient {
     public static newBuilder(): ClientBuilder<OcrClient> {
-            return new ClientBuilder<OcrClient>(newClient);
+            let client = new ClientBuilder<OcrClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

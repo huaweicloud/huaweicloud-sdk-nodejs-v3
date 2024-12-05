@@ -125,7 +125,8 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class SwrClient {
     public static newBuilder(): ClientBuilder<SwrClient> {
-            return new ClientBuilder<SwrClient>(newClient);
+            let client = new ClientBuilder<SwrClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

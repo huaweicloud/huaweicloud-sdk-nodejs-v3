@@ -102,7 +102,8 @@ import { Vertices } from './model/Vertices';
 
 export class CodeArtsBuildClient {
     public static newBuilder(): ClientBuilder<CodeArtsBuildClient> {
-            return new ClientBuilder<CodeArtsBuildClient>(newClient);
+            let client = new ClientBuilder<CodeArtsBuildClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -382,7 +382,8 @@ import { VpcRoute } from './model/VpcRoute';
 
 export class VpcClient {
     public static newBuilder(): ClientBuilder<VpcClient> {
-            return new ClientBuilder<VpcClient>(newClient);
+            let client = new ClientBuilder<VpcClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

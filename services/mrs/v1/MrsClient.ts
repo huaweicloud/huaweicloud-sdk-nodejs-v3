@@ -84,7 +84,8 @@ import { VersionConstraint } from './model/VersionConstraint';
 
 export class MrsClient {
     public static newBuilder(): ClientBuilder<MrsClient> {
-            return new ClientBuilder<MrsClient>(newClient);
+            let client = new ClientBuilder<MrsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

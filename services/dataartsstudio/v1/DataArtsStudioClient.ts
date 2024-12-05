@@ -90,6 +90,12 @@ import { BatchAssociateClassificationToEntitiesRequest } from './model/BatchAsso
 import { BatchAssociateClassificationToEntitiesResponse } from './model/BatchAssociateClassificationToEntitiesResponse';
 import { BatchAssociateSecurityLevelToEntitiesRequest } from './model/BatchAssociateSecurityLevelToEntitiesRequest';
 import { BatchAssociateSecurityLevelToEntitiesResponse } from './model/BatchAssociateSecurityLevelToEntitiesResponse';
+import { BatchCreateDesignTableModelsFromLogicRequest } from './model/BatchCreateDesignTableModelsFromLogicRequest';
+import { BatchCreateDesignTableModelsFromLogicResponse } from './model/BatchCreateDesignTableModelsFromLogicResponse';
+import { BatchCreateSecurityPermissionSetMembersRequest } from './model/BatchCreateSecurityPermissionSetMembersRequest';
+import { BatchCreateSecurityPermissionSetMembersResponse } from './model/BatchCreateSecurityPermissionSetMembersResponse';
+import { BatchCreateSecurityPermissionSetPermissionsRequest } from './model/BatchCreateSecurityPermissionSetPermissionsRequest';
+import { BatchCreateSecurityPermissionSetPermissionsResponse } from './model/BatchCreateSecurityPermissionSetPermissionsResponse';
 import { BatchDeleteBaseDTO } from './model/BatchDeleteBaseDTO';
 import { BatchDeletePolicySetsDTO } from './model/BatchDeletePolicySetsDTO';
 import { BatchDeleteRulesBaseDTO } from './model/BatchDeleteRulesBaseDTO';
@@ -168,6 +174,9 @@ import { ColumnLineage } from './model/ColumnLineage';
 import { ColumnLineageV2 } from './model/ColumnLineageV2';
 import { ColumnsList } from './model/ColumnsList';
 import { CommonConditionVO } from './model/CommonConditionVO';
+import { CompareDesignVersionsRequest } from './model/CompareDesignVersionsRequest';
+import { CompareDesignVersionsResponse } from './model/CompareDesignVersionsResponse';
+import { CompareDesignVersionsResultData } from './model/CompareDesignVersionsResultData';
 import { CompoundMetricVO } from './model/CompoundMetricVO';
 import { CompoundMetricVODetailData } from './model/CompoundMetricVODetailData';
 import { CompoundMetricVOSearchResultData } from './model/CompoundMetricVOSearchResultData';
@@ -216,6 +225,14 @@ import { CreateDesignAggregationLogicTableRequest } from './model/CreateDesignAg
 import { CreateDesignAggregationLogicTableResponse } from './model/CreateDesignAggregationLogicTableResponse';
 import { CreateDesignAtomicIndexRequest } from './model/CreateDesignAtomicIndexRequest';
 import { CreateDesignAtomicIndexResponse } from './model/CreateDesignAtomicIndexResponse';
+import { CreateDesignCompoundMetricRequest } from './model/CreateDesignCompoundMetricRequest';
+import { CreateDesignCompoundMetricResponse } from './model/CreateDesignCompoundMetricResponse';
+import { CreateDesignCompoundMetricResultData } from './model/CreateDesignCompoundMetricResultData';
+import { CreateDesignDerivativeIndexRequest } from './model/CreateDesignDerivativeIndexRequest';
+import { CreateDesignDerivativeIndexResponse } from './model/CreateDesignDerivativeIndexResponse';
+import { CreateDesignDerivativeIndexResultData } from './model/CreateDesignDerivativeIndexResultData';
+import { CreateDesignDimensionRequest } from './model/CreateDesignDimensionRequest';
+import { CreateDesignDimensionResponse } from './model/CreateDesignDimensionResponse';
 import { CreateDirectoryRequest } from './model/CreateDirectoryRequest';
 import { CreateDirectoryResponse } from './model/CreateDirectoryResponse';
 import { CreateDirectoryResultData } from './model/CreateDirectoryResultData';
@@ -326,6 +343,16 @@ import { DeleteDesignAggregationLogicTableRequest } from './model/DeleteDesignAg
 import { DeleteDesignAggregationLogicTableResponse } from './model/DeleteDesignAggregationLogicTableResponse';
 import { DeleteDesignAtomicIndexRequest } from './model/DeleteDesignAtomicIndexRequest';
 import { DeleteDesignAtomicIndexResponse } from './model/DeleteDesignAtomicIndexResponse';
+import { DeleteDesignCompoundMetricRequest } from './model/DeleteDesignCompoundMetricRequest';
+import { DeleteDesignCompoundMetricResponse } from './model/DeleteDesignCompoundMetricResponse';
+import { DeleteDesignDerivativeIndexRequest } from './model/DeleteDesignDerivativeIndexRequest';
+import { DeleteDesignDerivativeIndexResponse } from './model/DeleteDesignDerivativeIndexResponse';
+import { DeleteDesignDimensionLogicTableRequest } from './model/DeleteDesignDimensionLogicTableRequest';
+import { DeleteDesignDimensionLogicTableResponse } from './model/DeleteDesignDimensionLogicTableResponse';
+import { DeleteDesignDimensionRequest } from './model/DeleteDesignDimensionRequest';
+import { DeleteDesignDimensionResponse } from './model/DeleteDesignDimensionResponse';
+import { DeleteDesignFactLogicTableRequest } from './model/DeleteDesignFactLogicTableRequest';
+import { DeleteDesignFactLogicTableResponse } from './model/DeleteDesignFactLogicTableResponse';
 import { DeleteDesignLatestApprovalRequest } from './model/DeleteDesignLatestApprovalRequest';
 import { DeleteDesignLatestApprovalResponse } from './model/DeleteDesignLatestApprovalResponse';
 import { DeleteDirectoryRequest } from './model/DeleteDirectoryRequest';
@@ -697,7 +724,9 @@ import { PermissionConfiguration } from './model/PermissionConfiguration';
 import { PermissionSet } from './model/PermissionSet';
 import { PermissionSetCreateDTO } from './model/PermissionSetCreateDTO';
 import { PermissionSetMember } from './model/PermissionSetMember';
+import { PermissionSetMemberBatchCreateDTO } from './model/PermissionSetMemberBatchCreateDTO';
 import { PermissionSetMemberCreateDTO } from './model/PermissionSetMemberCreateDTO';
+import { PermissionSetMemberCreateDTO2 } from './model/PermissionSetMemberCreateDTO2';
 import { PermissionSetPermission } from './model/PermissionSetPermission';
 import { PermissionSetPermissionCreateDTO } from './model/PermissionSetPermissionCreateDTO';
 import { PermissionSetPermissionUpdateDTO } from './model/PermissionSetPermissionUpdateDTO';
@@ -863,6 +892,8 @@ import { ShowDatamapLineageRequest } from './model/ShowDatamapLineageRequest';
 import { ShowDatamapLineageResponse } from './model/ShowDatamapLineageResponse';
 import { ShowDerivativeIndexByIdRequest } from './model/ShowDerivativeIndexByIdRequest';
 import { ShowDerivativeIndexByIdResponse } from './model/ShowDerivativeIndexByIdResponse';
+import { ShowDesignOperationResultRequest } from './model/ShowDesignOperationResultRequest';
+import { ShowDesignOperationResultResponse } from './model/ShowDesignOperationResultResponse';
 import { ShowDimensionByIdRequest } from './model/ShowDimensionByIdRequest';
 import { ShowDimensionByIdResponse } from './model/ShowDimensionByIdResponse';
 import { ShowDimensionByIdResultData } from './model/ShowDimensionByIdResultData';
@@ -1022,6 +1053,14 @@ import { UpdateDesignAggregationLogicTableRequest } from './model/UpdateDesignAg
 import { UpdateDesignAggregationLogicTableResponse } from './model/UpdateDesignAggregationLogicTableResponse';
 import { UpdateDesignAtomicIndexRequest } from './model/UpdateDesignAtomicIndexRequest';
 import { UpdateDesignAtomicIndexResponse } from './model/UpdateDesignAtomicIndexResponse';
+import { UpdateDesignCompoundMetricRequest } from './model/UpdateDesignCompoundMetricRequest';
+import { UpdateDesignCompoundMetricResponse } from './model/UpdateDesignCompoundMetricResponse';
+import { UpdateDesignCompoundMetricResultData } from './model/UpdateDesignCompoundMetricResultData';
+import { UpdateDesignDerivativeIndexRequest } from './model/UpdateDesignDerivativeIndexRequest';
+import { UpdateDesignDerivativeIndexResponse } from './model/UpdateDesignDerivativeIndexResponse';
+import { UpdateDesignDerivativeIndexResultData } from './model/UpdateDesignDerivativeIndexResultData';
+import { UpdateDesignDimensionRequest } from './model/UpdateDesignDimensionRequest';
+import { UpdateDesignDimensionResponse } from './model/UpdateDesignDimensionResponse';
 import { UpdateDesignTableQualityParam } from './model/UpdateDesignTableQualityParam';
 import { UpdateDesignTableQualityRequest } from './model/UpdateDesignTableQualityRequest';
 import { UpdateDesignTableQualityResponse } from './model/UpdateDesignTableQualityResponse';
@@ -1066,12 +1105,14 @@ import { UpdateWorkSpaceUserOrGroupResponse } from './model/UpdateWorkSpaceUserO
 import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
 import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
 import { UrlDTO } from './model/UrlDTO';
+import { WorkspaceTransformVO } from './model/WorkspaceTransformVO';
 import { WorkspaceVO } from './model/WorkspaceVO';
 import { Workspacebody } from './model/Workspacebody';
 
 export class DataArtsStudioClient {
     public static newBuilder(): ClientBuilder<DataArtsStudioClient> {
-            return new ClientBuilder<DataArtsStudioClient>(newClient);
+            let client = new ClientBuilder<DataArtsStudioClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -1091,11 +1132,11 @@ export class DataArtsStudioClient {
      *
      * @summary 添加标签
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} entityId 表的ID，填写String类型替代Long类型。
+     * @param {string} entityId 表的ID，ID字符串。
      * @param {Array<string>} tags 标签名。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [attrId] 属性的ID，填写String类型替代Long类型。
+     * @param {string} [attrId] 属性的ID，ID字符串。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1246,6 +1287,75 @@ export class DataArtsStudioClient {
      */
     public batchAssociateSecurityLevelToEntities(batchAssociateSecurityLevelToEntitiesRequest?: BatchAssociateSecurityLevelToEntitiesRequest): Promise<BatchAssociateSecurityLevelToEntitiesResponse> {
         const options = ParamCreater().batchAssociateSecurityLevelToEntities(batchAssociateSecurityLevelToEntitiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 转换逻辑模型为物理模型，转换成功则显示转换后的目标模型信息。
+     * 异常：目标模型信息的“id”等属性为null时，则需要调用《获取操作结果》接口查看具体报错信息：GET https://{endpoint}/v1/{project_id}/design/operation-results?operation_type&#x3D;TRANSFORM_LOGIC_MODEL&amp;operation_id&#x3D;{model_id}，其中{model_id}为本接口的路径参数。
+     * 约束与限制：
+     *   1、target_model_id与target_model_name不对应时，target_model_id优先级高于target_model_name。
+     *   2、target_model_id与dw_type不对应时，会找不到模型，提示：模型不存在。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 转换逻辑模型为物理模型
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} modelId 所属关系建模的模型ID，ID字符串。
+     * @param {WorkspaceTransformVO} batchCreateDesignTableModelsFromLogicRequestBody 逻辑实体转换物理表的配置信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateDesignTableModelsFromLogic(batchCreateDesignTableModelsFromLogicRequest?: BatchCreateDesignTableModelsFromLogicRequest): Promise<BatchCreateDesignTableModelsFromLogicResponse> {
+        const options = ParamCreater().batchCreateDesignTableModelsFromLogic(batchCreateDesignTableModelsFromLogicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加权限集成员
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加权限集成员
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {PermissionSetMemberBatchCreateDTO} batchCreateSecurityPermissionSetMembersRequestBody 权限集成员批量创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateSecurityPermissionSetMembers(batchCreateSecurityPermissionSetMembersRequest?: BatchCreateSecurityPermissionSetMembersRequest): Promise<BatchCreateSecurityPermissionSetMembersResponse> {
+        const options = ParamCreater().batchCreateSecurityPermissionSetMembers(batchCreateSecurityPermissionSetMembersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加权限集的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加权限集的权限
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {PermissionSetPermissionCreateDTO} batchCreateSecurityPermissionSetPermissionsRequestBody 权限创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateSecurityPermissionSetPermissions(batchCreateSecurityPermissionSetPermissionsRequest?: BatchCreateSecurityPermissionSetPermissionsRequest): Promise<BatchCreateSecurityPermissionSetPermissionsResponse> {
+        const options = ParamCreater().batchCreateSecurityPermissionSetPermissions(batchCreateSecurityPermissionSetPermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1605,6 +1715,28 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 通过两个版本id，比较两者差异。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 比较版本信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {Array<string>} ids 实体ID数组，ID字符串。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public compareDesignVersions(compareDesignVersionsRequest?: CompareDesignVersionsRequest): Promise<CompareDesignVersionsResponse> {
+        const options = ParamCreater().compareDesignVersions(compareDesignVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 审批驳回/通过，单个或多个action-id&#x3D;reject/resolve。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1698,7 +1830,7 @@ export class DataArtsStudioClient {
      *
      * @summary 标准覆盖率统计信息
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
@@ -1723,7 +1855,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [modelId] 依据关系建模的模型ID查询统计信息，填写String类型替代Long类型。
+     * @param {string} [modelId] 依据关系建模的模型ID查询统计信息，ID字符串。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1904,6 +2036,72 @@ export class DataArtsStudioClient {
      */
     public createDesignAtomicIndex(createDesignAtomicIndexRequest?: CreateDesignAtomicIndexRequest): Promise<CreateDesignAtomicIndexResponse> {
         const options = ParamCreater().createDesignAtomicIndex(createDesignAtomicIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据参数，新建复合指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建复合指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CompoundMetricVO} createDesignCompoundMetricRequestBody 衍生指标请求体信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDesignCompoundMetric(createDesignCompoundMetricRequest?: CreateDesignCompoundMetricRequest): Promise<CreateDesignCompoundMetricResponse> {
+        const options = ParamCreater().createDesignCompoundMetric(createDesignCompoundMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据参数，新建衍生指标指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建衍生指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {Array<DerivativeIndexVO>} createDesignDerivativeIndexRequestBody 创建衍生指标的请求体参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDesignDerivativeIndex(createDesignDerivativeIndexRequest?: CreateDesignDerivativeIndexRequest): Promise<CreateDesignDerivativeIndexResponse> {
+        const options = ParamCreater().createDesignDerivativeIndex(createDesignDerivativeIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据参数新建维度。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建维度
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {DimensionVO} createDesignDimensionRequestBody 创建维度的请求体信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDesignDimension(createDesignDimensionRequest?: CreateDesignDimensionRequest): Promise<CreateDesignDimensionResponse> {
+        const options = ParamCreater().createDesignDimension(createDesignDimensionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2667,13 +2865,123 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 根据ID集合删除复合指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除复合指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignCompoundMetricRequestBody 要删除的复合指标的ID集合。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignCompoundMetric(deleteDesignCompoundMetricRequest?: DeleteDesignCompoundMetricRequest): Promise<DeleteDesignCompoundMetricResponse> {
+        const options = ParamCreater().deleteDesignCompoundMetric(deleteDesignCompoundMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据衍生指标ID，删除衍生指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除衍生指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignDerivativeIndexRequestBody 待删除的衍生指标的ID集合。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignDerivativeIndex(deleteDesignDerivativeIndexRequest?: DeleteDesignDerivativeIndexRequest): Promise<DeleteDesignDerivativeIndexResponse> {
+        const options = ParamCreater().deleteDesignDerivativeIndex(deleteDesignDerivativeIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据传入的维度ID，删除维度。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除维度
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignDimensionRequestBody 删除维度参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignDimension(deleteDesignDimensionRequest?: DeleteDesignDimensionRequest): Promise<DeleteDesignDimensionResponse> {
+        const options = ParamCreater().deleteDesignDimension(deleteDesignDimensionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据维度表ID，删除维度表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除维度表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignDimensionLogicTableRequestBody 需要删除的维度表的ID集合。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignDimensionLogicTable(deleteDesignDimensionLogicTableRequest?: DeleteDesignDimensionLogicTableRequest): Promise<DeleteDesignDimensionLogicTableResponse> {
+        const options = ParamCreater().deleteDesignDimensionLogicTable(deleteDesignDimensionLogicTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID集合删除事实表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除事实表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignFactLogicTableRequestBody 删除事实表参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignFactLogicTable(deleteDesignFactLogicTableRequest?: DeleteDesignFactLogicTableRequest): Promise<DeleteDesignFactLogicTableResponse> {
+        const options = ParamCreater().deleteDesignFactLogicTable(deleteDesignFactLogicTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 当已发布的实体被编辑时，其会生成下展，该接口用于删除实体的下展信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除实体下展
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} bizId 待删除下展的实体ID，填写String类型替代Long类型。
+     * @param {string} bizId 待删除下展的实体ID，ID字符串。
      * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待删除下展的实体类型。 枚举值：   - ATOMIC_INDEX: 原子指标   - DERIVATIVE_INDEX: 衍生指标   - DIMENSION: 维度   - FACT_LOGIC_TABLE: 事实表   - TABLE_MODEL: 关系建模：逻辑实体/物理表   - STANDARD_ELEMENT: 数据标准   - AGGREGATION_LOGIC_TABLE: 汇总表   - CODE_TABLE: 码表   - BIZ_METRIC: 业务指标   - COMPOUND_METRIC: 复合指标 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -2696,7 +3004,7 @@ export class DataArtsStudioClient {
      *
      * @summary 删除目录
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {Array<string>} ids 实体ID数组，填写String类型替代Long类型。
+     * @param {Array<string>} ids 实体ID数组，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -2971,7 +3279,7 @@ export class DataArtsStudioClient {
      *
      * @summary 删除模型工作区
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {Array<string>} ids 实体ID数组，填写String类型替代Long类型。
+     * @param {Array<string>} ids 实体ID数组，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -3055,7 +3363,7 @@ export class DataArtsStudioClient {
      *
      * @summary 导出模型中表的DDL语句
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
+     * @param {string} modelId 所属关系建模的模型ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {Array<string>} [tbNames] 待导出的表名。
@@ -3248,7 +3556,7 @@ export class DataArtsStudioClient {
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
      * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
-     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
+     * @param {string} [l3Id] 业务对象l3的ID，ID字符串。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -3337,7 +3645,7 @@ export class DataArtsStudioClient {
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
-     * @param {Array<string>} [bizCatalogIdList] 所属主题的ID列表，填写String类型替代Long类型。
+     * @param {Array<string>} [bizCatalogIdList] 所属主题的ID列表，ID字符串。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3783,8 +4091,8 @@ export class DataArtsStudioClient {
      * @param {string} [approver] 按审核人查询。
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性。
-     * @param {string} [atomicIndexId] 依据原子指标ID查维度属性，填写String类型替代Long类型。
-     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
+     * @param {string} [atomicIndexId] 依据原子指标ID查维度属性，ID字符串。
+     * @param {string} [l3Id] 业务对象l3的ID，ID字符串。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -4031,12 +4339,12 @@ export class DataArtsStudioClient {
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
-     * @param {string} [dimensionId] 依据维度ID查维度属性，填写String类型替代Long类型。
+     * @param {string} [dimensionId] 依据维度ID查维度属性，ID字符串。
      * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性。
-     * @param {string} [atomicIndexId] 依据原子指标ID查维度属性，填写String类型替代Long类型。
+     * @param {string} [atomicIndexId] 依据原子指标ID查维度属性，ID字符串。
      * @param {boolean} [allMetrics] 是否查询复合指标
      * @param {string} [dwType] 数据连接类型
-     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
+     * @param {string} [l3Id] 业务对象l3的ID，ID字符串。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -4062,7 +4370,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [tableId] 关联表的ID，填写String类型替代Long类型。
+     * @param {string} [tableId] 关联表的ID，ID字符串。
      * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
@@ -4094,8 +4402,8 @@ export class DataArtsStudioClient {
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
      * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
-     * @param {string} [l2Id] 主题域l2的ID，填写String类型替代Long类型。
-     * @param {string} [dimensionId] 依据维度ID查维度属性，填写String类型替代Long类型。
+     * @param {string} [l2Id] 主题域l2的ID，ID字符串。
+     * @param {string} [dimensionId] 依据维度ID查维度属性，ID字符串。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -4127,11 +4435,11 @@ export class DataArtsStudioClient {
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
-     * @param {string} [l2Id] 主题域l2的ID，填写String类型替代Long类型。
-     * @param {Array<string>} [derivativeIds] 依据复合指标ID列表查维度，填写String类型替代Long类型。
+     * @param {string} [l2Id] 主题域l2的ID，ID字符串。
+     * @param {Array<string>} [derivativeIds] 依据复合指标ID列表查维度，ID字符串。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {string} [factLogicId] 事实表ID，填写String类型替代Long类型。
+     * @param {string} [factLogicId] 事实表ID，ID字符串。
      * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。 枚举值： - COMMON: 普通维度 - LOOKUP: 码表维度 - HIERARCHIES: 层级维度 
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
@@ -4188,7 +4496,7 @@ export class DataArtsStudioClient {
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
      * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
-     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
+     * @param {string} [l3Id] 业务对象l3的ID，ID字符串。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -4423,7 +4731,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取指标关联信息
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} bizType 指标类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -4978,10 +5286,10 @@ export class DataArtsStudioClient {
      *
      * @summary 查询模型下所有关系
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
+     * @param {string} modelId 所属关系建模的模型ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [tableIds] 表模型ids，填写String类型替代Long类型。
+     * @param {string} [tableIds] 表模型ids，ID字符串。
      * @param {'TABLE_MODEL' | 'FACT_LOGIC_TABLE'} [bizType] 表类型。 枚举值：   - TABLE_MODEL: 关系建模：逻辑实体/物理表   - FACT_LOGIC_TABLE: 事实表 
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
@@ -5230,11 +5538,11 @@ export class DataArtsStudioClient {
      *
      * @summary 删除标签
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} entityId 表的ID，填写String类型替代Long类型。
+     * @param {string} entityId 表的ID，ID字符串。
      * @param {string} tag 标签名。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [attrId] 属性的ID，填写String类型替代Long类型。
+     * @param {string} [attrId] 属性的ID，ID字符串。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5254,7 +5562,7 @@ export class DataArtsStudioClient {
      *
      * @summary 清空质量规则
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} tableId 表的ID，填写String类型替代Long类型。
+     * @param {string} tableId 表的ID，ID字符串。
      * @param {string} tableType 表类型，默认值是业务表。TABLE_MODEL(业务表(逻辑实体/物理表))、AGGREGATION_LOGIC_TABLE(汇总表)、FACT_LOGIC_TABLE(事实表)、DIMENSION_LOGIC_TABLE(维度表)。 - TABLE_MODEL - AGGREGATION_LOGIC_TABLE - FACT_LOGIC_TABLE - DIMENSION_LOGIC_TABLE
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -5343,7 +5651,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [bizId] 业务定义ID，填写String类型替代Long类型。
+     * @param {string} [bizId] 业务定义ID，ID字符串。
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
@@ -5382,8 +5690,8 @@ export class DataArtsStudioClient {
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
-     * @param {string} [tableId] 关联表的ID，填写String类型替代Long类型。
+     * @param {string} [l3Id] 业务对象l3的ID，ID字符串。
+     * @param {string} [tableId] 关联表的ID，ID字符串。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
@@ -5481,7 +5789,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看码表字段值
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -5510,7 +5818,7 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {string} [directoryId] 目录ID，填写String类型替代Long类型。
+     * @param {string} [directoryId] 目录ID，ID字符串。
      * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
@@ -5559,7 +5867,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取下展信息与已发布实体的差异
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} bizId 待比较下展的实体ID，填写String类型替代Long类型。
+     * @param {string} bizId 待比较下展的实体ID，ID字符串。
      * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待删除下展的实体类型。 枚举值：   - ATOMIC_INDEX: 原子指标   - DERIVATIVE_INDEX: 衍生指标   - DIMENSION: 维度   - FACT_LOGIC_TABLE: 事实表   - TABLE_MODEL:关系建模：逻辑实体/物理表   - STANDARD_ELEMENT: 数据标准   - AGGREGATION_LOGIC_TABLE: 汇总表   - CODE_TABLE: 码表   - BIZ_METRIC: 业务指标   - COMPOUND_METRIC: 复合指标 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -5607,7 +5915,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查询目的表和字段(待下线)
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
+     * @param {string} modelId 所属关系建模的模型ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
@@ -5746,7 +6054,7 @@ export class DataArtsStudioClient {
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
-     * @param {string} [bizId] 业务定义ID，填写String类型替代Long类型。
+     * @param {string} [bizId] 业务定义ID，ID字符串。
      * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
@@ -5794,7 +6102,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看汇总表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6040,7 +6348,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看原子指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6063,7 +6371,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查找流程架构详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -6085,7 +6393,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6191,7 +6499,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看码表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -6213,7 +6521,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看复合指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6236,7 +6544,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看限定详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6411,7 +6719,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看衍生指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6428,13 +6736,38 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 获取批量操作的结果，如逻辑模型转物理模型和逆向数据库操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取操作结果
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {'PUBLISH' | 'ADD_TAGS' | 'APPROVAL' | 'ER_REVERSE_DB' | 'CODETABLE_REVERSE_DB' | 'DIMENSION_REVERSE_DB' | 'FACT_LOGIC_TABLE_REVERSE_DB' | 'SYNC_TABLES' | 'IMPORT_STANDARD' | 'IMPORT_CODETABLE' | 'IMPORT_ER_TABLE' | 'IMPORT_BUSINESS' | 'TRANSFORM_LOGIC_MODEL' | 'PUBLISH_CODETABLE' | 'PUBLISH_STANDARD' | 'TABLE_MODEL_RELOCATE' | 'DIMENSION_RELOCATE' | 'FACT_LOGIC_TABLE_RELOCATE' | 'AGGREGATION_LOGIC_TABLE_RELOCATE' | 'ATOMIC_INDEX_RELOCATE' | 'DERIVATIVE_INDEX_RELOCATE' | 'COMPOUND_METRIC_RELOCATE' | 'BIZ_METRIC_RELOCATE' | 'CODE_TABLE_RELOCATE' | 'STANDARD_ELEMENT_RELOCATE' | 'INFO_ARCH_RELOCATE'} [operationType] 批量操作类型。 枚举值：   - PUBLISH: 发布   - ADD_TAGS: 打标签   - APPROVAL: 审批   - ER_REVERSE_DB: 关系建模逆向数据库   - CODETABLE_REVERSE_DB: 码表逆向数据库   - DIMENSION_REVERSE_DB: 维度逆向数据库   - FACT_LOGIC_TABLE_REVERSE_DB: 事实表逆向数据库   - SYNC_TABLES: 同步元模型   - IMPORT_STANDARD: 导入数据标准   - IMPORT_CODETABLE: 导入码表   - IMPORT_ER_TABLE: 导入关系建模（逻辑实体/物理表）   - IMPORT_BUSINESS: 导入业务分层（主题）   - TRANSFORM_LOGIC_MODEL: 逻辑模型转物理模型   - PUBLISH_CODETABLE: 发布码表   - PUBLISH_STANDARD: 发布数据标准   - TABLE_MODEL_RELOCATE: 关系建模业务表批量修改主题   - DIMENSION_RELOCATE: 维度批量修改主题   - FACT_LOGIC_TABLE_RELOCATE: 事实表批量修改主题   - AGGREGATION_LOGIC_TABLE_RELOCATE: 汇总表批量修改主题   - ATOMIC_INDEX_RELOCATE: 原子指标批量修改主题   - DERIVATIVE_INDEX_RELOCATE: 衍生指标批量修改主题   - COMPOUND_METRIC_RELOCATE: 复合指标批量修改主题   - BIZ_METRIC_RELOCATE: 业务指标批量修改流程   - CODE_TABLE_RELOCATE: 码表批量修改目录   - STANDARD_ELEMENT_RELOCATE: 数据标准批量修改目录   - INFO_ARCH_RELOCATE: 信息架构批量修改主题 
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {string} [operationId] 批量操作id，在逻辑模型转物理表时，填写的是逻辑模型的model_id，在逆向数据库时，填写的是目标模型的model_id。model_id可从接口[获取模型](ListWorkspaces.xml)中获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDesignOperationResult(showDesignOperationResultRequest?: ShowDesignOperationResultRequest): Promise<ShowDesignOperationResultResponse> {
+        const options = ParamCreater().showDesignOperationResult(showDesignOperationResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过ID查看维度详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看维度详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6457,7 +6790,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看维度表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6520,7 +6853,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看事实表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6899,7 +7232,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看关系详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -7042,7 +7375,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看数据标准详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -7087,7 +7420,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看表模型详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -7252,7 +7585,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查询模型详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
+     * @param {string} modelId 所属关系建模的模型ID，ID字符串。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -7362,7 +7695,7 @@ export class DataArtsStudioClient {
      *
      * @summary 修改码表
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {CodeTableVO} updateCodeTableRequestBody 码表信息
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -7385,7 +7718,7 @@ export class DataArtsStudioClient {
      *
      * @summary 编辑码表字段值
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {CodeTableFieldValueUpdateVO} updateCodeTableValuesRequestBody code table field values
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -7467,13 +7800,79 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 根据参数，更新复合指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新复合指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CompoundMetricVO} updateDesignCompoundMetricRequestBody 更新衍生指标请求体信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignCompoundMetric(updateDesignCompoundMetricRequest?: UpdateDesignCompoundMetricRequest): Promise<UpdateDesignCompoundMetricResponse> {
+        const options = ParamCreater().updateDesignCompoundMetric(updateDesignCompoundMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据传入参数，更新衍生指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新衍生指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {DerivativeIndexVO} updateDesignDerivativeIndexRequestBody 更新衍生指标传入的参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignDerivativeIndex(updateDesignDerivativeIndexRequest?: UpdateDesignDerivativeIndexRequest): Promise<UpdateDesignDerivativeIndexResponse> {
+        const options = ParamCreater().updateDesignDerivativeIndex(updateDesignDerivativeIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据参数，更新维度信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新维度
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {DimensionVO} updateDesignDimensionRequestBody 更新维度的参数信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignDimension(updateDesignDimensionRequest?: UpdateDesignDimensionRequest): Promise<UpdateDesignDimensionResponse> {
+        const options = ParamCreater().updateDesignDimension(updateDesignDimensionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新表的异常数据输出配置，包括是否生成异常数据、设置异常数据数据库或Schema、设置异常表表前缀/表后缀。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新表的异常数据输出配置
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} tableId 表的ID，填写String类型替代Long类型。
+     * @param {string} tableId 表的ID，ID字符串。
      * @param {UpdateDesignTableQualityParam} updateDesignTableQualityRequestBody 质量规则相关信息。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -7690,7 +8089,7 @@ export class DataArtsStudioClient {
      *
      * @summary 修改数据标准
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID，填写String类型替代Long类型。
+     * @param {string} id 实体ID，ID字符串。
      * @param {StandElementValueVOList} updateStandardRequestBody field value info
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -8732,6 +9131,183 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 转换逻辑模型为物理模型，转换成功则显示转换后的目标模型信息。
+         * 异常：目标模型信息的“id”等属性为null时，则需要调用《获取操作结果》接口查看具体报错信息：GET https://{endpoint}/v1/{project_id}/design/operation-results?operation_type&#x3D;TRANSFORM_LOGIC_MODEL&amp;operation_id&#x3D;{model_id}，其中{model_id}为本接口的路径参数。
+         * 约束与限制：
+         *   1、target_model_id与target_model_name不对应时，target_model_id优先级高于target_model_name。
+         *   2、target_model_id与dw_type不对应时，会找不到模型，提示：模型不存在。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateDesignTableModelsFromLogic(batchCreateDesignTableModelsFromLogicRequest?: BatchCreateDesignTableModelsFromLogicRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/design/workspaces/{model_id}/transform",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let modelId;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (batchCreateDesignTableModelsFromLogicRequest !== null && batchCreateDesignTableModelsFromLogicRequest !== undefined) {
+                if (batchCreateDesignTableModelsFromLogicRequest instanceof BatchCreateDesignTableModelsFromLogicRequest) {
+                    workspace = batchCreateDesignTableModelsFromLogicRequest.workspace;
+                    modelId = batchCreateDesignTableModelsFromLogicRequest.modelId;
+                    body = batchCreateDesignTableModelsFromLogicRequest.body
+                    xProjectId = batchCreateDesignTableModelsFromLogicRequest.xProjectId;
+                    contentType = batchCreateDesignTableModelsFromLogicRequest.contentType;
+                } else {
+                    workspace = batchCreateDesignTableModelsFromLogicRequest['workspace'];
+                    modelId = batchCreateDesignTableModelsFromLogicRequest['model_id'];
+                    body = batchCreateDesignTableModelsFromLogicRequest['body'];
+                    xProjectId = batchCreateDesignTableModelsFromLogicRequest['X-Project-Id'];
+                    contentType = batchCreateDesignTableModelsFromLogicRequest['Content-Type'];
+                }
+            }
+
+        
+            if (modelId === null || modelId === undefined) {
+            throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling batchCreateDesignTableModelsFromLogic.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'model_id': modelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加权限集成员
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateSecurityPermissionSetMembers(batchCreateSecurityPermissionSetMembersRequest?: BatchCreateSecurityPermissionSetMembersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/members/batch-create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (batchCreateSecurityPermissionSetMembersRequest !== null && batchCreateSecurityPermissionSetMembersRequest !== undefined) {
+                if (batchCreateSecurityPermissionSetMembersRequest instanceof BatchCreateSecurityPermissionSetMembersRequest) {
+                    permissionSetId = batchCreateSecurityPermissionSetMembersRequest.permissionSetId;
+                    workspace = batchCreateSecurityPermissionSetMembersRequest.workspace;
+                    body = batchCreateSecurityPermissionSetMembersRequest.body
+                } else {
+                    permissionSetId = batchCreateSecurityPermissionSetMembersRequest['permission_set_id'];
+                    workspace = batchCreateSecurityPermissionSetMembersRequest['workspace'];
+                    body = batchCreateSecurityPermissionSetMembersRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling batchCreateSecurityPermissionSetMembers.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加权限集的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateSecurityPermissionSetPermissions(batchCreateSecurityPermissionSetPermissionsRequest?: BatchCreateSecurityPermissionSetPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/permissions/batch-append",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (batchCreateSecurityPermissionSetPermissionsRequest !== null && batchCreateSecurityPermissionSetPermissionsRequest !== undefined) {
+                if (batchCreateSecurityPermissionSetPermissionsRequest instanceof BatchCreateSecurityPermissionSetPermissionsRequest) {
+                    permissionSetId = batchCreateSecurityPermissionSetPermissionsRequest.permissionSetId;
+                    workspace = batchCreateSecurityPermissionSetPermissionsRequest.workspace;
+                    body = batchCreateSecurityPermissionSetPermissionsRequest.body
+                } else {
+                    permissionSetId = batchCreateSecurityPermissionSetPermissionsRequest['permission_set_id'];
+                    workspace = batchCreateSecurityPermissionSetPermissionsRequest['workspace'];
+                    body = batchCreateSecurityPermissionSetPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling batchCreateSecurityPermissionSetPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除识别规则接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9569,6 +10145,67 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 通过两个版本id，比较两者差异。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        compareDesignVersions(compareDesignVersionsRequest?: CompareDesignVersionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/design/versions/compare",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let ids;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (compareDesignVersionsRequest !== null && compareDesignVersionsRequest !== undefined) {
+                if (compareDesignVersionsRequest instanceof CompareDesignVersionsRequest) {
+                    workspace = compareDesignVersionsRequest.workspace;
+                    ids = compareDesignVersionsRequest.ids;
+                    xProjectId = compareDesignVersionsRequest.xProjectId;
+                    contentType = compareDesignVersionsRequest.contentType;
+                } else {
+                    workspace = compareDesignVersionsRequest['workspace'];
+                    ids = compareDesignVersionsRequest['ids'];
+                    xProjectId = compareDesignVersionsRequest['X-Project-Id'];
+                    contentType = compareDesignVersionsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (ids === null || ids === undefined) {
+                throw new RequiredError('ids','Required parameter ids was null or undefined when calling compareDesignVersions.');
+            }
+            if (ids !== null && ids !== undefined) {
+                localVarQueryParameter['ids'] = ids;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 审批驳回/通过，单个或多个action-id&#x3D;reject/resolve。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10354,6 +10991,183 @@ export const ParamCreater = function () {
                     body = createDesignAtomicIndexRequest['body'];
                     xProjectId = createDesignAtomicIndexRequest['X-Project-Id'];
                     contentType = createDesignAtomicIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据参数，新建复合指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDesignCompoundMetric(createDesignCompoundMetricRequest?: CreateDesignCompoundMetricRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/compound-metrics",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (createDesignCompoundMetricRequest !== null && createDesignCompoundMetricRequest !== undefined) {
+                if (createDesignCompoundMetricRequest instanceof CreateDesignCompoundMetricRequest) {
+                    workspace = createDesignCompoundMetricRequest.workspace;
+                    body = createDesignCompoundMetricRequest.body
+                    xProjectId = createDesignCompoundMetricRequest.xProjectId;
+                    contentType = createDesignCompoundMetricRequest.contentType;
+                } else {
+                    workspace = createDesignCompoundMetricRequest['workspace'];
+                    body = createDesignCompoundMetricRequest['body'];
+                    xProjectId = createDesignCompoundMetricRequest['X-Project-Id'];
+                    contentType = createDesignCompoundMetricRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据参数，新建衍生指标指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDesignDerivativeIndex(createDesignDerivativeIndexRequest?: CreateDesignDerivativeIndexRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/derivative-indexs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (createDesignDerivativeIndexRequest !== null && createDesignDerivativeIndexRequest !== undefined) {
+                if (createDesignDerivativeIndexRequest instanceof CreateDesignDerivativeIndexRequest) {
+                    workspace = createDesignDerivativeIndexRequest.workspace;
+                    body = createDesignDerivativeIndexRequest.body
+                    xProjectId = createDesignDerivativeIndexRequest.xProjectId;
+                    contentType = createDesignDerivativeIndexRequest.contentType;
+                } else {
+                    workspace = createDesignDerivativeIndexRequest['workspace'];
+                    body = createDesignDerivativeIndexRequest['body'];
+                    xProjectId = createDesignDerivativeIndexRequest['X-Project-Id'];
+                    contentType = createDesignDerivativeIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据参数新建维度。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDesignDimension(createDesignDimensionRequest?: CreateDesignDimensionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/dimensions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (createDesignDimensionRequest !== null && createDesignDimensionRequest !== undefined) {
+                if (createDesignDimensionRequest instanceof CreateDesignDimensionRequest) {
+                    workspace = createDesignDimensionRequest.workspace;
+                    body = createDesignDimensionRequest.body
+                    xProjectId = createDesignDimensionRequest.xProjectId;
+                    contentType = createDesignDimensionRequest.contentType;
+                } else {
+                    workspace = createDesignDimensionRequest['workspace'];
+                    body = createDesignDimensionRequest['body'];
+                    xProjectId = createDesignDimensionRequest['X-Project-Id'];
+                    contentType = createDesignDimensionRequest['Content-Type'];
                 }
             }
 
@@ -12221,6 +13035,301 @@ export const ParamCreater = function () {
                     body = deleteDesignAtomicIndexRequest['body'];
                     xProjectId = deleteDesignAtomicIndexRequest['X-Project-Id'];
                     contentType = deleteDesignAtomicIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID集合删除复合指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignCompoundMetric(deleteDesignCompoundMetricRequest?: DeleteDesignCompoundMetricRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/compound-metrics",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignCompoundMetricRequest !== null && deleteDesignCompoundMetricRequest !== undefined) {
+                if (deleteDesignCompoundMetricRequest instanceof DeleteDesignCompoundMetricRequest) {
+                    workspace = deleteDesignCompoundMetricRequest.workspace;
+                    body = deleteDesignCompoundMetricRequest.body
+                    xProjectId = deleteDesignCompoundMetricRequest.xProjectId;
+                    contentType = deleteDesignCompoundMetricRequest.contentType;
+                } else {
+                    workspace = deleteDesignCompoundMetricRequest['workspace'];
+                    body = deleteDesignCompoundMetricRequest['body'];
+                    xProjectId = deleteDesignCompoundMetricRequest['X-Project-Id'];
+                    contentType = deleteDesignCompoundMetricRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据衍生指标ID，删除衍生指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignDerivativeIndex(deleteDesignDerivativeIndexRequest?: DeleteDesignDerivativeIndexRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/derivative-indexs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignDerivativeIndexRequest !== null && deleteDesignDerivativeIndexRequest !== undefined) {
+                if (deleteDesignDerivativeIndexRequest instanceof DeleteDesignDerivativeIndexRequest) {
+                    workspace = deleteDesignDerivativeIndexRequest.workspace;
+                    body = deleteDesignDerivativeIndexRequest.body
+                    xProjectId = deleteDesignDerivativeIndexRequest.xProjectId;
+                    contentType = deleteDesignDerivativeIndexRequest.contentType;
+                } else {
+                    workspace = deleteDesignDerivativeIndexRequest['workspace'];
+                    body = deleteDesignDerivativeIndexRequest['body'];
+                    xProjectId = deleteDesignDerivativeIndexRequest['X-Project-Id'];
+                    contentType = deleteDesignDerivativeIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据传入的维度ID，删除维度。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignDimension(deleteDesignDimensionRequest?: DeleteDesignDimensionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/dimensions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignDimensionRequest !== null && deleteDesignDimensionRequest !== undefined) {
+                if (deleteDesignDimensionRequest instanceof DeleteDesignDimensionRequest) {
+                    workspace = deleteDesignDimensionRequest.workspace;
+                    body = deleteDesignDimensionRequest.body
+                    xProjectId = deleteDesignDimensionRequest.xProjectId;
+                    contentType = deleteDesignDimensionRequest.contentType;
+                } else {
+                    workspace = deleteDesignDimensionRequest['workspace'];
+                    body = deleteDesignDimensionRequest['body'];
+                    xProjectId = deleteDesignDimensionRequest['X-Project-Id'];
+                    contentType = deleteDesignDimensionRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据维度表ID，删除维度表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignDimensionLogicTable(deleteDesignDimensionLogicTableRequest?: DeleteDesignDimensionLogicTableRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/dimension-logic-tables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignDimensionLogicTableRequest !== null && deleteDesignDimensionLogicTableRequest !== undefined) {
+                if (deleteDesignDimensionLogicTableRequest instanceof DeleteDesignDimensionLogicTableRequest) {
+                    workspace = deleteDesignDimensionLogicTableRequest.workspace;
+                    body = deleteDesignDimensionLogicTableRequest.body
+                    xProjectId = deleteDesignDimensionLogicTableRequest.xProjectId;
+                    contentType = deleteDesignDimensionLogicTableRequest.contentType;
+                } else {
+                    workspace = deleteDesignDimensionLogicTableRequest['workspace'];
+                    body = deleteDesignDimensionLogicTableRequest['body'];
+                    xProjectId = deleteDesignDimensionLogicTableRequest['X-Project-Id'];
+                    contentType = deleteDesignDimensionLogicTableRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID集合删除事实表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignFactLogicTable(deleteDesignFactLogicTableRequest?: DeleteDesignFactLogicTableRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/fact-logic-tables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignFactLogicTableRequest !== null && deleteDesignFactLogicTableRequest !== undefined) {
+                if (deleteDesignFactLogicTableRequest instanceof DeleteDesignFactLogicTableRequest) {
+                    workspace = deleteDesignFactLogicTableRequest.workspace;
+                    body = deleteDesignFactLogicTableRequest.body
+                    xProjectId = deleteDesignFactLogicTableRequest.xProjectId;
+                    contentType = deleteDesignFactLogicTableRequest.contentType;
+                } else {
+                    workspace = deleteDesignFactLogicTableRequest['workspace'];
+                    body = deleteDesignFactLogicTableRequest['body'];
+                    xProjectId = deleteDesignFactLogicTableRequest['X-Project-Id'];
+                    contentType = deleteDesignFactLogicTableRequest['Content-Type'];
                 }
             }
 
@@ -23961,6 +25070,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取批量操作的结果，如逻辑模型转物理模型和逆向数据库操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDesignOperationResult(showDesignOperationResultRequest?: ShowDesignOperationResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/design/operation-results",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let operationType;
+            
+            let limit;
+            
+            let offset;
+            
+            let operationId;
+
+            if (showDesignOperationResultRequest !== null && showDesignOperationResultRequest !== undefined) {
+                if (showDesignOperationResultRequest instanceof ShowDesignOperationResultRequest) {
+                    workspace = showDesignOperationResultRequest.workspace;
+                    xProjectId = showDesignOperationResultRequest.xProjectId;
+                    contentType = showDesignOperationResultRequest.contentType;
+                    operationType = showDesignOperationResultRequest.operationType;
+                    limit = showDesignOperationResultRequest.limit;
+                    offset = showDesignOperationResultRequest.offset;
+                    operationId = showDesignOperationResultRequest.operationId;
+                } else {
+                    workspace = showDesignOperationResultRequest['workspace'];
+                    xProjectId = showDesignOperationResultRequest['X-Project-Id'];
+                    contentType = showDesignOperationResultRequest['Content-Type'];
+                    operationType = showDesignOperationResultRequest['operation_type'];
+                    limit = showDesignOperationResultRequest['limit'];
+                    offset = showDesignOperationResultRequest['offset'];
+                    operationId = showDesignOperationResultRequest['operation_id'];
+                }
+            }
+
+        
+            if (operationType !== null && operationType !== undefined) {
+                localVarQueryParameter['operation_type'] = operationType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (operationId !== null && operationId !== undefined) {
+                localVarQueryParameter['operation_id'] = operationId;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过ID查看维度详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -26635,6 +27823,183 @@ export const ParamCreater = function () {
                     body = updateDesignAtomicIndexRequest['body'];
                     xProjectId = updateDesignAtomicIndexRequest['X-Project-Id'];
                     contentType = updateDesignAtomicIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据参数，更新复合指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignCompoundMetric(updateDesignCompoundMetricRequest?: UpdateDesignCompoundMetricRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/compound-metrics",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignCompoundMetricRequest !== null && updateDesignCompoundMetricRequest !== undefined) {
+                if (updateDesignCompoundMetricRequest instanceof UpdateDesignCompoundMetricRequest) {
+                    workspace = updateDesignCompoundMetricRequest.workspace;
+                    body = updateDesignCompoundMetricRequest.body
+                    xProjectId = updateDesignCompoundMetricRequest.xProjectId;
+                    contentType = updateDesignCompoundMetricRequest.contentType;
+                } else {
+                    workspace = updateDesignCompoundMetricRequest['workspace'];
+                    body = updateDesignCompoundMetricRequest['body'];
+                    xProjectId = updateDesignCompoundMetricRequest['X-Project-Id'];
+                    contentType = updateDesignCompoundMetricRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据传入参数，更新衍生指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignDerivativeIndex(updateDesignDerivativeIndexRequest?: UpdateDesignDerivativeIndexRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/derivative-indexs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignDerivativeIndexRequest !== null && updateDesignDerivativeIndexRequest !== undefined) {
+                if (updateDesignDerivativeIndexRequest instanceof UpdateDesignDerivativeIndexRequest) {
+                    workspace = updateDesignDerivativeIndexRequest.workspace;
+                    body = updateDesignDerivativeIndexRequest.body
+                    xProjectId = updateDesignDerivativeIndexRequest.xProjectId;
+                    contentType = updateDesignDerivativeIndexRequest.contentType;
+                } else {
+                    workspace = updateDesignDerivativeIndexRequest['workspace'];
+                    body = updateDesignDerivativeIndexRequest['body'];
+                    xProjectId = updateDesignDerivativeIndexRequest['X-Project-Id'];
+                    contentType = updateDesignDerivativeIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据参数，更新维度信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignDimension(updateDesignDimensionRequest?: UpdateDesignDimensionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/dimensions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignDimensionRequest !== null && updateDesignDimensionRequest !== undefined) {
+                if (updateDesignDimensionRequest instanceof UpdateDesignDimensionRequest) {
+                    workspace = updateDesignDimensionRequest.workspace;
+                    body = updateDesignDimensionRequest.body
+                    xProjectId = updateDesignDimensionRequest.xProjectId;
+                    contentType = updateDesignDimensionRequest.contentType;
+                } else {
+                    workspace = updateDesignDimensionRequest['workspace'];
+                    body = updateDesignDimensionRequest['body'];
+                    xProjectId = updateDesignDimensionRequest['X-Project-Id'];
+                    contentType = updateDesignDimensionRequest['Content-Type'];
                 }
             }
 

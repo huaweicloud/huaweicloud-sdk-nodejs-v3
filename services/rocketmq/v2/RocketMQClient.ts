@@ -166,7 +166,8 @@ import { ValidateConsumedMessageResponse } from './model/ValidateConsumedMessage
 
 export class RocketMQClient {
     public static newBuilder(): ClientBuilder<RocketMQClient> {
-            return new ClientBuilder<RocketMQClient>(newClient);
+            let client = new ClientBuilder<RocketMQClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

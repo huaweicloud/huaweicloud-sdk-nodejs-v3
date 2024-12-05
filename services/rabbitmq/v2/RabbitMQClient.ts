@@ -143,7 +143,8 @@ import { UpdateUserResponse } from './model/UpdateUserResponse';
 
 export class RabbitMQClient {
     public static newBuilder(): ClientBuilder<RabbitMQClient> {
-            return new ClientBuilder<RabbitMQClient>(newClient);
+            let client = new ClientBuilder<RabbitMQClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

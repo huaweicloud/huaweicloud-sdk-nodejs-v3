@@ -346,7 +346,8 @@ import { UpdateTrafficLimitConfig } from './model/UpdateTrafficLimitConfig';
 
 export class ElbClient {
     public static newBuilder(): ClientBuilder<ElbClient> {
-            return new ClientBuilder<ElbClient>(newClient);
+            let client = new ClientBuilder<ElbClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

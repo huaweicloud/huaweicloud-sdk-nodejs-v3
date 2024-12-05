@@ -8,6 +8,8 @@ export class ApigDataSourceVo {
     private 'agent_name'?: string;
     private 'env_type'?: number;
     public supportService?: number;
+    private 'dw_category'?: string;
+    public description?: string;
     public constructor(dwName?: string, dwType?: string, dwConfig?: object) { 
         this['dw_name'] = dwName;
         this['dw_type'] = dwType;
@@ -75,6 +77,20 @@ export class ApigDataSourceVo {
     }
     public withSupportService(supportService: number): ApigDataSourceVo {
         this['supportService'] = supportService;
+        return this;
+    }
+    public withDwCategory(dwCategory: string): ApigDataSourceVo {
+        this['dw_category'] = dwCategory;
+        return this;
+    }
+    public set dwCategory(dwCategory: string  | undefined) {
+        this['dw_category'] = dwCategory;
+    }
+    public get dwCategory(): string | undefined {
+        return this['dw_category'];
+    }
+    public withDescription(description: string): ApigDataSourceVo {
+        this['description'] = description;
         return this;
     }
 }

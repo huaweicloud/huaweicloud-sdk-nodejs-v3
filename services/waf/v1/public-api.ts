@@ -281,6 +281,7 @@ export * from './model/SimplePremiumWafHost';
 export * from './model/StatisticsTimelineItem';
 export * from './model/TimeLineItem';
 export * from './model/TimeoutConfig';
+export * from './model/TmsResourceTag';
 export * from './model/TrafficMark';
 export * from './model/UpdateAlertNoticeConfigRequest';
 export * from './model/UpdateAlertNoticeConfigRequestBody';

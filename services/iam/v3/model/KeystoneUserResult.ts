@@ -1,4 +1,3 @@
-import { KeystoneUserResultExtra } from './KeystoneUserResultExtra';
 import { Links } from './Links';
 
 
@@ -13,7 +12,6 @@ export class KeystoneUserResult {
     public id?: string;
     public enabled?: boolean;
     private 'pwd_strength'?: string;
-    public extra?: KeystoneUserResultExtra;
     private 'access_mode'?: string;
     public constructor(domainId?: string, name?: string, passwordExpiresAt?: string, links?: Links, id?: string, enabled?: boolean) { 
         this['domain_id'] = domainId;
@@ -92,10 +90,6 @@ export class KeystoneUserResult {
     }
     public get pwdStrength(): string | undefined {
         return this['pwd_strength'];
-    }
-    public withExtra(extra: KeystoneUserResultExtra): KeystoneUserResult {
-        this['extra'] = extra;
-        return this;
     }
     public withAccessMode(accessMode: string): KeystoneUserResult {
         this['access_mode'] = accessMode;

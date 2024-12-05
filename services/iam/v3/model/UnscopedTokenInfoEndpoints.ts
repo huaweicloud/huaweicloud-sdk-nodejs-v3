@@ -1,6 +1,6 @@
 
 
-export class UnscopedTokenInfoCatalogEndpoints {
+export class UnscopedTokenInfoEndpoints {
     public id?: string;
     private 'interface'?: string;
     public region?: string;
@@ -8,11 +8,11 @@ export class UnscopedTokenInfoCatalogEndpoints {
     public url?: string;
     public constructor() { 
     }
-    public withId(id: string): UnscopedTokenInfoCatalogEndpoints {
+    public withId(id: string): UnscopedTokenInfoEndpoints {
         this['id'] = id;
         return this;
     }
-    public withInterface(_interface: string): UnscopedTokenInfoCatalogEndpoints {
+    public withInterface(_interface: string): UnscopedTokenInfoEndpoints {
         this['interface'] = _interface;
         return this;
     }
@@ -22,11 +22,11 @@ export class UnscopedTokenInfoCatalogEndpoints {
     public get _interface(): string | undefined {
         return this['interface'];
     }
-    public withRegion(region: string): UnscopedTokenInfoCatalogEndpoints {
+    public withRegion(region: string): UnscopedTokenInfoEndpoints {
         this['region'] = region;
         return this;
     }
-    public withRegionId(regionId: string): UnscopedTokenInfoCatalogEndpoints {
+    public withRegionId(regionId: string): UnscopedTokenInfoEndpoints {
         this['region_id'] = regionId;
         return this;
     }
@@ -36,7 +36,7 @@ export class UnscopedTokenInfoCatalogEndpoints {
     public get regionId(): string | undefined {
         return this['region_id'];
     }
-    public withUrl(url: string): UnscopedTokenInfoCatalogEndpoints {
+    public withUrl(url: string): UnscopedTokenInfoEndpoints {
         this['url'] = url;
         return this;
     }

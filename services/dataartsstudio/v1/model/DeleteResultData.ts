@@ -1,10 +1,10 @@
 
 
 export class DeleteResultData {
-    public value?: string;
+    public value?: number;
     public constructor() { 
     }
-    public withValue(value: string): DeleteResultData {
+    public withValue(value: number): DeleteResultData {
         this['value'] = value;
         return this;
     }

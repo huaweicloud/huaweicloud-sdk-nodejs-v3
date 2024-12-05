@@ -286,7 +286,8 @@ import { VpcDetail } from './model/VpcDetail';
 
 export class CfwClient {
     public static newBuilder(): ClientBuilder<CfwClient> {
-            return new ClientBuilder<CfwClient>(newClient);
+            let client = new ClientBuilder<CfwClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

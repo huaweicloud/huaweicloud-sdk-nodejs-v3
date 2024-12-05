@@ -170,7 +170,8 @@ import { VersionItem } from './model/VersionItem';
 
 export class DnsClient {
     public static newBuilder(): ClientBuilder<DnsClient> {
-            return new ClientBuilder<DnsClient>(newClient);
+            let client = new ClientBuilder<DnsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

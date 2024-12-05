@@ -324,7 +324,8 @@ import { UpgradingTheKernelBody } from './model/UpgradingTheKernelBody';
 
 export class CssClient {
     public static newBuilder(): ClientBuilder<CssClient> {
-            return new ClientBuilder<CssClient>(newClient);
+            let client = new ClientBuilder<CssClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

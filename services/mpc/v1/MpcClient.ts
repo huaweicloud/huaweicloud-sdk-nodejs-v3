@@ -250,7 +250,8 @@ import { XCodeError } from './model/XCodeError';
 
 export class MpcClient {
     public static newBuilder(): ClientBuilder<MpcClient> {
-            return new ClientBuilder<MpcClient>(newClient);
+            let client = new ClientBuilder<MpcClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

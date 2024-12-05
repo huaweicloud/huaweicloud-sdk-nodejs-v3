@@ -6,7 +6,7 @@ export class ListFunctionAsyncInvocationsResult {
     private 'error_message'?: string;
     private 'error_code'?: number;
     private 'start_time'?: Date;
-    private 'end_time'?: Date;
+    private 'end_time'?: string;
     public constructor() { 
     }
     public withRequestId(requestId: string): ListFunctionAsyncInvocationsResult {
@@ -53,14 +53,14 @@ export class ListFunctionAsyncInvocationsResult {
     public get startTime(): Date | undefined {
         return this['start_time'];
     }
-    public withEndTime(endTime: Date): ListFunctionAsyncInvocationsResult {
+    public withEndTime(endTime: string): ListFunctionAsyncInvocationsResult {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: Date  | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime(): Date | undefined {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
 }

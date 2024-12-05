@@ -177,7 +177,8 @@ import { WebSocketSeek } from './model/WebSocketSeek';
 
 export class CdnClient {
     public static newBuilder(): ClientBuilder<CdnClient> {
-            return new ClientBuilder<CdnClient>(newClient);
+            let client = new ClientBuilder<CdnClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

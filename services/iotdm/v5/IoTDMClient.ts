@@ -43,7 +43,8 @@ import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 
 export class IoTDMClient {
     public static newBuilder(): ClientBuilder<IoTDMClient> {
-            return new ClientBuilder<IoTDMClient>(newClient);
+            let client = new ClientBuilder<IoTDMClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

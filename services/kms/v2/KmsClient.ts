@@ -168,7 +168,8 @@ import { VerifyRequestBody } from './model/VerifyRequestBody';
 
 export class KmsClient {
     public static newBuilder(): ClientBuilder<KmsClient> {
-            return new ClientBuilder<KmsClient>(newClient);
+            let client = new ClientBuilder<KmsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

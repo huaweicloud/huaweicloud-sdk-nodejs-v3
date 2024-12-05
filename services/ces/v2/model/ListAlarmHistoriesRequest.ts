@@ -2,6 +2,7 @@
 
 export class ListAlarmHistoriesRequest {
     private 'alarm_id'?: string;
+    private 'record_id'?: string;
     public name?: string;
     public status?: string;
     public level?: number;
@@ -23,6 +24,16 @@ export class ListAlarmHistoriesRequest {
     }
     public get alarmId(): string | undefined {
         return this['alarm_id'];
+    }
+    public withRecordId(recordId: string): ListAlarmHistoriesRequest {
+        this['record_id'] = recordId;
+        return this;
+    }
+    public set recordId(recordId: string  | undefined) {
+        this['record_id'] = recordId;
+    }
+    public get recordId(): string | undefined {
+        return this['record_id'];
     }
     public withName(name: string): ListAlarmHistoriesRequest {
         this['name'] = name;

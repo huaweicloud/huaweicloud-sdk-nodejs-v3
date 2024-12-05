@@ -17,6 +17,9 @@ import { Backup } from './model/Backup';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupStrategyOption } from './model/BackupStrategyOption';
 import { BackupStrategyResult } from './model/BackupStrategyResult';
+import { BatchDeleteManualBackupRequest } from './model/BatchDeleteManualBackupRequest';
+import { BatchDeleteManualBackupRequestBody } from './model/BatchDeleteManualBackupRequestBody';
+import { BatchDeleteManualBackupResponse } from './model/BatchDeleteManualBackupResponse';
 import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionRequestBody } from './model/BatchTagActionRequestBody';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
@@ -35,6 +38,8 @@ import { CheckDisasterRecoveryOperationResponse } from './model/CheckDisasterRec
 import { CheckWeekPasswordRequest } from './model/CheckWeekPasswordRequest';
 import { CheckWeekPasswordRequestBody } from './model/CheckWeekPasswordRequestBody';
 import { CheckWeekPasswordResponse } from './model/CheckWeekPasswordResponse';
+import { ClearInstanceSessionsRequest } from './model/ClearInstanceSessionsRequest';
+import { ClearInstanceSessionsResponse } from './model/ClearInstanceSessionsResponse';
 import { CommandInfo } from './model/CommandInfo';
 import { CompareConfigurationRequest } from './model/CompareConfigurationRequest';
 import { CompareConfigurationRequestBody } from './model/CompareConfigurationRequestBody';
@@ -102,6 +107,9 @@ import { DeleteInstancesSessionResponse } from './model/DeleteInstancesSessionRe
 import { DeleteLtsConfigsRequest } from './model/DeleteLtsConfigsRequest';
 import { DeleteLtsConfigsRequestBody } from './model/DeleteLtsConfigsRequestBody';
 import { DeleteLtsConfigsResponse } from './model/DeleteLtsConfigsResponse';
+import { DeleteRedisDisabledCommandsRequest } from './model/DeleteRedisDisabledCommandsRequest';
+import { DeleteRedisDisabledCommandsRequestBody } from './model/DeleteRedisDisabledCommandsRequestBody';
+import { DeleteRedisDisabledCommandsResponse } from './model/DeleteRedisDisabledCommandsResponse';
 import { DifferentDetails } from './model/DifferentDetails';
 import { DiskAutoExpansionPolicy } from './model/DiskAutoExpansionPolicy';
 import { ErrorLogList } from './model/ErrorLogList';
@@ -109,6 +117,7 @@ import { ErrorResponseBody } from './model/ErrorResponseBody';
 import { ExpandInstanceNodeRequest } from './model/ExpandInstanceNodeRequest';
 import { ExpandInstanceNodeRequestBody } from './model/ExpandInstanceNodeRequestBody';
 import { ExpandInstanceNodeResponse } from './model/ExpandInstanceNodeResponse';
+import { HotKeysInfoResponseBody } from './model/HotKeysInfoResponseBody';
 import { InfluxdbSlowLogDetail } from './model/InfluxdbSlowLogDetail';
 import { InstanceLogConfig } from './model/InstanceLogConfig';
 import { InstanceLogConfigDetail } from './model/InstanceLogConfigDetail';
@@ -157,6 +166,8 @@ import { ListInstanceDatabasesRequest } from './model/ListInstanceDatabasesReque
 import { ListInstanceDatabasesResponse } from './model/ListInstanceDatabasesResponse';
 import { ListInstanceMaintenanceWindowRequest } from './model/ListInstanceMaintenanceWindowRequest';
 import { ListInstanceMaintenanceWindowResponse } from './model/ListInstanceMaintenanceWindowResponse';
+import { ListInstanceSessionsRequest } from './model/ListInstanceSessionsRequest';
+import { ListInstanceSessionsResponse } from './model/ListInstanceSessionsResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListInstanceTagsResult } from './model/ListInstanceTagsResult';
@@ -188,6 +199,8 @@ import { ListMongodbErrorLogsResponse } from './model/ListMongodbErrorLogsRespon
 import { ListMongodbSlowLogsRequest } from './model/ListMongodbSlowLogsRequest';
 import { ListMongodbSlowLogsRequestBody } from './model/ListMongodbSlowLogsRequestBody';
 import { ListMongodbSlowLogsResponse } from './model/ListMongodbSlowLogsResponse';
+import { ListNodeSessionsResult } from './model/ListNodeSessionsResult';
+import { ListNodeSessionsResultSessions } from './model/ListNodeSessionsResultSessions';
 import { ListNosqlTaskListRequest } from './model/ListNosqlTaskListRequest';
 import { ListNosqlTaskListResponse } from './model/ListNosqlTaskListResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
@@ -257,6 +270,7 @@ import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
 import { RedisCreateDbUserRequest } from './model/RedisCreateDbUserRequest';
 import { RedisDbUserInfo } from './model/RedisDbUserInfo';
 import { RedisDeleteDbUserRequest } from './model/RedisDeleteDbUserRequest';
+import { RedisDisabledCommandsDetail } from './model/RedisDisabledCommandsDetail';
 import { RedisModifyDBUserPrivilegeRequest } from './model/RedisModifyDBUserPrivilegeRequest';
 import { RedisModifyDbUserPrivilegeRequestBody } from './model/RedisModifyDbUserPrivilegeRequestBody';
 import { RedisResetDbUserPasswordRequestBody } from './model/RedisResetDbUserPasswordRequestBody';
@@ -293,6 +307,9 @@ import { RestoreRequestBody } from './model/RestoreRequestBody';
 import { SaveLtsConfigsRequest } from './model/SaveLtsConfigsRequest';
 import { SaveLtsConfigsRequestBody } from './model/SaveLtsConfigsRequestBody';
 import { SaveLtsConfigsResponse } from './model/SaveLtsConfigsResponse';
+import { SaveRedisDisabledCommandsRequest } from './model/SaveRedisDisabledCommandsRequest';
+import { SaveRedisDisabledCommandsRequestBody } from './model/SaveRedisDisabledCommandsRequestBody';
+import { SaveRedisDisabledCommandsResponse } from './model/SaveRedisDisabledCommandsResponse';
 import { ScheduleDetailInfo } from './model/ScheduleDetailInfo';
 import { SetAutoEnlargePolicyRequest } from './model/SetAutoEnlargePolicyRequest';
 import { SetAutoEnlargePolicyResponse } from './model/SetAutoEnlargePolicyResponse';
@@ -300,6 +317,9 @@ import { SetAutoPolicyRequestBody } from './model/SetAutoPolicyRequestBody';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
 import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
 import { SetBackupPolicyResponse } from './model/SetBackupPolicyResponse';
+import { SetDisasterRecoverySettingsRequest } from './model/SetDisasterRecoverySettingsRequest';
+import { SetDisasterRecoverySettingsRequestBody } from './model/SetDisasterRecoverySettingsRequestBody';
+import { SetDisasterRecoverySettingsResponse } from './model/SetDisasterRecoverySettingsResponse';
 import { SetInstanceDataDumpRequest } from './model/SetInstanceDataDumpRequest';
 import { SetInstanceDataDumpRequestBody } from './model/SetInstanceDataDumpRequestBody';
 import { SetInstanceDataDumpResponse } from './model/SetInstanceDataDumpResponse';
@@ -327,6 +347,8 @@ import { ShowBackupPolicyResponse } from './model/ShowBackupPolicyResponse';
 import { ShowBackupPolicyResult } from './model/ShowBackupPolicyResult';
 import { ShowConfigurationDetailRequest } from './model/ShowConfigurationDetailRequest';
 import { ShowConfigurationDetailResponse } from './model/ShowConfigurationDetailResponse';
+import { ShowDisasterRecoverySettingsRequest } from './model/ShowDisasterRecoverySettingsRequest';
+import { ShowDisasterRecoverySettingsResponse } from './model/ShowDisasterRecoverySettingsResponse';
 import { ShowElbIpGroupRequest } from './model/ShowElbIpGroupRequest';
 import { ShowElbIpGroupResponse } from './model/ShowElbIpGroupResponse';
 import { ShowErrorLogRequest } from './model/ShowErrorLogRequest';
@@ -354,6 +376,10 @@ import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
 import { ShowRedisBigKeysRequest } from './model/ShowRedisBigKeysRequest';
 import { ShowRedisBigKeysRequestBody } from './model/ShowRedisBigKeysRequestBody';
 import { ShowRedisBigKeysResponse } from './model/ShowRedisBigKeysResponse';
+import { ShowRedisDisabledCommandsRequest } from './model/ShowRedisDisabledCommandsRequest';
+import { ShowRedisDisabledCommandsResponse } from './model/ShowRedisDisabledCommandsResponse';
+import { ShowRedisHotKeysRequest } from './model/ShowRedisHotKeysRequest';
+import { ShowRedisHotKeysResponse } from './model/ShowRedisHotKeysResponse';
 import { ShowRedisPitrInfoRequest } from './model/ShowRedisPitrInfoRequest';
 import { ShowRedisPitrInfoResponse } from './model/ShowRedisPitrInfoResponse';
 import { ShowRedisPitrPolicyRequest } from './model/ShowRedisPitrPolicyRequest';
@@ -377,6 +403,8 @@ import { SwitchIpGroupRequest } from './model/SwitchIpGroupRequest';
 import { SwitchIpGroupRequestBody } from './model/SwitchIpGroupRequestBody';
 import { SwitchIpGroupRequestBodyIpGroups } from './model/SwitchIpGroupRequestBodyIpGroups';
 import { SwitchIpGroupResponse } from './model/SwitchIpGroupResponse';
+import { SwitchOverRequest } from './model/SwitchOverRequest';
+import { SwitchOverResponse } from './model/SwitchOverResponse';
 import { SwitchSecondLevelMonitoringRequest } from './model/SwitchSecondLevelMonitoringRequest';
 import { SwitchSecondLevelMonitoringRequestBody } from './model/SwitchSecondLevelMonitoringRequestBody';
 import { SwitchSecondLevelMonitoringResponse } from './model/SwitchSecondLevelMonitoringResponse';
@@ -391,6 +419,7 @@ import { SwitchToMasterRequest } from './model/SwitchToMasterRequest';
 import { SwitchToMasterResponse } from './model/SwitchToMasterResponse';
 import { SwitchToSlaveRequest } from './model/SwitchToSlaveRequest';
 import { SwitchToSlaveResponse } from './model/SwitchToSlaveResponse';
+import { SwitchoverRatioInfo } from './model/SwitchoverRatioInfo';
 import { Tag } from './model/Tag';
 import { TagOption } from './model/TagOption';
 import { UpdateClientNetworkRequest } from './model/UpdateClientNetworkRequest';
@@ -429,7 +458,8 @@ import { Volume } from './model/Volume';
 
 export class GaussDBforNoSQLClient {
     public static newBuilder(): ClientBuilder<GaussDBforNoSQLClient> {
-            return new ClientBuilder<GaussDBforNoSQLClient>(newClient);
+            let client = new ClientBuilder<GaussDBforNoSQLClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
@@ -475,6 +505,26 @@ export class GaussDBforNoSQLClient {
      */
     public applyConfigurationToInstances(applyConfigurationToInstancesRequest?: ApplyConfigurationToInstancesRequest): Promise<ApplyConfigurationToInstancesResponse> {
         const options = ParamCreater().applyConfigurationToInstances(applyConfigurationToInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除数据库实例的手动备份。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除手动备份
+     * @param {BatchDeleteManualBackupRequestBody} batchDeleteManualBackupRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteManualBackup(batchDeleteManualBackupRequest?: BatchDeleteManualBackupRequest): Promise<BatchDeleteManualBackupResponse> {
+        const options = ParamCreater().batchDeleteManualBackup(batchDeleteManualBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -573,6 +623,26 @@ export class GaussDBforNoSQLClient {
      */
     public checkWeekPassword(checkWeekPasswordRequest?: CheckWeekPasswordRequest): Promise<CheckWeekPasswordResponse> {
         const options = ParamCreater().checkWeekPassword(checkWeekPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭实例所有节点会话。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭实例所有节点会话
+     * @param {string} instanceId 实例ID。
+     * @param {string} [nodeId] 节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public clearInstanceSessions(clearInstanceSessionsRequest?: ClearInstanceSessionsRequest): Promise<ClearInstanceSessionsResponse> {
+        const options = ParamCreater().clearInstanceSessions(clearInstanceSessionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -970,6 +1040,26 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 删除Redis禁用命令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Redis禁用命令
+     * @param {string} instanceId 实例ID。
+     * @param {DeleteRedisDisabledCommandsRequestBody} deleteRedisDisabledCommandsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRedisDisabledCommands(deleteRedisDisabledCommandsRequest?: DeleteRedisDisabledCommandsRequest): Promise<DeleteRedisDisabledCommandsResponse> {
+        const options = ParamCreater().deleteRedisDisabledCommands(deleteRedisDisabledCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 扩容指定集群实例的节点数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1302,16 +1392,37 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 查询实例可维护时间段
+     * 查询实例可维护时间段。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例可维护时间段
      * @param {string} instanceId 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listInstanceMaintenanceWindow(listInstanceMaintenanceWindowRequest?: ListInstanceMaintenanceWindowRequest): Promise<ListInstanceMaintenanceWindowResponse> {
         const options = ParamCreater().listInstanceMaintenanceWindow(listInstanceMaintenanceWindowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取实例的会话。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例的会话
+     * @param {string} instanceId 实例ID。
+     * @param {string} [nodeId] 节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceSessions(listInstanceSessionsRequest?: ListInstanceSessionsRequest): Promise<ListInstanceSessionsResponse> {
+        const options = ParamCreater().listInstanceSessions(listInstanceSessionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1776,7 +1887,7 @@ export class GaussDBforNoSQLClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询实例可维护时间段
+     * @summary 设置实例可维护时间段
      * @param {string} instanceId 实例ID。
      * @param {ModifyInstanceOpsWindowV3Req} modifyInstanceOpsWindowV3Req 请求体。
      * @param {*} [options] Override http request option.
@@ -2095,6 +2206,26 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 设置Redis禁用命令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置Redis禁用命令
+     * @param {string} instanceId 实例ID。
+     * @param {SaveRedisDisabledCommandsRequestBody} saveRedisDisabledCommandsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveRedisDisabledCommands(saveRedisDisabledCommandsRequest?: SaveRedisDisabledCommandsRequest): Promise<SaveRedisDisabledCommandsResponse> {
+        const options = ParamCreater().saveRedisDisabledCommands(saveRedisDisabledCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置磁盘自动扩容策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2126,6 +2257,25 @@ export class GaussDBforNoSQLClient {
      */
     public setBackupPolicy(setBackupPolicyRequest?: SetBackupPolicyRequest): Promise<SetBackupPolicyResponse> {
         const options = ParamCreater().setBackupPolicy(setBackupPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置实例容灾切换的故障节点比例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例容灾切换的故障节点比例
+     * @param {SetDisasterRecoverySettingsRequestBody} setDisasterRecoverySettingsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setDisasterRecoverySettings(setDisasterRecoverySettingsRequest?: SetDisasterRecoverySettingsRequest): Promise<SetDisasterRecoverySettingsResponse> {
+        const options = ParamCreater().setDisasterRecoverySettings(setDisasterRecoverySettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2356,6 +2506,27 @@ export class GaussDBforNoSQLClient {
      */
     public showConfigurationDetail(showConfigurationDetailRequest?: ShowConfigurationDetailRequest): Promise<ShowConfigurationDetailResponse> {
         const options = ParamCreater().showConfigurationDetail(showConfigurationDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例容灾切换的故障节点比例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例容灾切换的故障节点比例
+     * @param {string} [instanceId] 实例ID。
+     * @param {number} [offset] 索引位置偏移量，表示从指定offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0。
+     * @param {number} [limit] 查询实例个数上限值。 取值范围：1~50。不传该参数时，默认查询前50条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDisasterRecoverySettings(showDisasterRecoverySettingsRequest?: ShowDisasterRecoverySettingsRequest): Promise<ShowDisasterRecoverySettingsResponse> {
+        const options = ParamCreater().showDisasterRecoverySettings(showDisasterRecoverySettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2626,6 +2797,49 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 查询Redis禁用命令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis禁用命令
+     * @param {string} instanceId 实例ID。
+     * @param {'command' | 'key'} type 指令类型
+     * @param {number} [offset] 索引位置偏移量，表示从指定offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0。
+     * @param {number} [limit] 查询专属资源个数上限值。   - 取值范围：1~50。不传该参数时，默认查询前50条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRedisDisabledCommands(showRedisDisabledCommandsRequest?: ShowRedisDisabledCommandsRequest): Promise<ShowRedisDisabledCommandsResponse> {
+        const options = ParamCreater().showRedisDisabledCommands(showRedisDisabledCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持查询Redis实例的热key。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis实例的热key
+     * @param {string} instanceId 实例ID。
+     * @param {number} [offset] 索引位置偏移量，表示从指定offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0。
+     * @param {number} [limit] 查询数据的上限值。   - 取值范围：1~50。不传该参数时，默认查询前50条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRedisHotKeys(showRedisHotKeysRequest?: ShowRedisHotKeysRequest): Promise<ShowRedisHotKeysResponse> {
+        const options = ParamCreater().showRedisHotKeys(showRedisHotKeysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询Redis实例指定时间点恢复所占用的存储空间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2775,6 +2989,25 @@ export class GaussDBforNoSQLClient {
      */
     public switchIpGroup(switchIpGroupRequest?: SwitchIpGroupRequest): Promise<SwitchIpGroupResponse> {
         const options = ParamCreater().switchIpGroup(switchIpGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 切换实例下的主备节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Redis主备切换
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchOver(switchOverRequest?: SwitchOverRequest): Promise<SwitchOverResponse> {
+        const options = ParamCreater().switchOver(switchOverRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3233,6 +3466,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除数据库实例的手动备份。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteManualBackup(batchDeleteManualBackupRequest?: BatchDeleteManualBackupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchDeleteManualBackupRequest !== null && batchDeleteManualBackupRequest !== undefined) {
+                if (batchDeleteManualBackupRequest instanceof BatchDeleteManualBackupRequest) {
+                    body = batchDeleteManualBackupRequest.body
+                    xLanguage = batchDeleteManualBackupRequest.xLanguage;
+                } else {
+                    body = batchDeleteManualBackupRequest['body'];
+                    xLanguage = batchDeleteManualBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量添加或删除指定数据库实例的标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3434,6 +3712,51 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭实例所有节点会话。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        clearInstanceSessions(clearInstanceSessionsRequest?: ClearInstanceSessionsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/sessions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (clearInstanceSessionsRequest !== null && clearInstanceSessionsRequest !== undefined) {
+                if (clearInstanceSessionsRequest instanceof ClearInstanceSessionsRequest) {
+                    instanceId = clearInstanceSessionsRequest.instanceId;
+                    nodeId = clearInstanceSessionsRequest.nodeId;
+                } else {
+                    instanceId = clearInstanceSessionsRequest['instance_id'];
+                    nodeId = clearInstanceSessionsRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling clearInstanceSessions.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4257,6 +4580,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除Redis禁用命令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRedisDisabledCommands(deleteRedisDisabledCommandsRequest?: DeleteRedisDisabledCommandsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/disabled-commands",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteRedisDisabledCommandsRequest !== null && deleteRedisDisabledCommandsRequest !== undefined) {
+                if (deleteRedisDisabledCommandsRequest instanceof DeleteRedisDisabledCommandsRequest) {
+                    instanceId = deleteRedisDisabledCommandsRequest.instanceId;
+                    body = deleteRedisDisabledCommandsRequest.body
+                } else {
+                    instanceId = deleteRedisDisabledCommandsRequest['instance_id'];
+                    body = deleteRedisDisabledCommandsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteRedisDisabledCommands.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 扩容指定集群实例的节点数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5039,7 +5408,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询实例可维护时间段
+         * 查询实例可维护时间段。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5070,6 +5439,51 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceMaintenanceWindow.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取实例的会话。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceSessions(listInstanceSessionsRequest?: ListInstanceSessionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sessions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (listInstanceSessionsRequest !== null && listInstanceSessionsRequest !== undefined) {
+                if (listInstanceSessionsRequest instanceof ListInstanceSessionsRequest) {
+                    instanceId = listInstanceSessionsRequest.instanceId;
+                    nodeId = listInstanceSessionsRequest.nodeId;
+                } else {
+                    instanceId = listInstanceSessionsRequest['instance_id'];
+                    nodeId = listInstanceSessionsRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceSessions.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -6984,6 +7398,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置Redis禁用命令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveRedisDisabledCommands(saveRedisDisabledCommandsRequest?: SaveRedisDisabledCommandsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/disabled-commands",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (saveRedisDisabledCommandsRequest !== null && saveRedisDisabledCommandsRequest !== undefined) {
+                if (saveRedisDisabledCommandsRequest instanceof SaveRedisDisabledCommandsRequest) {
+                    instanceId = saveRedisDisabledCommandsRequest.instanceId;
+                    body = saveRedisDisabledCommandsRequest.body
+                } else {
+                    instanceId = saveRedisDisabledCommandsRequest['instance_id'];
+                    body = saveRedisDisabledCommandsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling saveRedisDisabledCommands.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置磁盘自动扩容策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7063,6 +7523,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置实例容灾切换的故障节点比例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setDisasterRecoverySettings(setDisasterRecoverySettingsRequest?: SetDisasterRecoverySettingsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/disaster-recovery/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setDisasterRecoverySettingsRequest !== null && setDisasterRecoverySettingsRequest !== undefined) {
+                if (setDisasterRecoverySettingsRequest instanceof SetDisasterRecoverySettingsRequest) {
+                    body = setDisasterRecoverySettingsRequest.body
+                } else {
+                    body = setDisasterRecoverySettingsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7630,6 +8128,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例容灾切换的故障节点比例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDisasterRecoverySettings(showDisasterRecoverySettingsRequest?: ShowDisasterRecoverySettingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/disaster-recovery/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showDisasterRecoverySettingsRequest !== null && showDisasterRecoverySettingsRequest !== undefined) {
+                if (showDisasterRecoverySettingsRequest instanceof ShowDisasterRecoverySettingsRequest) {
+                    instanceId = showDisasterRecoverySettingsRequest.instanceId;
+                    offset = showDisasterRecoverySettingsRequest.offset;
+                    limit = showDisasterRecoverySettingsRequest.limit;
+                } else {
+                    instanceId = showDisasterRecoverySettingsRequest['instance_id'];
+                    offset = showDisasterRecoverySettingsRequest['offset'];
+                    limit = showDisasterRecoverySettingsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8231,6 +8780,120 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Redis禁用命令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRedisDisabledCommands(showRedisDisabledCommandsRequest?: ShowRedisDisabledCommandsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/disabled-commands",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let type;
+            
+            let offset;
+            
+            let limit;
+
+            if (showRedisDisabledCommandsRequest !== null && showRedisDisabledCommandsRequest !== undefined) {
+                if (showRedisDisabledCommandsRequest instanceof ShowRedisDisabledCommandsRequest) {
+                    instanceId = showRedisDisabledCommandsRequest.instanceId;
+                    type = showRedisDisabledCommandsRequest.type;
+                    offset = showRedisDisabledCommandsRequest.offset;
+                    limit = showRedisDisabledCommandsRequest.limit;
+                } else {
+                    instanceId = showRedisDisabledCommandsRequest['instance_id'];
+                    type = showRedisDisabledCommandsRequest['type'];
+                    offset = showRedisDisabledCommandsRequest['offset'];
+                    limit = showRedisDisabledCommandsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRedisDisabledCommands.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling showRedisDisabledCommands.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持查询Redis实例的热key。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRedisHotKeys(showRedisHotKeysRequest?: ShowRedisHotKeysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/hot-keys",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showRedisHotKeysRequest !== null && showRedisHotKeysRequest !== undefined) {
+                if (showRedisHotKeysRequest instanceof ShowRedisHotKeysRequest) {
+                    instanceId = showRedisHotKeysRequest.instanceId;
+                    offset = showRedisHotKeysRequest.offset;
+                    limit = showRedisHotKeysRequest.limit;
+                } else {
+                    instanceId = showRedisHotKeysRequest['instance_id'];
+                    offset = showRedisHotKeysRequest['offset'];
+                    limit = showRedisHotKeysRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRedisHotKeys.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询Redis实例指定时间点恢复所占用的存储空间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8563,6 +9226,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换实例下的主备节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchOver(switchOverRequest?: SwitchOverRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instance/{instance_id}/switchover",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (switchOverRequest !== null && switchOverRequest !== undefined) {
+                if (switchOverRequest instanceof SwitchOverRequest) {
+                    instanceId = switchOverRequest.instanceId;
+                } else {
+                    instanceId = switchOverRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchOver.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

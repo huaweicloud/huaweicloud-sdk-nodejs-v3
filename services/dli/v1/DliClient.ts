@@ -414,7 +414,8 @@ import { UploadResourcesRequestBody } from './model/UploadResourcesRequestBody';
 
 export class DliClient {
     public static newBuilder(): ClientBuilder<DliClient> {
-            return new ClientBuilder<DliClient>(newClient);
+            let client = new ClientBuilder<DliClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

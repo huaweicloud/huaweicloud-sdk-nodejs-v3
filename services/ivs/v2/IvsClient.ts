@@ -51,7 +51,8 @@ import { VideoResult } from './model/VideoResult';
 
 export class IvsClient {
     public static newBuilder(): ClientBuilder<IvsClient> {
-            return new ClientBuilder<IvsClient>(newClient);
+            let client = new ClientBuilder<IvsClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

@@ -1,4 +1,3 @@
-import { KeystoneUserResultExtra } from './KeystoneUserResultExtra';
 import { LinksSelf } from './LinksSelf';
 
 
@@ -12,7 +11,6 @@ export class KeystoneUpdateUserByAdminResult {
     public links?: LinksSelf;
     public id?: string;
     public enabled?: boolean;
-    public extra?: KeystoneUserResultExtra;
     public constructor(domainId?: string, name?: string, passwordExpiresAt?: string, links?: LinksSelf, id?: string, enabled?: boolean) { 
         this['domain_id'] = domainId;
         this['name'] = name;
@@ -79,10 +77,6 @@ export class KeystoneUpdateUserByAdminResult {
     }
     public withEnabled(enabled: boolean): KeystoneUpdateUserByAdminResult {
         this['enabled'] = enabled;
-        return this;
-    }
-    public withExtra(extra: KeystoneUserResultExtra): KeystoneUpdateUserByAdminResult {
-        this['extra'] = extra;
         return this;
     }
 }

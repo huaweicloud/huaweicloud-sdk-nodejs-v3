@@ -2,7 +2,7 @@ import { DomainInfo } from './DomainInfo';
 import { FederationUserBody } from './FederationUserBody';
 import { ProjectInfo } from './ProjectInfo';
 import { ScopedTokenInfoRoles } from './ScopedTokenInfoRoles';
-import { UnscopedTokenInfoCatalogEndpoints } from './UnscopedTokenInfoCatalogEndpoints';
+import { UnscopedTokenInfoEndpoints } from './UnscopedTokenInfoEndpoints';
 
 
 export class ScopedTokenInfo {
@@ -13,8 +13,8 @@ export class ScopedTokenInfo {
     public domain?: DomainInfo;
     public project?: ProjectInfo;
     public roles?: Array<ScopedTokenInfoRoles>;
-    public catalog?: Array<UnscopedTokenInfoCatalogEndpoints>;
-    public constructor(expiresAt?: string, methods?: Array<string>, issuedAt?: string, user?: FederationUserBody, roles?: Array<ScopedTokenInfoRoles>, catalog?: Array<UnscopedTokenInfoCatalogEndpoints>) { 
+    public catalog?: Array<UnscopedTokenInfoEndpoints>;
+    public constructor(expiresAt?: string, methods?: Array<string>, issuedAt?: string, user?: FederationUserBody, roles?: Array<ScopedTokenInfoRoles>, catalog?: Array<UnscopedTokenInfoEndpoints>) { 
         this['expires_at'] = expiresAt;
         this['methods'] = methods;
         this['issued_at'] = issuedAt;
@@ -62,7 +62,7 @@ export class ScopedTokenInfo {
         this['roles'] = roles;
         return this;
     }
-    public withCatalog(catalog: Array<UnscopedTokenInfoCatalogEndpoints>): ScopedTokenInfo {
+    public withCatalog(catalog: Array<UnscopedTokenInfoEndpoints>): ScopedTokenInfo {
         this['catalog'] = catalog;
         return this;
     }

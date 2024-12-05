@@ -118,7 +118,8 @@ import { UpdateComponentActionResponse } from './model/UpdateComponentActionResp
 
 export class ServiceStageClient {
     public static newBuilder(): ClientBuilder<ServiceStageClient> {
-            return new ClientBuilder<ServiceStageClient>(newClient);
+            let client = new ClientBuilder<ServiceStageClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;

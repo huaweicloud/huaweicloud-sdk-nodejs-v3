@@ -7,6 +7,9 @@ export class ResourcePriceResponse {
     private 'original_price'?: number;
     private 'period_type'?: ResourcePriceResponsePeriodTypeEnum | string;
     private 'period_count'?: number;
+    private 'best_discount_type'?: number;
+    private 'best_discount_price'?: number;
+    private 'official_website_discount_price'?: number;
     public constructor() { 
     }
     public withChargeMode(chargeMode: ResourcePriceResponseChargeModeEnum | string): ResourcePriceResponse {
@@ -62,6 +65,36 @@ export class ResourcePriceResponse {
     }
     public get periodCount(): number | undefined {
         return this['period_count'];
+    }
+    public withBestDiscountType(bestDiscountType: number): ResourcePriceResponse {
+        this['best_discount_type'] = bestDiscountType;
+        return this;
+    }
+    public set bestDiscountType(bestDiscountType: number  | undefined) {
+        this['best_discount_type'] = bestDiscountType;
+    }
+    public get bestDiscountType(): number | undefined {
+        return this['best_discount_type'];
+    }
+    public withBestDiscountPrice(bestDiscountPrice: number): ResourcePriceResponse {
+        this['best_discount_price'] = bestDiscountPrice;
+        return this;
+    }
+    public set bestDiscountPrice(bestDiscountPrice: number  | undefined) {
+        this['best_discount_price'] = bestDiscountPrice;
+    }
+    public get bestDiscountPrice(): number | undefined {
+        return this['best_discount_price'];
+    }
+    public withOfficialWebsiteDiscountPrice(officialWebsiteDiscountPrice: number): ResourcePriceResponse {
+        this['official_website_discount_price'] = officialWebsiteDiscountPrice;
+        return this;
+    }
+    public set officialWebsiteDiscountPrice(officialWebsiteDiscountPrice: number  | undefined) {
+        this['official_website_discount_price'] = officialWebsiteDiscountPrice;
+    }
+    public get officialWebsiteDiscountPrice(): number | undefined {
+        return this['official_website_discount_price'];
     }
 }
 

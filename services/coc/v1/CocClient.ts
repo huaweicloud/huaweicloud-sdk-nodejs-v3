@@ -141,7 +141,8 @@ import { WarRoomTenantInfoRegions } from './model/WarRoomTenantInfoRegions';
 
 export class CocClient {
     public static newBuilder(): ClientBuilder<CocClient> {
-            return new ClientBuilder<CocClient>(newClient);
+            let client = new ClientBuilder<CocClient>(newClient);
+            return client;
     }
 
     private hcClient: HcClient;
