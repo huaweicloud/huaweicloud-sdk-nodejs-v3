@@ -82,9 +82,11 @@ import { DownloadBackupResponse } from './model/DownloadBackupResponse';
 import { DownloadObject } from './model/DownloadObject';
 import { EpsQuotasOption } from './model/EpsQuotasOption';
 import { ErrorResponse } from './model/ErrorResponse';
+import { FeatureResult } from './model/FeatureResult';
 import { Flavor } from './model/Flavor';
 import { FlavorErrorResponse } from './model/FlavorErrorResponse';
 import { FlavorResult } from './model/FlavorResult';
+import { GaussDBErrorResponseBody } from './model/GaussDBErrorResponseBody';
 import { GaussDBUpgradeInstancesVersionRequest } from './model/GaussDBUpgradeInstancesVersionRequest';
 import { GaussDBforOpenDatabaseForCreation } from './model/GaussDBforOpenDatabaseForCreation';
 import { GaussDBforOpenGaussCreateSchemaReq } from './model/GaussDBforOpenGaussCreateSchemaReq';
@@ -145,6 +147,8 @@ import { ListDbUsersResponse } from './model/ListDbUsersResponse';
 import { ListDiffDetailsResult } from './model/ListDiffDetailsResult';
 import { ListEpsQuotasRequest } from './model/ListEpsQuotasRequest';
 import { ListEpsQuotasResponse } from './model/ListEpsQuotasResponse';
+import { ListFeaturesRequest } from './model/ListFeaturesRequest';
+import { ListFeaturesResponse } from './model/ListFeaturesResponse';
 import { ListFlavorInfo } from './model/ListFlavorInfo';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
@@ -347,6 +351,9 @@ import { TagsOption } from './model/TagsOption';
 import { TagsResult } from './model/TagsResult';
 import { TaskDetailResult } from './model/TaskDetailResult';
 import { TopIoInfo } from './model/TopIoInfo';
+import { UpdateFeaturesRequest } from './model/UpdateFeaturesRequest';
+import { UpdateFeaturesRequestBody } from './model/UpdateFeaturesRequestBody';
+import { UpdateFeaturesResponse } from './model/UpdateFeaturesResponse';
 import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfigurationRequest';
 import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfigurationResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
@@ -1210,6 +1217,26 @@ export class GaussDBforopenGaussClient {
      */
     public listEpsQuotas(listEpsQuotasRequest?: ListEpsQuotasRequest): Promise<ListEpsQuotasResponse> {
         const options = ParamCreater().listEpsQuotas(listEpsQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前实例高级特性列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例特性列表
+     * @param {string} instanceId 实例ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFeatures(listFeaturesRequest?: ListFeaturesRequest): Promise<ListFeaturesResponse> {
+        const options = ParamCreater().listFeatures(listFeaturesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2395,6 +2422,27 @@ export class GaussDBforopenGaussClient {
      */
     public switchShard(switchShardRequest?: SwitchShardRequest): Promise<SwitchShardResponse> {
         const options = ParamCreater().switchShard(switchShardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 打开高级特性开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启特性
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateFeaturesRequestBody} updateFeaturesRequestBody 开启高级特性请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFeatures(updateFeaturesRequest?: UpdateFeaturesRequest): Promise<UpdateFeaturesResponse> {
+        const options = ParamCreater().updateFeatures(updateFeaturesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4803,6 +4851,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前实例高级特性列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFeatures(listFeaturesRequest?: ListFeaturesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/advance-features",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listFeaturesRequest !== null && listFeaturesRequest !== undefined) {
+                if (listFeaturesRequest instanceof ListFeaturesRequest) {
+                    instanceId = listFeaturesRequest.instanceId;
+                    xLanguage = listFeaturesRequest.xLanguage;
+                } else {
+                    instanceId = listFeaturesRequest['instance_id'];
+                    xLanguage = listFeaturesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listFeatures.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7766,6 +7858,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchShard.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 打开高级特性开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFeatures(updateFeaturesRequest?: UpdateFeaturesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/advance-features",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateFeaturesRequest !== null && updateFeaturesRequest !== undefined) {
+                if (updateFeaturesRequest instanceof UpdateFeaturesRequest) {
+                    instanceId = updateFeaturesRequest.instanceId;
+                    body = updateFeaturesRequest.body
+                    xLanguage = updateFeaturesRequest.xLanguage;
+                } else {
+                    instanceId = updateFeaturesRequest['instance_id'];
+                    body = updateFeaturesRequest['body'];
+                    xLanguage = updateFeaturesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateFeatures.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -340,8 +340,8 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询审计实例列表
-     * @param {string} [offset] 偏移量
-     * @param {string} [limit] 查询记录数
+     * @param {string} [offset] 偏移量，默认0。
+     * @param {string} [limit] 查询记录数，默认100，最大1000。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -519,7 +519,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询RDS数据库列表
-     * @param {'MYSQL' | 'ORACLE' | 'POSTGRESQL' | 'SQLSERVER' | 'DAMENG' | 'TAURUS' | 'DWS' | 'KINGBASE' | 'MARIADB' | 'GAUSSDBOPENGAUSS'} dbType 数据库类型 - MYSQL - ORACLE - POSTGRESQL - SQLSERVER - DAMENG - TAURUS - DWS - KINGBASE - MARIADB - GAUSSDBOPENGAUSS
+     * @param {'MYSQL' | 'POSTGRESQL' | 'SQLSERVER' | 'TAURUS' | 'DWS' | 'MARIADB' | 'GAUSSDBOPENGAUSS'} dbType 数据库类型 - MYSQL - POSTGRESQL - SQLSERVER - TAURUS - DWS - MARIADB - GAUSSDBOPENGAUSS
      * @param {string} [offset] 偏移量，从第一条数据偏移offset条数据后开始查询，默认为0。
      * @param {string} [limit] 查询记录数，默认为100。
      * @param {*} [options] Override http request option.

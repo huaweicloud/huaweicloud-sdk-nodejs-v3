@@ -12,6 +12,7 @@ export class ListVpcChannelsV2Request {
     private 'member_port'?: number;
     private 'member_group_name'?: string;
     private 'member_group_id'?: string;
+    private 'vpc_channel_type'?: ListVpcChannelsV2RequestVpcChannelTypeEnum | string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -101,4 +102,24 @@ export class ListVpcChannelsV2Request {
     public get memberGroupId(): string | undefined {
         return this['member_group_id'];
     }
+    public withVpcChannelType(vpcChannelType: ListVpcChannelsV2RequestVpcChannelTypeEnum | string): ListVpcChannelsV2Request {
+        this['vpc_channel_type'] = vpcChannelType;
+        return this;
+    }
+    public set vpcChannelType(vpcChannelType: ListVpcChannelsV2RequestVpcChannelTypeEnum | string  | undefined) {
+        this['vpc_channel_type'] = vpcChannelType;
+    }
+    public get vpcChannelType(): ListVpcChannelsV2RequestVpcChannelTypeEnum | string | undefined {
+        return this['vpc_channel_type'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListVpcChannelsV2RequestVpcChannelTypeEnum {
+    BUILTIN = 'builtin',
+    MICROSERVICE = 'microservice',
+    REFERENCE = 'reference'
 }

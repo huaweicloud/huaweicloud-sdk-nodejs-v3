@@ -7,6 +7,9 @@ export class CertificateForm {
     public type?: CertificateFormTypeEnum | string;
     private 'instance_id'?: string;
     private 'trusted_root_ca'?: string;
+    private 'algorithm_type'?: CertificateFormAlgorithmTypeEnum | string;
+    private 'cert_content_sign'?: string;
+    private 'private_key_sign'?: string;
     public constructor(name?: string, certContent?: string, privateKey?: string) { 
         this['name'] = name;
         this['cert_content'] = certContent;
@@ -60,6 +63,36 @@ export class CertificateForm {
     public get trustedRootCa(): string | undefined {
         return this['trusted_root_ca'];
     }
+    public withAlgorithmType(algorithmType: CertificateFormAlgorithmTypeEnum | string): CertificateForm {
+        this['algorithm_type'] = algorithmType;
+        return this;
+    }
+    public set algorithmType(algorithmType: CertificateFormAlgorithmTypeEnum | string  | undefined) {
+        this['algorithm_type'] = algorithmType;
+    }
+    public get algorithmType(): CertificateFormAlgorithmTypeEnum | string | undefined {
+        return this['algorithm_type'];
+    }
+    public withCertContentSign(certContentSign: string): CertificateForm {
+        this['cert_content_sign'] = certContentSign;
+        return this;
+    }
+    public set certContentSign(certContentSign: string  | undefined) {
+        this['cert_content_sign'] = certContentSign;
+    }
+    public get certContentSign(): string | undefined {
+        return this['cert_content_sign'];
+    }
+    public withPrivateKeySign(privateKeySign: string): CertificateForm {
+        this['private_key_sign'] = privateKeySign;
+        return this;
+    }
+    public set privateKeySign(privateKeySign: string  | undefined) {
+        this['private_key_sign'] = privateKeySign;
+    }
+    public get privateKeySign(): string | undefined {
+        return this['private_key_sign'];
+    }
 }
 
 /**
@@ -69,4 +102,13 @@ export class CertificateForm {
 export enum CertificateFormTypeEnum {
     INSTANCE = 'instance',
     GLOBAL = 'global'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CertificateFormAlgorithmTypeEnum {
+    RSA = 'RSA',
+    ECC = 'ECC',
+    SM2 = 'SM2'
 }

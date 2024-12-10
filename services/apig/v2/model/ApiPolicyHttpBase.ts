@@ -7,6 +7,7 @@ export class ApiPolicyHttpBase {
     private 'req_uri'?: string;
     public timeout?: number;
     private 'retry_count'?: string;
+    private 'enable_sm_channel'?: boolean;
     public constructor(reqProtocol?: string, reqMethod?: string, reqUri?: string) { 
         this['req_protocol'] = reqProtocol;
         this['req_method'] = reqMethod;
@@ -65,6 +66,16 @@ export class ApiPolicyHttpBase {
     }
     public get retryCount(): string | undefined {
         return this['retry_count'];
+    }
+    public withEnableSmChannel(enableSmChannel: boolean): ApiPolicyHttpBase {
+        this['enable_sm_channel'] = enableSmChannel;
+        return this;
+    }
+    public set enableSmChannel(enableSmChannel: boolean  | undefined) {
+        this['enable_sm_channel'] = enableSmChannel;
+    }
+    public get enableSmChannel(): boolean | undefined {
+        return this['enable_sm_channel'];
     }
 }
 

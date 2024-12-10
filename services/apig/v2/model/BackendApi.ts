@@ -13,6 +13,7 @@ export class BackendApi {
     public timeout?: number;
     private 'enable_client_ssl'?: boolean;
     private 'retry_count'?: string;
+    private 'enable_sm_channel'?: boolean;
     public id?: string;
     public status?: number;
     private 'register_time'?: Date;
@@ -106,6 +107,16 @@ export class BackendApi {
     }
     public get retryCount(): string | undefined {
         return this['retry_count'];
+    }
+    public withEnableSmChannel(enableSmChannel: boolean): BackendApi {
+        this['enable_sm_channel'] = enableSmChannel;
+        return this;
+    }
+    public set enableSmChannel(enableSmChannel: boolean  | undefined) {
+        this['enable_sm_channel'] = enableSmChannel;
+    }
+    public get enableSmChannel(): boolean | undefined {
+        return this['enable_sm_channel'];
     }
     public withId(id: string): BackendApi {
         this['id'] = id;

@@ -1,3 +1,4 @@
+import { SslInfo } from './SslInfo';
 
 
 export class UrlDomain {
@@ -11,6 +12,7 @@ export class UrlDomain {
     private 'is_has_trusted_root_ca'?: boolean;
     private 'ingress_http_port'?: number;
     private 'ingress_https_port'?: number;
+    private 'ssl_infos'?: Array<SslInfo>;
     public constructor() { 
     }
     public withId(id: string): UrlDomain {
@@ -100,6 +102,16 @@ export class UrlDomain {
     }
     public get ingressHttpsPort(): number | undefined {
         return this['ingress_https_port'];
+    }
+    public withSslInfos(sslInfos: Array<SslInfo>): UrlDomain {
+        this['ssl_infos'] = sslInfos;
+        return this;
+    }
+    public set sslInfos(sslInfos: Array<SslInfo>  | undefined) {
+        this['ssl_infos'] = sslInfos;
+    }
+    public get sslInfos(): Array<SslInfo> | undefined {
+        return this['ssl_infos'];
     }
 }
 

@@ -1,4 +1,5 @@
 import { MicroServiceInfoCCE } from './MicroServiceInfoCCE';
+import { MicroServiceInfoCCEService } from './MicroServiceInfoCCEService';
 import { MicroServiceInfoCSE } from './MicroServiceInfoCSE';
 import { MicroServiceInfoNacosBase } from './MicroServiceInfoNacosBase';
 
@@ -9,6 +10,7 @@ export class MicroServiceInfo {
     private 'service_type'?: MicroServiceInfoServiceTypeEnum | string;
     private 'cse_info'?: MicroServiceInfoCSE;
     private 'cce_info'?: MicroServiceInfoCCE;
+    private 'cce_service_info'?: MicroServiceInfoCCEService;
     private 'nacos_info'?: MicroServiceInfoNacosBase;
     private 'update_time'?: Date;
     private 'create_time'?: Date;
@@ -57,6 +59,16 @@ export class MicroServiceInfo {
     }
     public get cceInfo(): MicroServiceInfoCCE | undefined {
         return this['cce_info'];
+    }
+    public withCceServiceInfo(cceServiceInfo: MicroServiceInfoCCEService): MicroServiceInfo {
+        this['cce_service_info'] = cceServiceInfo;
+        return this;
+    }
+    public set cceServiceInfo(cceServiceInfo: MicroServiceInfoCCEService  | undefined) {
+        this['cce_service_info'] = cceServiceInfo;
+    }
+    public get cceServiceInfo(): MicroServiceInfoCCEService | undefined {
+        return this['cce_service_info'];
     }
     public withNacosInfo(nacosInfo: MicroServiceInfoNacosBase): MicroServiceInfo {
         this['nacos_info'] = nacosInfo;

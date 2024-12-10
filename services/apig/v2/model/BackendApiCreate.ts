@@ -13,6 +13,7 @@ export class BackendApiCreate {
     public timeout?: number;
     private 'enable_client_ssl'?: boolean;
     private 'retry_count'?: string;
+    private 'enable_sm_channel'?: boolean;
     private 'vpc_channel_info'?: ApiBackendVpcReq;
     private 'vpc_channel_status'?: BackendApiCreateVpcChannelStatusEnum | number;
     public constructor(reqProtocol?: string, reqMethod?: string, reqUri?: string, timeout?: number) { 
@@ -102,6 +103,16 @@ export class BackendApiCreate {
     }
     public get retryCount(): string | undefined {
         return this['retry_count'];
+    }
+    public withEnableSmChannel(enableSmChannel: boolean): BackendApiCreate {
+        this['enable_sm_channel'] = enableSmChannel;
+        return this;
+    }
+    public set enableSmChannel(enableSmChannel: boolean  | undefined) {
+        this['enable_sm_channel'] = enableSmChannel;
+    }
+    public get enableSmChannel(): boolean | undefined {
+        return this['enable_sm_channel'];
     }
     public withVpcChannelInfo(vpcChannelInfo: ApiBackendVpcReq): BackendApiCreate {
         this['vpc_channel_info'] = vpcChannelInfo;

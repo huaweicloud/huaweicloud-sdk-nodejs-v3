@@ -3,11 +3,11 @@ import { InstanceCreateReqV2 } from './InstanceCreateReqV2';
 
 export class InstanceOrderReq {
     private 'product_id'?: string;
-    private 'charging_mode'?: number;
-    private 'payment_mode'?: string;
+    private 'charging_mode'?: InstanceOrderReqChargingModeEnum | number;
+    private 'payment_mode'?: InstanceOrderReqPaymentModeEnum | string;
     private 'period_type'?: number;
     private 'period_num'?: number;
-    private 'is_auto_renew'?: number;
+    private 'is_auto_renew'?: InstanceOrderReqIsAutoRenewEnum | number;
     private 'promotion_id'?: string;
     private 'promotion_plan_id'?: string;
     private 'promotion_info'?: string;
@@ -25,24 +25,24 @@ export class InstanceOrderReq {
     public get productId(): string | undefined {
         return this['product_id'];
     }
-    public withChargingMode(chargingMode: number): InstanceOrderReq {
+    public withChargingMode(chargingMode: InstanceOrderReqChargingModeEnum | number): InstanceOrderReq {
         this['charging_mode'] = chargingMode;
         return this;
     }
-    public set chargingMode(chargingMode: number  | undefined) {
+    public set chargingMode(chargingMode: InstanceOrderReqChargingModeEnum | number  | undefined) {
         this['charging_mode'] = chargingMode;
     }
-    public get chargingMode(): number | undefined {
+    public get chargingMode(): InstanceOrderReqChargingModeEnum | number | undefined {
         return this['charging_mode'];
     }
-    public withPaymentMode(paymentMode: string): InstanceOrderReq {
+    public withPaymentMode(paymentMode: InstanceOrderReqPaymentModeEnum | string): InstanceOrderReq {
         this['payment_mode'] = paymentMode;
         return this;
     }
-    public set paymentMode(paymentMode: string  | undefined) {
+    public set paymentMode(paymentMode: InstanceOrderReqPaymentModeEnum | string  | undefined) {
         this['payment_mode'] = paymentMode;
     }
-    public get paymentMode(): string | undefined {
+    public get paymentMode(): InstanceOrderReqPaymentModeEnum | string | undefined {
         return this['payment_mode'];
     }
     public withPeriodType(periodType: number): InstanceOrderReq {
@@ -65,14 +65,14 @@ export class InstanceOrderReq {
     public get periodNum(): number | undefined {
         return this['period_num'];
     }
-    public withIsAutoRenew(isAutoRenew: number): InstanceOrderReq {
+    public withIsAutoRenew(isAutoRenew: InstanceOrderReqIsAutoRenewEnum | number): InstanceOrderReq {
         this['is_auto_renew'] = isAutoRenew;
         return this;
     }
-    public set isAutoRenew(isAutoRenew: number  | undefined) {
+    public set isAutoRenew(isAutoRenew: InstanceOrderReqIsAutoRenewEnum | number  | undefined) {
         this['is_auto_renew'] = isAutoRenew;
     }
-    public get isAutoRenew(): number | undefined {
+    public get isAutoRenew(): InstanceOrderReqIsAutoRenewEnum | number | undefined {
         return this['is_auto_renew'];
     }
     public withPromotionId(promotionId: string): InstanceOrderReq {
@@ -125,4 +125,28 @@ export class InstanceOrderReq {
     public get instanceInfo(): InstanceCreateReqV2 | undefined {
         return this['instance_info'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum InstanceOrderReqChargingModeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum InstanceOrderReqPaymentModeEnum {
+    ALL_UPFRONT = 'ALL_UPFRONT'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum InstanceOrderReqIsAutoRenewEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

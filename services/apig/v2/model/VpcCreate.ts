@@ -11,6 +11,7 @@ export class VpcCreate {
     private 'balance_strategy'?: VpcCreateBalanceStrategyEnum | number;
     private 'member_type'?: VpcCreateMemberTypeEnum | string;
     public type?: number;
+    private 'vpc_channel_type'?: VpcCreateVpcChannelTypeEnum | string;
     private 'dict_code'?: string;
     private 'member_groups'?: Array<MemberGroupCreate>;
     public members?: Array<MemberInfo>;
@@ -53,6 +54,16 @@ export class VpcCreate {
     public withType(type: number): VpcCreate {
         this['type'] = type;
         return this;
+    }
+    public withVpcChannelType(vpcChannelType: VpcCreateVpcChannelTypeEnum | string): VpcCreate {
+        this['vpc_channel_type'] = vpcChannelType;
+        return this;
+    }
+    public set vpcChannelType(vpcChannelType: VpcCreateVpcChannelTypeEnum | string  | undefined) {
+        this['vpc_channel_type'] = vpcChannelType;
+    }
+    public get vpcChannelType(): VpcCreateVpcChannelTypeEnum | string | undefined {
+        return this['vpc_channel_type'];
     }
     public withDictCode(dictCode: string): VpcCreate {
         this['dict_code'] = dictCode;
@@ -117,4 +128,13 @@ export enum VpcCreateBalanceStrategyEnum {
 export enum VpcCreateMemberTypeEnum {
     IP = 'ip',
     ECS = 'ecs'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VpcCreateVpcChannelTypeEnum {
+    BUILTIN = 'builtin',
+    MICROSERVICE = 'microservice',
+    REFERENCE = 'reference'
 }

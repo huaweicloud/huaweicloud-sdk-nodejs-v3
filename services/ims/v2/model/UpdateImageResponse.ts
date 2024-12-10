@@ -62,6 +62,8 @@ export class UpdateImageResponse extends SdkResponse {
     private '__support_agent_list'?: string;
     private '__image_displayname'?: string;
     private '__support_amd'?: string;
+    private '__support_kvm_hi1822_hisriov'?: string;
+    private '__support_kvm_hi1822_hivirtionet'?: string;
     public constructor() { 
         super();
     }
@@ -598,6 +600,26 @@ export class UpdateImageResponse extends SdkResponse {
     }
     public get supportAmd(): string | undefined {
         return this['__support_amd'];
+    }
+    public withSupportKvmHi1822Hisriov(supportKvmHi1822Hisriov: string): UpdateImageResponse {
+        this['__support_kvm_hi1822_hisriov'] = supportKvmHi1822Hisriov;
+        return this;
+    }
+    public set supportKvmHi1822Hisriov(supportKvmHi1822Hisriov: string  | undefined) {
+        this['__support_kvm_hi1822_hisriov'] = supportKvmHi1822Hisriov;
+    }
+    public get supportKvmHi1822Hisriov(): string | undefined {
+        return this['__support_kvm_hi1822_hisriov'];
+    }
+    public withSupportKvmHi1822Hivirtionet(supportKvmHi1822Hivirtionet: string): UpdateImageResponse {
+        this['__support_kvm_hi1822_hivirtionet'] = supportKvmHi1822Hivirtionet;
+        return this;
+    }
+    public set supportKvmHi1822Hivirtionet(supportKvmHi1822Hivirtionet: string  | undefined) {
+        this['__support_kvm_hi1822_hivirtionet'] = supportKvmHi1822Hivirtionet;
+    }
+    public get supportKvmHi1822Hivirtionet(): string | undefined {
+        return this['__support_kvm_hi1822_hivirtionet'];
     }
 }
 

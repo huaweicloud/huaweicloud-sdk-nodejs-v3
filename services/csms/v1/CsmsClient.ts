@@ -10,6 +10,9 @@ import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTags
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyRequestBody } from './model/CreateAgencyRequestBody';
 import { CreateAgencyResponse } from './model/CreateAgencyResponse';
+import { CreateGrantsRequest } from './model/CreateGrantsRequest';
+import { CreateGrantsResponse } from './model/CreateGrantsResponse';
+import { CreatePasswordRequestBody } from './model/CreatePasswordRequestBody';
 import { CreateSecretEventRequest } from './model/CreateSecretEventRequest';
 import { CreateSecretEventRequestBody } from './model/CreateSecretEventRequestBody';
 import { CreateSecretEventResponse } from './model/CreateSecretEventResponse';
@@ -22,6 +25,8 @@ import { CreateSecretTagResponse } from './model/CreateSecretTagResponse';
 import { CreateSecretVersionRequest } from './model/CreateSecretVersionRequest';
 import { CreateSecretVersionRequestBody } from './model/CreateSecretVersionRequestBody';
 import { CreateSecretVersionResponse } from './model/CreateSecretVersionResponse';
+import { DeleteGrantRequest } from './model/DeleteGrantRequest';
+import { DeleteGrantResponse } from './model/DeleteGrantResponse';
 import { DeleteSecretEventRequest } from './model/DeleteSecretEventRequest';
 import { DeleteSecretEventResponse } from './model/DeleteSecretEventResponse';
 import { DeleteSecretForScheduleRequest } from './model/DeleteSecretForScheduleRequest';
@@ -36,6 +41,14 @@ import { DeleteSecretTagResponse } from './model/DeleteSecretTagResponse';
 import { DownloadSecretBlobRequest } from './model/DownloadSecretBlobRequest';
 import { DownloadSecretBlobResponse } from './model/DownloadSecretBlobResponse';
 import { Event } from './model/Event';
+import { GenerateRandomPasswordRequest } from './model/GenerateRandomPasswordRequest';
+import { GenerateRandomPasswordResponse } from './model/GenerateRandomPasswordResponse';
+import { GrantDTO } from './model/GrantDTO';
+import { GrantData } from './model/GrantData';
+import { GrantSecretReqBody } from './model/GrantSecretReqBody';
+import { GrantUserInfo } from './model/GrantUserInfo';
+import { ListGrantsRequest } from './model/ListGrantsRequest';
+import { ListGrantsResponse } from './model/ListGrantsResponse';
 import { ListNotificationRecordsRequest } from './model/ListNotificationRecordsRequest';
 import { ListNotificationRecordsResponse } from './model/ListNotificationRecordsResponse';
 import { ListProjectSecretsTagsRequest } from './model/ListProjectSecretsTagsRequest';
@@ -53,6 +66,8 @@ import { ListSecretVersionsRequest } from './model/ListSecretVersionsRequest';
 import { ListSecretVersionsResponse } from './model/ListSecretVersionsResponse';
 import { ListSecretsRequest } from './model/ListSecretsRequest';
 import { ListSecretsResponse } from './model/ListSecretsResponse';
+import { ListUsersRequest } from './model/ListUsersRequest';
+import { ListUsersResponse } from './model/ListUsersResponse';
 import { Notification } from './model/Notification';
 import { PageInfo } from './model/PageInfo';
 import { Record } from './model/Record';
@@ -80,6 +95,8 @@ import { Tag } from './model/Tag';
 import { TagItem } from './model/TagItem';
 import { TagMatches } from './model/TagMatches';
 import { TagResponse } from './model/TagResponse';
+import { UpdateGrantRequest } from './model/UpdateGrantRequest';
+import { UpdateGrantResponse } from './model/UpdateGrantResponse';
 import { UpdateSecretEventRequest } from './model/UpdateSecretEventRequest';
 import { UpdateSecretEventRequestBody } from './model/UpdateSecretEventRequestBody';
 import { UpdateSecretEventResponse } from './model/UpdateSecretEventResponse';
@@ -95,6 +112,8 @@ import { UpdateVersionResponse } from './model/UpdateVersionResponse';
 import { UploadSecretBlobRequest } from './model/UploadSecretBlobRequest';
 import { UploadSecretBlobRequestBody } from './model/UploadSecretBlobRequestBody';
 import { UploadSecretBlobResponse } from './model/UploadSecretBlobResponse';
+import { UserOrgRelationListResult } from './model/UserOrgRelationListResult';
+import { UsersDetailsResult } from './model/UsersDetailsResult';
 import { Version } from './model/Version';
 import { VersionMetadata } from './model/VersionMetadata';
 
@@ -146,6 +165,25 @@ export class CsmsClient {
      */
     public createAgency(createAgencyRequest?: CreateAgencyRequest): Promise<CreateAgencyResponse> {
         const options = ParamCreater().createAgency(createAgencyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 授权操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 授权操作
+     * @param {GrantSecretReqBody} createGrantsRequestBody 授权入参
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGrants(createGrantsRequest?: CreateGrantsRequest): Promise<CreateGrantsResponse> {
+        const options = ParamCreater().createGrants(createGrantsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -228,6 +266,26 @@ export class CsmsClient {
      */
     public createSecretVersion(createSecretVersionRequest?: CreateSecretVersionRequest): Promise<CreateSecretVersionResponse> {
         const options = ParamCreater().createSecretVersion(createSecretVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除授权
+     * @param {string} resourceId 被授权资源ID
+     * @param {string} [granteeUser] 被授权用户ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGrant(deleteGrantRequest?: DeleteGrantRequest): Promise<DeleteGrantResponse> {
+        const options = ParamCreater().deleteGrant(deleteGrantRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -345,6 +403,43 @@ export class CsmsClient {
      */
     public downloadSecretBlob(downloadSecretBlobRequest?: DownloadSecretBlobRequest): Promise<DownloadSecretBlobResponse> {
         const options = ParamCreater().downloadSecretBlob(downloadSecretBlobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 生成随机密码
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {CreatePasswordRequestBody} [createPasswordRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public generateRandomPassword(generateRandomPasswordRequest?: GenerateRandomPasswordRequest): Promise<GenerateRandomPasswordResponse> {
+        const options = ParamCreater().generateRandomPassword(generateRandomPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 授权列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 授权列表
+     * @param {string} resourceId 资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGrants(listGrantsRequest?: ListGrantsRequest): Promise<ListGrantsResponse> {
+        const options = ParamCreater().listGrants(listGrantsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -513,6 +608,28 @@ export class CsmsClient {
     }
 
     /**
+     * 查询用户列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户列表
+     * @param {number} offset 第几页。最小值：0
+     * @param {number} limit 每页多少条。最小值：10。最大值：100
+     * @param {string} [orgId] 组织id，为空时查询所有用户。
+     * @param {string} [userName] 最长64位，用户名，支持模糊查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUsers(listUsersRequest?: ListUsersRequest): Promise<ListUsersResponse> {
+        const options = ParamCreater().listUsers(listUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 取消凭据的定时删除任务，凭据对象恢复可使用状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -662,6 +779,26 @@ export class CsmsClient {
      */
     public showSecretVersion(showSecretVersionRequest?: ShowSecretVersionRequest): Promise<ShowSecretVersionResponse> {
         const options = ParamCreater().showSecretVersion(showSecretVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新授权
+     * @param {string} resourceId 资源ID
+     * @param {GrantSecretReqBody} updateGrantRequestBody 授权入参
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGrant(updateGrantRequest?: UpdateGrantRequest): Promise<UpdateGrantResponse> {
+        const options = ParamCreater().updateGrant(updateGrantRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -859,6 +996,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 授权操作
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGrants(createGrantsRequest?: CreateGrantsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/csms/grants",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createGrantsRequest !== null && createGrantsRequest !== undefined) {
+                if (createGrantsRequest instanceof CreateGrantsRequest) {
+                    body = createGrantsRequest.body
+                } else {
+                    body = createGrantsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建新的凭据，并将凭据值存入凭据的初始版本。
          * 
          * 凭据管理服务将凭据值加密后，存储在凭据对象下的版本中。每个版本可与多个凭据版本状态相关联，凭据版本状态用于标识凭据版本处于的阶段，没有版本状态标记的版本视为已弃用，可用凭据管理服务自动删除。
@@ -1026,6 +1201,53 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_name': secretName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGrant(deleteGrantRequest?: DeleteGrantRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/csms/grants",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceId;
+            
+            let granteeUser;
+
+            if (deleteGrantRequest !== null && deleteGrantRequest !== undefined) {
+                if (deleteGrantRequest instanceof DeleteGrantRequest) {
+                    resourceId = deleteGrantRequest.resourceId;
+                    granteeUser = deleteGrantRequest.granteeUser;
+                } else {
+                    resourceId = deleteGrantRequest['resource_id'];
+                    granteeUser = deleteGrantRequest['grantee_user'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+                throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteGrant.');
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (granteeUser !== null && granteeUser !== undefined) {
+                localVarQueryParameter['grantee_user'] = granteeUser;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1271,6 +1493,81 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'secret_name': secretName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 生成随机密码
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        generateRandomPassword(generateRandomPasswordRequest?: GenerateRandomPasswordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/csms/generate-password",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (generateRandomPasswordRequest !== null && generateRandomPasswordRequest !== undefined) {
+                if (generateRandomPasswordRequest instanceof GenerateRandomPasswordRequest) {
+                    body = generateRandomPasswordRequest.body
+                } else {
+                    body = generateRandomPasswordRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 授权列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGrants(listGrantsRequest?: ListGrantsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/csms/grants",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceId;
+
+            if (listGrantsRequest !== null && listGrantsRequest !== undefined) {
+                if (listGrantsRequest instanceof ListGrantsRequest) {
+                    resourceId = listGrantsRequest.resourceId;
+                } else {
+                    resourceId = listGrantsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+                throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listGrants.');
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1613,6 +1910,70 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询用户列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUsers(listUsersRequest?: ListUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/csms/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let orgId;
+            
+            let userName;
+
+            if (listUsersRequest !== null && listUsersRequest !== undefined) {
+                if (listUsersRequest instanceof ListUsersRequest) {
+                    offset = listUsersRequest.offset;
+                    limit = listUsersRequest.limit;
+                    orgId = listUsersRequest.orgId;
+                    userName = listUsersRequest.userName;
+                } else {
+                    offset = listUsersRequest['offset'];
+                    limit = listUsersRequest['limit'];
+                    orgId = listUsersRequest['org_id'];
+                    userName = listUsersRequest['user_name'];
+                }
+            }
+
+        
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listUsers.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listUsers.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orgId !== null && orgId !== undefined) {
+                localVarQueryParameter['org_id'] = orgId;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 取消凭据的定时删除任务，凭据对象恢复可使用状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1942,6 +2303,55 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'secret_name': secretName,'version_id': versionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGrant(updateGrantRequest?: UpdateGrantRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/csms/grants",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let resourceId;
+
+            if (updateGrantRequest !== null && updateGrantRequest !== undefined) {
+                if (updateGrantRequest instanceof UpdateGrantRequest) {
+                    resourceId = updateGrantRequest.resourceId;
+                    body = updateGrantRequest.body
+                } else {
+                    resourceId = updateGrantRequest['resource_id'];
+                    body = updateGrantRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+                throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling updateGrant.');
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -6,6 +6,7 @@ export class VpcBase {
     private 'balance_strategy'?: VpcBaseBalanceStrategyEnum | number;
     private 'member_type'?: VpcBaseMemberTypeEnum | string;
     public type?: number;
+    private 'vpc_channel_type'?: VpcBaseVpcChannelTypeEnum | string;
     private 'dict_code'?: string;
     public constructor(name?: string, port?: number, balanceStrategy?: number, memberType?: string) { 
         this['name'] = name;
@@ -45,6 +46,16 @@ export class VpcBase {
         this['type'] = type;
         return this;
     }
+    public withVpcChannelType(vpcChannelType: VpcBaseVpcChannelTypeEnum | string): VpcBase {
+        this['vpc_channel_type'] = vpcChannelType;
+        return this;
+    }
+    public set vpcChannelType(vpcChannelType: VpcBaseVpcChannelTypeEnum | string  | undefined) {
+        this['vpc_channel_type'] = vpcChannelType;
+    }
+    public get vpcChannelType(): VpcBaseVpcChannelTypeEnum | string | undefined {
+        return this['vpc_channel_type'];
+    }
     public withDictCode(dictCode: string): VpcBase {
         this['dict_code'] = dictCode;
         return this;
@@ -74,4 +85,13 @@ export enum VpcBaseBalanceStrategyEnum {
 export enum VpcBaseMemberTypeEnum {
     IP = 'ip',
     ECS = 'ecs'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VpcBaseVpcChannelTypeEnum {
+    BUILTIN = 'builtin',
+    MICROSERVICE = 'microservice',
+    REFERENCE = 'reference'
 }

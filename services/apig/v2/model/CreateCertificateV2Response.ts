@@ -15,6 +15,7 @@ export class CreateCertificateV2Response extends SdkResponse {
     private 'create_time'?: Date;
     private 'update_time'?: Date;
     private 'is_has_trusted_root_ca'?: boolean;
+    private 'algorithm_type'?: CreateCertificateV2ResponseAlgorithmTypeEnum | string;
     public version?: number;
     public organization?: Array<string>;
     private 'organizational_unit'?: Array<string>;
@@ -123,6 +124,16 @@ export class CreateCertificateV2Response extends SdkResponse {
     public get isHasTrustedRootCa(): boolean | undefined {
         return this['is_has_trusted_root_ca'];
     }
+    public withAlgorithmType(algorithmType: CreateCertificateV2ResponseAlgorithmTypeEnum | string): CreateCertificateV2Response {
+        this['algorithm_type'] = algorithmType;
+        return this;
+    }
+    public set algorithmType(algorithmType: CreateCertificateV2ResponseAlgorithmTypeEnum | string  | undefined) {
+        this['algorithm_type'] = algorithmType;
+    }
+    public get algorithmType(): CreateCertificateV2ResponseAlgorithmTypeEnum | string | undefined {
+        return this['algorithm_type'];
+    }
     public withVersion(version: number): CreateCertificateV2Response {
         this['version'] = version;
         return this;
@@ -186,4 +197,13 @@ export class CreateCertificateV2Response extends SdkResponse {
 export enum CreateCertificateV2ResponseTypeEnum {
     GLOBAL = 'global',
     INSTANCE = 'instance'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateCertificateV2ResponseAlgorithmTypeEnum {
+    RSA = 'RSA',
+    ECC = 'ECC',
+    SM2 = 'SM2'
 }

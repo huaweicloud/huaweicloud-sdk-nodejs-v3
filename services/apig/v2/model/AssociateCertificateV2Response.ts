@@ -1,3 +1,4 @@
+import { SslInfo } from './SslInfo';
 import { UrlDomainBaseInfo } from './UrlDomainBaseInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -13,6 +14,7 @@ export class AssociateCertificateV2Response extends SdkResponse {
     private 'ingress_https_port'?: number;
     private 'ssl_name'?: string;
     private 'ssl_id'?: string;
+    private 'ssl_infos'?: Array<SslInfo>;
     public constructor(urlDomain?: string, id?: string, status?: number, minSslVersion?: string, sslName?: string, sslId?: string) { 
         super();
         this['url_domain'] = urlDomain;
@@ -109,6 +111,16 @@ export class AssociateCertificateV2Response extends SdkResponse {
     }
     public get sslId(): string | undefined {
         return this['ssl_id'];
+    }
+    public withSslInfos(sslInfos: Array<SslInfo>): AssociateCertificateV2Response {
+        this['ssl_infos'] = sslInfos;
+        return this;
+    }
+    public set sslInfos(sslInfos: Array<SslInfo>  | undefined) {
+        this['ssl_infos'] = sslInfos;
+    }
+    public get sslInfos(): Array<SslInfo> | undefined {
+        return this['ssl_infos'];
     }
 }
 

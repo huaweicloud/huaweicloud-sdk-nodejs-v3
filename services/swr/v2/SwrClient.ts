@@ -20,6 +20,9 @@ import { CreateRepoDomainsResponse } from './model/CreateRepoDomainsResponse';
 import { CreateRepoRequest } from './model/CreateRepoRequest';
 import { CreateRepoRequestBody } from './model/CreateRepoRequestBody';
 import { CreateRepoResponse } from './model/CreateRepoResponse';
+import { CreateRepoTagRequest } from './model/CreateRepoTagRequest';
+import { CreateRepoTagRequestBody } from './model/CreateRepoTagRequestBody';
+import { CreateRepoTagResponse } from './model/CreateRepoTagResponse';
 import { CreateRetentionRequest } from './model/CreateRetentionRequest';
 import { CreateRetentionRequestBody } from './model/CreateRetentionRequestBody';
 import { CreateRetentionResponse } from './model/CreateRetentionResponse';
@@ -73,6 +76,7 @@ import { ListSharedReposDetailsRequest } from './model/ListSharedReposDetailsReq
 import { ListSharedReposDetailsResponse } from './model/ListSharedReposDetailsResponse';
 import { ListTriggersDetailsRequest } from './model/ListTriggersDetailsRequest';
 import { ListTriggersDetailsResponse } from './model/ListTriggersDetailsResponse';
+import { ReportData } from './model/ReportData';
 import { Retention } from './model/Retention';
 import { RetentionLog } from './model/RetentionLog';
 import { Rule } from './model/Rule';
@@ -80,6 +84,10 @@ import { ShowAccessDomainRequest } from './model/ShowAccessDomainRequest';
 import { ShowAccessDomainResponse } from './model/ShowAccessDomainResponse';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowDomainOverviewRequest } from './model/ShowDomainOverviewRequest';
+import { ShowDomainOverviewResponse } from './model/ShowDomainOverviewResponse';
+import { ShowDomainResourceReportsRequest } from './model/ShowDomainResourceReportsRequest';
+import { ShowDomainResourceReportsResponse } from './model/ShowDomainResourceReportsResponse';
 import { ShowNamespace } from './model/ShowNamespace';
 import { ShowNamespaceAuthRequest } from './model/ShowNamespaceAuthRequest';
 import { ShowNamespaceAuthResponse } from './model/ShowNamespaceAuthResponse';
@@ -93,6 +101,8 @@ import { ShowRepositoryRequest } from './model/ShowRepositoryRequest';
 import { ShowRepositoryResponse } from './model/ShowRepositoryResponse';
 import { ShowRetentionRequest } from './model/ShowRetentionRequest';
 import { ShowRetentionResponse } from './model/ShowRetentionResponse';
+import { ShowShareFeatureGatesRequest } from './model/ShowShareFeatureGatesRequest';
+import { ShowShareFeatureGatesResponse } from './model/ShowShareFeatureGatesResponse';
 import { ShowSyncJobRequest } from './model/ShowSyncJobRequest';
 import { ShowSyncJobResponse } from './model/ShowSyncJobResponse';
 import { ShowTriggerRequest } from './model/ShowTriggerRequest';
@@ -260,6 +270,28 @@ export class SwrClient {
      */
     public createRepoDomains(createRepoDomainsRequest?: CreateRepoDomainsRequest): Promise<CreateRepoDomainsResponse> {
         const options = ParamCreater().createRepoDomains(createRepoDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建镜像tag
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建镜像tag
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} repository 镜像仓库名称
+     * @param {CreateRepoTagRequestBody} createRepoTagRequestBody 创建镜像tag需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRepoTag(createRepoTagRequest?: CreateRepoTagRequest): Promise<CreateRepoTagResponse> {
+        const options = ParamCreater().createRepoTag(createRepoTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -797,6 +829,46 @@ export class SwrClient {
     }
 
     /**
+     * 获取租户总览信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取租户总览信息
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainOverview(showDomainOverviewRequest?: ShowDomainOverviewRequest): Promise<ShowDomainOverviewResponse> {
+        const options = ParamCreater().showDomainOverview(showDomainOverviewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取租户资源统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取租户资源统计信息
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {'downflow' | 'store'} resourceType 资源类型
+     * @param {'daily'} frequency 频率类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainResourceReports(showDomainResourceReportsRequest?: ShowDomainResourceReportsRequest): Promise<ShowDomainResourceReportsResponse> {
+        const options = ParamCreater().showDomainResourceReports(showDomainResourceReportsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取组织详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -872,6 +944,24 @@ export class SwrClient {
      */
     public showRetention(showRetentionRequest?: ShowRetentionRequest): Promise<ShowRetentionResponse> {
         const options = ParamCreater().showRetention(showRetentionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询服务特性开关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务特性开关信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showShareFeatureGates(showShareFeatureGatesRequest?: ShowShareFeatureGatesRequest): Promise<ShowShareFeatureGatesResponse> {
+        const options = ParamCreater().showShareFeatureGates();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1437,6 +1527,66 @@ export const ParamCreater = function () {
             }
             if (repository === null || repository === undefined) {
             throw new RequiredError('repository','Required parameter repository was null or undefined when calling createRepoDomains.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'namespace': namespace,'repository': repository, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建镜像tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRepoTag(createRepoTagRequest?: CreateRepoTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/manage/namespaces/{namespace}/repos/{repository}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let namespace;
+            
+            let repository;
+
+            if (createRepoTagRequest !== null && createRepoTagRequest !== undefined) {
+                if (createRepoTagRequest instanceof CreateRepoTagRequest) {
+                    contentType = createRepoTagRequest.contentType;
+                    namespace = createRepoTagRequest.namespace;
+                    repository = createRepoTagRequest.repository;
+                    body = createRepoTagRequest.body
+                } else {
+                    contentType = createRepoTagRequest['Content-Type'];
+                    namespace = createRepoTagRequest['namespace'];
+                    repository = createRepoTagRequest['repository'];
+                    body = createRepoTagRequest['body'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling createRepoTag.');
+            }
+            if (repository === null || repository === undefined) {
+            throw new RequiredError('repository','Required parameter repository was null or undefined when calling createRepoTag.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2868,6 +3018,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取租户总览信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainOverview(showDomainOverviewRequest?: ShowDomainOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/overview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (showDomainOverviewRequest !== null && showDomainOverviewRequest !== undefined) {
+                if (showDomainOverviewRequest instanceof ShowDomainOverviewRequest) {
+                    contentType = showDomainOverviewRequest.contentType;
+                } else {
+                    contentType = showDomainOverviewRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取租户资源统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainResourceReports(showDomainResourceReportsRequest?: ShowDomainResourceReportsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/reports/{resource_type}/{frequency}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let resourceType;
+            
+            let frequency;
+
+            if (showDomainResourceReportsRequest !== null && showDomainResourceReportsRequest !== undefined) {
+                if (showDomainResourceReportsRequest instanceof ShowDomainResourceReportsRequest) {
+                    contentType = showDomainResourceReportsRequest.contentType;
+                    resourceType = showDomainResourceReportsRequest.resourceType;
+                    frequency = showDomainResourceReportsRequest.frequency;
+                } else {
+                    contentType = showDomainResourceReportsRequest['Content-Type'];
+                    resourceType = showDomainResourceReportsRequest['resource_type'];
+                    frequency = showDomainResourceReportsRequest['frequency'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showDomainResourceReports.');
+            }
+            if (frequency === null || frequency === undefined) {
+            throw new RequiredError('frequency','Required parameter frequency was null or undefined when calling showDomainResourceReports.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'frequency': frequency, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取组织详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3060,6 +3297,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'namespace': namespace,'repository': repository,'retention_id': retentionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询服务特性开关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showShareFeatureGates() {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/projects/{project_id}/feature-gates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

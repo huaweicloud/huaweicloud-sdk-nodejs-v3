@@ -13,6 +13,7 @@ export class CertBase {
     private 'create_time'?: Date;
     private 'update_time'?: Date;
     private 'is_has_trusted_root_ca'?: boolean;
+    private 'algorithm_type'?: CertBaseAlgorithmTypeEnum | string;
     public constructor() { 
     }
     public withId(id: string): CertBase {
@@ -111,6 +112,16 @@ export class CertBase {
     public get isHasTrustedRootCa(): boolean | undefined {
         return this['is_has_trusted_root_ca'];
     }
+    public withAlgorithmType(algorithmType: CertBaseAlgorithmTypeEnum | string): CertBase {
+        this['algorithm_type'] = algorithmType;
+        return this;
+    }
+    public set algorithmType(algorithmType: CertBaseAlgorithmTypeEnum | string  | undefined) {
+        this['algorithm_type'] = algorithmType;
+    }
+    public get algorithmType(): CertBaseAlgorithmTypeEnum | string | undefined {
+        return this['algorithm_type'];
+    }
 }
 
 /**
@@ -120,4 +131,13 @@ export class CertBase {
 export enum CertBaseTypeEnum {
     GLOBAL = 'global',
     INSTANCE = 'instance'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CertBaseAlgorithmTypeEnum {
+    RSA = 'RSA',
+    ECC = 'ECC',
+    SM2 = 'SM2'
 }

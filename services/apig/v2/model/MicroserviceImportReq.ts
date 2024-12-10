@@ -1,4 +1,5 @@
 import { MicroServiceInfoCCECreate } from './MicroServiceInfoCCECreate';
+import { MicroServiceInfoCCEServiceCreate } from './MicroServiceInfoCCEServiceCreate';
 import { MicroServiceInfoCSECreate } from './MicroServiceInfoCSECreate';
 import { MicroServiceInfoNacosBase } from './MicroServiceInfoNacosBase';
 import { MicroserviceApiCreate } from './MicroserviceApiCreate';
@@ -15,6 +16,7 @@ export class MicroserviceImportReq {
     public cors?: boolean;
     private 'cse_info'?: MicroServiceInfoCSECreate;
     private 'cce_info'?: MicroServiceInfoCCECreate;
+    private 'cce_service_info'?: MicroServiceInfoCCEServiceCreate;
     private 'nacos_info'?: MicroServiceInfoNacosBase;
     public constructor(groupInfo?: MicroserviceGroup, serviceType?: string, apis?: Array<MicroserviceApiCreate>) { 
         this['group_info'] = groupInfo;
@@ -92,6 +94,16 @@ export class MicroserviceImportReq {
     }
     public get cceInfo(): MicroServiceInfoCCECreate | undefined {
         return this['cce_info'];
+    }
+    public withCceServiceInfo(cceServiceInfo: MicroServiceInfoCCEServiceCreate): MicroserviceImportReq {
+        this['cce_service_info'] = cceServiceInfo;
+        return this;
+    }
+    public set cceServiceInfo(cceServiceInfo: MicroServiceInfoCCEServiceCreate  | undefined) {
+        this['cce_service_info'] = cceServiceInfo;
+    }
+    public get cceServiceInfo(): MicroServiceInfoCCEServiceCreate | undefined {
+        return this['cce_service_info'];
     }
     public withNacosInfo(nacosInfo: MicroServiceInfoNacosBase): MicroserviceImportReq {
         this['nacos_info'] = nacosInfo;

@@ -12,6 +12,7 @@ export class ApiPolicyHttpCreate {
     private 'req_uri'?: string;
     public timeout?: number;
     private 'retry_count'?: string;
+    private 'enable_sm_channel'?: boolean;
     private 'effect_mode'?: ApiPolicyHttpCreateEffectModeEnum | string;
     public name?: string;
     private 'backend_params'?: Array<BackendParamBase>;
@@ -80,6 +81,16 @@ export class ApiPolicyHttpCreate {
     }
     public get retryCount(): string | undefined {
         return this['retry_count'];
+    }
+    public withEnableSmChannel(enableSmChannel: boolean): ApiPolicyHttpCreate {
+        this['enable_sm_channel'] = enableSmChannel;
+        return this;
+    }
+    public set enableSmChannel(enableSmChannel: boolean  | undefined) {
+        this['enable_sm_channel'] = enableSmChannel;
+    }
+    public get enableSmChannel(): boolean | undefined {
+        return this['enable_sm_channel'];
     }
     public withEffectMode(effectMode: ApiPolicyHttpCreateEffectModeEnum | string): ApiPolicyHttpCreate {
         this['effect_mode'] = effectMode;

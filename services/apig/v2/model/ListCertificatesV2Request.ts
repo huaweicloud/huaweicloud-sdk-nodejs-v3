@@ -8,6 +8,7 @@ export class ListCertificatesV2Request {
     private 'signature_algorithm'?: string;
     public type?: ListCertificatesV2RequestTypeEnum | string;
     private 'instance_id'?: string;
+    private 'algorithm_type'?: ListCertificatesV2RequestAlgorithmTypeEnum | string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -57,6 +58,16 @@ export class ListCertificatesV2Request {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
+    public withAlgorithmType(algorithmType: ListCertificatesV2RequestAlgorithmTypeEnum | string): ListCertificatesV2Request {
+        this['algorithm_type'] = algorithmType;
+        return this;
+    }
+    public set algorithmType(algorithmType: ListCertificatesV2RequestAlgorithmTypeEnum | string  | undefined) {
+        this['algorithm_type'] = algorithmType;
+    }
+    public get algorithmType(): ListCertificatesV2RequestAlgorithmTypeEnum | string | undefined {
+        return this['algorithm_type'];
+    }
 }
 
 /**
@@ -66,4 +77,13 @@ export class ListCertificatesV2Request {
 export enum ListCertificatesV2RequestTypeEnum {
     INSTANCE = 'instance',
     GLOBAL = 'global'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCertificatesV2RequestAlgorithmTypeEnum {
+    RSA = 'RSA',
+    ECC = 'ECC',
+    SM2 = 'SM2'
 }

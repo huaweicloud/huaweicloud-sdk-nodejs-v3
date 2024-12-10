@@ -18,6 +18,7 @@ export class ApiPolicyHttpResp {
     private 'req_uri'?: string;
     public timeout?: number;
     private 'retry_count'?: string;
+    private 'enable_sm_channel'?: boolean;
     private 'vpc_channel_info'?: VpcInfo;
     private 'vpc_channel_status'?: number;
     public constructor(effectMode?: string, name?: string, conditions?: Array<CoditionResp>, reqProtocol?: string, reqMethod?: string, reqUri?: string) { 
@@ -123,6 +124,16 @@ export class ApiPolicyHttpResp {
     }
     public get retryCount(): string | undefined {
         return this['retry_count'];
+    }
+    public withEnableSmChannel(enableSmChannel: boolean): ApiPolicyHttpResp {
+        this['enable_sm_channel'] = enableSmChannel;
+        return this;
+    }
+    public set enableSmChannel(enableSmChannel: boolean  | undefined) {
+        this['enable_sm_channel'] = enableSmChannel;
+    }
+    public get enableSmChannel(): boolean | undefined {
+        return this['enable_sm_channel'];
     }
     public withVpcChannelInfo(vpcChannelInfo: VpcInfo): ApiPolicyHttpResp {
         this['vpc_channel_info'] = vpcChannelInfo;

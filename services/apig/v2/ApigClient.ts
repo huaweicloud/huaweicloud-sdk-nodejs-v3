@@ -457,6 +457,9 @@ import { MicroServiceInfo } from './model/MicroServiceInfo';
 import { MicroServiceInfoCCE } from './model/MicroServiceInfoCCE';
 import { MicroServiceInfoCCEBase } from './model/MicroServiceInfoCCEBase';
 import { MicroServiceInfoCCECreate } from './model/MicroServiceInfoCCECreate';
+import { MicroServiceInfoCCEService } from './model/MicroServiceInfoCCEService';
+import { MicroServiceInfoCCEServiceBase } from './model/MicroServiceInfoCCEServiceBase';
+import { MicroServiceInfoCCEServiceCreate } from './model/MicroServiceInfoCCEServiceCreate';
 import { MicroServiceInfoCSE } from './model/MicroServiceInfoCSE';
 import { MicroServiceInfoCSEBase } from './model/MicroServiceInfoCSEBase';
 import { MicroServiceInfoCSECreate } from './model/MicroServiceInfoCSECreate';
@@ -559,6 +562,7 @@ import { SignApiBindingResult } from './model/SignApiBindingResult';
 import { Signature } from './model/Signature';
 import { SignatureWithBindNum } from './model/SignatureWithBindNum';
 import { SlDomainAccessSetting } from './model/SlDomainAccessSetting';
+import { SslInfo } from './model/SslInfo';
 import { StatisticsAPI } from './model/StatisticsAPI';
 import { StatisticsGroup } from './model/StatisticsGroup';
 import { Success } from './model/Success';
@@ -4268,7 +4272,6 @@ export class ApigClient {
      * @param {string} [groupId] API分组编号
      * @param {string} [apiId] API编号
      * @param {string} [apiName] API名称
-     * @param {string} [tags] API标签，该参数可指定多个，多个不同的参数值为或关系；不指定或为空时，表示不筛选标签；指定为#no_tags#时，表示筛选无标签API。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4916,6 +4919,7 @@ export class ApigClient {
      * @param {string} [commonName] 证书域名
      * @param {string} [signatureAlgorithm] 证书签名算法
      * @param {'instance' | 'global'} [type] 证书可见范围
+     * @param {'RSA' | 'ECC' | 'SM2'} [algorithmType] 证书算法类型： - RSA。 - ECC。 - SM2。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4972,6 +4976,8 @@ export class ApigClient {
      * 
      * 如果指定地址的后端实例已存在，则更新对应后端实例信息。如果请求体中包含多个重复地址的后端实例定义，则使用第一个定义。
      * 
+     * 引用负载通道类型的负载通道不支持添加或更新后端实例。
+     * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加或更新后端实例
@@ -4993,6 +4999,8 @@ export class ApigClient {
     /**
      * 批量修改后端服务器状态不可用。
      * 
+     * 引用负载通道类型的负载通道不支持修改后端服务器状态不可用。
+     * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改后端服务器状态不可用
@@ -5013,6 +5021,8 @@ export class ApigClient {
 
     /**
      * 批量修改后端服务器状态可用。
+     * 
+     * 引用负载通道类型的负载通道不支持修改后端服务器状态可用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5078,6 +5088,8 @@ export class ApigClient {
 
     /**
      * 删除指定VPC通道中的后端实例
+     * 
+     * 引用负载通道类型的负载通道不支持删除后端实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5206,6 +5218,7 @@ export class ApigClient {
      * @param {number} [memberPort] 后端服务器端口
      * @param {string} [memberGroupName] 后端服务器组名称
      * @param {string} [memberGroupId] 后端服务器组编号
+     * @param {'builtin' | 'microservice' | 'reference'} [vpcChannelType] vpc通道类型： - builtin：服务器类型 - microservice： 微服务类型 - reference：引用负载通道类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5261,6 +5274,8 @@ export class ApigClient {
 
     /**
      * 更新指定的VPC通道的后端实例。更新时，使用传入的请求参数对对应云服务组的后端实例进行全量覆盖修改。如果未指定修改的云服务器组，则进行全量覆盖。
+     * 
+     * 引用负载通道类型的负载通道不支持更新后端实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -14263,8 +14278,6 @@ export const ParamCreater = function () {
             let apiId;
             
             let apiName;
-            
-            let tags;
 
             if (listApisBindedToRequestThrottlingPolicyV2Request !== null && listApisBindedToRequestThrottlingPolicyV2Request !== undefined) {
                 if (listApisBindedToRequestThrottlingPolicyV2Request instanceof ListApisBindedToRequestThrottlingPolicyV2Request) {
@@ -14276,7 +14289,6 @@ export const ParamCreater = function () {
                     groupId = listApisBindedToRequestThrottlingPolicyV2Request.groupId;
                     apiId = listApisBindedToRequestThrottlingPolicyV2Request.apiId;
                     apiName = listApisBindedToRequestThrottlingPolicyV2Request.apiName;
-                    tags = listApisBindedToRequestThrottlingPolicyV2Request.tags;
                 } else {
                     instanceId = listApisBindedToRequestThrottlingPolicyV2Request['instance_id'];
                     throttleId = listApisBindedToRequestThrottlingPolicyV2Request['throttle_id'];
@@ -14286,7 +14298,6 @@ export const ParamCreater = function () {
                     groupId = listApisBindedToRequestThrottlingPolicyV2Request['group_id'];
                     apiId = listApisBindedToRequestThrottlingPolicyV2Request['api_id'];
                     apiName = listApisBindedToRequestThrottlingPolicyV2Request['api_name'];
-                    tags = listApisBindedToRequestThrottlingPolicyV2Request['tags'];
                 }
             }
 
@@ -14317,9 +14328,6 @@ export const ParamCreater = function () {
             }
             if (apiName !== null && apiName !== undefined) {
                 localVarQueryParameter['api_name'] = apiName;
-            }
-            if (tags !== null && tags !== undefined) {
-                localVarQueryParameter['tags'] = tags;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -16175,6 +16183,8 @@ export const ParamCreater = function () {
             let signatureAlgorithm;
             
             let type;
+            
+            let algorithmType;
 
             if (listCertificatesV2Request !== null && listCertificatesV2Request !== undefined) {
                 if (listCertificatesV2Request instanceof ListCertificatesV2Request) {
@@ -16185,6 +16195,7 @@ export const ParamCreater = function () {
                     commonName = listCertificatesV2Request.commonName;
                     signatureAlgorithm = listCertificatesV2Request.signatureAlgorithm;
                     type = listCertificatesV2Request.type;
+                    algorithmType = listCertificatesV2Request.algorithmType;
                 } else {
                     instanceId = listCertificatesV2Request['instance_id'];
                     offset = listCertificatesV2Request['offset'];
@@ -16193,6 +16204,7 @@ export const ParamCreater = function () {
                     commonName = listCertificatesV2Request['common_name'];
                     signatureAlgorithm = listCertificatesV2Request['signature_algorithm'];
                     type = listCertificatesV2Request['type'];
+                    algorithmType = listCertificatesV2Request['algorithm_type'];
                 }
             }
 
@@ -16220,6 +16232,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -16315,6 +16330,8 @@ export const ParamCreater = function () {
          * 
          * 如果指定地址的后端实例已存在，则更新对应后端实例信息。如果请求体中包含多个重复地址的后端实例定义，则使用第一个定义。
          * 
+         * 引用负载通道类型的负载通道不支持添加或更新后端实例。
+         * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         addingBackendInstancesV2(addingBackendInstancesV2Request?: AddingBackendInstancesV2Request) {
@@ -16368,6 +16385,8 @@ export const ParamCreater = function () {
         /**
          * 批量修改后端服务器状态不可用。
          * 
+         * 引用负载通道类型的负载通道不支持修改后端服务器状态不可用。
+         * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDisableMembers(batchDisableMembersRequest?: BatchDisableMembersRequest) {
@@ -16420,6 +16439,8 @@ export const ParamCreater = function () {
     
         /**
          * 批量修改后端服务器状态可用。
+         * 
+         * 引用负载通道类型的负载通道不支持修改后端服务器状态可用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16575,6 +16596,8 @@ export const ParamCreater = function () {
     
         /**
          * 删除指定VPC通道中的后端实例
+         * 
+         * 引用负载通道类型的负载通道不支持删除后端实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16924,6 +16947,8 @@ export const ParamCreater = function () {
             let memberGroupName;
             
             let memberGroupId;
+            
+            let vpcChannelType;
 
             if (listVpcChannelsV2Request !== null && listVpcChannelsV2Request !== undefined) {
                 if (listVpcChannelsV2Request instanceof ListVpcChannelsV2Request) {
@@ -16938,6 +16963,7 @@ export const ParamCreater = function () {
                     memberPort = listVpcChannelsV2Request.memberPort;
                     memberGroupName = listVpcChannelsV2Request.memberGroupName;
                     memberGroupId = listVpcChannelsV2Request.memberGroupId;
+                    vpcChannelType = listVpcChannelsV2Request.vpcChannelType;
                 } else {
                     instanceId = listVpcChannelsV2Request['instance_id'];
                     offset = listVpcChannelsV2Request['offset'];
@@ -16950,6 +16976,7 @@ export const ParamCreater = function () {
                     memberPort = listVpcChannelsV2Request['member_port'];
                     memberGroupName = listVpcChannelsV2Request['member_group_name'];
                     memberGroupId = listVpcChannelsV2Request['member_group_id'];
+                    vpcChannelType = listVpcChannelsV2Request['vpc_channel_type'];
                 }
             }
 
@@ -16986,6 +17013,9 @@ export const ParamCreater = function () {
             }
             if (memberGroupId !== null && memberGroupId !== undefined) {
                 localVarQueryParameter['member_group_id'] = memberGroupId;
+            }
+            if (vpcChannelType !== null && vpcChannelType !== undefined) {
+                localVarQueryParameter['vpc_channel_type'] = vpcChannelType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -17091,6 +17121,8 @@ export const ParamCreater = function () {
     
         /**
          * 更新指定的VPC通道的后端实例。更新时，使用传入的请求参数对对应云服务组的后端实例进行全量覆盖修改。如果未指定修改的云服务器组，则进行全量覆盖。
+         * 
+         * 引用负载通道类型的负载通道不支持更新后端实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

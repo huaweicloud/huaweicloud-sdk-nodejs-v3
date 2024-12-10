@@ -10,6 +10,7 @@ export class CreateVpcChannelV2Response extends SdkResponse {
     private 'balance_strategy'?: CreateVpcChannelV2ResponseBalanceStrategyEnum | number;
     private 'member_type'?: CreateVpcChannelV2ResponseMemberTypeEnum | string;
     public type?: number;
+    private 'vpc_channel_type'?: CreateVpcChannelV2ResponseVpcChannelTypeEnum | string;
     private 'dict_code'?: string;
     private 'create_time'?: Date;
     public id?: string;
@@ -54,6 +55,16 @@ export class CreateVpcChannelV2Response extends SdkResponse {
     public withType(type: number): CreateVpcChannelV2Response {
         this['type'] = type;
         return this;
+    }
+    public withVpcChannelType(vpcChannelType: CreateVpcChannelV2ResponseVpcChannelTypeEnum | string): CreateVpcChannelV2Response {
+        this['vpc_channel_type'] = vpcChannelType;
+        return this;
+    }
+    public set vpcChannelType(vpcChannelType: CreateVpcChannelV2ResponseVpcChannelTypeEnum | string  | undefined) {
+        this['vpc_channel_type'] = vpcChannelType;
+    }
+    public get vpcChannelType(): CreateVpcChannelV2ResponseVpcChannelTypeEnum | string | undefined {
+        return this['vpc_channel_type'];
     }
     public withDictCode(dictCode: string): CreateVpcChannelV2Response {
         this['dict_code'] = dictCode;
@@ -122,6 +133,15 @@ export enum CreateVpcChannelV2ResponseBalanceStrategyEnum {
 export enum CreateVpcChannelV2ResponseMemberTypeEnum {
     IP = 'ip',
     ECS = 'ecs'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateVpcChannelV2ResponseVpcChannelTypeEnum {
+    BUILTIN = 'builtin',
+    MICROSERVICE = 'microservice',
+    REFERENCE = 'reference'
 }
 /**
     * @export

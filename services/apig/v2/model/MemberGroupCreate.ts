@@ -9,6 +9,7 @@ export class MemberGroupCreate {
     private 'microservice_version'?: string;
     private 'microservice_port'?: number;
     private 'microservice_labels'?: Array<MicroserviceLabel>;
+    private 'reference_vpc_channel_id'?: string;
     public constructor(memberGroupName?: string) { 
         this['member_group_name'] = memberGroupName;
     }
@@ -81,5 +82,15 @@ export class MemberGroupCreate {
     }
     public get microserviceLabels(): Array<MicroserviceLabel> | undefined {
         return this['microservice_labels'];
+    }
+    public withReferenceVpcChannelId(referenceVpcChannelId: string): MemberGroupCreate {
+        this['reference_vpc_channel_id'] = referenceVpcChannelId;
+        return this;
+    }
+    public set referenceVpcChannelId(referenceVpcChannelId: string  | undefined) {
+        this['reference_vpc_channel_id'] = referenceVpcChannelId;
+    }
+    public get referenceVpcChannelId(): string | undefined {
+        return this['reference_vpc_channel_id'];
     }
 }

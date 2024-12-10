@@ -103,7 +103,8 @@ export enum PluginInfoPluginTypeEnum {
     BREAKER = 'breaker',
     RATE_LIMIT = 'rate_limit',
     THIRD_AUTH = 'third_auth',
-    PROXY_CACHE = 'proxy_cache'
+    PROXY_CACHE = 'proxy_cache',
+    PROXY_MIRROR = 'proxy_mirror'
 }
 /**
     * @export
