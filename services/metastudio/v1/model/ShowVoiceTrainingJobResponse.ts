@@ -27,6 +27,7 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     private 'dhtms_job_id'?: string;
     private 'batch_name'?: string;
     private 'allocated_resource'?: VoiceTrainingAllocatedResource;
+    private 'output_language'?: string;
     public constructor() { 
         super();
     }
@@ -199,5 +200,15 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     }
     public get allocatedResource(): VoiceTrainingAllocatedResource | undefined {
         return this['allocated_resource'];
+    }
+    public withOutputLanguage(outputLanguage: string): ShowVoiceTrainingJobResponse {
+        this['output_language'] = outputLanguage;
+        return this;
+    }
+    public set outputLanguage(outputLanguage: string  | undefined) {
+        this['output_language'] = outputLanguage;
+    }
+    public get outputLanguage(): string | undefined {
+        return this['output_language'];
     }
 }

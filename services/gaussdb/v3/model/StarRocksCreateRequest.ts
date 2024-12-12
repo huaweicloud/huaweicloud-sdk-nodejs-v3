@@ -2,6 +2,7 @@ import { StarRocksCreateRequestBeVolume } from './StarRocksCreateRequestBeVolume
 import { StarRocksCreateRequestEngine } from './StarRocksCreateRequestEngine';
 import { StarRocksCreateRequestFeVolume } from './StarRocksCreateRequestFeVolume';
 import { StarRocksCreateRequestHa } from './StarRocksCreateRequestHa';
+import { StarRocksCreateRequestPayInfo } from './StarRocksCreateRequestPayInfo';
 import { StarRocksCreateRequestTagsInfo } from './StarRocksCreateRequestTagsInfo';
 
 
@@ -21,6 +22,8 @@ export class StarRocksCreateRequest {
     private 'time_zone'?: string;
     private 'tags_info'?: StarRocksCreateRequestTagsInfo;
     private 'security_group_id'?: string;
+    private 'pay_info'?: StarRocksCreateRequestPayInfo;
+    private 'region_code'?: string;
     public constructor(name?: string, engine?: StarRocksCreateRequestEngine, ha?: StarRocksCreateRequestHa, feFlavorId?: string, beFlavorId?: string, dbRootPwd?: string, feCount?: number, beCount?: number, azMode?: string, feVolume?: StarRocksCreateRequestFeVolume, beVolume?: StarRocksCreateRequestBeVolume, azCode?: string, tagsInfo?: StarRocksCreateRequestTagsInfo) { 
         this['name'] = name;
         this['engine'] = engine;
@@ -167,6 +170,26 @@ export class StarRocksCreateRequest {
     }
     public get securityGroupId(): string | undefined {
         return this['security_group_id'];
+    }
+    public withPayInfo(payInfo: StarRocksCreateRequestPayInfo): StarRocksCreateRequest {
+        this['pay_info'] = payInfo;
+        return this;
+    }
+    public set payInfo(payInfo: StarRocksCreateRequestPayInfo  | undefined) {
+        this['pay_info'] = payInfo;
+    }
+    public get payInfo(): StarRocksCreateRequestPayInfo | undefined {
+        return this['pay_info'];
+    }
+    public withRegionCode(regionCode: string): StarRocksCreateRequest {
+        this['region_code'] = regionCode;
+        return this;
+    }
+    public set regionCode(regionCode: string  | undefined) {
+        this['region_code'] = regionCode;
+    }
+    public get regionCode(): string | undefined {
+        return this['region_code'];
     }
 }
 

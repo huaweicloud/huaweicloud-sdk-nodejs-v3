@@ -22,6 +22,14 @@ export class AccessConfigDeatilUpdate {
     public includeK8sLabels?: { [key: string]: string; };
     public excludeK8sLabels?: { [key: string]: string; };
     public logK8s?: { [key: string]: string; };
+    private 'system_fields'?: Array<string>;
+    private 'custom_key_value'?: { [key: string]: string; };
+    public includeLabelsLogical?: string;
+    public excludeLabelsLogical?: string;
+    public includeK8sLabelsLogical?: string;
+    public excludeK8sLabelsLogical?: string;
+    public includeEnvsLogical?: string;
+    public excludeEnvsLogical?: string;
     public constructor() { 
     }
     public withPaths(paths: Array<string>): AccessConfigDeatilUpdate {
@@ -110,6 +118,50 @@ export class AccessConfigDeatilUpdate {
     }
     public withLogK8s(logK8s: { [key: string]: string; }): AccessConfigDeatilUpdate {
         this['logK8s'] = logK8s;
+        return this;
+    }
+    public withSystemFields(systemFields: Array<string>): AccessConfigDeatilUpdate {
+        this['system_fields'] = systemFields;
+        return this;
+    }
+    public set systemFields(systemFields: Array<string>  | undefined) {
+        this['system_fields'] = systemFields;
+    }
+    public get systemFields(): Array<string> | undefined {
+        return this['system_fields'];
+    }
+    public withCustomKeyValue(customKeyValue: { [key: string]: string; }): AccessConfigDeatilUpdate {
+        this['custom_key_value'] = customKeyValue;
+        return this;
+    }
+    public set customKeyValue(customKeyValue: { [key: string]: string; }  | undefined) {
+        this['custom_key_value'] = customKeyValue;
+    }
+    public get customKeyValue(): { [key: string]: string; } | undefined {
+        return this['custom_key_value'];
+    }
+    public withIncludeLabelsLogical(includeLabelsLogical: string): AccessConfigDeatilUpdate {
+        this['includeLabelsLogical'] = includeLabelsLogical;
+        return this;
+    }
+    public withExcludeLabelsLogical(excludeLabelsLogical: string): AccessConfigDeatilUpdate {
+        this['excludeLabelsLogical'] = excludeLabelsLogical;
+        return this;
+    }
+    public withIncludeK8sLabelsLogical(includeK8sLabelsLogical: string): AccessConfigDeatilUpdate {
+        this['includeK8sLabelsLogical'] = includeK8sLabelsLogical;
+        return this;
+    }
+    public withExcludeK8sLabelsLogical(excludeK8sLabelsLogical: string): AccessConfigDeatilUpdate {
+        this['excludeK8sLabelsLogical'] = excludeK8sLabelsLogical;
+        return this;
+    }
+    public withIncludeEnvsLogical(includeEnvsLogical: string): AccessConfigDeatilUpdate {
+        this['includeEnvsLogical'] = includeEnvsLogical;
+        return this;
+    }
+    public withExcludeEnvsLogical(excludeEnvsLogical: string): AccessConfigDeatilUpdate {
+        this['excludeEnvsLogical'] = excludeEnvsLogical;
         return this;
     }
 }

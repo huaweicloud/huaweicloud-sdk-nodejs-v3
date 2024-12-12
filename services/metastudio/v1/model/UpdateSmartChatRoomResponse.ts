@@ -1,5 +1,6 @@
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
 import { ChatSubtitleConfig } from './ChatSubtitleConfig';
+import { ChatVoiceConfig } from './ChatVoiceConfig';
 import { CreateSmartChatRoomReq } from './CreateSmartChatRoomReq';
 import { LayerConfig } from './LayerConfig';
 import { ReviewConfig } from './ReviewConfig';
@@ -14,8 +15,10 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     private 'video_config'?: VideoConfig;
     private 'model_asset_id'?: string;
     private 'voice_config'?: VoiceConfig;
+    private 'voice_config_list'?: Array<ChatVoiceConfig>;
     private 'robot_id'?: string;
     public concurrency?: number;
+    private 'default_language'?: UpdateSmartChatRoomResponseDefaultLanguageEnum | string;
     private 'background_config'?: BackgroundConfigInfo;
     private 'layer_config'?: Array<LayerConfig>;
     private 'review_config'?: ReviewConfig;
@@ -80,6 +83,16 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     public get voiceConfig(): VoiceConfig | undefined {
         return this['voice_config'];
     }
+    public withVoiceConfigList(voiceConfigList: Array<ChatVoiceConfig>): UpdateSmartChatRoomResponse {
+        this['voice_config_list'] = voiceConfigList;
+        return this;
+    }
+    public set voiceConfigList(voiceConfigList: Array<ChatVoiceConfig>  | undefined) {
+        this['voice_config_list'] = voiceConfigList;
+    }
+    public get voiceConfigList(): Array<ChatVoiceConfig> | undefined {
+        return this['voice_config_list'];
+    }
     public withRobotId(robotId: string): UpdateSmartChatRoomResponse {
         this['robot_id'] = robotId;
         return this;
@@ -93,6 +106,16 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     public withConcurrency(concurrency: number): UpdateSmartChatRoomResponse {
         this['concurrency'] = concurrency;
         return this;
+    }
+    public withDefaultLanguage(defaultLanguage: UpdateSmartChatRoomResponseDefaultLanguageEnum | string): UpdateSmartChatRoomResponse {
+        this['default_language'] = defaultLanguage;
+        return this;
+    }
+    public set defaultLanguage(defaultLanguage: UpdateSmartChatRoomResponseDefaultLanguageEnum | string  | undefined) {
+        this['default_language'] = defaultLanguage;
+    }
+    public get defaultLanguage(): UpdateSmartChatRoomResponseDefaultLanguageEnum | string | undefined {
+        return this['default_language'];
     }
     public withBackgroundConfig(backgroundConfig: BackgroundConfigInfo): UpdateSmartChatRoomResponse {
         this['background_config'] = backgroundConfig;
@@ -196,6 +219,14 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateSmartChatRoomResponseDefaultLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
+}
 /**
     * @export
     * @enum {string}

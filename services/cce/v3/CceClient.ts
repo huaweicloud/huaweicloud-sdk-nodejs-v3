@@ -464,9 +464,6 @@ import { StorageGroups } from './model/StorageGroups';
 import { StorageSelectors } from './model/StorageSelectors';
 import { StorageSelectorsMatchLabels } from './model/StorageSelectorsMatchLabels';
 import { SupportVersions } from './model/SupportVersions';
-import { SyncNodePoolRequest } from './model/SyncNodePoolRequest';
-import { SyncNodePoolResp } from './model/SyncNodePoolResp';
-import { SyncNodePoolResponse } from './model/SyncNodePoolResponse';
 import { SyncNodeRequest } from './model/SyncNodeRequest';
 import { SyncNodeResp } from './model/SyncNodeResp';
 import { SyncNodeResponse } from './model/SyncNodeResponse';
@@ -2154,27 +2151,6 @@ export class CceClient {
      */
     public syncNode(syncNodeRequest?: SyncNodeRequest): Promise<SyncNodeResponse> {
         const options = ParamCreater().syncNode(syncNodeRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于同步nodePool配置到存量节点。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 同步nodePool配置到存量节点
-     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType 消息体的类型（格式）
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public syncNodePool(syncNodePoolRequest?: SyncNodePoolRequest): Promise<SyncNodePoolResponse> {
-        const options = ParamCreater().syncNodePool(syncNodePoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7275,57 +7251,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'node_id': nodeId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于同步nodePool配置到存量节点。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        syncNodePool(syncNodePoolRequest?: SyncNodePoolRequest) {
-            const options = {
-                method: "PUT",
-                url: "/api/v3.1/projects/{project_id}/clusters/{cluster_id}/nodepool/{nodepool_id}/sync",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let clusterId;
-            
-            let nodepoolId;
-            
-            let contentType;
-
-            if (syncNodePoolRequest !== null && syncNodePoolRequest !== undefined) {
-                if (syncNodePoolRequest instanceof SyncNodePoolRequest) {
-                    clusterId = syncNodePoolRequest.clusterId;
-                    nodepoolId = syncNodePoolRequest.nodepoolId;
-                    contentType = syncNodePoolRequest.contentType;
-                } else {
-                    clusterId = syncNodePoolRequest['cluster_id'];
-                    nodepoolId = syncNodePoolRequest['nodepool_id'];
-                    contentType = syncNodePoolRequest['Content-Type'];
-                }
-            }
-
-        
-            if (clusterId === null || clusterId === undefined) {
-            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling syncNodePool.');
-            }
-            if (nodepoolId === null || nodepoolId === undefined) {
-            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling syncNodePool.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-
-            options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

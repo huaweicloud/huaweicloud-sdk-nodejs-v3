@@ -1,5 +1,6 @@
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
 import { ChatSubtitleConfig } from './ChatSubtitleConfig';
+import { ChatVoiceConfig } from './ChatVoiceConfig';
 import { LayerConfig } from './LayerConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { VideoConfig } from './VideoConfig';
@@ -12,8 +13,10 @@ export class CreateSmartChatRoomReq {
     private 'video_config'?: VideoConfig;
     private 'model_asset_id'?: string;
     private 'voice_config'?: VoiceConfig;
+    private 'voice_config_list'?: Array<ChatVoiceConfig>;
     private 'robot_id'?: string;
     public concurrency?: number;
+    private 'default_language'?: CreateSmartChatRoomReqDefaultLanguageEnum | string;
     private 'background_config'?: BackgroundConfigInfo;
     private 'layer_config'?: Array<LayerConfig>;
     private 'review_config'?: ReviewConfig;
@@ -72,6 +75,16 @@ export class CreateSmartChatRoomReq {
     public get voiceConfig(): VoiceConfig | undefined {
         return this['voice_config'];
     }
+    public withVoiceConfigList(voiceConfigList: Array<ChatVoiceConfig>): CreateSmartChatRoomReq {
+        this['voice_config_list'] = voiceConfigList;
+        return this;
+    }
+    public set voiceConfigList(voiceConfigList: Array<ChatVoiceConfig>  | undefined) {
+        this['voice_config_list'] = voiceConfigList;
+    }
+    public get voiceConfigList(): Array<ChatVoiceConfig> | undefined {
+        return this['voice_config_list'];
+    }
     public withRobotId(robotId: string): CreateSmartChatRoomReq {
         this['robot_id'] = robotId;
         return this;
@@ -85,6 +98,16 @@ export class CreateSmartChatRoomReq {
     public withConcurrency(concurrency: number): CreateSmartChatRoomReq {
         this['concurrency'] = concurrency;
         return this;
+    }
+    public withDefaultLanguage(defaultLanguage: CreateSmartChatRoomReqDefaultLanguageEnum | string): CreateSmartChatRoomReq {
+        this['default_language'] = defaultLanguage;
+        return this;
+    }
+    public set defaultLanguage(defaultLanguage: CreateSmartChatRoomReqDefaultLanguageEnum | string  | undefined) {
+        this['default_language'] = defaultLanguage;
+    }
+    public get defaultLanguage(): CreateSmartChatRoomReqDefaultLanguageEnum | string | undefined {
+        return this['default_language'];
     }
     public withBackgroundConfig(backgroundConfig: BackgroundConfigInfo): CreateSmartChatRoomReq {
         this['background_config'] = backgroundConfig;
@@ -138,6 +161,14 @@ export class CreateSmartChatRoomReq {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSmartChatRoomReqDefaultLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
+}
 /**
     * @export
     * @enum {string}

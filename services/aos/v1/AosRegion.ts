@@ -16,6 +16,7 @@ export class AosRegion {
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://rfs.ap-southeast-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://rfs.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://rfs.ap-southeast-4.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://rfs.my-kualalumpur-1.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://rfs.me-east-1.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://rfs.tr-west-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://rfs.la-south-2.myhuaweicloud.com"]);
@@ -40,6 +41,7 @@ export class AosRegion {
         "ap-southeast-2":AosRegion.AP_SOUTHEAST_2,
         "ap-southeast-1":AosRegion.AP_SOUTHEAST_1,
         "ap-southeast-4":AosRegion.AP_SOUTHEAST_4,
+        "my-kualalumpur-1":AosRegion.MY_KUALALUMPUR_1,
         "me-east-1":AosRegion.ME_EAST_1,
         "tr-west-1":AosRegion.TR_WEST_1,
         "la-south-2":AosRegion.LA_SOUTH_2,

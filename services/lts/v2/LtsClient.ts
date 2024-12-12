@@ -162,6 +162,7 @@ import { LTSAccessConfigInfoRespon200 } from './model/LTSAccessConfigInfoRespon2
 import { LTSFieldsInfo } from './model/LTSFieldsInfo';
 import { LTSFullTextIndexInfo } from './model/LTSFullTextIndexInfo';
 import { LTSIndexConfigInfo } from './model/LTSIndexConfigInfo';
+import { LTSSubFieldsInfo } from './model/LTSSubFieldsInfo';
 import { ListAccessConfigRequest } from './model/ListAccessConfigRequest';
 import { ListAccessConfigResponse } from './model/ListAccessConfigResponse';
 import { ListActiveOrHistoryAlarmsRequest } from './model/ListActiveOrHistoryAlarmsRequest';
@@ -185,6 +186,9 @@ import { ListHostRequest } from './model/ListHostRequest';
 import { ListHostResponse } from './model/ListHostResponse';
 import { ListKeywordsAlarmRulesRequest } from './model/ListKeywordsAlarmRulesRequest';
 import { ListKeywordsAlarmRulesResponse } from './model/ListKeywordsAlarmRulesResponse';
+import { ListLogContextRequest } from './model/ListLogContextRequest';
+import { ListLogContextRequestBody } from './model/ListLogContextRequestBody';
+import { ListLogContextResponse } from './model/ListLogContextResponse';
 import { ListLogGroupsRequest } from './model/ListLogGroupsRequest';
 import { ListLogGroupsResponse } from './model/ListLogGroupsResponse';
 import { ListLogHistogramRequest } from './model/ListLogHistogramRequest';
@@ -1155,6 +1159,28 @@ export class LtsClient {
      */
     public listKeywordsAlarmRules(listKeywordsAlarmRulesRequest?: ListKeywordsAlarmRulesRequest): Promise<ListKeywordsAlarmRulesResponse> {
         const options = ParamCreater().listKeywordsAlarmRules(listKeywordsAlarmRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询上下文日志 该接口用于查询指定日志前（上文）后（下文）的若干条日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询上下文日志
+     * @param {string} logGroupId 日志组ID，获取方式请参见：[获取项目ID，获取账号ID，日志组ID、日志流ID](lts_api_0006.xml)
+     * @param {string} logStreamId 日志流ID，获取方式请参见：[获取项目ID，获取账号ID，日志组ID、日志流ID](lts_api_0006.xml)
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {ListLogContextRequestBody} listLogContextRequestBody 查询上下文日志的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogContext(listLogContextRequest?: ListLogContextRequest): Promise<ListLogContextResponse> {
+        const options = ParamCreater().listLogContext(listLogContextRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4132,6 +4158,66 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询上下文日志 该接口用于查询指定日志前（上文）后（下文）的若干条日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogContext(listLogContextRequest?: ListLogContextRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/groups/{log_group_id}/streams/{log_stream_id}/context",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let logGroupId;
+            
+            let logStreamId;
+            
+            let contentType;
+
+            if (listLogContextRequest !== null && listLogContextRequest !== undefined) {
+                if (listLogContextRequest instanceof ListLogContextRequest) {
+                    logGroupId = listLogContextRequest.logGroupId;
+                    logStreamId = listLogContextRequest.logStreamId;
+                    contentType = listLogContextRequest.contentType;
+                    body = listLogContextRequest.body
+                } else {
+                    logGroupId = listLogContextRequest['log_group_id'];
+                    logStreamId = listLogContextRequest['log_stream_id'];
+                    contentType = listLogContextRequest['Content-Type'];
+                    body = listLogContextRequest['body'];
+                }
+            }
+
+        
+            if (logGroupId === null || logGroupId === undefined) {
+            throw new RequiredError('logGroupId','Required parameter logGroupId was null or undefined when calling listLogContext.');
+            }
+            if (logStreamId === null || logStreamId === undefined) {
+            throw new RequiredError('logStreamId','Required parameter logStreamId was null or undefined when calling listLogContext.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'log_group_id': logGroupId,'log_stream_id': logStreamId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -4,7 +4,7 @@ export class ListUsersRequest {
     private 'org_id'?: string;
     public offset?: number;
     public limit?: number;
-    private 'user_name'?: string;
+    private 'user_info'?: string;
     public constructor(offset?: number, limit?: number) { 
         this['offset'] = offset;
         this['limit'] = limit;
@@ -27,14 +27,14 @@ export class ListUsersRequest {
         this['limit'] = limit;
         return this;
     }
-    public withUserName(userName: string): ListUsersRequest {
-        this['user_name'] = userName;
+    public withUserInfo(userInfo: string): ListUsersRequest {
+        this['user_info'] = userInfo;
         return this;
     }
-    public set userName(userName: string  | undefined) {
-        this['user_name'] = userName;
+    public set userInfo(userInfo: string  | undefined) {
+        this['user_info'] = userInfo;
     }
-    public get userName(): string | undefined {
-        return this['user_name'];
+    public get userInfo(): string | undefined {
+        return this['user_info'];
     }
 }

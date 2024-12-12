@@ -35,6 +35,7 @@ export class ElbRegion {
     public static AF_NORTH_1 = new Region("af-north-1", ["https://elb.af-north-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://elb.cn-east-5.myhuaweicloud.com"]);
     public static RU_NORTHWEST_2 = new Region("ru-northwest-2", ["https://elb.ru-northwest-2.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://elb.ap-southeast-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -66,7 +67,8 @@ export class ElbRegion {
         "cn-east-4":ElbRegion.CN_EAST_4,
         "af-north-1":ElbRegion.AF_NORTH_1,
         "cn-east-5":ElbRegion.CN_EAST_5,
-        "ru-northwest-2":ElbRegion.RU_NORTHWEST_2
+        "ru-northwest-2":ElbRegion.RU_NORTHWEST_2,
+        "ap-southeast-5":ElbRegion.AP_SOUTHEAST_5
     };
   
     public static valueOf(regionId: string) {

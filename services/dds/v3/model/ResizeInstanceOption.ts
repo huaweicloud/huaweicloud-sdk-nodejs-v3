@@ -3,9 +3,9 @@
 export class ResizeInstanceOption {
     private 'target_type'?: ResizeInstanceOptionTargetTypeEnum | string;
     private 'target_id'?: string;
+    private 'target_ids'?: Array<string>;
     private 'target_spec_code'?: string;
-    public constructor(targetId?: string, targetSpecCode?: string) { 
-        this['target_id'] = targetId;
+    public constructor(targetSpecCode?: string) { 
         this['target_spec_code'] = targetSpecCode;
     }
     public withTargetType(targetType: ResizeInstanceOptionTargetTypeEnum | string): ResizeInstanceOption {
@@ -27,6 +27,16 @@ export class ResizeInstanceOption {
     }
     public get targetId(): string | undefined {
         return this['target_id'];
+    }
+    public withTargetIds(targetIds: Array<string>): ResizeInstanceOption {
+        this['target_ids'] = targetIds;
+        return this;
+    }
+    public set targetIds(targetIds: Array<string>  | undefined) {
+        this['target_ids'] = targetIds;
+    }
+    public get targetIds(): Array<string> | undefined {
+        return this['target_ids'];
     }
     public withTargetSpecCode(targetSpecCode: string): ResizeInstanceOption {
         this['target_spec_code'] = targetSpecCode;

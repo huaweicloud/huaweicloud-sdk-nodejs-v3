@@ -36,6 +36,7 @@ import { CancelPhotoDigitalHumanVideoRequest } from './model/CancelPhotoDigitalH
 import { CancelPhotoDigitalHumanVideoResponse } from './model/CancelPhotoDigitalHumanVideoResponse';
 import { ChardMode } from './model/ChardMode';
 import { ChatSubtitleConfig } from './model/ChatSubtitleConfig';
+import { ChatVoiceConfig } from './model/ChatVoiceConfig';
 import { CoStreamerConfig } from './model/CoStreamerConfig';
 import { CommentData } from './model/CommentData';
 import { CommentLogInfo } from './model/CommentLogInfo';
@@ -337,6 +338,7 @@ import { LiveEventReportRequest } from './model/LiveEventReportRequest';
 import { LiveEventReportResponse } from './model/LiveEventReportResponse';
 import { LiveJobLog } from './model/LiveJobLog';
 import { LivePlatformInfo } from './model/LivePlatformInfo';
+import { LiveRoomEventCallBackConfig } from './model/LiveRoomEventCallBackConfig';
 import { LiveRoomInteractionConfig } from './model/LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './model/LiveRoomInteractionRuleInfo';
 import { LiveShootScriptItem } from './model/LiveShootScriptItem';
@@ -542,6 +544,7 @@ import { UpdateActiveCodeResponse } from './model/UpdateActiveCodeResponse';
 import { UpdateBatchKnowledgeQuestionReq } from './model/UpdateBatchKnowledgeQuestionReq';
 import { UpdateBatchKnowledgeQuestionRequest } from './model/UpdateBatchKnowledgeQuestionRequest';
 import { UpdateBatchKnowledgeQuestionResponse } from './model/UpdateBatchKnowledgeQuestionResponse';
+import { UpdateCustomPlatformAuthConfig } from './model/UpdateCustomPlatformAuthConfig';
 import { UpdateDigitalAssetRequest } from './model/UpdateDigitalAssetRequest';
 import { UpdateDigitalAssetRequestBody } from './model/UpdateDigitalAssetRequestBody';
 import { UpdateDigitalAssetResponse } from './model/UpdateDigitalAssetResponse';
@@ -567,6 +570,7 @@ import { UpdateKnowledgeQuestionResponse } from './model/UpdateKnowledgeQuestion
 import { UpdateKnowledgeSkillReq } from './model/UpdateKnowledgeSkillReq';
 import { UpdateKnowledgeSkillRequest } from './model/UpdateKnowledgeSkillRequest';
 import { UpdateKnowledgeSkillResponse } from './model/UpdateKnowledgeSkillResponse';
+import { UpdateLivePlatformReq } from './model/UpdateLivePlatformReq';
 import { UpdateLivePlatformRequest } from './model/UpdateLivePlatformRequest';
 import { UpdateLivePlatformResponse } from './model/UpdateLivePlatformResponse';
 import { UpdatePacifyWordsReq } from './model/UpdatePacifyWordsReq';
@@ -613,6 +617,7 @@ import { VideoScriptsShowInfo } from './model/VideoScriptsShowInfo';
 import { VideoScriptsSimpleInfo } from './model/VideoScriptsSimpleInfo';
 import { VoiceCapability } from './model/VoiceCapability';
 import { VoiceConfig } from './model/VoiceConfig';
+import { VoiceConfigRsp } from './model/VoiceConfigRsp';
 import { VoiceLanguage } from './model/VoiceLanguage';
 import { VoiceModelAssetMeta } from './model/VoiceModelAssetMeta';
 import { VoiceProperties } from './model/VoiceProperties';
@@ -2358,7 +2363,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {CreateLivePlatformReq} [createLivePlatformRequestBody] 直播事件回调接口
+     * @param {CreateLivePlatformReq} [createLivePlatformRequestBody] 创建自定义第三方直播平台接口
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2477,7 +2482,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {CreateLivePlatformReq} [createLivePlatformRequestBody] 直播事件回调接口
+     * @param {UpdateLivePlatformReq} [updateLivePlatformRequestBody] 直播事件回调接口
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4417,7 +4422,7 @@ export class MetaStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建TTS语音异步任务
+     * @summary 创建TTS异步任务
      * @param {CreateAsyncTtsJobRequestBody} createAsyncTtsJobRequestBody 创建文本转音频文件请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -4468,7 +4473,7 @@ export class MetaStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取音频语音文件
+     * @summary 获取TTS异步任务
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。

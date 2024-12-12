@@ -576,6 +576,7 @@ export * from './model/StarRocksCreateRequestBeVolume';
 export * from './model/StarRocksCreateRequestEngine';
 export * from './model/StarRocksCreateRequestFeVolume';
 export * from './model/StarRocksCreateRequestHa';
+export * from './model/StarRocksCreateRequestPayInfo';
 export * from './model/StarRocksCreateRequestTagsInfo';
 export * from './model/StarRocksCreateRequestTagsInfoSysTags';
 export * from './model/StarRocksDatabaseUserInfo';

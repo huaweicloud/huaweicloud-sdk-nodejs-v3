@@ -7,6 +7,8 @@ export class ImageAssetMeta {
     public height?: number;
     public size?: number;
     public mode?: ImageAssetMetaModeEnum | string;
+    private 'frame_rate'?: string;
+    public duration?: number;
     private 'error_info'?: ErrorResponse;
     public constructor() { 
     }
@@ -28,6 +30,20 @@ export class ImageAssetMeta {
     }
     public withMode(mode: ImageAssetMetaModeEnum | string): ImageAssetMeta {
         this['mode'] = mode;
+        return this;
+    }
+    public withFrameRate(frameRate: string): ImageAssetMeta {
+        this['frame_rate'] = frameRate;
+        return this;
+    }
+    public set frameRate(frameRate: string  | undefined) {
+        this['frame_rate'] = frameRate;
+    }
+    public get frameRate(): string | undefined {
+        return this['frame_rate'];
+    }
+    public withDuration(duration: number): ImageAssetMeta {
+        this['duration'] = duration;
         return this;
     }
     public withErrorInfo(errorInfo: ErrorResponse): ImageAssetMeta {

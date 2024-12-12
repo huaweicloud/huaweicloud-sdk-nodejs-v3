@@ -26,6 +26,7 @@ export class TrainingJobInfo {
     private 'dhtms_job_id'?: string;
     private 'batch_name'?: string;
     private 'allocated_resource'?: VoiceTrainingAllocatedResource;
+    private 'output_language'?: string;
     public constructor() { 
     }
     public withJobType(jobType: JobType): TrainingJobInfo {
@@ -197,5 +198,15 @@ export class TrainingJobInfo {
     }
     public get allocatedResource(): VoiceTrainingAllocatedResource | undefined {
         return this['allocated_resource'];
+    }
+    public withOutputLanguage(outputLanguage: string): TrainingJobInfo {
+        this['output_language'] = outputLanguage;
+        return this;
+    }
+    public set outputLanguage(outputLanguage: string  | undefined) {
+        this['output_language'] = outputLanguage;
+    }
+    public get outputLanguage(): string | undefined {
+        return this['output_language'];
     }
 }

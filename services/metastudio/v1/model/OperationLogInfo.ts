@@ -5,6 +5,7 @@ export class OperationLogInfo {
     private 'log_type'?: OperationLogInfoLogTypeEnum | string;
     private 'log_description'?: string;
     private 'operate_user'?: OperationLogInfoOperateUserEnum | string;
+    private 'error_code'?: string;
     public constructor() { 
     }
     public withOperateTime(operateTime: string): OperationLogInfo {
@@ -46,6 +47,16 @@ export class OperationLogInfo {
     }
     public get operateUser(): OperationLogInfoOperateUserEnum | string | undefined {
         return this['operate_user'];
+    }
+    public withErrorCode(errorCode: string): OperationLogInfo {
+        this['error_code'] = errorCode;
+        return this;
+    }
+    public set errorCode(errorCode: string  | undefined) {
+        this['error_code'] = errorCode;
+    }
+    public get errorCode(): string | undefined {
+        return this['error_code'];
     }
 }
 

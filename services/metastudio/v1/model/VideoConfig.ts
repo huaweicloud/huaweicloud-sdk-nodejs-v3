@@ -13,6 +13,7 @@ export class VideoConfig {
     public dx?: number;
     public dy?: number;
     private 'is_enable_super_resolution'?: boolean;
+    private 'is_end_at_first_frame'?: boolean;
     public constructor(codec?: string, bitrate?: number, width?: number, height?: number) { 
         this['codec'] = codec;
         this['bitrate'] = bitrate;
@@ -92,6 +93,16 @@ export class VideoConfig {
     }
     public get isEnableSuperResolution(): boolean | undefined {
         return this['is_enable_super_resolution'];
+    }
+    public withIsEndAtFirstFrame(isEndAtFirstFrame: boolean): VideoConfig {
+        this['is_end_at_first_frame'] = isEndAtFirstFrame;
+        return this;
+    }
+    public set isEndAtFirstFrame(isEndAtFirstFrame: boolean  | undefined) {
+        this['is_end_at_first_frame'] = isEndAtFirstFrame;
+    }
+    public get isEndAtFirstFrame(): boolean | undefined {
+        return this['is_end_at_first_frame'];
     }
 }
 

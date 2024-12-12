@@ -22,6 +22,15 @@ export class AccessConfigDeatilCreate {
     public includeK8sLabels?: { [key: string]: string; };
     public excludeK8sLabels?: { [key: string]: string; };
     public logK8s?: { [key: string]: string; };
+    private 'repeat_collect'?: boolean;
+    private 'system_fields'?: Array<string>;
+    private 'custom_key_value'?: { [key: string]: string; };
+    public includeLabelsLogical?: string;
+    public excludeLabelsLogical?: string;
+    public includeK8sLabelsLogical?: string;
+    public excludeK8sLabelsLogical?: string;
+    public includeEnvsLogical?: string;
+    public excludeEnvsLogical?: string;
     public constructor(format?: AccessConfigFormatCreate) { 
         this['format'] = format;
     }
@@ -111,6 +120,60 @@ export class AccessConfigDeatilCreate {
     }
     public withLogK8s(logK8s: { [key: string]: string; }): AccessConfigDeatilCreate {
         this['logK8s'] = logK8s;
+        return this;
+    }
+    public withRepeatCollect(repeatCollect: boolean): AccessConfigDeatilCreate {
+        this['repeat_collect'] = repeatCollect;
+        return this;
+    }
+    public set repeatCollect(repeatCollect: boolean  | undefined) {
+        this['repeat_collect'] = repeatCollect;
+    }
+    public get repeatCollect(): boolean | undefined {
+        return this['repeat_collect'];
+    }
+    public withSystemFields(systemFields: Array<string>): AccessConfigDeatilCreate {
+        this['system_fields'] = systemFields;
+        return this;
+    }
+    public set systemFields(systemFields: Array<string>  | undefined) {
+        this['system_fields'] = systemFields;
+    }
+    public get systemFields(): Array<string> | undefined {
+        return this['system_fields'];
+    }
+    public withCustomKeyValue(customKeyValue: { [key: string]: string; }): AccessConfigDeatilCreate {
+        this['custom_key_value'] = customKeyValue;
+        return this;
+    }
+    public set customKeyValue(customKeyValue: { [key: string]: string; }  | undefined) {
+        this['custom_key_value'] = customKeyValue;
+    }
+    public get customKeyValue(): { [key: string]: string; } | undefined {
+        return this['custom_key_value'];
+    }
+    public withIncludeLabelsLogical(includeLabelsLogical: string): AccessConfigDeatilCreate {
+        this['includeLabelsLogical'] = includeLabelsLogical;
+        return this;
+    }
+    public withExcludeLabelsLogical(excludeLabelsLogical: string): AccessConfigDeatilCreate {
+        this['excludeLabelsLogical'] = excludeLabelsLogical;
+        return this;
+    }
+    public withIncludeK8sLabelsLogical(includeK8sLabelsLogical: string): AccessConfigDeatilCreate {
+        this['includeK8sLabelsLogical'] = includeK8sLabelsLogical;
+        return this;
+    }
+    public withExcludeK8sLabelsLogical(excludeK8sLabelsLogical: string): AccessConfigDeatilCreate {
+        this['excludeK8sLabelsLogical'] = excludeK8sLabelsLogical;
+        return this;
+    }
+    public withIncludeEnvsLogical(includeEnvsLogical: string): AccessConfigDeatilCreate {
+        this['includeEnvsLogical'] = includeEnvsLogical;
+        return this;
+    }
+    public withExcludeEnvsLogical(excludeEnvsLogical: string): AccessConfigDeatilCreate {
+        this['excludeEnvsLogical'] = excludeEnvsLogical;
         return this;
     }
 }

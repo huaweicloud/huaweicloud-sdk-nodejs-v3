@@ -578,6 +578,7 @@ import { StarRocksCreateRequestBeVolume } from './model/StarRocksCreateRequestBe
 import { StarRocksCreateRequestEngine } from './model/StarRocksCreateRequestEngine';
 import { StarRocksCreateRequestFeVolume } from './model/StarRocksCreateRequestFeVolume';
 import { StarRocksCreateRequestHa } from './model/StarRocksCreateRequestHa';
+import { StarRocksCreateRequestPayInfo } from './model/StarRocksCreateRequestPayInfo';
 import { StarRocksCreateRequestTagsInfo } from './model/StarRocksCreateRequestTagsInfo';
 import { StarRocksCreateRequestTagsInfoSysTags } from './model/StarRocksCreateRequestTagsInfoSysTags';
 import { StarRocksDatabaseUserInfo } from './model/StarRocksDatabaseUserInfo';

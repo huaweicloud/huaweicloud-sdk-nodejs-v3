@@ -1,4 +1,4 @@
-import { CreateLivePlatformReq } from './CreateLivePlatformReq';
+import { UpdateLivePlatformReq } from './UpdateLivePlatformReq';
 
 
 export class UpdateLivePlatformRequest {
@@ -7,7 +7,7 @@ export class UpdateLivePlatformRequest {
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
     private 'platform_id'?: string;
-    public body?: CreateLivePlatformReq;
+    public body?: UpdateLivePlatformReq;
     public constructor(platformId?: string) { 
         this['platform_id'] = platformId;
     }
@@ -61,7 +61,7 @@ export class UpdateLivePlatformRequest {
     public get platformId(): string | undefined {
         return this['platform_id'];
     }
-    public withBody(body: CreateLivePlatformReq): UpdateLivePlatformRequest {
+    public withBody(body: UpdateLivePlatformReq): UpdateLivePlatformRequest {
         this['body'] = body;
         return this;
     }

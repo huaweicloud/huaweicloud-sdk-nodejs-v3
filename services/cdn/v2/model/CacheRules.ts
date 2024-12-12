@@ -7,6 +7,7 @@ export class CacheRules {
     private 'ttl_unit'?: string;
     public priority?: number;
     private 'follow_origin'?: string;
+    private 'force_cache'?: string;
     private 'url_parameter_type'?: string;
     private 'url_parameter_value'?: string;
     public constructor(ttlUnit?: string, priority?: number) { 
@@ -60,6 +61,16 @@ export class CacheRules {
     }
     public get followOrigin(): string | undefined {
         return this['follow_origin'];
+    }
+    public withForceCache(forceCache: string): CacheRules {
+        this['force_cache'] = forceCache;
+        return this;
+    }
+    public set forceCache(forceCache: string  | undefined) {
+        this['force_cache'] = forceCache;
+    }
+    public get forceCache(): string | undefined {
+        return this['force_cache'];
     }
     public withUrlParameterType(urlParameterType: string): CacheRules {
         this['url_parameter_type'] = urlParameterType;

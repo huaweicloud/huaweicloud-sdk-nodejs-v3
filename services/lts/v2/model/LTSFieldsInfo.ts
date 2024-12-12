@@ -1,3 +1,4 @@
+import { LTSSubFieldsInfo } from './LTSSubFieldsInfo';
 
 
 export class LTSFieldsInfo {
@@ -8,6 +9,7 @@ export class LTSFieldsInfo {
     public tokenizer?: string;
     public quickAnalysis?: boolean;
     public ascii?: Array<string>;
+    public ltsSubFieldsInfoList?: Array<LTSSubFieldsInfo>;
     public constructor(fieldType?: string, fieldName?: string, tokenizer?: string) { 
         this['fieldType'] = fieldType;
         this['fieldName'] = fieldName;
@@ -41,6 +43,10 @@ export class LTSFieldsInfo {
         this['ascii'] = ascii;
         return this;
     }
+    public withLtsSubFieldsInfoList(ltsSubFieldsInfoList: Array<LTSSubFieldsInfo>): LTSFieldsInfo {
+        this['ltsSubFieldsInfoList'] = ltsSubFieldsInfoList;
+        return this;
+    }
 }
 
 /**
@@ -50,5 +56,6 @@ export class LTSFieldsInfo {
 export enum LTSFieldsInfoFieldTypeEnum {
     STRING = 'string',
     LONG = 'long',
-    FLOAT = 'float'
+    FLOAT = 'float',
+    JSON = 'json'
 }

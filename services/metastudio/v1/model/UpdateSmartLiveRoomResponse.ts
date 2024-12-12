@@ -1,7 +1,7 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
 import { CreateSmartLiveRoomReqBaseInfo } from './CreateSmartLiveRoomReqBaseInfo';
 import { ErrorResponse } from './ErrorResponse';
-import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
+import { LiveRoomEventCallBackConfig } from './LiveRoomEventCallBackConfig';
 import { LiveRoomInteractionConfig } from './LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './LiveRoomInteractionRuleInfo';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
@@ -26,7 +26,7 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     private 'output_urls'?: Array<string>;
     private 'stream_keys'?: Array<string>;
     private 'backup_model_asset_ids'?: Array<string>;
-    private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'live_event_callback_config'?: LiveRoomEventCallBackConfig;
     private 'rtc_callback_config'?: RTCLiveEventCallBackConfig;
     private 'review_config'?: ReviewConfig;
     private 'shared_config'?: SharedConfig;
@@ -156,14 +156,14 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     public get backupModelAssetIds(): Array<string> | undefined {
         return this['backup_model_asset_ids'];
     }
-    public withLiveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig): UpdateSmartLiveRoomResponse {
+    public withLiveEventCallbackConfig(liveEventCallbackConfig: LiveRoomEventCallBackConfig): UpdateSmartLiveRoomResponse {
         this['live_event_callback_config'] = liveEventCallbackConfig;
         return this;
     }
-    public set liveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig  | undefined) {
+    public set liveEventCallbackConfig(liveEventCallbackConfig: LiveRoomEventCallBackConfig  | undefined) {
         this['live_event_callback_config'] = liveEventCallbackConfig;
     }
-    public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
+    public get liveEventCallbackConfig(): LiveRoomEventCallBackConfig | undefined {
         return this['live_event_callback_config'];
     }
     public withRtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig): UpdateSmartLiveRoomResponse {

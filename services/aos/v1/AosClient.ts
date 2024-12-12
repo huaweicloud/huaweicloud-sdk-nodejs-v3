@@ -29,6 +29,12 @@ import { CreatePrivateHookResponse } from './model/CreatePrivateHookResponse';
 import { CreatePrivateHookVersionRequest } from './model/CreatePrivateHookVersionRequest';
 import { CreatePrivateHookVersionRequestBody } from './model/CreatePrivateHookVersionRequestBody';
 import { CreatePrivateHookVersionResponse } from './model/CreatePrivateHookVersionResponse';
+import { CreatePrivateModuleRequest } from './model/CreatePrivateModuleRequest';
+import { CreatePrivateModuleRequestBody } from './model/CreatePrivateModuleRequestBody';
+import { CreatePrivateModuleResponse } from './model/CreatePrivateModuleResponse';
+import { CreatePrivateModuleVersionRequest } from './model/CreatePrivateModuleVersionRequest';
+import { CreatePrivateModuleVersionRequestBody } from './model/CreatePrivateModuleVersionRequestBody';
+import { CreatePrivateModuleVersionResponse } from './model/CreatePrivateModuleVersionResponse';
 import { CreatePrivateProviderRequest } from './model/CreatePrivateProviderRequest';
 import { CreatePrivateProviderRequestBody } from './model/CreatePrivateProviderRequestBody';
 import { CreatePrivateProviderResponse } from './model/CreatePrivateProviderResponse';
@@ -50,6 +56,10 @@ import { DeletePrivateHookRequest } from './model/DeletePrivateHookRequest';
 import { DeletePrivateHookResponse } from './model/DeletePrivateHookResponse';
 import { DeletePrivateHookVersionRequest } from './model/DeletePrivateHookVersionRequest';
 import { DeletePrivateHookVersionResponse } from './model/DeletePrivateHookVersionResponse';
+import { DeletePrivateModuleRequest } from './model/DeletePrivateModuleRequest';
+import { DeletePrivateModuleResponse } from './model/DeletePrivateModuleResponse';
+import { DeletePrivateModuleVersionRequest } from './model/DeletePrivateModuleVersionRequest';
+import { DeletePrivateModuleVersionResponse } from './model/DeletePrivateModuleVersionResponse';
 import { DeleteStackEnhancedRequest } from './model/DeleteStackEnhancedRequest';
 import { DeleteStackEnhancedRequestBody } from './model/DeleteStackEnhancedRequestBody';
 import { DeleteStackEnhancedResponse } from './model/DeleteStackEnhancedResponse';
@@ -110,6 +120,10 @@ import { ListExecutionPlansRequest } from './model/ListExecutionPlansRequest';
 import { ListExecutionPlansResponse } from './model/ListExecutionPlansResponse';
 import { ListPrivateHooksRequest } from './model/ListPrivateHooksRequest';
 import { ListPrivateHooksResponse } from './model/ListPrivateHooksResponse';
+import { ListPrivateModuleVersionsRequest } from './model/ListPrivateModuleVersionsRequest';
+import { ListPrivateModuleVersionsResponse } from './model/ListPrivateModuleVersionsResponse';
+import { ListPrivateModulesRequest } from './model/ListPrivateModulesRequest';
+import { ListPrivateModulesResponse } from './model/ListPrivateModulesResponse';
 import { ListStackEventsRequest } from './model/ListStackEventsRequest';
 import { ListStackEventsResponse } from './model/ListStackEventsResponse';
 import { ListStackInstancesRequest } from './model/ListStackInstancesRequest';
@@ -131,6 +145,7 @@ import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './model/ManagedAgencyNamePrimitiveTypeHolder';
 import { ManagedOperation } from './model/ManagedOperation';
 import { ManagedOperationTypeHolder } from './model/ManagedOperationTypeHolder';
+import { ModuleURIPrimitiveTypeHolder } from './model/ModuleURIPrimitiveTypeHolder';
 import { OperationIdPrimitiveTypeHolder } from './model/OperationIdPrimitiveTypeHolder';
 import { OperationPreferences } from './model/OperationPreferences';
 import { OperationPreferencesTypeHolder } from './model/OperationPreferencesTypeHolder';
@@ -150,6 +165,19 @@ import { PrivateHookVersionCreateTimePrimitiveTypeHolder } from './model/Private
 import { PrivateHookVersionDescriptionPrimitiveTypeHolder } from './model/PrivateHookVersionDescriptionPrimitiveTypeHolder';
 import { PrivateHookVersionPrimitiveTypeHolder } from './model/PrivateHookVersionPrimitiveTypeHolder';
 import { PrivateHookVersionSummary } from './model/PrivateHookVersionSummary';
+import { PrivateModule } from './model/PrivateModule';
+import { PrivateModuleCreateTimePrimitiveTypeHolder } from './model/PrivateModuleCreateTimePrimitiveTypeHolder';
+import { PrivateModuleDescriptionPrimitiveTypeHolder } from './model/PrivateModuleDescriptionPrimitiveTypeHolder';
+import { PrivateModuleIdPrimitiveTypeHolder } from './model/PrivateModuleIdPrimitiveTypeHolder';
+import { PrivateModuleNamePrimitiveTypeHolder } from './model/PrivateModuleNamePrimitiveTypeHolder';
+import { PrivateModuleSourcePrimitiveTypeHolder } from './model/PrivateModuleSourcePrimitiveTypeHolder';
+import { PrivateModuleSummary } from './model/PrivateModuleSummary';
+import { PrivateModuleUpdateTimePrimitiveTypeHolder } from './model/PrivateModuleUpdateTimePrimitiveTypeHolder';
+import { PrivateModuleVersion } from './model/PrivateModuleVersion';
+import { PrivateModuleVersionCreateTimePrimitiveTypeHolder } from './model/PrivateModuleVersionCreateTimePrimitiveTypeHolder';
+import { PrivateModuleVersionDescriptionPrimitiveTypeHolder } from './model/PrivateModuleVersionDescriptionPrimitiveTypeHolder';
+import { PrivateModuleVersionPrimitiveTypeHolder } from './model/PrivateModuleVersionPrimitiveTypeHolder';
+import { PrivateModuleVersionSummary } from './model/PrivateModuleVersionSummary';
 import { PrivatePolicyBodyPrimitiveTypeHolder } from './model/PrivatePolicyBodyPrimitiveTypeHolder';
 import { PrivatePolicyURIPrimitiveTypeHolder } from './model/PrivatePolicyURIPrimitiveTypeHolder';
 import { PrivateProviderDescriptionPrimitiveTypeHolder } from './model/PrivateProviderDescriptionPrimitiveTypeHolder';
@@ -171,6 +199,12 @@ import { ShowPrivateHookVersionMetadataRequest } from './model/ShowPrivateHookVe
 import { ShowPrivateHookVersionMetadataResponse } from './model/ShowPrivateHookVersionMetadataResponse';
 import { ShowPrivateHookVersionPolicyRequest } from './model/ShowPrivateHookVersionPolicyRequest';
 import { ShowPrivateHookVersionPolicyResponse } from './model/ShowPrivateHookVersionPolicyResponse';
+import { ShowPrivateModuleMetadataRequest } from './model/ShowPrivateModuleMetadataRequest';
+import { ShowPrivateModuleMetadataResponse } from './model/ShowPrivateModuleMetadataResponse';
+import { ShowPrivateModuleVersionContentRequest } from './model/ShowPrivateModuleVersionContentRequest';
+import { ShowPrivateModuleVersionContentResponse } from './model/ShowPrivateModuleVersionContentResponse';
+import { ShowPrivateModuleVersionMetadataRequest } from './model/ShowPrivateModuleVersionMetadataRequest';
+import { ShowPrivateModuleVersionMetadataResponse } from './model/ShowPrivateModuleVersionMetadataResponse';
 import { ShowStackInstanceRequest } from './model/ShowStackInstanceRequest';
 import { ShowStackInstanceResponse } from './model/ShowStackInstanceResponse';
 import { ShowStackSetMetadataRequest } from './model/ShowStackSetMetadataRequest';
@@ -220,6 +254,9 @@ import { TemplateVersion } from './model/TemplateVersion';
 import { UpdatePrivateHookMetadataRequest } from './model/UpdatePrivateHookMetadataRequest';
 import { UpdatePrivateHookMetadataRequestBody } from './model/UpdatePrivateHookMetadataRequestBody';
 import { UpdatePrivateHookMetadataResponse } from './model/UpdatePrivateHookMetadataResponse';
+import { UpdatePrivateModuleMetadataRequest } from './model/UpdatePrivateModuleMetadataRequest';
+import { UpdatePrivateModuleMetadataRequestBody } from './model/UpdatePrivateModuleMetadataRequestBody';
+import { UpdatePrivateModuleMetadataResponse } from './model/UpdatePrivateModuleMetadataResponse';
 import { UpdateStackInstancesRequest } from './model/UpdateStackInstancesRequest';
 import { UpdateStackInstancesRequestBody } from './model/UpdateStackInstancesRequestBody';
 import { UpdateStackInstancesResponse } from './model/UpdateStackInstancesResponse';
@@ -941,6 +978,303 @@ export class AosClient {
      */
     public updatePrivateHookMetadata(updatePrivateHookMetadataRequest?: UpdatePrivateHookMetadataRequest): Promise<UpdatePrivateHookMetadataResponse> {
         const options = ParamCreater().updatePrivateHookMetadata(updatePrivateHookMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建私有模块（CreatePrivateModule）
+     * 
+     * 创建一个私有的空模块。如果用户给予了module_version与module_uri，则在创建私有模块的同时，在私有模块下创建一个私有模块版本。
+     *   * 模块允许用户将可复用的代码编辑在一起供模块使用。
+     *   * 如果同名私有模块在当前账户中已经存在，则会返回失败。
+     *   * 版本号遵循语义化版本号（Semantic Version），为用户自定义。
+     *   * 资源编排服务只会对模块进行浅校验，如文件大小、是否可以解压、文件数量等。并不会深度校验，即不会做语法类校验。
+     * 
+     * 以HCL格式的模板为例，模板中引用私有模块的语法如下：
+     * &#x60;&#x60;&#x60;
+     * module \&quot;my_hello_word_module\&quot; {
+     *   source &#x3D; \&quot;rf://rfs.{region_id}.myhuaweicloud.com/private/{domain_id}/{module_name}?version&#x3D;&#x3D;{module_version}\&quot;
+     * }
+     * &#x60;&#x60;&#x60;
+     * 
+     * 以JSON格式的模板为例，模板中引用私有模块的语法如下：
+     * &#x60;&#x60;&#x60;
+     * {
+     *   \&quot;module\&quot;: {
+     *     \&quot;my_hello_word_module\&quot;: {
+     *       \&quot;source\&quot;: \&quot;rf://rfs.{region_id}.myhuaweicloud.com/private/{domain_id}/{module_name}?version&#x3D;&#x3D;{module_version}\&quot;
+     *     }
+     *   }
+     * }
+     * &#x60;&#x60;&#x60;
+     * 对应上述两个例子中的模块链接（source字段的内容）可以调用ShowPrivateModuleVersionMetadata返回的module_source字段中获取
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建私有模块
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {CreatePrivateModuleRequestBody} createPrivateModuleRequestBody CreatePrivateModule API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrivateModule(createPrivateModuleRequest?: CreatePrivateModuleRequest): Promise<CreatePrivateModuleResponse> {
+        const options = ParamCreater().createPrivateModule(createPrivateModuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建私有模块版本（CreatePrivateModuleVersion）
+     * 
+     * 创建新的私有模块版本
+     * 
+     *   * 模块的版本号需遵循语义化版本号（Semantic Version），为用户自定义。
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     *   * 资源编排服务只会对模块进行浅校验，如文件大小、是否可以解压、文件数量等。并不会深度校验，即不会做语法类校验。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建私有模块版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {CreatePrivateModuleVersionRequestBody} createPrivateModuleVersionRequestBody CreatePrivateModuleVersion API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrivateModuleVersion(createPrivateModuleVersionRequest?: CreatePrivateModuleVersionRequest): Promise<CreatePrivateModuleVersionResponse> {
+        const options = ParamCreater().createPrivateModuleVersion(createPrivateModuleVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除私有模块（DeletePrivateModule）
+     * 
+     * 删除某个私有模块以及私有模块下的全部模块版本
+     * 
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * **请谨慎操作，删除私有模块将会删除该私有模块下的所有的模块版本。**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除私有模块
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateModule(deletePrivateModuleRequest?: DeletePrivateModuleRequest): Promise<DeletePrivateModuleResponse> {
+        const options = ParamCreater().deletePrivateModule(deletePrivateModuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除私有模块版本（DeletePrivateModuleVersion）
+     * 
+     * 删除某个私有模块版本
+     * 
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * **请谨慎操作**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除私有模块版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} moduleVersion 模块的版本号。版本号遵循语义化版本号（Semantic Version），为用户自定义
+     * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateModuleVersion(deletePrivateModuleVersionRequest?: DeletePrivateModuleVersionRequest): Promise<DeletePrivateModuleVersionResponse> {
+        const options = ParamCreater().deletePrivateModuleVersion(deletePrivateModuleVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举私有模块版本（ListPrivateModuleVersions）
+     * 
+     * 列举所选择的私有模块中所有的模块版本信息。
+     * 
+     *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     *   * 如果模块不存在则返回404。
+     * 
+     * ListPrivateModuleVersions返回的只有摘要信息（具体摘要信息见ListPrivateModuleVersionsResponseBody），如果用户需要详细的模块版本元数据请调用ShowPrivateModuleVersionMetadata
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举私有模块版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrivateModuleVersions(listPrivateModuleVersionsRequest?: ListPrivateModuleVersionsRequest): Promise<ListPrivateModuleVersionsResponse> {
+        const options = ParamCreater().listPrivateModuleVersions(listPrivateModuleVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举私有模块（ListPrivateModules）
+     * 
+     * 列举当前局点下用户所有的私有模块。
+     * 
+     *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+     *   * 如果当前用户下没有任何私有模块，则返回空list。
+     *   * 如果需要某个模块的所有版本信息，可以调用ListModuleVersions。
+     * 
+     * ListPrivateModules返回的只有摘要信息（具体摘要信息见ListPrivateModulesResponseBody），如果用户需要详细的模块元数据请调用ShowPrivateModuleMetadata
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举私有模块
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrivateModules(listPrivateModulesRequest?: ListPrivateModulesRequest): Promise<ListPrivateModulesResponse> {
+        const options = ParamCreater().listPrivateModules(listPrivateModulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有模块元数据（ShowPrivateModuleMetadata）
+     * 
+     * 获取当前私有模块的元数据信息
+     * 
+     *   * 具体返回的信息见ShowPrivateModuleMetadataResponseBody，如果想查看私有模块下全部模块版本，请调用ListPrivateModuleVersions。
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有模块元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateModuleMetadata(showPrivateModuleMetadataRequest?: ShowPrivateModuleMetadataRequest): Promise<ShowPrivateModuleMetadataResponse> {
+        const options = ParamCreater().showPrivateModuleMetadata(showPrivateModuleMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有模块版本内容（ShowPrivateModuleVersionContent）
+     * 
+     * 获取指定私有模块对应版本的内容。
+     * 
+     *   * 如果获取成功，则以临时重定向形式返回模块下载链接（OBS Pre Signed地址，有效期为5分钟），大多数的客户端会进行自动重定向并下载模块；
+     *   * 如果未进行自动重定向，请参考HTTP的重定向规则获取模块下载链接，手动下载模块。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有模块版本内容
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} moduleVersion 模块的版本号。版本号遵循语义化版本号（Semantic Version），为用户自定义
+     * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateModuleVersionContent(showPrivateModuleVersionContentRequest?: ShowPrivateModuleVersionContentRequest): Promise<ShowPrivateModuleVersionContentResponse> {
+        const options = ParamCreater().showPrivateModuleVersionContent(showPrivateModuleVersionContentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['Location'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有模块版本元数据（ShowPrivateModuleVersionMetadata）
+     * 
+     * 获取当前私有模块对应的版本的元数据信息
+     * 
+     *   * 具体返回的信息见ShowPrivateModuleVersionMetadataResponseBody。
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有模块版本元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} moduleVersion 模块的版本号。版本号遵循语义化版本号（Semantic Version），为用户自定义
+     * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateModuleVersionMetadata(showPrivateModuleVersionMetadataRequest?: ShowPrivateModuleVersionMetadataRequest): Promise<ShowPrivateModuleVersionMetadataResponse> {
+        const options = ParamCreater().showPrivateModuleVersionMetadata(showPrivateModuleVersionMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新私有模块元数据（UpdatePrivateModuleMetadata）
+     * 
+     * 更新当前私有模块的元数据信息
+     * 
+     *   * 目前只支持更新私有模块的描述
+     *   * 如果需要创建新的版本，请调用CreatePrivateModuleVersion
+     *   * 更新为增量更新，即如果某个参数不提供，则保持原始值
+     *   * 如果请求中没有需要被更新的参数，则返回400。注意：即使更新原始值和目标值一致也被认为是有效更新
+     *   * 更新后私有模块的更新时间（update_time）也会被更新
+     *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新私有模块元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} moduleName 私有模块（private-module）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {UpdatePrivateModuleMetadataRequestBody} updatePrivateModuleMetadataRequestBody UpdatePrivateModuleMetadata API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrivateModuleMetadata(updatePrivateModuleMetadataRequest?: UpdatePrivateModuleMetadataRequest): Promise<UpdatePrivateModuleMetadataResponse> {
+        const options = ParamCreater().updatePrivateModuleMetadata(updatePrivateModuleMetadataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3427,6 +3761,638 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'hook_name': hookName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建私有模块（CreatePrivateModule）
+         * 
+         * 创建一个私有的空模块。如果用户给予了module_version与module_uri，则在创建私有模块的同时，在私有模块下创建一个私有模块版本。
+         *   * 模块允许用户将可复用的代码编辑在一起供模块使用。
+         *   * 如果同名私有模块在当前账户中已经存在，则会返回失败。
+         *   * 版本号遵循语义化版本号（Semantic Version），为用户自定义。
+         *   * 资源编排服务只会对模块进行浅校验，如文件大小、是否可以解压、文件数量等。并不会深度校验，即不会做语法类校验。
+         * 
+         * 以HCL格式的模板为例，模板中引用私有模块的语法如下：
+         * &#x60;&#x60;&#x60;
+         * module \&quot;my_hello_word_module\&quot; {
+         *   source &#x3D; \&quot;rf://rfs.{region_id}.myhuaweicloud.com/private/{domain_id}/{module_name}?version&#x3D;&#x3D;{module_version}\&quot;
+         * }
+         * &#x60;&#x60;&#x60;
+         * 
+         * 以JSON格式的模板为例，模板中引用私有模块的语法如下：
+         * &#x60;&#x60;&#x60;
+         * {
+         *   \&quot;module\&quot;: {
+         *     \&quot;my_hello_word_module\&quot;: {
+         *       \&quot;source\&quot;: \&quot;rf://rfs.{region_id}.myhuaweicloud.com/private/{domain_id}/{module_name}?version&#x3D;&#x3D;{module_version}\&quot;
+         *     }
+         *   }
+         * }
+         * &#x60;&#x60;&#x60;
+         * 对应上述两个例子中的模块链接（source字段的内容）可以调用ShowPrivateModuleVersionMetadata返回的module_source字段中获取
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrivateModule(createPrivateModuleRequest?: CreatePrivateModuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/private-modules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+
+            if (createPrivateModuleRequest !== null && createPrivateModuleRequest !== undefined) {
+                if (createPrivateModuleRequest instanceof CreatePrivateModuleRequest) {
+                    clientRequestId = createPrivateModuleRequest.clientRequestId;
+                    body = createPrivateModuleRequest.body
+                } else {
+                    clientRequestId = createPrivateModuleRequest['Client-Request-Id'];
+                    body = createPrivateModuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建私有模块版本（CreatePrivateModuleVersion）
+         * 
+         * 创建新的私有模块版本
+         * 
+         *   * 模块的版本号需遵循语义化版本号（Semantic Version），为用户自定义。
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         *   * 资源编排服务只会对模块进行浅校验，如文件大小、是否可以解压、文件数量等。并不会深度校验，即不会做语法类校验。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrivateModuleVersion(createPrivateModuleVersionRequest?: CreatePrivateModuleVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/private-modules/{module_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+
+            if (createPrivateModuleVersionRequest !== null && createPrivateModuleVersionRequest !== undefined) {
+                if (createPrivateModuleVersionRequest instanceof CreatePrivateModuleVersionRequest) {
+                    clientRequestId = createPrivateModuleVersionRequest.clientRequestId;
+                    moduleName = createPrivateModuleVersionRequest.moduleName;
+                    body = createPrivateModuleVersionRequest.body
+                } else {
+                    clientRequestId = createPrivateModuleVersionRequest['Client-Request-Id'];
+                    moduleName = createPrivateModuleVersionRequest['module_name'];
+                    body = createPrivateModuleVersionRequest['body'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling createPrivateModuleVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'module_name': moduleName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除私有模块（DeletePrivateModule）
+         * 
+         * 删除某个私有模块以及私有模块下的全部模块版本
+         * 
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * **请谨慎操作，删除私有模块将会删除该私有模块下的所有的模块版本。**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateModule(deletePrivateModuleRequest?: DeletePrivateModuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/private-modules/{module_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+            
+            let moduleId;
+
+            if (deletePrivateModuleRequest !== null && deletePrivateModuleRequest !== undefined) {
+                if (deletePrivateModuleRequest instanceof DeletePrivateModuleRequest) {
+                    clientRequestId = deletePrivateModuleRequest.clientRequestId;
+                    moduleName = deletePrivateModuleRequest.moduleName;
+                    moduleId = deletePrivateModuleRequest.moduleId;
+                } else {
+                    clientRequestId = deletePrivateModuleRequest['Client-Request-Id'];
+                    moduleName = deletePrivateModuleRequest['module_name'];
+                    moduleId = deletePrivateModuleRequest['module_id'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling deletePrivateModule.');
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'module_name': moduleName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除私有模块版本（DeletePrivateModuleVersion）
+         * 
+         * 删除某个私有模块版本
+         * 
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * **请谨慎操作**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateModuleVersion(deletePrivateModuleVersionRequest?: DeletePrivateModuleVersionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/private-modules/{module_name}/versions/{module_version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+            
+            let moduleVersion;
+            
+            let moduleId;
+
+            if (deletePrivateModuleVersionRequest !== null && deletePrivateModuleVersionRequest !== undefined) {
+                if (deletePrivateModuleVersionRequest instanceof DeletePrivateModuleVersionRequest) {
+                    clientRequestId = deletePrivateModuleVersionRequest.clientRequestId;
+                    moduleName = deletePrivateModuleVersionRequest.moduleName;
+                    moduleVersion = deletePrivateModuleVersionRequest.moduleVersion;
+                    moduleId = deletePrivateModuleVersionRequest.moduleId;
+                } else {
+                    clientRequestId = deletePrivateModuleVersionRequest['Client-Request-Id'];
+                    moduleName = deletePrivateModuleVersionRequest['module_name'];
+                    moduleVersion = deletePrivateModuleVersionRequest['module_version'];
+                    moduleId = deletePrivateModuleVersionRequest['module_id'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling deletePrivateModuleVersion.');
+            }
+            if (moduleVersion === null || moduleVersion === undefined) {
+            throw new RequiredError('moduleVersion','Required parameter moduleVersion was null or undefined when calling deletePrivateModuleVersion.');
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'module_name': moduleName,'module_version': moduleVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举私有模块版本（ListPrivateModuleVersions）
+         * 
+         * 列举所选择的私有模块中所有的模块版本信息。
+         * 
+         *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         *   * 如果模块不存在则返回404。
+         * 
+         * ListPrivateModuleVersions返回的只有摘要信息（具体摘要信息见ListPrivateModuleVersionsResponseBody），如果用户需要详细的模块版本元数据请调用ShowPrivateModuleVersionMetadata
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrivateModuleVersions(listPrivateModuleVersionsRequest?: ListPrivateModuleVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-modules/{module_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+            
+            let moduleId;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listPrivateModuleVersionsRequest !== null && listPrivateModuleVersionsRequest !== undefined) {
+                if (listPrivateModuleVersionsRequest instanceof ListPrivateModuleVersionsRequest) {
+                    clientRequestId = listPrivateModuleVersionsRequest.clientRequestId;
+                    moduleName = listPrivateModuleVersionsRequest.moduleName;
+                    moduleId = listPrivateModuleVersionsRequest.moduleId;
+                    sortKey = listPrivateModuleVersionsRequest.sortKey;
+                    sortDir = listPrivateModuleVersionsRequest.sortDir;
+                } else {
+                    clientRequestId = listPrivateModuleVersionsRequest['Client-Request-Id'];
+                    moduleName = listPrivateModuleVersionsRequest['module_name'];
+                    moduleId = listPrivateModuleVersionsRequest['module_id'];
+                    sortKey = listPrivateModuleVersionsRequest['sort_key'];
+                    sortDir = listPrivateModuleVersionsRequest['sort_dir'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling listPrivateModuleVersions.');
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'module_name': moduleName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举私有模块（ListPrivateModules）
+         * 
+         * 列举当前局点下用户所有的私有模块。
+         * 
+         *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+         *   * 如果当前用户下没有任何私有模块，则返回空list。
+         *   * 如果需要某个模块的所有版本信息，可以调用ListModuleVersions。
+         * 
+         * ListPrivateModules返回的只有摘要信息（具体摘要信息见ListPrivateModulesResponseBody），如果用户需要详细的模块元数据请调用ShowPrivateModuleMetadata
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrivateModules(listPrivateModulesRequest?: ListPrivateModulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-modules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listPrivateModulesRequest !== null && listPrivateModulesRequest !== undefined) {
+                if (listPrivateModulesRequest instanceof ListPrivateModulesRequest) {
+                    clientRequestId = listPrivateModulesRequest.clientRequestId;
+                    sortKey = listPrivateModulesRequest.sortKey;
+                    sortDir = listPrivateModulesRequest.sortDir;
+                } else {
+                    clientRequestId = listPrivateModulesRequest['Client-Request-Id'];
+                    sortKey = listPrivateModulesRequest['sort_key'];
+                    sortDir = listPrivateModulesRequest['sort_dir'];
+                }
+            }
+
+        
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有模块元数据（ShowPrivateModuleMetadata）
+         * 
+         * 获取当前私有模块的元数据信息
+         * 
+         *   * 具体返回的信息见ShowPrivateModuleMetadataResponseBody，如果想查看私有模块下全部模块版本，请调用ListPrivateModuleVersions。
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateModuleMetadata(showPrivateModuleMetadataRequest?: ShowPrivateModuleMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-modules/{module_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+            
+            let moduleId;
+
+            if (showPrivateModuleMetadataRequest !== null && showPrivateModuleMetadataRequest !== undefined) {
+                if (showPrivateModuleMetadataRequest instanceof ShowPrivateModuleMetadataRequest) {
+                    clientRequestId = showPrivateModuleMetadataRequest.clientRequestId;
+                    moduleName = showPrivateModuleMetadataRequest.moduleName;
+                    moduleId = showPrivateModuleMetadataRequest.moduleId;
+                } else {
+                    clientRequestId = showPrivateModuleMetadataRequest['Client-Request-Id'];
+                    moduleName = showPrivateModuleMetadataRequest['module_name'];
+                    moduleId = showPrivateModuleMetadataRequest['module_id'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling showPrivateModuleMetadata.');
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'module_name': moduleName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有模块版本内容（ShowPrivateModuleVersionContent）
+         * 
+         * 获取指定私有模块对应版本的内容。
+         * 
+         *   * 如果获取成功，则以临时重定向形式返回模块下载链接（OBS Pre Signed地址，有效期为5分钟），大多数的客户端会进行自动重定向并下载模块；
+         *   * 如果未进行自动重定向，请参考HTTP的重定向规则获取模块下载链接，手动下载模块。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateModuleVersionContent(showPrivateModuleVersionContentRequest?: ShowPrivateModuleVersionContentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-modules/{module_name}/versions/{module_version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+            
+            let moduleVersion;
+            
+            let moduleId;
+
+            if (showPrivateModuleVersionContentRequest !== null && showPrivateModuleVersionContentRequest !== undefined) {
+                if (showPrivateModuleVersionContentRequest instanceof ShowPrivateModuleVersionContentRequest) {
+                    clientRequestId = showPrivateModuleVersionContentRequest.clientRequestId;
+                    moduleName = showPrivateModuleVersionContentRequest.moduleName;
+                    moduleVersion = showPrivateModuleVersionContentRequest.moduleVersion;
+                    moduleId = showPrivateModuleVersionContentRequest.moduleId;
+                } else {
+                    clientRequestId = showPrivateModuleVersionContentRequest['Client-Request-Id'];
+                    moduleName = showPrivateModuleVersionContentRequest['module_name'];
+                    moduleVersion = showPrivateModuleVersionContentRequest['module_version'];
+                    moduleId = showPrivateModuleVersionContentRequest['module_id'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling showPrivateModuleVersionContent.');
+            }
+            if (moduleVersion === null || moduleVersion === undefined) {
+            throw new RequiredError('moduleVersion','Required parameter moduleVersion was null or undefined when calling showPrivateModuleVersionContent.');
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'module_name': moduleName,'module_version': moduleVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有模块版本元数据（ShowPrivateModuleVersionMetadata）
+         * 
+         * 获取当前私有模块对应的版本的元数据信息
+         * 
+         *   * 具体返回的信息见ShowPrivateModuleVersionMetadataResponseBody。
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateModuleVersionMetadata(showPrivateModuleVersionMetadataRequest?: ShowPrivateModuleVersionMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-modules/{module_name}/versions/{module_version}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+            
+            let moduleVersion;
+            
+            let moduleId;
+
+            if (showPrivateModuleVersionMetadataRequest !== null && showPrivateModuleVersionMetadataRequest !== undefined) {
+                if (showPrivateModuleVersionMetadataRequest instanceof ShowPrivateModuleVersionMetadataRequest) {
+                    clientRequestId = showPrivateModuleVersionMetadataRequest.clientRequestId;
+                    moduleName = showPrivateModuleVersionMetadataRequest.moduleName;
+                    moduleVersion = showPrivateModuleVersionMetadataRequest.moduleVersion;
+                    moduleId = showPrivateModuleVersionMetadataRequest.moduleId;
+                } else {
+                    clientRequestId = showPrivateModuleVersionMetadataRequest['Client-Request-Id'];
+                    moduleName = showPrivateModuleVersionMetadataRequest['module_name'];
+                    moduleVersion = showPrivateModuleVersionMetadataRequest['module_version'];
+                    moduleId = showPrivateModuleVersionMetadataRequest['module_id'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling showPrivateModuleVersionMetadata.');
+            }
+            if (moduleVersion === null || moduleVersion === undefined) {
+            throw new RequiredError('moduleVersion','Required parameter moduleVersion was null or undefined when calling showPrivateModuleVersionMetadata.');
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'module_name': moduleName,'module_version': moduleVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新私有模块元数据（UpdatePrivateModuleMetadata）
+         * 
+         * 更新当前私有模块的元数据信息
+         * 
+         *   * 目前只支持更新私有模块的描述
+         *   * 如果需要创建新的版本，请调用CreatePrivateModuleVersion
+         *   * 更新为增量更新，即如果某个参数不提供，则保持原始值
+         *   * 如果请求中没有需要被更新的参数，则返回400。注意：即使更新原始值和目标值一致也被认为是有效更新
+         *   * 更新后私有模块的更新时间（update_time）也会被更新
+         *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrivateModuleMetadata(updatePrivateModuleMetadataRequest?: UpdatePrivateModuleMetadataRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/private-modules/{module_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let moduleName;
+
+            if (updatePrivateModuleMetadataRequest !== null && updatePrivateModuleMetadataRequest !== undefined) {
+                if (updatePrivateModuleMetadataRequest instanceof UpdatePrivateModuleMetadataRequest) {
+                    clientRequestId = updatePrivateModuleMetadataRequest.clientRequestId;
+                    moduleName = updatePrivateModuleMetadataRequest.moduleName;
+                    body = updatePrivateModuleMetadataRequest.body
+                } else {
+                    clientRequestId = updatePrivateModuleMetadataRequest['Client-Request-Id'];
+                    moduleName = updatePrivateModuleMetadataRequest['module_name'];
+                    body = updatePrivateModuleMetadataRequest['body'];
+                }
+            }
+
+        
+            if (moduleName === null || moduleName === undefined) {
+            throw new RequiredError('moduleName','Required parameter moduleName was null or undefined when calling updatePrivateModuleMetadata.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'module_name': moduleName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

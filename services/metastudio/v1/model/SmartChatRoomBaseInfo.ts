@@ -1,5 +1,6 @@
 import { ModelInfo } from './ModelInfo';
 import { VoiceConfig } from './VoiceConfig';
+import { VoiceConfigRsp } from './VoiceConfigRsp';
 
 
 export class SmartChatRoomBaseInfo {
@@ -11,6 +12,8 @@ export class SmartChatRoomBaseInfo {
     private 'model_infos'?: ModelInfo;
     private 'voice_config'?: VoiceConfig;
     public concurrency?: number;
+    private 'voice_config_list'?: Array<VoiceConfigRsp>;
+    private 'default_language'?: SmartChatRoomBaseInfoDefaultLanguageEnum | string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor() { 
@@ -89,6 +92,26 @@ export class SmartChatRoomBaseInfo {
         this['concurrency'] = concurrency;
         return this;
     }
+    public withVoiceConfigList(voiceConfigList: Array<VoiceConfigRsp>): SmartChatRoomBaseInfo {
+        this['voice_config_list'] = voiceConfigList;
+        return this;
+    }
+    public set voiceConfigList(voiceConfigList: Array<VoiceConfigRsp>  | undefined) {
+        this['voice_config_list'] = voiceConfigList;
+    }
+    public get voiceConfigList(): Array<VoiceConfigRsp> | undefined {
+        return this['voice_config_list'];
+    }
+    public withDefaultLanguage(defaultLanguage: SmartChatRoomBaseInfoDefaultLanguageEnum | string): SmartChatRoomBaseInfo {
+        this['default_language'] = defaultLanguage;
+        return this;
+    }
+    public set defaultLanguage(defaultLanguage: SmartChatRoomBaseInfoDefaultLanguageEnum | string  | undefined) {
+        this['default_language'] = defaultLanguage;
+    }
+    public get defaultLanguage(): SmartChatRoomBaseInfoDefaultLanguageEnum | string | undefined {
+        return this['default_language'];
+    }
     public withCreateTime(createTime: string): SmartChatRoomBaseInfo {
         this['create_time'] = createTime;
         return this;
@@ -109,4 +132,13 @@ export class SmartChatRoomBaseInfo {
     public get updateTime(): string | undefined {
         return this['update_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartChatRoomBaseInfoDefaultLanguageEnum {
+    CN = 'CN',
+    EN = 'EN'
 }

@@ -616,7 +616,7 @@ export class CsmsClient {
      * @param {number} offset 第几页。最小值：0
      * @param {number} limit 每页多少条。最小值：10。最大值：100
      * @param {string} [orgId] 组织id，为空时查询所有用户。
-     * @param {string} [userName] 最长64位，用户名，支持模糊查询
+     * @param {string} [userInfo] 最长64位，用户名，支持模糊查询
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1932,19 +1932,19 @@ export const ParamCreater = function () {
             
             let orgId;
             
-            let userName;
+            let userInfo;
 
             if (listUsersRequest !== null && listUsersRequest !== undefined) {
                 if (listUsersRequest instanceof ListUsersRequest) {
                     offset = listUsersRequest.offset;
                     limit = listUsersRequest.limit;
                     orgId = listUsersRequest.orgId;
-                    userName = listUsersRequest.userName;
+                    userInfo = listUsersRequest.userInfo;
                 } else {
                     offset = listUsersRequest['offset'];
                     limit = listUsersRequest['limit'];
                     orgId = listUsersRequest['org_id'];
-                    userName = listUsersRequest['user_name'];
+                    userInfo = listUsersRequest['user_info'];
                 }
             }
 
@@ -1964,8 +1964,8 @@ export const ParamCreater = function () {
             if (orgId !== null && orgId !== undefined) {
                 localVarQueryParameter['org_id'] = orgId;
             }
-            if (userName !== null && userName !== undefined) {
-                localVarQueryParameter['user_name'] = userName;
+            if (userInfo !== null && userInfo !== undefined) {
+                localVarQueryParameter['user_info'] = userInfo;
             }
 
             options.queryParams = localVarQueryParameter;
