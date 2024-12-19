@@ -1,13 +1,22 @@
-import { ExternalUpdateGlobalDcGateway } from './ExternalUpdateGlobalDcGateway';
+import { GlobalDcGatewayEntry } from './GlobalDcGatewayEntry';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateGlobalDcGatewayResponse extends SdkResponse {
+    private 'global_dc_gateway'?: GlobalDcGatewayEntry;
     private 'request_id'?: string;
-    private 'global_dc_gateway'?: ExternalUpdateGlobalDcGateway;
-    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
+    }
+    public withGlobalDcGateway(globalDcGateway: GlobalDcGatewayEntry): UpdateGlobalDcGatewayResponse {
+        this['global_dc_gateway'] = globalDcGateway;
+        return this;
+    }
+    public set globalDcGateway(globalDcGateway: GlobalDcGatewayEntry  | undefined) {
+        this['global_dc_gateway'] = globalDcGateway;
+    }
+    public get globalDcGateway(): GlobalDcGatewayEntry | undefined {
+        return this['global_dc_gateway'];
     }
     public withRequestId(requestId: string): UpdateGlobalDcGatewayResponse {
         this['request_id'] = requestId;
@@ -18,25 +27,5 @@ export class UpdateGlobalDcGatewayResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
-    }
-    public withGlobalDcGateway(globalDcGateway: ExternalUpdateGlobalDcGateway): UpdateGlobalDcGatewayResponse {
-        this['global_dc_gateway'] = globalDcGateway;
-        return this;
-    }
-    public set globalDcGateway(globalDcGateway: ExternalUpdateGlobalDcGateway  | undefined) {
-        this['global_dc_gateway'] = globalDcGateway;
-    }
-    public get globalDcGateway(): ExternalUpdateGlobalDcGateway | undefined {
-        return this['global_dc_gateway'];
-    }
-    public withXRequestId(xRequestId: string): UpdateGlobalDcGatewayResponse {
-        this['X-Request-Id'] = xRequestId;
-        return this;
-    }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-Request-Id'] = xRequestId;
-    }
-    public get xRequestId(): string | undefined {
-        return this['X-Request-Id'];
     }
 }

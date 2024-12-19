@@ -3,7 +3,6 @@
 export class BandwidthInfoExternal {
     private 'bandwidth_size'?: number;
     private 'gcb_id'?: string;
-    private 'freeze_status'?: string;
     public constructor() { 
     }
     public withBandwidthSize(bandwidthSize: number): BandwidthInfoExternal {
@@ -25,15 +24,5 @@ export class BandwidthInfoExternal {
     }
     public get gcbId(): string | undefined {
         return this['gcb_id'];
-    }
-    public withFreezeStatus(freezeStatus: string): BandwidthInfoExternal {
-        this['freeze_status'] = freezeStatus;
-        return this;
-    }
-    public set freezeStatus(freezeStatus: string  | undefined) {
-        this['freeze_status'] = freezeStatus;
-    }
-    public get freezeStatus(): string | undefined {
-        return this['freeze_status'];
     }
 }

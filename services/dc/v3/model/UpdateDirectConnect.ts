@@ -52,7 +52,8 @@ export class UpdateDirectConnect {
     * @enum {string}
     */
 export enum UpdateDirectConnectStatusEnum {
-    PENDING_PAY = 'PENDING_PAY'
+    PENDING_PAY = 'PENDING_PAY',
+    APPLY = 'APPLY'
 }
 /**
     * @export

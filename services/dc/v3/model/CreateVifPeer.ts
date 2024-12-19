@@ -11,12 +11,7 @@ export class CreateVifPeer {
     private 'bgp_md5'?: string;
     private 'remote_ep_group'?: Array<string>;
     private 'vif_id'?: string;
-    public constructor(name?: string, addressFamily?: string, localGatewayIp?: string, remoteGatewayIp?: string, vifId?: string) { 
-        this['name'] = name;
-        this['address_family'] = addressFamily;
-        this['local_gateway_ip'] = localGatewayIp;
-        this['remote_gateway_ip'] = remoteGatewayIp;
-        this['vif_id'] = vifId;
+    public constructor() { 
     }
     public withName(name: string): CreateVifPeer {
         this['name'] = name;

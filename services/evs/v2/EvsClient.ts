@@ -73,17 +73,20 @@ import { QuotaDetail } from './model/QuotaDetail';
 import { QuotaDetailBackupGigabytes } from './model/QuotaDetailBackupGigabytes';
 import { QuotaDetailBackups } from './model/QuotaDetailBackups';
 import { QuotaDetailGigabytes } from './model/QuotaDetailGigabytes';
+import { QuotaDetailGigabytesESSD } from './model/QuotaDetailGigabytesESSD';
 import { QuotaDetailGigabytesGPSSD } from './model/QuotaDetailGigabytesGPSSD';
 import { QuotaDetailGigabytesSAS } from './model/QuotaDetailGigabytesSAS';
 import { QuotaDetailGigabytesSATA } from './model/QuotaDetailGigabytesSATA';
 import { QuotaDetailGigabytesSSD } from './model/QuotaDetailGigabytesSSD';
 import { QuotaDetailPerVolumeGigabytes } from './model/QuotaDetailPerVolumeGigabytes';
 import { QuotaDetailSnapshots } from './model/QuotaDetailSnapshots';
+import { QuotaDetailSnapshotsESSD } from './model/QuotaDetailSnapshotsESSD';
 import { QuotaDetailSnapshotsGPSSD } from './model/QuotaDetailSnapshotsGPSSD';
 import { QuotaDetailSnapshotsSAS } from './model/QuotaDetailSnapshotsSAS';
 import { QuotaDetailSnapshotsSATA } from './model/QuotaDetailSnapshotsSATA';
 import { QuotaDetailSnapshotsSSD } from './model/QuotaDetailSnapshotsSSD';
 import { QuotaDetailVolumes } from './model/QuotaDetailVolumes';
+import { QuotaDetailVolumesESSD } from './model/QuotaDetailVolumesESSD';
 import { QuotaDetailVolumesGPSSD } from './model/QuotaDetailVolumesGPSSD';
 import { QuotaDetailVolumesSAS } from './model/QuotaDetailVolumesSAS';
 import { QuotaDetailVolumesSATA } from './model/QuotaDetailVolumesSATA';
@@ -119,6 +122,11 @@ import { SubJobEntities } from './model/SubJobEntities';
 import { Tag } from './model/Tag';
 import { TagsForListVolumes } from './model/TagsForListVolumes';
 import { Throughput } from './model/Throughput';
+import { UnsubscribePostpaidVolumeRequest } from './model/UnsubscribePostpaidVolumeRequest';
+import { UnsubscribePostpaidVolumeResponse } from './model/UnsubscribePostpaidVolumeResponse';
+import { UnsubscribeVolume } from './model/UnsubscribeVolume';
+import { UnsubscribeVolumeRequestBody } from './model/UnsubscribeVolumeRequestBody';
+import { UnsubscribeVolumeResponseBody } from './model/UnsubscribeVolumeResponseBody';
 import { UpdateSnapshotOption } from './model/UpdateSnapshotOption';
 import { UpdateSnapshotRequest } from './model/UpdateSnapshotRequest';
 import { UpdateSnapshotRequestBody } from './model/UpdateSnapshotRequestBody';
@@ -694,6 +702,27 @@ export class EvsClient {
      */
     public showVolumeTags(showVolumeTagsRequest?: ShowVolumeTagsRequest): Promise<ShowVolumeTagsResponse> {
         const options = ParamCreater().showVolumeTags(showVolumeTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 退订包周期计费模式的云硬盘，有如下约束：
+     * -  系统盘、启动盘不可使用当前接口退订，必须和弹性云服务器一起退订
+     * -  接口的请求body体最多可以传60个云硬盘id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 退订包周期计费模式的云硬盘
+     * @param {UnsubscribeVolumeRequestBody} unsubscribePostpaidVolumeRequestBody 要退订的包周期云硬盘列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest?: UnsubscribePostpaidVolumeRequest): Promise<UnsubscribePostpaidVolumeResponse> {
+        const options = ParamCreater().unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1993,6 +2022,46 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 退订包周期计费模式的云硬盘，有如下约束：
+         * -  系统盘、启动盘不可使用当前接口退订，必须和弹性云服务器一起退订
+         * -  接口的请求body体最多可以传60个云硬盘id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest?: UnsubscribePostpaidVolumeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/cloudvolumes/unsubscribe",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (unsubscribePostpaidVolumeRequest !== null && unsubscribePostpaidVolumeRequest !== undefined) {
+                if (unsubscribePostpaidVolumeRequest instanceof UnsubscribePostpaidVolumeRequest) {
+                    body = unsubscribePostpaidVolumeRequest.body
+                } else {
+                    body = unsubscribePostpaidVolumeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

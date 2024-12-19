@@ -5,7 +5,7 @@ export class JobRun {
     public id?: string;
     public category?: string;
     public sequence?: number;
-    public async?: string;
+    public async?: boolean;
     public name?: string;
     public identifier?: string;
     private 'depends_on'?: Array<string>;
@@ -34,7 +34,7 @@ export class JobRun {
         this['sequence'] = sequence;
         return this;
     }
-    public withAsync(async: string): JobRun {
+    public withAsync(async: boolean): JobRun {
         this['async'] = async;
         return this;
     }

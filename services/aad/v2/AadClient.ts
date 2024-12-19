@@ -3,6 +3,9 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionInfo } from './model/ActionInfo';
+import { AddWafWhiteIpRuleRequest } from './model/AddWafWhiteIpRuleRequest';
+import { AddWafWhiteIpRuleResponse } from './model/AddWafWhiteIpRuleResponse';
+import { AddWafWhiteIpRuleV2RequestBody } from './model/AddWafWhiteIpRuleV2RequestBody';
 import { Backend } from './model/Backend';
 import { BlackWhiteListRule } from './model/BlackWhiteListRule';
 import { BwListIps } from './model/BwListIps';
@@ -15,6 +18,9 @@ import { Curve } from './model/Curve';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
 import { DeleteDomainV2RequestBody } from './model/DeleteDomainV2RequestBody';
+import { DeleteWafWhiteIpRuleRequest } from './model/DeleteWafWhiteIpRuleRequest';
+import { DeleteWafWhiteIpRuleResponse } from './model/DeleteWafWhiteIpRuleResponse';
+import { DeleteWafWhiteIpRuleV2RequestBody } from './model/DeleteWafWhiteIpRuleV2RequestBody';
 import { DetailInfo } from './model/DetailInfo';
 import { EmptyJsonResponse } from './model/EmptyJsonResponse';
 import { FlowBps } from './model/FlowBps';
@@ -89,6 +95,25 @@ export class AadClient {
 
 
     /**
+     * 防护策略web-cc黑白名单-创建黑白名单规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 防护策略web-cc黑白名单-创建黑白名单规则
+     * @param {AddWafWhiteIpRuleV2RequestBody} [addWafWhiteIpRuleV2RequestBody] AddWafWhiteIpRuleV2RequestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addWafWhiteIpRule(addWafWhiteIpRuleRequest?: AddWafWhiteIpRuleRequest): Promise<AddWafWhiteIpRuleResponse> {
+        const options = ParamCreater().addWafWhiteIpRule(addWafWhiteIpRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建防护域名
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -119,6 +144,25 @@ export class AadClient {
      */
     public deleteDomain(deleteDomainRequest?: DeleteDomainRequest): Promise<DeleteDomainResponse> {
         const options = ParamCreater().deleteDomain(deleteDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 防护策略web-cc黑白名单-删除黑白名单规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 防护策略web-cc黑白名单-删除黑白名单规则
+     * @param {DeleteWafWhiteIpRuleV2RequestBody} deleteWafWhiteIpRuleV2RequestBody DeleteWafWhiteIpRuleV2RequestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteWafWhiteIpRule(deleteWafWhiteIpRuleRequest?: DeleteWafWhiteIpRuleRequest): Promise<DeleteWafWhiteIpRuleResponse> {
+        const options = ParamCreater().deleteWafWhiteIpRule(deleteWafWhiteIpRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -488,6 +532,41 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 防护策略web-cc黑白名单-创建黑白名单规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addWafWhiteIpRule(addWafWhiteIpRuleRequest?: AddWafWhiteIpRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/aad/policies/waf/blackwhite-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (addWafWhiteIpRuleRequest !== null && addWafWhiteIpRuleRequest !== undefined) {
+                if (addWafWhiteIpRuleRequest instanceof AddWafWhiteIpRuleRequest) {
+                    body = addWafWhiteIpRuleRequest.body
+                } else {
+                    body = addWafWhiteIpRuleRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建防护域名
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -549,6 +628,44 @@ export const ParamCreater = function () {
                     body = deleteDomainRequest.body
                 } else {
                     body = deleteDomainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 防护策略web-cc黑白名单-删除黑白名单规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteWafWhiteIpRule(deleteWafWhiteIpRuleRequest?: DeleteWafWhiteIpRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/aad/policies/waf/blackwhite-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteWafWhiteIpRuleRequest !== null && deleteWafWhiteIpRuleRequest !== undefined) {
+                if (deleteWafWhiteIpRuleRequest instanceof DeleteWafWhiteIpRuleRequest) {
+                    body = deleteWafWhiteIpRuleRequest.body
+                } else {
+                    body = deleteWafWhiteIpRuleRequest['body'];
                 }
             }
 

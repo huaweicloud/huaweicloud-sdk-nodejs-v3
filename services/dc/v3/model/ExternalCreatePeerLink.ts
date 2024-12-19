@@ -8,7 +8,6 @@ export class ExternalCreatePeerLink {
     public name?: string;
     public description?: string;
     private 'global_dc_gateway_id'?: string;
-    private 'instance_id'?: string;
     private 'bandwidth_info'?: BandwidthInfoExternal;
     private 'peer_site'?: PeerSiteExternal;
     public status?: string;
@@ -50,16 +49,6 @@ export class ExternalCreatePeerLink {
     }
     public get globalDcGatewayId(): string | undefined {
         return this['global_dc_gateway_id'];
-    }
-    public withInstanceId(instanceId: string): ExternalCreatePeerLink {
-        this['instance_id'] = instanceId;
-        return this;
-    }
-    public set instanceId(instanceId: string  | undefined) {
-        this['instance_id'] = instanceId;
-    }
-    public get instanceId(): string | undefined {
-        return this['instance_id'];
     }
     public withBandwidthInfo(bandwidthInfo: BandwidthInfoExternal): ExternalCreatePeerLink {
         this['bandwidth_info'] = bandwidthInfo;

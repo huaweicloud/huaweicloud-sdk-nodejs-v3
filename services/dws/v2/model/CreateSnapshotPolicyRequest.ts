@@ -1,9 +1,9 @@
-import { BackupPolicy } from './BackupPolicy';
+import { CreateSnapshotPolicyRequestBody } from './CreateSnapshotPolicyRequestBody';
 
 
 export class CreateSnapshotPolicyRequest {
     private 'cluster_id'?: string;
-    public body?: BackupPolicy;
+    public body?: CreateSnapshotPolicyRequestBody;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
@@ -17,7 +17,7 @@ export class CreateSnapshotPolicyRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withBody(body: BackupPolicy): CreateSnapshotPolicyRequest {
+    public withBody(body: CreateSnapshotPolicyRequestBody): CreateSnapshotPolicyRequest {
         this['body'] = body;
         return this;
     }

@@ -3,8 +3,8 @@
 export class ListBindingGeip {
     private 'global_eip_id'?: string;
     private 'global_eip_segment_id'?: string;
-    public status?: string;
-    public type?: string;
+    public status?: ListBindingGeipStatusEnum | string;
+    public type?: ListBindingGeipTypeEnum | string;
     private 'error_message'?: string;
     public cidr?: string;
     private 'address_family'?: string;
@@ -33,11 +33,11 @@ export class ListBindingGeip {
     public get globalEipSegmentId(): string | undefined {
         return this['global_eip_segment_id'];
     }
-    public withStatus(status: string): ListBindingGeip {
+    public withStatus(status: ListBindingGeipStatusEnum | string): ListBindingGeip {
         this['status'] = status;
         return this;
     }
-    public withType(type: string): ListBindingGeip {
+    public withType(type: ListBindingGeipTypeEnum | string): ListBindingGeip {
         this['type'] = type;
         return this;
     }
@@ -95,4 +95,21 @@ export class ListBindingGeip {
     public get gcbId(): string | undefined {
         return this['gcb_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListBindingGeipStatusEnum {
+    ACTIVE = 'ACTIVE',
+    ERROR = 'ERROR'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListBindingGeipTypeEnum {
+    IP_ADDRESS = 'IP_ADDRESS',
+    IP_SEGMENT = 'IP_SEGMENT'
 }

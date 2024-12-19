@@ -24,8 +24,8 @@ import { AssociateElbRequest } from './model/AssociateElbRequest';
 import { AssociateElbResponse } from './model/AssociateElbResponse';
 import { AuditDumpRecord } from './model/AuditDumpRecord';
 import { AvailabilityZone } from './model/AvailabilityZone';
-import { BackupPolicy } from './model/BackupPolicy';
 import { BackupStrategyDetail } from './model/BackupStrategyDetail';
+import { BackupStrategyRequest } from './model/BackupStrategyRequest';
 import { BatchCreateClusterCnRequest } from './model/BatchCreateClusterCnRequest';
 import { BatchCreateClusterCnResponse } from './model/BatchCreateClusterCnResponse';
 import { BatchCreateCn } from './model/BatchCreateCn';
@@ -112,6 +112,7 @@ import { CreateLogicalClusterRequest } from './model/CreateLogicalClusterRequest
 import { CreateLogicalClusterRequestBody } from './model/CreateLogicalClusterRequestBody';
 import { CreateLogicalClusterResponse } from './model/CreateLogicalClusterResponse';
 import { CreateSnapshotPolicyRequest } from './model/CreateSnapshotPolicyRequest';
+import { CreateSnapshotPolicyRequestBody } from './model/CreateSnapshotPolicyRequestBody';
 import { CreateSnapshotPolicyResponse } from './model/CreateSnapshotPolicyResponse';
 import { CreateSnapshotRequest } from './model/CreateSnapshotRequest';
 import { CreateSnapshotRequestBody } from './model/CreateSnapshotRequestBody';
@@ -1090,7 +1091,7 @@ export class DwsClient {
      *
      * @summary 添加快照策略
      * @param {string} clusterId 集群ID
-     * @param {BackupPolicy} [req] 备份策略
+     * @param {CreateSnapshotPolicyRequestBody} [req] 备份策略
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -12,6 +12,7 @@ export class SmartDocumentRecognizerRequestBody {
     public form?: boolean;
     public formula?: boolean;
     private 'kv_map'?: string;
+    private 'erase_seal'?: boolean;
     private 'pdf_page_number'?: number;
     public constructor() { 
     }
@@ -76,6 +77,16 @@ export class SmartDocumentRecognizerRequestBody {
     }
     public get kvMap(): string | undefined {
         return this['kv_map'];
+    }
+    public withEraseSeal(eraseSeal: boolean): SmartDocumentRecognizerRequestBody {
+        this['erase_seal'] = eraseSeal;
+        return this;
+    }
+    public set eraseSeal(eraseSeal: boolean  | undefined) {
+        this['erase_seal'] = eraseSeal;
+    }
+    public get eraseSeal(): boolean | undefined {
+        return this['erase_seal'];
     }
     public withPdfPageNumber(pdfPageNumber: number): SmartDocumentRecognizerRequestBody {
         this['pdf_page_number'] = pdfPageNumber;

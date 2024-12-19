@@ -4,6 +4,7 @@ import { Tag } from './Tag';
 export class VirtualGateway {
     public id?: string;
     private 'vpc_id'?: string;
+    private 'enterprise_router_id'?: string;
     private 'tenant_id'?: string;
     public name?: string;
     public description?: string;
@@ -33,6 +34,16 @@ export class VirtualGateway {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
+    }
+    public withEnterpriseRouterId(enterpriseRouterId: string): VirtualGateway {
+        this['enterprise_router_id'] = enterpriseRouterId;
+        return this;
+    }
+    public set enterpriseRouterId(enterpriseRouterId: string  | undefined) {
+        this['enterprise_router_id'] = enterpriseRouterId;
+    }
+    public get enterpriseRouterId(): string | undefined {
+        return this['enterprise_router_id'];
     }
     public withTenantId(tenantId: string): VirtualGateway {
         this['tenant_id'] = tenantId;

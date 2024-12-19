@@ -491,7 +491,8 @@ export enum DirectConnectStatusEnum {
     PENDING_DELETE = 'PENDING_DELETE',
     DELETED = 'DELETED',
     DENY = 'DENY',
-    PENDING_PAY = 'PENDING_PAY'
+    PENDING_PAY = 'PENDING_PAY',
+    LEASED_LINE_DELIVERY = 'LEASED_LINE_DELIVERY'
 }
 /**
     * @export

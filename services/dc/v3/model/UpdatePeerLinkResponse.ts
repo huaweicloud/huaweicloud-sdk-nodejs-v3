@@ -5,7 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class UpdatePeerLinkResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'peer_link'?: ExternalUpdatePeerLink;
-    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -28,15 +27,5 @@ export class UpdatePeerLinkResponse extends SdkResponse {
     }
     public get peerLink(): ExternalUpdatePeerLink | undefined {
         return this['peer_link'];
-    }
-    public withXRequestId(xRequestId: string): UpdatePeerLinkResponse {
-        this['X-Request-Id'] = xRequestId;
-        return this;
-    }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-Request-Id'] = xRequestId;
-    }
-    public get xRequestId(): string | undefined {
-        return this['X-Request-Id'];
     }
 }

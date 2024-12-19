@@ -7,6 +7,7 @@ export class QuickImportImageByFileRequestBody {
     private 'os_version'?: string;
     private 'image_url'?: string;
     private 'min_disk'?: number;
+    private 'license_type'?: string;
     public tags?: Array<string>;
     public type?: QuickImportImageByFileRequestBodyTypeEnum | string;
     private 'enterprise_project_id'?: string;
@@ -56,6 +57,16 @@ export class QuickImportImageByFileRequestBody {
     }
     public get minDisk(): number | undefined {
         return this['min_disk'];
+    }
+    public withLicenseType(licenseType: string): QuickImportImageByFileRequestBody {
+        this['license_type'] = licenseType;
+        return this;
+    }
+    public set licenseType(licenseType: string  | undefined) {
+        this['license_type'] = licenseType;
+    }
+    public get licenseType(): string | undefined {
+        return this['license_type'];
     }
     public withTags(tags: Array<string>): QuickImportImageByFileRequestBody {
         this['tags'] = tags;

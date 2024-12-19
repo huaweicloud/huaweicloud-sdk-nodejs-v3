@@ -13,8 +13,8 @@ export class HostedDirectConnect {
     private 'admin_state_up'?: boolean;
     public vlan?: number;
     public status?: HostedDirectConnectStatusEnum | string;
-    private 'apply_time'?: string;
-    private 'create_time'?: string;
+    private 'apply_time'?: Date;
+    private 'create_time'?: Date;
     private 'provider_status'?: HostedDirectConnectProviderStatusEnum | string;
     private 'port_type'?: HostedDirectConnectPortTypeEnum | string;
     public type?: HostedDirectConnectTypeEnum | string;
@@ -92,24 +92,24 @@ export class HostedDirectConnect {
         this['status'] = status;
         return this;
     }
-    public withApplyTime(applyTime: string): HostedDirectConnect {
+    public withApplyTime(applyTime: Date): HostedDirectConnect {
         this['apply_time'] = applyTime;
         return this;
     }
-    public set applyTime(applyTime: string  | undefined) {
+    public set applyTime(applyTime: Date  | undefined) {
         this['apply_time'] = applyTime;
     }
-    public get applyTime(): string | undefined {
+    public get applyTime(): Date | undefined {
         return this['apply_time'];
     }
-    public withCreateTime(createTime: string): HostedDirectConnect {
+    public withCreateTime(createTime: Date): HostedDirectConnect {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string  | undefined) {
+    public set createTime(createTime: Date  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime(): string | undefined {
+    public get createTime(): Date | undefined {
         return this['create_time'];
     }
     public withProviderStatus(providerStatus: HostedDirectConnectProviderStatusEnum | string): HostedDirectConnect {

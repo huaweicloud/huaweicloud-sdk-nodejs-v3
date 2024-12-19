@@ -13,7 +13,8 @@ export class CreateWholeImageRequestBody {
     private 'max_ram'?: number;
     private 'min_ram'?: number;
     private 'vault_id'?: string;
-    public constructor(name?: string) { 
+    public constructor(instanceId?: string, name?: string) { 
+        this['instance_id'] = instanceId;
         this['name'] = name;
     }
     public withDescription(description: string): CreateWholeImageRequestBody {

@@ -1,29 +1,19 @@
-import { UpdateGlobalDcGatewayRequestBodyGlobalDcGateway } from './UpdateGlobalDcGatewayRequestBodyGlobalDcGateway';
+import { UpdateGlobalDcGateway } from './UpdateGlobalDcGateway';
 
 
 export class UpdateGlobalDcGatewayRequestBody {
-    private 'dry_run'?: boolean;
-    private 'global_dc_gateway'?: UpdateGlobalDcGatewayRequestBodyGlobalDcGateway;
-    public constructor() { 
+    private 'global_dc_gateway'?: UpdateGlobalDcGateway;
+    public constructor(globalDcGateway?: UpdateGlobalDcGateway) { 
+        this['global_dc_gateway'] = globalDcGateway;
     }
-    public withDryRun(dryRun: boolean): UpdateGlobalDcGatewayRequestBody {
-        this['dry_run'] = dryRun;
-        return this;
-    }
-    public set dryRun(dryRun: boolean  | undefined) {
-        this['dry_run'] = dryRun;
-    }
-    public get dryRun(): boolean | undefined {
-        return this['dry_run'];
-    }
-    public withGlobalDcGateway(globalDcGateway: UpdateGlobalDcGatewayRequestBodyGlobalDcGateway): UpdateGlobalDcGatewayRequestBody {
+    public withGlobalDcGateway(globalDcGateway: UpdateGlobalDcGateway): UpdateGlobalDcGatewayRequestBody {
         this['global_dc_gateway'] = globalDcGateway;
         return this;
     }
-    public set globalDcGateway(globalDcGateway: UpdateGlobalDcGatewayRequestBodyGlobalDcGateway  | undefined) {
+    public set globalDcGateway(globalDcGateway: UpdateGlobalDcGateway  | undefined) {
         this['global_dc_gateway'] = globalDcGateway;
     }
-    public get globalDcGateway(): UpdateGlobalDcGatewayRequestBodyGlobalDcGateway | undefined {
+    public get globalDcGateway(): UpdateGlobalDcGateway | undefined {
         return this['global_dc_gateway'];
     }
 }

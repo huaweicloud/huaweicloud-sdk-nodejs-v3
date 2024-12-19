@@ -21,7 +21,8 @@ export class CreateImageRequestBody {
     private 'is_quick_import'?: boolean;
     public architecture?: CreateImageRequestBodyArchitectureEnum | string;
     private 'volume_id'?: string;
-    public constructor(name?: string) { 
+    public constructor(instanceId?: string, name?: string) { 
+        this['instance_id'] = instanceId;
         this['name'] = name;
     }
     public withDataImages(dataImages: Array<CreateDataImage>): CreateImageRequestBody {

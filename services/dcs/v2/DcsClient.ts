@@ -14,6 +14,7 @@ import { BackupInstanceBody } from './model/BackupInstanceBody';
 import { BackupPlan } from './model/BackupPlan';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupRecordResponse } from './model/BackupRecordResponse';
+import { BandwidthAutoScalingPolicy } from './model/BandwidthAutoScalingPolicy';
 import { BandwidthInfo } from './model/BandwidthInfo';
 import { BatchCreateOrDeleteTagsRequest } from './model/BatchCreateOrDeleteTagsRequest';
 import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTagsResponse';
@@ -38,6 +39,10 @@ import { ChangeMasterStandbyAsyncRequest } from './model/ChangeMasterStandbyAsyn
 import { ChangeMasterStandbyAsyncResponse } from './model/ChangeMasterStandbyAsyncResponse';
 import { ChangeMasterStandbyRequest } from './model/ChangeMasterStandbyRequest';
 import { ChangeMasterStandbyResponse } from './model/ChangeMasterStandbyResponse';
+import { ChangeNodesStartStopStatusBody } from './model/ChangeNodesStartStopStatusBody';
+import { ChangeNodesStartStopStatusRequest } from './model/ChangeNodesStartStopStatusRequest';
+import { ChangeNodesStartStopStatusResp } from './model/ChangeNodesStartStopStatusResp';
+import { ChangeNodesStartStopStatusResponse } from './model/ChangeNodesStartStopStatusResponse';
 import { ClientInfo } from './model/ClientInfo';
 import { ClusterRedisNodeMonitoredObject } from './model/ClusterRedisNodeMonitoredObject';
 import { CommandTimeTaken } from './model/CommandTimeTaken';
@@ -97,11 +102,16 @@ import { DeleteDiagnosisTaskRequest } from './model/DeleteDiagnosisTaskRequest';
 import { DeleteDiagnosisTaskResponse } from './model/DeleteDiagnosisTaskResponse';
 import { DeleteHotkeyScanTaskRequest } from './model/DeleteHotkeyScanTaskRequest';
 import { DeleteHotkeyScanTaskResponse } from './model/DeleteHotkeyScanTaskResponse';
+import { DeleteInstanceBandwidthAutoScalingPolicyRequest } from './model/DeleteInstanceBandwidthAutoScalingPolicyRequest';
+import { DeleteInstanceBandwidthAutoScalingPolicyResp } from './model/DeleteInstanceBandwidthAutoScalingPolicyResp';
+import { DeleteInstanceBandwidthAutoScalingPolicyResponse } from './model/DeleteInstanceBandwidthAutoScalingPolicyResponse';
 import { DeleteIpFromDomainNameRequest } from './model/DeleteIpFromDomainNameRequest';
 import { DeleteIpFromDomainNameResponse } from './model/DeleteIpFromDomainNameResponse';
 import { DeleteMigrateTaskRequest } from './model/DeleteMigrateTaskRequest';
 import { DeleteMigrationTaskRequest } from './model/DeleteMigrationTaskRequest';
 import { DeleteMigrationTaskResponse } from './model/DeleteMigrationTaskResponse';
+import { DeletePublicIpRequest } from './model/DeletePublicIpRequest';
+import { DeletePublicIpResponse } from './model/DeletePublicIpResponse';
 import { DeleteSingleInstanceRequest } from './model/DeleteSingleInstanceRequest';
 import { DeleteSingleInstanceResponse } from './model/DeleteSingleInstanceResponse';
 import { DetailsBody } from './model/DetailsBody';
@@ -131,6 +141,7 @@ import { Features } from './model/Features';
 import { Files } from './model/Files';
 import { FlavorAzObject } from './model/FlavorAzObject';
 import { FlavorsItems } from './model/FlavorsItems';
+import { GroupBandwidthInfo } from './model/GroupBandwidthInfo';
 import { HangUpClientsRequest } from './model/HangUpClientsRequest';
 import { HangUpClientsRequestBody } from './model/HangUpClientsRequestBody';
 import { HangUpClientsResponse } from './model/HangUpClientsResponse';
@@ -260,6 +271,8 @@ import { SetOnlineMigrationTaskRequest } from './model/SetOnlineMigrationTaskReq
 import { SetOnlineMigrationTaskResponse } from './model/SetOnlineMigrationTaskResponse';
 import { ShowBackgroundTaskProgressRequest } from './model/ShowBackgroundTaskProgressRequest';
 import { ShowBackgroundTaskProgressResponse } from './model/ShowBackgroundTaskProgressResponse';
+import { ShowBandwidthsRequest } from './model/ShowBandwidthsRequest';
+import { ShowBandwidthsResponse } from './model/ShowBandwidthsResponse';
 import { ShowBigkeyAutoscanConfigRequest } from './model/ShowBigkeyAutoscanConfigRequest';
 import { ShowBigkeyAutoscanConfigResponse } from './model/ShowBigkeyAutoscanConfigResponse';
 import { ShowBigkeyScanTaskDetailsRequest } from './model/ShowBigkeyScanTaskDetailsRequest';
@@ -278,10 +291,14 @@ import { ShowHotkeyAutoscanConfigRequest } from './model/ShowHotkeyAutoscanConfi
 import { ShowHotkeyAutoscanConfigResponse } from './model/ShowHotkeyAutoscanConfigResponse';
 import { ShowHotkeyTaskDetailsRequest } from './model/ShowHotkeyTaskDetailsRequest';
 import { ShowHotkeyTaskDetailsResponse } from './model/ShowHotkeyTaskDetailsResponse';
+import { ShowInstanceBandwidthAutoScalingPolicyRequest } from './model/ShowInstanceBandwidthAutoScalingPolicyRequest';
+import { ShowInstanceBandwidthAutoScalingPolicyResponse } from './model/ShowInstanceBandwidthAutoScalingPolicyResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowInstanceSslDetailRequest } from './model/ShowInstanceSslDetailRequest';
 import { ShowInstanceSslDetailResponse } from './model/ShowInstanceSslDetailResponse';
+import { ShowInstanceVersionRequest } from './model/ShowInstanceVersionRequest';
+import { ShowInstanceVersionResponse } from './model/ShowInstanceVersionResponse';
 import { ShowIpWhitelistRequest } from './model/ShowIpWhitelistRequest';
 import { ShowIpWhitelistResponse } from './model/ShowIpWhitelistResponse';
 import { ShowJobInfoRequest } from './model/ShowJobInfoRequest';
@@ -323,6 +340,10 @@ import { UpdateAclAccountRemarkResponse } from './model/UpdateAclAccountRemarkRe
 import { UpdateAclAccountRequest } from './model/UpdateAclAccountRequest';
 import { UpdateAclAccountResponse } from './model/UpdateAclAccountResponse';
 import { UpdateAutoScanConfigRequestBody } from './model/UpdateAutoScanConfigRequestBody';
+import { UpdateBandwidthInfoRequest } from './model/UpdateBandwidthInfoRequest';
+import { UpdateBandwidthRequest } from './model/UpdateBandwidthRequest';
+import { UpdateBandwidthResp } from './model/UpdateBandwidthResp';
+import { UpdateBandwidthResponse } from './model/UpdateBandwidthResponse';
 import { UpdateBigkeyAutoscanConfigRequest } from './model/UpdateBigkeyAutoscanConfigRequest';
 import { UpdateBigkeyAutoscanConfigResponse } from './model/UpdateBigkeyAutoscanConfigResponse';
 import { UpdateClientIpTransparentTransmissionRequest } from './model/UpdateClientIpTransparentTransmissionRequest';
@@ -335,8 +356,12 @@ import { UpdateConfigurationsResponse } from './model/UpdateConfigurationsRespon
 import { UpdateCustomTemplateBody } from './model/UpdateCustomTemplateBody';
 import { UpdateExpireAutoScanConfigRequest } from './model/UpdateExpireAutoScanConfigRequest';
 import { UpdateExpireAutoScanConfigResponse } from './model/UpdateExpireAutoScanConfigResponse';
+import { UpdateGroupBandwidthInfoRequest } from './model/UpdateGroupBandwidthInfoRequest';
 import { UpdateHotkeyAutoScanConfigRequest } from './model/UpdateHotkeyAutoScanConfigRequest';
 import { UpdateHotkeyAutoScanConfigResponse } from './model/UpdateHotkeyAutoScanConfigResponse';
+import { UpdateInstanceBandwidthAutoScalingPolicyRequest } from './model/UpdateInstanceBandwidthAutoScalingPolicyRequest';
+import { UpdateInstanceBandwidthAutoScalingPolicyRequestBody } from './model/UpdateInstanceBandwidthAutoScalingPolicyRequestBody';
+import { UpdateInstanceBandwidthAutoScalingPolicyResponse } from './model/UpdateInstanceBandwidthAutoScalingPolicyResponse';
 import { UpdateInstanceBandwidthRequest } from './model/UpdateInstanceBandwidthRequest';
 import { UpdateInstanceBandwidthResponse } from './model/UpdateInstanceBandwidthResponse';
 import { UpdateInstanceConfigRequest } from './model/UpdateInstanceConfigRequest';
@@ -349,11 +374,17 @@ import { UpdateMigrationTaskRequest } from './model/UpdateMigrationTaskRequest';
 import { UpdateMigrationTaskResponse } from './model/UpdateMigrationTaskResponse';
 import { UpdatePasswordRequest } from './model/UpdatePasswordRequest';
 import { UpdatePasswordResponse } from './model/UpdatePasswordResponse';
+import { UpdatePublicIpRequest } from './model/UpdatePublicIpRequest';
+import { UpdatePublicIpRequestBody } from './model/UpdatePublicIpRequestBody';
+import { UpdatePublicIpResponse } from './model/UpdatePublicIpResponse';
 import { UpdateSSLSwitchRequestBody } from './model/UpdateSSLSwitchRequestBody';
 import { UpdateSlavePriorityRequest } from './model/UpdateSlavePriorityRequest';
 import { UpdateSlavePriorityResponse } from './model/UpdateSlavePriorityResponse';
 import { UpdateSslSwitchRequest } from './model/UpdateSslSwitchRequest';
 import { UpdateSslSwitchResponse } from './model/UpdateSslSwitchResponse';
+import { UpgradeInstanceMinorVersionRequest } from './model/UpgradeInstanceMinorVersionRequest';
+import { UpgradeInstanceMinorVersionResponse } from './model/UpgradeInstanceMinorVersionResponse';
+import { UpgradeMinorVersionRequestBody } from './model/UpgradeMinorVersionRequestBody';
 import { ValidateDeletableReplicaRequest } from './model/ValidateDeletableReplicaRequest';
 import { ValidateDeletableReplicaResponse } from './model/ValidateDeletableReplicaResponse';
 import { Whitelist } from './model/Whitelist';
@@ -505,6 +536,26 @@ export class DcsClient {
      */
     public changeMasterStandbyAsync(changeMasterStandbyAsyncRequest?: ChangeMasterStandbyAsyncRequest): Promise<ChangeMasterStandbyAsyncResponse> {
         const options = ParamCreater().changeMasterStandbyAsync(changeMasterStandbyAsyncRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 实例节点启停。执行节点关机操作前的24小时内，需要对实例（单机实例除外）进行数据备份。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 指定实例节点启停开关
+     * @param {string} instanceId 实例ID。
+     * @param {ChangeNodesStartStopStatusBody} changeNodesStartStopStatusRequestBody Change current instance\&#39;s nodes running status request body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeNodesStartStopStatus(changeNodesStartStopStatusRequest?: ChangeNodesStartStopStatusRequest): Promise<ChangeNodesStartStopStatusResponse> {
+        const options = ParamCreater().changeNodesStartStopStatus(changeNodesStartStopStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -934,6 +985,25 @@ export class DcsClient {
     }
 
     /**
+     * 删除实例带宽弹性伸缩策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例带宽弹性伸缩策略
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceBandwidthAutoScalingPolicy(deleteInstanceBandwidthAutoScalingPolicyRequest?: DeleteInstanceBandwidthAutoScalingPolicyRequest): Promise<DeleteInstanceBandwidthAutoScalingPolicyResponse> {
+        const options = ParamCreater().deleteInstanceBandwidthAutoScalingPolicy(deleteInstanceBandwidthAutoScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 将只读副本的IP从域名中摘除，摘除成功后，只读域名不会再解析到该副本IP。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -966,6 +1036,25 @@ export class DcsClient {
      */
     public deleteMigrationTask(deleteMigrationTaskRequest?: DeleteMigrationTaskRequest): Promise<DeleteMigrationTaskResponse> {
         const options = ParamCreater().deleteMigrationTask(deleteMigrationTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭实例公网访问。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭实例公网访问
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePublicIp(deletePublicIpRequest?: DeletePublicIpRequest): Promise<DeletePublicIpResponse> {
+        const options = ParamCreater().deletePublicIp(deletePublicIpRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1979,6 +2068,25 @@ export class DcsClient {
     }
 
     /**
+     * 获取实例各个分片带宽。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例分片带宽
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBandwidths(showBandwidthsRequest?: ShowBandwidthsRequest): Promise<ShowBandwidthsResponse> {
+        const options = ParamCreater().showBandwidths(showBandwidthsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询大key自动分析配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2176,6 +2284,25 @@ export class DcsClient {
     }
 
     /**
+     * 查询实例带宽弹性伸缩策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例带宽弹性伸缩策略
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceBandwidthAutoScalingPolicy(showInstanceBandwidthAutoScalingPolicyRequest?: ShowInstanceBandwidthAutoScalingPolicyRequest): Promise<ShowInstanceBandwidthAutoScalingPolicyResponse> {
+        const options = ParamCreater().showInstanceBandwidthAutoScalingPolicy(showInstanceBandwidthAutoScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例SSL信息。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2187,6 +2314,25 @@ export class DcsClient {
      */
     public showInstanceSslDetail(showInstanceSslDetailRequest?: ShowInstanceSslDetailRequest): Promise<ShowInstanceSslDetailResponse> {
         const options = ParamCreater().showInstanceSslDetail(showInstanceSslDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取对应实例内核版本号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据实例ID获取实例内核版本信息
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceVersion(showInstanceVersionRequest?: ShowInstanceVersionRequest): Promise<ShowInstanceVersionResponse> {
+        const options = ParamCreater().showInstanceVersion(showInstanceVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2451,6 +2597,26 @@ export class DcsClient {
     }
 
     /**
+     * 修改实例分片带宽。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例分片带宽
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateBandwidthInfoRequest} updateBandwidthRequestBody 带宽修改列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBandwidth(updateBandwidthRequest?: UpdateBandwidthRequest): Promise<UpdateBandwidthResponse> {
+        const options = ParamCreater().updateBandwidth(updateBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置大key自动分析配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2610,6 +2776,26 @@ export class DcsClient {
     }
 
     /**
+     * 更新实例带宽弹性伸缩策略。暂不支持实例带宽自动回缩。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新实例带宽弹性伸缩策略
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateInstanceBandwidthAutoScalingPolicyRequestBody} updateInstanceBandwidthAutoScalingPolicyRequestBody 更新实例弹性伸缩策略请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceBandwidthAutoScalingPolicy(updateInstanceBandwidthAutoScalingPolicyRequest?: UpdateInstanceBandwidthAutoScalingPolicyRequest): Promise<UpdateInstanceBandwidthAutoScalingPolicyResponse> {
+        const options = ParamCreater().updateInstanceBandwidthAutoScalingPolicy(updateInstanceBandwidthAutoScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为了确保分布式缓存服务发挥出最优性能，您可以根据自己的业务情况对DCS缓存实例的运行参数进行调整。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2670,6 +2856,26 @@ export class DcsClient {
     }
 
     /**
+     * 开启/修改实例公网访问。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/修改实例公网访问
+     * @param {string} instanceId 实例ID。
+     * @param {UpdatePublicIpRequestBody} updatePublicIpRequestBody This is a auto update BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePublicIp(updatePublicIpRequest?: UpdatePublicIpRequest): Promise<UpdatePublicIpResponse> {
+        const options = ParamCreater().updatePublicIp(updatePublicIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置副本优先级，主节点故障时，权重越小的备节点切换为主节点的优先级越高。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2704,6 +2910,26 @@ export class DcsClient {
      */
     public updateSslSwitch(updateSslSwitchRequest?: UpdateSslSwitchRequest): Promise<UpdateSslSwitchResponse> {
         const options = ParamCreater().updateSslSwitch(updateSslSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 升级实例小版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 升级实例小版本
+     * @param {string} instanceId 实例ID。
+     * @param {UpgradeMinorVersionRequestBody} upgradeInstanceMinorVersionRequestBody 升级小版本请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeInstanceMinorVersion(upgradeInstanceMinorVersionRequest?: UpgradeInstanceMinorVersionRequest): Promise<UpgradeInstanceMinorVersionResponse> {
+        const options = ParamCreater().upgradeInstanceMinorVersion(upgradeInstanceMinorVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3053,6 +3279,52 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeMasterStandbyAsync.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 实例节点启停。执行节点关机操作前的24小时内，需要对实例（单机实例除外）进行数据备份。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeNodesStartStopStatus(changeNodesStartStopStatusRequest?: ChangeNodesStartStopStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/nodes/status",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (changeNodesStartStopStatusRequest !== null && changeNodesStartStopStatusRequest !== undefined) {
+                if (changeNodesStartStopStatusRequest instanceof ChangeNodesStartStopStatusRequest) {
+                    instanceId = changeNodesStartStopStatusRequest.instanceId;
+                    body = changeNodesStartStopStatusRequest.body
+                } else {
+                    instanceId = changeNodesStartStopStatusRequest['instance_id'];
+                    body = changeNodesStartStopStatusRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeNodesStartStopStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3956,6 +4228,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除实例带宽弹性伸缩策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceBandwidthAutoScalingPolicy(deleteInstanceBandwidthAutoScalingPolicyRequest?: DeleteInstanceBandwidthAutoScalingPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/autoscaling-policy/bandwidth",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (deleteInstanceBandwidthAutoScalingPolicyRequest !== null && deleteInstanceBandwidthAutoScalingPolicyRequest !== undefined) {
+                if (deleteInstanceBandwidthAutoScalingPolicyRequest instanceof DeleteInstanceBandwidthAutoScalingPolicyRequest) {
+                    instanceId = deleteInstanceBandwidthAutoScalingPolicyRequest.instanceId;
+                } else {
+                    instanceId = deleteInstanceBandwidthAutoScalingPolicyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceBandwidthAutoScalingPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 将只读副本的IP从域名中摘除，摘除成功后，只读域名不会再解析到该副本IP。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4040,6 +4349,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭实例公网访问。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePublicIp(deletePublicIpRequest?: DeletePublicIpRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/public-ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (deletePublicIpRequest !== null && deletePublicIpRequest !== undefined) {
+                if (deletePublicIpRequest instanceof DeletePublicIpRequest) {
+                    instanceId = deletePublicIpRequest.instanceId;
+                } else {
+                    instanceId = deletePublicIpRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deletePublicIp.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6450,6 +6796,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取实例各个分片带宽。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBandwidths(showBandwidthsRequest?: ShowBandwidthsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/bandwidths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showBandwidthsRequest !== null && showBandwidthsRequest !== undefined) {
+                if (showBandwidthsRequest instanceof ShowBandwidthsRequest) {
+                    instanceId = showBandwidthsRequest.instanceId;
+                } else {
+                    instanceId = showBandwidthsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBandwidths.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询大key自动分析配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6874,6 +7257,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例带宽弹性伸缩策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceBandwidthAutoScalingPolicy(showInstanceBandwidthAutoScalingPolicyRequest?: ShowInstanceBandwidthAutoScalingPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/autoscaling-policy/bandwidth",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceBandwidthAutoScalingPolicyRequest !== null && showInstanceBandwidthAutoScalingPolicyRequest !== undefined) {
+                if (showInstanceBandwidthAutoScalingPolicyRequest instanceof ShowInstanceBandwidthAutoScalingPolicyRequest) {
+                    instanceId = showInstanceBandwidthAutoScalingPolicyRequest.instanceId;
+                } else {
+                    instanceId = showInstanceBandwidthAutoScalingPolicyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceBandwidthAutoScalingPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例SSL信息。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6903,6 +7323,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceSslDetail.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取对应实例内核版本号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceVersion(showInstanceVersionRequest?: ShowInstanceVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceVersionRequest !== null && showInstanceVersionRequest !== undefined) {
+                if (showInstanceVersionRequest instanceof ShowInstanceVersionRequest) {
+                    instanceId = showInstanceVersionRequest.instanceId;
+                } else {
+                    instanceId = showInstanceVersionRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceVersion.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -7436,6 +7893,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改实例分片带宽。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBandwidth(updateBandwidthRequest?: UpdateBandwidthRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/bandwidths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateBandwidthRequest !== null && updateBandwidthRequest !== undefined) {
+                if (updateBandwidthRequest instanceof UpdateBandwidthRequest) {
+                    instanceId = updateBandwidthRequest.instanceId;
+                    body = updateBandwidthRequest.body
+                } else {
+                    instanceId = updateBandwidthRequest['instance_id'];
+                    body = updateBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateBandwidth.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置大key自动分析配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7792,6 +8295,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新实例带宽弹性伸缩策略。暂不支持实例带宽自动回缩。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceBandwidthAutoScalingPolicy(updateInstanceBandwidthAutoScalingPolicyRequest?: UpdateInstanceBandwidthAutoScalingPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/autoscaling-policy/bandwidth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateInstanceBandwidthAutoScalingPolicyRequest !== null && updateInstanceBandwidthAutoScalingPolicyRequest !== undefined) {
+                if (updateInstanceBandwidthAutoScalingPolicyRequest instanceof UpdateInstanceBandwidthAutoScalingPolicyRequest) {
+                    instanceId = updateInstanceBandwidthAutoScalingPolicyRequest.instanceId;
+                    body = updateInstanceBandwidthAutoScalingPolicyRequest.body
+                } else {
+                    instanceId = updateInstanceBandwidthAutoScalingPolicyRequest['instance_id'];
+                    body = updateInstanceBandwidthAutoScalingPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceBandwidthAutoScalingPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为了确保分布式缓存服务发挥出最优性能，您可以根据自己的业务情况对DCS缓存实例的运行参数进行调整。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7927,6 +8476,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启/修改实例公网访问。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePublicIp(updatePublicIpRequest?: UpdatePublicIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/public-ip",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updatePublicIpRequest !== null && updatePublicIpRequest !== undefined) {
+                if (updatePublicIpRequest instanceof UpdatePublicIpRequest) {
+                    instanceId = updatePublicIpRequest.instanceId;
+                    body = updatePublicIpRequest.body
+                } else {
+                    instanceId = updatePublicIpRequest['instance_id'];
+                    body = updatePublicIpRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updatePublicIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置副本优先级，主节点故障时，权重越小的备节点切换为主节点的优先级越高。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8020,6 +8615,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSslSwitch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 升级实例小版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeInstanceMinorVersion(upgradeInstanceMinorVersionRequest?: UpgradeInstanceMinorVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/minor-version/upgrade",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (upgradeInstanceMinorVersionRequest !== null && upgradeInstanceMinorVersionRequest !== undefined) {
+                if (upgradeInstanceMinorVersionRequest instanceof UpgradeInstanceMinorVersionRequest) {
+                    instanceId = upgradeInstanceMinorVersionRequest.instanceId;
+                    body = upgradeInstanceMinorVersionRequest.body
+                } else {
+                    instanceId = upgradeInstanceMinorVersionRequest['instance_id'];
+                    body = upgradeInstanceMinorVersionRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeInstanceMinorVersion.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

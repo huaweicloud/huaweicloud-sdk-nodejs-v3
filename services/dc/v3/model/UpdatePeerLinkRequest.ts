@@ -1,10 +1,10 @@
-import { UpdatePeerLinkRequestBody } from './UpdatePeerLinkRequestBody';
+import { UpdateExternalPeerLinkRequestBody } from './UpdateExternalPeerLinkRequestBody';
 
 
 export class UpdatePeerLinkRequest {
     private 'global_dc_gateway_id'?: string;
     private 'peer_link_id'?: string;
-    public body?: UpdatePeerLinkRequestBody;
+    public body?: UpdateExternalPeerLinkRequestBody;
     public constructor(globalDcGatewayId?: string, peerLinkId?: string) { 
         this['global_dc_gateway_id'] = globalDcGatewayId;
         this['peer_link_id'] = peerLinkId;
@@ -29,7 +29,7 @@ export class UpdatePeerLinkRequest {
     public get peerLinkId(): string | undefined {
         return this['peer_link_id'];
     }
-    public withBody(body: UpdatePeerLinkRequestBody): UpdatePeerLinkRequest {
+    public withBody(body: UpdateExternalPeerLinkRequestBody): UpdatePeerLinkRequest {
         this['body'] = body;
         return this;
     }

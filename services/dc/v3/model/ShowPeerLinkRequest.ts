@@ -1,13 +1,27 @@
 
 
 export class ShowPeerLinkRequest {
-    private 'global_dc_gateway_id'?: string;
-    private 'peer_link_id'?: string;
     public fields?: Array<string>;
     private 'ext_fields'?: Array<string>;
+    private 'global_dc_gateway_id'?: string;
+    private 'peer_link_id'?: string;
     public constructor(globalDcGatewayId?: string, peerLinkId?: string) { 
         this['global_dc_gateway_id'] = globalDcGatewayId;
         this['peer_link_id'] = peerLinkId;
+    }
+    public withFields(fields: Array<string>): ShowPeerLinkRequest {
+        this['fields'] = fields;
+        return this;
+    }
+    public withExtFields(extFields: Array<string>): ShowPeerLinkRequest {
+        this['ext_fields'] = extFields;
+        return this;
+    }
+    public set extFields(extFields: Array<string>  | undefined) {
+        this['ext_fields'] = extFields;
+    }
+    public get extFields(): Array<string> | undefined {
+        return this['ext_fields'];
     }
     public withGlobalDcGatewayId(globalDcGatewayId: string): ShowPeerLinkRequest {
         this['global_dc_gateway_id'] = globalDcGatewayId;
@@ -28,19 +42,5 @@ export class ShowPeerLinkRequest {
     }
     public get peerLinkId(): string | undefined {
         return this['peer_link_id'];
-    }
-    public withFields(fields: Array<string>): ShowPeerLinkRequest {
-        this['fields'] = fields;
-        return this;
-    }
-    public withExtFields(extFields: Array<string>): ShowPeerLinkRequest {
-        this['ext_fields'] = extFields;
-        return this;
-    }
-    public set extFields(extFields: Array<string>  | undefined) {
-        this['ext_fields'] = extFields;
-    }
-    public get extFields(): Array<string> | undefined {
-        return this['ext_fields'];
     }
 }

@@ -4,6 +4,7 @@ export class AutoClassificationRequestBody {
     public image?: string;
     public url?: string;
     private 'type_list'?: Array<string>;
+    private 'pdf_page_number'?: number;
     private 'extended_parameters'?: object;
     private 'detect_seal'?: boolean;
     public constructor() { 
@@ -25,6 +26,16 @@ export class AutoClassificationRequestBody {
     }
     public get typeList(): Array<string> | undefined {
         return this['type_list'];
+    }
+    public withPdfPageNumber(pdfPageNumber: number): AutoClassificationRequestBody {
+        this['pdf_page_number'] = pdfPageNumber;
+        return this;
+    }
+    public set pdfPageNumber(pdfPageNumber: number  | undefined) {
+        this['pdf_page_number'] = pdfPageNumber;
+    }
+    public get pdfPageNumber(): number | undefined {
+        return this['pdf_page_number'];
     }
     public withExtendedParameters(extendedParameters: object): AutoClassificationRequestBody {
         this['extended_parameters'] = extendedParameters;

@@ -5,7 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class UnbindGlobalEipsResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'global_eips'?: ListBindingGeip;
-    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -28,15 +27,5 @@ export class UnbindGlobalEipsResponse extends SdkResponse {
     }
     public get globalEips(): ListBindingGeip | undefined {
         return this['global_eips'];
-    }
-    public withXRequestId(xRequestId: string): UnbindGlobalEipsResponse {
-        this['X-Request-Id'] = xRequestId;
-        return this;
-    }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-Request-Id'] = xRequestId;
-    }
-    public get xRequestId(): string | undefined {
-        return this['X-Request-Id'];
     }
 }

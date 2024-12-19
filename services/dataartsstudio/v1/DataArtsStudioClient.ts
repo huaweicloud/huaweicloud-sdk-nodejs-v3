@@ -764,6 +764,11 @@ import { RequestPara } from './model/RequestPara';
 import { ResetLinkAttributeAndStandardRequest } from './model/ResetLinkAttributeAndStandardRequest';
 import { ResetLinkAttributeAndStandardResponse } from './model/ResetLinkAttributeAndStandardResponse';
 import { ResetLinkAttributeAndStandardResultData } from './model/ResetLinkAttributeAndStandardResultData';
+import { RetryFactoryJobInstanceBody } from './model/RetryFactoryJobInstanceBody';
+import { RetryFactoryJobInstanceBodyJobs } from './model/RetryFactoryJobInstanceBodyJobs';
+import { RetryFactoryJobInstanceBodyTaskRetrys } from './model/RetryFactoryJobInstanceBodyTaskRetrys';
+import { RetryFactoryJobInstanceRequest } from './model/RetryFactoryJobInstanceRequest';
+import { RetryFactoryJobInstanceResponse } from './model/RetryFactoryJobInstanceResponse';
 import { RoleActionQueryDTO } from './model/RoleActionQueryDTO';
 import { RollbackApprovalRequest } from './model/RollbackApprovalRequest';
 import { RollbackApprovalResponse } from './model/RollbackApprovalResponse';
@@ -5613,6 +5618,29 @@ export class DataArtsStudioClient {
      */
     public resetLinkAttributeAndStandard(resetLinkAttributeAndStandardRequest?: ResetLinkAttributeAndStandardRequest): Promise<ResetLinkAttributeAndStandardResponse> {
         const options = ParamCreater().resetLinkAttributeAndStandard(resetLinkAttributeAndStandardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持重跑作业实例以及上下游的作业实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重跑作业实例
+     * @param {string} jobName 当前作业名称
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {RetryFactoryJobInstanceBody} retryFactoryJobInstanceRequestBody 作业实例参数重跑请求体。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryFactoryJobInstance(retryFactoryJobInstanceRequest?: RetryFactoryJobInstanceRequest): Promise<RetryFactoryJobInstanceResponse> {
+        const options = ParamCreater().retryFactoryJobInstance(retryFactoryJobInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -21565,6 +21593,73 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持重跑作业实例以及上下游的作业实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryFactoryJobInstance(retryFactoryJobInstanceRequest?: RetryFactoryJobInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/jobs/{job_name}/instances/retry",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobName;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let xProjectId;
+
+            if (retryFactoryJobInstanceRequest !== null && retryFactoryJobInstanceRequest !== undefined) {
+                if (retryFactoryJobInstanceRequest instanceof RetryFactoryJobInstanceRequest) {
+                    jobName = retryFactoryJobInstanceRequest.jobName;
+                    workspace = retryFactoryJobInstanceRequest.workspace;
+                    body = retryFactoryJobInstanceRequest.body
+                    contentType = retryFactoryJobInstanceRequest.contentType;
+                    xProjectId = retryFactoryJobInstanceRequest.xProjectId;
+                } else {
+                    jobName = retryFactoryJobInstanceRequest['job_name'];
+                    workspace = retryFactoryJobInstanceRequest['workspace'];
+                    body = retryFactoryJobInstanceRequest['body'];
+                    contentType = retryFactoryJobInstanceRequest['Content-Type'];
+                    xProjectId = retryFactoryJobInstanceRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling retryFactoryJobInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_name': jobName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

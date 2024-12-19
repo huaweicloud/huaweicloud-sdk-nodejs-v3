@@ -352,6 +352,8 @@ import { ListSslCertDownloadLinkRequest } from './model/ListSslCertDownloadLinkR
 import { ListSslCertDownloadLinkResponse } from './model/ListSslCertDownloadLinkResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
+import { ListUpdateBackupEnhancePolicyRequest } from './model/ListUpdateBackupEnhancePolicyRequest';
+import { ListUpdateBackupEnhancePolicyResponse } from './model/ListUpdateBackupEnhancePolicyResponse';
 import { ListUpgradeHistoriesRequest } from './model/ListUpgradeHistoriesRequest';
 import { ListUpgradeHistoriesResponse } from './model/ListUpgradeHistoriesResponse';
 import { ListXelLogResponseResult } from './model/ListXelLogResponseResult';
@@ -387,6 +389,7 @@ import { OpenProxyRequest } from './model/OpenProxyRequest';
 import { OpsWindowRequest } from './model/OpsWindowRequest';
 import { ParaGroupDatastore } from './model/ParaGroupDatastore';
 import { ParamGroupHistoryResult } from './model/ParamGroupHistoryResult';
+import { Policy } from './model/Policy';
 import { PostgreSQLHistoryDatabase } from './model/PostgreSQLHistoryDatabase';
 import { PostgreSQLHistoryDatabaseRequest } from './model/PostgreSQLHistoryDatabaseRequest';
 import { PostgreSQLHistorySchema } from './model/PostgreSQLHistorySchema';
@@ -2423,6 +2426,26 @@ export class RdsClient {
      */
     public listStorageTypes(listStorageTypesRequest?: ListStorageTypesRequest): Promise<ListStorageTypesResponse> {
         const options = ParamCreater().listStorageTypes(listStorageTypesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询高级备份策略，可查看自定义稀疏备份等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询高级备份策略
+     * @param {string} instanceId 实例ID
+     * @param {string} [timeZone] 用户当前时区，例：plus08
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpdateBackupEnhancePolicy(listUpdateBackupEnhancePolicyRequest?: ListUpdateBackupEnhancePolicyRequest): Promise<ListUpdateBackupEnhancePolicyResponse> {
+        const options = ParamCreater().listUpdateBackupEnhancePolicy(listUpdateBackupEnhancePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9845,6 +9868,51 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询高级备份策略，可查看自定义稀疏备份等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpdateBackupEnhancePolicy(listUpdateBackupEnhancePolicyRequest?: ListUpdateBackupEnhancePolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/enhance-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let timeZone;
+
+            if (listUpdateBackupEnhancePolicyRequest !== null && listUpdateBackupEnhancePolicyRequest !== undefined) {
+                if (listUpdateBackupEnhancePolicyRequest instanceof ListUpdateBackupEnhancePolicyRequest) {
+                    instanceId = listUpdateBackupEnhancePolicyRequest.instanceId;
+                    timeZone = listUpdateBackupEnhancePolicyRequest.timeZone;
+                } else {
+                    instanceId = listUpdateBackupEnhancePolicyRequest['instance_id'];
+                    timeZone = listUpdateBackupEnhancePolicyRequest['time_zone'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listUpdateBackupEnhancePolicy.');
+            }
+            if (timeZone !== null && timeZone !== undefined) {
+                localVarQueryParameter['time_zone'] = timeZone;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

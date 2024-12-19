@@ -3,6 +3,7 @@ import { Tag } from './Tag';
 
 export class CreateVirtualGateway {
     private 'vpc_id'?: string;
+    private 'enterprise_router_id'?: string;
     public name?: string;
     public description?: string;
     private 'local_ep_group'?: Array<string>;
@@ -23,6 +24,16 @@ export class CreateVirtualGateway {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
+    }
+    public withEnterpriseRouterId(enterpriseRouterId: string): CreateVirtualGateway {
+        this['enterprise_router_id'] = enterpriseRouterId;
+        return this;
+    }
+    public set enterpriseRouterId(enterpriseRouterId: string  | undefined) {
+        this['enterprise_router_id'] = enterpriseRouterId;
+    }
+    public get enterpriseRouterId(): string | undefined {
+        return this['enterprise_router_id'];
     }
     public withName(name: string): CreateVirtualGateway {
         this['name'] = name;

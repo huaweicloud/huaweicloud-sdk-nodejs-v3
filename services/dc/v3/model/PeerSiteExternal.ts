@@ -1,17 +1,12 @@
 
 
 export class PeerSiteExternal {
-    public type?: string;
     private 'gateway_id'?: string;
     private 'link_id'?: string;
     private 'region_id'?: string;
     private 'project_id'?: string;
     private 'site_code'?: string;
     public constructor() { 
-    }
-    public withType(type: string): PeerSiteExternal {
-        this['type'] = type;
-        return this;
     }
     public withGatewayId(gatewayId: string): PeerSiteExternal {
         this['gateway_id'] = gatewayId;

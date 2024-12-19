@@ -188,5 +188,5 @@ export class ScalingActivityLogV2 {
 export enum ScalingActivityLogV2StatusEnum {
     SUCCESS = 'SUCCESS',
     FAIL = 'FAIL',
-    DING = 'DING'
+    DOING = 'DOING'
 }

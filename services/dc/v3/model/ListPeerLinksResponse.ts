@@ -1,34 +1,23 @@
-import { ExternalListPeerLinks } from './ExternalListPeerLinks';
 import { PageInfo } from './PageInfo';
+import { PeerLinkEntry } from './PeerLinkEntry';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListPeerLinksResponse extends SdkResponse {
-    private 'request_id'?: string;
-    private 'peer_links'?: Array<ExternalListPeerLinks>;
+    private 'peer_links'?: Array<PeerLinkEntry>;
     private 'page_info'?: PageInfo;
-    private 'X-Request-Id'?: string;
+    private 'request_id'?: string;
     public constructor() { 
         super();
     }
-    public withRequestId(requestId: string): ListPeerLinksResponse {
-        this['request_id'] = requestId;
-        return this;
-    }
-    public set requestId(requestId: string  | undefined) {
-        this['request_id'] = requestId;
-    }
-    public get requestId(): string | undefined {
-        return this['request_id'];
-    }
-    public withPeerLinks(peerLinks: Array<ExternalListPeerLinks>): ListPeerLinksResponse {
+    public withPeerLinks(peerLinks: Array<PeerLinkEntry>): ListPeerLinksResponse {
         this['peer_links'] = peerLinks;
         return this;
     }
-    public set peerLinks(peerLinks: Array<ExternalListPeerLinks>  | undefined) {
+    public set peerLinks(peerLinks: Array<PeerLinkEntry>  | undefined) {
         this['peer_links'] = peerLinks;
     }
-    public get peerLinks(): Array<ExternalListPeerLinks> | undefined {
+    public get peerLinks(): Array<PeerLinkEntry> | undefined {
         return this['peer_links'];
     }
     public withPageInfo(pageInfo: PageInfo): ListPeerLinksResponse {
@@ -41,14 +30,14 @@ export class ListPeerLinksResponse extends SdkResponse {
     public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
-    public withXRequestId(xRequestId: string): ListPeerLinksResponse {
-        this['X-Request-Id'] = xRequestId;
+    public withRequestId(requestId: string): ListPeerLinksResponse {
+        this['request_id'] = requestId;
         return this;
     }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-Request-Id'] = xRequestId;
+    public set requestId(requestId: string  | undefined) {
+        this['request_id'] = requestId;
     }
-    public get xRequestId(): string | undefined {
-        return this['X-Request-Id'];
+    public get requestId(): string | undefined {
+        return this['request_id'];
     }
 }

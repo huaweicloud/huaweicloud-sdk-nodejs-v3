@@ -14,8 +14,8 @@ export class ShowUpgradeCandidateVersionsResponse extends SdkResponse {
     private 'upgrade_candidate_versions'?: Array<string>;
     private 'hotfix_upgrade_candidate_versions'?: Array<string>;
     private 'hotfix_rollback_candidate_versions'?: Array<string>;
-    private 'hotfix_upgrade_infos'?: HotfixUpgradeInfos;
-    private 'hotfix_rollback_infos'?: HotfixRollbackInfos;
+    private 'hotfix_upgrade_infos'?: Array<HotfixUpgradeInfos>;
+    private 'hotfix_rollback_infos'?: Array<HotfixRollbackInfos>;
     public constructor() { 
         super();
     }
@@ -99,24 +99,24 @@ export class ShowUpgradeCandidateVersionsResponse extends SdkResponse {
     public get hotfixRollbackCandidateVersions(): Array<string> | undefined {
         return this['hotfix_rollback_candidate_versions'];
     }
-    public withHotfixUpgradeInfos(hotfixUpgradeInfos: HotfixUpgradeInfos): ShowUpgradeCandidateVersionsResponse {
+    public withHotfixUpgradeInfos(hotfixUpgradeInfos: Array<HotfixUpgradeInfos>): ShowUpgradeCandidateVersionsResponse {
         this['hotfix_upgrade_infos'] = hotfixUpgradeInfos;
         return this;
     }
-    public set hotfixUpgradeInfos(hotfixUpgradeInfos: HotfixUpgradeInfos  | undefined) {
+    public set hotfixUpgradeInfos(hotfixUpgradeInfos: Array<HotfixUpgradeInfos>  | undefined) {
         this['hotfix_upgrade_infos'] = hotfixUpgradeInfos;
     }
-    public get hotfixUpgradeInfos(): HotfixUpgradeInfos | undefined {
+    public get hotfixUpgradeInfos(): Array<HotfixUpgradeInfos> | undefined {
         return this['hotfix_upgrade_infos'];
     }
-    public withHotfixRollbackInfos(hotfixRollbackInfos: HotfixRollbackInfos): ShowUpgradeCandidateVersionsResponse {
+    public withHotfixRollbackInfos(hotfixRollbackInfos: Array<HotfixRollbackInfos>): ShowUpgradeCandidateVersionsResponse {
         this['hotfix_rollback_infos'] = hotfixRollbackInfos;
         return this;
     }
-    public set hotfixRollbackInfos(hotfixRollbackInfos: HotfixRollbackInfos  | undefined) {
+    public set hotfixRollbackInfos(hotfixRollbackInfos: Array<HotfixRollbackInfos>  | undefined) {
         this['hotfix_rollback_infos'] = hotfixRollbackInfos;
     }
-    public get hotfixRollbackInfos(): HotfixRollbackInfos | undefined {
+    public get hotfixRollbackInfos(): Array<HotfixRollbackInfos> | undefined {
         return this['hotfix_rollback_infos'];
     }
 }

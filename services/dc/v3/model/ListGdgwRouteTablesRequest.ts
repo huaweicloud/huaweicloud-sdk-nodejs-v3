@@ -2,11 +2,9 @@
 
 export class ListGdgwRouteTablesRequest {
     private 'gdgw_id'?: string;
-    public fields?: Array<string>;
-    private 'ext_fields'?: Array<string>;
+    private 'address_family'?: Array<ListGdgwRouteTablesRequestAddressFamilyEnum> | Array<string>;
     public nexthop?: Array<string>;
     public destination?: Array<string>;
-    private 'address_family'?: Array<ListGdgwRouteTablesRequestAddressFamilyEnum> | Array<string>;
     public constructor(gdgwId?: string) { 
         this['gdgw_id'] = gdgwId;
     }
@@ -20,28 +18,6 @@ export class ListGdgwRouteTablesRequest {
     public get gdgwId(): string | undefined {
         return this['gdgw_id'];
     }
-    public withFields(fields: Array<string>): ListGdgwRouteTablesRequest {
-        this['fields'] = fields;
-        return this;
-    }
-    public withExtFields(extFields: Array<string>): ListGdgwRouteTablesRequest {
-        this['ext_fields'] = extFields;
-        return this;
-    }
-    public set extFields(extFields: Array<string>  | undefined) {
-        this['ext_fields'] = extFields;
-    }
-    public get extFields(): Array<string> | undefined {
-        return this['ext_fields'];
-    }
-    public withNexthop(nexthop: Array<string>): ListGdgwRouteTablesRequest {
-        this['nexthop'] = nexthop;
-        return this;
-    }
-    public withDestination(destination: Array<string>): ListGdgwRouteTablesRequest {
-        this['destination'] = destination;
-        return this;
-    }
     public withAddressFamily(addressFamily: Array<ListGdgwRouteTablesRequestAddressFamilyEnum> | Array<string>): ListGdgwRouteTablesRequest {
         this['address_family'] = addressFamily;
         return this;
@@ -51,6 +27,14 @@ export class ListGdgwRouteTablesRequest {
     }
     public get addressFamily(): Array<ListGdgwRouteTablesRequestAddressFamilyEnum> | Array<string> | undefined {
         return this['address_family'];
+    }
+    public withNexthop(nexthop: Array<string>): ListGdgwRouteTablesRequest {
+        this['nexthop'] = nexthop;
+        return this;
+    }
+    public withDestination(destination: Array<string>): ListGdgwRouteTablesRequest {
+        this['destination'] = destination;
+        return this;
     }
 }
 
