@@ -5,6 +5,7 @@ export class InterpreterInfo {
     public userID?: string;
     public callNumber?: string;
     public name?: string;
+    public interpreterId?: string;
     public constructor(loginAccount?: string) { 
         this['loginAccount'] = loginAccount;
     }
@@ -22,6 +23,10 @@ export class InterpreterInfo {
     }
     public withName(name: string): InterpreterInfo {
         this['name'] = name;
+        return this;
+    }
+    public withInterpreterId(interpreterId: string): InterpreterInfo {
+        this['interpreterId'] = interpreterId;
         return this;
     }
 }

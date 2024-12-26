@@ -130,7 +130,6 @@ import { ShowDirectConnectLocationRequest } from './model/ShowDirectConnectLocat
 import { ShowDirectConnectLocationResponse } from './model/ShowDirectConnectLocationResponse';
 import { ShowDirectConnectRequest } from './model/ShowDirectConnectRequest';
 import { ShowDirectConnectResponse } from './model/ShowDirectConnectResponse';
-import { ShowGdgwRoutetable } from './model/ShowGdgwRoutetable';
 import { ShowGlobalDcGatewayRequest } from './model/ShowGlobalDcGatewayRequest';
 import { ShowGlobalDcGatewayResponse } from './model/ShowGlobalDcGatewayResponse';
 import { ShowHostedDirectConnectRequest } from './model/ShowHostedDirectConnectRequest';
@@ -247,7 +246,7 @@ export class DcClient {
      * @param {Array<string>} [extFields] show response ext-fields
      * @param {string} [sortKey] 排序字段。
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
-     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [status] 根椐资源状态过滤实例
      * @param {Array<string>} [globalEipId] 全局弹性IP的ID
      * @param {Array<string>} [globalEipSegmentId] 全局弹性IP(有掩码)的ID
      * @param {*} [options] Override http request option.
@@ -336,7 +335,7 @@ export class DcClient {
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
      * @param {Array<string>} [id] 根据资源ID过滤实例
      * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
-     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [status] 根椐资源状态过滤实例
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -375,7 +374,7 @@ export class DcClient {
      *
      * @summary 更新互联网关
      * @param {string} connectGatewayId 互联网关ID
-     * @param {UpdateConnectGatewayRequestBody} [updateConnectGatewayRequestBody] 修改Connect Gateway请求体
+     * @param {UpdateConnectGatewayRequestBody} updateConnectGatewayRequestBody 修改Connect Gateway请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -585,7 +584,7 @@ export class DcClient {
     }
 
     /**
-     * 查询本区域下所有专线的接入点的信息，分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+     * 查询本区域下所有专线的接入点的信息，分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -596,7 +595,7 @@ export class DcClient {
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
      * @param {Array<string>} [id] 根据资源ID过滤实例
      * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
-     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [status] 根椐资源状态过滤实例
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -635,9 +634,11 @@ export class DcClient {
      *
      * @summary 查询全域接入网关路由表
      * @param {string} gdgwId 全域接入网关ID
-     * @param {Array<'ipv4' | 'ipv6'>} [addressFamily] 地址簇
-     * @param {Array<string>} [nexthop] 下一跳ID
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<string>} [extFields] show response ext-fields
+     * @param {Array<string>} [nexthop] 下一条ID
      * @param {Array<string>} [destination] 目的地址
+     * @param {Array<'ipv4' | 'ipv6'>} [addressFamily] 地址簇
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -651,17 +652,13 @@ export class DcClient {
     }
 
     /**
-     * # 支持的修改操作：
-     * **注意：新增、删除、修改操作互斥，一次请求只能执行其中一类操作**
-     * + 1. 新增下一跳路由
-     * + 2. 删除下一跳路由
-     * + 3. 修改路由描述
+     * 支持的修改操作：新增、删除、修改
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改全域接入网关路由表
      * @param {string} gdgwId 全域接入网关ID
-     * @param {UpdateGdgwRoutetableRequestBody} [updateGdgwRoutetableRequestBody] 
+     * @param {UpdateGdgwRoutetableRequestBody} updateGdgwRoutetableRequestBody 修改全域接入网关路由表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -728,7 +725,7 @@ export class DcClient {
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
      * @param {Array<string>} [siteNetworkId] 站点网络ID
      * @param {Array<string>} [cloudConnectionId] 云连接ID
-     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [status] 根椐资源状态过滤实例
      * @param {Array<string>} [globalCenterNetworkId] 全球中心网络ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -792,7 +789,7 @@ export class DcClient {
      *
      * @summary 创建专线关联连接
      * @param {string} globalDcGatewayId 全域接入网关ID
-     * @param {CreateExternalPeerLinkRequestBody} createExternalPeerLinkRequestBody 创建专线关联连接peer-link请求参数对象。
+     * @param {CreateExternalPeerLinkRequestBody} createExternalPeerLinkRequestBody 创建专线关联连接peer-link请求参数对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1260,7 +1257,7 @@ export class DcClient {
      * @param {string} [sortKey] 排序字段。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
      * @param {Array<string>} [id] 根据资源ID过滤实例
-     * @param {Array<string>} [status] 根椐资源状态过淲实例
+     * @param {Array<string>} [status] 根椐资源状态过滤实例
      * @param {Array<string>} [directConnectId] 根椐物理专线ID过滤查询实例信息
      * @param {Array<string>} [vgwId] 根椐虚拟网关ID过滤查询实例信息
      * @param {*} [options] Override http request option.
@@ -1367,7 +1364,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}/binding-global-eips",
-                contentType: "application/json; charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -1396,7 +1393,7 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'connect_gateway_id': connectGatewayId, };
@@ -1528,7 +1525,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v3/{project_id}/dcaas/connect-gateways/{connect_gateway_id}/unbinding-global-eips",
-                contentType: "application/json; charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -1557,7 +1554,7 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'connect_gateway_id': connectGatewayId, };
@@ -1818,6 +1815,9 @@ export const ParamCreater = function () {
         
             if (connectGatewayId === null || connectGatewayId === undefined) {
             throw new RequiredError('connectGatewayId','Required parameter connectGatewayId was null or undefined when calling updateConnectGateway.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2328,7 +2328,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询本区域下所有专线的接入点的信息，分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+         * 查询本区域下所有专线的接入点的信息，分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2462,23 +2462,31 @@ export const ParamCreater = function () {
             
             let gdgwId;
             
-            let addressFamily;
+            let fields;
+            
+            let extFields;
             
             let nexthop;
             
             let destination;
+            
+            let addressFamily;
 
             if (listGdgwRouteTablesRequest !== null && listGdgwRouteTablesRequest !== undefined) {
                 if (listGdgwRouteTablesRequest instanceof ListGdgwRouteTablesRequest) {
                     gdgwId = listGdgwRouteTablesRequest.gdgwId;
-                    addressFamily = listGdgwRouteTablesRequest.addressFamily;
+                    fields = listGdgwRouteTablesRequest.fields;
+                    extFields = listGdgwRouteTablesRequest.extFields;
                     nexthop = listGdgwRouteTablesRequest.nexthop;
                     destination = listGdgwRouteTablesRequest.destination;
+                    addressFamily = listGdgwRouteTablesRequest.addressFamily;
                 } else {
                     gdgwId = listGdgwRouteTablesRequest['gdgw_id'];
-                    addressFamily = listGdgwRouteTablesRequest['address_family'];
+                    fields = listGdgwRouteTablesRequest['fields'];
+                    extFields = listGdgwRouteTablesRequest['ext_fields'];
                     nexthop = listGdgwRouteTablesRequest['nexthop'];
                     destination = listGdgwRouteTablesRequest['destination'];
+                    addressFamily = listGdgwRouteTablesRequest['address_family'];
                 }
             }
 
@@ -2486,14 +2494,20 @@ export const ParamCreater = function () {
             if (gdgwId === null || gdgwId === undefined) {
             throw new RequiredError('gdgwId','Required parameter gdgwId was null or undefined when calling listGdgwRouteTables.');
             }
-            if (addressFamily !== null && addressFamily !== undefined) {
-                localVarQueryParameter['address_family'] = addressFamily;
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (extFields !== null && extFields !== undefined) {
+                localVarQueryParameter['ext_fields'] = extFields;
             }
             if (nexthop !== null && nexthop !== undefined) {
                 localVarQueryParameter['nexthop'] = nexthop;
             }
             if (destination !== null && destination !== undefined) {
                 localVarQueryParameter['destination'] = destination;
+            }
+            if (addressFamily !== null && addressFamily !== undefined) {
+                localVarQueryParameter['address_family'] = addressFamily;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2503,11 +2517,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * # 支持的修改操作：
-         * **注意：新增、删除、修改操作互斥，一次请求只能执行其中一类操作**
-         * + 1. 新增下一跳路由
-         * + 2. 删除下一跳路由
-         * + 3. 修改路由描述
+         * 支持的修改操作：新增、删除、修改
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2515,7 +2525,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v3/{project_id}/dcaas/gdgw/{gdgw_id}/routetables",
-                contentType: "application/json; charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -2541,7 +2551,10 @@ export const ParamCreater = function () {
             if (gdgwId === null || gdgwId === undefined) {
             throw new RequiredError('gdgwId','Required parameter gdgwId was null or undefined when calling updateGdgwRouteTable.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'gdgw_id': gdgwId, };

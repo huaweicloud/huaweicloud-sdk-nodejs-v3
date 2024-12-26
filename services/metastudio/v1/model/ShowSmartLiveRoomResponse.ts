@@ -40,6 +40,8 @@ export class ShowSmartLiveRoomResponse extends SdkResponse {
     private 'cover_url'?: string;
     public thumbnail?: string;
     private 'room_state'?: ShowSmartLiveRoomResponseRoomStateEnum | string;
+    private 'confirm_state'?: ShowSmartLiveRoomResponseConfirmStateEnum | string;
+    private 'script_version'?: string;
     private 'error_info'?: ErrorResponse;
     private 'X-Request-Id'?: string;
     public constructor(roomName?: string) { 
@@ -290,6 +292,26 @@ export class ShowSmartLiveRoomResponse extends SdkResponse {
     public get roomState(): ShowSmartLiveRoomResponseRoomStateEnum | string | undefined {
         return this['room_state'];
     }
+    public withConfirmState(confirmState: ShowSmartLiveRoomResponseConfirmStateEnum | string): ShowSmartLiveRoomResponse {
+        this['confirm_state'] = confirmState;
+        return this;
+    }
+    public set confirmState(confirmState: ShowSmartLiveRoomResponseConfirmStateEnum | string  | undefined) {
+        this['confirm_state'] = confirmState;
+    }
+    public get confirmState(): ShowSmartLiveRoomResponseConfirmStateEnum | string | undefined {
+        return this['confirm_state'];
+    }
+    public withScriptVersion(scriptVersion: string): ShowSmartLiveRoomResponse {
+        this['script_version'] = scriptVersion;
+        return this;
+    }
+    public set scriptVersion(scriptVersion: string  | undefined) {
+        this['script_version'] = scriptVersion;
+    }
+    public get scriptVersion(): string | undefined {
+        return this['script_version'];
+    }
     public withErrorInfo(errorInfo: ErrorResponse): ShowSmartLiveRoomResponse {
         this['error_info'] = errorInfo;
         return this;
@@ -337,4 +359,13 @@ export enum ShowSmartLiveRoomResponseRoomStateEnum {
     ENABLE = 'ENABLE',
     DISABLE = 'DISABLE',
     BLOCKED = 'BLOCKED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSmartLiveRoomResponseConfirmStateEnum {
+    UNCONFIRM = 'UNCONFIRM',
+    CONFIRMED = 'CONFIRMED',
+    REJECT = 'REJECT'
 }

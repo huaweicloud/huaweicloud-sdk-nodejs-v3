@@ -12,6 +12,7 @@ export class QuickImportImageByFileRequestBody {
     public type?: QuickImportImageByFileRequestBodyTypeEnum | string;
     private 'enterprise_project_id'?: string;
     public architecture?: QuickImportImageByFileRequestBodyArchitectureEnum | string;
+    private 'hw_firmware_type'?: QuickImportImageByFileRequestBodyHwFirmwareTypeEnum | string;
     private 'os_type'?: QuickImportImageByFileRequestBodyOsTypeEnum | string;
     private 'image_tags'?: Array<ResourceTag>;
     public constructor(name?: string, osVersion?: string, imageUrl?: string, minDisk?: number) { 
@@ -90,6 +91,16 @@ export class QuickImportImageByFileRequestBody {
         this['architecture'] = architecture;
         return this;
     }
+    public withHwFirmwareType(hwFirmwareType: QuickImportImageByFileRequestBodyHwFirmwareTypeEnum | string): QuickImportImageByFileRequestBody {
+        this['hw_firmware_type'] = hwFirmwareType;
+        return this;
+    }
+    public set hwFirmwareType(hwFirmwareType: QuickImportImageByFileRequestBodyHwFirmwareTypeEnum | string  | undefined) {
+        this['hw_firmware_type'] = hwFirmwareType;
+    }
+    public get hwFirmwareType(): QuickImportImageByFileRequestBodyHwFirmwareTypeEnum | string | undefined {
+        return this['hw_firmware_type'];
+    }
     public withOsType(osType: QuickImportImageByFileRequestBodyOsTypeEnum | string): QuickImportImageByFileRequestBody {
         this['os_type'] = osType;
         return this;
@@ -128,6 +139,14 @@ export enum QuickImportImageByFileRequestBodyTypeEnum {
 export enum QuickImportImageByFileRequestBodyArchitectureEnum {
     X86 = 'x86',
     ARM = 'arm'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QuickImportImageByFileRequestBodyHwFirmwareTypeEnum {
+    BIOS = 'bios',
+    UEFI = 'uefi'
 }
 /**
     * @export

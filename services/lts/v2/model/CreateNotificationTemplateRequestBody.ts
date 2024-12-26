@@ -8,9 +8,8 @@ export class CreateNotificationTemplateRequestBody {
     public source?: string;
     public locale?: CreateNotificationTemplateRequestBodyLocaleEnum | string;
     public templates?: Array<SubTemplate>;
-    public constructor(name?: string, desc?: string, source?: string, locale?: string, templates?: Array<SubTemplate>) { 
+    public constructor(name?: string, source?: string, locale?: string, templates?: Array<SubTemplate>) { 
         this['name'] = name;
-        this['desc'] = desc;
         this['source'] = source;
         this['locale'] = locale;
         this['templates'] = templates;

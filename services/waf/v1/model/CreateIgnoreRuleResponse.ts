@@ -1,5 +1,5 @@
-import { Advanced } from './Advanced';
 import { Condition } from './Condition';
+import { IgnoreAdvanced } from './IgnoreAdvanced';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,7 +12,7 @@ export class CreateIgnoreRuleResponse extends SdkResponse {
     public rule?: string;
     public mode?: number;
     public conditions?: Array<Condition>;
-    public advanced?: Array<Advanced>;
+    public advanced?: IgnoreAdvanced;
     public domain?: Array<string>;
     public constructor() { 
         super();
@@ -49,7 +49,7 @@ export class CreateIgnoreRuleResponse extends SdkResponse {
         this['conditions'] = conditions;
         return this;
     }
-    public withAdvanced(advanced: Array<Advanced>): CreateIgnoreRuleResponse {
+    public withAdvanced(advanced: IgnoreAdvanced): CreateIgnoreRuleResponse {
         this['advanced'] = advanced;
         return this;
     }

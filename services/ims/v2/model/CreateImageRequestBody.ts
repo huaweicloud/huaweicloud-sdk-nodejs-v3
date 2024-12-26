@@ -21,6 +21,7 @@ export class CreateImageRequestBody {
     private 'is_quick_import'?: boolean;
     public architecture?: CreateImageRequestBodyArchitectureEnum | string;
     private 'volume_id'?: string;
+    private 'hw_firmware_type'?: CreateImageRequestBodyHwFirmwareTypeEnum | string;
     public constructor(instanceId?: string, name?: string) { 
         this['instance_id'] = instanceId;
         this['name'] = name;
@@ -175,6 +176,16 @@ export class CreateImageRequestBody {
     public get volumeId(): string | undefined {
         return this['volume_id'];
     }
+    public withHwFirmwareType(hwFirmwareType: CreateImageRequestBodyHwFirmwareTypeEnum | string): CreateImageRequestBody {
+        this['hw_firmware_type'] = hwFirmwareType;
+        return this;
+    }
+    public set hwFirmwareType(hwFirmwareType: CreateImageRequestBodyHwFirmwareTypeEnum | string  | undefined) {
+        this['hw_firmware_type'] = hwFirmwareType;
+    }
+    public get hwFirmwareType(): CreateImageRequestBodyHwFirmwareTypeEnum | string | undefined {
+        return this['hw_firmware_type'];
+    }
 }
 
 /**
@@ -195,4 +206,12 @@ export enum CreateImageRequestBodyTypeEnum {
 export enum CreateImageRequestBodyArchitectureEnum {
     X86 = 'x86',
     ARM = 'arm'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateImageRequestBodyHwFirmwareTypeEnum {
+    BIOS = 'bios',
+    UEFI = 'uefi'
 }

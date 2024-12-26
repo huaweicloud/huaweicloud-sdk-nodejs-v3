@@ -2,11 +2,13 @@
 
 export class CreateTtsAuditionRequestBody {
     public text?: string;
+    private 'tts_text'?: string;
     public emotion?: string;
     public speed?: number;
     public pitch?: number;
     public volume?: number;
     private 'business_type'?: string;
+    public style?: string;
     public constructor(text?: string, emotion?: string) { 
         this['text'] = text;
         this['emotion'] = emotion;
@@ -14,6 +16,16 @@ export class CreateTtsAuditionRequestBody {
     public withText(text: string): CreateTtsAuditionRequestBody {
         this['text'] = text;
         return this;
+    }
+    public withTtsText(ttsText: string): CreateTtsAuditionRequestBody {
+        this['tts_text'] = ttsText;
+        return this;
+    }
+    public set ttsText(ttsText: string  | undefined) {
+        this['tts_text'] = ttsText;
+    }
+    public get ttsText(): string | undefined {
+        return this['tts_text'];
     }
     public withEmotion(emotion: string): CreateTtsAuditionRequestBody {
         this['emotion'] = emotion;
@@ -40,5 +52,9 @@ export class CreateTtsAuditionRequestBody {
     }
     public get businessType(): string | undefined {
         return this['business_type'];
+    }
+    public withStyle(style: string): CreateTtsAuditionRequestBody {
+        this['style'] = style;
+        return this;
     }
 }

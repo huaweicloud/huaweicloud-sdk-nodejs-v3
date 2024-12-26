@@ -10,17 +10,19 @@ export class NodeTypes {
     public detail?: Array<Detail>;
     public id?: string;
     private 'datastore_type'?: string;
+    public architecture?: string;
     private 'available_zones'?: Array<NodeTypeAvailableZones>;
     public ram?: number;
     public vcpus?: number;
     public datastores?: Array<NodeTypeDatastores>;
     public volume?: VolumeResp;
     private 'elastic_volume_specs'?: Array<NodeTypeElasticVolumeSpecs>;
-    public constructor(specName?: string, detail?: Array<Detail>, id?: string, datastoreType?: string, availableZones?: Array<NodeTypeAvailableZones>, ram?: number, vcpus?: number, datastores?: Array<NodeTypeDatastores>, volume?: VolumeResp, elasticVolumeSpecs?: Array<NodeTypeElasticVolumeSpecs>) { 
+    public constructor(specName?: string, detail?: Array<Detail>, id?: string, datastoreType?: string, architecture?: string, availableZones?: Array<NodeTypeAvailableZones>, ram?: number, vcpus?: number, datastores?: Array<NodeTypeDatastores>, volume?: VolumeResp, elasticVolumeSpecs?: Array<NodeTypeElasticVolumeSpecs>) { 
         this['spec_name'] = specName;
         this['detail'] = detail;
         this['id'] = id;
         this['datastore_type'] = datastoreType;
+        this['architecture'] = architecture;
         this['available_zones'] = availableZones;
         this['ram'] = ram;
         this['vcpus'] = vcpus;
@@ -55,6 +57,10 @@ export class NodeTypes {
     }
     public get datastoreType(): string | undefined {
         return this['datastore_type'];
+    }
+    public withArchitecture(architecture: string): NodeTypes {
+        this['architecture'] = architecture;
+        return this;
     }
     public withAvailableZones(availableZones: Array<NodeTypeAvailableZones>): NodeTypes {
         this['available_zones'] = availableZones;

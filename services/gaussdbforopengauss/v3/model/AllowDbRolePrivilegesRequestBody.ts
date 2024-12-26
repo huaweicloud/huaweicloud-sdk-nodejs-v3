@@ -1,9 +1,10 @@
+import { GaussDBforOpenGaussRoleAttributes } from './GaussDBforOpenGaussRoleAttributes';
 
 
 export class AllowDbRolePrivilegesRequestBody {
     private 'db_name'?: string;
-    public user?: object;
-    public constructor(dbName?: string, user?: object) { 
+    public user?: GaussDBforOpenGaussRoleAttributes;
+    public constructor(dbName?: string, user?: GaussDBforOpenGaussRoleAttributes) { 
         this['db_name'] = dbName;
         this['user'] = user;
     }
@@ -17,7 +18,7 @@ export class AllowDbRolePrivilegesRequestBody {
     public get dbName(): string | undefined {
         return this['db_name'];
     }
-    public withUser(user: object): AllowDbRolePrivilegesRequestBody {
+    public withUser(user: GaussDBforOpenGaussRoleAttributes): AllowDbRolePrivilegesRequestBody {
         this['user'] = user;
         return this;
     }

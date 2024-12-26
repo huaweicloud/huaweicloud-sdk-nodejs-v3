@@ -20,6 +20,7 @@ export class TrainingJobInfo {
     private 'create_time'?: number;
     private 'lastupdate_time'?: number;
     private 'voice_authorization_url'?: string;
+    private 'training_input_source_url'?: string;
     private 'create_type'?: CreateType;
     public tag?: JobTag;
     public phone?: string;
@@ -27,6 +28,7 @@ export class TrainingJobInfo {
     private 'batch_name'?: string;
     private 'allocated_resource'?: VoiceTrainingAllocatedResource;
     private 'output_language'?: string;
+    private 'is_remake'?: boolean;
     public constructor() { 
     }
     public withJobType(jobType: JobType): TrainingJobInfo {
@@ -151,6 +153,16 @@ export class TrainingJobInfo {
     public get voiceAuthorizationUrl(): string | undefined {
         return this['voice_authorization_url'];
     }
+    public withTrainingInputSourceUrl(trainingInputSourceUrl: string): TrainingJobInfo {
+        this['training_input_source_url'] = trainingInputSourceUrl;
+        return this;
+    }
+    public set trainingInputSourceUrl(trainingInputSourceUrl: string  | undefined) {
+        this['training_input_source_url'] = trainingInputSourceUrl;
+    }
+    public get trainingInputSourceUrl(): string | undefined {
+        return this['training_input_source_url'];
+    }
     public withCreateType(createType: CreateType): TrainingJobInfo {
         this['create_type'] = createType;
         return this;
@@ -208,5 +220,15 @@ export class TrainingJobInfo {
     }
     public get outputLanguage(): string | undefined {
         return this['output_language'];
+    }
+    public withIsRemake(isRemake: boolean): TrainingJobInfo {
+        this['is_remake'] = isRemake;
+        return this;
+    }
+    public set isRemake(isRemake: boolean  | undefined) {
+        this['is_remake'] = isRemake;
+    }
+    public get isRemake(): boolean | undefined {
+        return this['is_remake'];
     }
 }

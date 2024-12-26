@@ -7,6 +7,7 @@ import { Processor } from './Processor';
 
 export class UpdateAccessConfigRequestBody {
     private 'access_config_id'?: string;
+    private 'access_config_name'?: string;
     private 'access_config_detail'?: AccessConfigDeatilUpdate;
     private 'host_group_info'?: AccessConfigHostGroupIdList;
     private 'access_config_tag'?: Array<AccessConfigTag>;
@@ -34,6 +35,16 @@ export class UpdateAccessConfigRequestBody {
     }
     public get accessConfigId(): string | undefined {
         return this['access_config_id'];
+    }
+    public withAccessConfigName(accessConfigName: string): UpdateAccessConfigRequestBody {
+        this['access_config_name'] = accessConfigName;
+        return this;
+    }
+    public set accessConfigName(accessConfigName: string  | undefined) {
+        this['access_config_name'] = accessConfigName;
+    }
+    public get accessConfigName(): string | undefined {
+        return this['access_config_name'];
     }
     public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatilUpdate): UpdateAccessConfigRequestBody {
         this['access_config_detail'] = accessConfigDetail;

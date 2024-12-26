@@ -3,7 +3,8 @@
 export class Volume {
     public volume?: string;
     public capacity?: number;
-    public constructor() { 
+    public constructor(volume?: string) { 
+        this['volume'] = volume;
     }
     public withVolume(volume: string): Volume {
         this['volume'] = volume;

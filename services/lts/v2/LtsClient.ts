@@ -1256,8 +1256,6 @@ export class LtsClient {
      * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
      * @param {string} [logGroupName] 日志组名称
      * @param {string} [logStreamName] 日志流名称
-     * @param {number} [offset] 查询游标，初始传入0，后续从上一次的返回值中获取
-     * @param {number} [limit] 每页数据量，最大值为100
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4369,24 +4367,16 @@ export const ParamCreater = function () {
             let logGroupName;
             
             let logStreamName;
-            
-            let offset;
-            
-            let limit;
 
             if (listLogStreamsRequest !== null && listLogStreamsRequest !== undefined) {
                 if (listLogStreamsRequest instanceof ListLogStreamsRequest) {
                     contentType = listLogStreamsRequest.contentType;
                     logGroupName = listLogStreamsRequest.logGroupName;
                     logStreamName = listLogStreamsRequest.logStreamName;
-                    offset = listLogStreamsRequest.offset;
-                    limit = listLogStreamsRequest.limit;
                 } else {
                     contentType = listLogStreamsRequest['Content-Type'];
                     logGroupName = listLogStreamsRequest['log_group_name'];
                     logStreamName = listLogStreamsRequest['log_stream_name'];
-                    offset = listLogStreamsRequest['offset'];
-                    limit = listLogStreamsRequest['limit'];
                 }
             }
 
@@ -4396,12 +4386,6 @@ export const ParamCreater = function () {
             }
             if (logStreamName !== null && logStreamName !== undefined) {
                 localVarQueryParameter['log_stream_name'] = logStreamName;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

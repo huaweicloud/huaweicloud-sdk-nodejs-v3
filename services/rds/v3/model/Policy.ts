@@ -2,8 +2,8 @@
 
 export class Policy {
     public period?: string;
-    private 'retention_days'?: string;
-    public constructor(period?: string, retentionDays?: string) { 
+    private 'retention_days'?: number;
+    public constructor(period?: string, retentionDays?: number) { 
         this['period'] = period;
         this['retention_days'] = retentionDays;
     }
@@ -11,14 +11,14 @@ export class Policy {
         this['period'] = period;
         return this;
     }
-    public withRetentionDays(retentionDays: string): Policy {
+    public withRetentionDays(retentionDays: number): Policy {
         this['retention_days'] = retentionDays;
         return this;
     }
-    public set retentionDays(retentionDays: string  | undefined) {
+    public set retentionDays(retentionDays: number  | undefined) {
         this['retention_days'] = retentionDays;
     }
-    public get retentionDays(): string | undefined {
+    public get retentionDays(): number | undefined {
         return this['retention_days'];
     }
 }

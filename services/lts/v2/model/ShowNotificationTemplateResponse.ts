@@ -13,10 +13,9 @@ export class ShowNotificationTemplateResponse extends SdkResponse {
     private 'create_time'?: number;
     private 'modify_time'?: number;
     private 'project_id'?: string;
-    public constructor(name?: string, desc?: string, source?: string, locale?: string, templates?: Array<SubTemplate>, createTime?: number, modifyTime?: number, projectId?: string) { 
+    public constructor(name?: string, source?: string, locale?: string, templates?: Array<SubTemplate>, createTime?: number, modifyTime?: number, projectId?: string) { 
         super();
         this['name'] = name;
-        this['desc'] = desc;
         this['source'] = source;
         this['locale'] = locale;
         this['templates'] = templates;

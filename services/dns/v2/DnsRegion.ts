@@ -30,6 +30,7 @@ export class DnsRegion {
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://dns.ap-southeast-5.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://dns.cn-east-5.myhuaweicloud.com"]);
     public static CN_EAST_4 = new Region("cn-east-4", ["https://dns.cn-east-4.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://dns.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +57,8 @@ export class DnsRegion {
         "me-east-1":DnsRegion.ME_EAST_1,
         "ap-southeast-5":DnsRegion.AP_SOUTHEAST_5,
         "cn-east-5":DnsRegion.CN_EAST_5,
-        "cn-east-4":DnsRegion.CN_EAST_4
+        "cn-east-4":DnsRegion.CN_EAST_4,
+        "tr-west-1":DnsRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

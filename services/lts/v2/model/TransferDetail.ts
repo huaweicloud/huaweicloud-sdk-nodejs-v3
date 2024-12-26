@@ -17,6 +17,10 @@ export class TransferDetail {
     private 'obs_time_zone'?: string;
     private 'obs_time_zone_id'?: string;
     public tags?: Array<string>;
+    private 'lts_tags'?: Array<string>;
+    private 'stream_tags'?: Array<string>;
+    private 'struct_fields'?: Array<string>;
+    private 'invalid_field_value'?: string;
     public constructor(obsPeriod?: number, obsPeriodUnit?: string, obsBucketName?: string) { 
         this['obs_period'] = obsPeriod;
         this['obs_period_unit'] = obsPeriodUnit;
@@ -175,6 +179,46 @@ export class TransferDetail {
     public withTags(tags: Array<string>): TransferDetail {
         this['tags'] = tags;
         return this;
+    }
+    public withLtsTags(ltsTags: Array<string>): TransferDetail {
+        this['lts_tags'] = ltsTags;
+        return this;
+    }
+    public set ltsTags(ltsTags: Array<string>  | undefined) {
+        this['lts_tags'] = ltsTags;
+    }
+    public get ltsTags(): Array<string> | undefined {
+        return this['lts_tags'];
+    }
+    public withStreamTags(streamTags: Array<string>): TransferDetail {
+        this['stream_tags'] = streamTags;
+        return this;
+    }
+    public set streamTags(streamTags: Array<string>  | undefined) {
+        this['stream_tags'] = streamTags;
+    }
+    public get streamTags(): Array<string> | undefined {
+        return this['stream_tags'];
+    }
+    public withStructFields(structFields: Array<string>): TransferDetail {
+        this['struct_fields'] = structFields;
+        return this;
+    }
+    public set structFields(structFields: Array<string>  | undefined) {
+        this['struct_fields'] = structFields;
+    }
+    public get structFields(): Array<string> | undefined {
+        return this['struct_fields'];
+    }
+    public withInvalidFieldValue(invalidFieldValue: string): TransferDetail {
+        this['invalid_field_value'] = invalidFieldValue;
+        return this;
+    }
+    public set invalidFieldValue(invalidFieldValue: string  | undefined) {
+        this['invalid_field_value'] = invalidFieldValue;
+    }
+    public get invalidFieldValue(): string | undefined {
+        return this['invalid_field_value'];
     }
 }
 

@@ -108,6 +108,7 @@ import { FlavorErrorResponse } from './model/FlavorErrorResponse';
 import { FlavorResult } from './model/FlavorResult';
 import { GaussDBErrorResponseBody } from './model/GaussDBErrorResponseBody';
 import { GaussDBListDatabaseRoles } from './model/GaussDBListDatabaseRoles';
+import { GaussDBListDatabaseRolesPriv } from './model/GaussDBListDatabaseRolesPriv';
 import { GaussDBUpgradeInstancesVersionRequest } from './model/GaussDBUpgradeInstancesVersionRequest';
 import { GaussDBforOpenDatabaseForCreation } from './model/GaussDBforOpenDatabaseForCreation';
 import { GaussDBforOpenGaussCreateSchemaReq } from './model/GaussDBforOpenGaussCreateSchemaReq';
@@ -115,6 +116,7 @@ import { GaussDBforOpenGaussDatabaseForListSchema } from './model/GaussDBforOpen
 import { GaussDBforOpenGaussDatabaseSchemaReq } from './model/GaussDBforOpenGaussDatabaseSchemaReq';
 import { GaussDBforOpenGaussGrantRequest } from './model/GaussDBforOpenGaussGrantRequest';
 import { GaussDBforOpenGaussListDatabase } from './model/GaussDBforOpenGaussListDatabase';
+import { GaussDBforOpenGaussRoleAttributes } from './model/GaussDBforOpenGaussRoleAttributes';
 import { GaussDBforOpenGaussUserForCreation } from './model/GaussDBforOpenGaussUserForCreation';
 import { GaussDBforOpenGaussUserForList } from './model/GaussDBforOpenGaussUserForList';
 import { GaussDBforOpenGaussUserForListAttribute } from './model/GaussDBforOpenGaussUserForListAttribute';

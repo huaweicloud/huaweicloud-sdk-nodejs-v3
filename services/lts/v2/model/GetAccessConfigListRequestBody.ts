@@ -7,11 +7,7 @@ export class GetAccessConfigListRequestBody {
     private 'log_group_name_list'?: Array<string>;
     private 'log_stream_name_list'?: Array<string>;
     private 'access_config_tag_list'?: Array<AccessConfigTag>;
-    public constructor(accessConfigNameList?: Array<string>, hostGroupNameList?: Array<string>, logGroupNameList?: Array<string>, logStreamNameList?: Array<string>) { 
-        this['access_config_name_list'] = accessConfigNameList;
-        this['host_group_name_list'] = hostGroupNameList;
-        this['log_group_name_list'] = logGroupNameList;
-        this['log_stream_name_list'] = logStreamNameList;
+    public constructor() { 
     }
     public withAccessConfigNameList(accessConfigNameList: Array<string>): GetAccessConfigListRequestBody {
         this['access_config_name_list'] = accessConfigNameList;

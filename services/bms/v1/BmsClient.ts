@@ -224,7 +224,7 @@ export class BmsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除l裸金属服务器标签
+     * @summary 批量删除裸金属服务器标签
      * @param {string} serverId 
      * @param {BatchDeleteBaremetalServerTagsRequestBody} batchDeleteBaremetalServerTagsRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -321,6 +321,7 @@ export class BmsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 切换裸金属服务器的操作系统
      * @param {string} serverId 裸金属服务器ID
      * @param {OSChangeReq} oSChangeReq 
      * @param {*} [options] Override http request option.

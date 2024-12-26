@@ -6,6 +6,7 @@ export class PeerSiteExternal {
     private 'region_id'?: string;
     private 'project_id'?: string;
     private 'site_code'?: string;
+    public type?: string;
     public constructor() { 
     }
     public withGatewayId(gatewayId: string): PeerSiteExternal {
@@ -57,5 +58,9 @@ export class PeerSiteExternal {
     }
     public get siteCode(): string | undefined {
         return this['site_code'];
+    }
+    public withType(type: string): PeerSiteExternal {
+        this['type'] = type;
+        return this;
     }
 }

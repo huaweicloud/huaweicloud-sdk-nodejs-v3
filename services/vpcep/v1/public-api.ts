@@ -99,5 +99,7 @@ export * from './model/UpdateEndpointServiceResponse';
 export * from './model/UpdateEndpointWhiteRequest';
 export * from './model/UpdateEndpointWhiteRequestBody';
 export * from './model/UpdateEndpointWhiteResponse';
+export * from './model/UpgradeEndpointServiceRequest';
+export * from './model/UpgradeEndpointServiceResponse';
 export * from './model/VersionObject';
 export * from './VpcepRegion';

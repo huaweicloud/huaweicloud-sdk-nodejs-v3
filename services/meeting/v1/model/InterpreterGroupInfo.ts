@@ -4,6 +4,7 @@ import { InterpreterInfo } from './InterpreterInfo';
 export class InterpreterGroupInfo {
     public groupID?: string;
     public groupName?: string;
+    public groupType?: string;
     public firstLanguage?: string;
     public secondLanguage?: string;
     public interpreters?: Array<InterpreterInfo>;
@@ -18,6 +19,10 @@ export class InterpreterGroupInfo {
     }
     public withGroupName(groupName: string): InterpreterGroupInfo {
         this['groupName'] = groupName;
+        return this;
+    }
+    public withGroupType(groupType: string): InterpreterGroupInfo {
+        this['groupType'] = groupType;
         return this;
     }
     public withFirstLanguage(firstLanguage: string): InterpreterGroupInfo {

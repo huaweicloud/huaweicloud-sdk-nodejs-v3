@@ -1,5 +1,5 @@
-import { Advanced } from './Advanced';
 import { CreateCondition } from './CreateCondition';
+import { IgnoreAdvanced } from './IgnoreAdvanced';
 
 
 export class CreateIgnoreRuleRequestBody {
@@ -7,7 +7,7 @@ export class CreateIgnoreRuleRequestBody {
     public conditions?: Array<CreateCondition>;
     public mode?: number;
     public rule?: string;
-    public advanced?: Array<Advanced>;
+    public advanced?: IgnoreAdvanced;
     public description?: string;
     public constructor(domain?: Array<string>, conditions?: Array<CreateCondition>, mode?: number, rule?: string) { 
         this['domain'] = domain;
@@ -31,7 +31,7 @@ export class CreateIgnoreRuleRequestBody {
         this['rule'] = rule;
         return this;
     }
-    public withAdvanced(advanced: Array<Advanced>): CreateIgnoreRuleRequestBody {
+    public withAdvanced(advanced: IgnoreAdvanced): CreateIgnoreRuleRequestBody {
         this['advanced'] = advanced;
         return this;
     }

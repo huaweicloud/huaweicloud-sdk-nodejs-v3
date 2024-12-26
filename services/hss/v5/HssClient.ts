@@ -10,6 +10,7 @@ import { AddHostsGroupRequest } from './model/AddHostsGroupRequest';
 import { AddHostsGroupRequestInfo } from './model/AddHostsGroupRequestInfo';
 import { AddHostsGroupResponse } from './model/AddHostsGroupResponse';
 import { AgentId } from './model/AgentId';
+import { AgentInstallScriptResponseInfo } from './model/AgentInstallScriptResponseInfo';
 import { AgentVersion } from './model/AgentVersion';
 import { AlarmWhiteListResponseInfo } from './model/AlarmWhiteListResponseInfo';
 import { AntivirusResultDetailInfo } from './model/AntivirusResultDetailInfo';
@@ -156,6 +157,8 @@ import { JarPackageHostInfo } from './model/JarPackageHostInfo';
 import { JarPackageStatisticsResponseInfo } from './model/JarPackageStatisticsResponseInfo';
 import { ListAccountsRequest } from './model/ListAccountsRequest';
 import { ListAccountsResponse } from './model/ListAccountsResponse';
+import { ListAgentInstallScriptRequest } from './model/ListAgentInstallScriptRequest';
+import { ListAgentInstallScriptResponse } from './model/ListAgentInstallScriptResponse';
 import { ListAlarmWhiteListRequest } from './model/ListAlarmWhiteListRequest';
 import { ListAlarmWhiteListResponse } from './model/ListAlarmWhiteListResponse';
 import { ListAppChangeHistoriesRequest } from './model/ListAppChangeHistoriesRequest';
@@ -849,6 +852,32 @@ export class HssClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询agent安装脚本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询agent安装脚本
+     * @param {string} region Region ID
+     * @param {'x86_64' | 'aarch64'} osArch 系统架构：x86_64和aarch64；当os_type为Windows时，只能选择x86_64
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {'Windows' | 'Linux'} [osType] os类型：Windows和Linux
+     * @param {boolean} [outsideHost] 是否非华为云
+     * @param {string} [outsideGroupId] 服务器组ID
+     * @param {boolean} [batchInstall] 是否批量安装
+     * @param {'password' | 'ssh_key'} [type] 类型：password和ssh_key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAgentInstallScript(listAgentInstallScriptRequest?: ListAgentInstallScriptRequest): Promise<ListAgentInstallScriptResponse> {
+        const options = ParamCreater().listAgentInstallScript(listAgentInstallScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3928,6 +3957,95 @@ export const ParamCreater = function () {
             }
             if (xSecurityToken !== undefined && xSecurityToken !== null) {
                 localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询agent安装脚本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAgentInstallScript(listAgentInstallScriptRequest?: ListAgentInstallScriptRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/setting/agent-install-script",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let region;
+            
+            let osArch;
+            
+            let enterpriseProjectId;
+            
+            let osType;
+            
+            let outsideHost;
+            
+            let outsideGroupId;
+            
+            let batchInstall;
+            
+            let type;
+
+            if (listAgentInstallScriptRequest !== null && listAgentInstallScriptRequest !== undefined) {
+                if (listAgentInstallScriptRequest instanceof ListAgentInstallScriptRequest) {
+                    region = listAgentInstallScriptRequest.region;
+                    osArch = listAgentInstallScriptRequest.osArch;
+                    enterpriseProjectId = listAgentInstallScriptRequest.enterpriseProjectId;
+                    osType = listAgentInstallScriptRequest.osType;
+                    outsideHost = listAgentInstallScriptRequest.outsideHost;
+                    outsideGroupId = listAgentInstallScriptRequest.outsideGroupId;
+                    batchInstall = listAgentInstallScriptRequest.batchInstall;
+                    type = listAgentInstallScriptRequest.type;
+                } else {
+                    region = listAgentInstallScriptRequest['region'];
+                    osArch = listAgentInstallScriptRequest['os_arch'];
+                    enterpriseProjectId = listAgentInstallScriptRequest['enterprise_project_id'];
+                    osType = listAgentInstallScriptRequest['os_type'];
+                    outsideHost = listAgentInstallScriptRequest['outside_host'];
+                    outsideGroupId = listAgentInstallScriptRequest['outside_group_id'];
+                    batchInstall = listAgentInstallScriptRequest['batch_install'];
+                    type = listAgentInstallScriptRequest['type'];
+                }
+            }
+
+        
+            if (osArch === null || osArch === undefined) {
+                throw new RequiredError('osArch','Required parameter osArch was null or undefined when calling listAgentInstallScript.');
+            }
+            if (osArch !== null && osArch !== undefined) {
+                localVarQueryParameter['os_arch'] = osArch;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (outsideHost !== null && outsideHost !== undefined) {
+                localVarQueryParameter['outside_host'] = outsideHost;
+            }
+            if (outsideGroupId !== null && outsideGroupId !== undefined) {
+                localVarQueryParameter['outside_group_id'] = outsideGroupId;
+            }
+            if (batchInstall !== null && batchInstall !== undefined) {
+                localVarQueryParameter['batch_install'] = batchInstall;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);

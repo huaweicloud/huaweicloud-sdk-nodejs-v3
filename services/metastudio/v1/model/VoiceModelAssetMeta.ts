@@ -16,6 +16,7 @@ export class VoiceModelAssetMeta {
     private 'voice_capability'?: VoiceCapability;
     private 'external_voice_meta'?: ExternalVoiceAssetMeta;
     private 'is_support_vc_process'?: boolean;
+    private 'is_support_thai_auto_split'?: boolean;
     private 'is_flexus'?: boolean;
     public constructor() { 
     }
@@ -108,6 +109,16 @@ export class VoiceModelAssetMeta {
     }
     public get isSupportVcProcess(): boolean | undefined {
         return this['is_support_vc_process'];
+    }
+    public withIsSupportThaiAutoSplit(isSupportThaiAutoSplit: boolean): VoiceModelAssetMeta {
+        this['is_support_thai_auto_split'] = isSupportThaiAutoSplit;
+        return this;
+    }
+    public set isSupportThaiAutoSplit(isSupportThaiAutoSplit: boolean  | undefined) {
+        this['is_support_thai_auto_split'] = isSupportThaiAutoSplit;
+    }
+    public get isSupportThaiAutoSplit(): boolean | undefined {
+        return this['is_support_thai_auto_split'];
     }
     public withIsFlexus(isFlexus: boolean): VoiceModelAssetMeta {
         this['is_flexus'] = isFlexus;

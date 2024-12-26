@@ -8,6 +8,7 @@ export class GlobalDcGatewayEntry {
     private 'tenant_id'?: string;
     public name?: string;
     public description?: string;
+    public reason?: string;
     private 'enterprise_project_id'?: string;
     private 'global_center_network_id'?: string;
     private 'bgp_asn'?: number;
@@ -44,6 +45,10 @@ export class GlobalDcGatewayEntry {
     }
     public withDescription(description: string): GlobalDcGatewayEntry {
         this['description'] = description;
+        return this;
+    }
+    public withReason(reason: string): GlobalDcGatewayEntry {
+        this['reason'] = reason;
         return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): GlobalDcGatewayEntry {

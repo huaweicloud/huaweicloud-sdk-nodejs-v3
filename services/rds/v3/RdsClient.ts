@@ -218,6 +218,7 @@ import { HaResponse } from './model/HaResponse';
 import { HistoryDatabaseInfo } from './model/HistoryDatabaseInfo';
 import { HistoryDatabaseInstance } from './model/HistoryDatabaseInstance';
 import { InspectionReports } from './model/InspectionReports';
+import { InstanceDrInfo } from './model/InstanceDrInfo';
 import { InstanceDrRelation } from './model/InstanceDrRelation';
 import { InstanceInfo } from './model/InstanceInfo';
 import { InstanceLtsBasicInfoResp } from './model/InstanceLtsBasicInfoResp';
@@ -255,6 +256,8 @@ import { ListDatastoresRequest } from './model/ListDatastoresRequest';
 import { ListDatastoresResponse } from './model/ListDatastoresResponse';
 import { ListDbUsersRequest } from './model/ListDbUsersRequest';
 import { ListDbUsersResponse } from './model/ListDbUsersResponse';
+import { ListDrInfosRequest } from './model/ListDrInfosRequest';
+import { ListDrInfosResponse } from './model/ListDrInfosResponse';
 import { ListDrRelationsRequest } from './model/ListDrRelationsRequest';
 import { ListDrRelationsResponse } from './model/ListDrRelationsResponse';
 import { ListEngineFlavorsRequest } from './model/ListEngineFlavorsRequest';
@@ -422,6 +425,7 @@ import { ProxyInfoNodes } from './model/ProxyInfoNodes';
 import { ProxyNode } from './model/ProxyNode';
 import { ProxyReadonlyInstances } from './model/ProxyReadonlyInstances';
 import { PwdResetRequest } from './model/PwdResetRequest';
+import { QueryDRInfoRequest } from './model/QueryDRInfoRequest';
 import { QueryProxyResponseV3 } from './model/QueryProxyResponseV3';
 import { Quotas } from './model/Quotas';
 import { ReadonlyInstances } from './model/ReadonlyInstances';
@@ -1518,6 +1522,26 @@ export class RdsClient {
      */
     public listDatastores(listDatastoresRequest?: ListDatastoresRequest): Promise<ListDatastoresResponse> {
         const options = ParamCreater().listDatastores(listDatastoresRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询容灾管理列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询容灾管理列表
+     * @param {QueryDRInfoRequest} listDRInfosRequestBody 请求体
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDrInfos(listDrInfosRequest?: ListDrInfosRequest): Promise<ListDrInfosResponse> {
+        const options = ParamCreater().listDrInfos(listDrInfosRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7323,6 +7347,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询容灾管理列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDrInfos(listDrInfosRequest?: ListDrInfosRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/disaster-recovery-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (listDrInfosRequest !== null && listDrInfosRequest !== undefined) {
+                if (listDrInfosRequest instanceof ListDrInfosRequest) {
+                    body = listDrInfosRequest.body
+                    xLanguage = listDrInfosRequest.xLanguage;
+                } else {
+                    body = listDrInfosRequest['body'];
+                    xLanguage = listDrInfosRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

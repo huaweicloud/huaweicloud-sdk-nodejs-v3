@@ -125,5 +125,10 @@ export enum VaultResourceInstancesReqCloudTypeEnum {
     */
 export enum VaultResourceInstancesReqObjectTypeEnum {
     SERVER = 'server',
-    DISK = 'disk'
+    DISK = 'disk',
+    TURBO = 'turbo',
+    WORKSPACE = 'workspace',
+    VMWARE = 'vmware',
+    RDS = 'rds',
+    FILE = 'file'
 }

@@ -3,8 +3,7 @@
 export class PublicIp {
     private 'public_bind_type'?: string;
     private 'eip_id'?: string;
-    public constructor(publicBindType?: string) { 
-        this['public_bind_type'] = publicBindType;
+    public constructor() { 
     }
     public withPublicBindType(publicBindType: string): PublicIp {
         this['public_bind_type'] = publicBindType;

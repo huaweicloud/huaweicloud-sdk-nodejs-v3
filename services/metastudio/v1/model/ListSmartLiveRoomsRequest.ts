@@ -15,6 +15,7 @@ export class ListSmartLiveRoomsRequest {
     private 'end_time'?: string;
     private 'room_type'?: string;
     private 'template_own_type'?: string;
+    private 'confirm_state'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListSmartLiveRoomsRequest {
@@ -144,5 +145,15 @@ export class ListSmartLiveRoomsRequest {
     }
     public get templateOwnType(): string | undefined {
         return this['template_own_type'];
+    }
+    public withConfirmState(confirmState: string): ListSmartLiveRoomsRequest {
+        this['confirm_state'] = confirmState;
+        return this;
+    }
+    public set confirmState(confirmState: string  | undefined) {
+        this['confirm_state'] = confirmState;
+    }
+    public get confirmState(): string | undefined {
+        return this['confirm_state'];
     }
 }

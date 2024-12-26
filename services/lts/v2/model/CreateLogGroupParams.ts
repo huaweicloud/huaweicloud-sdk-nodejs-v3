@@ -5,6 +5,7 @@ export class CreateLogGroupParams {
     private 'log_group_name'?: string;
     private 'ttl_in_days'?: number;
     public tags?: Array<TagsBody>;
+    private 'log_group_name_alias'?: string;
     public constructor(logGroupName?: string, ttlInDays?: number) { 
         this['log_group_name'] = logGroupName;
         this['ttl_in_days'] = ttlInDays;
@@ -32,5 +33,15 @@ export class CreateLogGroupParams {
     public withTags(tags: Array<TagsBody>): CreateLogGroupParams {
         this['tags'] = tags;
         return this;
+    }
+    public withLogGroupNameAlias(logGroupNameAlias: string): CreateLogGroupParams {
+        this['log_group_name_alias'] = logGroupNameAlias;
+        return this;
+    }
+    public set logGroupNameAlias(logGroupNameAlias: string  | undefined) {
+        this['log_group_name_alias'] = logGroupNameAlias;
+    }
+    public get logGroupNameAlias(): string | undefined {
+        return this['log_group_name_alias'];
     }
 }

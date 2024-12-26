@@ -1,5 +1,5 @@
-import { Advanced } from './Advanced';
 import { Condition } from './Condition';
+import { IgnoreAdvanced } from './IgnoreAdvanced';
 
 
 export class IgnoreRuleBody {
@@ -14,7 +14,7 @@ export class IgnoreRuleBody {
     private 'url_logic'?: string;
     public conditions?: Array<Condition>;
     public domain?: Array<string>;
-    public advanced?: Array<Advanced>;
+    public advanced?: IgnoreAdvanced;
     public constructor() { 
     }
     public withId(id: string): IgnoreRuleBody {
@@ -67,7 +67,7 @@ export class IgnoreRuleBody {
         this['domain'] = domain;
         return this;
     }
-    public withAdvanced(advanced: Array<Advanced>): IgnoreRuleBody {
+    public withAdvanced(advanced: IgnoreAdvanced): IgnoreRuleBody {
         this['advanced'] = advanced;
         return this;
     }

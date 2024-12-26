@@ -40,6 +40,8 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     private 'cover_url'?: string;
     public thumbnail?: string;
     private 'room_state'?: UpdateSmartLiveRoomResponseRoomStateEnum | string;
+    private 'confirm_state'?: UpdateSmartLiveRoomResponseConfirmStateEnum | string;
+    private 'script_version'?: string;
     private 'error_info'?: ErrorResponse;
     private 'X-Request-Id'?: string;
     public constructor(roomName?: string) { 
@@ -290,6 +292,26 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     public get roomState(): UpdateSmartLiveRoomResponseRoomStateEnum | string | undefined {
         return this['room_state'];
     }
+    public withConfirmState(confirmState: UpdateSmartLiveRoomResponseConfirmStateEnum | string): UpdateSmartLiveRoomResponse {
+        this['confirm_state'] = confirmState;
+        return this;
+    }
+    public set confirmState(confirmState: UpdateSmartLiveRoomResponseConfirmStateEnum | string  | undefined) {
+        this['confirm_state'] = confirmState;
+    }
+    public get confirmState(): UpdateSmartLiveRoomResponseConfirmStateEnum | string | undefined {
+        return this['confirm_state'];
+    }
+    public withScriptVersion(scriptVersion: string): UpdateSmartLiveRoomResponse {
+        this['script_version'] = scriptVersion;
+        return this;
+    }
+    public set scriptVersion(scriptVersion: string  | undefined) {
+        this['script_version'] = scriptVersion;
+    }
+    public get scriptVersion(): string | undefined {
+        return this['script_version'];
+    }
     public withErrorInfo(errorInfo: ErrorResponse): UpdateSmartLiveRoomResponse {
         this['error_info'] = errorInfo;
         return this;
@@ -337,4 +359,13 @@ export enum UpdateSmartLiveRoomResponseRoomStateEnum {
     ENABLE = 'ENABLE',
     DISABLE = 'DISABLE',
     BLOCKED = 'BLOCKED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateSmartLiveRoomResponseConfirmStateEnum {
+    UNCONFIRM = 'UNCONFIRM',
+    CONFIRMED = 'CONFIRMED',
+    REJECT = 'REJECT'
 }

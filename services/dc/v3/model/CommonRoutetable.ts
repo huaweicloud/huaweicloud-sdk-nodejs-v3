@@ -11,7 +11,8 @@ export class CommonRoutetable {
     public status?: CommonRoutetableStatusEnum | string;
     private 'address_family'?: AddressFamily;
     public description?: string;
-    public constructor(id?: string, tenantId?: string, destination?: string, nexthop?: string, obtainMode?: string, status?: string, addressFamily?: AddressFamily) { 
+    public type?: CommonRoutetableTypeEnum | string;
+    public constructor(id?: string, tenantId?: string, destination?: string, nexthop?: string, obtainMode?: string, status?: string, addressFamily?: AddressFamily, type?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['destination'] = destination;
@@ -19,6 +20,7 @@ export class CommonRoutetable {
         this['obtain_mode'] = obtainMode;
         this['status'] = status;
         this['address_family'] = addressFamily;
+        this['type'] = type;
     }
     public withId(id: string): CommonRoutetable {
         this['id'] = id;
@@ -80,6 +82,10 @@ export class CommonRoutetable {
         this['description'] = description;
         return this;
     }
+    public withType(type: CommonRoutetableTypeEnum | string): CommonRoutetable {
+        this['type'] = type;
+        return this;
+    }
 }
 
 /**
@@ -99,4 +105,12 @@ export enum CommonRoutetableStatusEnum {
     ACTIVE = 'ACTIVE',
     ERROR = 'ERROR',
     PENDING_CREATE = 'PENDING_CREATE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CommonRoutetableTypeEnum {
+    VIF_PEER = 'vif_peer',
+    GDGW = 'gdgw'
 }

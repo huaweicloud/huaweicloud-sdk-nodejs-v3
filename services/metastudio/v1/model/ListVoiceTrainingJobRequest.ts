@@ -5,6 +5,8 @@ export class ListVoiceTrainingJobRequest {
     public limit?: number;
     private 'create_until'?: string;
     private 'create_since'?: string;
+    private 'update_until'?: string;
+    private 'update_since'?: string;
     private 'X-App-UserId'?: string;
     public state?: string;
     private 'job_id'?: string;
@@ -12,6 +14,8 @@ export class ListVoiceTrainingJobRequest {
     public tag?: string;
     private 'job_type'?: string;
     private 'batch_name'?: string;
+    private 'sort_key'?: string;
+    private 'sort_dir'?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListVoiceTrainingJobRequest {
@@ -41,6 +45,26 @@ export class ListVoiceTrainingJobRequest {
     }
     public get createSince(): string | undefined {
         return this['create_since'];
+    }
+    public withUpdateUntil(updateUntil: string): ListVoiceTrainingJobRequest {
+        this['update_until'] = updateUntil;
+        return this;
+    }
+    public set updateUntil(updateUntil: string  | undefined) {
+        this['update_until'] = updateUntil;
+    }
+    public get updateUntil(): string | undefined {
+        return this['update_until'];
+    }
+    public withUpdateSince(updateSince: string): ListVoiceTrainingJobRequest {
+        this['update_since'] = updateSince;
+        return this;
+    }
+    public set updateSince(updateSince: string  | undefined) {
+        this['update_since'] = updateSince;
+    }
+    public get updateSince(): string | undefined {
+        return this['update_since'];
     }
     public withXAppUserId(xAppUserId: string): ListVoiceTrainingJobRequest {
         this['X-App-UserId'] = xAppUserId;
@@ -99,5 +123,25 @@ export class ListVoiceTrainingJobRequest {
     }
     public get batchName(): string | undefined {
         return this['batch_name'];
+    }
+    public withSortKey(sortKey: string): ListVoiceTrainingJobRequest {
+        this['sort_key'] = sortKey;
+        return this;
+    }
+    public set sortKey(sortKey: string  | undefined) {
+        this['sort_key'] = sortKey;
+    }
+    public get sortKey(): string | undefined {
+        return this['sort_key'];
+    }
+    public withSortDir(sortDir: string): ListVoiceTrainingJobRequest {
+        this['sort_dir'] = sortDir;
+        return this;
+    }
+    public set sortDir(sortDir: string  | undefined) {
+        this['sort_dir'] = sortDir;
+    }
+    public get sortDir(): string | undefined {
+        return this['sort_dir'];
     }
 }

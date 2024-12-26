@@ -31,7 +31,8 @@ export class MysqlInstanceRequest {
     private 'dedicated_resource_id'?: string;
     private 'restore_point'?: MysqlRestorePoint;
     private 'tde_info'?: MysqlTdeInfo;
-    public constructor(region?: string, name?: string, datastore?: MysqlDatastoreInReq, mode?: string, flavorRef?: string, vpcId?: string, subnetId?: string, password?: string, availabilityZoneMode?: string, slaveCount?: number) { 
+    public constructor(chargeInfo?: MysqlChargeInfo, region?: string, name?: string, datastore?: MysqlDatastoreInReq, mode?: string, flavorRef?: string, vpcId?: string, subnetId?: string, password?: string, backupStrategy?: MysqlBackupStrategy, availabilityZoneMode?: string, slaveCount?: number) { 
+        this['charge_info'] = chargeInfo;
         this['region'] = region;
         this['name'] = name;
         this['datastore'] = datastore;
@@ -40,6 +41,7 @@ export class MysqlInstanceRequest {
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
         this['password'] = password;
+        this['backup_strategy'] = backupStrategy;
         this['availability_zone_mode'] = availabilityZoneMode;
         this['slave_count'] = slaveCount;
     }

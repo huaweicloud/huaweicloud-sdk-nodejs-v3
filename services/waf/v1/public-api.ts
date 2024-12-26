@@ -2,7 +2,6 @@ export * from './WafClient';
 
 export * from './model/AccessProgress';
 export * from './model/Action';
-export * from './model/Advanced';
 export * from './model/AlertNoticeConfigResponse';
 export * from './model/AlterWafProductInfo';
 export * from './model/AntiTamperRuleResponseBody';

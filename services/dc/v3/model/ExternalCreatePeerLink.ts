@@ -4,6 +4,7 @@ import { PeerSiteExternal } from './PeerSiteExternal';
 
 export class ExternalCreatePeerLink {
     public id?: string;
+    private 'instance_id'?: string;
     private 'tenant_id'?: string;
     public name?: string;
     public description?: string;
@@ -21,6 +22,16 @@ export class ExternalCreatePeerLink {
     public withId(id: string): ExternalCreatePeerLink {
         this['id'] = id;
         return this;
+    }
+    public withInstanceId(instanceId: string): ExternalCreatePeerLink {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withTenantId(tenantId: string): ExternalCreatePeerLink {
         this['tenant_id'] = tenantId;

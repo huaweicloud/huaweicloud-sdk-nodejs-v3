@@ -1,10 +1,11 @@
+import { GaussDBListDatabaseRolesPriv } from './GaussDBListDatabaseRolesPriv';
 
 
 export class GaussDBListDatabaseRoles {
     public name?: string;
     public memberof?: string;
     private 'lock_status'?: boolean;
-    public attribute?: object;
+    public attribute?: GaussDBListDatabaseRolesPriv;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -26,7 +27,7 @@ export class GaussDBListDatabaseRoles {
     public get lockStatus(): boolean | undefined {
         return this['lock_status'];
     }
-    public withAttribute(attribute: object): GaussDBListDatabaseRoles {
+    public withAttribute(attribute: GaussDBListDatabaseRolesPriv): GaussDBListDatabaseRoles {
         this['attribute'] = attribute;
         return this;
     }

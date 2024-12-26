@@ -185,6 +185,7 @@ export enum BillingConsistentLevelEnum {
 export enum BillingObjectTypeEnum {
     SERVER = 'server',
     DISK = 'disk',
+    TURBO = 'turbo',
     WORKSPACE = 'workspace',
     VMWARE = 'vmware',
     RDS = 'rds',
@@ -205,7 +206,11 @@ export enum BillingProtectTypeEnum {
     */
 export enum BillingSpecCodeEnum {
     VAULT_BACKUP_SERVER_NORMAL = 'vault.backup.server.normal',
-    VAULT_BACKUP_VOLUME_NORMAL = 'vault.backup.volume.normal'
+    VAULT_BACKUP_VOLUME_NORMAL = 'vault.backup.volume.normal',
+    VAULT_BACKUP_TURBO_NORMAL = 'vault.backup.turbo.normal',
+    VAULT_BACKUP_DATABASE_NORMAL = 'vault.backup.database.normal',
+    VAULT_HYBRID_SERVER_NORMAL = 'vault.hybrid.server.normal',
+    VAULT_REPLICATION_SERVER_NORMAL = 'vault.replication.server.normal'
 }
 /**
     * @export

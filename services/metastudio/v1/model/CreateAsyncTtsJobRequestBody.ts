@@ -1,7 +1,9 @@
+import { TtsCallBackConfig } from './TtsCallBackConfig';
 
 
 export class CreateAsyncTtsJobRequestBody {
     public text?: string;
+    private 'tts_text'?: string;
     private 'voice_asset_id'?: string;
     public speed?: number;
     public pitch?: number;
@@ -10,6 +12,10 @@ export class CreateAsyncTtsJobRequestBody {
     private 'need_timestamp'?: boolean;
     private 'silence_flag'?: boolean;
     private 'silence_time_ms'?: number;
+    private 'callback_config'?: TtsCallBackConfig;
+    private 'gen_srt'?: boolean;
+    private 'srt_len'?: number;
+    private 'srt_line_limit'?: number;
     public constructor(text?: string, voiceAssetId?: string) { 
         this['text'] = text;
         this['voice_asset_id'] = voiceAssetId;
@@ -17,6 +23,16 @@ export class CreateAsyncTtsJobRequestBody {
     public withText(text: string): CreateAsyncTtsJobRequestBody {
         this['text'] = text;
         return this;
+    }
+    public withTtsText(ttsText: string): CreateAsyncTtsJobRequestBody {
+        this['tts_text'] = ttsText;
+        return this;
+    }
+    public set ttsText(ttsText: string  | undefined) {
+        this['tts_text'] = ttsText;
+    }
+    public get ttsText(): string | undefined {
+        return this['tts_text'];
     }
     public withVoiceAssetId(voiceAssetId: string): CreateAsyncTtsJobRequestBody {
         this['voice_asset_id'] = voiceAssetId;
@@ -79,6 +95,46 @@ export class CreateAsyncTtsJobRequestBody {
     }
     public get silenceTimeMs(): number | undefined {
         return this['silence_time_ms'];
+    }
+    public withCallbackConfig(callbackConfig: TtsCallBackConfig): CreateAsyncTtsJobRequestBody {
+        this['callback_config'] = callbackConfig;
+        return this;
+    }
+    public set callbackConfig(callbackConfig: TtsCallBackConfig  | undefined) {
+        this['callback_config'] = callbackConfig;
+    }
+    public get callbackConfig(): TtsCallBackConfig | undefined {
+        return this['callback_config'];
+    }
+    public withGenSrt(genSrt: boolean): CreateAsyncTtsJobRequestBody {
+        this['gen_srt'] = genSrt;
+        return this;
+    }
+    public set genSrt(genSrt: boolean  | undefined) {
+        this['gen_srt'] = genSrt;
+    }
+    public get genSrt(): boolean | undefined {
+        return this['gen_srt'];
+    }
+    public withSrtLen(srtLen: number): CreateAsyncTtsJobRequestBody {
+        this['srt_len'] = srtLen;
+        return this;
+    }
+    public set srtLen(srtLen: number  | undefined) {
+        this['srt_len'] = srtLen;
+    }
+    public get srtLen(): number | undefined {
+        return this['srt_len'];
+    }
+    public withSrtLineLimit(srtLineLimit: number): CreateAsyncTtsJobRequestBody {
+        this['srt_line_limit'] = srtLineLimit;
+        return this;
+    }
+    public set srtLineLimit(srtLineLimit: number  | undefined) {
+        this['srt_line_limit'] = srtLineLimit;
+    }
+    public get srtLineLimit(): number | undefined {
+        return this['srt_line_limit'];
     }
 }
 

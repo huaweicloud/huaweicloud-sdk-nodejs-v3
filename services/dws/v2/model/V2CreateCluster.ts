@@ -24,7 +24,8 @@ export class V2CreateCluster {
     private 'crypt_algorithm'?: string;
     public volume?: Volume;
     private 'enterprise_project_id'?: string;
-    public constructor(name?: string, flavor?: string, numCn?: number, numNode?: number, dbName?: string, dbPassword?: string, dbPort?: number, availabilityZones?: Array<string>, vpcId?: string, subnetId?: string, datastoreVersion?: string) { 
+    private 'ipv6_enable'?: boolean;
+    public constructor(name?: string, flavor?: string, numCn?: number, numNode?: number, dbName?: string, dbPassword?: string, dbPort?: number, availabilityZones?: Array<string>, vpcId?: string, subnetId?: string, datastoreVersion?: string, volume?: Volume) { 
         this['name'] = name;
         this['flavor'] = flavor;
         this['num_cn'] = numCn;
@@ -36,6 +37,7 @@ export class V2CreateCluster {
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
         this['datastore_version'] = datastoreVersion;
+        this['volume'] = volume;
     }
     public withName(name: string): V2CreateCluster {
         this['name'] = name;
@@ -212,5 +214,15 @@ export class V2CreateCluster {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withIpv6Enable(ipv6Enable: boolean): V2CreateCluster {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
     }
 }

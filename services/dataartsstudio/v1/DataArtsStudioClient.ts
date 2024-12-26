@@ -80,6 +80,8 @@ import { AuthorizeActionApiToInstanceRequest } from './model/AuthorizeActionApiT
 import { AuthorizeActionApiToInstanceResponse } from './model/AuthorizeActionApiToInstanceResponse';
 import { AuthorizeApiToInstanceRequest } from './model/AuthorizeApiToInstanceRequest';
 import { AuthorizeApiToInstanceResponse } from './model/AuthorizeApiToInstanceResponse';
+import { AuthorizeDataConnectionRequest } from './model/AuthorizeDataConnectionRequest';
+import { AuthorizeDataConnectionResponse } from './model/AuthorizeDataConnectionResponse';
 import { BackendConfig } from './model/BackendConfig';
 import { BackendConstant } from './model/BackendConstant';
 import { BackendRequestPara } from './model/BackendRequestPara';
@@ -357,6 +359,8 @@ import { DeleteDesignLatestApprovalRequest } from './model/DeleteDesignLatestApp
 import { DeleteDesignLatestApprovalResponse } from './model/DeleteDesignLatestApprovalResponse';
 import { DeleteDirectoryRequest } from './model/DeleteDirectoryRequest';
 import { DeleteDirectoryResponse } from './model/DeleteDirectoryResponse';
+import { DeleteEntityRequest } from './model/DeleteEntityRequest';
+import { DeleteEntityResponse } from './model/DeleteEntityResponse';
 import { DeleteResultData } from './model/DeleteResultData';
 import { DeleteSecurityAssignedQueueRequest } from './model/DeleteSecurityAssignedQueueRequest';
 import { DeleteSecurityAssignedQueueResponse } from './model/DeleteSecurityAssignedQueueResponse';
@@ -947,6 +951,8 @@ import { ShowPathObjectByIdRequest } from './model/ShowPathObjectByIdRequest';
 import { ShowPathObjectByIdResponse } from './model/ShowPathObjectByIdResponse';
 import { ShowQualityTaskDetailRequest } from './model/ShowQualityTaskDetailRequest';
 import { ShowQualityTaskDetailResponse } from './model/ShowQualityTaskDetailResponse';
+import { ShowQueuesRequest } from './model/ShowQueuesRequest';
+import { ShowQueuesResponse } from './model/ShowQueuesResponse';
 import { ShowRelationByIdRequest } from './model/ShowRelationByIdRequest';
 import { ShowRelationByIdResponse } from './model/ShowRelationByIdResponse';
 import { ShowRelationByIdResultData } from './model/ShowRelationByIdResultData';
@@ -969,6 +975,8 @@ import { ShowStandardTemplateRequest } from './model/ShowStandardTemplateRequest
 import { ShowStandardTemplateResponse } from './model/ShowStandardTemplateResponse';
 import { ShowStandardTemplateResultData } from './model/ShowStandardTemplateResultData';
 import { ShowStandardTemplateResultDataValue } from './model/ShowStandardTemplateResultDataValue';
+import { ShowTableDataRequest } from './model/ShowTableDataRequest';
+import { ShowTableDataResponse } from './model/ShowTableDataResponse';
 import { ShowTableModelByIdRequest } from './model/ShowTableModelByIdRequest';
 import { ShowTableModelByIdResponse } from './model/ShowTableModelByIdResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
@@ -1230,6 +1238,26 @@ export class DataArtsStudioClient {
      */
     public associateSecurityLevelToEntitie(associateSecurityLevelToEntitieRequest?: AssociateSecurityLevelToEntitieRequest): Promise<AssociateSecurityLevelToEntitieResponse> {
         const options = ParamCreater().associateSecurityLevelToEntitie(associateSecurityLevelToEntitieRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 数据连接跨空间授权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据连接跨空间授权
+     * @param {string} dataConnectionId 需要授权的数据连接id。
+     * @param {string} [workspaceId] 需要授权的工作空间id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public authorizeDataConnection(authorizeDataConnectionRequest?: AuthorizeDataConnectionRequest): Promise<AuthorizeDataConnectionResponse> {
+        const options = ParamCreater().authorizeDataConnection(authorizeDataConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3017,6 +3045,26 @@ export class DataArtsStudioClient {
      */
     public deleteDirectory(deleteDirectoryRequest?: DeleteDirectoryRequest): Promise<DeleteDirectoryResponse> {
         const options = ParamCreater().deleteDirectory(deleteDirectoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据guid删除资产。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资产(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} guid 资产的guid，获取方法请参见[数据开发作业ID](dataartsstudio_02_0351.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteEntity(deleteEntityRequest?: DeleteEntityRequest): Promise<DeleteEntityResponse> {
+        const options = ParamCreater().deleteEntity(deleteEntityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7254,6 +7302,25 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 队列列表，展示10条数据，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取队列(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQueues(showQueuesRequest?: ShowQueuesRequest): Promise<ShowQueuesResponse> {
+        const options = ParamCreater().showQueues(showQueuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过ID获取关系详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7434,6 +7501,32 @@ export class DataArtsStudioClient {
      */
     public showStandardTemplate(showStandardTemplateRequest?: ShowStandardTemplateRequest): Promise<ShowStandardTemplateResponse> {
         const options = ParamCreater().showStandardTemplate(showStandardTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 表数据预览，展示10条数据，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据预览(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} guid 资产guid，获取方法请参见[数据资产guid](dataartsstudio_02_0351.xml)。
+     * @param {string} [dataConnectionId] 数据连接id。
+     * @param {string} [sourceType] 数据源类型。
+     * @param {string} [database] db名称。
+     * @param {string} [schema] schema名称。
+     * @param {string} [table] table名称。
+     * @param {string} [queue] 队列名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTableData(showTableDataRequest?: ShowTableDataRequest): Promise<ShowTableDataResponse> {
+        const options = ParamCreater().showTableData(showTableDataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9008,6 +9101,53 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'guid': guid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 数据连接跨空间授权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        authorizeDataConnection(authorizeDataConnectionRequest?: AuthorizeDataConnectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/datasources/authorize_datasource",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let dataConnectionId;
+            
+            let workspaceId;
+
+            if (authorizeDataConnectionRequest !== null && authorizeDataConnectionRequest !== undefined) {
+                if (authorizeDataConnectionRequest instanceof AuthorizeDataConnectionRequest) {
+                    dataConnectionId = authorizeDataConnectionRequest.dataConnectionId;
+                    workspaceId = authorizeDataConnectionRequest.workspaceId;
+                } else {
+                    dataConnectionId = authorizeDataConnectionRequest['data_connection_id'];
+                    workspaceId = authorizeDataConnectionRequest['workspace_id'];
+                }
+            }
+
+        
+            if (dataConnectionId === null || dataConnectionId === undefined) {
+                throw new RequiredError('dataConnectionId','Required parameter dataConnectionId was null or undefined when calling authorizeDataConnection.');
+            }
+            if (dataConnectionId !== null && dataConnectionId !== undefined) {
+                localVarQueryParameter['data_connection_id'] = dataConnectionId;
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13507,6 +13647,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据guid删除资产。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteEntity(deleteEntityRequest?: DeleteEntityRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/datamap/entities/guid/{guid}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instance;
+            
+            let guid;
+
+            if (deleteEntityRequest !== null && deleteEntityRequest !== undefined) {
+                if (deleteEntityRequest instanceof DeleteEntityRequest) {
+                    instance = deleteEntityRequest.instance;
+                    guid = deleteEntityRequest.guid;
+                } else {
+                    instance = deleteEntityRequest['instance'];
+                    guid = deleteEntityRequest['guid'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling deleteEntity.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -26501,6 +26685,42 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 队列列表，展示10条数据，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQueues(showQueuesRequest?: ShowQueuesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/datamap/entities/queue",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instance;
+
+            if (showQueuesRequest !== null && showQueuesRequest !== undefined) {
+                if (showQueuesRequest instanceof ShowQueuesRequest) {
+                    instance = showQueuesRequest.instance;
+                } else {
+                    instance = showQueuesRequest['instance'];
+                }
+            }
+
+        
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过ID获取关系详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -26949,6 +27169,93 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 表数据预览，展示10条数据，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTableData(showTableDataRequest?: ShowTableDataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/datamap/entities/guid/{guid}/preview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instance;
+            
+            let guid;
+            
+            let dataConnectionId;
+            
+            let sourceType;
+            
+            let database;
+            
+            let schema;
+            
+            let table;
+            
+            let queue;
+
+            if (showTableDataRequest !== null && showTableDataRequest !== undefined) {
+                if (showTableDataRequest instanceof ShowTableDataRequest) {
+                    instance = showTableDataRequest.instance;
+                    guid = showTableDataRequest.guid;
+                    dataConnectionId = showTableDataRequest.dataConnectionId;
+                    sourceType = showTableDataRequest.sourceType;
+                    database = showTableDataRequest.database;
+                    schema = showTableDataRequest.schema;
+                    table = showTableDataRequest.table;
+                    queue = showTableDataRequest.queue;
+                } else {
+                    instance = showTableDataRequest['instance'];
+                    guid = showTableDataRequest['guid'];
+                    dataConnectionId = showTableDataRequest['data_connection_id'];
+                    sourceType = showTableDataRequest['source_type'];
+                    database = showTableDataRequest['database'];
+                    schema = showTableDataRequest['schema'];
+                    table = showTableDataRequest['table'];
+                    queue = showTableDataRequest['queue'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling showTableData.');
+            }
+            if (dataConnectionId !== null && dataConnectionId !== undefined) {
+                localVarQueryParameter['data_connection_id'] = dataConnectionId;
+            }
+            if (sourceType !== null && sourceType !== undefined) {
+                localVarQueryParameter['source_type'] = sourceType;
+            }
+            if (database !== null && database !== undefined) {
+                localVarQueryParameter['database'] = database;
+            }
+            if (schema !== null && schema !== undefined) {
+                localVarQueryParameter['schema'] = schema;
+            }
+            if (table !== null && table !== undefined) {
+                localVarQueryParameter['table'] = table;
+            }
+            if (queue !== null && queue !== undefined) {
+                localVarQueryParameter['queue'] = queue;
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },

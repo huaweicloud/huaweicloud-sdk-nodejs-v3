@@ -24,6 +24,9 @@ import { AuditionFile } from './model/AuditionFile';
 import { BackgroundConfigInfo } from './model/BackgroundConfigInfo';
 import { BackgroundMusicConfig } from './model/BackgroundMusicConfig';
 import { BatchAssetActionReq } from './model/BatchAssetActionReq';
+import { BatchConfirmLiveCommandsReq } from './model/BatchConfirmLiveCommandsReq';
+import { BatchConfirmLiveCommandsRequest } from './model/BatchConfirmLiveCommandsRequest';
+import { BatchConfirmLiveCommandsResponse } from './model/BatchConfirmLiveCommandsResponse';
 import { BatchExecuteAssetActionRequest } from './model/BatchExecuteAssetActionRequest';
 import { BatchExecuteAssetActionResponse } from './model/BatchExecuteAssetActionResponse';
 import { BusinessCardImageConfig } from './model/BusinessCardImageConfig';
@@ -47,6 +50,9 @@ import { ComponentInfo } from './model/ComponentInfo';
 import { ConfirmFileUploadRequest } from './model/ConfirmFileUploadRequest';
 import { ConfirmFileUploadRequestBody } from './model/ConfirmFileUploadRequestBody';
 import { ConfirmFileUploadResponse } from './model/ConfirmFileUploadResponse';
+import { ConfirmSmartLiveRoomReq } from './model/ConfirmSmartLiveRoomReq';
+import { ConfirmSmartLiveRoomRequest } from './model/ConfirmSmartLiveRoomRequest';
+import { ConfirmSmartLiveRoomResponse } from './model/ConfirmSmartLiveRoomResponse';
 import { ConfirmTrainingSegmentRequest } from './model/ConfirmTrainingSegmentRequest';
 import { ConfirmTrainingSegmentResponse } from './model/ConfirmTrainingSegmentResponse';
 import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
@@ -162,6 +168,8 @@ import { CreateTtsAuditionRequestBody } from './model/CreateTtsAuditionRequestBo
 import { CreateTtsAuditionResponse } from './model/CreateTtsAuditionResponse';
 import { CreateTtsaRequest } from './model/CreateTtsaRequest';
 import { CreateTtsaResponse } from './model/CreateTtsaResponse';
+import { CreateTtscVocabularyConfigsRequest } from './model/CreateTtscVocabularyConfigsRequest';
+import { CreateTtscVocabularyConfigsResponse } from './model/CreateTtscVocabularyConfigsResponse';
 import { CreateType } from './model/CreateType';
 import { CreateVideoMotionCaptureJobRequest } from './model/CreateVideoMotionCaptureJobRequest';
 import { CreateVideoMotionCaptureJobResponse } from './model/CreateVideoMotionCaptureJobResponse';
@@ -208,6 +216,9 @@ import { DeleteSmartChatRoomRequest } from './model/DeleteSmartChatRoomRequest';
 import { DeleteSmartChatRoomResponse } from './model/DeleteSmartChatRoomResponse';
 import { DeleteSmartLiveRoomRequest } from './model/DeleteSmartLiveRoomRequest';
 import { DeleteSmartLiveRoomResponse } from './model/DeleteSmartLiveRoomResponse';
+import { DeleteTtscVocabularyConfigsRequest } from './model/DeleteTtscVocabularyConfigsRequest';
+import { DeleteTtscVocabularyConfigsRequestBody } from './model/DeleteTtscVocabularyConfigsRequestBody';
+import { DeleteTtscVocabularyConfigsResponse } from './model/DeleteTtscVocabularyConfigsResponse';
 import { DeleteVideoScriptRequest } from './model/DeleteVideoScriptRequest';
 import { DeleteVideoScriptResponse } from './model/DeleteVideoScriptResponse';
 import { DeleteVoiceTrainingJobRequest } from './model/DeleteVoiceTrainingJobRequest';
@@ -315,6 +326,10 @@ import { ListSmartLiveRequest } from './model/ListSmartLiveRequest';
 import { ListSmartLiveResponse } from './model/ListSmartLiveResponse';
 import { ListSmartLiveRoomsRequest } from './model/ListSmartLiveRoomsRequest';
 import { ListSmartLiveRoomsResponse } from './model/ListSmartLiveRoomsResponse';
+import { ListSmartLiveRuleCommandsRequest } from './model/ListSmartLiveRuleCommandsRequest';
+import { ListSmartLiveRuleCommandsResponse } from './model/ListSmartLiveRuleCommandsResponse';
+import { ListSmartLiveScriptCommandsRequest } from './model/ListSmartLiveScriptCommandsRequest';
+import { ListSmartLiveScriptCommandsResponse } from './model/ListSmartLiveScriptCommandsResponse';
 import { ListStylesRequest } from './model/ListStylesRequest';
 import { ListStylesResponse } from './model/ListStylesResponse';
 import { ListTenantResourcesRequest } from './model/ListTenantResourcesRequest';
@@ -323,6 +338,8 @@ import { ListTtsaDataRequest } from './model/ListTtsaDataRequest';
 import { ListTtsaDataResponse } from './model/ListTtsaDataResponse';
 import { ListTtsaJobsRequest } from './model/ListTtsaJobsRequest';
 import { ListTtsaJobsResponse } from './model/ListTtsaJobsResponse';
+import { ListTtscVocabularyConfigsRequest } from './model/ListTtscVocabularyConfigsRequest';
+import { ListTtscVocabularyConfigsResponse } from './model/ListTtscVocabularyConfigsResponse';
 import { ListVideoMotionCaptureJobsRequest } from './model/ListVideoMotionCaptureJobsRequest';
 import { ListVideoMotionCaptureJobsResponse } from './model/ListVideoMotionCaptureJobsResponse';
 import { ListVideoScriptsRequest } from './model/ListVideoScriptsRequest';
@@ -338,6 +355,8 @@ import { LiveEventReportRequest } from './model/LiveEventReportRequest';
 import { LiveEventReportResponse } from './model/LiveEventReportResponse';
 import { LiveJobLog } from './model/LiveJobLog';
 import { LivePlatformInfo } from './model/LivePlatformInfo';
+import { LivePlayingScriptInfo } from './model/LivePlayingScriptInfo';
+import { LivePlayingShootScriptItem } from './model/LivePlayingShootScriptItem';
 import { LiveRoomEventCallBackConfig } from './model/LiveRoomEventCallBackConfig';
 import { LiveRoomInteractionConfig } from './model/LiveRoomInteractionConfig';
 import { LiveRoomInteractionRuleInfo } from './model/LiveRoomInteractionRuleInfo';
@@ -397,8 +416,13 @@ import { RestoreAssetResponse } from './model/RestoreAssetResponse';
 import { ReviewConfig } from './model/ReviewConfig';
 import { RobotInfo } from './model/RobotInfo';
 import { RobotTypeEnum } from './model/RobotTypeEnum';
+import { RuleCommand } from './model/RuleCommand';
+import { SaveTtscVocabularyConfigsRequest } from './model/SaveTtscVocabularyConfigsRequest';
+import { SaveTtscVocabularyConfigsRequestBody } from './model/SaveTtscVocabularyConfigsRequestBody';
+import { SaveTtscVocabularyConfigsResponse } from './model/SaveTtscVocabularyConfigsResponse';
 import { SceneAssetMeta } from './model/SceneAssetMeta';
 import { SceneComponentInfo } from './model/SceneComponentInfo';
+import { ScriptCommand } from './model/ScriptCommand';
 import { SetJobBatchNameReq } from './model/SetJobBatchNameReq';
 import { SetJobBatchNameRequest } from './model/SetJobBatchNameRequest';
 import { SetJobBatchNameResponse } from './model/SetJobBatchNameResponse';
@@ -535,6 +559,7 @@ import { TrainingJobBasicInfo } from './model/TrainingJobBasicInfo';
 import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TrainingVideoMarkInfo } from './model/TrainingVideoMarkInfo';
 import { TriggerProcess } from './model/TriggerProcess';
+import { TtsCallBackConfig } from './model/TtsCallBackConfig';
 import { Update2dModelTrainingJobReq } from './model/Update2dModelTrainingJobReq';
 import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
 import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJobResponse';
@@ -615,6 +640,7 @@ import { VideoScriptBaseInfo } from './model/VideoScriptBaseInfo';
 import { VideoScriptsCreateInfo } from './model/VideoScriptsCreateInfo';
 import { VideoScriptsShowInfo } from './model/VideoScriptsShowInfo';
 import { VideoScriptsSimpleInfo } from './model/VideoScriptsSimpleInfo';
+import { VocabularyConfig } from './model/VocabularyConfig';
 import { VoiceCapability } from './model/VoiceCapability';
 import { VoiceConfig } from './model/VoiceConfig';
 import { VoiceConfigRsp } from './model/VoiceConfigRsp';
@@ -1063,7 +1089,7 @@ export class MetaStudioClient {
      * @param {string} [name] 按名称模糊查询。
      * @param {string} [tag] 按标签模糊查询。
      * @param {'INTERSECTION' | 'UNION_SET'} [tagCombinationType] 标签查询组合方式 INTERSECTION：交集 UNION_SET：并集
-     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
+     * @param {string} [startTime] 起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
      * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {string} [assetType] 资产类型。多个类型使用英文逗号分隔。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
      * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
@@ -3269,6 +3295,31 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于批量确认命令列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量确认命令
+     * @param {string} roomId 剧本ID。
+     * @param {string} jobId 任务ID。
+     * @param {BatchConfirmLiveCommandsReq} batchConfirmLiveCommandsRequestBody 批量确认剧本命令。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchConfirmLiveCommands(batchConfirmLiveCommandsRequest?: BatchConfirmLiveCommandsRequest): Promise<BatchConfirmLiveCommandsResponse> {
+        const options = ParamCreater().batchConfirmLiveCommands(batchConfirmLiveCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于控制数字人直播过程。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3346,6 +3397,56 @@ export class MetaStudioClient {
      */
     public listSmartLiveJobs(listSmartLiveJobsRequest?: ListSmartLiveJobsRequest): Promise<ListSmartLiveJobsResponse> {
         const options = ParamCreater().listSmartLiveJobs(listSmartLiveJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询租户未确认的互动规则命令列表，仅限于需要做二次确认的特定用户使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户未确认的互动规则命令列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {string} [jobId] 根据任务ID 查询
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmartLiveRuleCommands(listSmartLiveRuleCommandsRequest?: ListSmartLiveRuleCommandsRequest): Promise<ListSmartLiveRuleCommandsResponse> {
+        const options = ParamCreater().listSmartLiveRuleCommands(listSmartLiveRuleCommandsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询租户未确认的剧本命令列表，仅限于需要做二次确认的特定用户使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户未确认的剧本命令列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {string} [jobId] 根据任务ID 查询
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmartLiveScriptCommands(listSmartLiveScriptCommandsRequest?: ListSmartLiveScriptCommandsRequest): Promise<ListSmartLiveScriptCommandsResponse> {
+        const options = ParamCreater().listSmartLiveScriptCommands(listSmartLiveScriptCommandsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3446,6 +3547,30 @@ export class MetaStudioClient {
      */
     public stopSmartLive(stopSmartLiveRequest?: StopSmartLiveRequest): Promise<StopSmartLiveResponse> {
         const options = ParamCreater().stopSmartLive(stopSmartLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用直播间二次确认
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 直播间确认
+     * @param {string} roomId 剧本ID。
+     * @param {ConfirmSmartLiveRoomReq} confirmSmartLiveRoomRequestBody 剧本确认请求
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public confirmSmartLiveRoom(confirmSmartLiveRoomRequest?: ConfirmSmartLiveRoomRequest): Promise<ConfirmSmartLiveRoomResponse> {
+        const options = ParamCreater().confirmSmartLiveRoom(confirmSmartLiveRoomRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3592,6 +3717,7 @@ export class MetaStudioClient {
      * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {string} [roomType] 按直播间类型查询。直播间类型。 * NORMAL：普通直播间，直播间一直存在，可以反复开播 * TEMP：临时直播间，直播任务结束后自动清理直播间。 * TEMPLATE：直播间模板。
      * @param {string} [templateOwnType] 按照自己拥有的和别人分享以及公共的模板进行查询 * OWNED 自己拥有且暂未共享的 * SHARED_TO_OHTERS 分享给别人的 * SHARED_FROM_OHTERS 别人分享给我的 * PUBLIC 公共模板
+     * @param {string} [confirmState] 直播间确认状态。此状态仅用于特定用户需要人工确认场景。 - unconfirm: 未确认 - confirmed：已确认 - reject： 拒绝
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4013,6 +4139,8 @@ export class MetaStudioClient {
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [updateUntil] 过滤更新时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [updateSince] 过滤更新时间&gt;&#x3D;输入时间的记录。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [state] 任务状态，默认所有状态。 可多个状态查询，使用英文逗号分隔。 如state&#x3D;FAILED,WAITING
      * @param {string} [jobId] 任务id。
@@ -4020,6 +4148,8 @@ export class MetaStudioClient {
      * @param {string} [tag] 任务标签。
      * @param {string} [jobType] 训练类型。 * BASIC: 基础版(20句话) * MIDDLE: 进阶版(100句话) * ADVANCE: 高级版 * THIRD_PARTY: 第三方出门问问训练版 * THIRD_PARTY_LJZN: 第三方逻辑智能训练版 * FLEXUS: Flexus版---用的是大模型特征提取
      * @param {string} [batchName] 批次名称。
+     * @param {string} [sortKey] 排序字段，当前支持：ceate_time/update_time
+     * @param {string} [sortDir] 排序规则：desc(降序)/asc(升序)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4461,6 +4591,110 @@ export class MetaStudioClient {
      */
     public createTtsAudition(createTtsAuditionRequest?: CreateTtsAuditionRequest): Promise<CreateTtsAuditionResponse> {
         const options = ParamCreater().createTtsAudition(createTtsAuditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于设置TTS租户级扩展词表配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置TTS租户级扩展词表配置
+     * @param {SaveTtscVocabularyConfigsRequestBody} createTtscVocabularyConfigsRequestBody 设置TTS租户级词表扩展配置。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTtscVocabularyConfigs(createTtscVocabularyConfigsRequest?: CreateTtscVocabularyConfigsRequest): Promise<CreateTtscVocabularyConfigsResponse> {
+        const options = ParamCreater().createTtscVocabularyConfigs(createTtscVocabularyConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除TTS租户级词表扩展配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除TTS租户级词表扩展配置
+     * @param {DeleteTtscVocabularyConfigsRequestBody} deleteTtscVocabularyConfigsRequestBody 删除TTS租户级词表扩展配置
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页
+     * @param {number} [limit] 查询数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTtscVocabularyConfigs(deleteTtscVocabularyConfigsRequest?: DeleteTtscVocabularyConfigsRequest): Promise<DeleteTtscVocabularyConfigsResponse> {
+        const options = ParamCreater().deleteTtscVocabularyConfigs(deleteTtscVocabularyConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS租户级词表扩展配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TTS租户级词表扩展配置
+     * @param {string} type 词表类型 CHINESE_G2P：（g2p）中文拼音
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {string} [startTime] 起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
+     * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
+     * @param {string} [searchKey] 搜索条件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTtscVocabularyConfigs(listTtscVocabularyConfigsRequest?: ListTtscVocabularyConfigsRequest): Promise<ListTtscVocabularyConfigsResponse> {
+        const options = ParamCreater().listTtscVocabularyConfigs(listTtscVocabularyConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改TTS租户级扩展词表配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改TTS租户级扩展词表配置
+     * @param {string} vocabularyId 词表id
+     * @param {SaveTtscVocabularyConfigsRequestBody} saveTtscVocabularyConfigsRequestBody 修改TTS租户级词表扩展配置。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveTtscVocabularyConfigs(saveTtscVocabularyConfigsRequest?: SaveTtscVocabularyConfigsRequest): Promise<SaveTtscVocabularyConfigsResponse> {
+        const options = ParamCreater().saveTtscVocabularyConfigs(saveTtscVocabularyConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12872,6 +13106,87 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于批量确认命令列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchConfirmLiveCommands(batchConfirmLiveCommandsRequest?: BatchConfirmLiveCommandsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs/{job_id}/batch-commands-confirm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roomId;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (batchConfirmLiveCommandsRequest !== null && batchConfirmLiveCommandsRequest !== undefined) {
+                if (batchConfirmLiveCommandsRequest instanceof BatchConfirmLiveCommandsRequest) {
+                    roomId = batchConfirmLiveCommandsRequest.roomId;
+                    jobId = batchConfirmLiveCommandsRequest.jobId;
+                    body = batchConfirmLiveCommandsRequest.body
+                    authorization = batchConfirmLiveCommandsRequest.authorization;
+                    xSdkDate = batchConfirmLiveCommandsRequest.xSdkDate;
+                    xProjectId = batchConfirmLiveCommandsRequest.xProjectId;
+                    xAppUserId = batchConfirmLiveCommandsRequest.xAppUserId;
+                } else {
+                    roomId = batchConfirmLiveCommandsRequest['room_id'];
+                    jobId = batchConfirmLiveCommandsRequest['job_id'];
+                    body = batchConfirmLiveCommandsRequest['body'];
+                    authorization = batchConfirmLiveCommandsRequest['Authorization'];
+                    xSdkDate = batchConfirmLiveCommandsRequest['X-Sdk-Date'];
+                    xProjectId = batchConfirmLiveCommandsRequest['X-Project-Id'];
+                    xAppUserId = batchConfirmLiveCommandsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling batchConfirmLiveCommands.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling batchConfirmLiveCommands.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于控制数字人直播过程。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13162,6 +13477,164 @@ export const ParamCreater = function () {
             }
             if (roomName !== null && roomName !== undefined) {
                 localVarQueryParameter['room_name'] = roomName;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询租户未确认的互动规则命令列表，仅限于需要做二次确认的特定用户使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmartLiveRuleCommands(listSmartLiveRuleCommandsRequest?: ListSmartLiveRuleCommandsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-command/rule-commands",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let jobId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSmartLiveRuleCommandsRequest !== null && listSmartLiveRuleCommandsRequest !== undefined) {
+                if (listSmartLiveRuleCommandsRequest instanceof ListSmartLiveRuleCommandsRequest) {
+                    authorization = listSmartLiveRuleCommandsRequest.authorization;
+                    xSdkDate = listSmartLiveRuleCommandsRequest.xSdkDate;
+                    xProjectId = listSmartLiveRuleCommandsRequest.xProjectId;
+                    xAppUserId = listSmartLiveRuleCommandsRequest.xAppUserId;
+                    jobId = listSmartLiveRuleCommandsRequest.jobId;
+                    offset = listSmartLiveRuleCommandsRequest.offset;
+                    limit = listSmartLiveRuleCommandsRequest.limit;
+                } else {
+                    authorization = listSmartLiveRuleCommandsRequest['Authorization'];
+                    xSdkDate = listSmartLiveRuleCommandsRequest['X-Sdk-Date'];
+                    xProjectId = listSmartLiveRuleCommandsRequest['X-Project-Id'];
+                    xAppUserId = listSmartLiveRuleCommandsRequest['X-App-UserId'];
+                    jobId = listSmartLiveRuleCommandsRequest['job_id'];
+                    offset = listSmartLiveRuleCommandsRequest['offset'];
+                    limit = listSmartLiveRuleCommandsRequest['limit'];
+                }
+            }
+
+        
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询租户未确认的剧本命令列表，仅限于需要做二次确认的特定用户使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmartLiveScriptCommands(listSmartLiveScriptCommandsRequest?: ListSmartLiveScriptCommandsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-command/script-commands",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let jobId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSmartLiveScriptCommandsRequest !== null && listSmartLiveScriptCommandsRequest !== undefined) {
+                if (listSmartLiveScriptCommandsRequest instanceof ListSmartLiveScriptCommandsRequest) {
+                    authorization = listSmartLiveScriptCommandsRequest.authorization;
+                    xSdkDate = listSmartLiveScriptCommandsRequest.xSdkDate;
+                    xProjectId = listSmartLiveScriptCommandsRequest.xProjectId;
+                    xAppUserId = listSmartLiveScriptCommandsRequest.xAppUserId;
+                    jobId = listSmartLiveScriptCommandsRequest.jobId;
+                    offset = listSmartLiveScriptCommandsRequest.offset;
+                    limit = listSmartLiveScriptCommandsRequest.limit;
+                } else {
+                    authorization = listSmartLiveScriptCommandsRequest['Authorization'];
+                    xSdkDate = listSmartLiveScriptCommandsRequest['X-Sdk-Date'];
+                    xProjectId = listSmartLiveScriptCommandsRequest['X-Project-Id'];
+                    xAppUserId = listSmartLiveScriptCommandsRequest['X-App-UserId'];
+                    jobId = listSmartLiveScriptCommandsRequest['job_id'];
+                    offset = listSmartLiveScriptCommandsRequest['offset'];
+                    limit = listSmartLiveScriptCommandsRequest['limit'];
+                }
+            }
+
+        
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -13498,6 +13971,80 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用直播间二次确认
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        confirmSmartLiveRoom(confirmSmartLiveRoomRequest?: ConfirmSmartLiveRoomRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/confirm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (confirmSmartLiveRoomRequest !== null && confirmSmartLiveRoomRequest !== undefined) {
+                if (confirmSmartLiveRoomRequest instanceof ConfirmSmartLiveRoomRequest) {
+                    roomId = confirmSmartLiveRoomRequest.roomId;
+                    body = confirmSmartLiveRoomRequest.body
+                    authorization = confirmSmartLiveRoomRequest.authorization;
+                    xSdkDate = confirmSmartLiveRoomRequest.xSdkDate;
+                    xProjectId = confirmSmartLiveRoomRequest.xProjectId;
+                    xAppUserId = confirmSmartLiveRoomRequest.xAppUserId;
+                } else {
+                    roomId = confirmSmartLiveRoomRequest['room_id'];
+                    body = confirmSmartLiveRoomRequest['body'];
+                    authorization = confirmSmartLiveRoomRequest['Authorization'];
+                    xSdkDate = confirmSmartLiveRoomRequest['X-Sdk-Date'];
+                    xProjectId = confirmSmartLiveRoomRequest['X-Project-Id'];
+                    xAppUserId = confirmSmartLiveRoomRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling confirmSmartLiveRoom.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'room_id': roomId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13901,6 +14448,8 @@ export const ParamCreater = function () {
             let roomType;
             
             let templateOwnType;
+            
+            let confirmState;
 
             if (listSmartLiveRoomsRequest !== null && listSmartLiveRoomsRequest !== undefined) {
                 if (listSmartLiveRoomsRequest instanceof ListSmartLiveRoomsRequest) {
@@ -13918,6 +14467,7 @@ export const ParamCreater = function () {
                     endTime = listSmartLiveRoomsRequest.endTime;
                     roomType = listSmartLiveRoomsRequest.roomType;
                     templateOwnType = listSmartLiveRoomsRequest.templateOwnType;
+                    confirmState = listSmartLiveRoomsRequest.confirmState;
                 } else {
                     authorization = listSmartLiveRoomsRequest['Authorization'];
                     xSdkDate = listSmartLiveRoomsRequest['X-Sdk-Date'];
@@ -13933,6 +14483,7 @@ export const ParamCreater = function () {
                     endTime = listSmartLiveRoomsRequest['end_time'];
                     roomType = listSmartLiveRoomsRequest['room_type'];
                     templateOwnType = listSmartLiveRoomsRequest['template_own_type'];
+                    confirmState = listSmartLiveRoomsRequest['confirm_state'];
                 }
             }
 
@@ -13966,6 +14517,9 @@ export const ParamCreater = function () {
             }
             if (templateOwnType !== null && templateOwnType !== undefined) {
                 localVarQueryParameter['template_own_type'] = templateOwnType;
+            }
+            if (confirmState !== null && confirmState !== undefined) {
+                localVarQueryParameter['confirm_state'] = confirmState;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -15164,6 +15718,10 @@ export const ParamCreater = function () {
             
             let createSince;
             
+            let updateUntil;
+            
+            let updateSince;
+            
             let xAppUserId;
             
             let state;
@@ -15177,6 +15735,10 @@ export const ParamCreater = function () {
             let jobType;
             
             let batchName;
+            
+            let sortKey;
+            
+            let sortDir;
 
             if (listVoiceTrainingJobRequest !== null && listVoiceTrainingJobRequest !== undefined) {
                 if (listVoiceTrainingJobRequest instanceof ListVoiceTrainingJobRequest) {
@@ -15184,6 +15746,8 @@ export const ParamCreater = function () {
                     limit = listVoiceTrainingJobRequest.limit;
                     createUntil = listVoiceTrainingJobRequest.createUntil;
                     createSince = listVoiceTrainingJobRequest.createSince;
+                    updateUntil = listVoiceTrainingJobRequest.updateUntil;
+                    updateSince = listVoiceTrainingJobRequest.updateSince;
                     xAppUserId = listVoiceTrainingJobRequest.xAppUserId;
                     state = listVoiceTrainingJobRequest.state;
                     jobId = listVoiceTrainingJobRequest.jobId;
@@ -15191,11 +15755,15 @@ export const ParamCreater = function () {
                     tag = listVoiceTrainingJobRequest.tag;
                     jobType = listVoiceTrainingJobRequest.jobType;
                     batchName = listVoiceTrainingJobRequest.batchName;
+                    sortKey = listVoiceTrainingJobRequest.sortKey;
+                    sortDir = listVoiceTrainingJobRequest.sortDir;
                 } else {
                     offset = listVoiceTrainingJobRequest['offset'];
                     limit = listVoiceTrainingJobRequest['limit'];
                     createUntil = listVoiceTrainingJobRequest['create_until'];
                     createSince = listVoiceTrainingJobRequest['create_since'];
+                    updateUntil = listVoiceTrainingJobRequest['update_until'];
+                    updateSince = listVoiceTrainingJobRequest['update_since'];
                     xAppUserId = listVoiceTrainingJobRequest['X-App-UserId'];
                     state = listVoiceTrainingJobRequest['state'];
                     jobId = listVoiceTrainingJobRequest['job_id'];
@@ -15203,6 +15771,8 @@ export const ParamCreater = function () {
                     tag = listVoiceTrainingJobRequest['tag'];
                     jobType = listVoiceTrainingJobRequest['job_type'];
                     batchName = listVoiceTrainingJobRequest['batch_name'];
+                    sortKey = listVoiceTrainingJobRequest['sort_key'];
+                    sortDir = listVoiceTrainingJobRequest['sort_dir'];
                 }
             }
 
@@ -15218,6 +15788,12 @@ export const ParamCreater = function () {
             }
             if (createSince !== null && createSince !== undefined) {
                 localVarQueryParameter['create_since'] = createSince;
+            }
+            if (updateUntil !== null && updateUntil !== undefined) {
+                localVarQueryParameter['update_until'] = updateUntil;
+            }
+            if (updateSince !== null && updateSince !== undefined) {
+                localVarQueryParameter['update_since'] = updateSince;
             }
             if (state !== null && state !== undefined) {
                 localVarQueryParameter['state'] = state;
@@ -15236,6 +15812,12 @@ export const ParamCreater = function () {
             }
             if (batchName !== null && batchName !== undefined) {
                 localVarQueryParameter['batch_name'] = batchName;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
             }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
@@ -16406,6 +16988,358 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于设置TTS租户级扩展词表配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTtscVocabularyConfigs(createTtscVocabularyConfigsRequest?: CreateTtscVocabularyConfigsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ttsc/vocabulary-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createTtscVocabularyConfigsRequest !== null && createTtscVocabularyConfigsRequest !== undefined) {
+                if (createTtscVocabularyConfigsRequest instanceof CreateTtscVocabularyConfigsRequest) {
+                    body = createTtscVocabularyConfigsRequest.body
+                    xRequestId = createTtscVocabularyConfigsRequest.xRequestId;
+                    authorization = createTtscVocabularyConfigsRequest.authorization;
+                    xSdkDate = createTtscVocabularyConfigsRequest.xSdkDate;
+                    xProjectId = createTtscVocabularyConfigsRequest.xProjectId;
+                    xAppUserId = createTtscVocabularyConfigsRequest.xAppUserId;
+                } else {
+                    body = createTtscVocabularyConfigsRequest['body'];
+                    xRequestId = createTtscVocabularyConfigsRequest['X-Request-Id'];
+                    authorization = createTtscVocabularyConfigsRequest['Authorization'];
+                    xSdkDate = createTtscVocabularyConfigsRequest['X-Sdk-Date'];
+                    xProjectId = createTtscVocabularyConfigsRequest['X-Project-Id'];
+                    xAppUserId = createTtscVocabularyConfigsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除TTS租户级词表扩展配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTtscVocabularyConfigs(deleteTtscVocabularyConfigsRequest?: DeleteTtscVocabularyConfigsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/ttsc/vocabulary-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (deleteTtscVocabularyConfigsRequest !== null && deleteTtscVocabularyConfigsRequest !== undefined) {
+                if (deleteTtscVocabularyConfigsRequest instanceof DeleteTtscVocabularyConfigsRequest) {
+                    body = deleteTtscVocabularyConfigsRequest.body
+                    xRequestId = deleteTtscVocabularyConfigsRequest.xRequestId;
+                    authorization = deleteTtscVocabularyConfigsRequest.authorization;
+                    xSdkDate = deleteTtscVocabularyConfigsRequest.xSdkDate;
+                    xProjectId = deleteTtscVocabularyConfigsRequest.xProjectId;
+                    xAppUserId = deleteTtscVocabularyConfigsRequest.xAppUserId;
+                    offset = deleteTtscVocabularyConfigsRequest.offset;
+                    limit = deleteTtscVocabularyConfigsRequest.limit;
+                } else {
+                    body = deleteTtscVocabularyConfigsRequest['body'];
+                    xRequestId = deleteTtscVocabularyConfigsRequest['X-Request-Id'];
+                    authorization = deleteTtscVocabularyConfigsRequest['Authorization'];
+                    xSdkDate = deleteTtscVocabularyConfigsRequest['X-Sdk-Date'];
+                    xProjectId = deleteTtscVocabularyConfigsRequest['X-Project-Id'];
+                    xAppUserId = deleteTtscVocabularyConfigsRequest['X-App-UserId'];
+                    offset = deleteTtscVocabularyConfigsRequest['offset'];
+                    limit = deleteTtscVocabularyConfigsRequest['limit'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS租户级词表扩展配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTtscVocabularyConfigs(listTtscVocabularyConfigsRequest?: ListTtscVocabularyConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/vocabulary-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let limit;
+            
+            let offset;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let searchKey;
+
+            if (listTtscVocabularyConfigsRequest !== null && listTtscVocabularyConfigsRequest !== undefined) {
+                if (listTtscVocabularyConfigsRequest instanceof ListTtscVocabularyConfigsRequest) {
+                    type = listTtscVocabularyConfigsRequest.type;
+                    xRequestId = listTtscVocabularyConfigsRequest.xRequestId;
+                    authorization = listTtscVocabularyConfigsRequest.authorization;
+                    xSdkDate = listTtscVocabularyConfigsRequest.xSdkDate;
+                    xProjectId = listTtscVocabularyConfigsRequest.xProjectId;
+                    xAppUserId = listTtscVocabularyConfigsRequest.xAppUserId;
+                    limit = listTtscVocabularyConfigsRequest.limit;
+                    offset = listTtscVocabularyConfigsRequest.offset;
+                    startTime = listTtscVocabularyConfigsRequest.startTime;
+                    endTime = listTtscVocabularyConfigsRequest.endTime;
+                    searchKey = listTtscVocabularyConfigsRequest.searchKey;
+                } else {
+                    type = listTtscVocabularyConfigsRequest['type'];
+                    xRequestId = listTtscVocabularyConfigsRequest['X-Request-Id'];
+                    authorization = listTtscVocabularyConfigsRequest['Authorization'];
+                    xSdkDate = listTtscVocabularyConfigsRequest['X-Sdk-Date'];
+                    xProjectId = listTtscVocabularyConfigsRequest['X-Project-Id'];
+                    xAppUserId = listTtscVocabularyConfigsRequest['X-App-UserId'];
+                    limit = listTtscVocabularyConfigsRequest['limit'];
+                    offset = listTtscVocabularyConfigsRequest['offset'];
+                    startTime = listTtscVocabularyConfigsRequest['start_time'];
+                    endTime = listTtscVocabularyConfigsRequest['end_time'];
+                    searchKey = listTtscVocabularyConfigsRequest['search_key'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listTtscVocabularyConfigs.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (searchKey !== null && searchKey !== undefined) {
+                localVarQueryParameter['search_key'] = searchKey;
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改TTS租户级扩展词表配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveTtscVocabularyConfigs(saveTtscVocabularyConfigsRequest?: SaveTtscVocabularyConfigsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ttsc/vocabulary-configs/{vocabulary_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vocabularyId;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (saveTtscVocabularyConfigsRequest !== null && saveTtscVocabularyConfigsRequest !== undefined) {
+                if (saveTtscVocabularyConfigsRequest instanceof SaveTtscVocabularyConfigsRequest) {
+                    vocabularyId = saveTtscVocabularyConfigsRequest.vocabularyId;
+                    body = saveTtscVocabularyConfigsRequest.body
+                    xRequestId = saveTtscVocabularyConfigsRequest.xRequestId;
+                    authorization = saveTtscVocabularyConfigsRequest.authorization;
+                    xSdkDate = saveTtscVocabularyConfigsRequest.xSdkDate;
+                    xProjectId = saveTtscVocabularyConfigsRequest.xProjectId;
+                    xAppUserId = saveTtscVocabularyConfigsRequest.xAppUserId;
+                } else {
+                    vocabularyId = saveTtscVocabularyConfigsRequest['vocabulary_id'];
+                    body = saveTtscVocabularyConfigsRequest['body'];
+                    xRequestId = saveTtscVocabularyConfigsRequest['X-Request-Id'];
+                    authorization = saveTtscVocabularyConfigsRequest['Authorization'];
+                    xSdkDate = saveTtscVocabularyConfigsRequest['X-Sdk-Date'];
+                    xProjectId = saveTtscVocabularyConfigsRequest['X-Project-Id'];
+                    xAppUserId = saveTtscVocabularyConfigsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (vocabularyId === null || vocabularyId === undefined) {
+            throw new RequiredError('vocabularyId','Required parameter vocabularyId was null or undefined when calling saveTtscVocabularyConfigs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vocabulary_id': vocabularyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

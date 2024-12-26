@@ -8,6 +8,7 @@ export class PeerLinkEntry {
     private 'tenant_id'?: string;
     public name?: string;
     public description?: string;
+    public reason?: string;
     private 'global_dc_gateway_id'?: string;
     private 'bandwidth_info'?: BandWidthInfo;
     private 'peer_site'?: PeerSite;
@@ -38,6 +39,10 @@ export class PeerLinkEntry {
     }
     public withDescription(description: string): PeerLinkEntry {
         this['description'] = description;
+        return this;
+    }
+    public withReason(reason: string): PeerLinkEntry {
+        this['reason'] = reason;
         return this;
     }
     public withGlobalDcGatewayId(globalDcGatewayId: string): PeerLinkEntry {

@@ -101,6 +101,8 @@ import { UpdateEndpointServiceResponse } from './model/UpdateEndpointServiceResp
 import { UpdateEndpointWhiteRequest } from './model/UpdateEndpointWhiteRequest';
 import { UpdateEndpointWhiteRequestBody } from './model/UpdateEndpointWhiteRequestBody';
 import { UpdateEndpointWhiteResponse } from './model/UpdateEndpointWhiteResponse';
+import { UpgradeEndpointServiceRequest } from './model/UpgradeEndpointServiceRequest';
+import { UpgradeEndpointServiceResponse } from './model/UpgradeEndpointServiceResponse';
 import { VersionObject } from './model/VersionObject';
 
 export class VpcepClient {
@@ -712,6 +714,27 @@ export class VpcepClient {
      */
     public updateEndpointWhite(updateEndpointWhiteRequest?: UpdateEndpointWhiteRequest): Promise<UpdateEndpointWhiteResponse> {
         const options = ParamCreater().updateEndpointWhite(updateEndpointWhiteRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 升级终端节点服务，使终端节点服务支持创建专业型终端节点实例
+     * 该接口仅支持在华东二、中东-利雅得、华东-青岛、非洲-开罗局点调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 升级终端节点服务
+     * @param {string} vpcEndpointServiceId 终端节点服务的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeEndpointService(upgradeEndpointServiceRequest?: UpgradeEndpointServiceRequest): Promise<UpgradeEndpointServiceResponse> {
+        const options = ParamCreater().upgradeEndpointService(upgradeEndpointServiceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2299,6 +2322,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'vpc_endpoint_id': vpcEndpointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 升级终端节点服务，使终端节点服务支持创建专业型终端节点实例
+         * 该接口仅支持在华东二、中东-利雅得、华东-青岛、非洲-开罗局点调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeEndpointService(upgradeEndpointServiceRequest?: UpgradeEndpointServiceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/vpc-endpoint-services/{vpc_endpoint_service_id}/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vpcEndpointServiceId;
+            
+            let contentType;
+
+            if (upgradeEndpointServiceRequest !== null && upgradeEndpointServiceRequest !== undefined) {
+                if (upgradeEndpointServiceRequest instanceof UpgradeEndpointServiceRequest) {
+                    vpcEndpointServiceId = upgradeEndpointServiceRequest.vpcEndpointServiceId;
+                    contentType = upgradeEndpointServiceRequest.contentType;
+                } else {
+                    vpcEndpointServiceId = upgradeEndpointServiceRequest['vpc_endpoint_service_id'];
+                    contentType = upgradeEndpointServiceRequest['Content-Type'];
+                }
+            }
+
+        
+            if (vpcEndpointServiceId === null || vpcEndpointServiceId === undefined) {
+            throw new RequiredError('vpcEndpointServiceId','Required parameter vpcEndpointServiceId was null or undefined when calling upgradeEndpointService.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'vpc_endpoint_service_id': vpcEndpointServiceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

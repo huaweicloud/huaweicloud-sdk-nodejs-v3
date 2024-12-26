@@ -17,6 +17,7 @@ export class RestAttendeeDTO {
     public deptUUID?: string;
     public deptName?: string;
     public appId?: string;
+    public uniqueType?: number;
     public constructor() { 
     }
     public withUserUUID(userUUID: string): RestAttendeeDTO {
@@ -81,6 +82,10 @@ export class RestAttendeeDTO {
     }
     public withAppId(appId: string): RestAttendeeDTO {
         this['appId'] = appId;
+        return this;
+    }
+    public withUniqueType(uniqueType: number): RestAttendeeDTO {
+        this['uniqueType'] = uniqueType;
         return this;
     }
 }

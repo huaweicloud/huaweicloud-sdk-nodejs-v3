@@ -128,7 +128,6 @@ export * from './model/ShowDirectConnectLocationRequest';
 export * from './model/ShowDirectConnectLocationResponse';
 export * from './model/ShowDirectConnectRequest';
 export * from './model/ShowDirectConnectResponse';
-export * from './model/ShowGdgwRoutetable';
 export * from './model/ShowGlobalDcGatewayRequest';
 export * from './model/ShowGlobalDcGatewayResponse';
 export * from './model/ShowHostedDirectConnectRequest';
