@@ -12,8 +12,8 @@ export class CreateGlobalDcGatewayEntry {
     private 'bgp_asn'?: number;
     private 'region_id'?: string;
     private 'location_name'?: string;
-    private 'current_peer_link_count'?: string;
-    private 'available_peer_link_count'?: string;
+    private 'current_peer_link_count'?: number;
+    private 'available_peer_link_count'?: number;
     public tags?: Array<Tag>;
     private 'admin_state_up'?: boolean;
     public status?: GlobalDcGatewayStatus;
@@ -93,24 +93,24 @@ export class CreateGlobalDcGatewayEntry {
     public get locationName(): string | undefined {
         return this['location_name'];
     }
-    public withCurrentPeerLinkCount(currentPeerLinkCount: string): CreateGlobalDcGatewayEntry {
+    public withCurrentPeerLinkCount(currentPeerLinkCount: number): CreateGlobalDcGatewayEntry {
         this['current_peer_link_count'] = currentPeerLinkCount;
         return this;
     }
-    public set currentPeerLinkCount(currentPeerLinkCount: string  | undefined) {
+    public set currentPeerLinkCount(currentPeerLinkCount: number  | undefined) {
         this['current_peer_link_count'] = currentPeerLinkCount;
     }
-    public get currentPeerLinkCount(): string | undefined {
+    public get currentPeerLinkCount(): number | undefined {
         return this['current_peer_link_count'];
     }
-    public withAvailablePeerLinkCount(availablePeerLinkCount: string): CreateGlobalDcGatewayEntry {
+    public withAvailablePeerLinkCount(availablePeerLinkCount: number): CreateGlobalDcGatewayEntry {
         this['available_peer_link_count'] = availablePeerLinkCount;
         return this;
     }
-    public set availablePeerLinkCount(availablePeerLinkCount: string  | undefined) {
+    public set availablePeerLinkCount(availablePeerLinkCount: number  | undefined) {
         this['available_peer_link_count'] = availablePeerLinkCount;
     }
-    public get availablePeerLinkCount(): string | undefined {
+    public get availablePeerLinkCount(): number | undefined {
         return this['available_peer_link_count'];
     }
     public withTags(tags: Array<Tag>): CreateGlobalDcGatewayEntry {

@@ -1,3 +1,4 @@
+import { BaseResourceEntity } from './BaseResourceEntity';
 
 
 export class ResourceEntity {
@@ -14,9 +15,9 @@ export class ResourceEntity {
     public created?: string;
     public updated?: string;
     private 'provisioning_state'?: string;
-    public state?: string;
     public tags?: { [key: string]: string; };
     public properties?: { [key: string]: object; };
+    public state?: string;
     public constructor() { 
     }
     public withId(id: string): ResourceEntity {
@@ -107,16 +108,16 @@ export class ResourceEntity {
     public get provisioningState(): string | undefined {
         return this['provisioning_state'];
     }
-    public withState(state: string): ResourceEntity {
-        this['state'] = state;
-        return this;
-    }
     public withTags(tags: { [key: string]: string; }): ResourceEntity {
         this['tags'] = tags;
         return this;
     }
     public withProperties(properties: { [key: string]: object; }): ResourceEntity {
         this['properties'] = properties;
+        return this;
+    }
+    public withState(state: string): ResourceEntity {
+        this['state'] = state;
         return this;
     }
 }

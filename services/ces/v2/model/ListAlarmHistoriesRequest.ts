@@ -4,6 +4,7 @@ export class ListAlarmHistoriesRequest {
     private 'alarm_id'?: string;
     private 'record_id'?: string;
     public name?: string;
+    private 'alarm_type'?: ListAlarmHistoriesRequestAlarmTypeEnum | string;
     public status?: string;
     public level?: number;
     public namespace?: string;
@@ -38,6 +39,16 @@ export class ListAlarmHistoriesRequest {
     public withName(name: string): ListAlarmHistoriesRequest {
         this['name'] = name;
         return this;
+    }
+    public withAlarmType(alarmType: ListAlarmHistoriesRequestAlarmTypeEnum | string): ListAlarmHistoriesRequest {
+        this['alarm_type'] = alarmType;
+        return this;
+    }
+    public set alarmType(alarmType: ListAlarmHistoriesRequestAlarmTypeEnum | string  | undefined) {
+        this['alarm_type'] = alarmType;
+    }
+    public get alarmType(): ListAlarmHistoriesRequestAlarmTypeEnum | string | undefined {
+        return this['alarm_type'];
     }
     public withStatus(status: string): ListAlarmHistoriesRequest {
         this['status'] = status;
@@ -89,6 +100,14 @@ export class ListAlarmHistoriesRequest {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmHistoriesRequestAlarmTypeEnum {
+    EVENT = 'event',
+    METRIC = 'metric'
+}
 /**
     * @export
     * @enum {string}

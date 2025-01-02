@@ -4,6 +4,7 @@ export class ListVpcsRequest {
     public limit?: number;
     public marker?: string;
     public id?: Array<string>;
+    private 'enterprise_project_id'?: string;
     public name?: Array<string>;
     public description?: Array<string>;
     public cidr?: Array<string>;
@@ -20,6 +21,16 @@ export class ListVpcsRequest {
     public withId(id: Array<string>): ListVpcsRequest {
         this['id'] = id;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListVpcsRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withName(name: Array<string>): ListVpcsRequest {
         this['name'] = name;

@@ -165,6 +165,7 @@ import { GetFirewallInstanceResponseRecord } from './model/GetFirewallInstanceRe
 import { HostHeaderInfo } from './model/HostHeaderInfo';
 import { HttpFirewallInstanceListResponseData } from './model/HttpFirewallInstanceListResponseData';
 import { HttpGetAclTagResponseData } from './model/HttpGetAclTagResponseData';
+import { HttpListCustomerIpsResponseData } from './model/HttpListCustomerIpsResponseData';
 import { HttpQueryCaptureTaskResponseData } from './model/HttpQueryCaptureTaskResponseData';
 import { HttpQueryCfwAccessControllerLogsResponseDTOData } from './model/HttpQueryCfwAccessControllerLogsResponseDTOData';
 import { HttpQueryCfwAccessControllerLogsResponseDTODataRecords } from './model/HttpQueryCfwAccessControllerLogsResponseDTODataRecords';
@@ -265,7 +266,6 @@ import { OrderRuleAclDto } from './model/OrderRuleAclDto';
 import { OrderRuleId } from './model/OrderRuleId';
 import { PacketMessage } from './model/PacketMessage';
 import { PageInfo } from './model/PageInfo';
-import { PageInfoCustomerIpsListVO } from './model/PageInfoCustomerIpsListVO';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
 import { ResourceTag } from './model/ResourceTag';
@@ -1893,7 +1893,7 @@ export class CfwClient {
      *
      * @summary 更新日志配置
      * @param {string} projectId 项目ID, 可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
-     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取(ListFirewallDetail.xml)。
+     * @param {string} fwInstanceId 防火墙id，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取。
      * @param {LogConfigDto} logConfigDto 更新LTS日志配置请求体
      * @param {string} [enterpriseProjectId] 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取，用户未开启企业项目时为0
      * @param {*} [options] Override http request option.

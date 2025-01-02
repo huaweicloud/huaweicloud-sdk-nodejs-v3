@@ -16,6 +16,7 @@ import { AggregateResourceConfigRequest } from './model/AggregateResourceConfigR
 import { AggregatedSourceStatus } from './model/AggregatedSourceStatus';
 import { AggregationAuthorizationRequest } from './model/AggregationAuthorizationRequest';
 import { AggregationAuthorizationResp } from './model/AggregationAuthorizationResp';
+import { BaseResourceEntity } from './model/BaseResourceEntity';
 import { BatchCreateRemediationExceptionsRequest } from './model/BatchCreateRemediationExceptionsRequest';
 import { BatchCreateRemediationExceptionsRequestBody } from './model/BatchCreateRemediationExceptionsRequestBody';
 import { BatchCreateRemediationExceptionsResponse } from './model/BatchCreateRemediationExceptionsResponse';

@@ -10,6 +10,7 @@ export class Restore {
     public port?: number;
     private 'public_ip'?: PublicIp;
     private 'enterprise_project_id'?: string;
+    private 'ipv6_enable'?: boolean;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -80,5 +81,15 @@ export class Restore {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withIpv6Enable(ipv6Enable: boolean): Restore {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
     }
 }

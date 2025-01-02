@@ -1,4 +1,4 @@
-import { ResourceEntity } from './ResourceEntity';
+import { BaseResourceEntity } from './BaseResourceEntity';
 import { ResourceRelation } from './ResourceRelation';
 
 
@@ -9,7 +9,7 @@ export class HistoryItem {
     private 'capture_time'?: string;
     public status?: string;
     public relations?: Array<ResourceRelation>;
-    public resource?: ResourceEntity;
+    public resource?: BaseResourceEntity;
     public constructor() { 
     }
     public withDomainId(domainId: string): HistoryItem {
@@ -60,7 +60,7 @@ export class HistoryItem {
         this['relations'] = relations;
         return this;
     }
-    public withResource(resource: ResourceEntity): HistoryItem {
+    public withResource(resource: BaseResourceEntity): HistoryItem {
         this['resource'] = resource;
         return this;
     }

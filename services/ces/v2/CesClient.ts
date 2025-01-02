@@ -718,6 +718,7 @@ export class CesClient {
      * @param {string} [alarmId] 告警ID,以al开头，后跟22位由字母或数字组成的字符串
      * @param {string} [recordId] 告警记录ID,以ah开头，后跟22位由字母或数字组成的字符串
      * @param {string} [name] 告警规则名称
+     * @param {'event' | 'metric'} [alarmType] 告警类型，event：查询事件类型告警，metric：查询指标类型告警
      * @param {string} [status] 告警规则状态, ok为正常，alarm为告警，invalid为已失效
      * @param {number} [level] 告警级别, 1为紧急，2为重要，3为次要，4为提示
      * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考[服务命名空间](https://support.huaweicloud.com/usermanual-ces/zh-cn_topic_0202622212.html)
@@ -2262,6 +2263,8 @@ export const ParamCreater = function () {
             
             let name;
             
+            let alarmType;
+            
             let status;
             
             let level;
@@ -2285,6 +2288,7 @@ export const ParamCreater = function () {
                     alarmId = listAlarmHistoriesRequest.alarmId;
                     recordId = listAlarmHistoriesRequest.recordId;
                     name = listAlarmHistoriesRequest.name;
+                    alarmType = listAlarmHistoriesRequest.alarmType;
                     status = listAlarmHistoriesRequest.status;
                     level = listAlarmHistoriesRequest.level;
                     namespace = listAlarmHistoriesRequest.namespace;
@@ -2298,6 +2302,7 @@ export const ParamCreater = function () {
                     alarmId = listAlarmHistoriesRequest['alarm_id'];
                     recordId = listAlarmHistoriesRequest['record_id'];
                     name = listAlarmHistoriesRequest['name'];
+                    alarmType = listAlarmHistoriesRequest['alarm_type'];
                     status = listAlarmHistoriesRequest['status'];
                     level = listAlarmHistoriesRequest['level'];
                     namespace = listAlarmHistoriesRequest['namespace'];
@@ -2319,6 +2324,9 @@ export const ParamCreater = function () {
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
+            }
+            if (alarmType !== null && alarmType !== undefined) {
+                localVarQueryParameter['alarm_type'] = alarmType;
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;

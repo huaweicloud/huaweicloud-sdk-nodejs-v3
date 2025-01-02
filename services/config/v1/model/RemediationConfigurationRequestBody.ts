@@ -6,6 +6,8 @@ export class RemediationConfigurationRequestBody {
     public automatic?: boolean;
     private 'target_type'?: RemediationConfigurationRequestBodyTargetTypeEnum | string;
     private 'target_id'?: string;
+    private 'target_region_id'?: string;
+    private 'target_project_id'?: string;
     private 'static_parameter'?: Array<RemediationStaticParameter>;
     private 'resource_parameter'?: RemediationResourceParameter;
     private 'maximum_attempts'?: number;
@@ -40,6 +42,26 @@ export class RemediationConfigurationRequestBody {
     }
     public get targetId(): string | undefined {
         return this['target_id'];
+    }
+    public withTargetRegionId(targetRegionId: string): RemediationConfigurationRequestBody {
+        this['target_region_id'] = targetRegionId;
+        return this;
+    }
+    public set targetRegionId(targetRegionId: string  | undefined) {
+        this['target_region_id'] = targetRegionId;
+    }
+    public get targetRegionId(): string | undefined {
+        return this['target_region_id'];
+    }
+    public withTargetProjectId(targetProjectId: string): RemediationConfigurationRequestBody {
+        this['target_project_id'] = targetProjectId;
+        return this;
+    }
+    public set targetProjectId(targetProjectId: string  | undefined) {
+        this['target_project_id'] = targetProjectId;
+    }
+    public get targetProjectId(): string | undefined {
+        return this['target_project_id'];
     }
     public withStaticParameter(staticParameter: Array<RemediationStaticParameter>): RemediationConfigurationRequestBody {
         this['static_parameter'] = staticParameter;

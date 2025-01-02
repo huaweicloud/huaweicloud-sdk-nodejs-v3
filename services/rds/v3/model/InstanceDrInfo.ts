@@ -12,6 +12,7 @@ export class InstanceDrInfo {
     private 'master_region'?: string;
     private 'slave_instance_id'?: string;
     private 'slave_region'?: string;
+    private 'build_process'?: string;
     public time?: number;
     public constructor(id?: string, status?: string, masterInstanceId?: string, masterRegion?: string, slaveInstanceId?: string, slaveRegion?: string, time?: number) { 
         this['id'] = id;
@@ -119,6 +120,16 @@ export class InstanceDrInfo {
     }
     public get slaveRegion(): string | undefined {
         return this['slave_region'];
+    }
+    public withBuildProcess(buildProcess: string): InstanceDrInfo {
+        this['build_process'] = buildProcess;
+        return this;
+    }
+    public set buildProcess(buildProcess: string  | undefined) {
+        this['build_process'] = buildProcess;
+    }
+    public get buildProcess(): string | undefined {
+        return this['build_process'];
     }
     public withTime(time: number): InstanceDrInfo {
         this['time'] = time;

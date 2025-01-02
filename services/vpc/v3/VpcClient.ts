@@ -2059,6 +2059,7 @@ export class VpcClient {
      * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {Array<string>} [id] VPC资源ID。可以使用该字段过滤VPC
+     * @param {string} [enterpriseProjectId] 功能说明：企业项目ID。可以使用该字段过滤某个企业项目下的VPC。 取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。若需要查询当前用户所有企业项目绑定的VPC，请传参all_granted_eps。
      * @param {Array<string>} [name] VPC的name信息，可以使用该字段过滤VPC
      * @param {Array<string>} [description] VPC的描述信息。可以使用该字段过滤VPC
      * @param {Array<string>} [cidr] VPC的CIDR。可以使用该字段过滤VPC
@@ -6091,6 +6092,8 @@ export const ParamCreater = function () {
             
             let id;
             
+            let enterpriseProjectId;
+            
             let name;
             
             let description;
@@ -6102,6 +6105,7 @@ export const ParamCreater = function () {
                     limit = listVpcsRequest.limit;
                     marker = listVpcsRequest.marker;
                     id = listVpcsRequest.id;
+                    enterpriseProjectId = listVpcsRequest.enterpriseProjectId;
                     name = listVpcsRequest.name;
                     description = listVpcsRequest.description;
                     cidr = listVpcsRequest.cidr;
@@ -6109,6 +6113,7 @@ export const ParamCreater = function () {
                     limit = listVpcsRequest['limit'];
                     marker = listVpcsRequest['marker'];
                     id = listVpcsRequest['id'];
+                    enterpriseProjectId = listVpcsRequest['enterprise_project_id'];
                     name = listVpcsRequest['name'];
                     description = listVpcsRequest['description'];
                     cidr = listVpcsRequest['cidr'];
@@ -6124,6 +6129,9 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;

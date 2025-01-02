@@ -15,8 +15,8 @@ export class GlobalDcGatewayEntry {
     private 'region_id'?: string;
     private 'location_name'?: string;
     public locales?: LocalesBody;
-    private 'current_peer_link_count'?: string;
-    private 'available_peer_link_count'?: string;
+    private 'current_peer_link_count'?: number;
+    private 'available_peer_link_count'?: number;
     public tags?: Array<Tag>;
     private 'admin_state_up'?: boolean;
     public status?: GlobalDcGatewayStatus;
@@ -105,24 +105,24 @@ export class GlobalDcGatewayEntry {
         this['locales'] = locales;
         return this;
     }
-    public withCurrentPeerLinkCount(currentPeerLinkCount: string): GlobalDcGatewayEntry {
+    public withCurrentPeerLinkCount(currentPeerLinkCount: number): GlobalDcGatewayEntry {
         this['current_peer_link_count'] = currentPeerLinkCount;
         return this;
     }
-    public set currentPeerLinkCount(currentPeerLinkCount: string  | undefined) {
+    public set currentPeerLinkCount(currentPeerLinkCount: number  | undefined) {
         this['current_peer_link_count'] = currentPeerLinkCount;
     }
-    public get currentPeerLinkCount(): string | undefined {
+    public get currentPeerLinkCount(): number | undefined {
         return this['current_peer_link_count'];
     }
-    public withAvailablePeerLinkCount(availablePeerLinkCount: string): GlobalDcGatewayEntry {
+    public withAvailablePeerLinkCount(availablePeerLinkCount: number): GlobalDcGatewayEntry {
         this['available_peer_link_count'] = availablePeerLinkCount;
         return this;
     }
-    public set availablePeerLinkCount(availablePeerLinkCount: string  | undefined) {
+    public set availablePeerLinkCount(availablePeerLinkCount: number  | undefined) {
         this['available_peer_link_count'] = availablePeerLinkCount;
     }
-    public get availablePeerLinkCount(): string | undefined {
+    public get availablePeerLinkCount(): number | undefined {
         return this['available_peer_link_count'];
     }
     public withTags(tags: Array<Tag>): GlobalDcGatewayEntry {

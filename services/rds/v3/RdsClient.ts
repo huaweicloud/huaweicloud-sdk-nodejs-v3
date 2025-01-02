@@ -132,6 +132,9 @@ import { DatabaseWithPrivilegeObject } from './model/DatabaseWithPrivilegeObject
 import { Datastore } from './model/Datastore';
 import { DbUserPrivilegeRequest } from './model/DbUserPrivilegeRequest';
 import { DbUserPwdRequest } from './model/DbUserPwdRequest';
+import { DelayRestoreDatabase } from './model/DelayRestoreDatabase';
+import { DelayRestoreSchema } from './model/DelayRestoreSchema';
+import { DelayRestoreTable } from './model/DelayRestoreTable';
 import { DeleteBackupResult } from './model/DeleteBackupResult';
 import { DeleteConfigurationRequest } from './model/DeleteConfigurationRequest';
 import { DeleteConfigurationResponse } from './model/DeleteConfigurationResponse';
@@ -325,6 +328,8 @@ import { ListRdSforMySqlProxyRequest } from './model/ListRdSforMySqlProxyRequest
 import { ListRdSforMySqlProxyResponse } from './model/ListRdSforMySqlProxyResponse';
 import { ListRdSforMysqlProxyFlavorsRequest } from './model/ListRdSforMysqlProxyFlavorsRequest';
 import { ListRdSforMysqlProxyFlavorsResponse } from './model/ListRdSforMysqlProxyFlavorsResponse';
+import { ListReadOnlyReplayDatabaseRequest } from './model/ListReadOnlyReplayDatabaseRequest';
+import { ListReadOnlyReplayDatabaseResponse } from './model/ListReadOnlyReplayDatabaseResponse';
 import { ListRecycleInstancesRequest } from './model/ListRecycleInstancesRequest';
 import { ListRecycleInstancesResponse } from './model/ListRecycleInstancesResponse';
 import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
@@ -362,6 +367,7 @@ import { ListUpgradeHistoriesResponse } from './model/ListUpgradeHistoriesRespon
 import { ListXelLogResponseResult } from './model/ListXelLogResponseResult';
 import { ListXellogFilesRequest } from './model/ListXellogFilesRequest';
 import { ListXellogFilesResponse } from './model/ListXellogFilesResponse';
+import { LogReplayDatabaseReq } from './model/LogReplayDatabaseReq';
 import { MasterInstance } from './model/MasterInstance';
 import { MigrateFollowerRequest } from './model/MigrateFollowerRequest';
 import { MigrateFollowerResponse } from './model/MigrateFollowerResponse';
@@ -449,6 +455,9 @@ import { RestoreExistInstanceRequest } from './model/RestoreExistInstanceRequest
 import { RestoreExistInstanceResponse } from './model/RestoreExistInstanceResponse';
 import { RestoreExistingInstanceRequestBody } from './model/RestoreExistingInstanceRequestBody';
 import { RestoreExistingInstanceRequestBodySource } from './model/RestoreExistingInstanceRequestBodySource';
+import { RestoreInfo } from './model/RestoreInfo';
+import { RestoreLogReplayDatabaseRequest } from './model/RestoreLogReplayDatabaseRequest';
+import { RestoreLogReplayDatabaseResponse } from './model/RestoreLogReplayDatabaseResponse';
 import { RestorePoint } from './model/RestorePoint';
 import { RestoreResult } from './model/RestoreResult';
 import { RestoreTableInfo } from './model/RestoreTableInfo';
@@ -2170,6 +2179,25 @@ export class RdsClient {
     }
 
     /**
+     * 查询只读实例可恢复到主实例的库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询只读实例可恢复到主实例的库
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listReadOnlyReplayDatabase(listReadOnlyReplayDatabaseRequest?: ListReadOnlyReplayDatabaseRequest): Promise<ListReadOnlyReplayDatabaseResponse> {
+        const options = ParamCreater().listReadOnlyReplayDatabase(listReadOnlyReplayDatabaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询回收站实例信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2600,6 +2628,27 @@ export class RdsClient {
      */
     public restoreExistInstance(restoreExistInstanceRequest?: RestoreExistInstanceRequest): Promise<RestoreExistInstanceResponse> {
         const options = ParamCreater().restoreExistInstance(restoreExistInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 延迟库只读，恢复库到主实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 延迟库只读，恢复库到主实例
+     * @param {string} instanceId 实例id
+     * @param {string} xLanguage 语言
+     * @param {LogReplayDatabaseReq} restoreLogReplayDatabaseRequestBody 库回放请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreLogReplayDatabase(restoreLogReplayDatabaseRequest?: RestoreLogReplayDatabaseRequest): Promise<RestoreLogReplayDatabaseResponse> {
+        const options = ParamCreater().restoreLogReplayDatabase(restoreLogReplayDatabaseRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9114,6 +9163,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询只读实例可恢复到主实例的库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listReadOnlyReplayDatabase(listReadOnlyReplayDatabaseRequest?: ListReadOnlyReplayDatabaseRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/log-replay/database",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listReadOnlyReplayDatabaseRequest !== null && listReadOnlyReplayDatabaseRequest !== undefined) {
+                if (listReadOnlyReplayDatabaseRequest instanceof ListReadOnlyReplayDatabaseRequest) {
+                    instanceId = listReadOnlyReplayDatabaseRequest.instanceId;
+                } else {
+                    instanceId = listReadOnlyReplayDatabaseRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listReadOnlyReplayDatabase.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询回收站实例信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10323,6 +10409,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 延迟库只读，恢复库到主实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreLogReplayDatabase(restoreLogReplayDatabaseRequest?: RestoreLogReplayDatabaseRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/log-replay/database",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (restoreLogReplayDatabaseRequest !== null && restoreLogReplayDatabaseRequest !== undefined) {
+                if (restoreLogReplayDatabaseRequest instanceof RestoreLogReplayDatabaseRequest) {
+                    instanceId = restoreLogReplayDatabaseRequest.instanceId;
+                    xLanguage = restoreLogReplayDatabaseRequest.xLanguage;
+                    body = restoreLogReplayDatabaseRequest.body
+                } else {
+                    instanceId = restoreLogReplayDatabaseRequest['instance_id'];
+                    xLanguage = restoreLogReplayDatabaseRequest['X-Language'];
+                    body = restoreLogReplayDatabaseRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restoreLogReplayDatabase.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

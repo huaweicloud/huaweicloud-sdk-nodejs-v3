@@ -1,10 +1,13 @@
 import { ConnectGatewayResponse } from './ConnectGatewayResponse';
+import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListConnectGatewaysResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'connect_gateways'?: Array<ConnectGatewayResponse>;
+    private 'total_count'?: number;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -27,5 +30,25 @@ export class ListConnectGatewaysResponse extends SdkResponse {
     }
     public get connectGateways(): Array<ConnectGatewayResponse> | undefined {
         return this['connect_gateways'];
+    }
+    public withTotalCount(totalCount: number): ListConnectGatewaysResponse {
+        this['total_count'] = totalCount;
+        return this;
+    }
+    public set totalCount(totalCount: number  | undefined) {
+        this['total_count'] = totalCount;
+    }
+    public get totalCount(): number | undefined {
+        return this['total_count'];
+    }
+    public withPageInfo(pageInfo: PageInfo): ListConnectGatewaysResponse {
+        this['page_info'] = pageInfo;
+        return this;
+    }
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
+        this['page_info'] = pageInfo;
+    }
+    public get pageInfo(): PageInfo | undefined {
+        return this['page_info'];
     }
 }

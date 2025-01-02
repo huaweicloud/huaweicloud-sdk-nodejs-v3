@@ -1,3 +1,4 @@
+import { InterpreterAiDigitalInfo } from './InterpreterAiDigitalInfo';
 
 
 export class InterpreterInfo {
@@ -6,6 +7,8 @@ export class InterpreterInfo {
     public callNumber?: string;
     public name?: string;
     public interpreterId?: string;
+    public interpreterType?: string;
+    public aiDigitalInfo?: InterpreterAiDigitalInfo;
     public constructor(loginAccount?: string) { 
         this['loginAccount'] = loginAccount;
     }
@@ -27,6 +30,14 @@ export class InterpreterInfo {
     }
     public withInterpreterId(interpreterId: string): InterpreterInfo {
         this['interpreterId'] = interpreterId;
+        return this;
+    }
+    public withInterpreterType(interpreterType: string): InterpreterInfo {
+        this['interpreterType'] = interpreterType;
+        return this;
+    }
+    public withAiDigitalInfo(aiDigitalInfo: InterpreterAiDigitalInfo): InterpreterInfo {
+        this['aiDigitalInfo'] = aiDigitalInfo;
         return this;
     }
 }

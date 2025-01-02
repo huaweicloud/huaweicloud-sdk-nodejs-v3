@@ -1,8 +1,6 @@
-import { BaseResourceEntity } from './BaseResourceEntity';
 
-import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class ShowResourceByIdResponse extends SdkResponse {
+export class BaseResourceEntity {
     public id?: string;
     public name?: string;
     public provider?: string;
@@ -18,27 +16,25 @@ export class ShowResourceByIdResponse extends SdkResponse {
     private 'provisioning_state'?: string;
     public tags?: { [key: string]: string; };
     public properties?: { [key: string]: object; };
-    public state?: string;
     public constructor() { 
-        super();
     }
-    public withId(id: string): ShowResourceByIdResponse {
+    public withId(id: string): BaseResourceEntity {
         this['id'] = id;
         return this;
     }
-    public withName(name: string): ShowResourceByIdResponse {
+    public withName(name: string): BaseResourceEntity {
         this['name'] = name;
         return this;
     }
-    public withProvider(provider: string): ShowResourceByIdResponse {
+    public withProvider(provider: string): BaseResourceEntity {
         this['provider'] = provider;
         return this;
     }
-    public withType(type: string): ShowResourceByIdResponse {
+    public withType(type: string): BaseResourceEntity {
         this['type'] = type;
         return this;
     }
-    public withRegionId(regionId: string): ShowResourceByIdResponse {
+    public withRegionId(regionId: string): BaseResourceEntity {
         this['region_id'] = regionId;
         return this;
     }
@@ -48,7 +44,7 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public get regionId(): string | undefined {
         return this['region_id'];
     }
-    public withProjectId(projectId: string): ShowResourceByIdResponse {
+    public withProjectId(projectId: string): BaseResourceEntity {
         this['project_id'] = projectId;
         return this;
     }
@@ -58,7 +54,7 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withProjectName(projectName: string): ShowResourceByIdResponse {
+    public withProjectName(projectName: string): BaseResourceEntity {
         this['project_name'] = projectName;
         return this;
     }
@@ -68,7 +64,7 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public get projectName(): string | undefined {
         return this['project_name'];
     }
-    public withEpId(epId: string): ShowResourceByIdResponse {
+    public withEpId(epId: string): BaseResourceEntity {
         this['ep_id'] = epId;
         return this;
     }
@@ -78,7 +74,7 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public get epId(): string | undefined {
         return this['ep_id'];
     }
-    public withEpName(epName: string): ShowResourceByIdResponse {
+    public withEpName(epName: string): BaseResourceEntity {
         this['ep_name'] = epName;
         return this;
     }
@@ -88,19 +84,19 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public get epName(): string | undefined {
         return this['ep_name'];
     }
-    public withChecksum(checksum: string): ShowResourceByIdResponse {
+    public withChecksum(checksum: string): BaseResourceEntity {
         this['checksum'] = checksum;
         return this;
     }
-    public withCreated(created: string): ShowResourceByIdResponse {
+    public withCreated(created: string): BaseResourceEntity {
         this['created'] = created;
         return this;
     }
-    public withUpdated(updated: string): ShowResourceByIdResponse {
+    public withUpdated(updated: string): BaseResourceEntity {
         this['updated'] = updated;
         return this;
     }
-    public withProvisioningState(provisioningState: string): ShowResourceByIdResponse {
+    public withProvisioningState(provisioningState: string): BaseResourceEntity {
         this['provisioning_state'] = provisioningState;
         return this;
     }
@@ -110,16 +106,12 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public get provisioningState(): string | undefined {
         return this['provisioning_state'];
     }
-    public withTags(tags: { [key: string]: string; }): ShowResourceByIdResponse {
+    public withTags(tags: { [key: string]: string; }): BaseResourceEntity {
         this['tags'] = tags;
         return this;
     }
-    public withProperties(properties: { [key: string]: object; }): ShowResourceByIdResponse {
+    public withProperties(properties: { [key: string]: object; }): BaseResourceEntity {
         this['properties'] = properties;
-        return this;
-    }
-    public withState(state: string): ShowResourceByIdResponse {
-        this['state'] = state;
         return this;
     }
 }

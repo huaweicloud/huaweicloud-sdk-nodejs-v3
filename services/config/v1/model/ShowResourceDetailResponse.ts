@@ -1,3 +1,4 @@
+import { BaseResourceEntity } from './BaseResourceEntity';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -15,9 +16,9 @@ export class ShowResourceDetailResponse extends SdkResponse {
     public created?: string;
     public updated?: string;
     private 'provisioning_state'?: string;
-    public state?: string;
     public tags?: { [key: string]: string; };
     public properties?: { [key: string]: object; };
+    public state?: string;
     public constructor() { 
         super();
     }
@@ -109,16 +110,16 @@ export class ShowResourceDetailResponse extends SdkResponse {
     public get provisioningState(): string | undefined {
         return this['provisioning_state'];
     }
-    public withState(state: string): ShowResourceDetailResponse {
-        this['state'] = state;
-        return this;
-    }
     public withTags(tags: { [key: string]: string; }): ShowResourceDetailResponse {
         this['tags'] = tags;
         return this;
     }
     public withProperties(properties: { [key: string]: object; }): ShowResourceDetailResponse {
         this['properties'] = properties;
+        return this;
+    }
+    public withState(state: string): ShowResourceDetailResponse {
+        this['state'] = state;
         return this;
     }
 }

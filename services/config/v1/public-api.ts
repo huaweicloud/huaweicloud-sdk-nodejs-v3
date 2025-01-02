@@ -14,6 +14,7 @@ export * from './model/AggregateResourceConfigRequest';
 export * from './model/AggregatedSourceStatus';
 export * from './model/AggregationAuthorizationRequest';
 export * from './model/AggregationAuthorizationResp';
+export * from './model/BaseResourceEntity';
 export * from './model/BatchCreateRemediationExceptionsRequest';
 export * from './model/BatchCreateRemediationExceptionsRequestBody';
 export * from './model/BatchCreateRemediationExceptionsResponse';
