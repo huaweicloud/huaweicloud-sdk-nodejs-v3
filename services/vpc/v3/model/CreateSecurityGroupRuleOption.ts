@@ -12,6 +12,7 @@ export class CreateSecurityGroupRuleOption {
     private 'remote_address_group_id'?: string;
     public action?: string;
     public priority?: string;
+    public enabled?: boolean;
     public constructor(securityGroupId?: string, direction?: string) { 
         this['security_group_id'] = securityGroupId;
         this['direction'] = direction;
@@ -82,6 +83,10 @@ export class CreateSecurityGroupRuleOption {
     }
     public withPriority(priority: string): CreateSecurityGroupRuleOption {
         this['priority'] = priority;
+        return this;
+    }
+    public withEnabled(enabled: boolean): CreateSecurityGroupRuleOption {
+        this['enabled'] = enabled;
         return this;
     }
 }

@@ -63,6 +63,7 @@ export class ImageInfo {
     private '__support_amd'?: string;
     private '__support_kvm_hi1822_hisriov'?: string;
     private '__support_kvm_hi1822_hivirtionet'?: string;
+    private 'os_shutdown_timeout'?: string;
     public constructor(imageSize?: string, imageSourceType?: string, imagetype?: string, isregistered?: string, osType?: string, containerFormat?: string, createdAt?: string, id?: string, minDisk?: number, minRam?: number, name?: string, owner?: string, _protected?: boolean, self?: string, status?: string, tags?: Array<string>, updatedAt?: string, virtualEnvType?: string, visibility?: string, activeAt?: string) { 
         this['__image_size'] = imageSize;
         this['__image_source_type'] = imageSourceType;
@@ -638,6 +639,16 @@ export class ImageInfo {
     }
     public get supportKvmHi1822Hivirtionet(): string | undefined {
         return this['__support_kvm_hi1822_hivirtionet'];
+    }
+    public withOsShutdownTimeout(osShutdownTimeout: string): ImageInfo {
+        this['os_shutdown_timeout'] = osShutdownTimeout;
+        return this;
+    }
+    public set osShutdownTimeout(osShutdownTimeout: string  | undefined) {
+        this['os_shutdown_timeout'] = osShutdownTimeout;
+    }
+    public get osShutdownTimeout(): string | undefined {
+        return this['os_shutdown_timeout'];
     }
 }
 

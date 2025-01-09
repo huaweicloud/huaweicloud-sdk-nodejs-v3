@@ -83,6 +83,7 @@ export * from './model/ListSharedTagsRequest';
 export * from './model/ListSharedTagsResponse';
 export * from './model/ListSharesByTagRequest';
 export * from './model/ListSharesByTagRequestBody';
+export * from './model/ListSharesByTagResource';
 export * from './model/ListSharesByTagResponse';
 export * from './model/ListSharesRequest';
 export * from './model/ListSharesResponse';

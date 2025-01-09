@@ -11,6 +11,7 @@ export class BatchCreateSecurityGroupRulesOption {
     private 'remote_address_group_id'?: string;
     public action?: string;
     public priority?: string;
+    public enabled?: boolean;
     public constructor(direction?: string) { 
         this['direction'] = direction;
     }
@@ -70,6 +71,10 @@ export class BatchCreateSecurityGroupRulesOption {
     }
     public withPriority(priority: string): BatchCreateSecurityGroupRulesOption {
         this['priority'] = priority;
+        return this;
+    }
+    public withEnabled(enabled: boolean): BatchCreateSecurityGroupRulesOption {
+        this['enabled'] = enabled;
         return this;
     }
 }

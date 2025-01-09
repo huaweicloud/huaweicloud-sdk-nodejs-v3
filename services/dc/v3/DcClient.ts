@@ -636,6 +636,8 @@ export class DcClient {
      * @param {string} gdgwId 全域接入网关ID
      * @param {Array<string>} [fields] 显示字段列表
      * @param {Array<string>} [extFields] show response ext-fields
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [nexthop] 下一条ID
      * @param {Array<string>} [destination] 目的地址
      * @param {Array<'ipv4' | 'ipv6'>} [addressFamily] 地址簇
@@ -2466,6 +2468,10 @@ export const ParamCreater = function () {
             
             let extFields;
             
+            let limit;
+            
+            let marker;
+            
             let nexthop;
             
             let destination;
@@ -2477,6 +2483,8 @@ export const ParamCreater = function () {
                     gdgwId = listGdgwRouteTablesRequest.gdgwId;
                     fields = listGdgwRouteTablesRequest.fields;
                     extFields = listGdgwRouteTablesRequest.extFields;
+                    limit = listGdgwRouteTablesRequest.limit;
+                    marker = listGdgwRouteTablesRequest.marker;
                     nexthop = listGdgwRouteTablesRequest.nexthop;
                     destination = listGdgwRouteTablesRequest.destination;
                     addressFamily = listGdgwRouteTablesRequest.addressFamily;
@@ -2484,6 +2492,8 @@ export const ParamCreater = function () {
                     gdgwId = listGdgwRouteTablesRequest['gdgw_id'];
                     fields = listGdgwRouteTablesRequest['fields'];
                     extFields = listGdgwRouteTablesRequest['ext_fields'];
+                    limit = listGdgwRouteTablesRequest['limit'];
+                    marker = listGdgwRouteTablesRequest['marker'];
                     nexthop = listGdgwRouteTablesRequest['nexthop'];
                     destination = listGdgwRouteTablesRequest['destination'];
                     addressFamily = listGdgwRouteTablesRequest['address_family'];
@@ -2499,6 +2509,12 @@ export const ParamCreater = function () {
             }
             if (extFields !== null && extFields !== undefined) {
                 localVarQueryParameter['ext_fields'] = extFields;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
             if (nexthop !== null && nexthop !== undefined) {
                 localVarQueryParameter['nexthop'] = nexthop;

@@ -16,7 +16,8 @@ export class SecurityGroupRule {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'project_id'?: string;
-    public constructor(id?: string, description?: string, securityGroupId?: string, direction?: string, protocol?: string, ethertype?: string, multiport?: string, action?: string, priority?: number, remoteGroupId?: string, remoteIpPrefix?: string, remoteAddressGroupId?: string, createdAt?: Date, updatedAt?: Date, projectId?: string) { 
+    public enabled?: boolean;
+    public constructor(id?: string, description?: string, securityGroupId?: string, direction?: string, protocol?: string, ethertype?: string, multiport?: string, action?: string, priority?: number, remoteGroupId?: string, remoteIpPrefix?: string, remoteAddressGroupId?: string, createdAt?: Date, updatedAt?: Date, projectId?: string, enabled?: boolean) { 
         this['id'] = id;
         this['description'] = description;
         this['security_group_id'] = securityGroupId;
@@ -32,6 +33,7 @@ export class SecurityGroupRule {
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['project_id'] = projectId;
+        this['enabled'] = enabled;
     }
     public withId(id: string): SecurityGroupRule {
         this['id'] = id;
@@ -134,5 +136,9 @@ export class SecurityGroupRule {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withEnabled(enabled: boolean): SecurityGroupRule {
+        this['enabled'] = enabled;
+        return this;
     }
 }

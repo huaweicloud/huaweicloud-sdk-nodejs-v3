@@ -5,6 +5,7 @@ export class ScriptCommand {
     private 'room_id'?: string;
     private 'job_id'?: string;
     private 'command_id'?: string;
+    private 'command_time'?: string;
     private 'scene_scripts'?: Array<LivePlayingScriptInfo>;
     public constructor() { 
     }
@@ -37,6 +38,16 @@ export class ScriptCommand {
     }
     public get commandId(): string | undefined {
         return this['command_id'];
+    }
+    public withCommandTime(commandTime: string): ScriptCommand {
+        this['command_time'] = commandTime;
+        return this;
+    }
+    public set commandTime(commandTime: string  | undefined) {
+        this['command_time'] = commandTime;
+    }
+    public get commandTime(): string | undefined {
+        return this['command_time'];
     }
     public withSceneScripts(sceneScripts: Array<LivePlayingScriptInfo>): ScriptCommand {
         this['scene_scripts'] = sceneScripts;

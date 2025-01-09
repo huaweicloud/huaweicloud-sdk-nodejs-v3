@@ -13,6 +13,7 @@ export class SmsTemplateReq {
     private 'template_type'?: string;
     private 'universal_template'?: number;
     private 'variable_attributes'?: Array<SmsTemplateVariableAttrReq>;
+    private 'flow_status'?: string;
     public constructor(appId?: string, region?: string, templateContent?: string, templateName?: string, templateType?: string) { 
         this['app_id'] = appId;
         this['region'] = region;
@@ -117,5 +118,15 @@ export class SmsTemplateReq {
     }
     public get variableAttributes(): Array<SmsTemplateVariableAttrReq> | undefined {
         return this['variable_attributes'];
+    }
+    public withFlowStatus(flowStatus: string): SmsTemplateReq {
+        this['flow_status'] = flowStatus;
+        return this;
+    }
+    public set flowStatus(flowStatus: string  | undefined) {
+        this['flow_status'] = flowStatus;
+    }
+    public get flowStatus(): string | undefined {
+        return this['flow_status'];
     }
 }

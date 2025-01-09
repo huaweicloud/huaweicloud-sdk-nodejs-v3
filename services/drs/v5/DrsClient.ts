@@ -7,6 +7,7 @@ import { ActionBaseResp } from './model/ActionBaseResp';
 import { ActionParams } from './model/ActionParams';
 import { ActionReq } from './model/ActionReq';
 import { AddColumnInfo } from './model/AddColumnInfo';
+import { AgencyRole } from './model/AgencyRole';
 import { AlarmNotifyConfig } from './model/AlarmNotifyConfig';
 import { ApiHttpNullResp } from './model/ApiHttpNullResp';
 import { AsyncActionBaseResp } from './model/AsyncActionBaseResp';
@@ -238,6 +239,8 @@ import { SchemaObject } from './model/SchemaObject';
 import { SelectDbTableObjectInfo } from './model/SelectDbTableObjectInfo';
 import { ShowActionsRequest } from './model/ShowActionsRequest';
 import { ShowActionsResponse } from './model/ShowActionsResponse';
+import { ShowAgencyInfoRequest } from './model/ShowAgencyInfoRequest';
+import { ShowAgencyInfoResponse } from './model/ShowAgencyInfoResponse';
 import { ShowColumnInfoResultRequest } from './model/ShowColumnInfoResultRequest';
 import { ShowColumnInfoResultResponse } from './model/ShowColumnInfoResultResponse';
 import { ShowComparePolicyRequest } from './model/ShowComparePolicyRequest';
@@ -312,6 +315,9 @@ import { TaskLogInfo } from './model/TaskLogInfo';
 import { ToPeriodReq } from './model/ToPeriodReq';
 import { TuningParamInfo } from './model/TuningParamInfo';
 import { TuningParameter } from './model/TuningParameter';
+import { UpdateAgencyPolicyRequest } from './model/UpdateAgencyPolicyRequest';
+import { UpdateAgencyPolicyRequestBody } from './model/UpdateAgencyPolicyRequestBody';
+import { UpdateAgencyPolicyResponse } from './model/UpdateAgencyPolicyResponse';
 import { UpdateBatchAsyncJobsRequest } from './model/UpdateBatchAsyncJobsRequest';
 import { UpdateBatchAsyncJobsResponse } from './model/UpdateBatchAsyncJobsResponse';
 import { UpdateComparePolicyRequest } from './model/UpdateComparePolicyRequest';
@@ -1446,6 +1452,26 @@ export class DrsClient {
     }
 
     /**
+     * 查询委托权限详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询委托权限详情
+     * @param {string} agencyName 委托名称。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgencyInfo(showAgencyInfoRequest?: ShowAgencyInfoRequest): Promise<ShowAgencyInfoResponse> {
+        const options = ParamCreater().showAgencyInfo(showAgencyInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定数据库表列信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2082,6 +2108,27 @@ export class DrsClient {
      */
     public syncUserJdbcDriver(syncUserJdbcDriverRequest?: SyncUserJdbcDriverRequest): Promise<SyncUserJdbcDriverResponse> {
         const options = ParamCreater().syncUserJdbcDriver(syncUserJdbcDriverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新委托权限策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新委托权限策略
+     * @param {string} agencyName 委托名称。
+     * @param {UpdateAgencyPolicyRequestBody} updateAgencyPolicyRequestBody 更新委托权限策略请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAgencyPolicy(updateAgencyPolicyRequest?: UpdateAgencyPolicyRequest): Promise<UpdateAgencyPolicyResponse> {
+        const options = ParamCreater().updateAgencyPolicy(updateAgencyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5197,6 +5244,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询委托权限详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgencyInfo(showAgencyInfoRequest?: ShowAgencyInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/agency/{agency_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let agencyName;
+            
+            let xLanguage;
+
+            if (showAgencyInfoRequest !== null && showAgencyInfoRequest !== undefined) {
+                if (showAgencyInfoRequest instanceof ShowAgencyInfoRequest) {
+                    agencyName = showAgencyInfoRequest.agencyName;
+                    xLanguage = showAgencyInfoRequest.xLanguage;
+                } else {
+                    agencyName = showAgencyInfoRequest['agency_name'];
+                    xLanguage = showAgencyInfoRequest['X-Language'];
+                }
+            }
+
+        
+            if (agencyName === null || agencyName === undefined) {
+            throw new RequiredError('agencyName','Required parameter agencyName was null or undefined when calling showAgencyInfo.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'agency_name': agencyName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定数据库表列信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6933,6 +7024,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新委托权限策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAgencyPolicy(updateAgencyPolicyRequest?: UpdateAgencyPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/agency/{agency_name}/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let agencyName;
+            
+            let xLanguage;
+
+            if (updateAgencyPolicyRequest !== null && updateAgencyPolicyRequest !== undefined) {
+                if (updateAgencyPolicyRequest instanceof UpdateAgencyPolicyRequest) {
+                    agencyName = updateAgencyPolicyRequest.agencyName;
+                    body = updateAgencyPolicyRequest.body
+                    xLanguage = updateAgencyPolicyRequest.xLanguage;
+                } else {
+                    agencyName = updateAgencyPolicyRequest['agency_name'];
+                    body = updateAgencyPolicyRequest['body'];
+                    xLanguage = updateAgencyPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (agencyName === null || agencyName === undefined) {
+            throw new RequiredError('agencyName','Required parameter agencyName was null or undefined when calling updateAgencyPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'agency_name': agencyName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

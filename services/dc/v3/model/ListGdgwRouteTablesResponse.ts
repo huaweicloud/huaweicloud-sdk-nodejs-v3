@@ -1,10 +1,12 @@
 import { CommonRoutetable } from './CommonRoutetable';
+import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListGdgwRouteTablesResponse extends SdkResponse {
     private 'request_id'?: string;
-    private 'gdgw_routetable'?: Array<CommonRoutetable>;
+    private 'gdgw_routetables'?: Array<CommonRoutetable>;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -18,14 +20,24 @@ export class ListGdgwRouteTablesResponse extends SdkResponse {
     public get requestId(): string | undefined {
         return this['request_id'];
     }
-    public withGdgwRoutetable(gdgwRoutetable: Array<CommonRoutetable>): ListGdgwRouteTablesResponse {
-        this['gdgw_routetable'] = gdgwRoutetable;
+    public withGdgwRoutetables(gdgwRoutetables: Array<CommonRoutetable>): ListGdgwRouteTablesResponse {
+        this['gdgw_routetables'] = gdgwRoutetables;
         return this;
     }
-    public set gdgwRoutetable(gdgwRoutetable: Array<CommonRoutetable>  | undefined) {
-        this['gdgw_routetable'] = gdgwRoutetable;
+    public set gdgwRoutetables(gdgwRoutetables: Array<CommonRoutetable>  | undefined) {
+        this['gdgw_routetables'] = gdgwRoutetables;
     }
-    public get gdgwRoutetable(): Array<CommonRoutetable> | undefined {
-        return this['gdgw_routetable'];
+    public get gdgwRoutetables(): Array<CommonRoutetable> | undefined {
+        return this['gdgw_routetables'];
+    }
+    public withPageInfo(pageInfo: PageInfo): ListGdgwRouteTablesResponse {
+        this['page_info'] = pageInfo;
+        return this;
+    }
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
+        this['page_info'] = pageInfo;
+    }
+    public get pageInfo(): PageInfo | undefined {
+        return this['page_info'];
     }
 }

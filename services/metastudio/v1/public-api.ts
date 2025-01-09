@@ -24,6 +24,8 @@ export * from './model/BatchAssetActionReq';
 export * from './model/BatchConfirmLiveCommandsReq';
 export * from './model/BatchConfirmLiveCommandsRequest';
 export * from './model/BatchConfirmLiveCommandsResponse';
+export * from './model/BatchDeletePacifyWordsRequest';
+export * from './model/BatchDeletePacifyWordsResponse';
 export * from './model/BatchExecuteAssetActionRequest';
 export * from './model/BatchExecuteAssetActionResponse';
 export * from './model/BusinessCardImageConfig';

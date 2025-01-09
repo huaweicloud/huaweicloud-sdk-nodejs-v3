@@ -3,6 +3,7 @@
 export class LivePlayingShootScriptItem {
     private 'sequence_no'?: number;
     public title?: string;
+    public text?: string;
     public constructor() { 
     }
     public withSequenceNo(sequenceNo: number): LivePlayingShootScriptItem {
@@ -17,6 +18,10 @@ export class LivePlayingShootScriptItem {
     }
     public withTitle(title: string): LivePlayingShootScriptItem {
         this['title'] = title;
+        return this;
+    }
+    public withText(text: string): LivePlayingShootScriptItem {
+        this['text'] = text;
         return this;
     }
 }

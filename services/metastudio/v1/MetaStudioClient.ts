@@ -27,6 +27,8 @@ import { BatchAssetActionReq } from './model/BatchAssetActionReq';
 import { BatchConfirmLiveCommandsReq } from './model/BatchConfirmLiveCommandsReq';
 import { BatchConfirmLiveCommandsRequest } from './model/BatchConfirmLiveCommandsRequest';
 import { BatchConfirmLiveCommandsResponse } from './model/BatchConfirmLiveCommandsResponse';
+import { BatchDeletePacifyWordsRequest } from './model/BatchDeletePacifyWordsRequest';
+import { BatchDeletePacifyWordsResponse } from './model/BatchDeletePacifyWordsResponse';
 import { BatchExecuteAssetActionRequest } from './model/BatchExecuteAssetActionRequest';
 import { BatchExecuteAssetActionResponse } from './model/BatchExecuteAssetActionResponse';
 import { BusinessCardImageConfig } from './model/BusinessCardImageConfig';
@@ -2545,6 +2547,29 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于批量删除安抚话术。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除安抚话术
+     * @param {Array<string>} batchDeletePacifyWordsRequestBody 批量删除安抚话术。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeletePacifyWords(batchDeletePacifyWordsRequest?: BatchDeletePacifyWordsRequest): Promise<BatchDeletePacifyWordsResponse> {
+        const options = ParamCreater().batchDeletePacifyWords(batchDeletePacifyWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建安抚话术。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4599,12 +4624,12 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于设置TTS租户级扩展词表配置。
+     * 该接口用于设置TTS租户级自定义读法配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 设置TTS租户级扩展词表配置
-     * @param {SaveTtscVocabularyConfigsRequestBody} createTtscVocabularyConfigsRequestBody 设置TTS租户级词表扩展配置。
+     * @summary 设置TTS租户级自定义读法配置
+     * @param {SaveTtscVocabularyConfigsRequestBody} createTtscVocabularyConfigsRequestBody 设置TTS租户级自定义读法配置。
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -4623,12 +4648,12 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除TTS租户级词表扩展配置。
+     * 该接口用于删除TTS租户级自定义读法配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除TTS租户级词表扩展配置
-     * @param {DeleteTtscVocabularyConfigsRequestBody} deleteTtscVocabularyConfigsRequestBody 删除TTS租户级词表扩展配置
+     * @summary 删除TTS租户级自定义读法配置
+     * @param {DeleteTtscVocabularyConfigsRequestBody} deleteTtscVocabularyConfigsRequestBody 删除TTS租户级自定义读法配置
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -4649,12 +4674,12 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于获取TTS租户级词表扩展配置。
+     * 该接口用于获取TTS租户级自定义读法配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取TTS租户级词表扩展配置
-     * @param {string} type 词表类型 CHINESE_G2P：（g2p）中文拼音
+     * @summary 获取TTS租户级自定义读法配置
+     * @param {string} type 自定义读法类型 CHINESE_G2P：拼音
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -4678,13 +4703,13 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于修改TTS租户级扩展词表配置。
+     * 该接口用于修改TTS租户级自定义读法配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改TTS租户级扩展词表配置
-     * @param {string} vocabularyId 词表id
-     * @param {SaveTtscVocabularyConfigsRequestBody} saveTtscVocabularyConfigsRequestBody 修改TTS租户级词表扩展配置。
+     * @summary 修改TTS租户级自定义读法配置
+     * @param {string} vocabularyId 自定义读法id
+     * @param {SaveTtscVocabularyConfigsRequestBody} saveTtscVocabularyConfigsRequestBody 修改TTS租户级自定义读法配置。
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -10778,6 +10803,72 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于批量删除安抚话术。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeletePacifyWords(batchDeletePacifyWordsRequest?: BatchDeletePacifyWordsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/pacify-words/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (batchDeletePacifyWordsRequest !== null && batchDeletePacifyWordsRequest !== undefined) {
+                if (batchDeletePacifyWordsRequest instanceof BatchDeletePacifyWordsRequest) {
+                    body = batchDeletePacifyWordsRequest.body
+                    authorization = batchDeletePacifyWordsRequest.authorization;
+                    xSdkDate = batchDeletePacifyWordsRequest.xSdkDate;
+                    xProjectId = batchDeletePacifyWordsRequest.xProjectId;
+                    xAppUserId = batchDeletePacifyWordsRequest.xAppUserId;
+                } else {
+                    body = batchDeletePacifyWordsRequest['body'];
+                    authorization = batchDeletePacifyWordsRequest['Authorization'];
+                    xSdkDate = batchDeletePacifyWordsRequest['X-Sdk-Date'];
+                    xProjectId = batchDeletePacifyWordsRequest['X-Project-Id'];
+                    xAppUserId = batchDeletePacifyWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -16993,7 +17084,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于设置TTS租户级扩展词表配置。
+         * 该接口用于设置TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17066,7 +17157,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除TTS租户级词表扩展配置。
+         * 该接口用于删除TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17154,7 +17245,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取TTS租户级词表扩展配置。
+         * 该接口用于获取TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17264,7 +17355,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改TTS租户级扩展词表配置。
+         * 该接口用于修改TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -5,6 +5,7 @@ export class RuleCommand {
     private 'room_id'?: string;
     private 'job_id'?: string;
     private 'command_id'?: string;
+    private 'command_time'?: string;
     private 'interaction_rules'?: Array<LiveRoomInteractionRuleInfo>;
     public constructor() { 
     }
@@ -37,6 +38,16 @@ export class RuleCommand {
     }
     public get commandId(): string | undefined {
         return this['command_id'];
+    }
+    public withCommandTime(commandTime: string): RuleCommand {
+        this['command_time'] = commandTime;
+        return this;
+    }
+    public set commandTime(commandTime: string  | undefined) {
+        this['command_time'] = commandTime;
+    }
+    public get commandTime(): string | undefined {
+        return this['command_time'];
     }
     public withInteractionRules(interactionRules: Array<LiveRoomInteractionRuleInfo>): RuleCommand {
         this['interaction_rules'] = interactionRules;

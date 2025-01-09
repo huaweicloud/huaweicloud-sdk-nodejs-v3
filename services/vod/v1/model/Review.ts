@@ -6,8 +6,7 @@ export class Review {
     public politics?: number;
     public terrorism?: number;
     public porn?: number;
-    public constructor(templateId?: string) { 
-        this['template_id'] = templateId;
+    public constructor() { 
     }
     public withTemplateId(templateId: string): Review {
         this['template_id'] = templateId;

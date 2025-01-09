@@ -26,6 +26,8 @@ export class SmsSignatureResp {
     private 'app_key'?: string;
     private 'source_title_content'?: string;
     private 'signature_usage'?: string;
+    private 'qualification_id'?: string;
+    private 'qualification_name'?: string;
     public constructor() { 
     }
     public withId(id: string): SmsSignatureResp {
@@ -243,5 +245,25 @@ export class SmsSignatureResp {
     }
     public get signatureUsage(): string | undefined {
         return this['signature_usage'];
+    }
+    public withQualificationId(qualificationId: string): SmsSignatureResp {
+        this['qualification_id'] = qualificationId;
+        return this;
+    }
+    public set qualificationId(qualificationId: string  | undefined) {
+        this['qualification_id'] = qualificationId;
+    }
+    public get qualificationId(): string | undefined {
+        return this['qualification_id'];
+    }
+    public withQualificationName(qualificationName: string): SmsSignatureResp {
+        this['qualification_name'] = qualificationName;
+        return this;
+    }
+    public set qualificationName(qualificationName: string  | undefined) {
+        this['qualification_name'] = qualificationName;
+    }
+    public get qualificationName(): string | undefined {
+        return this['qualification_name'];
     }
 }

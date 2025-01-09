@@ -4,7 +4,8 @@ export class RecordInfoReq {
     public confUUID?: string;
     public segmentOffset?: number;
     public segmentLimit?: number;
-    public constructor() { 
+    public constructor(confUUID?: string) { 
+        this['confUUID'] = confUUID;
     }
     public withConfUUID(confUUID: string): RecordInfoReq {
         this['confUUID'] = confUUID;

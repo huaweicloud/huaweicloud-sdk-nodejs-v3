@@ -85,6 +85,7 @@ import { ListSharedTagsRequest } from './model/ListSharedTagsRequest';
 import { ListSharedTagsResponse } from './model/ListSharedTagsResponse';
 import { ListSharesByTagRequest } from './model/ListSharesByTagRequest';
 import { ListSharesByTagRequestBody } from './model/ListSharesByTagRequestBody';
+import { ListSharesByTagResource } from './model/ListSharesByTagResource';
 import { ListSharesByTagResponse } from './model/ListSharesByTagResponse';
 import { ListSharesRequest } from './model/ListSharesRequest';
 import { ListSharesResponse } from './model/ListSharesResponse';

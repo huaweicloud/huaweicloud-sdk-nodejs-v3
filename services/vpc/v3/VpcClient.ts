@@ -786,8 +786,12 @@ export class VpcClient {
      * @param {Array<string>} [description] 功能说明：安全组规则的描述，支持多个描述同时过滤
      * @param {Array<string>} [remoteGroupId] 功能说明：远端安全组ID，支持多ID过滤
      * @param {string} [direction] 功能说明：安全组规则方向
-     * @param {string} [action] 功能说明：安全组规则生效策略
+     * @param {string} [action] 功能说明：安全组规则生效策略。 取值范围：allow表示允许，deny表示拒绝。
      * @param {string} [remoteIpPrefix] 功能说明：远端IP地址 取值范围：cidr格式
+     * @param {Array<number>} [priority] 功能说明：优先级，支持多条过滤。
+     * @param {Array<string>} [ethertype] 功能说明：IP协议类型，支持多条过滤。 取值范围：IPv4,IPv6,ipv4,ipv6
+     * @param {Array<string>} [remoteAddressGroupId] 功能说明：远端IP地址组ID，支持多ID过滤。
+     * @param {boolean} [enabled] 功能说明：是否启用安全组规则，不支持多值过滤。 取值范围：true, false。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3116,6 +3120,14 @@ export const ParamCreater = function () {
             let action;
             
             let remoteIpPrefix;
+            
+            let priority;
+            
+            let ethertype;
+            
+            let remoteAddressGroupId;
+            
+            let enabled;
 
             if (listSecurityGroupRulesRequest !== null && listSecurityGroupRulesRequest !== undefined) {
                 if (listSecurityGroupRulesRequest instanceof ListSecurityGroupRulesRequest) {
@@ -3129,6 +3141,10 @@ export const ParamCreater = function () {
                     direction = listSecurityGroupRulesRequest.direction;
                     action = listSecurityGroupRulesRequest.action;
                     remoteIpPrefix = listSecurityGroupRulesRequest.remoteIpPrefix;
+                    priority = listSecurityGroupRulesRequest.priority;
+                    ethertype = listSecurityGroupRulesRequest.ethertype;
+                    remoteAddressGroupId = listSecurityGroupRulesRequest.remoteAddressGroupId;
+                    enabled = listSecurityGroupRulesRequest.enabled;
                 } else {
                     limit = listSecurityGroupRulesRequest['limit'];
                     marker = listSecurityGroupRulesRequest['marker'];
@@ -3140,6 +3156,10 @@ export const ParamCreater = function () {
                     direction = listSecurityGroupRulesRequest['direction'];
                     action = listSecurityGroupRulesRequest['action'];
                     remoteIpPrefix = listSecurityGroupRulesRequest['remote_ip_prefix'];
+                    priority = listSecurityGroupRulesRequest['priority'];
+                    ethertype = listSecurityGroupRulesRequest['ethertype'];
+                    remoteAddressGroupId = listSecurityGroupRulesRequest['remote_address_group_id'];
+                    enabled = listSecurityGroupRulesRequest['enabled'];
                 }
             }
 
@@ -3173,6 +3193,18 @@ export const ParamCreater = function () {
             }
             if (remoteIpPrefix !== null && remoteIpPrefix !== undefined) {
                 localVarQueryParameter['remote_ip_prefix'] = remoteIpPrefix;
+            }
+            if (priority !== null && priority !== undefined) {
+                localVarQueryParameter['priority'] = priority;
+            }
+            if (ethertype !== null && ethertype !== undefined) {
+                localVarQueryParameter['ethertype'] = ethertype;
+            }
+            if (remoteAddressGroupId !== null && remoteAddressGroupId !== undefined) {
+                localVarQueryParameter['remote_address_group_id'] = remoteAddressGroupId;
+            }
+            if (enabled !== null && enabled !== undefined) {
+                localVarQueryParameter['enabled'] = enabled;
             }
 
             options.queryParams = localVarQueryParameter;

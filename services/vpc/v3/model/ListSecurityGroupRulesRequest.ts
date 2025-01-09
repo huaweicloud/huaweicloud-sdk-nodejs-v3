@@ -11,6 +11,10 @@ export class ListSecurityGroupRulesRequest {
     public direction?: string;
     public action?: string;
     private 'remote_ip_prefix'?: string;
+    public priority?: Array<number>;
+    public ethertype?: Array<string>;
+    private 'remote_address_group_id'?: Array<string>;
+    public enabled?: boolean;
     public constructor() { 
     }
     public withLimit(limit: number): ListSecurityGroupRulesRequest {
@@ -70,5 +74,27 @@ export class ListSecurityGroupRulesRequest {
     }
     public get remoteIpPrefix(): string | undefined {
         return this['remote_ip_prefix'];
+    }
+    public withPriority(priority: Array<number>): ListSecurityGroupRulesRequest {
+        this['priority'] = priority;
+        return this;
+    }
+    public withEthertype(ethertype: Array<string>): ListSecurityGroupRulesRequest {
+        this['ethertype'] = ethertype;
+        return this;
+    }
+    public withRemoteAddressGroupId(remoteAddressGroupId: Array<string>): ListSecurityGroupRulesRequest {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+        return this;
+    }
+    public set remoteAddressGroupId(remoteAddressGroupId: Array<string>  | undefined) {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+    }
+    public get remoteAddressGroupId(): Array<string> | undefined {
+        return this['remote_address_group_id'];
+    }
+    public withEnabled(enabled: boolean): ListSecurityGroupRulesRequest {
+        this['enabled'] = enabled;
+        return this;
     }
 }

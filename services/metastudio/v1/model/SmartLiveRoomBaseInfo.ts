@@ -22,6 +22,7 @@ export class SmartLiveRoomBaseInfo {
     private 'last_job_end_time'?: string;
     private 'last_job_status'?: SmartLiveRoomBaseInfoLastJobStatusEnum | string;
     private 'priv_data'?: string;
+    private 'confirm_state'?: SmartLiveRoomBaseInfoConfirmStateEnum | string;
     public constructor() { 
     }
     public withRoomId(roomId: string): SmartLiveRoomBaseInfo {
@@ -198,6 +199,16 @@ export class SmartLiveRoomBaseInfo {
     public get privData(): string | undefined {
         return this['priv_data'];
     }
+    public withConfirmState(confirmState: SmartLiveRoomBaseInfoConfirmStateEnum | string): SmartLiveRoomBaseInfo {
+        this['confirm_state'] = confirmState;
+        return this;
+    }
+    public set confirmState(confirmState: SmartLiveRoomBaseInfoConfirmStateEnum | string  | undefined) {
+        this['confirm_state'] = confirmState;
+    }
+    public get confirmState(): SmartLiveRoomBaseInfoConfirmStateEnum | string | undefined {
+        return this['confirm_state'];
+    }
 }
 
 /**
@@ -237,4 +248,13 @@ export enum SmartLiveRoomBaseInfoLastJobStatusEnum {
     FAILED = 'FAILED',
     CANCELED = 'CANCELED',
     BLOCKED = 'BLOCKED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartLiveRoomBaseInfoConfirmStateEnum {
+    UNCONFIRM = 'UNCONFIRM',
+    CONFIRMED = 'CONFIRMED',
+    REJECT = 'REJECT'
 }

@@ -1,3 +1,181 @@
+# 3.1.132 2025-01-09
+
+### HuaweiCloud SDK CSS
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowVpcepConnection**
+    - changes of response param
+      - `+ connections.vpcepIp`
+      - `+ connections.vpcepIpv6Address`
+      - `+ connections.vpcepDnsName`
+
+### HuaweiCloud SDK DC
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListGdgwRouteTables**
+    - changes of request param
+      - `+ limit`
+      - `+ marker`
+    - changes of response param
+      - `+ page_info`
+      - `+ gdgw_routetables`
+      - `- gdgw_routetable`
+
+### HuaweiCloud SDK DRS
+
+- _API Version_
+  - V5
+- _Features_
+  - Support the APIs `ShowAgencyInfo`, `UpdateAgencyPolicy`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IMS
+
+- _API Version_
+  - V2
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListImages**
+    - changes of response param
+      - `+ images.os_shutdown_timeout`
+  - **UpdateImage**
+    - changes of response param
+      - `+ os_shutdown_timeout`
+
+### HuaweiCloud SDK Meeting
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the APIs `SearchCorpDigitalInfoList`, `SearchPrivateCorpDigitalInfo`
+
+### HuaweiCloud SDK MetaStudio
+
+- _API Version_
+  - V1
+- _Features_
+  - Support the API `BatchDeletePacifyWords`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListSmartLiveScriptCommands**
+    - changes of response param
+      - `+ scripts_commands.command_time`
+      - `+ scripts_commands.scene_scripts.shoot_scripts.text`
+  - **ListSmartLiveRooms**
+    - changes of response param
+      - `+ smart_live_rooms.confirm_state`
+  - **ListSmartLiveRuleCommands**
+    - changes of response param
+      - `+ rule_commands.command_time`
+
+### HuaweiCloud SDK MSGSMS
+
+- _API Version_
+  - V2
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **UpdateSignature**
+    - changes of request param
+      - `+ qualification_id`
+  - **ShowSignature**
+    - changes of response param
+      - `+ qualification_id`
+      - `+ qualification_name`
+  - **UpdateTemplate**
+    - changes of request param
+      - `+ flow_status`
+  - **CreateSignature**
+    - changes of request param
+      - `+ qualification_id`
+  - **ListSignatureDetails**
+    - changes of response param
+      - `+ qualification_id`
+      - `+ qualification_name`
+      - `+ results.qualification_id`
+      - `+ results.qualification_name`
+  - **CreateTemplate**
+    - changes of request param
+      - `+ flow_status`
+
+### HuaweiCloud SDK VPC
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListSecurityGroupRules**
+    - changes of request param
+      - `+ priority`
+      - `+ ethertype`
+      - `+ remote_address_group_id`
+      - `+ enabled`
+    - changes of response param
+      - `+ security_group_rules.enabled`
+  - **CreateSecurityGroupRule**
+    - changes of request param
+      - `+ security_group_rule.enabled`
+    - changes of response param
+      - `+ security_group_rule.enabled`
+  - **ShowSecurityGroupRule**
+    - changes of response param
+      - `+ security_group_rule.enabled`
+  - **BatchCreateSecurityGroupRules**
+    - changes of request param
+      - `+ security_group_rules.enabled`
+    - changes of response param
+      - `+ security_group_rules.enabled`
+  - **CreateSecurityGroup**
+    - changes of response param
+      - `+ security_group.security_group_rules.enabled`
+  - **ShowSecurityGroup**
+    - changes of response param
+      - `+ security_group.security_group_rules.enabled`
+  - **UpdateSecurityGroup**
+    - changes of response param
+      - `+ security_group.security_group_rules.enabled`
+
+### HuaweiCloud SDK WAF
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListStatistics**
+    - changes of response param
+      - `* num: int32 -> int64`
+
 # 3.1.131 2025-01-02
 
 ### HuaweiCloud SDK CES

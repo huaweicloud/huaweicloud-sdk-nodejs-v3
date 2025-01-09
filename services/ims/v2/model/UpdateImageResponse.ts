@@ -64,6 +64,7 @@ export class UpdateImageResponse extends SdkResponse {
     private '__support_amd'?: string;
     private '__support_kvm_hi1822_hisriov'?: string;
     private '__support_kvm_hi1822_hivirtionet'?: string;
+    private 'os_shutdown_timeout'?: string;
     public constructor() { 
         super();
     }
@@ -620,6 +621,16 @@ export class UpdateImageResponse extends SdkResponse {
     }
     public get supportKvmHi1822Hivirtionet(): string | undefined {
         return this['__support_kvm_hi1822_hivirtionet'];
+    }
+    public withOsShutdownTimeout(osShutdownTimeout: string): UpdateImageResponse {
+        this['os_shutdown_timeout'] = osShutdownTimeout;
+        return this;
+    }
+    public set osShutdownTimeout(osShutdownTimeout: string  | undefined) {
+        this['os_shutdown_timeout'] = osShutdownTimeout;
+    }
+    public get osShutdownTimeout(): string | undefined {
+        return this['os_shutdown_timeout'];
     }
 }
 

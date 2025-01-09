@@ -27,6 +27,8 @@ export class ShowSignatureResponse extends SdkResponse {
     private 'app_key'?: string;
     private 'source_title_content'?: string;
     private 'signature_usage'?: string;
+    private 'qualification_id'?: string;
+    private 'qualification_name'?: string;
     public constructor() { 
         super();
     }
@@ -245,5 +247,25 @@ export class ShowSignatureResponse extends SdkResponse {
     }
     public get signatureUsage(): string | undefined {
         return this['signature_usage'];
+    }
+    public withQualificationId(qualificationId: string): ShowSignatureResponse {
+        this['qualification_id'] = qualificationId;
+        return this;
+    }
+    public set qualificationId(qualificationId: string  | undefined) {
+        this['qualification_id'] = qualificationId;
+    }
+    public get qualificationId(): string | undefined {
+        return this['qualification_id'];
+    }
+    public withQualificationName(qualificationName: string): ShowSignatureResponse {
+        this['qualification_name'] = qualificationName;
+        return this;
+    }
+    public set qualificationName(qualificationName: string  | undefined) {
+        this['qualification_name'] = qualificationName;
+    }
+    public get qualificationName(): string | undefined {
+        return this['qualification_name'];
     }
 }

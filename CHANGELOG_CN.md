@@ -1,3 +1,181 @@
+# 3.1.132 2025-01-09
+
+### HuaweiCloud SDK CSS
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowVpcepConnection**
+    - 响应参数变更
+      - `+ connections.vpcepIp`
+      - `+ connections.vpcepIpv6Address`
+      - `+ connections.vpcepDnsName`
+
+### HuaweiCloud SDK DC
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListGdgwRouteTables**
+    - 请求参数变更
+      - `+ limit`
+      - `+ marker`
+    - 响应参数变更
+      - `+ page_info`
+      - `+ gdgw_routetables`
+      - `- gdgw_routetable`
+
+### HuaweiCloud SDK DRS
+
+- _接口版本_
+  - V5
+- _新增特性_
+  - 支持接口`ShowAgencyInfo`、`UpdateAgencyPolicy`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK IMS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListImages**
+    - 响应参数变更
+      - `+ images.os_shutdown_timeout`
+  - **UpdateImage**
+    - 响应参数变更
+      - `+ os_shutdown_timeout`
+
+### HuaweiCloud SDK Meeting
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`SearchCorpDigitalInfoList`、`SearchPrivateCorpDigitalInfo`
+
+### HuaweiCloud SDK MetaStudio
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持接口`BatchDeletePacifyWords`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListSmartLiveScriptCommands**
+    - 响应参数变更
+      - `+ scripts_commands.command_time`
+      - `+ scripts_commands.scene_scripts.shoot_scripts.text`
+  - **ListSmartLiveRooms**
+    - 响应参数变更
+      - `+ smart_live_rooms.confirm_state`
+  - **ListSmartLiveRuleCommands**
+    - 响应参数变更
+      - `+ rule_commands.command_time`
+
+### HuaweiCloud SDK MSGSMS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **UpdateSignature**
+    - 请求参数变更
+      - `+ qualification_id`
+  - **ShowSignature**
+    - 响应参数变更
+      - `+ qualification_id`
+      - `+ qualification_name`
+  - **UpdateTemplate**
+    - 请求参数变更
+      - `+ flow_status`
+  - **CreateSignature**
+    - 请求参数变更
+      - `+ qualification_id`
+  - **ListSignatureDetails**
+    - 响应参数变更
+      - `+ qualification_id`
+      - `+ qualification_name`
+      - `+ results.qualification_id`
+      - `+ results.qualification_name`
+  - **CreateTemplate**
+    - 请求参数变更
+      - `+ flow_status`
+
+### HuaweiCloud SDK VPC
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListSecurityGroupRules**
+    - 请求参数变更
+      - `+ priority`
+      - `+ ethertype`
+      - `+ remote_address_group_id`
+      - `+ enabled`
+    - 响应参数变更
+      - `+ security_group_rules.enabled`
+  - **CreateSecurityGroupRule**
+    - 请求参数变更
+      - `+ security_group_rule.enabled`
+    - 响应参数变更
+      - `+ security_group_rule.enabled`
+  - **ShowSecurityGroupRule**
+    - 响应参数变更
+      - `+ security_group_rule.enabled`
+  - **BatchCreateSecurityGroupRules**
+    - 请求参数变更
+      - `+ security_group_rules.enabled`
+    - 响应参数变更
+      - `+ security_group_rules.enabled`
+  - **CreateSecurityGroup**
+    - 响应参数变更
+      - `+ security_group.security_group_rules.enabled`
+  - **ShowSecurityGroup**
+    - 响应参数变更
+      - `+ security_group.security_group_rules.enabled`
+  - **UpdateSecurityGroup**
+    - 响应参数变更
+      - `+ security_group.security_group_rules.enabled`
+
+### HuaweiCloud SDK WAF
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListStatistics**
+    - 响应参数变更
+      - `* num: int32 -> int64`
+
 # 3.1.131 2025-01-02
 
 ### HuaweiCloud SDK CES

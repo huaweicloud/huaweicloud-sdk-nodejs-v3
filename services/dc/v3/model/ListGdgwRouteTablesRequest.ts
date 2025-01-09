@@ -3,6 +3,8 @@
 export class ListGdgwRouteTablesRequest {
     public fields?: Array<string>;
     private 'ext_fields'?: Array<string>;
+    public limit?: number;
+    public marker?: string;
     private 'gdgw_id'?: string;
     public nexthop?: Array<string>;
     public destination?: Array<string>;
@@ -23,6 +25,14 @@ export class ListGdgwRouteTablesRequest {
     }
     public get extFields(): Array<string> | undefined {
         return this['ext_fields'];
+    }
+    public withLimit(limit: number): ListGdgwRouteTablesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListGdgwRouteTablesRequest {
+        this['marker'] = marker;
+        return this;
     }
     public withGdgwId(gdgwId: string): ListGdgwRouteTablesRequest {
         this['gdgw_id'] = gdgwId;

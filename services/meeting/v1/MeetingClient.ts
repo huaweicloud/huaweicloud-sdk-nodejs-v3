@@ -98,7 +98,6 @@ import { ConferenceInfo } from './model/ConferenceInfo';
 import { CorpAdminDTO } from './model/CorpAdminDTO';
 import { CorpBasicDTO } from './model/CorpBasicDTO';
 import { CorpBasicInfoDTO } from './model/CorpBasicInfoDTO';
-import { CorpDigitalInfo } from './model/CorpDigitalInfo';
 import { CreateAnonymousAuthRandomRequest } from './model/CreateAnonymousAuthRandomRequest';
 import { CreateAnonymousAuthRandomResponse } from './model/CreateAnonymousAuthRandomResponse';
 import { CreateAuthRandomRequest } from './model/CreateAuthRandomRequest';
@@ -344,8 +343,6 @@ import { SearchAttendanceRecordsOfHisMeetingRequest } from './model/SearchAttend
 import { SearchAttendanceRecordsOfHisMeetingResponse } from './model/SearchAttendanceRecordsOfHisMeetingResponse';
 import { SearchCorpAdminsRequest } from './model/SearchCorpAdminsRequest';
 import { SearchCorpAdminsResponse } from './model/SearchCorpAdminsResponse';
-import { SearchCorpDigitalInfoListRequest } from './model/SearchCorpDigitalInfoListRequest';
-import { SearchCorpDigitalInfoListResponse } from './model/SearchCorpDigitalInfoListResponse';
 import { SearchCorpDirRequest } from './model/SearchCorpDirRequest';
 import { SearchCorpDirResponse } from './model/SearchCorpDirResponse';
 import { SearchCorpExternalDirRequest } from './model/SearchCorpExternalDirRequest';
@@ -374,8 +371,6 @@ import { SearchMemberVmrRequest } from './model/SearchMemberVmrRequest';
 import { SearchMemberVmrResponse } from './model/SearchMemberVmrResponse';
 import { SearchOnlineMeetingsRequest } from './model/SearchOnlineMeetingsRequest';
 import { SearchOnlineMeetingsResponse } from './model/SearchOnlineMeetingsResponse';
-import { SearchPrivateCorpDigitalInfoRequest } from './model/SearchPrivateCorpDigitalInfoRequest';
-import { SearchPrivateCorpDigitalInfoResponse } from './model/SearchPrivateCorpDigitalInfoResponse';
 import { SearchProgramsRequest } from './model/SearchProgramsRequest';
 import { SearchProgramsResponse } from './model/SearchProgramsResponse';
 import { SearchPublicationsRequest } from './model/SearchPublicationsRequest';
@@ -2559,28 +2554,6 @@ export class MeetingClient {
     }
 
     /**
-     * 主持人通过该接口查询系统公共音色或者企业本地音色。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公共或本地数字资产列表
-     * @param {string} conferenceID 会议ID。
-     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
-     * @param {string} type 查询类型，PUBLIC：公共、LOCAL：本地会议。
-     * @param {string} language 传译语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public searchCorpDigitalInfoList(searchCorpDigitalInfoListRequest?: SearchCorpDigitalInfoListRequest): Promise<SearchCorpDigitalInfoListResponse> {
-        const options = ParamCreater().searchCorpDigitalInfoList(searchCorpDigitalInfoListRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 企业用户（含管理员）通过该接口查询该企业的通讯录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2906,28 +2879,6 @@ export class MeetingClient {
      */
     public searchOnlineMeetings(searchOnlineMeetingsRequest?: SearchOnlineMeetingsRequest): Promise<SearchOnlineMeetingsResponse> {
         const options = ParamCreater().searchOnlineMeetings(searchOnlineMeetingsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 主持人通过该接口查询查询主讲人绑定的数字资产信息列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询主讲人绑定的数字资产信息
-     * @param {string} conferenceID 会议ID。
-     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
-     * @param {string} account 被绑定的登录账号或realNameAccount经过base64编码后的信息。
-     * @param {string} language 传译语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public searchPrivateCorpDigitalInfo(searchPrivateCorpDigitalInfoRequest?: SearchPrivateCorpDigitalInfoRequest): Promise<SearchPrivateCorpDigitalInfoResponse> {
-        const options = ParamCreater().searchPrivateCorpDigitalInfo(searchPrivateCorpDigitalInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10098,73 +10049,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 主持人通过该接口查询系统公共音色或者企业本地音色。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        searchCorpDigitalInfoList(searchCorpDigitalInfoListRequest?: SearchCorpDigitalInfoListRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/mmc/control/conferences/queryCorpDigitalInfoList",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let conferenceID;
-            
-            let xConferenceAuthorization;
-            
-            let type;
-            
-            let language;
-
-            if (searchCorpDigitalInfoListRequest !== null && searchCorpDigitalInfoListRequest !== undefined) {
-                if (searchCorpDigitalInfoListRequest instanceof SearchCorpDigitalInfoListRequest) {
-                    conferenceID = searchCorpDigitalInfoListRequest.conferenceID;
-                    xConferenceAuthorization = searchCorpDigitalInfoListRequest.xConferenceAuthorization;
-                    type = searchCorpDigitalInfoListRequest.type;
-                    language = searchCorpDigitalInfoListRequest.language;
-                } else {
-                    conferenceID = searchCorpDigitalInfoListRequest['conferenceID'];
-                    xConferenceAuthorization = searchCorpDigitalInfoListRequest['X-Conference-Authorization'];
-                    type = searchCorpDigitalInfoListRequest['type'];
-                    language = searchCorpDigitalInfoListRequest['language'];
-                }
-            }
-
-        
-            if (conferenceID === null || conferenceID === undefined) {
-                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling searchCorpDigitalInfoList.');
-            }
-            if (conferenceID !== null && conferenceID !== undefined) {
-                localVarQueryParameter['conferenceID'] = conferenceID;
-            }
-            if (type === null || type === undefined) {
-                throw new RequiredError('type','Required parameter type was null or undefined when calling searchCorpDigitalInfoList.');
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (language === null || language === undefined) {
-                throw new RequiredError('language','Required parameter language was null or undefined when calling searchCorpDigitalInfoList.');
-            }
-            if (language !== null && language !== undefined) {
-                localVarQueryParameter['language'] = language;
-            }
-            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
-                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 企业用户（含管理员）通过该接口查询该企业的通讯录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11216,73 +11100,6 @@ export const ParamCreater = function () {
             }
             if (xSiteId !== undefined && xSiteId !== null) {
                 localVarHeaderParameter['X-Site-Id'] = String(xSiteId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 主持人通过该接口查询查询主讲人绑定的数字资产信息列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        searchPrivateCorpDigitalInfo(searchPrivateCorpDigitalInfoRequest?: SearchPrivateCorpDigitalInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/mmc/control/conferences/queryPrivateCorpDigitalInfo",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let conferenceID;
-            
-            let xConferenceAuthorization;
-            
-            let account;
-            
-            let language;
-
-            if (searchPrivateCorpDigitalInfoRequest !== null && searchPrivateCorpDigitalInfoRequest !== undefined) {
-                if (searchPrivateCorpDigitalInfoRequest instanceof SearchPrivateCorpDigitalInfoRequest) {
-                    conferenceID = searchPrivateCorpDigitalInfoRequest.conferenceID;
-                    xConferenceAuthorization = searchPrivateCorpDigitalInfoRequest.xConferenceAuthorization;
-                    account = searchPrivateCorpDigitalInfoRequest.account;
-                    language = searchPrivateCorpDigitalInfoRequest.language;
-                } else {
-                    conferenceID = searchPrivateCorpDigitalInfoRequest['conferenceID'];
-                    xConferenceAuthorization = searchPrivateCorpDigitalInfoRequest['X-Conference-Authorization'];
-                    account = searchPrivateCorpDigitalInfoRequest['account'];
-                    language = searchPrivateCorpDigitalInfoRequest['language'];
-                }
-            }
-
-        
-            if (conferenceID === null || conferenceID === undefined) {
-                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling searchPrivateCorpDigitalInfo.');
-            }
-            if (conferenceID !== null && conferenceID !== undefined) {
-                localVarQueryParameter['conferenceID'] = conferenceID;
-            }
-            if (account === null || account === undefined) {
-                throw new RequiredError('account','Required parameter account was null or undefined when calling searchPrivateCorpDigitalInfo.');
-            }
-            if (account !== null && account !== undefined) {
-                localVarQueryParameter['account'] = account;
-            }
-            if (language === null || language === undefined) {
-                throw new RequiredError('language','Required parameter language was null or undefined when calling searchPrivateCorpDigitalInfo.');
-            }
-            if (language !== null && language !== undefined) {
-                localVarQueryParameter['language'] = language;
-            }
-            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
-                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
             }
 
             options.queryParams = localVarQueryParameter;

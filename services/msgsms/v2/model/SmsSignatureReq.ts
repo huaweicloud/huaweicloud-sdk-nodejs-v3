@@ -10,6 +10,7 @@ export class SmsSignatureReq {
     private 'signature_source'?: number;
     private 'signature_type'?: string;
     private 'source_title_content'?: string;
+    private 'qualification_id'?: string;
     public constructor(appId?: string, isInvolvedThird?: string, signatureName?: string, signatureSource?: number, signatureType?: string) { 
         this['app_id'] = appId;
         this['is_involved_third'] = isInvolvedThird;
@@ -106,5 +107,15 @@ export class SmsSignatureReq {
     }
     public get sourceTitleContent(): string | undefined {
         return this['source_title_content'];
+    }
+    public withQualificationId(qualificationId: string): SmsSignatureReq {
+        this['qualification_id'] = qualificationId;
+        return this;
+    }
+    public set qualificationId(qualificationId: string  | undefined) {
+        this['qualification_id'] = qualificationId;
+    }
+    public get qualificationId(): string | undefined {
+        return this['qualification_id'];
     }
 }

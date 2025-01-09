@@ -8,6 +8,9 @@ export class Connections {
     private 'created_at'?: string;
     private 'update_at'?: string;
     private 'domain_id'?: string;
+    public vpcepIp?: string;
+    public vpcepIpv6Address?: string;
+    public vpcepDnsName?: string;
     public constructor() { 
     }
     public withId(id: string): Connections {
@@ -55,5 +58,17 @@ export class Connections {
     }
     public get domainId(): string | undefined {
         return this['domain_id'];
+    }
+    public withVpcepIp(vpcepIp: string): Connections {
+        this['vpcepIp'] = vpcepIp;
+        return this;
+    }
+    public withVpcepIpv6Address(vpcepIpv6Address: string): Connections {
+        this['vpcepIpv6Address'] = vpcepIpv6Address;
+        return this;
+    }
+    public withVpcepDnsName(vpcepDnsName: string): Connections {
+        this['vpcepDnsName'] = vpcepDnsName;
+        return this;
     }
 }
