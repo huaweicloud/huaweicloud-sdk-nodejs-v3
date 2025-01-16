@@ -1,9 +1,9 @@
-import { BatchUpdateRecordSetWithLineReq } from './BatchUpdateRecordSetWithLineReq';
+import { BatchUpdateRecordSetWithLineRequestBody } from './BatchUpdateRecordSetWithLineRequestBody';
 
 
 export class BatchUpdateRecordSetWithLineRequest {
     private 'zone_id'?: string;
-    public body?: BatchUpdateRecordSetWithLineReq;
+    public body?: BatchUpdateRecordSetWithLineRequestBody;
     public constructor(zoneId?: string) { 
         this['zone_id'] = zoneId;
     }
@@ -17,7 +17,7 @@ export class BatchUpdateRecordSetWithLineRequest {
     public get zoneId(): string | undefined {
         return this['zone_id'];
     }
-    public withBody(body: BatchUpdateRecordSetWithLineReq): BatchUpdateRecordSetWithLineRequest {
+    public withBody(body: BatchUpdateRecordSetWithLineRequestBody): BatchUpdateRecordSetWithLineRequest {
         this['body'] = body;
         return this;
     }

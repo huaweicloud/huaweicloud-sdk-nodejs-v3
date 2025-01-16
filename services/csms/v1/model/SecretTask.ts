@@ -5,9 +5,9 @@ export class SecretTask {
     private 'secret_name'?: string;
     private 'rotation_func_urn'?: string;
     private 'task_status'?: string;
-    private 'attempt_nums'?: number;
     private 'operate_type'?: string;
     private 'task_time'?: number;
+    private 'attempt_nums'?: number;
     private 'task_error_code'?: string;
     private 'task_error_msg'?: string;
     public constructor() { 
@@ -52,16 +52,6 @@ export class SecretTask {
     public get taskStatus(): string | undefined {
         return this['task_status'];
     }
-    public withAttemptNums(attemptNums: number): SecretTask {
-        this['attempt_nums'] = attemptNums;
-        return this;
-    }
-    public set attemptNums(attemptNums: number  | undefined) {
-        this['attempt_nums'] = attemptNums;
-    }
-    public get attemptNums(): number | undefined {
-        return this['attempt_nums'];
-    }
     public withOperateType(operateType: string): SecretTask {
         this['operate_type'] = operateType;
         return this;
@@ -81,6 +71,16 @@ export class SecretTask {
     }
     public get taskTime(): number | undefined {
         return this['task_time'];
+    }
+    public withAttemptNums(attemptNums: number): SecretTask {
+        this['attempt_nums'] = attemptNums;
+        return this;
+    }
+    public set attemptNums(attemptNums: number  | undefined) {
+        this['attempt_nums'] = attemptNums;
+    }
+    public get attemptNums(): number | undefined {
+        return this['attempt_nums'];
     }
     public withTaskErrorCode(taskErrorCode: string): SecretTask {
         this['task_error_code'] = taskErrorCode;

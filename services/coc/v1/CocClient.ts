@@ -80,6 +80,8 @@ import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOpe
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
 import { ListInstanceCompliantRequest } from './model/ListInstanceCompliantRequest';
 import { ListInstanceCompliantResponse } from './model/ListInstanceCompliantResponse';
+import { ListPrrTemplateRequest } from './model/ListPrrTemplateRequest';
+import { ListPrrTemplateResponse } from './model/ListPrrTemplateResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
 import { ListResourceRequest } from './model/ListResourceRequest';
@@ -408,6 +410,30 @@ export class CocClient {
      */
     public listAuthorizableTicketsExternal(listAuthorizableTicketsExternalRequest?: ListAuthorizableTicketsExternalRequest): Promise<ListAuthorizableTicketsExternalResponse> {
         const options = ParamCreater().listAuthorizableTicketsExternal(listAuthorizableTicketsExternalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询PRR模板列表
+     * 
+     * limit最大为100
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询PRR模板列表
+     * @param {string} [name] 名称
+     * @param {'core' | 'non-core'} [applicationType] 应用类型 core: 核心应用 non-core: 非核心应用
+     * @param {number} [offset] 分页参数
+     * @param {number} [limit] 每页显示的条目数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrrTemplate(listPrrTemplateRequest?: ListPrrTemplateRequest): Promise<ListPrrTemplateResponse> {
+        const options = ParamCreater().listPrrTemplate(listPrrTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1588,6 +1614,66 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询PRR模板列表
+         * 
+         * limit最大为100
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrrTemplate(listPrrTemplateRequest?: ListPrrTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/prr-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let applicationType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listPrrTemplateRequest !== null && listPrrTemplateRequest !== undefined) {
+                if (listPrrTemplateRequest instanceof ListPrrTemplateRequest) {
+                    name = listPrrTemplateRequest.name;
+                    applicationType = listPrrTemplateRequest.applicationType;
+                    offset = listPrrTemplateRequest.offset;
+                    limit = listPrrTemplateRequest.limit;
+                } else {
+                    name = listPrrTemplateRequest['name'];
+                    applicationType = listPrrTemplateRequest['application_type'];
+                    offset = listPrrTemplateRequest['offset'];
+                    limit = listPrrTemplateRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (applicationType !== null && applicationType !== undefined) {
+                localVarQueryParameter['application_type'] = applicationType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

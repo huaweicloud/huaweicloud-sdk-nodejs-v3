@@ -11,6 +11,7 @@ export class ListInstanceRequestBody {
     public limit?: string;
     public action?: string;
     public matches?: Array<TagMatch>;
+    private 'without_any_tag'?: boolean;
     public constructor(action?: string) { 
         this['action'] = action;
     }
@@ -63,5 +64,15 @@ export class ListInstanceRequestBody {
     public withMatches(matches: Array<TagMatch>): ListInstanceRequestBody {
         this['matches'] = matches;
         return this;
+    }
+    public withWithoutAnyTag(withoutAnyTag: boolean): ListInstanceRequestBody {
+        this['without_any_tag'] = withoutAnyTag;
+        return this;
+    }
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
+        this['without_any_tag'] = withoutAnyTag;
+    }
+    public get withoutAnyTag(): boolean | undefined {
+        return this['without_any_tag'];
     }
 }

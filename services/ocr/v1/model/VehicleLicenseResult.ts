@@ -3,6 +3,7 @@ import { VehicleLicenseback } from './VehicleLicenseback';
 
 
 export class VehicleLicenseResult {
+    public type?: string;
     private 'number'?: string;
     private 'vehicle_type'?: string;
     public name?: string;
@@ -26,9 +27,16 @@ export class VehicleLicenseResult {
     private 'code_number'?: string;
     private 'text_location'?: object;
     private 'energy_type'?: string;
+    public color?: string;
+    private 'mandatory_scrapping_date'?: string;
+    public status?: Array<string>;
     public front?: VehicleLicenseFront;
     public back?: VehicleLicenseback;
     public constructor() { 
+    }
+    public withType(type: string): VehicleLicenseResult {
+        this['type'] = type;
+        return this;
     }
     public withModelNumber(modelNumber: string): VehicleLicenseResult {
         this['number'] = modelNumber;
@@ -223,6 +231,24 @@ export class VehicleLicenseResult {
     }
     public get energyType(): string | undefined {
         return this['energy_type'];
+    }
+    public withColor(color: string): VehicleLicenseResult {
+        this['color'] = color;
+        return this;
+    }
+    public withMandatoryScrappingDate(mandatoryScrappingDate: string): VehicleLicenseResult {
+        this['mandatory_scrapping_date'] = mandatoryScrappingDate;
+        return this;
+    }
+    public set mandatoryScrappingDate(mandatoryScrappingDate: string  | undefined) {
+        this['mandatory_scrapping_date'] = mandatoryScrappingDate;
+    }
+    public get mandatoryScrappingDate(): string | undefined {
+        return this['mandatory_scrapping_date'];
+    }
+    public withStatus(status: Array<string>): VehicleLicenseResult {
+        this['status'] = status;
+        return this;
     }
     public withFront(front: VehicleLicenseFront): VehicleLicenseResult {
         this['front'] = front;

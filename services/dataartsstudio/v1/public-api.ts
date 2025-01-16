@@ -886,6 +886,8 @@ export * from './model/ShowConsistencyTaskDetailRequest';
 export * from './model/ShowConsistencyTaskDetailResponse';
 export * from './model/ShowDataDetailRequest';
 export * from './model/ShowDataDetailResponse';
+export * from './model/ShowDataPreviewRequest';
+export * from './model/ShowDataPreviewResponse';
 export * from './model/ShowDataProfileRequest';
 export * from './model/ShowDataProfileResponse';
 export * from './model/ShowDataServiceInstanceRequest';

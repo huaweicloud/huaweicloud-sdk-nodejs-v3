@@ -24,6 +24,7 @@ export class CompositeHostResponse {
     private 'exclusive_ip'?: boolean;
     public region?: string;
     public server?: Array<WafServer>;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withId(id: string): CompositeHostResponse {
@@ -155,5 +156,15 @@ export class CompositeHostResponse {
     public withServer(server: Array<WafServer>): CompositeHostResponse {
         this['server'] = server;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): CompositeHostResponse {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

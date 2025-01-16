@@ -13,6 +13,7 @@ export class SimplePremiumWafHost {
     private 'access_status'?: number;
     private 'web_tag'?: string;
     public hostid?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withId(id: string): SimplePremiumWafHost {
@@ -76,5 +77,15 @@ export class SimplePremiumWafHost {
     public withHostid(hostid: string): SimplePremiumWafHost {
         this['hostid'] = hostid;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): SimplePremiumWafHost {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

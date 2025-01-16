@@ -25,6 +25,7 @@ export class ShowCompositeHostResponse extends SdkResponse {
     private 'exclusive_ip'?: boolean;
     public region?: string;
     public server?: Array<WafServer>;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
         super();
     }
@@ -157,5 +158,15 @@ export class ShowCompositeHostResponse extends SdkResponse {
     public withServer(server: Array<WafServer>): ShowCompositeHostResponse {
         this['server'] = server;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ShowCompositeHostResponse {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

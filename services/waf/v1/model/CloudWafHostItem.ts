@@ -20,6 +20,7 @@ export class CloudWafHostItem {
     private 'paid_type'?: string;
     private 'web_tag'?: string;
     public flag?: Flag;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withId(id: string): CloudWafHostItem {
@@ -125,5 +126,15 @@ export class CloudWafHostItem {
     public withFlag(flag: Flag): CloudWafHostItem {
         this['flag'] = flag;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): CloudWafHostItem {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

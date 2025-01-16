@@ -1,5 +1,4 @@
 import { PermissionClusterDetail } from './PermissionClusterDetail';
-import { UserInfo } from './UserInfo';
 
 
 export class HostClusterInfo {
@@ -9,11 +8,11 @@ export class HostClusterInfo {
     private 'project_id'?: string;
     public os?: string;
     private 'slave_cluster_id'?: string;
-    private 'created_by'?: UserInfo;
     public description?: string;
     public permission?: PermissionClusterDetail;
     private 'nick_name'?: string;
     private 'env_count'?: number;
+    private 'is_proxy_mode'?: number;
     public constructor() { 
     }
     public withId(id: string): HostClusterInfo {
@@ -58,16 +57,6 @@ export class HostClusterInfo {
     public get slaveClusterId(): string | undefined {
         return this['slave_cluster_id'];
     }
-    public withCreatedBy(createdBy: UserInfo): HostClusterInfo {
-        this['created_by'] = createdBy;
-        return this;
-    }
-    public set createdBy(createdBy: UserInfo  | undefined) {
-        this['created_by'] = createdBy;
-    }
-    public get createdBy(): UserInfo | undefined {
-        return this['created_by'];
-    }
     public withDescription(description: string): HostClusterInfo {
         this['description'] = description;
         return this;
@@ -95,5 +84,15 @@ export class HostClusterInfo {
     }
     public get envCount(): number | undefined {
         return this['env_count'];
+    }
+    public withIsProxyMode(isProxyMode: number): HostClusterInfo {
+        this['is_proxy_mode'] = isProxyMode;
+        return this;
+    }
+    public set isProxyMode(isProxyMode: number  | undefined) {
+        this['is_proxy_mode'] = isProxyMode;
+    }
+    public get isProxyMode(): number | undefined {
+        return this['is_proxy_mode'];
     }
 }

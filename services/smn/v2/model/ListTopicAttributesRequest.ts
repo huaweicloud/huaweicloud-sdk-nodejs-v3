@@ -3,9 +3,8 @@
 export class ListTopicAttributesRequest {
     private 'topic_urn'?: string;
     public name?: string;
-    public constructor(topicUrn?: string, name?: string) { 
+    public constructor(topicUrn?: string) { 
         this['topic_urn'] = topicUrn;
-        this['name'] = name;
     }
     public withTopicUrn(topicUrn: string): ListTopicAttributesRequest {
         this['topic_urn'] = topicUrn;

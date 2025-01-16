@@ -6,6 +6,8 @@ export class ListCustomLineRequest {
     public limit?: number;
     public offset?: number;
     private 'show_detail'?: boolean;
+    public status?: string;
+    public ip?: string;
     public constructor() { 
     }
     public withLineId(lineId: string): ListCustomLineRequest {
@@ -39,5 +41,13 @@ export class ListCustomLineRequest {
     }
     public get showDetail(): boolean | undefined {
         return this['show_detail'];
+    }
+    public withStatus(status: string): ListCustomLineRequest {
+        this['status'] = status;
+        return this;
+    }
+    public withIp(ip: string): ListCustomLineRequest {
+        this['ip'] = ip;
+        return this;
     }
 }

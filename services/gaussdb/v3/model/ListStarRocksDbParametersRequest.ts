@@ -3,6 +3,7 @@
 export class ListStarRocksDbParametersRequest {
     private 'instance_id'?: string;
     private 'X-Language'?: string;
+    private 'add_task_scenario'?: string;
     public constructor(instanceId?: string, xLanguage?: string) { 
         this['instance_id'] = instanceId;
         this['X-Language'] = xLanguage;
@@ -26,5 +27,15 @@ export class ListStarRocksDbParametersRequest {
     }
     public get xLanguage(): string | undefined {
         return this['X-Language'];
+    }
+    public withAddTaskScenario(addTaskScenario: string): ListStarRocksDbParametersRequest {
+        this['add_task_scenario'] = addTaskScenario;
+        return this;
+    }
+    public set addTaskScenario(addTaskScenario: string  | undefined) {
+        this['add_task_scenario'] = addTaskScenario;
+    }
+    public get addTaskScenario(): string | undefined {
+        return this['add_task_scenario'];
     }
 }

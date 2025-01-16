@@ -24,6 +24,13 @@ export class BmsRegion {
     public static LA_NORTH_2 = new Region("la-north-2", ["https://bms.la-north-2.myhuaweicloud.com"]);
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://bms.cn-south-2.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://bms.na-mexico-1.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://bms.cn-east-5.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://bms.ap-southeast-4.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://bms.cn-north-11.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://bms.tr-west-1.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://bms.me-east-1.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://bms.cn-east-4.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://bms.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -44,7 +51,14 @@ export class BmsRegion {
         "af-south-1":BmsRegion.AF_SOUTH_1,
         "la-north-2":BmsRegion.LA_NORTH_2,
         "cn-south-2":BmsRegion.CN_SOUTH_2,
-        "na-mexico-1":BmsRegion.NA_MEXICO_1
+        "na-mexico-1":BmsRegion.NA_MEXICO_1,
+        "cn-east-5":BmsRegion.CN_EAST_5,
+        "ap-southeast-4":BmsRegion.AP_SOUTHEAST_4,
+        "cn-north-11":BmsRegion.CN_NORTH_11,
+        "tr-west-1":BmsRegion.TR_WEST_1,
+        "me-east-1":BmsRegion.ME_EAST_1,
+        "cn-east-4":BmsRegion.CN_EAST_4,
+        "af-north-1":BmsRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

@@ -1,9 +1,9 @@
-import { UpdateLineGroupsBody } from './UpdateLineGroupsBody';
+import { UpdateLineGroupsRequestBody } from './UpdateLineGroupsRequestBody';
 
 
 export class UpdateLineGroupsRequest {
     private 'linegroup_id'?: string;
-    public body?: UpdateLineGroupsBody;
+    public body?: UpdateLineGroupsRequestBody;
     public constructor(linegroupId?: string) { 
         this['linegroup_id'] = linegroupId;
     }
@@ -17,7 +17,7 @@ export class UpdateLineGroupsRequest {
     public get linegroupId(): string | undefined {
         return this['linegroup_id'];
     }
-    public withBody(body: UpdateLineGroupsBody): UpdateLineGroupsRequest {
+    public withBody(body: UpdateLineGroupsRequestBody): UpdateLineGroupsRequest {
         this['body'] = body;
         return this;
     }

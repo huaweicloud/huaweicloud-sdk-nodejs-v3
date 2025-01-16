@@ -889,6 +889,8 @@ import { ShowConsistencyTaskDetailRequest } from './model/ShowConsistencyTaskDet
 import { ShowConsistencyTaskDetailResponse } from './model/ShowConsistencyTaskDetailResponse';
 import { ShowDataDetailRequest } from './model/ShowDataDetailRequest';
 import { ShowDataDetailResponse } from './model/ShowDataDetailResponse';
+import { ShowDataPreviewRequest } from './model/ShowDataPreviewRequest';
+import { ShowDataPreviewResponse } from './model/ShowDataPreviewResponse';
 import { ShowDataProfileRequest } from './model/ShowDataProfileRequest';
 import { ShowDataProfileResponse } from './model/ShowDataProfileResponse';
 import { ShowDataServiceInstanceRequest } from './model/ShowDataServiceInstanceRequest';
@@ -6670,6 +6672,33 @@ export class DataArtsStudioClient {
      */
     public showDataDetail(showDataDetailRequest?: ShowDataDetailRequest): Promise<ShowDataDetailResponse> {
         const options = ParamCreater().showDataDetail(showDataDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 表数据预览
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 表数据预览
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} guid 资产guid，获取方法请参见[数据资产guid](dataartsstudio_02_0351.xml)。
+     * @param {string} [dataConnectionId] 连接id
+     * @param {string} [dataType] 数据源表类型，取值范围：hive_table、dws_table、dli_table、dli_table_managed、dli_table_external、dli_table_view、mysql_table、gbase_table、postgre_table、hbase_table、dm_table、doris_table、sqlserver_table。
+     * @param {string} [database] database名称
+     * @param {string} [schema] schema名称
+     * @param {string} [table] table名称
+     * @param {string} [datasourceWorkspaceId] 数据源空间id
+     * @param {string} [partitionsCondition] 分区名称，hive类型数据源可使用预览分区中数据
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDataPreview(showDataPreviewRequest?: ShowDataPreviewRequest): Promise<ShowDataPreviewResponse> {
+        const options = ParamCreater().showDataPreview(showDataPreviewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -24963,6 +24992,100 @@ export const ParamCreater = function () {
             }
             if (instance !== undefined && instance !== null) {
                 localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'guid': guid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 表数据预览
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDataPreview(showDataPreviewRequest?: ShowDataPreviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/asset/entities/guid/{guid}/preview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let guid;
+            
+            let dataConnectionId;
+            
+            let dataType;
+            
+            let database;
+            
+            let schema;
+            
+            let table;
+            
+            let datasourceWorkspaceId;
+            
+            let partitionsCondition;
+
+            if (showDataPreviewRequest !== null && showDataPreviewRequest !== undefined) {
+                if (showDataPreviewRequest instanceof ShowDataPreviewRequest) {
+                    workspace = showDataPreviewRequest.workspace;
+                    guid = showDataPreviewRequest.guid;
+                    dataConnectionId = showDataPreviewRequest.dataConnectionId;
+                    dataType = showDataPreviewRequest.dataType;
+                    database = showDataPreviewRequest.database;
+                    schema = showDataPreviewRequest.schema;
+                    table = showDataPreviewRequest.table;
+                    datasourceWorkspaceId = showDataPreviewRequest.datasourceWorkspaceId;
+                    partitionsCondition = showDataPreviewRequest.partitionsCondition;
+                } else {
+                    workspace = showDataPreviewRequest['workspace'];
+                    guid = showDataPreviewRequest['guid'];
+                    dataConnectionId = showDataPreviewRequest['data_connection_id'];
+                    dataType = showDataPreviewRequest['data_type'];
+                    database = showDataPreviewRequest['database'];
+                    schema = showDataPreviewRequest['schema'];
+                    table = showDataPreviewRequest['table'];
+                    datasourceWorkspaceId = showDataPreviewRequest['datasource_workspace_id'];
+                    partitionsCondition = showDataPreviewRequest['partitions_condition'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling showDataPreview.');
+            }
+            if (dataConnectionId !== null && dataConnectionId !== undefined) {
+                localVarQueryParameter['data_connection_id'] = dataConnectionId;
+            }
+            if (dataType !== null && dataType !== undefined) {
+                localVarQueryParameter['data_type'] = dataType;
+            }
+            if (database !== null && database !== undefined) {
+                localVarQueryParameter['database'] = database;
+            }
+            if (schema !== null && schema !== undefined) {
+                localVarQueryParameter['schema'] = schema;
+            }
+            if (table !== null && table !== undefined) {
+                localVarQueryParameter['table'] = table;
+            }
+            if (datasourceWorkspaceId !== null && datasourceWorkspaceId !== undefined) {
+                localVarQueryParameter['datasource_workspace_id'] = datasourceWorkspaceId;
+            }
+            if (partitionsCondition !== null && partitionsCondition !== undefined) {
+                localVarQueryParameter['partitions_condition'] = partitionsCondition;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
             }
 
             options.queryParams = localVarQueryParameter;

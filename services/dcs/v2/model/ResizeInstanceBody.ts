@@ -102,5 +102,7 @@ export class ResizeInstanceBody {
     */
 export enum ResizeInstanceBodyChangeTypeEnum {
     CREATEREPLICATION = 'createReplication',
-    DELETEREPLICATION = 'deleteReplication'
+    DELETEREPLICATION = 'deleteReplication',
+    ADDSHARDING = 'addSharding',
+    INSTANCETYPE = 'instanceType'
 }

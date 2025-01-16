@@ -12,14 +12,26 @@ import { BatchCreateTagResponse } from './model/BatchCreateTagResponse';
 import { BatchDeleteRecordSetWithLineRequest } from './model/BatchDeleteRecordSetWithLineRequest';
 import { BatchDeleteRecordSetWithLineRequestBody } from './model/BatchDeleteRecordSetWithLineRequestBody';
 import { BatchDeleteRecordSetWithLineResponse } from './model/BatchDeleteRecordSetWithLineResponse';
+import { BatchDeleteRecordSetsRequest } from './model/BatchDeleteRecordSetsRequest';
+import { BatchDeleteRecordSetsRequestBody } from './model/BatchDeleteRecordSetsRequestBody';
+import { BatchDeleteRecordSetsResponse } from './model/BatchDeleteRecordSetsResponse';
+import { BatchDeleteZonesRequest } from './model/BatchDeleteZonesRequest';
+import { BatchDeleteZonesRequestBody } from './model/BatchDeleteZonesRequestBody';
+import { BatchDeleteZonesResponse } from './model/BatchDeleteZonesResponse';
 import { BatchHandTags } from './model/BatchHandTags';
+import { BatchSetRecordSetsStatusRequest } from './model/BatchSetRecordSetsStatusRequest';
+import { BatchSetRecordSetsStatusRequestBody } from './model/BatchSetRecordSetsStatusRequestBody';
+import { BatchSetRecordSetsStatusResponse } from './model/BatchSetRecordSetsStatusResponse';
+import { BatchSetZonesStatusRequest } from './model/BatchSetZonesStatusRequest';
+import { BatchSetZonesStatusRequestBody } from './model/BatchSetZonesStatusRequestBody';
+import { BatchSetZonesStatusResponse } from './model/BatchSetZonesStatusResponse';
 import { BatchUpdateRecordSet } from './model/BatchUpdateRecordSet';
-import { BatchUpdateRecordSetWithLineReq } from './model/BatchUpdateRecordSetWithLineReq';
 import { BatchUpdateRecordSetWithLineRequest } from './model/BatchUpdateRecordSetWithLineRequest';
+import { BatchUpdateRecordSetWithLineRequestBody } from './model/BatchUpdateRecordSetWithLineRequestBody';
 import { BatchUpdateRecordSetWithLineResponse } from './model/BatchUpdateRecordSetWithLineResponse';
 import { CreateCustomLineRequest } from './model/CreateCustomLineRequest';
+import { CreateCustomLineRequestBody } from './model/CreateCustomLineRequestBody';
 import { CreateCustomLineResponse } from './model/CreateCustomLineResponse';
-import { CreateCustomLines } from './model/CreateCustomLines';
 import { CreateEipRecordSetRequest } from './model/CreateEipRecordSetRequest';
 import { CreateEipRecordSetResponse } from './model/CreateEipRecordSetResponse';
 import { CreateLineGroupRequest } from './model/CreateLineGroupRequest';
@@ -64,6 +76,7 @@ import { DisassociateRouterResponse } from './model/DisassociateRouterResponse';
 import { DisassociaterouterRequestBody } from './model/DisassociaterouterRequestBody';
 import { DomainQuotaResponseQuotas } from './model/DomainQuotaResponseQuotas';
 import { Line } from './model/Line';
+import { Link } from './model/Link';
 import { LinksItem } from './model/LinksItem';
 import { ListApiVersionsItem } from './model/ListApiVersionsItem';
 import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
@@ -105,14 +118,15 @@ import { PrivateZoneResp } from './model/PrivateZoneResp';
 import { PublicZoneResp } from './model/PublicZoneResp';
 import { QueryRecordSetWithLineAndTagsResp } from './model/QueryRecordSetWithLineAndTagsResp';
 import { QueryRecordSetWithLineResp } from './model/QueryRecordSetWithLineResp';
+import { RecordsetData } from './model/RecordsetData';
 import { ResourceItem } from './model/ResourceItem';
 import { RestorePtrRecordRequest } from './model/RestorePtrRecordRequest';
 import { RestorePtrRecordResponse } from './model/RestorePtrRecordResponse';
 import { RestorePtrReq } from './model/RestorePtrReq';
 import { Router } from './model/Router';
 import { RouterWithStatus } from './model/RouterWithStatus';
-import { SetRecordSetsStatusReq } from './model/SetRecordSetsStatusReq';
 import { SetRecordSetsStatusRequest } from './model/SetRecordSetsStatusRequest';
+import { SetRecordSetsStatusRequestBody } from './model/SetRecordSetsStatusRequestBody';
 import { SetRecordSetsStatusResponse } from './model/SetRecordSetsStatusResponse';
 import { ShowApiInfoRequest } from './model/ShowApiInfoRequest';
 import { ShowApiInfoResponse } from './model/ShowApiInfoResponse';
@@ -142,10 +156,10 @@ import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
 import { Tag } from './model/Tag';
 import { TagValues } from './model/TagValues';
 import { UpdateCustomLineRequest } from './model/UpdateCustomLineRequest';
+import { UpdateCustomLineRequestBody } from './model/UpdateCustomLineRequestBody';
 import { UpdateCustomLineResponse } from './model/UpdateCustomLineResponse';
-import { UpdateCustomsLineReq } from './model/UpdateCustomsLineReq';
-import { UpdateLineGroupsBody } from './model/UpdateLineGroupsBody';
 import { UpdateLineGroupsRequest } from './model/UpdateLineGroupsRequest';
+import { UpdateLineGroupsRequestBody } from './model/UpdateLineGroupsRequestBody';
 import { UpdateLineGroupsResponse } from './model/UpdateLineGroupsResponse';
 import { UpdatePrivateZoneInfoReq } from './model/UpdatePrivateZoneInfoReq';
 import { UpdatePrivateZoneRequest } from './model/UpdatePrivateZoneRequest';
@@ -167,6 +181,7 @@ import { UpdateRecordSetsRequest } from './model/UpdateRecordSetsRequest';
 import { UpdateRecordSetsResponse } from './model/UpdateRecordSetsResponse';
 import { ValuesItem } from './model/ValuesItem';
 import { VersionItem } from './model/VersionItem';
+import { ZoneData } from './model/ZoneData';
 
 export class DnsClient {
     public static newBuilder(): ClientBuilder<DnsClient> {
@@ -185,12 +200,96 @@ export class DnsClient {
 
 
     /**
+     * 批量删除Record Set。
+     * 响应结果中只包含本次实际删除的Record Set。
+     * 支持批量删除公网域名和内网域名的记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除Record Set
+     * @param {BatchDeleteRecordSetsRequestBody} batchDeleteRecordSetsRequestBody 批量删除Record Set请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteRecordSets(batchDeleteRecordSetsRequest?: BatchDeleteRecordSetsRequest): Promise<BatchDeleteRecordSetsResponse> {
+        const options = ParamCreater().batchDeleteRecordSets(batchDeleteRecordSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除Zone。
+     * 本接口为原子操作，所有记录应全部删除成功或全部失败。
+     * 仅支持公网Zone、内网Zone。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除Zone
+     * @param {BatchDeleteZonesRequestBody} batchDeleteZonesRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteZones(batchDeleteZonesRequest?: BatchDeleteZonesRequest): Promise<BatchDeleteZonesResponse> {
+        const options = ParamCreater().batchDeleteZones(batchDeleteZonesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量设置Record Set状态。
+     * 响应结果中只包含本次实际更新的Record Set。
+     * 支持公网域名和内网域名的记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量设置Record Set状态
+     * @param {BatchSetRecordSetsStatusRequestBody} batchSetRecordSetsStatusRequestBody 批量设置Record Set状态请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSetRecordSetsStatus(batchSetRecordSetsStatusRequest?: BatchSetRecordSetsStatusRequest): Promise<BatchSetRecordSetsStatusResponse> {
+        const options = ParamCreater().batchSetRecordSetsStatus(batchSetRecordSetsStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量设置Zone状态。
+     * 响应结果中只包含本次实际更新的Zone。
+     * 仅支持公网Zone、内网Zone。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量设置Zone状态
+     * @param {BatchSetZonesStatusRequestBody} batchSetZonesStatusRequestBody 批量设置Zone状态请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSetZonesStatus(batchSetZonesStatusRequest?: BatchSetZonesStatusRequest): Promise<BatchSetZonesStatusResponse> {
+        const options = ParamCreater().batchSetZonesStatus(batchSetZonesStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建单个自定义线路
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建单个自定义线路
-     * @param {CreateCustomLines} [createCustomLines] 
+     * @param {CreateCustomLineRequestBody} createCustomLineRequestBody 创建单个自定义线路请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -228,7 +327,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除单个自定义线路
-     * @param {string} lineId 解析线路ID。
+     * @param {string} lineId 自定义线路id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -247,7 +346,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除线路分组
-     * @param {string} linegroupId 线路分组ID。
+     * @param {string} linegroupId 线路分组ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -286,9 +385,11 @@ export class DnsClient {
      * @summary 查询自定义线路
      * @param {string} [lineId] 解析线路ID。
      * @param {string} [name] 解析线路名称。
-     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {number} [limit] 每页返回的资源个数。 当查询详细信息时：取值范围：0~100取值一般为10，20，50默认为100。 当查询概要信息时：取值范围：0~3000默认为3000。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {boolean} [showDetail] 是否查询详细信息。  取值范围：  true：是，查询详细信息。 false：否，不查询详细信息。 默认为true。
+     * @param {string} [status] 资源状态。
+     * @param {string} [ip] IP地址范围。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -309,7 +410,7 @@ export class DnsClient {
      * @summary 查询线路分组列表
      * @param {string} [lineId] 线路分组ID。 模糊匹配。
      * @param {string} [name] 线路分组名称。 模糊匹配。
-     * @param {number} [limit] 每页返回的资源个数。  当查询详细信息时：取值范围：0~100取值一般为10，20，50默认为100。  当查询概要信息时：取值范围：0~3000默认为3000。
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -387,7 +488,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询线路分组
-     * @param {string} linegroupId 待查询的线路分组ID。
+     * @param {string} linegroupId 线路分组ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -406,8 +507,8 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新单个自定义线路
-     * @param {string} lineId 解析线路ID。
-     * @param {UpdateCustomsLineReq} [updateCustomsLineReq] 
+     * @param {string} lineId 自定义线路id
+     * @param {UpdateCustomLineRequestBody} updateCustomLineRequestBody 更新单个自定义线路请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -426,8 +527,8 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新线路分组
-     * @param {string} linegroupId 待更新的线路分组ID。
-     * @param {UpdateLineGroupsBody} updateLineGroupsBody 更新线路分组请求。
+     * @param {string} linegroupId 线路分组ID
+     * @param {UpdateLineGroupsRequestBody} updateLineGroupsRequestBody 更新线路分组请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -441,14 +542,14 @@ export class DnsClient {
     }
 
     /**
-     * 设置弹性IP的PTR记录
+     * 设置弹性公网IP的PTR记录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 设置弹性IP的PTR记录
+     * @summary 设置弹性公网IP的PTR记录
      * @param {string} region 租户的区域信息。
      * @param {string} floatingipId 弹性公网IP（EIP）的ID。
-     * @param {CreatePtrReq} createPtrReq 设置弹性IP的PTR记录请求。
+     * @param {CreatePtrReq} createPtrReq 设置弹性公网IP的PTR记录请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -462,15 +563,15 @@ export class DnsClient {
     }
 
     /**
-     * 查询租户弹性IP的PTR记录列表
+     * 查询租户弹性公网IP的PTR记录列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询租户弹性IP的PTR记录列表
+     * @summary 查询租户弹性公网IP的PTR记录列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [enterpriseProjectId] 反向解析关联的企业项目ID，长度不超过36个字符。  默认值为0。
+     * @param {string} [enterpriseProjectId] 反向解析关联的企业项目ID，长度不超过36个字符。
      * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
      * @param {string} [status] 资源状态。
      * @param {*} [options] Override http request option.
@@ -486,11 +587,11 @@ export class DnsClient {
     }
 
     /**
-     * 将弹性IP的PTR记录恢复为默认值
+     * 将弹性公网IP的PTR记录恢复为默认值
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 将弹性IP的PTR记录恢复为默认值
+     * @summary 将弹性公网IP的PTR记录恢复为默认值
      * @param {string} region 域名所属的区域。
      * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {RestorePtrReq} [restorePtrReq] 
@@ -507,11 +608,11 @@ export class DnsClient {
     }
 
     /**
-     * 查询单个弹性IP的PTR记录
+     * 查询单个弹性公网IP的PTR记录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单个弹性IP的PTR记录
+     * @summary 查询单个弹性公网IP的PTR记录
      * @param {string} region 租户的区域信息。 
      * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {*} [options] Override http request option.
@@ -527,11 +628,11 @@ export class DnsClient {
     }
 
     /**
-     * 修改弹性IP的PTR记录
+     * 修改弹性公网IP的PTR记录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改弹性IP的PTR记录
+     * @summary 修改弹性公网IP的PTR记录
      * @param {string} region 域名所属的区域。
      * @param {string} floatingipId 弹性公网IP（EIP）的ID。
      * @param {UpdatePtrReq} [updatePtrReq] 
@@ -576,7 +677,7 @@ export class DnsClient {
      *
      * @summary 批量修改RecordSet
      * @param {string} zoneId 所属zone的ID。
-     * @param {BatchUpdateRecordSetWithLineReq} batchUpdateRecordSetWithLineReq 
+     * @param {BatchUpdateRecordSetWithLineRequestBody} batchUpdateRecordSetWithLineRequestBody 批量修改RecordSet请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -704,9 +805,9 @@ export class DnsClient {
      * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
      * @param {string} [type] 待查询的Record Set的记录集类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
      * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [id] 待查询的Record Set的id包含此id。
      * @param {string} [records] 待查询的Record Set的值中包含此records。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：域名 type：记录集类型 默认值为空，表示不排序。
+     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
      * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -735,8 +836,8 @@ export class DnsClient {
      * @param {string} [status] 待查询的Record Set的状态。 取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
      * @param {string} [type] 待查询的Record Set的记录集类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
      * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围为：  name：域名 type：记录集类型 默认值为空，表示不排序。
+     * @param {string} [id] 待查询的Record Set的id包含此id。
+     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围为：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
      * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -760,14 +861,15 @@ export class DnsClient {
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
+     * @param {string} [zoneId] zone的ID。
      * @param {string} [lineId] 解析线路ID。
      * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
      * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
      * @param {string} [type] 待查询的Record Set的记录集类型。  取值范围：A、CNAME、MX、AAAA、TXT、SRV、NS、CAA
      * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [id] 待查询的Record Set的id包含此id。
      * @param {string} [records] 待查询的Record Set的值中包含此records。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：域名 type：记录集类型 默认值为空，表示不排序。
+     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
      * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
      * @param {string} [healthCheckId] 健康检查ID。  搜索模式默认为模糊搜索。  默认值为空。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
@@ -790,7 +892,7 @@ export class DnsClient {
      *
      * @summary 设置Record Set状态
      * @param {string} recordsetId 待设置Record Set的ID信息。
-     * @param {SetRecordSetsStatusReq} [setRecordSetsStatusReq] 
+     * @param {SetRecordSetsStatusRequestBody} [setRecordSetsStatusRequestBody] 设置Record Set状态请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -838,8 +940,8 @@ export class DnsClient {
      * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
      * @param {string} [type] 待查询的Record Set的记录集类型。  公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
      * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：域名 type：记录集类型 默认值为空，表示不排序。
+     * @param {string} [id] 待查询的Record Set的id包含此id。
+     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
      * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
      * @param {*} [options] Override http request option.
@@ -1165,10 +1267,14 @@ export class DnsClient {
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {string} [tags] 资源标签。
-     * @param {string} [name] zone名称。
+     * @param {string} [name] Zone名称。  搜索模式默认为模糊搜索。
+     * @param {string} [id] Zone ID。
      * @param {string} [status] 资源状态。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
-     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。  默认值为0。
+     * @param {string} [sortKey] 查询结果中zone列表的排序字段。  取值范围为：  name：域名 created_at：创建时间 updated_at：更新时间 默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中zone列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。
+     * @param {string} [routerId] 关联VPC的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1187,15 +1293,18 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公网Zone列表
-     * @param {string} [type] 待查询的zone的类型。  取值范围：public  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [type] 待查询的zone的类型。  取值范围：public 默认值为空。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。  多个标签之间为“与”的关系。  关于资源标签，请参见添加资源标签。  搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  默认值为空。
-     * @param {string} [name] zone名称。  搜索模式默认为模糊搜索。
+     * @param {string} [name] Zone名称。  搜索模式默认为模糊搜索。
+     * @param {string} [id] Zone ID。
      * @param {string} [status] 资源状态。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
-     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。  默认值为0。
+     * @param {string} [sortKey] 查询结果中zone列表的排序字段。  取值范围为：  name：域名 created_at：创建时间 updated_at：更新时间 默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中zone列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1349,6 +1458,166 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 批量删除Record Set。
+         * 响应结果中只包含本次实际删除的Record Set。
+         * 支持批量删除公网域名和内网域名的记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteRecordSets(batchDeleteRecordSetsRequest?: BatchDeleteRecordSetsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/recordsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteRecordSetsRequest !== null && batchDeleteRecordSetsRequest !== undefined) {
+                if (batchDeleteRecordSetsRequest instanceof BatchDeleteRecordSetsRequest) {
+                    body = batchDeleteRecordSetsRequest.body
+                } else {
+                    body = batchDeleteRecordSetsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除Zone。
+         * 本接口为原子操作，所有记录应全部删除成功或全部失败。
+         * 仅支持公网Zone、内网Zone。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteZones(batchDeleteZonesRequest?: BatchDeleteZonesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteZonesRequest !== null && batchDeleteZonesRequest !== undefined) {
+                if (batchDeleteZonesRequest instanceof BatchDeleteZonesRequest) {
+                    body = batchDeleteZonesRequest.body
+                } else {
+                    body = batchDeleteZonesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量设置Record Set状态。
+         * 响应结果中只包含本次实际更新的Record Set。
+         * 支持公网域名和内网域名的记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSetRecordSetsStatus(batchSetRecordSetsStatusRequest?: BatchSetRecordSetsStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.1/recordsets/statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchSetRecordSetsStatusRequest !== null && batchSetRecordSetsStatusRequest !== undefined) {
+                if (batchSetRecordSetsStatusRequest instanceof BatchSetRecordSetsStatusRequest) {
+                    body = batchSetRecordSetsStatusRequest.body
+                } else {
+                    body = batchSetRecordSetsStatusRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量设置Zone状态。
+         * 响应结果中只包含本次实际更新的Zone。
+         * 仅支持公网Zone、内网Zone。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSetZonesStatus(batchSetZonesStatusRequest?: BatchSetZonesStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.1/zones/statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchSetZonesStatusRequest !== null && batchSetZonesStatusRequest !== undefined) {
+                if (batchSetZonesStatusRequest instanceof BatchSetZonesStatusRequest) {
+                    body = batchSetZonesStatusRequest.body
+                } else {
+                    body = batchSetZonesStatusRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建单个自定义线路
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1376,6 +1645,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -1542,6 +1814,10 @@ export const ParamCreater = function () {
             let offset;
             
             let showDetail;
+            
+            let status;
+            
+            let ip;
 
             if (listCustomLineRequest !== null && listCustomLineRequest !== undefined) {
                 if (listCustomLineRequest instanceof ListCustomLineRequest) {
@@ -1550,12 +1826,16 @@ export const ParamCreater = function () {
                     limit = listCustomLineRequest.limit;
                     offset = listCustomLineRequest.offset;
                     showDetail = listCustomLineRequest.showDetail;
+                    status = listCustomLineRequest.status;
+                    ip = listCustomLineRequest.ip;
                 } else {
                     lineId = listCustomLineRequest['line_id'];
                     name = listCustomLineRequest['name'];
                     limit = listCustomLineRequest['limit'];
                     offset = listCustomLineRequest['offset'];
                     showDetail = listCustomLineRequest['show_detail'];
+                    status = listCustomLineRequest['status'];
+                    ip = listCustomLineRequest['ip'];
                 }
             }
 
@@ -1574,6 +1854,12 @@ export const ParamCreater = function () {
             }
             if (showDetail !== null && showDetail !== undefined) {
                 localVarQueryParameter['show_detail'] = showDetail;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1832,6 +2118,9 @@ export const ParamCreater = function () {
             if (lineId === null || lineId === undefined) {
             throw new RequiredError('lineId','Required parameter lineId was null or undefined when calling updateCustomLine.');
             }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -1887,7 +2176,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置弹性IP的PTR记录
+         * 设置弹性公网IP的PTR记录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1940,7 +2229,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户弹性IP的PTR记录列表
+         * 查询租户弹性公网IP的PTR记录列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2012,7 +2301,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将弹性IP的PTR记录恢复为默认值
+         * 将弹性公网IP的PTR记录恢复为默认值
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2062,7 +2351,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个弹性IP的PTR记录
+         * 查询单个弹性公网IP的PTR记录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2106,7 +2395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改弹性IP的PTR记录
+         * 修改弹性公网IP的PTR记录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2736,6 +3025,8 @@ export const ParamCreater = function () {
             
             let offset;
             
+            let zoneId;
+            
             let lineId;
             
             let tags;
@@ -2764,6 +3055,7 @@ export const ParamCreater = function () {
                     marker = listRecordSetsWithLineRequest.marker;
                     limit = listRecordSetsWithLineRequest.limit;
                     offset = listRecordSetsWithLineRequest.offset;
+                    zoneId = listRecordSetsWithLineRequest.zoneId;
                     lineId = listRecordSetsWithLineRequest.lineId;
                     tags = listRecordSetsWithLineRequest.tags;
                     status = listRecordSetsWithLineRequest.status;
@@ -2780,6 +3072,7 @@ export const ParamCreater = function () {
                     marker = listRecordSetsWithLineRequest['marker'];
                     limit = listRecordSetsWithLineRequest['limit'];
                     offset = listRecordSetsWithLineRequest['offset'];
+                    zoneId = listRecordSetsWithLineRequest['zone_id'];
                     lineId = listRecordSetsWithLineRequest['line_id'];
                     tags = listRecordSetsWithLineRequest['tags'];
                     status = listRecordSetsWithLineRequest['status'];
@@ -2806,6 +3099,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (zoneId !== null && zoneId !== undefined) {
+                localVarQueryParameter['zone_id'] = zoneId;
             }
             if (lineId !== null && lineId !== undefined) {
                 localVarQueryParameter['line_id'] = lineId;
@@ -3742,11 +4038,19 @@ export const ParamCreater = function () {
             
             let name;
             
+            let id;
+            
             let status;
             
             let searchMode;
             
+            let sortKey;
+            
+            let sortDir;
+            
             let enterpriseProjectId;
+            
+            let routerId;
 
             if (listPrivateZonesRequest !== null && listPrivateZonesRequest !== undefined) {
                 if (listPrivateZonesRequest instanceof ListPrivateZonesRequest) {
@@ -3756,9 +4060,13 @@ export const ParamCreater = function () {
                     offset = listPrivateZonesRequest.offset;
                     tags = listPrivateZonesRequest.tags;
                     name = listPrivateZonesRequest.name;
+                    id = listPrivateZonesRequest.id;
                     status = listPrivateZonesRequest.status;
                     searchMode = listPrivateZonesRequest.searchMode;
+                    sortKey = listPrivateZonesRequest.sortKey;
+                    sortDir = listPrivateZonesRequest.sortDir;
                     enterpriseProjectId = listPrivateZonesRequest.enterpriseProjectId;
+                    routerId = listPrivateZonesRequest.routerId;
                 } else {
                     type = listPrivateZonesRequest['type'];
                     limit = listPrivateZonesRequest['limit'];
@@ -3766,9 +4074,13 @@ export const ParamCreater = function () {
                     offset = listPrivateZonesRequest['offset'];
                     tags = listPrivateZonesRequest['tags'];
                     name = listPrivateZonesRequest['name'];
+                    id = listPrivateZonesRequest['id'];
                     status = listPrivateZonesRequest['status'];
                     searchMode = listPrivateZonesRequest['search_mode'];
+                    sortKey = listPrivateZonesRequest['sort_key'];
+                    sortDir = listPrivateZonesRequest['sort_dir'];
                     enterpriseProjectId = listPrivateZonesRequest['enterprise_project_id'];
+                    routerId = listPrivateZonesRequest['router_id'];
                 }
             }
 
@@ -3794,14 +4106,26 @@ export const ParamCreater = function () {
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
             }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
             }
             if (searchMode !== null && searchMode !== undefined) {
                 localVarQueryParameter['search_mode'] = searchMode;
             }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (routerId !== null && routerId !== undefined) {
+                localVarQueryParameter['router_id'] = routerId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3838,9 +4162,15 @@ export const ParamCreater = function () {
             
             let name;
             
+            let id;
+            
             let status;
             
             let searchMode;
+            
+            let sortKey;
+            
+            let sortDir;
             
             let enterpriseProjectId;
 
@@ -3852,8 +4182,11 @@ export const ParamCreater = function () {
                     offset = listPublicZonesRequest.offset;
                     tags = listPublicZonesRequest.tags;
                     name = listPublicZonesRequest.name;
+                    id = listPublicZonesRequest.id;
                     status = listPublicZonesRequest.status;
                     searchMode = listPublicZonesRequest.searchMode;
+                    sortKey = listPublicZonesRequest.sortKey;
+                    sortDir = listPublicZonesRequest.sortDir;
                     enterpriseProjectId = listPublicZonesRequest.enterpriseProjectId;
                 } else {
                     type = listPublicZonesRequest['type'];
@@ -3862,8 +4195,11 @@ export const ParamCreater = function () {
                     offset = listPublicZonesRequest['offset'];
                     tags = listPublicZonesRequest['tags'];
                     name = listPublicZonesRequest['name'];
+                    id = listPublicZonesRequest['id'];
                     status = listPublicZonesRequest['status'];
                     searchMode = listPublicZonesRequest['search_mode'];
+                    sortKey = listPublicZonesRequest['sort_key'];
+                    sortDir = listPublicZonesRequest['sort_dir'];
                     enterpriseProjectId = listPublicZonesRequest['enterprise_project_id'];
                 }
             }
@@ -3887,11 +4223,20 @@ export const ParamCreater = function () {
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
             }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
             }
             if (searchMode !== null && searchMode !== undefined) {
                 localVarQueryParameter['search_mode'] = searchMode;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;

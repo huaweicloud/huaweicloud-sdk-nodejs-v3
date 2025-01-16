@@ -1,9 +1,9 @@
-import { UpdateCustomsLineReq } from './UpdateCustomsLineReq';
+import { UpdateCustomLineRequestBody } from './UpdateCustomLineRequestBody';
 
 
 export class UpdateCustomLineRequest {
     private 'line_id'?: string;
-    public body?: UpdateCustomsLineReq;
+    public body?: UpdateCustomLineRequestBody;
     public constructor(lineId?: string) { 
         this['line_id'] = lineId;
     }
@@ -17,7 +17,7 @@ export class UpdateCustomLineRequest {
     public get lineId(): string | undefined {
         return this['line_id'];
     }
-    public withBody(body: UpdateCustomsLineReq): UpdateCustomLineRequest {
+    public withBody(body: UpdateCustomLineRequestBody): UpdateCustomLineRequest {
         this['body'] = body;
         return this;
     }

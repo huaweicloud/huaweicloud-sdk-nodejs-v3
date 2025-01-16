@@ -11,6 +11,8 @@ export class BandwidthInfo {
     private 'expand_interval_time'?: number;
     private 'max_expand_count'?: number;
     private 'task_running'?: boolean;
+    private 'assured_bandwidth'?: number;
+    private 'max_bandwidth_for_node'?: number;
     public constructor() { 
     }
     public withBeginTime(beginTime: number): BandwidthInfo {
@@ -106,5 +108,25 @@ export class BandwidthInfo {
     }
     public get taskRunning(): boolean | undefined {
         return this['task_running'];
+    }
+    public withAssuredBandwidth(assuredBandwidth: number): BandwidthInfo {
+        this['assured_bandwidth'] = assuredBandwidth;
+        return this;
+    }
+    public set assuredBandwidth(assuredBandwidth: number  | undefined) {
+        this['assured_bandwidth'] = assuredBandwidth;
+    }
+    public get assuredBandwidth(): number | undefined {
+        return this['assured_bandwidth'];
+    }
+    public withMaxBandwidthForNode(maxBandwidthForNode: number): BandwidthInfo {
+        this['max_bandwidth_for_node'] = maxBandwidthForNode;
+        return this;
+    }
+    public set maxBandwidthForNode(maxBandwidthForNode: number  | undefined) {
+        this['max_bandwidth_for_node'] = maxBandwidthForNode;
+    }
+    public get maxBandwidthForNode(): number | undefined {
+        return this['max_bandwidth_for_node'];
     }
 }

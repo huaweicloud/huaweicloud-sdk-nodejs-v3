@@ -8,9 +8,10 @@ export class UpdateInstanceBandwidthAutoScalingPolicyRequestBody {
     private 'scale_in_enabled'?: boolean;
     private 'bandwidth_usage_lower_threshold'?: number;
     private 'scale_in_cooldown'?: number;
-    public constructor(windowSize?: number, bandwidthUsageUpperThreshold?: number) { 
+    public constructor(windowSize?: number, bandwidthUsageUpperThreshold?: number, scaleOutCooldown?: number) { 
         this['window_size'] = windowSize;
         this['bandwidth_usage_upper_threshold'] = bandwidthUsageUpperThreshold;
+        this['scale_out_cooldown'] = scaleOutCooldown;
     }
     public withWindowSize(windowSize: UpdateInstanceBandwidthAutoScalingPolicyRequestBodyWindowSizeEnum | number): UpdateInstanceBandwidthAutoScalingPolicyRequestBody {
         this['window_size'] = windowSize;

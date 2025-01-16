@@ -1,9 +1,9 @@
-import { SetRecordSetsStatusReq } from './SetRecordSetsStatusReq';
+import { SetRecordSetsStatusRequestBody } from './SetRecordSetsStatusRequestBody';
 
 
 export class SetRecordSetsStatusRequest {
     private 'recordset_id'?: string;
-    public body?: SetRecordSetsStatusReq;
+    public body?: SetRecordSetsStatusRequestBody;
     public constructor(recordsetId?: string) { 
         this['recordset_id'] = recordsetId;
     }
@@ -17,7 +17,7 @@ export class SetRecordSetsStatusRequest {
     public get recordsetId(): string | undefined {
         return this['recordset_id'];
     }
-    public withBody(body: SetRecordSetsStatusReq): SetRecordSetsStatusRequest {
+    public withBody(body: SetRecordSetsStatusRequestBody): SetRecordSetsStatusRequest {
         this['body'] = body;
         return this;
     }

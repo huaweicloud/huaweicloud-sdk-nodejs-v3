@@ -9,6 +9,7 @@ export class PublishMessageRequestBody {
     public tags?: { [key: string]: string; };
     private 'time_to_live'?: string;
     private 'message_attributes'?: Array<MessageAttribute>;
+    public locale?: string;
     public constructor() { 
     }
     public withSubject(subject: string): PublishMessageRequestBody {
@@ -62,5 +63,9 @@ export class PublishMessageRequestBody {
     }
     public get messageAttributes(): Array<MessageAttribute> | undefined {
         return this['message_attributes'];
+    }
+    public withLocale(locale: string): PublishMessageRequestBody {
+        this['locale'] = locale;
+        return this;
     }
 }

@@ -11,8 +11,8 @@ export class ShowRecordSetByZoneResp {
     public type?: string;
     public ttl?: number;
     public records?: Array<string>;
-    private 'create_at'?: string;
-    private 'update_at'?: string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public status?: string;
     private 'default'?: boolean;
     private 'project_id'?: string;
@@ -67,25 +67,25 @@ export class ShowRecordSetByZoneResp {
         this['records'] = records;
         return this;
     }
-    public withCreateAt(createAt: string): ShowRecordSetByZoneResp {
-        this['create_at'] = createAt;
+    public withCreatedAt(createdAt: string): ShowRecordSetByZoneResp {
+        this['created_at'] = createdAt;
         return this;
     }
-    public set createAt(createAt: string  | undefined) {
-        this['create_at'] = createAt;
+    public set createdAt(createdAt: string  | undefined) {
+        this['created_at'] = createdAt;
     }
-    public get createAt(): string | undefined {
-        return this['create_at'];
+    public get createdAt(): string | undefined {
+        return this['created_at'];
     }
-    public withUpdateAt(updateAt: string): ShowRecordSetByZoneResp {
-        this['update_at'] = updateAt;
+    public withUpdatedAt(updatedAt: string): ShowRecordSetByZoneResp {
+        this['updated_at'] = updatedAt;
         return this;
     }
-    public set updateAt(updateAt: string  | undefined) {
-        this['update_at'] = updateAt;
+    public set updatedAt(updatedAt: string  | undefined) {
+        this['updated_at'] = updatedAt;
     }
-    public get updateAt(): string | undefined {
-        return this['update_at'];
+    public get updatedAt(): string | undefined {
+        return this['updated_at'];
     }
     public withStatus(status: string): ShowRecordSetByZoneResp {
         this['status'] = status;

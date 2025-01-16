@@ -12,6 +12,7 @@ import { AddSubscriptionRequestBody } from './model/AddSubscriptionRequestBody';
 import { AddSubscriptionResponse } from './model/AddSubscriptionResponse';
 import { ApplicationEndpoint } from './model/ApplicationEndpoint';
 import { ApplicationItem } from './model/ApplicationItem';
+import { BatchAddSubscriptionsRequestBody } from './model/BatchAddSubscriptionsRequestBody';
 import { BatchCreateOrDeleteResourceTagsRequest } from './model/BatchCreateOrDeleteResourceTagsRequest';
 import { BatchCreateOrDeleteResourceTagsRequestBody } from './model/BatchCreateOrDeleteResourceTagsRequestBody';
 import { BatchCreateOrDeleteResourceTagsResponse } from './model/BatchCreateOrDeleteResourceTagsResponse';
@@ -39,6 +40,8 @@ import { CreateLogtankResponse } from './model/CreateLogtankResponse';
 import { CreateMessageTemplateRequest } from './model/CreateMessageTemplateRequest';
 import { CreateMessageTemplateRequestBody } from './model/CreateMessageTemplateRequestBody';
 import { CreateMessageTemplateResponse } from './model/CreateMessageTemplateResponse';
+import { CreateNotifyPolicyRequest } from './model/CreateNotifyPolicyRequest';
+import { CreateNotifyPolicyResponse } from './model/CreateNotifyPolicyResponse';
 import { CreateResourceTagRequest } from './model/CreateResourceTagRequest';
 import { CreateResourceTagRequestBody } from './model/CreateResourceTagRequestBody';
 import { CreateResourceTagResponse } from './model/CreateResourceTagResponse';
@@ -53,6 +56,8 @@ import { DeleteLogtankRequest } from './model/DeleteLogtankRequest';
 import { DeleteLogtankResponse } from './model/DeleteLogtankResponse';
 import { DeleteMessageTemplateRequest } from './model/DeleteMessageTemplateRequest';
 import { DeleteMessageTemplateResponse } from './model/DeleteMessageTemplateResponse';
+import { DeleteNotifyPolicyRequest } from './model/DeleteNotifyPolicyRequest';
+import { DeleteNotifyPolicyResponse } from './model/DeleteNotifyPolicyResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
 import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
 import { DeleteTopicAttributeByNameRequest } from './model/DeleteTopicAttributeByNameRequest';
@@ -107,6 +112,10 @@ import { ListVersionsResponse } from './model/ListVersionsResponse';
 import { LogtankItem } from './model/LogtankItem';
 import { MessageAttribute } from './model/MessageAttribute';
 import { MessageTemplate } from './model/MessageTemplate';
+import { NotifyPolicyRequestBody } from './model/NotifyPolicyRequestBody';
+import { PollingPolicyRequest } from './model/PollingPolicyRequest';
+import { PollingPolicyResponse } from './model/PollingPolicyResponse';
+import { PollingPolicySubscriptionDetails } from './model/PollingPolicySubscriptionDetails';
 import { PublishAppMessageRequest } from './model/PublishAppMessageRequest';
 import { PublishAppMessageRequestBody } from './model/PublishAppMessageRequestBody';
 import { PublishAppMessageResponse } from './model/PublishAppMessageResponse';
@@ -120,6 +129,8 @@ import { ResourceTag } from './model/ResourceTag';
 import { ResourceTags } from './model/ResourceTags';
 import { ShowHttpDetectResultRequest } from './model/ShowHttpDetectResultRequest';
 import { ShowHttpDetectResultResponse } from './model/ShowHttpDetectResultResponse';
+import { ShowNotifyPolicyRequest } from './model/ShowNotifyPolicyRequest';
+import { ShowNotifyPolicyResponse } from './model/ShowNotifyPolicyResponse';
 import { Statement } from './model/Statement';
 import { SubscriptionExtension } from './model/SubscriptionExtension';
 import { SubscriptionsFilterPolicy } from './model/SubscriptionsFilterPolicy';
@@ -138,6 +149,8 @@ import { UpdateLogtankResponse } from './model/UpdateLogtankResponse';
 import { UpdateMessageTemplateRequest } from './model/UpdateMessageTemplateRequest';
 import { UpdateMessageTemplateRequestBody } from './model/UpdateMessageTemplateRequestBody';
 import { UpdateMessageTemplateResponse } from './model/UpdateMessageTemplateResponse';
+import { UpdateNotifyPolicyRequest } from './model/UpdateNotifyPolicyRequest';
+import { UpdateNotifyPolicyResponse } from './model/UpdateNotifyPolicyResponse';
 import { UpdateSubscriptionRequest } from './model/UpdateSubscriptionRequest';
 import { UpdateSubscriptionRequestBody } from './model/UpdateSubscriptionRequestBody';
 import { UpdateSubscriptionResponse } from './model/UpdateSubscriptionResponse';
@@ -346,6 +359,26 @@ export class SmnClient {
     }
 
     /**
+     * 创建通知策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建通知策略
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {NotifyPolicyRequestBody} createNotifyPolicyRequestBody 创建通知策略请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createNotifyPolicy(createNotifyPolicyRequest?: CreateNotifyPolicyRequest): Promise<CreateNotifyPolicyResponse> {
+        const options = ParamCreater().createNotifyPolicy(createNotifyPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 一个资源上最多有10个标签。此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -418,6 +451,26 @@ export class SmnClient {
      */
     public deleteMessageTemplate(deleteMessageTemplateRequest?: DeleteMessageTemplateRequest): Promise<DeleteMessageTemplateResponse> {
         const options = ParamCreater().deleteMessageTemplate(deleteMessageTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除通知策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除通知策略
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} notifyPolicyId 通知策略ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteNotifyPolicy(deleteNotifyPolicyRequest?: DeleteNotifyPolicyRequest): Promise<DeleteNotifyPolicyResponse> {
+        const options = ParamCreater().deleteNotifyPolicy(deleteNotifyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -551,7 +604,7 @@ export class SmnClient {
      * @param {number} [offset] 偏移量，偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit] 取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
      * @param {string} [messageTemplateName] 模板的名称。  只能包含大写字母、小写字母、数字、-和_，且必须由大写字母、小写字母或数字开头，长度在1到64个字符之间。
-     * @param {string} [protocol] 模板支持的协议类型。  目前支持的协议包括：  “default”：默认协议。  “email”：邮件传输协议。  “sms”：短信传输协议。  “functionstage”：FunctionGraph（函数）传输协议。  “dms”：DMS传输协议。  “http”、“https”：HTTP/HTTPS传输协议。
+     * @param {string} [protocol] 模板支持的协议类型。  目前支持的协议包括：  “default”：默认协议。  “email”：邮件传输协议。  “sms”：短信传输协议。  “functionstage”：FunctionGraph（函数）传输协议。  “http”、“https”：HTTP/HTTPS传输协议。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -631,7 +684,7 @@ export class SmnClient {
      * @summary 查询订阅者列表
      * @param {number} [offset] 偏移量。  偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit]  查询数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
-     * @param {string} [protocol] 协议名称， 枚举值：http、https、sms、email、functionstage、dms、application。
+     * @param {string} [protocol] 协议名称， 枚举值：http、https、sms、email、functionstage。
      * @param {number} [status] 状态。 0：未确认 1：已确认 2：不需要确认 3：已取消确认 4：已经删除。
      * @param {string} [endpoint] 订阅终端。
      * @param {string} [fuzzyRemark] 检索的订阅备注字段，模糊匹配。最大长度限制为128个字节。
@@ -676,7 +729,7 @@ export class SmnClient {
      *
      * @summary 查询主题策略
      * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
-     * @param {string} name 主题策略名称。  只支持特定的策略名称，请参见[Topic属性表](smn_api_a1000.xml)。
+     * @param {string} [name] 主题策略名称。  只支持特定的策略名称，请参见[Topic属性表](smn_api_a1000.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -716,7 +769,7 @@ export class SmnClient {
      * @summary 查询主题列表
      * @param {number} [offset] 偏移量。  偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit]  查询的数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
-     * @param {string} [enterpriseProjectId] 企业项目id，默认企业项目id为0。
+     * @param {string} [enterpriseProjectId] 企业项目id。
      * @param {string} [name] 检索的主题名称，完全匹配。
      * @param {string} [fuzzyName] 检索的主题名称，模糊匹配。
      * @param {string} [topicId] 检索的主题ID，完全匹配。
@@ -790,7 +843,8 @@ export class SmnClient {
     }
 
     /**
-     * 将消息发送给Topic的所有订阅端点。当返回消息ID时，该消息已被保存并开始尝试将其推送给Topic的订阅者。三种消息发送方式
+     * 将消息发送给Topic的所有订阅端点。当返回消息ID时，该消息已被保存并开始尝试将其推送给Topic的订阅者。为确保您的消息能够成功推送到各个订阅者，请确保您的消息内容符合当地法律法规要求。
+     * 三种消息发送方式
      * 
      * message
      * 
@@ -839,6 +893,25 @@ export class SmnClient {
     }
 
     /**
+     * 查询通知策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询通知策略
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNotifyPolicy(showNotifyPolicyRequest?: ShowNotifyPolicyRequest): Promise<ShowNotifyPolicyResponse> {
+        const options = ParamCreater().showNotifyPolicy(showNotifyPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新指定Topic绑定的云日志。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -872,6 +945,27 @@ export class SmnClient {
      */
     public updateMessageTemplate(updateMessageTemplateRequest?: UpdateMessageTemplateRequest): Promise<UpdateMessageTemplateResponse> {
         const options = ParamCreater().updateMessageTemplate(updateMessageTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改通知策略，该接口仅支持全量修改，不支持部分修改。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改通知策略
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} notifyPolicyId 通知策略ID。
+     * @param {NotifyPolicyRequestBody} createNotifyPolicyRequestBody 通知策略
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNotifyPolicy(updateNotifyPolicyRequest?: UpdateNotifyPolicyRequest): Promise<UpdateNotifyPolicyResponse> {
+        const options = ParamCreater().updateNotifyPolicy(updateNotifyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1542,6 +1636,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建通知策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createNotifyPolicy(createNotifyPolicyRequest?: CreateNotifyPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/notify-policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+
+            if (createNotifyPolicyRequest !== null && createNotifyPolicyRequest !== undefined) {
+                if (createNotifyPolicyRequest instanceof CreateNotifyPolicyRequest) {
+                    topicUrn = createNotifyPolicyRequest.topicUrn;
+                    body = createNotifyPolicyRequest.body
+                } else {
+                    topicUrn = createNotifyPolicyRequest['topic_urn'];
+                    body = createNotifyPolicyRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling createNotifyPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 一个资源上最多有10个标签。此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1707,6 +1847,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'message_template_id': messageTemplateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除通知策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteNotifyPolicy(deleteNotifyPolicyRequest?: DeleteNotifyPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/notify-policy/{notify_policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+            
+            let notifyPolicyId;
+
+            if (deleteNotifyPolicyRequest !== null && deleteNotifyPolicyRequest !== undefined) {
+                if (deleteNotifyPolicyRequest instanceof DeleteNotifyPolicyRequest) {
+                    topicUrn = deleteNotifyPolicyRequest.topicUrn;
+                    notifyPolicyId = deleteNotifyPolicyRequest.notifyPolicyId;
+                } else {
+                    topicUrn = deleteNotifyPolicyRequest['topic_urn'];
+                    notifyPolicyId = deleteNotifyPolicyRequest['notify_policy_id'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling deleteNotifyPolicy.');
+            }
+            if (notifyPolicyId === null || notifyPolicyId === undefined) {
+            throw new RequiredError('notifyPolicyId','Required parameter notifyPolicyId was null or undefined when calling deleteNotifyPolicy.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn,'notify_policy_id': notifyPolicyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2302,9 +2486,6 @@ export const ParamCreater = function () {
             if (topicUrn === null || topicUrn === undefined) {
             throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling listTopicAttributes.');
             }
-            if (name === null || name === undefined) {
-                throw new RequiredError('name','Required parameter name was null or undefined when calling listTopicAttributes.');
-            }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
             }
@@ -2520,7 +2701,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将消息发送给Topic的所有订阅端点。当返回消息ID时，该消息已被保存并开始尝试将其推送给Topic的订阅者。三种消息发送方式
+         * 将消息发送给Topic的所有订阅端点。当返回消息ID时，该消息已被保存并开始尝试将其推送给Topic的订阅者。为确保您的消息能够成功推送到各个订阅者，请确保您的消息内容符合当地法律法规要求。
+         * 三种消息发送方式
          * 
          * message
          * 
@@ -2611,6 +2793,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'topic_urn': topicUrn,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询通知策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNotifyPolicy(showNotifyPolicyRequest?: ShowNotifyPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/notify-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+
+            if (showNotifyPolicyRequest !== null && showNotifyPolicyRequest !== undefined) {
+                if (showNotifyPolicyRequest instanceof ShowNotifyPolicyRequest) {
+                    topicUrn = showNotifyPolicyRequest.topicUrn;
+                } else {
+                    topicUrn = showNotifyPolicyRequest['topic_urn'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling showNotifyPolicy.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2707,6 +2926,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'message_template_id': messageTemplateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改通知策略，该接口仅支持全量修改，不支持部分修改。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNotifyPolicy(updateNotifyPolicyRequest?: UpdateNotifyPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/notify-policy/{notify_policy_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+            
+            let notifyPolicyId;
+
+            if (updateNotifyPolicyRequest !== null && updateNotifyPolicyRequest !== undefined) {
+                if (updateNotifyPolicyRequest instanceof UpdateNotifyPolicyRequest) {
+                    topicUrn = updateNotifyPolicyRequest.topicUrn;
+                    notifyPolicyId = updateNotifyPolicyRequest.notifyPolicyId;
+                    body = updateNotifyPolicyRequest.body
+                } else {
+                    topicUrn = updateNotifyPolicyRequest['topic_urn'];
+                    notifyPolicyId = updateNotifyPolicyRequest['notify_policy_id'];
+                    body = updateNotifyPolicyRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling updateNotifyPolicy.');
+            }
+            if (notifyPolicyId === null || notifyPolicyId === undefined) {
+            throw new RequiredError('notifyPolicyId','Required parameter notifyPolicyId was null or undefined when calling updateNotifyPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn,'notify_policy_id': notifyPolicyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

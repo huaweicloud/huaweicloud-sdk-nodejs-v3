@@ -6,6 +6,7 @@ export class DbParameter {
     private 'default_value'?: string;
     private 'value_range'?: string;
     public description?: string;
+    private 'is_modifiable'?: string;
     public constructor() { 
     }
     public withParamName(paramName: string): DbParameter {
@@ -51,5 +52,15 @@ export class DbParameter {
     public withDescription(description: string): DbParameter {
         this['description'] = description;
         return this;
+    }
+    public withIsModifiable(isModifiable: string): DbParameter {
+        this['is_modifiable'] = isModifiable;
+        return this;
+    }
+    public set isModifiable(isModifiable: string  | undefined) {
+        this['is_modifiable'] = isModifiable;
+    }
+    public get isModifiable(): string | undefined {
+        return this['is_modifiable'];
     }
 }

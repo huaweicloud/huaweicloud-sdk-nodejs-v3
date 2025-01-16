@@ -7,8 +7,11 @@ export class ListPublicZonesRequest {
     public offset?: number;
     public tags?: string;
     public name?: string;
+    public id?: string;
     public status?: string;
     private 'search_mode'?: string;
+    private 'sort_key'?: string;
+    private 'sort_dir'?: string;
     private 'enterprise_project_id'?: string;
     public constructor() { 
     }
@@ -36,6 +39,10 @@ export class ListPublicZonesRequest {
         this['name'] = name;
         return this;
     }
+    public withId(id: string): ListPublicZonesRequest {
+        this['id'] = id;
+        return this;
+    }
     public withStatus(status: string): ListPublicZonesRequest {
         this['status'] = status;
         return this;
@@ -49,6 +56,26 @@ export class ListPublicZonesRequest {
     }
     public get searchMode(): string | undefined {
         return this['search_mode'];
+    }
+    public withSortKey(sortKey: string): ListPublicZonesRequest {
+        this['sort_key'] = sortKey;
+        return this;
+    }
+    public set sortKey(sortKey: string  | undefined) {
+        this['sort_key'] = sortKey;
+    }
+    public get sortKey(): string | undefined {
+        return this['sort_key'];
+    }
+    public withSortDir(sortDir: string): ListPublicZonesRequest {
+        this['sort_dir'] = sortDir;
+        return this;
+    }
+    public set sortDir(sortDir: string  | undefined) {
+        this['sort_dir'] = sortDir;
+    }
+    public get sortDir(): string | undefined {
+        return this['sort_dir'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPublicZonesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

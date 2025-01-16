@@ -6,6 +6,7 @@ export class PermissionClusterDetail {
     private 'can_delete'?: boolean;
     private 'can_add_host'?: boolean;
     private 'can_manage'?: boolean;
+    private 'can_copy'?: boolean;
     public constructor() { 
     }
     public withCanView(canView: boolean): PermissionClusterDetail {
@@ -57,5 +58,15 @@ export class PermissionClusterDetail {
     }
     public get canManage(): boolean | undefined {
         return this['can_manage'];
+    }
+    public withCanCopy(canCopy: boolean): PermissionClusterDetail {
+        this['can_copy'] = canCopy;
+        return this;
+    }
+    public set canCopy(canCopy: boolean  | undefined) {
+        this['can_copy'] = canCopy;
+    }
+    public get canCopy(): boolean | undefined {
+        return this['can_copy'];
     }
 }

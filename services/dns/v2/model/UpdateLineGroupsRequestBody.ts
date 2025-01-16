@@ -1,6 +1,6 @@
 
 
-export class UpdateLineGroupsBody {
+export class UpdateLineGroupsRequestBody {
     public name?: string;
     public description?: string;
     public lines?: Array<string>;
@@ -8,15 +8,15 @@ export class UpdateLineGroupsBody {
         this['name'] = name;
         this['lines'] = lines;
     }
-    public withName(name: string): UpdateLineGroupsBody {
+    public withName(name: string): UpdateLineGroupsRequestBody {
         this['name'] = name;
         return this;
     }
-    public withDescription(description: string): UpdateLineGroupsBody {
+    public withDescription(description: string): UpdateLineGroupsRequestBody {
         this['description'] = description;
         return this;
     }
-    public withLines(lines: Array<string>): UpdateLineGroupsBody {
+    public withLines(lines: Array<string>): UpdateLineGroupsRequestBody {
         this['lines'] = lines;
         return this;
     }

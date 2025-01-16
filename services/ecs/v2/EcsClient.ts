@@ -131,6 +131,9 @@ import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListResizeFlavorsRequest } from './model/ListResizeFlavorsRequest';
 import { ListResizeFlavorsResponse } from './model/ListResizeFlavorsResponse';
 import { ListResizeFlavorsResult } from './model/ListResizeFlavorsResult';
+import { ListServerAzInfo } from './model/ListServerAzInfo';
+import { ListServerAzInfoRequest } from './model/ListServerAzInfoRequest';
+import { ListServerAzInfoResponse } from './model/ListServerAzInfoResponse';
 import { ListServerBlockDevicesRequest } from './model/ListServerBlockDevicesRequest';
 import { ListServerBlockDevicesResponse } from './model/ListServerBlockDevicesResponse';
 import { ListServerGroupsPageInfoResult } from './model/ListServerGroupsPageInfoResult';
@@ -1082,6 +1085,24 @@ export class EcsClient {
      */
     public listResizeFlavors(listResizeFlavorsRequest?: ListResizeFlavorsRequest): Promise<ListResizeFlavorsResponse> {
         const options = ParamCreater().listResizeFlavors(listResizeFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用区列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用区列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServerAzInfo(listServerAzInfoRequest?: ListServerAzInfoRequest): Promise<ListServerAzInfoResponse> {
+        const options = ParamCreater().listServerAzInfo();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3676,6 +3697,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用区列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServerAzInfo() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/availability-zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

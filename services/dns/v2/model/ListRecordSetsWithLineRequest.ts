@@ -5,6 +5,7 @@ export class ListRecordSetsWithLineRequest {
     public marker?: string;
     public limit?: number;
     public offset?: number;
+    private 'zone_id'?: string;
     private 'line_id'?: string;
     public tags?: string;
     public status?: string;
@@ -39,6 +40,16 @@ export class ListRecordSetsWithLineRequest {
     public withOffset(offset: number): ListRecordSetsWithLineRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withZoneId(zoneId: string): ListRecordSetsWithLineRequest {
+        this['zone_id'] = zoneId;
+        return this;
+    }
+    public set zoneId(zoneId: string  | undefined) {
+        this['zone_id'] = zoneId;
+    }
+    public get zoneId(): string | undefined {
+        return this['zone_id'];
     }
     public withLineId(lineId: string): ListRecordSetsWithLineRequest {
         this['line_id'] = lineId;
