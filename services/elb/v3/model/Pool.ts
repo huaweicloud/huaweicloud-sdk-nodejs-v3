@@ -3,6 +3,7 @@ import { ListenerRef } from './ListenerRef';
 import { LoadBalancerRef } from './LoadBalancerRef';
 import { MemberRef } from './MemberRef';
 import { PoolHealth } from './PoolHealth';
+import { QuicCidHashStrategy } from './QuicCidHashStrategy';
 import { SessionPersistence } from './SessionPersistence';
 import { SlowStart } from './SlowStart';
 
@@ -34,6 +35,7 @@ export class Pool {
     private 'enterprise_project_id'?: string;
     private 'pool_health'?: PoolHealth;
     private 'public_border_group'?: string;
+    private 'quic_cid_hash_strategy'?: QuicCidHashStrategy;
     public constructor(adminStateUp?: boolean, description?: string, healthmonitorId?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MemberRef>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, ipVersion?: string, slowStart?: SlowStart, memberDeletionProtectionEnable?: boolean, vpcId?: string, type?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
@@ -264,6 +266,16 @@ export class Pool {
     }
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
+    }
+    public withQuicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy): Pool {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+        return this;
+    }
+    public set quicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy  | undefined) {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+    }
+    public get quicCidHashStrategy(): QuicCidHashStrategy | undefined {
+        return this['quic_cid_hash_strategy'];
     }
 }
 

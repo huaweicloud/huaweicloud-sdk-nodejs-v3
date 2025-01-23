@@ -36,6 +36,7 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'last_modified'?: Date;
     private 'ephemeral_storage'?: number;
     private 'func_vpc'?: FuncVpc;
+    private 'peering_cidr'?: string;
     private 'mount_config'?: MountConfig;
     private 'strategy_config'?: StrategyConfig;
     public dependencies?: Array<Dependency>;
@@ -55,6 +56,7 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'enable_auth_in_header'?: boolean;
     private 'custom_image'?: CustomImage;
     private 'is_return_stream'?: boolean;
+    private 'lts_custom_tag'?: { [key: string]: string; };
     public constructor() { 
         super();
     }
@@ -294,6 +296,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     public get funcVpc(): FuncVpc | undefined {
         return this['func_vpc'];
     }
+    public withPeeringCidr(peeringCidr: string): UpdateFunctionConfigResponse {
+        this['peering_cidr'] = peeringCidr;
+        return this;
+    }
+    public set peeringCidr(peeringCidr: string  | undefined) {
+        this['peering_cidr'] = peeringCidr;
+    }
+    public get peeringCidr(): string | undefined {
+        return this['peering_cidr'];
+    }
     public withMountConfig(mountConfig: MountConfig): UpdateFunctionConfigResponse {
         this['mount_config'] = mountConfig;
         return this;
@@ -471,6 +483,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     }
     public get isReturnStream(): boolean | undefined {
         return this['is_return_stream'];
+    }
+    public withLtsCustomTag(ltsCustomTag: { [key: string]: string; }): UpdateFunctionConfigResponse {
+        this['lts_custom_tag'] = ltsCustomTag;
+        return this;
+    }
+    public set ltsCustomTag(ltsCustomTag: { [key: string]: string; }  | undefined) {
+        this['lts_custom_tag'] = ltsCustomTag;
+    }
+    public get ltsCustomTag(): { [key: string]: string; } | undefined {
+        return this['lts_custom_tag'];
     }
 }
 

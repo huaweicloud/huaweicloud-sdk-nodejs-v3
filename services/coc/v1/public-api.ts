@@ -1,4 +1,5 @@
 export * from './CocClient';
+export * from './GlobalCredentials,BasicCredentials';
 
 export * from './model/AddScriptModel';
 export * from './model/ApplicationQueryResponseData';
@@ -78,8 +79,6 @@ export * from './model/ListCocTicketOperationHistoriesRequest';
 export * from './model/ListCocTicketOperationHistoriesResponse';
 export * from './model/ListInstanceCompliantRequest';
 export * from './model/ListInstanceCompliantResponse';
-export * from './model/ListPrrTemplateRequest';
-export * from './model/ListPrrTemplateResponse';
 export * from './model/ListPublicScriptsRequest';
 export * from './model/ListPublicScriptsResponse';
 export * from './model/ListResourceRequest';

@@ -26,6 +26,8 @@ export class ListPoolsRequest {
     private 'pool_health'?: string;
     private 'any_port_enable'?: boolean;
     private 'public_border_group'?: string;
+    private 'quic_cid_len'?: number;
+    private 'quic_cid_offset'?: number;
     public constructor() { 
     }
     public withMarker(marker: string): ListPoolsRequest {
@@ -235,5 +237,25 @@ export class ListPoolsRequest {
     }
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
+    }
+    public withQuicCidLen(quicCidLen: number): ListPoolsRequest {
+        this['quic_cid_len'] = quicCidLen;
+        return this;
+    }
+    public set quicCidLen(quicCidLen: number  | undefined) {
+        this['quic_cid_len'] = quicCidLen;
+    }
+    public get quicCidLen(): number | undefined {
+        return this['quic_cid_len'];
+    }
+    public withQuicCidOffset(quicCidOffset: number): ListPoolsRequest {
+        this['quic_cid_offset'] = quicCidOffset;
+        return this;
+    }
+    public set quicCidOffset(quicCidOffset: number  | undefined) {
+        this['quic_cid_offset'] = quicCidOffset;
+    }
+    public get quicCidOffset(): number | undefined {
+        return this['quic_cid_offset'];
     }
 }

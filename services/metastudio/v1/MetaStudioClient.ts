@@ -17,6 +17,7 @@ import { AssetFileInfo } from './model/AssetFileInfo';
 import { AssetSharedConfig } from './model/AssetSharedConfig';
 import { AudioAssetMeta } from './model/AudioAssetMeta';
 import { AudioDriveActionConfig } from './model/AudioDriveActionConfig';
+import { AudioInfo } from './model/AudioInfo';
 import { AuditResultAdminAuditResult } from './model/AuditResultAdminAuditResult';
 import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResult';
 import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAuditResultErrors';

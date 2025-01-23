@@ -10,6 +10,7 @@ export class ListCertificatesRequest {
     private 'admin_state_up'?: boolean;
     public domain?: Array<string>;
     public type?: Array<string>;
+    private 'scm_certificate_id'?: Array<string>;
     private 'common_name'?: Array<string>;
     public fingerprint?: Array<string>;
     public constructor() { 
@@ -61,6 +62,16 @@ export class ListCertificatesRequest {
     public withType(type: Array<string>): ListCertificatesRequest {
         this['type'] = type;
         return this;
+    }
+    public withScmCertificateId(scmCertificateId: Array<string>): ListCertificatesRequest {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: Array<string>  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): Array<string> | undefined {
+        return this['scm_certificate_id'];
     }
     public withCommonName(commonName: Array<string>): ListCertificatesRequest {
         this['common_name'] = commonName;

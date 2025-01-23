@@ -20,6 +20,7 @@ export class Listener {
     public loadbalancers?: Array<LoadBalancerRef>;
     public name?: string;
     private 'project_id'?: string;
+    private 'enterprise_project_id'?: string;
     public protocol?: string;
     private 'protocol_port'?: number;
     private 'sni_container_refs'?: Array<string>;
@@ -42,7 +43,10 @@ export class Listener {
     private 'gzip_enable'?: boolean;
     private 'port_ranges'?: Array<PortRange>;
     private 'ssl_early_data_enable'?: boolean;
-    public constructor(adminStateUp?: boolean, clientCaTlsContainerRef?: string, connectionLimit?: number, createdAt?: string, defaultPoolId?: string, defaultTlsContainerRef?: string, description?: string, http2Enable?: boolean, id?: string, insertHeaders?: ListenerInsertHeaders, loadbalancers?: Array<LoadBalancerRef>, name?: string, projectId?: string, protocol?: string, protocolPort?: number, sniContainerRefs?: Array<string>, sniMatchAlgo?: string, tags?: Array<Tag>, updatedAt?: string, tlsCiphersPolicy?: string, securityPolicyId?: string, enableMemberRetry?: boolean, keepaliveTimeout?: number, clientTimeout?: number, memberTimeout?: number, ipgroup?: ListenerIpGroup, transparentClientIpEnable?: boolean, enhanceL7policyEnable?: boolean) { 
+    public cps?: number;
+    public connection?: number;
+    private 'nat64_enable'?: boolean;
+    public constructor(adminStateUp?: boolean, clientCaTlsContainerRef?: string, connectionLimit?: number, createdAt?: string, defaultPoolId?: string, defaultTlsContainerRef?: string, description?: string, http2Enable?: boolean, id?: string, insertHeaders?: ListenerInsertHeaders, loadbalancers?: Array<LoadBalancerRef>, name?: string, projectId?: string, enterpriseProjectId?: string, protocol?: string, protocolPort?: number, sniContainerRefs?: Array<string>, sniMatchAlgo?: string, tags?: Array<Tag>, updatedAt?: string, tlsCiphersPolicy?: string, securityPolicyId?: string, enableMemberRetry?: boolean, keepaliveTimeout?: number, clientTimeout?: number, memberTimeout?: number, ipgroup?: ListenerIpGroup, transparentClientIpEnable?: boolean, enhanceL7policyEnable?: boolean) { 
         this['admin_state_up'] = adminStateUp;
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
         this['connection_limit'] = connectionLimit;
@@ -56,6 +60,7 @@ export class Listener {
         this['loadbalancers'] = loadbalancers;
         this['name'] = name;
         this['project_id'] = projectId;
+        this['enterprise_project_id'] = enterpriseProjectId;
         this['protocol'] = protocol;
         this['protocol_port'] = protocolPort;
         this['sni_container_refs'] = sniContainerRefs;
@@ -177,6 +182,16 @@ export class Listener {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): Listener {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withProtocol(protocol: string): Listener {
         this['protocol'] = protocol;
@@ -379,6 +394,24 @@ export class Listener {
     }
     public get sslEarlyDataEnable(): boolean | undefined {
         return this['ssl_early_data_enable'];
+    }
+    public withCps(cps: number): Listener {
+        this['cps'] = cps;
+        return this;
+    }
+    public withConnection(connection: number): Listener {
+        this['connection'] = connection;
+        return this;
+    }
+    public withNat64Enable(nat64Enable: boolean): Listener {
+        this['nat64_enable'] = nat64Enable;
+        return this;
+    }
+    public set nat64Enable(nat64Enable: boolean  | undefined) {
+        this['nat64_enable'] = nat64Enable;
+    }
+    public get nat64Enable(): boolean | undefined {
+        return this['nat64_enable'];
     }
 }
 

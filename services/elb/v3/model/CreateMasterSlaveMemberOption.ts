@@ -7,9 +7,8 @@ export class CreateMasterSlaveMemberOption {
     private 'protocol_port'?: number;
     private 'subnet_cidr_id'?: string;
     public role?: CreateMasterSlaveMemberOptionRoleEnum | string;
-    public constructor(address?: string, protocolPort?: number, role?: string) { 
+    public constructor(address?: string, role?: string) { 
         this['address'] = address;
-        this['protocol_port'] = protocolPort;
         this['role'] = role;
     }
     public withAddress(address: string): CreateMasterSlaveMemberOption {

@@ -20,6 +20,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'app_xrole'?: string;
     public description?: string;
     private 'func_vpc'?: FuncVpc;
+    private 'peering_cidr'?: string;
     private 'mount_config'?: MountConfig;
     private 'strategy_config'?: StrategyConfig;
     private 'custom_image'?: CustomImage;
@@ -40,6 +41,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'restore_hook_timeout'?: number;
     private 'heartbeat_handler'?: string;
     private 'enable_class_isolation'?: boolean;
+    private 'lts_custom_tag'?: { [key: string]: string; };
     public constructor(funcName?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -146,6 +148,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get funcVpc(): FuncVpc | undefined {
         return this['func_vpc'];
+    }
+    public withPeeringCidr(peeringCidr: string): UpdateFunctionConfigRequestBody {
+        this['peering_cidr'] = peeringCidr;
+        return this;
+    }
+    public set peeringCidr(peeringCidr: string  | undefined) {
+        this['peering_cidr'] = peeringCidr;
+    }
+    public get peeringCidr(): string | undefined {
+        return this['peering_cidr'];
     }
     public withMountConfig(mountConfig: MountConfig): UpdateFunctionConfigRequestBody {
         this['mount_config'] = mountConfig;
@@ -346,6 +358,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get enableClassIsolation(): boolean | undefined {
         return this['enable_class_isolation'];
+    }
+    public withLtsCustomTag(ltsCustomTag: { [key: string]: string; }): UpdateFunctionConfigRequestBody {
+        this['lts_custom_tag'] = ltsCustomTag;
+        return this;
+    }
+    public set ltsCustomTag(ltsCustomTag: { [key: string]: string; }  | undefined) {
+        this['lts_custom_tag'] = ltsCustomTag;
+    }
+    public get ltsCustomTag(): { [key: string]: string; } | undefined {
+        return this['lts_custom_tag'];
     }
 }
 

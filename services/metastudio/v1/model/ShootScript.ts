@@ -1,4 +1,5 @@
 import { AudioDriveActionConfig } from './AudioDriveActionConfig';
+import { AudioInfo } from './AudioInfo';
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
 import { LayerConfig } from './LayerConfig';
 import { TextConfig } from './TextConfig';
@@ -8,8 +9,10 @@ export class ShootScript {
     private 'script_type'?: ShootScriptScriptTypeEnum | string;
     private 'text_config'?: TextConfig;
     private 'audio_drive_action_config'?: Array<AudioDriveActionConfig>;
+    private 'audio_drive_file_external_url'?: string;
     private 'background_config'?: Array<BackgroundConfigInfo>;
     private 'layer_config'?: Array<LayerConfig>;
+    private 'audio_config'?: AudioInfo;
     public constructor() { 
     }
     public withScriptType(scriptType: ShootScriptScriptTypeEnum | string): ShootScript {
@@ -42,6 +45,16 @@ export class ShootScript {
     public get audioDriveActionConfig(): Array<AudioDriveActionConfig> | undefined {
         return this['audio_drive_action_config'];
     }
+    public withAudioDriveFileExternalUrl(audioDriveFileExternalUrl: string): ShootScript {
+        this['audio_drive_file_external_url'] = audioDriveFileExternalUrl;
+        return this;
+    }
+    public set audioDriveFileExternalUrl(audioDriveFileExternalUrl: string  | undefined) {
+        this['audio_drive_file_external_url'] = audioDriveFileExternalUrl;
+    }
+    public get audioDriveFileExternalUrl(): string | undefined {
+        return this['audio_drive_file_external_url'];
+    }
     public withBackgroundConfig(backgroundConfig: Array<BackgroundConfigInfo>): ShootScript {
         this['background_config'] = backgroundConfig;
         return this;
@@ -61,6 +74,16 @@ export class ShootScript {
     }
     public get layerConfig(): Array<LayerConfig> | undefined {
         return this['layer_config'];
+    }
+    public withAudioConfig(audioConfig: AudioInfo): ShootScript {
+        this['audio_config'] = audioConfig;
+        return this;
+    }
+    public set audioConfig(audioConfig: AudioInfo  | undefined) {
+        this['audio_config'] = audioConfig;
+    }
+    public get audioConfig(): AudioInfo | undefined {
+        return this['audio_config'];
     }
 }
 

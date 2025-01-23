@@ -1,5 +1,6 @@
 import { ConnectionDrain } from './ConnectionDrain';
 import { PoolHealth } from './PoolHealth';
+import { QuicCidHashStrategy } from './QuicCidHashStrategy';
 import { UpdatePoolSessionPersistenceOption } from './UpdatePoolSessionPersistenceOption';
 import { UpdatePoolSlowStartOption } from './UpdatePoolSlowStartOption';
 
@@ -19,6 +20,7 @@ export class UpdatePoolOption {
     private 'any_port_enable'?: boolean;
     private 'connection_drain'?: ConnectionDrain;
     private 'pool_health'?: PoolHealth;
+    private 'quic_cid_hash_strategy'?: QuicCidHashStrategy;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -142,6 +144,16 @@ export class UpdatePoolOption {
     }
     public get poolHealth(): PoolHealth | undefined {
         return this['pool_health'];
+    }
+    public withQuicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy): UpdatePoolOption {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+        return this;
+    }
+    public set quicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy  | undefined) {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+    }
+    public get quicCidHashStrategy(): QuicCidHashStrategy | undefined {
+        return this['quic_cid_hash_strategy'];
     }
 }
 

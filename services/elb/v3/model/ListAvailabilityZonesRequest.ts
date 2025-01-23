@@ -2,6 +2,7 @@
 
 export class ListAvailabilityZonesRequest {
     private 'public_border_group'?: string;
+    private 'loadbalancer_id'?: string;
     public constructor() { 
     }
     public withPublicBorderGroup(publicBorderGroup: string): ListAvailabilityZonesRequest {
@@ -13,5 +14,15 @@ export class ListAvailabilityZonesRequest {
     }
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
+    }
+    public withLoadbalancerId(loadbalancerId: string): ListAvailabilityZonesRequest {
+        this['loadbalancer_id'] = loadbalancerId;
+        return this;
+    }
+    public set loadbalancerId(loadbalancerId: string  | undefined) {
+        this['loadbalancer_id'] = loadbalancerId;
+    }
+    public get loadbalancerId(): string | undefined {
+        return this['loadbalancer_id'];
     }
 }

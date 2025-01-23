@@ -15,6 +15,7 @@ export class CertificateInfo {
     private 'project_id'?: string;
     private 'enc_certificate'?: string;
     private 'enc_private_key'?: string;
+    private 'scm_certificate_id'?: string;
     private 'common_name'?: string;
     public fingerprint?: string;
     private 'subject_alternative_names'?: Array<string>;
@@ -135,6 +136,16 @@ export class CertificateInfo {
     }
     public get encPrivateKey(): string | undefined {
         return this['enc_private_key'];
+    }
+    public withScmCertificateId(scmCertificateId: string): CertificateInfo {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
     }
     public withCommonName(commonName: string): CertificateInfo {
         this['common_name'] = commonName;

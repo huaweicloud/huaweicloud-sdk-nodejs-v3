@@ -28,6 +28,7 @@ export class L7Policy {
     private 'fixed_response_config'?: FixtedResponseConfig;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor(action?: string, adminStateUp?: boolean, description?: string, id?: string, listenerId?: string, name?: string, position?: number, projectId?: string, provisioningStatus?: string, redirectPoolId?: string, redirectListenerId?: string, redirectUrl?: string, rules?: Array<RuleRef>, redirectUrlConfig?: RedirectUrlConfig, fixedResponseConfig?: FixtedResponseConfig) { 
         this['action'] = action;
         this['admin_state_up'] = adminStateUp;
@@ -212,5 +213,15 @@ export class L7Policy {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): L7Policy {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

@@ -9,6 +9,7 @@ export class CreateTtsAuditionRequestBody {
     public volume?: number;
     private 'business_type'?: string;
     public style?: string;
+    public channels?: number;
     public constructor(text?: string, emotion?: string) { 
         this['text'] = text;
         this['emotion'] = emotion;
@@ -55,6 +56,10 @@ export class CreateTtsAuditionRequestBody {
     }
     public withStyle(style: string): CreateTtsAuditionRequestBody {
         this['style'] = style;
+        return this;
+    }
+    public withChannels(channels: number): CreateTtsAuditionRequestBody {
+        this['channels'] = channels;
         return this;
     }
 }

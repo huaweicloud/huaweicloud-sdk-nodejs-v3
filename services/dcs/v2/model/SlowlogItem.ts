@@ -8,6 +8,8 @@ export class SlowlogItem {
     private 'shard_name'?: string;
     private 'database_id'?: number;
     public username?: string;
+    private 'node_role'?: string;
+    private 'client_ip'?: string;
     public constructor() { 
     }
     public withId(id: number): SlowlogItem {
@@ -55,5 +57,25 @@ export class SlowlogItem {
     public withUsername(username: string): SlowlogItem {
         this['username'] = username;
         return this;
+    }
+    public withNodeRole(nodeRole: string): SlowlogItem {
+        this['node_role'] = nodeRole;
+        return this;
+    }
+    public set nodeRole(nodeRole: string  | undefined) {
+        this['node_role'] = nodeRole;
+    }
+    public get nodeRole(): string | undefined {
+        return this['node_role'];
+    }
+    public withClientIp(clientIp: string): SlowlogItem {
+        this['client_ip'] = clientIp;
+        return this;
+    }
+    public set clientIp(clientIp: string  | undefined) {
+        this['client_ip'] = clientIp;
+    }
+    public get clientIp(): string | undefined {
+        return this['client_ip'];
     }
 }

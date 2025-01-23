@@ -14,6 +14,7 @@ export * from './model/AssetFileInfo';
 export * from './model/AssetSharedConfig';
 export * from './model/AudioAssetMeta';
 export * from './model/AudioDriveActionConfig';
+export * from './model/AudioInfo';
 export * from './model/AuditResultAdminAuditResult';
 export * from './model/AuditResultSystemAuditResult';
 export * from './model/AuditResultSystemAuditResultErrors';

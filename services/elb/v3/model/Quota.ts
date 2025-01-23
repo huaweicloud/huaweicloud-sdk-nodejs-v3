@@ -17,7 +17,10 @@ export class Quota {
     private 'ipgroup_max_length'?: number;
     private 'security_policy'?: number;
     private 'listeners_per_loadbalancer'?: number;
-    public constructor(projectId?: string, loadbalancer?: number, certificate?: number, listener?: number, l7policy?: number, conditionPerPolicy?: number, pool?: number, healthmonitor?: number, member?: number, membersPerPool?: number, listenersPerPool?: number, ipgroup?: number, ipgroupBindings?: number, ipgroupMaxLength?: number, securityPolicy?: number, listenersPerLoadbalancer?: number) { 
+    private 'ipgroups_per_listener'?: number;
+    private 'pools_per_l7policy'?: number;
+    private 'l7policies_per_listener'?: number;
+    public constructor(projectId?: string, loadbalancer?: number, certificate?: number, listener?: number, l7policy?: number, conditionPerPolicy?: number, pool?: number, healthmonitor?: number, member?: number, membersPerPool?: number, listenersPerPool?: number, ipgroup?: number, ipgroupBindings?: number, ipgroupMaxLength?: number, securityPolicy?: number, listenersPerLoadbalancer?: number, ipgroupsPerListener?: number, poolsPerL7policy?: number, l7policiesPerListener?: number) { 
         this['project_id'] = projectId;
         this['loadbalancer'] = loadbalancer;
         this['certificate'] = certificate;
@@ -34,6 +37,9 @@ export class Quota {
         this['ipgroup_max_length'] = ipgroupMaxLength;
         this['security_policy'] = securityPolicy;
         this['listeners_per_loadbalancer'] = listenersPerLoadbalancer;
+        this['ipgroups_per_listener'] = ipgroupsPerListener;
+        this['pools_per_l7policy'] = poolsPerL7policy;
+        this['l7policies_per_listener'] = l7policiesPerListener;
     }
     public withProjectId(projectId: string): Quota {
         this['project_id'] = projectId;
@@ -146,5 +152,35 @@ export class Quota {
     }
     public get listenersPerLoadbalancer(): number | undefined {
         return this['listeners_per_loadbalancer'];
+    }
+    public withIpgroupsPerListener(ipgroupsPerListener: number): Quota {
+        this['ipgroups_per_listener'] = ipgroupsPerListener;
+        return this;
+    }
+    public set ipgroupsPerListener(ipgroupsPerListener: number  | undefined) {
+        this['ipgroups_per_listener'] = ipgroupsPerListener;
+    }
+    public get ipgroupsPerListener(): number | undefined {
+        return this['ipgroups_per_listener'];
+    }
+    public withPoolsPerL7policy(poolsPerL7policy: number): Quota {
+        this['pools_per_l7policy'] = poolsPerL7policy;
+        return this;
+    }
+    public set poolsPerL7policy(poolsPerL7policy: number  | undefined) {
+        this['pools_per_l7policy'] = poolsPerL7policy;
+    }
+    public get poolsPerL7policy(): number | undefined {
+        return this['pools_per_l7policy'];
+    }
+    public withL7policiesPerListener(l7policiesPerListener: number): Quota {
+        this['l7policies_per_listener'] = l7policiesPerListener;
+        return this;
+    }
+    public set l7policiesPerListener(l7policiesPerListener: number  | undefined) {
+        this['l7policies_per_listener'] = l7policiesPerListener;
+    }
+    public get l7policiesPerListener(): number | undefined {
+        return this['l7policies_per_listener'];
     }
 }

@@ -1,3 +1,4 @@
+import { MemberHealthCheckFailedReason } from './MemberHealthCheckFailedReason';
 import { MemberStatus } from './MemberStatus';
 import { ResourceID } from './ResourceID';
 
@@ -23,6 +24,7 @@ export class MemberInfo {
     private 'updated_at'?: string;
     private 'member_type'?: string;
     private 'instance_id'?: string;
+    public reason?: MemberHealthCheckFailedReason;
     public constructor(id?: string, name?: string, projectId?: string, adminStateUp?: boolean, protocolPort?: number, weight?: number, address?: string, ipVersion?: string, operatingStatus?: string, status?: Array<MemberStatus>) { 
         this['id'] = id;
         this['name'] = name;
@@ -198,5 +200,9 @@ export class MemberInfo {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withReason(reason: MemberHealthCheckFailedReason): MemberInfo {
+        this['reason'] = reason;
+        return this;
     }
 }

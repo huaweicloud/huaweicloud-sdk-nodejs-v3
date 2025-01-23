@@ -6,6 +6,8 @@ export class CountPreoccupyIpNumRequest {
     private 'ip_version'?: number;
     private 'loadbalancer_id'?: string;
     private 'availability_zone_id'?: Array<string>;
+    public scene?: string;
+    private 'nat64_enable'?: boolean;
     public constructor() { 
     }
     public withL7FlavorId(l7FlavorId: string): CountPreoccupyIpNumRequest {
@@ -57,5 +59,19 @@ export class CountPreoccupyIpNumRequest {
     }
     public get availabilityZoneId(): Array<string> | undefined {
         return this['availability_zone_id'];
+    }
+    public withScene(scene: string): CountPreoccupyIpNumRequest {
+        this['scene'] = scene;
+        return this;
+    }
+    public withNat64Enable(nat64Enable: boolean): CountPreoccupyIpNumRequest {
+        this['nat64_enable'] = nat64Enable;
+        return this;
+    }
+    public set nat64Enable(nat64Enable: boolean  | undefined) {
+        this['nat64_enable'] = nat64Enable;
+    }
+    public get nat64Enable(): boolean | undefined {
+        return this['nat64_enable'];
     }
 }

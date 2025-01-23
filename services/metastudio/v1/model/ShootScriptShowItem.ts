@@ -1,3 +1,4 @@
+import { AudioInfo } from './AudioInfo';
 import { PreviewInfo } from './PreviewInfo';
 import { ShootScriptDetail } from './ShootScriptDetail';
 import { ShootScriptItemBaseInfo } from './ShootScriptItemBaseInfo';
@@ -8,6 +9,7 @@ export class ShootScriptShowItem {
     private 'sequence_no'?: number;
     private 'shoot_script'?: ShootScriptDetail;
     private 'subtitle_file_info'?: SubtitleFiles;
+    private 'audio_config'?: AudioInfo;
     private 'preview_info'?: PreviewInfo;
     public constructor() { 
     }
@@ -40,6 +42,16 @@ export class ShootScriptShowItem {
     }
     public get subtitleFileInfo(): SubtitleFiles | undefined {
         return this['subtitle_file_info'];
+    }
+    public withAudioConfig(audioConfig: AudioInfo): ShootScriptShowItem {
+        this['audio_config'] = audioConfig;
+        return this;
+    }
+    public set audioConfig(audioConfig: AudioInfo  | undefined) {
+        this['audio_config'] = audioConfig;
+    }
+    public get audioConfig(): AudioInfo | undefined {
+        return this['audio_config'];
     }
     public withPreviewInfo(previewInfo: PreviewInfo): ShootScriptShowItem {
         this['preview_info'] = previewInfo;

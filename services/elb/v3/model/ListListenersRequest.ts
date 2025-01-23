@@ -29,6 +29,8 @@ export class ListListenersRequest {
     private 'enhance_l7policy_enable'?: boolean;
     private 'member_instance_id'?: Array<string>;
     private 'protection_status'?: Array<string>;
+    private 'ssl_early_data_enable'?: boolean;
+    private 'nat64_enable'?: boolean;
     public constructor() { 
     }
     public withLimit(limit: number): ListListenersRequest {
@@ -274,5 +276,25 @@ export class ListListenersRequest {
     }
     public get protectionStatus(): Array<string> | undefined {
         return this['protection_status'];
+    }
+    public withSslEarlyDataEnable(sslEarlyDataEnable: boolean): ListListenersRequest {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+        return this;
+    }
+    public set sslEarlyDataEnable(sslEarlyDataEnable: boolean  | undefined) {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+    }
+    public get sslEarlyDataEnable(): boolean | undefined {
+        return this['ssl_early_data_enable'];
+    }
+    public withNat64Enable(nat64Enable: boolean): ListListenersRequest {
+        this['nat64_enable'] = nat64Enable;
+        return this;
+    }
+    public set nat64Enable(nat64Enable: boolean  | undefined) {
+        this['nat64_enable'] = nat64Enable;
+    }
+    public get nat64Enable(): boolean | undefined {
+        return this['nat64_enable'];
     }
 }

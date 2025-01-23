@@ -14,6 +14,7 @@ export class VideoConfig {
     public dy?: number;
     private 'is_enable_super_resolution'?: boolean;
     private 'is_end_at_first_frame'?: boolean;
+    private 'output_external_url'?: string;
     public constructor(codec?: string, bitrate?: number, width?: number, height?: number) { 
         this['codec'] = codec;
         this['bitrate'] = bitrate;
@@ -103,6 +104,16 @@ export class VideoConfig {
     }
     public get isEndAtFirstFrame(): boolean | undefined {
         return this['is_end_at_first_frame'];
+    }
+    public withOutputExternalUrl(outputExternalUrl: string): VideoConfig {
+        this['output_external_url'] = outputExternalUrl;
+        return this;
+    }
+    public set outputExternalUrl(outputExternalUrl: string  | undefined) {
+        this['output_external_url'] = outputExternalUrl;
+    }
+    public get outputExternalUrl(): string | undefined {
+        return this['output_external_url'];
     }
 }
 

@@ -12,6 +12,7 @@ export class CreateCertificateOption {
     private 'enterprise_project_id'?: string;
     private 'enc_certificate'?: string;
     private 'enc_private_key'?: string;
+    private 'scm_certificate_id'?: string;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): CreateCertificateOption {
@@ -93,6 +94,16 @@ export class CreateCertificateOption {
     }
     public get encPrivateKey(): string | undefined {
         return this['enc_private_key'];
+    }
+    public withScmCertificateId(scmCertificateId: string): CreateCertificateOption {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
     }
 }
 

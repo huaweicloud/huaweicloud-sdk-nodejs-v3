@@ -1,8 +1,10 @@
+import { MemberHealthCheckFailedReason } from './MemberHealthCheckFailedReason';
 
 
 export class MemberStatus {
     private 'listener_id'?: string;
     private 'operating_status'?: string;
+    public reason?: MemberHealthCheckFailedReason;
     public constructor(listenerId?: string, operatingStatus?: string) { 
         this['listener_id'] = listenerId;
         this['operating_status'] = operatingStatus;
@@ -26,5 +28,9 @@ export class MemberStatus {
     }
     public get operatingStatus(): string | undefined {
         return this['operating_status'];
+    }
+    public withReason(reason: MemberHealthCheckFailedReason): MemberStatus {
+        this['reason'] = reason;
+        return this;
     }
 }

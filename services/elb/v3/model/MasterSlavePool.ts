@@ -3,6 +3,7 @@ import { ListenerRef } from './ListenerRef';
 import { LoadBalancerRef } from './LoadBalancerRef';
 import { MasterSlaveHealthMonitor } from './MasterSlaveHealthMonitor';
 import { MasterSlaveMember } from './MasterSlaveMember';
+import { QuicCidHashStrategy } from './QuicCidHashStrategy';
 import { SessionPersistence } from './SessionPersistence';
 
 
@@ -26,6 +27,7 @@ export class MasterSlavePool {
     public healthmonitor?: MasterSlaveHealthMonitor;
     private 'any_port_enable'?: boolean;
     private 'connection_drain'?: ConnectionDrain;
+    private 'quic_cid_hash_strategy'?: QuicCidHashStrategy;
     public constructor(description?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MasterSlaveMember>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, ipVersion?: string, createdAt?: string, updatedAt?: string, vpcId?: string, type?: string, enterpriseProjectId?: string, healthmonitor?: MasterSlaveHealthMonitor) { 
         this['description'] = description;
         this['id'] = id;
@@ -180,5 +182,15 @@ export class MasterSlavePool {
     }
     public get connectionDrain(): ConnectionDrain | undefined {
         return this['connection_drain'];
+    }
+    public withQuicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy): MasterSlavePool {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+        return this;
+    }
+    public set quicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy  | undefined) {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+    }
+    public get quicCidHashStrategy(): QuicCidHashStrategy | undefined {
+        return this['quic_cid_hash_strategy'];
     }
 }

@@ -16,6 +16,10 @@ export class CreateAsyncTtsJobRequestBody {
     private 'gen_srt'?: boolean;
     private 'srt_len'?: number;
     private 'srt_line_limit'?: number;
+    public channels?: number;
+    private 'output_external_url'?: string;
+    private 'srt_output_external_url'?: string;
+    private 'action_output_external_url'?: string;
     public constructor(text?: string, voiceAssetId?: string) { 
         this['text'] = text;
         this['voice_asset_id'] = voiceAssetId;
@@ -135,6 +139,40 @@ export class CreateAsyncTtsJobRequestBody {
     }
     public get srtLineLimit(): number | undefined {
         return this['srt_line_limit'];
+    }
+    public withChannels(channels: number): CreateAsyncTtsJobRequestBody {
+        this['channels'] = channels;
+        return this;
+    }
+    public withOutputExternalUrl(outputExternalUrl: string): CreateAsyncTtsJobRequestBody {
+        this['output_external_url'] = outputExternalUrl;
+        return this;
+    }
+    public set outputExternalUrl(outputExternalUrl: string  | undefined) {
+        this['output_external_url'] = outputExternalUrl;
+    }
+    public get outputExternalUrl(): string | undefined {
+        return this['output_external_url'];
+    }
+    public withSrtOutputExternalUrl(srtOutputExternalUrl: string): CreateAsyncTtsJobRequestBody {
+        this['srt_output_external_url'] = srtOutputExternalUrl;
+        return this;
+    }
+    public set srtOutputExternalUrl(srtOutputExternalUrl: string  | undefined) {
+        this['srt_output_external_url'] = srtOutputExternalUrl;
+    }
+    public get srtOutputExternalUrl(): string | undefined {
+        return this['srt_output_external_url'];
+    }
+    public withActionOutputExternalUrl(actionOutputExternalUrl: string): CreateAsyncTtsJobRequestBody {
+        this['action_output_external_url'] = actionOutputExternalUrl;
+        return this;
+    }
+    public set actionOutputExternalUrl(actionOutputExternalUrl: string  | undefined) {
+        this['action_output_external_url'] = actionOutputExternalUrl;
+    }
+    public get actionOutputExternalUrl(): string | undefined {
+        return this['action_output_external_url'];
     }
 }
 

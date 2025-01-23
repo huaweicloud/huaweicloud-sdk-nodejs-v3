@@ -2,6 +2,7 @@ import { ConnectionDrain } from './ConnectionDrain';
 import { CreatePoolSessionPersistenceOption } from './CreatePoolSessionPersistenceOption';
 import { CreatePoolSlowStartOption } from './CreatePoolSlowStartOption';
 import { PoolHealth } from './PoolHealth';
+import { QuicCidHashStrategy } from './QuicCidHashStrategy';
 
 
 export class CreatePoolOption {
@@ -25,6 +26,7 @@ export class CreatePoolOption {
     private 'connection_drain'?: ConnectionDrain;
     private 'pool_health'?: PoolHealth;
     private 'public_border_group'?: string;
+    private 'quic_cid_hash_strategy'?: QuicCidHashStrategy;
     public constructor(lbAlgorithm?: string, protocol?: string) { 
         this['lb_algorithm'] = lbAlgorithm;
         this['protocol'] = protocol;
@@ -204,6 +206,16 @@ export class CreatePoolOption {
     }
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
+    }
+    public withQuicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy): CreatePoolOption {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+        return this;
+    }
+    public set quicCidHashStrategy(quicCidHashStrategy: QuicCidHashStrategy  | undefined) {
+        this['quic_cid_hash_strategy'] = quicCidHashStrategy;
+    }
+    public get quicCidHashStrategy(): QuicCidHashStrategy | undefined {
+        return this['quic_cid_hash_strategy'];
     }
 }
 

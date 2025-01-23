@@ -1,4 +1,5 @@
 import { ListenerMemberInfo } from './ListenerMemberInfo';
+import { MemberHealthCheckFailedReason } from './MemberHealthCheckFailedReason';
 
 
 export class MasterSlaveMember {
@@ -12,6 +13,7 @@ export class MasterSlaveMember {
     private 'device_owner'?: string;
     private 'device_id'?: string;
     private 'operating_status'?: string;
+    public reason?: MemberHealthCheckFailedReason;
     private 'member_type'?: string;
     private 'instance_id'?: string;
     public role?: string;
@@ -113,6 +115,10 @@ export class MasterSlaveMember {
     }
     public get operatingStatus(): string | undefined {
         return this['operating_status'];
+    }
+    public withReason(reason: MemberHealthCheckFailedReason): MasterSlaveMember {
+        this['reason'] = reason;
+        return this;
     }
     public withMemberType(memberType: string): MasterSlaveMember {
         this['member_type'] = memberType;

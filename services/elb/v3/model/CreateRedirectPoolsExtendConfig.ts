@@ -1,3 +1,4 @@
+import { CreateCorsConfig } from './CreateCorsConfig';
 import { CreateInsertHeadersConfig } from './CreateInsertHeadersConfig';
 import { CreateRemoveHeadersConfig } from './CreateRemoveHeadersConfig';
 import { CreateRewriteUrlConfig } from './CreateRewriteUrlConfig';
@@ -10,6 +11,7 @@ export class CreateRedirectPoolsExtendConfig {
     private 'insert_headers_config'?: CreateInsertHeadersConfig;
     private 'remove_headers_config'?: CreateRemoveHeadersConfig;
     private 'traffic_limit_config'?: CreateTrafficLimitConfig;
+    private 'cors_config'?: CreateCorsConfig;
     public constructor() { 
     }
     public withRewriteUrlEnable(rewriteUrlEnable: boolean): CreateRedirectPoolsExtendConfig {
@@ -61,5 +63,15 @@ export class CreateRedirectPoolsExtendConfig {
     }
     public get trafficLimitConfig(): CreateTrafficLimitConfig | undefined {
         return this['traffic_limit_config'];
+    }
+    public withCorsConfig(corsConfig: CreateCorsConfig): CreateRedirectPoolsExtendConfig {
+        this['cors_config'] = corsConfig;
+        return this;
+    }
+    public set corsConfig(corsConfig: CreateCorsConfig  | undefined) {
+        this['cors_config'] = corsConfig;
+    }
+    public get corsConfig(): CreateCorsConfig | undefined {
+        return this['cors_config'];
     }
 }

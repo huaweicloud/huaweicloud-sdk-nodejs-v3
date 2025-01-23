@@ -1,3 +1,4 @@
+import { MemberHealthCheckFailedReason } from './MemberHealthCheckFailedReason';
 import { MemberStatus } from './MemberStatus';
 
 
@@ -11,6 +12,7 @@ export class BatchMember {
     public weight?: number;
     public address?: string;
     private 'operating_status'?: string;
+    public reason?: MemberHealthCheckFailedReason;
     public status?: Array<MemberStatus>;
     private 'member_type'?: string;
     private 'instance_id'?: string;
@@ -95,6 +97,10 @@ export class BatchMember {
     }
     public get operatingStatus(): string | undefined {
         return this['operating_status'];
+    }
+    public withReason(reason: MemberHealthCheckFailedReason): BatchMember {
+        this['reason'] = reason;
+        return this;
     }
     public withStatus(status: Array<MemberStatus>): BatchMember {
         this['status'] = status;

@@ -38,6 +38,7 @@ export class CreateFunctionRequestBody {
     private 'network_controller'?: NetworkControlConfig;
     private 'is_stateful_function'?: boolean;
     private 'enable_dynamic_memory'?: boolean;
+    private 'lts_custom_tag'?: { [key: string]: string; };
     public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['package'] = _package;
@@ -319,6 +320,16 @@ export class CreateFunctionRequestBody {
     }
     public get enableDynamicMemory(): boolean | undefined {
         return this['enable_dynamic_memory'];
+    }
+    public withLtsCustomTag(ltsCustomTag: { [key: string]: string; }): CreateFunctionRequestBody {
+        this['lts_custom_tag'] = ltsCustomTag;
+        return this;
+    }
+    public set ltsCustomTag(ltsCustomTag: { [key: string]: string; }  | undefined) {
+        this['lts_custom_tag'] = ltsCustomTag;
+    }
+    public get ltsCustomTag(): { [key: string]: string; } | undefined {
+        return this['lts_custom_tag'];
     }
 }
 

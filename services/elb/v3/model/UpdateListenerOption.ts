@@ -29,6 +29,9 @@ export class UpdateListenerOption {
     private 'protection_reason'?: string;
     private 'gzip_enable'?: boolean;
     private 'ssl_early_data_enable'?: boolean;
+    public cps?: number;
+    public connection?: number;
+    private 'nat64_enable'?: boolean;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdateListenerOption {
@@ -262,6 +265,24 @@ export class UpdateListenerOption {
     }
     public get sslEarlyDataEnable(): boolean | undefined {
         return this['ssl_early_data_enable'];
+    }
+    public withCps(cps: number): UpdateListenerOption {
+        this['cps'] = cps;
+        return this;
+    }
+    public withConnection(connection: number): UpdateListenerOption {
+        this['connection'] = connection;
+        return this;
+    }
+    public withNat64Enable(nat64Enable: boolean): UpdateListenerOption {
+        this['nat64_enable'] = nat64Enable;
+        return this;
+    }
+    public set nat64Enable(nat64Enable: boolean  | undefined) {
+        this['nat64_enable'] = nat64Enable;
+    }
+    public get nat64Enable(): boolean | undefined {
+        return this['nat64_enable'];
     }
 }
 

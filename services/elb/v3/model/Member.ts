@@ -1,3 +1,4 @@
+import { MemberHealthCheckFailedReason } from './MemberHealthCheckFailedReason';
 import { MemberStatus } from './MemberStatus';
 
 
@@ -13,6 +14,7 @@ export class Member {
     private 'ip_version'?: string;
     private 'operating_status'?: string;
     public status?: Array<MemberStatus>;
+    public reason?: MemberHealthCheckFailedReason;
     private 'created_at'?: string;
     private 'updated_at'?: string;
     private 'member_type'?: string;
@@ -107,6 +109,10 @@ export class Member {
     }
     public withStatus(status: Array<MemberStatus>): Member {
         this['status'] = status;
+        return this;
+    }
+    public withReason(reason: MemberHealthCheckFailedReason): Member {
+        this['reason'] = reason;
         return this;
     }
     public withCreatedAt(createdAt: string): Member {

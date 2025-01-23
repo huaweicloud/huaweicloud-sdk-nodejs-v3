@@ -5,6 +5,9 @@ export class ResetPasswordResponse extends SdkResponse {
     private 'retry_times_left'?: string;
     private 'lock_time'?: string;
     private 'lock_time_left'?: string;
+    public code?: string;
+    public message?: string;
+    private 'ext_message'?: string;
     public constructor() { 
         super();
     }
@@ -37,5 +40,23 @@ export class ResetPasswordResponse extends SdkResponse {
     }
     public get lockTimeLeft(): string | undefined {
         return this['lock_time_left'];
+    }
+    public withCode(code: string): ResetPasswordResponse {
+        this['code'] = code;
+        return this;
+    }
+    public withMessage(message: string): ResetPasswordResponse {
+        this['message'] = message;
+        return this;
+    }
+    public withExtMessage(extMessage: string): ResetPasswordResponse {
+        this['ext_message'] = extMessage;
+        return this;
+    }
+    public set extMessage(extMessage: string  | undefined) {
+        this['ext_message'] = extMessage;
+    }
+    public get extMessage(): string | undefined {
+        return this['ext_message'];
     }
 }

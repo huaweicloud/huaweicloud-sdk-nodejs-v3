@@ -741,7 +741,7 @@ export class GaussDBClient {
 
 
     /**
-     * 授予云数据库 GaussDB(for MySQL)实例数据库用户数据库权限。
+     * 授予云数据库 TaurusDB实例数据库用户数据库权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -891,7 +891,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 复制参数组
-     * @param {string} configurationId 参数组ID。  通过调用[查询参数模板](https://support.huaweicloud.com/api-gaussdbformysql/ListGaussMySqlConfigurations.html)接口获取。  请求响应成功后在响应消息体中包含的“id”的值即为configuration_id值。
+     * @param {string} configurationId 参数组ID。  通过调用[查询参数模板](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlConfigurations.html)接口获取。  请求响应成功后在响应消息体中包含的“id”的值即为configuration_id值。
      * @param {CopyConfigurationsRequestBody} copyConfigurationsRequestBody 请求体。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -913,7 +913,7 @@ export class GaussDBClient {
      *
      * @summary 复制实例参数组
      * @param {string} instanceId 实例ID，严格匹配UUID规则。
-     * @param {string} configurationId 参数组ID。  通过调用[查询实例详情信息](https://support.huaweicloud.com/api-gaussdbformysql/ShowGaussMySqlInstanceInfo.html)接口获取。  请求响应成功后在响应消息体中包含的“configuration_id”的值即为configuration_id值。
+     * @param {string} configurationId 参数组ID。  通过调用[查询实例详情信息](https://support.huaweicloud.com/api-taurusdb/ShowGaussMySqlInstanceInfo.html)接口获取。  请求响应成功后在响应消息体中包含的“configuration_id”的值即为configuration_id值。
      * @param {CopyInstanceConfigurationsRequestBody} copyInstanceConfigurationsRequestBody 请求体。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -991,7 +991,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 创建云数据库 GaussDB(for MySQL)实例数据库。
+     * 创建云数据库 TaurusDB实例数据库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1012,7 +1012,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 创建云数据库GaussDB(for MySQL)实例数据库用户。
+     * 创建云数据库TaurusDB实例数据库用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1033,7 +1033,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 创建云数据库GaussDB(for MySQL)实例。
+     * 创建云数据库TaurusDB实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1157,7 +1157,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 删除云数据库 GaussDB(for MySQL)实例数据库用户的数据库权限。
+     * 删除云数据库 TaurusDB实例数据库用户的数据库权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1183,7 +1183,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除手动备份
-     * @param {string} backupId 备份文件ID。  获取方法参见[查询备份列表](https://support.huaweicloud.com/api-gaussdbformysql/ShowGaussMySqlBackupList.html)。
+     * @param {string} backupId 备份文件ID。  获取方法参见[查询备份列表](https://support.huaweicloud.com/api-taurusdb/ShowGaussMySqlBackupList.html)。
      * @param {string} [xLanguage] 语言。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1218,7 +1218,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 删除云数据库 GaussDB(for MySQL)实例数据库。
+     * 删除云数据库 TaurusDB实例数据库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1239,7 +1239,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 删除云数据库 GaussDB(for MySQL)实例数据库用户。
+     * 删除云数据库 TaurusDB实例数据库用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1538,7 +1538,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可应用的实例列表
-     * @param {string} configurationId 参数模板ID。  通过调用[查询参数模板](https://support.huaweicloud.com/api-gaussdbformysql/ListGaussMySqlConfigurations.html)接口获取。  请求响应成功后在响应消息体中包含的“id”的值即为configuration_id值。
+     * @param {string} configurationId 参数模板ID。  通过调用[查询参数模板](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlConfigurations.html)接口获取。  请求响应成功后在响应消息体中包含的“id”的值即为configuration_id值。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
@@ -1597,7 +1597,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 查询 GaussDB(for MySQL)实例数据库。
+     * 查询 TaurusDB实例数据库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1621,7 +1621,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 查询云数据库 GaussDB(for MySQL)实例数据库可用字符集。
+     * 查询云数据库 TaurusDB实例数据库可用字符集。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1641,7 +1641,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 查询云数据库 GaussDB(for MySQL)实例数据库用户。
+     * 查询云数据库 TaurusDB实例数据库用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1903,7 +1903,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询参数修改历史
-     * @param {string} configurationId 参数组ID。  通过调用[查询实例详情信息](https://support.huaweicloud.com/api-gaussdbformysql/ShowGaussMySqlInstanceInfo.html)接口获取。  请求响应成功后在响应消息体中包含的“configuration_id”的值即为configuration_id值。
+     * @param {string} configurationId 参数组ID。  通过调用[查询实例详情信息](https://support.huaweicloud.com/api-taurusdb/ShowGaussMySqlInstanceInfo.html)接口获取。  请求响应成功后在响应消息体中包含的“configuration_id”的值即为configuration_id值。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
@@ -2116,7 +2116,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 修改云数据库 GaussDB(for MySQL)实例数据库用户密码。
+     * 修改云数据库 TaurusDB实例数据库用户密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2582,7 +2582,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 获取GaussDB(for MySQL)任务中心指定ID的任务信息。
+     * 获取TaurusDB任务中心指定ID的任务信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2923,7 +2923,7 @@ export class GaussDBClient {
      *
      * @summary 查询表级时间点恢复可选表
      * @param {string} instanceId 实例ID，严格匹配UUID规则。
-     * @param {string} restoreTime 备份时间点，时间戳格式。  通过[查询可恢复时间段](https://support.huaweicloud.com/api-gaussdbformysql/ShowBackupRestoreTime.html)获取。
+     * @param {string} restoreTime 备份时间点，时间戳格式。  通过[查询可恢复时间段](https://support.huaweicloud.com/api-taurusdb/ShowBackupRestoreTime.html)获取。
      * @param {string} lastTableInfo 是否是最新库表。 - true：是最新库表。 - false：是恢复时间点库表。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {string} [databaseName] 数据库名称，模糊匹配。
@@ -3196,7 +3196,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 修改云数据库 GaussDB(for MySQL)实例数据库备注。
+     * 修改云数据库 TaurusDB实例数据库备注。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3217,7 +3217,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 修改云数据库 GaussDB(for MySQL)实例数据库用户备注。
+     * 修改云数据库 TaurusDB实例数据库用户备注。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3877,7 +3877,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建实例
-     * @param {string} instanceId GaussDB(for MySQL)实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {CreateChInstanceRequestBody} createClickHouseInstanceRequestBody 创建实例请求体。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -3940,7 +3940,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建StarRocks实例
-     * @param {string} instanceId GaussDBForMySQL数据库实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB数据库实例ID，严格匹配UUID规则。
      * @param {StarRocksCreateRequest} createStarrocksInstanceRequestBody 创建实例。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -4024,7 +4024,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除实例
-     * @param {string} instanceId GaussDB(for MySQL)实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {string} clickhouseInstanceId ClickHouse实例ID，严格匹配UUID规则。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -4107,7 +4107,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除StarRocks实例
-     * @param {string} instanceId GaussDBForMySQL实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {string} starrocksInstanceId StarRocks实例ID，严格匹配UUID规则。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -4214,7 +4214,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例详情
-     * @param {string} instanceId GaussDB(for MySQL)实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {string} clickhouseInstanceId ClickHouse实例ID，严格匹配UUID规则。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -4298,7 +4298,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询HTAP实例列表
-     * @param {string} instanceId GaussDBForMySQL实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4447,7 +4447,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询StarRocks实例
-     * @param {string} instanceId GaussDBforMySQL实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {string} starrocksInstanceId StarRocks实例ID，严格匹配UUID规则。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -4572,7 +4572,7 @@ export class GaussDBClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary StarRocks实例规格变更
-     * @param {string} instanceId GaussDBForMySQL实例ID，严格匹配UUID规则。
+     * @param {string} instanceId TaurusDB实例ID，严格匹配UUID规则。
      * @param {SrFlavorResizeReq} resizeStarRocksFlavorRequestBody 规格变更请求
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.
@@ -5102,7 +5102,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 授予云数据库 GaussDB(for MySQL)实例数据库用户数据库权限。
+         * 授予云数据库 TaurusDB实例数据库用户数据库权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5718,7 +5718,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建云数据库 GaussDB(for MySQL)实例数据库。
+         * 创建云数据库 TaurusDB实例数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5771,7 +5771,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建云数据库GaussDB(for MySQL)实例数据库用户。
+         * 创建云数据库TaurusDB实例数据库用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5824,7 +5824,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建云数据库GaussDB(for MySQL)实例。
+         * 创建云数据库TaurusDB实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6123,7 +6123,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除云数据库 GaussDB(for MySQL)实例数据库用户的数据库权限。
+         * 删除云数据库 TaurusDB实例数据库用户的数据库权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6264,7 +6264,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除云数据库 GaussDB(for MySQL)实例数据库。
+         * 删除云数据库 TaurusDB实例数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6317,7 +6317,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除云数据库 GaussDB(for MySQL)实例数据库用户。
+         * 删除云数据库 TaurusDB实例数据库用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7204,7 +7204,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询 GaussDB(for MySQL)实例数据库。
+         * 查询 TaurusDB实例数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7277,7 +7277,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云数据库 GaussDB(for MySQL)实例数据库可用字符集。
+         * 查询云数据库 TaurusDB实例数据库可用字符集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7321,7 +7321,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云数据库 GaussDB(for MySQL)实例数据库用户。
+         * 查询云数据库 TaurusDB实例数据库用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8655,7 +8655,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改云数据库 GaussDB(for MySQL)实例数据库用户密码。
+         * 修改云数据库 TaurusDB实例数据库用户密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9816,7 +9816,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取GaussDB(for MySQL)任务中心指定ID的任务信息。
+         * 获取TaurusDB任务中心指定ID的任务信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11365,7 +11365,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改云数据库 GaussDB(for MySQL)实例数据库备注。
+         * 修改云数据库 TaurusDB实例数据库备注。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11418,7 +11418,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改云数据库 GaussDB(for MySQL)实例数据库用户备注。
+         * 修改云数据库 TaurusDB实例数据库用户备注。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
