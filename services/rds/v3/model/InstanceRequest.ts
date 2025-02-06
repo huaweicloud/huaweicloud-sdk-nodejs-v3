@@ -38,6 +38,7 @@ export class InstanceRequest {
     private 'dry_run'?: boolean;
     public count?: number;
     private 'serverless_info'?: ServerlessInfo;
+    private 'is_auto_upgrade'?: boolean;
     public constructor(name?: string, datastore?: Datastore, flavorRef?: string, volume?: Volume, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -268,5 +269,15 @@ export class InstanceRequest {
     }
     public get serverlessInfo(): ServerlessInfo | undefined {
         return this['serverless_info'];
+    }
+    public withIsAutoUpgrade(isAutoUpgrade: boolean): InstanceRequest {
+        this['is_auto_upgrade'] = isAutoUpgrade;
+        return this;
+    }
+    public set isAutoUpgrade(isAutoUpgrade: boolean  | undefined) {
+        this['is_auto_upgrade'] = isAutoUpgrade;
+    }
+    public get isAutoUpgrade(): boolean | undefined {
+        return this['is_auto_upgrade'];
     }
 }

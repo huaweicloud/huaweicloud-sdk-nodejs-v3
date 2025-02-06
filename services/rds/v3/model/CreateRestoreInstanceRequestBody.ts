@@ -34,6 +34,7 @@ export class CreateRestoreInstanceRequestBody {
     public tags?: Array<TagWithKeyValue>;
     private 'serverless_info'?: ServerlessInfo;
     private 'dry_run'?: boolean;
+    private 'is_auto_upgrade'?: boolean;
     public constructor(name?: string, flavorRef?: string, volume?: Volume, availabilityZone?: string) { 
         this['name'] = name;
         this['flavor_ref'] = flavorRef;
@@ -235,5 +236,15 @@ export class CreateRestoreInstanceRequestBody {
     }
     public get dryRun(): boolean | undefined {
         return this['dry_run'];
+    }
+    public withIsAutoUpgrade(isAutoUpgrade: boolean): CreateRestoreInstanceRequestBody {
+        this['is_auto_upgrade'] = isAutoUpgrade;
+        return this;
+    }
+    public set isAutoUpgrade(isAutoUpgrade: boolean  | undefined) {
+        this['is_auto_upgrade'] = isAutoUpgrade;
+    }
+    public get isAutoUpgrade(): boolean | undefined {
+        return this['is_auto_upgrade'];
     }
 }

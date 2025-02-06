@@ -20,6 +20,7 @@ import { AddonInstanceStatus } from './model/AddonInstanceStatus';
 import { AddonMetadata } from './model/AddonMetadata';
 import { AddonRisks } from './model/AddonRisks';
 import { AddonTemplate } from './model/AddonTemplate';
+import { AlarmInfo } from './model/AlarmInfo';
 import { AuthenticatingProxy } from './model/AuthenticatingProxy';
 import { Authentication } from './model/Authentication';
 import { AutopilotAuthentication } from './model/AutopilotAuthentication';
@@ -76,6 +77,7 @@ import { ClusterMetadata } from './model/ClusterMetadata';
 import { ClusterMetadataForUpdate } from './model/ClusterMetadataForUpdate';
 import { ClusterNodeInformation } from './model/ClusterNodeInformation';
 import { ClusterNodeInformationMetadata } from './model/ClusterNodeInformationMetadata';
+import { ClusterOps } from './model/ClusterOps';
 import { ClusterSpec } from './model/ClusterSpec';
 import { ClusterStatus } from './model/ClusterStatus';
 import { ClusterUpgradeAction } from './model/ClusterUpgradeAction';
@@ -1826,11 +1828,11 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定
-     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} clusterType 集群类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} clusterVersion 集群版本，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} networkMode 集群网络类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
+     * @param {string} [clusterId] 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6490,9 +6492,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
-            
-            let clusterId;
+            const localVarQueryParameter = {} as any;
             
             let clusterType;
             
@@ -6501,41 +6501,52 @@ export const ParamCreater = function () {
             let networkMode;
             
             let contentType;
+            
+            let clusterId;
 
             if (showClusterSupportConfigurationRequest !== null && showClusterSupportConfigurationRequest !== undefined) {
                 if (showClusterSupportConfigurationRequest instanceof ShowClusterSupportConfigurationRequest) {
-                    clusterId = showClusterSupportConfigurationRequest.clusterId;
                     clusterType = showClusterSupportConfigurationRequest.clusterType;
                     clusterVersion = showClusterSupportConfigurationRequest.clusterVersion;
                     networkMode = showClusterSupportConfigurationRequest.networkMode;
                     contentType = showClusterSupportConfigurationRequest.contentType;
+                    clusterId = showClusterSupportConfigurationRequest.clusterId;
                 } else {
-                    clusterId = showClusterSupportConfigurationRequest['cluster_id'];
                     clusterType = showClusterSupportConfigurationRequest['cluster_type'];
                     clusterVersion = showClusterSupportConfigurationRequest['cluster_version'];
                     networkMode = showClusterSupportConfigurationRequest['network_mode'];
                     contentType = showClusterSupportConfigurationRequest['Content-Type'];
+                    clusterId = showClusterSupportConfigurationRequest['cluster_id'];
                 }
             }
 
         
-            if (clusterId === null || clusterId === undefined) {
-            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterSupportConfiguration.');
-            }
             if (clusterType === null || clusterType === undefined) {
-            throw new RequiredError('clusterType','Required parameter clusterType was null or undefined when calling showClusterSupportConfiguration.');
+                throw new RequiredError('clusterType','Required parameter clusterType was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (clusterType !== null && clusterType !== undefined) {
+                localVarQueryParameter['cluster_type'] = clusterType;
             }
             if (clusterVersion === null || clusterVersion === undefined) {
-            throw new RequiredError('clusterVersion','Required parameter clusterVersion was null or undefined when calling showClusterSupportConfiguration.');
+                throw new RequiredError('clusterVersion','Required parameter clusterVersion was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (clusterVersion !== null && clusterVersion !== undefined) {
+                localVarQueryParameter['cluster_version'] = clusterVersion;
             }
             if (networkMode === null || networkMode === undefined) {
-            throw new RequiredError('networkMode','Required parameter networkMode was null or undefined when calling showClusterSupportConfiguration.');
+                throw new RequiredError('networkMode','Required parameter networkMode was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (networkMode !== null && networkMode !== undefined) {
+                localVarQueryParameter['network_mode'] = networkMode;
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
-            options.pathParams = { 'cluster_id': clusterId,'cluster_type': clusterType,'cluster_version': clusterVersion,'network_mode': networkMode, };
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

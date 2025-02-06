@@ -121,10 +121,12 @@ import { CreateXelLogDownloadResponse } from './model/CreateXelLogDownloadRespon
 import { CreateXelLogDownloadResult } from './model/CreateXelLogDownloadResult';
 import { CustomerCreateInstanceReq } from './model/CustomerCreateInstanceReq';
 import { CustomerModifyAutoEnlargePolicyReq } from './model/CustomerModifyAutoEnlargePolicyReq';
+import { CustomerModifyAutoUpgradePolicyReq } from './model/CustomerModifyAutoUpgradePolicyReq';
 import { CustomerUpgradeDatabaseVersionReq } from './model/CustomerUpgradeDatabaseVersionReq';
 import { CustomerUpgradeDatabaseVersionReqNew } from './model/CustomerUpgradeDatabaseVersionReqNew';
 import { DBSInstanceHostInfoResult } from './model/DBSInstanceHostInfoResult';
 import { DataIpRequest } from './model/DataIpRequest';
+import { DatabaseBackupInfo } from './model/DatabaseBackupInfo';
 import { DatabaseForCreation } from './model/DatabaseForCreation';
 import { DatabaseUserRoleRequest } from './model/DatabaseUserRoleRequest';
 import { DatabaseWithPrivilege } from './model/DatabaseWithPrivilege';
@@ -498,6 +500,8 @@ import { SetAuditlogPolicyRequestBody } from './model/SetAuditlogPolicyRequestBo
 import { SetAuditlogPolicyResponse } from './model/SetAuditlogPolicyResponse';
 import { SetAutoEnlargePolicyRequest } from './model/SetAutoEnlargePolicyRequest';
 import { SetAutoEnlargePolicyResponse } from './model/SetAutoEnlargePolicyResponse';
+import { SetAutoUpgradePolicyRequest } from './model/SetAutoUpgradePolicyRequest';
+import { SetAutoUpgradePolicyResponse } from './model/SetAutoUpgradePolicyResponse';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
 import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
 import { SetBackupPolicyResponse } from './model/SetBackupPolicyResponse';
@@ -539,6 +543,8 @@ import { ShowAuditlogPolicyRequest } from './model/ShowAuditlogPolicyRequest';
 import { ShowAuditlogPolicyResponse } from './model/ShowAuditlogPolicyResponse';
 import { ShowAutoEnlargePolicyRequest } from './model/ShowAutoEnlargePolicyRequest';
 import { ShowAutoEnlargePolicyResponse } from './model/ShowAutoEnlargePolicyResponse';
+import { ShowAutoUpgradePolicyRequest } from './model/ShowAutoUpgradePolicyRequest';
+import { ShowAutoUpgradePolicyResponse } from './model/ShowAutoUpgradePolicyResponse';
 import { ShowAvailableVersionRequest } from './model/ShowAvailableVersionRequest';
 import { ShowAvailableVersionResponse } from './model/ShowAvailableVersionResponse';
 import { ShowBackupDownloadLinkRequest } from './model/ShowBackupDownloadLinkRequest';
@@ -549,6 +555,8 @@ import { ShowBinlogClearPolicyRequest } from './model/ShowBinlogClearPolicyReque
 import { ShowBinlogClearPolicyResponse } from './model/ShowBinlogClearPolicyResponse';
 import { ShowConfigurationRequest } from './model/ShowConfigurationRequest';
 import { ShowConfigurationResponse } from './model/ShowConfigurationResponse';
+import { ShowDatabaseLevelDatabaseRequest } from './model/ShowDatabaseLevelDatabaseRequest';
+import { ShowDatabaseLevelDatabaseResponse } from './model/ShowDatabaseLevelDatabaseResponse';
 import { ShowDnsNameRequest } from './model/ShowDnsNameRequest';
 import { ShowDnsNameResponse } from './model/ShowDnsNameResponse';
 import { ShowDomainNameRequest } from './model/ShowDomainNameRequest';
@@ -1563,6 +1571,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 批量查询容灾实例信息
      * @param {string} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2763,6 +2772,27 @@ export class RdsClient {
     }
 
     /**
+     * 设置实例内核小版本自动升级策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例内核小版本自动升级策略
+     * @param {string} instanceId 实例ID。
+     * @param {CustomerModifyAutoUpgradePolicyReq} setAutoUpgradePolicyRequestBody 请求体
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setAutoUpgradePolicy(setAutoUpgradePolicyRequest?: SetAutoUpgradePolicyRequest): Promise<SetAutoUpgradePolicyResponse> {
+        const options = ParamCreater().setAutoUpgradePolicy(setAutoUpgradePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置自动备份策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2994,6 +3024,26 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例内核小版本自动升级策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例内核小版本自动升级策略
+     * @param {string} instanceId 实例ID。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoUpgradePolicy(showAutoUpgradePolicyRequest?: ShowAutoUpgradePolicyRequest): Promise<ShowAutoUpgradePolicyResponse> {
+        const options = ParamCreater().showAutoUpgradePolicy(showAutoUpgradePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例可升级的目标版本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3085,6 +3135,27 @@ export class RdsClient {
      */
     public showConfiguration(showConfigurationRequest?: ShowConfigurationRequest): Promise<ShowConfigurationResponse> {
         const options = ParamCreater().showConfiguration(showConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询库级备份包含的库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询库级备份包含的库
+     * @param {string} instanceId 实例ID。
+     * @param {string} backupId 备份id
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDatabaseLevelDatabase(showDatabaseLevelDatabaseRequest?: ShowDatabaseLevelDatabaseRequest): Promise<ShowDatabaseLevelDatabaseResponse> {
+        const options = ParamCreater().showDatabaseLevelDatabase(showDatabaseLevelDatabaseRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10726,6 +10797,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置实例内核小版本自动升级策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setAutoUpgradePolicy(setAutoUpgradePolicyRequest?: SetAutoUpgradePolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/db-auto-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setAutoUpgradePolicyRequest !== null && setAutoUpgradePolicyRequest !== undefined) {
+                if (setAutoUpgradePolicyRequest instanceof SetAutoUpgradePolicyRequest) {
+                    instanceId = setAutoUpgradePolicyRequest.instanceId;
+                    body = setAutoUpgradePolicyRequest.body
+                    xLanguage = setAutoUpgradePolicyRequest.xLanguage;
+                } else {
+                    instanceId = setAutoUpgradePolicyRequest['instance_id'];
+                    body = setAutoUpgradePolicyRequest['body'];
+                    xLanguage = setAutoUpgradePolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setAutoUpgradePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置自动备份策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11296,6 +11420,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例内核小版本自动升级策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoUpgradePolicy(showAutoUpgradePolicyRequest?: ShowAutoUpgradePolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/db-auto-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showAutoUpgradePolicyRequest !== null && showAutoUpgradePolicyRequest !== undefined) {
+                if (showAutoUpgradePolicyRequest instanceof ShowAutoUpgradePolicyRequest) {
+                    instanceId = showAutoUpgradePolicyRequest.instanceId;
+                    xLanguage = showAutoUpgradePolicyRequest.xLanguage;
+                } else {
+                    instanceId = showAutoUpgradePolicyRequest['instance_id'];
+                    xLanguage = showAutoUpgradePolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAutoUpgradePolicy.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例可升级的目标版本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11514,6 +11682,61 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询库级备份包含的库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDatabaseLevelDatabase(showDatabaseLevelDatabaseRequest?: ShowDatabaseLevelDatabaseRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/database/db-table-name",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let backupId;
+            
+            let xLanguage;
+
+            if (showDatabaseLevelDatabaseRequest !== null && showDatabaseLevelDatabaseRequest !== undefined) {
+                if (showDatabaseLevelDatabaseRequest instanceof ShowDatabaseLevelDatabaseRequest) {
+                    instanceId = showDatabaseLevelDatabaseRequest.instanceId;
+                    backupId = showDatabaseLevelDatabaseRequest.backupId;
+                    xLanguage = showDatabaseLevelDatabaseRequest.xLanguage;
+                } else {
+                    instanceId = showDatabaseLevelDatabaseRequest['instance_id'];
+                    backupId = showDatabaseLevelDatabaseRequest['backup_id'];
+                    xLanguage = showDatabaseLevelDatabaseRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDatabaseLevelDatabase.');
+            }
+            if (backupId === null || backupId === undefined) {
+                throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling showDatabaseLevelDatabase.');
+            }
+            if (backupId !== null && backupId !== undefined) {
+                localVarQueryParameter['backup_id'] = backupId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
