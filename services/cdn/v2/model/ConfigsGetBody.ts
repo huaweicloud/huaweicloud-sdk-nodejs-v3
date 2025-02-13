@@ -2,6 +2,7 @@ import { AccessAreaFilter } from './AccessAreaFilter';
 import { BrowserCacheRules } from './BrowserCacheRules';
 import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilterGetBody } from './CacheUrlParameterFilterGetBody';
+import { ClientCert } from './ClientCert';
 import { CommonRemoteAuth } from './CommonRemoteAuth';
 import { Compress } from './Compress';
 import { ErrorCodeCache } from './ErrorCodeCache';
@@ -64,6 +65,7 @@ export class ConfigsGetBody {
     private 'request_url_rewrite'?: Array<RequestUrlRewrite>;
     private 'browser_cache_rules'?: Array<BrowserCacheRules>;
     private 'access_area_filter'?: Array<AccessAreaFilter>;
+    private 'client_cert'?: ClientCert;
     public constructor() { 
     }
     public withBusinessType(businessType: string): ConfigsGetBody {
@@ -371,5 +373,15 @@ export class ConfigsGetBody {
     }
     public get accessAreaFilter(): Array<AccessAreaFilter> | undefined {
         return this['access_area_filter'];
+    }
+    public withClientCert(clientCert: ClientCert): ConfigsGetBody {
+        this['client_cert'] = clientCert;
+        return this;
+    }
+    public set clientCert(clientCert: ClientCert  | undefined) {
+        this['client_cert'] = clientCert;
+    }
+    public get clientCert(): ClientCert | undefined {
+        return this['client_cert'];
     }
 }

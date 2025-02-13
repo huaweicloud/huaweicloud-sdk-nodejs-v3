@@ -1,6 +1,7 @@
 export * from './LiveClient';
 
 export * from './model/AppQualityInfo';
+export * from './model/AudioSelectorHlsSelection';
 export * from './model/AudioSelectorLangSelection';
 export * from './model/AudioSelectorPidSelection';
 export * from './model/AudioSelectorSettings';

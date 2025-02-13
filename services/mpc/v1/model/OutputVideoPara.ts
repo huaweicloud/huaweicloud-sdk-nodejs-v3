@@ -10,6 +10,7 @@ export class OutputVideoPara {
     public video?: VideoInfo;
     public audio?: AudioInfo;
     private 'file_name'?: string;
+    private 'manifest_name'?: string;
     private 'conver_duration'?: number;
     public error?: XCodeError;
     public constructor() { 
@@ -49,6 +50,16 @@ export class OutputVideoPara {
     }
     public get fileName(): string | undefined {
         return this['file_name'];
+    }
+    public withManifestName(manifestName: string): OutputVideoPara {
+        this['manifest_name'] = manifestName;
+        return this;
+    }
+    public set manifestName(manifestName: string  | undefined) {
+        this['manifest_name'] = manifestName;
+    }
+    public get manifestName(): string | undefined {
+        return this['manifest_name'];
     }
     public withConverDuration(converDuration: number): OutputVideoPara {
         this['conver_duration'] = converDuration;

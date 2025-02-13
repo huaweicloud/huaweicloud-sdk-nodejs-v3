@@ -1,3 +1,4 @@
+import { AdditionalManifests } from './AdditionalManifests';
 import { AvParameters } from './AvParameters';
 import { ObsObjInfo } from './ObsObjInfo';
 import { PicInfo } from './PicInfo';
@@ -23,6 +24,7 @@ export class QueryTranscodingsTaskResponse {
     private 'thumbnail_outputname'?: string;
     private 'pic_info'?: Array<PicInfo>;
     private 'av_parameters'?: Array<AvParameters>;
+    private 'additional_manifests'?: Array<AdditionalManifests>;
     public constructor() { 
     }
     public withTaskId(taskId: string): QueryTranscodingsTaskResponse {
@@ -168,6 +170,16 @@ export class QueryTranscodingsTaskResponse {
     }
     public get avParameters(): Array<AvParameters> | undefined {
         return this['av_parameters'];
+    }
+    public withAdditionalManifests(additionalManifests: Array<AdditionalManifests>): QueryTranscodingsTaskResponse {
+        this['additional_manifests'] = additionalManifests;
+        return this;
+    }
+    public set additionalManifests(additionalManifests: Array<AdditionalManifests>  | undefined) {
+        this['additional_manifests'] = additionalManifests;
+    }
+    public get additionalManifests(): Array<AdditionalManifests> | undefined {
+        return this['additional_manifests'];
     }
 }
 

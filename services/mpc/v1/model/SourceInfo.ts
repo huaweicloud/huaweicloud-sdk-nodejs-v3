@@ -7,6 +7,7 @@ export class SourceInfo {
     private 'duration_ms'?: number;
     public format?: string;
     public size?: number;
+    private 'manifest_name'?: string;
     private 'video_info'?: VideoInfo;
     private 'audio_info'?: Array<AudioInfo>;
     public constructor() { 
@@ -32,6 +33,16 @@ export class SourceInfo {
     public withSize(size: number): SourceInfo {
         this['size'] = size;
         return this;
+    }
+    public withManifestName(manifestName: string): SourceInfo {
+        this['manifest_name'] = manifestName;
+        return this;
+    }
+    public set manifestName(manifestName: string  | undefined) {
+        this['manifest_name'] = manifestName;
+    }
+    public get manifestName(): string | undefined {
+        return this['manifest_name'];
     }
     public withVideoInfo(videoInfo: VideoInfo): SourceInfo {
         this['video_info'] = videoInfo;

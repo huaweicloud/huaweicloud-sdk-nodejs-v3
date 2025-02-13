@@ -5,6 +5,7 @@ export class VideoAndTemplate {
     public width?: number;
     public height?: number;
     public bitrate?: number;
+    private 'stream_name'?: string;
     public constructor() { 
     }
     public withTemplateId(templateId: number): VideoAndTemplate {
@@ -28,5 +29,15 @@ export class VideoAndTemplate {
     public withBitrate(bitrate: number): VideoAndTemplate {
         this['bitrate'] = bitrate;
         return this;
+    }
+    public withStreamName(streamName: string): VideoAndTemplate {
+        this['stream_name'] = streamName;
+        return this;
+    }
+    public set streamName(streamName: string  | undefined) {
+        this['stream_name'] = streamName;
+    }
+    public get streamName(): string | undefined {
+        return this['stream_name'];
     }
 }

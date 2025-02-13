@@ -13,6 +13,9 @@ export class DashPackageItem {
     private 'ext_args'?: object;
     private 'request_args'?: PackageRequestArgs;
     private 'ad_marker'?: DashPackageItemAdMarkerEnum | string;
+    private 'suggested_presentation_delay'?: number;
+    private 'minimum_update_period'?: number;
+    private 'min_buffer_time'?: number;
     public constructor(url?: string, segmentDurationSeconds?: number) { 
         this['url'] = url;
         this['segment_duration_seconds'] = segmentDurationSeconds;
@@ -88,6 +91,36 @@ export class DashPackageItem {
     }
     public get adMarker(): DashPackageItemAdMarkerEnum | string | undefined {
         return this['ad_marker'];
+    }
+    public withSuggestedPresentationDelay(suggestedPresentationDelay: number): DashPackageItem {
+        this['suggested_presentation_delay'] = suggestedPresentationDelay;
+        return this;
+    }
+    public set suggestedPresentationDelay(suggestedPresentationDelay: number  | undefined) {
+        this['suggested_presentation_delay'] = suggestedPresentationDelay;
+    }
+    public get suggestedPresentationDelay(): number | undefined {
+        return this['suggested_presentation_delay'];
+    }
+    public withMinimumUpdatePeriod(minimumUpdatePeriod: number): DashPackageItem {
+        this['minimum_update_period'] = minimumUpdatePeriod;
+        return this;
+    }
+    public set minimumUpdatePeriod(minimumUpdatePeriod: number  | undefined) {
+        this['minimum_update_period'] = minimumUpdatePeriod;
+    }
+    public get minimumUpdatePeriod(): number | undefined {
+        return this['minimum_update_period'];
+    }
+    public withMinBufferTime(minBufferTime: number): DashPackageItem {
+        this['min_buffer_time'] = minBufferTime;
+        return this;
+    }
+    public set minBufferTime(minBufferTime: number  | undefined) {
+        this['min_buffer_time'] = minBufferTime;
+    }
+    public get minBufferTime(): number | undefined {
+        return this['min_buffer_time'];
     }
 }
 

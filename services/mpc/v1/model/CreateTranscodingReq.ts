@@ -1,3 +1,4 @@
+import { AdditionalManifests } from './AdditionalManifests';
 import { AudioProcess } from './AudioProcess';
 import { AudioTrack } from './AudioTrack';
 import { AvParameters } from './AvParameters';
@@ -16,6 +17,7 @@ export class CreateTranscodingReq {
     public output?: ObsObjInfo;
     private 'trans_template_id'?: Array<number>;
     private 'av_parameters'?: Array<AvParameters>;
+    private 'additional_manifests'?: Array<AdditionalManifests>;
     private 'output_filenames'?: Array<string>;
     private 'user_data'?: string;
     public watermarks?: Array<WatermarkRequest>;
@@ -58,6 +60,16 @@ export class CreateTranscodingReq {
     }
     public get avParameters(): Array<AvParameters> | undefined {
         return this['av_parameters'];
+    }
+    public withAdditionalManifests(additionalManifests: Array<AdditionalManifests>): CreateTranscodingReq {
+        this['additional_manifests'] = additionalManifests;
+        return this;
+    }
+    public set additionalManifests(additionalManifests: Array<AdditionalManifests>  | undefined) {
+        this['additional_manifests'] = additionalManifests;
+    }
+    public get additionalManifests(): Array<AdditionalManifests> | undefined {
+        return this['additional_manifests'];
     }
     public withOutputFilenames(outputFilenames: Array<string>): CreateTranscodingReq {
         this['output_filenames'] = outputFilenames;

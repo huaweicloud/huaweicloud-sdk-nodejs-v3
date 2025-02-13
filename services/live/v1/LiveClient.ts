@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AppQualityInfo } from './model/AppQualityInfo';
+import { AudioSelectorHlsSelection } from './model/AudioSelectorHlsSelection';
 import { AudioSelectorLangSelection } from './model/AudioSelectorLangSelection';
 import { AudioSelectorPidSelection } from './model/AudioSelectorPidSelection';
 import { AudioSelectorSettings } from './model/AudioSelectorSettings';

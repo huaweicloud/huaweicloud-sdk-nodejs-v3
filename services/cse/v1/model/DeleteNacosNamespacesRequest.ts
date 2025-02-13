@@ -3,11 +3,11 @@
 export class DeleteNacosNamespacesRequest {
     private 'x-engine-id'?: string;
     private 'X-Enterprise-Project-ID'?: string;
-    private 'namespace_id'?: string;
+    public namespaceId?: string;
     public constructor(xEngineId?: string, xEnterpriseProjectID?: string, namespaceId?: string) { 
         this['x-engine-id'] = xEngineId;
         this['X-Enterprise-Project-ID'] = xEnterpriseProjectID;
-        this['namespace_id'] = namespaceId;
+        this['namespaceId'] = namespaceId;
     }
     public withXEngineId(xEngineId: string): DeleteNacosNamespacesRequest {
         this['x-engine-id'] = xEngineId;
@@ -30,13 +30,7 @@ export class DeleteNacosNamespacesRequest {
         return this['X-Enterprise-Project-ID'];
     }
     public withNamespaceId(namespaceId: string): DeleteNacosNamespacesRequest {
-        this['namespace_id'] = namespaceId;
+        this['namespaceId'] = namespaceId;
         return this;
-    }
-    public set namespaceId(namespaceId: string  | undefined) {
-        this['namespace_id'] = namespaceId;
-    }
-    public get namespaceId(): string | undefined {
-        return this['namespace_id'];
     }
 }

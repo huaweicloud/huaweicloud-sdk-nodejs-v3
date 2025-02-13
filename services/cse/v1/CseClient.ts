@@ -2618,9 +2618,9 @@ export const ParamCreater = function () {
                 } else {
                     xEngineId = createNacosNamespacesRequest['x-engine-id'];
                     xEnterpriseProjectID = createNacosNamespacesRequest['X-Enterprise-Project-ID'];
-                    customNamespaceId = createNacosNamespacesRequest['custom_namespace_id'];
-                    namespaceName = createNacosNamespacesRequest['namespace_name'];
-                    namespaceDesc = createNacosNamespacesRequest['namespace_desc'];
+                    customNamespaceId = createNacosNamespacesRequest['customNamespaceId'];
+                    namespaceName = createNacosNamespacesRequest['namespaceName'];
+                    namespaceDesc = createNacosNamespacesRequest['namespaceDesc'];
                 }
             }
 
@@ -2629,16 +2629,16 @@ export const ParamCreater = function () {
                 throw new RequiredError('customNamespaceId','Required parameter customNamespaceId was null or undefined when calling createNacosNamespaces.');
             }
             if (customNamespaceId !== null && customNamespaceId !== undefined) {
-                localVarQueryParameter['custom_namespace_id'] = customNamespaceId;
+                localVarQueryParameter['customNamespaceId'] = customNamespaceId;
             }
             if (namespaceName === null || namespaceName === undefined) {
                 throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling createNacosNamespaces.');
             }
             if (namespaceName !== null && namespaceName !== undefined) {
-                localVarQueryParameter['namespace_name'] = namespaceName;
+                localVarQueryParameter['namespaceName'] = namespaceName;
             }
             if (namespaceDesc !== null && namespaceDesc !== undefined) {
-                localVarQueryParameter['namespace_desc'] = namespaceDesc;
+                localVarQueryParameter['namespaceDesc'] = namespaceDesc;
             }
             if (xEngineId !== undefined && xEngineId !== null) {
                 localVarHeaderParameter['x-engine-id'] = String(xEngineId);
@@ -2683,7 +2683,7 @@ export const ParamCreater = function () {
                 } else {
                     xEngineId = deleteNacosNamespacesRequest['x-engine-id'];
                     xEnterpriseProjectID = deleteNacosNamespacesRequest['X-Enterprise-Project-ID'];
-                    namespaceId = deleteNacosNamespacesRequest['namespace_id'];
+                    namespaceId = deleteNacosNamespacesRequest['namespaceId'];
                 }
             }
 
@@ -2692,7 +2692,7 @@ export const ParamCreater = function () {
                 throw new RequiredError('namespaceId','Required parameter namespaceId was null or undefined when calling deleteNacosNamespaces.');
             }
             if (namespaceId !== null && namespaceId !== undefined) {
-                localVarQueryParameter['namespace_id'] = namespaceId;
+                localVarQueryParameter['namespaceId'] = namespaceId;
             }
             if (xEngineId !== undefined && xEngineId !== null) {
                 localVarHeaderParameter['x-engine-id'] = String(xEngineId);
@@ -2808,8 +2808,8 @@ export const ParamCreater = function () {
                     xEngineId = updateNacosNamespacesRequest['x-engine-id'];
                     xEnterpriseProjectID = updateNacosNamespacesRequest['X-Enterprise-Project-ID'];
                     namespace = updateNacosNamespacesRequest['namespace'];
-                    namespaceShowName = updateNacosNamespacesRequest['namespace_show_name'];
-                    namespaceDesc = updateNacosNamespacesRequest['namespace_desc'];
+                    namespaceShowName = updateNacosNamespacesRequest['namespaceShowName'];
+                    namespaceDesc = updateNacosNamespacesRequest['namespaceDesc'];
                 }
             }
 
@@ -2824,13 +2824,13 @@ export const ParamCreater = function () {
                 throw new RequiredError('namespaceShowName','Required parameter namespaceShowName was null or undefined when calling updateNacosNamespaces.');
             }
             if (namespaceShowName !== null && namespaceShowName !== undefined) {
-                localVarQueryParameter['namespace_show_name'] = namespaceShowName;
+                localVarQueryParameter['namespaceShowName'] = namespaceShowName;
             }
             if (namespaceDesc === null || namespaceDesc === undefined) {
                 throw new RequiredError('namespaceDesc','Required parameter namespaceDesc was null or undefined when calling updateNacosNamespaces.');
             }
             if (namespaceDesc !== null && namespaceDesc !== undefined) {
-                localVarQueryParameter['namespace_desc'] = namespaceDesc;
+                localVarQueryParameter['namespaceDesc'] = namespaceDesc;
             }
             if (xEngineId !== undefined && xEngineId !== null) {
                 localVarHeaderParameter['x-engine-id'] = String(xEngineId);

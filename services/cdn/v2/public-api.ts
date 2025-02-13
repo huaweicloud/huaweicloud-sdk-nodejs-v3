@@ -19,6 +19,7 @@ export * from './model/CacheUrlParameterFilterGetBody';
 export * from './model/CdnIps';
 export * from './model/CertificatesGetBody';
 export * from './model/CertificatesPutBody';
+export * from './model/ClientCert';
 export * from './model/CommonRemoteAuth';
 export * from './model/Compress';
 export * from './model/Configs';

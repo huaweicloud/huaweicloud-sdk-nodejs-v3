@@ -1,6 +1,5 @@
 export * from './SmnClient';
 
-export * from './model/AccessPolicy';
 export * from './model/AddSubscriptionFromSubscriptionUserRequest';
 export * from './model/AddSubscriptionFromSubscriptionUserRequestBody';
 export * from './model/AddSubscriptionFromSubscriptionUserResponse';
@@ -129,7 +128,6 @@ export * from './model/ShowHttpDetectResultRequest';
 export * from './model/ShowHttpDetectResultResponse';
 export * from './model/ShowNotifyPolicyRequest';
 export * from './model/ShowNotifyPolicyResponse';
-export * from './model/Statement';
 export * from './model/SubscriptionExtension';
 export * from './model/SubscriptionsFilterPolicy';
 export * from './model/TagMatch';

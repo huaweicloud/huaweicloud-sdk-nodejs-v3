@@ -7,6 +7,7 @@ export class CreateInstanceReq {
     public description?: string;
     public engine?: CreateInstanceReqEngineEnum | string;
     private 'engine_version'?: string;
+    private 'enable_acl'?: boolean;
     private 'storage_space'?: number;
     private 'access_user'?: string;
     public password?: string;
@@ -58,6 +59,16 @@ export class CreateInstanceReq {
     }
     public get engineVersion(): string | undefined {
         return this['engine_version'];
+    }
+    public withEnableAcl(enableAcl: boolean): CreateInstanceReq {
+        this['enable_acl'] = enableAcl;
+        return this;
+    }
+    public set enableAcl(enableAcl: boolean  | undefined) {
+        this['enable_acl'] = enableAcl;
+    }
+    public get enableAcl(): boolean | undefined {
+        return this['enable_acl'];
     }
     public withStorageSpace(storageSpace: number): CreateInstanceReq {
         this['storage_space'] = storageSpace;

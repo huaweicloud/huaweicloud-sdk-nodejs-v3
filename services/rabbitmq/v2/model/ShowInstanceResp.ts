@@ -10,7 +10,11 @@ export class ShowInstanceResp {
     public specification?: string;
     private 'storage_space'?: number;
     private 'used_storage_space'?: number;
+    private 'dns_enable'?: boolean;
     private 'connect_address'?: string;
+    private 'connect_domain_name'?: string;
+    private 'public_connect_address'?: string;
+    private 'public_connect_domain_name'?: string;
     public port?: number;
     public status?: string;
     public description?: string;
@@ -29,6 +33,9 @@ export class ShowInstanceResp {
     private 'publicip_address'?: string;
     private 'publicip_id'?: string;
     private 'management_connect_address'?: string;
+    private 'management_connect_domain_name'?: string;
+    private 'public_management_connect_address'?: string;
+    private 'public_management_connect_domain_name'?: string;
     private 'ssl_enable'?: boolean;
     private 'enterprise_project_id'?: string;
     private 'is_logical_volume'?: boolean;
@@ -39,6 +46,7 @@ export class ShowInstanceResp {
     private 'security_group_name'?: string;
     private 'subnet_id'?: string;
     private 'available_zones'?: Array<string>;
+    private 'available_zone_names'?: Array<string>;
     private 'total_storage_space'?: number;
     private 'storage_resource_id'?: string;
     private 'storage_spec_code'?: string;
@@ -109,6 +117,16 @@ export class ShowInstanceResp {
     public get usedStorageSpace(): number | undefined {
         return this['used_storage_space'];
     }
+    public withDnsEnable(dnsEnable: boolean): ShowInstanceResp {
+        this['dns_enable'] = dnsEnable;
+        return this;
+    }
+    public set dnsEnable(dnsEnable: boolean  | undefined) {
+        this['dns_enable'] = dnsEnable;
+    }
+    public get dnsEnable(): boolean | undefined {
+        return this['dns_enable'];
+    }
     public withConnectAddress(connectAddress: string): ShowInstanceResp {
         this['connect_address'] = connectAddress;
         return this;
@@ -118,6 +136,36 @@ export class ShowInstanceResp {
     }
     public get connectAddress(): string | undefined {
         return this['connect_address'];
+    }
+    public withConnectDomainName(connectDomainName: string): ShowInstanceResp {
+        this['connect_domain_name'] = connectDomainName;
+        return this;
+    }
+    public set connectDomainName(connectDomainName: string  | undefined) {
+        this['connect_domain_name'] = connectDomainName;
+    }
+    public get connectDomainName(): string | undefined {
+        return this['connect_domain_name'];
+    }
+    public withPublicConnectAddress(publicConnectAddress: string): ShowInstanceResp {
+        this['public_connect_address'] = publicConnectAddress;
+        return this;
+    }
+    public set publicConnectAddress(publicConnectAddress: string  | undefined) {
+        this['public_connect_address'] = publicConnectAddress;
+    }
+    public get publicConnectAddress(): string | undefined {
+        return this['public_connect_address'];
+    }
+    public withPublicConnectDomainName(publicConnectDomainName: string): ShowInstanceResp {
+        this['public_connect_domain_name'] = publicConnectDomainName;
+        return this;
+    }
+    public set publicConnectDomainName(publicConnectDomainName: string  | undefined) {
+        this['public_connect_domain_name'] = publicConnectDomainName;
+    }
+    public get publicConnectDomainName(): string | undefined {
+        return this['public_connect_domain_name'];
     }
     public withPort(port: number): ShowInstanceResp {
         this['port'] = port;
@@ -281,6 +329,36 @@ export class ShowInstanceResp {
     public get managementConnectAddress(): string | undefined {
         return this['management_connect_address'];
     }
+    public withManagementConnectDomainName(managementConnectDomainName: string): ShowInstanceResp {
+        this['management_connect_domain_name'] = managementConnectDomainName;
+        return this;
+    }
+    public set managementConnectDomainName(managementConnectDomainName: string  | undefined) {
+        this['management_connect_domain_name'] = managementConnectDomainName;
+    }
+    public get managementConnectDomainName(): string | undefined {
+        return this['management_connect_domain_name'];
+    }
+    public withPublicManagementConnectAddress(publicManagementConnectAddress: string): ShowInstanceResp {
+        this['public_management_connect_address'] = publicManagementConnectAddress;
+        return this;
+    }
+    public set publicManagementConnectAddress(publicManagementConnectAddress: string  | undefined) {
+        this['public_management_connect_address'] = publicManagementConnectAddress;
+    }
+    public get publicManagementConnectAddress(): string | undefined {
+        return this['public_management_connect_address'];
+    }
+    public withPublicManagementConnectDomainName(publicManagementConnectDomainName: string): ShowInstanceResp {
+        this['public_management_connect_domain_name'] = publicManagementConnectDomainName;
+        return this;
+    }
+    public set publicManagementConnectDomainName(publicManagementConnectDomainName: string  | undefined) {
+        this['public_management_connect_domain_name'] = publicManagementConnectDomainName;
+    }
+    public get publicManagementConnectDomainName(): string | undefined {
+        return this['public_management_connect_domain_name'];
+    }
     public withSslEnable(sslEnable: boolean): ShowInstanceResp {
         this['ssl_enable'] = sslEnable;
         return this;
@@ -374,6 +452,16 @@ export class ShowInstanceResp {
     }
     public get availableZones(): Array<string> | undefined {
         return this['available_zones'];
+    }
+    public withAvailableZoneNames(availableZoneNames: Array<string>): ShowInstanceResp {
+        this['available_zone_names'] = availableZoneNames;
+        return this;
+    }
+    public set availableZoneNames(availableZoneNames: Array<string>  | undefined) {
+        this['available_zone_names'] = availableZoneNames;
+    }
+    public get availableZoneNames(): Array<string> | undefined {
+        return this['available_zone_names'];
     }
     public withTotalStorageSpace(totalStorageSpace: number): ShowInstanceResp {
         this['total_storage_space'] = totalStorageSpace;

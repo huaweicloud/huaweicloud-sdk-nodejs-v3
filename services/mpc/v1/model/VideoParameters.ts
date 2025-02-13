@@ -16,6 +16,7 @@ export class VideoParameters {
     public width?: number;
     public height?: number;
     private 'black_cut'?: number;
+    private 'stream_name'?: string;
     public constructor() { 
     }
     public withOutputPolicy(outputPolicy: VideoParametersOutputPolicyEnum | string): VideoParameters {
@@ -109,6 +110,16 @@ export class VideoParameters {
     }
     public get blackCut(): number | undefined {
         return this['black_cut'];
+    }
+    public withStreamName(streamName: string): VideoParameters {
+        this['stream_name'] = streamName;
+        return this;
+    }
+    public set streamName(streamName: string  | undefined) {
+        this['stream_name'] = streamName;
+    }
+    public get streamName(): string | undefined {
+        return this['stream_name'];
     }
 }
 

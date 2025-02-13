@@ -8,6 +8,7 @@ export class MediaDetail {
     public features?: Array<string>;
     private 'origin_para'?: OriginPara;
     private 'output_video_paras'?: Array<OutputVideoPara>;
+    private 'replace_sub_index'?: Array<string>;
     private 'output_thumbnail_para'?: OutputThumbnailPara;
     private 'output_watermark_paras'?: OutputWatermarkPara;
     public constructor() { 
@@ -35,6 +36,16 @@ export class MediaDetail {
     }
     public get outputVideoParas(): Array<OutputVideoPara> | undefined {
         return this['output_video_paras'];
+    }
+    public withReplaceSubIndex(replaceSubIndex: Array<string>): MediaDetail {
+        this['replace_sub_index'] = replaceSubIndex;
+        return this;
+    }
+    public set replaceSubIndex(replaceSubIndex: Array<string>  | undefined) {
+        this['replace_sub_index'] = replaceSubIndex;
+    }
+    public get replaceSubIndex(): Array<string> | undefined {
+        return this['replace_sub_index'];
     }
     public withOutputThumbnailPara(outputThumbnailPara: OutputThumbnailPara): MediaDetail {
         this['output_thumbnail_para'] = outputThumbnailPara;

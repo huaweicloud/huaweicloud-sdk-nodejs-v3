@@ -21,6 +21,7 @@ import { CacheUrlParameterFilterGetBody } from './model/CacheUrlParameterFilterG
 import { CdnIps } from './model/CdnIps';
 import { CertificatesGetBody } from './model/CertificatesGetBody';
 import { CertificatesPutBody } from './model/CertificatesPutBody';
+import { ClientCert } from './model/ClientCert';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Configs } from './model/Configs';

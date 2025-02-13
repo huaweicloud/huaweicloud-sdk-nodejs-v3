@@ -1,3 +1,4 @@
+import { AudioSelectorHlsSelection } from './AudioSelectorHlsSelection';
 import { AudioSelectorLangSelection } from './AudioSelectorLangSelection';
 import { AudioSelectorPidSelection } from './AudioSelectorPidSelection';
 
@@ -5,6 +6,7 @@ import { AudioSelectorPidSelection } from './AudioSelectorPidSelection';
 export class AudioSelectorSettings {
     private 'audio_language_selection'?: AudioSelectorLangSelection;
     private 'audio_pid_selection'?: AudioSelectorPidSelection;
+    private 'audio_hls_selection'?: AudioSelectorHlsSelection;
     public constructor() { 
     }
     public withAudioLanguageSelection(audioLanguageSelection: AudioSelectorLangSelection): AudioSelectorSettings {
@@ -26,5 +28,15 @@ export class AudioSelectorSettings {
     }
     public get audioPidSelection(): AudioSelectorPidSelection | undefined {
         return this['audio_pid_selection'];
+    }
+    public withAudioHlsSelection(audioHlsSelection: AudioSelectorHlsSelection): AudioSelectorSettings {
+        this['audio_hls_selection'] = audioHlsSelection;
+        return this;
+    }
+    public set audioHlsSelection(audioHlsSelection: AudioSelectorHlsSelection  | undefined) {
+        this['audio_hls_selection'] = audioHlsSelection;
+    }
+    public get audioHlsSelection(): AudioSelectorHlsSelection | undefined {
+        return this['audio_hls_selection'];
     }
 }

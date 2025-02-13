@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AdditionalManifests } from './model/AdditionalManifests';
 import { AgenciesTaskReq } from './model/AgenciesTaskReq';
 import { AnimatedGraphicsOutputParam } from './model/AnimatedGraphicsOutputParam';
 import { AnimatedGraphicsTask } from './model/AnimatedGraphicsTask';

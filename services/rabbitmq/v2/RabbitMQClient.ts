@@ -51,6 +51,8 @@ import { DeleteQueueInfoRequest } from './model/DeleteQueueInfoRequest';
 import { DeleteQueueInfoResponse } from './model/DeleteQueueInfoResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
+import { EnableDnsRequest } from './model/EnableDnsRequest';
+import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExchangeDetails } from './model/ExchangeDetails';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesRespAvailableZones } from './model/ListAvailableZonesRespAvailableZones';
@@ -87,6 +89,8 @@ import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
 import { PluginEntity } from './model/PluginEntity';
 import { QueueArguments } from './model/QueueArguments';
 import { QueueDetails } from './model/QueueDetails';
+import { QuotaResourceEntity } from './model/QuotaResourceEntity';
+import { QuotasRespQuotas } from './model/QuotasRespQuotas';
 import { RabbitMQExtendProductInfoEntity } from './model/RabbitMQExtendProductInfoEntity';
 import { RabbitMQExtendProductIosEntity } from './model/RabbitMQExtendProductIosEntity';
 import { RabbitMQExtendProductPropertiesEntity } from './model/RabbitMQExtendProductPropertiesEntity';
@@ -125,6 +129,8 @@ import { ShowMaintainWindowsRequest } from './model/ShowMaintainWindowsRequest';
 import { ShowMaintainWindowsResponse } from './model/ShowMaintainWindowsResponse';
 import { ShowQueueDetailsRequest } from './model/ShowQueueDetailsRequest';
 import { ShowQueueDetailsResponse } from './model/ShowQueueDetailsResponse';
+import { ShowQuotasRequest } from './model/ShowQuotasRequest';
+import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRabbitMqProjectTagsRequest } from './model/ShowRabbitMqProjectTagsRequest';
 import { ShowRabbitMqProjectTagsResponse } from './model/ShowRabbitMqProjectTagsResponse';
 import { ShowRabbitMqTagsRequest } from './model/ShowRabbitMqTagsRequest';
@@ -218,7 +224,7 @@ export class RabbitMQClient {
     }
 
     /**
-     * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc)。
+     * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -317,6 +323,25 @@ export class RabbitMQClient {
     }
 
     /**
+     * 开启RabbitMQ实例域名访问功能后，客户端可以通过域名连接RabbitMQ实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启RabbitMQ实例域名访问能力
+     * @param {string} instanceId 实例ID，从[查询所有实例列表](ListInstancesDetails.xml)获取实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
+        const options = ParamCreater().enableDns(enableDnsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 在创建实例时，需要配置实例所在的可用区ID，可通过该接口查询可用区的ID。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -386,7 +411,7 @@ export class RabbitMQClient {
      * @param {'rabbitmq'} engine 引擎类型：rabbitmq。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。
      * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
@@ -616,7 +641,7 @@ export class RabbitMQClient {
      *
      * @summary 查询可扩容规格列表
      * @param {string} instanceId 实例ID。
-     * @param {'advanced' | 'platinum' | 'dec' | 'exp'} type 产品的类型。   - advanced：专享版   - platinum：铂金版   - dec：专属云版   - exp：体验版
+     * @param {'advanced' | 'platinum' | 'dec' | 'exp'} type 产品的类型。   - advanced：专享版
      * @param {'rabbitmq'} engine 消息引擎的类型。支持的类型为rabbitmq。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -641,6 +666,24 @@ export class RabbitMQClient {
      */
     public showMaintainWindows(showMaintainWindowsRequest?: ShowMaintainWindowsRequest): Promise<ShowMaintainWindowsResponse> {
         const options = ParamCreater().showMaintainWindows();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户最大可以创建的实例个数和已创建的实例个数，以及每个实例最大可以创建标签的个数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看租户配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
+        const options = ParamCreater().showQuotas();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1173,7 +1216,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc)。
+         * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1385,6 +1428,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启RabbitMQ实例域名访问功能后，客户端可以通过域名连接RabbitMQ实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDns(enableDnsRequest?: EnableDnsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/rabbitmq/instances/{instance_id}/dns",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (enableDnsRequest !== null && enableDnsRequest !== undefined) {
+                if (enableDnsRequest instanceof EnableDnsRequest) {
+                    instanceId = enableDnsRequest.instanceId;
+                } else {
+                    instanceId = enableDnsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2131,6 +2211,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/v2/instances/maintain-windows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户最大可以创建的实例个数和已创建的实例个数，以及每个实例最大可以创建标签的个数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuotas() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/quotas",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

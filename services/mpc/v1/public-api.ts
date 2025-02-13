@@ -1,5 +1,6 @@
 export * from './MpcClient';
 
+export * from './model/AdditionalManifests';
 export * from './model/AgenciesTaskReq';
 export * from './model/AnimatedGraphicsOutputParam';
 export * from './model/AnimatedGraphicsTask';

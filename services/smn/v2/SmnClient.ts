@@ -2,7 +2,6 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-import { AccessPolicy } from './model/AccessPolicy';
 import { AddSubscriptionFromSubscriptionUserRequest } from './model/AddSubscriptionFromSubscriptionUserRequest';
 import { AddSubscriptionFromSubscriptionUserRequestBody } from './model/AddSubscriptionFromSubscriptionUserRequestBody';
 import { AddSubscriptionFromSubscriptionUserResponse } from './model/AddSubscriptionFromSubscriptionUserResponse';
@@ -131,7 +130,6 @@ import { ShowHttpDetectResultRequest } from './model/ShowHttpDetectResultRequest
 import { ShowHttpDetectResultResponse } from './model/ShowHttpDetectResultResponse';
 import { ShowNotifyPolicyRequest } from './model/ShowNotifyPolicyRequest';
 import { ShowNotifyPolicyResponse } from './model/ShowNotifyPolicyResponse';
-import { Statement } from './model/Statement';
 import { SubscriptionExtension } from './model/SubscriptionExtension';
 import { SubscriptionsFilterPolicy } from './model/SubscriptionsFilterPolicy';
 import { TagMatch } from './model/TagMatch';
