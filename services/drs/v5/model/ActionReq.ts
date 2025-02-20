@@ -61,5 +61,8 @@ export enum ActionReqActionNameEnum {
     UNBIND_EIP = 'unbind_eip',
     SET_WRITABLE = 'set_writable',
     CLOUD_CONNECTION = 'cloud_connection',
-    SET_READONLY = 'set_readonly'
+    SET_READONLY = 'set_readonly',
+    DIAGNOSIS = 'diagnosis：一键诊断。',
+    START_REPAIR = 'start_repair：开始数据修复。',
+    STOP_REPAIR = 'stop_repair：停止数据修复。'
 }

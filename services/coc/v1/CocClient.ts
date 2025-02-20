@@ -3,15 +3,29 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddScriptModel } from './model/AddScriptModel';
+import { ApplicationInfo } from './model/ApplicationInfo';
+import { ApplicationModelQueryResponseData } from './model/ApplicationModelQueryResponseData';
 import { ApplicationQueryResponseData } from './model/ApplicationQueryResponseData';
 import { AuthorizableTicketBody } from './model/AuthorizableTicketBody';
 import { AuthorizeTicketCommonInfo } from './model/AuthorizeTicketCommonInfo';
 import { AuthorizeTicketInfo } from './model/AuthorizeTicketInfo';
 import { BaseResponse } from './model/BaseResponse';
+import { BatchCreateApplicationViewRequest } from './model/BatchCreateApplicationViewRequest';
+import { BatchCreateApplicationViewRequestBody } from './model/BatchCreateApplicationViewRequestBody';
+import { BatchCreateApplicationViewRequestBodyApplicationList } from './model/BatchCreateApplicationViewRequestBodyApplicationList';
+import { BatchCreateApplicationViewRequestBodyComponentList } from './model/BatchCreateApplicationViewRequestBodyComponentList';
+import { BatchCreateApplicationViewRequestBodyGroupList } from './model/BatchCreateApplicationViewRequestBodyGroupList';
+import { BatchCreateApplicationViewRequestBodySyncRules } from './model/BatchCreateApplicationViewRequestBodySyncRules';
+import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicationViewResponse';
+import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateApplicationViewResponseBody';
+import { BatchListMultiCloudResourceResponseData } from './model/BatchListMultiCloudResourceResponseData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
 import { CocIssuesTicketDetailInfoResponseData } from './model/CocIssuesTicketDetailInfoResponseData';
 import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
+import { ComponentInfo } from './model/ComponentInfo';
+import { CountMultiResourcesRequest } from './model/CountMultiResourcesRequest';
+import { CountMultiResourcesResponse } from './model/CountMultiResourcesResponse';
 import { CreateCocIncidentRequest } from './model/CreateCocIncidentRequest';
 import { CreateCocIncidentResponse } from './model/CreateCocIncidentResponse';
 import { CreateCocIssuesRequest } from './model/CreateCocIssuesRequest';
@@ -54,6 +68,7 @@ import { GetScriptJobStatisticsRequest } from './model/GetScriptJobStatisticsReq
 import { GetScriptJobStatisticsResponse } from './model/GetScriptJobStatisticsResponse';
 import { GetScriptRequest } from './model/GetScriptRequest';
 import { GetScriptResponse } from './model/GetScriptResponse';
+import { GroupInfo } from './model/GroupInfo';
 import { HandleCocIncidentRequest } from './model/HandleCocIncidentRequest';
 import { HandleCocIncidentResponse } from './model/HandleCocIncidentResponse';
 import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentRequest';
@@ -69,6 +84,8 @@ import { JobScriptOrderListPage } from './model/JobScriptOrderListPage';
 import { JobScriptOrderListProp } from './model/JobScriptOrderListProp';
 import { JobScriptOrderOperationBody } from './model/JobScriptOrderOperationBody';
 import { JobScriptOrderStatisticsModel } from './model/JobScriptOrderStatisticsModel';
+import { ListApplicationModelRequest } from './model/ListApplicationModelRequest';
+import { ListApplicationModelResponse } from './model/ListApplicationModelResponse';
 import { ListApplicationsRequest } from './model/ListApplicationsRequest';
 import { ListApplicationsResponse } from './model/ListApplicationsResponse';
 import { ListAuthorizableTicketsExternalRequest } from './model/ListAuthorizableTicketsExternalRequest';
@@ -80,6 +97,8 @@ import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOpe
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
 import { ListInstanceCompliantRequest } from './model/ListInstanceCompliantRequest';
 import { ListInstanceCompliantResponse } from './model/ListInstanceCompliantResponse';
+import { ListMultiCloudResourcesRequest } from './model/ListMultiCloudResourcesRequest';
+import { ListMultiCloudResourcesResponse } from './model/ListMultiCloudResourcesResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
 import { ListResourceRequest } from './model/ListResourceRequest';
@@ -106,6 +125,7 @@ import { PublicScriptPropertiesModel } from './model/PublicScriptPropertiesModel
 import { ReportCustomEventRequestBody } from './model/ReportCustomEventRequestBody';
 import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceInstanceProp } from './model/ResourceInstanceProp';
+import { ResourceMultiCountResponseData } from './model/ResourceMultiCountResponseData';
 import { ReviewerInfo } from './model/ReviewerInfo';
 import { ScheduleGroupInfo } from './model/ScheduleGroupInfo';
 import { ScriptDetailModel } from './model/ScriptDetailModel';
@@ -172,6 +192,48 @@ export class CocClient {
      */
     public listApplications(listApplicationsRequest?: ListApplicationsRequest): Promise<ListApplicationsResponse> {
         const options = ParamCreater().listApplications(listApplicationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询下一级的子应用、组件、分组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询下一级的子应用、组件、分组
+     * @param {string} [applicationId] 应用id
+     * @param {string} [componentId] 组件id
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，上一页请求最后一个id
+     * @param {number} [pageNo] 分页页码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApplicationModel(listApplicationModelRequest?: ListApplicationModelRequest): Promise<ListApplicationModelResponse> {
+        const options = ParamCreater().listApplicationModel(listApplicationModelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量创建应用视图
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建应用视图
+     * @param {BatchCreateApplicationViewRequestBody} [batchCreateApplicationViewRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest): Promise<BatchCreateApplicationViewResponse> {
+        const options = ParamCreater().batchCreateApplicationView(batchCreateApplicationViewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -408,6 +470,53 @@ export class CocClient {
      */
     public listAuthorizableTicketsExternal(listAuthorizableTicketsExternalRequest?: ListAuthorizableTicketsExternalRequest): Promise<ListAuthorizableTicketsExternalResponse> {
         const options = ParamCreater().listAuthorizableTicketsExternal(listAuthorizableTicketsExternalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户在云厂商中的资源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户在云厂商中的资源
+     * @param {string} vendor 云厂商
+     * @param {number} limit 最大的返回数量
+     * @param {string} [type] 资源类型
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {Array<string>} [resourceIdList] 资源id列表
+     * @param {Array<string>} [nameList] 资源名称
+     * @param {Array<string>} [regionIdList] region id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMultiCloudResources(listMultiCloudResourcesRequest?: ListMultiCloudResourcesRequest): Promise<ListMultiCloudResourcesResponse> {
+        const options = ParamCreater().listMultiCloudResources(listMultiCloudResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户各种资源总数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户各种资源总数
+     * @param {string} vendor 厂商来源（默认RMS，可填RMS/ALI/AWS）
+     * @param {string} [viewId] 视图 id，视图模式下必填
+     * @param {boolean} [isResource] 是否为资源模块
+     * @param {string} [regionId] 区域 id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countMultiResources(countMultiResourcesRequest?: CountMultiResourcesRequest): Promise<CountMultiResourcesResponse> {
+        const options = ParamCreater().countMultiResources(countMultiResourcesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -984,6 +1093,106 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询下一级的子应用、组件、分组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApplicationModel(listApplicationModelRequest?: ListApplicationModelRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/application-model/next",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let applicationId;
+            
+            let componentId;
+            
+            let limit;
+            
+            let marker;
+            
+            let pageNo;
+
+            if (listApplicationModelRequest !== null && listApplicationModelRequest !== undefined) {
+                if (listApplicationModelRequest instanceof ListApplicationModelRequest) {
+                    applicationId = listApplicationModelRequest.applicationId;
+                    componentId = listApplicationModelRequest.componentId;
+                    limit = listApplicationModelRequest.limit;
+                    marker = listApplicationModelRequest.marker;
+                    pageNo = listApplicationModelRequest.pageNo;
+                } else {
+                    applicationId = listApplicationModelRequest['application_id'];
+                    componentId = listApplicationModelRequest['component_id'];
+                    limit = listApplicationModelRequest['limit'];
+                    marker = listApplicationModelRequest['marker'];
+                    pageNo = listApplicationModelRequest['page_no'];
+                }
+            }
+
+        
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量创建应用视图
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/application-view/batch-create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchCreateApplicationViewRequest !== null && batchCreateApplicationViewRequest !== undefined) {
+                if (batchCreateApplicationViewRequest instanceof BatchCreateApplicationViewRequest) {
+                    body = batchCreateApplicationViewRequest.body
+                } else {
+                    body = batchCreateApplicationViewRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1588,6 +1797,152 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户在云厂商中的资源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMultiCloudResources(listMultiCloudResourcesRequest?: ListMultiCloudResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/multicloud-resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vendor;
+            
+            let limit;
+            
+            let type;
+            
+            let marker;
+            
+            let resourceIdList;
+            
+            let nameList;
+            
+            let regionIdList;
+
+            if (listMultiCloudResourcesRequest !== null && listMultiCloudResourcesRequest !== undefined) {
+                if (listMultiCloudResourcesRequest instanceof ListMultiCloudResourcesRequest) {
+                    vendor = listMultiCloudResourcesRequest.vendor;
+                    limit = listMultiCloudResourcesRequest.limit;
+                    type = listMultiCloudResourcesRequest.type;
+                    marker = listMultiCloudResourcesRequest.marker;
+                    resourceIdList = listMultiCloudResourcesRequest.resourceIdList;
+                    nameList = listMultiCloudResourcesRequest.nameList;
+                    regionIdList = listMultiCloudResourcesRequest.regionIdList;
+                } else {
+                    vendor = listMultiCloudResourcesRequest['vendor'];
+                    limit = listMultiCloudResourcesRequest['limit'];
+                    type = listMultiCloudResourcesRequest['type'];
+                    marker = listMultiCloudResourcesRequest['marker'];
+                    resourceIdList = listMultiCloudResourcesRequest['resource_id_list'];
+                    nameList = listMultiCloudResourcesRequest['name_list'];
+                    regionIdList = listMultiCloudResourcesRequest['region_id_list'];
+                }
+            }
+
+        
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling listMultiCloudResources.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listMultiCloudResources.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (nameList !== null && nameList !== undefined) {
+                localVarQueryParameter['name_list'] = nameList;
+            }
+            if (regionIdList !== null && regionIdList !== undefined) {
+                localVarQueryParameter['region_id_list'] = regionIdList;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户各种资源总数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countMultiResources(countMultiResourcesRequest?: CountMultiResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resources/multi-count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vendor;
+            
+            let viewId;
+            
+            let isResource;
+            
+            let regionId;
+
+            if (countMultiResourcesRequest !== null && countMultiResourcesRequest !== undefined) {
+                if (countMultiResourcesRequest instanceof CountMultiResourcesRequest) {
+                    vendor = countMultiResourcesRequest.vendor;
+                    viewId = countMultiResourcesRequest.viewId;
+                    isResource = countMultiResourcesRequest.isResource;
+                    regionId = countMultiResourcesRequest.regionId;
+                } else {
+                    vendor = countMultiResourcesRequest['vendor'];
+                    viewId = countMultiResourcesRequest['view_id'];
+                    isResource = countMultiResourcesRequest['is_resource'];
+                    regionId = countMultiResourcesRequest['region_id'];
+                }
+            }
+
+        
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling countMultiResources.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (viewId !== null && viewId !== undefined) {
+                localVarQueryParameter['view_id'] = viewId;
+            }
+            if (isResource !== null && isResource !== undefined) {
+                localVarQueryParameter['is_resource'] = isResource;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

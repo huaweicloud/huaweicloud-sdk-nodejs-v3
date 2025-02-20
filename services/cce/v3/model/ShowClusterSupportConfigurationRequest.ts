@@ -6,10 +6,7 @@ export class ShowClusterSupportConfigurationRequest {
     private 'cluster_version'?: string;
     private 'network_mode'?: string;
     private 'Content-Type'?: string;
-    public constructor(clusterType?: string, clusterVersion?: string, networkMode?: string, contentType?: string) { 
-        this['cluster_type'] = clusterType;
-        this['cluster_version'] = clusterVersion;
-        this['network_mode'] = networkMode;
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
     public withClusterId(clusterId: string): ShowClusterSupportConfigurationRequest {

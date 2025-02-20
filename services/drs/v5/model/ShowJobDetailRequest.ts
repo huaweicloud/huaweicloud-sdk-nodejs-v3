@@ -154,7 +154,12 @@ export enum ShowJobDetailRequestTypeEnum {
     COMPARE = 'compare',
     FILE = 'file',
     IS_WRITABLE = 'is_writable',
-    CLOUD_CONNECTION = 'cloud_connection'
+    CLOUD_CONNECTION = 'cloud_connection',
+    DIAGNOSIS = 'diagnosis',
+    DIAGNOSIS_HISTORY = 'diagnosis_history',
+    REPAIR_PROGRESS = 'repair_progress',
+    REPAIR_DETAIL = 'repair_detail',
+    REPAIR_EXPORT_STATUS = 'repair_export_status'
 }
 /**
     * @export

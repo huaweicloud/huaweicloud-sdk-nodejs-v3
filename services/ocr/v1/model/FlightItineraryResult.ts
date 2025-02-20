@@ -26,6 +26,7 @@ export class FlightItineraryResult {
     private 'number'?: string;
     private 'international_flag'?: string;
     private 'issue_status'?: string;
+    private 'gp_number'?: string;
     private 'itinerary_list'?: Array<ItineraryList>;
     public confidence?: object;
     public constructor() { 
@@ -245,6 +246,16 @@ export class FlightItineraryResult {
     }
     public get issueStatus(): string | undefined {
         return this['issue_status'];
+    }
+    public withGpNumber(gpNumber: string): FlightItineraryResult {
+        this['gp_number'] = gpNumber;
+        return this;
+    }
+    public set gpNumber(gpNumber: string  | undefined) {
+        this['gp_number'] = gpNumber;
+    }
+    public get gpNumber(): string | undefined {
+        return this['gp_number'];
     }
     public withItineraryList(itineraryList: Array<ItineraryList>): FlightItineraryResult {
         this['itinerary_list'] = itineraryList;

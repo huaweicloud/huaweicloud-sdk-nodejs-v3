@@ -5,6 +5,8 @@ import FormData from 'form-data';
 
 import { ActionBaseResp } from './model/ActionBaseResp';
 import { ActionParams } from './model/ActionParams';
+import { ActionParamsRepairInfo } from './model/ActionParamsRepairInfo';
+import { ActionParamsRepairInfoObjects } from './model/ActionParamsRepairInfoObjects';
 import { ActionReq } from './model/ActionReq';
 import { AddColumnInfo } from './model/AddColumnInfo';
 import { AgencyRole } from './model/AgencyRole';
@@ -147,6 +149,8 @@ import { JobActionReq } from './model/JobActionReq';
 import { JobActions } from './model/JobActions';
 import { JobBaseInfo } from './model/JobBaseInfo';
 import { JobDetailResp } from './model/JobDetailResp';
+import { JobDetailRespRepairProgressInfo } from './model/JobDetailRespRepairProgressInfo';
+import { JobDetailRespRepairProgressInfoRepairProgressDetails } from './model/JobDetailRespRepairProgressInfoRepairProgressDetails';
 import { JobEndpointInfo } from './model/JobEndpointInfo';
 import { JobLinkResp } from './model/JobLinkResp';
 import { JobListResp } from './model/JobListResp';
@@ -217,11 +221,18 @@ import { PublicIpConfig } from './model/PublicIpConfig';
 import { QueryColumnInfo } from './model/QueryColumnInfo';
 import { QueryColumnReq } from './model/QueryColumnReq';
 import { QueryDbPositionReq } from './model/QueryDbPositionReq';
+import { QueryDiagnosisResult } from './model/QueryDiagnosisResult';
+import { QueryDiagnosisResultDiagnosisResults } from './model/QueryDiagnosisResultDiagnosisResults';
+import { QueryDiagnosisResultItem } from './model/QueryDiagnosisResultItem';
+import { QueryDiagnosisResultResultList } from './model/QueryDiagnosisResultResultList';
+import { QueryDiagnosisResultSuggestionList } from './model/QueryDiagnosisResultSuggestionList';
 import { QueryInstanceByTagReq } from './model/QueryInstanceByTagReq';
 import { QueryMetricResult } from './model/QueryMetricResult';
 import { QueryMigrationObjectProgressInfo } from './model/QueryMigrationObjectProgressInfo';
 import { QueryNetworkResult } from './model/QueryNetworkResult';
 import { QueryPreCheckResult } from './model/QueryPreCheckResult';
+import { QueryRepairDetailResp } from './model/QueryRepairDetailResp';
+import { QueryRepairDetailRespRepairDetails } from './model/QueryRepairDetailRespRepairDetails';
 import { QuerySelectObjectInfoReq } from './model/QuerySelectObjectInfoReq';
 import { QueryUserSelectedObjectInfoReq } from './model/QueryUserSelectedObjectInfoReq';
 import { ReplayConfigInfo } from './model/ReplayConfigInfo';
@@ -291,6 +302,8 @@ import { ShowReplicationJobRequest } from './model/ShowReplicationJobRequest';
 import { ShowReplicationJobResponse } from './model/ShowReplicationJobResponse';
 import { ShowSupportObjectTypeRequest } from './model/ShowSupportObjectTypeRequest';
 import { ShowSupportObjectTypeResponse } from './model/ShowSupportObjectTypeResponse';
+import { ShowTimelineRequest } from './model/ShowTimelineRequest';
+import { ShowTimelineResponse } from './model/ShowTimelineResponse';
 import { ShowUpdateObjectSavingStatusRequest } from './model/ShowUpdateObjectSavingStatusRequest';
 import { ShowUpdateObjectSavingStatusResponse } from './model/ShowUpdateObjectSavingStatusResponse';
 import { SingleCreateJobReq } from './model/SingleCreateJobReq';
@@ -312,6 +325,7 @@ import { Tag } from './model/Tag';
 import { TagMatch } from './model/TagMatch';
 import { TargetRootDb } from './model/TargetRootDb';
 import { TaskLogInfo } from './model/TaskLogInfo';
+import { TimelineInfo } from './model/TimelineInfo';
 import { ToPeriodReq } from './model/ToPeriodReq';
 import { TuningParamInfo } from './model/TuningParamInfo';
 import { TuningParameter } from './model/TuningParameter';
@@ -1826,7 +1840,7 @@ export class DrsClient {
      *
      * @summary 查询任务详情
      * @param {string} jobId 任务ID。
-     * @param {'overview' | 'detail' | 'network' | 'precheck' | 'progress' | 'log' | 'compare' | 'file' | 'is_writable' | 'cloud_connection'} type 任务详情类型。取值： - overview：任务概览信息。 - detail：任务基本信息。 - network：测试连接结果信息，需配合query_id参数一起查询。 - precheck：预检查结果信息，需配合query_id参数一起查询。 - progress：任务进度信息。 - log：任务日志信息，支持分页查询参数offset与limit。 - compare：查询对比任务。 - file：对象导入信息。 - is_writable：目标库解除只读结果。 - cloud_connection：录制回放他云连通性测试，需配合query_id参数一起查询。
+     * @param {'overview' | 'detail' | 'network' | 'precheck' | 'progress' | 'log' | 'compare' | 'file' | 'is_writable' | 'cloud_connection' | 'diagnosis' | 'diagnosis_history' | 'repair_progress' | 'repair_detail' | 'repair_export_status'} type 任务详情类型。取值： - overview：任务概览信息。 - detail：任务基本信息。 - network：测试连接结果信息，需配合query_id参数一起查询。 - precheck：预检查结果信息，需配合query_id参数一起查询。 - progress：任务进度信息。 - log：任务日志信息，支持分页查询参数offset与limit。 - compare：查询对比任务。 - file：对象导入信息。 - is_writable：目标库解除只读结果。 - cloud_connection：录制回放他云连通性测试，需配合query_id参数一起查询。 - diagnosis：查询一键诊断结果，需配合query_id参数一起查询。 - diagnosis_history：查询一键诊断结果历史，需配合query_id参数一起查询。 - repair_progress：数据修复进度，需配合query_id参数一起查询。 - repair_detail：数据修复详情，需配合query_id参数一起查询。 - repair_export_status：查询数据修复SQL导出状态，需配合compare_task_id参数一起查询。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {string} [queryId] 通过指定Query ID查询任务详情。  说明：部分type类型的任务详情，需要通过触发该操作的请求返回的query_id进行操作结果查询。
      * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。  说明：部分type类型的任务详情支持分页查询，可以通过传递该参数进行分页控制。
@@ -2024,6 +2038,28 @@ export class DrsClient {
      */
     public showSupportObjectType(showSupportObjectTypeRequest?: ShowSupportObjectTypeRequest): Promise<ShowSupportObjectTypeResponse> {
         const options = ParamCreater().showSupportObjectType(showSupportObjectTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 指定不同的任务ID可以展示当前任务创建时间、启动时间、重试、重置等操作的时间轴信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 展示时间轴
+     * @param {string} jobId 任务ID。
+     * @param {string} xLanguage 请求语言类型。
+     * @param {number} [limit] 每页显示的条目数量。默认为10，取值范围【1-1000】
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset 大于等于 0。默认为0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTimeline(showTimelineRequest?: ShowTimelineRequest): Promise<ShowTimelineResponse> {
+        const options = ParamCreater().showTimeline(showTimelineRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6809,6 +6845,65 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 指定不同的任务ID可以展示当前任务创建时间、启动时间、重试、重置等操作的时间轴信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTimeline(showTimelineRequest?: ShowTimelineRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/timelines",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+
+            if (showTimelineRequest !== null && showTimelineRequest !== undefined) {
+                if (showTimelineRequest instanceof ShowTimelineRequest) {
+                    jobId = showTimelineRequest.jobId;
+                    xLanguage = showTimelineRequest.xLanguage;
+                    limit = showTimelineRequest.limit;
+                    offset = showTimelineRequest.offset;
+                } else {
+                    jobId = showTimelineRequest['job_id'];
+                    xLanguage = showTimelineRequest['X-Language'];
+                    limit = showTimelineRequest['limit'];
+                    offset = showTimelineRequest['offset'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showTimeline.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;

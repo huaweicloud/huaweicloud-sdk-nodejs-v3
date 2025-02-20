@@ -1,15 +1,15 @@
 
 
 export class ClientCert {
-    public validation?: number;
+    public status?: string;
     private 'trusted_cert'?: string;
     public hosts?: string;
-    public constructor(validation?: number, trustedCert?: string) { 
-        this['validation'] = validation;
+    public constructor(status?: string, trustedCert?: string) { 
+        this['status'] = status;
         this['trusted_cert'] = trustedCert;
     }
-    public withValidation(validation: number): ClientCert {
-        this['validation'] = validation;
+    public withStatus(status: string): ClientCert {
+        this['status'] = status;
         return this;
     }
     public withTrustedCert(trustedCert: string): ClientCert {

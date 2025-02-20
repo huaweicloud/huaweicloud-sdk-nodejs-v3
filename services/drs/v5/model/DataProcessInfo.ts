@@ -16,6 +16,7 @@ export class DataProcessInfo {
     private 'db_object'?: DbObject;
     private 'is_synchronized'?: boolean;
     public source?: DataProcessInfoSourceEnum | string;
+    private 'process_rule_level'?: DataProcessInfoProcessRuleLevelEnum | string;
     public constructor() { 
     }
     public withFilterConditions(filterConditions: Array<DataFilteringCondition>): DataProcessInfo {
@@ -112,6 +113,16 @@ export class DataProcessInfo {
         this['source'] = source;
         return this;
     }
+    public withProcessRuleLevel(processRuleLevel: DataProcessInfoProcessRuleLevelEnum | string): DataProcessInfo {
+        this['process_rule_level'] = processRuleLevel;
+        return this;
+    }
+    public set processRuleLevel(processRuleLevel: DataProcessInfoProcessRuleLevelEnum | string  | undefined) {
+        this['process_rule_level'] = processRuleLevel;
+    }
+    public get processRuleLevel(): DataProcessInfoProcessRuleLevelEnum | string | undefined {
+        return this['process_rule_level'];
+    }
 }
 
 /**
@@ -121,4 +132,12 @@ export class DataProcessInfo {
 export enum DataProcessInfoSourceEnum {
     JOB = 'job',
     COMPARE = 'compare'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DataProcessInfoProcessRuleLevelEnum {
+    TABLE = 'table',
+    COMBINATIONS = 'combinations'
 }

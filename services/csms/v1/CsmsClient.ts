@@ -7,6 +7,8 @@ import { Agency } from './model/Agency';
 import { BatchCreateOrDeleteTagsRequest } from './model/BatchCreateOrDeleteTagsRequest';
 import { BatchCreateOrDeleteTagsRequestBody } from './model/BatchCreateOrDeleteTagsRequestBody';
 import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTagsResponse';
+import { BatchImportSecretsRequest } from './model/BatchImportSecretsRequest';
+import { BatchImportSecretsResponse } from './model/BatchImportSecretsResponse';
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyRequestBody } from './model/CreateAgencyRequestBody';
 import { CreateAgencyResponse } from './model/CreateAgencyResponse';
@@ -40,6 +42,7 @@ import { DeleteSecretTagRequest } from './model/DeleteSecretTagRequest';
 import { DeleteSecretTagResponse } from './model/DeleteSecretTagResponse';
 import { DownloadSecretBlobRequest } from './model/DownloadSecretBlobRequest';
 import { DownloadSecretBlobResponse } from './model/DownloadSecretBlobResponse';
+import { ErrorInfo } from './model/ErrorInfo';
 import { Event } from './model/Event';
 import { GenerateRandomPasswordRequest } from './model/GenerateRandomPasswordRequest';
 import { GenerateRandomPasswordResponse } from './model/GenerateRandomPasswordResponse';
@@ -47,6 +50,7 @@ import { GrantDTO } from './model/GrantDTO';
 import { GrantData } from './model/GrantData';
 import { GrantSecretReqBody } from './model/GrantSecretReqBody';
 import { GrantUserInfo } from './model/GrantUserInfo';
+import { ImportSecretsRequest } from './model/ImportSecretsRequest';
 import { ListGrantsRequest } from './model/ListGrantsRequest';
 import { ListGrantsResponse } from './model/ListGrantsResponse';
 import { ListNotificationRecordsRequest } from './model/ListNotificationRecordsRequest';
@@ -89,6 +93,8 @@ import { ShowSecretStageRequest } from './model/ShowSecretStageRequest';
 import { ShowSecretStageResponse } from './model/ShowSecretStageResponse';
 import { ShowSecretVersionRequest } from './model/ShowSecretVersionRequest';
 import { ShowSecretVersionResponse } from './model/ShowSecretVersionResponse';
+import { ShowUserDetailRequest } from './model/ShowUserDetailRequest';
+import { ShowUserDetailResponse } from './model/ShowUserDetailResponse';
 import { Stage } from './model/Stage';
 import { SysTag } from './model/SysTag';
 import { Tag } from './model/Tag';
@@ -146,6 +152,25 @@ export class CsmsClient {
      */
     public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<BatchCreateOrDeleteTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量导入凭据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量导入凭据
+     * @param {ImportSecretsRequest} importSecretsRequest 创建批量凭据请求消息体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchImportSecrets(batchImportSecretsRequest?: BatchImportSecretsRequest): Promise<BatchImportSecretsResponse> {
+        const options = ParamCreater().batchImportSecrets(batchImportSecretsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -787,6 +812,25 @@ export class CsmsClient {
     }
 
     /**
+     * 根据用户id查询用户详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取用户详情
+     * @param {string} userId 用户id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUserDetail(showUserDetailRequest?: ShowUserDetailRequest): Promise<ShowUserDetailResponse> {
+        const options = ParamCreater().showUserDetail(showUserDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新授权
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -953,6 +997,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_id': secretId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量导入凭据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchImportSecrets(batchImportSecretsRequest?: BatchImportSecretsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/secrets/batch-import",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchImportSecretsRequest !== null && batchImportSecretsRequest !== undefined) {
+                if (batchImportSecretsRequest instanceof BatchImportSecretsRequest) {
+                    body = batchImportSecretsRequest.body
+                } else {
+                    body = batchImportSecretsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2303,6 +2385,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'secret_name': secretName,'version_id': versionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据用户id查询用户详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUserDetail(showUserDetailRequest?: ShowUserDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/csms/users/{user_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let userId;
+
+            if (showUserDetailRequest !== null && showUserDetailRequest !== undefined) {
+                if (showUserDetailRequest instanceof ShowUserDetailRequest) {
+                    userId = showUserDetailRequest.userId;
+                } else {
+                    userId = showUserDetailRequest['user_id'];
+                }
+            }
+
+        
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUserDetail.');
+            }
+
+            options.pathParams = { 'user_id': userId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

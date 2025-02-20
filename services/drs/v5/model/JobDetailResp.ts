@@ -4,16 +4,19 @@ import { ConnectionManagement } from './ConnectionManagement';
 import { DbParamInfo } from './DbParamInfo';
 import { FailedToBindEipChildInfo } from './FailedToBindEipChildInfo';
 import { JobBaseInfo } from './JobBaseInfo';
+import { JobDetailRespRepairProgressInfo } from './JobDetailRespRepairProgressInfo';
 import { JobEndpointInfo } from './JobEndpointInfo';
 import { JobNodeInfo } from './JobNodeInfo';
 import { JobProgressInfo } from './JobProgressInfo';
 import { PeriodOrderInfo } from './PeriodOrderInfo';
 import { PolicyConfig } from './PolicyConfig';
 import { PublicIpConfig } from './PublicIpConfig';
+import { QueryDiagnosisResult } from './QueryDiagnosisResult';
 import { QueryMetricResult } from './QueryMetricResult';
 import { QueryMigrationObjectProgressInfo } from './QueryMigrationObjectProgressInfo';
 import { QueryNetworkResult } from './QueryNetworkResult';
 import { QueryPreCheckResult } from './QueryPreCheckResult';
+import { QueryRepairDetailResp } from './QueryRepairDetailResp';
 import { SpeedLimitInfo } from './SpeedLimitInfo';
 import { SupportImportFileResult } from './SupportImportFileResult';
 import { TaskLogInfo } from './TaskLogInfo';
@@ -53,6 +56,10 @@ export class JobDetailResp {
     private 'bind_public_ip_state'?: string;
     public children?: Array<FailedToBindEipChildInfo>;
     private 'is_writable'?: JobDetailRespIsWritableEnum | string;
+    public diagnoses?: Array<QueryDiagnosisResult>;
+    private 'repair_progress_info'?: JobDetailRespRepairProgressInfo;
+    private 'repair_detail_info'?: QueryRepairDetailResp;
+    private 'repair_export_status'?: string;
     public constructor() { 
     }
     public withId(id: string): JobDetailResp {
@@ -334,6 +341,40 @@ export class JobDetailResp {
     }
     public get isWritable(): JobDetailRespIsWritableEnum | string | undefined {
         return this['is_writable'];
+    }
+    public withDiagnoses(diagnoses: Array<QueryDiagnosisResult>): JobDetailResp {
+        this['diagnoses'] = diagnoses;
+        return this;
+    }
+    public withRepairProgressInfo(repairProgressInfo: JobDetailRespRepairProgressInfo): JobDetailResp {
+        this['repair_progress_info'] = repairProgressInfo;
+        return this;
+    }
+    public set repairProgressInfo(repairProgressInfo: JobDetailRespRepairProgressInfo  | undefined) {
+        this['repair_progress_info'] = repairProgressInfo;
+    }
+    public get repairProgressInfo(): JobDetailRespRepairProgressInfo | undefined {
+        return this['repair_progress_info'];
+    }
+    public withRepairDetailInfo(repairDetailInfo: QueryRepairDetailResp): JobDetailResp {
+        this['repair_detail_info'] = repairDetailInfo;
+        return this;
+    }
+    public set repairDetailInfo(repairDetailInfo: QueryRepairDetailResp  | undefined) {
+        this['repair_detail_info'] = repairDetailInfo;
+    }
+    public get repairDetailInfo(): QueryRepairDetailResp | undefined {
+        return this['repair_detail_info'];
+    }
+    public withRepairExportStatus(repairExportStatus: string): JobDetailResp {
+        this['repair_export_status'] = repairExportStatus;
+        return this;
+    }
+    public set repairExportStatus(repairExportStatus: string  | undefined) {
+        this['repair_export_status'] = repairExportStatus;
+    }
+    public get repairExportStatus(): string | undefined {
+        return this['repair_export_status'];
     }
 }
 

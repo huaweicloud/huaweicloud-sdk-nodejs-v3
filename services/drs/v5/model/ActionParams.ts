@@ -1,3 +1,4 @@
+import { ActionParamsRepairInfo } from './ActionParamsRepairInfo';
 import { CompareTaskParams } from './CompareTaskParams';
 import { JobEndpointInfo } from './JobEndpointInfo';
 import { PublicIpConfig } from './PublicIpConfig';
@@ -17,6 +18,7 @@ export class ActionParams {
     private 'force_delete'?: boolean;
     private 'public_ip_config'?: PublicIpConfig;
     private 'replay_config'?: ReplayConfigInfo;
+    private 'repair_info'?: ActionParamsRepairInfo;
     public constructor() { 
     }
     public withEndpoints(endpoints: Array<JobEndpointInfo>): ActionParams {
@@ -122,5 +124,15 @@ export class ActionParams {
     }
     public get replayConfig(): ReplayConfigInfo | undefined {
         return this['replay_config'];
+    }
+    public withRepairInfo(repairInfo: ActionParamsRepairInfo): ActionParams {
+        this['repair_info'] = repairInfo;
+        return this;
+    }
+    public set repairInfo(repairInfo: ActionParamsRepairInfo  | undefined) {
+        this['repair_info'] = repairInfo;
+    }
+    public get repairInfo(): ActionParamsRepairInfo | undefined {
+        return this['repair_info'];
     }
 }
