@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AgencyAuthorizeInfo } from './model/AgencyAuthorizeInfo';
+import { AgencyAuthorizeInfoRsp } from './model/AgencyAuthorizeInfoRsp';
 import { AuthorizeCsmsAndKmsRequestBody } from './model/AuthorizeCsmsAndKmsRequestBody';
 import { AvailabilityZones } from './model/AvailabilityZones';
 import { BatchCreateInstanceTagRequest } from './model/BatchCreateInstanceTagRequest';

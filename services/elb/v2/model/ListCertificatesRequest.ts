@@ -11,6 +11,9 @@ export class ListCertificatesRequest {
     public domain?: string;
     private 'private_key'?: string;
     public certificate?: string;
+    public source?: string;
+    private 'protection_status'?: ListCertificatesRequestProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListCertificatesRequest {
@@ -65,4 +68,37 @@ export class ListCertificatesRequest {
         this['certificate'] = certificate;
         return this;
     }
+    public withSource(source: string): ListCertificatesRequest {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: ListCertificatesRequestProtectionStatusEnum | string): ListCertificatesRequest {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: ListCertificatesRequestProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): ListCertificatesRequestProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): ListCertificatesRequest {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCertificatesRequestProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

@@ -9,6 +9,9 @@ export class CreateCertificateRequestBody {
     private 'admin_state_up'?: boolean;
     public type?: string;
     private 'enterprise_project_id'?: string;
+    public source?: string;
+    private 'protection_status'?: CreateCertificateRequestBodyProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor(certificate?: string) { 
         this['certificate'] = certificate;
     }
@@ -62,4 +65,37 @@ export class CreateCertificateRequestBody {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withSource(source: string): CreateCertificateRequestBody {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: CreateCertificateRequestBodyProtectionStatusEnum | string): CreateCertificateRequestBody {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreateCertificateRequestBodyProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CreateCertificateRequestBodyProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreateCertificateRequestBody {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateCertificateRequestBodyProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

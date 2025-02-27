@@ -10,6 +10,8 @@ export class LiveSnapshotConfig {
     private 'obs_location'?: ObsFileAddr;
     private 'call_back_enable'?: LiveSnapshotConfigCallBackEnableEnum | string;
     private 'call_back_url'?: string;
+    private 'image_access_protocol'?: LiveSnapshotConfigImageAccessProtocolEnum | string;
+    private 'image_access_domain'?: string;
     public constructor(domain?: string, appName?: string, timeInterval?: number, objectWriteMode?: number, obsLocation?: ObsFileAddr) { 
         this['domain'] = domain;
         this['app_name'] = appName;
@@ -91,6 +93,26 @@ export class LiveSnapshotConfig {
     public get callBackUrl(): string | undefined {
         return this['call_back_url'];
     }
+    public withImageAccessProtocol(imageAccessProtocol: LiveSnapshotConfigImageAccessProtocolEnum | string): LiveSnapshotConfig {
+        this['image_access_protocol'] = imageAccessProtocol;
+        return this;
+    }
+    public set imageAccessProtocol(imageAccessProtocol: LiveSnapshotConfigImageAccessProtocolEnum | string  | undefined) {
+        this['image_access_protocol'] = imageAccessProtocol;
+    }
+    public get imageAccessProtocol(): LiveSnapshotConfigImageAccessProtocolEnum | string | undefined {
+        return this['image_access_protocol'];
+    }
+    public withImageAccessDomain(imageAccessDomain: string): LiveSnapshotConfig {
+        this['image_access_domain'] = imageAccessDomain;
+        return this;
+    }
+    public set imageAccessDomain(imageAccessDomain: string  | undefined) {
+        this['image_access_domain'] = imageAccessDomain;
+    }
+    public get imageAccessDomain(): string | undefined {
+        return this['image_access_domain'];
+    }
 }
 
 /**
@@ -100,4 +122,12 @@ export class LiveSnapshotConfig {
 export enum LiveSnapshotConfigCallBackEnableEnum {
     ON = 'on',
     OFF = 'off'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LiveSnapshotConfigImageAccessProtocolEnum {
+    HTTP = 'http',
+    HTTPS = 'https'
 }

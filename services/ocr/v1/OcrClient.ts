@@ -97,6 +97,7 @@ import { MyanmarIdcardConfidence } from './model/MyanmarIdcardConfidence';
 import { MyanmarIdcardRequestBody } from './model/MyanmarIdcardRequestBody';
 import { MyanmarIdcardResult } from './model/MyanmarIdcardResult';
 import { MyanmarIdcardTranslationInfo } from './model/MyanmarIdcardTranslationInfo';
+import { PassengerTravelItemList } from './model/PassengerTravelItemList';
 import { PassportRequestBody } from './model/PassportRequestBody';
 import { PassportResult } from './model/PassportResult';
 import { PcrTestRecordConfidence } from './model/PcrTestRecordConfidence';

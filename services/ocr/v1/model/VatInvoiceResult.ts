@@ -1,5 +1,6 @@
 import { BelongItemList } from './BelongItemList';
 import { ItemList } from './ItemList';
+import { PassengerTravelItemList } from './PassengerTravelItemList';
 
 
 export class VatInvoiceResult {
@@ -57,6 +58,7 @@ export class VatInvoiceResult {
     private 'belong_discount_amount'?: string;
     private 'belong_discount_tax'?: string;
     private 'belong_item_list'?: Array<BelongItemList>;
+    private 'passenger_travel_item_list'?: Array<PassengerTravelItemList>;
     public constructor() { 
     }
     public withTitle(title: string): VatInvoiceResult {
@@ -526,5 +528,15 @@ export class VatInvoiceResult {
     }
     public get belongItemList(): Array<BelongItemList> | undefined {
         return this['belong_item_list'];
+    }
+    public withPassengerTravelItemList(passengerTravelItemList: Array<PassengerTravelItemList>): VatInvoiceResult {
+        this['passenger_travel_item_list'] = passengerTravelItemList;
+        return this;
+    }
+    public set passengerTravelItemList(passengerTravelItemList: Array<PassengerTravelItemList>  | undefined) {
+        this['passenger_travel_item_list'] = passengerTravelItemList;
+    }
+    public get passengerTravelItemList(): Array<PassengerTravelItemList> | undefined {
+        return this['passenger_travel_item_list'];
     }
 }

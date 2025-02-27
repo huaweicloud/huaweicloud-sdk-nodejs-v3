@@ -14,6 +14,9 @@ export class ShowCertificateResponse extends SdkResponse {
     private 'expire_time'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
+    public source?: string;
+    private 'protection_status'?: ShowCertificateResponseProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
         super();
     }
@@ -101,6 +104,30 @@ export class ShowCertificateResponse extends SdkResponse {
     public get updateTime(): string | undefined {
         return this['update_time'];
     }
+    public withSource(source: string): ShowCertificateResponse {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: ShowCertificateResponseProtectionStatusEnum | string): ShowCertificateResponse {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: ShowCertificateResponseProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): ShowCertificateResponseProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): ShowCertificateResponse {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -110,4 +137,12 @@ export class ShowCertificateResponse extends SdkResponse {
 export enum ShowCertificateResponseTypeEnum {
     SERVER = 'server',
     CLIENT = 'client'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowCertificateResponseProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

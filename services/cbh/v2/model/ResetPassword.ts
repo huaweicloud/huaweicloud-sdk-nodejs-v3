@@ -2,8 +2,8 @@
 
 export class ResetPassword {
     private 'new_password'?: string;
-    private 'server_id'?: object;
-    public constructor(newPassword?: string, serverId?: object) { 
+    private 'server_id'?: string;
+    public constructor(newPassword?: string, serverId?: string) { 
         this['new_password'] = newPassword;
         this['server_id'] = serverId;
     }
@@ -17,14 +17,14 @@ export class ResetPassword {
     public get newPassword(): string | undefined {
         return this['new_password'];
     }
-    public withServerId(serverId: object): ResetPassword {
+    public withServerId(serverId: string): ResetPassword {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: object  | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId(): object | undefined {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
 }

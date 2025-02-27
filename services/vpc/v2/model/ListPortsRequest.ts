@@ -2,7 +2,7 @@
 
 export class ListPortsRequest {
     public name?: string;
-    public id?: string;
+    public id?: Array<string>;
     public limit?: number;
     private 'admin_state_up'?: boolean;
     private 'network_id'?: string;
@@ -21,7 +21,7 @@ export class ListPortsRequest {
         this['name'] = name;
         return this;
     }
-    public withId(id: string): ListPortsRequest {
+    public withId(id: Array<string>): ListPortsRequest {
         this['id'] = id;
         return this;
     }

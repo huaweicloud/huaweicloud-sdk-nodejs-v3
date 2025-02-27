@@ -1430,6 +1430,9 @@ export class ElbClient {
      * @param {string} [domain] 服务端证书所签的域名。 取值：总长度为0-1024。  普通域名由若干字符串组成，字符串间以\&quot;.\&quot;分割，单个字符串长度不超过63个字符，只能包含英文字母、数字或\&quot;-\&quot;，且必须以字母或数字开头和结尾。  泛域名仅允许首段为\&quot;*\&quot;，其他取值限制与普通域名一致。如：*.domain.com，但不能是：*my.domain.com   该字段仅type为server时有效。
      * @param {string} [privateKey] PEM格式的服务端私有密钥。
      * @param {string} [certificate] PEM格式的服务端公有密钥或者用于认证客户端证书的CA证书，由type字段区分。
+     * @param {string} [source] 参数解释： 证书来源  约束限制： 当scm_certificate_id不为空，且未传入source时，默认取值为“scm”。  取值范围： 无  默认取值： 当scm_certificate_id不为空，且未传入source时，默认取值为“scm”； 其他情况下默认为空。
+     * @param {'nonProtection' | 'consoleProtection'} [protectionStatus] 参数解释： 修改保护状态  约束限制： 无  取值范围：  - nonProtection: 不保护  - consoleProtection: 控制台修改保护  默认取值： nonProtection
+     * @param {string} [protectionReason] 参数解释： 设置修改保护的原因  约束限制： 仅当protection_status为consoleProtection时有效  取值范围： 无  默认取值： 空
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4510,6 +4513,12 @@ export const ParamCreater = function () {
             let privateKey;
             
             let certificate;
+            
+            let source;
+            
+            let protectionStatus;
+            
+            let protectionReason;
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
                 if (listCertificatesRequest instanceof ListCertificatesRequest) {
@@ -4523,6 +4532,9 @@ export const ParamCreater = function () {
                     domain = listCertificatesRequest.domain;
                     privateKey = listCertificatesRequest.privateKey;
                     certificate = listCertificatesRequest.certificate;
+                    source = listCertificatesRequest.source;
+                    protectionStatus = listCertificatesRequest.protectionStatus;
+                    protectionReason = listCertificatesRequest.protectionReason;
                 } else {
                     limit = listCertificatesRequest['limit'];
                     marker = listCertificatesRequest['marker'];
@@ -4534,6 +4546,9 @@ export const ParamCreater = function () {
                     domain = listCertificatesRequest['domain'];
                     privateKey = listCertificatesRequest['private_key'];
                     certificate = listCertificatesRequest['certificate'];
+                    source = listCertificatesRequest['source'];
+                    protectionStatus = listCertificatesRequest['protection_status'];
+                    protectionReason = listCertificatesRequest['protection_reason'];
                 }
             }
 
@@ -4567,6 +4582,15 @@ export const ParamCreater = function () {
             }
             if (certificate !== null && certificate !== undefined) {
                 localVarQueryParameter['certificate'] = certificate;
+            }
+            if (source !== null && source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (protectionStatus !== null && protectionStatus !== undefined) {
+                localVarQueryParameter['protection_status'] = protectionStatus;
+            }
+            if (protectionReason !== null && protectionReason !== undefined) {
+                localVarQueryParameter['protection_reason'] = protectionReason;
             }
 
             options.queryParams = localVarQueryParameter;

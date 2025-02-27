@@ -1944,11 +1944,12 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群列表
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有绑定eps集群，值为all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listClusters(listClustersRequest?: ListClustersRequest): Promise<ListClustersResponse> {
-        const options = ParamCreater().listClusters();
+        const options = ParamCreater().listClusters(listClustersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6952,7 +6953,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listClusters() {
+        listClusters(listClustersRequest?: ListClustersRequest) {
             const options = {
                 method: "GET",
                 url: "/v1.0/{project_id}/clusters",
@@ -6962,8 +6963,24 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
 
+            if (listClustersRequest !== null && listClustersRequest !== undefined) {
+                if (listClustersRequest instanceof ListClustersRequest) {
+                    enterpriseProjectId = listClustersRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = listClustersRequest['enterprise_project_id'];
+                }
+            }
 
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

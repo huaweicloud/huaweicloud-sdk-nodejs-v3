@@ -14,6 +14,9 @@ export class CreateCertificateResponse extends SdkResponse {
     private 'expire_time'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
+    public source?: string;
+    private 'protection_status'?: CreateCertificateResponseProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
         super();
     }
@@ -101,6 +104,30 @@ export class CreateCertificateResponse extends SdkResponse {
     public get updateTime(): string | undefined {
         return this['update_time'];
     }
+    public withSource(source: string): CreateCertificateResponse {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: CreateCertificateResponseProtectionStatusEnum | string): CreateCertificateResponse {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreateCertificateResponseProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CreateCertificateResponseProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreateCertificateResponse {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -110,4 +137,12 @@ export class CreateCertificateResponse extends SdkResponse {
 export enum CreateCertificateResponseTypeEnum {
     SERVER = 'server',
     CLIENT = 'client'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateCertificateResponseProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

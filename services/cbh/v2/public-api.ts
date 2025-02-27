@@ -1,6 +1,7 @@
 export * from './CbhClient';
 
 export * from './model/AgencyAuthorizeInfo';
+export * from './model/AgencyAuthorizeInfoRsp';
 export * from './model/AuthorizeCsmsAndKmsRequestBody';
 export * from './model/AvailabilityZones';
 export * from './model/BatchCreateInstanceTagRequest';

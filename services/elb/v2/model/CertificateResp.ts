@@ -13,6 +13,9 @@ export class CertificateResp {
     private 'expire_time'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
+    public source?: string;
+    private 'protection_status'?: CertificateRespProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor(id?: string, tenantId?: string, adminStateUp?: boolean, name?: string, description?: string, type?: string, domain?: string, privateKey?: string, certificate?: string, expireTime?: string, createTime?: string, updateTime?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
@@ -111,6 +114,30 @@ export class CertificateResp {
     public get updateTime(): string | undefined {
         return this['update_time'];
     }
+    public withSource(source: string): CertificateResp {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: CertificateRespProtectionStatusEnum | string): CertificateResp {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CertificateRespProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CertificateRespProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CertificateResp {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -120,4 +147,12 @@ export class CertificateResp {
 export enum CertificateRespTypeEnum {
     SERVER = 'server',
     CLIENT = 'client'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CertificateRespProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

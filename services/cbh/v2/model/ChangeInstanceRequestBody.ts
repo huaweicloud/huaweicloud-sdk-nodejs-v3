@@ -1,21 +1,21 @@
 
 
 export class ChangeInstanceRequestBody {
-    private 'server_id'?: object;
+    private 'server_id'?: string;
     private 'new_resource_spec_code'?: string;
     private 'attach_disk_size'?: number;
     private 'is_auto_pay'?: number;
-    public constructor(serverId?: object) { 
+    public constructor(serverId?: string) { 
         this['server_id'] = serverId;
     }
-    public withServerId(serverId: object): ChangeInstanceRequestBody {
+    public withServerId(serverId: string): ChangeInstanceRequestBody {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: object  | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId(): object | undefined {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
     public withNewResourceSpecCode(newResourceSpecCode: string): ChangeInstanceRequestBody {

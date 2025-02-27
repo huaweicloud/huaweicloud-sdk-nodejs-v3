@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowInstanceStatusResponse extends SdkResponse {
     public name?: string;
     public status?: string;
-    private 'server_id'?: object;
+    private 'server_id'?: string;
     public constructor() { 
         super();
     }
@@ -16,14 +16,14 @@ export class ShowInstanceStatusResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
-    public withServerId(serverId: object): ShowInstanceStatusResponse {
+    public withServerId(serverId: string): ShowInstanceStatusResponse {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: object  | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId(): object | undefined {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
 }

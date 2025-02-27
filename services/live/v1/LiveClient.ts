@@ -28,6 +28,8 @@ import { CreateRecordIndexRequest } from './model/CreateRecordIndexRequest';
 import { CreateRecordIndexResponse } from './model/CreateRecordIndexResponse';
 import { CreateRecordRuleRequest } from './model/CreateRecordRuleRequest';
 import { CreateRecordRuleResponse } from './model/CreateRecordRuleResponse';
+import { CreateScheduleRecordTasksRequest } from './model/CreateScheduleRecordTasksRequest';
+import { CreateScheduleRecordTasksResponse } from './model/CreateScheduleRecordTasksResponse';
 import { CreateSnapshotConfigRequest } from './model/CreateSnapshotConfigRequest';
 import { CreateSnapshotConfigResponse } from './model/CreateSnapshotConfigResponse';
 import { CreateStreamForbiddenRequest } from './model/CreateStreamForbiddenRequest';
@@ -61,6 +63,8 @@ import { DeleteRecordRuleRequest } from './model/DeleteRecordRuleRequest';
 import { DeleteRecordRuleResponse } from './model/DeleteRecordRuleResponse';
 import { DeleteRefererChainRequest } from './model/DeleteRefererChainRequest';
 import { DeleteRefererChainResponse } from './model/DeleteRefererChainResponse';
+import { DeleteScheduleRecordTasksRequest } from './model/DeleteScheduleRecordTasksRequest';
+import { DeleteScheduleRecordTasksResponse } from './model/DeleteScheduleRecordTasksResponse';
 import { DeleteSnapshotConfigRequest } from './model/DeleteSnapshotConfigRequest';
 import { DeleteSnapshotConfigResponse } from './model/DeleteSnapshotConfigResponse';
 import { DeleteStreamForbiddenRequest } from './model/DeleteStreamForbiddenRequest';
@@ -110,6 +114,8 @@ import { ListRecordContentsRequest } from './model/ListRecordContentsRequest';
 import { ListRecordContentsResponse } from './model/ListRecordContentsResponse';
 import { ListRecordRulesRequest } from './model/ListRecordRulesRequest';
 import { ListRecordRulesResponse } from './model/ListRecordRulesResponse';
+import { ListScheduleRecordTasksRequest } from './model/ListScheduleRecordTasksRequest';
+import { ListScheduleRecordTasksResponse } from './model/ListScheduleRecordTasksResponse';
 import { ListSnapshotConfigsRequest } from './model/ListSnapshotConfigsRequest';
 import { ListSnapshotConfigsResponse } from './model/ListSnapshotConfigsResponse';
 import { ListStreamForbiddenRequest } from './model/ListStreamForbiddenRequest';
@@ -164,6 +170,8 @@ import { RecordRule } from './model/RecordRule';
 import { RecordRuleRequest } from './model/RecordRuleRequest';
 import { RunRecordRequest } from './model/RunRecordRequest';
 import { RunRecordResponse } from './model/RunRecordResponse';
+import { ScheduleRecordTasks } from './model/ScheduleRecordTasks';
+import { ScheduleRecordTasksReq } from './model/ScheduleRecordTasksReq';
 import { SecondarySourcesInfo } from './model/SecondarySourcesInfo';
 import { SetRefererChainInfo } from './model/SetRefererChainInfo';
 import { SetRefererChainRequest } from './model/SetRefererChainRequest';
@@ -357,6 +365,25 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过使用指定录制模板ID对应的配置创建一个在指定时间启动、结束的录制任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建计划录制任务
+     * @param {ScheduleRecordTasksReq} createScheduleRecordTasksRequestBody 计划录制任务
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createScheduleRecordTasks(createScheduleRecordTasksRequest?: CreateScheduleRecordTasksRequest): Promise<CreateScheduleRecordTasksResponse> {
+        const options = ParamCreater().createScheduleRecordTasks(createScheduleRecordTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -567,6 +594,25 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止计划录制任务，当前的录制任务会中止并生产录制文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止计划录制任务
+     * @param {string} taskId 已存在的计划录制任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScheduleRecordTasks(deleteScheduleRecordTasksRequest?: DeleteScheduleRecordTasksRequest): Promise<DeleteScheduleRecordTasksResponse> {
+        const options = ParamCreater().deleteScheduleRecordTasks(deleteScheduleRecordTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -842,6 +888,32 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定时间范围内启动和结束的计划录制任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询计划录制任务
+     * @param {number} endTime 查询任务结束时间，Unix 时间戳。EndTime 必须大于 StartTime，设置时间不早于当前时间之前90天的时间，且查询时间跨度不超过一周。（任务开始结束时间必须在查询时间范围内）。
+     * @param {number} [startTime] 查询任务开始时间，Unix 时间戳。设置时间不早于当前时间之前90天的时间，且查询时间跨度不超过一周。
+     * @param {string} [domain] 推流域名
+     * @param {string} [app] 应用名称，在domain有值的情况下生效
+     * @param {string} [stream] 流名称，在domain和app有值的情况下生效
+     * @param {string} [taskId] 录制任务ID
+     * @param {number} [offset] 分页场景下的偏移量，表示从此偏移量开始查询，offset大于等于0，缺省值为0，需要每次查询增加limit的值才能查询全部数据
+     * @param {number} [limit] 分页场景下的每页记录数，取值范围[1,100]，缺省值10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduleRecordTasks(listScheduleRecordTasksRequest?: ListScheduleRecordTasksRequest): Promise<ListScheduleRecordTasksResponse> {
+        const options = ParamCreater().listScheduleRecordTasks(listScheduleRecordTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1961,6 +2033,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 通过使用指定录制模板ID对应的配置创建一个在指定时间启动、结束的录制任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createScheduleRecordTasks(createScheduleRecordTasksRequest?: CreateScheduleRecordTasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/schedule/record/tasks",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createScheduleRecordTasksRequest !== null && createScheduleRecordTasksRequest !== undefined) {
+                if (createScheduleRecordTasksRequest instanceof CreateScheduleRecordTasksRequest) {
+                    body = createScheduleRecordTasksRequest.body
+                } else {
+                    body = createScheduleRecordTasksRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建直播截图配置接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2389,6 +2499,46 @@ export const ParamCreater = function () {
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止计划录制任务，当前的录制任务会中止并生产录制文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScheduleRecordTasks(deleteScheduleRecordTasksRequest?: DeleteScheduleRecordTasksRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/schedule/record/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+
+            if (deleteScheduleRecordTasksRequest !== null && deleteScheduleRecordTasksRequest !== undefined) {
+                if (deleteScheduleRecordTasksRequest instanceof DeleteScheduleRecordTasksRequest) {
+                    taskId = deleteScheduleRecordTasksRequest.taskId;
+                } else {
+                    taskId = deleteScheduleRecordTasksRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteScheduleRecordTasks.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3093,6 +3243,95 @@ export const ParamCreater = function () {
             }
             if (recordType !== null && recordType !== undefined) {
                 localVarQueryParameter['record_type'] = recordType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定时间范围内启动和结束的计划录制任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduleRecordTasks(listScheduleRecordTasksRequest?: ListScheduleRecordTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/schedule/record/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let endTime;
+            
+            let startTime;
+            
+            let domain;
+            
+            let app;
+            
+            let stream;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listScheduleRecordTasksRequest !== null && listScheduleRecordTasksRequest !== undefined) {
+                if (listScheduleRecordTasksRequest instanceof ListScheduleRecordTasksRequest) {
+                    endTime = listScheduleRecordTasksRequest.endTime;
+                    startTime = listScheduleRecordTasksRequest.startTime;
+                    domain = listScheduleRecordTasksRequest.domain;
+                    app = listScheduleRecordTasksRequest.app;
+                    stream = listScheduleRecordTasksRequest.stream;
+                    taskId = listScheduleRecordTasksRequest.taskId;
+                    offset = listScheduleRecordTasksRequest.offset;
+                    limit = listScheduleRecordTasksRequest.limit;
+                } else {
+                    endTime = listScheduleRecordTasksRequest['end_time'];
+                    startTime = listScheduleRecordTasksRequest['start_time'];
+                    domain = listScheduleRecordTasksRequest['domain'];
+                    app = listScheduleRecordTasksRequest['app'];
+                    stream = listScheduleRecordTasksRequest['stream'];
+                    taskId = listScheduleRecordTasksRequest['task_id'];
+                    offset = listScheduleRecordTasksRequest['offset'];
+                    limit = listScheduleRecordTasksRequest['limit'];
+                }
+            }
+
+        
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listScheduleRecordTasks.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (app !== null && app !== undefined) {
+                localVarQueryParameter['app'] = app;
+            }
+            if (stream !== null && stream !== undefined) {
+                localVarQueryParameter['stream'] = stream;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;

@@ -1,20 +1,20 @@
-import { AclPolicyResult } from './AclPolicyResult';
+import { ConsoleAclPolicyResult } from './ConsoleAclPolicyResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateDomainConsoleAclPolicyResponse extends SdkResponse {
-    private 'console_acl_policy'?: AclPolicyResult;
+    private 'console_acl_policy'?: ConsoleAclPolicyResult;
     public constructor() { 
         super();
     }
-    public withConsoleAclPolicy(consoleAclPolicy: AclPolicyResult): UpdateDomainConsoleAclPolicyResponse {
+    public withConsoleAclPolicy(consoleAclPolicy: ConsoleAclPolicyResult): UpdateDomainConsoleAclPolicyResponse {
         this['console_acl_policy'] = consoleAclPolicy;
         return this;
     }
-    public set consoleAclPolicy(consoleAclPolicy: AclPolicyResult  | undefined) {
+    public set consoleAclPolicy(consoleAclPolicy: ConsoleAclPolicyResult  | undefined) {
         this['console_acl_policy'] = consoleAclPolicy;
     }
-    public get consoleAclPolicy(): AclPolicyResult | undefined {
+    public get consoleAclPolicy(): ConsoleAclPolicyResult | undefined {
         return this['console_acl_policy'];
     }
 }

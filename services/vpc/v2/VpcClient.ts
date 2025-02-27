@@ -931,7 +931,7 @@ export class VpcClient {
      *
      * @summary 查询端口列表
      * @param {string} [name] 功能说明：按照name过滤查询  取值范围：最大长度不超过255
-     * @param {string} [id] 按照port_id过滤查询
+     * @param {Array<string>} [id] 按照port_id过滤查询
      * @param {number} [limit] 每页返回的个数
      * @param {boolean} [adminStateUp] 按照admin_state_up进行过滤
      * @param {string} [networkId] 按照network_id过滤查询

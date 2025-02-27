@@ -4429,6 +4429,7 @@ export class GaussDBClient {
      * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
      * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {string} [addTaskScenario] **参数解释**：  新增子任务的场景，用于区分库参数是否支持修改。  **约束限制**：  非必填。  **取值范围**：  不涉及。  **默认值**：  不涉及。
+     * @param {string} [mainTaskName] **参数解释**：  新增子任务相应的主任务名。  **约束限制**：  非必填。  **取值范围**：  不涉及。  **默认值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -14484,16 +14485,20 @@ export const ParamCreater = function () {
             let xLanguage;
             
             let addTaskScenario;
+            
+            let mainTaskName;
 
             if (listStarRocksDbParametersRequest !== null && listStarRocksDbParametersRequest !== undefined) {
                 if (listStarRocksDbParametersRequest instanceof ListStarRocksDbParametersRequest) {
                     instanceId = listStarRocksDbParametersRequest.instanceId;
                     xLanguage = listStarRocksDbParametersRequest.xLanguage;
                     addTaskScenario = listStarRocksDbParametersRequest.addTaskScenario;
+                    mainTaskName = listStarRocksDbParametersRequest.mainTaskName;
                 } else {
                     instanceId = listStarRocksDbParametersRequest['instance_id'];
                     xLanguage = listStarRocksDbParametersRequest['X-Language'];
                     addTaskScenario = listStarRocksDbParametersRequest['add_task_scenario'];
+                    mainTaskName = listStarRocksDbParametersRequest['main_task_name'];
                 }
             }
 
@@ -14503,6 +14508,9 @@ export const ParamCreater = function () {
             }
             if (addTaskScenario !== null && addTaskScenario !== undefined) {
                 localVarQueryParameter['add_task_scenario'] = addTaskScenario;
+            }
+            if (mainTaskName !== null && mainTaskName !== undefined) {
+                localVarQueryParameter['main_task_name'] = mainTaskName;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

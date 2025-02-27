@@ -54,6 +54,9 @@ import { BridgeResponse } from './model/BridgeResponse';
 import { BroadcastMessageRequest } from './model/BroadcastMessageRequest';
 import { BroadcastMessageResponse } from './model/BroadcastMessageResponse';
 import { CertificatesRspDTO } from './model/CertificatesRspDTO';
+import { ChangeGateway } from './model/ChangeGateway';
+import { ChangeGatewayRequest } from './model/ChangeGatewayRequest';
+import { ChangeGatewayResponse } from './model/ChangeGatewayResponse';
 import { ChangeRuleStatusRequest } from './model/ChangeRuleStatusRequest';
 import { ChangeRuleStatusResponse } from './model/ChangeRuleStatusResponse';
 import { ChannelDetail } from './model/ChannelDetail';
@@ -1551,6 +1554,33 @@ export class IoTDAClient {
      */
     public addDevice(addDeviceRequest?: AddDeviceRequest): Promise<AddDeviceResponse> {
         const options = ParamCreater().addDevice(addDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台修改子设备网关。
+     * - 只允许子设备修改网关。
+     * - 目标网关必须和当前设备在同一个资源空间。
+     * - 网关id不能和当前子设备网关id相同。
+     * - 设备如果有下级子设备，则不允许切换网关。
+     * - 支持多级子设备，当前最大支持二级子设备。
+     * - 该接口仅支持创建单个设备切换网关，如需批量切换设备网关，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改设备网关
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {ChangeGateway} changeGateway request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeGateway(changeGatewayRequest?: ChangeGatewayRequest): Promise<ChangeGatewayResponse> {
+        const options = ParamCreater().changeGateway(changeGatewayRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6181,6 +6211,65 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台修改子设备网关。
+         * - 只允许子设备修改网关。
+         * - 目标网关必须和当前设备在同一个资源空间。
+         * - 网关id不能和当前子设备网关id相同。
+         * - 设备如果有下级子设备，则不允许切换网关。
+         * - 支持多级子设备，当前最大支持二级子设备。
+         * - 该接口仅支持创建单个设备切换网关，如需批量切换设备网关，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeGateway(changeGatewayRequest?: ChangeGatewayRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/devices/{device_id}/change-gateway",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let deviceId;
+            
+            let instanceId;
+
+            if (changeGatewayRequest !== null && changeGatewayRequest !== undefined) {
+                if (changeGatewayRequest instanceof ChangeGatewayRequest) {
+                    deviceId = changeGatewayRequest.deviceId;
+                    body = changeGatewayRequest.body
+                    instanceId = changeGatewayRequest.instanceId;
+                } else {
+                    deviceId = changeGatewayRequest['device_id'];
+                    body = changeGatewayRequest['body'];
+                    instanceId = changeGatewayRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling changeGateway.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'device_id': deviceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -9,6 +9,7 @@ import { BatchCreateOrDeleteTagsRequestBody } from './model/BatchCreateOrDeleteT
 import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTagsResponse';
 import { BatchImportSecretsRequest } from './model/BatchImportSecretsRequest';
 import { BatchImportSecretsResponse } from './model/BatchImportSecretsResponse';
+import { ChangeUsersPassword } from './model/ChangeUsersPassword';
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyRequestBody } from './model/CreateAgencyRequestBody';
 import { CreateAgencyResponse } from './model/CreateAgencyResponse';
@@ -112,6 +113,8 @@ import { UpdateSecretResponse } from './model/UpdateSecretResponse';
 import { UpdateSecretStageRequest } from './model/UpdateSecretStageRequest';
 import { UpdateSecretStageRequestBody } from './model/UpdateSecretStageRequestBody';
 import { UpdateSecretStageResponse } from './model/UpdateSecretStageResponse';
+import { UpdateUserPasswordRequest } from './model/UpdateUserPasswordRequest';
+import { UpdateUserPasswordResponse } from './model/UpdateUserPasswordResponse';
 import { UpdateVersionRequest } from './model/UpdateVersionRequest';
 import { UpdateVersionRequestBody } from './model/UpdateVersionRequestBody';
 import { UpdateVersionResponse } from './model/UpdateVersionResponse';
@@ -904,6 +907,25 @@ export class CsmsClient {
      */
     public updateSecretStage(updateSecretStageRequest?: UpdateSecretStageRequest): Promise<UpdateSecretStageResponse> {
         const options = ParamCreater().updateSecretStage(updateSecretStageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改用户密码
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改用户密码
+     * @param {ChangeUsersPassword} changeUsersPassword 修改用户密码请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateUserPassword(updateUserPasswordRequest?: UpdateUserPasswordRequest): Promise<UpdateUserPasswordResponse> {
+        const options = ParamCreater().updateUserPassword(updateUserPasswordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2616,6 +2638,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_name': secretName,'stage_name': stageName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改用户密码
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateUserPassword(updateUserPasswordRequest?: UpdateUserPasswordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/csms/users/change-password",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateUserPasswordRequest !== null && updateUserPasswordRequest !== undefined) {
+                if (updateUserPasswordRequest instanceof UpdateUserPasswordRequest) {
+                    body = updateUserPasswordRequest.body
+                } else {
+                    body = updateUserPasswordRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
