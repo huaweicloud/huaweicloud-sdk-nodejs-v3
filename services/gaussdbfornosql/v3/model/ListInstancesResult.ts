@@ -9,6 +9,7 @@ export class ListInstancesResult {
     public status?: string;
     public port?: string;
     public mode?: string;
+    private 'product_type'?: string;
     public region?: string;
     public datastore?: ListInstancesDatastoreResult;
     public engine?: string;
@@ -71,6 +72,16 @@ export class ListInstancesResult {
     public withMode(mode: string): ListInstancesResult {
         this['mode'] = mode;
         return this;
+    }
+    public withProductType(productType: string): ListInstancesResult {
+        this['product_type'] = productType;
+        return this;
+    }
+    public set productType(productType: string  | undefined) {
+        this['product_type'] = productType;
+    }
+    public get productType(): string | undefined {
+        return this['product_type'];
     }
     public withRegion(region: string): ListInstancesResult {
         this['region'] = region;

@@ -337,6 +337,7 @@ import { ShowServerTagsResponse } from './model/ShowServerTagsResponse';
 import { SimpleFlavor } from './model/SimpleFlavor';
 import { SubJob } from './model/SubJob';
 import { SubJobEntities } from './model/SubJobEntities';
+import { UpdateNicInfoRequestBody } from './model/UpdateNicInfoRequestBody';
 import { UpdateServerAddress } from './model/UpdateServerAddress';
 import { UpdateServerAutoTerminateTimeRequest } from './model/UpdateServerAutoTerminateTimeRequest';
 import { UpdateServerAutoTerminateTimeRequestBody } from './model/UpdateServerAutoTerminateTimeRequestBody';
@@ -345,6 +346,8 @@ import { UpdateServerBlockDeviceOption } from './model/UpdateServerBlockDeviceOp
 import { UpdateServerBlockDeviceReq } from './model/UpdateServerBlockDeviceReq';
 import { UpdateServerBlockDeviceRequest } from './model/UpdateServerBlockDeviceRequest';
 import { UpdateServerBlockDeviceResponse } from './model/UpdateServerBlockDeviceResponse';
+import { UpdateServerInterfaceRequest } from './model/UpdateServerInterfaceRequest';
+import { UpdateServerInterfaceResponse } from './model/UpdateServerInterfaceResponse';
 import { UpdateServerMetadataRequest } from './model/UpdateServerMetadataRequest';
 import { UpdateServerMetadataRequestBody } from './model/UpdateServerMetadataRequestBody';
 import { UpdateServerMetadataResponse } from './model/UpdateServerMetadataResponse';
@@ -1931,6 +1934,27 @@ export class EcsClient {
      */
     public updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest): Promise<UpdateServerBlockDeviceResponse> {
         const options = ParamCreater().updateServerBlockDevice(updateServerBlockDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新云服务器网卡挂载信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新云服务器网卡挂载信息
+     * @param {string} serverId 云服务器ID。
+     * @param {string} portId The network card ID of the cloud server.
+     * @param {UpdateNicInfoRequestBody} updateNicInfoRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateServerInterface(updateServerInterfaceRequest?: UpdateServerInterfaceRequest): Promise<UpdateServerInterfaceResponse> {
+        const options = ParamCreater().updateServerInterface(updateServerInterfaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5522,6 +5546,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId,'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新云服务器网卡挂载信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateServerInterface(updateServerInterfaceRequest?: UpdateServerInterfaceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/{server_id}/os-interface/{port_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+            
+            let portId;
+
+            if (updateServerInterfaceRequest !== null && updateServerInterfaceRequest !== undefined) {
+                if (updateServerInterfaceRequest instanceof UpdateServerInterfaceRequest) {
+                    serverId = updateServerInterfaceRequest.serverId;
+                    portId = updateServerInterfaceRequest.portId;
+                    body = updateServerInterfaceRequest.body
+                } else {
+                    serverId = updateServerInterfaceRequest['server_id'];
+                    portId = updateServerInterfaceRequest['port_id'];
+                    body = updateServerInterfaceRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerInterface.');
+            }
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling updateServerInterface.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId,'port_id': portId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

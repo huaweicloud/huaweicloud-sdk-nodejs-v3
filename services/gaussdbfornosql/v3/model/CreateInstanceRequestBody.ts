@@ -16,6 +16,7 @@ export class CreateInstanceRequestBody {
     private 'security_group_id'?: string;
     public password?: string;
     public mode?: string;
+    private 'product_type'?: string;
     public flavor?: Array<CreateInstanceFlavorOption>;
     private 'configuration_id'?: string;
     private 'backup_strategy'?: BackupStrategyOption;
@@ -97,6 +98,16 @@ export class CreateInstanceRequestBody {
     public withMode(mode: string): CreateInstanceRequestBody {
         this['mode'] = mode;
         return this;
+    }
+    public withProductType(productType: string): CreateInstanceRequestBody {
+        this['product_type'] = productType;
+        return this;
+    }
+    public set productType(productType: string  | undefined) {
+        this['product_type'] = productType;
+    }
+    public get productType(): string | undefined {
+        return this['product_type'];
     }
     public withFlavor(flavor: Array<CreateInstanceFlavorOption>): CreateInstanceRequestBody {
         this['flavor'] = flavor;

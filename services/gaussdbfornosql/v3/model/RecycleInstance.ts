@@ -5,6 +5,7 @@ export class RecycleInstance {
     public id?: string;
     public name?: string;
     public mode?: string;
+    private 'product_type'?: string;
     public datastore?: RecycleDatastore;
     private 'charge_mode'?: string;
     private 'enterprise_project_id'?: string;
@@ -25,6 +26,16 @@ export class RecycleInstance {
     public withMode(mode: string): RecycleInstance {
         this['mode'] = mode;
         return this;
+    }
+    public withProductType(productType: string): RecycleInstance {
+        this['product_type'] = productType;
+        return this;
+    }
+    public set productType(productType: string  | undefined) {
+        this['product_type'] = productType;
+    }
+    public get productType(): string | undefined {
+        return this['product_type'];
     }
     public withDatastore(datastore: RecycleDatastore): RecycleInstance {
         this['datastore'] = datastore;

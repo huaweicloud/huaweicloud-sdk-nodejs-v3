@@ -295,6 +295,7 @@ import { ResizeInstanceVolumeRequest } from './model/ResizeInstanceVolumeRequest
 import { ResizeInstanceVolumeRequestBody } from './model/ResizeInstanceVolumeRequestBody';
 import { ResizeInstanceVolumeResponse } from './model/ResizeInstanceVolumeResponse';
 import { RestartInstanceRequest } from './model/RestartInstanceRequest';
+import { RestartInstanceRequestBody } from './model/RestartInstanceRequestBody';
 import { RestartInstanceResponse } from './model/RestartInstanceResponse';
 import { RestorableTime } from './model/RestorableTime';
 import { RestoreExistingInstanceRequest } from './model/RestoreExistingInstanceRequest';
@@ -1316,6 +1317,8 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询数据库规格
      * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例支持的规格。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例支持的规格。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例支持的规格。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
+     * @param {string} [mode] - 取值为“CloudNativeCluster”, 表示查询云原生部署模式支持的规格。 - 不传该参数表示查询数据库类型下的所有经典部署模式支持的规格。
+     * @param {string} [productType] 产品类型。   - Standard 标准型   - Capacity 容量型 当创建GeminiDB Redis云原生部署模式集群类型必传此参数。
      * @param {number} [offset] 索引位置，偏移量。   - 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。   - 取值必须为数字，不能为负数。
      * @param {number} [limit] 查询规格信息上限值。   - 取值范围: 1~100。   - 不传该参数时，默认查询前100条规格信息。
      * @param {*} [options] Override http request option.
@@ -2125,12 +2128,13 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 重启实例的数据库服务。
+     * 重启实例或节点的数据库服务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 重启实例的数据库服务
+     * @summary 重启实例或节点的数据库服务
      * @param {string} instanceId 实例ID。
+     * @param {RestartInstanceRequestBody} [restartInstanceRequestBody] 仅GeminiDB Redis云原生部署模式集群实例支持传入节点ID重启对应节点。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2662,7 +2666,7 @@ export class GaussDBforNoSQLClient {
      * @summary 查询创建实例或扩容节点时需要的IP数量
      * @param {number} nodeNum 创建实例或扩容节点的个数。最大支持输入200。
      * @param {string} [engineName] 数据库引擎名称。没有传入实例ID的时候该字段为必传。 - 取值为“cassandra”，表示GeminiDB Cassandra数据库引擎。 - 取值为“mongodb”，表示GeminiDB Mongo数据库引擎。 - 取值为“influxdb”，表示GeminiDB Influx数据库引擎。 - 取值为“redis”，表示GeminiDB Redis数据库引擎。
-     * @param {string} [instanceMode] 实例类型。没有传入实例ID的时候该字段为必传。 - 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis集群实例类型。 - 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。
+     * @param {string} [instanceMode] 实例类型。没有传入实例ID的时候该字段为必传。   -  取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis Proxy经典部署模式集群实例类型。   -  取值为“CloudNativeCluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis云原生部署模式集群实例类型。   -  取值为“RedisCluster”，表示GeminiDB Redis Cluster经典部署模式集群实例类型。   -  取值为“Replication”，表示GeminiDB Redis经典部署模式主备实例类型。   -  取值为“InfluxdbSingle”，表示GeminiDB Influx经典部署模式单节点实例类型。   -  取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。
      * @param {string} [instanceId] 实例Id，可以调用5.3.3 查询实例列表和详情接口获取。如果未申请实例，可以调用5.3.1 创建实例接口创建。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2744,7 +2748,8 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询配额
      * @param {string} [datastoreType] 数据库类型。 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例配额。 取值为“mongodb”，表示GeminiDB Mongo查询数据库实例配额。 取值为“influxdb”，表示查询GeminiDB Influx数据库实例配额。 取值为“redis”，表示查询GeminiDB Redis数据库实例配额。 如果不传该参数，表示查询所有数据库实例配额。
-     * @param {string} [mode] 实例类型。 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis集群实例类型。 取值为“InfluxdbSingle”，表示GeminiDB Influx单节点实例类型。 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。 如果不传datastore_type参数，自动忽略该参数设置，传入datastore_type时，该参数必填。
+     * @param {string} [mode] 实例类型。   - 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis Proxy经典部署模式集群实例类型。   - 取值为“CloudNativeCluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis云原生部署模式集群实例类型。   - 取值为“RedisCluster”，表示GeminiDB Redis Cluster经典部署模式集群实例类型。   - 取值为“Replication”，表示GeminiDB Redis经典部署模式主备实例类型。   - 取值为“InfluxdbSingle”，表示GeminiDB Influx经典部署模式单节点实例类型。   - 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。   - 如果不传datastore_type参数，自动忽略该参数设置。
+     * @param {string} [productType] 产品类型。   -  Capacity 容量型   -  Standard 标准型 当查询GeminiDB redis云原生部署模式集群类型配额必传此参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5233,6 +5238,10 @@ export const ParamCreater = function () {
             
             let engineName;
             
+            let mode;
+            
+            let productType;
+            
             let offset;
             
             let limit;
@@ -5240,10 +5249,14 @@ export const ParamCreater = function () {
             if (listFlavorInfosRequest !== null && listFlavorInfosRequest !== undefined) {
                 if (listFlavorInfosRequest instanceof ListFlavorInfosRequest) {
                     engineName = listFlavorInfosRequest.engineName;
+                    mode = listFlavorInfosRequest.mode;
+                    productType = listFlavorInfosRequest.productType;
                     offset = listFlavorInfosRequest.offset;
                     limit = listFlavorInfosRequest.limit;
                 } else {
                     engineName = listFlavorInfosRequest['engine_name'];
+                    mode = listFlavorInfosRequest['mode'];
+                    productType = listFlavorInfosRequest['product_type'];
                     offset = listFlavorInfosRequest['offset'];
                     limit = listFlavorInfosRequest['limit'];
                 }
@@ -5252,6 +5265,12 @@ export const ParamCreater = function () {
         
             if (engineName !== null && engineName !== undefined) {
                 localVarQueryParameter['engine_name'] = engineName;
+            }
+            if (mode !== null && mode !== undefined) {
+                localVarQueryParameter['mode'] = mode;
+            }
+            if (productType !== null && productType !== undefined) {
+                localVarQueryParameter['product_type'] = productType;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -7222,7 +7241,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重启实例的数据库服务。
+         * 重启实例或节点的数据库服务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7233,18 +7252,22 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let instanceId;
 
             if (restartInstanceRequest !== null && restartInstanceRequest !== undefined) {
                 if (restartInstanceRequest instanceof RestartInstanceRequest) {
                     instanceId = restartInstanceRequest.instanceId;
+                    body = restartInstanceRequest.body
                 } else {
                     instanceId = restartInstanceRequest['instance_id'];
+                    body = restartInstanceRequest['body'];
                 }
             }
 
@@ -7252,7 +7275,9 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartInstance.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -8676,14 +8701,18 @@ export const ParamCreater = function () {
             let datastoreType;
             
             let mode;
+            
+            let productType;
 
             if (showQuotasRequest !== null && showQuotasRequest !== undefined) {
                 if (showQuotasRequest instanceof ShowQuotasRequest) {
                     datastoreType = showQuotasRequest.datastoreType;
                     mode = showQuotasRequest.mode;
+                    productType = showQuotasRequest.productType;
                 } else {
                     datastoreType = showQuotasRequest['datastore_type'];
                     mode = showQuotasRequest['mode'];
+                    productType = showQuotasRequest['product_type'];
                 }
             }
 
@@ -8693,6 +8722,9 @@ export const ParamCreater = function () {
             }
             if (mode !== null && mode !== undefined) {
                 localVarQueryParameter['mode'] = mode;
+            }
+            if (productType !== null && productType !== undefined) {
+                localVarQueryParameter['product_type'] = productType;
             }
 
             options.queryParams = localVarQueryParameter;

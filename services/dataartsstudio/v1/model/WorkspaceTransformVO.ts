@@ -11,7 +11,8 @@ export class WorkspaceTransformVO {
     public database?: string;
     public queue?: string;
     public schema?: string;
-    public constructor(dwType?: string) { 
+    public constructor(targetModelName?: string, dwType?: string) { 
+        this['target_model_name'] = targetModelName;
         this['dw_type'] = dwType;
     }
     public withTargetModelId(targetModelId: string): WorkspaceTransformVO {

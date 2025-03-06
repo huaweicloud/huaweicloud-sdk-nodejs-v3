@@ -48,12 +48,15 @@ export class DimensionVO {
     private 'dev_version_name'?: string;
     private 'prod_version_name'?: string;
     private 'env_type'?: EnvTypeEnum;
-    public constructor(nameEn?: string, dimensionType?: string, nameCh?: string, l3Id?: string, attributes?: Array<DimensionAttributeVO>) { 
+    public constructor(nameEn?: string, dimensionType?: string, nameCh?: string, description?: string, l3Id?: string, attributes?: Array<DimensionAttributeVO>, datasource?: BizDatasourceRelationVO, owner?: string) { 
         this['name_en'] = nameEn;
         this['dimension_type'] = dimensionType;
         this['name_ch'] = nameCh;
+        this['description'] = description;
         this['l3_id'] = l3Id;
         this['attributes'] = attributes;
+        this['datasource'] = datasource;
+        this['owner'] = owner;
     }
     public withId(id: string): DimensionVO {
         this['id'] = id;

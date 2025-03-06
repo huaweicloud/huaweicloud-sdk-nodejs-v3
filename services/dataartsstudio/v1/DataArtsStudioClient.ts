@@ -6847,9 +6847,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取操作结果
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'ER_REVERSE_DB' | 'TRANSFORM_LOGIC_MODEL'} operationType 批量操作类型。 枚举值：   - ER_REVERSE_DB: 关系建模逆向数据库   - TRANSFORM_LOGIC_MODEL: 逻辑模型转物理模型 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {'PUBLISH' | 'ADD_TAGS' | 'APPROVAL' | 'ER_REVERSE_DB' | 'CODETABLE_REVERSE_DB' | 'DIMENSION_REVERSE_DB' | 'FACT_LOGIC_TABLE_REVERSE_DB' | 'SYNC_TABLES' | 'IMPORT_STANDARD' | 'IMPORT_CODETABLE' | 'IMPORT_ER_TABLE' | 'IMPORT_BUSINESS' | 'TRANSFORM_LOGIC_MODEL' | 'PUBLISH_CODETABLE' | 'PUBLISH_STANDARD' | 'TABLE_MODEL_RELOCATE' | 'DIMENSION_RELOCATE' | 'FACT_LOGIC_TABLE_RELOCATE' | 'AGGREGATION_LOGIC_TABLE_RELOCATE' | 'ATOMIC_INDEX_RELOCATE' | 'DERIVATIVE_INDEX_RELOCATE' | 'COMPOUND_METRIC_RELOCATE' | 'BIZ_METRIC_RELOCATE' | 'CODE_TABLE_RELOCATE' | 'STANDARD_ELEMENT_RELOCATE' | 'INFO_ARCH_RELOCATE'} [operationType] 批量操作类型。 枚举值：   - PUBLISH: 发布   - ADD_TAGS: 打标签   - APPROVAL: 审批   - ER_REVERSE_DB: 关系建模逆向数据库   - CODETABLE_REVERSE_DB: 码表逆向数据库   - DIMENSION_REVERSE_DB: 维度逆向数据库   - FACT_LOGIC_TABLE_REVERSE_DB: 事实表逆向数据库   - SYNC_TABLES: 同步元模型   - IMPORT_STANDARD: 导入数据标准   - IMPORT_CODETABLE: 导入码表   - IMPORT_ER_TABLE: 导入关系建模（逻辑实体/物理表）   - IMPORT_BUSINESS: 导入业务分层（主题）   - TRANSFORM_LOGIC_MODEL: 逻辑模型转物理模型   - PUBLISH_CODETABLE: 发布码表   - PUBLISH_STANDARD: 发布数据标准   - TABLE_MODEL_RELOCATE: 关系建模业务表批量修改主题   - DIMENSION_RELOCATE: 维度批量修改主题   - FACT_LOGIC_TABLE_RELOCATE: 事实表批量修改主题   - AGGREGATION_LOGIC_TABLE_RELOCATE: 汇总表批量修改主题   - ATOMIC_INDEX_RELOCATE: 原子指标批量修改主题   - DERIVATIVE_INDEX_RELOCATE: 衍生指标批量修改主题   - COMPOUND_METRIC_RELOCATE: 复合指标批量修改主题   - BIZ_METRIC_RELOCATE: 业务指标批量修改流程   - CODE_TABLE_RELOCATE: 码表批量修改目录   - STANDARD_ELEMENT_RELOCATE: 数据标准批量修改目录   - INFO_ARCH_RELOCATE: 信息架构批量修改主题 
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [operationId] 批量操作id，在逻辑模型转物理表时，填写的是逻辑模型的model_id，在逆向数据库时，填写的是目标模型的model_id。model_id可从接口[获取模型](ListWorkspaces.xml)中获取。
@@ -25490,11 +25490,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let operationType;
+            
             let xProjectId;
             
             let contentType;
-            
-            let operationType;
             
             let limit;
             
@@ -25505,17 +25505,17 @@ export const ParamCreater = function () {
             if (showDesignOperationResultRequest !== null && showDesignOperationResultRequest !== undefined) {
                 if (showDesignOperationResultRequest instanceof ShowDesignOperationResultRequest) {
                     workspace = showDesignOperationResultRequest.workspace;
+                    operationType = showDesignOperationResultRequest.operationType;
                     xProjectId = showDesignOperationResultRequest.xProjectId;
                     contentType = showDesignOperationResultRequest.contentType;
-                    operationType = showDesignOperationResultRequest.operationType;
                     limit = showDesignOperationResultRequest.limit;
                     offset = showDesignOperationResultRequest.offset;
                     operationId = showDesignOperationResultRequest.operationId;
                 } else {
                     workspace = showDesignOperationResultRequest['workspace'];
+                    operationType = showDesignOperationResultRequest['operation_type'];
                     xProjectId = showDesignOperationResultRequest['X-Project-Id'];
                     contentType = showDesignOperationResultRequest['Content-Type'];
-                    operationType = showDesignOperationResultRequest['operation_type'];
                     limit = showDesignOperationResultRequest['limit'];
                     offset = showDesignOperationResultRequest['offset'];
                     operationId = showDesignOperationResultRequest['operation_id'];
@@ -25523,6 +25523,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (operationType === null || operationType === undefined) {
+                throw new RequiredError('operationType','Required parameter operationType was null or undefined when calling showDesignOperationResult.');
+            }
             if (operationType !== null && operationType !== undefined) {
                 localVarQueryParameter['operation_type'] = operationType;
             }

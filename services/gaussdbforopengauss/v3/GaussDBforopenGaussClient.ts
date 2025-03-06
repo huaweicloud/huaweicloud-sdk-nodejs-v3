@@ -27,6 +27,8 @@ import { BindEIPRequestBody } from './model/BindEIPRequestBody';
 import { BindedEipResult } from './model/BindedEipResult';
 import { CanBeRollbackedHotfixDetail } from './model/CanBeRollbackedHotfixDetail';
 import { CanBeUpgradedHotfixDetail } from './model/CanBeUpgradedHotfixDetail';
+import { CancelScheduleTaskRequest } from './model/CancelScheduleTaskRequest';
+import { CancelScheduleTaskResponse } from './model/CancelScheduleTaskResponse';
 import { CnInfoBeforeReduce } from './model/CnInfoBeforeReduce';
 import { Components } from './model/Components';
 import { ConfigurationParameter } from './model/ConfigurationParameter';
@@ -71,6 +73,9 @@ import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequest
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
 import { CreateRestoreInstanceRequest } from './model/CreateRestoreInstanceRequest';
 import { CreateRestoreInstanceResponse } from './model/CreateRestoreInstanceResponse';
+import { CreateScheduleTaskRequest } from './model/CreateScheduleTaskRequest';
+import { CreateScheduleTaskRequestBody } from './model/CreateScheduleTaskRequestBody';
+import { CreateScheduleTaskResponse } from './model/CreateScheduleTaskResponse';
 import { CreateSlowLogDownloadRequest } from './model/CreateSlowLogDownloadRequest';
 import { CreateSlowLogDownloadResponse } from './model/CreateSlowLogDownloadResponse';
 import { DataStroeErrorResponse } from './model/DataStroeErrorResponse';
@@ -96,6 +101,8 @@ import { DeleteLimitTaskRequest } from './model/DeleteLimitTaskRequest';
 import { DeleteLimitTaskResponse } from './model/DeleteLimitTaskResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
+import { DeleteScheduleTaskRequest } from './model/DeleteScheduleTaskRequest';
+import { DeleteScheduleTaskResponse } from './model/DeleteScheduleTaskResponse';
 import { DownloadBackupErrorResponse } from './model/DownloadBackupErrorResponse';
 import { DownloadBackupRequest } from './model/DownloadBackupRequest';
 import { DownloadBackupResponse } from './model/DownloadBackupResponse';
@@ -130,8 +137,11 @@ import { HotfixVersionInfo } from './model/HotfixVersionInfo';
 import { InstallKernelPluginRequest } from './model/InstallKernelPluginRequest';
 import { InstallKernelPluginRequestBody } from './model/InstallKernelPluginRequestBody';
 import { InstallKernelPluginResponse } from './model/InstallKernelPluginResponse';
+import { InstanceDetail } from './model/InstanceDetail';
+import { InstanceEngineDetail } from './model/InstanceEngineDetail';
 import { InstanceInfoResult } from './model/InstanceInfoResult';
 import { InstanceLogFile } from './model/InstanceLogFile';
+import { InstanceTaskDetail } from './model/InstanceTaskDetail';
 import { InstancesListResult } from './model/InstancesListResult';
 import { InstancesResult } from './model/InstancesResult';
 import { JobDetail } from './model/JobDetail';
@@ -197,6 +207,8 @@ import { ListHistoryOperationsResult } from './model/ListHistoryOperationsResult
 import { ListInstanceDatastore } from './model/ListInstanceDatastore';
 import { ListInstanceDetailsRequest } from './model/ListInstanceDetailsRequest';
 import { ListInstanceDetailsResponse } from './model/ListInstanceDetailsResponse';
+import { ListInstanceEngineDetailRequest } from './model/ListInstanceEngineDetailRequest';
+import { ListInstanceEngineDetailResponse } from './model/ListInstanceEngineDetailResponse';
 import { ListInstanceErrorLogsRequest } from './model/ListInstanceErrorLogsRequest';
 import { ListInstanceErrorLogsResponse } from './model/ListInstanceErrorLogsResponse';
 import { ListInstanceResponse } from './model/ListInstanceResponse';
@@ -238,6 +250,8 @@ import { ListRestorableInstancesRequest } from './model/ListRestorableInstancesR
 import { ListRestorableInstancesResponse } from './model/ListRestorableInstancesResponse';
 import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
 import { ListRestoreTimesResponse } from './model/ListRestoreTimesResponse';
+import { ListScheduleTaskRequest } from './model/ListScheduleTaskRequest';
+import { ListScheduleTaskResponse } from './model/ListScheduleTaskResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
 import { ListSupportKernelPluginsRequest } from './model/ListSupportKernelPluginsRequest';
@@ -318,6 +332,7 @@ import { ResumePluginExtensionsResponse } from './model/ResumePluginExtensionsRe
 import { RollUpgradeProgress } from './model/RollUpgradeProgress';
 import { RunInstanceActionRequest } from './model/RunInstanceActionRequest';
 import { RunInstanceActionResponse } from './model/RunInstanceActionResponse';
+import { ScheduleTaskDetail } from './model/ScheduleTaskDetail';
 import { SearchAutoEnlargePolicyRequest } from './model/SearchAutoEnlargePolicyRequest';
 import { SearchAutoEnlargePolicyResponse } from './model/SearchAutoEnlargePolicyResponse';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
@@ -545,6 +560,26 @@ export class GaussDBforopenGaussClient {
      */
     public batchShowUpgradeCandidateVersions(batchShowUpgradeCandidateVersionsRequest?: BatchShowUpgradeCandidateVersionsRequest): Promise<BatchShowUpgradeCandidateVersionsResponse> {
         const options = ParamCreater().batchShowUpgradeCandidateVersions(batchShowUpgradeCandidateVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消定时任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消定时任务
+     * @param {string} taskId 任务id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelScheduleTask(cancelScheduleTaskRequest?: CancelScheduleTaskRequest): Promise<CancelScheduleTaskResponse> {
+        const options = ParamCreater().cancelScheduleTask(cancelScheduleTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -819,6 +854,26 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 批量实例内核版本定时升级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量实例内核版本定时升级
+     * @param {CreateScheduleTaskRequestBody} createScheduleTaskRequestBody 请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createScheduleTask(createScheduleTaskRequest?: CreateScheduleTaskRequest): Promise<CreateScheduleTaskResponse> {
+        const options = ParamCreater().createScheduleTask(createScheduleTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建慢日志下载信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -974,6 +1029,26 @@ export class GaussDBforopenGaussClient {
      */
     public deleteManualBackup(deleteManualBackupRequest?: DeleteManualBackupRequest): Promise<DeleteManualBackupResponse> {
         const options = ParamCreater().deleteManualBackup(deleteManualBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除定时任务信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除定时任务信息
+     * @param {string} taskId 任务id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScheduleTask(deleteScheduleTaskRequest?: DeleteScheduleTaskRequest): Promise<DeleteScheduleTaskResponse> {
+        const options = ParamCreater().deleteScheduleTask(deleteScheduleTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1614,6 +1689,27 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 查看实例引擎版本分布
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看实例引擎版本分布
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceEngineDetail(listInstanceEngineDetailRequest?: ListInstanceEngineDetailRequest): Promise<ListInstanceEngineDetailResponse> {
+        const options = ParamCreater().listInstanceEngineDetail(listInstanceEngineDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库错误日志下载链接。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1943,6 +2039,32 @@ export class GaussDBforopenGaussClient {
      */
     public listRestoreTimes(listRestoreTimesRequest?: ListRestoreTimesRequest): Promise<ListRestoreTimesResponse> {
         const options = ParamCreater().listRestoreTimes(listRestoreTimesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看定时任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看定时任务列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {string} [instanceId] 实例id。
+     * @param {'Running' | 'Completed' | 'Failed' | 'Canceled' | 'Pending'} [status] 任务状态。
+     * @param {'HOTFIX_VERSION_UPGRADE'} [name] 任务名称。
+     * @param {string} [startTime] 开始时间，格式为yyyy-mm-ddThh:mm:ssZ。
+     * @param {string} [endTime] 结束时间，格式为yyyy-mm-ddThh:mm:ssZ。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduleTask(listScheduleTaskRequest?: ListScheduleTaskRequest): Promise<ListScheduleTaskResponse> {
+        const options = ParamCreater().listScheduleTask(listScheduleTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3460,6 +3582,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 取消定时任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelScheduleTask(cancelScheduleTaskRequest?: CancelScheduleTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/schedule-task/{task_id}/cancel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+            
+            let xLanguage;
+
+            if (cancelScheduleTaskRequest !== null && cancelScheduleTaskRequest !== undefined) {
+                if (cancelScheduleTaskRequest instanceof CancelScheduleTaskRequest) {
+                    taskId = cancelScheduleTaskRequest.taskId;
+                    xLanguage = cancelScheduleTaskRequest.xLanguage;
+                } else {
+                    taskId = cancelScheduleTaskRequest['task_id'];
+                    xLanguage = cancelScheduleTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling cancelScheduleTask.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 确认备份恢复到目标实例的数据正常。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4091,6 +4257,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量实例内核版本定时升级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createScheduleTask(createScheduleTaskRequest?: CreateScheduleTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/db-upgrade/schedule-task",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (createScheduleTaskRequest !== null && createScheduleTaskRequest !== undefined) {
+                if (createScheduleTaskRequest instanceof CreateScheduleTaskRequest) {
+                    body = createScheduleTaskRequest.body
+                    xLanguage = createScheduleTaskRequest.xLanguage;
+                } else {
+                    body = createScheduleTaskRequest['body'];
+                    xLanguage = createScheduleTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建慢日志下载信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4469,6 +4680,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除定时任务信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScheduleTask(deleteScheduleTaskRequest?: DeleteScheduleTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/schedule-task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+            
+            let xLanguage;
+
+            if (deleteScheduleTaskRequest !== null && deleteScheduleTaskRequest !== undefined) {
+                if (deleteScheduleTaskRequest instanceof DeleteScheduleTaskRequest) {
+                    taskId = deleteScheduleTaskRequest.taskId;
+                    xLanguage = deleteScheduleTaskRequest.xLanguage;
+                } else {
+                    taskId = deleteScheduleTaskRequest['task_id'];
+                    xLanguage = deleteScheduleTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteScheduleTask.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6226,6 +6481,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查看实例引擎版本分布
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceEngineDetail(listInstanceEngineDetailRequest?: ListInstanceEngineDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/datastore/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceEngineDetailRequest !== null && listInstanceEngineDetailRequest !== undefined) {
+                if (listInstanceEngineDetailRequest instanceof ListInstanceEngineDetailRequest) {
+                    xLanguage = listInstanceEngineDetailRequest.xLanguage;
+                    offset = listInstanceEngineDetailRequest.offset;
+                    limit = listInstanceEngineDetailRequest.limit;
+                } else {
+                    xLanguage = listInstanceEngineDetailRequest['X-Language'];
+                    offset = listInstanceEngineDetailRequest['offset'];
+                    limit = listInstanceEngineDetailRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库错误日志下载链接。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7151,6 +7457,92 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看定时任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduleTask(listScheduleTaskRequest?: ListScheduleTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/schedule-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let instanceId;
+            
+            let status;
+            
+            let name;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+
+            if (listScheduleTaskRequest !== null && listScheduleTaskRequest !== undefined) {
+                if (listScheduleTaskRequest instanceof ListScheduleTaskRequest) {
+                    xLanguage = listScheduleTaskRequest.xLanguage;
+                    instanceId = listScheduleTaskRequest.instanceId;
+                    status = listScheduleTaskRequest.status;
+                    name = listScheduleTaskRequest.name;
+                    startTime = listScheduleTaskRequest.startTime;
+                    endTime = listScheduleTaskRequest.endTime;
+                    offset = listScheduleTaskRequest.offset;
+                    limit = listScheduleTaskRequest.limit;
+                } else {
+                    xLanguage = listScheduleTaskRequest['X-Language'];
+                    instanceId = listScheduleTaskRequest['instance_id'];
+                    status = listScheduleTaskRequest['status'];
+                    name = listScheduleTaskRequest['name'];
+                    startTime = listScheduleTaskRequest['start_time'];
+                    endTime = listScheduleTaskRequest['end_time'];
+                    offset = listScheduleTaskRequest['offset'];
+                    limit = listScheduleTaskRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -140,6 +140,8 @@ import { DeleteDataSourceRequest } from './model/DeleteDataSourceRequest';
 import { DeleteDataSourceResponse } from './model/DeleteDataSourceResponse';
 import { DeleteDisasterRecoveryRequest } from './model/DeleteDisasterRecoveryRequest';
 import { DeleteDisasterRecoveryResponse } from './model/DeleteDisasterRecoveryResponse';
+import { DeleteDwsClusterRequest } from './model/DeleteDwsClusterRequest';
+import { DeleteDwsClusterResponse } from './model/DeleteDwsClusterResponse';
 import { DeleteEventSubRequest } from './model/DeleteEventSubRequest';
 import { DeleteEventSubResponse } from './model/DeleteEventSubResponse';
 import { DeleteLogicalClusterRequest } from './model/DeleteLogicalClusterRequest';
@@ -407,6 +409,8 @@ import { ShowClusterFlavorRequest } from './model/ShowClusterFlavorRequest';
 import { ShowClusterFlavorResponse } from './model/ShowClusterFlavorResponse';
 import { ShowClusterRedistributionRequest } from './model/ShowClusterRedistributionRequest';
 import { ShowClusterRedistributionResponse } from './model/ShowClusterRedistributionResponse';
+import { ShowClustersRequest } from './model/ShowClustersRequest';
+import { ShowClustersResponse } from './model/ShowClustersResponse';
 import { ShowDatabaseAuthorityRequest } from './model/ShowDatabaseAuthorityRequest';
 import { ShowDatabaseAuthorityResponse } from './model/ShowDatabaseAuthorityResponse';
 import { ShowDatabaseOmUserStatusRequest } from './model/ShowDatabaseOmUserStatusRequest';
@@ -1238,6 +1242,27 @@ export class DwsClient {
      */
     public deleteDisasterRecovery(deleteDisasterRecoveryRequest?: DeleteDisasterRecoveryRequest): Promise<DeleteDisasterRecoveryResponse> {
         const options = ParamCreater().deleteDisasterRecovery(deleteDisasterRecoveryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 此接口用于删除集群。集群删除后将释放此集群的所有资源，包括客户数据。为了安全起见，请在删除集群前为这个集群创建快照。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除集群V2
+     * @param {string} clusterId 集群ID
+     * @param {string} [keepLastManualBackup] 集群需要保留的快照数
+     * @param {string} [releaseEipType] 集群是否释放弹性公网IP，默认是NO_RELEASE不释放绑定的弹性公网IP，RELEASE_BINDING释放绑定的弹性公网IP
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDwsCluster(deleteDwsClusterRequest?: DeleteDwsClusterRequest): Promise<DeleteDwsClusterResponse> {
+        const options = ParamCreater().deleteDwsCluster(deleteDwsClusterRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3098,6 +3123,24 @@ export class DwsClient {
      */
     public showClusterRedistribution(showClusterRedistributionRequest?: ShowClusterRedistributionRequest): Promise<ShowClusterRedistributionResponse> {
         const options = ParamCreater().showClusterRedistribution(showClusterRedistributionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询并显示集群列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群列表V2
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusters(showClustersRequest?: ShowClustersRequest): Promise<ShowClustersResponse> {
+        const options = ParamCreater().showClusters();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5375,6 +5418,58 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'disaster_recovery_id': disasterRecoveryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口用于删除集群。集群删除后将释放此集群的所有资源，包括客户数据。为了安全起见，请在删除集群前为这个集群创建快照。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDwsCluster(deleteDwsClusterRequest?: DeleteDwsClusterRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/clusters/{cluster_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let keepLastManualBackup;
+            
+            let releaseEipType;
+
+            if (deleteDwsClusterRequest !== null && deleteDwsClusterRequest !== undefined) {
+                if (deleteDwsClusterRequest instanceof DeleteDwsClusterRequest) {
+                    clusterId = deleteDwsClusterRequest.clusterId;
+                    keepLastManualBackup = deleteDwsClusterRequest.keepLastManualBackup;
+                    releaseEipType = deleteDwsClusterRequest.releaseEipType;
+                } else {
+                    clusterId = deleteDwsClusterRequest['cluster_id'];
+                    keepLastManualBackup = deleteDwsClusterRequest['keep_last_manual_backup'];
+                    releaseEipType = deleteDwsClusterRequest['release_eip_type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteDwsCluster.');
+            }
+            if (keepLastManualBackup !== null && keepLastManualBackup !== undefined) {
+                localVarQueryParameter['keep_last_manual_backup'] = keepLastManualBackup;
+            }
+            if (releaseEipType !== null && releaseEipType !== undefined) {
+                localVarQueryParameter['release_eip_type'] = releaseEipType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9707,6 +9802,27 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询并显示集群列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusters() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

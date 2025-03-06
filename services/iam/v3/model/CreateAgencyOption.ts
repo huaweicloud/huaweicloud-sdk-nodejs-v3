@@ -6,7 +6,7 @@ export class CreateAgencyOption {
     private 'trust_domain_id'?: string;
     private 'trust_domain_name'?: string;
     public description?: string;
-    public duration?: string;
+    public duration?: object;
     public constructor(name?: string, domainId?: string) { 
         this['name'] = name;
         this['domain_id'] = domainId;
@@ -49,7 +49,7 @@ export class CreateAgencyOption {
         this['description'] = description;
         return this;
     }
-    public withDuration(duration: string): CreateAgencyOption {
+    public withDuration(duration: object): CreateAgencyOption {
         this['duration'] = duration;
         return this;
     }

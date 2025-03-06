@@ -1,7 +1,9 @@
+import { RestartInstanceRequestBody } from './RestartInstanceRequestBody';
 
 
 export class RestartInstanceRequest {
     private 'instance_id'?: string;
+    public body?: RestartInstanceRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,9 @@ export class RestartInstanceRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withBody(body: RestartInstanceRequestBody): RestartInstanceRequest {
+        this['body'] = body;
+        return this;
     }
 }

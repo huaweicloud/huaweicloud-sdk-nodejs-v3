@@ -1,3 +1,207 @@
+# 3.1.139 2025-03-06
+
+### HuaweiCloud SDK CAE
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListEips**
+    - changes of response param
+      - `+ kind: enum value [Eip]`
+      - `- kind: enum value [eip]`
+  - **UpdateEip**
+    - changes of request param
+      - `+ kind: enum value [Eip]`
+      - `- kind: enum value [eip]`
+  - **ListNoticeRules**
+    - changes of request param
+      - `- X-Environment-ID`
+  - **CreateNoticeRule**
+    - changes of request param
+      - `- X-Environment-ID`
+  - **DeleteNoticeRule**
+    - changes of request param
+      - `- X-Environment-ID`
+  - **ShowNoticeRule**
+    - changes of request param
+      - `- X-Environment-ID`
+  - **UpdateNoticeRule**
+    - changes of request param
+      - `- X-Environment-ID`
+
+### HuaweiCloud SDK CFW
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListAclRules**
+    - changes of response param
+      - `+ data.records.applications`
+
+### HuaweiCloud SDK COC
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ExecuteScript**
+    - changes of request param
+      - `- execute_param.script_params.param_value: enum value [^((?!\.{2,})[a-zA-Z0-9_\-\/\.\x20\?:",=+@\\\[\{\]\}])*$]`
+  - **ExecutePublicScript**
+    - changes of request param
+      - `- execute_param.script_params.param_value: enum value [^((?!\.{2,})[a-zA-Z0-9_\-\/\.\x20\?:",=+@\\\[\{\]\}])*$]`
+  - **GetScriptJobInfo**
+    - changes of response param
+      - `- data.properties.execute_param.script_params.param_value: enum value [^((?!\.{2,})[a-zA-Z0-9_\-\/\.\x20\?:",=+@\\\[\{\]\}])*$]`
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowDesignOperationResult**
+    - changes of request param
+      - `* operation_type: optional -> required`
+      - `+ operation_type: enum value [PUBLISH,ADD_TAGS,APPROVAL,CODETABLE_REVERSE_DB,DIMENSION_REVERSE_DB,FACT_LOGIC_TABLE_REVERSE_DB,SYNC_TABLES,IMPORT_STANDARD,IMPORT_CODETABLE,IMPORT_ER_TABLE,IMPORT_BUSINESS,PUBLISH_CODETABLE,PUBLISH_STANDARD,TABLE_MODEL_RELOCATE,DIMENSION_RELOCATE,FACT_LOGIC_TABLE_RELOCATE,AGGREGATION_LOGIC_TABLE_RELOCATE,ATOMIC_INDEX_RELOCATE,DERIVATIVE_INDEX_RELOCATE,COMPOUND_METRIC_RELOCATE,BIZ_METRIC_RELOCATE,CODE_TABLE_RELOCATE,STANDARD_ELEMENT_RELOCATE,INFO_ARCH_RELOCATE]`
+
+### HuaweiCloud SDK DC
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateVirtualInterface**
+    - changes of request param
+      - `+ virtual_interface.gateway_id`
+
+### HuaweiCloud SDK DRS
+
+- _API Version_
+  - V5
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Deprecate the following APIs:
+    - `CollectDbObjectsAsync`
+    - `BatchTagAction`
+    - `ListProjectTags`
+    - `ShowInstanceTags`
+    - `ListDbObjects`
+
+### HuaweiCloud SDK DWS
+
+- _API Version_
+  - V2
+- _Features_
+  - Support the APIs `DeleteDwsCluster`, `ShowClusters`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK ECS
+
+- _API Version_
+  - V2
+- _Features_
+  - Support the API `UpdateServerInterface`
+- _Bug Fix_
+  - None
+- _Change_
+  - Deprecate the API `NovaListAvailabilityZones`
+
+### HuaweiCloud SDK GaussDBforNoSQL
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListFlavorInfos**
+    - changes of request param
+      - `+ mode`
+      - `+ product_type`
+  - **ShowQuotas**
+    - changes of request param
+      - `+ product_type`
+  - **ListRecycleInstances**
+    - changes of response param
+      - `+ instances.product_type`
+  - **CreateInstance**
+    - changes of request param
+      - `+ product_type`
+  - **ListInstances**
+    - changes of response param
+      - `+ instances.product_type`
+
+### HuaweiCloud SDK GaussDBforopenGauss
+
+- _API Version_
+  - V3
+- _Features_
+  - Support the following APIs:
+    - `ListScheduleTask`
+    - `CancelScheduleTask`
+    - `DeleteScheduleTask`
+    - `ListInstanceEngineDetail`
+    - `CreateScheduleTask`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IAM
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateAgency**
+    - changes of request param
+      - `* agency.duration: string -> object`
+  - **UpdateAgency**
+    - changes of request param
+      - `* agency.duration: string -> object`
+
+### HuaweiCloud SDK OCR
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **RecognizeBankReceipt**
+    - changes of request param
+      - `+ single_orientation_mode`
+      - `+ erase_seal`
+
 # 3.1.138 2025-02-27
 
 ### HuaweiCloud SDK CSMS

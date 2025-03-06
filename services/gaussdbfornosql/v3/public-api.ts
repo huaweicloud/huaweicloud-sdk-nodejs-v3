@@ -293,6 +293,7 @@ export * from './model/ResizeInstanceVolumeRequest';
 export * from './model/ResizeInstanceVolumeRequestBody';
 export * from './model/ResizeInstanceVolumeResponse';
 export * from './model/RestartInstanceRequest';
+export * from './model/RestartInstanceRequestBody';
 export * from './model/RestartInstanceResponse';
 export * from './model/RestorableTime';
 export * from './model/RestoreExistingInstanceRequest';

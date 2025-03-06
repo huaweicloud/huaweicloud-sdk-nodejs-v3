@@ -15,6 +15,7 @@ export class CreateVirtualInterface {
     private 'local_gateway_v6_ip'?: string;
     private 'remote_gateway_v6_ip'?: string;
     private 'vgw_id'?: string;
+    private 'gateway_id'?: string;
     private 'route_mode'?: CreateVirtualInterfaceRouteModeEnum | string;
     private 'bgp_asn'?: number;
     private 'bgp_md5'?: string;
@@ -133,6 +134,16 @@ export class CreateVirtualInterface {
     }
     public get vgwId(): string | undefined {
         return this['vgw_id'];
+    }
+    public withGatewayId(gatewayId: string): CreateVirtualInterface {
+        this['gateway_id'] = gatewayId;
+        return this;
+    }
+    public set gatewayId(gatewayId: string  | undefined) {
+        this['gateway_id'] = gatewayId;
+    }
+    public get gatewayId(): string | undefined {
+        return this['gateway_id'];
     }
     public withRouteMode(routeMode: CreateVirtualInterfaceRouteModeEnum | string): CreateVirtualInterface {
         this['route_mode'] = routeMode;

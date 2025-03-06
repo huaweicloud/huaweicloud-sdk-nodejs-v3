@@ -1002,7 +1002,6 @@ export class CaeClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建事件通知规则。
-     * @param {string} xEnvironmentID 环境ID。      - 获取环境ID，通过《[云应用引擎API参考](https://support.huaweicloud.com/api-cae/ListEnvironments.html)》的“获取环境列表”章节获取环境信息。     - 请求响应成功后在响应体的items数组中的一个元素即为一个环境的信息，其中id字段即是环境ID。
      * @param {CreateNoticeRuleReq} body 
      * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
      * @param {*} [options] Override http request option.
@@ -1023,7 +1022,6 @@ export class CaeClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除事件通知规则。
-     * @param {string} xEnvironmentID 环境ID。      - 获取环境ID，通过《[云应用引擎API参考](https://support.huaweicloud.com/api-cae/ListEnvironments.html)》的“获取环境列表”章节获取环境信息。     - 请求响应成功后在响应体的items数组中的一个元素即为一个环境的信息，其中id字段即是环境ID。
      * @param {string} ruleId 
      * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
      * @param {*} [options] Override http request option.
@@ -1044,7 +1042,6 @@ export class CaeClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询事件通知规则列表。
-     * @param {string} xEnvironmentID 环境ID。      - 获取环境ID，通过《[云应用引擎API参考](https://support.huaweicloud.com/api-cae/ListEnvironments.html)》的“获取环境列表”章节获取环境信息。     - 请求响应成功后在响应体的items数组中的一个元素即为一个环境的信息，其中id字段即是环境ID。
      * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1064,7 +1061,6 @@ export class CaeClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询事件通知规则。
-     * @param {string} xEnvironmentID 环境ID。      - 获取环境ID，通过《[云应用引擎API参考](https://support.huaweicloud.com/api-cae/ListEnvironments.html)》的“获取环境列表”章节获取环境信息。     - 请求响应成功后在响应体的items数组中的一个元素即为一个环境的信息，其中id字段即是环境ID。
      * @param {string} ruleId 
      * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
      * @param {*} [options] Override http request option.
@@ -1085,7 +1081,6 @@ export class CaeClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改事件通知规则。
-     * @param {string} xEnvironmentID 环境ID。      - 获取环境ID，通过《[云应用引擎API参考](https://support.huaweicloud.com/api-cae/ListEnvironments.html)》的“获取环境列表”章节获取环境信息。     - 请求响应成功后在响应体的items数组中的一个元素即为一个环境的信息，其中id字段即是环境ID。
      * @param {string} ruleId 
      * @param {UpdateNoticeRuleReq} body 
      * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
@@ -3196,17 +3191,13 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let xEnvironmentID;
-            
             let xEnterpriseProjectID;
 
             if (createNoticeRuleRequest !== null && createNoticeRuleRequest !== undefined) {
                 if (createNoticeRuleRequest instanceof CreateNoticeRuleRequest) {
-                    xEnvironmentID = createNoticeRuleRequest.xEnvironmentID;
                     body = createNoticeRuleRequest.body
                     xEnterpriseProjectID = createNoticeRuleRequest.xEnterpriseProjectID;
                 } else {
-                    xEnvironmentID = createNoticeRuleRequest['X-Environment-ID'];
                     body = createNoticeRuleRequest['body'];
                     xEnterpriseProjectID = createNoticeRuleRequest['X-Enterprise-Project-ID'];
                 }
@@ -3218,9 +3209,6 @@ export const ParamCreater = function () {
             }
             if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
                 localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
-            }
-            if (xEnvironmentID !== undefined && xEnvironmentID !== null) {
-                localVarHeaderParameter['X-Environment-ID'] = String(xEnvironmentID);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3246,19 +3234,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let xEnvironmentID;
-            
             let ruleId;
             
             let xEnterpriseProjectID;
 
             if (deleteNoticeRuleRequest !== null && deleteNoticeRuleRequest !== undefined) {
                 if (deleteNoticeRuleRequest instanceof DeleteNoticeRuleRequest) {
-                    xEnvironmentID = deleteNoticeRuleRequest.xEnvironmentID;
                     ruleId = deleteNoticeRuleRequest.ruleId;
                     xEnterpriseProjectID = deleteNoticeRuleRequest.xEnterpriseProjectID;
                 } else {
-                    xEnvironmentID = deleteNoticeRuleRequest['X-Environment-ID'];
                     ruleId = deleteNoticeRuleRequest['rule_id'];
                     xEnterpriseProjectID = deleteNoticeRuleRequest['X-Enterprise-Project-ID'];
                 }
@@ -3270,9 +3254,6 @@ export const ParamCreater = function () {
             }
             if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
                 localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
-            }
-            if (xEnvironmentID !== undefined && xEnvironmentID !== null) {
-                localVarHeaderParameter['X-Environment-ID'] = String(xEnvironmentID);
             }
 
             options.pathParams = { 'rule_id': ruleId, };
@@ -3297,16 +3278,12 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let xEnvironmentID;
-            
             let xEnterpriseProjectID;
 
             if (listNoticeRulesRequest !== null && listNoticeRulesRequest !== undefined) {
                 if (listNoticeRulesRequest instanceof ListNoticeRulesRequest) {
-                    xEnvironmentID = listNoticeRulesRequest.xEnvironmentID;
                     xEnterpriseProjectID = listNoticeRulesRequest.xEnterpriseProjectID;
                 } else {
-                    xEnvironmentID = listNoticeRulesRequest['X-Environment-ID'];
                     xEnterpriseProjectID = listNoticeRulesRequest['X-Enterprise-Project-ID'];
                 }
             }
@@ -3314,9 +3291,6 @@ export const ParamCreater = function () {
         
             if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
                 localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
-            }
-            if (xEnvironmentID !== undefined && xEnvironmentID !== null) {
-                localVarHeaderParameter['X-Environment-ID'] = String(xEnvironmentID);
             }
 
             options.headers = localVarHeaderParameter;
@@ -3340,19 +3314,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let xEnvironmentID;
-            
             let ruleId;
             
             let xEnterpriseProjectID;
 
             if (showNoticeRuleRequest !== null && showNoticeRuleRequest !== undefined) {
                 if (showNoticeRuleRequest instanceof ShowNoticeRuleRequest) {
-                    xEnvironmentID = showNoticeRuleRequest.xEnvironmentID;
                     ruleId = showNoticeRuleRequest.ruleId;
                     xEnterpriseProjectID = showNoticeRuleRequest.xEnterpriseProjectID;
                 } else {
-                    xEnvironmentID = showNoticeRuleRequest['X-Environment-ID'];
                     ruleId = showNoticeRuleRequest['rule_id'];
                     xEnterpriseProjectID = showNoticeRuleRequest['X-Enterprise-Project-ID'];
                 }
@@ -3364,9 +3334,6 @@ export const ParamCreater = function () {
             }
             if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
                 localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
-            }
-            if (xEnvironmentID !== undefined && xEnvironmentID !== null) {
-                localVarHeaderParameter['X-Environment-ID'] = String(xEnvironmentID);
             }
 
             options.pathParams = { 'rule_id': ruleId, };
@@ -3393,20 +3360,16 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let xEnvironmentID;
-            
             let ruleId;
             
             let xEnterpriseProjectID;
 
             if (updateNoticeRuleRequest !== null && updateNoticeRuleRequest !== undefined) {
                 if (updateNoticeRuleRequest instanceof UpdateNoticeRuleRequest) {
-                    xEnvironmentID = updateNoticeRuleRequest.xEnvironmentID;
                     ruleId = updateNoticeRuleRequest.ruleId;
                     body = updateNoticeRuleRequest.body
                     xEnterpriseProjectID = updateNoticeRuleRequest.xEnterpriseProjectID;
                 } else {
-                    xEnvironmentID = updateNoticeRuleRequest['X-Environment-ID'];
                     ruleId = updateNoticeRuleRequest['rule_id'];
                     body = updateNoticeRuleRequest['body'];
                     xEnterpriseProjectID = updateNoticeRuleRequest['X-Enterprise-Project-ID'];
@@ -3422,9 +3385,6 @@ export const ParamCreater = function () {
             }
             if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
                 localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
-            }
-            if (xEnvironmentID !== undefined && xEnvironmentID !== null) {
-                localVarHeaderParameter['X-Environment-ID'] = String(xEnvironmentID);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

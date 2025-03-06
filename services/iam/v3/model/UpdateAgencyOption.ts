@@ -4,7 +4,7 @@ export class UpdateAgencyOption {
     private 'trust_domain_id'?: string;
     private 'trust_domain_name'?: string;
     public description?: string;
-    public duration?: string;
+    public duration?: object;
     public constructor() { 
     }
     public withTrustDomainId(trustDomainId: string): UpdateAgencyOption {
@@ -31,7 +31,7 @@ export class UpdateAgencyOption {
         this['description'] = description;
         return this;
     }
-    public withDuration(duration: string): UpdateAgencyOption {
+    public withDuration(duration: object): UpdateAgencyOption {
         this['duration'] = duration;
         return this;
     }

@@ -10,6 +10,7 @@ export class LiveSnapshotConfig {
     private 'obs_location'?: ObsFileAddr;
     private 'call_back_enable'?: LiveSnapshotConfigCallBackEnableEnum | string;
     private 'call_back_url'?: string;
+    private 'image_object_format'?: string;
     private 'image_access_protocol'?: LiveSnapshotConfigImageAccessProtocolEnum | string;
     private 'image_access_domain'?: string;
     public constructor(domain?: string, appName?: string, timeInterval?: number, objectWriteMode?: number, obsLocation?: ObsFileAddr) { 
@@ -92,6 +93,16 @@ export class LiveSnapshotConfig {
     }
     public get callBackUrl(): string | undefined {
         return this['call_back_url'];
+    }
+    public withImageObjectFormat(imageObjectFormat: string): LiveSnapshotConfig {
+        this['image_object_format'] = imageObjectFormat;
+        return this;
+    }
+    public set imageObjectFormat(imageObjectFormat: string  | undefined) {
+        this['image_object_format'] = imageObjectFormat;
+    }
+    public get imageObjectFormat(): string | undefined {
+        return this['image_object_format'];
     }
     public withImageAccessProtocol(imageAccessProtocol: LiveSnapshotConfigImageAccessProtocolEnum | string): LiveSnapshotConfig {
         this['image_access_protocol'] = imageAccessProtocol;

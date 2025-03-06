@@ -2,10 +2,8 @@
 
 export class DeleteNoticeRuleRequest {
     private 'X-Enterprise-Project-ID'?: string;
-    private 'X-Environment-ID'?: string;
     private 'rule_id'?: string;
-    public constructor(xEnvironmentID?: string, ruleId?: string) { 
-        this['X-Environment-ID'] = xEnvironmentID;
+    public constructor(ruleId?: string) { 
         this['rule_id'] = ruleId;
     }
     public withXEnterpriseProjectID(xEnterpriseProjectID: string): DeleteNoticeRuleRequest {
@@ -17,16 +15,6 @@ export class DeleteNoticeRuleRequest {
     }
     public get xEnterpriseProjectID(): string | undefined {
         return this['X-Enterprise-Project-ID'];
-    }
-    public withXEnvironmentID(xEnvironmentID: string): DeleteNoticeRuleRequest {
-        this['X-Environment-ID'] = xEnvironmentID;
-        return this;
-    }
-    public set xEnvironmentID(xEnvironmentID: string  | undefined) {
-        this['X-Environment-ID'] = xEnvironmentID;
-    }
-    public get xEnvironmentID(): string | undefined {
-        return this['X-Environment-ID'];
     }
     public withRuleId(ruleId: string): DeleteNoticeRuleRequest {
         this['rule_id'] = ruleId;

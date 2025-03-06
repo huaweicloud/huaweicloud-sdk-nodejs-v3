@@ -8,8 +8,9 @@ export class ShowDesignOperationResultRequest {
     public limit?: number;
     public offset?: number;
     private 'operation_id'?: string;
-    public constructor(workspace?: string) { 
+    public constructor(workspace?: string, operationType?: string) { 
         this['workspace'] = workspace;
+        this['operation_type'] = operationType;
     }
     public withWorkspace(workspace: string): ShowDesignOperationResultRequest {
         this['workspace'] = workspace;
@@ -70,30 +71,6 @@ export class ShowDesignOperationResultRequest {
     * @enum {string}
     */
 export enum ShowDesignOperationResultRequestOperationTypeEnum {
-    PUBLISH = 'PUBLISH',
-    ADD_TAGS = 'ADD_TAGS',
-    APPROVAL = 'APPROVAL',
     ER_REVERSE_DB = 'ER_REVERSE_DB',
-    CODETABLE_REVERSE_DB = 'CODETABLE_REVERSE_DB',
-    DIMENSION_REVERSE_DB = 'DIMENSION_REVERSE_DB',
-    FACT_LOGIC_TABLE_REVERSE_DB = 'FACT_LOGIC_TABLE_REVERSE_DB',
-    SYNC_TABLES = 'SYNC_TABLES',
-    IMPORT_STANDARD = 'IMPORT_STANDARD',
-    IMPORT_CODETABLE = 'IMPORT_CODETABLE',
-    IMPORT_ER_TABLE = 'IMPORT_ER_TABLE',
-    IMPORT_BUSINESS = 'IMPORT_BUSINESS',
-    TRANSFORM_LOGIC_MODEL = 'TRANSFORM_LOGIC_MODEL',
-    PUBLISH_CODETABLE = 'PUBLISH_CODETABLE',
-    PUBLISH_STANDARD = 'PUBLISH_STANDARD',
-    TABLE_MODEL_RELOCATE = 'TABLE_MODEL_RELOCATE',
-    DIMENSION_RELOCATE = 'DIMENSION_RELOCATE',
-    FACT_LOGIC_TABLE_RELOCATE = 'FACT_LOGIC_TABLE_RELOCATE',
-    AGGREGATION_LOGIC_TABLE_RELOCATE = 'AGGREGATION_LOGIC_TABLE_RELOCATE',
-    ATOMIC_INDEX_RELOCATE = 'ATOMIC_INDEX_RELOCATE',
-    DERIVATIVE_INDEX_RELOCATE = 'DERIVATIVE_INDEX_RELOCATE',
-    COMPOUND_METRIC_RELOCATE = 'COMPOUND_METRIC_RELOCATE',
-    BIZ_METRIC_RELOCATE = 'BIZ_METRIC_RELOCATE',
-    CODE_TABLE_RELOCATE = 'CODE_TABLE_RELOCATE',
-    STANDARD_ELEMENT_RELOCATE = 'STANDARD_ELEMENT_RELOCATE',
-    INFO_ARCH_RELOCATE = 'INFO_ARCH_RELOCATE'
+    TRANSFORM_LOGIC_MODEL = 'TRANSFORM_LOGIC_MODEL'
 }

@@ -3,6 +3,7 @@
 export class ShowQuotasRequest {
     private 'datastore_type'?: string;
     public mode?: string;
+    private 'product_type'?: string;
     public constructor() { 
     }
     public withDatastoreType(datastoreType: string): ShowQuotasRequest {
@@ -18,5 +19,15 @@ export class ShowQuotasRequest {
     public withMode(mode: string): ShowQuotasRequest {
         this['mode'] = mode;
         return this;
+    }
+    public withProductType(productType: string): ShowQuotasRequest {
+        this['product_type'] = productType;
+        return this;
+    }
+    public set productType(productType: string  | undefined) {
+        this['product_type'] = productType;
+    }
+    public get productType(): string | undefined {
+        return this['product_type'];
     }
 }

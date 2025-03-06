@@ -3,7 +3,7 @@ import { ScriptExecuteParamReference } from './ScriptExecuteParamReference';
 
 export class ScriptExecuteInputParam {
     private 'param_name'?: string;
-    private 'param_value'?: ScriptExecuteInputParamParamValueEnum | string;
+    private 'param_value'?: string;
     private 'param_order'?: number;
     private 'param_refer'?: ScriptExecuteParamReference;
     public constructor(paramName?: string, paramValue?: string) { 
@@ -20,14 +20,14 @@ export class ScriptExecuteInputParam {
     public get paramName(): string | undefined {
         return this['param_name'];
     }
-    public withParamValue(paramValue: ScriptExecuteInputParamParamValueEnum | string): ScriptExecuteInputParam {
+    public withParamValue(paramValue: string): ScriptExecuteInputParam {
         this['param_value'] = paramValue;
         return this;
     }
-    public set paramValue(paramValue: ScriptExecuteInputParamParamValueEnum | string  | undefined) {
+    public set paramValue(paramValue: string  | undefined) {
         this['param_value'] = paramValue;
     }
-    public get paramValue(): ScriptExecuteInputParamParamValueEnum | string | undefined {
+    public get paramValue(): string | undefined {
         return this['param_value'];
     }
     public withParamOrder(paramOrder: number): ScriptExecuteInputParam {
@@ -50,14 +50,4 @@ export class ScriptExecuteInputParam {
     public get paramRefer(): ScriptExecuteParamReference | undefined {
         return this['param_refer'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ScriptExecuteInputParamParamValueEnum {
-    ___2 = '^((?!\\.{2',
-    A_ZA_Z0_9________X20 = '})[a-zA-Z0-9_\\-/\\.\\x20\\?:\"',
-    _____ = '=+@\\\\\\[\\{\\]\\}])*$'
 }

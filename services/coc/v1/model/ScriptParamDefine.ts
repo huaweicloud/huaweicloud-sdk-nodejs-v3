@@ -6,9 +6,11 @@ export class ScriptParamDefine {
     private 'param_description'?: string;
     private 'param_order'?: number;
     public sensitive?: boolean;
-    public constructor(paramName?: string, paramDescription?: string, sensitive?: boolean) { 
+    public constructor(paramName?: string, paramValue?: string, paramDescription?: string, paramOrder?: number, sensitive?: boolean) { 
         this['param_name'] = paramName;
+        this['param_value'] = paramValue;
         this['param_description'] = paramDescription;
+        this['param_order'] = paramOrder;
         this['sensitive'] = sensitive;
     }
     public withParamName(paramName: string): ScriptParamDefine {

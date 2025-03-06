@@ -5,6 +5,7 @@ import { TagsVO } from './TagsVO';
 
 export class RuleAclListResponseDTODataRecords {
     private 'rule_id'?: string;
+    public applications?: Array<string>;
     private 'address_type'?: number;
     public name?: string;
     public direction?: RuleAclListResponseDTODataRecordsDirectionEnum | number;
@@ -34,6 +35,10 @@ export class RuleAclListResponseDTODataRecords {
     }
     public get ruleId(): string | undefined {
         return this['rule_id'];
+    }
+    public withApplications(applications: Array<string>): RuleAclListResponseDTODataRecords {
+        this['applications'] = applications;
+        return this;
     }
     public withAddressType(addressType: number): RuleAclListResponseDTODataRecords {
         this['address_type'] = addressType;

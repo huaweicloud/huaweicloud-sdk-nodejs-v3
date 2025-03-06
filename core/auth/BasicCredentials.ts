@@ -198,6 +198,6 @@ export class BasicCredentials implements ICredential {
   
     static getDefaultDerivedPredicate(request: IHttpRequest) {
         const hostname = new URL(request?.endpoint)?.hostname;
-        return !this.DEFAULT_ENDPOINT_REG.test(hostname);
+        return !BasicCredentials.DEFAULT_ENDPOINT_REG.test(hostname);
     }
 }
