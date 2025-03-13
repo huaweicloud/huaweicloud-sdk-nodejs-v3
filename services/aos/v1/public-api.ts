@@ -185,6 +185,8 @@ export * from './model/PrivateProviderSourcePrimitiveTypeHolder';
 export * from './model/PrivateProviderVersionDescriptionPrimitiveTypeHolder';
 export * from './model/PrivateProviderVersionPrimitiveTypeHolder';
 export * from './model/PrivateProviderVersionRequiredPrimitiveTypeHolder';
+export * from './model/ProviderAgencyNamePrimitiveTypeHolder';
+export * from './model/ProviderAgencyUrnPrimitiveTypeHolder';
 export * from './model/RegionsPrimitiveTypeHolder';
 export * from './model/ResourceAttribute';
 export * from './model/ResourceNamePrimitiveTypeHolder';

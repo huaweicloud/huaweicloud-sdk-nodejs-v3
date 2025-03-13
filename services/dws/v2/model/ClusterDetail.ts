@@ -37,6 +37,7 @@ export class ClusterDetail {
     private 'parameter_group'?: ParameterGroup;
     private 'node_type_id'?: string;
     private 'security_group_id'?: string;
+    private 'order_id'?: string;
     private 'private_ip'?: Array<string>;
     private 'maintain_window'?: MaintainWindow;
     private 'resize_info'?: ResizeInfo;
@@ -270,6 +271,16 @@ export class ClusterDetail {
     }
     public get securityGroupId(): string | undefined {
         return this['security_group_id'];
+    }
+    public withOrderId(orderId: string): ClusterDetail {
+        this['order_id'] = orderId;
+        return this;
+    }
+    public set orderId(orderId: string  | undefined) {
+        this['order_id'] = orderId;
+    }
+    public get orderId(): string | undefined {
+        return this['order_id'];
     }
     public withPrivateIp(privateIp: Array<string>): ClusterDetail {
         this['private_ip'] = privateIp;

@@ -11,7 +11,10 @@ export class DataClassificationRuleOperateDTO {
     private 'builtin_rule_id'?: string;
     public description?: string;
     private 'category_id'?: string;
-    public constructor() { 
+    public constructor(ruleType?: string, secrecyLevelId?: string, name?: string) { 
+        this['rule_type'] = ruleType;
+        this['secrecy_level_id'] = secrecyLevelId;
+        this['name'] = name;
     }
     public withRuleType(ruleType: DataClassificationRuleOperateDTORuleTypeEnum | string): DataClassificationRuleOperateDTO {
         this['rule_type'] = ruleType;

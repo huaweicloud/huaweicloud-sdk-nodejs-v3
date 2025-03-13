@@ -103,6 +103,8 @@ import { CreateAutopilotClusterRequest } from './model/CreateAutopilotClusterReq
 import { CreateAutopilotClusterResponse } from './model/CreateAutopilotClusterResponse';
 import { CreateAutopilotKubernetesClusterCertRequest } from './model/CreateAutopilotKubernetesClusterCertRequest';
 import { CreateAutopilotKubernetesClusterCertResponse } from './model/CreateAutopilotKubernetesClusterCertResponse';
+import { CreateAutopilotMaintenanceWindowRequest } from './model/CreateAutopilotMaintenanceWindowRequest';
+import { CreateAutopilotMaintenanceWindowResponse } from './model/CreateAutopilotMaintenanceWindowResponse';
 import { CreateAutopilotPostCheckRequest } from './model/CreateAutopilotPostCheckRequest';
 import { CreateAutopilotPostCheckResponse } from './model/CreateAutopilotPostCheckResponse';
 import { CreateAutopilotPreCheckRequest } from './model/CreateAutopilotPreCheckRequest';
@@ -137,6 +139,7 @@ import { CreateReleaseResponse } from './model/CreateReleaseResponse';
 import { CreateUpgradeWorkFlowRequest } from './model/CreateUpgradeWorkFlowRequest';
 import { CreateUpgradeWorkFlowRequestBody } from './model/CreateUpgradeWorkFlowRequestBody';
 import { CreateUpgradeWorkFlowResponse } from './model/CreateUpgradeWorkFlowResponse';
+import { DelayUpgradePlanRequestBody } from './model/DelayUpgradePlanRequestBody';
 import { DeleteAddonInstanceRequest } from './model/DeleteAddonInstanceRequest';
 import { DeleteAddonInstanceResponse } from './model/DeleteAddonInstanceResponse';
 import { DeleteAutopilotAddonInstanceRequest } from './model/DeleteAutopilotAddonInstanceRequest';
@@ -145,6 +148,8 @@ import { DeleteAutopilotChartRequest } from './model/DeleteAutopilotChartRequest
 import { DeleteAutopilotChartResponse } from './model/DeleteAutopilotChartResponse';
 import { DeleteAutopilotClusterRequest } from './model/DeleteAutopilotClusterRequest';
 import { DeleteAutopilotClusterResponse } from './model/DeleteAutopilotClusterResponse';
+import { DeleteAutopilotMaintenanceWindowRequest } from './model/DeleteAutopilotMaintenanceWindowRequest';
+import { DeleteAutopilotMaintenanceWindowResponse } from './model/DeleteAutopilotMaintenanceWindowResponse';
 import { DeleteAutopilotReleaseRequest } from './model/DeleteAutopilotReleaseRequest';
 import { DeleteAutopilotReleaseResponse } from './model/DeleteAutopilotReleaseResponse';
 import { DeleteChartRequest } from './model/DeleteChartRequest';
@@ -212,6 +217,8 @@ import { ListAutopilotReleasesRequest } from './model/ListAutopilotReleasesReque
 import { ListAutopilotReleasesResponse } from './model/ListAutopilotReleasesResponse';
 import { ListAutopilotUpgradeClusterTasksRequest } from './model/ListAutopilotUpgradeClusterTasksRequest';
 import { ListAutopilotUpgradeClusterTasksResponse } from './model/ListAutopilotUpgradeClusterTasksResponse';
+import { ListAutopilotUpgradePlansRequest } from './model/ListAutopilotUpgradePlansRequest';
+import { ListAutopilotUpgradePlansResponse } from './model/ListAutopilotUpgradePlansResponse';
 import { ListAutopilotUpgradeWorkFlowsRequest } from './model/ListAutopilotUpgradeWorkFlowsRequest';
 import { ListAutopilotUpgradeWorkFlowsResponse } from './model/ListAutopilotUpgradeWorkFlowsResponse';
 import { ListChartsRequest } from './model/ListChartsRequest';
@@ -239,6 +246,7 @@ import { ListUpgradeClusterTasksResponse } from './model/ListUpgradeClusterTasks
 import { ListUpgradeWorkFlowsRequest } from './model/ListUpgradeWorkFlowsRequest';
 import { ListUpgradeWorkFlowsResponse } from './model/ListUpgradeWorkFlowsResponse';
 import { Login } from './model/Login';
+import { MaintenanceWindow } from './model/MaintenanceWindow';
 import { MasterEIPRequest } from './model/MasterEIPRequest';
 import { MasterEIPRequestSpec } from './model/MasterEIPRequestSpec';
 import { MasterEIPRequestSpecSpec } from './model/MasterEIPRequestSpecSpec';
@@ -395,6 +403,8 @@ import { ShowAutopilotClusterUpgradeInfoRequest } from './model/ShowAutopilotClu
 import { ShowAutopilotClusterUpgradeInfoResponse } from './model/ShowAutopilotClusterUpgradeInfoResponse';
 import { ShowAutopilotJobRequest } from './model/ShowAutopilotJobRequest';
 import { ShowAutopilotJobResponse } from './model/ShowAutopilotJobResponse';
+import { ShowAutopilotMaintenanceWindowRequest } from './model/ShowAutopilotMaintenanceWindowRequest';
+import { ShowAutopilotMaintenanceWindowResponse } from './model/ShowAutopilotMaintenanceWindowResponse';
 import { ShowAutopilotPreCheckRequest } from './model/ShowAutopilotPreCheckRequest';
 import { ShowAutopilotPreCheckResponse } from './model/ShowAutopilotPreCheckResponse';
 import { ShowAutopilotQuotasRequest } from './model/ShowAutopilotQuotasRequest';
@@ -485,8 +495,12 @@ import { UpdateAutopilotClusterEipRequest } from './model/UpdateAutopilotCluster
 import { UpdateAutopilotClusterEipResponse } from './model/UpdateAutopilotClusterEipResponse';
 import { UpdateAutopilotClusterRequest } from './model/UpdateAutopilotClusterRequest';
 import { UpdateAutopilotClusterResponse } from './model/UpdateAutopilotClusterResponse';
+import { UpdateAutopilotMaintenanceWindowRequest } from './model/UpdateAutopilotMaintenanceWindowRequest';
+import { UpdateAutopilotMaintenanceWindowResponse } from './model/UpdateAutopilotMaintenanceWindowResponse';
 import { UpdateAutopilotReleaseRequest } from './model/UpdateAutopilotReleaseRequest';
 import { UpdateAutopilotReleaseResponse } from './model/UpdateAutopilotReleaseResponse';
+import { UpdateAutopilotUpgradePlanRequest } from './model/UpdateAutopilotUpgradePlanRequest';
+import { UpdateAutopilotUpgradePlanResponse } from './model/UpdateAutopilotUpgradePlanResponse';
 import { UpdateChartRequest } from './model/UpdateChartRequest';
 import { UpdateChartRequestBody } from './model/UpdateChartRequestBody';
 import { UpdateChartResponse } from './model/UpdateChartResponse';
@@ -526,6 +540,9 @@ import { UpgradeNodePool } from './model/UpgradeNodePool';
 import { UpgradeNodePoolRequest } from './model/UpgradeNodePoolRequest';
 import { UpgradeNodePoolResponse } from './model/UpgradeNodePoolResponse';
 import { UpgradePath } from './model/UpgradePath';
+import { UpgradePlan } from './model/UpgradePlan';
+import { UpgradePlanSpec } from './model/UpgradePlanSpec';
+import { UpgradePlanStatus } from './model/UpgradePlanStatus';
 import { UpgradeResponseSpec } from './model/UpgradeResponseSpec';
 import { UpgradeSpec } from './model/UpgradeSpec';
 import { UpgradeStrategy } from './model/UpgradeStrategy';
@@ -2621,6 +2638,27 @@ export class CceClient {
     }
 
     /**
+     * 该API用于创建集群维护窗口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建集群维护窗口
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {MaintenanceWindow} createAutopilotMaintenanceWindowRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotMaintenanceWindow(createAutopilotMaintenanceWindowRequest?: CreateAutopilotMaintenanceWindowRequest): Promise<CreateAutopilotMaintenanceWindowResponse> {
+        const options = ParamCreater().createAutopilotMaintenanceWindow(createAutopilotMaintenanceWindowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 集群升级后确认，该接口建议配合Console使用，主要用于升级步骤完成后，客户确认集群状态和业务正常后做反馈。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2764,6 +2802,26 @@ export class CceClient {
      */
     public deleteAutopilotCluster(deleteAutopilotClusterRequest?: DeleteAutopilotClusterRequest): Promise<DeleteAutopilotClusterResponse> {
         const options = ParamCreater().deleteAutopilotCluster(deleteAutopilotClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于删除集群维护窗口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除集群维护窗口
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutopilotMaintenanceWindow(deleteAutopilotMaintenanceWindowRequest?: DeleteAutopilotMaintenanceWindowRequest): Promise<DeleteAutopilotMaintenanceWindowResponse> {
+        const options = ParamCreater().deleteAutopilotMaintenanceWindow(deleteAutopilotMaintenanceWindowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3013,6 +3071,26 @@ export class CceClient {
     }
 
     /**
+     * 该API用于获取集群自动升级计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取自动升级计划
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotUpgradePlans(listAutopilotUpgradePlansRequest?: ListAutopilotUpgradePlansRequest): Promise<ListAutopilotUpgradePlansResponse> {
+        const options = ParamCreater().listAutopilotUpgradePlans(listAutopilotUpgradePlansRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取历史集群升级引导任务列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3213,6 +3291,26 @@ export class CceClient {
      */
     public showAutopilotJob(showAutopilotJobRequest?: ShowAutopilotJobRequest): Promise<ShowAutopilotJobResponse> {
         const options = ParamCreater().showAutopilotJob(showAutopilotJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取集群维护窗口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群维护窗口
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotMaintenanceWindow(showAutopilotMaintenanceWindowRequest?: ShowAutopilotMaintenanceWindowRequest): Promise<ShowAutopilotMaintenanceWindowResponse> {
+        const options = ParamCreater().showAutopilotMaintenanceWindow(showAutopilotMaintenanceWindowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3453,6 +3551,27 @@ export class CceClient {
     }
 
     /**
+     * 该API用于更新集群维护窗口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新集群维护窗口
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {MaintenanceWindow} updateAutopilotMaintenanceWindowRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotMaintenanceWindow(updateAutopilotMaintenanceWindowRequest?: UpdateAutopilotMaintenanceWindowRequest): Promise<UpdateAutopilotMaintenanceWindowResponse> {
+        const options = ParamCreater().updateAutopilotMaintenanceWindow(updateAutopilotMaintenanceWindowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新指定模板实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3468,6 +3587,28 @@ export class CceClient {
      */
     public updateAutopilotRelease(updateAutopilotReleaseRequest?: UpdateAutopilotReleaseRequest): Promise<UpdateAutopilotReleaseResponse> {
         const options = ParamCreater().updateAutopilotRelease(updateAutopilotReleaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于延期集群自动升级计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 延期自动升级计划
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} upgradePlanId 集群自动升级计划ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {DelayUpgradePlanRequestBody} delayUpgradePlanRequestBody 延期自动升级计划请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotUpgradePlan(updateAutopilotUpgradePlanRequest?: UpdateAutopilotUpgradePlanRequest): Promise<UpdateAutopilotUpgradePlanResponse> {
+        const options = ParamCreater().updateAutopilotUpgradePlan(updateAutopilotUpgradePlanRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8384,6 +8525,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于创建集群维护窗口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotMaintenanceWindow(createAutopilotMaintenanceWindowRequest?: CreateAutopilotMaintenanceWindowRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/maintenancewindows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (createAutopilotMaintenanceWindowRequest !== null && createAutopilotMaintenanceWindowRequest !== undefined) {
+                if (createAutopilotMaintenanceWindowRequest instanceof CreateAutopilotMaintenanceWindowRequest) {
+                    clusterId = createAutopilotMaintenanceWindowRequest.clusterId;
+                    contentType = createAutopilotMaintenanceWindowRequest.contentType;
+                    body = createAutopilotMaintenanceWindowRequest.body
+                } else {
+                    clusterId = createAutopilotMaintenanceWindowRequest['cluster_id'];
+                    contentType = createAutopilotMaintenanceWindowRequest['Content-Type'];
+                    body = createAutopilotMaintenanceWindowRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotMaintenanceWindow.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 集群升级后确认，该接口建议配合Console使用，主要用于升级步骤完成后，客户确认集群状态和业务正常后做反馈。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8761,6 +8955,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除集群维护窗口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutopilotMaintenanceWindow(deleteAutopilotMaintenanceWindowRequest?: DeleteAutopilotMaintenanceWindowRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/maintenancewindows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (deleteAutopilotMaintenanceWindowRequest !== null && deleteAutopilotMaintenanceWindowRequest !== undefined) {
+                if (deleteAutopilotMaintenanceWindowRequest instanceof DeleteAutopilotMaintenanceWindowRequest) {
+                    clusterId = deleteAutopilotMaintenanceWindowRequest.clusterId;
+                    contentType = deleteAutopilotMaintenanceWindowRequest.contentType;
+                } else {
+                    clusterId = deleteAutopilotMaintenanceWindowRequest['cluster_id'];
+                    contentType = deleteAutopilotMaintenanceWindowRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteAutopilotMaintenanceWindow.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -9303,6 +9541,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于获取集群自动升级计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotUpgradePlans(listAutopilotUpgradePlansRequest?: ListAutopilotUpgradePlansRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/upgradeplans",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (listAutopilotUpgradePlansRequest !== null && listAutopilotUpgradePlansRequest !== undefined) {
+                if (listAutopilotUpgradePlansRequest instanceof ListAutopilotUpgradePlansRequest) {
+                    clusterId = listAutopilotUpgradePlansRequest.clusterId;
+                    contentType = listAutopilotUpgradePlansRequest.contentType;
+                } else {
+                    clusterId = listAutopilotUpgradePlansRequest['cluster_id'];
+                    contentType = listAutopilotUpgradePlansRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotUpgradePlans.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取历史集群升级引导任务列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9750,6 +10032,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取集群维护窗口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotMaintenanceWindow(showAutopilotMaintenanceWindowRequest?: ShowAutopilotMaintenanceWindowRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/maintenancewindows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (showAutopilotMaintenanceWindowRequest !== null && showAutopilotMaintenanceWindowRequest !== undefined) {
+                if (showAutopilotMaintenanceWindowRequest instanceof ShowAutopilotMaintenanceWindowRequest) {
+                    clusterId = showAutopilotMaintenanceWindowRequest.clusterId;
+                    contentType = showAutopilotMaintenanceWindowRequest.contentType;
+                } else {
+                    clusterId = showAutopilotMaintenanceWindowRequest['cluster_id'];
+                    contentType = showAutopilotMaintenanceWindowRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotMaintenanceWindow.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10310,6 +10636,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于更新集群维护窗口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotMaintenanceWindow(updateAutopilotMaintenanceWindowRequest?: UpdateAutopilotMaintenanceWindowRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/maintenancewindows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (updateAutopilotMaintenanceWindowRequest !== null && updateAutopilotMaintenanceWindowRequest !== undefined) {
+                if (updateAutopilotMaintenanceWindowRequest instanceof UpdateAutopilotMaintenanceWindowRequest) {
+                    clusterId = updateAutopilotMaintenanceWindowRequest.clusterId;
+                    contentType = updateAutopilotMaintenanceWindowRequest.contentType;
+                    body = updateAutopilotMaintenanceWindowRequest.body
+                } else {
+                    clusterId = updateAutopilotMaintenanceWindowRequest['cluster_id'];
+                    contentType = updateAutopilotMaintenanceWindowRequest['Content-Type'];
+                    body = updateAutopilotMaintenanceWindowRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutopilotMaintenanceWindow.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新指定模板实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10372,6 +10751,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'name': name,'namespace': namespace,'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于延期集群自动升级计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotUpgradePlan(updateAutopilotUpgradePlanRequest?: UpdateAutopilotUpgradePlanRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/upgradeplans/{upgrade_plan_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let upgradePlanId;
+            
+            let contentType;
+
+            if (updateAutopilotUpgradePlanRequest !== null && updateAutopilotUpgradePlanRequest !== undefined) {
+                if (updateAutopilotUpgradePlanRequest instanceof UpdateAutopilotUpgradePlanRequest) {
+                    clusterId = updateAutopilotUpgradePlanRequest.clusterId;
+                    upgradePlanId = updateAutopilotUpgradePlanRequest.upgradePlanId;
+                    contentType = updateAutopilotUpgradePlanRequest.contentType;
+                    body = updateAutopilotUpgradePlanRequest.body
+                } else {
+                    clusterId = updateAutopilotUpgradePlanRequest['cluster_id'];
+                    upgradePlanId = updateAutopilotUpgradePlanRequest['upgrade_plan_id'];
+                    contentType = updateAutopilotUpgradePlanRequest['Content-Type'];
+                    body = updateAutopilotUpgradePlanRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutopilotUpgradePlan.');
+            }
+            if (upgradePlanId === null || upgradePlanId === undefined) {
+            throw new RequiredError('upgradePlanId','Required parameter upgradePlanId was null or undefined when calling updateAutopilotUpgradePlan.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'upgrade_plan_id': upgradePlanId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

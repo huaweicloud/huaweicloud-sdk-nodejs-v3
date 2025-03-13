@@ -39,10 +39,11 @@ export class ClusterSpec {
     public configurationsOverride?: Array<PackageConfiguration>;
     public clusterOps?: ClusterOps;
     public encryptionConfig?: EncryptionConfig;
-    public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork) { 
+    public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork, eniNetwork?: EniNetwork) { 
         this['flavor'] = flavor;
         this['hostNetwork'] = hostNetwork;
         this['containerNetwork'] = containerNetwork;
+        this['eniNetwork'] = eniNetwork;
     }
     public withCategory(category: ClusterSpecCategoryEnum | string): ClusterSpec {
         this['category'] = category;

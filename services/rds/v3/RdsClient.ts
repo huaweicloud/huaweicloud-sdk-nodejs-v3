@@ -366,6 +366,8 @@ import { ListUpdateBackupEnhancePolicyRequest } from './model/ListUpdateBackupEn
 import { ListUpdateBackupEnhancePolicyResponse } from './model/ListUpdateBackupEnhancePolicyResponse';
 import { ListUpgradeHistoriesRequest } from './model/ListUpgradeHistoriesRequest';
 import { ListUpgradeHistoriesResponse } from './model/ListUpgradeHistoriesResponse';
+import { ListVolumeInfoRequest } from './model/ListVolumeInfoRequest';
+import { ListVolumeInfoResponse } from './model/ListVolumeInfoResponse';
 import { ListXelLogResponseResult } from './model/ListXelLogResponseResult';
 import { ListXellogFilesRequest } from './model/ListXellogFilesRequest';
 import { ListXellogFilesResponse } from './model/ListXellogFilesResponse';
@@ -2530,6 +2532,26 @@ export class RdsClient {
      */
     public listUpgradeHistories(listUpgradeHistoriesRequest?: ListUpgradeHistoriesRequest): Promise<ListUpgradeHistoriesResponse> {
         const options = ParamCreater().listUpgradeHistories(listUpgradeHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的磁盘信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的磁盘信息
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVolumeInfo(listVolumeInfoRequest?: ListVolumeInfoRequest): Promise<ListVolumeInfoResponse> {
+        const options = ParamCreater().listVolumeInfo(listVolumeInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10211,6 +10233,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的磁盘信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVolumeInfo(listVolumeInfoRequest?: ListVolumeInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/volumes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listVolumeInfoRequest !== null && listVolumeInfoRequest !== undefined) {
+                if (listVolumeInfoRequest instanceof ListVolumeInfoRequest) {
+                    instanceId = listVolumeInfoRequest.instanceId;
+                    xLanguage = listVolumeInfoRequest.xLanguage;
+                } else {
+                    instanceId = listVolumeInfoRequest['instance_id'];
+                    xLanguage = listVolumeInfoRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listVolumeInfo.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

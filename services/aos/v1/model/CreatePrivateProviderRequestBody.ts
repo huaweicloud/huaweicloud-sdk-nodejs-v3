@@ -3,6 +3,8 @@ import { PrivateProviderDescriptionPrimitiveTypeHolder } from './PrivateProvider
 import { PrivateProviderNamePrimitiveTypeHolder } from './PrivateProviderNamePrimitiveTypeHolder';
 import { PrivateProviderVersionDescriptionPrimitiveTypeHolder } from './PrivateProviderVersionDescriptionPrimitiveTypeHolder';
 import { PrivateProviderVersionPrimitiveTypeHolder } from './PrivateProviderVersionPrimitiveTypeHolder';
+import { ProviderAgencyNamePrimitiveTypeHolder } from './ProviderAgencyNamePrimitiveTypeHolder';
+import { ProviderAgencyUrnPrimitiveTypeHolder } from './ProviderAgencyUrnPrimitiveTypeHolder';
 
 
 export class CreatePrivateProviderRequestBody {
@@ -11,6 +13,8 @@ export class CreatePrivateProviderRequestBody {
     private 'provider_version'?: string;
     private 'version_description'?: string;
     private 'function_graph_urn'?: string;
+    private 'provider_agency_urn'?: string;
+    private 'provider_agency_name'?: string;
     public constructor(providerName?: string) { 
         this['provider_name'] = providerName;
     }
@@ -63,5 +67,25 @@ export class CreatePrivateProviderRequestBody {
     }
     public get functionGraphUrn(): string | undefined {
         return this['function_graph_urn'];
+    }
+    public withProviderAgencyUrn(providerAgencyUrn: string): CreatePrivateProviderRequestBody {
+        this['provider_agency_urn'] = providerAgencyUrn;
+        return this;
+    }
+    public set providerAgencyUrn(providerAgencyUrn: string  | undefined) {
+        this['provider_agency_urn'] = providerAgencyUrn;
+    }
+    public get providerAgencyUrn(): string | undefined {
+        return this['provider_agency_urn'];
+    }
+    public withProviderAgencyName(providerAgencyName: string): CreatePrivateProviderRequestBody {
+        this['provider_agency_name'] = providerAgencyName;
+        return this;
+    }
+    public set providerAgencyName(providerAgencyName: string  | undefined) {
+        this['provider_agency_name'] = providerAgencyName;
+    }
+    public get providerAgencyName(): string | undefined {
+        return this['provider_agency_name'];
     }
 }

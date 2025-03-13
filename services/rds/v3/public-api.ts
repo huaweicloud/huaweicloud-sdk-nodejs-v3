@@ -364,6 +364,8 @@ export * from './model/ListUpdateBackupEnhancePolicyRequest';
 export * from './model/ListUpdateBackupEnhancePolicyResponse';
 export * from './model/ListUpgradeHistoriesRequest';
 export * from './model/ListUpgradeHistoriesResponse';
+export * from './model/ListVolumeInfoRequest';
+export * from './model/ListVolumeInfoResponse';
 export * from './model/ListXelLogResponseResult';
 export * from './model/ListXellogFilesRequest';
 export * from './model/ListXellogFilesResponse';

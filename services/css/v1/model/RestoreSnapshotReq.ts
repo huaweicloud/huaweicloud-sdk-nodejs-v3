@@ -5,6 +5,7 @@ export class RestoreSnapshotReq {
     public indices?: string;
     public renamePattern?: string;
     public renameReplacement?: string;
+    private 'replace_exist_indices'?: boolean;
     public constructor(targetCluster?: string) { 
         this['targetCluster'] = targetCluster;
     }
@@ -23,5 +24,15 @@ export class RestoreSnapshotReq {
     public withRenameReplacement(renameReplacement: string): RestoreSnapshotReq {
         this['renameReplacement'] = renameReplacement;
         return this;
+    }
+    public withReplaceExistIndices(replaceExistIndices: boolean): RestoreSnapshotReq {
+        this['replace_exist_indices'] = replaceExistIndices;
+        return this;
+    }
+    public set replaceExistIndices(replaceExistIndices: boolean  | undefined) {
+        this['replace_exist_indices'] = replaceExistIndices;
+    }
+    public get replaceExistIndices(): boolean | undefined {
+        return this['replace_exist_indices'];
     }
 }

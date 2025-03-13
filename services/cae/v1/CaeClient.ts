@@ -83,6 +83,10 @@ import { CreateNoticeRuleReq } from './model/CreateNoticeRuleReq';
 import { CreateNoticeRuleRequest } from './model/CreateNoticeRuleRequest';
 import { CreateNoticeRuleRespItem } from './model/CreateNoticeRuleRespItem';
 import { CreateNoticeRuleResponse } from './model/CreateNoticeRuleResponse';
+import { CreateOrUpdateSecretDetail } from './model/CreateOrUpdateSecretDetail';
+import { CreateOrUpdateSecretReq } from './model/CreateOrUpdateSecretReq';
+import { CreateSecretRequest } from './model/CreateSecretRequest';
+import { CreateSecretResponse } from './model/CreateSecretResponse';
 import { CreateSpecCert } from './model/CreateSpecCert';
 import { CreateTimerRuleReq } from './model/CreateTimerRuleReq';
 import { CreateTimerRuleRequest } from './model/CreateTimerRuleRequest';
@@ -107,6 +111,8 @@ import { DeleteEnvironmentRequest } from './model/DeleteEnvironmentRequest';
 import { DeleteEnvironmentResponse } from './model/DeleteEnvironmentResponse';
 import { DeleteNoticeRuleRequest } from './model/DeleteNoticeRuleRequest';
 import { DeleteNoticeRuleResponse } from './model/DeleteNoticeRuleResponse';
+import { DeleteSecretRequest } from './model/DeleteSecretRequest';
+import { DeleteSecretResponse } from './model/DeleteSecretResponse';
 import { DeleteTimerRuleRequest } from './model/DeleteTimerRuleRequest';
 import { DeleteTimerRuleResponse } from './model/DeleteTimerRuleResponse';
 import { DeleteVolumeRequest } from './model/DeleteVolumeRequest';
@@ -151,6 +157,8 @@ import { ListComponentsRequest } from './model/ListComponentsRequest';
 import { ListComponentsResponse } from './model/ListComponentsResponse';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
+import { ListEffectiveComponentsRequest } from './model/ListEffectiveComponentsRequest';
+import { ListEffectiveComponentsResponse } from './model/ListEffectiveComponentsResponse';
 import { ListEipResponseBodySpec } from './model/ListEipResponseBodySpec';
 import { ListEipResponseBodySpecEgress } from './model/ListEipResponseBodySpecEgress';
 import { ListEipResponseBodySpecIngress } from './model/ListEipResponseBodySpecIngress';
@@ -160,6 +168,8 @@ import { ListEnvironmentsRequest } from './model/ListEnvironmentsRequest';
 import { ListEnvironmentsResponse } from './model/ListEnvironmentsResponse';
 import { ListNoticeRulesRequest } from './model/ListNoticeRulesRequest';
 import { ListNoticeRulesResponse } from './model/ListNoticeRulesResponse';
+import { ListSecretsRequest } from './model/ListSecretsRequest';
+import { ListSecretsResponse } from './model/ListSecretsResponse';
 import { ListTimerRulesRequest } from './model/ListTimerRulesRequest';
 import { ListTimerRulesResponse } from './model/ListTimerRulesResponse';
 import { ListVolumesRequest } from './model/ListVolumesRequest';
@@ -184,6 +194,7 @@ import { RetryJobResponse } from './model/RetryJobResponse';
 import { ScaleConfigurationDataAdvanced } from './model/ScaleConfigurationDataAdvanced';
 import { ScaleConfigurationDataTrigger } from './model/ScaleConfigurationDataTrigger';
 import { ScalingTriggerMeta } from './model/ScalingTriggerMeta';
+import { SecretDetail } from './model/SecretDetail';
 import { ShowApplicationRequest } from './model/ShowApplicationRequest';
 import { ShowApplicationResponse } from './model/ShowApplicationResponse';
 import { ShowComponentRequest } from './model/ShowComponentRequest';
@@ -223,6 +234,8 @@ import { UpdateNoticeRuleItem } from './model/UpdateNoticeRuleItem';
 import { UpdateNoticeRuleReq } from './model/UpdateNoticeRuleReq';
 import { UpdateNoticeRuleRequest } from './model/UpdateNoticeRuleRequest';
 import { UpdateNoticeRuleResponse } from './model/UpdateNoticeRuleResponse';
+import { UpdateSecretRequest } from './model/UpdateSecretRequest';
+import { UpdateSecretResponse } from './model/UpdateSecretResponse';
 import { UpdateSpecCert } from './model/UpdateSpecCert';
 import { UpdateTimerRuleDetails } from './model/UpdateTimerRuleDetails';
 import { UpdateTimerRuleReq } from './model/UpdateTimerRuleReq';
@@ -1089,6 +1102,107 @@ export class CaeClient {
      */
     public updateNoticeRule(updateNoticeRuleRequest?: UpdateNoticeRuleRequest): Promise<UpdateNoticeRuleResponse> {
         const options = ParamCreater().updateNoticeRule(updateNoticeRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关联租户已注册的凭据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关联租户已注册的凭据。
+     * @param {string} xEnvironmentID 环境ID。      - 获取环境ID，通过《[云应用引擎API参考](https://support.huaweicloud.com/api-cae/ListEnvironments.html)》的“获取环境列表”章节获取环境信息。     - 请求响应成功后在响应体的items数组中的一个元素即为一个环境的信息，其中id字段即是环境ID。
+     * @param {CreateOrUpdateSecretReq} body 
+     * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecret(createSecretRequest?: CreateSecretRequest): Promise<CreateSecretResponse> {
+        const options = ParamCreater().createSecret(createSecretRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除用户已在DEW服务上注册的凭据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除用户已在DEW服务上注册的凭据。
+     * @param {string} secretId 凭据ID。
+     * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecret(deleteSecretRequest?: DeleteSecretRequest): Promise<DeleteSecretResponse> {
+        const options = ParamCreater().deleteSecret(deleteSecretRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前正在使用的对应凭据组件列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前正在使用对应凭据组件列表。
+     * @param {string} secretId 凭据ID。
+     * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEffectiveComponents(listEffectiveComponentsRequest?: ListEffectiveComponentsRequest): Promise<ListEffectiveComponentsResponse> {
+        const options = ParamCreater().listEffectiveComponents(listEffectiveComponentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取用户现有的凭据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取用户现有的凭据。
+     * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecrets(listSecretsRequest?: ListSecretsRequest): Promise<ListSecretsResponse> {
+        const options = ParamCreater().listSecrets(listSecretsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改用户已在DEW服务上注册的凭据版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改用户已在DEW服务上注册的凭据版本。
+     * @param {string} secretId 凭据ID。
+     * @param {CreateOrUpdateSecretReq} body 
+     * @param {string} [xEnterpriseProjectID] 企业项目ID。  - 创建环境时，环境会绑定企业项目ID。      - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。     - 该字段不传（或传为字符串“0”）时，则查询默认企业项目下的资源。  &gt; 关于企业项目ID的获取及企业项目特性的详细信息，请参见《[企业管理服务用户指南](https://support.huaweicloud.com/usermanual-em/zh-cn_topic_0126101490.html)》。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecret(updateSecretRequest?: UpdateSecretRequest): Promise<UpdateSecretResponse> {
+        const options = ParamCreater().updateSecret(updateSecretRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3390,6 +3504,235 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关联租户已注册的凭据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecret(createSecretRequest?: CreateSecretRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cae/dew-secrets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xEnvironmentID;
+            
+            let xEnterpriseProjectID;
+
+            if (createSecretRequest !== null && createSecretRequest !== undefined) {
+                if (createSecretRequest instanceof CreateSecretRequest) {
+                    xEnvironmentID = createSecretRequest.xEnvironmentID;
+                    body = createSecretRequest.body
+                    xEnterpriseProjectID = createSecretRequest.xEnterpriseProjectID;
+                } else {
+                    xEnvironmentID = createSecretRequest['X-Environment-ID'];
+                    body = createSecretRequest['body'];
+                    xEnterpriseProjectID = createSecretRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+            if (xEnvironmentID !== undefined && xEnvironmentID !== null) {
+                localVarHeaderParameter['X-Environment-ID'] = String(xEnvironmentID);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除用户已在DEW服务上注册的凭据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecret(deleteSecretRequest?: DeleteSecretRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/cae/dew-secrets/{secret_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let secretId;
+            
+            let xEnterpriseProjectID;
+
+            if (deleteSecretRequest !== null && deleteSecretRequest !== undefined) {
+                if (deleteSecretRequest instanceof DeleteSecretRequest) {
+                    secretId = deleteSecretRequest.secretId;
+                    xEnterpriseProjectID = deleteSecretRequest.xEnterpriseProjectID;
+                } else {
+                    secretId = deleteSecretRequest['secret_id'];
+                    xEnterpriseProjectID = deleteSecretRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (secretId === null || secretId === undefined) {
+            throw new RequiredError('secretId','Required parameter secretId was null or undefined when calling deleteSecret.');
+            }
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+
+            options.pathParams = { 'secret_id': secretId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前正在使用的对应凭据组件列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEffectiveComponents(listEffectiveComponentsRequest?: ListEffectiveComponentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cae/dew-secrets/{secret_id}/effective-components",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let secretId;
+            
+            let xEnterpriseProjectID;
+
+            if (listEffectiveComponentsRequest !== null && listEffectiveComponentsRequest !== undefined) {
+                if (listEffectiveComponentsRequest instanceof ListEffectiveComponentsRequest) {
+                    secretId = listEffectiveComponentsRequest.secretId;
+                    xEnterpriseProjectID = listEffectiveComponentsRequest.xEnterpriseProjectID;
+                } else {
+                    secretId = listEffectiveComponentsRequest['secret_id'];
+                    xEnterpriseProjectID = listEffectiveComponentsRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (secretId === null || secretId === undefined) {
+            throw new RequiredError('secretId','Required parameter secretId was null or undefined when calling listEffectiveComponents.');
+            }
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+
+            options.pathParams = { 'secret_id': secretId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取用户现有的凭据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecrets(listSecretsRequest?: ListSecretsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cae/dew-secrets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xEnterpriseProjectID;
+
+            if (listSecretsRequest !== null && listSecretsRequest !== undefined) {
+                if (listSecretsRequest instanceof ListSecretsRequest) {
+                    xEnterpriseProjectID = listSecretsRequest.xEnterpriseProjectID;
+                } else {
+                    xEnterpriseProjectID = listSecretsRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改用户已在DEW服务上注册的凭据版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecret(updateSecretRequest?: UpdateSecretRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cae/dew-secrets/{secret_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let secretId;
+            
+            let xEnterpriseProjectID;
+
+            if (updateSecretRequest !== null && updateSecretRequest !== undefined) {
+                if (updateSecretRequest instanceof UpdateSecretRequest) {
+                    secretId = updateSecretRequest.secretId;
+                    body = updateSecretRequest.body
+                    xEnterpriseProjectID = updateSecretRequest.xEnterpriseProjectID;
+                } else {
+                    secretId = updateSecretRequest['secret_id'];
+                    body = updateSecretRequest['body'];
+                    xEnterpriseProjectID = updateSecretRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (secretId === null || secretId === undefined) {
+            throw new RequiredError('secretId','Required parameter secretId was null or undefined when calling updateSecret.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'secret_id': secretId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

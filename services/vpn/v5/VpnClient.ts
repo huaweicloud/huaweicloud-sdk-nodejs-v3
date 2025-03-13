@@ -6,10 +6,17 @@ import { AddVpnUserToGroupRequestBody } from './model/AddVpnUserToGroupRequestBo
 import { AddVpnUsersToGroupRequest } from './model/AddVpnUsersToGroupRequest';
 import { AddVpnUsersToGroupResponse } from './model/AddVpnUsersToGroupResponse';
 import { AvailabilityZones } from './model/AvailabilityZones';
+import { AvailableSpec } from './model/AvailableSpec';
 import { BatchCreateResourceTagsRequest } from './model/BatchCreateResourceTagsRequest';
 import { BatchCreateResourceTagsResponse } from './model/BatchCreateResourceTagsResponse';
+import { BatchCreateVpnUsersRequest } from './model/BatchCreateVpnUsersRequest';
+import { BatchCreateVpnUsersRequestBody } from './model/BatchCreateVpnUsersRequestBody';
+import { BatchCreateVpnUsersResponse } from './model/BatchCreateVpnUsersResponse';
 import { BatchDeleteResourceTagsRequest } from './model/BatchDeleteResourceTagsRequest';
 import { BatchDeleteResourceTagsResponse } from './model/BatchDeleteResourceTagsResponse';
+import { BatchDeleteVpnUsersRequest } from './model/BatchDeleteVpnUsersRequest';
+import { BatchDeleteVpnUsersRequestBody } from './model/BatchDeleteVpnUsersRequestBody';
+import { BatchDeleteVpnUsersResponse } from './model/BatchDeleteVpnUsersResponse';
 import { CaCertificate } from './model/CaCertificate';
 import { CaCertificateRequest } from './model/CaCertificateRequest';
 import { CheckClientCaCertificateRequest } from './model/CheckClientCaCertificateRequest';
@@ -56,6 +63,7 @@ import { CreateVpnGatewayCertificateRequestBody } from './model/CreateVpnGateway
 import { CreateVpnGatewayCertificateRequestBodyContent } from './model/CreateVpnGatewayCertificateRequestBodyContent';
 import { CreateVpnServerRequest } from './model/CreateVpnServerRequest';
 import { CreateVpnServerResponse } from './model/CreateVpnServerResponse';
+import { CreateVpnUser } from './model/CreateVpnUser';
 import { CreateVpnUserGroupRequest } from './model/CreateVpnUserGroupRequest';
 import { CreateVpnUserGroupRequestBody } from './model/CreateVpnUserGroupRequestBody';
 import { CreateVpnUserGroupRequestBodyContent } from './model/CreateVpnUserGroupRequestBodyContent';
@@ -86,12 +94,14 @@ import { DeleteVpnUserResponse } from './model/DeleteVpnUserResponse';
 import { Dpd } from './model/Dpd';
 import { ExportClientConfigRequest } from './model/ExportClientConfigRequest';
 import { ExportClientConfigResponse } from './model/ExportClientConfigResponse';
+import { ExtendedAvailabilityZone } from './model/ExtendedAvailabilityZone';
 import { IkePolicy } from './model/IkePolicy';
 import { ImportClientCaCertificateRequestBody } from './model/ImportClientCaCertificateRequestBody';
 import { ImportClientCaCertificateRequestBodyClientCaCertificate } from './model/ImportClientCaCertificateRequestBodyClientCaCertificate';
 import { ImportClientCaCertificateResponseBodyClientCaCertificate } from './model/ImportClientCaCertificateResponseBodyClientCaCertificate';
 import { ImportClientCaRequest } from './model/ImportClientCaRequest';
 import { ImportClientCaResponse } from './model/ImportClientCaResponse';
+import { InvalidVpnUser } from './model/InvalidVpnUser';
 import { IpsecPolicy } from './model/IpsecPolicy';
 import { ListAvailabilityZonesRequest } from './model/ListAvailabilityZonesRequest';
 import { ListAvailabilityZonesResponse } from './model/ListAvailabilityZonesResponse';
@@ -99,6 +109,8 @@ import { ListCgwsRequest } from './model/ListCgwsRequest';
 import { ListCgwsResponse } from './model/ListCgwsResponse';
 import { ListConnectionMonitorsRequest } from './model/ListConnectionMonitorsRequest';
 import { ListConnectionMonitorsResponse } from './model/ListConnectionMonitorsResponse';
+import { ListExtendedAvailabilityZonesRequest } from './model/ListExtendedAvailabilityZonesRequest';
+import { ListExtendedAvailabilityZonesResponse } from './model/ListExtendedAvailabilityZonesResponse';
 import { ListP2cVgwAvailabilityZonesRequest } from './model/ListP2cVgwAvailabilityZonesRequest';
 import { ListP2cVgwAvailabilityZonesResponse } from './model/ListP2cVgwAvailabilityZonesResponse';
 import { ListP2cVgwConnectionsRequest } from './model/ListP2cVgwConnectionsRequest';
@@ -583,11 +595,13 @@ export class VpnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询P2C VPN网关列表
+     * @param {number} [limit] 分页查询时每页返回的记录数量
+     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listP2cVgws(listP2cVgwsRequest?: ListP2cVgwsRequest): Promise<ListP2cVgwsResponse> {
-        const options = ParamCreater().listP2cVgws();
+        const options = ParamCreater().listP2cVgws(listP2cVgwsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1019,6 +1033,24 @@ export class VpnClient {
     }
 
     /**
+     * 查询VPN网关可用区
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询VPN网关可用区
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExtendedAvailabilityZones(listExtendedAvailabilityZonesRequest?: ListExtendedAvailabilityZonesRequest): Promise<ListExtendedAvailabilityZonesResponse> {
+        const options = ParamCreater().listExtendedAvailabilityZones();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询VPN网关列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1221,11 +1253,13 @@ export class VpnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户下的所有服务端信息
+     * @param {number} [limit] 分页查询时每页返回的记录数量
+     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listVpnServersByProject(listVpnServersByProjectRequest?: ListVpnServersByProjectRequest): Promise<ListVpnServersByProjectResponse> {
-        const options = ParamCreater().listVpnServersByProject();
+        const options = ParamCreater().listVpnServersByProject(listVpnServersByProjectRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['header-response-token'];
@@ -1265,6 +1299,47 @@ export class VpnClient {
      */
     public updateVpnServer(updateVpnServerRequest?: UpdateVpnServerRequest): Promise<UpdateVpnServerResponse> {
         const options = ParamCreater().updateVpnServer(updateVpnServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量创建P2C VPN用户
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建VPN用户
+     * @param {string} vpnServerId VPN服务端 ID
+     * @param {BatchCreateVpnUsersRequestBody} batchCreateVpnUsersRequestBody 请求参数对象
+     * @param {string} [xClientToken] 幂等性标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateVpnUsers(batchCreateVpnUsersRequest?: BatchCreateVpnUsersRequest): Promise<BatchCreateVpnUsersResponse> {
+        const options = ParamCreater().batchCreateVpnUsers(batchCreateVpnUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除P2C VPN用户
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除VPN用户
+     * @param {string} vpnServerId VPN服务端 ID
+     * @param {BatchDeleteVpnUsersRequestBody} batchDeleteVpnUsersRequestBody 请求参数对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteVpnUsers(batchDeleteVpnUsersRequest?: BatchDeleteVpnUsersRequest): Promise<BatchDeleteVpnUsersResponse> {
+        const options = ParamCreater().batchDeleteVpnUsers(batchDeleteVpnUsersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['header-response-token'];
@@ -2279,7 +2354,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listP2cVgws() {
+        listP2cVgws(listP2cVgwsRequest?: ListP2cVgwsRequest) {
             const options = {
                 method: "GET",
                 url: "/v5/{project_id}/p2c-vpn-gateways",
@@ -2289,8 +2364,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
 
+            if (listP2cVgwsRequest !== null && listP2cVgwsRequest !== undefined) {
+                if (listP2cVgwsRequest instanceof ListP2cVgwsRequest) {
+                    limit = listP2cVgwsRequest.limit;
+                    marker = listP2cVgwsRequest.marker;
+                } else {
+                    limit = listP2cVgwsRequest['limit'];
+                    marker = listP2cVgwsRequest['marker'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3252,6 +3350,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询VPN网关可用区
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExtendedAvailabilityZones() {
+            const options = {
+                method: "GET",
+                url: "/v5.1/{project_id}/vpn-gateways/availability-zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询VPN网关列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3676,7 +3795,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listVpnServersByProject() {
+        listVpnServersByProject(listVpnServersByProjectRequest?: ListVpnServersByProjectRequest) {
             const options = {
                 method: "GET",
                 url: "/v5/{project_id}/vpn-servers",
@@ -3686,8 +3805,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
 
+            if (listVpnServersByProjectRequest !== null && listVpnServersByProjectRequest !== undefined) {
+                if (listVpnServersByProjectRequest instanceof ListVpnServersByProjectRequest) {
+                    limit = listVpnServersByProjectRequest.limit;
+                    marker = listVpnServersByProjectRequest.marker;
+                } else {
+                    limit = listVpnServersByProjectRequest['limit'];
+                    marker = listVpnServersByProjectRequest['marker'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3763,6 +3905,105 @@ export const ParamCreater = function () {
         
             if (vpnServerId === null || vpnServerId === undefined) {
             throw new RequiredError('vpnServerId','Required parameter vpnServerId was null or undefined when calling updateVpnServer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpn_server_id': vpnServerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量创建P2C VPN用户
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateVpnUsers(batchCreateVpnUsersRequest?: BatchCreateVpnUsersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/p2c-vpn-gateways/vpn-servers/{vpn_server_id}/users/batch-create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vpnServerId;
+            
+            let xClientToken;
+
+            if (batchCreateVpnUsersRequest !== null && batchCreateVpnUsersRequest !== undefined) {
+                if (batchCreateVpnUsersRequest instanceof BatchCreateVpnUsersRequest) {
+                    vpnServerId = batchCreateVpnUsersRequest.vpnServerId;
+                    body = batchCreateVpnUsersRequest.body
+                    xClientToken = batchCreateVpnUsersRequest.xClientToken;
+                } else {
+                    vpnServerId = batchCreateVpnUsersRequest['vpn_server_id'];
+                    body = batchCreateVpnUsersRequest['body'];
+                    xClientToken = batchCreateVpnUsersRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (vpnServerId === null || vpnServerId === undefined) {
+            throw new RequiredError('vpnServerId','Required parameter vpnServerId was null or undefined when calling batchCreateVpnUsers.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpn_server_id': vpnServerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除P2C VPN用户
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteVpnUsers(batchDeleteVpnUsersRequest?: BatchDeleteVpnUsersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/p2c-vpn-gateways/vpn-servers/{vpn_server_id}/users/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vpnServerId;
+
+            if (batchDeleteVpnUsersRequest !== null && batchDeleteVpnUsersRequest !== undefined) {
+                if (batchDeleteVpnUsersRequest instanceof BatchDeleteVpnUsersRequest) {
+                    vpnServerId = batchDeleteVpnUsersRequest.vpnServerId;
+                    body = batchDeleteVpnUsersRequest.body
+                } else {
+                    vpnServerId = batchDeleteVpnUsersRequest['vpn_server_id'];
+                    body = batchDeleteVpnUsersRequest['body'];
+                }
+            }
+
+        
+            if (vpnServerId === null || vpnServerId === undefined) {
+            throw new RequiredError('vpnServerId','Required parameter vpnServerId was null or undefined when calling batchDeleteVpnUsers.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -6,7 +6,13 @@ interface RegionMap {
 }
 
 export class CbrRegion {
-    public static EU_WEST_101 = new Region("eu-west-101", ["https://cbr.eu-west-101.myhuaweicloud.eu"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://cbr.ap-southeast-5.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://cbr.cn-east-4.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://cbr.cn-east-5.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://cbr.cn-north-11.myhuaweicloud.com"]);
+    public static RU_NORTHWEST_2 = new Region("ru-northwest-2", ["https://cbr.ru-northwest-2.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://cbr.af-north-1.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://cbr.eu-west-101.myhuaweicloud.com"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://cbr.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://cbr.cn-north-4.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://cbr.cn-south-1.myhuaweicloud.com"]);
@@ -35,6 +41,12 @@ export class CbrRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "ap-southeast-5":CbrRegion.AP_SOUTHEAST_5,
+        "cn-east-4":CbrRegion.CN_EAST_4,
+        "cn-east-5":CbrRegion.CN_EAST_5,
+        "cn-north-11":CbrRegion.CN_NORTH_11,
+        "ru-northwest-2":CbrRegion.RU_NORTHWEST_2,
+        "af-north-1":CbrRegion.AF_NORTH_1,
         "eu-west-101":CbrRegion.EU_WEST_101,
         "cn-north-1":CbrRegion.CN_NORTH_1,
         "cn-north-4":CbrRegion.CN_NORTH_4,
