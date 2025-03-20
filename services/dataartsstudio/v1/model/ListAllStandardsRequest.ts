@@ -7,6 +7,7 @@ export class ListAllStandardsRequest {
     private 'directory_id'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
+    private 'need_path'?: boolean;
     public limit?: number;
     public offset?: number;
     public constructor(workspace?: string) { 
@@ -65,6 +66,16 @@ export class ListAllStandardsRequest {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withNeedPath(needPath: boolean): ListAllStandardsRequest {
+        this['need_path'] = needPath;
+        return this;
+    }
+    public set needPath(needPath: boolean  | undefined) {
+        this['need_path'] = needPath;
+    }
+    public get needPath(): boolean | undefined {
+        return this['need_path'];
     }
     public withLimit(limit: number): ListAllStandardsRequest {
         this['limit'] = limit;

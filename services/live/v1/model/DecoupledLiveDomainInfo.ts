@@ -12,6 +12,7 @@ export class DecoupledLiveDomainInfo {
     private 'status_describe'?: string;
     private 'service_area'?: DecoupledLiveDomainInfoServiceAreaEnum | string;
     private 'enterprise_project_id'?: string;
+    private 'pull_protocol'?: DecoupledLiveDomainInfoPullProtocolEnum | string;
     private 'is_ipv6'?: boolean;
     public constructor(domain?: string, domainType?: string, vendor?: string, region?: string, domainCname?: string, status?: string, relatedDomain?: string, createTime?: Date) { 
         this['domain'] = domain;
@@ -109,6 +110,16 @@ export class DecoupledLiveDomainInfo {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withPullProtocol(pullProtocol: DecoupledLiveDomainInfoPullProtocolEnum | string): DecoupledLiveDomainInfo {
+        this['pull_protocol'] = pullProtocol;
+        return this;
+    }
+    public set pullProtocol(pullProtocol: DecoupledLiveDomainInfoPullProtocolEnum | string  | undefined) {
+        this['pull_protocol'] = pullProtocol;
+    }
+    public get pullProtocol(): DecoupledLiveDomainInfoPullProtocolEnum | string | undefined {
+        return this['pull_protocol'];
+    }
     public withIsIpv6(isIpv6: boolean): DecoupledLiveDomainInfo {
         this['is_ipv6'] = isIpv6;
         return this;
@@ -159,5 +170,14 @@ export enum DecoupledLiveDomainInfoStatusEnum {
     */
 export enum DecoupledLiveDomainInfoServiceAreaEnum {
     MAINLAND_CHINA = 'mainland_china',
-    OUTSIDE_MAINLAND_CHINA = 'outside_mainland_china'
+    OUTSIDE_MAINLAND_CHINA = 'outside_mainland_china',
+    GLOBAL = 'global'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DecoupledLiveDomainInfoPullProtocolEnum {
+    FLV_RTMP = 'flv_rtmp',
+    HLS = 'hls'
 }

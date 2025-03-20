@@ -7,6 +7,7 @@ export class EffectiveRoute {
     private 'next_hops'?: Array<RouteAttachment>;
     private 'is_blackhole'?: boolean;
     private 'route_type'?: string;
+    public description?: string;
     public constructor() { 
     }
     public withRouteId(routeId: string): EffectiveRoute {
@@ -52,5 +53,9 @@ export class EffectiveRoute {
     }
     public get routeType(): string | undefined {
         return this['route_type'];
+    }
+    public withDescription(description: string): EffectiveRoute {
+        this['description'] = description;
+        return this;
     }
 }

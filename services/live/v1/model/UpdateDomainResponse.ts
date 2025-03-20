@@ -11,6 +11,7 @@ export class UpdateDomainResponse extends SdkResponse {
     private 'status_describe'?: string;
     private 'service_area'?: UpdateDomainResponseServiceAreaEnum | string;
     private 'enterprise_project_id'?: string;
+    private 'pull_protocol'?: UpdateDomainResponsePullProtocolEnum | string;
     public constructor() { 
         super();
     }
@@ -86,6 +87,16 @@ export class UpdateDomainResponse extends SdkResponse {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withPullProtocol(pullProtocol: UpdateDomainResponsePullProtocolEnum | string): UpdateDomainResponse {
+        this['pull_protocol'] = pullProtocol;
+        return this;
+    }
+    public set pullProtocol(pullProtocol: UpdateDomainResponsePullProtocolEnum | string  | undefined) {
+        this['pull_protocol'] = pullProtocol;
+    }
+    public get pullProtocol(): UpdateDomainResponsePullProtocolEnum | string | undefined {
+        return this['pull_protocol'];
+    }
 }
 
 /**
@@ -112,5 +123,14 @@ export enum UpdateDomainResponseStatusEnum {
     */
 export enum UpdateDomainResponseServiceAreaEnum {
     MAINLAND_CHINA = 'mainland_china',
-    OUTSIDE_MAINLAND_CHINA = 'outside_mainland_china'
+    OUTSIDE_MAINLAND_CHINA = 'outside_mainland_china',
+    GLOBAL = 'global'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateDomainResponsePullProtocolEnum {
+    FLV_RTMP = 'flv_rtmp',
+    HLS = 'hls'
 }

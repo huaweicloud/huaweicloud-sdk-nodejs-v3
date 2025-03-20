@@ -32,13 +32,9 @@ import { AgencyTokenUser } from './model/AgencyTokenUser';
 import { AgencyTokenUserDomain } from './model/AgencyTokenUserDomain';
 import { AgencyUpdateResult } from './model/AgencyUpdateResult';
 import { AllowAddressNetmasksOption } from './model/AllowAddressNetmasksOption';
-import { AllowAddressNetmasksOptionIPv6 } from './model/AllowAddressNetmasksOptionIPv6';
 import { AllowAddressNetmasksResult } from './model/AllowAddressNetmasksResult';
-import { AllowAddressNetmasksResultIPv6 } from './model/AllowAddressNetmasksResultIPv6';
 import { AllowIpRangesOption } from './model/AllowIpRangesOption';
-import { AllowIpRangesOptionIPv6 } from './model/AllowIpRangesOptionIPv6';
 import { AllowIpRangesResult } from './model/AllowIpRangesResult';
-import { AllowIpRangesResultIPv6 } from './model/AllowIpRangesResultIPv6';
 import { AllowUserBody } from './model/AllowUserBody';
 import { AssociateAgencyWithAllProjectsPermissionRequest } from './model/AssociateAgencyWithAllProjectsPermissionRequest';
 import { AssociateAgencyWithAllProjectsPermissionResponse } from './model/AssociateAgencyWithAllProjectsPermissionResponse';
@@ -68,8 +64,6 @@ import { CheckProjectPermissionForAgencyRequest } from './model/CheckProjectPerm
 import { CheckProjectPermissionForAgencyResponse } from './model/CheckProjectPermissionForAgencyResponse';
 import { Config } from './model/Config';
 import { ConfigByOption } from './model/ConfigByOption';
-import { ConsoleAclPolicyOption } from './model/ConsoleAclPolicyOption';
-import { ConsoleAclPolicyResult } from './model/ConsoleAclPolicyResult';
 import { CreateAgencyCustomPolicyRequest } from './model/CreateAgencyCustomPolicyRequest';
 import { CreateAgencyCustomPolicyRequestBody } from './model/CreateAgencyCustomPolicyRequestBody';
 import { CreateAgencyCustomPolicyResponse } from './model/CreateAgencyCustomPolicyResponse';
@@ -113,6 +107,9 @@ import { CreateTemporaryAccessKeyByTokenRequestBody } from './model/CreateTempor
 import { CreateTemporaryAccessKeyByTokenResponse } from './model/CreateTemporaryAccessKeyByTokenResponse';
 import { CreateTokenWithIdTokenRequest } from './model/CreateTokenWithIdTokenRequest';
 import { CreateTokenWithIdTokenResponse } from './model/CreateTokenWithIdTokenResponse';
+import { CreateUnscopeTokenByIdpInitiatedRequest } from './model/CreateUnscopeTokenByIdpInitiatedRequest';
+import { CreateUnscopeTokenByIdpInitiatedRequestBody } from './model/CreateUnscopeTokenByIdpInitiatedRequestBody';
+import { CreateUnscopeTokenByIdpInitiatedResponse } from './model/CreateUnscopeTokenByIdpInitiatedResponse';
 import { CreateUnscopedTokenWithIdTokenRequest } from './model/CreateUnscopedTokenWithIdTokenRequest';
 import { CreateUnscopedTokenWithIdTokenResponse } from './model/CreateUnscopedTokenWithIdTokenResponse';
 import { CreateUserOption } from './model/CreateUserOption';
@@ -151,6 +148,7 @@ import { IdentityproviderOption } from './model/IdentityproviderOption';
 import { IdentityprovidersLinks } from './model/IdentityprovidersLinks';
 import { IdentityprovidersResult } from './model/IdentityprovidersResult';
 import { IdpIdInfo } from './model/IdpIdInfo';
+import { IdpToken } from './model/IdpToken';
 import { InheritedRoleResult } from './model/InheritedRoleResult';
 import { KeystoneAddUserToGroupRequest } from './model/KeystoneAddUserToGroupRequest';
 import { KeystoneAddUserToGroupResponse } from './model/KeystoneAddUserToGroupResponse';
@@ -496,6 +494,7 @@ import { UnscopedTokenInfo } from './model/UnscopedTokenInfo';
 import { UnscopedTokenInfoCatalog } from './model/UnscopedTokenInfoCatalog';
 import { UnscopedTokenInfoEndpoints } from './model/UnscopedTokenInfoEndpoints';
 import { UnscopedTokenInfoRoles } from './model/UnscopedTokenInfoRoles';
+import { UnscopedTokenUser } from './model/UnscopedTokenUser';
 import { UpdateAgencyCustomPolicyRequest } from './model/UpdateAgencyCustomPolicyRequest';
 import { UpdateAgencyCustomPolicyRequestBody } from './model/UpdateAgencyCustomPolicyRequestBody';
 import { UpdateAgencyCustomPolicyResponse } from './model/UpdateAgencyCustomPolicyResponse';
@@ -960,6 +959,31 @@ export class IamClient {
      */
     public createTokenWithIdToken(createTokenWithIdTokenRequest?: CreateTokenWithIdTokenRequest): Promise<CreateTokenWithIdTokenResponse> {
         const options = ParamCreater().createTokenWithIdToken(createTokenWithIdTokenRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Subject-Token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于通过IdP initiated的联邦认证方式获取unscoped token。
+     * 
+     * Unscoped token不能用来鉴权，若联邦用户需要使用token进行鉴权，请参考[获取联邦认证scoped token](https://support.huaweicloud.com/api-iam/iam_13_0604.html)获取scoped token。
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * &gt; - 该接口支持在命令行侧调用，需要客户端使用IdP initiated的联邦认证方式获取SAMLResponse，并采用浏览器提交表单数据的方式，获取unscoped token。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取联邦认证unscoped token(IdP initiated)
+     * @param {string} xIdpId 身份提供商ID。
+     * @param {string} sAMLResponse 在IdP认证成功后返回的响应体。详情请参见：[获取联邦认证unscoped token(IdP initiated)](https://support.huaweicloud.com/api-iam/iam_02_0003.html)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUnscopeTokenByIdpInitiated(createUnscopeTokenByIdpInitiatedRequest?: CreateUnscopeTokenByIdpInitiatedRequest): Promise<CreateUnscopeTokenByIdpInitiatedResponse> {
+        const options = ParamCreater().createUnscopeTokenByIdpInitiated(createUnscopeTokenByIdpInitiatedRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Subject-Token'];
@@ -4664,6 +4688,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于通过IdP initiated的联邦认证方式获取unscoped token。
+         * 
+         * Unscoped token不能用来鉴权，若联邦用户需要使用token进行鉴权，请参考[获取联邦认证scoped token](https://support.huaweicloud.com/api-iam/iam_13_0604.html)获取scoped token。
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * &gt; - 该接口支持在命令行侧调用，需要客户端使用IdP initiated的联邦认证方式获取SAMLResponse，并采用浏览器提交表单数据的方式，获取unscoped token。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUnscopeTokenByIdpInitiated(createUnscopeTokenByIdpInitiatedRequest?: CreateUnscopeTokenByIdpInitiatedRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.0/OS-FEDERATION/tokens",
+                contentType: "application/x-www-form-urlencoded",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new URLSearchParams();
+            
+            let xIdpId;
+            let sAMLResponse;
+            
+
+            if (createUnscopeTokenByIdpInitiatedRequest !== null && createUnscopeTokenByIdpInitiatedRequest !== undefined) {
+                if (createUnscopeTokenByIdpInitiatedRequest instanceof CreateUnscopeTokenByIdpInitiatedRequest) {
+                    xIdpId = createUnscopeTokenByIdpInitiatedRequest.xIdpId;
+                    sAMLResponse = createUnscopeTokenByIdpInitiatedRequest.body?.sAMLResponse;
+                } else {
+                    xIdpId = createUnscopeTokenByIdpInitiatedRequest['X-Idp-Id'];
+                    sAMLResponse = createUnscopeTokenByIdpInitiatedRequest['body']['sAMLResponse'];
+                }
+            }
+
+        
+            if (sAMLResponse === null || sAMLResponse === undefined) {
+            throw new RequiredError('sAMLResponse','Required parameter sAMLResponse was null or undefined when calling createUnscopeTokenByIdpInitiated.');
+            }
+            if (sAMLResponse !== undefined) { 
+                localVarFormParams.set('SAMLResponse', sAMLResponse as any);
+            }
+            if (xIdpId !== undefined && xIdpId !== null) {
+                localVarHeaderParameter['X-Idp-Id'] = String(xIdpId);
+            }
+            options.data = localVarFormParams.toString();
             options.headers = localVarHeaderParameter;
             return options;
         },

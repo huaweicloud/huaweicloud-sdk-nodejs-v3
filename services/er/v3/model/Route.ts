@@ -11,6 +11,7 @@ export class Route {
     private 'route_table_id'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
+    public description?: string;
     public constructor(id?: string, type?: string, destination?: string, attachments?: Array<RouteAttachment>, routeTableId?: string, createdAt?: Date) { 
         this['id'] = id;
         this['type'] = type;
@@ -78,5 +79,9 @@ export class Route {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withDescription(description: string): Route {
+        this['description'] = description;
+        return this;
     }
 }

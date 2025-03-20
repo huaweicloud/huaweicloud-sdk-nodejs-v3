@@ -19,6 +19,7 @@ export class ListVolumesRequest {
     public ids?: string;
     private 'enterprise_project_id'?: string;
     private 'server_id'?: string;
+    private 'not_metadata'?: ListVolumesRequestNotMetadataEnum | string;
     public constructor() { 
     }
     public withMarker(marker: string): ListVolumesRequest {
@@ -147,4 +148,25 @@ export class ListVolumesRequest {
     public get serverId(): string | undefined {
         return this['server_id'];
     }
+    public withNotMetadata(notMetadata: ListVolumesRequestNotMetadataEnum | string): ListVolumesRequest {
+        this['not_metadata'] = notMetadata;
+        return this;
+    }
+    public set notMetadata(notMetadata: ListVolumesRequestNotMetadataEnum | string  | undefined) {
+        this['not_metadata'] = notMetadata;
+    }
+    public get notMetadata(): ListVolumesRequestNotMetadataEnum | string | undefined {
+        return this['not_metadata'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListVolumesRequestNotMetadataEnum {
+    HWPASSTHROUGHTRUE = '{\"hw:passthrough\":true}',
+    HWPASSTHROUGHFALSE = '{\"hw:passthrough\":false}',
+    _SYSTEM__ENCRYPTED1 = '{\"__system__encrypted\":1}',
+    _SYSTEM__ENCRYPTED0 = '{\"__system__encrypted\":0}'
 }

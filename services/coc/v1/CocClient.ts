@@ -2,7 +2,10 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccountRsp } from './model/AccountRsp';
 import { AddScriptModel } from './model/AddScriptModel';
+import { AlarmHandleHistory } from './model/AlarmHandleHistory';
+import { AlarmInfoDTO } from './model/AlarmInfoDTO';
 import { ApplicationInfo } from './model/ApplicationInfo';
 import { ApplicationModelQueryResponseData } from './model/ApplicationModelQueryResponseData';
 import { ApplicationQueryResponseData } from './model/ApplicationQueryResponseData';
@@ -20,6 +23,7 @@ import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicati
 import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateApplicationViewResponseBody';
 import { BatchListMultiCloudResourceResponseData } from './model/BatchListMultiCloudResourceResponseData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
+import { CceInfo } from './model/CceInfo';
 import { CocIssuesTicketDetailInfoResponseData } from './model/CocIssuesTicketDetailInfoResponseData';
 import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
@@ -38,15 +42,26 @@ import { CreateReportCustomEventRequest } from './model/CreateReportCustomEventR
 import { CreateReportCustomEventResponse } from './model/CreateReportCustomEventResponse';
 import { CreateReportPrometheusEventRequest } from './model/CreateReportPrometheusEventRequest';
 import { CreateReportPrometheusEventResponse } from './model/CreateReportPrometheusEventResponse';
+import { CreateScheduledTaskRequest } from './model/CreateScheduledTaskRequest';
+import { CreateScheduledTaskResponse } from './model/CreateScheduledTaskResponse';
 import { CreateScriptRequest } from './model/CreateScriptRequest';
 import { CreateScriptResponse } from './model/CreateScriptResponse';
 import { CreateWarRoomRequest } from './model/CreateWarRoomRequest';
 import { CreateWarRoomRequestBody } from './model/CreateWarRoomRequestBody';
 import { CreateWarRoomResponse } from './model/CreateWarRoomResponse';
+import { CustomBaselineRule } from './model/CustomBaselineRule';
+import { CustomBaselineRulePatchItem } from './model/CustomBaselineRulePatchItem';
 import { Customttribute } from './model/Customttribute';
+import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
+import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
 import { DeleteScriptRequest } from './model/DeleteScriptRequest';
 import { DeleteScriptResponse } from './model/DeleteScriptResponse';
+import { DisableScheduledTaskRequest } from './model/DisableScheduledTaskRequest';
+import { DisableScheduledTaskResponse } from './model/DisableScheduledTaskResponse';
 import { EditScriptModel } from './model/EditScriptModel';
+import { EnableScheduledTaskRequest } from './model/EnableScheduledTaskRequest';
+import { EnableScheduledTaskRequestBody } from './model/EnableScheduledTaskRequestBody';
+import { EnableScheduledTaskResponse } from './model/EnableScheduledTaskResponse';
 import { EnumDataInfo } from './model/EnumDataInfo';
 import { ExectionInstanceModel } from './model/ExectionInstanceModel';
 import { ExectuionStatistic } from './model/ExectuionStatistic';
@@ -75,6 +90,7 @@ import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentReq
 import { HandleExternalIncidentResponseData } from './model/HandleExternalIncidentResponseData';
 import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoResponseData';
 import { InstanceCompliant } from './model/InstanceCompliant';
+import { InterruptRecord } from './model/InterruptRecord';
 import { JobScriptBatchDetailModel } from './model/JobScriptBatchDetailModel';
 import { JobScriptBatchListModel } from './model/JobScriptBatchListModel';
 import { JobScriptOrderInfoModel } from './model/JobScriptOrderInfoModel';
@@ -84,6 +100,8 @@ import { JobScriptOrderListPage } from './model/JobScriptOrderListPage';
 import { JobScriptOrderListProp } from './model/JobScriptOrderListProp';
 import { JobScriptOrderOperationBody } from './model/JobScriptOrderOperationBody';
 import { JobScriptOrderStatisticsModel } from './model/JobScriptOrderStatisticsModel';
+import { ListAlarmHandleHistoriesRequest } from './model/ListAlarmHandleHistoriesRequest';
+import { ListAlarmHandleHistoriesResponse } from './model/ListAlarmHandleHistoriesResponse';
 import { ListApplicationModelRequest } from './model/ListApplicationModelRequest';
 import { ListApplicationModelResponse } from './model/ListApplicationModelResponse';
 import { ListApplicationsRequest } from './model/ListApplicationsRequest';
@@ -93,16 +111,26 @@ import { ListAuthorizableTicketsExternalResponse } from './model/ListAuthorizabl
 import { ListAuthorizableTicketsReq } from './model/ListAuthorizableTicketsReq';
 import { ListBaseRequest } from './model/ListBaseRequest';
 import { ListBaseResponse } from './model/ListBaseResponse';
+import { ListCceCompliantRequest } from './model/ListCceCompliantRequest';
+import { ListCceCompliantResponse } from './model/ListCceCompliantResponse';
 import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOperationHistoriesRequest';
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
 import { ListInstanceCompliantRequest } from './model/ListInstanceCompliantRequest';
 import { ListInstanceCompliantResponse } from './model/ListInstanceCompliantResponse';
+import { ListInterruptRecordsRequest } from './model/ListInterruptRecordsRequest';
+import { ListInterruptRecordsResponse } from './model/ListInterruptRecordsResponse';
 import { ListMultiCloudResourcesRequest } from './model/ListMultiCloudResourcesRequest';
 import { ListMultiCloudResourcesResponse } from './model/ListMultiCloudResourcesResponse';
+import { ListPersonnelRequest } from './model/ListPersonnelRequest';
+import { ListPersonnelResponse } from './model/ListPersonnelResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
 import { ListResourceRequest } from './model/ListResourceRequest';
 import { ListResourceResponse } from './model/ListResourceResponse';
+import { ListScheduledTaskHistoryRequest } from './model/ListScheduledTaskHistoryRequest';
+import { ListScheduledTaskHistoryResponse } from './model/ListScheduledTaskHistoryResponse';
+import { ListScheduledTaskRequest } from './model/ListScheduledTaskRequest';
+import { ListScheduledTaskResponse } from './model/ListScheduledTaskResponse';
 import { ListScriptJobBatchesRequest } from './model/ListScriptJobBatchesRequest';
 import { ListScriptJobBatchesResponse } from './model/ListScriptJobBatchesResponse';
 import { ListScriptJobsRequest } from './model/ListScriptJobsRequest';
@@ -113,11 +141,16 @@ import { ListTenantWarRoomRequestBody } from './model/ListTenantWarRoomRequestBo
 import { ListTicketParams } from './model/ListTicketParams';
 import { ListWarRoomsRequest } from './model/ListWarRoomsRequest';
 import { ListWarRoomsResponse } from './model/ListWarRoomsResponse';
+import { MessageNotification } from './model/MessageNotification';
 import { NonCompliantSummary } from './model/NonCompliantSummary';
+import { NotificationObjConfiguration } from './model/NotificationObjConfiguration';
 import { ObjectFilter } from './model/ObjectFilter';
 import { OperateScriptJobRequest } from './model/OperateScriptJobRequest';
 import { OperateScriptJobResponse } from './model/OperateScriptJobResponse';
 import { PatchDetail } from './model/PatchDetail';
+import { PatchFilter } from './model/PatchFilter';
+import { PatchRule } from './model/PatchRule';
+import { PersonnelResponse } from './model/PersonnelResponse';
 import { PublicScriptDetailModel } from './model/PublicScriptDetailModel';
 import { PublicScriptListModel } from './model/PublicScriptListModel';
 import { PublicScriptListPage } from './model/PublicScriptListPage';
@@ -126,8 +159,13 @@ import { ReportCustomEventRequestBody } from './model/ReportCustomEventRequestBo
 import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceInstanceProp } from './model/ResourceInstanceProp';
 import { ResourceMultiCountResponseData } from './model/ResourceMultiCountResponseData';
+import { ResourceQuery } from './model/ResourceQuery';
 import { ReviewerInfo } from './model/ReviewerInfo';
 import { ScheduleGroupInfo } from './model/ScheduleGroupInfo';
+import { ScheduleInstance } from './model/ScheduleInstance';
+import { ScheduledTaskBasicInfo } from './model/ScheduledTaskBasicInfo';
+import { ScheduledTaskHistory } from './model/ScheduledTaskHistory';
+import { ScheduledTaskRequestBody } from './model/ScheduledTaskRequestBody';
 import { ScriptDetailModel } from './model/ScriptDetailModel';
 import { ScriptExecuteInputParam } from './model/ScriptExecuteInputParam';
 import { ScriptExecuteModel } from './model/ScriptExecuteModel';
@@ -138,18 +176,46 @@ import { ScriptListPage } from './model/ScriptListPage';
 import { ScriptParamDefine } from './model/ScriptParamDefine';
 import { ScriptPropertiesModel } from './model/ScriptPropertiesModel';
 import { SeveritySummary } from './model/SeveritySummary';
+import { ShowAccountRequest } from './model/ShowAccountRequest';
+import { ShowAccountResponse } from './model/ShowAccountResponse';
+import { ShowAlarmRequest } from './model/ShowAlarmRequest';
+import { ShowAlarmResponse } from './model/ShowAlarmResponse';
 import { ShowCocIncidentDetailRequest } from './model/ShowCocIncidentDetailRequest';
 import { ShowCocIncidentDetailResponse } from './model/ShowCocIncidentDetailResponse';
 import { ShowCocIssuesDetailRequest } from './model/ShowCocIssuesDetailRequest';
 import { ShowCocIssuesDetailResponse } from './model/ShowCocIssuesDetailResponse';
 import { ShowInstancePatchItemsRequest } from './model/ShowInstancePatchItemsRequest';
 import { ShowInstancePatchItemsResponse } from './model/ShowInstancePatchItemsResponse';
+import { ShowPatchBaselineRequest } from './model/ShowPatchBaselineRequest';
+import { ShowPatchBaselineResponse } from './model/ShowPatchBaselineResponse';
+import { ShowScheduledTaskRequest } from './model/ShowScheduledTaskRequest';
+import { ShowScheduledTaskResponse } from './model/ShowScheduledTaskResponse';
+import { ShowSlaCustomizedTemplateRequest } from './model/ShowSlaCustomizedTemplateRequest';
+import { ShowSlaCustomizedTemplateResponse } from './model/ShowSlaCustomizedTemplateResponse';
+import { ShowSlaOrderRequest } from './model/ShowSlaOrderRequest';
+import { ShowSlaOrderResponse } from './model/ShowSlaOrderResponse';
+import { ShowSloDetailRequest } from './model/ShowSloDetailRequest';
+import { ShowSloDetailResponse } from './model/ShowSloDetailResponse';
+import { SlaEscalationRuleInfo } from './model/SlaEscalationRuleInfo';
+import { SlaPreWarningRuleInfo } from './model/SlaPreWarningRuleInfo';
+import { SlaRecord } from './model/SlaRecord';
+import { SlaRuleInfo } from './model/SlaRuleInfo';
+import { SlaTriggeringRuleInfo } from './model/SlaTriggeringRuleInfo';
+import { SliDetail } from './model/SliDetail';
+import { SyncAddPersonnelRequest } from './model/SyncAddPersonnelRequest';
+import { SyncAddPersonnelResponse } from './model/SyncAddPersonnelResponse';
 import { SyncResourceReq } from './model/SyncResourceReq';
 import { SyncResourceRequest } from './model/SyncResourceRequest';
 import { SyncResourceResponse } from './model/SyncResourceResponse';
 import { Tag } from './model/Tag';
+import { TargetResource } from './model/TargetResource';
 import { TicketHistoryInfo } from './model/TicketHistoryInfo';
+import { TicketInfo } from './model/TicketInfo';
 import { TicketInfoEnumData } from './model/TicketInfoEnumData';
+import { TicketInformation } from './model/TicketInformation';
+import { TriggerTime } from './model/TriggerTime';
+import { UpdateScheduledTaskRequest } from './model/UpdateScheduledTaskRequest';
+import { UpdateScheduledTaskResponse } from './model/UpdateScheduledTaskResponse';
 import { UpdateScriptRequest } from './model/UpdateScriptRequest';
 import { UpdateScriptResponse } from './model/UpdateScriptResponse';
 import { UpdateTicketHistoryInfo } from './model/UpdateTicketHistoryInfo';
@@ -174,6 +240,69 @@ export class CocClient {
         return __dirname;
     }
 
+
+    /**
+     * show account ，使用场景：托管功能 sre 账号使用，查询自己管理的客户账号
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询客户账号
+     * @param {string} [name] 账号名称
+     * @param {string} [delegator] 账号id
+     * @param {string} [status] 账号状态
+     * @param {number} [offset] 分页参数
+     * @param {number} [limit] 分页参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAccount(showAccountRequest?: ShowAccountRequest): Promise<ShowAccountResponse> {
+        const options = ParamCreater().showAccount(showAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警工单历史
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警工单历史
+     * @param {string} alarmId 告警id
+     * @param {number} offset 偏移量
+     * @param {number} limit 每页限制数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAlarmHandleHistories(listAlarmHandleHistoriesRequest?: ListAlarmHandleHistoriesRequest): Promise<ListAlarmHandleHistoriesResponse> {
+        const options = ParamCreater().listAlarmHandleHistories(listAlarmHandleHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Get alarm info by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Alarm
+     * @param {string} alarmId 告警id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAlarm(showAlarmRequest?: ShowAlarmRequest): Promise<ShowAlarmResponse> {
+        const options = ParamCreater().showAlarm(showAlarmRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 查询应用
@@ -234,6 +363,45 @@ export class CocClient {
      */
     public batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest): Promise<BatchCreateApplicationViewResponse> {
         const options = ParamCreater().batchCreateApplicationView(batchCreateApplicationViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Get baseline info by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Baseline
+     * @param {string} baselineId 基线id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPatchBaseline(showPatchBaselineRequest?: ShowPatchBaselineRequest): Promise<ShowPatchBaselineResponse> {
+        const options = ParamCreater().showPatchBaseline(showPatchBaselineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页获取合规性报告cce信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取合规性报告cce信息
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页限制
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCceCompliant(listCceCompliantRequest?: ListCceCompliantRequest): Promise<ListCceCompliantResponse> {
+        const options = ParamCreater().listCceCompliant(listCceCompliantRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -503,6 +671,47 @@ export class CocClient {
     }
 
     /**
+     * 获取人员列表（公网调用）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询人员列表
+     * @param {number} offset 偏移量
+     * @param {number} limit 分页
+     * @param {boolean} [hasMobile] 是否有手机号
+     * @param {string} [name] IAM账号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPersonnel(listPersonnelRequest?: ListPersonnelRequest): Promise<ListPersonnelResponse> {
+        const options = ParamCreater().listPersonnel(listPersonnelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同步人员
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步人员
+     * @param {string} domainId 租户Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncAddPersonnel(syncAddPersonnelRequest?: SyncAddPersonnelRequest): Promise<SyncAddPersonnelResponse> {
+        const options = ParamCreater().syncAddPersonnel(syncAddPersonnelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户各种资源总数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -577,6 +786,190 @@ export class CocClient {
      */
     public syncResource(syncResourceRequest?: SyncResourceRequest): Promise<SyncResourceResponse> {
         const options = ParamCreater().syncResource(syncResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Create Scheduled Task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建定时运维
+     * @param {ScheduledTaskRequestBody} createScheduledTaskRequestBody ScheduledTask object that needs to be created
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createScheduledTask(createScheduledTaskRequest?: CreateScheduledTaskRequest): Promise<CreateScheduledTaskResponse> {
+        const options = ParamCreater().createScheduledTask(createScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Delete scheduled task by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除ScheduledTask
+     * @param {string} taskId ID of ScheduledTask
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScheduledTask(deleteScheduledTaskRequest?: DeleteScheduledTaskRequest): Promise<DeleteScheduledTaskResponse> {
+        const options = ParamCreater().deleteScheduledTask(deleteScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Disable scheduled task by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用ScheduledTask
+     * @param {string} taskId ID of ScheduledTask
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableScheduledTask(disableScheduledTaskRequest?: DisableScheduledTaskRequest): Promise<DisableScheduledTaskResponse> {
+        const options = ParamCreater().disableScheduledTask(disableScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Enable scheduled task by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用ScheduledTask
+     * @param {string} taskId ID of ScheduledTask
+     * @param {EnableScheduledTaskRequestBody} [enableScheduledTaskRequestBody] 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableScheduledTask(enableScheduledTaskRequest?: EnableScheduledTaskRequest): Promise<EnableScheduledTaskResponse> {
+        const options = ParamCreater().enableScheduledTask(enableScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Get ScheduledTask infos
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ScheduledTask列表
+     * @param {string} [enterpriseProjectId] 企业项目id
+     * @param {string} [taskId] 任务ID
+     * @param {string} [taskName] 任务名称
+     * @param {'ONCE' | 'PERIODIC' | 'CRON'} [scheduledType] 定时类型(ONCE,PERIODIC,CRON)
+     * @param {'SCRIPT' | 'RUNBOOK'} [taskType] 引用任务类型(SCRIPT,RUNBOOK)
+     * @param {'CUSTOMIZATION' | 'COMMUNAL'} [associatedTaskType] 任务类型(CUSTOMIZATION,COMMUNAL)
+     * @param {string} [riskLevel] 风险等级
+     * @param {string} [createdBy] 创建人
+     * @param {string} [reviewer] 审批人ID
+     * @param {string} [reviewerUserName] 审批人昵称
+     * @param {'PENDING' | 'REJECTED' | 'PASSED'} [approveStatus] 审批状态(PENDING,REJECTED,PASSED)
+     * @param {'READY' | 'PROCESSING' | 'ABNORMAL' | 'FINISHED' | 'PAUSED' | 'CANCELED'} [lastExecutionStatus] 最近执行状态(READY,PROCESSING,ABNORMAL,FINISHED,PAUSED,CANCELED)
+     * @param {number} [lastExecutionStartTime] 最近执行时间的查询开始时间
+     * @param {number} [lastExecutionEndTime] 最近执行时间的查询结束时间
+     * @param {string} [marker] 上一页数据的最后一条记录的id
+     * @param {string} [regionId] 区域
+     * @param {string} [resourceId] 资源ID
+     * @param {number} [offset] 分页指针
+     * @param {number} [limit] 每页数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduledTask(listScheduledTaskRequest?: ListScheduledTaskRequest): Promise<ListScheduledTaskResponse> {
+        const options = ParamCreater().listScheduledTask(listScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * get scheduled task history list
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询定时运维历史记录
+     * @param {string} taskId ID of ScheduledTask
+     * @param {number} limit 每页数量
+     * @param {string} [id] 工单ID
+     * @param {string} [region] 区域
+     * @param {string} [status] 状态
+     * @param {number} [startedStartTime] 开始时间参数的查询开始区间时间戳
+     * @param {number} [startedEndTime] 开始时间参数的查询结束区间时间戳
+     * @param {number} [finishedStartTime] 结束时间参数的查询开始区间时间戳
+     * @param {number} [finishedEndTime] 结束时间参数的查询结束区间时间戳
+     * @param {string} [marker] 上一页数据的最后一条记录的id
+     * @param {number} [offset] 分页指针
+     * @param {'started_time' | 'finished_time'} [sortKey] 排序字段名：支持 started_time,finished_time
+     * @param {'asc' | 'desc'} [sortDir] 排序方式，asc升序，desc降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduledTaskHistory(listScheduledTaskHistoryRequest?: ListScheduledTaskHistoryRequest): Promise<ListScheduledTaskHistoryResponse> {
+        const options = ParamCreater().listScheduledTaskHistory(listScheduledTaskHistoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Get ScheduledTask info by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ScheduledTask
+     * @param {string} taskId ID of ScheduledTask
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showScheduledTask(showScheduledTaskRequest?: ShowScheduledTaskRequest): Promise<ShowScheduledTaskResponse> {
+        const options = ParamCreater().showScheduledTask(showScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Update ScheduledTask
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改ScheduledTask
+     * @param {string} taskId ID of ScheduledTask
+     * @param {ScheduledTaskRequestBody} updateScheduledTaskRequestBody ScheduledTask object that needs to be modified
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateScheduledTask(updateScheduledTaskRequest?: UpdateScheduledTaskRequest): Promise<UpdateScheduledTaskResponse> {
+        const options = ParamCreater().updateScheduledTask(updateScheduledTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -981,6 +1374,88 @@ export class CocClient {
     }
 
     /**
+     * Get Sla Template info by id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Sla模板详情
+     * @param {string} templateId 模板ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSlaCustomizedTemplate(showSlaCustomizedTemplateRequest?: ShowSlaCustomizedTemplateRequest): Promise<ShowSlaCustomizedTemplateResponse> {
+        const options = ParamCreater().showSlaCustomizedTemplate(showSlaCustomizedTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * SLA 工单信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询SLA工单信息
+     * @param {string} orderId 工单ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSlaOrder(showSlaOrderRequest?: ShowSlaOrderRequest): Promise<ShowSlaOrderResponse> {
+        const options = ParamCreater().showSlaOrder(showSlaOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询中断记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中断记录
+     * @param {string} sloId SLO的ID
+     * @param {number} [offset] 分页指针
+     * @param {number} [limit] 每页数量
+     * @param {string} [sourceId] 资源ID
+     * @param {string} [regionId] regionId
+     * @param {number} [startTime] 时间范围 - 开始时间
+     * @param {number} [endTime] 时间范围 - 结束时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInterruptRecords(listInterruptRecordsRequest?: ListInterruptRecordsRequest): Promise<ListInterruptRecordsResponse> {
+        const options = ParamCreater().listInterruptRecords(listInterruptRecordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询SLO详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询SLO详情
+     * @param {string} sloId SLO的ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSloDetail(showSloDetailRequest?: ShowSloDetailRequest): Promise<ShowSloDetailResponse> {
+        const options = ParamCreater().showSloDetail(showSloDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建租户区WarRoom
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1021,6 +1496,166 @@ export class CocClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * show account ，使用场景：托管功能 sre 账号使用，查询自己管理的客户账号
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAccount(showAccountRequest?: ShowAccountRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/host/accounts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let delegator;
+            
+            let status;
+            
+            let offset;
+            
+            let limit;
+
+            if (showAccountRequest !== null && showAccountRequest !== undefined) {
+                if (showAccountRequest instanceof ShowAccountRequest) {
+                    name = showAccountRequest.name;
+                    delegator = showAccountRequest.delegator;
+                    status = showAccountRequest.status;
+                    offset = showAccountRequest.offset;
+                    limit = showAccountRequest.limit;
+                } else {
+                    name = showAccountRequest['name'];
+                    delegator = showAccountRequest['delegator'];
+                    status = showAccountRequest['status'];
+                    offset = showAccountRequest['offset'];
+                    limit = showAccountRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (delegator !== null && delegator !== undefined) {
+                localVarQueryParameter['delegator'] = delegator;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询告警工单历史
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAlarmHandleHistories(listAlarmHandleHistoriesRequest?: ListAlarmHandleHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/alarm-mgmt/alarm/{alarm_id}/handle-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let alarmId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAlarmHandleHistoriesRequest !== null && listAlarmHandleHistoriesRequest !== undefined) {
+                if (listAlarmHandleHistoriesRequest instanceof ListAlarmHandleHistoriesRequest) {
+                    alarmId = listAlarmHandleHistoriesRequest.alarmId;
+                    offset = listAlarmHandleHistoriesRequest.offset;
+                    limit = listAlarmHandleHistoriesRequest.limit;
+                } else {
+                    alarmId = listAlarmHandleHistoriesRequest['alarm_id'];
+                    offset = listAlarmHandleHistoriesRequest['offset'];
+                    limit = listAlarmHandleHistoriesRequest['limit'];
+                }
+            }
+
+        
+            if (alarmId === null || alarmId === undefined) {
+            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling listAlarmHandleHistories.');
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAlarmHandleHistories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAlarmHandleHistories.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'alarm_id': alarmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Get alarm info by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAlarm(showAlarmRequest?: ShowAlarmRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/alarm-mgmt/alarm/{alarm_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let alarmId;
+
+            if (showAlarmRequest !== null && showAlarmRequest !== undefined) {
+                if (showAlarmRequest instanceof ShowAlarmRequest) {
+                    alarmId = showAlarmRequest.alarmId;
+                } else {
+                    alarmId = showAlarmRequest['alarm_id'];
+                }
+            }
+
+        
+            if (alarmId === null || alarmId === undefined) {
+            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling showAlarm.');
+            }
+
+            options.pathParams = { 'alarm_id': alarmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 查询应用
@@ -1193,6 +1828,87 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Get baseline info by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPatchBaseline(showPatchBaselineRequest?: ShowPatchBaselineRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/patch/baseline/{baseline_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let baselineId;
+
+            if (showPatchBaselineRequest !== null && showPatchBaselineRequest !== undefined) {
+                if (showPatchBaselineRequest instanceof ShowPatchBaselineRequest) {
+                    baselineId = showPatchBaselineRequest.baselineId;
+                } else {
+                    baselineId = showPatchBaselineRequest['baseline_id'];
+                }
+            }
+
+        
+            if (baselineId === null || baselineId === undefined) {
+            throw new RequiredError('baselineId','Required parameter baselineId was null or undefined when calling showPatchBaseline.');
+            }
+
+            options.pathParams = { 'baseline_id': baselineId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页获取合规性报告cce信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCceCompliant(listCceCompliantRequest?: ListCceCompliantRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/patch/cce/compliant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCceCompliantRequest !== null && listCceCompliantRequest !== undefined) {
+                if (listCceCompliantRequest instanceof ListCceCompliantRequest) {
+                    offset = listCceCompliantRequest.offset;
+                    limit = listCceCompliantRequest.limit;
+                } else {
+                    offset = listCceCompliantRequest['offset'];
+                    limit = listCceCompliantRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1887,6 +2603,107 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取人员列表（公网调用）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPersonnel(listPersonnelRequest?: ListPersonnelRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/personnel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let hasMobile;
+            
+            let name;
+
+            if (listPersonnelRequest !== null && listPersonnelRequest !== undefined) {
+                if (listPersonnelRequest instanceof ListPersonnelRequest) {
+                    offset = listPersonnelRequest.offset;
+                    limit = listPersonnelRequest.limit;
+                    hasMobile = listPersonnelRequest.hasMobile;
+                    name = listPersonnelRequest.name;
+                } else {
+                    offset = listPersonnelRequest['offset'];
+                    limit = listPersonnelRequest['limit'];
+                    hasMobile = listPersonnelRequest['has_mobile'];
+                    name = listPersonnelRequest['name'];
+                }
+            }
+
+        
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPersonnel.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPersonnel.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (hasMobile !== null && hasMobile !== undefined) {
+                localVarQueryParameter['has_mobile'] = hasMobile;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同步人员
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncAddPersonnel(syncAddPersonnelRequest?: SyncAddPersonnelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/sync/{domain_id}/personnels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+
+            if (syncAddPersonnelRequest !== null && syncAddPersonnelRequest !== undefined) {
+                if (syncAddPersonnelRequest instanceof SyncAddPersonnelRequest) {
+                    domainId = syncAddPersonnelRequest.domainId;
+                } else {
+                    domainId = syncAddPersonnelRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling syncAddPersonnel.');
+            }
+
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户各种资源总数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2181,6 +2998,534 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Create Scheduled Task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createScheduledTask(createScheduledTaskRequest?: CreateScheduledTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/schedule/task",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createScheduledTaskRequest !== null && createScheduledTaskRequest !== undefined) {
+                if (createScheduledTaskRequest instanceof CreateScheduledTaskRequest) {
+                    body = createScheduledTaskRequest.body
+                } else {
+                    body = createScheduledTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Delete scheduled task by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScheduledTask(deleteScheduledTaskRequest?: DeleteScheduledTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/schedule/task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (deleteScheduledTaskRequest !== null && deleteScheduledTaskRequest !== undefined) {
+                if (deleteScheduledTaskRequest instanceof DeleteScheduledTaskRequest) {
+                    taskId = deleteScheduledTaskRequest.taskId;
+                } else {
+                    taskId = deleteScheduledTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteScheduledTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Disable scheduled task by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableScheduledTask(disableScheduledTaskRequest?: DisableScheduledTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/schedule/task/{task_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (disableScheduledTaskRequest !== null && disableScheduledTaskRequest !== undefined) {
+                if (disableScheduledTaskRequest instanceof DisableScheduledTaskRequest) {
+                    taskId = disableScheduledTaskRequest.taskId;
+                } else {
+                    taskId = disableScheduledTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling disableScheduledTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Enable scheduled task by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableScheduledTask(enableScheduledTaskRequest?: EnableScheduledTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/schedule/task/{task_id}/enable",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (enableScheduledTaskRequest !== null && enableScheduledTaskRequest !== undefined) {
+                if (enableScheduledTaskRequest instanceof EnableScheduledTaskRequest) {
+                    taskId = enableScheduledTaskRequest.taskId;
+                    body = enableScheduledTaskRequest.body
+                } else {
+                    taskId = enableScheduledTaskRequest['task_id'];
+                    body = enableScheduledTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling enableScheduledTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Get ScheduledTask infos
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduledTask(listScheduledTaskRequest?: ListScheduledTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/schedule/task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let taskId;
+            
+            let taskName;
+            
+            let scheduledType;
+            
+            let taskType;
+            
+            let associatedTaskType;
+            
+            let riskLevel;
+            
+            let createdBy;
+            
+            let reviewer;
+            
+            let reviewerUserName;
+            
+            let approveStatus;
+            
+            let lastExecutionStatus;
+            
+            let lastExecutionStartTime;
+            
+            let lastExecutionEndTime;
+            
+            let marker;
+            
+            let regionId;
+            
+            let resourceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listScheduledTaskRequest !== null && listScheduledTaskRequest !== undefined) {
+                if (listScheduledTaskRequest instanceof ListScheduledTaskRequest) {
+                    enterpriseProjectId = listScheduledTaskRequest.enterpriseProjectId;
+                    taskId = listScheduledTaskRequest.taskId;
+                    taskName = listScheduledTaskRequest.taskName;
+                    scheduledType = listScheduledTaskRequest.scheduledType;
+                    taskType = listScheduledTaskRequest.taskType;
+                    associatedTaskType = listScheduledTaskRequest.associatedTaskType;
+                    riskLevel = listScheduledTaskRequest.riskLevel;
+                    createdBy = listScheduledTaskRequest.createdBy;
+                    reviewer = listScheduledTaskRequest.reviewer;
+                    reviewerUserName = listScheduledTaskRequest.reviewerUserName;
+                    approveStatus = listScheduledTaskRequest.approveStatus;
+                    lastExecutionStatus = listScheduledTaskRequest.lastExecutionStatus;
+                    lastExecutionStartTime = listScheduledTaskRequest.lastExecutionStartTime;
+                    lastExecutionEndTime = listScheduledTaskRequest.lastExecutionEndTime;
+                    marker = listScheduledTaskRequest.marker;
+                    regionId = listScheduledTaskRequest.regionId;
+                    resourceId = listScheduledTaskRequest.resourceId;
+                    offset = listScheduledTaskRequest.offset;
+                    limit = listScheduledTaskRequest.limit;
+                } else {
+                    enterpriseProjectId = listScheduledTaskRequest['enterprise_project_id'];
+                    taskId = listScheduledTaskRequest['task_id'];
+                    taskName = listScheduledTaskRequest['task_name'];
+                    scheduledType = listScheduledTaskRequest['scheduled_type'];
+                    taskType = listScheduledTaskRequest['task_type'];
+                    associatedTaskType = listScheduledTaskRequest['associated_task_type'];
+                    riskLevel = listScheduledTaskRequest['risk_level'];
+                    createdBy = listScheduledTaskRequest['created_by'];
+                    reviewer = listScheduledTaskRequest['reviewer'];
+                    reviewerUserName = listScheduledTaskRequest['reviewer_user_name'];
+                    approveStatus = listScheduledTaskRequest['approve_status'];
+                    lastExecutionStatus = listScheduledTaskRequest['last_execution_status'];
+                    lastExecutionStartTime = listScheduledTaskRequest['last_execution_start_time'];
+                    lastExecutionEndTime = listScheduledTaskRequest['last_execution_end_time'];
+                    marker = listScheduledTaskRequest['marker'];
+                    regionId = listScheduledTaskRequest['region_id'];
+                    resourceId = listScheduledTaskRequest['resource_id'];
+                    offset = listScheduledTaskRequest['offset'];
+                    limit = listScheduledTaskRequest['limit'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
+            }
+            if (scheduledType !== null && scheduledType !== undefined) {
+                localVarQueryParameter['scheduled_type'] = scheduledType;
+            }
+            if (taskType !== null && taskType !== undefined) {
+                localVarQueryParameter['task_type'] = taskType;
+            }
+            if (associatedTaskType !== null && associatedTaskType !== undefined) {
+                localVarQueryParameter['associated_task_type'] = associatedTaskType;
+            }
+            if (riskLevel !== null && riskLevel !== undefined) {
+                localVarQueryParameter['risk_level'] = riskLevel;
+            }
+            if (createdBy !== null && createdBy !== undefined) {
+                localVarQueryParameter['created_by'] = createdBy;
+            }
+            if (reviewer !== null && reviewer !== undefined) {
+                localVarQueryParameter['reviewer'] = reviewer;
+            }
+            if (reviewerUserName !== null && reviewerUserName !== undefined) {
+                localVarQueryParameter['reviewer_user_name'] = reviewerUserName;
+            }
+            if (approveStatus !== null && approveStatus !== undefined) {
+                localVarQueryParameter['approve_status'] = approveStatus;
+            }
+            if (lastExecutionStatus !== null && lastExecutionStatus !== undefined) {
+                localVarQueryParameter['last_execution_status'] = lastExecutionStatus;
+            }
+            if (lastExecutionStartTime !== null && lastExecutionStartTime !== undefined) {
+                localVarQueryParameter['last_execution_start_time'] = lastExecutionStartTime;
+            }
+            if (lastExecutionEndTime !== null && lastExecutionEndTime !== undefined) {
+                localVarQueryParameter['last_execution_end_time'] = lastExecutionEndTime;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * get scheduled task history list
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduledTaskHistory(listScheduledTaskHistoryRequest?: ListScheduledTaskHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/schedule/task/history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let limit;
+            
+            let id;
+            
+            let region;
+            
+            let status;
+            
+            let startedStartTime;
+            
+            let startedEndTime;
+            
+            let finishedStartTime;
+            
+            let finishedEndTime;
+            
+            let marker;
+            
+            let offset;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listScheduledTaskHistoryRequest !== null && listScheduledTaskHistoryRequest !== undefined) {
+                if (listScheduledTaskHistoryRequest instanceof ListScheduledTaskHistoryRequest) {
+                    taskId = listScheduledTaskHistoryRequest.taskId;
+                    limit = listScheduledTaskHistoryRequest.limit;
+                    id = listScheduledTaskHistoryRequest.id;
+                    region = listScheduledTaskHistoryRequest.region;
+                    status = listScheduledTaskHistoryRequest.status;
+                    startedStartTime = listScheduledTaskHistoryRequest.startedStartTime;
+                    startedEndTime = listScheduledTaskHistoryRequest.startedEndTime;
+                    finishedStartTime = listScheduledTaskHistoryRequest.finishedStartTime;
+                    finishedEndTime = listScheduledTaskHistoryRequest.finishedEndTime;
+                    marker = listScheduledTaskHistoryRequest.marker;
+                    offset = listScheduledTaskHistoryRequest.offset;
+                    sortKey = listScheduledTaskHistoryRequest.sortKey;
+                    sortDir = listScheduledTaskHistoryRequest.sortDir;
+                } else {
+                    taskId = listScheduledTaskHistoryRequest['task_id'];
+                    limit = listScheduledTaskHistoryRequest['limit'];
+                    id = listScheduledTaskHistoryRequest['id'];
+                    region = listScheduledTaskHistoryRequest['region'];
+                    status = listScheduledTaskHistoryRequest['status'];
+                    startedStartTime = listScheduledTaskHistoryRequest['started_start_time'];
+                    startedEndTime = listScheduledTaskHistoryRequest['started_end_time'];
+                    finishedStartTime = listScheduledTaskHistoryRequest['finished_start_time'];
+                    finishedEndTime = listScheduledTaskHistoryRequest['finished_end_time'];
+                    marker = listScheduledTaskHistoryRequest['marker'];
+                    offset = listScheduledTaskHistoryRequest['offset'];
+                    sortKey = listScheduledTaskHistoryRequest['sort_key'];
+                    sortDir = listScheduledTaskHistoryRequest['sort_dir'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listScheduledTaskHistory.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listScheduledTaskHistory.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (region !== null && region !== undefined) {
+                localVarQueryParameter['region'] = region;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startedStartTime !== null && startedStartTime !== undefined) {
+                localVarQueryParameter['started_start_time'] = startedStartTime;
+            }
+            if (startedEndTime !== null && startedEndTime !== undefined) {
+                localVarQueryParameter['started_end_time'] = startedEndTime;
+            }
+            if (finishedStartTime !== null && finishedStartTime !== undefined) {
+                localVarQueryParameter['finished_start_time'] = finishedStartTime;
+            }
+            if (finishedEndTime !== null && finishedEndTime !== undefined) {
+                localVarQueryParameter['finished_end_time'] = finishedEndTime;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Get ScheduledTask info by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showScheduledTask(showScheduledTaskRequest?: ShowScheduledTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/schedule/task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showScheduledTaskRequest !== null && showScheduledTaskRequest !== undefined) {
+                if (showScheduledTaskRequest instanceof ShowScheduledTaskRequest) {
+                    taskId = showScheduledTaskRequest.taskId;
+                } else {
+                    taskId = showScheduledTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showScheduledTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Update ScheduledTask
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateScheduledTask(updateScheduledTaskRequest?: UpdateScheduledTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/schedule/task/{task_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (updateScheduledTaskRequest !== null && updateScheduledTaskRequest !== undefined) {
+                if (updateScheduledTaskRequest instanceof UpdateScheduledTaskRequest) {
+                    taskId = updateScheduledTaskRequest.taskId;
+                    body = updateScheduledTaskRequest.body
+                } else {
+                    taskId = updateScheduledTaskRequest['task_id'];
+                    body = updateScheduledTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateScheduledTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3280,6 +4625,197 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Get Sla Template info by id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSlaCustomizedTemplate(showSlaCustomizedTemplateRequest?: ShowSlaCustomizedTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/sla-mgmt/customized-template/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+
+            if (showSlaCustomizedTemplateRequest !== null && showSlaCustomizedTemplateRequest !== undefined) {
+                if (showSlaCustomizedTemplateRequest instanceof ShowSlaCustomizedTemplateRequest) {
+                    templateId = showSlaCustomizedTemplateRequest.templateId;
+                } else {
+                    templateId = showSlaCustomizedTemplateRequest['template_id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showSlaCustomizedTemplate.');
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * SLA 工单信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSlaOrder(showSlaOrderRequest?: ShowSlaOrderRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/sla-mgmt/orders/{order_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let orderId;
+
+            if (showSlaOrderRequest !== null && showSlaOrderRequest !== undefined) {
+                if (showSlaOrderRequest instanceof ShowSlaOrderRequest) {
+                    orderId = showSlaOrderRequest.orderId;
+                } else {
+                    orderId = showSlaOrderRequest['order_id'];
+                }
+            }
+
+        
+            if (orderId === null || orderId === undefined) {
+            throw new RequiredError('orderId','Required parameter orderId was null or undefined when calling showSlaOrder.');
+            }
+
+            options.pathParams = { 'order_id': orderId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询中断记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInterruptRecords(listInterruptRecordsRequest?: ListInterruptRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/slo-mgmt/slos/{slo_id}/interrupt-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let sloId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sourceId;
+            
+            let regionId;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listInterruptRecordsRequest !== null && listInterruptRecordsRequest !== undefined) {
+                if (listInterruptRecordsRequest instanceof ListInterruptRecordsRequest) {
+                    sloId = listInterruptRecordsRequest.sloId;
+                    offset = listInterruptRecordsRequest.offset;
+                    limit = listInterruptRecordsRequest.limit;
+                    sourceId = listInterruptRecordsRequest.sourceId;
+                    regionId = listInterruptRecordsRequest.regionId;
+                    startTime = listInterruptRecordsRequest.startTime;
+                    endTime = listInterruptRecordsRequest.endTime;
+                } else {
+                    sloId = listInterruptRecordsRequest['slo_id'];
+                    offset = listInterruptRecordsRequest['offset'];
+                    limit = listInterruptRecordsRequest['limit'];
+                    sourceId = listInterruptRecordsRequest['source_id'];
+                    regionId = listInterruptRecordsRequest['region_id'];
+                    startTime = listInterruptRecordsRequest['start_time'];
+                    endTime = listInterruptRecordsRequest['end_time'];
+                }
+            }
+
+        
+            if (sloId === null || sloId === undefined) {
+            throw new RequiredError('sloId','Required parameter sloId was null or undefined when calling listInterruptRecords.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sourceId !== null && sourceId !== undefined) {
+                localVarQueryParameter['source_id'] = sourceId;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'slo_id': sloId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询SLO详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSloDetail(showSloDetailRequest?: ShowSloDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/slo-mgmt/slos/{slo_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let sloId;
+
+            if (showSloDetailRequest !== null && showSloDetailRequest !== undefined) {
+                if (showSloDetailRequest instanceof ShowSloDetailRequest) {
+                    sloId = showSloDetailRequest.sloId;
+                } else {
+                    sloId = showSloDetailRequest['slo_id'];
+                }
+            }
+
+        
+            if (sloId === null || sloId === undefined) {
+            throw new RequiredError('sloId','Required parameter sloId was null or undefined when calling showSloDetail.');
+            }
+
+            options.pathParams = { 'slo_id': sloId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

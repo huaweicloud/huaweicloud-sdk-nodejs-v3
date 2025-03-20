@@ -4,6 +4,7 @@ export class CreateRoute {
     public destination?: string;
     private 'attachment_id'?: string;
     private 'is_blackhole'?: boolean;
+    public description?: string;
     public constructor(destination?: string) { 
         this['destination'] = destination;
     }
@@ -30,5 +31,9 @@ export class CreateRoute {
     }
     public get isBlackhole(): boolean | undefined {
         return this['is_blackhole'];
+    }
+    public withDescription(description: string): CreateRoute {
+        this['description'] = description;
+        return this;
     }
 }

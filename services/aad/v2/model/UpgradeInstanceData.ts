@@ -8,6 +8,7 @@ export class UpgradeInstanceData {
     private 'bind_domain_num'?: number;
     private 'elastic_service_bandwidth_type'?: number;
     private 'elastic_service_bandwidth'?: number;
+    private 'basic_qps'?: number;
     public constructor() { 
     }
     public withBasicBandwidth(basicBandwidth: string): UpgradeInstanceData {
@@ -79,5 +80,15 @@ export class UpgradeInstanceData {
     }
     public get elasticServiceBandwidth(): number | undefined {
         return this['elastic_service_bandwidth'];
+    }
+    public withBasicQps(basicQps: number): UpgradeInstanceData {
+        this['basic_qps'] = basicQps;
+        return this;
+    }
+    public set basicQps(basicQps: number  | undefined) {
+        this['basic_qps'] = basicQps;
+    }
+    public get basicQps(): number | undefined {
+        return this['basic_qps'];
     }
 }

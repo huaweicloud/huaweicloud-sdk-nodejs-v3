@@ -144,6 +144,8 @@ import { ListServerInterfacesRequest } from './model/ListServerInterfacesRequest
 import { ListServerInterfacesResponse } from './model/ListServerInterfacesResponse';
 import { ListServerTagsRequest } from './model/ListServerTagsRequest';
 import { ListServerTagsResponse } from './model/ListServerTagsResponse';
+import { ListServerVolumeAttachmentsRequest } from './model/ListServerVolumeAttachmentsRequest';
+import { ListServerVolumeAttachmentsResponse } from './model/ListServerVolumeAttachmentsResponse';
 import { ListServersByTagRequest } from './model/ListServersByTagRequest';
 import { ListServersByTagRequestBody } from './model/ListServersByTagRequestBody';
 import { ListServersByTagResponse } from './model/ListServersByTagResponse';
@@ -314,6 +316,7 @@ import { ServerSystemTag } from './model/ServerSystemTag';
 import { ServerTag } from './model/ServerTag';
 import { ServerTagMatch } from './model/ServerTagMatch';
 import { ServerTags } from './model/ServerTags';
+import { ServerVolumeAttachment } from './model/ServerVolumeAttachment';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
@@ -1186,6 +1189,25 @@ export class EcsClient {
      */
     public listServerTags(listServerTagsRequest?: ListServerTagsRequest): Promise<ListServerTagsResponse> {
         const options = ParamCreater().listServerTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询弹性云服务器挂载的磁盘信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询弹性云服务器挂载磁盘列表信息
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServerVolumeAttachments(listServerVolumeAttachmentsRequest?: ListServerVolumeAttachmentsRequest): Promise<ListServerVolumeAttachmentsResponse> {
+        const options = ParamCreater().listServerVolumeAttachments(listServerVolumeAttachmentsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3885,6 +3907,43 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询弹性云服务器挂载的磁盘信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServerVolumeAttachments(listServerVolumeAttachmentsRequest?: ListServerVolumeAttachmentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/os-volume_attachments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (listServerVolumeAttachmentsRequest !== null && listServerVolumeAttachmentsRequest !== undefined) {
+                if (listServerVolumeAttachmentsRequest instanceof ListServerVolumeAttachmentsRequest) {
+                    serverId = listServerVolumeAttachmentsRequest.serverId;
+                } else {
+                    serverId = listServerVolumeAttachmentsRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling listServerVolumeAttachments.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

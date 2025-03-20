@@ -3,6 +3,7 @@
 export class UpdateRoute {
     private 'attachment_id'?: string;
     private 'is_blackhole'?: boolean;
+    public description?: string;
     public constructor() { 
     }
     public withAttachmentId(attachmentId: string): UpdateRoute {
@@ -24,5 +25,9 @@ export class UpdateRoute {
     }
     public get isBlackhole(): boolean | undefined {
         return this['is_blackhole'];
+    }
+    public withDescription(description: string): UpdateRoute {
+        this['description'] = description;
+        return this;
     }
 }

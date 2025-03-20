@@ -329,6 +329,8 @@ import { DataClassificationRuleQueryDTO } from './model/DataClassificationRuleQu
 import { DataClassificationSingleRuleDTO } from './model/DataClassificationSingleRuleDTO';
 import { DataConnectionVO } from './model/DataConnectionVO';
 import { DataEntityWithExtInfo } from './model/DataEntityWithExtInfo';
+import { DataLayerVO } from './model/DataLayerVO';
+import { DataLayerVOList } from './model/DataLayerVOList';
 import { DataMapFilterCriteria } from './model/DataMapFilterCriteria';
 import { DataMaskingResult } from './model/DataMaskingResult';
 import { DataProfileRO } from './model/DataProfileRO';
@@ -537,6 +539,7 @@ import { L2Id } from './model/L2Id';
 import { L2Statistic } from './model/L2Statistic';
 import { L3 } from './model/L3';
 import { LayerPath } from './model/LayerPath';
+import { LayerType } from './model/LayerType';
 import { Lineage } from './model/Lineage';
 import { LineageInfoRequest } from './model/LineageInfoRequest';
 import { LineageRelation } from './model/LineageRelation';
@@ -617,6 +620,9 @@ import { ListDataconnectionsRequest } from './model/ListDataconnectionsRequest';
 import { ListDataconnectionsResponse } from './model/ListDataconnectionsResponse';
 import { ListDerivativeIndexesRequest } from './model/ListDerivativeIndexesRequest';
 import { ListDerivativeIndexesResponse } from './model/ListDerivativeIndexesResponse';
+import { ListDesignDataLayersRequest } from './model/ListDesignDataLayersRequest';
+import { ListDesignDataLayersResponse } from './model/ListDesignDataLayersResponse';
+import { ListDesignDataLayersResultData } from './model/ListDesignDataLayersResultData';
 import { ListDimensionGroupsRequest } from './model/ListDimensionGroupsRequest';
 import { ListDimensionGroupsResponse } from './model/ListDimensionGroupsResponse';
 import { ListDimensionGroupsResultData } from './model/ListDimensionGroupsResultData';
@@ -1156,6 +1162,8 @@ import { UpdateDesignAtomicIndexResponse } from './model/UpdateDesignAtomicIndex
 import { UpdateDesignCompoundMetricRequest } from './model/UpdateDesignCompoundMetricRequest';
 import { UpdateDesignCompoundMetricResponse } from './model/UpdateDesignCompoundMetricResponse';
 import { UpdateDesignCompoundMetricResultData } from './model/UpdateDesignCompoundMetricResultData';
+import { UpdateDesignDataLayersRequest } from './model/UpdateDesignDataLayersRequest';
+import { UpdateDesignDataLayersResponse } from './model/UpdateDesignDataLayersResponse';
 import { UpdateDesignDerivativeIndexRequest } from './model/UpdateDesignDerivativeIndexRequest';
 import { UpdateDesignDerivativeIndexResponse } from './model/UpdateDesignDerivativeIndexResponse';
 import { UpdateDesignDerivativeIndexResultData } from './model/UpdateDesignDerivativeIndexResultData';
@@ -3960,6 +3968,7 @@ export class DataArtsStudioClient {
      * @param {string} [directoryId] 目录ID。获取该目录下的数据标准，如果有子目录，同时获取所有子目录的数据标准。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {boolean} [needPath] 查询数据标准目录时，是否查询数据标准目录信息。
      * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
@@ -4703,6 +4712,29 @@ export class DataArtsStudioClient {
      */
     public listDerivativeIndexes(listDerivativeIndexesRequest?: ListDerivativeIndexesRequest): Promise<ListDerivativeIndexesResponse> {
         const options = ParamCreater().listDerivativeIndexes(listDerivativeIndexesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取数仓分层信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取数仓分层信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDesignDataLayers(listDesignDataLayersRequest?: ListDesignDataLayersRequest): Promise<ListDesignDataLayersResponse> {
+        const options = ParamCreater().listDesignDataLayers(listDesignDataLayersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8519,6 +8551,28 @@ export class DataArtsStudioClient {
      */
     public updateDesignCompoundMetric(updateDesignCompoundMetricRequest?: UpdateDesignCompoundMetricRequest): Promise<UpdateDesignCompoundMetricResponse> {
         const options = ParamCreater().updateDesignCompoundMetric(updateDesignCompoundMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改或删除数仓分层
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改或删除数仓分层
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {DataLayerVOList} updateDesignDataLayersRequestBody 全量的数仓分层信息，新增层级id为0，更新层级的id和现有id一致，不在列表中的层级会被删除
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignDataLayers(updateDesignDataLayersRequest?: UpdateDesignDataLayersRequest): Promise<UpdateDesignDataLayersResponse> {
+        const options = ParamCreater().updateDesignDataLayers(updateDesignDataLayersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16452,6 +16506,8 @@ export const ParamCreater = function () {
             
             let endTime;
             
+            let needPath;
+            
             let limit;
             
             let offset;
@@ -16464,6 +16520,7 @@ export const ParamCreater = function () {
                     directoryId = listAllStandardsRequest.directoryId;
                     beginTime = listAllStandardsRequest.beginTime;
                     endTime = listAllStandardsRequest.endTime;
+                    needPath = listAllStandardsRequest.needPath;
                     limit = listAllStandardsRequest.limit;
                     offset = listAllStandardsRequest.offset;
                 } else {
@@ -16473,6 +16530,7 @@ export const ParamCreater = function () {
                     directoryId = listAllStandardsRequest['directory_id'];
                     beginTime = listAllStandardsRequest['begin_time'];
                     endTime = listAllStandardsRequest['end_time'];
+                    needPath = listAllStandardsRequest['need_path'];
                     limit = listAllStandardsRequest['limit'];
                     offset = listAllStandardsRequest['offset'];
                 }
@@ -16487,6 +16545,9 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+            if (needPath !== null && needPath !== undefined) {
+                localVarQueryParameter['need_path'] = needPath;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -18917,6 +18978,71 @@ export const ParamCreater = function () {
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取数仓分层信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDesignDataLayers(listDesignDataLayersRequest?: ListDesignDataLayersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/design/data-layers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDesignDataLayersRequest !== null && listDesignDataLayersRequest !== undefined) {
+                if (listDesignDataLayersRequest instanceof ListDesignDataLayersRequest) {
+                    workspace = listDesignDataLayersRequest.workspace;
+                    xProjectId = listDesignDataLayersRequest.xProjectId;
+                    contentType = listDesignDataLayersRequest.contentType;
+                    limit = listDesignDataLayersRequest.limit;
+                    offset = listDesignDataLayersRequest.offset;
+                } else {
+                    workspace = listDesignDataLayersRequest['workspace'];
+                    xProjectId = listDesignDataLayersRequest['X-Project-Id'];
+                    contentType = listDesignDataLayersRequest['Content-Type'];
+                    limit = listDesignDataLayersRequest['limit'];
+                    offset = listDesignDataLayersRequest['offset'];
+                }
+            }
+
+        
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -30179,6 +30305,65 @@ export const ParamCreater = function () {
                     body = updateDesignCompoundMetricRequest['body'];
                     xProjectId = updateDesignCompoundMetricRequest['X-Project-Id'];
                     contentType = updateDesignCompoundMetricRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改或删除数仓分层
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignDataLayers(updateDesignDataLayersRequest?: UpdateDesignDataLayersRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/design/data-layers",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignDataLayersRequest !== null && updateDesignDataLayersRequest !== undefined) {
+                if (updateDesignDataLayersRequest instanceof UpdateDesignDataLayersRequest) {
+                    workspace = updateDesignDataLayersRequest.workspace;
+                    body = updateDesignDataLayersRequest.body
+                    xProjectId = updateDesignDataLayersRequest.xProjectId;
+                    contentType = updateDesignDataLayersRequest.contentType;
+                } else {
+                    workspace = updateDesignDataLayersRequest['workspace'];
+                    body = updateDesignDataLayersRequest['body'];
+                    xProjectId = updateDesignDataLayersRequest['X-Project-Id'];
+                    contentType = updateDesignDataLayersRequest['Content-Type'];
                 }
             }
 
