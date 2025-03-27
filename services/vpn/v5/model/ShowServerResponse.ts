@@ -13,6 +13,7 @@ export class ShowServerResponse {
     private 'server_certificate'?: ShowServerResponseServerCertificate;
     private 'client_ca_certificates'?: Array<QueryClientCaCertificateBody>;
     private 'ssl_options'?: ShowServerResponseSslOptions;
+    private 'dns_servers'?: Array<string>;
     public status?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
@@ -101,6 +102,16 @@ export class ShowServerResponse {
     }
     public get sslOptions(): ShowServerResponseSslOptions | undefined {
         return this['ssl_options'];
+    }
+    public withDnsServers(dnsServers: Array<string>): ShowServerResponse {
+        this['dns_servers'] = dnsServers;
+        return this;
+    }
+    public set dnsServers(dnsServers: Array<string>  | undefined) {
+        this['dns_servers'] = dnsServers;
+    }
+    public get dnsServers(): Array<string> | undefined {
+        return this['dns_servers'];
     }
     public withStatus(status: string): ShowServerResponse {
         this['status'] = status;

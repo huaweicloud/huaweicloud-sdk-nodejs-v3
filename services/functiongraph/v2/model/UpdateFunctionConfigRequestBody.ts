@@ -41,6 +41,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'restore_hook_timeout'?: number;
     private 'heartbeat_handler'?: string;
     private 'enable_class_isolation'?: boolean;
+    private 'enable_lts_log'?: boolean;
     private 'lts_custom_tag'?: { [key: string]: string; };
     public constructor(funcName?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
@@ -358,6 +359,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get enableClassIsolation(): boolean | undefined {
         return this['enable_class_isolation'];
+    }
+    public withEnableLtsLog(enableLtsLog: boolean): UpdateFunctionConfigRequestBody {
+        this['enable_lts_log'] = enableLtsLog;
+        return this;
+    }
+    public set enableLtsLog(enableLtsLog: boolean  | undefined) {
+        this['enable_lts_log'] = enableLtsLog;
+    }
+    public get enableLtsLog(): boolean | undefined {
+        return this['enable_lts_log'];
     }
     public withLtsCustomTag(ltsCustomTag: { [key: string]: string; }): UpdateFunctionConfigRequestBody {
         this['lts_custom_tag'] = ltsCustomTag;

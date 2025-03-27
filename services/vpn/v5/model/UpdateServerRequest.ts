@@ -8,6 +8,7 @@ export class UpdateServerRequest {
     private 'server_certificate'?: UpdateServerRequestServerCertificate;
     private 'ssl_options'?: UpdateServerRequestSslOptions;
     private 'client_auth_type'?: UpdateServerRequestClientAuthTypeEnum | string;
+    private 'dns_servers'?: Array<string>;
     public constructor() { 
     }
     public withClientCidr(clientCidr: string): UpdateServerRequest {
@@ -59,6 +60,16 @@ export class UpdateServerRequest {
     }
     public get clientAuthType(): UpdateServerRequestClientAuthTypeEnum | string | undefined {
         return this['client_auth_type'];
+    }
+    public withDnsServers(dnsServers: Array<string>): UpdateServerRequest {
+        this['dns_servers'] = dnsServers;
+        return this;
+    }
+    public set dnsServers(dnsServers: Array<string>  | undefined) {
+        this['dns_servers'] = dnsServers;
+    }
+    public get dnsServers(): Array<string> | undefined {
+        return this['dns_servers'];
     }
 }
 

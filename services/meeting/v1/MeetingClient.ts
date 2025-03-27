@@ -1579,7 +1579,7 @@ export class MeetingClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除企业应用
-     * @param {string} appId 需要修改的app
+     * @param {string} appId 企业应用ID
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
      * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
      * @param {*} [options] Override http request option.
@@ -2339,7 +2339,7 @@ export class MeetingClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重置企业应用appkey
-     * @param {string} appId 需要修改的app
+     * @param {string} appId 企业应用ID
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
      * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
      * @param {*} [options] Override http request option.
@@ -4141,7 +4141,7 @@ export class MeetingClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改企业应用
-     * @param {string} appId 需要修改的app
+     * @param {string} appId 企业应用ID
      * @param {UpdateAppIdRequestBody} updateAppIdRequestBody 更新企业应用入参
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
      * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。

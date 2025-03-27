@@ -26,6 +26,7 @@ export class SourceServersResponseBody {
     private 'migration_cycle'?: SourceServersResponseBodyMigrationCycleEnum | string;
     private 'state_action_time'?: number;
     private 'is_consistency_result_exist'?: boolean;
+    private 'has_tc'?: boolean;
     public constructor() { 
     }
     public withId(id: string): SourceServersResponseBody {
@@ -194,6 +195,16 @@ export class SourceServersResponseBody {
     public get isConsistencyResultExist(): boolean | undefined {
         return this['is_consistency_result_exist'];
     }
+    public withHasTc(hasTc: boolean): SourceServersResponseBody {
+        this['has_tc'] = hasTc;
+        return this;
+    }
+    public set hasTc(hasTc: boolean  | undefined) {
+        this['has_tc'] = hasTc;
+    }
+    public get hasTc(): boolean | undefined {
+        return this['has_tc'];
+    }
 }
 
 /**
@@ -220,7 +231,10 @@ export enum SourceServersResponseBodyStateEnum {
     ERROR = 'error',
     CLONING = 'cloning',
     CUTOVERING = 'cutovering',
-    FINISHED = 'finished'
+    FINISHED = 'finished',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }
 /**
     * @export

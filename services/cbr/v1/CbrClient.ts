@@ -48,6 +48,9 @@ import { CbcProductInfoUpdate } from './model/CbcProductInfoUpdate';
 import { CbcUpdate } from './model/CbcUpdate';
 import { ChangeOrderRequest } from './model/ChangeOrderRequest';
 import { ChangeOrderResponse } from './model/ChangeOrderResponse';
+import { ChangeToPeriod } from './model/ChangeToPeriod';
+import { ChangeVaultChargeModeRequest } from './model/ChangeVaultChargeModeRequest';
+import { ChangeVaultChargeModeResponse } from './model/ChangeVaultChargeModeResponse';
 import { CheckAgentRequest } from './model/CheckAgentRequest';
 import { CheckAgentResponse } from './model/CheckAgentResponse';
 import { CheckpointCreate } from './model/CheckpointCreate';
@@ -428,6 +431,26 @@ export class CbrClient {
      */
     public changeOrder(changeOrderRequest?: ChangeOrderRequest): Promise<ChangeOrderResponse> {
         const options = ParamCreater().changeOrder(changeOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改资源的付费模式，暂时只支持按需资源转包周期资源。
+     * &gt; 该接口目前输入公测阶段，部分region暂时无法使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改付费模式
+     * @param {ChangeToPeriod} changeVaultChargeModeRequestBody 变更请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeVaultChargeMode(changeVaultChargeModeRequest?: ChangeVaultChargeModeRequest): Promise<ChangeVaultChargeModeResponse> {
+        const options = ParamCreater().changeVaultChargeMode(changeVaultChargeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2027,6 +2050,45 @@ export const ParamCreater = function () {
                     body = changeOrderRequest.body
                 } else {
                     body = changeOrderRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改资源的付费模式，暂时只支持按需资源转包周期资源。
+         * &gt; 该接口目前输入公测阶段，部分region暂时无法使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeVaultChargeMode(changeVaultChargeModeRequest?: ChangeVaultChargeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vaults/change-charge-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeVaultChargeModeRequest !== null && changeVaultChargeModeRequest !== undefined) {
+                if (changeVaultChargeModeRequest instanceof ChangeVaultChargeModeRequest) {
+                    body = changeVaultChargeModeRequest.body
+                } else {
+                    body = changeVaultChargeModeRequest['body'];
                 }
             }
 

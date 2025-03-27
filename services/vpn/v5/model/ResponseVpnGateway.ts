@@ -8,10 +8,13 @@ export class ResponseVpnGateway {
     public name?: string;
     public status?: string;
     private 'attachment_type'?: ResponseVpnGatewayAttachmentTypeEnum | string;
+    private 'ip_version'?: ResponseVpnGatewayIpVersionEnum | string;
     private 'certificate_id'?: string;
     private 'er_id'?: string;
+    private 'er_attachment_id'?: string;
     private 'vpc_id'?: string;
     private 'local_subnets'?: Array<string>;
+    private 'local_subnets_v6'?: Array<string>;
     private 'connect_subnet'?: string;
     private 'network_type'?: ResponseVpnGatewayNetworkTypeEnum | string;
     private 'access_vpc_id'?: string;
@@ -21,6 +24,7 @@ export class ResponseVpnGateway {
     private 'bgp_asn'?: number;
     public flavor?: string;
     private 'availability_zone_ids'?: Array<string>;
+    private 'public_border_group'?: string;
     private 'connection_number'?: number;
     private 'used_connection_number'?: number;
     private 'used_connection_group'?: number;
@@ -32,6 +36,7 @@ export class ResponseVpnGateway {
     private 'updated_at'?: Date;
     private 'policy_template'?: PolicyTemplate;
     private 'supported_flavors'?: Array<string>;
+    private 'supported_features'?: Array<string>;
     public tags?: Array<VpnResourceTag>;
     public constructor() { 
     }
@@ -57,6 +62,16 @@ export class ResponseVpnGateway {
     public get attachmentType(): ResponseVpnGatewayAttachmentTypeEnum | string | undefined {
         return this['attachment_type'];
     }
+    public withIpVersion(ipVersion: ResponseVpnGatewayIpVersionEnum | string): ResponseVpnGateway {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: ResponseVpnGatewayIpVersionEnum | string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): ResponseVpnGatewayIpVersionEnum | string | undefined {
+        return this['ip_version'];
+    }
     public withCertificateId(certificateId: string): ResponseVpnGateway {
         this['certificate_id'] = certificateId;
         return this;
@@ -77,6 +92,16 @@ export class ResponseVpnGateway {
     public get erId(): string | undefined {
         return this['er_id'];
     }
+    public withErAttachmentId(erAttachmentId: string): ResponseVpnGateway {
+        this['er_attachment_id'] = erAttachmentId;
+        return this;
+    }
+    public set erAttachmentId(erAttachmentId: string  | undefined) {
+        this['er_attachment_id'] = erAttachmentId;
+    }
+    public get erAttachmentId(): string | undefined {
+        return this['er_attachment_id'];
+    }
     public withVpcId(vpcId: string): ResponseVpnGateway {
         this['vpc_id'] = vpcId;
         return this;
@@ -96,6 +121,16 @@ export class ResponseVpnGateway {
     }
     public get localSubnets(): Array<string> | undefined {
         return this['local_subnets'];
+    }
+    public withLocalSubnetsV6(localSubnetsV6: Array<string>): ResponseVpnGateway {
+        this['local_subnets_v6'] = localSubnetsV6;
+        return this;
+    }
+    public set localSubnetsV6(localSubnetsV6: Array<string>  | undefined) {
+        this['local_subnets_v6'] = localSubnetsV6;
+    }
+    public get localSubnetsV6(): Array<string> | undefined {
+        return this['local_subnets_v6'];
     }
     public withConnectSubnet(connectSubnet: string): ResponseVpnGateway {
         this['connect_subnet'] = connectSubnet;
@@ -180,6 +215,16 @@ export class ResponseVpnGateway {
     }
     public get availabilityZoneIds(): Array<string> | undefined {
         return this['availability_zone_ids'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): ResponseVpnGateway {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
     }
     public withConnectionNumber(connectionNumber: number): ResponseVpnGateway {
         this['connection_number'] = connectionNumber;
@@ -279,6 +324,16 @@ export class ResponseVpnGateway {
     public get supportedFlavors(): Array<string> | undefined {
         return this['supported_flavors'];
     }
+    public withSupportedFeatures(supportedFeatures: Array<string>): ResponseVpnGateway {
+        this['supported_features'] = supportedFeatures;
+        return this;
+    }
+    public set supportedFeatures(supportedFeatures: Array<string>  | undefined) {
+        this['supported_features'] = supportedFeatures;
+    }
+    public get supportedFeatures(): Array<string> | undefined {
+        return this['supported_features'];
+    }
     public withTags(tags: Array<VpnResourceTag>): ResponseVpnGateway {
         this['tags'] = tags;
         return this;
@@ -292,6 +347,14 @@ export class ResponseVpnGateway {
 export enum ResponseVpnGatewayAttachmentTypeEnum {
     VPC = 'vpc',
     ER = 'er'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ResponseVpnGatewayIpVersionEnum {
+    IPV4 = 'ipv4',
+    IPV6 = 'ipv6'
 }
 /**
     * @export

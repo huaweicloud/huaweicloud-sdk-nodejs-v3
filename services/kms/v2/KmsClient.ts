@@ -26,6 +26,9 @@ import { CreateDatakeyRequestBody } from './model/CreateDatakeyRequestBody';
 import { CreateDatakeyResponse } from './model/CreateDatakeyResponse';
 import { CreateDatakeyWithoutPlaintextRequest } from './model/CreateDatakeyWithoutPlaintextRequest';
 import { CreateDatakeyWithoutPlaintextResponse } from './model/CreateDatakeyWithoutPlaintextResponse';
+import { CreateEcDatakeyPairRequest } from './model/CreateEcDatakeyPairRequest';
+import { CreateEcDatakeyPairRequestBody } from './model/CreateEcDatakeyPairRequestBody';
+import { CreateEcDatakeyPairResponse } from './model/CreateEcDatakeyPairResponse';
 import { CreateGrantRequest } from './model/CreateGrantRequest';
 import { CreateGrantRequestBody } from './model/CreateGrantRequestBody';
 import { CreateGrantResponse } from './model/CreateGrantResponse';
@@ -42,6 +45,9 @@ import { CreateParametersForImportRequest } from './model/CreateParametersForImp
 import { CreateParametersForImportResponse } from './model/CreateParametersForImportResponse';
 import { CreateRandomRequest } from './model/CreateRandomRequest';
 import { CreateRandomResponse } from './model/CreateRandomResponse';
+import { CreateRsaDatakeyPairRequest } from './model/CreateRsaDatakeyPairRequest';
+import { CreateRsaDatakeyPairRequestBody } from './model/CreateRsaDatakeyPairRequestBody';
+import { CreateRsaDatakeyPairResponse } from './model/CreateRsaDatakeyPairResponse';
 import { DecryptDataRequest } from './model/DecryptDataRequest';
 import { DecryptDataRequestBody } from './model/DecryptDataRequestBody';
 import { DecryptDataResponse } from './model/DecryptDataResponse';
@@ -344,6 +350,25 @@ export class KmsClient {
     }
 
     /**
+     * - 功能介绍：创建EC数据密钥对，返回结果包含明文公钥和密文私钥，根据参数决定是否返回明文私钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建EC数据密钥对
+     * @param {CreateEcDatakeyPairRequestBody} createEcDatakeyPairRequestBody create_datakeypair
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createEcDatakeyPair(createEcDatakeyPairRequest?: CreateEcDatakeyPairRequest): Promise<CreateEcDatakeyPairResponse> {
+        const options = ParamCreater().createEcDatakeyPair(createEcDatakeyPairRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：创建授权，被授权用户可以对授权密钥进行操作。
      * - 说明：
      *    - 服务默认主密钥（密钥别名后缀为“/default”）不可以授权。
@@ -457,6 +482,25 @@ export class KmsClient {
      */
     public createRandom(createRandomRequest?: CreateRandomRequest): Promise<CreateRandomResponse> {
         const options = ParamCreater().createRandom(createRandomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 功能介绍：创建rsa数据密钥对，返回结果包含明文公钥和密文私钥，根据参数决定是否返回明文私钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建RSA数据密钥对
+     * @param {CreateRsaDatakeyPairRequestBody} createRsaDatakeyPairRequestBody create_datakeypair
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRsaDatakeyPair(createRsaDatakeyPairRequest?: CreateRsaDatakeyPairRequest): Promise<CreateRsaDatakeyPairResponse> {
+        const options = ParamCreater().createRsaDatakeyPair(createRsaDatakeyPairRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1602,6 +1646,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * - 功能介绍：创建EC数据密钥对，返回结果包含明文公钥和密文私钥，根据参数决定是否返回明文私钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createEcDatakeyPair(createEcDatakeyPairRequest?: CreateEcDatakeyPairRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/create-ec-datakey-pair",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createEcDatakeyPairRequest !== null && createEcDatakeyPairRequest !== undefined) {
+                if (createEcDatakeyPairRequest instanceof CreateEcDatakeyPairRequest) {
+                    body = createEcDatakeyPairRequest.body
+                } else {
+                    body = createEcDatakeyPairRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：创建授权，被授权用户可以对授权密钥进行操作。
          * - 说明：
          *    - 服务默认主密钥（密钥别名后缀为“/default”）不可以授权。
@@ -1829,6 +1911,44 @@ export const ParamCreater = function () {
                     body = createRandomRequest.body
                 } else {
                     body = createRandomRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 功能介绍：创建rsa数据密钥对，返回结果包含明文公钥和密文私钥，根据参数决定是否返回明文私钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRsaDatakeyPair(createRsaDatakeyPairRequest?: CreateRsaDatakeyPairRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/create-rsa-datakey-pair",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createRsaDatakeyPairRequest !== null && createRsaDatakeyPairRequest !== undefined) {
+                if (createRsaDatakeyPairRequest instanceof CreateRsaDatakeyPairRequest) {
+                    body = createRsaDatakeyPairRequest.body
+                } else {
+                    body = createRsaDatakeyPairRequest['body'];
                 }
             }
 

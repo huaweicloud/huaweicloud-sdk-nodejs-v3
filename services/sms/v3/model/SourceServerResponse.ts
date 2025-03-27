@@ -96,7 +96,10 @@ export enum SourceServerResponseStateEnum {
     ERROR = 'error',
     CLONING = 'cloning',
     TESTING = 'testing',
-    FINISHED = 'finished'
+    FINISHED = 'finished',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }
 /**
     * @export

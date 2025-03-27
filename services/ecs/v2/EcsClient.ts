@@ -106,6 +106,9 @@ import { DisassociateServerVirtualIpOption } from './model/DisassociateServerVir
 import { DisassociateServerVirtualIpRequest } from './model/DisassociateServerVirtualIpRequest';
 import { DisassociateServerVirtualIpRequestBody } from './model/DisassociateServerVirtualIpRequestBody';
 import { DisassociateServerVirtualIpResponse } from './model/DisassociateServerVirtualIpResponse';
+import { EventResponse } from './model/EventResponse';
+import { EventResponseExecuteOptions } from './model/EventResponseExecuteOptions';
+import { EventResponseSource } from './model/EventResponseSource';
 import { Fault } from './model/Fault';
 import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
@@ -123,6 +126,7 @@ import { JobEntities } from './model/JobEntities';
 import { Link } from './model/Link';
 import { ListCloudServersRequest } from './model/ListCloudServersRequest';
 import { ListCloudServersResponse } from './model/ListCloudServersResponse';
+import { ListEventsResponsePageInfo } from './model/ListEventsResponsePageInfo';
 import { ListFlavorSellPoliciesRequest } from './model/ListFlavorSellPoliciesRequest';
 import { ListFlavorSellPoliciesResponse } from './model/ListFlavorSellPoliciesResponse';
 import { ListFlavorSellPoliciesResult } from './model/ListFlavorSellPoliciesResult';
@@ -131,6 +135,8 @@ import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListResizeFlavorsRequest } from './model/ListResizeFlavorsRequest';
 import { ListResizeFlavorsResponse } from './model/ListResizeFlavorsResponse';
 import { ListResizeFlavorsResult } from './model/ListResizeFlavorsResult';
+import { ListScheduledEventsRequest } from './model/ListScheduledEventsRequest';
+import { ListScheduledEventsResponse } from './model/ListScheduledEventsResponse';
 import { ListServerAzInfo } from './model/ListServerAzInfo';
 import { ListServerAzInfoRequest } from './model/ListServerAzInfoRequest';
 import { ListServerAzInfoResponse } from './model/ListServerAzInfoResponse';
@@ -1091,6 +1097,33 @@ export class EcsClient {
      */
     public listResizeFlavors(listResizeFlavorsRequest?: ListResizeFlavorsRequest): Promise<ListResizeFlavorsResponse> {
         const options = ParamCreater().listResizeFlavors(listResizeFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询计划事件列表
+     * 支持查看过去7天内计划事件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询计划事件列表
+     * @param {string} [marker] 从marker指定的事件的下一条数据开始查询。
+     * @param {string} [id] 事件ID
+     * @param {Array<string>} [instanceId] 实例ID
+     * @param {Array<string>} [type] 事件类型
+     * @param {Array<string>} [state] 事件状态
+     * @param {string} [publishSince] 事件发布开始时间
+     * @param {string} [publishUntil] 事件发布截至时间
+     * @param {number} [limit] 每页显示的条目数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduledEvents(listScheduledEventsRequest?: ListScheduledEventsRequest): Promise<ListScheduledEventsResponse> {
+        const options = ParamCreater().listScheduledEvents(listScheduledEventsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3740,6 +3773,93 @@ export const ParamCreater = function () {
             }
             if (sourceFlavorName !== null && sourceFlavorName !== undefined) {
                 localVarQueryParameter['source_flavor_name'] = sourceFlavorName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询计划事件列表
+         * 支持查看过去7天内计划事件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduledEvents(listScheduledEventsRequest?: ListScheduledEventsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instance-scheduled-events",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let id;
+            
+            let instanceId;
+            
+            let type;
+            
+            let state;
+            
+            let publishSince;
+            
+            let publishUntil;
+            
+            let limit;
+
+            if (listScheduledEventsRequest !== null && listScheduledEventsRequest !== undefined) {
+                if (listScheduledEventsRequest instanceof ListScheduledEventsRequest) {
+                    marker = listScheduledEventsRequest.marker;
+                    id = listScheduledEventsRequest.id;
+                    instanceId = listScheduledEventsRequest.instanceId;
+                    type = listScheduledEventsRequest.type;
+                    state = listScheduledEventsRequest.state;
+                    publishSince = listScheduledEventsRequest.publishSince;
+                    publishUntil = listScheduledEventsRequest.publishUntil;
+                    limit = listScheduledEventsRequest.limit;
+                } else {
+                    marker = listScheduledEventsRequest['marker'];
+                    id = listScheduledEventsRequest['id'];
+                    instanceId = listScheduledEventsRequest['instance_id'];
+                    type = listScheduledEventsRequest['type'];
+                    state = listScheduledEventsRequest['state'];
+                    publishSince = listScheduledEventsRequest['publish_since'];
+                    publishUntil = listScheduledEventsRequest['publish_until'];
+                    limit = listScheduledEventsRequest['limit'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (publishSince !== null && publishSince !== undefined) {
+                localVarQueryParameter['publish_since'] = publishSince;
+            }
+            if (publishUntil !== null && publishUntil !== undefined) {
+                localVarQueryParameter['publish_until'] = publishUntil;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -85,5 +85,8 @@ export enum SourceServerAssociatedWithTaskStateEnum {
     ERROR = 'error',
     CLONING = 'cloning',
     TESTING = 'testing',
-    FINISHED = 'finished'
+    FINISHED = 'finished',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }

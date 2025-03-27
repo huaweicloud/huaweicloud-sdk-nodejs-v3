@@ -22,6 +22,9 @@ export class PostTask {
     public syncing?: boolean;
     private 'exist_server'?: boolean;
     private 'start_network_check'?: boolean;
+    private 'speed_limit'?: number;
+    private 'over_speed_threshold'?: number;
+    private 'is_need_consistency_check'?: boolean;
     public constructor(name?: string, type?: string, osType?: string, sourceServer?: SourceServerByTask, targetServer?: TargetServerByTask, regionName?: string, regionId?: string, projectName?: string, projectId?: string) { 
         this['name'] = name;
         this['type'] = type;
@@ -198,6 +201,36 @@ export class PostTask {
     }
     public get startNetworkCheck(): boolean | undefined {
         return this['start_network_check'];
+    }
+    public withSpeedLimit(speedLimit: number): PostTask {
+        this['speed_limit'] = speedLimit;
+        return this;
+    }
+    public set speedLimit(speedLimit: number  | undefined) {
+        this['speed_limit'] = speedLimit;
+    }
+    public get speedLimit(): number | undefined {
+        return this['speed_limit'];
+    }
+    public withOverSpeedThreshold(overSpeedThreshold: number): PostTask {
+        this['over_speed_threshold'] = overSpeedThreshold;
+        return this;
+    }
+    public set overSpeedThreshold(overSpeedThreshold: number  | undefined) {
+        this['over_speed_threshold'] = overSpeedThreshold;
+    }
+    public get overSpeedThreshold(): number | undefined {
+        return this['over_speed_threshold'];
+    }
+    public withIsNeedConsistencyCheck(isNeedConsistencyCheck: boolean): PostTask {
+        this['is_need_consistency_check'] = isNeedConsistencyCheck;
+        return this;
+    }
+    public set isNeedConsistencyCheck(isNeedConsistencyCheck: boolean  | undefined) {
+        this['is_need_consistency_check'] = isNeedConsistencyCheck;
+    }
+    public get isNeedConsistencyCheck(): boolean | undefined {
+        return this['is_need_consistency_check'];
     }
 }
 

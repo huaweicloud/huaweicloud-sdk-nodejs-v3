@@ -39,6 +39,12 @@ export class ShowTaskResponse extends SdkResponse {
     private 'clone_server'?: CloneServer;
     private 'sub_tasks'?: Array<SubTask>;
     private 'network_check_info'?: NetworkCheckInfoRequestBody;
+    private 'total_cpu_usage'?: number;
+    private 'agent_cpu_usage'?: number;
+    private 'total_mem_usage'?: number;
+    private 'agent_mem_usage'?: number;
+    private 'total_disk_io'?: number;
+    private 'agent_disk_io'?: number;
     public constructor() { 
         super();
     }
@@ -325,6 +331,66 @@ export class ShowTaskResponse extends SdkResponse {
     }
     public get networkCheckInfo(): NetworkCheckInfoRequestBody | undefined {
         return this['network_check_info'];
+    }
+    public withTotalCpuUsage(totalCpuUsage: number): ShowTaskResponse {
+        this['total_cpu_usage'] = totalCpuUsage;
+        return this;
+    }
+    public set totalCpuUsage(totalCpuUsage: number  | undefined) {
+        this['total_cpu_usage'] = totalCpuUsage;
+    }
+    public get totalCpuUsage(): number | undefined {
+        return this['total_cpu_usage'];
+    }
+    public withAgentCpuUsage(agentCpuUsage: number): ShowTaskResponse {
+        this['agent_cpu_usage'] = agentCpuUsage;
+        return this;
+    }
+    public set agentCpuUsage(agentCpuUsage: number  | undefined) {
+        this['agent_cpu_usage'] = agentCpuUsage;
+    }
+    public get agentCpuUsage(): number | undefined {
+        return this['agent_cpu_usage'];
+    }
+    public withTotalMemUsage(totalMemUsage: number): ShowTaskResponse {
+        this['total_mem_usage'] = totalMemUsage;
+        return this;
+    }
+    public set totalMemUsage(totalMemUsage: number  | undefined) {
+        this['total_mem_usage'] = totalMemUsage;
+    }
+    public get totalMemUsage(): number | undefined {
+        return this['total_mem_usage'];
+    }
+    public withAgentMemUsage(agentMemUsage: number): ShowTaskResponse {
+        this['agent_mem_usage'] = agentMemUsage;
+        return this;
+    }
+    public set agentMemUsage(agentMemUsage: number  | undefined) {
+        this['agent_mem_usage'] = agentMemUsage;
+    }
+    public get agentMemUsage(): number | undefined {
+        return this['agent_mem_usage'];
+    }
+    public withTotalDiskIo(totalDiskIo: number): ShowTaskResponse {
+        this['total_disk_io'] = totalDiskIo;
+        return this;
+    }
+    public set totalDiskIo(totalDiskIo: number  | undefined) {
+        this['total_disk_io'] = totalDiskIo;
+    }
+    public get totalDiskIo(): number | undefined {
+        return this['total_disk_io'];
+    }
+    public withAgentDiskIo(agentDiskIo: number): ShowTaskResponse {
+        this['agent_disk_io'] = agentDiskIo;
+        return this;
+    }
+    public set agentDiskIo(agentDiskIo: number  | undefined) {
+        this['agent_disk_io'] = agentDiskIo;
+    }
+    public get agentDiskIo(): number | undefined {
+        return this['agent_disk_io'];
     }
 }
 

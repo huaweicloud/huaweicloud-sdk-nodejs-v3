@@ -14,12 +14,17 @@ export class CreateVpnConnectionRequestBodyContent {
     private 'tunnel_local_address'?: string;
     private 'tunnel_peer_address'?: string;
     private 'enable_nqa'?: boolean;
+    private 'enable_hub'?: boolean;
     public psk?: string;
     private 'policy_rules'?: Array<PolicyRule>;
     public ikepolicy?: IkePolicy;
     public ipsecpolicy?: IpsecPolicy;
     private 'ha_role'?: CreateVpnConnectionRequestBodyContentHaRoleEnum | string;
     public tags?: Array<VpnResourceTag>;
+    private 'peer_subnets_v6'?: Array<string>;
+    private 'tunnel_local_address_v6'?: string;
+    private 'tunnel_peer_address_v6'?: string;
+    private 'policy_rules_v6'?: Array<PolicyRule>;
     public constructor(vgwId?: string, vgwIp?: string, cgwId?: string) { 
         this['vgw_id'] = vgwId;
         this['vgw_ip'] = vgwIp;
@@ -103,6 +108,16 @@ export class CreateVpnConnectionRequestBodyContent {
     public get enableNqa(): boolean | undefined {
         return this['enable_nqa'];
     }
+    public withEnableHub(enableHub: boolean): CreateVpnConnectionRequestBodyContent {
+        this['enable_hub'] = enableHub;
+        return this;
+    }
+    public set enableHub(enableHub: boolean  | undefined) {
+        this['enable_hub'] = enableHub;
+    }
+    public get enableHub(): boolean | undefined {
+        return this['enable_hub'];
+    }
     public withPsk(psk: string): CreateVpnConnectionRequestBodyContent {
         this['psk'] = psk;
         return this;
@@ -138,6 +153,46 @@ export class CreateVpnConnectionRequestBodyContent {
     public withTags(tags: Array<VpnResourceTag>): CreateVpnConnectionRequestBodyContent {
         this['tags'] = tags;
         return this;
+    }
+    public withPeerSubnetsV6(peerSubnetsV6: Array<string>): CreateVpnConnectionRequestBodyContent {
+        this['peer_subnets_v6'] = peerSubnetsV6;
+        return this;
+    }
+    public set peerSubnetsV6(peerSubnetsV6: Array<string>  | undefined) {
+        this['peer_subnets_v6'] = peerSubnetsV6;
+    }
+    public get peerSubnetsV6(): Array<string> | undefined {
+        return this['peer_subnets_v6'];
+    }
+    public withTunnelLocalAddressV6(tunnelLocalAddressV6: string): CreateVpnConnectionRequestBodyContent {
+        this['tunnel_local_address_v6'] = tunnelLocalAddressV6;
+        return this;
+    }
+    public set tunnelLocalAddressV6(tunnelLocalAddressV6: string  | undefined) {
+        this['tunnel_local_address_v6'] = tunnelLocalAddressV6;
+    }
+    public get tunnelLocalAddressV6(): string | undefined {
+        return this['tunnel_local_address_v6'];
+    }
+    public withTunnelPeerAddressV6(tunnelPeerAddressV6: string): CreateVpnConnectionRequestBodyContent {
+        this['tunnel_peer_address_v6'] = tunnelPeerAddressV6;
+        return this;
+    }
+    public set tunnelPeerAddressV6(tunnelPeerAddressV6: string  | undefined) {
+        this['tunnel_peer_address_v6'] = tunnelPeerAddressV6;
+    }
+    public get tunnelPeerAddressV6(): string | undefined {
+        return this['tunnel_peer_address_v6'];
+    }
+    public withPolicyRulesV6(policyRulesV6: Array<PolicyRule>): CreateVpnConnectionRequestBodyContent {
+        this['policy_rules_v6'] = policyRulesV6;
+        return this;
+    }
+    public set policyRulesV6(policyRulesV6: Array<PolicyRule>  | undefined) {
+        this['policy_rules_v6'] = policyRulesV6;
+    }
+    public get policyRulesV6(): Array<PolicyRule> | undefined {
+        return this['policy_rules_v6'];
     }
 }
 

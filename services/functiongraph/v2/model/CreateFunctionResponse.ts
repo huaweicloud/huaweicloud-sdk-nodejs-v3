@@ -67,6 +67,7 @@ export class CreateFunctionResponse extends SdkResponse {
     private 'resource_id'?: string;
     private 'is_return_stream'?: boolean;
     private 'enable_auth_in_header'?: boolean;
+    private 'enable_lts_log'?: boolean;
     private 'lts_custom_tag'?: { [key: string]: string; };
     public constructor() { 
         super();
@@ -594,6 +595,16 @@ export class CreateFunctionResponse extends SdkResponse {
     }
     public get enableAuthInHeader(): boolean | undefined {
         return this['enable_auth_in_header'];
+    }
+    public withEnableLtsLog(enableLtsLog: boolean): CreateFunctionResponse {
+        this['enable_lts_log'] = enableLtsLog;
+        return this;
+    }
+    public set enableLtsLog(enableLtsLog: boolean  | undefined) {
+        this['enable_lts_log'] = enableLtsLog;
+    }
+    public get enableLtsLog(): boolean | undefined {
+        return this['enable_lts_log'];
     }
     public withLtsCustomTag(ltsCustomTag: { [key: string]: string; }): CreateFunctionResponse {
         this['lts_custom_tag'] = ltsCustomTag;

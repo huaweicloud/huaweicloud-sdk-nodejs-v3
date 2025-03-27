@@ -636,6 +636,7 @@ export class VodClient {
      *
      * @summary 删除转码产物
      * @param {DeleteTranscodeProductReq} deleteTranscodeProductRequestBody 删除转码产物请求体 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -901,12 +902,13 @@ export class VodClient {
     }
 
     /**
-     * 多字幕封装，仅支持 HLS VTT格式
+     * 多字幕封装，仅支持 HLS VTT格式和HLS SRT格式
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 多字幕封装
      * @param {SubtitleModifyReq} subtitleModifyReq 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1305,6 +1307,7 @@ export class VodClient {
      *
      * @summary 修改媒资文件在obs的存储模式
      * @param {UpdateStorageModeReq} updateStorageModeRequestBody 修改存储模式请求体 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2460,18 +2463,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSdkDate;
 
             if (deleteTranscodeProductRequest !== null && deleteTranscodeProductRequest !== undefined) {
                 if (deleteTranscodeProductRequest instanceof DeleteTranscodeProductRequest) {
                     body = deleteTranscodeProductRequest.body
+                    xSdkDate = deleteTranscodeProductRequest.xSdkDate;
                 } else {
                     body = deleteTranscodeProductRequest['body'];
+                    xSdkDate = deleteTranscodeProductRequest['X-Sdk-Date'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3192,7 +3202,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 多字幕封装，仅支持 HLS VTT格式
+         * 多字幕封装，仅支持 HLS VTT格式和HLS SRT格式
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3209,18 +3219,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSdkDate;
 
             if (modifySubtitleRequest !== null && modifySubtitleRequest !== undefined) {
                 if (modifySubtitleRequest instanceof ModifySubtitleRequest) {
                     body = modifySubtitleRequest.body
+                    xSdkDate = modifySubtitleRequest.xSdkDate;
                 } else {
                     body = modifySubtitleRequest['body'];
+                    xSdkDate = modifySubtitleRequest['X-Sdk-Date'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -4186,18 +4203,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xSdkDate;
 
             if (updateStorageModeRequest !== null && updateStorageModeRequest !== undefined) {
                 if (updateStorageModeRequest instanceof UpdateStorageModeRequest) {
                     body = updateStorageModeRequest.body
+                    xSdkDate = updateStorageModeRequest.xSdkDate;
                 } else {
                     body = updateStorageModeRequest['body'];
+                    xSdkDate = updateStorageModeRequest['X-Sdk-Date'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

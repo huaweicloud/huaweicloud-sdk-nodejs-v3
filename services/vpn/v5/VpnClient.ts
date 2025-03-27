@@ -23,6 +23,7 @@ import { CheckClientCaCertificateRequest } from './model/CheckClientCaCertificat
 import { CheckClientCaCertificateResponse } from './model/CheckClientCaCertificateResponse';
 import { Connection } from './model/Connection';
 import { ConnectionMonitorInfo } from './model/ConnectionMonitorInfo';
+import { ConnectionsLogConfig } from './model/ConnectionsLogConfig';
 import { CountResourcesByTagsRequest } from './model/CountResourcesByTagsRequest';
 import { CountResourcesByTagsResponse } from './model/CountResourcesByTagsResponse';
 import { CreateCgwRequest } from './model/CreateCgwRequest';
@@ -80,6 +81,8 @@ import { DeleteClientCaRequest } from './model/DeleteClientCaRequest';
 import { DeleteClientCaResponse } from './model/DeleteClientCaResponse';
 import { DeleteConnectionMonitorRequest } from './model/DeleteConnectionMonitorRequest';
 import { DeleteConnectionMonitorResponse } from './model/DeleteConnectionMonitorResponse';
+import { DeleteP2cVgwConnectionRequest } from './model/DeleteP2cVgwConnectionRequest';
+import { DeleteP2cVgwConnectionResponse } from './model/DeleteP2cVgwConnectionResponse';
 import { DeleteResourcesTagsRequestBody } from './model/DeleteResourcesTagsRequestBody';
 import { DeleteVgwRequest } from './model/DeleteVgwRequest';
 import { DeleteVgwResponse } from './model/DeleteVgwResponse';
@@ -87,12 +90,15 @@ import { DeleteVpnAccessPolicyRequest } from './model/DeleteVpnAccessPolicyReque
 import { DeleteVpnAccessPolicyResponse } from './model/DeleteVpnAccessPolicyResponse';
 import { DeleteVpnConnectionRequest } from './model/DeleteVpnConnectionRequest';
 import { DeleteVpnConnectionResponse } from './model/DeleteVpnConnectionResponse';
+import { DeleteVpnConnectionsLogConfigRequest } from './model/DeleteVpnConnectionsLogConfigRequest';
+import { DeleteVpnConnectionsLogConfigResponse } from './model/DeleteVpnConnectionsLogConfigResponse';
 import { DeleteVpnUserGroupRequest } from './model/DeleteVpnUserGroupRequest';
 import { DeleteVpnUserGroupResponse } from './model/DeleteVpnUserGroupResponse';
 import { DeleteVpnUserRequest } from './model/DeleteVpnUserRequest';
 import { DeleteVpnUserResponse } from './model/DeleteVpnUserResponse';
 import { Dpd } from './model/Dpd';
 import { ExportClientConfigRequest } from './model/ExportClientConfigRequest';
+import { ExportClientConfigRequestBody } from './model/ExportClientConfigRequestBody';
 import { ExportClientConfigResponse } from './model/ExportClientConfigResponse';
 import { ExtendedAvailabilityZone } from './model/ExtendedAvailabilityZone';
 import { IkePolicy } from './model/IkePolicy';
@@ -137,6 +143,7 @@ import { ListVpnUsersInGroupRequest } from './model/ListVpnUsersInGroupRequest';
 import { ListVpnUsersInGroupResponse } from './model/ListVpnUsersInGroupResponse';
 import { ListVpnUsersRequest } from './model/ListVpnUsersRequest';
 import { ListVpnUsersResponse } from './model/ListVpnUsersResponse';
+import { Log } from './model/Log';
 import { Match } from './model/Match';
 import { OpVpnUser } from './model/OpVpnUser';
 import { PageInfo } from './model/PageInfo';
@@ -180,8 +187,12 @@ import { ShowVgwRequest } from './model/ShowVgwRequest';
 import { ShowVgwResponse } from './model/ShowVgwResponse';
 import { ShowVpnAccessPolicyRequest } from './model/ShowVpnAccessPolicyRequest';
 import { ShowVpnAccessPolicyResponse } from './model/ShowVpnAccessPolicyResponse';
+import { ShowVpnConnectionLogRequest } from './model/ShowVpnConnectionLogRequest';
+import { ShowVpnConnectionLogResponse } from './model/ShowVpnConnectionLogResponse';
 import { ShowVpnConnectionRequest } from './model/ShowVpnConnectionRequest';
 import { ShowVpnConnectionResponse } from './model/ShowVpnConnectionResponse';
+import { ShowVpnConnectionsLogConfigRequest } from './model/ShowVpnConnectionsLogConfigRequest';
+import { ShowVpnConnectionsLogConfigResponse } from './model/ShowVpnConnectionsLogConfigResponse';
 import { ShowVpnGatewayCertificateRequest } from './model/ShowVpnGatewayCertificateRequest';
 import { ShowVpnGatewayCertificateResponse } from './model/ShowVpnGatewayCertificateResponse';
 import { ShowVpnUserGroupRequest } from './model/ShowVpnUserGroupRequest';
@@ -231,8 +242,12 @@ import { UpdateVpnConnectionRequest } from './model/UpdateVpnConnectionRequest';
 import { UpdateVpnConnectionRequestBody } from './model/UpdateVpnConnectionRequestBody';
 import { UpdateVpnConnectionRequestBodyContent } from './model/UpdateVpnConnectionRequestBodyContent';
 import { UpdateVpnConnectionResponse } from './model/UpdateVpnConnectionResponse';
+import { UpdateVpnConnectionsLogConfigRequest } from './model/UpdateVpnConnectionsLogConfigRequest';
+import { UpdateVpnConnectionsLogConfigResponse } from './model/UpdateVpnConnectionsLogConfigResponse';
 import { UpdateVpnGatewayCertificateRequestBody } from './model/UpdateVpnGatewayCertificateRequestBody';
 import { UpdateVpnGatewayCertificateRequestBodyContent } from './model/UpdateVpnGatewayCertificateRequestBodyContent';
+import { UpdateVpnLogConfigRequestBody } from './model/UpdateVpnLogConfigRequestBody';
+import { UpdateVpnLogConfigRequestBodyContent } from './model/UpdateVpnLogConfigRequestBodyContent';
 import { UpdateVpnServerRequest } from './model/UpdateVpnServerRequest';
 import { UpdateVpnServerResponse } from './model/UpdateVpnServerResponse';
 import { UpdateVpnUserGroupRequest } from './model/UpdateVpnUserGroupRequest';
@@ -545,6 +560,26 @@ export class VpnClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 断开P2C VPN网关连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 断开P2C VPN网关连接
+     * @param {string} p2cVgwId P2C VPN网关实例ID
+     * @param {string} connectionId 连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteP2cVgwConnection(deleteP2cVgwConnectionRequest?: DeleteP2cVgwConnectionRequest): Promise<DeleteP2cVgwConnectionResponse> {
+        const options = ParamCreater().deleteP2cVgwConnection(deleteP2cVgwConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -957,6 +992,25 @@ export class VpnClient {
     }
 
     /**
+     * 根据连接ID，查询指定的VPN连接日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询VPN连接日志
+     * @param {string} vpnConnectionId vpn连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVpnConnectionLog(showVpnConnectionLogRequest?: ShowVpnConnectionLogRequest): Promise<ShowVpnConnectionLogResponse> {
+        const options = ParamCreater().showVpnConnectionLog(showVpnConnectionLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据连接ID，更新指定的VPN连接的参数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -969,6 +1023,64 @@ export class VpnClient {
      */
     public updateVpnConnection(updateVpnConnectionRequest?: UpdateVpnConnectionRequest): Promise<UpdateVpnConnectionResponse> {
         const options = ParamCreater().updateVpnConnection(updateVpnConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除VPN连接日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除VPN连接日志配置
+     * @param {string} p2cVgwId P2C VPN网关实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVpnConnectionsLogConfig(deleteVpnConnectionsLogConfigRequest?: DeleteVpnConnectionsLogConfigRequest): Promise<DeleteVpnConnectionsLogConfigResponse> {
+        const options = ParamCreater().deleteVpnConnectionsLogConfig(deleteVpnConnectionsLogConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询VPN连接日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询VPN连接日志配置
+     * @param {string} p2cVgwId P2C VPN网关实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVpnConnectionsLogConfig(showVpnConnectionsLogConfigRequest?: ShowVpnConnectionsLogConfigRequest): Promise<ShowVpnConnectionsLogConfigResponse> {
+        const options = ParamCreater().showVpnConnectionsLogConfig(showVpnConnectionsLogConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新VPN连接日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新VPN连接日志配置
+     * @param {string} p2cVgwId P2C VPN网关实例ID
+     * @param {UpdateVpnLogConfigRequestBody} updateVpnLogConfigRequestBody 请求参数对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVpnConnectionsLogConfig(updateVpnConnectionsLogConfigRequest?: UpdateVpnConnectionsLogConfigRequest): Promise<UpdateVpnConnectionsLogConfigResponse> {
+        const options = ParamCreater().updateVpnConnectionsLogConfig(updateVpnConnectionsLogConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['header-response-token'];
@@ -1235,6 +1347,7 @@ export class VpnClient {
      *
      * @summary 导出服务端对应的客户端配置信息
      * @param {string} vpnServerId VPN服务端 ID
+     * @param {ExportClientConfigRequestBody} exportClientConfigRequestBody 请求参数对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2261,6 +2374,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 断开P2C VPN网关连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteP2cVgwConnection(deleteP2cVgwConnectionRequest?: DeleteP2cVgwConnectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/p2c-vpn-gateways/{p2c_vgw_id}/connections/{connection_id}/disconnect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let p2cVgwId;
+            
+            let connectionId;
+
+            if (deleteP2cVgwConnectionRequest !== null && deleteP2cVgwConnectionRequest !== undefined) {
+                if (deleteP2cVgwConnectionRequest instanceof DeleteP2cVgwConnectionRequest) {
+                    p2cVgwId = deleteP2cVgwConnectionRequest.p2cVgwId;
+                    connectionId = deleteP2cVgwConnectionRequest.connectionId;
+                } else {
+                    p2cVgwId = deleteP2cVgwConnectionRequest['p2c_vgw_id'];
+                    connectionId = deleteP2cVgwConnectionRequest['connection_id'];
+                }
+            }
+
+        
+            if (p2cVgwId === null || p2cVgwId === undefined) {
+            throw new RequiredError('p2cVgwId','Required parameter p2cVgwId was null or undefined when calling deleteP2cVgwConnection.');
+            }
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling deleteP2cVgwConnection.');
+            }
+
+            options.pathParams = { 'p2c_vgw_id': p2cVgwId,'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询P2C VPN网关可用区
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3208,6 +3365,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据连接ID，查询指定的VPN连接日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVpnConnectionLog(showVpnConnectionLogRequest?: ShowVpnConnectionLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vpn-connection/{vpn_connection_id}/log",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vpnConnectionId;
+
+            if (showVpnConnectionLogRequest !== null && showVpnConnectionLogRequest !== undefined) {
+                if (showVpnConnectionLogRequest instanceof ShowVpnConnectionLogRequest) {
+                    vpnConnectionId = showVpnConnectionLogRequest.vpnConnectionId;
+                } else {
+                    vpnConnectionId = showVpnConnectionLogRequest['vpn_connection_id'];
+                }
+            }
+
+        
+            if (vpnConnectionId === null || vpnConnectionId === undefined) {
+            throw new RequiredError('vpnConnectionId','Required parameter vpnConnectionId was null or undefined when calling showVpnConnectionLog.');
+            }
+
+            options.pathParams = { 'vpn_connection_id': vpnConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据连接ID，更新指定的VPN连接的参数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3249,6 +3443,126 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'vpn_connection_id': vpnConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除VPN连接日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVpnConnectionsLogConfig(deleteVpnConnectionsLogConfigRequest?: DeleteVpnConnectionsLogConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/p2c-vpn-gateways/{p2c_vgw_id}/log-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let p2cVgwId;
+
+            if (deleteVpnConnectionsLogConfigRequest !== null && deleteVpnConnectionsLogConfigRequest !== undefined) {
+                if (deleteVpnConnectionsLogConfigRequest instanceof DeleteVpnConnectionsLogConfigRequest) {
+                    p2cVgwId = deleteVpnConnectionsLogConfigRequest.p2cVgwId;
+                } else {
+                    p2cVgwId = deleteVpnConnectionsLogConfigRequest['p2c_vgw_id'];
+                }
+            }
+
+        
+            if (p2cVgwId === null || p2cVgwId === undefined) {
+            throw new RequiredError('p2cVgwId','Required parameter p2cVgwId was null or undefined when calling deleteVpnConnectionsLogConfig.');
+            }
+
+            options.pathParams = { 'p2c_vgw_id': p2cVgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询VPN连接日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVpnConnectionsLogConfig(showVpnConnectionsLogConfigRequest?: ShowVpnConnectionsLogConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/p2c-vpn-gateways/{p2c_vgw_id}/log-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let p2cVgwId;
+
+            if (showVpnConnectionsLogConfigRequest !== null && showVpnConnectionsLogConfigRequest !== undefined) {
+                if (showVpnConnectionsLogConfigRequest instanceof ShowVpnConnectionsLogConfigRequest) {
+                    p2cVgwId = showVpnConnectionsLogConfigRequest.p2cVgwId;
+                } else {
+                    p2cVgwId = showVpnConnectionsLogConfigRequest['p2c_vgw_id'];
+                }
+            }
+
+        
+            if (p2cVgwId === null || p2cVgwId === undefined) {
+            throw new RequiredError('p2cVgwId','Required parameter p2cVgwId was null or undefined when calling showVpnConnectionsLogConfig.');
+            }
+
+            options.pathParams = { 'p2c_vgw_id': p2cVgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新VPN连接日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVpnConnectionsLogConfig(updateVpnConnectionsLogConfigRequest?: UpdateVpnConnectionsLogConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/p2c-vpn-gateways/{p2c_vgw_id}/log-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let p2cVgwId;
+
+            if (updateVpnConnectionsLogConfigRequest !== null && updateVpnConnectionsLogConfigRequest !== undefined) {
+                if (updateVpnConnectionsLogConfigRequest instanceof UpdateVpnConnectionsLogConfigRequest) {
+                    p2cVgwId = updateVpnConnectionsLogConfigRequest.p2cVgwId;
+                    body = updateVpnConnectionsLogConfigRequest.body
+                } else {
+                    p2cVgwId = updateVpnConnectionsLogConfigRequest['p2c_vgw_id'];
+                    body = updateVpnConnectionsLogConfigRequest['body'];
+                }
+            }
+
+        
+            if (p2cVgwId === null || p2cVgwId === undefined) {
+            throw new RequiredError('p2cVgwId','Required parameter p2cVgwId was null or undefined when calling updateVpnConnectionsLogConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'p2c_vgw_id': p2cVgwId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3765,18 +4079,22 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let vpnServerId;
 
             if (exportClientConfigRequest !== null && exportClientConfigRequest !== undefined) {
                 if (exportClientConfigRequest instanceof ExportClientConfigRequest) {
                     vpnServerId = exportClientConfigRequest.vpnServerId;
+                    body = exportClientConfigRequest.body
                 } else {
                     vpnServerId = exportClientConfigRequest['vpn_server_id'];
+                    body = exportClientConfigRequest['body'];
                 }
             }
 
@@ -3784,7 +4102,12 @@ export const ParamCreater = function () {
             if (vpnServerId === null || vpnServerId === undefined) {
             throw new RequiredError('vpnServerId','Required parameter vpnServerId was null or undefined when calling exportClientConfig.');
             }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'vpn_server_id': vpnServerId, };
             options.headers = localVarHeaderParameter;
             return options;

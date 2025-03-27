@@ -22,5 +22,6 @@ export class DeleteSubtitle {
     * @enum {string}
     */
 export enum DeleteSubtitleTypeEnum {
-    VTT = 'VTT'
+    VTT = 'VTT',
+    SRT = 'SRT'
 }

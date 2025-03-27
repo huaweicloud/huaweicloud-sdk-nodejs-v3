@@ -31,6 +31,12 @@ export class TasksResponseBody {
     public syncing?: boolean;
     private 'network_check_info'?: NetworkCheckInfoRequestBody;
     private 'special_config'?: Array<ConfigBody>;
+    private 'total_cpu_usage'?: number;
+    private 'agent_cpu_usage'?: number;
+    private 'total_mem_usage'?: number;
+    private 'agent_mem_usage'?: number;
+    private 'total_disk_io'?: number;
+    private 'agent_disk_io'?: number;
     public constructor() { 
     }
     public withId(id: string): TasksResponseBody {
@@ -236,6 +242,66 @@ export class TasksResponseBody {
     }
     public get specialConfig(): Array<ConfigBody> | undefined {
         return this['special_config'];
+    }
+    public withTotalCpuUsage(totalCpuUsage: number): TasksResponseBody {
+        this['total_cpu_usage'] = totalCpuUsage;
+        return this;
+    }
+    public set totalCpuUsage(totalCpuUsage: number  | undefined) {
+        this['total_cpu_usage'] = totalCpuUsage;
+    }
+    public get totalCpuUsage(): number | undefined {
+        return this['total_cpu_usage'];
+    }
+    public withAgentCpuUsage(agentCpuUsage: number): TasksResponseBody {
+        this['agent_cpu_usage'] = agentCpuUsage;
+        return this;
+    }
+    public set agentCpuUsage(agentCpuUsage: number  | undefined) {
+        this['agent_cpu_usage'] = agentCpuUsage;
+    }
+    public get agentCpuUsage(): number | undefined {
+        return this['agent_cpu_usage'];
+    }
+    public withTotalMemUsage(totalMemUsage: number): TasksResponseBody {
+        this['total_mem_usage'] = totalMemUsage;
+        return this;
+    }
+    public set totalMemUsage(totalMemUsage: number  | undefined) {
+        this['total_mem_usage'] = totalMemUsage;
+    }
+    public get totalMemUsage(): number | undefined {
+        return this['total_mem_usage'];
+    }
+    public withAgentMemUsage(agentMemUsage: number): TasksResponseBody {
+        this['agent_mem_usage'] = agentMemUsage;
+        return this;
+    }
+    public set agentMemUsage(agentMemUsage: number  | undefined) {
+        this['agent_mem_usage'] = agentMemUsage;
+    }
+    public get agentMemUsage(): number | undefined {
+        return this['agent_mem_usage'];
+    }
+    public withTotalDiskIo(totalDiskIo: number): TasksResponseBody {
+        this['total_disk_io'] = totalDiskIo;
+        return this;
+    }
+    public set totalDiskIo(totalDiskIo: number  | undefined) {
+        this['total_disk_io'] = totalDiskIo;
+    }
+    public get totalDiskIo(): number | undefined {
+        return this['total_disk_io'];
+    }
+    public withAgentDiskIo(agentDiskIo: number): TasksResponseBody {
+        this['agent_disk_io'] = agentDiskIo;
+        return this;
+    }
+    public set agentDiskIo(agentDiskIo: number  | undefined) {
+        this['agent_disk_io'] = agentDiskIo;
+    }
+    public get agentDiskIo(): number | undefined {
+        return this['agent_disk_io'];
     }
 }
 

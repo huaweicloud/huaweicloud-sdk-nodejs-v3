@@ -4,6 +4,7 @@ export class InvalidVpnUser {
     public name?: string;
     public description?: string;
     private 'user_group_name'?: string;
+    private 'static_ip'?: string;
     public cause?: string;
     public constructor() { 
     }
@@ -24,6 +25,16 @@ export class InvalidVpnUser {
     }
     public get userGroupName(): string | undefined {
         return this['user_group_name'];
+    }
+    public withStaticIp(staticIp: string): InvalidVpnUser {
+        this['static_ip'] = staticIp;
+        return this;
+    }
+    public set staticIp(staticIp: string  | undefined) {
+        this['static_ip'] = staticIp;
+    }
+    public get staticIp(): string | undefined {
+        return this['static_ip'];
     }
     public withCause(cause: string): InvalidVpnUser {
         this['cause'] = cause;

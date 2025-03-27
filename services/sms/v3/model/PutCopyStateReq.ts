@@ -27,11 +27,15 @@ export enum PutCopyStateReqCopystateEnum {
     SYNCING = 'SYNCING',
     STOPPING = 'STOPPING',
     STOPPED = 'STOPPED',
+    SKIPPING = 'SKIPPING',
     DELETING = 'DELETING',
     ERROR = 'ERROR',
     CLONING = 'CLONING',
     CUTOVERING = 'CUTOVERING',
-    FINISHED = 'FINISHED'
+    FINISHED = 'FINISHED',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }
 /**
     * @export

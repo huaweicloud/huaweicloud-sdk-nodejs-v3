@@ -36,6 +36,8 @@ export class PostSourceServerBody {
     private 'oem_system'?: boolean;
     private 'start_type'?: PostSourceServerBodyStartTypeEnum | string;
     private 'io_read_wait'?: number;
+    private 'has_tc'?: boolean;
+    public platform?: PostSourceServerBodyPlatformEnum | string;
     public constructor() { 
     }
     public withId(id: string): PostSourceServerBody {
@@ -288,6 +290,20 @@ export class PostSourceServerBody {
     public get ioReadWait(): number | undefined {
         return this['io_read_wait'];
     }
+    public withHasTc(hasTc: boolean): PostSourceServerBody {
+        this['has_tc'] = hasTc;
+        return this;
+    }
+    public set hasTc(hasTc: boolean  | undefined) {
+        this['has_tc'] = hasTc;
+    }
+    public get hasTc(): boolean | undefined {
+        return this['has_tc'];
+    }
+    public withPlatform(platform: PostSourceServerBodyPlatformEnum | string): PostSourceServerBody {
+        this['platform'] = platform;
+        return this;
+    }
 }
 
 /**
@@ -342,7 +358,10 @@ export enum PostSourceServerBodyStateEnum {
     ERROR = 'error',
     CLONING = 'cloning',
     CUTOVERING = 'cutovering',
-    FINISHED = 'finished'
+    FINISHED = 'finished',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }
 /**
     * @export
@@ -352,4 +371,19 @@ export enum PostSourceServerBodyStartTypeEnum {
     MANUAL = 'MANUAL',
     MGC = 'MGC',
     Empty = ''
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PostSourceServerBodyPlatformEnum {
+    HW = 'hw',
+    ALI = 'ali',
+    AWS = 'aws',
+    AZURE = 'azure',
+    GCP = 'gcp',
+    TENCENT = 'tencent',
+    VMWARE = 'vmware',
+    HYPERV = 'hyperv',
+    OTHER = 'other'
 }

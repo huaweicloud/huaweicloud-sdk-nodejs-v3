@@ -1,11 +1,11 @@
 
 
-export class ComandParam {
+export class CommandParam {
     private 'task_id'?: string;
     public bucket?: string;
     public constructor() { 
     }
-    public withTaskId(taskId: string): ComandParam {
+    public withTaskId(taskId: string): CommandParam {
         this['task_id'] = taskId;
         return this;
     }
@@ -15,7 +15,7 @@ export class ComandParam {
     public get taskId(): string | undefined {
         return this['task_id'];
     }
-    public withBucket(bucket: string): ComandParam {
+    public withBucket(bucket: string): CommandParam {
         this['bucket'] = bucket;
         return this;
     }

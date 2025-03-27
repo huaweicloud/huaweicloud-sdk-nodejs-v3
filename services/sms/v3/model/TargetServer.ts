@@ -1,3 +1,4 @@
+import { BtrfsFileSystem } from './BtrfsFileSystem';
 import { NetWork } from './NetWork';
 import { Server } from './Server';
 import { TargetDisk } from './TargetDisk';
@@ -14,7 +15,7 @@ export class TargetServer {
     public firmware?: TargetServerFirmwareEnum | string;
     private 'cpu_quantity'?: number;
     public memory?: number;
-    private 'btrfs_list'?: Array<string>;
+    private 'btrfs_list'?: Array<BtrfsFileSystem>;
     public networks?: Array<NetWork>;
     private 'domain_id'?: string;
     private 'has_rsync'?: boolean;
@@ -92,14 +93,14 @@ export class TargetServer {
         this['memory'] = memory;
         return this;
     }
-    public withBtrfsList(btrfsList: Array<string>): TargetServer {
+    public withBtrfsList(btrfsList: Array<BtrfsFileSystem>): TargetServer {
         this['btrfs_list'] = btrfsList;
         return this;
     }
-    public set btrfsList(btrfsList: Array<string>  | undefined) {
+    public set btrfsList(btrfsList: Array<BtrfsFileSystem>  | undefined) {
         this['btrfs_list'] = btrfsList;
     }
-    public get btrfsList(): Array<string> | undefined {
+    public get btrfsList(): Array<BtrfsFileSystem> | undefined {
         return this['btrfs_list'];
     }
     public withNetworks(networks: Array<NetWork>): TargetServer {

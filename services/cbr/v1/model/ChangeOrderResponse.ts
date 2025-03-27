@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ChangeOrderResponse extends SdkResponse {
     public orderId?: string;
-    public retCode?: string;
+    public retCode?: number;
     public retMsg?: string;
     public constructor() { 
         super();
@@ -12,7 +12,7 @@ export class ChangeOrderResponse extends SdkResponse {
         this['orderId'] = orderId;
         return this;
     }
-    public withRetCode(retCode: string): ChangeOrderResponse {
+    public withRetCode(retCode: number): ChangeOrderResponse {
         this['retCode'] = retCode;
         return this;
     }

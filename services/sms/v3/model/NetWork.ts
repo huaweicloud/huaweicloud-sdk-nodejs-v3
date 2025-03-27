@@ -3,6 +3,7 @@
 export class NetWork {
     public name?: string;
     public ip?: string;
+    public ipv6?: string;
     public netmask?: string;
     public gateway?: string;
     public mtu?: number;
@@ -21,6 +22,10 @@ export class NetWork {
     }
     public withIp(ip: string): NetWork {
         this['ip'] = ip;
+        return this;
+    }
+    public withIpv6(ipv6: string): NetWork {
+        this['ipv6'] = ipv6;
         return this;
     }
     public withNetmask(netmask: string): NetWork {

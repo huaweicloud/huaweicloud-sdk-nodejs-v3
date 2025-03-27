@@ -10,12 +10,12 @@ import { CloneServer } from './model/CloneServer';
 import { CloneServerBrief } from './model/CloneServerBrief';
 import { CollectLogRequest } from './model/CollectLogRequest';
 import { CollectLogResponse } from './model/CollectLogResponse';
-import { ComandParam } from './model/ComandParam';
 import { CommandBody } from './model/CommandBody';
+import { CommandParam } from './model/CommandParam';
 import { ConfigBody } from './model/ConfigBody';
 import { ConfigurationRequestBody } from './model/ConfigurationRequestBody';
 import { ConsistencyResult } from './model/ConsistencyResult';
-import { ConsistencyResultRequestBody } from './model/ConsistencyResultRequestBody';
+import { ConsistencyResultRequestBodyResultList } from './model/ConsistencyResultRequestBodyResultList';
 import { CreateMigprojectRequest } from './model/CreateMigprojectRequest';
 import { CreateMigprojectResponse } from './model/CreateMigprojectResponse';
 import { CreatePrivacyAgreementsRequest } from './model/CreatePrivacyAgreementsRequest';
@@ -83,6 +83,7 @@ import { RegisterServerRequest } from './model/RegisterServerRequest';
 import { RegisterServerResponse } from './model/RegisterServerResponse';
 import { Server } from './model/Server';
 import { ServerDisk } from './model/ServerDisk';
+import { SetConsistencyResultRequestBody } from './model/SetConsistencyResultRequestBody';
 import { SgObject } from './model/SgObject';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
@@ -490,7 +491,7 @@ export class SmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询源端服务器列表
-     * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'deleting' | 'error' | 'cloning' | 'cutovering' | 'finished'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 deleting：删除中 error：错误 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成
+     * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'skipping' | 'deleting' | 'error' | 'cloning' | 'cutovering' | 'finished' | 'clearing' | 'cleared' | 'clearfailed'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 skipping：跳过中 deleting：删除中 error：错误 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成 clearing: 清理快照资源中 cleared：清理快照资源完成 clearfailed：清理快照资源失败
      * @param {string} [name] 源端服务器名称
      * @param {string} [id] 源端服务器ID
      * @param {string} [ip] 源端服务器IP地址
@@ -581,11 +582,11 @@ export class SmsClient {
     }
 
     /**
-     * 当源端服务器为Windows操作系统时，安装在源端服务器上的迁移Agent通过SSLSocket同目的端服务器通信，该接口用于下载目的端服务器所需要的证书和私钥(PEM格式)。
+     * 当迁移采用块级迁移的方式时，安装在源端服务器上的迁移Agent通过SSLSocket同目的端服务器通信，该接口用于下载迁移传输过程所需要的证书和私钥(PEM格式)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取SSL目的端证书和私钥
+     * @summary 获取SSL证书和私钥
      * @param {string} taskId 迁移任务ID
      * @param {boolean} [enableCaCert] 是否生成ca证书
      * @param {*} [options] Override http request option.
@@ -620,7 +621,7 @@ export class SmsClient {
     }
 
     /**
-     * 使用该接口查询任指定任务的指定配置类型的配置信息
+     * 使用该接口查询指定任务的指定配置类型的配置信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -892,7 +893,7 @@ export class SmsClient {
      *
      * @summary 上传一致性校验结果
      * @param {string} taskId 任务id
-     * @param {ConsistencyResultRequestBody} updateConsistencyResultRequestBody 一致性检验结果
+     * @param {SetConsistencyResultRequestBody} updateConsistencyResultRequestBody 一致性检验结果
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1005,11 +1006,11 @@ export class SmsClient {
     }
 
     /**
-     * 该功能用来修改SMS服务端的源端名称，方便用户对源端进行管理。
+     * 该功能用来修改SMS服务端的源端信息，方便用户对源端进行管理。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改指定ID的源端服务器名称
+     * @summary 修改指定ID的源端服务器信息
      * @param {string} sourceId 源端服务器在主机迁移服务中的ID
      * @param {PutSourceServerBody} updateServerNameRequestBody 修改源端信息的请求体
      * @param {*} [options] Override http request option.
@@ -1066,7 +1067,6 @@ export class SmsClient {
 
     /**
      * 此接口由安装在源端服务器上的迁移Agent在数据迁移阶段调用，用来将迁移的具体进度上报给SMS服务端。
-     * 
      * 迁移Agent自动调用此接口用于上报数据迁移进度，您无需调用此接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1087,7 +1087,7 @@ export class SmsClient {
     }
 
     /**
-     * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务。
+     * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务，删除快照资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2105,7 +2105,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 当源端服务器为Windows操作系统时，安装在源端服务器上的迁移Agent通过SSLSocket同目的端服务器通信，该接口用于下载目的端服务器所需要的证书和私钥(PEM格式)。
+         * 当迁移采用块级迁移的方式时，安装在源端服务器上的迁移Agent通过SSLSocket同目的端服务器通信，该接口用于下载迁移传输过程所需要的证书和私钥(PEM格式)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2187,7 +2187,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用该接口查询任指定任务的指定配置类型的配置信息
+         * 使用该接口查询指定任务的指定配置类型的配置信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2951,7 +2951,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该功能用来修改SMS服务端的源端名称，方便用户对源端进行管理。
+         * 该功能用来修改SMS服务端的源端信息，方便用户对源端进行管理。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3087,7 +3087,6 @@ export const ParamCreater = function () {
     
         /**
          * 此接口由安装在源端服务器上的迁移Agent在数据迁移阶段调用，用来将迁移的具体进度上报给SMS服务端。
-         * 
          * 迁移Agent自动调用此接口用于上报数据迁移进度，您无需调用此接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3131,7 +3130,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务。
+         * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务，删除快照资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -37,6 +37,7 @@ export class ShowServerResponse extends SdkResponse {
     private 'last_visit_time'?: number;
     private 'stage_action_time'?: number;
     private 'agent_version'?: string;
+    private 'has_tc'?: boolean;
     public constructor() { 
         super();
     }
@@ -242,6 +243,16 @@ export class ShowServerResponse extends SdkResponse {
     public get agentVersion(): string | undefined {
         return this['agent_version'];
     }
+    public withHasTc(hasTc: boolean): ShowServerResponse {
+        this['has_tc'] = hasTc;
+        return this;
+    }
+    public set hasTc(hasTc: boolean  | undefined) {
+        this['has_tc'] = hasTc;
+    }
+    public get hasTc(): boolean | undefined {
+        return this['has_tc'];
+    }
 }
 
 /**
@@ -260,7 +271,10 @@ export enum ShowServerResponseStateEnum {
     ERROR = 'error',
     CLONING = 'cloning',
     TESTING = 'testing',
-    FINISHED = 'finished'
+    FINISHED = 'finished',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }
 /**
     * @export

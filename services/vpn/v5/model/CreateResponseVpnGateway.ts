@@ -6,10 +6,12 @@ export class CreateResponseVpnGateway {
     public id?: string;
     public name?: string;
     private 'attachment_type'?: CreateResponseVpnGatewayAttachmentTypeEnum | string;
+    private 'ip_version'?: CreateResponseVpnGatewayIpVersionEnum | string;
     private 'certificate_id'?: string;
     private 'er_id'?: string;
     private 'vpc_id'?: string;
     private 'local_subnets'?: Array<string>;
+    private 'local_subnets_v6'?: Array<string>;
     private 'connect_subnet'?: string;
     private 'network_type'?: CreateResponseVpnGatewayNetworkTypeEnum | string;
     private 'access_vpc_id'?: string;
@@ -42,6 +44,16 @@ export class CreateResponseVpnGateway {
     }
     public get attachmentType(): CreateResponseVpnGatewayAttachmentTypeEnum | string | undefined {
         return this['attachment_type'];
+    }
+    public withIpVersion(ipVersion: CreateResponseVpnGatewayIpVersionEnum | string): CreateResponseVpnGateway {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: CreateResponseVpnGatewayIpVersionEnum | string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): CreateResponseVpnGatewayIpVersionEnum | string | undefined {
+        return this['ip_version'];
     }
     public withCertificateId(certificateId: string): CreateResponseVpnGateway {
         this['certificate_id'] = certificateId;
@@ -82,6 +94,16 @@ export class CreateResponseVpnGateway {
     }
     public get localSubnets(): Array<string> | undefined {
         return this['local_subnets'];
+    }
+    public withLocalSubnetsV6(localSubnetsV6: Array<string>): CreateResponseVpnGateway {
+        this['local_subnets_v6'] = localSubnetsV6;
+        return this;
+    }
+    public set localSubnetsV6(localSubnetsV6: Array<string>  | undefined) {
+        this['local_subnets_v6'] = localSubnetsV6;
+    }
+    public get localSubnetsV6(): Array<string> | undefined {
+        return this['local_subnets_v6'];
     }
     public withConnectSubnet(connectSubnet: string): CreateResponseVpnGateway {
         this['connect_subnet'] = connectSubnet;
@@ -210,6 +232,14 @@ export class CreateResponseVpnGateway {
 export enum CreateResponseVpnGatewayAttachmentTypeEnum {
     VPC = 'vpc',
     ER = 'er'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateResponseVpnGatewayIpVersionEnum {
+    IPV4 = 'ipv4',
+    IPV6 = 'ipv6'
 }
 /**
     * @export

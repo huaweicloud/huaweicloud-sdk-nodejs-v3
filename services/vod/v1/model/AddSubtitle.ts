@@ -35,5 +35,6 @@ export class AddSubtitle {
     * @enum {string}
     */
 export enum AddSubtitleTypeEnum {
-    VTT = 'VTT'
+    VTT = 'VTT',
+    SRT = 'SRT'
 }

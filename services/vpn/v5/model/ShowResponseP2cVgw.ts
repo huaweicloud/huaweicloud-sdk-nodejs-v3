@@ -18,6 +18,7 @@ export class ShowResponseP2cVgw {
     private 'order_id'?: string;
     private 'admin_state_up'?: boolean;
     private 'frozen_effect'?: number;
+    public version?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     public constructor() { 
@@ -135,6 +136,10 @@ export class ShowResponseP2cVgw {
     }
     public get frozenEffect(): number | undefined {
         return this['frozen_effect'];
+    }
+    public withVersion(version: string): ShowResponseP2cVgw {
+        this['version'] = version;
+        return this;
     }
     public withCreatedAt(createdAt: Date): ShowResponseP2cVgw {
         this['created_at'] = createdAt;

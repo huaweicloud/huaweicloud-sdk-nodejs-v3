@@ -11,11 +11,9 @@ export class CreateServerRequest {
     private 'server_certificate'?: CreateServerRequestServerCertificate;
     private 'client_ca_certificates'?: Array<CreateServerRequestClientCaCertificates>;
     private 'ssl_options'?: CreateServerRequestSslOptions;
-    public constructor(tunnelProtocol?: string, clientCidr?: string, localSubnets?: Array<string>, clientAuthType?: string) { 
-        this['tunnel_protocol'] = tunnelProtocol;
+    public constructor(clientCidr?: string, localSubnets?: Array<string>) { 
         this['client_cidr'] = clientCidr;
         this['local_subnets'] = localSubnets;
-        this['client_auth_type'] = clientAuthType;
     }
     public withTunnelProtocol(tunnelProtocol: CreateServerRequestTunnelProtocolEnum | string): CreateServerRequest {
         this['tunnel_protocol'] = tunnelProtocol;

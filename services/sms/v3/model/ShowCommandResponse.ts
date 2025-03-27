@@ -1,10 +1,10 @@
-import { ComandParam } from './ComandParam';
+import { CommandParam } from './CommandParam';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCommandResponse extends SdkResponse {
     private 'command_name'?: string;
-    private 'command_param'?: ComandParam;
+    private 'command_param'?: CommandParam;
     public constructor() { 
         super();
     }
@@ -18,14 +18,14 @@ export class ShowCommandResponse extends SdkResponse {
     public get commandName(): string | undefined {
         return this['command_name'];
     }
-    public withCommandParam(commandParam: ComandParam): ShowCommandResponse {
+    public withCommandParam(commandParam: CommandParam): ShowCommandResponse {
         this['command_param'] = commandParam;
         return this;
     }
-    public set commandParam(commandParam: ComandParam  | undefined) {
+    public set commandParam(commandParam: CommandParam  | undefined) {
         this['command_param'] = commandParam;
     }
-    public get commandParam(): ComandParam | undefined {
+    public get commandParam(): CommandParam | undefined {
         return this['command_param'];
     }
 }

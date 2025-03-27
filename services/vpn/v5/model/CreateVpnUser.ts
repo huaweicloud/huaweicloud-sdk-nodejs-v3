@@ -5,6 +5,7 @@ export class CreateVpnUser {
     public password?: string;
     public description?: string;
     private 'user_group_name'?: string;
+    private 'static_ip'?: string;
     public constructor() { 
     }
     public withName(name: string): CreateVpnUser {
@@ -28,5 +29,15 @@ export class CreateVpnUser {
     }
     public get userGroupName(): string | undefined {
         return this['user_group_name'];
+    }
+    public withStaticIp(staticIp: string): CreateVpnUser {
+        this['static_ip'] = staticIp;
+        return this;
+    }
+    public set staticIp(staticIp: string  | undefined) {
+        this['static_ip'] = staticIp;
+    }
+    public get staticIp(): string | undefined {
+        return this['static_ip'];
     }
 }

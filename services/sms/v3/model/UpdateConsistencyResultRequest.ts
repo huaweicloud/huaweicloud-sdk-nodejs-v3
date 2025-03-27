@@ -1,9 +1,9 @@
-import { ConsistencyResultRequestBody } from './ConsistencyResultRequestBody';
+import { SetConsistencyResultRequestBody } from './SetConsistencyResultRequestBody';
 
 
 export class UpdateConsistencyResultRequest {
     private 'task_id'?: string;
-    public body?: ConsistencyResultRequestBody;
+    public body?: SetConsistencyResultRequestBody;
     public constructor(taskId?: string) { 
         this['task_id'] = taskId;
     }
@@ -17,7 +17,7 @@ export class UpdateConsistencyResultRequest {
     public get taskId(): string | undefined {
         return this['task_id'];
     }
-    public withBody(body: ConsistencyResultRequestBody): UpdateConsistencyResultRequest {
+    public withBody(body: SetConsistencyResultRequestBody): UpdateConsistencyResultRequest {
         this['body'] = body;
         return this;
     }

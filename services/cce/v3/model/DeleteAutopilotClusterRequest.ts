@@ -155,9 +155,7 @@ export enum DeleteAutopilotClusterRequestDeleteSfs30Enum {
     * @enum {string}
     */
 export enum DeleteAutopilotClusterRequestLtsReclaimPolicyEnum {
-    TRUE = 'true',
-    BLOCK = 'block',
-    TRY = 'try',
-    FALSE = 'false',
-    SKIP = 'skip'
+    DELETE_LOG_GROUP = 'Delete_Log_Group',
+    DELETE_MASTER_LOG_STREAM = 'Delete_Master_Log_Stream',
+    RETAIN = 'Retain'
 }

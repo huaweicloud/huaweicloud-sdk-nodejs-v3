@@ -5,9 +5,11 @@ import { VpnResourceTag } from './VpnResourceTag';
 export class CreateVgwRequestBodyContent {
     public name?: string;
     private 'attachment_type'?: CreateVgwRequestBodyContentAttachmentTypeEnum | string;
+    private 'ip_version'?: CreateVgwRequestBodyContentIpVersionEnum | string;
     private 'er_id'?: string;
     private 'vpc_id'?: string;
     private 'local_subnets'?: Array<string>;
+    private 'local_subnets_v6'?: Array<string>;
     private 'connect_subnet'?: string;
     private 'bgp_asn'?: number;
     public flavor?: CreateVgwRequestBodyContentFlavorEnum | string;
@@ -38,6 +40,16 @@ export class CreateVgwRequestBodyContent {
     public get attachmentType(): CreateVgwRequestBodyContentAttachmentTypeEnum | string | undefined {
         return this['attachment_type'];
     }
+    public withIpVersion(ipVersion: CreateVgwRequestBodyContentIpVersionEnum | string): CreateVgwRequestBodyContent {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: CreateVgwRequestBodyContentIpVersionEnum | string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): CreateVgwRequestBodyContentIpVersionEnum | string | undefined {
+        return this['ip_version'];
+    }
     public withErId(erId: string): CreateVgwRequestBodyContent {
         this['er_id'] = erId;
         return this;
@@ -67,6 +79,16 @@ export class CreateVgwRequestBodyContent {
     }
     public get localSubnets(): Array<string> | undefined {
         return this['local_subnets'];
+    }
+    public withLocalSubnetsV6(localSubnetsV6: Array<string>): CreateVgwRequestBodyContent {
+        this['local_subnets_v6'] = localSubnetsV6;
+        return this;
+    }
+    public set localSubnetsV6(localSubnetsV6: Array<string>  | undefined) {
+        this['local_subnets_v6'] = localSubnetsV6;
+    }
+    public get localSubnetsV6(): Array<string> | undefined {
+        return this['local_subnets_v6'];
     }
     public withConnectSubnet(connectSubnet: string): CreateVgwRequestBodyContent {
         this['connect_subnet'] = connectSubnet;
@@ -198,12 +220,23 @@ export enum CreateVgwRequestBodyContentAttachmentTypeEnum {
     * @export
     * @enum {string}
     */
+export enum CreateVgwRequestBodyContentIpVersionEnum {
+    IPV4 = 'ipv4',
+    IPV6 = 'ipv6'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum CreateVgwRequestBodyContentFlavorEnum {
     BASIC = 'Basic',
     PROFESSIONAL1 = 'Professional1',
     PROFESSIONAL2 = 'Professional2',
+    PROFESSIONAL3 = 'Professional3',
     PROFESSIONAL1_NONFIXEDIP = 'Professional1-NonFixedIP',
-    PROFESSIONAL2_NONFIXEDIP = 'Professional2-NonFixedIP'
+    PROFESSIONAL2_NONFIXEDIP = 'Professional2-NonFixedIP',
+    PROFESSIONAL3_NONFIXEDIP = 'Professional3-NonFixedIP',
+    GM = 'GM'
 }
 /**
     * @export

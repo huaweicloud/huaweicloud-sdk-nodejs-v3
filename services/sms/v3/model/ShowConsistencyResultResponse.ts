@@ -1,31 +1,31 @@
-import { ConsistencyResult } from './ConsistencyResult';
+import { ConsistencyResultRequestBodyResultList } from './ConsistencyResultRequestBodyResultList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowConsistencyResultResponse extends SdkResponse {
-    private 'consistency_result'?: Array<ConsistencyResult>;
-    private 'finished_time'?: number;
+    private 'result_list'?: Array<ConsistencyResultRequestBodyResultList>;
+    private 'task_id'?: string;
     public constructor() { 
         super();
     }
-    public withConsistencyResult(consistencyResult: Array<ConsistencyResult>): ShowConsistencyResultResponse {
-        this['consistency_result'] = consistencyResult;
+    public withResultList(resultList: Array<ConsistencyResultRequestBodyResultList>): ShowConsistencyResultResponse {
+        this['result_list'] = resultList;
         return this;
     }
-    public set consistencyResult(consistencyResult: Array<ConsistencyResult>  | undefined) {
-        this['consistency_result'] = consistencyResult;
+    public set resultList(resultList: Array<ConsistencyResultRequestBodyResultList>  | undefined) {
+        this['result_list'] = resultList;
     }
-    public get consistencyResult(): Array<ConsistencyResult> | undefined {
-        return this['consistency_result'];
+    public get resultList(): Array<ConsistencyResultRequestBodyResultList> | undefined {
+        return this['result_list'];
     }
-    public withFinishedTime(finishedTime: number): ShowConsistencyResultResponse {
-        this['finished_time'] = finishedTime;
+    public withTaskId(taskId: string): ShowConsistencyResultResponse {
+        this['task_id'] = taskId;
         return this;
     }
-    public set finishedTime(finishedTime: number  | undefined) {
-        this['finished_time'] = finishedTime;
+    public set taskId(taskId: string  | undefined) {
+        this['task_id'] = taskId;
     }
-    public get finishedTime(): number | undefined {
-        return this['finished_time'];
+    public get taskId(): string | undefined {
+        return this['task_id'];
     }
 }

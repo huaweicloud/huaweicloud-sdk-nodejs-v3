@@ -56,6 +56,7 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'enable_auth_in_header'?: boolean;
     private 'custom_image'?: CustomImage;
     private 'is_return_stream'?: boolean;
+    private 'enable_lts_log'?: boolean;
     private 'lts_custom_tag'?: { [key: string]: string; };
     public constructor() { 
         super();
@@ -483,6 +484,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     }
     public get isReturnStream(): boolean | undefined {
         return this['is_return_stream'];
+    }
+    public withEnableLtsLog(enableLtsLog: boolean): UpdateFunctionConfigResponse {
+        this['enable_lts_log'] = enableLtsLog;
+        return this;
+    }
+    public set enableLtsLog(enableLtsLog: boolean  | undefined) {
+        this['enable_lts_log'] = enableLtsLog;
+    }
+    public get enableLtsLog(): boolean | undefined {
+        return this['enable_lts_log'];
     }
     public withLtsCustomTag(ltsCustomTag: { [key: string]: string; }): UpdateFunctionConfigResponse {
         this['lts_custom_tag'] = ltsCustomTag;

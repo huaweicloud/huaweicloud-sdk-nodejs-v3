@@ -24,7 +24,6 @@ export class TaskByServerSources {
     private 'clone_server'?: CloneServer;
     private 'remain_seconds'?: number;
     private 'log_bucket'?: string;
-    private 'log_expire'?: number;
     private 'log_upload_time'?: number;
     private 'log_share_url'?: string;
     public constructor() { 
@@ -214,16 +213,6 @@ export class TaskByServerSources {
     }
     public get logBucket(): string | undefined {
         return this['log_bucket'];
-    }
-    public withLogExpire(logExpire: number): TaskByServerSources {
-        this['log_expire'] = logExpire;
-        return this;
-    }
-    public set logExpire(logExpire: number  | undefined) {
-        this['log_expire'] = logExpire;
-    }
-    public get logExpire(): number | undefined {
-        return this['log_expire'];
     }
     public withLogUploadTime(logUploadTime: number): TaskByServerSources {
         this['log_upload_time'] = logUploadTime;

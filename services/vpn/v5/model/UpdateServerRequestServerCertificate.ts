@@ -2,7 +2,8 @@
 
 export class UpdateServerRequestServerCertificate {
     public id?: string;
-    public constructor() { 
+    public constructor(id?: string) { 
+        this['id'] = id;
     }
     public withId(id: string): UpdateServerRequestServerCertificate {
         this['id'] = id;

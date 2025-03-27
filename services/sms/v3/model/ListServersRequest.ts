@@ -90,11 +90,15 @@ export enum ListServersRequestStateEnum {
     SYNCING = 'syncing',
     STOPPING = 'stopping',
     STOPPED = 'stopped',
+    SKIPPING = 'skipping',
     DELETING = 'deleting',
     ERROR = 'error',
     CLONING = 'cloning',
     CUTOVERING = 'cutovering',
-    FINISHED = 'finished'
+    FINISHED = 'finished',
+    CLEARING = 'clearing',
+    CLEARED = 'cleared',
+    CLEARFAILED = 'clearfailed'
 }
 /**
     * @export
