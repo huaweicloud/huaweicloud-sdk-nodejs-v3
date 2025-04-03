@@ -27,8 +27,6 @@ export class ResponseVpnConnection {
     private 'ha_role'?: string;
     public tags?: Array<VpnResourceTag>;
     private 'peer_subnets_v6'?: Array<string>;
-    private 'tunnel_local_address_v6'?: string;
-    private 'tunnel_peer_address_v6'?: string;
     private 'policy_rules_v6'?: Array<PolicyRule>;
     public constructor() { 
     }
@@ -209,26 +207,6 @@ export class ResponseVpnConnection {
     }
     public get peerSubnetsV6(): Array<string> | undefined {
         return this['peer_subnets_v6'];
-    }
-    public withTunnelLocalAddressV6(tunnelLocalAddressV6: string): ResponseVpnConnection {
-        this['tunnel_local_address_v6'] = tunnelLocalAddressV6;
-        return this;
-    }
-    public set tunnelLocalAddressV6(tunnelLocalAddressV6: string  | undefined) {
-        this['tunnel_local_address_v6'] = tunnelLocalAddressV6;
-    }
-    public get tunnelLocalAddressV6(): string | undefined {
-        return this['tunnel_local_address_v6'];
-    }
-    public withTunnelPeerAddressV6(tunnelPeerAddressV6: string): ResponseVpnConnection {
-        this['tunnel_peer_address_v6'] = tunnelPeerAddressV6;
-        return this;
-    }
-    public set tunnelPeerAddressV6(tunnelPeerAddressV6: string  | undefined) {
-        this['tunnel_peer_address_v6'] = tunnelPeerAddressV6;
-    }
-    public get tunnelPeerAddressV6(): string | undefined {
-        return this['tunnel_peer_address_v6'];
     }
     public withPolicyRulesV6(policyRulesV6: Array<PolicyRule>): ResponseVpnConnection {
         this['policy_rules_v6'] = policyRulesV6;

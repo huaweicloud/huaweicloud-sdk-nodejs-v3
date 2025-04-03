@@ -3,7 +3,8 @@ import { CreateServerRequest } from './CreateServerRequest';
 
 export class CreateServerRequestBody {
     private 'vpn_server'?: CreateServerRequest;
-    public constructor() { 
+    public constructor(vpnServer?: CreateServerRequest) { 
+        this['vpn_server'] = vpnServer;
     }
     public withVpnServer(vpnServer: CreateServerRequest): CreateServerRequestBody {
         this['vpn_server'] = vpnServer;

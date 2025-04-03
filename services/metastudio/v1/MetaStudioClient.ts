@@ -5,6 +5,7 @@ import FormData from 'form-data';
 
 import { AccessTypeEnum } from './model/AccessTypeEnum';
 import { ActionBasicSampleInfo } from './model/ActionBasicSampleInfo';
+import { ActionConfig } from './model/ActionConfig';
 import { ActionMarkItem } from './model/ActionMarkItem';
 import { ActionSampleInfo } from './model/ActionSampleInfo';
 import { ActionTagInfo } from './model/ActionTagInfo';
@@ -23,6 +24,7 @@ import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResu
 import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAuditResultErrors';
 import { AuditionFile } from './model/AuditionFile';
 import { BackgroundConfigInfo } from './model/BackgroundConfigInfo';
+import { BackgroundImageConfig } from './model/BackgroundImageConfig';
 import { BackgroundMusicConfig } from './model/BackgroundMusicConfig';
 import { BatchAssetActionReq } from './model/BatchAssetActionReq';
 import { BatchConfirmLiveCommandsReq } from './model/BatchConfirmLiveCommandsReq';
@@ -32,6 +34,7 @@ import { BatchDeletePacifyWordsRequest } from './model/BatchDeletePacifyWordsReq
 import { BatchDeletePacifyWordsResponse } from './model/BatchDeletePacifyWordsResponse';
 import { BatchExecuteAssetActionRequest } from './model/BatchExecuteAssetActionRequest';
 import { BatchExecuteAssetActionResponse } from './model/BatchExecuteAssetActionResponse';
+import { BoundAssetInfo } from './model/BoundAssetInfo';
 import { BusinessCardImageConfig } from './model/BusinessCardImageConfig';
 import { BusinessCardImageUrl } from './model/BusinessCardImageUrl';
 import { BusinessCardTextConfig } from './model/BusinessCardTextConfig';
@@ -53,9 +56,9 @@ import { ComponentInfo } from './model/ComponentInfo';
 import { ConfirmFileUploadRequest } from './model/ConfirmFileUploadRequest';
 import { ConfirmFileUploadRequestBody } from './model/ConfirmFileUploadRequestBody';
 import { ConfirmFileUploadResponse } from './model/ConfirmFileUploadResponse';
-import { ConfirmSmartLiveRoomReq } from './model/ConfirmSmartLiveRoomReq';
-import { ConfirmSmartLiveRoomRequest } from './model/ConfirmSmartLiveRoomRequest';
-import { ConfirmSmartLiveRoomResponse } from './model/ConfirmSmartLiveRoomResponse';
+import { ConfirmSmarLiveRoomReq } from './model/ConfirmSmarLiveRoomReq';
+import { ConfirmSmarLiveRoomRequest } from './model/ConfirmSmarLiveRoomRequest';
+import { ConfirmSmarLiveRoomResponse } from './model/ConfirmSmarLiveRoomResponse';
 import { ConfirmTrainingSegmentRequest } from './model/ConfirmTrainingSegmentRequest';
 import { ConfirmTrainingSegmentResponse } from './model/ConfirmTrainingSegmentResponse';
 import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
@@ -123,6 +126,9 @@ import { CreateLargeFileResponse } from './model/CreateLargeFileResponse';
 import { CreateLivePlatformReq } from './model/CreateLivePlatformReq';
 import { CreateLivePlatformRequest } from './model/CreateLivePlatformRequest';
 import { CreateLivePlatformResponse } from './model/CreateLivePlatformResponse';
+import { CreateMetaStudioOrdersReq } from './model/CreateMetaStudioOrdersReq';
+import { CreateMetaStudioOrdersRequest } from './model/CreateMetaStudioOrdersRequest';
+import { CreateMetaStudioOrdersResponse } from './model/CreateMetaStudioOrdersResponse';
 import { CreateOnceCodeRequest } from './model/CreateOnceCodeRequest';
 import { CreateOnceCodeResponse } from './model/CreateOnceCodeResponse';
 import { CreatePacifyWordsReq } from './model/CreatePacifyWordsReq';
@@ -279,6 +285,7 @@ import { LanguageEnum } from './model/LanguageEnum';
 import { LargeFilesCreateReq } from './model/LargeFilesCreateReq';
 import { LayerConfig } from './model/LayerConfig';
 import { LayerPositionConfig } from './model/LayerPositionConfig';
+import { LayerRotationConfig } from './model/LayerRotationConfig';
 import { LayerSizeConfig } from './model/LayerSizeConfig';
 import { List2dModelTrainingJobRequest } from './model/List2dModelTrainingJobRequest';
 import { List2dModelTrainingJobResponse } from './model/List2dModelTrainingJobResponse';
@@ -356,7 +363,9 @@ import { LiveEvent } from './model/LiveEvent';
 import { LiveEventCallBackConfig } from './model/LiveEventCallBackConfig';
 import { LiveEventReportRequest } from './model/LiveEventReportRequest';
 import { LiveEventReportResponse } from './model/LiveEventReportResponse';
+import { LiveExitConfig } from './model/LiveExitConfig';
 import { LiveJobLog } from './model/LiveJobLog';
+import { LiveJobRunConfig } from './model/LiveJobRunConfig';
 import { LivePlatformInfo } from './model/LivePlatformInfo';
 import { LivePlayingScriptInfo } from './model/LivePlayingScriptInfo';
 import { LivePlayingShootScriptItem } from './model/LivePlayingShootScriptItem';
@@ -400,6 +409,7 @@ import { ProductDetailInfo } from './model/ProductDetailInfo';
 import { ProductMediaDetailInfo } from './model/ProductMediaDetailInfo';
 import { ProductMediaInfo } from './model/ProductMediaInfo';
 import { ProductTextInfo } from './model/ProductTextInfo';
+import { PublicCloudServiceOrder } from './model/PublicCloudServiceOrder';
 import { RTCLiveEventCallBackConfig } from './model/RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
@@ -1010,9 +1020,10 @@ export class MetaStudioClient {
 
     /**
      * 该接口用于在资产库中添加上传新的媒体资产。可上传的资产类型包括：分身数字人模型、背景图片、素材图片、素材视频、PPT等。
+     * &gt; 上传的图片、视频和背景图片，如果需要在视频制作素材中可见，需要设置system_properties。
      * &gt; - 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
      * &gt; - 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
-     * &gt; - MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
+     * &gt; MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1066,6 +1077,7 @@ export class MetaStudioClient {
      * @param {ListAssetSummarysReq} listAssetSummaryRequestBody 资产概要查询。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1116,6 +1128,7 @@ export class MetaStudioClient {
      * @param {string} [includeDeviceName] 资产已执行的任务名称
      * @param {string} [excludeDeviceName] 资产已执行的任务名称
      * @param {'VIDEO_2D' | 'LIVE_2D' | 'CHAT_2D'} [supportedService] 资产支持的业务类型。默认查询所有资产。 * VIDEO_2D：分身数字人视频制作 * LIVE_2D：分身数字人直播 * CHAT_2D：分身数字人智能交互
+     * @param {string} [appUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1937,7 +1950,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建知识库意图和问法。一个意图包含一个主题，一个答案，若干个问法等。
+     * 该接口用于创建知识库意图和问法。一个意图包含一个主题，一个答案，若干个问法等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1960,7 +1973,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建知识库意图。一个意图包含一个主题，一个答案，若干个问法等。
+     * 该接口用于创建知识库意图。一个意图包含一个主题，一个答案，若干个问法等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1983,7 +1996,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除知识库意图。
+     * 该接口用于删除知识库意图。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2006,7 +2019,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询知识库意图列表。
+     * 该接口用于查询知识库意图列表。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2031,7 +2044,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询知识库意图详情。
+     * 该接口用于查询知识库意图详情。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2054,7 +2067,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于修改知识库意图。
+     * 该接口用于修改知识库意图。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2078,7 +2091,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于批量创建知识库问法。
+     * 该接口用于批量创建知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2101,7 +2114,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建知识库问法。
+     * 该接口用于创建知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2124,7 +2137,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除知识库问法。
+     * 该接口用于删除知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2147,7 +2160,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询知识库问法列表。
+     * 该接口用于查询知识库问法列表。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2172,7 +2185,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询知识库问法详情。
+     * 该接口用于查询知识库问法详情。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2195,7 +2208,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于批量修改知识库问法。
+     * 该接口用于批量修改知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2218,7 +2231,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于修改知识库问法。
+     * 该接口用于修改知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2242,7 +2255,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建知识库技能。一个技能用于特定场景的交互问答，包含若干个意图等。
+     * 该接口用于创建知识库技能。一个技能用于特定场景的交互问答，包含若干个意图等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2265,7 +2278,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除知识库技能。
+     * 该接口用于删除知识库技能。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2288,7 +2301,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于导出知识库技能。
+     * 该接口用于导出知识库技能。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2312,7 +2325,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询知识库技能列表。
+     * 该接口用于查询知识库技能列表。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2336,7 +2349,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询知识库技能详情。
+     * 该接口用于查询知识库技能详情。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2359,7 +2372,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于修改知识库技能。
+     * 该接口用于修改知识库技能。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2540,6 +2553,28 @@ export class MetaStudioClient {
      */
     public createOnceCode(createOnceCodeRequest?: CreateOnceCodeRequest): Promise<CreateOnceCodeResponse> {
         const options = ParamCreater().createOnceCode(createOnceCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于订购MetaStudio服务的包周期,一次性,按需套餐包产品
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 订购metastudio云服务产品
+     * @param {CreateMetaStudioOrdersReq} createMetaStudioOrdersRequestBody 创建云服务请求
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createMetaStudioOrders(createMetaStudioOrdersRequest?: CreateMetaStudioOrdersRequest): Promise<CreateMetaStudioOrdersResponse> {
+        const options = ParamCreater().createMetaStudioOrders(createMetaStudioOrdersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3326,7 +3361,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量确认命令
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} jobId 任务ID。
      * @param {BatchConfirmLiveCommandsReq} batchConfirmLiveCommandsRequestBody 批量确认剧本命令。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
@@ -3351,7 +3386,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 控制数字人直播过程
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} jobId 任务ID。
      * @param {ControlSmartLiveReq} executeSmartLiveCommandRequestBody 控制数字人直播请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
@@ -3376,7 +3411,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询某个智能直播间下直播任务列表
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -3486,7 +3521,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上报直播间事件
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} jobId 任务ID。
      * @param {ReportLiveEventReq} liveEventReportRequestBody 上报直播间事件请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
@@ -3514,7 +3549,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数字人智能直播任务详情
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -3538,7 +3573,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动数字人智能直播任务
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {StartSmartLiveReq} startSmartLiveRequestBody 数字人智能直播任务创建请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -3562,7 +3597,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 结束数字人智能直播任务
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -3586,8 +3621,8 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 直播间确认
-     * @param {string} roomId 剧本ID。
-     * @param {ConfirmSmartLiveRoomReq} confirmSmartLiveRoomRequestBody 剧本确认请求
+     * @param {string} roomId 直播间ID。
+     * @param {ConfirmSmarLiveRoomReq} confirmSmarLiveRoomRequestBody 剧本确认请求
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -3595,8 +3630,8 @@ export class MetaStudioClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public confirmSmartLiveRoom(confirmSmartLiveRoomRequest?: ConfirmSmartLiveRoomRequest): Promise<ConfirmSmartLiveRoomResponse> {
-        const options = ParamCreater().confirmSmartLiveRoom(confirmSmartLiveRoomRequest);
+    public confirmSmarLiveRoom(confirmSmarLiveRoomRequest?: ConfirmSmarLiveRoomRequest): Promise<ConfirmSmarLiveRoomResponse> {
+        const options = ParamCreater().confirmSmarLiveRoom(confirmSmarLiveRoomRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3679,7 +3714,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除智能直播间
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -3762,7 +3797,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询智能直播剧本详情
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -3809,7 +3844,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新智能直播间信息
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 直播间ID。
      * @param {CreateSmartLiveRoomReq} updateSmartLiveRoomRequestBody 更新智能直播间请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -3928,7 +3963,7 @@ export class MetaStudioClient {
 
     /**
      * 查看租户资源列表。
-     * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+     *  &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询，详见[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
      * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3948,6 +3983,7 @@ export class MetaStudioClient {
      * @param {string} [resourceExpireStartTime] 资源过期时间段 开始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
      * @param {string} [resourceExpireEndTime] 资源过期时间段 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;
      * @param {string} [subResource] 子资源类型。当前只有flexus套餐包存在该字段 * voice_clone_flexus: 语音克隆Flexus版 * modeling_count_2d_model_flexus: 分身数字人形象制作Flexus版 * video_time_flexus_2d_model: 分身数字人Flexus版本视频制作
+     * @param {number} [status] 资源状态。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3962,7 +3998,7 @@ export class MetaStudioClient {
 
     /**
      * 查询租户一次性和包周期（包年/包月）资源用量信息。
-     * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+     * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询，详见[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
      * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6150,9 +6186,10 @@ export const ParamCreater = function () {
     
         /**
          * 该接口用于在资产库中添加上传新的媒体资产。可上传的资产类型包括：分身数字人模型、背景图片、素材图片、素材视频、PPT等。
+         * &gt; 上传的图片、视频和背景图片，如果需要在视频制作素材中可见，需要设置system_properties。
          * &gt; - 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
          * &gt; - 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
-         * &gt; - MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
+         * &gt; MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6305,16 +6342,20 @@ export const ParamCreater = function () {
             let authorization;
             
             let xSdkDate;
+            
+            let xAppUserId;
 
             if (listAssetSummaryRequest !== null && listAssetSummaryRequest !== undefined) {
                 if (listAssetSummaryRequest instanceof ListAssetSummaryRequest) {
                     body = listAssetSummaryRequest.body
                     authorization = listAssetSummaryRequest.authorization;
                     xSdkDate = listAssetSummaryRequest.xSdkDate;
+                    xAppUserId = listAssetSummaryRequest.xAppUserId;
                 } else {
                     body = listAssetSummaryRequest['body'];
                     authorization = listAssetSummaryRequest['Authorization'];
                     xSdkDate = listAssetSummaryRequest['X-Sdk-Date'];
+                    xAppUserId = listAssetSummaryRequest['X-App-UserId'];
                 }
             }
 
@@ -6327,6 +6368,9 @@ export const ParamCreater = function () {
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6415,6 +6459,8 @@ export const ParamCreater = function () {
             let excludeDeviceName;
             
             let supportedService;
+            
+            let appUserId;
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
@@ -6450,6 +6496,7 @@ export const ParamCreater = function () {
                     includeDeviceName = listAssetsRequest.includeDeviceName;
                     excludeDeviceName = listAssetsRequest.excludeDeviceName;
                     supportedService = listAssetsRequest.supportedService;
+                    appUserId = listAssetsRequest.appUserId;
                 } else {
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
@@ -6483,6 +6530,7 @@ export const ParamCreater = function () {
                     includeDeviceName = listAssetsRequest['include_device_name'];
                     excludeDeviceName = listAssetsRequest['exclude_device_name'];
                     supportedService = listAssetsRequest['supported_service'];
+                    appUserId = listAssetsRequest['app_user_id'];
                 }
             }
 
@@ -6573,6 +6621,9 @@ export const ParamCreater = function () {
             }
             if (supportedService !== null && supportedService !== undefined) {
                 localVarQueryParameter['supported_service'] = supportedService;
+            }
+            if (appUserId !== null && appUserId !== undefined) {
+                localVarQueryParameter['app_user_id'] = appUserId;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -9007,7 +9058,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建知识库意图和问法。一个意图包含一个主题，一个答案，若干个问法等。
+         * 该接口用于创建知识库意图和问法。一个意图包含一个主题，一个答案，若干个问法等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9073,7 +9124,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建知识库意图。一个意图包含一个主题，一个答案，若干个问法等。
+         * 该接口用于创建知识库意图。一个意图包含一个主题，一个答案，若干个问法等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9139,7 +9190,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除知识库意图。
+         * 该接口用于删除知识库意图。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9205,7 +9256,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询知识库意图列表。
+         * 该接口用于查询知识库意图列表。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9287,7 +9338,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询知识库意图详情。
+         * 该接口用于查询知识库意图详情。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9352,7 +9403,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改知识库意图。
+         * 该接口用于修改知识库意图。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9426,7 +9477,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于批量创建知识库问法。
+         * 该接口用于批量创建知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9492,7 +9543,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建知识库问法。
+         * 该接口用于创建知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9558,7 +9609,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除知识库问法。
+         * 该接口用于删除知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9624,7 +9675,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询知识库问法列表。
+         * 该接口用于查询知识库问法列表。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9706,7 +9757,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询知识库问法详情。
+         * 该接口用于查询知识库问法详情。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9771,7 +9822,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于批量修改知识库问法。
+         * 该接口用于批量修改知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9837,7 +9888,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改知识库问法。
+         * 该接口用于修改知识库问法。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9911,7 +9962,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建知识库技能。一个技能用于特定场景的交互问答，包含若干个意图等。
+         * 该接口用于创建知识库技能。一个技能用于特定场景的交互问答，包含若干个意图等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9977,7 +10028,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除知识库技能。
+         * 该接口用于删除知识库技能。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10043,7 +10094,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于导出知识库技能。
+         * 该接口用于导出知识库技能。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10119,7 +10170,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询知识库技能列表。
+         * 该接口用于查询知识库技能列表。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10191,7 +10242,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询知识库技能详情。
+         * 该接口用于查询知识库技能详情。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10256,7 +10307,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改知识库技能。
+         * 该接口用于修改知识库技能。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10804,6 +10855,65 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于订购MetaStudio服务的包周期,一次性,按需套餐包产品
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createMetaStudioOrders(createMetaStudioOrdersRequest?: CreateMetaStudioOrdersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/mss/public/orders",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (createMetaStudioOrdersRequest !== null && createMetaStudioOrdersRequest !== undefined) {
+                if (createMetaStudioOrdersRequest instanceof CreateMetaStudioOrdersRequest) {
+                    body = createMetaStudioOrdersRequest.body
+                    authorization = createMetaStudioOrdersRequest.authorization;
+                    xSdkDate = createMetaStudioOrdersRequest.xSdkDate;
+                    xProjectId = createMetaStudioOrdersRequest.xProjectId;
+                } else {
+                    body = createMetaStudioOrdersRequest['body'];
+                    authorization = createMetaStudioOrdersRequest['Authorization'];
+                    xSdkDate = createMetaStudioOrdersRequest['X-Sdk-Date'];
+                    xProjectId = createMetaStudioOrdersRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14072,7 +14182,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        confirmSmartLiveRoom(confirmSmartLiveRoomRequest?: ConfirmSmartLiveRoomRequest) {
+        confirmSmarLiveRoom(confirmSmarLiveRoomRequest?: ConfirmSmarLiveRoomRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/smart-live-rooms/{room_id}/confirm",
@@ -14096,27 +14206,27 @@ export const ParamCreater = function () {
             
             let xAppUserId;
 
-            if (confirmSmartLiveRoomRequest !== null && confirmSmartLiveRoomRequest !== undefined) {
-                if (confirmSmartLiveRoomRequest instanceof ConfirmSmartLiveRoomRequest) {
-                    roomId = confirmSmartLiveRoomRequest.roomId;
-                    body = confirmSmartLiveRoomRequest.body
-                    authorization = confirmSmartLiveRoomRequest.authorization;
-                    xSdkDate = confirmSmartLiveRoomRequest.xSdkDate;
-                    xProjectId = confirmSmartLiveRoomRequest.xProjectId;
-                    xAppUserId = confirmSmartLiveRoomRequest.xAppUserId;
+            if (confirmSmarLiveRoomRequest !== null && confirmSmarLiveRoomRequest !== undefined) {
+                if (confirmSmarLiveRoomRequest instanceof ConfirmSmarLiveRoomRequest) {
+                    roomId = confirmSmarLiveRoomRequest.roomId;
+                    body = confirmSmarLiveRoomRequest.body
+                    authorization = confirmSmarLiveRoomRequest.authorization;
+                    xSdkDate = confirmSmarLiveRoomRequest.xSdkDate;
+                    xProjectId = confirmSmarLiveRoomRequest.xProjectId;
+                    xAppUserId = confirmSmarLiveRoomRequest.xAppUserId;
                 } else {
-                    roomId = confirmSmartLiveRoomRequest['room_id'];
-                    body = confirmSmartLiveRoomRequest['body'];
-                    authorization = confirmSmartLiveRoomRequest['Authorization'];
-                    xSdkDate = confirmSmartLiveRoomRequest['X-Sdk-Date'];
-                    xProjectId = confirmSmartLiveRoomRequest['X-Project-Id'];
-                    xAppUserId = confirmSmartLiveRoomRequest['X-App-UserId'];
+                    roomId = confirmSmarLiveRoomRequest['room_id'];
+                    body = confirmSmarLiveRoomRequest['body'];
+                    authorization = confirmSmarLiveRoomRequest['Authorization'];
+                    xSdkDate = confirmSmarLiveRoomRequest['X-Sdk-Date'];
+                    xProjectId = confirmSmarLiveRoomRequest['X-Project-Id'];
+                    xAppUserId = confirmSmarLiveRoomRequest['X-App-UserId'];
                 }
             }
 
         
             if (roomId === null || roomId === undefined) {
-            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling confirmSmartLiveRoom.');
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling confirmSmarLiveRoom.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -15156,7 +15266,7 @@ export const ParamCreater = function () {
     
         /**
          * 查看租户资源列表。
-         * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+         *  &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询，详见[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
          * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -15200,6 +15310,8 @@ export const ParamCreater = function () {
             let resourceExpireEndTime;
             
             let subResource;
+            
+            let status;
 
             if (listTenantResourcesRequest !== null && listTenantResourcesRequest !== undefined) {
                 if (listTenantResourcesRequest instanceof ListTenantResourcesRequest) {
@@ -15217,6 +15329,7 @@ export const ParamCreater = function () {
                     resourceExpireStartTime = listTenantResourcesRequest.resourceExpireStartTime;
                     resourceExpireEndTime = listTenantResourcesRequest.resourceExpireEndTime;
                     subResource = listTenantResourcesRequest.subResource;
+                    status = listTenantResourcesRequest.status;
                 } else {
                     resourceSource = listTenantResourcesRequest['resource_source'];
                     authorization = listTenantResourcesRequest['Authorization'];
@@ -15232,6 +15345,7 @@ export const ParamCreater = function () {
                     resourceExpireStartTime = listTenantResourcesRequest['resource_expire_start_time'];
                     resourceExpireEndTime = listTenantResourcesRequest['resource_expire_end_time'];
                     subResource = listTenantResourcesRequest['sub_resource'];
+                    status = listTenantResourcesRequest['status'];
                 }
             }
 
@@ -15272,6 +15386,9 @@ export const ParamCreater = function () {
             if (subResource !== null && subResource !== undefined) {
                 localVarQueryParameter['sub_resource'] = subResource;
             }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
             }
@@ -15289,7 +15406,7 @@ export const ParamCreater = function () {
     
         /**
          * 查询租户一次性和包周期（包年/包月）资源用量信息。
-         * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询。[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
+         * &gt; 按需套餐包用量本接口无法查询，需要调用CBC接口查询，详见[按需套餐包用量查询](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0001239.html)和[查询资源包信息](https://cbc.huaweicloud.com/bm/support/api-apidt/CBCInterface_0000511.html)。
          * &gt; 各种资源的计费方式请参考[计费说明](https://support.huaweicloud.com/productdesc-metastudio/metastudio_01_0006.html)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.

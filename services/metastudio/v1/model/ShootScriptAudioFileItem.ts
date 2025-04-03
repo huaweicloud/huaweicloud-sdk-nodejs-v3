@@ -4,6 +4,7 @@ export class ShootScriptAudioFileItem {
     private 'sequence_no'?: number;
     private 'audio_file_upload_url'?: string;
     private 'audio_file_download_url'?: string;
+    private 'audio_id'?: number;
     public constructor(sequenceNo?: number) { 
         this['sequence_no'] = sequenceNo;
     }
@@ -36,5 +37,15 @@ export class ShootScriptAudioFileItem {
     }
     public get audioFileDownloadUrl(): string | undefined {
         return this['audio_file_download_url'];
+    }
+    public withAudioId(audioId: number): ShootScriptAudioFileItem {
+        this['audio_id'] = audioId;
+        return this;
+    }
+    public set audioId(audioId: number  | undefined) {
+        this['audio_id'] = audioId;
+    }
+    public get audioId(): number | undefined {
+        return this['audio_id'];
     }
 }

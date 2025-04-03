@@ -11,6 +11,7 @@ export class ResponseEip {
     private 'bandwidth_size'?: number;
     private 'bandwidth_name'?: string;
     private 'bandwidth_billing_info'?: string;
+    private 'share_type'?: string;
     public constructor() { 
     }
     public withId(id: string): ResponseEip {
@@ -100,6 +101,16 @@ export class ResponseEip {
     }
     public get bandwidthBillingInfo(): string | undefined {
         return this['bandwidth_billing_info'];
+    }
+    public withShareType(shareType: string): ResponseEip {
+        this['share_type'] = shareType;
+        return this;
+    }
+    public set shareType(shareType: string  | undefined) {
+        this['share_type'] = shareType;
+    }
+    public get shareType(): string | undefined {
+        return this['share_type'];
     }
 }
 

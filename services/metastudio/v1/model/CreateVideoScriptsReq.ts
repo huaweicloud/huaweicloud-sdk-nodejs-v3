@@ -1,5 +1,7 @@
+import { ActionConfig } from './ActionConfig';
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
 import { ReviewConfig } from './ReviewConfig';
+import { ShootScriptAudioFiles } from './ShootScriptAudioFiles';
 import { ShootScriptItem } from './ShootScriptItem';
 import { VideoConfig } from './VideoConfig';
 import { VideoScriptsCreateInfo } from './VideoScriptsCreateInfo';
@@ -18,6 +20,8 @@ export class CreateVideoScriptsReq {
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
+    private 'audio_files'?: ShootScriptAudioFiles;
+    private 'action_config'?: ActionConfig;
     private 'shoot_scripts'?: Array<ShootScriptItem>;
     public constructor() { 
     }
@@ -130,6 +134,26 @@ export class CreateVideoScriptsReq {
     }
     public get reviewConfig(): ReviewConfig | undefined {
         return this['review_config'];
+    }
+    public withAudioFiles(audioFiles: ShootScriptAudioFiles): CreateVideoScriptsReq {
+        this['audio_files'] = audioFiles;
+        return this;
+    }
+    public set audioFiles(audioFiles: ShootScriptAudioFiles  | undefined) {
+        this['audio_files'] = audioFiles;
+    }
+    public get audioFiles(): ShootScriptAudioFiles | undefined {
+        return this['audio_files'];
+    }
+    public withActionConfig(actionConfig: ActionConfig): CreateVideoScriptsReq {
+        this['action_config'] = actionConfig;
+        return this;
+    }
+    public set actionConfig(actionConfig: ActionConfig  | undefined) {
+        this['action_config'] = actionConfig;
+    }
+    public get actionConfig(): ActionConfig | undefined {
+        return this['action_config'];
     }
     public withShootScripts(shootScripts: Array<ShootScriptItem>): CreateVideoScriptsReq {
         this['shoot_scripts'] = shootScripts;

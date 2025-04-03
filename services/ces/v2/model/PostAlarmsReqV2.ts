@@ -2,6 +2,7 @@ import { AlarmType } from './AlarmType';
 import { Dimension } from './Dimension';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
+import { ResourceLevel } from './ResourceLevel';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -22,6 +23,8 @@ export class PostAlarmsReqV2 {
     private 'enterprise_project_id'?: string;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
+    private 'product_name'?: string;
+    private 'resource_level'?: ResourceLevel;
     public constructor(name?: string, namespace?: string, resources?: Array<Array<Dimension>>, type?: AlarmType, enabled?: boolean, notificationEnabled?: boolean) { 
         this['name'] = name;
         this['namespace'] = namespace;
@@ -141,5 +144,25 @@ export class PostAlarmsReqV2 {
     }
     public get notificationEnabled(): boolean | undefined {
         return this['notification_enabled'];
+    }
+    public withProductName(productName: string): PostAlarmsReqV2 {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
+    }
+    public withResourceLevel(resourceLevel: ResourceLevel): PostAlarmsReqV2 {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: ResourceLevel  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): ResourceLevel | undefined {
+        return this['resource_level'];
     }
 }

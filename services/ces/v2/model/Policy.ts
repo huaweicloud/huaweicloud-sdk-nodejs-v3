@@ -10,6 +10,8 @@ export class Policy {
     public count?: number;
     private 'suppress_duration'?: number;
     public level?: number;
+    public namespace?: string;
+    private 'dimension_name'?: string;
     public constructor(metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number) { 
         this['metric_name'] = metricName;
         this['period'] = period;
@@ -70,5 +72,19 @@ export class Policy {
     public withLevel(level: number): Policy {
         this['level'] = level;
         return this;
+    }
+    public withNamespace(namespace: string): Policy {
+        this['namespace'] = namespace;
+        return this;
+    }
+    public withDimensionName(dimensionName: string): Policy {
+        this['dimension_name'] = dimensionName;
+        return this;
+    }
+    public set dimensionName(dimensionName: string  | undefined) {
+        this['dimension_name'] = dimensionName;
+    }
+    public get dimensionName(): string | undefined {
+        return this['dimension_name'];
     }
 }

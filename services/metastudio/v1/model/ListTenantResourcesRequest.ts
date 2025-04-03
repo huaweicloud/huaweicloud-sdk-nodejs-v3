@@ -15,6 +15,7 @@ export class ListTenantResourcesRequest {
     private 'resource_expire_start_time'?: string;
     private 'resource_expire_end_time'?: string;
     private 'sub_resource'?: string;
+    public status?: number;
     public constructor(resourceSource?: string) { 
         this['resource_source'] = resourceSource;
     }
@@ -133,5 +134,9 @@ export class ListTenantResourcesRequest {
     }
     public get subResource(): string | undefined {
         return this['sub_resource'];
+    }
+    public withStatus(status: number): ListTenantResourcesRequest {
+        this['status'] = status;
+        return this;
     }
 }

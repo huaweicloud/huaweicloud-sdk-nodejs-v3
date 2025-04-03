@@ -1,5 +1,6 @@
 import { ImageLayerConfig } from './ImageLayerConfig';
 import { LayerPositionConfig } from './LayerPositionConfig';
+import { LayerRotationConfig } from './LayerRotationConfig';
 import { LayerSizeConfig } from './LayerSizeConfig';
 import { TextLayerConfig } from './TextLayerConfig';
 import { VideoLayerConfig } from './VideoLayerConfig';
@@ -11,6 +12,7 @@ export class LayerConfig {
     private 'group_id'?: string;
     public position?: LayerPositionConfig;
     public size?: LayerSizeConfig;
+    public rotation?: LayerRotationConfig;
     private 'image_config'?: ImageLayerConfig;
     private 'video_config'?: VideoLayerConfig;
     private 'text_config'?: TextLayerConfig;
@@ -53,6 +55,10 @@ export class LayerConfig {
     }
     public withSize(size: LayerSizeConfig): LayerConfig {
         this['size'] = size;
+        return this;
+    }
+    public withRotation(rotation: LayerRotationConfig): LayerConfig {
+        this['rotation'] = rotation;
         return this;
     }
     public withImageConfig(imageConfig: ImageLayerConfig): LayerConfig {

@@ -15,8 +15,6 @@ export class NodeExtendParam {
     private 'alpha.cce/preInstall'?: string;
     private 'alpha.cce/postInstall'?: string;
     private 'alpha.cce/NodeImageID'?: string;
-    public nicMultiqueue?: string;
-    public nicThreshold?: string;
     public chargingMode?: number;
     private 'agency_name'?: string;
     public kubeReservedMem?: number;
@@ -110,14 +108,6 @@ export class NodeExtendParam {
     }
     public get alphaCceNodeImageID(): string | undefined {
         return this['alpha.cce/NodeImageID'];
-    }
-    public withNicMultiqueue(nicMultiqueue: string): NodeExtendParam {
-        this['nicMultiqueue'] = nicMultiqueue;
-        return this;
-    }
-    public withNicThreshold(nicThreshold: string): NodeExtendParam {
-        this['nicThreshold'] = nicThreshold;
-        return this;
     }
     public withChargingMode(chargingMode: number): NodeExtendParam {
         this['chargingMode'] = chargingMode;

@@ -12,6 +12,7 @@ export class ListServiceDetailsResponse extends SdkResponse {
     private 'approval_enabled'?: boolean;
     public status?: string;
     private 'service_type'?: string;
+    private 'supported_editions'?: Array<string>;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'project_id'?: string;
@@ -93,6 +94,16 @@ export class ListServiceDetailsResponse extends SdkResponse {
     }
     public get serviceType(): string | undefined {
         return this['service_type'];
+    }
+    public withSupportedEditions(supportedEditions: Array<string>): ListServiceDetailsResponse {
+        this['supported_editions'] = supportedEditions;
+        return this;
+    }
+    public set supportedEditions(supportedEditions: Array<string>  | undefined) {
+        this['supported_editions'] = supportedEditions;
+    }
+    public get supportedEditions(): Array<string> | undefined {
+        return this['supported_editions'];
     }
     public withCreatedAt(createdAt: Date): ListServiceDetailsResponse {
         this['created_at'] = createdAt;

@@ -5,6 +5,7 @@ export class CreateVpnUserRequestBodyContent {
     public password?: string;
     public description?: string;
     private 'user_group_id'?: string;
+    private 'static_ip'?: string;
     public constructor(name?: string, password?: string) { 
         this['name'] = name;
         this['password'] = password;
@@ -30,5 +31,15 @@ export class CreateVpnUserRequestBodyContent {
     }
     public get userGroupId(): string | undefined {
         return this['user_group_id'];
+    }
+    public withStaticIp(staticIp: string): CreateVpnUserRequestBodyContent {
+        this['static_ip'] = staticIp;
+        return this;
+    }
+    public set staticIp(staticIp: string  | undefined) {
+        this['static_ip'] = staticIp;
+    }
+    public get staticIp(): string | undefined {
+        return this['static_ip'];
     }
 }

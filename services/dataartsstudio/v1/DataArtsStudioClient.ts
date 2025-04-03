@@ -332,6 +332,7 @@ import { DataEntityWithExtInfo } from './model/DataEntityWithExtInfo';
 import { DataLayerVO } from './model/DataLayerVO';
 import { DataLayerVOList } from './model/DataLayerVOList';
 import { DataMapFilterCriteria } from './model/DataMapFilterCriteria';
+import { DataMaskParas } from './model/DataMaskParas';
 import { DataMaskingResult } from './model/DataMaskingResult';
 import { DataProfileRO } from './model/DataProfileRO';
 import { DataSource } from './model/DataSource';
@@ -519,6 +520,7 @@ import { ImportSecurityBuiltinCategoryGroupsResponse } from './model/ImportSecur
 import { InitializeStandardTemplateRequest } from './model/InitializeStandardTemplateRequest';
 import { InitializeStandardTemplateResponse } from './model/InitializeStandardTemplateResponse';
 import { InitializeStandardTemplateResultData } from './model/InitializeStandardTemplateResultData';
+import { InstanceAccesslog } from './model/InstanceAccesslog';
 import { InstanceDetailDTO } from './model/InstanceDetailDTO';
 import { InstanceForApiActionDTO } from './model/InstanceForApiActionDTO';
 import { InstanceHostDTO } from './model/InstanceHostDTO';
@@ -606,6 +608,8 @@ import { ListConsistencyTaskRequest } from './model/ListConsistencyTaskRequest';
 import { ListConsistencyTaskResponse } from './model/ListConsistencyTaskResponse';
 import { ListDataArtsStudioInstancesRequest } from './model/ListDataArtsStudioInstancesRequest';
 import { ListDataArtsStudioInstancesResponse } from './model/ListDataArtsStudioInstancesResponse';
+import { ListDataServiceInstanceAccesslogsRequest } from './model/ListDataServiceInstanceAccesslogsRequest';
+import { ListDataServiceInstanceAccesslogsResponse } from './model/ListDataServiceInstanceAccesslogsResponse';
 import { ListDataServiceInstancesDetailRequest } from './model/ListDataServiceInstancesDetailRequest';
 import { ListDataServiceInstancesDetailResponse } from './model/ListDataServiceInstancesDetailResponse';
 import { ListDataServiceInstancesOverviewRequest } from './model/ListDataServiceInstancesOverviewRequest';
@@ -746,6 +750,7 @@ import { ListWorkspaceusersRequest } from './model/ListWorkspaceusersRequest';
 import { ListWorkspaceusersResponse } from './model/ListWorkspaceusersResponse';
 import { Location } from './model/Location';
 import { LogicEntityNodes } from './model/LogicEntityNodes';
+import { LtsLogDump } from './model/LtsLogDump';
 import { MallParaDTO } from './model/MallParaDTO';
 import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
@@ -771,6 +776,7 @@ import { Node } from './model/Node';
 import { OBSCommonConfig } from './model/OBSCommonConfig';
 import { ObjectIdInfo } from './model/ObjectIdInfo';
 import { ObsFolder } from './model/ObsFolder';
+import { ObsLogDump } from './model/ObsLogDump';
 import { OpenApiParaForCheckMessage } from './model/OpenApiParaForCheckMessage';
 import { OpenApplyIdsForApproveApply } from './model/OpenApplyIdsForApproveApply';
 import { OpenBulkClassifications } from './model/OpenBulkClassifications';
@@ -1145,7 +1151,6 @@ import { UpdateAppRequest } from './model/UpdateAppRequest';
 import { UpdateAppResponse } from './model/UpdateAppResponse';
 import { UpdateBizMetricRequest } from './model/UpdateBizMetricRequest';
 import { UpdateBizMetricResponse } from './model/UpdateBizMetricResponse';
-import { UpdateBizMetricResultData } from './model/UpdateBizMetricResultData';
 import { UpdateCatalogRequest } from './model/UpdateCatalogRequest';
 import { UpdateCatalogResponse } from './model/UpdateCatalogResponse';
 import { UpdateCodeTableRequest } from './model/UpdateCodeTableRequest';
@@ -1153,6 +1158,10 @@ import { UpdateCodeTableResponse } from './model/UpdateCodeTableResponse';
 import { UpdateCodeTableValuesRequest } from './model/UpdateCodeTableValuesRequest';
 import { UpdateCodeTableValuesResponse } from './model/UpdateCodeTableValuesResponse';
 import { UpdateCodeTableValuesResultData } from './model/UpdateCodeTableValuesResultData';
+import { UpdateDataServiceInstanceLtsLogRequest } from './model/UpdateDataServiceInstanceLtsLogRequest';
+import { UpdateDataServiceInstanceLtsLogResponse } from './model/UpdateDataServiceInstanceLtsLogResponse';
+import { UpdateDataServiceInstanceObsLogRequest } from './model/UpdateDataServiceInstanceObsLogRequest';
+import { UpdateDataServiceInstanceObsLogResponse } from './model/UpdateDataServiceInstanceObsLogResponse';
 import { UpdateDataconnectionRequest } from './model/UpdateDataconnectionRequest';
 import { UpdateDataconnectionResponse } from './model/UpdateDataconnectionResponse';
 import { UpdateDesignAggregationLogicTableRequest } from './model/UpdateDesignAggregationLogicTableRequest';
@@ -4536,6 +4545,28 @@ export class DataArtsStudioClient {
      */
     public listDataArtsStudioInstances(listDataArtsStudioInstancesRequest?: ListDataArtsStudioInstancesRequest): Promise<ListDataArtsStudioInstancesResponse> {
         const options = ParamCreater().listDataArtsStudioInstances(listDataArtsStudioInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据服务集群访问日志列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据服务集群访问日志列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId 集群ID编号。
+     * @param {string} [contentType] 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {boolean} [isApi] 是否查询API的访问日志，true表示查询API的访问日志，false表示查询应用的访问日志。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataServiceInstanceAccesslogs(listDataServiceInstanceAccesslogsRequest?: ListDataServiceInstanceAccesslogsRequest): Promise<ListDataServiceInstanceAccesslogsResponse> {
+        const options = ParamCreater().listDataServiceInstanceAccesslogs(listDataServiceInstanceAccesslogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8464,6 +8495,52 @@ export class DataArtsStudioClient {
      */
     public updateCodeTableValues(updateCodeTableValuesRequest?: UpdateCodeTableValuesRequest): Promise<UpdateCodeTableValuesResponse> {
         const options = ParamCreater().updateCodeTableValues(updateCodeTableValuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启数据服务集群LTS日志转储。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启数据服务集群LTS日志转储
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId 集群ID编号。
+     * @param {LtsLogDump} updateDataServiceInstanceLtsLogRequestBody 开启数据服务集群LTS日志转储请求信息。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {string} [contentType] 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDataServiceInstanceLtsLog(updateDataServiceInstanceLtsLogRequest?: UpdateDataServiceInstanceLtsLogRequest): Promise<UpdateDataServiceInstanceLtsLogResponse> {
+        const options = ParamCreater().updateDataServiceInstanceLtsLog(updateDataServiceInstanceLtsLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启数据服务集群OBS日志转储。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启数据服务集群OBS日志转储
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId 集群ID编号。
+     * @param {ObsLogDump} updateDataServiceInstanceObsLogRequestBody 开启数据服务集群OBS日志转储请求信息。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {string} [contentType] 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDataServiceInstanceObsLog(updateDataServiceInstanceObsLogRequest?: UpdateDataServiceInstanceObsLogRequest): Promise<UpdateDataServiceInstanceObsLogResponse> {
+        const options = ParamCreater().updateDataServiceInstanceObsLog(updateDataServiceInstanceObsLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -18432,6 +18509,65 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据服务集群访问日志列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataServiceInstanceAccesslogs(listDataServiceInstanceAccesslogsRequest?: ListDataServiceInstanceAccesslogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/service/instances/{instance_id}/accesslog",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let contentType;
+            
+            let isApi;
+
+            if (listDataServiceInstanceAccesslogsRequest !== null && listDataServiceInstanceAccesslogsRequest !== undefined) {
+                if (listDataServiceInstanceAccesslogsRequest instanceof ListDataServiceInstanceAccesslogsRequest) {
+                    workspace = listDataServiceInstanceAccesslogsRequest.workspace;
+                    instanceId = listDataServiceInstanceAccesslogsRequest.instanceId;
+                    contentType = listDataServiceInstanceAccesslogsRequest.contentType;
+                    isApi = listDataServiceInstanceAccesslogsRequest.isApi;
+                } else {
+                    workspace = listDataServiceInstanceAccesslogsRequest['workspace'];
+                    instanceId = listDataServiceInstanceAccesslogsRequest['instance_id'];
+                    contentType = listDataServiceInstanceAccesslogsRequest['Content-Type'];
+                    isApi = listDataServiceInstanceAccesslogsRequest['is_api'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDataServiceInstanceAccesslogs.');
+            }
+            if (isApi !== null && isApi !== undefined) {
+                localVarQueryParameter['is_api'] = isApi;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -30094,6 +30230,140 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启数据服务集群LTS日志转储。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDataServiceInstanceLtsLog(updateDataServiceInstanceLtsLogRequest?: UpdateDataServiceInstanceLtsLogRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/service/instances/{instance_id}/lts-log-dump",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let dlmType;
+            
+            let contentType;
+
+            if (updateDataServiceInstanceLtsLogRequest !== null && updateDataServiceInstanceLtsLogRequest !== undefined) {
+                if (updateDataServiceInstanceLtsLogRequest instanceof UpdateDataServiceInstanceLtsLogRequest) {
+                    workspace = updateDataServiceInstanceLtsLogRequest.workspace;
+                    instanceId = updateDataServiceInstanceLtsLogRequest.instanceId;
+                    body = updateDataServiceInstanceLtsLogRequest.body
+                    dlmType = updateDataServiceInstanceLtsLogRequest.dlmType;
+                    contentType = updateDataServiceInstanceLtsLogRequest.contentType;
+                } else {
+                    workspace = updateDataServiceInstanceLtsLogRequest['workspace'];
+                    instanceId = updateDataServiceInstanceLtsLogRequest['instance_id'];
+                    body = updateDataServiceInstanceLtsLogRequest['body'];
+                    dlmType = updateDataServiceInstanceLtsLogRequest['Dlm-Type'];
+                    contentType = updateDataServiceInstanceLtsLogRequest['Content-Type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDataServiceInstanceLtsLog.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启数据服务集群OBS日志转储。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDataServiceInstanceObsLog(updateDataServiceInstanceObsLogRequest?: UpdateDataServiceInstanceObsLogRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/service/instances/{instance_id}/obs-log-dump",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let dlmType;
+            
+            let contentType;
+
+            if (updateDataServiceInstanceObsLogRequest !== null && updateDataServiceInstanceObsLogRequest !== undefined) {
+                if (updateDataServiceInstanceObsLogRequest instanceof UpdateDataServiceInstanceObsLogRequest) {
+                    workspace = updateDataServiceInstanceObsLogRequest.workspace;
+                    instanceId = updateDataServiceInstanceObsLogRequest.instanceId;
+                    body = updateDataServiceInstanceObsLogRequest.body
+                    dlmType = updateDataServiceInstanceObsLogRequest.dlmType;
+                    contentType = updateDataServiceInstanceObsLogRequest.contentType;
+                } else {
+                    workspace = updateDataServiceInstanceObsLogRequest['workspace'];
+                    instanceId = updateDataServiceInstanceObsLogRequest['instance_id'];
+                    body = updateDataServiceInstanceObsLogRequest['body'];
+                    dlmType = updateDataServiceInstanceObsLogRequest['Dlm-Type'];
+                    contentType = updateDataServiceInstanceObsLogRequest['Content-Type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDataServiceInstanceObsLog.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

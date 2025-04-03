@@ -345,6 +345,7 @@ import { ModifyGaussMySqlProxyRouteModeResponse } from './model/ModifyGaussMySql
 import { ModifyGaussMysqlDnsRequest } from './model/ModifyGaussMysqlDnsRequest';
 import { ModifyGaussMysqlDnsResponse } from './model/ModifyGaussMysqlDnsResponse';
 import { ModifyInternalIpRequest } from './model/ModifyInternalIpRequest';
+import { ModifyNodeDataIpRequest } from './model/ModifyNodeDataIpRequest';
 import { ModifyNodePriorityRequest } from './model/ModifyNodePriorityRequest';
 import { ModifyNodePriorityRequestBody } from './model/ModifyNodePriorityRequestBody';
 import { ModifyNodePriorityResponse } from './model/ModifyNodePriorityResponse';
@@ -712,6 +713,8 @@ import { UpdateStarRocksDatabaseUserPermissionRequest } from './model/UpdateStar
 import { UpdateStarRocksDatabaseUserPermissionResponse } from './model/UpdateStarRocksDatabaseUserPermissionResponse';
 import { UpdateStarrocksParamsRequest } from './model/UpdateStarrocksParamsRequest';
 import { UpdateStarrocksParamsResponse } from './model/UpdateStarrocksParamsResponse';
+import { UpdateTaurusNodeDataIpRequest } from './model/UpdateTaurusNodeDataIpRequest';
+import { UpdateTaurusNodeDataIpResponse } from './model/UpdateTaurusNodeDataIpResponse';
 import { UpdateTransactionSplitStatusRequest } from './model/UpdateTransactionSplitStatusRequest';
 import { UpdateTransactionSplitStatusResponse } from './model/UpdateTransactionSplitStatusResponse';
 import { UpgradeDatabaseRequest } from './model/UpgradeDatabaseRequest';
@@ -3634,6 +3637,28 @@ export class GaussDBClient {
      */
     public updateSlowlogSensitiveSwitch(updateSlowlogSensitiveSwitchRequest?: UpdateSlowlogSensitiveSwitchRequest): Promise<UpdateSlowlogSensitiveSwitchResponse> {
         const options = ParamCreater().updateSlowlogSensitiveSwitch(updateSlowlogSensitiveSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改只读节点的读内网地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改只读节点的读内网地址
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} nodeId **参数解释**：  节点ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，前面为UUID，后缀为no07，长度为36个字符。  **默认取值**：  不涉及。 
+     * @param {ModifyNodeDataIpRequest} updateTaurusNodeDataIpRequestBody **参数解释**：  修改只读节点读内网地址请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：               请求语言类型。   **约束限制**：   不涉及。   **取值范围**：  - en-us  - zh-cn   **默认值**：   en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTaurusNodeDataIp(updateTaurusNodeDataIpRequest?: UpdateTaurusNodeDataIpRequest): Promise<UpdateTaurusNodeDataIpResponse> {
+        const options = ParamCreater().updateTaurusNodeDataIp(updateTaurusNodeDataIpRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12505,6 +12530,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改只读节点的读内网地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTaurusNodeDataIp(updateTaurusNodeDataIpRequest?: UpdateTaurusNodeDataIpRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/{node_id}/internal-ip",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+
+            if (updateTaurusNodeDataIpRequest !== null && updateTaurusNodeDataIpRequest !== undefined) {
+                if (updateTaurusNodeDataIpRequest instanceof UpdateTaurusNodeDataIpRequest) {
+                    instanceId = updateTaurusNodeDataIpRequest.instanceId;
+                    nodeId = updateTaurusNodeDataIpRequest.nodeId;
+                    body = updateTaurusNodeDataIpRequest.body
+                    xLanguage = updateTaurusNodeDataIpRequest.xLanguage;
+                } else {
+                    instanceId = updateTaurusNodeDataIpRequest['instance_id'];
+                    nodeId = updateTaurusNodeDataIpRequest['node_id'];
+                    body = updateTaurusNodeDataIpRequest['body'];
+                    xLanguage = updateTaurusNodeDataIpRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateTaurusNodeDataIp.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling updateTaurusNodeDataIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

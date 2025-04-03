@@ -3,7 +3,8 @@ import { ImportClientCaCertificateRequestBodyClientCaCertificate } from './Impor
 
 export class ImportClientCaCertificateRequestBody {
     private 'client_ca_certificate'?: ImportClientCaCertificateRequestBodyClientCaCertificate;
-    public constructor() { 
+    public constructor(clientCaCertificate?: ImportClientCaCertificateRequestBodyClientCaCertificate) { 
+        this['client_ca_certificate'] = clientCaCertificate;
     }
     public withClientCaCertificate(clientCaCertificate: ImportClientCaCertificateRequestBodyClientCaCertificate): ImportClientCaCertificateRequestBody {
         this['client_ca_certificate'] = clientCaCertificate;

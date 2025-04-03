@@ -1,5 +1,7 @@
+import { ActionConfig } from './ActionConfig';
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
 import { ReviewConfig } from './ReviewConfig';
+import { ShootScriptAudioFiles } from './ShootScriptAudioFiles';
 import { VideoConfig } from './VideoConfig';
 import { VoiceConfig } from './VoiceConfig';
 
@@ -16,6 +18,8 @@ export class VideoScriptsSimpleInfo {
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
+    private 'audio_files'?: ShootScriptAudioFiles;
+    private 'action_config'?: ActionConfig;
     public constructor() { 
     }
     public withScriptName(scriptName: string): VideoScriptsSimpleInfo {
@@ -127,6 +131,26 @@ export class VideoScriptsSimpleInfo {
     }
     public get reviewConfig(): ReviewConfig | undefined {
         return this['review_config'];
+    }
+    public withAudioFiles(audioFiles: ShootScriptAudioFiles): VideoScriptsSimpleInfo {
+        this['audio_files'] = audioFiles;
+        return this;
+    }
+    public set audioFiles(audioFiles: ShootScriptAudioFiles  | undefined) {
+        this['audio_files'] = audioFiles;
+    }
+    public get audioFiles(): ShootScriptAudioFiles | undefined {
+        return this['audio_files'];
+    }
+    public withActionConfig(actionConfig: ActionConfig): VideoScriptsSimpleInfo {
+        this['action_config'] = actionConfig;
+        return this;
+    }
+    public set actionConfig(actionConfig: ActionConfig  | undefined) {
+        this['action_config'] = actionConfig;
+    }
+    public get actionConfig(): ActionConfig | undefined {
+        return this['action_config'];
     }
 }
 

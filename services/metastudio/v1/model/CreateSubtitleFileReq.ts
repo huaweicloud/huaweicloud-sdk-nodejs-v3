@@ -1,8 +1,10 @@
+import { CallBackConfig } from './CallBackConfig';
 
 
 export class CreateSubtitleFileReq {
     private 'script_id'?: string;
     private 'sequence_no'?: number;
+    private 'callback_config'?: CallBackConfig;
     public constructor() { 
     }
     public withScriptId(scriptId: string): CreateSubtitleFileReq {
@@ -24,5 +26,15 @@ export class CreateSubtitleFileReq {
     }
     public get sequenceNo(): number | undefined {
         return this['sequence_no'];
+    }
+    public withCallbackConfig(callbackConfig: CallBackConfig): CreateSubtitleFileReq {
+        this['callback_config'] = callbackConfig;
+        return this;
+    }
+    public set callbackConfig(callbackConfig: CallBackConfig  | undefined) {
+        this['callback_config'] = callbackConfig;
+    }
+    public get callbackConfig(): CallBackConfig | undefined {
+        return this['callback_config'];
     }
 }

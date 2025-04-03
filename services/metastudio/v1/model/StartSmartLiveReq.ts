@@ -1,5 +1,6 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
+import { LiveJobRunConfig } from './LiveJobRunConfig';
 import { PlayPolicy } from './PlayPolicy';
 import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { VideoConfig } from './VideoConfig';
@@ -15,6 +16,7 @@ export class StartSmartLiveReq {
     private 'rtc_callback_config'?: RTCLiveEventCallBackConfig;
     private 'view_mode'?: StartSmartLiveReqViewModeEnum | string;
     private 'co_streamer_config'?: CoStreamerConfig;
+    private 'job_run_config'?: LiveJobRunConfig;
     public constructor() { 
     }
     public withVideoConfig(videoConfig: VideoConfig): StartSmartLiveReq {
@@ -106,6 +108,16 @@ export class StartSmartLiveReq {
     }
     public get coStreamerConfig(): CoStreamerConfig | undefined {
         return this['co_streamer_config'];
+    }
+    public withJobRunConfig(jobRunConfig: LiveJobRunConfig): StartSmartLiveReq {
+        this['job_run_config'] = jobRunConfig;
+        return this;
+    }
+    public set jobRunConfig(jobRunConfig: LiveJobRunConfig  | undefined) {
+        this['job_run_config'] = jobRunConfig;
+    }
+    public get jobRunConfig(): LiveJobRunConfig | undefined {
+        return this['job_run_config'];
     }
 }
 

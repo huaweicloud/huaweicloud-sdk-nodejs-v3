@@ -8,6 +8,7 @@ import { TextConfig } from './TextConfig';
 export class ShootScript {
     private 'script_type'?: ShootScriptScriptTypeEnum | string;
     private 'text_config'?: TextConfig;
+    private 'audio_duration'?: number;
     private 'audio_drive_action_config'?: Array<AudioDriveActionConfig>;
     private 'audio_drive_file_external_url'?: string;
     private 'background_config'?: Array<BackgroundConfigInfo>;
@@ -34,6 +35,16 @@ export class ShootScript {
     }
     public get textConfig(): TextConfig | undefined {
         return this['text_config'];
+    }
+    public withAudioDuration(audioDuration: number): ShootScript {
+        this['audio_duration'] = audioDuration;
+        return this;
+    }
+    public set audioDuration(audioDuration: number  | undefined) {
+        this['audio_duration'] = audioDuration;
+    }
+    public get audioDuration(): number | undefined {
+        return this['audio_duration'];
     }
     public withAudioDriveActionConfig(audioDriveActionConfig: Array<AudioDriveActionConfig>): ShootScript {
         this['audio_drive_action_config'] = audioDriveActionConfig;

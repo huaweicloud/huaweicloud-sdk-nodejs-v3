@@ -1,17 +1,17 @@
-import { ConfirmSmartLiveRoomReq } from './ConfirmSmartLiveRoomReq';
+import { ConfirmSmarLiveRoomReq } from './ConfirmSmarLiveRoomReq';
 
 
-export class ConfirmSmartLiveRoomRequest {
+export class ConfirmSmarLiveRoomRequest {
     private 'room_id'?: string;
     private 'Authorization'?: string;
     private 'X-Sdk-Date'?: string;
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
-    public body?: ConfirmSmartLiveRoomReq;
+    public body?: ConfirmSmarLiveRoomReq;
     public constructor(roomId?: string) { 
         this['room_id'] = roomId;
     }
-    public withRoomId(roomId: string): ConfirmSmartLiveRoomRequest {
+    public withRoomId(roomId: string): ConfirmSmarLiveRoomRequest {
         this['room_id'] = roomId;
         return this;
     }
@@ -21,7 +21,7 @@ export class ConfirmSmartLiveRoomRequest {
     public get roomId(): string | undefined {
         return this['room_id'];
     }
-    public withAuthorization(authorization: string): ConfirmSmartLiveRoomRequest {
+    public withAuthorization(authorization: string): ConfirmSmarLiveRoomRequest {
         this['Authorization'] = authorization;
         return this;
     }
@@ -31,7 +31,7 @@ export class ConfirmSmartLiveRoomRequest {
     public get authorization(): string | undefined {
         return this['Authorization'];
     }
-    public withXSdkDate(xSdkDate: string): ConfirmSmartLiveRoomRequest {
+    public withXSdkDate(xSdkDate: string): ConfirmSmarLiveRoomRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
@@ -41,7 +41,7 @@ export class ConfirmSmartLiveRoomRequest {
     public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
-    public withXProjectId(xProjectId: string): ConfirmSmartLiveRoomRequest {
+    public withXProjectId(xProjectId: string): ConfirmSmarLiveRoomRequest {
         this['X-Project-Id'] = xProjectId;
         return this;
     }
@@ -51,7 +51,7 @@ export class ConfirmSmartLiveRoomRequest {
     public get xProjectId(): string | undefined {
         return this['X-Project-Id'];
     }
-    public withXAppUserId(xAppUserId: string): ConfirmSmartLiveRoomRequest {
+    public withXAppUserId(xAppUserId: string): ConfirmSmarLiveRoomRequest {
         this['X-App-UserId'] = xAppUserId;
         return this;
     }
@@ -61,7 +61,7 @@ export class ConfirmSmartLiveRoomRequest {
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
     }
-    public withBody(body: ConfirmSmartLiveRoomReq): ConfirmSmartLiveRoomRequest {
+    public withBody(body: ConfirmSmarLiveRoomReq): ConfirmSmarLiveRoomRequest {
         this['body'] = body;
         return this;
     }

@@ -3,6 +3,7 @@
 export class ActionTagInfo {
     private 'action_name_zh'?: string;
     private 'action_name_en'?: string;
+    private 'action_duration'?: number;
     public catalog?: string;
     private 'file_name'?: string;
     public tag?: string;
@@ -29,6 +30,16 @@ export class ActionTagInfo {
     }
     public get actionNameEn(): string | undefined {
         return this['action_name_en'];
+    }
+    public withActionDuration(actionDuration: number): ActionTagInfo {
+        this['action_duration'] = actionDuration;
+        return this;
+    }
+    public set actionDuration(actionDuration: number  | undefined) {
+        this['action_duration'] = actionDuration;
+    }
+    public get actionDuration(): number | undefined {
+        return this['action_duration'];
     }
     public withCatalog(catalog: string): ActionTagInfo {
         this['catalog'] = catalog;

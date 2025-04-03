@@ -6,7 +6,9 @@ export class CreateVpnUser {
     public description?: string;
     private 'user_group_name'?: string;
     private 'static_ip'?: string;
-    public constructor() { 
+    public constructor(name?: string, password?: string) { 
+        this['name'] = name;
+        this['password'] = password;
     }
     public withName(name: string): CreateVpnUser {
         this['name'] = name;

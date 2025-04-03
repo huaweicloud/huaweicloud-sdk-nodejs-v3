@@ -1,3 +1,4 @@
+import { BackgroundImageConfig } from './BackgroundImageConfig';
 
 
 export class BackgroundConfigInfo {
@@ -5,6 +6,7 @@ export class BackgroundConfigInfo {
     private 'background_config'?: string;
     private 'background_color_config'?: string;
     private 'background_asset_id'?: string;
+    private 'background_image_config'?: BackgroundImageConfig;
     public constructor(backgroundType?: string) { 
         this['background_type'] = backgroundType;
     }
@@ -47,6 +49,16 @@ export class BackgroundConfigInfo {
     }
     public get backgroundAssetId(): string | undefined {
         return this['background_asset_id'];
+    }
+    public withBackgroundImageConfig(backgroundImageConfig: BackgroundImageConfig): BackgroundConfigInfo {
+        this['background_image_config'] = backgroundImageConfig;
+        return this;
+    }
+    public set backgroundImageConfig(backgroundImageConfig: BackgroundImageConfig  | undefined) {
+        this['background_image_config'] = backgroundImageConfig;
+    }
+    public get backgroundImageConfig(): BackgroundImageConfig | undefined {
+        return this['background_image_config'];
     }
 }
 

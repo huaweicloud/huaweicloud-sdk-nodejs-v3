@@ -909,7 +909,7 @@ export class SecMasterClient {
      *
      * @summary 停用告警规则
      * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {Array<string>} disableAlertRuleRequestBody DisableAlertRuleRequestBody
+     * @param {Array<string>} disableAlertRuleRequestBody 禁用告警规则的请求
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -929,7 +929,7 @@ export class SecMasterClient {
      *
      * @summary 启用告警规则
      * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {Array<string>} enableAlertRuleRequestBody EnableAlertRuleRequestBody
+     * @param {Array<string>} enableAlertRuleRequestBody 启用告警规则的请求
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

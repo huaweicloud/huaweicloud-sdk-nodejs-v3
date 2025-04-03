@@ -1,3 +1,4 @@
+import { LiveExitConfig } from './LiveExitConfig';
 
 
 export class PlayPolicy {
@@ -6,6 +7,7 @@ export class PlayPolicy {
     private 'play_mode'?: PlayPolicyPlayModeEnum | string;
     private 'random_play_mode'?: PlayPolicyRandomPlayModeEnum | string;
     private 'need_independent_capture_client'?: boolean;
+    private 'live_exit_config'?: LiveExitConfig;
     public constructor() { 
     }
     public withRepeatCount(repeatCount: number): PlayPolicy {
@@ -57,6 +59,16 @@ export class PlayPolicy {
     }
     public get needIndependentCaptureClient(): boolean | undefined {
         return this['need_independent_capture_client'];
+    }
+    public withLiveExitConfig(liveExitConfig: LiveExitConfig): PlayPolicy {
+        this['live_exit_config'] = liveExitConfig;
+        return this;
+    }
+    public set liveExitConfig(liveExitConfig: LiveExitConfig  | undefined) {
+        this['live_exit_config'] = liveExitConfig;
+    }
+    public get liveExitConfig(): LiveExitConfig | undefined {
+        return this['live_exit_config'];
     }
 }
 

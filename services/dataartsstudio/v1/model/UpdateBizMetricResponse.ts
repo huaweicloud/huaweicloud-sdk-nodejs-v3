@@ -1,13 +1,13 @@
-import { UpdateBizMetricResultData } from './UpdateBizMetricResultData';
+import { CreateBizMetricResultData } from './CreateBizMetricResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateBizMetricResponse extends SdkResponse {
-    public data?: UpdateBizMetricResultData;
+    public data?: CreateBizMetricResultData;
     public constructor() { 
         super();
     }
-    public withData(data: UpdateBizMetricResultData): UpdateBizMetricResponse {
+    public withData(data: CreateBizMetricResultData): UpdateBizMetricResponse {
         this['data'] = data;
         return this;
     }

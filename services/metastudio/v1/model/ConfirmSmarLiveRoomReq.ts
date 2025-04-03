@@ -1,15 +1,15 @@
 
 
-export class ConfirmSmartLiveRoomReq {
-    public action?: ConfirmSmartLiveRoomReqActionEnum | string;
+export class ConfirmSmarLiveRoomReq {
+    public action?: ConfirmSmarLiveRoomReqActionEnum | string;
     private 'script_version'?: string;
     public constructor() { 
     }
-    public withAction(action: ConfirmSmartLiveRoomReqActionEnum | string): ConfirmSmartLiveRoomReq {
+    public withAction(action: ConfirmSmarLiveRoomReqActionEnum | string): ConfirmSmarLiveRoomReq {
         this['action'] = action;
         return this;
     }
-    public withScriptVersion(scriptVersion: string): ConfirmSmartLiveRoomReq {
+    public withScriptVersion(scriptVersion: string): ConfirmSmarLiveRoomReq {
         this['script_version'] = scriptVersion;
         return this;
     }
@@ -25,7 +25,7 @@ export class ConfirmSmartLiveRoomReq {
     * @export
     * @enum {string}
     */
-export enum ConfirmSmartLiveRoomReqActionEnum {
+export enum ConfirmSmarLiveRoomReqActionEnum {
     CONFIRM = 'confirm',
     REJECT = 'reject'
 }

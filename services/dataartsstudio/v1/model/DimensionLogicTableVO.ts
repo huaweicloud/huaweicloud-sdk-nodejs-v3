@@ -6,6 +6,7 @@ import { DimensionLogicTableAttributeVO } from './DimensionLogicTableAttributeVO
 import { EnvTypeEnum } from './EnvTypeEnum';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
+import { WorkspaceVO } from './WorkspaceVO';
 
 
 export class DimensionLogicTableVO {
@@ -68,6 +69,8 @@ export class DimensionLogicTableVO {
     private 'dev_version_name'?: string;
     private 'prod_version_name'?: string;
     private 'env_type'?: EnvTypeEnum;
+    private 'model_id'?: string;
+    public model?: WorkspaceVO;
     public constructor() { 
     }
     public withId(id: string): DimensionLogicTableVO {
@@ -575,6 +578,20 @@ export class DimensionLogicTableVO {
     }
     public get envType(): EnvTypeEnum | undefined {
         return this['env_type'];
+    }
+    public withModelId(modelId: string): DimensionLogicTableVO {
+        this['model_id'] = modelId;
+        return this;
+    }
+    public set modelId(modelId: string  | undefined) {
+        this['model_id'] = modelId;
+    }
+    public get modelId(): string | undefined {
+        return this['model_id'];
+    }
+    public withModel(model: WorkspaceVO): DimensionLogicTableVO {
+        this['model'] = model;
+        return this;
     }
 }
 

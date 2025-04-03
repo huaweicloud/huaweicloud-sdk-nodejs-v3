@@ -16,10 +16,12 @@ export class CreateAsyncTtsJobRequestBody {
     private 'gen_srt'?: boolean;
     private 'srt_len'?: number;
     private 'srt_line_limit'?: number;
+    private 'slice_segments'?: boolean;
     public channels?: number;
     private 'output_external_url'?: string;
     private 'srt_output_external_url'?: string;
     private 'action_output_external_url'?: string;
+    private 'is_vocabulary_config_enable'?: boolean;
     public constructor(text?: string, voiceAssetId?: string) { 
         this['text'] = text;
         this['voice_asset_id'] = voiceAssetId;
@@ -140,6 +142,16 @@ export class CreateAsyncTtsJobRequestBody {
     public get srtLineLimit(): number | undefined {
         return this['srt_line_limit'];
     }
+    public withSliceSegments(sliceSegments: boolean): CreateAsyncTtsJobRequestBody {
+        this['slice_segments'] = sliceSegments;
+        return this;
+    }
+    public set sliceSegments(sliceSegments: boolean  | undefined) {
+        this['slice_segments'] = sliceSegments;
+    }
+    public get sliceSegments(): boolean | undefined {
+        return this['slice_segments'];
+    }
     public withChannels(channels: number): CreateAsyncTtsJobRequestBody {
         this['channels'] = channels;
         return this;
@@ -173,6 +185,16 @@ export class CreateAsyncTtsJobRequestBody {
     }
     public get actionOutputExternalUrl(): string | undefined {
         return this['action_output_external_url'];
+    }
+    public withIsVocabularyConfigEnable(isVocabularyConfigEnable: boolean): CreateAsyncTtsJobRequestBody {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+        return this;
+    }
+    public set isVocabularyConfigEnable(isVocabularyConfigEnable: boolean  | undefined) {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+    }
+    public get isVocabularyConfigEnable(): boolean | undefined {
+        return this['is_vocabulary_config_enable'];
     }
 }
 

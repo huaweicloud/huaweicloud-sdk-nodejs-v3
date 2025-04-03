@@ -3,6 +3,8 @@
 export class PreviewInfo {
     private 'text_sha256'?: string;
     private 'audio_file_download_url'?: string;
+    private 'action_file_download_url'?: string;
+    private 'audio_duration'?: number;
     public constructor() { 
     }
     public withTextSha256(textSha256: string): PreviewInfo {
@@ -24,5 +26,25 @@ export class PreviewInfo {
     }
     public get audioFileDownloadUrl(): string | undefined {
         return this['audio_file_download_url'];
+    }
+    public withActionFileDownloadUrl(actionFileDownloadUrl: string): PreviewInfo {
+        this['action_file_download_url'] = actionFileDownloadUrl;
+        return this;
+    }
+    public set actionFileDownloadUrl(actionFileDownloadUrl: string  | undefined) {
+        this['action_file_download_url'] = actionFileDownloadUrl;
+    }
+    public get actionFileDownloadUrl(): string | undefined {
+        return this['action_file_download_url'];
+    }
+    public withAudioDuration(audioDuration: number): PreviewInfo {
+        this['audio_duration'] = audioDuration;
+        return this;
+    }
+    public set audioDuration(audioDuration: number  | undefined) {
+        this['audio_duration'] = audioDuration;
+    }
+    public get audioDuration(): number | undefined {
+        return this['audio_duration'];
     }
 }

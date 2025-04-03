@@ -8,6 +8,7 @@ import { DimensionHierarchiesVO } from './DimensionHierarchiesVO';
 import { EnvTypeEnum } from './EnvTypeEnum';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { TableMappingVO } from './TableMappingVO';
+import { WorkspaceVO } from './WorkspaceVO';
 
 
 export class DimensionVO {
@@ -48,6 +49,8 @@ export class DimensionVO {
     private 'dev_version_name'?: string;
     private 'prod_version_name'?: string;
     private 'env_type'?: EnvTypeEnum;
+    private 'model_id'?: string;
+    public model?: WorkspaceVO;
     public constructor(nameEn?: string, dimensionType?: string, nameCh?: string, description?: string, l3Id?: string, attributes?: Array<DimensionAttributeVO>, datasource?: BizDatasourceRelationVO, owner?: string) { 
         this['name_en'] = nameEn;
         this['dimension_type'] = dimensionType;
@@ -343,6 +346,20 @@ export class DimensionVO {
     }
     public get envType(): EnvTypeEnum | undefined {
         return this['env_type'];
+    }
+    public withModelId(modelId: string): DimensionVO {
+        this['model_id'] = modelId;
+        return this;
+    }
+    public set modelId(modelId: string  | undefined) {
+        this['model_id'] = modelId;
+    }
+    public get modelId(): string | undefined {
+        return this['model_id'];
+    }
+    public withModel(model: WorkspaceVO): DimensionVO {
+        this['model'] = model;
+        return this;
     }
 }
 

@@ -18,6 +18,7 @@ export class DatasourceConfig {
     private 'backend_paras'?: Array<ApiRequestPara>;
     private 'response_paras'?: Array<ApiResponsePara>;
     private 'order_paras'?: Array<DatasourceOrderPara>;
+    private 'total_size_sql'?: string;
     public constructor() { 
     }
     public withType(type: DatasourceConfigTypeEnum | string): DatasourceConfig {
@@ -123,6 +124,16 @@ export class DatasourceConfig {
     }
     public get orderParas(): Array<DatasourceOrderPara> | undefined {
         return this['order_paras'];
+    }
+    public withTotalSizeSql(totalSizeSql: string): DatasourceConfig {
+        this['total_size_sql'] = totalSizeSql;
+        return this;
+    }
+    public set totalSizeSql(totalSizeSql: string  | undefined) {
+        this['total_size_sql'] = totalSizeSql;
+    }
+    public get totalSizeSql(): string | undefined {
+        return this['total_size_sql'];
     }
 }
 

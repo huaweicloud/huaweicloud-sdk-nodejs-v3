@@ -4,6 +4,7 @@ import { UpdateRequestPolicyTemplate } from './UpdateRequestPolicyTemplate';
 export class UpdateVgwRequestBodyContent {
     public name?: string;
     private 'local_subnets'?: Array<string>;
+    private 'local_subnets_v6'?: Array<string>;
     private 'eip_id_1'?: string;
     private 'eip_id_2'?: string;
     private 'policy_template'?: UpdateRequestPolicyTemplate;
@@ -22,6 +23,16 @@ export class UpdateVgwRequestBodyContent {
     }
     public get localSubnets(): Array<string> | undefined {
         return this['local_subnets'];
+    }
+    public withLocalSubnetsV6(localSubnetsV6: Array<string>): UpdateVgwRequestBodyContent {
+        this['local_subnets_v6'] = localSubnetsV6;
+        return this;
+    }
+    public set localSubnetsV6(localSubnetsV6: Array<string>  | undefined) {
+        this['local_subnets_v6'] = localSubnetsV6;
+    }
+    public get localSubnetsV6(): Array<string> | undefined {
+        return this['local_subnets_v6'];
     }
     public withEipId1(eipId1: string): UpdateVgwRequestBodyContent {
         this['eip_id_1'] = eipId1;

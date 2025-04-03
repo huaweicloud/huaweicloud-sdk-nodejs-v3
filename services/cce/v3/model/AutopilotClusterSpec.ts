@@ -18,7 +18,6 @@ export class AutopilotClusterSpec {
     public customSan?: Array<string>;
     public enableSnat?: boolean;
     public enableSWRImageAccess?: boolean;
-    public enableAutopilot?: boolean;
     public ipv6enable?: boolean;
     public hostNetwork?: AutopilotHostNetwork;
     public containerNetwork?: AutopilotContainerNetwork;
@@ -71,10 +70,6 @@ export class AutopilotClusterSpec {
     }
     public withEnableSWRImageAccess(enableSWRImageAccess: boolean): AutopilotClusterSpec {
         this['enableSWRImageAccess'] = enableSWRImageAccess;
-        return this;
-    }
-    public withEnableAutopilot(enableAutopilot: boolean): AutopilotClusterSpec {
-        this['enableAutopilot'] = enableAutopilot;
         return this;
     }
     public withIpv6enable(ipv6enable: boolean): AutopilotClusterSpec {

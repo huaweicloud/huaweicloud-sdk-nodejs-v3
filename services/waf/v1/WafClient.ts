@@ -1230,7 +1230,7 @@ export class WafClient {
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {string} [type] JS脚本反爬虫规则防护模式   - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则   - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则   - 默认值：anticrawler_except_url
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1254,7 +1254,7 @@ export class WafClient {
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防敏感信息泄露规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1275,7 +1275,7 @@ export class WafClient {
      * @summary 查询防篡改规则列表
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {*} [options] Override http request option.
@@ -1299,7 +1299,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {number} from 查询的带宽统计数据的起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 查询的带宽统计数据的结束时间（13位毫秒时间戳），需要和from同时使用
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {string} [hosts] 域名id，用于查询指定的防护域名在from到to这段时间内的带宽数据。通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
      * @param {string} [instances] 引擎实例id，用于查询指定的独享引擎实例所防护的域名在from到to这段时间内的带宽数据。
      * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示。
@@ -1326,7 +1326,7 @@ export class WafClient {
      * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1346,7 +1346,7 @@ export class WafClient {
      *
      * @summary 查询证书列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {string} [name] 证书名称
@@ -1371,7 +1371,7 @@ export class WafClient {
      *
      * @summary 查询全部防护域名列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。默认值为0，表示默认企业项目。  缺省值：0
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。默认值为0，表示默认企业项目。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。  缺省值：0
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
      * @param {string} [hostname] 域名名称
@@ -1401,7 +1401,7 @@ export class WafClient {
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1422,7 +1422,7 @@ export class WafClient {
      * @summary 查询攻击事件列表
      * @param {string} contentType 内容类型
      * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] 查询日志的时间范围（不能和from、to同时使用，同时使用以recent为准），且recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准
      * @param {number} [from] 起始时间(13位时间戳)，需要和to同时使用，不能和recent参数同时使用
      * @param {number} [to] 结束时间(13位时间戳)，需要和from同时使用，不能和recent参数同时使用
@@ -1450,7 +1450,7 @@ export class WafClient {
      * @summary 查询地理位置访问控制规则列表
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {*} [options] Override http request option.
@@ -1472,7 +1472,7 @@ export class WafClient {
      *
      * @summary 查询云模式防护域名列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
      * @param {string} [hostname] 要查询的防护域名，用于查询指定防护域名信息；可不传，查询用户云模式下所有防护域名
@@ -1497,7 +1497,7 @@ export class WafClient {
      * @summary 获取云模式域名路由信息
      * @param {string} contentType 内容类型
      * @param {string} instanceId 域名id，您可以通过调用查询云模式防护域名列表（ListHost）获取域名id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1518,7 +1518,7 @@ export class WafClient {
      * @summary 查询全局白名单(原误报屏蔽)规则列表
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的全局白名单规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {*} [options] Override http request option.
@@ -1540,7 +1540,7 @@ export class WafClient {
      *
      * @summary 查询WAF独享引擎列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询参数，第page页，默认值为1
      * @param {number} [pagesize] 分页查询参数，每页pagesize条记录，默认值为10
      * @param {string} [instancename] 模糊查询，独享引擎名称
@@ -1563,7 +1563,7 @@ export class WafClient {
      *
      * @summary 查询地址组列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 页码，默认值为1
      * @param {number} [pagesize] 每页的条数，单页条数限制100，默认值为10
      * @param {string} [name] ip地址组名称，支持模糊查询
@@ -1610,7 +1610,7 @@ export class WafClient {
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [top] 要查询的前几的结果，最大值为10，默认值为5。
      * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
      * @param {string} [instances] 要查询引擎实例id
@@ -1633,7 +1633,7 @@ export class WafClient {
      *
      * @summary 查询防护策略列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {string} [name] 策略名称
@@ -1656,7 +1656,7 @@ export class WafClient {
      *
      * @summary 独享模式域名列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {string} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {string} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
      * @param {string} [hostname] 域名
@@ -1682,7 +1682,7 @@ export class WafClient {
      * @summary 查询隐私屏蔽防护规则列表
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {*} [options] Override http request option.
@@ -1707,7 +1707,7 @@ export class WafClient {
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的攻击惩罚规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1729,7 +1729,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
-     * @param {string} [enterpriseProjectId] 通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询企业项目ID
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
      * @param {string} [instances] 要查询引擎实例id（仅独享或者ELB实例化模式涉及）
      * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示
@@ -1754,7 +1754,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {Array<string>} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
      * @param {Array<string>} [instances] 要查询引擎实例id
      * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示
@@ -1779,7 +1779,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {number} from 起始时间(13位时间戳)，需要和to同时使用
      * @param {number} to 结束时间(13位时间戳),需要和from同时使用
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
      * @param {string} [instances] 要查询引擎实例id
      * @param {*} [options] Override http request option.
@@ -1803,7 +1803,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [top] 要查询的前几的结果，默认值为5，最大值为10。
      * @param {number} [code] 要查询的异常状态码，目前支持查询的异常状态码包括404、500以及502。不传该参数默认查询404的状态码。
      * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
@@ -1850,7 +1850,7 @@ export class WafClient {
      * @summary 查询黑白名单规则列表
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {string} [name] 黑白名单规则名称
@@ -1919,7 +1919,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 规则id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1941,7 +1941,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1963,7 +1963,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1985,7 +1985,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
      * @param {string} ruleId ID of the cc rule. It can be obtained by calling the **ListCcRules** API.
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2006,7 +2006,7 @@ export class WafClient {
      * @summary 查询证书
      * @param {string} contentType 内容类型
      * @param {string} certificateId https证书id，您可以通过调用查询证书列表（ListCertificates）接口获取证书id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2027,7 +2027,7 @@ export class WafClient {
      * @summary 根据Id查询防护域名
      * @param {string} contentType 内容类型
      * @param {string} hostId 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2068,7 +2068,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2090,7 +2090,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} eventid 防护事件id,通过调用查询攻击事件列表(ListEvent)接口获取防护事件id
      * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2133,7 +2133,7 @@ export class WafClient {
      * @summary 根据防护域名Id查询云模式防护域名详细信息
      * @param {string} contentType 内容类型
      * @param {string} instanceId 域名id，您可以通过调用查询云模式防护域名列表（ListHost）获取域名id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2155,7 +2155,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2176,7 +2176,7 @@ export class WafClient {
      * @summary 查询WAF独享引擎信息
      * @param {string} contentType 内容类型
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2197,7 +2197,7 @@ export class WafClient {
      * @summary 查询ip地址组明细
      * @param {string} contentType 内容类型
      * @param {string} id ip地址组id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2238,7 +2238,7 @@ export class WafClient {
      * @summary 根据Id查询防护策略
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2259,7 +2259,7 @@ export class WafClient {
      * @summary 查看独享模式域名配置
      * @param {string} contentType 内容类型
      * @param {string} hostId 独享模式域名ID
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2273,7 +2273,7 @@ export class WafClient {
     }
 
     /**
-     * 删除隐私屏蔽防护规则
+     * 查询隐私屏蔽防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2281,7 +2281,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2303,7 +2303,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2362,7 +2362,7 @@ export class WafClient {
      * @summary 查询引用表
      * @param {string} contentType 内容类型
      * @param {string} valuelistid 引用表id，通过查询引用表列表（ListValueList）接口获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2384,7 +2384,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 黑白名单规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8178,7 +8178,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除隐私屏蔽防护规则
+         * 查询隐私屏蔽防护规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

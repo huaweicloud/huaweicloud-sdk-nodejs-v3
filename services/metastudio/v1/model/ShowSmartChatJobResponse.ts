@@ -24,6 +24,7 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public language?: LanguageEnum;
     private 'chat_video_type'?: ShowSmartChatJobResponseChatVideoTypeEnum | string;
     private 'chat_access_address'?: string;
+    private 'chat_access_rest_address'?: string;
     private 'is_transparent'?: boolean;
     private 'default_language'?: ShowSmartChatJobResponseDefaultLanguageEnum | string;
     private 'X-Request-Id'?: string;
@@ -171,6 +172,16 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     }
     public get chatAccessAddress(): string | undefined {
         return this['chat_access_address'];
+    }
+    public withChatAccessRestAddress(chatAccessRestAddress: string): ShowSmartChatJobResponse {
+        this['chat_access_rest_address'] = chatAccessRestAddress;
+        return this;
+    }
+    public set chatAccessRestAddress(chatAccessRestAddress: string  | undefined) {
+        this['chat_access_rest_address'] = chatAccessRestAddress;
+    }
+    public get chatAccessRestAddress(): string | undefined {
+        return this['chat_access_rest_address'];
     }
     public withIsTransparent(isTransparent: boolean): ShowSmartChatJobResponse {
         this['is_transparent'] = isTransparent;

@@ -3,7 +3,8 @@ import { UpdateVpnUserGroupRequestBodyContent } from './UpdateVpnUserGroupReques
 
 export class UpdateVpnUserGroupRequestBody {
     private 'user_group'?: UpdateVpnUserGroupRequestBodyContent;
-    public constructor() { 
+    public constructor(userGroup?: UpdateVpnUserGroupRequestBodyContent) { 
+        this['user_group'] = userGroup;
     }
     public withUserGroup(userGroup: UpdateVpnUserGroupRequestBodyContent): UpdateVpnUserGroupRequestBody {
         this['user_group'] = userGroup;

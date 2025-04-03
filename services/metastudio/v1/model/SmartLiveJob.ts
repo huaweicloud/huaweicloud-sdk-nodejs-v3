@@ -28,6 +28,7 @@ export class SmartLiveJob {
     private 'co_streamer_config'?: CoStreamerConfig;
     private 'live_job_log'?: LiveJobLog;
     private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
+    private 'used_resource_type'?: SmartLiveJobUsedResourceTypeEnum | string;
     public constructor() { 
     }
     public withJobId(jobId: string): SmartLiveJob {
@@ -218,6 +219,16 @@ export class SmartLiveJob {
     public get relationLivePlatformInfo(): PlatformLiveDetailInfo | undefined {
         return this['relation_live_platform_info'];
     }
+    public withUsedResourceType(usedResourceType: SmartLiveJobUsedResourceTypeEnum | string): SmartLiveJob {
+        this['used_resource_type'] = usedResourceType;
+        return this;
+    }
+    public set usedResourceType(usedResourceType: SmartLiveJobUsedResourceTypeEnum | string  | undefined) {
+        this['used_resource_type'] = usedResourceType;
+    }
+    public get usedResourceType(): SmartLiveJobUsedResourceTypeEnum | string | undefined {
+        return this['used_resource_type'];
+    }
 }
 
 /**
@@ -230,4 +241,13 @@ export enum SmartLiveJobStateEnum {
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
     BLOCKED = 'BLOCKED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartLiveJobUsedResourceTypeEnum {
+    PERIOD = 'PERIOD',
+    ONDEMAND = 'ONDEMAND',
+    UNKNOW = 'UNKNOW'
 }

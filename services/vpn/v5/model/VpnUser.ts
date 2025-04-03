@@ -8,6 +8,7 @@ export class VpnUser {
     private 'user_group_name'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
+    private 'static_ip'?: string;
     public constructor() { 
     }
     public withId(id: string): VpnUser {
@@ -61,5 +62,15 @@ export class VpnUser {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withStaticIp(staticIp: string): VpnUser {
+        this['static_ip'] = staticIp;
+        return this;
+    }
+    public set staticIp(staticIp: string  | undefined) {
+        this['static_ip'] = staticIp;
+    }
+    public get staticIp(): string | undefined {
+        return this['static_ip'];
     }
 }

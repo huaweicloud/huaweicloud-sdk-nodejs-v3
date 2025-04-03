@@ -10,6 +10,7 @@ export class ApiParam {
     private 'api_specific_type_str'?: ApiParamApiSpecificTypeStrEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    private 'authorization_status_type'?: ApiParamAuthorizationStatusTypeEnum | string;
     public constructor() { 
     }
     public withName(name: string): ApiParam {
@@ -84,6 +85,16 @@ export class ApiParam {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
+    public withAuthorizationStatusType(authorizationStatusType: ApiParamAuthorizationStatusTypeEnum | string): ApiParam {
+        this['authorization_status_type'] = authorizationStatusType;
+        return this;
+    }
+    public set authorizationStatusType(authorizationStatusType: ApiParamAuthorizationStatusTypeEnum | string  | undefined) {
+        this['authorization_status_type'] = authorizationStatusType;
+    }
+    public get authorizationStatusType(): ApiParamAuthorizationStatusTypeEnum | string | undefined {
+        return this['authorization_status_type'];
+    }
 }
 
 /**
@@ -103,4 +114,13 @@ export enum ApiParamApiSpecificTypeStrEnum {
     API_SPECIFIC_TYPE_SCRIPT = 'API_SPECIFIC_TYPE_SCRIPT',
     API_SPECIFIC_TYPE_MYBATIS = 'API_SPECIFIC_TYPE_MYBATIS',
     API_SPECIFIC_TYPE_GROOVY = 'API_SPECIFIC_TYPE_GROOVY'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiParamAuthorizationStatusTypeEnum {
+    NO_AUTHORIZATION_REQUIRED = 'NO_AUTHORIZATION_REQUIRED',
+    UNAUTHORIZED = 'UNAUTHORIZED',
+    AUTHORIZED = 'AUTHORIZED'
 }

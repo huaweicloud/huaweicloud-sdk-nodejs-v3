@@ -29,6 +29,7 @@ export class ShowSmartLiveResponse extends SdkResponse {
     private 'co_streamer_config'?: CoStreamerConfig;
     private 'live_job_log'?: LiveJobLog;
     private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
+    private 'used_resource_type'?: ShowSmartLiveResponseUsedResourceTypeEnum | string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -221,6 +222,16 @@ export class ShowSmartLiveResponse extends SdkResponse {
     public get relationLivePlatformInfo(): PlatformLiveDetailInfo | undefined {
         return this['relation_live_platform_info'];
     }
+    public withUsedResourceType(usedResourceType: ShowSmartLiveResponseUsedResourceTypeEnum | string): ShowSmartLiveResponse {
+        this['used_resource_type'] = usedResourceType;
+        return this;
+    }
+    public set usedResourceType(usedResourceType: ShowSmartLiveResponseUsedResourceTypeEnum | string  | undefined) {
+        this['used_resource_type'] = usedResourceType;
+    }
+    public get usedResourceType(): ShowSmartLiveResponseUsedResourceTypeEnum | string | undefined {
+        return this['used_resource_type'];
+    }
     public withXRequestId(xRequestId: string): ShowSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -243,4 +254,13 @@ export enum ShowSmartLiveResponseStateEnum {
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
     BLOCKED = 'BLOCKED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSmartLiveResponseUsedResourceTypeEnum {
+    PERIOD = 'PERIOD',
+    ONDEMAND = 'ONDEMAND',
+    UNKNOW = 'UNKNOW'
 }

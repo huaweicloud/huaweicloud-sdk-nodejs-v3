@@ -1,6 +1,8 @@
 export * from './SwrClient';
 
 export * from './model/AuthInfo';
+export * from './model/CreateAuthorizationTokenRequest';
+export * from './model/CreateAuthorizationTokenResponse';
 export * from './model/CreateImageSyncRepoRequest';
 export * from './model/CreateImageSyncRepoRequestBody';
 export * from './model/CreateImageSyncRepoResponse';

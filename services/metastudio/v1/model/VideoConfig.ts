@@ -15,8 +15,7 @@ export class VideoConfig {
     private 'is_enable_super_resolution'?: boolean;
     private 'is_end_at_first_frame'?: boolean;
     private 'output_external_url'?: string;
-    public constructor(codec?: string, bitrate?: number, width?: number, height?: number) { 
-        this['codec'] = codec;
+    public constructor(bitrate?: number, width?: number, height?: number) { 
         this['bitrate'] = bitrate;
         this['width'] = width;
         this['height'] = height;
@@ -132,7 +131,8 @@ export enum VideoConfigClipModeEnum {
 export enum VideoConfigCodecEnum {
     H264 = 'H264',
     VP8 = 'VP8',
-    VP9 = 'VP9'
+    VP9 = 'VP9',
+    QTRLE = 'QTRLE'
 }
 /**
     * @export

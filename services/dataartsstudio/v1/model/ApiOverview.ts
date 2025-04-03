@@ -13,6 +13,7 @@ export class ApiOverview {
     public manager?: string;
     private 'create_user'?: string;
     private 'create_time'?: number;
+    private 'authorization_status'?: ApiOverviewAuthorizationStatusEnum | string;
     public constructor() { 
     }
     public withId(id: string): ApiOverview {
@@ -89,6 +90,16 @@ export class ApiOverview {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
+    public withAuthorizationStatus(authorizationStatus: ApiOverviewAuthorizationStatusEnum | string): ApiOverview {
+        this['authorization_status'] = authorizationStatus;
+        return this;
+    }
+    public set authorizationStatus(authorizationStatus: ApiOverviewAuthorizationStatusEnum | string  | undefined) {
+        this['authorization_status'] = authorizationStatus;
+    }
+    public get authorizationStatus(): ApiOverviewAuthorizationStatusEnum | string | undefined {
+        return this['authorization_status'];
+    }
 }
 
 /**
@@ -124,4 +135,13 @@ export enum ApiOverviewTypeEnum {
     API_SPECIFIC_TYPE_CONFIGURATION = 'API_SPECIFIC_TYPE_CONFIGURATION',
     API_SPECIFIC_TYPE_SCRIPT = 'API_SPECIFIC_TYPE_SCRIPT',
     API_SPECIFIC_TYPE_REGISTER = 'API_SPECIFIC_TYPE_REGISTER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiOverviewAuthorizationStatusEnum {
+    NO_AUTHORIZATION_REQUIRED = 'NO_AUTHORIZATION_REQUIRED',
+    UNAUTHORIZED = 'UNAUTHORIZED',
+    AUTHORIZED = 'AUTHORIZED'
 }

@@ -1,3 +1,4 @@
+import { ActionConfig } from './ActionConfig';
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { ShootScriptAudioFiles } from './ShootScriptAudioFiles';
@@ -20,11 +21,12 @@ export class ShowVideoScriptResponse extends SdkResponse {
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
+    private 'audio_files'?: ShootScriptAudioFiles;
+    private 'action_config'?: ActionConfig;
     private 'shoot_scripts'?: Array<ShootScriptShowItem>;
     private 'script_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
-    private 'audio_files'?: ShootScriptAudioFiles;
     private 'script_cover_url'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
@@ -140,6 +142,26 @@ export class ShowVideoScriptResponse extends SdkResponse {
     public get reviewConfig(): ReviewConfig | undefined {
         return this['review_config'];
     }
+    public withAudioFiles(audioFiles: ShootScriptAudioFiles): ShowVideoScriptResponse {
+        this['audio_files'] = audioFiles;
+        return this;
+    }
+    public set audioFiles(audioFiles: ShootScriptAudioFiles  | undefined) {
+        this['audio_files'] = audioFiles;
+    }
+    public get audioFiles(): ShootScriptAudioFiles | undefined {
+        return this['audio_files'];
+    }
+    public withActionConfig(actionConfig: ActionConfig): ShowVideoScriptResponse {
+        this['action_config'] = actionConfig;
+        return this;
+    }
+    public set actionConfig(actionConfig: ActionConfig  | undefined) {
+        this['action_config'] = actionConfig;
+    }
+    public get actionConfig(): ActionConfig | undefined {
+        return this['action_config'];
+    }
     public withShootScripts(shootScripts: Array<ShootScriptShowItem>): ShowVideoScriptResponse {
         this['shoot_scripts'] = shootScripts;
         return this;
@@ -179,16 +201,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
     public get updateTime(): string | undefined {
         return this['update_time'];
-    }
-    public withAudioFiles(audioFiles: ShootScriptAudioFiles): ShowVideoScriptResponse {
-        this['audio_files'] = audioFiles;
-        return this;
-    }
-    public set audioFiles(audioFiles: ShootScriptAudioFiles  | undefined) {
-        this['audio_files'] = audioFiles;
-    }
-    public get audioFiles(): ShootScriptAudioFiles | undefined {
-        return this['audio_files'];
     }
     public withScriptCoverUrl(scriptCoverUrl: string): ShowVideoScriptResponse {
         this['script_cover_url'] = scriptCoverUrl;

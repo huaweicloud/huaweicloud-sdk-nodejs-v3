@@ -1,8 +1,10 @@
+import { BoundAssetInfo } from './BoundAssetInfo';
 
 
 export class ResourceItemInfo {
     private 'resource_id'?: string;
     private 'order_id'?: string;
+    private 'bound_asset'?: BoundAssetInfo;
     private 'resource_expire_time'?: string;
     private 'resource_type'?: string;
     private 'business_type'?: ResourceItemInfoBusinessTypeEnum | string;
@@ -12,6 +14,7 @@ export class ResourceItemInfo {
     private 'resource_source'?: string;
     public amount?: number;
     public usage?: number;
+    public status?: number;
     public unit?: ResourceItemInfoUnitEnum | string;
     public constructor() { 
     }
@@ -34,6 +37,16 @@ export class ResourceItemInfo {
     }
     public get orderId(): string | undefined {
         return this['order_id'];
+    }
+    public withBoundAsset(boundAsset: BoundAssetInfo): ResourceItemInfo {
+        this['bound_asset'] = boundAsset;
+        return this;
+    }
+    public set boundAsset(boundAsset: BoundAssetInfo  | undefined) {
+        this['bound_asset'] = boundAsset;
+    }
+    public get boundAsset(): BoundAssetInfo | undefined {
+        return this['bound_asset'];
     }
     public withResourceExpireTime(resourceExpireTime: string): ResourceItemInfo {
         this['resource_expire_time'] = resourceExpireTime;
@@ -111,6 +124,10 @@ export class ResourceItemInfo {
     }
     public withUsage(usage: number): ResourceItemInfo {
         this['usage'] = usage;
+        return this;
+    }
+    public withStatus(status: number): ResourceItemInfo {
+        this['status'] = status;
         return this;
     }
     public withUnit(unit: ResourceItemInfoUnitEnum | string): ResourceItemInfo {

@@ -6,6 +6,7 @@ export class DatasourceOrderPara {
     public optional?: boolean;
     public sort?: DatasourceOrderParaSortEnum | string;
     public order?: number;
+    public description?: string;
     public constructor() { 
     }
     public withName(name: string): DatasourceOrderPara {
@@ -26,6 +27,10 @@ export class DatasourceOrderPara {
     }
     public withOrder(order: number): DatasourceOrderPara {
         this['order'] = order;
+        return this;
+    }
+    public withDescription(description: string): DatasourceOrderPara {
+        this['description'] = description;
         return this;
     }
 }

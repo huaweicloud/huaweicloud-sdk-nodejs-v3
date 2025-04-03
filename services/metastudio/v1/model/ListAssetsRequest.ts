@@ -33,6 +33,7 @@ export class ListAssetsRequest {
     private 'include_device_name'?: string;
     private 'exclude_device_name'?: string;
     private 'supported_service'?: ListAssetsRequestSupportedServiceEnum | string;
+    private 'app_user_id'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListAssetsRequest {
@@ -312,6 +313,16 @@ export class ListAssetsRequest {
     }
     public get supportedService(): ListAssetsRequestSupportedServiceEnum | string | undefined {
         return this['supported_service'];
+    }
+    public withAppUserId(appUserId: string): ListAssetsRequest {
+        this['app_user_id'] = appUserId;
+        return this;
+    }
+    public set appUserId(appUserId: string  | undefined) {
+        this['app_user_id'] = appUserId;
+    }
+    public get appUserId(): string | undefined {
+        return this['app_user_id'];
     }
 }
 

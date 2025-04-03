@@ -3,6 +3,8 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AuthInfo } from './model/AuthInfo';
+import { CreateAuthorizationTokenRequest } from './model/CreateAuthorizationTokenRequest';
+import { CreateAuthorizationTokenResponse } from './model/CreateAuthorizationTokenResponse';
 import { CreateImageSyncRepoRequest } from './model/CreateImageSyncRepoRequest';
 import { CreateImageSyncRepoRequestBody } from './model/CreateImageSyncRepoRequestBody';
 import { CreateImageSyncRepoResponse } from './model/CreateImageSyncRepoResponse';
@@ -148,6 +150,25 @@ export class SwrClient {
         return __dirname;
     }
 
+
+    /**
+     * 调用该接口，通过获取响应消息头的X-Swr-Dockerlogin的值及响应消息体的host值，可生成增强型登录指令,注：此接口只支持IAM新平面的调用方式。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成增强型登录指令(新)
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAuthorizationToken(createAuthorizationTokenRequest?: CreateAuthorizationTokenRequest): Promise<CreateAuthorizationTokenResponse> {
+        const options = ParamCreater().createAuthorizationToken(createAuthorizationTokenRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Swr-Dockerlogin', 'x-swr-expireat'];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 创建镜像自动同步任务，帮助您把最新推送的镜像自动同步到其他区域镜像仓库内。 镜像自动同步帮助您把最新推送的镜像自动同步到其他区域镜像仓库内，后期镜像有更新时，目标仓库的镜像也会自动更新，但已有的镜像不会自动同步。已有镜像的同步需要手动操作，详情请参见手动同步镜像。
@@ -1210,6 +1231,42 @@ export class SwrClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 调用该接口，通过获取响应消息头的X-Swr-Dockerlogin的值及响应消息体的host值，可生成增强型登录指令,注：此接口只支持IAM新平面的调用方式。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAuthorizationToken(createAuthorizationTokenRequest?: CreateAuthorizationTokenRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/manage/utils/authorizationtoken",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (createAuthorizationTokenRequest !== null && createAuthorizationTokenRequest !== undefined) {
+                if (createAuthorizationTokenRequest instanceof CreateAuthorizationTokenRequest) {
+                    contentType = createAuthorizationTokenRequest.contentType;
+                } else {
+                    contentType = createAuthorizationTokenRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 创建镜像自动同步任务，帮助您把最新推送的镜像自动同步到其他区域镜像仓库内。 镜像自动同步帮助您把最新推送的镜像自动同步到其他区域镜像仓库内，后期镜像有更新时，目标仓库的镜像也会自动更新，但已有的镜像不会自动同步。已有镜像的同步需要手动操作，详情请参见手动同步镜像。

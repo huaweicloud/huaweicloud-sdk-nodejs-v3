@@ -10,6 +10,7 @@ export class CreateTtsAuditionRequestBody {
     private 'business_type'?: string;
     public style?: string;
     public channels?: number;
+    private 'is_vocabulary_config_enable'?: boolean;
     public constructor(text?: string, emotion?: string) { 
         this['text'] = text;
         this['emotion'] = emotion;
@@ -61,5 +62,15 @@ export class CreateTtsAuditionRequestBody {
     public withChannels(channels: number): CreateTtsAuditionRequestBody {
         this['channels'] = channels;
         return this;
+    }
+    public withIsVocabularyConfigEnable(isVocabularyConfigEnable: boolean): CreateTtsAuditionRequestBody {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+        return this;
+    }
+    public set isVocabularyConfigEnable(isVocabularyConfigEnable: boolean  | undefined) {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+    }
+    public get isVocabularyConfigEnable(): boolean | undefined {
+        return this['is_vocabulary_config_enable'];
     }
 }

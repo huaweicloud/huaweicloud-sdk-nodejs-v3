@@ -22,6 +22,7 @@ export class ServiceList {
     private 'tcp_proxy'?: string;
     public error?: Array<Error>;
     public description?: string;
+    private 'supported_editions'?: Array<string>;
     private 'public_border_group'?: string;
     private 'enable_policy'?: boolean;
     public constructor() { 
@@ -173,6 +174,16 @@ export class ServiceList {
     public withDescription(description: string): ServiceList {
         this['description'] = description;
         return this;
+    }
+    public withSupportedEditions(supportedEditions: Array<string>): ServiceList {
+        this['supported_editions'] = supportedEditions;
+        return this;
+    }
+    public set supportedEditions(supportedEditions: Array<string>  | undefined) {
+        this['supported_editions'] = supportedEditions;
+    }
+    public get supportedEditions(): Array<string> | undefined {
+        return this['supported_editions'];
     }
     public withPublicBorderGroup(publicBorderGroup: string): ServiceList {
         this['public_border_group'] = publicBorderGroup;

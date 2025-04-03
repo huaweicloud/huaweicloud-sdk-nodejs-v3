@@ -3,7 +3,8 @@ import { UpdateClientCaCertificateRequestBodyClientCaCertificate } from './Updat
 
 export class UpdateClientCaCertificateRequestBody {
     private 'client_ca_certificate'?: UpdateClientCaCertificateRequestBodyClientCaCertificate;
-    public constructor() { 
+    public constructor(clientCaCertificate?: UpdateClientCaCertificateRequestBodyClientCaCertificate) { 
+        this['client_ca_certificate'] = clientCaCertificate;
     }
     public withClientCaCertificate(clientCaCertificate: UpdateClientCaCertificateRequestBodyClientCaCertificate): UpdateClientCaCertificateRequestBody {
         this['client_ca_certificate'] = clientCaCertificate;

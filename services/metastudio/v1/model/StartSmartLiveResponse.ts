@@ -10,6 +10,7 @@ export class StartSmartLiveResponse extends SdkResponse {
     private 'live_event_report_url'?: string;
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
     private 'live_warning_info'?: Array<LiveWarningItem>;
+    private 'limit_duration'?: number;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -63,6 +64,16 @@ export class StartSmartLiveResponse extends SdkResponse {
     }
     public get liveWarningInfo(): Array<LiveWarningItem> | undefined {
         return this['live_warning_info'];
+    }
+    public withLimitDuration(limitDuration: number): StartSmartLiveResponse {
+        this['limit_duration'] = limitDuration;
+        return this;
+    }
+    public set limitDuration(limitDuration: number  | undefined) {
+        this['limit_duration'] = limitDuration;
+    }
+    public get limitDuration(): number | undefined {
+        return this['limit_duration'];
     }
     public withXRequestId(xRequestId: string): StartSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;

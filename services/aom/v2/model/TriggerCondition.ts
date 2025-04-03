@@ -9,7 +9,7 @@ export class TriggerCondition {
     private 'metric_labels'?: Array<string>;
     public promql?: string;
     private 'promql_expr'?: Array<string>;
-    private 'trigger_times'?: string;
+    private 'trigger_times'?: number;
     private 'trigger_interval'?: string;
     private 'trigger_type'?: TriggerConditionTriggerTypeEnum | string;
     private 'promql_for'?: string;
@@ -98,14 +98,14 @@ export class TriggerCondition {
     public get promqlExpr(): Array<string> | undefined {
         return this['promql_expr'];
     }
-    public withTriggerTimes(triggerTimes: string): TriggerCondition {
+    public withTriggerTimes(triggerTimes: number): TriggerCondition {
         this['trigger_times'] = triggerTimes;
         return this;
     }
-    public set triggerTimes(triggerTimes: string  | undefined) {
+    public set triggerTimes(triggerTimes: number  | undefined) {
         this['trigger_times'] = triggerTimes;
     }
-    public get triggerTimes(): string | undefined {
+    public get triggerTimes(): number | undefined {
         return this['trigger_times'];
     }
     public withTriggerInterval(triggerInterval: string): TriggerCondition {

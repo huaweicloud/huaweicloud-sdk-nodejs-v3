@@ -13,6 +13,7 @@ export class FactTableAttributeVO {
     private 'dimension_id'?: string;
     public role?: string;
     public dimension?: DimensionVO;
+    private 'dimension_attr_id'?: string;
     private 'is_primary_key'?: boolean;
     private 'is_partition_key'?: boolean;
     private 'is_foreign_key'?: boolean;
@@ -73,6 +74,16 @@ export class FactTableAttributeVO {
     public withDimension(dimension: DimensionVO): FactTableAttributeVO {
         this['dimension'] = dimension;
         return this;
+    }
+    public withDimensionAttrId(dimensionAttrId: string): FactTableAttributeVO {
+        this['dimension_attr_id'] = dimensionAttrId;
+        return this;
+    }
+    public set dimensionAttrId(dimensionAttrId: string  | undefined) {
+        this['dimension_attr_id'] = dimensionAttrId;
+    }
+    public get dimensionAttrId(): string | undefined {
+        return this['dimension_attr_id'];
     }
     public withIsPrimaryKey(isPrimaryKey: boolean): FactTableAttributeVO {
         this['is_primary_key'] = isPrimaryKey;

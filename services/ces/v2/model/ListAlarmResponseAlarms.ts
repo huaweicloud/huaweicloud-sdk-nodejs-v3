@@ -1,6 +1,7 @@
 import { AlarmType } from './AlarmType';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
+import { ResourceLevel } from './ResourceLevel';
 import { ResourcesInListResp } from './ResourcesInListResp';
 
 
@@ -20,6 +21,8 @@ export class ListAlarmResponseAlarms {
     private 'notification_end_time'?: string;
     private 'enterprise_project_id'?: string;
     private 'alarm_template_id'?: string;
+    private 'product_name'?: string;
+    private 'resource_level'?: ResourceLevel;
     public constructor() { 
     }
     public withAlarmId(alarmId: string): ListAlarmResponseAlarms {
@@ -129,5 +132,25 @@ export class ListAlarmResponseAlarms {
     }
     public get alarmTemplateId(): string | undefined {
         return this['alarm_template_id'];
+    }
+    public withProductName(productName: string): ListAlarmResponseAlarms {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
+    }
+    public withResourceLevel(resourceLevel: ResourceLevel): ListAlarmResponseAlarms {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: ResourceLevel  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): ResourceLevel | undefined {
+        return this['resource_level'];
     }
 }

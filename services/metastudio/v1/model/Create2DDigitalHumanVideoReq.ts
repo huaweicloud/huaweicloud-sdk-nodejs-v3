@@ -1,3 +1,4 @@
+import { ActionConfig } from './ActionConfig';
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
 import { CallBackConfig } from './CallBackConfig';
 import { OutputAssetConfig } from './OutputAssetConfig';
@@ -17,6 +18,7 @@ export class Create2DDigitalHumanVideoReq {
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
     private 'callback_config'?: CallBackConfig;
+    private 'action_config'?: ActionConfig;
     public constructor() { 
     }
     public withScriptId(scriptId: string): Create2DDigitalHumanVideoReq {
@@ -108,5 +110,15 @@ export class Create2DDigitalHumanVideoReq {
     }
     public get callbackConfig(): CallBackConfig | undefined {
         return this['callback_config'];
+    }
+    public withActionConfig(actionConfig: ActionConfig): Create2DDigitalHumanVideoReq {
+        this['action_config'] = actionConfig;
+        return this;
+    }
+    public set actionConfig(actionConfig: ActionConfig  | undefined) {
+        this['action_config'] = actionConfig;
+    }
+    public get actionConfig(): ActionConfig | undefined {
+        return this['action_config'];
     }
 }

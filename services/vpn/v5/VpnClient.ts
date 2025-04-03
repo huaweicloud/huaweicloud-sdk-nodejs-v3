@@ -145,6 +145,7 @@ import { ListVpnUsersRequest } from './model/ListVpnUsersRequest';
 import { ListVpnUsersResponse } from './model/ListVpnUsersResponse';
 import { Log } from './model/Log';
 import { Match } from './model/Match';
+import { NexthopResourceVo } from './model/NexthopResourceVo';
 import { OpVpnUser } from './model/OpVpnUser';
 import { PageInfo } from './model/PageInfo';
 import { PolicyRule } from './model/PolicyRule';
@@ -195,6 +196,8 @@ import { ShowVpnConnectionsLogConfigRequest } from './model/ShowVpnConnectionsLo
 import { ShowVpnConnectionsLogConfigResponse } from './model/ShowVpnConnectionsLogConfigResponse';
 import { ShowVpnGatewayCertificateRequest } from './model/ShowVpnGatewayCertificateRequest';
 import { ShowVpnGatewayCertificateResponse } from './model/ShowVpnGatewayCertificateResponse';
+import { ShowVpnGatewayRoutingTableRequest } from './model/ShowVpnGatewayRoutingTableRequest';
+import { ShowVpnGatewayRoutingTableResponse } from './model/ShowVpnGatewayRoutingTableResponse';
 import { ShowVpnUserGroupRequest } from './model/ShowVpnUserGroupRequest';
 import { ShowVpnUserGroupResponse } from './model/ShowVpnUserGroupResponse';
 import { ShowVpnUserRequest } from './model/ShowVpnUserRequest';
@@ -267,6 +270,7 @@ import { VpnAccessPolicy } from './model/VpnAccessPolicy';
 import { VpnGatewayAvailabilityZones } from './model/VpnGatewayAvailabilityZones';
 import { VpnGatewayCertificate } from './model/VpnGatewayCertificate';
 import { VpnGatewayCertificateConfig } from './model/VpnGatewayCertificateConfig';
+import { VpnGatewayRoutingTableEntryVo } from './model/VpnGatewayRoutingTableEntryVo';
 import { VpnResourceTag } from './model/VpnResourceTag';
 import { VpnUser } from './model/VpnUser';
 import { VpnUserGroup } from './model/VpnUserGroup';
@@ -1194,6 +1198,28 @@ export class VpnClient {
      */
     public showVgw(showVgwRequest?: ShowVgwRequest): Promise<ShowVgwResponse> {
         const options = ParamCreater().showVgw(showVgwRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询VPN网关路由表
+     * @param {string} vgwId VPN网关实例ID
+     * @param {number} [limit] 分页查询时每页返回的记录数量
+     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {number} [offset] 分页查询的偏移量
+     * @param {boolean} [isIncludeNexthopResource] 是否包含下一跳资源信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVpnGatewayRoutingTable(showVpnGatewayRoutingTableRequest?: ShowVpnGatewayRoutingTableRequest): Promise<ShowVpnGatewayRoutingTableResponse> {
+        const options = ParamCreater().showVpnGatewayRoutingTable(showVpnGatewayRoutingTableRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3760,6 +3786,71 @@ export const ParamCreater = function () {
             throw new RequiredError('vgwId','Required parameter vgwId was null or undefined when calling showVgw.');
             }
 
+            options.pathParams = { 'vgw_id': vgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVpnGatewayRoutingTable(showVpnGatewayRoutingTableRequest?: ShowVpnGatewayRoutingTableRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vpn-gateways/{vgw_id}/routing-table",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vgwId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+            
+            let isIncludeNexthopResource;
+
+            if (showVpnGatewayRoutingTableRequest !== null && showVpnGatewayRoutingTableRequest !== undefined) {
+                if (showVpnGatewayRoutingTableRequest instanceof ShowVpnGatewayRoutingTableRequest) {
+                    vgwId = showVpnGatewayRoutingTableRequest.vgwId;
+                    limit = showVpnGatewayRoutingTableRequest.limit;
+                    marker = showVpnGatewayRoutingTableRequest.marker;
+                    offset = showVpnGatewayRoutingTableRequest.offset;
+                    isIncludeNexthopResource = showVpnGatewayRoutingTableRequest.isIncludeNexthopResource;
+                } else {
+                    vgwId = showVpnGatewayRoutingTableRequest['vgw_id'];
+                    limit = showVpnGatewayRoutingTableRequest['limit'];
+                    marker = showVpnGatewayRoutingTableRequest['marker'];
+                    offset = showVpnGatewayRoutingTableRequest['offset'];
+                    isIncludeNexthopResource = showVpnGatewayRoutingTableRequest['is_include_nexthop_resource'];
+                }
+            }
+
+        
+            if (vgwId === null || vgwId === undefined) {
+            throw new RequiredError('vgwId','Required parameter vgwId was null or undefined when calling showVpnGatewayRoutingTable.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (isIncludeNexthopResource !== null && isIncludeNexthopResource !== undefined) {
+                localVarQueryParameter['is_include_nexthop_resource'] = isIncludeNexthopResource;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'vgw_id': vgwId, };
             options.headers = localVarHeaderParameter;
             return options;

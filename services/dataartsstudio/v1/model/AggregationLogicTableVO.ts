@@ -7,6 +7,7 @@ import { EnvTypeEnum } from './EnvTypeEnum';
 import { SecretTypeEnum } from './SecretTypeEnum';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
+import { WorkspaceVO } from './WorkspaceVO';
 
 
 export class AggregationLogicTableVO {
@@ -77,6 +78,8 @@ export class AggregationLogicTableVO {
     private 'dev_version_name'?: string;
     private 'prod_version_name'?: string;
     private 'env_type'?: EnvTypeEnum;
+    private 'model_id'?: string;
+    public model?: WorkspaceVO;
     public constructor(tbName?: string, tbLogicName?: string, l3Id?: string, owner?: string, dwId?: string, dbName?: string, dwType?: string) { 
         this['tb_name'] = tbName;
         this['tb_logic_name'] = tbLogicName;
@@ -671,6 +674,20 @@ export class AggregationLogicTableVO {
     }
     public get envType(): EnvTypeEnum | undefined {
         return this['env_type'];
+    }
+    public withModelId(modelId: string): AggregationLogicTableVO {
+        this['model_id'] = modelId;
+        return this;
+    }
+    public set modelId(modelId: string  | undefined) {
+        this['model_id'] = modelId;
+    }
+    public get modelId(): string | undefined {
+        return this['model_id'];
+    }
+    public withModel(model: WorkspaceVO): AggregationLogicTableVO {
+        this['model'] = model;
+        return this;
     }
 }
 

@@ -7,6 +7,7 @@ import { SecrecyLevelVO } from './SecrecyLevelVO';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
 import { TableMappingVO } from './TableMappingVO';
+import { WorkspaceVO } from './WorkspaceVO';
 
 
 export class FactLogicTableVO {
@@ -69,6 +70,8 @@ export class FactLogicTableVO {
     private 'prod_version_name'?: string;
     private 'env_type'?: EnvTypeEnum;
     private 'secrecy_levels'?: Array<SecrecyLevelVO>;
+    private 'model_id'?: string;
+    public model?: WorkspaceVO;
     public constructor(tbName?: string, tbLogicName?: string, l3Id?: string, owner?: string, dwId?: string, dbName?: string, dwType?: string) { 
         this['tb_name'] = tbName;
         this['tb_logic_name'] = tbLogicName;
@@ -571,6 +574,20 @@ export class FactLogicTableVO {
     }
     public get secrecyLevels(): Array<SecrecyLevelVO> | undefined {
         return this['secrecy_levels'];
+    }
+    public withModelId(modelId: string): FactLogicTableVO {
+        this['model_id'] = modelId;
+        return this;
+    }
+    public set modelId(modelId: string  | undefined) {
+        this['model_id'] = modelId;
+    }
+    public get modelId(): string | undefined {
+        return this['model_id'];
+    }
+    public withModel(model: WorkspaceVO): FactLogicTableVO {
+        this['model'] = model;
+        return this;
     }
 }
 

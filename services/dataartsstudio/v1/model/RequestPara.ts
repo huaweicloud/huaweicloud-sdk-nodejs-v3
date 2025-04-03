@@ -8,6 +8,7 @@ export class RequestPara {
     public necessary?: boolean;
     private 'example_value'?: string;
     private 'default_value'?: string;
+    private 'support_null'?: boolean;
     public constructor() { 
     }
     public withName(name: string): RequestPara {
@@ -49,6 +50,16 @@ export class RequestPara {
     }
     public get defaultValue(): string | undefined {
         return this['default_value'];
+    }
+    public withSupportNull(supportNull: boolean): RequestPara {
+        this['support_null'] = supportNull;
+        return this;
+    }
+    public set supportNull(supportNull: boolean  | undefined) {
+        this['support_null'] = supportNull;
+    }
+    public get supportNull(): boolean | undefined {
+        return this['support_null'];
     }
 }
 
