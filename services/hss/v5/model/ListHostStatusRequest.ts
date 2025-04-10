@@ -15,18 +15,29 @@ export class ListHostStatusRequest {
     private 'protect_status'?: string;
     private 'group_id'?: string;
     private 'group_name'?: string;
+    private 'vpc_id'?: string;
     public region?: string;
     private 'has_intrusion'?: boolean;
+    private 'has_vul'?: boolean;
+    private 'has_baseline'?: boolean;
+    private 'sort_key'?: string;
+    private 'sort_dir'?: string;
     private 'policy_group_id'?: string;
     private 'policy_group_name'?: string;
     private 'charging_mode'?: string;
     public refresh?: boolean;
+    private 'get_common_login_locations'?: boolean;
     private 'above_version'?: boolean;
     private 'outside_host'?: boolean;
     private 'asset_value'?: string;
     public label?: string;
     private 'server_group'?: string;
     private 'agent_upgradable'?: boolean;
+    private 'install_mode'?: boolean;
+    private 'binding_key'?: boolean;
+    private 'protect_interrupt'?: boolean;
+    public incluster?: boolean;
+    private 'protect_degradation'?: boolean;
     public limit?: number;
     public offset?: number;
     public constructor() { 
@@ -165,6 +176,16 @@ export class ListHostStatusRequest {
     public get groupName(): string | undefined {
         return this['group_name'];
     }
+    public withVpcId(vpcId: string): ListHostStatusRequest {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string  | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId(): string | undefined {
+        return this['vpc_id'];
+    }
     public withRegion(region: string): ListHostStatusRequest {
         this['region'] = region;
         return this;
@@ -178,6 +199,46 @@ export class ListHostStatusRequest {
     }
     public get hasIntrusion(): boolean | undefined {
         return this['has_intrusion'];
+    }
+    public withHasVul(hasVul: boolean): ListHostStatusRequest {
+        this['has_vul'] = hasVul;
+        return this;
+    }
+    public set hasVul(hasVul: boolean  | undefined) {
+        this['has_vul'] = hasVul;
+    }
+    public get hasVul(): boolean | undefined {
+        return this['has_vul'];
+    }
+    public withHasBaseline(hasBaseline: boolean): ListHostStatusRequest {
+        this['has_baseline'] = hasBaseline;
+        return this;
+    }
+    public set hasBaseline(hasBaseline: boolean  | undefined) {
+        this['has_baseline'] = hasBaseline;
+    }
+    public get hasBaseline(): boolean | undefined {
+        return this['has_baseline'];
+    }
+    public withSortKey(sortKey: string): ListHostStatusRequest {
+        this['sort_key'] = sortKey;
+        return this;
+    }
+    public set sortKey(sortKey: string  | undefined) {
+        this['sort_key'] = sortKey;
+    }
+    public get sortKey(): string | undefined {
+        return this['sort_key'];
+    }
+    public withSortDir(sortDir: string): ListHostStatusRequest {
+        this['sort_dir'] = sortDir;
+        return this;
+    }
+    public set sortDir(sortDir: string  | undefined) {
+        this['sort_dir'] = sortDir;
+    }
+    public get sortDir(): string | undefined {
+        return this['sort_dir'];
     }
     public withPolicyGroupId(policyGroupId: string): ListHostStatusRequest {
         this['policy_group_id'] = policyGroupId;
@@ -212,6 +273,16 @@ export class ListHostStatusRequest {
     public withRefresh(refresh: boolean): ListHostStatusRequest {
         this['refresh'] = refresh;
         return this;
+    }
+    public withGetCommonLoginLocations(getCommonLoginLocations: boolean): ListHostStatusRequest {
+        this['get_common_login_locations'] = getCommonLoginLocations;
+        return this;
+    }
+    public set getCommonLoginLocations(getCommonLoginLocations: boolean  | undefined) {
+        this['get_common_login_locations'] = getCommonLoginLocations;
+    }
+    public get getCommonLoginLocations(): boolean | undefined {
+        return this['get_common_login_locations'];
     }
     public withAboveVersion(aboveVersion: boolean): ListHostStatusRequest {
         this['above_version'] = aboveVersion;
@@ -266,6 +337,50 @@ export class ListHostStatusRequest {
     }
     public get agentUpgradable(): boolean | undefined {
         return this['agent_upgradable'];
+    }
+    public withInstallMode(installMode: boolean): ListHostStatusRequest {
+        this['install_mode'] = installMode;
+        return this;
+    }
+    public set installMode(installMode: boolean  | undefined) {
+        this['install_mode'] = installMode;
+    }
+    public get installMode(): boolean | undefined {
+        return this['install_mode'];
+    }
+    public withBindingKey(bindingKey: boolean): ListHostStatusRequest {
+        this['binding_key'] = bindingKey;
+        return this;
+    }
+    public set bindingKey(bindingKey: boolean  | undefined) {
+        this['binding_key'] = bindingKey;
+    }
+    public get bindingKey(): boolean | undefined {
+        return this['binding_key'];
+    }
+    public withProtectInterrupt(protectInterrupt: boolean): ListHostStatusRequest {
+        this['protect_interrupt'] = protectInterrupt;
+        return this;
+    }
+    public set protectInterrupt(protectInterrupt: boolean  | undefined) {
+        this['protect_interrupt'] = protectInterrupt;
+    }
+    public get protectInterrupt(): boolean | undefined {
+        return this['protect_interrupt'];
+    }
+    public withIncluster(incluster: boolean): ListHostStatusRequest {
+        this['incluster'] = incluster;
+        return this;
+    }
+    public withProtectDegradation(protectDegradation: boolean): ListHostStatusRequest {
+        this['protect_degradation'] = protectDegradation;
+        return this;
+    }
+    public set protectDegradation(protectDegradation: boolean  | undefined) {
+        this['protect_degradation'] = protectDegradation;
+    }
+    public get protectDegradation(): boolean | undefined {
+        return this['protect_degradation'];
     }
     public withLimit(limit: number): ListHostStatusRequest {
         this['limit'] = limit;

@@ -4,6 +4,7 @@ export class ListPortStatisticsRequest {
     public port?: number;
     private 'port_string'?: string;
     public type?: string;
+    public status?: string;
     private 'enterprise_project_id'?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
@@ -28,6 +29,10 @@ export class ListPortStatisticsRequest {
     }
     public withType(type: string): ListPortStatisticsRequest {
         this['type'] = type;
+        return this;
+    }
+    public withStatus(status: string): ListPortStatisticsRequest {
+        this['status'] = status;
         return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPortStatisticsRequest {

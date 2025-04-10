@@ -21,6 +21,7 @@ export class ImageLocalInfo {
     private 'host_name'?: string;
     private 'host_id'?: string;
     private 'agent_id'?: string;
+    private 'non_scan_reason'?: string;
     public constructor() { 
     }
     public withImageName(imageName: string): ImageLocalInfo {
@@ -222,5 +223,15 @@ export class ImageLocalInfo {
     }
     public get agentId(): string | undefined {
         return this['agent_id'];
+    }
+    public withNonScanReason(nonScanReason: string): ImageLocalInfo {
+        this['non_scan_reason'] = nonScanReason;
+        return this;
+    }
+    public set nonScanReason(nonScanReason: string  | undefined) {
+        this['non_scan_reason'] = nonScanReason;
+    }
+    public get nonScanReason(): string | undefined {
+        return this['non_scan_reason'];
     }
 }

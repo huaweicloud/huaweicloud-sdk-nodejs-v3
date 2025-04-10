@@ -37,11 +37,14 @@ import { ConfigurationSummary } from './model/ConfigurationSummary';
 import { ConfigurationsResult } from './model/ConfigurationsResult';
 import { ConfirmRestoredDataRequest } from './model/ConfirmRestoredDataRequest';
 import { ConfirmRestoredDataResponse } from './model/ConfirmRestoredDataResponse';
+import { ConstructReq } from './model/ConstructReq';
 import { CopyConfigurationRequest } from './model/CopyConfigurationRequest';
 import { CopyConfigurationResponse } from './model/CopyConfigurationResponse';
 import { CreateConfigurationTemplateRequest } from './model/CreateConfigurationTemplateRequest';
 import { CreateConfigurationTemplateRequestBody } from './model/CreateConfigurationTemplateRequestBody';
 import { CreateConfigurationTemplateResponse } from './model/CreateConfigurationTemplateResponse';
+import { CreateCrossCloudConstructDisasterRequest } from './model/CreateCrossCloudConstructDisasterRequest';
+import { CreateCrossCloudConstructDisasterResponse } from './model/CreateCrossCloudConstructDisasterResponse';
 import { CreateDatabaseInstanceRequest } from './model/CreateDatabaseInstanceRequest';
 import { CreateDatabaseInstanceRequestBody } from './model/CreateDatabaseInstanceRequestBody';
 import { CreateDatabaseInstanceResponse } from './model/CreateDatabaseInstanceResponse';
@@ -103,12 +106,34 @@ import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
 import { DeleteScheduleTaskRequest } from './model/DeleteScheduleTaskRequest';
 import { DeleteScheduleTaskResponse } from './model/DeleteScheduleTaskResponse';
+import { DisasterFailoverReqBody } from './model/DisasterFailoverReqBody';
+import { DisasterRecoverStartSimulationRequestBody } from './model/DisasterRecoverStartSimulationRequestBody';
+import { DisasterRecoverStartXlogKeepRequestBody } from './model/DisasterRecoverStartXlogKeepRequestBody';
+import { DisasterRecoverStopSimulationRequestBody } from './model/DisasterRecoverStopSimulationRequestBody';
+import { DisasterRecoverStopXlogKeepRequestBody } from './model/DisasterRecoverStopXlogKeepRequestBody';
+import { DisasterRelations } from './model/DisasterRelations';
 import { DownloadBackupErrorResponse } from './model/DownloadBackupErrorResponse';
 import { DownloadBackupRequest } from './model/DownloadBackupRequest';
 import { DownloadBackupResponse } from './model/DownloadBackupResponse';
 import { DownloadObject } from './model/DownloadObject';
 import { EpsQuotasOption } from './model/EpsQuotasOption';
 import { ErrorResponse } from './model/ErrorResponse';
+import { ExecuteCrossCloudDisasterDataCacheEndRequest } from './model/ExecuteCrossCloudDisasterDataCacheEndRequest';
+import { ExecuteCrossCloudDisasterDataCacheEndResponse } from './model/ExecuteCrossCloudDisasterDataCacheEndResponse';
+import { ExecuteCrossCloudDisasterDataCacheStartRequest } from './model/ExecuteCrossCloudDisasterDataCacheStartRequest';
+import { ExecuteCrossCloudDisasterDataCacheStartResponse } from './model/ExecuteCrossCloudDisasterDataCacheStartResponse';
+import { ExecuteCrossCloudDisasterEndSimulationRequest } from './model/ExecuteCrossCloudDisasterEndSimulationRequest';
+import { ExecuteCrossCloudDisasterEndSimulationResponse } from './model/ExecuteCrossCloudDisasterEndSimulationResponse';
+import { ExecuteCrossCloudDisasterRecoveryFailoverRequest } from './model/ExecuteCrossCloudDisasterRecoveryFailoverRequest';
+import { ExecuteCrossCloudDisasterRecoveryFailoverResponse } from './model/ExecuteCrossCloudDisasterRecoveryFailoverResponse';
+import { ExecuteCrossCloudDisasterRestoreRequest } from './model/ExecuteCrossCloudDisasterRestoreRequest';
+import { ExecuteCrossCloudDisasterRestoreResponse } from './model/ExecuteCrossCloudDisasterRestoreResponse';
+import { ExecuteCrossCloudDisasterStartSimulationRequest } from './model/ExecuteCrossCloudDisasterStartSimulationRequest';
+import { ExecuteCrossCloudDisasterStartSimulationResponse } from './model/ExecuteCrossCloudDisasterStartSimulationResponse';
+import { ExecuteCrossCloudDisasterSwitchoverRequest } from './model/ExecuteCrossCloudDisasterSwitchoverRequest';
+import { ExecuteCrossCloudDisasterSwitchoverResponse } from './model/ExecuteCrossCloudDisasterSwitchoverResponse';
+import { ExecuteCrossCloudReleaseDisasterRequest } from './model/ExecuteCrossCloudReleaseDisasterRequest';
+import { ExecuteCrossCloudReleaseDisasterResponse } from './model/ExecuteCrossCloudReleaseDisasterResponse';
 import { FeatureResult } from './model/FeatureResult';
 import { Flavor } from './model/Flavor';
 import { FlavorErrorResponse } from './model/FlavorErrorResponse';
@@ -188,6 +213,8 @@ import { ListDbFlavorsResponse } from './model/ListDbFlavorsResponse';
 import { ListDbUsersRequest } from './model/ListDbUsersRequest';
 import { ListDbUsersResponse } from './model/ListDbUsersResponse';
 import { ListDiffDetailsResult } from './model/ListDiffDetailsResult';
+import { ListDisasterRecoveryRecordRequest } from './model/ListDisasterRecoveryRecordRequest';
+import { ListDisasterRecoveryRecordResponse } from './model/ListDisasterRecoveryRecordResponse';
 import { ListEpsQuotasRequest } from './model/ListEpsQuotasRequest';
 import { ListEpsQuotasResponse } from './model/ListEpsQuotasResponse';
 import { ListFeaturesRequest } from './model/ListFeaturesRequest';
@@ -306,14 +333,20 @@ import { ParamGroupDiffRequestBody } from './model/ParamGroupDiffRequestBody';
 import { PluginExtensions } from './model/PluginExtensions';
 import { ProjectQuotasResult } from './model/ProjectQuotasResult';
 import { PwdResetRequest } from './model/PwdResetRequest';
+import { RecordInfoResponse } from './model/RecordInfoResponse';
 import { RecoveryBackupSource } from './model/RecoveryBackupSource';
 import { RecoveryBackupTarget } from './model/RecoveryBackupTarget';
 import { RecycleInstancesDetailResult } from './model/RecycleInstancesDetailResult';
 import { RecycleInstancesDetailResultV1 } from './model/RecycleInstancesDetailResultV1';
 import { RecyclePolicy } from './model/RecyclePolicy';
 import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
+import { RegionInstanceInfo } from './model/RegionInstanceInfo';
+import { ReleaseDisasterReq } from './model/ReleaseDisasterReq';
 import { ResetConfigurationRequest } from './model/ResetConfigurationRequest';
 import { ResetConfigurationResponse } from './model/ResetConfigurationResponse';
+import { ResetDrConfigRequest } from './model/ResetDrConfigRequest';
+import { ResetDrConfigRequestBody } from './model/ResetDrConfigRequestBody';
+import { ResetDrConfigResponse } from './model/ResetDrConfigResponse';
 import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
 import { ResizeInstanceFlavorRequest } from './model/ResizeInstanceFlavorRequest';
@@ -322,6 +355,7 @@ import { ResourceErrorResponse } from './model/ResourceErrorResponse';
 import { ResourceResult } from './model/ResourceResult';
 import { RestartInstanceRequest } from './model/RestartInstanceRequest';
 import { RestartInstanceResponse } from './model/RestartInstanceResponse';
+import { RestoreDisasterReq } from './model/RestoreDisasterReq';
 import { RestoreInstanceRequest } from './model/RestoreInstanceRequest';
 import { RestoreInstanceRequestBody } from './model/RestoreInstanceRequestBody';
 import { RestoreInstanceResponse } from './model/RestoreInstanceResponse';
@@ -358,6 +392,10 @@ import { ShowBatchUpgradeCandidateVersionsRequest } from './model/ShowBatchUpgra
 import { ShowBatchUpgradeCandidateVersionsResponse } from './model/ShowBatchUpgradeCandidateVersionsResponse';
 import { ShowConfigurationDetailRequest } from './model/ShowConfigurationDetailRequest';
 import { ShowConfigurationDetailResponse } from './model/ShowConfigurationDetailResponse';
+import { ShowCrossCloudDisasterInstanceMonitorRequest } from './model/ShowCrossCloudDisasterInstanceMonitorRequest';
+import { ShowCrossCloudDisasterInstanceMonitorResponse } from './model/ShowCrossCloudDisasterInstanceMonitorResponse';
+import { ShowCrossCloudDisasterRelationsRequest } from './model/ShowCrossCloudDisasterRelationsRequest';
+import { ShowCrossCloudDisasterRelationsResponse } from './model/ShowCrossCloudDisasterRelationsResponse';
 import { ShowDeploymentFormRequest } from './model/ShowDeploymentFormRequest';
 import { ShowDeploymentFormResponse } from './model/ShowDeploymentFormResponse';
 import { ShowErrorLogSwitchStatusRequest } from './model/ShowErrorLogSwitchStatusRequest';
@@ -411,6 +449,7 @@ import { SwitchConfigurationResponse } from './model/SwitchConfigurationResponse
 import { SwitchShardRequest } from './model/SwitchShardRequest';
 import { SwitchShardRequestBody } from './model/SwitchShardRequestBody';
 import { SwitchShardResponse } from './model/SwitchShardResponse';
+import { SwitchoverReq } from './model/SwitchoverReq';
 import { SyncLimitDataRequest } from './model/SyncLimitDataRequest';
 import { SyncLimitDataResponse } from './model/SyncLimitDataResponse';
 import { TagResult } from './model/TagResult';
@@ -641,6 +680,27 @@ export class GaussDBforopenGaussClient {
      */
     public createConfigurationTemplate(createConfigurationTemplateRequest?: CreateConfigurationTemplateRequest): Promise<CreateConfigurationTemplateResponse> {
         const options = ParamCreater().createConfigurationTemplate(createConfigurationTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 搭建容灾关系（从主实例端下发）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 搭建容灾关系
+     * @param {string} instanceId 实例id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {ConstructReq} [createCrossCloudConstructDisasterRequestBody] 容灾类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCrossCloudConstructDisaster(createCrossCloudConstructDisasterRequest?: CreateCrossCloudConstructDisasterRequest): Promise<CreateCrossCloudConstructDisasterResponse> {
+        const options = ParamCreater().createCrossCloudConstructDisaster(createCrossCloudConstructDisasterRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1069,6 +1129,174 @@ export class GaussDBforopenGaussClient {
      */
     public downloadBackup(downloadBackupRequest?: DownloadBackupRequest): Promise<DownloadBackupResponse> {
         const options = ParamCreater().downloadBackup(downloadBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 结束stream流式容灾的日志保持功能，目前只有stream流容灾支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 主实例结束容灾日志保持
+     * @param {string} instanceId 实例id。
+     * @param {DisasterRecoverStopXlogKeepRequestBody} executeCrossCloudDisasterDataCacheEndRequestBody 日志保持结束请求消息体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterDataCacheEnd(executeCrossCloudDisasterDataCacheEndRequest?: ExecuteCrossCloudDisasterDataCacheEndRequest): Promise<ExecuteCrossCloudDisasterDataCacheEndResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterDataCacheEnd(executeCrossCloudDisasterDataCacheEndRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 主实例开始容灾日志保持，目前只有stream流容灾支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开始日志保持
+     * @param {string} instanceId 实例id。
+     * @param {DisasterRecoverStartXlogKeepRequestBody} executeCrossCloudDisasterDataCacheStartRequestBody 日志保持开始请求消息体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterDataCacheStart(executeCrossCloudDisasterDataCacheStartRequest?: ExecuteCrossCloudDisasterDataCacheStartRequest): Promise<ExecuteCrossCloudDisasterDataCacheStartResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterDataCacheStart(executeCrossCloudDisasterDataCacheStartRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 灾备实例结束容灾演练，目前只有stream流容灾支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 结束容灾演练
+     * @param {string} instanceId 实例id。
+     * @param {DisasterRecoverStopSimulationRequestBody} executeCrossCloudDisasterEndSimulationRequestBody 容灾演练结束请求消息体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterEndSimulation(executeCrossCloudDisasterEndSimulationRequest?: ExecuteCrossCloudDisasterEndSimulationRequest): Promise<ExecuteCrossCloudDisasterEndSimulationResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterEndSimulation(executeCrossCloudDisasterEndSimulationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 容灾升主failover（灾备实例端下发）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 备实例容灾升主
+     * @param {string} instanceId 实例id。
+     * @param {DisasterFailoverReqBody} executeCrossCloudDisasterRecoveryFailoverRequestBody 容灾灾备升主请求参数。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterRecoveryFailover(executeCrossCloudDisasterRecoveryFailoverRequest?: ExecuteCrossCloudDisasterRecoveryFailoverRequest): Promise<ExecuteCrossCloudDisasterRecoveryFailoverResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterRecoveryFailover(executeCrossCloudDisasterRecoveryFailoverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 流容灾备升主选择支持容灾回切，实现容灾关系的重建任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重建容灾关系
+     * @param {string} instanceId 实例id。
+     * @param {RestoreDisasterReq} executeCrossCloudDisasterRestoreRequestBody 容灾回切请求参数。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterRestore(executeCrossCloudDisasterRestoreRequest?: ExecuteCrossCloudDisasterRestoreRequest): Promise<ExecuteCrossCloudDisasterRestoreResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterRestore(executeCrossCloudDisasterRestoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开始容灾演练，目前只有stream流容灾支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开始容灾演练
+     * @param {string} instanceId 实例id。
+     * @param {DisasterRecoverStartSimulationRequestBody} executeCrossCloudDisasterStartSimulationRequestBody 容灾演练开始请求消息体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterStartSimulation(executeCrossCloudDisasterStartSimulationRequest?: ExecuteCrossCloudDisasterStartSimulationRequest): Promise<ExecuteCrossCloudDisasterStartSimulationResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterStartSimulation(executeCrossCloudDisasterStartSimulationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 容灾switchover（可在主备任一一端下发）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 灾备实例主从切换
+     * @param {string} instanceId 实例id。
+     * @param {SwitchoverReq} executeCrossCloudDisasterSwitchoverRequestBody switchover请求参数。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudDisasterSwitchover(executeCrossCloudDisasterSwitchoverRequest?: ExecuteCrossCloudDisasterSwitchoverRequest): Promise<ExecuteCrossCloudDisasterSwitchoverResponse> {
+        const options = ParamCreater().executeCrossCloudDisasterSwitchover(executeCrossCloudDisasterSwitchoverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解除容灾（从容灾主集群下发）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除容灾关系
+     * @param {string} instanceId 实例id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {ReleaseDisasterReq} [executeCrossCloudReleaseDisasterRequestBody] 解除容灾请求参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCrossCloudReleaseDisaster(executeCrossCloudReleaseDisasterRequest?: ExecuteCrossCloudReleaseDisasterRequest): Promise<ExecuteCrossCloudReleaseDisasterResponse> {
+        const options = ParamCreater().executeCrossCloudReleaseDisaster(executeCrossCloudReleaseDisasterRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1521,6 +1749,30 @@ export class GaussDBforopenGaussClient {
      */
     public listDbUsers(listDbUsersRequest?: ListDbUsersRequest): Promise<ListDbUsersResponse> {
         const options = ParamCreater().listDbUsers(listDbUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询容灾操作记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询操作记录
+     * @param {string} instanceId 实例id。
+     * @param {string} entityId 实体id（容灾id）
+     * @param {'dr'} entityType 实体类型（容灾类型）
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDisasterRecoveryRecord(listDisasterRecoveryRecordRequest?: ListDisasterRecoveryRecordRequest): Promise<ListDisasterRecoveryRecordResponse> {
+        const options = ParamCreater().listDisasterRecoveryRecord(listDisasterRecoveryRecordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2202,6 +2454,27 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 重置容灾网络等配置。1.将自动“创建委托”以授权DBS云服务访问VPC资源信息、查询IAAS接口。2.重置实例容灾网络等配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置容灾配置
+     * @param {string} instanceId 实例id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {ResetDrConfigRequestBody} [resetDrConfigRequestBody] 重置容灾配置请求参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetDrConfig(resetDrConfigRequest?: ResetDrConfigRequest): Promise<ResetDrConfigResponse> {
+        const options = ParamCreater().resetDrConfig(resetDrConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重置数据库密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2521,6 +2794,53 @@ export class GaussDBforopenGaussClient {
      */
     public showConfigurationDetail(showConfigurationDetailRequest?: ShowConfigurationDetailRequest): Promise<ShowConfigurationDetailResponse> {
         const options = ParamCreater().showConfigurationDetail(showConfigurationDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例容灾监控实时状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例容灾监控实时状态
+     * @param {string} instanceId 实例id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {'stream' | 'dorado'} [disasterType] 容灾类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCrossCloudDisasterInstanceMonitor(showCrossCloudDisasterInstanceMonitorRequest?: ShowCrossCloudDisasterInstanceMonitorRequest): Promise<ShowCrossCloudDisasterInstanceMonitorResponse> {
+        const options = ParamCreater().showCrossCloudDisasterInstanceMonitor(showCrossCloudDisasterInstanceMonitorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询容灾关系列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询容灾关系列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {string} [instanceName] 实例名称，可查询过滤本端实例名称。
+     * @param {string} [instanceId] 实例id，可查询过滤本端实例id。
+     * @param {'master' | 'disaster'} [drRole] 容灾角色 - master 主 - disaster 备
+     * @param {'stream' | 'dorado'} [drType] 容灾类型 - stream - dorado
+     * @param {'normal' | 'failover' | 'pending' | 'pre_check_failed' | 'pre_checking'} [drStatus] 状态 - normal - failover - pending - pre_check_failed - pre_checking
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCrossCloudDisasterRelations(showCrossCloudDisasterRelationsRequest?: ShowCrossCloudDisasterRelationsRequest): Promise<ShowCrossCloudDisasterRelationsResponse> {
+        const options = ParamCreater().showCrossCloudDisasterRelations(showCrossCloudDisasterRelationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3768,6 +4088,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 搭建容灾关系（从主实例端下发）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCrossCloudConstructDisaster(createCrossCloudConstructDisasterRequest?: CreateCrossCloudConstructDisasterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/construct",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createCrossCloudConstructDisasterRequest !== null && createCrossCloudConstructDisasterRequest !== undefined) {
+                if (createCrossCloudConstructDisasterRequest instanceof CreateCrossCloudConstructDisasterRequest) {
+                    instanceId = createCrossCloudConstructDisasterRequest.instanceId;
+                    xLanguage = createCrossCloudConstructDisasterRequest.xLanguage;
+                    body = createCrossCloudConstructDisasterRequest.body
+                } else {
+                    instanceId = createCrossCloudConstructDisasterRequest['instance_id'];
+                    xLanguage = createCrossCloudConstructDisasterRequest['X-Language'];
+                    body = createCrossCloudConstructDisasterRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createCrossCloudConstructDisaster.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在指定实例中创建数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4771,6 +5141,427 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 结束stream流式容灾的日志保持功能，目前只有stream流容灾支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterDataCacheEnd(executeCrossCloudDisasterDataCacheEndRequest?: ExecuteCrossCloudDisasterDataCacheEndRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/keep-log-stop",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterDataCacheEndRequest !== null && executeCrossCloudDisasterDataCacheEndRequest !== undefined) {
+                if (executeCrossCloudDisasterDataCacheEndRequest instanceof ExecuteCrossCloudDisasterDataCacheEndRequest) {
+                    instanceId = executeCrossCloudDisasterDataCacheEndRequest.instanceId;
+                    body = executeCrossCloudDisasterDataCacheEndRequest.body
+                    xLanguage = executeCrossCloudDisasterDataCacheEndRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterDataCacheEndRequest['instance_id'];
+                    body = executeCrossCloudDisasterDataCacheEndRequest['body'];
+                    xLanguage = executeCrossCloudDisasterDataCacheEndRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterDataCacheEnd.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 主实例开始容灾日志保持，目前只有stream流容灾支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterDataCacheStart(executeCrossCloudDisasterDataCacheStartRequest?: ExecuteCrossCloudDisasterDataCacheStartRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/keep-log-start",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterDataCacheStartRequest !== null && executeCrossCloudDisasterDataCacheStartRequest !== undefined) {
+                if (executeCrossCloudDisasterDataCacheStartRequest instanceof ExecuteCrossCloudDisasterDataCacheStartRequest) {
+                    instanceId = executeCrossCloudDisasterDataCacheStartRequest.instanceId;
+                    body = executeCrossCloudDisasterDataCacheStartRequest.body
+                    xLanguage = executeCrossCloudDisasterDataCacheStartRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterDataCacheStartRequest['instance_id'];
+                    body = executeCrossCloudDisasterDataCacheStartRequest['body'];
+                    xLanguage = executeCrossCloudDisasterDataCacheStartRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterDataCacheStart.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 灾备实例结束容灾演练，目前只有stream流容灾支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterEndSimulation(executeCrossCloudDisasterEndSimulationRequest?: ExecuteCrossCloudDisasterEndSimulationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/simulation-stop",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterEndSimulationRequest !== null && executeCrossCloudDisasterEndSimulationRequest !== undefined) {
+                if (executeCrossCloudDisasterEndSimulationRequest instanceof ExecuteCrossCloudDisasterEndSimulationRequest) {
+                    instanceId = executeCrossCloudDisasterEndSimulationRequest.instanceId;
+                    body = executeCrossCloudDisasterEndSimulationRequest.body
+                    xLanguage = executeCrossCloudDisasterEndSimulationRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterEndSimulationRequest['instance_id'];
+                    body = executeCrossCloudDisasterEndSimulationRequest['body'];
+                    xLanguage = executeCrossCloudDisasterEndSimulationRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterEndSimulation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 容灾升主failover（灾备实例端下发）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterRecoveryFailover(executeCrossCloudDisasterRecoveryFailoverRequest?: ExecuteCrossCloudDisasterRecoveryFailoverRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/failover",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterRecoveryFailoverRequest !== null && executeCrossCloudDisasterRecoveryFailoverRequest !== undefined) {
+                if (executeCrossCloudDisasterRecoveryFailoverRequest instanceof ExecuteCrossCloudDisasterRecoveryFailoverRequest) {
+                    instanceId = executeCrossCloudDisasterRecoveryFailoverRequest.instanceId;
+                    body = executeCrossCloudDisasterRecoveryFailoverRequest.body
+                    xLanguage = executeCrossCloudDisasterRecoveryFailoverRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterRecoveryFailoverRequest['instance_id'];
+                    body = executeCrossCloudDisasterRecoveryFailoverRequest['body'];
+                    xLanguage = executeCrossCloudDisasterRecoveryFailoverRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterRecoveryFailover.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 流容灾备升主选择支持容灾回切，实现容灾关系的重建任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterRestore(executeCrossCloudDisasterRestoreRequest?: ExecuteCrossCloudDisasterRestoreRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/restore",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterRestoreRequest !== null && executeCrossCloudDisasterRestoreRequest !== undefined) {
+                if (executeCrossCloudDisasterRestoreRequest instanceof ExecuteCrossCloudDisasterRestoreRequest) {
+                    instanceId = executeCrossCloudDisasterRestoreRequest.instanceId;
+                    body = executeCrossCloudDisasterRestoreRequest.body
+                    xLanguage = executeCrossCloudDisasterRestoreRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterRestoreRequest['instance_id'];
+                    body = executeCrossCloudDisasterRestoreRequest['body'];
+                    xLanguage = executeCrossCloudDisasterRestoreRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterRestore.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开始容灾演练，目前只有stream流容灾支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterStartSimulation(executeCrossCloudDisasterStartSimulationRequest?: ExecuteCrossCloudDisasterStartSimulationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/simulation-start",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterStartSimulationRequest !== null && executeCrossCloudDisasterStartSimulationRequest !== undefined) {
+                if (executeCrossCloudDisasterStartSimulationRequest instanceof ExecuteCrossCloudDisasterStartSimulationRequest) {
+                    instanceId = executeCrossCloudDisasterStartSimulationRequest.instanceId;
+                    body = executeCrossCloudDisasterStartSimulationRequest.body
+                    xLanguage = executeCrossCloudDisasterStartSimulationRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterStartSimulationRequest['instance_id'];
+                    body = executeCrossCloudDisasterStartSimulationRequest['body'];
+                    xLanguage = executeCrossCloudDisasterStartSimulationRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterStartSimulation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 容灾switchover（可在主备任一一端下发）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudDisasterSwitchover(executeCrossCloudDisasterSwitchoverRequest?: ExecuteCrossCloudDisasterSwitchoverRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/switchover",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudDisasterSwitchoverRequest !== null && executeCrossCloudDisasterSwitchoverRequest !== undefined) {
+                if (executeCrossCloudDisasterSwitchoverRequest instanceof ExecuteCrossCloudDisasterSwitchoverRequest) {
+                    instanceId = executeCrossCloudDisasterSwitchoverRequest.instanceId;
+                    body = executeCrossCloudDisasterSwitchoverRequest.body
+                    xLanguage = executeCrossCloudDisasterSwitchoverRequest.xLanguage;
+                } else {
+                    instanceId = executeCrossCloudDisasterSwitchoverRequest['instance_id'];
+                    body = executeCrossCloudDisasterSwitchoverRequest['body'];
+                    xLanguage = executeCrossCloudDisasterSwitchoverRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudDisasterSwitchover.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除容灾（从容灾主集群下发）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCrossCloudReleaseDisaster(executeCrossCloudReleaseDisasterRequest?: ExecuteCrossCloudReleaseDisasterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/release",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeCrossCloudReleaseDisasterRequest !== null && executeCrossCloudReleaseDisasterRequest !== undefined) {
+                if (executeCrossCloudReleaseDisasterRequest instanceof ExecuteCrossCloudReleaseDisasterRequest) {
+                    instanceId = executeCrossCloudReleaseDisasterRequest.instanceId;
+                    xLanguage = executeCrossCloudReleaseDisasterRequest.xLanguage;
+                    body = executeCrossCloudReleaseDisasterRequest.body
+                } else {
+                    instanceId = executeCrossCloudReleaseDisasterRequest['instance_id'];
+                    xLanguage = executeCrossCloudReleaseDisasterRequest['X-Language'];
+                    body = executeCrossCloudReleaseDisasterRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCrossCloudReleaseDisaster.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6021,6 +6812,85 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询容灾操作记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDisasterRecoveryRecord(listDisasterRecoveryRecordRequest?: ListDisasterRecoveryRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/disaster-recovery/records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let entityId;
+            
+            let entityType;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDisasterRecoveryRecordRequest !== null && listDisasterRecoveryRecordRequest !== undefined) {
+                if (listDisasterRecoveryRecordRequest instanceof ListDisasterRecoveryRecordRequest) {
+                    instanceId = listDisasterRecoveryRecordRequest.instanceId;
+                    entityId = listDisasterRecoveryRecordRequest.entityId;
+                    entityType = listDisasterRecoveryRecordRequest.entityType;
+                    xLanguage = listDisasterRecoveryRecordRequest.xLanguage;
+                    limit = listDisasterRecoveryRecordRequest.limit;
+                    offset = listDisasterRecoveryRecordRequest.offset;
+                } else {
+                    instanceId = listDisasterRecoveryRecordRequest['instance_id'];
+                    entityId = listDisasterRecoveryRecordRequest['entity_id'];
+                    entityType = listDisasterRecoveryRecordRequest['entity_type'];
+                    xLanguage = listDisasterRecoveryRecordRequest['X-Language'];
+                    limit = listDisasterRecoveryRecordRequest['limit'];
+                    offset = listDisasterRecoveryRecordRequest['offset'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDisasterRecoveryRecord.');
+            }
+            if (entityId === null || entityId === undefined) {
+                throw new RequiredError('entityId','Required parameter entityId was null or undefined when calling listDisasterRecoveryRecord.');
+            }
+            if (entityId !== null && entityId !== undefined) {
+                localVarQueryParameter['entity_id'] = entityId;
+            }
+            if (entityType === null || entityType === undefined) {
+                throw new RequiredError('entityType','Required parameter entityType was null or undefined when calling listDisasterRecoveryRecord.');
+            }
+            if (entityType !== null && entityType !== undefined) {
+                localVarQueryParameter['entity_type'] = entityType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -7885,6 +8755,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重置容灾网络等配置。1.将自动“创建委托”以授权DBS云服务访问VPC资源信息、查询IAAS接口。2.重置实例容灾网络等配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetDrConfig(resetDrConfigRequest?: ResetDrConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.5/{project_id}/instances/{instance_id}/reset-dr-config",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (resetDrConfigRequest !== null && resetDrConfigRequest !== undefined) {
+                if (resetDrConfigRequest instanceof ResetDrConfigRequest) {
+                    instanceId = resetDrConfigRequest.instanceId;
+                    xLanguage = resetDrConfigRequest.xLanguage;
+                    body = resetDrConfigRequest.body
+                } else {
+                    instanceId = resetDrConfigRequest['instance_id'];
+                    xLanguage = resetDrConfigRequest['X-Language'];
+                    body = resetDrConfigRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetDrConfig.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重置数据库密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8652,6 +9572,144 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例容灾监控实时状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCrossCloudDisasterInstanceMonitor(showCrossCloudDisasterInstanceMonitorRequest?: ShowCrossCloudDisasterInstanceMonitorRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.5/{project_id}/instances/{instance_id}/disaster-recovery/monitor",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let disasterType;
+
+            if (showCrossCloudDisasterInstanceMonitorRequest !== null && showCrossCloudDisasterInstanceMonitorRequest !== undefined) {
+                if (showCrossCloudDisasterInstanceMonitorRequest instanceof ShowCrossCloudDisasterInstanceMonitorRequest) {
+                    instanceId = showCrossCloudDisasterInstanceMonitorRequest.instanceId;
+                    xLanguage = showCrossCloudDisasterInstanceMonitorRequest.xLanguage;
+                    disasterType = showCrossCloudDisasterInstanceMonitorRequest.disasterType;
+                } else {
+                    instanceId = showCrossCloudDisasterInstanceMonitorRequest['instance_id'];
+                    xLanguage = showCrossCloudDisasterInstanceMonitorRequest['X-Language'];
+                    disasterType = showCrossCloudDisasterInstanceMonitorRequest['disaster_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showCrossCloudDisasterInstanceMonitor.');
+            }
+            if (disasterType !== null && disasterType !== undefined) {
+                localVarQueryParameter['disaster_type'] = disasterType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询容灾关系列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCrossCloudDisasterRelations(showCrossCloudDisasterRelationsRequest?: ShowCrossCloudDisasterRelationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.5/{project_id}/disaster-recovery/relations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+            
+            let instanceName;
+            
+            let instanceId;
+            
+            let drRole;
+            
+            let drType;
+            
+            let drStatus;
+
+            if (showCrossCloudDisasterRelationsRequest !== null && showCrossCloudDisasterRelationsRequest !== undefined) {
+                if (showCrossCloudDisasterRelationsRequest instanceof ShowCrossCloudDisasterRelationsRequest) {
+                    xLanguage = showCrossCloudDisasterRelationsRequest.xLanguage;
+                    limit = showCrossCloudDisasterRelationsRequest.limit;
+                    offset = showCrossCloudDisasterRelationsRequest.offset;
+                    instanceName = showCrossCloudDisasterRelationsRequest.instanceName;
+                    instanceId = showCrossCloudDisasterRelationsRequest.instanceId;
+                    drRole = showCrossCloudDisasterRelationsRequest.drRole;
+                    drType = showCrossCloudDisasterRelationsRequest.drType;
+                    drStatus = showCrossCloudDisasterRelationsRequest.drStatus;
+                } else {
+                    xLanguage = showCrossCloudDisasterRelationsRequest['X-Language'];
+                    limit = showCrossCloudDisasterRelationsRequest['limit'];
+                    offset = showCrossCloudDisasterRelationsRequest['offset'];
+                    instanceName = showCrossCloudDisasterRelationsRequest['instance_name'];
+                    instanceId = showCrossCloudDisasterRelationsRequest['instance_id'];
+                    drRole = showCrossCloudDisasterRelationsRequest['dr_role'];
+                    drType = showCrossCloudDisasterRelationsRequest['dr_type'];
+                    drStatus = showCrossCloudDisasterRelationsRequest['dr_status'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (drRole !== null && drRole !== undefined) {
+                localVarQueryParameter['dr_role'] = drRole;
+            }
+            if (drType !== null && drType !== undefined) {
+                localVarQueryParameter['dr_type'] = drType;
+            }
+            if (drStatus !== null && drStatus !== undefined) {
+                localVarQueryParameter['dr_status'] = drStatus;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

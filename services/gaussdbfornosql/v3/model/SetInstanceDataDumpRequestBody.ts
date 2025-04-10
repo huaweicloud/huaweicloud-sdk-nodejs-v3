@@ -3,8 +3,7 @@
 export class SetInstanceDataDumpRequestBody {
     private 'bucket_name'?: string;
     public action?: SetInstanceDataDumpRequestBodyActionEnum | string;
-    public constructor(bucketName?: string, action?: string) { 
-        this['bucket_name'] = bucketName;
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withBucketName(bucketName: string): SetInstanceDataDumpRequestBody {

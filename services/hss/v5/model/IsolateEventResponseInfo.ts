@@ -1,3 +1,4 @@
+import { EventDetailResponseInfo } from './EventDetailResponseInfo';
 
 
 export class IsolateEventResponseInfo {
@@ -20,14 +21,36 @@ export class IsolateEventResponseInfo {
     private 'attack_phase'?: string;
     private 'attack_tag'?: string;
     private 'occur_time'?: number;
+    private 'recent_time'?: number;
     private 'handle_time'?: number;
     private 'handle_status'?: string;
     private 'handle_method'?: string;
     public handler?: string;
+    public memo?: string;
+    private 'operate_accept_list'?: Array<string>;
+    private 'operate_detail_list'?: Array<EventDetailResponseInfo>;
+    private 'forensic_info'?: object;
+    private 'resource_info'?: object;
+    private 'geo_info'?: object;
+    private 'network_info'?: object;
+    private 'app_info'?: object;
+    private 'system_info'?: object;
+    private 'malware_info'?: object;
+    private 'extend_info'?: object;
     public recommendation?: string;
+    private 'att_ck'?: string;
+    private 'event_details'?: string;
+    public confidence?: number;
+    private 'process_info_list'?: object;
+    private 'user_info_list'?: object;
+    private 'file_info_list'?: object;
+    private 'registry_info_list'?: object;
+    private 'cluster_info'?: object;
+    private 'tag_list'?: Array<string>;
     public description?: string;
     private 'event_abstract'?: string;
     private 'event_count'?: number;
+    private 'cluster_id'?: string;
     public constructor() { 
     }
     public withEventId(eventId: string): IsolateEventResponseInfo {
@@ -214,6 +237,16 @@ export class IsolateEventResponseInfo {
     public get occurTime(): number | undefined {
         return this['occur_time'];
     }
+    public withRecentTime(recentTime: number): IsolateEventResponseInfo {
+        this['recent_time'] = recentTime;
+        return this;
+    }
+    public set recentTime(recentTime: number  | undefined) {
+        this['recent_time'] = recentTime;
+    }
+    public get recentTime(): number | undefined {
+        return this['recent_time'];
+    }
     public withHandleTime(handleTime: number): IsolateEventResponseInfo {
         this['handle_time'] = handleTime;
         return this;
@@ -248,9 +281,197 @@ export class IsolateEventResponseInfo {
         this['handler'] = handler;
         return this;
     }
+    public withMemo(memo: string): IsolateEventResponseInfo {
+        this['memo'] = memo;
+        return this;
+    }
+    public withOperateAcceptList(operateAcceptList: Array<string>): IsolateEventResponseInfo {
+        this['operate_accept_list'] = operateAcceptList;
+        return this;
+    }
+    public set operateAcceptList(operateAcceptList: Array<string>  | undefined) {
+        this['operate_accept_list'] = operateAcceptList;
+    }
+    public get operateAcceptList(): Array<string> | undefined {
+        return this['operate_accept_list'];
+    }
+    public withOperateDetailList(operateDetailList: Array<EventDetailResponseInfo>): IsolateEventResponseInfo {
+        this['operate_detail_list'] = operateDetailList;
+        return this;
+    }
+    public set operateDetailList(operateDetailList: Array<EventDetailResponseInfo>  | undefined) {
+        this['operate_detail_list'] = operateDetailList;
+    }
+    public get operateDetailList(): Array<EventDetailResponseInfo> | undefined {
+        return this['operate_detail_list'];
+    }
+    public withForensicInfo(forensicInfo: object): IsolateEventResponseInfo {
+        this['forensic_info'] = forensicInfo;
+        return this;
+    }
+    public set forensicInfo(forensicInfo: object  | undefined) {
+        this['forensic_info'] = forensicInfo;
+    }
+    public get forensicInfo(): object | undefined {
+        return this['forensic_info'];
+    }
+    public withResourceInfo(resourceInfo: object): IsolateEventResponseInfo {
+        this['resource_info'] = resourceInfo;
+        return this;
+    }
+    public set resourceInfo(resourceInfo: object  | undefined) {
+        this['resource_info'] = resourceInfo;
+    }
+    public get resourceInfo(): object | undefined {
+        return this['resource_info'];
+    }
+    public withGeoInfo(geoInfo: object): IsolateEventResponseInfo {
+        this['geo_info'] = geoInfo;
+        return this;
+    }
+    public set geoInfo(geoInfo: object  | undefined) {
+        this['geo_info'] = geoInfo;
+    }
+    public get geoInfo(): object | undefined {
+        return this['geo_info'];
+    }
+    public withNetworkInfo(networkInfo: object): IsolateEventResponseInfo {
+        this['network_info'] = networkInfo;
+        return this;
+    }
+    public set networkInfo(networkInfo: object  | undefined) {
+        this['network_info'] = networkInfo;
+    }
+    public get networkInfo(): object | undefined {
+        return this['network_info'];
+    }
+    public withAppInfo(appInfo: object): IsolateEventResponseInfo {
+        this['app_info'] = appInfo;
+        return this;
+    }
+    public set appInfo(appInfo: object  | undefined) {
+        this['app_info'] = appInfo;
+    }
+    public get appInfo(): object | undefined {
+        return this['app_info'];
+    }
+    public withSystemInfo(systemInfo: object): IsolateEventResponseInfo {
+        this['system_info'] = systemInfo;
+        return this;
+    }
+    public set systemInfo(systemInfo: object  | undefined) {
+        this['system_info'] = systemInfo;
+    }
+    public get systemInfo(): object | undefined {
+        return this['system_info'];
+    }
+    public withMalwareInfo(malwareInfo: object): IsolateEventResponseInfo {
+        this['malware_info'] = malwareInfo;
+        return this;
+    }
+    public set malwareInfo(malwareInfo: object  | undefined) {
+        this['malware_info'] = malwareInfo;
+    }
+    public get malwareInfo(): object | undefined {
+        return this['malware_info'];
+    }
+    public withExtendInfo(extendInfo: object): IsolateEventResponseInfo {
+        this['extend_info'] = extendInfo;
+        return this;
+    }
+    public set extendInfo(extendInfo: object  | undefined) {
+        this['extend_info'] = extendInfo;
+    }
+    public get extendInfo(): object | undefined {
+        return this['extend_info'];
+    }
     public withRecommendation(recommendation: string): IsolateEventResponseInfo {
         this['recommendation'] = recommendation;
         return this;
+    }
+    public withAttCk(attCk: string): IsolateEventResponseInfo {
+        this['att_ck'] = attCk;
+        return this;
+    }
+    public set attCk(attCk: string  | undefined) {
+        this['att_ck'] = attCk;
+    }
+    public get attCk(): string | undefined {
+        return this['att_ck'];
+    }
+    public withEventDetails(eventDetails: string): IsolateEventResponseInfo {
+        this['event_details'] = eventDetails;
+        return this;
+    }
+    public set eventDetails(eventDetails: string  | undefined) {
+        this['event_details'] = eventDetails;
+    }
+    public get eventDetails(): string | undefined {
+        return this['event_details'];
+    }
+    public withConfidence(confidence: number): IsolateEventResponseInfo {
+        this['confidence'] = confidence;
+        return this;
+    }
+    public withProcessInfoList(processInfoList: object): IsolateEventResponseInfo {
+        this['process_info_list'] = processInfoList;
+        return this;
+    }
+    public set processInfoList(processInfoList: object  | undefined) {
+        this['process_info_list'] = processInfoList;
+    }
+    public get processInfoList(): object | undefined {
+        return this['process_info_list'];
+    }
+    public withUserInfoList(userInfoList: object): IsolateEventResponseInfo {
+        this['user_info_list'] = userInfoList;
+        return this;
+    }
+    public set userInfoList(userInfoList: object  | undefined) {
+        this['user_info_list'] = userInfoList;
+    }
+    public get userInfoList(): object | undefined {
+        return this['user_info_list'];
+    }
+    public withFileInfoList(fileInfoList: object): IsolateEventResponseInfo {
+        this['file_info_list'] = fileInfoList;
+        return this;
+    }
+    public set fileInfoList(fileInfoList: object  | undefined) {
+        this['file_info_list'] = fileInfoList;
+    }
+    public get fileInfoList(): object | undefined {
+        return this['file_info_list'];
+    }
+    public withRegistryInfoList(registryInfoList: object): IsolateEventResponseInfo {
+        this['registry_info_list'] = registryInfoList;
+        return this;
+    }
+    public set registryInfoList(registryInfoList: object  | undefined) {
+        this['registry_info_list'] = registryInfoList;
+    }
+    public get registryInfoList(): object | undefined {
+        return this['registry_info_list'];
+    }
+    public withClusterInfo(clusterInfo: object): IsolateEventResponseInfo {
+        this['cluster_info'] = clusterInfo;
+        return this;
+    }
+    public set clusterInfo(clusterInfo: object  | undefined) {
+        this['cluster_info'] = clusterInfo;
+    }
+    public get clusterInfo(): object | undefined {
+        return this['cluster_info'];
+    }
+    public withTagList(tagList: Array<string>): IsolateEventResponseInfo {
+        this['tag_list'] = tagList;
+        return this;
+    }
+    public set tagList(tagList: Array<string>  | undefined) {
+        this['tag_list'] = tagList;
+    }
+    public get tagList(): Array<string> | undefined {
+        return this['tag_list'];
     }
     public withDescription(description: string): IsolateEventResponseInfo {
         this['description'] = description;
@@ -275,5 +496,15 @@ export class IsolateEventResponseInfo {
     }
     public get eventCount(): number | undefined {
         return this['event_count'];
+    }
+    public withClusterId(clusterId: string): IsolateEventResponseInfo {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
     }
 }

@@ -7,6 +7,7 @@ export class ShowImageCheckRuleDetailRequest {
     public namespace?: string;
     private 'image_name'?: string;
     private 'image_version'?: string;
+    private 'image_id'?: string;
     private 'check_name'?: string;
     private 'check_type'?: string;
     private 'check_rule_id'?: string;
@@ -66,6 +67,16 @@ export class ShowImageCheckRuleDetailRequest {
     }
     public get imageVersion(): string | undefined {
         return this['image_version'];
+    }
+    public withImageId(imageId: string): ShowImageCheckRuleDetailRequest {
+        this['image_id'] = imageId;
+        return this;
+    }
+    public set imageId(imageId: string  | undefined) {
+        this['image_id'] = imageId;
+    }
+    public get imageId(): string | undefined {
+        return this['image_id'];
     }
     public withCheckName(checkName: string): ShowImageCheckRuleDetailRequest {
         this['check_name'] = checkName;

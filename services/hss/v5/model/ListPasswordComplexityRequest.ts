@@ -5,6 +5,7 @@ export class ListPasswordComplexityRequest {
     private 'host_name'?: string;
     private 'host_ip'?: string;
     private 'host_id'?: string;
+    private 'result_type'?: string;
     public limit?: number;
     public offset?: number;
     public constructor() { 
@@ -48,6 +49,16 @@ export class ListPasswordComplexityRequest {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withResultType(resultType: string): ListPasswordComplexityRequest {
+        this['result_type'] = resultType;
+        return this;
+    }
+    public set resultType(resultType: string  | undefined) {
+        this['result_type'] = resultType;
+    }
+    public get resultType(): string | undefined {
+        return this['result_type'];
     }
     public withLimit(limit: number): ListPasswordComplexityRequest {
         this['limit'] = limit;

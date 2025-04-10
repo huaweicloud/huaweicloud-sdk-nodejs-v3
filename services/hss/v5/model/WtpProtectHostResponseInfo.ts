@@ -1,3 +1,4 @@
+import { WtpRemoteBackupResponseInfo } from './WtpRemoteBackupResponseInfo';
 
 
 export class WtpProtectHostResponseInfo {
@@ -7,6 +8,7 @@ export class WtpProtectHostResponseInfo {
     private 'private_ip'?: string;
     public ipv6?: string;
     private 'group_name'?: string;
+    private 'asset_value'?: string;
     private 'os_bit'?: string;
     private 'os_type'?: string;
     private 'protect_status'?: string;
@@ -15,7 +17,12 @@ export class WtpProtectHostResponseInfo {
     private 'detect_tampering_times'?: number;
     private 'last_detect_time'?: number;
     private 'scheduled_shutdown_status'?: string;
+    private 'os_name'?: string;
+    private 'os_version'?: string;
+    private 'host_status'?: string;
     private 'agent_status'?: string;
+    private 'protect_dir_num'?: number;
+    private 'remote_backbup_info'?: WtpRemoteBackupResponseInfo;
     public constructor() { 
     }
     public withHostName(hostName: string): WtpProtectHostResponseInfo {
@@ -71,6 +78,16 @@ export class WtpProtectHostResponseInfo {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
+    }
+    public withAssetValue(assetValue: string): WtpProtectHostResponseInfo {
+        this['asset_value'] = assetValue;
+        return this;
+    }
+    public set assetValue(assetValue: string  | undefined) {
+        this['asset_value'] = assetValue;
+    }
+    public get assetValue(): string | undefined {
+        return this['asset_value'];
     }
     public withOsBit(osBit: string): WtpProtectHostResponseInfo {
         this['os_bit'] = osBit;
@@ -152,6 +169,36 @@ export class WtpProtectHostResponseInfo {
     public get scheduledShutdownStatus(): string | undefined {
         return this['scheduled_shutdown_status'];
     }
+    public withOsName(osName: string): WtpProtectHostResponseInfo {
+        this['os_name'] = osName;
+        return this;
+    }
+    public set osName(osName: string  | undefined) {
+        this['os_name'] = osName;
+    }
+    public get osName(): string | undefined {
+        return this['os_name'];
+    }
+    public withOsVersion(osVersion: string): WtpProtectHostResponseInfo {
+        this['os_version'] = osVersion;
+        return this;
+    }
+    public set osVersion(osVersion: string  | undefined) {
+        this['os_version'] = osVersion;
+    }
+    public get osVersion(): string | undefined {
+        return this['os_version'];
+    }
+    public withHostStatus(hostStatus: string): WtpProtectHostResponseInfo {
+        this['host_status'] = hostStatus;
+        return this;
+    }
+    public set hostStatus(hostStatus: string  | undefined) {
+        this['host_status'] = hostStatus;
+    }
+    public get hostStatus(): string | undefined {
+        return this['host_status'];
+    }
     public withAgentStatus(agentStatus: string): WtpProtectHostResponseInfo {
         this['agent_status'] = agentStatus;
         return this;
@@ -161,5 +208,25 @@ export class WtpProtectHostResponseInfo {
     }
     public get agentStatus(): string | undefined {
         return this['agent_status'];
+    }
+    public withProtectDirNum(protectDirNum: number): WtpProtectHostResponseInfo {
+        this['protect_dir_num'] = protectDirNum;
+        return this;
+    }
+    public set protectDirNum(protectDirNum: number  | undefined) {
+        this['protect_dir_num'] = protectDirNum;
+    }
+    public get protectDirNum(): number | undefined {
+        return this['protect_dir_num'];
+    }
+    public withRemoteBackbupInfo(remoteBackbupInfo: WtpRemoteBackupResponseInfo): WtpProtectHostResponseInfo {
+        this['remote_backbup_info'] = remoteBackbupInfo;
+        return this;
+    }
+    public set remoteBackbupInfo(remoteBackbupInfo: WtpRemoteBackupResponseInfo  | undefined) {
+        this['remote_backbup_info'] = remoteBackbupInfo;
+    }
+    public get remoteBackbupInfo(): WtpRemoteBackupResponseInfo | undefined {
+        return this['remote_backbup_info'];
     }
 }

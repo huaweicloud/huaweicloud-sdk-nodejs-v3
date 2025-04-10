@@ -8,6 +8,9 @@ export class Host {
     private 'public_ip'?: string;
     private 'enterprise_project_id'?: string;
     private 'enterprise_project_name'?: string;
+    private 'os_name'?: string;
+    private 'os_version'?: string;
+    private 'kernel_version'?: string;
     private 'host_status'?: string;
     private 'agent_status'?: string;
     private 'install_result_code'?: string;
@@ -39,6 +42,17 @@ export class Host {
     public upgradable?: boolean;
     private 'open_time'?: number;
     private 'protect_interrupt'?: boolean;
+    private 'protect_degradation'?: boolean;
+    private 'host_sources'?: HostHostSourcesEnum | string;
+    private 'interrupt_reason'?: string;
+    private 'degradation_reason'?: string;
+    private 'key_name'?: string;
+    private 'auto_open_version'?: string;
+    private 'install_progress'?: number;
+    private 'vpc_id'?: string;
+    private 'common_login_area_codes'?: Array<number>;
+    private 'cluster_name'?: string;
+    private 'cluster_id'?: string;
     public constructor() { 
     }
     public withHostName(hostName: string): Host {
@@ -110,6 +124,36 @@ export class Host {
     }
     public get enterpriseProjectName(): string | undefined {
         return this['enterprise_project_name'];
+    }
+    public withOsName(osName: string): Host {
+        this['os_name'] = osName;
+        return this;
+    }
+    public set osName(osName: string  | undefined) {
+        this['os_name'] = osName;
+    }
+    public get osName(): string | undefined {
+        return this['os_name'];
+    }
+    public withOsVersion(osVersion: string): Host {
+        this['os_version'] = osVersion;
+        return this;
+    }
+    public set osVersion(osVersion: string  | undefined) {
+        this['os_version'] = osVersion;
+    }
+    public get osVersion(): string | undefined {
+        return this['os_version'];
+    }
+    public withKernelVersion(kernelVersion: string): Host {
+        this['kernel_version'] = kernelVersion;
+        return this;
+    }
+    public set kernelVersion(kernelVersion: string  | undefined) {
+        this['kernel_version'] = kernelVersion;
+    }
+    public get kernelVersion(): string | undefined {
+        return this['kernel_version'];
     }
     public withHostStatus(hostStatus: string): Host {
         this['host_status'] = hostStatus;
@@ -379,4 +423,124 @@ export class Host {
     public get protectInterrupt(): boolean | undefined {
         return this['protect_interrupt'];
     }
+    public withProtectDegradation(protectDegradation: boolean): Host {
+        this['protect_degradation'] = protectDegradation;
+        return this;
+    }
+    public set protectDegradation(protectDegradation: boolean  | undefined) {
+        this['protect_degradation'] = protectDegradation;
+    }
+    public get protectDegradation(): boolean | undefined {
+        return this['protect_degradation'];
+    }
+    public withHostSources(hostSources: HostHostSourcesEnum | string): Host {
+        this['host_sources'] = hostSources;
+        return this;
+    }
+    public set hostSources(hostSources: HostHostSourcesEnum | string  | undefined) {
+        this['host_sources'] = hostSources;
+    }
+    public get hostSources(): HostHostSourcesEnum | string | undefined {
+        return this['host_sources'];
+    }
+    public withInterruptReason(interruptReason: string): Host {
+        this['interrupt_reason'] = interruptReason;
+        return this;
+    }
+    public set interruptReason(interruptReason: string  | undefined) {
+        this['interrupt_reason'] = interruptReason;
+    }
+    public get interruptReason(): string | undefined {
+        return this['interrupt_reason'];
+    }
+    public withDegradationReason(degradationReason: string): Host {
+        this['degradation_reason'] = degradationReason;
+        return this;
+    }
+    public set degradationReason(degradationReason: string  | undefined) {
+        this['degradation_reason'] = degradationReason;
+    }
+    public get degradationReason(): string | undefined {
+        return this['degradation_reason'];
+    }
+    public withKeyName(keyName: string): Host {
+        this['key_name'] = keyName;
+        return this;
+    }
+    public set keyName(keyName: string  | undefined) {
+        this['key_name'] = keyName;
+    }
+    public get keyName(): string | undefined {
+        return this['key_name'];
+    }
+    public withAutoOpenVersion(autoOpenVersion: string): Host {
+        this['auto_open_version'] = autoOpenVersion;
+        return this;
+    }
+    public set autoOpenVersion(autoOpenVersion: string  | undefined) {
+        this['auto_open_version'] = autoOpenVersion;
+    }
+    public get autoOpenVersion(): string | undefined {
+        return this['auto_open_version'];
+    }
+    public withInstallProgress(installProgress: number): Host {
+        this['install_progress'] = installProgress;
+        return this;
+    }
+    public set installProgress(installProgress: number  | undefined) {
+        this['install_progress'] = installProgress;
+    }
+    public get installProgress(): number | undefined {
+        return this['install_progress'];
+    }
+    public withVpcId(vpcId: string): Host {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string  | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId(): string | undefined {
+        return this['vpc_id'];
+    }
+    public withCommonLoginAreaCodes(commonLoginAreaCodes: Array<number>): Host {
+        this['common_login_area_codes'] = commonLoginAreaCodes;
+        return this;
+    }
+    public set commonLoginAreaCodes(commonLoginAreaCodes: Array<number>  | undefined) {
+        this['common_login_area_codes'] = commonLoginAreaCodes;
+    }
+    public get commonLoginAreaCodes(): Array<number> | undefined {
+        return this['common_login_area_codes'];
+    }
+    public withClusterName(clusterName: string): Host {
+        this['cluster_name'] = clusterName;
+        return this;
+    }
+    public set clusterName(clusterName: string  | undefined) {
+        this['cluster_name'] = clusterName;
+    }
+    public get clusterName(): string | undefined {
+        return this['cluster_name'];
+    }
+    public withClusterId(clusterId: string): Host {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HostHostSourcesEnum {
+    ECS = 'ecs',
+    OUTSIDE = 'outside',
+    WORKSPACE = 'workspace'
 }

@@ -124,8 +124,10 @@ import { InstanceLogConfigDetail } from './model/InstanceLogConfigDetail';
 import { InstanceResult } from './model/InstanceResult';
 import { InstanceTagResult } from './model/InstanceTagResult';
 import { InstancesDatastoreResult } from './model/InstancesDatastoreResult';
+import { IpGroupsDetail } from './model/IpGroupsDetail';
 import { JobDetail } from './model/JobDetail';
 import { JobInstanceInfo } from './model/JobInstanceInfo';
+import { LbAccessControlSettings } from './model/LbAccessControlSettings';
 import { Links } from './model/Links';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
 import { ListApiVersionResponse } from './model/ListApiVersionResponse';
@@ -1122,11 +1124,11 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 查询支持参数模板的引擎信息
+     * 查询支持参数模板的接口信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询支持参数模板的引擎信息
+     * @summary 查询支持参数模板的接口信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1147,6 +1149,8 @@ export class GaussDBforNoSQLClient {
      * @summary 获取参数模板列表
      * @param {number} [offset] 索引位置，偏移量。   - 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。   - 取值必须为数字，不能为负数。
      * @param {number} [limit] 查询个数上限值。 - 取值范围: 1~100。 - 不传该参数时，默认查询前100条信息。
+     * @param {string} [datastoreName] 【参数解释】 数据库名称。 【约束限制】 不限制。 【取值范围】 cassandra：表示支持GeminiDB Cassandra实例。 redis：表示支持GeminiDB Redis实例。 influxdb：表示支持GeminiDB Influx实例。 mongodb： 表示支持GeminiDB Mongo实例。 【默认取值】 不传该参数，则表示查询所有数据库类型。
+     * @param {string} [mode] 【参数解释】 数据库实例类型。 【约束限制】 不限制。 【取值范围】 * 取值为“CloudNativeCluster”, 表示查询支持GeminiDB Cassandra云原生部署模式实例的参数模板。 * 取值为“Cluster”, 表示查询GeminiDB Cassandra经典部署模式实例、GeminiDB Influx经典部署模式实例、GeminiDB Redis Proxy集群经典部署模式实例支持的参数模板。 * 取值为“Replication”, 表示查询支持GeminiDB Redis经典部署模式主备类型实例的参数组。 * 取值为“InfluxdbSingle”, 表示查询支持GeminiDB Influx经典部署模式单节点类型实例的参数组。 * 取值为“ReplicaSet”, 表示查询支持GeminiDB Mongo副本集类型实例的参数组。 * 取值为“All”， 表示查询所有部署模式的参数模板。 【默认取值】 不传该参数，则表示查询经典部署模式实例支持的参数组。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1165,11 +1169,13 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取参数模板列表
+     * @param {string} [datastoreName] 【参数解释】 数据库名称。 【约束限制】 不限制。 【取值范围】 cassandra：表示支持GeminiDB Cassandra实例。 redis：表示支持GeminiDB Redis实例。 influxdb：表示支持GeminiDB Influx实例。 mongodb： 表示支持GeminiDB Mongo实例。 【默认取值】 不传该参数，则表示查询所有数据库类型。
+     * @param {string} [mode] 【参数解释】 数据库实例类型。 【约束限制】 不限制。 【取值范围】 * 取值为“CloudNativeCluster”, 表示查询支持GeminiDB Cassandra云原生部署模式实例的参数模板。 * 取值为“Cluster”, 表示查询GeminiDB Cassandra经典部署模式实例、GeminiDB Influx经典部署模式实例、GeminiDB Redis Proxy集群经典部署模式实例支持的参数模板。 * 取值为“Replication”, 表示查询支持GeminiDB Redis经典部署模式主备类型实例的参数组。 * 取值为“InfluxdbSingle”, 表示查询支持GeminiDB Influx经典部署模式单节点类型实例的参数组。 * 取值为“ReplicaSet”, 表示查询支持GeminiDB Mongo副本集类型实例的参数组。 * 取值为“All”， 表示查询所有部署模式的参数模板。 【默认取值】 不传该参数，则表示查询经典部署模式实例支持的参数组。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listConfigurations(listConfigurationsRequest?: ListConfigurationsRequest): Promise<ListConfigurationsResponse> {
-        const options = ParamCreater().listConfigurations();
+        const options = ParamCreater().listConfigurations(listConfigurationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1460,8 +1466,8 @@ export class GaussDBforNoSQLClient {
      * @summary 查询实例列表和详情
      * @param {string} [id] 实例ID。 如果id以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的id精确匹配查询。
      * @param {string} [name] 实例名称。 如果name以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的name精确匹配查询。
-     * @param {string} [mode] 实例类型。   - 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis集群实例类型。   - 取值为“Sharding”，表示GeminiDB Mongo集群实例类型。   - 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。   - 取值为“InfluxdbCluster”，表示GeminiDB Influx集群实例类型。   - 取值为“InfluxdbSingle”，表示GeminiDB Influx单节点实例类型。   - 取值为“RedisReplica”，表示GeminiDB Redis性能版实例类型。   - 取值为“Replication”，表示GeminiDB Redis主备版实例类型。
      * @param {string} [datastoreType] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例。   - 如果不传该参数，表示查询所有数据库实例。
+     * @param {string} [mode] 实例类型。   -  取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis Proxy经典部署模式集群实例类型。    -  取值为“CloudNativeCluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis云原生部署模式集群实例类型。   -  取值为“RedisCluster”，表示GeminiDB Redis Cluster经典部署模式集群实例类型。   -  取值为“Replication”，表示GeminiDB Redis经典部署模式主备实例类型。    -  取值为“InfluxdbSingle”，表示GeminiDB Influx经典部署模式单节点实例类型。   -  取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。   -  如果不传datastore_type参数，自动忽略该参数设置。   -  默认取值：不涉及。
      * @param {string} [vpcId] 虚拟私有云ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，在虚拟私有云的详情页面查找VPC ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询VPC列表。
      * @param {string} [subnetId] 子网的网络ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，单击VPC下的子网，进入子网详情页面，查找网络ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询子网列表。
      * @param {number} [offset] 索引位置偏移量，表示从指定project ID下最新的实例创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0，表示从最新的实例创建时间对应的实例开始查询。
@@ -1567,7 +1573,7 @@ export class GaussDBforNoSQLClient {
      * @param {string} [startTime] 查询开始时间，默认当前时间往前30天，格式为“yyyy-mm-ddThh:mm:ssZ”。 其中，T指某个时间的开始，Z指时区偏移量
      * @param {string} [endTime] 查询结束时间，默认当前时间，格式为“yyyy-mm-ddThh:mm:ssZ”，且大于查询开始时间，时间跨度不超过30天。 其中，T指某个时间的开始，Z指时区偏移量。
      * @param {string} [status] 任务状态： 取值为“Running”为执行中； 取值为“Completed”为完成； 取值为“Failed” 为失败。
-     * @param {string} [name] 任务名称。对应取值如下： - \&quot;CreateInstance\&quot;：创建实例 - \&quot;RestoreNewInstance\&quot;：恢复到新实例 - \&quot;EnlargeInstance\&quot;：扩容实例 - \&quot;ReduceInstance\&quot;：缩容实例 - \&quot;RestartInstance\&quot;：重启实例 - \&quot;RestartNode\&quot;：重启节点 - \&quot;EnlargeInstanceVolume\&quot;：扩容实例磁盘 - \&quot;ReduceInstanceVolume\&quot;：缩容实例磁盘 - \&quot;ResizeInstance\&quot;：规格变更实例 - \&quot;UpgradeDbVersion\&quot;：升级数据库版本 - \&quot;BindPublicIP\&quot;：绑定公网IP - \&quot;UnbindPublicIP\&quot;：解绑公网IP - \&quot;DeleteInstance\&quot;：删除实例 - \&quot;EnlargeInstanceColdVolume\&quot;：扩容实例冷存储 - \&quot;AddInstanceColdVolume\&quot;：增加实例冷存储 - \&quot;ModifySecurityGroup\&quot;：修改安全组 - \&quot;ModifyCcmCert\&quot;：修改CCM证书 - \&quot;ModifyPort\&quot;：修改端口 - \&quot;ConstructDisasterRecovery\&quot;：构造容灾关系 - \&quot;DeConstructDisasterRecovery\&quot;：解除容灾关系 - \&quot;SwitchOverDisasterRecovery\&quot;：切换容灾关系 - \&quot;BuildBiActiveInstance\&quot;：构建双活实例 - \&quot;ReleaseBiActiveInstance\&quot;：解除双活实例关系 - \&quot;BackupInstance\&quot;：备份实例
+     * @param {string} [name] 任务名称。对应取值如下： - \&quot;CreateInstance\&quot;：创建实例 - \&quot;RestoreNewInstance\&quot;：恢复到新实例 - \&quot;EnlargeInstance\&quot;：扩容实例 - \&quot;ReduceInstance\&quot;：缩容实例 - \&quot;RestartInstance\&quot;：重启实例 - \&quot;RestartNode\&quot;：重启节点 - \&quot;EnlargeInstanceVolume\&quot;：扩容实例磁盘 - \&quot;ReduceInstanceVolume\&quot;：缩容实例磁盘 - \&quot;ResizeInstance\&quot;：规格变更实例 - \&quot;UpgradeDbVersion\&quot;：升级数据库版本 - \&quot;BindPublicIP\&quot;：绑定公网IP - \&quot;UnbindPublicIP\&quot;：解绑公网IP - \&quot;DeleteInstance\&quot;：删除实例 - \&quot;EnlargeInstanceColdVolume\&quot;：扩容实例冷存储 - \&quot;AddInstanceColdVolume\&quot;：增加实例冷存储 - \&quot;ModifySecurityGroup\&quot;：修改安全组  - \&quot;ModifyPort\&quot;：修改端口 - \&quot;ConstructDisasterRecovery\&quot;：构造容灾关系 - \&quot;DeConstructDisasterRecovery\&quot;：解除容灾关系 - \&quot;SwitchOverDisasterRecovery\&quot;：切换容灾关系 - \&quot;BuildBiActiveInstance\&quot;：构建双活实例 - \&quot;ReleaseBiActiveInstance\&quot;：解除双活实例关系 - \&quot;BackupInstance\&quot;：备份实例
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。取值 10 20 50 ，默认为50。
      * @param {*} [options] Override http request option.
@@ -2132,7 +2138,7 @@ export class GaussDBforNoSQLClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 重启实例或节点的数据库服务
+     * @summary 重启实例或节点
      * @param {string} instanceId 实例ID。
      * @param {RestartInstanceRequestBody} [restartInstanceRequestBody] 仅GeminiDB Redis云原生部署模式集群实例支持传入节点ID重启对应节点。
      * @param {*} [options] Override http request option.
@@ -2621,11 +2627,11 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 获取指定实例的参数信息。
+     * 查询实例参数配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取指定实例的参数
+     * @summary 查询实例参数配置
      * @param {string} instanceId 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2665,7 +2671,7 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询创建实例或扩容节点时需要的IP数量
      * @param {number} nodeNum 创建实例或扩容节点的个数。最大支持输入200。
-     * @param {string} [engineName] 数据库引擎名称。没有传入实例ID的时候该字段为必传。 - 取值为“cassandra”，表示GeminiDB Cassandra数据库引擎。 - 取值为“mongodb”，表示GeminiDB Mongo数据库引擎。 - 取值为“influxdb”，表示GeminiDB Influx数据库引擎。 - 取值为“redis”，表示GeminiDB Redis数据库引擎。
+     * @param {string} [engineName] 数据库引擎名称。没有传入实例ID的时候该字段为必传。   - 取值为“cassandra”，表示GeminiDB Cassandra数据库引擎。   - 取值为“mongodb”，表示GeminiDB Mongo数据库引擎。   - 取值为“influxdb”，表示GeminiDB Influx数据库引擎。   - 取值为“redis”，表示GeminiDB Redis数据库引擎。
      * @param {string} [instanceMode] 实例类型。没有传入实例ID的时候该字段为必传。   -  取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis Proxy经典部署模式集群实例类型。   -  取值为“CloudNativeCluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis云原生部署模式集群实例类型。   -  取值为“RedisCluster”，表示GeminiDB Redis Cluster经典部署模式集群实例类型。   -  取值为“Replication”，表示GeminiDB Redis经典部署模式主备实例类型。   -  取值为“InfluxdbSingle”，表示GeminiDB Influx经典部署模式单节点实例类型。   -  取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。
      * @param {string} [instanceId] 实例Id，可以调用5.3.3 查询实例列表和详情接口获取。如果未申请实例，可以调用5.3.1 创建实例接口创建。
      * @param {*} [options] Override http request option.
@@ -3002,7 +3008,7 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 切换实例下的主备节点
+     * 切换实例的主备节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4775,7 +4781,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询支持参数模板的引擎信息
+         * 查询支持参数模板的接口信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4815,14 +4821,22 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let datastoreName;
+            
+            let mode;
 
             if (listConfigurationTemplatesRequest !== null && listConfigurationTemplatesRequest !== undefined) {
                 if (listConfigurationTemplatesRequest instanceof ListConfigurationTemplatesRequest) {
                     offset = listConfigurationTemplatesRequest.offset;
                     limit = listConfigurationTemplatesRequest.limit;
+                    datastoreName = listConfigurationTemplatesRequest.datastoreName;
+                    mode = listConfigurationTemplatesRequest.mode;
                 } else {
                     offset = listConfigurationTemplatesRequest['offset'];
                     limit = listConfigurationTemplatesRequest['limit'];
+                    datastoreName = listConfigurationTemplatesRequest['datastore_name'];
+                    mode = listConfigurationTemplatesRequest['mode'];
                 }
             }
 
@@ -4832,6 +4846,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (datastoreName !== null && datastoreName !== undefined) {
+                localVarQueryParameter['datastore_name'] = datastoreName;
+            }
+            if (mode !== null && mode !== undefined) {
+                localVarQueryParameter['mode'] = mode;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4844,7 +4864,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listConfigurations() {
+        listConfigurations(listConfigurationsRequest?: ListConfigurationsRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/configurations",
@@ -4854,8 +4874,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let datastoreName;
+            
+            let mode;
 
+            if (listConfigurationsRequest !== null && listConfigurationsRequest !== undefined) {
+                if (listConfigurationsRequest instanceof ListConfigurationsRequest) {
+                    datastoreName = listConfigurationsRequest.datastoreName;
+                    mode = listConfigurationsRequest.mode;
+                } else {
+                    datastoreName = listConfigurationsRequest['datastore_name'];
+                    mode = listConfigurationsRequest['mode'];
+                }
+            }
 
+        
+            if (datastoreName !== null && datastoreName !== undefined) {
+                localVarQueryParameter['datastore_name'] = datastoreName;
+            }
+            if (mode !== null && mode !== undefined) {
+                localVarQueryParameter['mode'] = mode;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5566,9 +5609,9 @@ export const ParamCreater = function () {
             
             let name;
             
-            let mode;
-            
             let datastoreType;
+            
+            let mode;
             
             let vpcId;
             
@@ -5582,8 +5625,8 @@ export const ParamCreater = function () {
                 if (listInstancesRequest instanceof ListInstancesRequest) {
                     id = listInstancesRequest.id;
                     name = listInstancesRequest.name;
-                    mode = listInstancesRequest.mode;
                     datastoreType = listInstancesRequest.datastoreType;
+                    mode = listInstancesRequest.mode;
                     vpcId = listInstancesRequest.vpcId;
                     subnetId = listInstancesRequest.subnetId;
                     offset = listInstancesRequest.offset;
@@ -5591,8 +5634,8 @@ export const ParamCreater = function () {
                 } else {
                     id = listInstancesRequest['id'];
                     name = listInstancesRequest['name'];
-                    mode = listInstancesRequest['mode'];
                     datastoreType = listInstancesRequest['datastore_type'];
+                    mode = listInstancesRequest['mode'];
                     vpcId = listInstancesRequest['vpc_id'];
                     subnetId = listInstancesRequest['subnet_id'];
                     offset = listInstancesRequest['offset'];
@@ -5607,11 +5650,11 @@ export const ParamCreater = function () {
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
             }
-            if (mode !== null && mode !== undefined) {
-                localVarQueryParameter['mode'] = mode;
-            }
             if (datastoreType !== null && datastoreType !== undefined) {
                 localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (mode !== null && mode !== undefined) {
+                localVarQueryParameter['mode'] = mode;
             }
             if (vpcId !== null && vpcId !== undefined) {
                 localVarQueryParameter['vpc_id'] = vpcId;
@@ -8406,7 +8449,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定实例的参数信息。
+         * 查询实例参数配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9264,7 +9307,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 切换实例下的主备节点
+         * 切换实例的主备节点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

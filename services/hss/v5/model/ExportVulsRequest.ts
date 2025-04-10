@@ -7,6 +7,8 @@ export class ExportVulsRequest {
     private 'vul_id'?: string;
     private 'vul_name'?: string;
     private 'host_id'?: string;
+    private 'export_size'?: number;
+    public category?: string;
     public limit?: number;
     public offset?: number;
     private 'repair_priority'?: string;
@@ -16,8 +18,6 @@ export class ExportVulsRequest {
     public status?: string;
     private 'asset_value'?: string;
     private 'group_name'?: string;
-    private 'export_size'?: number;
-    public category?: string;
     public body?: ExportVulRequestBody;
     public constructor(exportSize?: number, category?: string) { 
         this['export_size'] = exportSize;
@@ -66,6 +66,20 @@ export class ExportVulsRequest {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withExportSize(exportSize: number): ExportVulsRequest {
+        this['export_size'] = exportSize;
+        return this;
+    }
+    public set exportSize(exportSize: number  | undefined) {
+        this['export_size'] = exportSize;
+    }
+    public get exportSize(): number | undefined {
+        return this['export_size'];
+    }
+    public withCategory(category: string): ExportVulsRequest {
+        this['category'] = category;
+        return this;
     }
     public withLimit(limit: number): ExportVulsRequest {
         this['limit'] = limit;
@@ -138,20 +152,6 @@ export class ExportVulsRequest {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
-    }
-    public withExportSize(exportSize: number): ExportVulsRequest {
-        this['export_size'] = exportSize;
-        return this;
-    }
-    public set exportSize(exportSize: number  | undefined) {
-        this['export_size'] = exportSize;
-    }
-    public get exportSize(): number | undefined {
-        return this['export_size'];
-    }
-    public withCategory(category: string): ExportVulsRequest {
-        this['category'] = category;
-        return this;
     }
     public withBody(body: ExportVulRequestBody): ExportVulsRequest {
         this['body'] = body;

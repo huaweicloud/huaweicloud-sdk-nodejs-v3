@@ -10,6 +10,7 @@ export class ListWtpProtectHostRequest {
     private 'group_name'?: string;
     private 'os_type'?: string;
     private 'protect_status'?: string;
+    private 'wtp_status'?: string;
     private 'agent_status'?: string;
     public limit?: number;
     public offset?: number;
@@ -99,6 +100,16 @@ export class ListWtpProtectHostRequest {
     }
     public get protectStatus(): string | undefined {
         return this['protect_status'];
+    }
+    public withWtpStatus(wtpStatus: string): ListWtpProtectHostRequest {
+        this['wtp_status'] = wtpStatus;
+        return this;
+    }
+    public set wtpStatus(wtpStatus: string  | undefined) {
+        this['wtp_status'] = wtpStatus;
+    }
+    public get wtpStatus(): string | undefined {
+        return this['wtp_status'];
     }
     public withAgentStatus(agentStatus: string): ListWtpProtectHostRequest {
         this['agent_status'] = agentStatus;

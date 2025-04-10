@@ -3,8 +3,8 @@
 export class ListInstancesRequest {
     public id?: string;
     public name?: string;
-    public mode?: string;
     private 'datastore_type'?: string;
+    public mode?: string;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     public offset?: number;
@@ -19,10 +19,6 @@ export class ListInstancesRequest {
         this['name'] = name;
         return this;
     }
-    public withMode(mode: string): ListInstancesRequest {
-        this['mode'] = mode;
-        return this;
-    }
     public withDatastoreType(datastoreType: string): ListInstancesRequest {
         this['datastore_type'] = datastoreType;
         return this;
@@ -32,6 +28,10 @@ export class ListInstancesRequest {
     }
     public get datastoreType(): string | undefined {
         return this['datastore_type'];
+    }
+    public withMode(mode: string): ListInstancesRequest {
+        this['mode'] = mode;
+        return this;
     }
     public withVpcId(vpcId: string): ListInstancesRequest {
         this['vpc_id'] = vpcId;

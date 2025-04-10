@@ -24,6 +24,7 @@ export class ListSecurityEventsRequest {
     private 'tag_list'?: Array<string>;
     private 'att_ck'?: string;
     private 'event_name'?: string;
+    private 'auto_block'?: boolean;
     public constructor(category?: string, region?: string) { 
         this['category'] = category;
         this['region'] = region;
@@ -227,5 +228,15 @@ export class ListSecurityEventsRequest {
     }
     public get eventName(): string | undefined {
         return this['event_name'];
+    }
+    public withAutoBlock(autoBlock: boolean): ListSecurityEventsRequest {
+        this['auto_block'] = autoBlock;
+        return this;
+    }
+    public set autoBlock(autoBlock: boolean  | undefined) {
+        this['auto_block'] = autoBlock;
+    }
+    public get autoBlock(): boolean | undefined {
+        return this['auto_block'];
     }
 }

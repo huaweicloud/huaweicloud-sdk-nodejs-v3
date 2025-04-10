@@ -7,6 +7,7 @@ export class WeakPwdListInfoResponseInfo {
     private 'host_ip'?: string;
     private 'private_ip'?: string;
     private 'public_ip'?: string;
+    private 'update_time'?: number;
     private 'weak_pwd_accounts'?: Array<WeakPwdAccountInfoResponseInfo>;
     public constructor() { 
     }
@@ -59,6 +60,16 @@ export class WeakPwdListInfoResponseInfo {
     }
     public get publicIp(): string | undefined {
         return this['public_ip'];
+    }
+    public withUpdateTime(updateTime: number): WeakPwdListInfoResponseInfo {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
     }
     public withWeakPwdAccounts(weakPwdAccounts: Array<WeakPwdAccountInfoResponseInfo>): WeakPwdListInfoResponseInfo {
         this['weak_pwd_accounts'] = weakPwdAccounts;

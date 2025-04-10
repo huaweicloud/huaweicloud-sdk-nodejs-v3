@@ -9,6 +9,7 @@ export class ListImageRiskConfigsRequest {
     public namespace?: string;
     private 'image_name'?: string;
     private 'image_version'?: string;
+    private 'image_id'?: string;
     private 'check_name'?: string;
     public severity?: string;
     public standard?: string;
@@ -71,6 +72,16 @@ export class ListImageRiskConfigsRequest {
     }
     public get imageVersion(): string | undefined {
         return this['image_version'];
+    }
+    public withImageId(imageId: string): ListImageRiskConfigsRequest {
+        this['image_id'] = imageId;
+        return this;
+    }
+    public set imageId(imageId: string  | undefined) {
+        this['image_id'] = imageId;
+    }
+    public get imageId(): string | undefined {
+        return this['image_id'];
     }
     public withCheckName(checkName: string): ListImageRiskConfigsRequest {
         this['check_name'] = checkName;

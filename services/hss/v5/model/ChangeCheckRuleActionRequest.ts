@@ -4,6 +4,7 @@ import { CheckRuleIdListRequestInfo } from './CheckRuleIdListRequestInfo';
 export class ChangeCheckRuleActionRequest {
     private 'enterprise_project_id'?: string;
     private 'host_id'?: string;
+    private 'check_cce'?: boolean;
     public action?: string;
     public body?: CheckRuleIdListRequestInfo;
     public constructor(action?: string) { 
@@ -28,6 +29,16 @@ export class ChangeCheckRuleActionRequest {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withCheckCce(checkCce: boolean): ChangeCheckRuleActionRequest {
+        this['check_cce'] = checkCce;
+        return this;
+    }
+    public set checkCce(checkCce: boolean  | undefined) {
+        this['check_cce'] = checkCce;
+    }
+    public get checkCce(): boolean | undefined {
+        return this['check_cce'];
     }
     public withAction(action: string): ChangeCheckRuleActionRequest {
         this['action'] = action;

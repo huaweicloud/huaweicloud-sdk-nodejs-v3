@@ -40,6 +40,7 @@ import { ListAttentionsResponse } from './model/ListAttentionsResponse';
 import { ModifyRepositoryRequest } from './model/ModifyRepositoryRequest';
 import { ModifyRepositoryResponse } from './model/ModifyRepositoryResponse';
 import { PathMap } from './model/PathMap';
+import { PrivilegesResponseResult } from './model/PrivilegesResponseResult';
 import { ReleaseFileVersionDo } from './model/ReleaseFileVersionDo';
 import { ResetUserPasswordRequest } from './model/ResetUserPasswordRequest';
 import { ResetUserPasswordResponse } from './model/ResetUserPasswordResponse';
@@ -65,6 +66,8 @@ import { ShowRepositoryRequest } from './model/ShowRepositoryRequest';
 import { ShowRepositoryResponse } from './model/ShowRepositoryResponse';
 import { ShowStorageRequest } from './model/ShowStorageRequest';
 import { ShowStorageResponse } from './model/ShowStorageResponse';
+import { ShowUserPrivilegesRequest } from './model/ShowUserPrivilegesRequest';
+import { ShowUserPrivilegesResponse } from './model/ShowUserPrivilegesResponse';
 import { StandardResponseResult } from './model/StandardResponseResult';
 import { TrashArtifactModelForDelete } from './model/TrashArtifactModelForDelete';
 import { UpdateArtifactoryRequest } from './model/UpdateArtifactoryRequest';
@@ -617,6 +620,24 @@ export class CodeArtsArtifactClient {
      */
     public showStorage(showStorageRequest?: ShowStorageRequest): Promise<ShowStorageResponse> {
         const options = ParamCreater().showStorage(showStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户在项目下的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户在项目下的权限
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUserPrivileges(showUserPrivilegesRequest?: ShowUserPrivilegesRequest): Promise<ShowUserPrivilegesResponse> {
+        const options = ParamCreater().showUserPrivileges();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1921,6 +1942,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户在项目下的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUserPrivileges() {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v3/user/{project_id}/privileges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

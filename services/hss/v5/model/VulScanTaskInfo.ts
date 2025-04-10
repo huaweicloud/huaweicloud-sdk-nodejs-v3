@@ -10,6 +10,7 @@ export class VulScanTaskInfo {
     private 'scanning_host_num'?: number;
     private 'success_host_num'?: number;
     private 'failed_host_num'?: number;
+    private 'estimated_time'?: number;
     public constructor() { 
     }
     public withId(id: string): VulScanTaskInfo {
@@ -89,5 +90,15 @@ export class VulScanTaskInfo {
     }
     public get failedHostNum(): number | undefined {
         return this['failed_host_num'];
+    }
+    public withEstimatedTime(estimatedTime: number): VulScanTaskInfo {
+        this['estimated_time'] = estimatedTime;
+        return this;
+    }
+    public set estimatedTime(estimatedTime: number  | undefined) {
+        this['estimated_time'] = estimatedTime;
+    }
+    public get estimatedTime(): number | undefined {
+        return this['estimated_time'];
     }
 }

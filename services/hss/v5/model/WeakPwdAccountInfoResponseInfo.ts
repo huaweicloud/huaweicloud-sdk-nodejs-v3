@@ -4,6 +4,8 @@ export class WeakPwdAccountInfoResponseInfo {
     private 'user_name'?: string;
     private 'service_type'?: string;
     public duration?: number;
+    private 'desensitized_weak_passwords'?: string;
+    public suggestion?: string;
     public constructor() { 
     }
     public withUserName(userName: string): WeakPwdAccountInfoResponseInfo {
@@ -28,6 +30,20 @@ export class WeakPwdAccountInfoResponseInfo {
     }
     public withDuration(duration: number): WeakPwdAccountInfoResponseInfo {
         this['duration'] = duration;
+        return this;
+    }
+    public withDesensitizedWeakPasswords(desensitizedWeakPasswords: string): WeakPwdAccountInfoResponseInfo {
+        this['desensitized_weak_passwords'] = desensitizedWeakPasswords;
+        return this;
+    }
+    public set desensitizedWeakPasswords(desensitizedWeakPasswords: string  | undefined) {
+        this['desensitized_weak_passwords'] = desensitizedWeakPasswords;
+    }
+    public get desensitizedWeakPasswords(): string | undefined {
+        return this['desensitized_weak_passwords'];
+    }
+    public withSuggestion(suggestion: string): WeakPwdAccountInfoResponseInfo {
+        this['suggestion'] = suggestion;
         return this;
     }
 }

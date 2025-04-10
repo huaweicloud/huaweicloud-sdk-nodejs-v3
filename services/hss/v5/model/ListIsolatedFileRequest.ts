@@ -11,6 +11,10 @@ export class ListIsolatedFileRequest {
     private 'asset_value'?: string;
     public offset?: number;
     public limit?: number;
+    private 'isolation_status'?: string;
+    private 'last_days'?: number;
+    private 'begin_time'?: number;
+    private 'end_time'?: number;
     public constructor(region?: string) { 
         this['region'] = region;
     }
@@ -95,5 +99,45 @@ export class ListIsolatedFileRequest {
     public withLimit(limit: number): ListIsolatedFileRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withIsolationStatus(isolationStatus: string): ListIsolatedFileRequest {
+        this['isolation_status'] = isolationStatus;
+        return this;
+    }
+    public set isolationStatus(isolationStatus: string  | undefined) {
+        this['isolation_status'] = isolationStatus;
+    }
+    public get isolationStatus(): string | undefined {
+        return this['isolation_status'];
+    }
+    public withLastDays(lastDays: number): ListIsolatedFileRequest {
+        this['last_days'] = lastDays;
+        return this;
+    }
+    public set lastDays(lastDays: number  | undefined) {
+        this['last_days'] = lastDays;
+    }
+    public get lastDays(): number | undefined {
+        return this['last_days'];
+    }
+    public withBeginTime(beginTime: number): ListIsolatedFileRequest {
+        this['begin_time'] = beginTime;
+        return this;
+    }
+    public set beginTime(beginTime: number  | undefined) {
+        this['begin_time'] = beginTime;
+    }
+    public get beginTime(): number | undefined {
+        return this['begin_time'];
+    }
+    public withEndTime(endTime: number): ListIsolatedFileRequest {
+        this['end_time'] = endTime;
+        return this;
+    }
+    public set endTime(endTime: number  | undefined) {
+        this['end_time'] = endTime;
+    }
+    public get endTime(): number | undefined {
+        return this['end_time'];
     }
 }

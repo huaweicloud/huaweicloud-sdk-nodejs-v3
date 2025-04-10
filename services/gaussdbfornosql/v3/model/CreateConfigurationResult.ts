@@ -6,6 +6,7 @@ export class CreateConfigurationResult {
     public description?: string;
     private 'datastore_version_name'?: string;
     private 'datastore_name'?: string;
+    public mode?: string;
     public created?: string;
     public updated?: string;
     public constructor(id?: string, name?: string, datastoreVersionName?: string, datastoreName?: string, created?: string, updated?: string) { 
@@ -47,6 +48,10 @@ export class CreateConfigurationResult {
     }
     public get datastoreName(): string | undefined {
         return this['datastore_name'];
+    }
+    public withMode(mode: string): CreateConfigurationResult {
+        this['mode'] = mode;
+        return this;
     }
     public withCreated(created: string): CreateConfigurationResult {
         this['created'] = created;

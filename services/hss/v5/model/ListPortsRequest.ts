@@ -6,6 +6,7 @@ export class ListPortsRequest {
     private 'host_ip'?: string;
     public port?: number;
     public type?: string;
+    public status?: string;
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
@@ -49,6 +50,10 @@ export class ListPortsRequest {
     }
     public withType(type: string): ListPortsRequest {
         this['type'] = type;
+        return this;
+    }
+    public withStatus(status: string): ListPortsRequest {
+        this['status'] = status;
         return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPortsRequest {

@@ -8,10 +8,10 @@ export class ListInstancesResult {
     public name?: string;
     public status?: string;
     public port?: string;
-    public mode?: string;
-    private 'product_type'?: string;
     public region?: string;
     public datastore?: ListInstancesDatastoreResult;
+    public mode?: string;
+    private 'product_type'?: string;
     public engine?: string;
     public created?: string;
     public updated?: string;
@@ -30,14 +30,14 @@ export class ListInstancesResult {
     private 'lb_ip_address'?: string;
     private 'lb_port'?: string;
     private 'availability_zone'?: string;
-    public constructor(id?: string, name?: string, status?: string, port?: string, mode?: string, region?: string, datastore?: ListInstancesDatastoreResult, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>) { 
+    public constructor(id?: string, name?: string, status?: string, port?: string, region?: string, datastore?: ListInstancesDatastoreResult, mode?: string, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
         this['port'] = port;
-        this['mode'] = mode;
         this['region'] = region;
         this['datastore'] = datastore;
+        this['mode'] = mode;
         this['engine'] = engine;
         this['created'] = created;
         this['updated'] = updated;
@@ -69,6 +69,14 @@ export class ListInstancesResult {
         this['port'] = port;
         return this;
     }
+    public withRegion(region: string): ListInstancesResult {
+        this['region'] = region;
+        return this;
+    }
+    public withDatastore(datastore: ListInstancesDatastoreResult): ListInstancesResult {
+        this['datastore'] = datastore;
+        return this;
+    }
     public withMode(mode: string): ListInstancesResult {
         this['mode'] = mode;
         return this;
@@ -82,14 +90,6 @@ export class ListInstancesResult {
     }
     public get productType(): string | undefined {
         return this['product_type'];
-    }
-    public withRegion(region: string): ListInstancesResult {
-        this['region'] = region;
-        return this;
-    }
-    public withDatastore(datastore: ListInstancesDatastoreResult): ListInstancesResult {
-        this['datastore'] = datastore;
-        return this;
     }
     public withEngine(engine: string): ListInstancesResult {
         this['engine'] = engine;

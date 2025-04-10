@@ -9,6 +9,7 @@ export class ListImageRiskConfigRulesRequest {
     public namespace?: string;
     private 'image_name'?: string;
     private 'image_version'?: string;
+    private 'image_id'?: string;
     private 'check_name'?: string;
     public standard?: string;
     private 'result_type'?: string;
@@ -75,6 +76,16 @@ export class ListImageRiskConfigRulesRequest {
     }
     public get imageVersion(): string | undefined {
         return this['image_version'];
+    }
+    public withImageId(imageId: string): ListImageRiskConfigRulesRequest {
+        this['image_id'] = imageId;
+        return this;
+    }
+    public set imageId(imageId: string  | undefined) {
+        this['image_id'] = imageId;
+    }
+    public get imageId(): string | undefined {
+        return this['image_id'];
     }
     public withCheckName(checkName: string): ListImageRiskConfigRulesRequest {
         this['check_name'] = checkName;

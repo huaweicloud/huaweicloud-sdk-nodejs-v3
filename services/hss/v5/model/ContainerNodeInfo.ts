@@ -8,6 +8,8 @@ export class ContainerNodeInfo {
     private 'agent_status'?: string;
     private 'protect_status'?: string;
     private 'protect_interrupt'?: boolean;
+    private 'protect_degradation'?: boolean;
+    private 'degradation_reason'?: string;
     private 'container_tags'?: string;
     private 'private_ip'?: string;
     private 'public_ip'?: string;
@@ -91,6 +93,26 @@ export class ContainerNodeInfo {
     }
     public get protectInterrupt(): boolean | undefined {
         return this['protect_interrupt'];
+    }
+    public withProtectDegradation(protectDegradation: boolean): ContainerNodeInfo {
+        this['protect_degradation'] = protectDegradation;
+        return this;
+    }
+    public set protectDegradation(protectDegradation: boolean  | undefined) {
+        this['protect_degradation'] = protectDegradation;
+    }
+    public get protectDegradation(): boolean | undefined {
+        return this['protect_degradation'];
+    }
+    public withDegradationReason(degradationReason: string): ContainerNodeInfo {
+        this['degradation_reason'] = degradationReason;
+        return this;
+    }
+    public set degradationReason(degradationReason: string  | undefined) {
+        this['degradation_reason'] = degradationReason;
+    }
+    public get degradationReason(): string | undefined {
+        return this['degradation_reason'];
     }
     public withContainerTags(containerTags: string): ContainerNodeInfo {
         this['container_tags'] = containerTags;

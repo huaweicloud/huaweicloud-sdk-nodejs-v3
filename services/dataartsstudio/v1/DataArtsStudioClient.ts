@@ -5,6 +5,7 @@ import FormData from 'form-data';
 
 import { AcceptSecurityApplicationRequest } from './model/AcceptSecurityApplicationRequest';
 import { AcceptSecurityApplicationResponse } from './model/AcceptSecurityApplicationResponse';
+import { AccountPermission } from './model/AccountPermission';
 import { AddDesignEntityTagsRequest } from './model/AddDesignEntityTagsRequest';
 import { AddDesignEntityTagsResponse } from './model/AddDesignEntityTagsResponse';
 import { AddTagToAssetRequest } from './model/AddTagToAssetRequest';
@@ -56,11 +57,15 @@ import { AppRequestDTO } from './model/AppRequestDTO';
 import { AppReturnDTO } from './model/AppReturnDTO';
 import { AppUpdateDTO } from './model/AppUpdateDTO';
 import { ApplyBgEnum } from './model/ApplyBgEnum';
+import { ApplySecurityTableAuthorityRequest } from './model/ApplySecurityTableAuthorityRequest';
+import { ApplySecurityTableAuthorityResponse } from './model/ApplySecurityTableAuthorityResponse';
+import { ApplyTableAuthorityRequestBody } from './model/ApplyTableAuthorityRequestBody';
 import { ApprovalBatchParam } from './model/ApprovalBatchParam';
 import { ApprovalInfoParam } from './model/ApprovalInfoParam';
 import { ApprovalStatusEnum } from './model/ApprovalStatusEnum';
 import { ApprovalTypeEnum } from './model/ApprovalTypeEnum';
 import { ApprovalVO } from './model/ApprovalVO';
+import { ApproveResult } from './model/ApproveResult';
 import { Approver } from './model/Approver';
 import { ApproverParam } from './model/ApproverParam';
 import { ApproverVO } from './model/ApproverVO';
@@ -90,6 +95,9 @@ import { BackendRequestPara } from './model/BackendRequestPara';
 import { BasicInfo } from './model/BasicInfo';
 import { BatchApproveApplyRequest } from './model/BatchApproveApplyRequest';
 import { BatchApproveApplyResponse } from './model/BatchApproveApplyResponse';
+import { BatchApproveRequestBody } from './model/BatchApproveRequestBody';
+import { BatchApproveSecurityApplicationsRequest } from './model/BatchApproveSecurityApplicationsRequest';
+import { BatchApproveSecurityApplicationsResponse } from './model/BatchApproveSecurityApplicationsResponse';
 import { BatchAssociateClassificationToEntitiesRequest } from './model/BatchAssociateClassificationToEntitiesRequest';
 import { BatchAssociateClassificationToEntitiesResponse } from './model/BatchAssociateClassificationToEntitiesResponse';
 import { BatchAssociateSecurityLevelToEntitiesRequest } from './model/BatchAssociateSecurityLevelToEntitiesRequest';
@@ -128,10 +136,13 @@ import { BatchPublishRequest } from './model/BatchPublishRequest';
 import { BatchPublishResponse } from './model/BatchPublishResponse';
 import { BatchPublishResultData } from './model/BatchPublishResultData';
 import { BatchRecommendationRequest } from './model/BatchRecommendationRequest';
+import { BatchRejectSecurityApplicationsRequest } from './model/BatchRejectSecurityApplicationsRequest';
+import { BatchRejectSecurityApplicationsResponse } from './model/BatchRejectSecurityApplicationsResponse';
 import { BatchSyncMetadataRequest } from './model/BatchSyncMetadataRequest';
 import { BatchSyncMetadataResponse } from './model/BatchSyncMetadataResponse';
 import { BatchTagRequest } from './model/BatchTagRequest';
 import { BatchTagResponse } from './model/BatchTagResponse';
+import { BatchUpdatePermissionExpireTimeDTO } from './model/BatchUpdatePermissionExpireTimeDTO';
 import { BatchUpdateSecurityDlfDataWareHousesRequest } from './model/BatchUpdateSecurityDlfDataWareHousesRequest';
 import { BatchUpdateSecurityDlfDataWareHousesResponse } from './model/BatchUpdateSecurityDlfDataWareHousesResponse';
 import { BehaviorRestBody } from './model/BehaviorRestBody';
@@ -708,8 +719,12 @@ import { ListSecurityDlfDataWareHousesRequest } from './model/ListSecurityDlfDat
 import { ListSecurityDlfDataWareHousesResponse } from './model/ListSecurityDlfDataWareHousesResponse';
 import { ListSecurityDynamicMaskingPoliciesRequest } from './model/ListSecurityDynamicMaskingPoliciesRequest';
 import { ListSecurityDynamicMaskingPoliciesResponse } from './model/ListSecurityDynamicMaskingPoliciesResponse';
+import { ListSecurityMemberPermissionRequest } from './model/ListSecurityMemberPermissionRequest';
+import { ListSecurityMemberPermissionResponse } from './model/ListSecurityMemberPermissionResponse';
 import { ListSecurityMemberSyncTasksRequest } from './model/ListSecurityMemberSyncTasksRequest';
 import { ListSecurityMemberSyncTasksResponse } from './model/ListSecurityMemberSyncTasksResponse';
+import { ListSecurityMemberTablePermissionRequest } from './model/ListSecurityMemberTablePermissionRequest';
+import { ListSecurityMemberTablePermissionResponse } from './model/ListSecurityMemberTablePermissionResponse';
 import { ListSecurityPermissionSetMembersRequest } from './model/ListSecurityPermissionSetMembersRequest';
 import { ListSecurityPermissionSetMembersResponse } from './model/ListSecurityPermissionSetMembersResponse';
 import { ListSecurityPermissionSetPermissionsRequest } from './model/ListSecurityPermissionSetPermissionsRequest';
@@ -724,11 +739,16 @@ import { ListSecuritySecrecyLevelsRequest } from './model/ListSecuritySecrecyLev
 import { ListSecuritySecrecyLevelsResponse } from './model/ListSecuritySecrecyLevelsResponse';
 import { ListSecuritySensitiveDataOverviewsRequest } from './model/ListSecuritySensitiveDataOverviewsRequest';
 import { ListSecuritySensitiveDataOverviewsResponse } from './model/ListSecuritySensitiveDataOverviewsResponse';
+import { ListSecurityTableApproversRequest } from './model/ListSecurityTableApproversRequest';
+import { ListSecurityTableApproversResponse } from './model/ListSecurityTableApproversResponse';
 import { ListSecurityUnreasonablePermissionsRequest } from './model/ListSecurityUnreasonablePermissionsRequest';
 import { ListSecurityUnreasonablePermissionsResponse } from './model/ListSecurityUnreasonablePermissionsResponse';
+import { ListSecurityUserTablePermissionRequest } from './model/ListSecurityUserTablePermissionRequest';
+import { ListSecurityUserTablePermissionResponse } from './model/ListSecurityUserTablePermissionResponse';
 import { ListSubjectLevelsRequest } from './model/ListSubjectLevelsRequest';
 import { ListSubjectLevelsResponse } from './model/ListSubjectLevelsResponse';
 import { ListSubjectLevelsResultData } from './model/ListSubjectLevelsResultData';
+import { ListTableApproversRequestBody } from './model/ListTableApproversRequestBody';
 import { ListTableModelRelationsRequest } from './model/ListTableModelRelationsRequest';
 import { ListTableModelRelationsResponse } from './model/ListTableModelRelationsResponse';
 import { ListTableModelRelationsResultData } from './model/ListTableModelRelationsResultData';
@@ -755,6 +775,7 @@ import { MallParaDTO } from './model/MallParaDTO';
 import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
 import { MappingSourceTableVO } from './model/MappingSourceTableVO';
+import { MemberPermission } from './model/MemberPermission';
 import { MemberPolicyItem } from './model/MemberPolicyItem';
 import { MemberSyncTask } from './model/MemberSyncTask';
 import { MetadataCollectionTask } from './model/MetadataCollectionTask';
@@ -918,6 +939,9 @@ import { SecurityCertification } from './model/SecurityCertification';
 import { SecurityGroupResult } from './model/SecurityGroupResult';
 import { SecurityGroupStatus } from './model/SecurityGroupStatus';
 import { SecurityLevelInfo } from './model/SecurityLevelInfo';
+import { SecurityListUserTableList } from './model/SecurityListUserTableList';
+import { SecurityListUserTableListProposer } from './model/SecurityListUserTableListProposer';
+import { SecurityListUserTableListTableList } from './model/SecurityListUserTableListTableList';
 import { SelfDefinedFieldVO } from './model/SelfDefinedFieldVO';
 import { SensitiveDataCategoryOverviewQueryDTO } from './model/SensitiveDataCategoryOverviewQueryDTO';
 import { SensitiveDataSecrecyLevelOverviewQueryDTO } from './model/SensitiveDataSecrecyLevelOverviewQueryDTO';
@@ -1115,6 +1139,7 @@ import { SupplementDataRespSupplementDataInstanceTime } from './model/Supplement
 import { SupplementDataRespSupplementDataRunTime } from './model/SupplementDataRespSupplementDataRunTime';
 import { SyncStatusEnum } from './model/SyncStatusEnum';
 import { SyncStatusStatisticVO } from './model/SyncStatusStatisticVO';
+import { TableApprover } from './model/TableApprover';
 import { TableColumnDTO } from './model/TableColumnDTO';
 import { TableInfo } from './model/TableInfo';
 import { TableInfoV2 } from './model/TableInfoV2';
@@ -1127,6 +1152,7 @@ import { TableModelAttributeVO } from './model/TableModelAttributeVO';
 import { TableModelStatisticVO } from './model/TableModelStatisticVO';
 import { TableModelUpdateVO } from './model/TableModelUpdateVO';
 import { TableModelVO } from './model/TableModelVO';
+import { TableProposers } from './model/TableProposers';
 import { TableType } from './model/TableType';
 import { TablesList } from './model/TablesList';
 import { TagHeader } from './model/TagHeader';
@@ -1187,6 +1213,7 @@ import { UpdateDirectoryResponse } from './model/UpdateDirectoryResponse';
 import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest';
 import { UpdateFactoryJobNameRequestBody } from './model/UpdateFactoryJobNameRequestBody';
 import { UpdateFactoryJobNameResponse } from './model/UpdateFactoryJobNameResponse';
+import { UpdatePermissionExpireTimeResultDTOResults } from './model/UpdatePermissionExpireTimeResultDTOResults';
 import { UpdateSecrecyLevelDTO } from './model/UpdateSecrecyLevelDTO';
 import { UpdateSecurityAssignedQueueRequest } from './model/UpdateSecurityAssignedQueueRequest';
 import { UpdateSecurityAssignedQueueResponse } from './model/UpdateSecurityAssignedQueueResponse';
@@ -1198,6 +1225,8 @@ import { UpdateSecurityDataClassificationRuleRequest } from './model/UpdateSecur
 import { UpdateSecurityDataClassificationRuleResponse } from './model/UpdateSecurityDataClassificationRuleResponse';
 import { UpdateSecurityDynamicMaskingPolicyRequest } from './model/UpdateSecurityDynamicMaskingPolicyRequest';
 import { UpdateSecurityDynamicMaskingPolicyResponse } from './model/UpdateSecurityDynamicMaskingPolicyResponse';
+import { UpdateSecurityMemberPermissionExpireTimeRequest } from './model/UpdateSecurityMemberPermissionExpireTimeRequest';
+import { UpdateSecurityMemberPermissionExpireTimeResponse } from './model/UpdateSecurityMemberPermissionExpireTimeResponse';
 import { UpdateSecurityPermissionSetPermissionRequest } from './model/UpdateSecurityPermissionSetPermissionRequest';
 import { UpdateSecurityPermissionSetPermissionResponse } from './model/UpdateSecurityPermissionSetPermissionResponse';
 import { UpdateSecurityPermissionSetRequest } from './model/UpdateSecurityPermissionSetRequest';
@@ -1335,6 +1364,25 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 提交表权限申请
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 提交表权限申请
+     * @param {ApplyTableAuthorityRequestBody} [applyTableAuthorityRequestBody] 审批接口传参
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public applySecurityTableAuthority(applySecurityTableAuthorityRequest?: ApplySecurityTableAuthorityRequest): Promise<ApplySecurityTableAuthorityResponse> {
+        const options = ParamCreater().applySecurityTableAuthority(applySecurityTableAuthorityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 将一个分类关联到一个或多个指定guid的资产上
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1411,6 +1459,26 @@ export class DataArtsStudioClient {
      */
     public batchApproveApply(batchApproveApplyRequest?: BatchApproveApplyRequest): Promise<BatchApproveApplyResponse> {
         const options = ParamCreater().batchApproveApply(batchApproveApplyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量审批通过工单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量审批通过工单
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {BatchApproveRequestBody} batchApproveSecurityApplicationsRequestBody 批量审批通过接口传参
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchApproveSecurityApplications(batchApproveSecurityApplicationsRequest?: BatchApproveSecurityApplicationsRequest): Promise<BatchApproveSecurityApplicationsResponse> {
+        const options = ParamCreater().batchApproveSecurityApplications(batchApproveSecurityApplicationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1706,6 +1774,26 @@ export class DataArtsStudioClient {
      */
     public batchPublish(batchPublishRequest?: BatchPublishRequest): Promise<BatchPublishResponse> {
         const options = ParamCreater().batchPublish(batchPublishRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量驳回工单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量驳回工单
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {BatchApproveRequestBody} batchRejectSecurityApplicationsRequestBody 批量驳回工单接口传参
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchRejectSecurityApplications(batchRejectSecurityApplicationsRequest?: BatchRejectSecurityApplicationsRequest): Promise<BatchRejectSecurityApplicationsResponse> {
+        const options = ParamCreater().batchRejectSecurityApplications(batchRejectSecurityApplicationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5535,6 +5623,35 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询我的权限、空间账号权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询我的权限
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} [userName] 用户名
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {'HIVE'} [datasourceType] 数据源类型,HIVE
+     * @param {string} [databaseName] 数据库名称
+     * @param {string} [tableName] 表名称
+     * @param {'SELF_ACCOUNT' | 'WORKSPACE_ACCOUNT'} [accountType] 权限账号类型 * SELF_ACCOUNT 个人账号权限 * WORKSPACE_ACCOUNT 空间调度账号权限
+     * @param {'REVOKE_FAILED' | 'TO_BE_REVOKE' | 'INACTIVE' | 'PERMANENTLY_ACTIVE' | 'ACTIVE' | 'EXPIRE_SOON'} [expireStatus] 权限状态,REVOKE_FAILED,TO_BE_REVOKE,INACTIVE,PERMANENTLY_ACTIVE,ACTIVE,EXPIRE_SOON
+     * @param {'EXPIRE_TIME'} [orderBy] 排序参数,EXPIRE_TIME
+     * @param {boolean} [orderByAsc] 升序/降序。true升序，fasle降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityMemberPermission(listSecurityMemberPermissionRequest?: ListSecurityMemberPermissionRequest): Promise<ListSecurityMemberPermissionResponse> {
+        const options = ParamCreater().listSecurityMemberPermission(listSecurityMemberPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户同步列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5554,6 +5671,36 @@ export class DataArtsStudioClient {
      */
     public listSecurityMemberSyncTasks(listSecurityMemberSyncTasksRequest?: ListSecurityMemberSyncTasksRequest): Promise<ListSecurityMemberSyncTasksResponse> {
         const options = ParamCreater().listSecurityMemberSyncTasks(listSecurityMemberSyncTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户表权限清单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户表权限清单
+     * @param {string} userId IAM用户id
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {'PERMISSION_LIST'} [feature] 权限清单场景类型，PERMISSION_LIST
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {'HIVE' | 'DWS' | 'DLI'} [datasourceType] 数据源类型,hive,dws[,dli](tag:nohcs)
+     * @param {string} [clusterName] 集群名称
+     * @param {string} [databaseName] 数据库名称
+     * @param {string} [schemaName] schema名称
+     * @param {string} [tableName] 表名称
+     * @param {string} [fuzzyTableName] 表名（模糊匹配）
+     * @param {Array<string>} [workspaceIds] 工作空间id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityMemberTablePermission(listSecurityMemberTablePermissionRequest?: ListSecurityMemberTablePermissionRequest): Promise<ListSecurityMemberTablePermissionResponse> {
+        const options = ParamCreater().listSecurityMemberTablePermission(listSecurityMemberTablePermissionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5745,6 +5892,25 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 获取表权限审批人列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取表权限审批人列表
+     * @param {ListTableApproversRequestBody} [listTableApproversRequestBody] 获取表传参
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityTableApprovers(listSecurityTableApproversRequest?: ListSecurityTableApproversRequest): Promise<ListSecurityTableApproversResponse> {
+        const options = ParamCreater().listSecurityTableApprovers(listSecurityTableApproversRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询不合理的权限配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5761,6 +5927,26 @@ export class DataArtsStudioClient {
      */
     public listSecurityUnreasonablePermissions(listSecurityUnreasonablePermissionsRequest?: ListSecurityUnreasonablePermissionsRequest): Promise<ListSecurityUnreasonablePermissionsResponse> {
         const options = ParamCreater().listSecurityUnreasonablePermissions(listSecurityUnreasonablePermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户对表的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户对表的权限
+     * @param {string} [instance] dataarts实例id
+     * @param {SecurityListUserTableList} [listSecurityUserTablePermissionRequestBody] 查询输入信息，表信息和用户信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityUserTablePermission(listSecurityUserTablePermissionRequest?: ListSecurityUserTablePermissionRequest): Promise<ListSecurityUserTablePermissionResponse> {
+        const options = ParamCreater().listSecurityUserTablePermission(listSecurityUserTablePermissionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8876,6 +9062,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 批量变更权限有效期
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量变更权限有效期
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {BatchUpdatePermissionExpireTimeDTO} updateSecurityMemberPermissionExpireTimeRequestBody 权限有效期修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityMemberPermissionExpireTime(updateSecurityMemberPermissionExpireTimeRequest?: UpdateSecurityMemberPermissionExpireTimeRequest): Promise<UpdateSecurityMemberPermissionExpireTimeResponse> {
+        const options = ParamCreater().updateSecurityMemberPermissionExpireTime(updateSecurityMemberPermissionExpireTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新权限集
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -9832,6 +10038,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 提交表权限申请
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        applySecurityTableAuthority(applySecurityTableAuthorityRequest?: ApplySecurityTableAuthorityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-application/table",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (applySecurityTableAuthorityRequest !== null && applySecurityTableAuthorityRequest !== undefined) {
+                if (applySecurityTableAuthorityRequest instanceof ApplySecurityTableAuthorityRequest) {
+                    body = applySecurityTableAuthorityRequest.body
+                } else {
+                    body = applySecurityTableAuthorityRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 将一个分类关联到一个或多个指定guid的资产上
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10036,6 +10277,51 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量审批通过工单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchApproveSecurityApplications(batchApproveSecurityApplicationsRequest?: BatchApproveSecurityApplicationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/openapi/permission-approve/batch-approve",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (batchApproveSecurityApplicationsRequest !== null && batchApproveSecurityApplicationsRequest !== undefined) {
+                if (batchApproveSecurityApplicationsRequest instanceof BatchApproveSecurityApplicationsRequest) {
+                    workspace = batchApproveSecurityApplicationsRequest.workspace;
+                    body = batchApproveSecurityApplicationsRequest.body
+                } else {
+                    workspace = batchApproveSecurityApplicationsRequest['workspace'];
+                    body = batchApproveSecurityApplicationsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -10747,6 +11033,51 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量驳回工单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchRejectSecurityApplications(batchRejectSecurityApplicationsRequest?: BatchRejectSecurityApplicationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/openapi/permission-approve/batch-reject",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (batchRejectSecurityApplicationsRequest !== null && batchRejectSecurityApplicationsRequest !== undefined) {
+                if (batchRejectSecurityApplicationsRequest instanceof BatchRejectSecurityApplicationsRequest) {
+                    workspace = batchRejectSecurityApplicationsRequest.workspace;
+                    body = batchRejectSecurityApplicationsRequest.body
+                } else {
+                    workspace = batchRejectSecurityApplicationsRequest['workspace'];
+                    body = batchRejectSecurityApplicationsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -21676,6 +22007,113 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询我的权限、空间账号权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityMemberPermission(listSecurityMemberPermissionRequest?: ListSecurityMemberPermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-governance/my-permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let userName;
+            
+            let limit;
+            
+            let offset;
+            
+            let datasourceType;
+            
+            let databaseName;
+            
+            let tableName;
+            
+            let accountType;
+            
+            let expireStatus;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecurityMemberPermissionRequest !== null && listSecurityMemberPermissionRequest !== undefined) {
+                if (listSecurityMemberPermissionRequest instanceof ListSecurityMemberPermissionRequest) {
+                    workspace = listSecurityMemberPermissionRequest.workspace;
+                    userName = listSecurityMemberPermissionRequest.userName;
+                    limit = listSecurityMemberPermissionRequest.limit;
+                    offset = listSecurityMemberPermissionRequest.offset;
+                    datasourceType = listSecurityMemberPermissionRequest.datasourceType;
+                    databaseName = listSecurityMemberPermissionRequest.databaseName;
+                    tableName = listSecurityMemberPermissionRequest.tableName;
+                    accountType = listSecurityMemberPermissionRequest.accountType;
+                    expireStatus = listSecurityMemberPermissionRequest.expireStatus;
+                    orderBy = listSecurityMemberPermissionRequest.orderBy;
+                    orderByAsc = listSecurityMemberPermissionRequest.orderByAsc;
+                } else {
+                    workspace = listSecurityMemberPermissionRequest['workspace'];
+                    userName = listSecurityMemberPermissionRequest['user_name'];
+                    limit = listSecurityMemberPermissionRequest['limit'];
+                    offset = listSecurityMemberPermissionRequest['offset'];
+                    datasourceType = listSecurityMemberPermissionRequest['datasource_type'];
+                    databaseName = listSecurityMemberPermissionRequest['database_name'];
+                    tableName = listSecurityMemberPermissionRequest['table_name'];
+                    accountType = listSecurityMemberPermissionRequest['account_type'];
+                    expireStatus = listSecurityMemberPermissionRequest['expire_status'];
+                    orderBy = listSecurityMemberPermissionRequest['order_by'];
+                    orderByAsc = listSecurityMemberPermissionRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (accountType !== null && accountType !== undefined) {
+                localVarQueryParameter['account_type'] = accountType;
+            }
+            if (expireStatus !== null && expireStatus !== undefined) {
+                localVarQueryParameter['expire_status'] = expireStatus;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户同步列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21764,6 +22202,121 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户表权限清单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityMemberTablePermission(listSecurityMemberTablePermissionRequest?: ListSecurityMemberTablePermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/member-permission/{user_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let userId;
+            
+            let workspace;
+            
+            let feature;
+            
+            let limit;
+            
+            let offset;
+            
+            let datasourceType;
+            
+            let clusterName;
+            
+            let databaseName;
+            
+            let schemaName;
+            
+            let tableName;
+            
+            let fuzzyTableName;
+            
+            let workspaceIds;
+
+            if (listSecurityMemberTablePermissionRequest !== null && listSecurityMemberTablePermissionRequest !== undefined) {
+                if (listSecurityMemberTablePermissionRequest instanceof ListSecurityMemberTablePermissionRequest) {
+                    userId = listSecurityMemberTablePermissionRequest.userId;
+                    workspace = listSecurityMemberTablePermissionRequest.workspace;
+                    feature = listSecurityMemberTablePermissionRequest.feature;
+                    limit = listSecurityMemberTablePermissionRequest.limit;
+                    offset = listSecurityMemberTablePermissionRequest.offset;
+                    datasourceType = listSecurityMemberTablePermissionRequest.datasourceType;
+                    clusterName = listSecurityMemberTablePermissionRequest.clusterName;
+                    databaseName = listSecurityMemberTablePermissionRequest.databaseName;
+                    schemaName = listSecurityMemberTablePermissionRequest.schemaName;
+                    tableName = listSecurityMemberTablePermissionRequest.tableName;
+                    fuzzyTableName = listSecurityMemberTablePermissionRequest.fuzzyTableName;
+                    workspaceIds = listSecurityMemberTablePermissionRequest.workspaceIds;
+                } else {
+                    userId = listSecurityMemberTablePermissionRequest['user_id'];
+                    workspace = listSecurityMemberTablePermissionRequest['workspace'];
+                    feature = listSecurityMemberTablePermissionRequest['feature'];
+                    limit = listSecurityMemberTablePermissionRequest['limit'];
+                    offset = listSecurityMemberTablePermissionRequest['offset'];
+                    datasourceType = listSecurityMemberTablePermissionRequest['datasource_type'];
+                    clusterName = listSecurityMemberTablePermissionRequest['cluster_name'];
+                    databaseName = listSecurityMemberTablePermissionRequest['database_name'];
+                    schemaName = listSecurityMemberTablePermissionRequest['schema_name'];
+                    tableName = listSecurityMemberTablePermissionRequest['table_name'];
+                    fuzzyTableName = listSecurityMemberTablePermissionRequest['fuzzy_table_name'];
+                    workspaceIds = listSecurityMemberTablePermissionRequest['workspace_ids'];
+                }
+            }
+
+        
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling listSecurityMemberTablePermission.');
+            }
+            if (feature !== null && feature !== undefined) {
+                localVarQueryParameter['feature'] = feature;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (clusterName !== null && clusterName !== undefined) {
+                localVarQueryParameter['cluster_name'] = clusterName;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (schemaName !== null && schemaName !== undefined) {
+                localVarQueryParameter['schema_name'] = schemaName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (fuzzyTableName !== null && fuzzyTableName !== undefined) {
+                localVarQueryParameter['fuzzy_table_name'] = fuzzyTableName;
+            }
+            if (workspaceIds !== null && workspaceIds !== undefined) {
+                localVarQueryParameter['workspace_ids'] = workspaceIds;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'user_id': userId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -22381,6 +22934,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取表权限审批人列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityTableApprovers(listSecurityTableApproversRequest?: ListSecurityTableApproversRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-application/table/approvers",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listSecurityTableApproversRequest !== null && listSecurityTableApproversRequest !== undefined) {
+                if (listSecurityTableApproversRequest instanceof ListSecurityTableApproversRequest) {
+                    body = listSecurityTableApproversRequest.body
+                } else {
+                    body = listSecurityTableApproversRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询不合理的权限配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -22451,6 +23039,48 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户对表的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityUserTablePermission(listSecurityUserTablePermissionRequest?: ListSecurityUserTablePermissionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-application/user-table-permissions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instance;
+
+            if (listSecurityUserTablePermissionRequest !== null && listSecurityUserTablePermissionRequest !== undefined) {
+                if (listSecurityUserTablePermissionRequest instanceof ListSecurityUserTablePermissionRequest) {
+                    instance = listSecurityUserTablePermissionRequest.instance;
+                    body = listSecurityUserTablePermissionRequest.body
+                } else {
+                    instance = listSecurityUserTablePermissionRequest['instance'];
+                    body = listSecurityUserTablePermissionRequest['body'];
+                }
+            }
+
+        
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -31236,6 +31866,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量变更权限有效期
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityMemberPermissionExpireTime(updateSecurityMemberPermissionExpireTimeRequest?: UpdateSecurityMemberPermissionExpireTimeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/permission-governance/batch-update-expire-time",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (updateSecurityMemberPermissionExpireTimeRequest !== null && updateSecurityMemberPermissionExpireTimeRequest !== undefined) {
+                if (updateSecurityMemberPermissionExpireTimeRequest instanceof UpdateSecurityMemberPermissionExpireTimeRequest) {
+                    workspace = updateSecurityMemberPermissionExpireTimeRequest.workspace;
+                    body = updateSecurityMemberPermissionExpireTimeRequest.body
+                } else {
+                    workspace = updateSecurityMemberPermissionExpireTimeRequest['workspace'];
+                    body = updateSecurityMemberPermissionExpireTimeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

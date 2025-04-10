@@ -1,4 +1,5 @@
 import { VulScanTaskHostInfoFailedReasons } from './VulScanTaskHostInfoFailedReasons';
+import { VulScanTaskHostInfoVulScanDetails } from './VulScanTaskHostInfoVulScanDetails';
 
 
 export class VulScanTaskHostInfo {
@@ -9,6 +10,7 @@ export class VulScanTaskHostInfo {
     private 'asset_value'?: string;
     private 'scan_status'?: string;
     private 'failed_reasons'?: Array<VulScanTaskHostInfoFailedReasons>;
+    private 'vul_scan_details'?: Array<VulScanTaskHostInfoVulScanDetails>;
     public constructor() { 
     }
     public withHostId(hostId: string): VulScanTaskHostInfo {
@@ -80,5 +82,15 @@ export class VulScanTaskHostInfo {
     }
     public get failedReasons(): Array<VulScanTaskHostInfoFailedReasons> | undefined {
         return this['failed_reasons'];
+    }
+    public withVulScanDetails(vulScanDetails: Array<VulScanTaskHostInfoVulScanDetails>): VulScanTaskHostInfo {
+        this['vul_scan_details'] = vulScanDetails;
+        return this;
+    }
+    public set vulScanDetails(vulScanDetails: Array<VulScanTaskHostInfoVulScanDetails>  | undefined) {
+        this['vul_scan_details'] = vulScanDetails;
+    }
+    public get vulScanDetails(): Array<VulScanTaskHostInfoVulScanDetails> | undefined {
+        return this['vul_scan_details'];
     }
 }

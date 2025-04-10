@@ -2,6 +2,8 @@ import { ProtectionServerInfoBackupError } from './ProtectionServerInfoBackupErr
 
 
 export class ProtectionServerInfo {
+    private 'project_id'?: string;
+    private 'enterprise_project_id'?: string;
     private 'host_id'?: string;
     private 'agent_id'?: string;
     private 'host_name'?: string;
@@ -36,6 +38,26 @@ export class ProtectionServerInfo {
     private 'backup_policy_enabled'?: boolean;
     private 'resources_num'?: number;
     public constructor() { 
+    }
+    public withProjectId(projectId: string): ProtectionServerInfo {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ProtectionServerInfo {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withHostId(hostId: string): ProtectionServerInfo {
         this['host_id'] = hostId;

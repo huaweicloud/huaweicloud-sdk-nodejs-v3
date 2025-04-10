@@ -7,6 +7,7 @@ export class ListPolicyGroupRequest {
     public offset?: number;
     public limit?: number;
     private 'container_mode'?: boolean;
+    private 'group_id'?: string;
     public constructor(region?: string) { 
         this['region'] = region;
     }
@@ -51,5 +52,15 @@ export class ListPolicyGroupRequest {
     }
     public get containerMode(): boolean | undefined {
         return this['container_mode'];
+    }
+    public withGroupId(groupId: string): ListPolicyGroupRequest {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
 }

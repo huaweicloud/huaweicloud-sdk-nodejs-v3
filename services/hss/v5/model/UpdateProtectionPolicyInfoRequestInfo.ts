@@ -13,6 +13,7 @@ export class UpdateProtectionPolicyInfoRequestInfo {
     private 'operating_system'?: string;
     private 'runtime_detection_status'?: string;
     private 'process_whitelist'?: Array<TrustProcessInfo>;
+    private 'ai_protection_status'?: string;
     public constructor(policyId?: string, policyName?: string, protectionMode?: string, protectionDirectory?: string, protectionType?: string, operatingSystem?: string) { 
         this['policy_id'] = policyId;
         this['policy_name'] = policyName;
@@ -130,5 +131,15 @@ export class UpdateProtectionPolicyInfoRequestInfo {
     }
     public get processWhitelist(): Array<TrustProcessInfo> | undefined {
         return this['process_whitelist'];
+    }
+    public withAiProtectionStatus(aiProtectionStatus: string): UpdateProtectionPolicyInfoRequestInfo {
+        this['ai_protection_status'] = aiProtectionStatus;
+        return this;
+    }
+    public set aiProtectionStatus(aiProtectionStatus: string  | undefined) {
+        this['ai_protection_status'] = aiProtectionStatus;
+    }
+    public get aiProtectionStatus(): string | undefined {
+        return this['ai_protection_status'];
     }
 }

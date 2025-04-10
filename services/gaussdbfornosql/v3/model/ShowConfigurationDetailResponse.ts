@@ -8,6 +8,7 @@ export class ShowConfigurationDetailResponse extends SdkResponse {
     public description?: string;
     private 'datastore_version_name'?: string;
     private 'datastore_name'?: string;
+    public mode?: string;
     public created?: string;
     public updated?: string;
     private 'configuration_parameters'?: Array<ConfigurationParameterResult>;
@@ -45,6 +46,10 @@ export class ShowConfigurationDetailResponse extends SdkResponse {
     }
     public get datastoreName(): string | undefined {
         return this['datastore_name'];
+    }
+    public withMode(mode: string): ShowConfigurationDetailResponse {
+        this['mode'] = mode;
+        return this;
     }
     public withCreated(created: string): ShowConfigurationDetailResponse {
         this['created'] = created;
