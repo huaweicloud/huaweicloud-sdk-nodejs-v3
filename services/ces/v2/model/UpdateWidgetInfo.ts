@@ -4,6 +4,7 @@ import { WidgetMetric } from './WidgetMetric';
 
 
 export class UpdateWidgetInfo {
+    private 'group_id'?: string;
     private 'widget_id'?: string;
     public metrics?: Array<WidgetMetric>;
     public title?: string;
@@ -16,6 +17,16 @@ export class UpdateWidgetInfo {
     public unit?: string;
     public constructor(widgetId?: string) { 
         this['widget_id'] = widgetId;
+    }
+    public withGroupId(groupId: string): UpdateWidgetInfo {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
     public withWidgetId(widgetId: string): UpdateWidgetInfo {
         this['widget_id'] = widgetId;
@@ -83,7 +94,11 @@ export class UpdateWidgetInfo {
     */
 export enum UpdateWidgetInfoViewEnum {
     BAR = 'bar',
-    LINE = 'line'
+    LINE = 'line',
+    BAR_CHART = 'bar_chart',
+    TABLE = 'table',
+    CIRCULAR_BAR = 'circular_bar',
+    AREA_CHART = 'area_chart'
 }
 /**
     * @export

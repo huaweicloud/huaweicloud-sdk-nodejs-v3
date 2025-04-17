@@ -1323,6 +1323,8 @@ export class ConfigClient {
      *
      * @summary 列出内置策略
      * @param {string} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1880,6 +1882,8 @@ export class ConfigClient {
      *
      * @summary 查询用户可见的区域
      * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4719,23 +4723,38 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let xLanguage;
+            
+            let limit;
+            
+            let marker;
 
             if (listBuiltInPolicyDefinitionsRequest !== null && listBuiltInPolicyDefinitionsRequest !== undefined) {
                 if (listBuiltInPolicyDefinitionsRequest instanceof ListBuiltInPolicyDefinitionsRequest) {
                     xLanguage = listBuiltInPolicyDefinitionsRequest.xLanguage;
+                    limit = listBuiltInPolicyDefinitionsRequest.limit;
+                    marker = listBuiltInPolicyDefinitionsRequest.marker;
                 } else {
                     xLanguage = listBuiltInPolicyDefinitionsRequest['X-Language'];
+                    limit = listBuiltInPolicyDefinitionsRequest['limit'];
+                    marker = listBuiltInPolicyDefinitionsRequest['marker'];
                 }
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6031,23 +6050,38 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let xLanguage;
+            
+            let limit;
+            
+            let marker;
 
             if (listRegionsRequest !== null && listRegionsRequest !== undefined) {
                 if (listRegionsRequest instanceof ListRegionsRequest) {
                     xLanguage = listRegionsRequest.xLanguage;
+                    limit = listRegionsRequest.limit;
+                    marker = listRegionsRequest.marker;
                 } else {
                     xLanguage = listRegionsRequest['X-Language'];
+                    limit = listRegionsRequest['limit'];
+                    marker = listRegionsRequest['marker'];
                 }
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

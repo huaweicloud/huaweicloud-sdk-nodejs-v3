@@ -1,11 +1,11 @@
-import { UpdateAlertConfigRequestBodyWarnConfig } from './UpdateAlertConfigRequestBodyWarnConfig';
+import { WarnConfig } from './WarnConfig';
 
 
 export class UpdateAlertConfigRequestBody {
     private 'display_name'?: string;
     private 'topic_urn'?: string;
-    private 'warn_config'?: UpdateAlertConfigRequestBodyWarnConfig;
-    public constructor(displayName?: string, topicUrn?: string, warnConfig?: UpdateAlertConfigRequestBodyWarnConfig) { 
+    private 'warn_config'?: WarnConfig;
+    public constructor(displayName?: string, topicUrn?: string, warnConfig?: WarnConfig) { 
         this['display_name'] = displayName;
         this['topic_urn'] = topicUrn;
         this['warn_config'] = warnConfig;
@@ -30,14 +30,14 @@ export class UpdateAlertConfigRequestBody {
     public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
-    public withWarnConfig(warnConfig: UpdateAlertConfigRequestBodyWarnConfig): UpdateAlertConfigRequestBody {
+    public withWarnConfig(warnConfig: WarnConfig): UpdateAlertConfigRequestBody {
         this['warn_config'] = warnConfig;
         return this;
     }
-    public set warnConfig(warnConfig: UpdateAlertConfigRequestBodyWarnConfig  | undefined) {
+    public set warnConfig(warnConfig: WarnConfig  | undefined) {
         this['warn_config'] = warnConfig;
     }
-    public get warnConfig(): UpdateAlertConfigRequestBodyWarnConfig | undefined {
+    public get warnConfig(): WarnConfig | undefined {
         return this['warn_config'];
     }
 }

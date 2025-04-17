@@ -1,4 +1,3 @@
-import { WidgetIdItem } from './WidgetIdItem';
 
 
 export class BatchUpdateWidgetInfo {

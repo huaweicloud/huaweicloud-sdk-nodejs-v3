@@ -11,6 +11,9 @@ export class ApiBaseInfo {
     private 'auth_type'?: ApiBaseInfoAuthTypeEnum | string;
     private 'auth_opt'?: AuthOpt;
     public cors?: boolean;
+    private 'trace_enabled'?: boolean;
+    private 'sampling_strategy'?: ApiBaseInfoSamplingStrategyEnum | string;
+    private 'sampling_param'?: string;
     private 'match_mode'?: ApiBaseInfoMatchModeEnum | string;
     private 'backend_type'?: ApiBaseInfoBackendTypeEnum | string;
     public remark?: string;
@@ -101,6 +104,36 @@ export class ApiBaseInfo {
     public withCors(cors: boolean): ApiBaseInfo {
         this['cors'] = cors;
         return this;
+    }
+    public withTraceEnabled(traceEnabled: boolean): ApiBaseInfo {
+        this['trace_enabled'] = traceEnabled;
+        return this;
+    }
+    public set traceEnabled(traceEnabled: boolean  | undefined) {
+        this['trace_enabled'] = traceEnabled;
+    }
+    public get traceEnabled(): boolean | undefined {
+        return this['trace_enabled'];
+    }
+    public withSamplingStrategy(samplingStrategy: ApiBaseInfoSamplingStrategyEnum | string): ApiBaseInfo {
+        this['sampling_strategy'] = samplingStrategy;
+        return this;
+    }
+    public set samplingStrategy(samplingStrategy: ApiBaseInfoSamplingStrategyEnum | string  | undefined) {
+        this['sampling_strategy'] = samplingStrategy;
+    }
+    public get samplingStrategy(): ApiBaseInfoSamplingStrategyEnum | string | undefined {
+        return this['sampling_strategy'];
+    }
+    public withSamplingParam(samplingParam: string): ApiBaseInfo {
+        this['sampling_param'] = samplingParam;
+        return this;
+    }
+    public set samplingParam(samplingParam: string  | undefined) {
+        this['sampling_param'] = samplingParam;
+    }
+    public get samplingParam(): string | undefined {
+        return this['sampling_param'];
     }
     public withMatchMode(matchMode: ApiBaseInfoMatchModeEnum | string): ApiBaseInfo {
         this['match_mode'] = matchMode;
@@ -277,6 +310,13 @@ export enum ApiBaseInfoAuthTypeEnum {
     APP = 'APP',
     IAM = 'IAM',
     AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiBaseInfoSamplingStrategyEnum {
+    RATE = 'RATE'
 }
 /**
     * @export

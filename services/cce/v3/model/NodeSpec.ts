@@ -32,6 +32,7 @@ export class NodeSpec {
     public extendParam?: NodeExtendParam;
     public hostnameConfig?: HostnameConfig;
     public serverEnterpriseProjectID?: string;
+    public partition?: string;
     public constructor(flavor?: string, az?: string, login?: Login, rootVolume?: Volume, dataVolumes?: Array<Volume>) { 
         this['flavor'] = flavor;
         this['az'] = az;
@@ -121,6 +122,10 @@ export class NodeSpec {
     }
     public withServerEnterpriseProjectID(serverEnterpriseProjectID: string): NodeSpec {
         this['serverEnterpriseProjectID'] = serverEnterpriseProjectID;
+        return this;
+    }
+    public withPartition(partition: string): NodeSpec {
+        this['partition'] = partition;
         return this;
     }
 }

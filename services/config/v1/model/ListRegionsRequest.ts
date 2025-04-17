@@ -2,6 +2,8 @@
 
 export class ListRegionsRequest {
     private 'X-Language'?: ListRegionsRequestXLanguageEnum | string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withXLanguage(xLanguage: ListRegionsRequestXLanguageEnum | string): ListRegionsRequest {
@@ -13,6 +15,14 @@ export class ListRegionsRequest {
     }
     public get xLanguage(): ListRegionsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
+    }
+    public withLimit(limit: number): ListRegionsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListRegionsRequest {
+        this['marker'] = marker;
+        return this;
     }
 }
 

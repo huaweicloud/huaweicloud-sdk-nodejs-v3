@@ -180,7 +180,8 @@ export class AlarmHistoryItemV2 {
 export enum AlarmHistoryItemV2StatusEnum {
     OK = 'ok',
     ALARM = 'alarm',
-    INVALID = 'invalid'
+    INVALID = 'invalid',
+    OK_MANUAL = 'ok_manual'
 }
 /**
     * @export

@@ -1,3 +1,4 @@
+import { AsrTypeEnum } from './AsrTypeEnum';
 
 
 export class ThirdPartyModelConfig {
@@ -9,6 +10,9 @@ export class ThirdPartyModelConfig {
     private 'sis_region'?: number;
     private 'sis_project_id'?: string;
     private 'enable_hot_words'?: boolean;
+    private 'asr_type'?: AsrTypeEnum;
+    private 'asr_account'?: string;
+    private 'asr_secret'?: string;
     public constructor() { 
     }
     public withAppId(appId: string): ThirdPartyModelConfig {
@@ -90,5 +94,35 @@ export class ThirdPartyModelConfig {
     }
     public get enableHotWords(): boolean | undefined {
         return this['enable_hot_words'];
+    }
+    public withAsrType(asrType: AsrTypeEnum): ThirdPartyModelConfig {
+        this['asr_type'] = asrType;
+        return this;
+    }
+    public set asrType(asrType: AsrTypeEnum  | undefined) {
+        this['asr_type'] = asrType;
+    }
+    public get asrType(): AsrTypeEnum | undefined {
+        return this['asr_type'];
+    }
+    public withAsrAccount(asrAccount: string): ThirdPartyModelConfig {
+        this['asr_account'] = asrAccount;
+        return this;
+    }
+    public set asrAccount(asrAccount: string  | undefined) {
+        this['asr_account'] = asrAccount;
+    }
+    public get asrAccount(): string | undefined {
+        return this['asr_account'];
+    }
+    public withAsrSecret(asrSecret: string): ThirdPartyModelConfig {
+        this['asr_secret'] = asrSecret;
+        return this;
+    }
+    public set asrSecret(asrSecret: string  | undefined) {
+        this['asr_secret'] = asrSecret;
+    }
+    public get asrSecret(): string | undefined {
+        return this['asr_secret'];
     }
 }

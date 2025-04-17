@@ -1,22 +1,22 @@
 
 
-export class UpdateAlertConfigRequestBodyWarnConfig {
+export class WarnConfig {
     public antiDDoS?: boolean;
     private 'back_doors'?: boolean;
     private 'bruce_force'?: boolean;
     private 'high_privilege'?: boolean;
     private 'remote_login'?: boolean;
-    private 'send_frequency'?: number;
+    private 'send_frequency'?: WarnConfigSendFrequencyEnum | number;
     public waf?: boolean;
     private 'weak_password'?: boolean;
     public constructor(antiDDoS?: boolean) { 
         this['antiDDoS'] = antiDDoS;
     }
-    public withAntiDDoS(antiDDoS: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withAntiDDoS(antiDDoS: boolean): WarnConfig {
         this['antiDDoS'] = antiDDoS;
         return this;
     }
-    public withBackDoors(backDoors: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withBackDoors(backDoors: boolean): WarnConfig {
         this['back_doors'] = backDoors;
         return this;
     }
@@ -26,7 +26,7 @@ export class UpdateAlertConfigRequestBodyWarnConfig {
     public get backDoors(): boolean | undefined {
         return this['back_doors'];
     }
-    public withBruceForce(bruceForce: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withBruceForce(bruceForce: boolean): WarnConfig {
         this['bruce_force'] = bruceForce;
         return this;
     }
@@ -36,7 +36,7 @@ export class UpdateAlertConfigRequestBodyWarnConfig {
     public get bruceForce(): boolean | undefined {
         return this['bruce_force'];
     }
-    public withHighPrivilege(highPrivilege: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withHighPrivilege(highPrivilege: boolean): WarnConfig {
         this['high_privilege'] = highPrivilege;
         return this;
     }
@@ -46,7 +46,7 @@ export class UpdateAlertConfigRequestBodyWarnConfig {
     public get highPrivilege(): boolean | undefined {
         return this['high_privilege'];
     }
-    public withRemoteLogin(remoteLogin: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withRemoteLogin(remoteLogin: boolean): WarnConfig {
         this['remote_login'] = remoteLogin;
         return this;
     }
@@ -56,21 +56,21 @@ export class UpdateAlertConfigRequestBodyWarnConfig {
     public get remoteLogin(): boolean | undefined {
         return this['remote_login'];
     }
-    public withSendFrequency(sendFrequency: number): UpdateAlertConfigRequestBodyWarnConfig {
+    public withSendFrequency(sendFrequency: WarnConfigSendFrequencyEnum | number): WarnConfig {
         this['send_frequency'] = sendFrequency;
         return this;
     }
-    public set sendFrequency(sendFrequency: number  | undefined) {
+    public set sendFrequency(sendFrequency: WarnConfigSendFrequencyEnum | number  | undefined) {
         this['send_frequency'] = sendFrequency;
     }
-    public get sendFrequency(): number | undefined {
+    public get sendFrequency(): WarnConfigSendFrequencyEnum | number | undefined {
         return this['send_frequency'];
     }
-    public withWaf(waf: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withWaf(waf: boolean): WarnConfig {
         this['waf'] = waf;
         return this;
     }
-    public withWeakPassword(weakPassword: boolean): UpdateAlertConfigRequestBodyWarnConfig {
+    public withWeakPassword(weakPassword: boolean): WarnConfig {
         this['weak_password'] = weakPassword;
         return this;
     }
@@ -80,4 +80,13 @@ export class UpdateAlertConfigRequestBodyWarnConfig {
     public get weakPassword(): boolean | undefined {
         return this['weak_password'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum WarnConfigSendFrequencyEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

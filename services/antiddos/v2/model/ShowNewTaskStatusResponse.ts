@@ -2,19 +2,19 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowNewTaskStatusResponse extends SdkResponse {
-    private 'task_status'?: string;
+    private 'task_status'?: ShowNewTaskStatusResponseTaskStatusEnum | string;
     private 'task_msg'?: string;
     public constructor() { 
         super();
     }
-    public withTaskStatus(taskStatus: string): ShowNewTaskStatusResponse {
+    public withTaskStatus(taskStatus: ShowNewTaskStatusResponseTaskStatusEnum | string): ShowNewTaskStatusResponse {
         this['task_status'] = taskStatus;
         return this;
     }
-    public set taskStatus(taskStatus: string  | undefined) {
+    public set taskStatus(taskStatus: ShowNewTaskStatusResponseTaskStatusEnum | string  | undefined) {
         this['task_status'] = taskStatus;
     }
-    public get taskStatus(): string | undefined {
+    public get taskStatus(): ShowNewTaskStatusResponseTaskStatusEnum | string | undefined {
         return this['task_status'];
     }
     public withTaskMsg(taskMsg: string): ShowNewTaskStatusResponse {
@@ -27,4 +27,17 @@ export class ShowNewTaskStatusResponse extends SdkResponse {
     public get taskMsg(): string | undefined {
         return this['task_msg'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowNewTaskStatusResponseTaskStatusEnum {
+    SUCCESS = 'success',
+    FAILED = 'failed',
+    WAITING = 'waiting',
+    RUNNING = 'running',
+    PREPROCESS = 'preprocess',
+    READY = 'ready'
 }

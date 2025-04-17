@@ -1,9 +1,9 @@
-import { PutAlarmNotificationReq } from './PutAlarmNotificationReq';
+import { UpdateOneClickAlarmNotificationsRequestBody } from './UpdateOneClickAlarmNotificationsRequestBody';
 
 
 export class UpdateOneClickAlarmNotificationsRequest {
     private 'one_click_alarm_id'?: string;
-    public body?: PutAlarmNotificationReq;
+    public body?: UpdateOneClickAlarmNotificationsRequestBody;
     public constructor(oneClickAlarmId?: string) { 
         this['one_click_alarm_id'] = oneClickAlarmId;
     }
@@ -17,7 +17,7 @@ export class UpdateOneClickAlarmNotificationsRequest {
     public get oneClickAlarmId(): string | undefined {
         return this['one_click_alarm_id'];
     }
-    public withBody(body: PutAlarmNotificationReq): UpdateOneClickAlarmNotificationsRequest {
+    public withBody(body: UpdateOneClickAlarmNotificationsRequestBody): UpdateOneClickAlarmNotificationsRequest {
         this['body'] = body;
         return this;
     }

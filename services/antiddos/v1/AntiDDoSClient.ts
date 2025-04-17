@@ -2,8 +2,6 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-import { AlertConfigRespWarnConfig } from './model/AlertConfigRespWarnConfig';
-import { CleanLimitDict } from './model/CleanLimitDict';
 import { CreateDefaultConfigRequest } from './model/CreateDefaultConfigRequest';
 import { CreateDefaultConfigResponse } from './model/CreateDefaultConfigResponse';
 import { DDosStatus } from './model/DDosStatus';
@@ -12,36 +10,35 @@ import { DailyLog } from './model/DailyLog';
 import { DdosConfig } from './model/DdosConfig';
 import { DeleteDefaultConfigRequest } from './model/DeleteDefaultConfigRequest';
 import { DeleteDefaultConfigResponse } from './model/DeleteDefaultConfigResponse';
-import { ExtendDDoSSet } from './model/ExtendDDoSSet';
+import { EnableDefensePolicyRequest } from './model/EnableDefensePolicyRequest';
+import { EnableDefensePolicyResponse } from './model/EnableDefensePolicyResponse';
 import { ListDDosStatusRequest } from './model/ListDDosStatusRequest';
 import { ListDDosStatusResponse } from './model/ListDDosStatusResponse';
 import { ListDailyLogRequest } from './model/ListDailyLogRequest';
 import { ListDailyLogResponse } from './model/ListDailyLogResponse';
 import { ListDailyReportRequest } from './model/ListDailyReportRequest';
 import { ListDailyReportResponse } from './model/ListDailyReportResponse';
-import { ListNewConfigsRequest } from './model/ListNewConfigsRequest';
-import { ListNewConfigsResponse } from './model/ListNewConfigsResponse';
+import { ListQuotaRequest } from './model/ListQuotaRequest';
+import { ListQuotaResponse } from './model/ListQuotaResponse';
 import { ListWeeklyReportsRequest } from './model/ListWeeklyReportsRequest';
 import { ListWeeklyReportsResponse } from './model/ListWeeklyReportsResponse';
-import { ShowAlertConfigRequest } from './model/ShowAlertConfigRequest';
-import { ShowAlertConfigResponse } from './model/ShowAlertConfigResponse';
+import { LtsConfigRequestAndResponse } from './model/LtsConfigRequestAndResponse';
+import { LtsConfigRequestAndResponseLtsIdInfo } from './model/LtsConfigRequestAndResponseLtsIdInfo';
+import { OpenAntiDDosServiceRequestBody } from './model/OpenAntiDDosServiceRequestBody';
+import { QuotaResponseDdosQuota } from './model/QuotaResponseDdosQuota';
 import { ShowDDosRequest } from './model/ShowDDosRequest';
 import { ShowDDosResponse } from './model/ShowDDosResponse';
 import { ShowDDosStatusRequest } from './model/ShowDDosStatusRequest';
 import { ShowDDosStatusResponse } from './model/ShowDDosStatusResponse';
 import { ShowDefaultConfigRequest } from './model/ShowDefaultConfigRequest';
 import { ShowDefaultConfigResponse } from './model/ShowDefaultConfigResponse';
-import { ShowNewTaskStatusRequest } from './model/ShowNewTaskStatusRequest';
-import { ShowNewTaskStatusResponse } from './model/ShowNewTaskStatusResponse';
-import { TriggerBpsDict } from './model/TriggerBpsDict';
-import { TriggerQpsDict } from './model/TriggerQpsDict';
-import { UpdateAlertConfigRequest } from './model/UpdateAlertConfigRequest';
-import { UpdateAlertConfigRequestBody } from './model/UpdateAlertConfigRequestBody';
-import { UpdateAlertConfigRequestBodyWarnConfig } from './model/UpdateAlertConfigRequestBodyWarnConfig';
-import { UpdateAlertConfigResponse } from './model/UpdateAlertConfigResponse';
+import { ShowLogConfigRequest } from './model/ShowLogConfigRequest';
+import { ShowLogConfigResponse } from './model/ShowLogConfigResponse';
 import { UpdateAntiDDosServiceRequestBody } from './model/UpdateAntiDDosServiceRequestBody';
 import { UpdateDDosRequest } from './model/UpdateDDosRequest';
 import { UpdateDDosResponse } from './model/UpdateDDosResponse';
+import { UpdateLogConfigRequest } from './model/UpdateLogConfigRequest';
+import { UpdateLogConfigResponse } from './model/UpdateLogConfigResponse';
 import { WeeklyCount } from './model/WeeklyCount';
 import { WeeklyTop10 } from './model/WeeklyTop10';
 
@@ -99,24 +96,6 @@ export class AntiDDoSClient {
     }
 
     /**
-     * 查询用户配置信息，用户可以通过此接口查询是否接收某类告警，同时可以配置是手机短信还是电子邮件接收告警信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询告警配置信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAlertConfig(showAlertConfigRequest?: ShowAlertConfigRequest): Promise<ShowAlertConfigResponse> {
-        const options = ParamCreater().showAlertConfig();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询用户配置的默认防护策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -135,17 +114,18 @@ export class AntiDDoSClient {
     }
 
     /**
-     * 更新用户配置信息，用户可以通过此接口更新是否接收某类告警，同时可以配置是手机短信还是电子邮件接收告警信息。
+     * 开通DDoS服务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新告警配置信息
-     * @param {UpdateAlertConfigRequestBody} updateAlertConfigRequestBody 请求体
+     * @summary 开通DDoS服务
+     * @param {string} floatingIpId 用户EIP对应的ID
+     * @param {OpenAntiDDosServiceRequestBody} openAntiDDosServiceRequestBody body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateAlertConfig(updateAlertConfigRequest?: UpdateAlertConfigRequest): Promise<UpdateAlertConfigResponse> {
-        const options = ParamCreater().updateAlertConfig(updateAlertConfigRequest);
+    public enableDefensePolicy(enableDefensePolicyRequest?: EnableDefensePolicyRequest): Promise<EnableDefensePolicyResponse> {
+        const options = ParamCreater().enableDefensePolicy(enableDefensePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -182,7 +162,7 @@ export class AntiDDoSClient {
      *
      * @summary 查询指定EIP异常事件
      * @param {string} floatingIpId 用户EIP对应的ID
-     * @param {string} [sortDir] 可选范围： - desc：表示时间降序 - asc：表示时间升序 默认值为“desc”。
+     * @param {'desc' | 'asc'} [sortDir] 可选范围： - desc：表示时间降序 - asc：表示时间升序 默认值为“desc”。
      * @param {string} [limit] 返回结果个数限制，此次查询返回数量最大值，取值范围：1～100，与offset配合使用。 若“limit”与“offset”均不携带则返回所有主机列表。
      * @param {string} [offset] 偏移量，“limit”携带时此字段有效。
      * @param {string} [ip] 用户EIP
@@ -219,16 +199,16 @@ export class AntiDDoSClient {
     }
 
     /**
-     * 查询系统支持的Anti-DDoS防护策略配置的可选范围，用户根据范围列表选择适合自已业务的防护策略进行Anti-DDoS流量清洗。
+     * 查询配额
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Anti-DDoS配置可选范围
+     * @summary 查询配额
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listNewConfigs(listNewConfigsRequest?: ListNewConfigsRequest): Promise<ListNewConfigsResponse> {
-        const options = ParamCreater().listNewConfigs();
+    public listQuota(listQuotaRequest?: ListQuotaRequest): Promise<ListQuotaResponse> {
+        const options = ParamCreater().listQuota();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -296,17 +276,17 @@ export class AntiDDoSClient {
     }
 
     /**
-     * 用户查询指定的Anti-DDoS防护配置任务，得到任务当前执行的状态。
+     * 查询全量日志设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Anti-DDoS任务
-     * @param {string} taskId 任务ID（非负整数）的字符串
+     * @summary 查询全量日志设置
+     * @param {string} enterpriseProjectId 企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showNewTaskStatus(showNewTaskStatusRequest?: ShowNewTaskStatusRequest): Promise<ShowNewTaskStatusResponse> {
-        const options = ParamCreater().showNewTaskStatus(showNewTaskStatusRequest);
+    public showLogConfig(showLogConfigRequest?: ShowLogConfigRequest): Promise<ShowLogConfigResponse> {
+        const options = ParamCreater().showLogConfig(showLogConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -328,6 +308,26 @@ export class AntiDDoSClient {
      */
     public updateDDos(updateDDosRequest?: UpdateDDosRequest): Promise<UpdateDDosResponse> {
         const options = ParamCreater().updateDDos(updateDDosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新用户全量日志设置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新用户全量日志设置
+     * @param {string} enterpriseProjectId 企业项目id
+     * @param {LtsConfigRequestAndResponse} body body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogConfig(updateLogConfigRequest?: UpdateLogConfigRequest): Promise<UpdateLogConfigResponse> {
+        const options = ParamCreater().updateLogConfig(updateLogConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -399,27 +399,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户配置信息，用户可以通过此接口查询是否接收某类告警，同时可以配置是手机短信还是电子邮件接收告警信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAlertConfig() {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/warnalert/alertconfig/query",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询用户配置的默认防护策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -441,14 +420,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新用户配置信息，用户可以通过此接口更新是否接收某类告警，同时可以配置是手机短信还是电子邮件接收告警信息。
+         * 开通DDoS服务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateAlertConfig(updateAlertConfigRequest?: UpdateAlertConfigRequest) {
+        enableDefensePolicy(enableDefensePolicyRequest?: EnableDefensePolicyRequest) {
             const options = {
                 method: "POST",
-                url: "/v2/{project_id}/warnalert/alertconfig/update",
+                url: "/v1/{project_id}/antiddos/{floating_ip_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -458,22 +437,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let floatingIpId;
 
-            if (updateAlertConfigRequest !== null && updateAlertConfigRequest !== undefined) {
-                if (updateAlertConfigRequest instanceof UpdateAlertConfigRequest) {
-                    body = updateAlertConfigRequest.body
+            if (enableDefensePolicyRequest !== null && enableDefensePolicyRequest !== undefined) {
+                if (enableDefensePolicyRequest instanceof EnableDefensePolicyRequest) {
+                    floatingIpId = enableDefensePolicyRequest.floatingIpId;
+                    body = enableDefensePolicyRequest.body
                 } else {
-                    body = updateAlertConfigRequest['body'];
+                    floatingIpId = enableDefensePolicyRequest['floating_ip_id'];
+                    body = enableDefensePolicyRequest['body'];
                 }
             }
 
         
+            if (floatingIpId === null || floatingIpId === undefined) {
+            throw new RequiredError('floatingIpId','Required parameter floatingIpId was null or undefined when calling enableDefensePolicy.');
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'floating_ip_id': floatingIpId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -648,14 +635,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询系统支持的Anti-DDoS防护策略配置的可选范围，用户根据范围列表选择适合自已业务的防护策略进行Anti-DDoS流量清洗。
+         * 查询配额
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listNewConfigs() {
+        listQuota() {
             const options = {
                 method: "GET",
-                url: "/v2/{project_id}/antiddos/query-config-list",
+                url: "/v1/{project_id}/antiddos/quotas",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -796,14 +783,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户查询指定的Anti-DDoS防护配置任务，得到任务当前执行的状态。
+         * 查询全量日志设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showNewTaskStatus(showNewTaskStatusRequest?: ShowNewTaskStatusRequest) {
+        showLogConfig(showLogConfigRequest?: ShowLogConfigRequest) {
             const options = {
                 method: "GET",
-                url: "/v2/{project_id}/query-task-status",
+                url: "/v1/{project_id}/antiddos/lts-config",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -812,22 +799,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let taskId;
+            let enterpriseProjectId;
 
-            if (showNewTaskStatusRequest !== null && showNewTaskStatusRequest !== undefined) {
-                if (showNewTaskStatusRequest instanceof ShowNewTaskStatusRequest) {
-                    taskId = showNewTaskStatusRequest.taskId;
+            if (showLogConfigRequest !== null && showLogConfigRequest !== undefined) {
+                if (showLogConfigRequest instanceof ShowLogConfigRequest) {
+                    enterpriseProjectId = showLogConfigRequest.enterpriseProjectId;
                 } else {
-                    taskId = showNewTaskStatusRequest['task_id'];
+                    enterpriseProjectId = showLogConfigRequest['enterprise_project_id'];
                 }
             }
 
         
-            if (taskId === null || taskId === undefined) {
-                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showNewTaskStatus.');
+            if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
+                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling showLogConfig.');
             }
-            if (taskId !== null && taskId !== undefined) {
-                localVarQueryParameter['task_id'] = taskId;
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -885,6 +872,55 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'floating_ip_id': floatingIpId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新用户全量日志设置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogConfig(updateLogConfigRequest?: UpdateLogConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/antiddos/lts-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updateLogConfigRequest !== null && updateLogConfigRequest !== undefined) {
+                if (updateLogConfigRequest instanceof UpdateLogConfigRequest) {
+                    enterpriseProjectId = updateLogConfigRequest.enterpriseProjectId;
+                    body = updateLogConfigRequest.body
+                } else {
+                    enterpriseProjectId = updateLogConfigRequest['enterprise_project_id'];
+                    body = updateLogConfigRequest['body'];
+                }
+            }
+
+        
+            if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
+                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling updateLogConfig.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

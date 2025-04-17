@@ -665,6 +665,8 @@ import { ListFactoryJobsRequest } from './model/ListFactoryJobsRequest';
 import { ListFactoryJobsResponse } from './model/ListFactoryJobsResponse';
 import { ListFactoryReleasePackagesRequest } from './model/ListFactoryReleasePackagesRequest';
 import { ListFactoryReleasePackagesResponse } from './model/ListFactoryReleasePackagesResponse';
+import { ListFactoryScriptsRequest } from './model/ListFactoryScriptsRequest';
+import { ListFactoryScriptsResponse } from './model/ListFactoryScriptsResponse';
 import { ListFactoryTaskCompletionRequest } from './model/ListFactoryTaskCompletionRequest';
 import { ListFactoryTaskCompletionResAverage } from './model/ListFactoryTaskCompletionResAverage';
 import { ListFactoryTaskCompletionResToday } from './model/ListFactoryTaskCompletionResToday';
@@ -880,6 +882,7 @@ import { RuleTemplateDetailVO } from './model/RuleTemplateDetailVO';
 import { Schedule } from './model/Schedule';
 import { SchedulerInfo } from './model/SchedulerInfo';
 import { SchemasList } from './model/SchemasList';
+import { ScriptInfo } from './model/ScriptInfo';
 import { SearchApprovalsRequest } from './model/SearchApprovalsRequest';
 import { SearchApprovalsResponse } from './model/SearchApprovalsResponse';
 import { SearchApprovalsResultData } from './model/SearchApprovalsResultData';
@@ -5107,6 +5110,29 @@ export class DataArtsStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 此接口用来查询脚本列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询脚本列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数，范围[1,100]。 默认值：10。
+     * @param {number} [offset] 分页的起始页，默认值为0。取值范围大于等于0。
+     * @param {string} [scriptName] 脚本名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryScripts(listFactoryScriptsRequest?: ListFactoryScriptsRequest): Promise<ListFactoryScriptsResponse> {
+        const options = ParamCreater().listFactoryScripts(listFactoryScriptsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -20418,6 +20444,71 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口用来查询脚本列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryScripts(listFactoryScriptsRequest?: ListFactoryScriptsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/scripts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let scriptName;
+
+            if (listFactoryScriptsRequest !== null && listFactoryScriptsRequest !== undefined) {
+                if (listFactoryScriptsRequest instanceof ListFactoryScriptsRequest) {
+                    workspace = listFactoryScriptsRequest.workspace;
+                    xProjectId = listFactoryScriptsRequest.xProjectId;
+                    limit = listFactoryScriptsRequest.limit;
+                    offset = listFactoryScriptsRequest.offset;
+                    scriptName = listFactoryScriptsRequest.scriptName;
+                } else {
+                    workspace = listFactoryScriptsRequest['workspace'];
+                    xProjectId = listFactoryScriptsRequest['X-Project-Id'];
+                    limit = listFactoryScriptsRequest['limit'];
+                    offset = listFactoryScriptsRequest['offset'];
+                    scriptName = listFactoryScriptsRequest['script_name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (scriptName !== null && scriptName !== undefined) {
+                localVarQueryParameter['script_name'] = scriptName;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

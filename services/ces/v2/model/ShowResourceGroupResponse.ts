@@ -1,3 +1,4 @@
+import { Instance } from './Instance';
 import { ResourceGroupTagRelation } from './ResourceGroupTagRelation';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -10,6 +11,7 @@ export class ShowResourceGroupResponse extends SdkResponse {
     public type?: ShowResourceGroupResponseTypeEnum | string;
     private 'association_ep_ids'?: Array<string>;
     public tags?: Array<ResourceGroupTagRelation>;
+    public instances?: Array<Instance>;
     public constructor() { 
         super();
     }
@@ -69,6 +71,10 @@ export class ShowResourceGroupResponse extends SdkResponse {
     }
     public withTags(tags: Array<ResourceGroupTagRelation>): ShowResourceGroupResponse {
         this['tags'] = tags;
+        return this;
+    }
+    public withInstances(instances: Array<Instance>): ShowResourceGroupResponse {
+        this['instances'] = instances;
         return this;
     }
 }

@@ -1,6 +1,8 @@
+import { MaskResourceType } from './MaskResourceType';
 import { MaskStatus } from './MaskStatus';
 import { MaskType } from './MaskType';
 import { PoliciesInListResp } from './PoliciesInListResp';
+import { ProductMetric } from './ProductMetric';
 import { RelationType } from './RelationType';
 import { ResourceCategory } from './ResourceCategory';
 
@@ -10,9 +12,16 @@ export class ListNotificationMaskRespNotificationMasks {
     private 'mask_name'?: string;
     private 'relation_type'?: RelationType;
     private 'relation_id'?: string;
+    private 'resource_type'?: MaskResourceType;
+    private 'metric_names'?: Array<string>;
+    private 'product_metrics'?: Array<ProductMetric>;
+    private 'resource_level'?: ListNotificationMaskRespNotificationMasksResourceLevelEnum | string;
+    private 'product_name'?: string;
     public resources?: Array<ResourceCategory>;
     private 'mask_status'?: MaskStatus;
     private 'mask_type'?: MaskType;
+    private 'create_time'?: number;
+    private 'update_time'?: number;
     private 'start_date'?: string;
     private 'start_time'?: string;
     private 'end_date'?: string;
@@ -64,6 +73,56 @@ export class ListNotificationMaskRespNotificationMasks {
     public get relationId(): string | undefined {
         return this['relation_id'];
     }
+    public withResourceType(resourceType: MaskResourceType): ListNotificationMaskRespNotificationMasks {
+        this['resource_type'] = resourceType;
+        return this;
+    }
+    public set resourceType(resourceType: MaskResourceType  | undefined) {
+        this['resource_type'] = resourceType;
+    }
+    public get resourceType(): MaskResourceType | undefined {
+        return this['resource_type'];
+    }
+    public withMetricNames(metricNames: Array<string>): ListNotificationMaskRespNotificationMasks {
+        this['metric_names'] = metricNames;
+        return this;
+    }
+    public set metricNames(metricNames: Array<string>  | undefined) {
+        this['metric_names'] = metricNames;
+    }
+    public get metricNames(): Array<string> | undefined {
+        return this['metric_names'];
+    }
+    public withProductMetrics(productMetrics: Array<ProductMetric>): ListNotificationMaskRespNotificationMasks {
+        this['product_metrics'] = productMetrics;
+        return this;
+    }
+    public set productMetrics(productMetrics: Array<ProductMetric>  | undefined) {
+        this['product_metrics'] = productMetrics;
+    }
+    public get productMetrics(): Array<ProductMetric> | undefined {
+        return this['product_metrics'];
+    }
+    public withResourceLevel(resourceLevel: ListNotificationMaskRespNotificationMasksResourceLevelEnum | string): ListNotificationMaskRespNotificationMasks {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: ListNotificationMaskRespNotificationMasksResourceLevelEnum | string  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): ListNotificationMaskRespNotificationMasksResourceLevelEnum | string | undefined {
+        return this['resource_level'];
+    }
+    public withProductName(productName: string): ListNotificationMaskRespNotificationMasks {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
+    }
     public withResources(resources: Array<ResourceCategory>): ListNotificationMaskRespNotificationMasks {
         this['resources'] = resources;
         return this;
@@ -87,6 +146,26 @@ export class ListNotificationMaskRespNotificationMasks {
     }
     public get maskType(): MaskType | undefined {
         return this['mask_type'];
+    }
+    public withCreateTime(createTime: number): ListNotificationMaskRespNotificationMasks {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: number  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): number | undefined {
+        return this['create_time'];
+    }
+    public withUpdateTime(updateTime: number): ListNotificationMaskRespNotificationMasks {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
     }
     public withStartDate(startDate: string): ListNotificationMaskRespNotificationMasks {
         this['start_date'] = startDate;
@@ -132,4 +211,13 @@ export class ListNotificationMaskRespNotificationMasks {
         this['policies'] = policies;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListNotificationMaskRespNotificationMasksResourceLevelEnum {
+    DIMENSION = 'dimension',
+    PRODUCT = 'product'
 }

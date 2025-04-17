@@ -1,7 +1,7 @@
 
 
 export class UpdateAntiDDosServiceRequestBody {
-    private 'app_type_id'?: number;
+    private 'app_type_id'?: UpdateAntiDDosServiceRequestBodyAppTypeIdEnum | number;
     private 'cleaning_access_pos_id'?: number;
     private 'enable_L7'?: boolean;
     private 'http_request_pos_id'?: number;
@@ -13,14 +13,14 @@ export class UpdateAntiDDosServiceRequestBody {
         this['http_request_pos_id'] = httpRequestPosId;
         this['traffic_pos_id'] = trafficPosId;
     }
-    public withAppTypeId(appTypeId: number): UpdateAntiDDosServiceRequestBody {
+    public withAppTypeId(appTypeId: UpdateAntiDDosServiceRequestBodyAppTypeIdEnum | number): UpdateAntiDDosServiceRequestBody {
         this['app_type_id'] = appTypeId;
         return this;
     }
-    public set appTypeId(appTypeId: number  | undefined) {
+    public set appTypeId(appTypeId: UpdateAntiDDosServiceRequestBodyAppTypeIdEnum | number  | undefined) {
         this['app_type_id'] = appTypeId;
     }
-    public get appTypeId(): number | undefined {
+    public get appTypeId(): UpdateAntiDDosServiceRequestBodyAppTypeIdEnum | number | undefined {
         return this['app_type_id'];
     }
     public withCleaningAccessPosId(cleaningAccessPosId: number): UpdateAntiDDosServiceRequestBody {
@@ -63,4 +63,13 @@ export class UpdateAntiDDosServiceRequestBody {
     public get trafficPosId(): number | undefined {
         return this['traffic_pos_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateAntiDDosServiceRequestBodyAppTypeIdEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

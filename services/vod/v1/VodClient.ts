@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddSubtitle } from './model/AddSubtitle';
+import { AdditionalManifest } from './model/AdditionalManifest';
 import { AssetDailySummaryResult } from './model/AssetDailySummaryResult';
 import { AssetDetails } from './model/AssetDetails';
 import { AssetInfo } from './model/AssetInfo';
@@ -120,6 +121,10 @@ import { PublishAssetsResponse } from './model/PublishAssetsResponse';
 import { QualityInfo } from './model/QualityInfo';
 import { QualityInfoList } from './model/QualityInfoList';
 import { QueryCategoryRsp } from './model/QueryCategoryRsp';
+import { RefreshAssetRequest } from './model/RefreshAssetRequest';
+import { RefreshAssetResponse } from './model/RefreshAssetResponse';
+import { RefreshResult } from './model/RefreshResult';
+import { RefreshTaskReq } from './model/RefreshTaskReq';
 import { Review } from './model/Review';
 import { ReviewDetail } from './model/ReviewDetail';
 import { ReviewInfo } from './model/ReviewInfo';
@@ -135,6 +140,8 @@ import { ShowCdnStatisticsRequest } from './model/ShowCdnStatisticsRequest';
 import { ShowCdnStatisticsResponse } from './model/ShowCdnStatisticsResponse';
 import { ShowPreheatingAssetRequest } from './model/ShowPreheatingAssetRequest';
 import { ShowPreheatingAssetResponse } from './model/ShowPreheatingAssetResponse';
+import { ShowRefreshResultRequest } from './model/ShowRefreshResultRequest';
+import { ShowRefreshResultResponse } from './model/ShowRefreshResultResponse';
 import { ShowStorageModeTypeRequest } from './model/ShowStorageModeTypeRequest';
 import { ShowStorageModeTypeResponse } from './model/ShowStorageModeTypeResponse';
 import { ShowTakeOverAssetDetailsRequest } from './model/ShowTakeOverAssetDetailsRequest';
@@ -962,6 +969,26 @@ export class VodClient {
     }
 
     /**
+     * 媒资状态为完成态、删除态、发布态，可通过指定媒资ID或URL向CDN进行刷新。将CDN节点缓存的资源强制过期，用户下次访问时CDN将回源获取最新的资源返回给用户，同时将新的资源缓存到CDN节点。单租户每天最多刷新1000个。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary CDN刷新
+     * @param {RefreshTaskReq} refreshAssetRequestBody CDN刷新
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public refreshAsset(refreshAssetRequest?: RefreshAssetRequest): Promise<RefreshAssetResponse> {
+        const options = ParamCreater().refreshAsset(refreshAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 终端播放HLS加密视频时，向租户管理系统请求密钥，租户管理系统先查询其本地有没有已缓存的密钥，没有时则调用此接口向VOD查询。该接口的具体使用场景请参见[通过HLS加密防止视频泄露](https://support.huaweicloud.com/bestpractice-vod/vod_10_0004.html)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1039,7 +1066,7 @@ export class VodClient {
      * 
      * 视频分段上传方式和OBS的接口文档保持一致，包括HTTP请求方法、请求头、请求体等各种入参，此接口的作用是为用户生成带有鉴权信息的URL（鉴权信息即query_str），用来替换OBS接口中对应的URL，临时给用户开通向点播服务的桶上传文件的权限。
      * 
-     * 调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。
+     * 调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。 此接口为v1.1版本，暂不支持前端跨域访问，可以后端访问。如需前端跨域访问，请使用v1.0版本接口，详见[获取分段上传授权](vod_04_0009.xml)。 v1.1版本的接口返回结果不需要拼接url，拿到结果中的sign_str，直接发送请求即可。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1101,6 +1128,26 @@ export class VodClient {
      */
     public showPreheatingAsset(showPreheatingAssetRequest?: ShowPreheatingAssetRequest): Promise<ShowPreheatingAssetResponse> {
         const options = ParamCreater().showPreheatingAsset(showPreheatingAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询刷新结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CDN刷新
+     * @param {string} taskId 任务ID
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRefreshResult(showRefreshResultRequest?: ShowRefreshResultRequest): Promise<ShowRefreshResultResponse> {
+        const options = ParamCreater().showRefreshResult(showRefreshResultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1426,8 +1473,8 @@ export class VodClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建媒资：URL拉取注入
-     * @param {UploadMetaDataByUrlReq} uploadMetaDataByUrlReq 创建媒资：URL拉取注入
+     * @summary 创建媒资：URL拉取注入（公测中）
+     * @param {UploadMetaDataByUrlReq} uploadMetaDataByUrlReq 创建媒资：URL拉取注入（公测中）
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3337,6 +3384,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 媒资状态为完成态、删除态、发布态，可通过指定媒资ID或URL向CDN进行刷新。将CDN节点缓存的资源强制过期，用户下次访问时CDN将回源获取最新的资源返回给用户，同时将新的资源缓存到CDN节点。单租户每天最多刷新1000个。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        refreshAsset(refreshAssetRequest?: RefreshAssetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/refresh",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (refreshAssetRequest !== null && refreshAssetRequest !== undefined) {
+                if (refreshAssetRequest instanceof RefreshAssetRequest) {
+                    body = refreshAssetRequest.body
+                    xSdkDate = refreshAssetRequest.xSdkDate;
+                } else {
+                    body = refreshAssetRequest['body'];
+                    xSdkDate = refreshAssetRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 终端播放HLS加密视频时，向租户管理系统请求密钥，租户管理系统先查询其本地有没有已缓存的密钥，没有时则调用此接口向VOD查询。该接口的具体使用场景请参见[通过HLS加密防止视频泄露](https://support.huaweicloud.com/bestpractice-vod/vod_10_0004.html)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3558,7 +3650,7 @@ export const ParamCreater = function () {
          * 
          * 视频分段上传方式和OBS的接口文档保持一致，包括HTTP请求方法、请求头、请求体等各种入参，此接口的作用是为用户生成带有鉴权信息的URL（鉴权信息即query_str），用来替换OBS接口中对应的URL，临时给用户开通向点播服务的桶上传文件的权限。
          * 
-         * 调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。
+         * 调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。 此接口为v1.1版本，暂不支持前端跨域访问，可以后端访问。如需前端跨域访问，请使用v1.0版本接口，详见[获取分段上传授权](vod_04_0009.xml)。 v1.1版本的接口返回结果不需要拼接url，拿到结果中的sign_str，直接发送请求即可。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3764,6 +3856,53 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
                 throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showPreheatingAsset.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询刷新结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRefreshResult(showRefreshResultRequest?: ShowRefreshResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/refresh",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let xSdkDate;
+
+            if (showRefreshResultRequest !== null && showRefreshResultRequest !== undefined) {
+                if (showRefreshResultRequest instanceof ShowRefreshResultRequest) {
+                    taskId = showRefreshResultRequest.taskId;
+                    xSdkDate = showRefreshResultRequest.xSdkDate;
+                } else {
+                    taskId = showRefreshResultRequest['task_id'];
+                    xSdkDate = showRefreshResultRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showRefreshResult.');
             }
             if (taskId !== null && taskId !== undefined) {
                 localVarQueryParameter['task_id'] = taskId;

@@ -2164,7 +2164,7 @@ export const ParamCreater = function () {
         createReportCustomEvent(createReportCustomEventRequest?: CreateReportCustomEventRequest) {
             const options = {
                 method: "POST",
-                url: "/event/huawei/custom/{integration_key}",
+                url: "/v1/event/huawei/custom/{integration_key}",
                 contentType: "application/json; charset=utf-8",
                 queryParams: {},
                 pathParams: {},

@@ -1,6 +1,7 @@
 export * from './VodClient';
 
 export * from './model/AddSubtitle';
+export * from './model/AdditionalManifest';
 export * from './model/AssetDailySummaryResult';
 export * from './model/AssetDetails';
 export * from './model/AssetInfo';
@@ -118,6 +119,10 @@ export * from './model/PublishAssetsResponse';
 export * from './model/QualityInfo';
 export * from './model/QualityInfoList';
 export * from './model/QueryCategoryRsp';
+export * from './model/RefreshAssetRequest';
+export * from './model/RefreshAssetResponse';
+export * from './model/RefreshResult';
+export * from './model/RefreshTaskReq';
 export * from './model/Review';
 export * from './model/ReviewDetail';
 export * from './model/ReviewInfo';
@@ -133,6 +138,8 @@ export * from './model/ShowCdnStatisticsRequest';
 export * from './model/ShowCdnStatisticsResponse';
 export * from './model/ShowPreheatingAssetRequest';
 export * from './model/ShowPreheatingAssetResponse';
+export * from './model/ShowRefreshResultRequest';
+export * from './model/ShowRefreshResultResponse';
 export * from './model/ShowStorageModeTypeRequest';
 export * from './model/ShowStorageModeTypeResponse';
 export * from './model/ShowTakeOverAssetDetailsRequest';

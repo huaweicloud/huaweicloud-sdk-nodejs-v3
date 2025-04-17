@@ -60,5 +60,7 @@ export class ListResourceGroupsRequest {
 export enum ListResourceGroupsRequestTypeEnum {
     EPS = 'EPS',
     TAG = 'TAG',
-    MANUAL = 'Manual'
+    MANUAL = 'Manual',
+    COMB = 'COMB',
+    NAME = 'NAME'
 }

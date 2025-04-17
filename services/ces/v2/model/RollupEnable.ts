@@ -1,6 +1,6 @@
 
 
-export class Filter {
+export class RollupEnable {
     public constructor() { 
     }
 }

@@ -15,6 +15,9 @@ export class ApiInfoPerPage {
     private 'auth_type'?: ApiInfoPerPageAuthTypeEnum | string;
     private 'auth_opt'?: AuthOpt;
     public cors?: boolean;
+    private 'trace_enabled'?: boolean;
+    private 'sampling_strategy'?: ApiInfoPerPageSamplingStrategyEnum | string;
+    private 'sampling_param'?: string;
     private 'match_mode'?: ApiInfoPerPageMatchModeEnum | string;
     private 'backend_type'?: ApiInfoPerPageBackendTypeEnum | string;
     public remark?: string;
@@ -121,6 +124,36 @@ export class ApiInfoPerPage {
     public withCors(cors: boolean): ApiInfoPerPage {
         this['cors'] = cors;
         return this;
+    }
+    public withTraceEnabled(traceEnabled: boolean): ApiInfoPerPage {
+        this['trace_enabled'] = traceEnabled;
+        return this;
+    }
+    public set traceEnabled(traceEnabled: boolean  | undefined) {
+        this['trace_enabled'] = traceEnabled;
+    }
+    public get traceEnabled(): boolean | undefined {
+        return this['trace_enabled'];
+    }
+    public withSamplingStrategy(samplingStrategy: ApiInfoPerPageSamplingStrategyEnum | string): ApiInfoPerPage {
+        this['sampling_strategy'] = samplingStrategy;
+        return this;
+    }
+    public set samplingStrategy(samplingStrategy: ApiInfoPerPageSamplingStrategyEnum | string  | undefined) {
+        this['sampling_strategy'] = samplingStrategy;
+    }
+    public get samplingStrategy(): ApiInfoPerPageSamplingStrategyEnum | string | undefined {
+        return this['sampling_strategy'];
+    }
+    public withSamplingParam(samplingParam: string): ApiInfoPerPage {
+        this['sampling_param'] = samplingParam;
+        return this;
+    }
+    public set samplingParam(samplingParam: string  | undefined) {
+        this['sampling_param'] = samplingParam;
+    }
+    public get samplingParam(): string | undefined {
+        return this['sampling_param'];
     }
     public withMatchMode(matchMode: ApiInfoPerPageMatchModeEnum | string): ApiInfoPerPage {
         this['match_mode'] = matchMode;
@@ -445,6 +478,13 @@ export enum ApiInfoPerPageAuthTypeEnum {
     APP = 'APP',
     IAM = 'IAM',
     AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiInfoPerPageSamplingStrategyEnum {
+    RATE = 'RATE'
 }
 /**
     * @export

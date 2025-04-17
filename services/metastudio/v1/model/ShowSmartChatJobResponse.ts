@@ -27,6 +27,7 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     private 'chat_access_rest_address'?: string;
     private 'is_transparent'?: boolean;
     private 'default_language'?: ShowSmartChatJobResponseDefaultLanguageEnum | string;
+    private 'client_id'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -203,6 +204,16 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public get defaultLanguage(): ShowSmartChatJobResponseDefaultLanguageEnum | string | undefined {
         return this['default_language'];
     }
+    public withClientId(clientId: string): ShowSmartChatJobResponse {
+        this['client_id'] = clientId;
+        return this;
+    }
+    public set clientId(clientId: string  | undefined) {
+        this['client_id'] = clientId;
+    }
+    public get clientId(): string | undefined {
+        return this['client_id'];
+    }
     public withXRequestId(xRequestId: string): ShowSmartChatJobResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -242,5 +253,9 @@ export enum ShowSmartChatJobResponseChatVideoTypeEnum {
     */
 export enum ShowSmartChatJobResponseDefaultLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

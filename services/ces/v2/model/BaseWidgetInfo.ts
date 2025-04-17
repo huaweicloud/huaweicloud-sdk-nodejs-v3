@@ -1,19 +1,36 @@
+import { BaseWidgetInfoProperties } from './BaseWidgetInfoProperties';
 import { UpdateWidgetInfoLocation } from './UpdateWidgetInfoLocation';
-import { UpdateWidgetInfoProperties } from './UpdateWidgetInfoProperties';
 import { WidgetMetric } from './WidgetMetric';
 
 
 export class BaseWidgetInfo {
+    private 'group_id'?: string;
     public metrics?: Array<WidgetMetric>;
     public title?: string;
     public threshold?: number;
     private 'threshold_enabled'?: boolean;
     public view?: BaseWidgetInfoViewEnum | string;
     private 'metric_display_mode'?: BaseWidgetInfoMetricDisplayModeEnum | string;
-    public properties?: UpdateWidgetInfoProperties;
+    public properties?: BaseWidgetInfoProperties;
     public location?: UpdateWidgetInfoLocation;
     public unit?: string;
-    public constructor() { 
+    public constructor(metrics?: Array<WidgetMetric>, title?: string, thresholdEnabled?: boolean, view?: string, metricDisplayMode?: string, location?: UpdateWidgetInfoLocation) { 
+        this['metrics'] = metrics;
+        this['title'] = title;
+        this['threshold_enabled'] = thresholdEnabled;
+        this['view'] = view;
+        this['metric_display_mode'] = metricDisplayMode;
+        this['location'] = location;
+    }
+    public withGroupId(groupId: string): BaseWidgetInfo {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
     public withMetrics(metrics: Array<WidgetMetric>): BaseWidgetInfo {
         this['metrics'] = metrics;
@@ -51,7 +68,7 @@ export class BaseWidgetInfo {
     public get metricDisplayMode(): BaseWidgetInfoMetricDisplayModeEnum | string | undefined {
         return this['metric_display_mode'];
     }
-    public withProperties(properties: UpdateWidgetInfoProperties): BaseWidgetInfo {
+    public withProperties(properties: BaseWidgetInfoProperties): BaseWidgetInfo {
         this['properties'] = properties;
         return this;
     }
@@ -71,7 +88,11 @@ export class BaseWidgetInfo {
     */
 export enum BaseWidgetInfoViewEnum {
     BAR = 'bar',
-    LINE = 'line'
+    LINE = 'line',
+    BAR_CHART = 'bar_chart',
+    TABLE = 'table',
+    CIRCULAR_BAR = 'circular_bar',
+    AREA_CHART = 'area_chart'
 }
 /**
     * @export

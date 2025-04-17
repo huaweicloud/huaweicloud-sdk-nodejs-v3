@@ -1,6 +1,6 @@
 
 
-export class ProductName {
+export class RollupFilter {
     public constructor() { 
     }
 }

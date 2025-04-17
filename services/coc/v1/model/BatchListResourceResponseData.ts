@@ -16,6 +16,7 @@ export class BatchListResourceResponseData {
     public properties?: { [key: string]: object; };
     private 'ingest_properties'?: { [key: string]: string; };
     private 'is_delegated'?: boolean;
+    public operable?: string;
     public constructor() { 
     }
     public withId(id: string): BatchListResourceResponseData {
@@ -121,5 +122,9 @@ export class BatchListResourceResponseData {
     }
     public get isDelegated(): boolean | undefined {
         return this['is_delegated'];
+    }
+    public withOperable(operable: string): BatchListResourceResponseData {
+        this['operable'] = operable;
+        return this;
     }
 }

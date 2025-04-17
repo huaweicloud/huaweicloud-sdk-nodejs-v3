@@ -14,6 +14,9 @@ export class ApiRespBaseInfo {
     private 'auth_type'?: ApiRespBaseInfoAuthTypeEnum | string;
     private 'auth_opt'?: AuthOpt;
     public cors?: boolean;
+    private 'trace_enabled'?: boolean;
+    private 'sampling_strategy'?: ApiRespBaseInfoSamplingStrategyEnum | string;
+    private 'sampling_param'?: string;
     private 'match_mode'?: ApiRespBaseInfoMatchModeEnum | string;
     private 'backend_type'?: ApiRespBaseInfoBackendTypeEnum | string;
     public remark?: string;
@@ -119,6 +122,36 @@ export class ApiRespBaseInfo {
     public withCors(cors: boolean): ApiRespBaseInfo {
         this['cors'] = cors;
         return this;
+    }
+    public withTraceEnabled(traceEnabled: boolean): ApiRespBaseInfo {
+        this['trace_enabled'] = traceEnabled;
+        return this;
+    }
+    public set traceEnabled(traceEnabled: boolean  | undefined) {
+        this['trace_enabled'] = traceEnabled;
+    }
+    public get traceEnabled(): boolean | undefined {
+        return this['trace_enabled'];
+    }
+    public withSamplingStrategy(samplingStrategy: ApiRespBaseInfoSamplingStrategyEnum | string): ApiRespBaseInfo {
+        this['sampling_strategy'] = samplingStrategy;
+        return this;
+    }
+    public set samplingStrategy(samplingStrategy: ApiRespBaseInfoSamplingStrategyEnum | string  | undefined) {
+        this['sampling_strategy'] = samplingStrategy;
+    }
+    public get samplingStrategy(): ApiRespBaseInfoSamplingStrategyEnum | string | undefined {
+        return this['sampling_strategy'];
+    }
+    public withSamplingParam(samplingParam: string): ApiRespBaseInfo {
+        this['sampling_param'] = samplingParam;
+        return this;
+    }
+    public set samplingParam(samplingParam: string  | undefined) {
+        this['sampling_param'] = samplingParam;
+    }
+    public get samplingParam(): string | undefined {
+        return this['sampling_param'];
     }
     public withMatchMode(matchMode: ApiRespBaseInfoMatchModeEnum | string): ApiRespBaseInfo {
         this['match_mode'] = matchMode;
@@ -433,6 +466,13 @@ export enum ApiRespBaseInfoAuthTypeEnum {
     APP = 'APP',
     IAM = 'IAM',
     AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiRespBaseInfoSamplingStrategyEnum {
+    RATE = 'RATE'
 }
 /**
     * @export

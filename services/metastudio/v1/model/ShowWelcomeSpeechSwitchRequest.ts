@@ -72,5 +72,9 @@ export class ShowWelcomeSpeechSwitchRequest {
     */
 export enum ShowWelcomeSpeechSwitchRequestLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

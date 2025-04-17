@@ -13,6 +13,10 @@ export class DashBoardInfo {
     private 'is_favorite'?: boolean;
     private 'creator_name'?: string;
     private 'create_time'?: number;
+    private 'widgets_num'?: number;
+    public namespace?: string;
+    private 'sub_product'?: string;
+    private 'dashboard_template_id'?: string;
     public constructor() { 
     }
     public withDashboardId(dashboardId: string): DashBoardInfo {
@@ -84,5 +88,39 @@ export class DashBoardInfo {
     }
     public get createTime(): number | undefined {
         return this['create_time'];
+    }
+    public withWidgetsNum(widgetsNum: number): DashBoardInfo {
+        this['widgets_num'] = widgetsNum;
+        return this;
+    }
+    public set widgetsNum(widgetsNum: number  | undefined) {
+        this['widgets_num'] = widgetsNum;
+    }
+    public get widgetsNum(): number | undefined {
+        return this['widgets_num'];
+    }
+    public withNamespace(namespace: string): DashBoardInfo {
+        this['namespace'] = namespace;
+        return this;
+    }
+    public withSubProduct(subProduct: string): DashBoardInfo {
+        this['sub_product'] = subProduct;
+        return this;
+    }
+    public set subProduct(subProduct: string  | undefined) {
+        this['sub_product'] = subProduct;
+    }
+    public get subProduct(): string | undefined {
+        return this['sub_product'];
+    }
+    public withDashboardTemplateId(dashboardTemplateId: string): DashBoardInfo {
+        this['dashboard_template_id'] = dashboardTemplateId;
+        return this;
+    }
+    public set dashboardTemplateId(dashboardTemplateId: string  | undefined) {
+        this['dashboard_template_id'] = dashboardTemplateId;
+    }
+    public get dashboardTemplateId(): string | undefined {
+        return this['dashboard_template_id'];
     }
 }

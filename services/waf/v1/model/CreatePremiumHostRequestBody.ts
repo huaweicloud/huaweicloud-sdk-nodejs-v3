@@ -16,6 +16,7 @@ export class CreatePremiumHostRequestBody {
     private 'listener_id'?: string;
     private 'protocol_port'?: number;
     public description?: string;
+    private 'web_tag'?: string;
     public constructor(hostname?: string, proxy?: boolean, server?: Array<PremiumWafServer>) { 
         this['hostname'] = hostname;
         this['proxy'] = proxy;
@@ -102,5 +103,15 @@ export class CreatePremiumHostRequestBody {
     public withDescription(description: string): CreatePremiumHostRequestBody {
         this['description'] = description;
         return this;
+    }
+    public withWebTag(webTag: string): CreatePremiumHostRequestBody {
+        this['web_tag'] = webTag;
+        return this;
+    }
+    public set webTag(webTag: string  | undefined) {
+        this['web_tag'] = webTag;
+    }
+    public get webTag(): string | undefined {
+        return this['web_tag'];
     }
 }

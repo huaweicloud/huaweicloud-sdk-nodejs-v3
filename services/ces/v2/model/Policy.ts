@@ -1,3 +1,4 @@
+import { HierarchicalValue } from './HierarchicalValue';
 
 
 export class Policy {
@@ -6,6 +7,7 @@ export class Policy {
     public filter?: string;
     private 'comparison_operator'?: string;
     public value?: number;
+    private 'hierarchical_value'?: HierarchicalValue;
     public unit?: string;
     public count?: number;
     private 'suppress_duration'?: number;
@@ -50,6 +52,16 @@ export class Policy {
     public withValue(value: number): Policy {
         this['value'] = value;
         return this;
+    }
+    public withHierarchicalValue(hierarchicalValue: HierarchicalValue): Policy {
+        this['hierarchical_value'] = hierarchicalValue;
+        return this;
+    }
+    public set hierarchicalValue(hierarchicalValue: HierarchicalValue  | undefined) {
+        this['hierarchical_value'] = hierarchicalValue;
+    }
+    public get hierarchicalValue(): HierarchicalValue | undefined {
+        return this['hierarchical_value'];
     }
     public withUnit(unit: string): Policy {
         this['unit'] = unit;

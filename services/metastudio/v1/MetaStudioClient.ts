@@ -12,6 +12,7 @@ import { ActionTagInfo } from './model/ActionTagInfo';
 import { ActiveCodeInfo } from './model/ActiveCodeInfo';
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
 import { AnimationItem } from './model/AnimationItem';
+import { AsrTypeEnum } from './model/AsrTypeEnum';
 import { AssetActionResult } from './model/AssetActionResult';
 import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
@@ -662,6 +663,7 @@ import { VoiceModelAssetMeta } from './model/VoiceModelAssetMeta';
 import { VoiceProperties } from './model/VoiceProperties';
 import { VoiceTrainingAllocatedResource } from './model/VoiceTrainingAllocatedResource';
 import { WelcomeSpeechInfo } from './model/WelcomeSpeechInfo';
+import { WiseBrainConfig } from './model/WiseBrainConfig';
 
 export class MetaStudioClient {
     public static newBuilder(): ClientBuilder<MetaStudioClient> {
@@ -5131,7 +5133,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言  * CN:中文  * EN:英文  * ESP：西班牙语（仅海外站点支持）  * por：葡萄牙语（仅海外站点支持）  * Arabic：阿拉伯语（仅海外站点支持）  * Thai：泰语（仅海外站点支持）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5178,7 +5180,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言  * CN:中文  * EN:英文  * ESP：西班牙语（仅海外站点支持）  * por：葡萄牙语（仅海外站点支持）  * Arabic：阿拉伯语（仅海外站点支持）  * Thai：泰语（仅海外站点支持）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -1,10 +1,10 @@
 
 
-export class BatchDeleteDashboardRequestBody {
+export class BatchDeleteDashboardsRequestBody {
     private 'dashboard_ids'?: Array<string>;
     public constructor() { 
     }
-    public withDashboardIds(dashboardIds: Array<string>): BatchDeleteDashboardRequestBody {
+    public withDashboardIds(dashboardIds: Array<string>): BatchDeleteDashboardsRequestBody {
         this['dashboard_ids'] = dashboardIds;
         return this;
     }

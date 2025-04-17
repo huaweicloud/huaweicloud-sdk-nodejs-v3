@@ -8,6 +8,9 @@ export class ApplicationQueryResponseData {
     private 'parent_id'?: string;
     public description?: string;
     public path?: string;
+    private 'is_collection'?: boolean;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
     public constructor() { 
     }
     public withId(id: string): ApplicationQueryResponseData {
@@ -49,5 +52,35 @@ export class ApplicationQueryResponseData {
     public withPath(path: string): ApplicationQueryResponseData {
         this['path'] = path;
         return this;
+    }
+    public withIsCollection(isCollection: boolean): ApplicationQueryResponseData {
+        this['is_collection'] = isCollection;
+        return this;
+    }
+    public set isCollection(isCollection: boolean  | undefined) {
+        this['is_collection'] = isCollection;
+    }
+    public get isCollection(): boolean | undefined {
+        return this['is_collection'];
+    }
+    public withCreateTime(createTime: string): ApplicationQueryResponseData {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): string | undefined {
+        return this['create_time'];
+    }
+    public withUpdateTime(updateTime: string): ApplicationQueryResponseData {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: string  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): string | undefined {
+        return this['update_time'];
     }
 }

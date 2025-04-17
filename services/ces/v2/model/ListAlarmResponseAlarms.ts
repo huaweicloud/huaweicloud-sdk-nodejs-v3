@@ -1,7 +1,6 @@
 import { AlarmType } from './AlarmType';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
-import { ResourceLevel } from './ResourceLevel';
 import { ResourcesInListResp } from './ResourcesInListResp';
 
 
@@ -22,7 +21,7 @@ export class ListAlarmResponseAlarms {
     private 'enterprise_project_id'?: string;
     private 'alarm_template_id'?: string;
     private 'product_name'?: string;
-    private 'resource_level'?: ResourceLevel;
+    private 'resource_level'?: ListAlarmResponseAlarmsResourceLevelEnum | string;
     public constructor() { 
     }
     public withAlarmId(alarmId: string): ListAlarmResponseAlarms {
@@ -143,14 +142,23 @@ export class ListAlarmResponseAlarms {
     public get productName(): string | undefined {
         return this['product_name'];
     }
-    public withResourceLevel(resourceLevel: ResourceLevel): ListAlarmResponseAlarms {
+    public withResourceLevel(resourceLevel: ListAlarmResponseAlarmsResourceLevelEnum | string): ListAlarmResponseAlarms {
         this['resource_level'] = resourceLevel;
         return this;
     }
-    public set resourceLevel(resourceLevel: ResourceLevel  | undefined) {
+    public set resourceLevel(resourceLevel: ListAlarmResponseAlarmsResourceLevelEnum | string  | undefined) {
         this['resource_level'] = resourceLevel;
     }
-    public get resourceLevel(): ResourceLevel | undefined {
+    public get resourceLevel(): ListAlarmResponseAlarmsResourceLevelEnum | string | undefined {
         return this['resource_level'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmResponseAlarmsResourceLevelEnum {
+    PRODUCT = 'product',
+    DIMENSION = 'dimension'
 }

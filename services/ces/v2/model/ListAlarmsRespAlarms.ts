@@ -18,6 +18,8 @@ export class ListAlarmsRespAlarms {
     private 'ok_notifications'?: Array<Notification>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'notification_manner'?: ListAlarmsRespAlarmsNotificationMannerEnum | string;
+    private 'notification_policy_ids'?: Array<string>;
     public constructor() { 
     }
     public withAlarmId(alarmId: string): ListAlarmsRespAlarms {
@@ -108,4 +110,34 @@ export class ListAlarmsRespAlarms {
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
     }
+    public withNotificationManner(notificationManner: ListAlarmsRespAlarmsNotificationMannerEnum | string): ListAlarmsRespAlarms {
+        this['notification_manner'] = notificationManner;
+        return this;
+    }
+    public set notificationManner(notificationManner: ListAlarmsRespAlarmsNotificationMannerEnum | string  | undefined) {
+        this['notification_manner'] = notificationManner;
+    }
+    public get notificationManner(): ListAlarmsRespAlarmsNotificationMannerEnum | string | undefined {
+        return this['notification_manner'];
+    }
+    public withNotificationPolicyIds(notificationPolicyIds: Array<string>): ListAlarmsRespAlarms {
+        this['notification_policy_ids'] = notificationPolicyIds;
+        return this;
+    }
+    public set notificationPolicyIds(notificationPolicyIds: Array<string>  | undefined) {
+        this['notification_policy_ids'] = notificationPolicyIds;
+    }
+    public get notificationPolicyIds(): Array<string> | undefined {
+        return this['notification_policy_ids'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmsRespAlarmsNotificationMannerEnum {
+    NOTIFICATION_GROUP = 'NOTIFICATION_GROUP',
+    TOPIC_SUBSCRIPTION = 'TOPIC_SUBSCRIPTION',
+    NOTIFICATION_POLICY = 'NOTIFICATION_POLICY'
 }

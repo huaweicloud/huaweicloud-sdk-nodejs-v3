@@ -1,6 +1,6 @@
 
 
-export class DimensionName {
+export class ListQuotaRequest {
     public constructor() { 
     }
 }

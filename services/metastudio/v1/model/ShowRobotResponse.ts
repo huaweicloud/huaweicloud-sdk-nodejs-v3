@@ -1,3 +1,4 @@
+import { AsrTypeEnum } from './AsrTypeEnum';
 import { LanguageEnum } from './LanguageEnum';
 import { RobotTypeEnum } from './RobotTypeEnum';
 
@@ -26,6 +27,8 @@ export class ShowRobotResponse extends SdkResponse {
     private 'sis_project_id'?: string;
     private 'enable_hot_words'?: boolean;
     private 'enable_question_audit'?: boolean;
+    private 'asr_type'?: AsrTypeEnum;
+    private 'asr_account'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -231,6 +234,26 @@ export class ShowRobotResponse extends SdkResponse {
     }
     public get enableQuestionAudit(): boolean | undefined {
         return this['enable_question_audit'];
+    }
+    public withAsrType(asrType: AsrTypeEnum): ShowRobotResponse {
+        this['asr_type'] = asrType;
+        return this;
+    }
+    public set asrType(asrType: AsrTypeEnum  | undefined) {
+        this['asr_type'] = asrType;
+    }
+    public get asrType(): AsrTypeEnum | undefined {
+        return this['asr_type'];
+    }
+    public withAsrAccount(asrAccount: string): ShowRobotResponse {
+        this['asr_account'] = asrAccount;
+        return this;
+    }
+    public set asrAccount(asrAccount: string  | undefined) {
+        this['asr_account'] = asrAccount;
+    }
+    public get asrAccount(): string | undefined {
+        return this['asr_account'];
     }
     public withXRequestId(xRequestId: string): ShowRobotResponse {
         this['X-Request-Id'] = xRequestId;

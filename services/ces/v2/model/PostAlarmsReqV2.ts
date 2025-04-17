@@ -2,7 +2,6 @@ import { AlarmType } from './AlarmType';
 import { Dimension } from './Dimension';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
-import { ResourceLevel } from './ResourceLevel';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -12,8 +11,6 @@ export class PostAlarmsReqV2 {
     public namespace?: string;
     private 'resource_group_id'?: string;
     public resources?: Array<Array<Dimension>>;
-    private 'alarm_template_id'?: string;
-    public tags?: Array<ResourceTag>;
     public policies?: Array<Policy>;
     public type?: AlarmType;
     private 'alarm_notifications'?: Array<Notification>;
@@ -23,8 +20,10 @@ export class PostAlarmsReqV2 {
     private 'enterprise_project_id'?: string;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
+    private 'alarm_template_id'?: string;
+    public tags?: Array<ResourceTag>;
     private 'product_name'?: string;
-    private 'resource_level'?: ResourceLevel;
+    private 'resource_level'?: PostAlarmsReqV2ResourceLevelEnum | string;
     public constructor(name?: string, namespace?: string, resources?: Array<Array<Dimension>>, type?: AlarmType, enabled?: boolean, notificationEnabled?: boolean) { 
         this['name'] = name;
         this['namespace'] = namespace;
@@ -57,20 +56,6 @@ export class PostAlarmsReqV2 {
     }
     public withResources(resources: Array<Array<Dimension>>): PostAlarmsReqV2 {
         this['resources'] = resources;
-        return this;
-    }
-    public withAlarmTemplateId(alarmTemplateId: string): PostAlarmsReqV2 {
-        this['alarm_template_id'] = alarmTemplateId;
-        return this;
-    }
-    public set alarmTemplateId(alarmTemplateId: string  | undefined) {
-        this['alarm_template_id'] = alarmTemplateId;
-    }
-    public get alarmTemplateId(): string | undefined {
-        return this['alarm_template_id'];
-    }
-    public withTags(tags: Array<ResourceTag>): PostAlarmsReqV2 {
-        this['tags'] = tags;
         return this;
     }
     public withPolicies(policies: Array<Policy>): PostAlarmsReqV2 {
@@ -145,6 +130,20 @@ export class PostAlarmsReqV2 {
     public get notificationEnabled(): boolean | undefined {
         return this['notification_enabled'];
     }
+    public withAlarmTemplateId(alarmTemplateId: string): PostAlarmsReqV2 {
+        this['alarm_template_id'] = alarmTemplateId;
+        return this;
+    }
+    public set alarmTemplateId(alarmTemplateId: string  | undefined) {
+        this['alarm_template_id'] = alarmTemplateId;
+    }
+    public get alarmTemplateId(): string | undefined {
+        return this['alarm_template_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): PostAlarmsReqV2 {
+        this['tags'] = tags;
+        return this;
+    }
     public withProductName(productName: string): PostAlarmsReqV2 {
         this['product_name'] = productName;
         return this;
@@ -155,14 +154,23 @@ export class PostAlarmsReqV2 {
     public get productName(): string | undefined {
         return this['product_name'];
     }
-    public withResourceLevel(resourceLevel: ResourceLevel): PostAlarmsReqV2 {
+    public withResourceLevel(resourceLevel: PostAlarmsReqV2ResourceLevelEnum | string): PostAlarmsReqV2 {
         this['resource_level'] = resourceLevel;
         return this;
     }
-    public set resourceLevel(resourceLevel: ResourceLevel  | undefined) {
+    public set resourceLevel(resourceLevel: PostAlarmsReqV2ResourceLevelEnum | string  | undefined) {
         this['resource_level'] = resourceLevel;
     }
-    public get resourceLevel(): ResourceLevel | undefined {
+    public get resourceLevel(): PostAlarmsReqV2ResourceLevelEnum | string | undefined {
         return this['resource_level'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PostAlarmsReqV2ResourceLevelEnum {
+    PRODUCT = 'product',
+    DIMENSION = 'dimension'
 }

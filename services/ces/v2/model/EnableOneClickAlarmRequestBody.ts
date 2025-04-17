@@ -1,4 +1,5 @@
 import { DimensionNames } from './DimensionNames';
+import { EnableOneClickAlarmRequestBodyOneClickUpdateAlarms } from './EnableOneClickAlarmRequestBodyOneClickUpdateAlarms';
 import { Notification } from './Notification';
 
 
@@ -10,6 +11,10 @@ export class EnableOneClickAlarmRequestBody {
     private 'ok_notifications'?: Array<Notification>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'notification_manner'?: EnableOneClickAlarmRequestBodyNotificationMannerEnum | string;
+    private 'notification_policy_ids'?: Array<string>;
+    private 'is_reset'?: boolean;
+    private 'one_click_update_alarms'?: Array<EnableOneClickAlarmRequestBodyOneClickUpdateAlarms>;
     public constructor(oneClickAlarmId?: string, dimensionNames?: DimensionNames, notificationEnabled?: boolean) { 
         this['one_click_alarm_id'] = oneClickAlarmId;
         this['dimension_names'] = dimensionNames;
@@ -85,4 +90,54 @@ export class EnableOneClickAlarmRequestBody {
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
     }
+    public withNotificationManner(notificationManner: EnableOneClickAlarmRequestBodyNotificationMannerEnum | string): EnableOneClickAlarmRequestBody {
+        this['notification_manner'] = notificationManner;
+        return this;
+    }
+    public set notificationManner(notificationManner: EnableOneClickAlarmRequestBodyNotificationMannerEnum | string  | undefined) {
+        this['notification_manner'] = notificationManner;
+    }
+    public get notificationManner(): EnableOneClickAlarmRequestBodyNotificationMannerEnum | string | undefined {
+        return this['notification_manner'];
+    }
+    public withNotificationPolicyIds(notificationPolicyIds: Array<string>): EnableOneClickAlarmRequestBody {
+        this['notification_policy_ids'] = notificationPolicyIds;
+        return this;
+    }
+    public set notificationPolicyIds(notificationPolicyIds: Array<string>  | undefined) {
+        this['notification_policy_ids'] = notificationPolicyIds;
+    }
+    public get notificationPolicyIds(): Array<string> | undefined {
+        return this['notification_policy_ids'];
+    }
+    public withIsReset(isReset: boolean): EnableOneClickAlarmRequestBody {
+        this['is_reset'] = isReset;
+        return this;
+    }
+    public set isReset(isReset: boolean  | undefined) {
+        this['is_reset'] = isReset;
+    }
+    public get isReset(): boolean | undefined {
+        return this['is_reset'];
+    }
+    public withOneClickUpdateAlarms(oneClickUpdateAlarms: Array<EnableOneClickAlarmRequestBodyOneClickUpdateAlarms>): EnableOneClickAlarmRequestBody {
+        this['one_click_update_alarms'] = oneClickUpdateAlarms;
+        return this;
+    }
+    public set oneClickUpdateAlarms(oneClickUpdateAlarms: Array<EnableOneClickAlarmRequestBodyOneClickUpdateAlarms>  | undefined) {
+        this['one_click_update_alarms'] = oneClickUpdateAlarms;
+    }
+    public get oneClickUpdateAlarms(): Array<EnableOneClickAlarmRequestBodyOneClickUpdateAlarms> | undefined {
+        return this['one_click_update_alarms'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EnableOneClickAlarmRequestBodyNotificationMannerEnum {
+    NOTIFICATION_GROUP = 'NOTIFICATION_GROUP',
+    TOPIC_SUBSCRIPTION = 'TOPIC_SUBSCRIPTION',
+    NOTIFICATION_POLICY = 'NOTIFICATION_POLICY'
 }

@@ -19,6 +19,7 @@ import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
 import { AlarmType } from './model/AlarmType';
 import { BaseWidgetInfo } from './model/BaseWidgetInfo';
+import { BaseWidgetInfoProperties } from './model/BaseWidgetInfoProperties';
 import { BatchCreateResourcesRequest } from './model/BatchCreateResourcesRequest';
 import { BatchCreateResourcesResponse } from './model/BatchCreateResourcesResponse';
 import { BatchDeleteAlarmRulesRequest } from './model/BatchDeleteAlarmRulesRequest';
@@ -27,8 +28,8 @@ import { BatchDeleteAlarmTemplatesRequest } from './model/BatchDeleteAlarmTempla
 import { BatchDeleteAlarmTemplatesRequestBody } from './model/BatchDeleteAlarmTemplatesRequestBody';
 import { BatchDeleteAlarmTemplatesResponse } from './model/BatchDeleteAlarmTemplatesResponse';
 import { BatchDeleteAlarmsRequestBody } from './model/BatchDeleteAlarmsRequestBody';
-import { BatchDeleteDashboardRequestBody } from './model/BatchDeleteDashboardRequestBody';
 import { BatchDeleteDashboardRespInfo } from './model/BatchDeleteDashboardRespInfo';
+import { BatchDeleteDashboardsRequestBody } from './model/BatchDeleteDashboardsRequestBody';
 import { BatchDeleteNotificationMasksRequest } from './model/BatchDeleteNotificationMasksRequest';
 import { BatchDeleteNotificationMasksRequestBody } from './model/BatchDeleteNotificationMasksRequestBody';
 import { BatchDeleteNotificationMasksResponse } from './model/BatchDeleteNotificationMasksResponse';
@@ -57,7 +58,9 @@ import { BatchUpdateOneClickAlarmsEnabledStateResponse } from './model/BatchUpda
 import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
 import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
 import { BatchUpdateWidgetsResponse } from './model/BatchUpdateWidgetsResponse';
+import { CombRelation } from './model/CombRelation';
 import { ComparisonOperator } from './model/ComparisonOperator';
+import { Condition } from './model/Condition';
 import { Count } from './model/Count';
 import { CreateAlarmRulesRequest } from './model/CreateAlarmRulesRequest';
 import { CreateAlarmRulesResponse } from './model/CreateAlarmRulesResponse';
@@ -86,20 +89,25 @@ import { DeleteDashboardsResponse } from './model/DeleteDashboardsResponse';
 import { DeleteOneWidgetRequest } from './model/DeleteOneWidgetRequest';
 import { DeleteOneWidgetResponse } from './model/DeleteOneWidgetResponse';
 import { Dimension } from './model/Dimension';
-import { Dimension2 } from './model/Dimension2';
 import { DimensionInfo } from './model/DimensionInfo';
-import { DimensionName } from './model/DimensionName';
+import { DimensionNameAllowEmpty } from './model/DimensionNameAllowEmpty';
 import { DimensionNames } from './model/DimensionNames';
 import { EnableOneClickAlarmRequestBody } from './model/EnableOneClickAlarmRequestBody';
+import { EnableOneClickAlarmRequestBodyOneClickUpdateAlarms } from './model/EnableOneClickAlarmRequestBodyOneClickUpdateAlarms';
 import { Enabled } from './model/Enabled';
 import { EndDate } from './model/EndDate';
 import { EndTime } from './model/EndTime';
 import { EnterpriseIdItem } from './model/EnterpriseIdItem';
 import { EnterpriseProjectID } from './model/EnterpriseProjectID';
+import { EnterpriseProjectIdAndTags } from './model/EnterpriseProjectIdAndTags';
 import { EventDimensionName } from './model/EventDimensionName';
+import { ExtendInfo } from './model/ExtendInfo';
+import { ExtendRelationId } from './model/ExtendRelationId';
 import { ExtraInfo } from './model/ExtraInfo';
-import { Filter } from './model/Filter';
+import { FilterWithoutTP } from './model/FilterWithoutTP';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
+import { HierarchicalValue } from './model/HierarchicalValue';
+import { Instance } from './model/Instance';
 import { IsFavoriteItem } from './model/IsFavoriteItem';
 import { Level } from './model/Level';
 import { ListAgentDimensionInfoRequest } from './model/ListAgentDimensionInfoRequest';
@@ -143,6 +151,7 @@ import { ListResourceGroupsResponse } from './model/ListResourceGroupsResponse';
 import { ListResourceGroupsServicesResourcesRequest } from './model/ListResourceGroupsServicesResourcesRequest';
 import { ListResourceGroupsServicesResourcesResponse } from './model/ListResourceGroupsServicesResourcesResponse';
 import { MaskName } from './model/MaskName';
+import { MaskResourceType } from './model/MaskResourceType';
 import { MaskStatus } from './model/MaskStatus';
 import { MaskType } from './model/MaskType';
 import { Metric } from './model/Metric';
@@ -150,13 +159,16 @@ import { MetricDimension } from './model/MetricDimension';
 import { MetricDimensionName } from './model/MetricDimensionName';
 import { MetricExtraInfo } from './model/MetricExtraInfo';
 import { MetricName } from './model/MetricName';
+import { MultiMetricName } from './model/MultiMetricName';
 import { Namespace } from './model/Namespace';
 import { NamespaceAllowedEmpty } from './model/NamespaceAllowedEmpty';
 import { Notification } from './model/Notification';
 import { NotificationBeginTime } from './model/NotificationBeginTime';
 import { NotificationEnabled } from './model/NotificationEnabled';
 import { NotificationEndTime } from './model/NotificationEndTime';
+import { NotificationMaskCreateTime } from './model/NotificationMaskCreateTime';
 import { NotificationMaskID } from './model/NotificationMaskID';
+import { NotificationMaskUpdateTime } from './model/NotificationMaskUpdateTime';
 import { OneClickAlarmDescription } from './model/OneClickAlarmDescription';
 import { OneClickAlarmID } from './model/OneClickAlarmID';
 import { OneClickAlarmPolicy } from './model/OneClickAlarmPolicy';
@@ -167,20 +179,27 @@ import { PoliciesInListResp } from './model/PoliciesInListResp';
 import { PoliciesReqV2 } from './model/PoliciesReqV2';
 import { Policy } from './model/Policy';
 import { PostAlarmsReqV2 } from './model/PostAlarmsReqV2';
-import { ProductName } from './model/ProductName';
+import { ProductInstance } from './model/ProductInstance';
+import { ProductMetric } from './model/ProductMetric';
+import { ProductResource } from './model/ProductResource';
 import { PutAlarmNotificationReq } from './model/PutAlarmNotificationReq';
 import { PutResourceGroupReq } from './model/PutResourceGroupReq';
 import { RelationID } from './model/RelationID';
 import { RelationType } from './model/RelationType';
 import { Resource } from './model/Resource';
 import { ResourceCategory } from './model/ResourceCategory';
+import { ResourceDimension } from './model/ResourceDimension';
 import { ResourceGroupID } from './model/ResourceGroupID';
 import { ResourceGroupTagRelation } from './model/ResourceGroupTagRelation';
-import { ResourceLevel } from './model/ResourceLevel';
+import { ResourceNameItem } from './model/ResourceNameItem';
+import { ResourceNamespace } from './model/ResourceNamespace';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourcesInListResp } from './model/ResourcesInListResp';
 import { ResourcesReq } from './model/ResourcesReq';
 import { ResourcesReqV2 } from './model/ResourcesReqV2';
+import { RollupDimension } from './model/RollupDimension';
+import { RollupEnable } from './model/RollupEnable';
+import { RollupFilter } from './model/RollupFilter';
 import { SMNUrn } from './model/SMNUrn';
 import { SelectedUnit } from './model/SelectedUnit';
 import { ShowAlarmTemplateRequest } from './model/ShowAlarmTemplateRequest';
@@ -192,11 +211,14 @@ import { ShowWidgetResponse } from './model/ShowWidgetResponse';
 import { StartDate } from './model/StartDate';
 import { StartTime } from './model/StartTime';
 import { SuppressDuration } from './model/SuppressDuration';
+import { TMSKey } from './model/TMSKey';
+import { TMSValue } from './model/TMSValue';
 import { Tag } from './model/Tag';
 import { TemplateDescription } from './model/TemplateDescription';
 import { TemplateID } from './model/TemplateID';
 import { TemplateName } from './model/TemplateName';
 import { TemplateType } from './model/TemplateType';
+import { ThresholdInfo } from './model/ThresholdInfo';
 import { Unit } from './model/Unit';
 import { UnitItem } from './model/UnitItem';
 import { UpdateAlarmNotificationsRequest } from './model/UpdateAlarmNotificationsRequest';
@@ -213,6 +235,7 @@ import { UpdateNotificationMaskRequest } from './model/UpdateNotificationMaskReq
 import { UpdateNotificationMaskResponse } from './model/UpdateNotificationMaskResponse';
 import { UpdateNotificationMasksRequestBody } from './model/UpdateNotificationMasksRequestBody';
 import { UpdateOneClickAlarmNotificationsRequest } from './model/UpdateOneClickAlarmNotificationsRequest';
+import { UpdateOneClickAlarmNotificationsRequestBody } from './model/UpdateOneClickAlarmNotificationsRequestBody';
 import { UpdateOneClickAlarmNotificationsResponse } from './model/UpdateOneClickAlarmNotificationsResponse';
 import { UpdatePolicy } from './model/UpdatePolicy';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
@@ -226,6 +249,7 @@ import { WidgetIdItem } from './model/WidgetIdItem';
 import { WidgetInfo } from './model/WidgetInfo';
 import { WidgetInfoWithId } from './model/WidgetInfoWithId';
 import { WidgetMetric } from './model/WidgetMetric';
+import { WidgetMetricName } from './model/WidgetMetricName';
 
 export class CesClient {
     public static newBuilder(): ClientBuilder<CesClient> {
@@ -520,7 +544,7 @@ export class CesClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建告警规则
+     * @summary 创建告警规则（推荐）
      * @param {PostAlarmsReqV2} createAlarmRulesRequestBody 创建告警的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -560,7 +584,7 @@ export class CesClient {
      *
      * @summary 创建/复制/批量创建监控视图到指定的监控看板
      * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
-     * @param {Array<object>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控看板请求体
+     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -616,7 +640,7 @@ export class CesClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建资源分组
+     * @summary 创建资源分组（推荐）
      * @param {CreateResourceGroupRequestBody} createResourceGroupRequestBody 创建资源分组请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -656,7 +680,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除监控看板
-     * @param {BatchDeleteDashboardRequestBody} [deleteDashboardsRequestBody] 批量删除监控看板请求体
+     * @param {BatchDeleteDashboardsRequestBody} [deleteDashboardsRequestBody] 批量删除监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -689,7 +713,7 @@ export class CesClient {
     }
 
     /**
-     * 根据ECS/BMS资源ID查询磁盘、挂载点、进程、显卡、RAID控制器维度指标信息。
+     * 根据ECS/BMS资源ID查询磁盘、挂载点、进程、显卡、RAID控制器维度指标信息；维度NPU已经为原始值，不需要调用该接口进行额外查询获取指标信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -717,16 +741,18 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警记录列表
-     * @param {string} [alarmId] 告警ID,以al开头，后跟22位由字母或数字组成的字符串
+     * @param {Array<string>} [alarmId] 告警ID,以al开头，后跟22位由字母或数字组成的字符串
      * @param {string} [recordId] 告警记录ID,以ah开头，后跟22位由字母或数字组成的字符串
      * @param {string} [name] 告警规则名称
-     * @param {'event' | 'metric'} [alarmType] 告警类型，event：查询事件类型告警，metric：查询指标类型告警
-     * @param {string} [status] 告警规则状态, ok为正常，alarm为告警，invalid为已失效
+     * @param {Array<'ok' | 'alarm' | 'invalid'>} [status] 告警规则状态, ok为正常，alarm为告警，invalid为已失效
      * @param {number} [level] 告警级别, 1为紧急，2为重要，3为次要，4为提示
-     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考[服务命名空间](https://support.huaweicloud.com/usermanual-ces/zh-cn_topic_0202622212.html)
+     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
      * @param {string} [resourceId] 告警资源ID，多维度情况按字母升序排列并使用逗号分隔
-     * @param {string} [from] 查询告警记录的起始时间，例如：2022-02-10T10:05:46+08:00
-     * @param {string} [to] 查询告警记录的截止时间，例如：2022-02-10T10:05:47+08:00
+     * @param {string} [from] 查询告警记录的起始更新时间，例如：2022-02-10T10:05:46+08:00
+     * @param {string} [to] 查询告警记录的截止更新时间，例如：2022-02-10T10:05:47+08:00
+     * @param {'event' | 'metric'} [alarmType] 告警类型，event：查询事件类型告警，metric：查询指标类型告警
+     * @param {string} [createTimeFrom] 查询告警记录的起始创建时间，例如：2022-02-10T10:05:46+08:00
+     * @param {string} [createTimeTo] 查询告警记录的截止创建时间，例如：2022-02-10T10:05:47+08:00
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
      * @param {'first_alarm_time' | 'update_time' | 'alarm_level' | 'record_id'} [orderBy] 按关键字排序, 默认为update_time, {first_alarm_time: 告警产生时间, update_time: 更新时间, alarm_level: 告警级别, record_id：表记录主键} 
@@ -789,12 +815,14 @@ export class CesClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询告警规则列表
+     * @summary 查询告警规则列表（推荐）
      * @param {string} [alarmId] 告警规则ID
      * @param {string} [name] 告警名称, 只能包含0-9/a-z/A-Z/_/-或汉字，长度1-128
-     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考[服务命名空间](https://support.huaweicloud.com/usermanual-ces/zh-cn_topic_0202622212.html)
+     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
      * @param {string} [resourceId] 告警资源ID，多维度情况按字母升序排列并使用逗号分隔
      * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {string} [productName] 产品层级跨纬规则查询时支持产品名称查询，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
+     * @param {'product' | 'dimension'} [resourceLevel] 产品层级跨纬规则查询时支持规则所属类型查询，resource_level取值为product即为产品层级跨纬规则，不填或者取值为dimension则为旧的规则类型
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
      * @param {*} [options] Override http request option.
@@ -842,6 +870,7 @@ export class CesClient {
      * @param {string} [dimName] 资源维度，必须以字母开头，多维度用\&quot;,\&quot;分割，只能包含0-9/a-z/A-Z/_/-，每个维度的最大长度为32
      * @param {'system' | 'custom' | 'system_event' | 'custom_event' | 'system_custom_event'} [templateType] 模板类型(system代表默认指标模板，custom代表自定义指标模板，system_event代表默认事件模板，custom_event代表自定义事件模板，system_custom_event代表全部事件模板),不传返回全部指标模板
      * @param {string} [templateName] 告警模板的名称，以字母或汉字开头，可包含字母、数字、汉字、_、-，长度范围[1,128]，支持模糊匹配
+     * @param {string} [productName] 支持按照产品名称粒度进行查询告警模板，产品名称一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -883,6 +912,7 @@ export class CesClient {
      * @param {boolean} [isFavorite] 指定企业项目下监控看板是否收藏，true:收藏，false:未收藏，填此参数时，enterprise_id必填
      * @param {string} [dashboardName] 监控看板名称
      * @param {string} [dashboardId] 监控看板id
+     * @param {'monitor_dashboard' | 'other'} [dashboardType] 监控看板类型, monitor_dashboard表示监控大盘,other表示自定义看板
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -902,6 +932,7 @@ export class CesClient {
      *
      * @summary 查询指定监控看板下的监控视图列表
      * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {string} [groupId] 视图所在的分组id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -944,6 +975,8 @@ export class CesClient {
      * @param {ListNotificationMaskRequestBody} listNotificationMasksRequestBody 批量查询通知屏蔽规则，请求参数。
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
+     * @param {'create_time' | 'update_time'} [sortKey] 排序关键字，与sort_dir同时使用。 目前只支持create_time与update_time create_time表示按创建时间排序，update_time表示按修改时间排序
+     * @param {'ASC' | 'DESC'} [sortDir] 排序顺序，与sort_key同时使用。DESC表示降序排序；ASC表示升序排序；
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1004,7 +1037,7 @@ export class CesClient {
      * @param {string} [groupId] 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
      * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
      * @param {number} [limit] 分页查询时每页的条目数，取值[1,100]，默认值为100
-     * @param {'EPS' | 'TAG' | 'Manual'} [type] 资源分组添加资源方式，取值只能为EPS（同步企业项目）,TAG（标签动态匹配）,Manual（手动添加），不传代表查询所有资源分组类型
+     * @param {'EPS' | 'TAG' | 'Manual' | 'COMB' | 'NAME'} [type] 资源分组添加资源方式，取值只能为EPS（同步企业项目）,TAG（标签动态匹配）,Manual（手动添加），不传代表查询所有资源分组类型,COMB（智能添加-组合匹配）,NAME（资源名称模糊匹配）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1030,6 +1063,11 @@ export class CesClient {
      * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
      * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [status] 按状态信息进行过滤，取值只能为health（已设置告警规则且无告警触发的资源）、unhealthy（已设置告警规则且有告警触发的资源）、no_alarm_rule（未设置告警规则的资源）
      * @param {string} [dimValue] 资源维度值，不支持模糊匹配，但是多维度资源可以只指定一个维度值
+     * @param {string} [tag] 资源的标签信息，格式：\&quot;[key]\&quot;:\&quot;[value]\&quot;，样例参考：\&quot;ssss\&quot;:\&quot;1111\&quot;
+     * @param {string} [extendRelationId] 企业项目ID
+     * @param {string} [productName] 资源分组的云产品，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
+     * @param {string} [resourceName] 资源名称
+     * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [eventStatus] 按事件告警状态信息进行过滤，取值只能为health（已设置事件告警规则且无事件告警触发的资源）、unhealthy（已设置事件告警规则且有事件告警触发的资源）、no_alarm_rule（未设置事件告警规则的资源）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1186,7 +1224,7 @@ export class CesClient {
      *
      * @summary 修改告警通知屏蔽规则
      * @param {string} notificationMaskId 屏蔽规则ID
-     * @param {UpdateNotificationMasksRequestBody} updateNotificationMasksRequestBody 修改通知屏蔽规则请求体
+     * @param {UpdateNotificationMasksRequestBody} updateNotificationMaskRequestBody 修改通知屏蔽规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1206,7 +1244,7 @@ export class CesClient {
      *
      * @summary 批量修改开启状态的一键告警关联告警规则的告警通知
      * @param {string} oneClickAlarmId 一键告警ID
-     * @param {PutAlarmNotificationReq} updateOneClickAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
+     * @param {UpdateOneClickAlarmNotificationsRequestBody} updateOneClickAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2174,7 +2212,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据ECS/BMS资源ID查询磁盘、挂载点、进程、显卡、RAID控制器维度指标信息。
+         * 根据ECS/BMS资源ID查询磁盘、挂载点、进程、显卡、RAID控制器维度指标信息；维度NPU已经为原始值，不需要调用该接口进行额外查询获取指标信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2265,8 +2303,6 @@ export const ParamCreater = function () {
             
             let name;
             
-            let alarmType;
-            
             let status;
             
             let level;
@@ -2279,6 +2315,12 @@ export const ParamCreater = function () {
             
             let to;
             
+            let alarmType;
+            
+            let createTimeFrom;
+            
+            let createTimeTo;
+            
             let offset;
             
             let limit;
@@ -2290,13 +2332,15 @@ export const ParamCreater = function () {
                     alarmId = listAlarmHistoriesRequest.alarmId;
                     recordId = listAlarmHistoriesRequest.recordId;
                     name = listAlarmHistoriesRequest.name;
-                    alarmType = listAlarmHistoriesRequest.alarmType;
                     status = listAlarmHistoriesRequest.status;
                     level = listAlarmHistoriesRequest.level;
                     namespace = listAlarmHistoriesRequest.namespace;
                     resourceId = listAlarmHistoriesRequest.resourceId;
                     from = listAlarmHistoriesRequest.from;
                     to = listAlarmHistoriesRequest.to;
+                    alarmType = listAlarmHistoriesRequest.alarmType;
+                    createTimeFrom = listAlarmHistoriesRequest.createTimeFrom;
+                    createTimeTo = listAlarmHistoriesRequest.createTimeTo;
                     offset = listAlarmHistoriesRequest.offset;
                     limit = listAlarmHistoriesRequest.limit;
                     orderBy = listAlarmHistoriesRequest.orderBy;
@@ -2304,13 +2348,15 @@ export const ParamCreater = function () {
                     alarmId = listAlarmHistoriesRequest['alarm_id'];
                     recordId = listAlarmHistoriesRequest['record_id'];
                     name = listAlarmHistoriesRequest['name'];
-                    alarmType = listAlarmHistoriesRequest['alarm_type'];
                     status = listAlarmHistoriesRequest['status'];
                     level = listAlarmHistoriesRequest['level'];
                     namespace = listAlarmHistoriesRequest['namespace'];
                     resourceId = listAlarmHistoriesRequest['resource_id'];
                     from = listAlarmHistoriesRequest['from'];
                     to = listAlarmHistoriesRequest['to'];
+                    alarmType = listAlarmHistoriesRequest['alarm_type'];
+                    createTimeFrom = listAlarmHistoriesRequest['create_time_from'];
+                    createTimeTo = listAlarmHistoriesRequest['create_time_to'];
                     offset = listAlarmHistoriesRequest['offset'];
                     limit = listAlarmHistoriesRequest['limit'];
                     orderBy = listAlarmHistoriesRequest['order_by'];
@@ -2326,9 +2372,6 @@ export const ParamCreater = function () {
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
-            }
-            if (alarmType !== null && alarmType !== undefined) {
-                localVarQueryParameter['alarm_type'] = alarmType;
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
@@ -2347,6 +2390,15 @@ export const ParamCreater = function () {
             }
             if (to !== null && to !== undefined) {
                 localVarQueryParameter['to'] = to;
+            }
+            if (alarmType !== null && alarmType !== undefined) {
+                localVarQueryParameter['alarm_type'] = alarmType;
+            }
+            if (createTimeFrom !== null && createTimeFrom !== undefined) {
+                localVarQueryParameter['create_time_from'] = createTimeFrom;
+            }
+            if (createTimeTo !== null && createTimeTo !== undefined) {
+                localVarQueryParameter['create_time_to'] = createTimeTo;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -2494,6 +2546,10 @@ export const ParamCreater = function () {
             
             let enterpriseProjectId;
             
+            let productName;
+            
+            let resourceLevel;
+            
             let offset;
             
             let limit;
@@ -2505,6 +2561,8 @@ export const ParamCreater = function () {
                     namespace = listAlarmRulesRequest.namespace;
                     resourceId = listAlarmRulesRequest.resourceId;
                     enterpriseProjectId = listAlarmRulesRequest.enterpriseProjectId;
+                    productName = listAlarmRulesRequest.productName;
+                    resourceLevel = listAlarmRulesRequest.resourceLevel;
                     offset = listAlarmRulesRequest.offset;
                     limit = listAlarmRulesRequest.limit;
                 } else {
@@ -2513,6 +2571,8 @@ export const ParamCreater = function () {
                     namespace = listAlarmRulesRequest['namespace'];
                     resourceId = listAlarmRulesRequest['resource_id'];
                     enterpriseProjectId = listAlarmRulesRequest['enterprise_project_id'];
+                    productName = listAlarmRulesRequest['product_name'];
+                    resourceLevel = listAlarmRulesRequest['resource_level'];
                     offset = listAlarmRulesRequest['offset'];
                     limit = listAlarmRulesRequest['limit'];
                 }
@@ -2533,6 +2593,12 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (productName !== null && productName !== undefined) {
+                localVarQueryParameter['product_name'] = productName;
+            }
+            if (resourceLevel !== null && resourceLevel !== undefined) {
+                localVarQueryParameter['resource_level'] = resourceLevel;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -2626,6 +2692,8 @@ export const ParamCreater = function () {
             let templateType;
             
             let templateName;
+            
+            let productName;
 
             if (listAlarmTemplatesRequest !== null && listAlarmTemplatesRequest !== undefined) {
                 if (listAlarmTemplatesRequest instanceof ListAlarmTemplatesRequest) {
@@ -2635,6 +2703,7 @@ export const ParamCreater = function () {
                     dimName = listAlarmTemplatesRequest.dimName;
                     templateType = listAlarmTemplatesRequest.templateType;
                     templateName = listAlarmTemplatesRequest.templateName;
+                    productName = listAlarmTemplatesRequest.productName;
                 } else {
                     offset = listAlarmTemplatesRequest['offset'];
                     limit = listAlarmTemplatesRequest['limit'];
@@ -2642,6 +2711,7 @@ export const ParamCreater = function () {
                     dimName = listAlarmTemplatesRequest['dim_name'];
                     templateType = listAlarmTemplatesRequest['template_type'];
                     templateName = listAlarmTemplatesRequest['template_name'];
+                    productName = listAlarmTemplatesRequest['product_name'];
                 }
             }
 
@@ -2663,6 +2733,9 @@ export const ParamCreater = function () {
             }
             if (templateName !== null && templateName !== undefined) {
                 localVarQueryParameter['template_name'] = templateName;
+            }
+            if (productName !== null && productName !== undefined) {
+                localVarQueryParameter['product_name'] = productName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2731,6 +2804,8 @@ export const ParamCreater = function () {
             let dashboardName;
             
             let dashboardId;
+            
+            let dashboardType;
 
             if (listDashboardInfosRequest !== null && listDashboardInfosRequest !== undefined) {
                 if (listDashboardInfosRequest instanceof ListDashboardInfosRequest) {
@@ -2738,11 +2813,13 @@ export const ParamCreater = function () {
                     isFavorite = listDashboardInfosRequest.isFavorite;
                     dashboardName = listDashboardInfosRequest.dashboardName;
                     dashboardId = listDashboardInfosRequest.dashboardId;
+                    dashboardType = listDashboardInfosRequest.dashboardType;
                 } else {
                     enterpriseId = listDashboardInfosRequest['enterprise_id'];
                     isFavorite = listDashboardInfosRequest['is_favorite'];
                     dashboardName = listDashboardInfosRequest['dashboard_name'];
                     dashboardId = listDashboardInfosRequest['dashboard_id'];
+                    dashboardType = listDashboardInfosRequest['dashboard_type'];
                 }
             }
 
@@ -2758,6 +2835,9 @@ export const ParamCreater = function () {
             }
             if (dashboardId !== null && dashboardId !== undefined) {
                 localVarQueryParameter['dashboard_id'] = dashboardId;
+            }
+            if (dashboardType !== null && dashboardType !== undefined) {
+                localVarQueryParameter['dashboard_type'] = dashboardType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2780,15 +2860,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let dashboardId;
+            
+            let groupId;
 
             if (listDashboardWidgetsRequest !== null && listDashboardWidgetsRequest !== undefined) {
                 if (listDashboardWidgetsRequest instanceof ListDashboardWidgetsRequest) {
                     dashboardId = listDashboardWidgetsRequest.dashboardId;
+                    groupId = listDashboardWidgetsRequest.groupId;
                 } else {
                     dashboardId = listDashboardWidgetsRequest['dashboard_id'];
+                    groupId = listDashboardWidgetsRequest['group_id'];
                 }
             }
 
@@ -2796,7 +2880,11 @@ export const ParamCreater = function () {
             if (dashboardId === null || dashboardId === undefined) {
             throw new RequiredError('dashboardId','Required parameter dashboardId was null or undefined when calling listDashboardWidgets.');
             }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'dashboard_id': dashboardId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2876,16 +2964,24 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let sortKey;
+            
+            let sortDir;
 
             if (listNotificationMasksRequest !== null && listNotificationMasksRequest !== undefined) {
                 if (listNotificationMasksRequest instanceof ListNotificationMasksRequest) {
                     body = listNotificationMasksRequest.body
                     offset = listNotificationMasksRequest.offset;
                     limit = listNotificationMasksRequest.limit;
+                    sortKey = listNotificationMasksRequest.sortKey;
+                    sortDir = listNotificationMasksRequest.sortDir;
                 } else {
                     body = listNotificationMasksRequest['body'];
                     offset = listNotificationMasksRequest['offset'];
                     limit = listNotificationMasksRequest['limit'];
+                    sortKey = listNotificationMasksRequest['sort_key'];
+                    sortDir = listNotificationMasksRequest['sort_dir'];
                 }
             }
 
@@ -2898,6 +2994,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3067,6 +3169,16 @@ export const ParamCreater = function () {
             let status;
             
             let dimValue;
+            
+            let tag;
+            
+            let extendRelationId;
+            
+            let productName;
+            
+            let resourceName;
+            
+            let eventStatus;
 
             if (listResourceGroupsServicesResourcesRequest !== null && listResourceGroupsServicesResourcesRequest !== undefined) {
                 if (listResourceGroupsServicesResourcesRequest instanceof ListResourceGroupsServicesResourcesRequest) {
@@ -3077,6 +3189,11 @@ export const ParamCreater = function () {
                     offset = listResourceGroupsServicesResourcesRequest.offset;
                     status = listResourceGroupsServicesResourcesRequest.status;
                     dimValue = listResourceGroupsServicesResourcesRequest.dimValue;
+                    tag = listResourceGroupsServicesResourcesRequest.tag;
+                    extendRelationId = listResourceGroupsServicesResourcesRequest.extendRelationId;
+                    productName = listResourceGroupsServicesResourcesRequest.productName;
+                    resourceName = listResourceGroupsServicesResourcesRequest.resourceName;
+                    eventStatus = listResourceGroupsServicesResourcesRequest.eventStatus;
                 } else {
                     groupId = listResourceGroupsServicesResourcesRequest['group_id'];
                     service = listResourceGroupsServicesResourcesRequest['service'];
@@ -3085,6 +3202,11 @@ export const ParamCreater = function () {
                     offset = listResourceGroupsServicesResourcesRequest['offset'];
                     status = listResourceGroupsServicesResourcesRequest['status'];
                     dimValue = listResourceGroupsServicesResourcesRequest['dim_value'];
+                    tag = listResourceGroupsServicesResourcesRequest['tag'];
+                    extendRelationId = listResourceGroupsServicesResourcesRequest['extend_relation_id'];
+                    productName = listResourceGroupsServicesResourcesRequest['product_name'];
+                    resourceName = listResourceGroupsServicesResourcesRequest['resource_name'];
+                    eventStatus = listResourceGroupsServicesResourcesRequest['event_status'];
                 }
             }
 
@@ -3109,6 +3231,21 @@ export const ParamCreater = function () {
             }
             if (dimValue !== null && dimValue !== undefined) {
                 localVarQueryParameter['dim_value'] = dimValue;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (extendRelationId !== null && extendRelationId !== undefined) {
+                localVarQueryParameter['extend_relation_id'] = extendRelationId;
+            }
+            if (productName !== null && productName !== undefined) {
+                localVarQueryParameter['product_name'] = productName;
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+            if (eventStatus !== null && eventStatus !== undefined) {
+                localVarQueryParameter['event_status'] = eventStatus;
             }
 
             options.queryParams = localVarQueryParameter;

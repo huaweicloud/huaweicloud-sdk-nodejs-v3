@@ -1,29 +1,31 @@
 
 
 export class ListAlarmHistoriesRequest {
-    private 'alarm_id'?: string;
+    private 'alarm_id'?: Array<string>;
     private 'record_id'?: string;
     public name?: string;
-    private 'alarm_type'?: ListAlarmHistoriesRequestAlarmTypeEnum | string;
-    public status?: string;
+    public status?: Array<ListAlarmHistoriesRequestStatusEnum> | Array<string>;
     public level?: number;
     public namespace?: string;
     private 'resource_id'?: string;
     public from?: string;
     public to?: string;
+    private 'alarm_type'?: ListAlarmHistoriesRequestAlarmTypeEnum | string;
+    private 'create_time_from'?: string;
+    private 'create_time_to'?: string;
     public offset?: number;
     public limit?: number;
     private 'order_by'?: ListAlarmHistoriesRequestOrderByEnum | string;
     public constructor() { 
     }
-    public withAlarmId(alarmId: string): ListAlarmHistoriesRequest {
+    public withAlarmId(alarmId: Array<string>): ListAlarmHistoriesRequest {
         this['alarm_id'] = alarmId;
         return this;
     }
-    public set alarmId(alarmId: string  | undefined) {
+    public set alarmId(alarmId: Array<string>  | undefined) {
         this['alarm_id'] = alarmId;
     }
-    public get alarmId(): string | undefined {
+    public get alarmId(): Array<string> | undefined {
         return this['alarm_id'];
     }
     public withRecordId(recordId: string): ListAlarmHistoriesRequest {
@@ -40,17 +42,7 @@ export class ListAlarmHistoriesRequest {
         this['name'] = name;
         return this;
     }
-    public withAlarmType(alarmType: ListAlarmHistoriesRequestAlarmTypeEnum | string): ListAlarmHistoriesRequest {
-        this['alarm_type'] = alarmType;
-        return this;
-    }
-    public set alarmType(alarmType: ListAlarmHistoriesRequestAlarmTypeEnum | string  | undefined) {
-        this['alarm_type'] = alarmType;
-    }
-    public get alarmType(): ListAlarmHistoriesRequestAlarmTypeEnum | string | undefined {
-        return this['alarm_type'];
-    }
-    public withStatus(status: string): ListAlarmHistoriesRequest {
+    public withStatus(status: Array<ListAlarmHistoriesRequestStatusEnum> | Array<string>): ListAlarmHistoriesRequest {
         this['status'] = status;
         return this;
     }
@@ -80,6 +72,36 @@ export class ListAlarmHistoriesRequest {
         this['to'] = to;
         return this;
     }
+    public withAlarmType(alarmType: ListAlarmHistoriesRequestAlarmTypeEnum | string): ListAlarmHistoriesRequest {
+        this['alarm_type'] = alarmType;
+        return this;
+    }
+    public set alarmType(alarmType: ListAlarmHistoriesRequestAlarmTypeEnum | string  | undefined) {
+        this['alarm_type'] = alarmType;
+    }
+    public get alarmType(): ListAlarmHistoriesRequestAlarmTypeEnum | string | undefined {
+        return this['alarm_type'];
+    }
+    public withCreateTimeFrom(createTimeFrom: string): ListAlarmHistoriesRequest {
+        this['create_time_from'] = createTimeFrom;
+        return this;
+    }
+    public set createTimeFrom(createTimeFrom: string  | undefined) {
+        this['create_time_from'] = createTimeFrom;
+    }
+    public get createTimeFrom(): string | undefined {
+        return this['create_time_from'];
+    }
+    public withCreateTimeTo(createTimeTo: string): ListAlarmHistoriesRequest {
+        this['create_time_to'] = createTimeTo;
+        return this;
+    }
+    public set createTimeTo(createTimeTo: string  | undefined) {
+        this['create_time_to'] = createTimeTo;
+    }
+    public get createTimeTo(): string | undefined {
+        return this['create_time_to'];
+    }
     public withOffset(offset: number): ListAlarmHistoriesRequest {
         this['offset'] = offset;
         return this;
@@ -100,6 +122,15 @@ export class ListAlarmHistoriesRequest {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmHistoriesRequestStatusEnum {
+    OK = 'ok',
+    ALARM = 'alarm',
+    INVALID = 'invalid'
+}
 /**
     * @export
     * @enum {string}

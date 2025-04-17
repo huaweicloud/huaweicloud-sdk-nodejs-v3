@@ -1,4 +1,5 @@
 import { MaskType } from './MaskType';
+import { ProductMetric } from './ProductMetric';
 import { RelationType } from './RelationType';
 import { Resource } from './Resource';
 
@@ -7,6 +8,10 @@ export class UpdateNotificationMasksRequestBody {
     private 'mask_name'?: string;
     private 'relation_ids'?: Array<string>;
     private 'relation_type'?: RelationType;
+    private 'metric_names'?: Array<string>;
+    private 'product_metrics'?: Array<ProductMetric>;
+    private 'resource_level'?: UpdateNotificationMasksRequestBodyResourceLevelEnum | string;
+    private 'product_name'?: string;
     public resources?: Array<Resource>;
     private 'mask_type'?: MaskType;
     private 'start_date'?: string;
@@ -47,6 +52,46 @@ export class UpdateNotificationMasksRequestBody {
     }
     public get relationType(): RelationType | undefined {
         return this['relation_type'];
+    }
+    public withMetricNames(metricNames: Array<string>): UpdateNotificationMasksRequestBody {
+        this['metric_names'] = metricNames;
+        return this;
+    }
+    public set metricNames(metricNames: Array<string>  | undefined) {
+        this['metric_names'] = metricNames;
+    }
+    public get metricNames(): Array<string> | undefined {
+        return this['metric_names'];
+    }
+    public withProductMetrics(productMetrics: Array<ProductMetric>): UpdateNotificationMasksRequestBody {
+        this['product_metrics'] = productMetrics;
+        return this;
+    }
+    public set productMetrics(productMetrics: Array<ProductMetric>  | undefined) {
+        this['product_metrics'] = productMetrics;
+    }
+    public get productMetrics(): Array<ProductMetric> | undefined {
+        return this['product_metrics'];
+    }
+    public withResourceLevel(resourceLevel: UpdateNotificationMasksRequestBodyResourceLevelEnum | string): UpdateNotificationMasksRequestBody {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: UpdateNotificationMasksRequestBodyResourceLevelEnum | string  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): UpdateNotificationMasksRequestBodyResourceLevelEnum | string | undefined {
+        return this['resource_level'];
+    }
+    public withProductName(productName: string): UpdateNotificationMasksRequestBody {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
     }
     public withResources(resources: Array<Resource>): UpdateNotificationMasksRequestBody {
         this['resources'] = resources;
@@ -102,4 +147,13 @@ export class UpdateNotificationMasksRequestBody {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateNotificationMasksRequestBodyResourceLevelEnum {
+    DIMENSION = 'dimension',
+    PRODUCT = 'product'
 }

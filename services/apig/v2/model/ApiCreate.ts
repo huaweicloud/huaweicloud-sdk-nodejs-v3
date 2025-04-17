@@ -20,6 +20,9 @@ export class ApiCreate {
     private 'auth_type'?: ApiCreateAuthTypeEnum | string;
     private 'auth_opt'?: AuthOpt;
     public cors?: boolean;
+    private 'trace_enabled'?: boolean;
+    private 'sampling_strategy'?: ApiCreateSamplingStrategyEnum | string;
+    private 'sampling_param'?: string;
     private 'match_mode'?: ApiCreateMatchModeEnum | string;
     private 'backend_type'?: ApiCreateBackendTypeEnum | string;
     public remark?: string;
@@ -118,6 +121,36 @@ export class ApiCreate {
     public withCors(cors: boolean): ApiCreate {
         this['cors'] = cors;
         return this;
+    }
+    public withTraceEnabled(traceEnabled: boolean): ApiCreate {
+        this['trace_enabled'] = traceEnabled;
+        return this;
+    }
+    public set traceEnabled(traceEnabled: boolean  | undefined) {
+        this['trace_enabled'] = traceEnabled;
+    }
+    public get traceEnabled(): boolean | undefined {
+        return this['trace_enabled'];
+    }
+    public withSamplingStrategy(samplingStrategy: ApiCreateSamplingStrategyEnum | string): ApiCreate {
+        this['sampling_strategy'] = samplingStrategy;
+        return this;
+    }
+    public set samplingStrategy(samplingStrategy: ApiCreateSamplingStrategyEnum | string  | undefined) {
+        this['sampling_strategy'] = samplingStrategy;
+    }
+    public get samplingStrategy(): ApiCreateSamplingStrategyEnum | string | undefined {
+        return this['sampling_strategy'];
+    }
+    public withSamplingParam(samplingParam: string): ApiCreate {
+        this['sampling_param'] = samplingParam;
+        return this;
+    }
+    public set samplingParam(samplingParam: string  | undefined) {
+        this['sampling_param'] = samplingParam;
+    }
+    public get samplingParam(): string | undefined {
+        return this['sampling_param'];
     }
     public withMatchMode(matchMode: ApiCreateMatchModeEnum | string): ApiCreate {
         this['match_mode'] = matchMode;
@@ -374,6 +407,13 @@ export enum ApiCreateAuthTypeEnum {
     APP = 'APP',
     IAM = 'IAM',
     AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiCreateSamplingStrategyEnum {
+    RATE = 'RATE'
 }
 /**
     * @export

@@ -6,7 +6,7 @@ export class ShowDefaultConfigResponse extends SdkResponse {
     private 'traffic_pos_id'?: number;
     private 'http_request_pos_id'?: number;
     private 'cleaning_access_pos_id'?: number;
-    private 'app_type_id'?: number;
+    private 'app_type_id'?: ShowDefaultConfigResponseAppTypeIdEnum | number;
     public constructor() { 
         super();
     }
@@ -50,14 +50,23 @@ export class ShowDefaultConfigResponse extends SdkResponse {
     public get cleaningAccessPosId(): number | undefined {
         return this['cleaning_access_pos_id'];
     }
-    public withAppTypeId(appTypeId: number): ShowDefaultConfigResponse {
+    public withAppTypeId(appTypeId: ShowDefaultConfigResponseAppTypeIdEnum | number): ShowDefaultConfigResponse {
         this['app_type_id'] = appTypeId;
         return this;
     }
-    public set appTypeId(appTypeId: number  | undefined) {
+    public set appTypeId(appTypeId: ShowDefaultConfigResponseAppTypeIdEnum | number  | undefined) {
         this['app_type_id'] = appTypeId;
     }
-    public get appTypeId(): number | undefined {
+    public get appTypeId(): ShowDefaultConfigResponseAppTypeIdEnum | number | undefined {
         return this['app_type_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowDefaultConfigResponseAppTypeIdEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

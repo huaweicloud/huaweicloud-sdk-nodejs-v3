@@ -3,7 +3,6 @@ import { BackupStrategyOption } from './BackupStrategyOption';
 import { ChargeInfoOption } from './ChargeInfoOption';
 import { CreateInstanceFlavorOption } from './CreateInstanceFlavorOption';
 import { DatastoreOption } from './DatastoreOption';
-import { LbAccessControlSettings } from './LbAccessControlSettings';
 import { RestoreInfo } from './RestoreInfo';
 
 
@@ -27,9 +26,7 @@ export class CreateInstanceRequestBody {
     private 'charge_info'?: ChargeInfoOption;
     private 'restore_info'?: RestoreInfo;
     public port?: string;
-    private 'ipv6_enabled'?: boolean;
     private 'availability_zone_detail'?: AvailabilityZoneDetail;
-    private 'lb_access_control_settings'?: LbAccessControlSettings;
     public constructor(name?: string, datastore?: DatastoreOption, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, password?: string, mode?: string, flavor?: Array<CreateInstanceFlavorOption>) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -190,16 +187,6 @@ export class CreateInstanceRequestBody {
         this['port'] = port;
         return this;
     }
-    public withIpv6Enabled(ipv6Enabled: boolean): CreateInstanceRequestBody {
-        this['ipv6_enabled'] = ipv6Enabled;
-        return this;
-    }
-    public set ipv6Enabled(ipv6Enabled: boolean  | undefined) {
-        this['ipv6_enabled'] = ipv6Enabled;
-    }
-    public get ipv6Enabled(): boolean | undefined {
-        return this['ipv6_enabled'];
-    }
     public withAvailabilityZoneDetail(availabilityZoneDetail: AvailabilityZoneDetail): CreateInstanceRequestBody {
         this['availability_zone_detail'] = availabilityZoneDetail;
         return this;
@@ -209,15 +196,5 @@ export class CreateInstanceRequestBody {
     }
     public get availabilityZoneDetail(): AvailabilityZoneDetail | undefined {
         return this['availability_zone_detail'];
-    }
-    public withLbAccessControlSettings(lbAccessControlSettings: LbAccessControlSettings): CreateInstanceRequestBody {
-        this['lb_access_control_settings'] = lbAccessControlSettings;
-        return this;
-    }
-    public set lbAccessControlSettings(lbAccessControlSettings: LbAccessControlSettings  | undefined) {
-        this['lb_access_control_settings'] = lbAccessControlSettings;
-    }
-    public get lbAccessControlSettings(): LbAccessControlSettings | undefined {
-        return this['lb_access_control_settings'];
     }
 }

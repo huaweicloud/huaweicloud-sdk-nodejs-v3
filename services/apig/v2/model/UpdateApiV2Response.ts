@@ -22,6 +22,9 @@ export class UpdateApiV2Response extends SdkResponse {
     private 'auth_type'?: UpdateApiV2ResponseAuthTypeEnum | string;
     private 'auth_opt'?: AuthOpt;
     public cors?: boolean;
+    private 'trace_enabled'?: boolean;
+    private 'sampling_strategy'?: UpdateApiV2ResponseSamplingStrategyEnum | string;
+    private 'sampling_param'?: string;
     private 'match_mode'?: UpdateApiV2ResponseMatchModeEnum | string;
     private 'backend_type'?: UpdateApiV2ResponseBackendTypeEnum | string;
     public remark?: string;
@@ -135,6 +138,36 @@ export class UpdateApiV2Response extends SdkResponse {
     public withCors(cors: boolean): UpdateApiV2Response {
         this['cors'] = cors;
         return this;
+    }
+    public withTraceEnabled(traceEnabled: boolean): UpdateApiV2Response {
+        this['trace_enabled'] = traceEnabled;
+        return this;
+    }
+    public set traceEnabled(traceEnabled: boolean  | undefined) {
+        this['trace_enabled'] = traceEnabled;
+    }
+    public get traceEnabled(): boolean | undefined {
+        return this['trace_enabled'];
+    }
+    public withSamplingStrategy(samplingStrategy: UpdateApiV2ResponseSamplingStrategyEnum | string): UpdateApiV2Response {
+        this['sampling_strategy'] = samplingStrategy;
+        return this;
+    }
+    public set samplingStrategy(samplingStrategy: UpdateApiV2ResponseSamplingStrategyEnum | string  | undefined) {
+        this['sampling_strategy'] = samplingStrategy;
+    }
+    public get samplingStrategy(): UpdateApiV2ResponseSamplingStrategyEnum | string | undefined {
+        return this['sampling_strategy'];
+    }
+    public withSamplingParam(samplingParam: string): UpdateApiV2Response {
+        this['sampling_param'] = samplingParam;
+        return this;
+    }
+    public set samplingParam(samplingParam: string  | undefined) {
+        this['sampling_param'] = samplingParam;
+    }
+    public get samplingParam(): string | undefined {
+        return this['sampling_param'];
     }
     public withMatchMode(matchMode: UpdateApiV2ResponseMatchModeEnum | string): UpdateApiV2Response {
         this['match_mode'] = matchMode;
@@ -519,6 +552,13 @@ export enum UpdateApiV2ResponseAuthTypeEnum {
     APP = 'APP',
     IAM = 'IAM',
     AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateApiV2ResponseSamplingStrategyEnum {
+    RATE = 'RATE'
 }
 /**
     * @export

@@ -1,16 +1,18 @@
-import { Dimension2 } from './Dimension2';
 import { ListRelationType } from './ListRelationType';
+import { ResourceDimension } from './ResourceDimension';
 
 
 export class ListNotificationMaskRequestBody {
     private 'relation_type'?: ListRelationType;
     private 'relation_ids'?: Array<string>;
+    private 'metric_name'?: string;
+    private 'resource_level'?: ListNotificationMaskRequestBodyResourceLevelEnum | string;
     private 'mask_id'?: string;
     private 'mask_name'?: string;
     private 'mask_status'?: ListNotificationMaskRequestBodyMaskStatusEnum | string;
     private 'resource_id'?: string;
     public namespace?: string;
-    public dimensions?: Array<Dimension2>;
+    public dimensions?: Array<ResourceDimension>;
     public constructor(relationType?: ListRelationType, relationIds?: Array<string>) { 
         this['relation_type'] = relationType;
         this['relation_ids'] = relationIds;
@@ -34,6 +36,26 @@ export class ListNotificationMaskRequestBody {
     }
     public get relationIds(): Array<string> | undefined {
         return this['relation_ids'];
+    }
+    public withMetricName(metricName: string): ListNotificationMaskRequestBody {
+        this['metric_name'] = metricName;
+        return this;
+    }
+    public set metricName(metricName: string  | undefined) {
+        this['metric_name'] = metricName;
+    }
+    public get metricName(): string | undefined {
+        return this['metric_name'];
+    }
+    public withResourceLevel(resourceLevel: ListNotificationMaskRequestBodyResourceLevelEnum | string): ListNotificationMaskRequestBody {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: ListNotificationMaskRequestBodyResourceLevelEnum | string  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): ListNotificationMaskRequestBodyResourceLevelEnum | string | undefined {
+        return this['resource_level'];
     }
     public withMaskId(maskId: string): ListNotificationMaskRequestBody {
         this['mask_id'] = maskId;
@@ -79,12 +101,20 @@ export class ListNotificationMaskRequestBody {
         this['namespace'] = namespace;
         return this;
     }
-    public withDimensions(dimensions: Array<Dimension2>): ListNotificationMaskRequestBody {
+    public withDimensions(dimensions: Array<ResourceDimension>): ListNotificationMaskRequestBody {
         this['dimensions'] = dimensions;
         return this;
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListNotificationMaskRequestBodyResourceLevelEnum {
+    DIMENSION = 'dimension',
+    PRODUCT = 'product'
+}
 /**
     * @export
     * @enum {string}

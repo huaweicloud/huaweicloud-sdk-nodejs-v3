@@ -3,6 +3,7 @@ import { IflytekAiuiConfig } from './IflytekAiuiConfig';
 import { IflytekSpark } from './IflytekSpark';
 import { MobvoiConfig } from './MobvoiConfig';
 import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
+import { WiseBrainConfig } from './WiseBrainConfig';
 
 
 export class ValidateRobotReq {
@@ -12,6 +13,7 @@ export class ValidateRobotReq {
     private 'iflytek_spark'?: IflytekSpark;
     private 'third_party_model_config'?: ThirdPartyModelConfig;
     private 'mobvoi_config'?: MobvoiConfig;
+    private 'wise_brain_config'?: WiseBrainConfig;
     public constructor(appType?: number) { 
         this['app_type'] = appType;
     }
@@ -74,5 +76,15 @@ export class ValidateRobotReq {
     }
     public get mobvoiConfig(): MobvoiConfig | undefined {
         return this['mobvoi_config'];
+    }
+    public withWiseBrainConfig(wiseBrainConfig: WiseBrainConfig): ValidateRobotReq {
+        this['wise_brain_config'] = wiseBrainConfig;
+        return this;
+    }
+    public set wiseBrainConfig(wiseBrainConfig: WiseBrainConfig  | undefined) {
+        this['wise_brain_config'] = wiseBrainConfig;
+    }
+    public get wiseBrainConfig(): WiseBrainConfig | undefined {
+        return this['wise_brain_config'];
     }
 }

@@ -5,6 +5,7 @@ import { LanguageEnum } from './LanguageEnum';
 import { MobvoiConfig } from './MobvoiConfig';
 import { RobotTypeEnum } from './RobotTypeEnum';
 import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
+import { WiseBrainConfig } from './WiseBrainConfig';
 
 
 export class UpdateRobotReq {
@@ -20,6 +21,7 @@ export class UpdateRobotReq {
     private 'iflytek_spark'?: IflytekSpark;
     private 'third_party_model_config'?: ThirdPartyModelConfig;
     private 'mobvoi_config'?: MobvoiConfig;
+    private 'wise_brain_config'?: WiseBrainConfig;
     public constructor() { 
     }
     public withName(name: string): UpdateRobotReq {
@@ -129,5 +131,15 @@ export class UpdateRobotReq {
     }
     public get mobvoiConfig(): MobvoiConfig | undefined {
         return this['mobvoi_config'];
+    }
+    public withWiseBrainConfig(wiseBrainConfig: WiseBrainConfig): UpdateRobotReq {
+        this['wise_brain_config'] = wiseBrainConfig;
+        return this;
+    }
+    public set wiseBrainConfig(wiseBrainConfig: WiseBrainConfig  | undefined) {
+        this['wise_brain_config'] = wiseBrainConfig;
+    }
+    public get wiseBrainConfig(): WiseBrainConfig | undefined {
+        return this['wise_brain_config'];
     }
 }

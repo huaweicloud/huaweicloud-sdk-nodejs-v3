@@ -22,6 +22,9 @@ export class ListApiVersionDetailV2Response extends SdkResponse {
     private 'auth_type'?: ListApiVersionDetailV2ResponseAuthTypeEnum | string;
     private 'auth_opt'?: AuthOpt;
     public cors?: boolean;
+    private 'trace_enabled'?: boolean;
+    private 'sampling_strategy'?: ListApiVersionDetailV2ResponseSamplingStrategyEnum | string;
+    private 'sampling_param'?: string;
     private 'match_mode'?: ListApiVersionDetailV2ResponseMatchModeEnum | string;
     private 'backend_type'?: ListApiVersionDetailV2ResponseBackendTypeEnum | string;
     public remark?: string;
@@ -138,6 +141,36 @@ export class ListApiVersionDetailV2Response extends SdkResponse {
     public withCors(cors: boolean): ListApiVersionDetailV2Response {
         this['cors'] = cors;
         return this;
+    }
+    public withTraceEnabled(traceEnabled: boolean): ListApiVersionDetailV2Response {
+        this['trace_enabled'] = traceEnabled;
+        return this;
+    }
+    public set traceEnabled(traceEnabled: boolean  | undefined) {
+        this['trace_enabled'] = traceEnabled;
+    }
+    public get traceEnabled(): boolean | undefined {
+        return this['trace_enabled'];
+    }
+    public withSamplingStrategy(samplingStrategy: ListApiVersionDetailV2ResponseSamplingStrategyEnum | string): ListApiVersionDetailV2Response {
+        this['sampling_strategy'] = samplingStrategy;
+        return this;
+    }
+    public set samplingStrategy(samplingStrategy: ListApiVersionDetailV2ResponseSamplingStrategyEnum | string  | undefined) {
+        this['sampling_strategy'] = samplingStrategy;
+    }
+    public get samplingStrategy(): ListApiVersionDetailV2ResponseSamplingStrategyEnum | string | undefined {
+        return this['sampling_strategy'];
+    }
+    public withSamplingParam(samplingParam: string): ListApiVersionDetailV2Response {
+        this['sampling_param'] = samplingParam;
+        return this;
+    }
+    public set samplingParam(samplingParam: string  | undefined) {
+        this['sampling_param'] = samplingParam;
+    }
+    public get samplingParam(): string | undefined {
+        return this['sampling_param'];
     }
     public withMatchMode(matchMode: ListApiVersionDetailV2ResponseMatchModeEnum | string): ListApiVersionDetailV2Response {
         this['match_mode'] = matchMode;
@@ -552,6 +585,13 @@ export enum ListApiVersionDetailV2ResponseAuthTypeEnum {
     APP = 'APP',
     IAM = 'IAM',
     AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListApiVersionDetailV2ResponseSamplingStrategyEnum {
+    RATE = 'RATE'
 }
 /**
     * @export

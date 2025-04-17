@@ -3,7 +3,7 @@
 export class DailyLog {
     private 'start_time'?: number;
     private 'end_time'?: number;
-    public status?: number;
+    public status?: DailyLogStatusEnum | number;
     private 'trigger_bps'?: number;
     private 'trigger_pps'?: number;
     private 'trigger_http_pps'?: number;
@@ -35,7 +35,7 @@ export class DailyLog {
     public get endTime(): number | undefined {
         return this['end_time'];
     }
-    public withStatus(status: number): DailyLog {
+    public withStatus(status: DailyLogStatusEnum | number): DailyLog {
         this['status'] = status;
         return this;
     }
@@ -69,4 +69,13 @@ export class DailyLog {
     public get triggerHttpPps(): number | undefined {
         return this['trigger_http_pps'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DailyLogStatusEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }

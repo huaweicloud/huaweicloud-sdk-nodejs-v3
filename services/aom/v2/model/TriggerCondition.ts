@@ -19,13 +19,13 @@ export class TriggerCondition {
     private 'aggregation_window'?: string;
     public cmdb?: CmdbInfo;
     private 'query_match'?: string;
-    private 'query_param'?: string;
+    private 'query_param'?: object;
     private 'aom_monitor_level'?: string;
     private 'aggregate_type'?: TriggerConditionAggregateTypeEnum | string;
     private 'metric_statistic_method'?: TriggerConditionMetricStatisticMethodEnum | string;
     public expression?: string;
     private 'mix_promql'?: string;
-    public constructor(metricQueryMode?: string, metricNamespace?: string, metricName?: string, metricUnit?: string, metricLabels?: Array<string>, promql?: string, queryParam?: string) { 
+    public constructor(metricQueryMode?: string, metricNamespace?: string, metricName?: string, metricUnit?: string, metricLabels?: Array<string>, promql?: string, queryParam?: object) { 
         this['metric_query_mode'] = metricQueryMode;
         this['metric_namespace'] = metricNamespace;
         this['metric_name'] = metricName;
@@ -180,14 +180,14 @@ export class TriggerCondition {
     public get queryMatch(): string | undefined {
         return this['query_match'];
     }
-    public withQueryParam(queryParam: string): TriggerCondition {
+    public withQueryParam(queryParam: object): TriggerCondition {
         this['query_param'] = queryParam;
         return this;
     }
-    public set queryParam(queryParam: string  | undefined) {
+    public set queryParam(queryParam: object  | undefined) {
         this['query_param'] = queryParam;
     }
-    public get queryParam(): string | undefined {
+    public get queryParam(): object | undefined {
         return this['query_param'];
     }
     public withAomMonitorLevel(aomMonitorLevel: string): TriggerCondition {

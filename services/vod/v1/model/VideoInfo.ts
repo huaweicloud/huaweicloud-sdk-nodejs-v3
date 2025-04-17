@@ -1,6 +1,7 @@
 
 
 export class VideoInfo {
+    private 'stream_name'?: string;
     public quality?: VideoInfoQualityEnum | string;
     public width?: number;
     public height?: number;
@@ -10,6 +11,16 @@ export class VideoInfo {
         this['quality'] = quality;
         this['bitrate'] = bitrate;
         this['frame_rate'] = frameRate;
+    }
+    public withStreamName(streamName: string): VideoInfo {
+        this['stream_name'] = streamName;
+        return this;
+    }
+    public set streamName(streamName: string  | undefined) {
+        this['stream_name'] = streamName;
+    }
+    public get streamName(): string | undefined {
+        return this['stream_name'];
     }
     public withQuality(quality: VideoInfoQualityEnum | string): VideoInfo {
         this['quality'] = quality;

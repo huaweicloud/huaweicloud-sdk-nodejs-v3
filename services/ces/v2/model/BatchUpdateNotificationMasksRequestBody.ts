@@ -1,4 +1,5 @@
 import { MaskType } from './MaskType';
+import { ProductMetric } from './ProductMetric';
 import { RelationType } from './RelationType';
 import { Resource } from './Resource';
 
@@ -8,6 +9,10 @@ export class BatchUpdateNotificationMasksRequestBody {
     private 'relation_type'?: RelationType;
     private 'relation_ids'?: Array<string>;
     public resources?: Array<Resource>;
+    private 'metric_names'?: Array<string>;
+    private 'product_metrics'?: Array<ProductMetric>;
+    private 'resource_level'?: BatchUpdateNotificationMasksRequestBodyResourceLevelEnum | string;
+    private 'product_name'?: string;
     private 'mask_type'?: MaskType;
     private 'start_date'?: string;
     private 'start_time'?: string;
@@ -51,6 +56,46 @@ export class BatchUpdateNotificationMasksRequestBody {
     public withResources(resources: Array<Resource>): BatchUpdateNotificationMasksRequestBody {
         this['resources'] = resources;
         return this;
+    }
+    public withMetricNames(metricNames: Array<string>): BatchUpdateNotificationMasksRequestBody {
+        this['metric_names'] = metricNames;
+        return this;
+    }
+    public set metricNames(metricNames: Array<string>  | undefined) {
+        this['metric_names'] = metricNames;
+    }
+    public get metricNames(): Array<string> | undefined {
+        return this['metric_names'];
+    }
+    public withProductMetrics(productMetrics: Array<ProductMetric>): BatchUpdateNotificationMasksRequestBody {
+        this['product_metrics'] = productMetrics;
+        return this;
+    }
+    public set productMetrics(productMetrics: Array<ProductMetric>  | undefined) {
+        this['product_metrics'] = productMetrics;
+    }
+    public get productMetrics(): Array<ProductMetric> | undefined {
+        return this['product_metrics'];
+    }
+    public withResourceLevel(resourceLevel: BatchUpdateNotificationMasksRequestBodyResourceLevelEnum | string): BatchUpdateNotificationMasksRequestBody {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: BatchUpdateNotificationMasksRequestBodyResourceLevelEnum | string  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): BatchUpdateNotificationMasksRequestBodyResourceLevelEnum | string | undefined {
+        return this['resource_level'];
+    }
+    public withProductName(productName: string): BatchUpdateNotificationMasksRequestBody {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
     }
     public withMaskType(maskType: MaskType): BatchUpdateNotificationMasksRequestBody {
         this['mask_type'] = maskType;
@@ -102,4 +147,13 @@ export class BatchUpdateNotificationMasksRequestBody {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchUpdateNotificationMasksRequestBodyResourceLevelEnum {
+    DIMENSION = 'dimension',
+    PRODUCT = 'product'
 }

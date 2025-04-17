@@ -1,11 +1,11 @@
-import { BatchDeleteDashboardRequestBody } from './BatchDeleteDashboardRequestBody';
+import { BatchDeleteDashboardsRequestBody } from './BatchDeleteDashboardsRequestBody';
 
 
 export class DeleteDashboardsRequest {
-    public body?: BatchDeleteDashboardRequestBody;
+    public body?: BatchDeleteDashboardsRequestBody;
     public constructor() { 
     }
-    public withBody(body: BatchDeleteDashboardRequestBody): DeleteDashboardsRequest {
+    public withBody(body: BatchDeleteDashboardsRequestBody): DeleteDashboardsRequest {
         this['body'] = body;
         return this;
     }

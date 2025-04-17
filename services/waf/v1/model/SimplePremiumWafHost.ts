@@ -16,7 +16,7 @@ export class SimplePremiumWafHost {
     private 'enterprise_project_id'?: string;
     private 'pool_ids'?: Array<string>;
     private 'loadbalancer_id'?: string;
-    private 'protocol_port'?: string;
+    private 'protocol_port'?: number;
     public constructor() { 
     }
     public withId(id: string): SimplePremiumWafHost {
@@ -111,14 +111,14 @@ export class SimplePremiumWafHost {
     public get loadbalancerId(): string | undefined {
         return this['loadbalancer_id'];
     }
-    public withProtocolPort(protocolPort: string): SimplePremiumWafHost {
+    public withProtocolPort(protocolPort: number): SimplePremiumWafHost {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: string  | undefined) {
+    public set protocolPort(protocolPort: number  | undefined) {
         this['protocol_port'] = protocolPort;
     }
-    public get protocolPort(): string | undefined {
+    public get protocolPort(): number | undefined {
         return this['protocol_port'];
     }
 }

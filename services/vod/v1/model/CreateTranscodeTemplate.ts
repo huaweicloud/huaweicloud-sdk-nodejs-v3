@@ -1,3 +1,4 @@
+import { AdditionalManifest } from './AdditionalManifest';
 import { CommonInfo } from './CommonInfo';
 import { QualityInfoList } from './QualityInfoList';
 
@@ -6,6 +7,7 @@ export class CreateTranscodeTemplate {
     public name?: string;
     private 'is_default'?: boolean;
     private 'is_auto_encrypt'?: boolean;
+    private 'additional_manifests'?: Array<AdditionalManifest>;
     private 'quality_info_list'?: Array<QualityInfoList>;
     public common?: CommonInfo;
     private 'watermark_template_ids'?: Array<string>;
@@ -38,6 +40,16 @@ export class CreateTranscodeTemplate {
     }
     public get isAutoEncrypt(): boolean | undefined {
         return this['is_auto_encrypt'];
+    }
+    public withAdditionalManifests(additionalManifests: Array<AdditionalManifest>): CreateTranscodeTemplate {
+        this['additional_manifests'] = additionalManifests;
+        return this;
+    }
+    public set additionalManifests(additionalManifests: Array<AdditionalManifest>  | undefined) {
+        this['additional_manifests'] = additionalManifests;
+    }
+    public get additionalManifests(): Array<AdditionalManifest> | undefined {
+        return this['additional_manifests'];
     }
     public withQualityInfoList(qualityInfoList: Array<QualityInfoList>): CreateTranscodeTemplate {
         this['quality_info_list'] = qualityInfoList;

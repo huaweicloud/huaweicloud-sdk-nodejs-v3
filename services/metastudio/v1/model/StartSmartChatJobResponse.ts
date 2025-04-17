@@ -158,5 +158,9 @@ export enum StartSmartChatJobResponseChatVideoTypeEnum {
     */
 export enum StartSmartChatJobResponseDefaultLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

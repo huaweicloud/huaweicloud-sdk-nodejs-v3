@@ -58,5 +58,9 @@ export class SmartChatVoiceConfig {
     */
 export enum SmartChatVoiceConfigLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

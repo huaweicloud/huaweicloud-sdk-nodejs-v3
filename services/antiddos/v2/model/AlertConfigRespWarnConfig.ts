@@ -6,7 +6,7 @@ export class AlertConfigRespWarnConfig {
     private 'bruce_force'?: boolean;
     private 'high_privilege'?: boolean;
     private 'remote_login'?: boolean;
-    private 'send_frequency'?: number;
+    private 'send_frequency'?: AlertConfigRespWarnConfigSendFrequencyEnum | number;
     public waf?: boolean;
     private 'weak_password'?: boolean;
     public constructor(antiDDoS?: boolean) { 
@@ -56,14 +56,14 @@ export class AlertConfigRespWarnConfig {
     public get remoteLogin(): boolean | undefined {
         return this['remote_login'];
     }
-    public withSendFrequency(sendFrequency: number): AlertConfigRespWarnConfig {
+    public withSendFrequency(sendFrequency: AlertConfigRespWarnConfigSendFrequencyEnum | number): AlertConfigRespWarnConfig {
         this['send_frequency'] = sendFrequency;
         return this;
     }
-    public set sendFrequency(sendFrequency: number  | undefined) {
+    public set sendFrequency(sendFrequency: AlertConfigRespWarnConfigSendFrequencyEnum | number  | undefined) {
         this['send_frequency'] = sendFrequency;
     }
-    public get sendFrequency(): number | undefined {
+    public get sendFrequency(): AlertConfigRespWarnConfigSendFrequencyEnum | number | undefined {
         return this['send_frequency'];
     }
     public withWaf(waf: boolean): AlertConfigRespWarnConfig {
@@ -80,4 +80,13 @@ export class AlertConfigRespWarnConfig {
     public get weakPassword(): boolean | undefined {
         return this['weak_password'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AlertConfigRespWarnConfigSendFrequencyEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

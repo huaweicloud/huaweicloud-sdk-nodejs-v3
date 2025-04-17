@@ -5,6 +5,7 @@ export class ListDashboardInfosRequest {
     private 'is_favorite'?: boolean;
     private 'dashboard_name'?: string;
     private 'dashboard_id'?: string;
+    private 'dashboard_type'?: ListDashboardInfosRequestDashboardTypeEnum | string;
     public constructor() { 
     }
     public withEnterpriseId(enterpriseId: string): ListDashboardInfosRequest {
@@ -47,4 +48,23 @@ export class ListDashboardInfosRequest {
     public get dashboardId(): string | undefined {
         return this['dashboard_id'];
     }
+    public withDashboardType(dashboardType: ListDashboardInfosRequestDashboardTypeEnum | string): ListDashboardInfosRequest {
+        this['dashboard_type'] = dashboardType;
+        return this;
+    }
+    public set dashboardType(dashboardType: ListDashboardInfosRequestDashboardTypeEnum | string  | undefined) {
+        this['dashboard_type'] = dashboardType;
+    }
+    public get dashboardType(): ListDashboardInfosRequestDashboardTypeEnum | string | undefined {
+        return this['dashboard_type'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListDashboardInfosRequestDashboardTypeEnum {
+    MONITOR_DASHBOARD = 'monitor_dashboard',
+    OTHER = 'other'
 }

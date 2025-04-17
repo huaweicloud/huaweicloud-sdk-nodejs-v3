@@ -1,3 +1,4 @@
+import { HierarchicalValue } from './HierarchicalValue';
 import { MetricExtraInfo } from './MetricExtraInfo';
 
 
@@ -8,6 +9,7 @@ export class ListPolicy {
     public filter?: string;
     private 'comparison_operator'?: string;
     public value?: number;
+    private 'hierarchical_value'?: HierarchicalValue;
     public unit?: string;
     public type?: string;
     public count?: number;
@@ -15,12 +17,11 @@ export class ListPolicy {
     public level?: number;
     public namespace?: string;
     private 'dimension_name'?: string;
-    public constructor(metricName?: string, period?: number, filter?: string, comparisonOperator?: string, value?: number, count?: number) { 
+    public constructor(metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number) { 
         this['metric_name'] = metricName;
         this['period'] = period;
         this['filter'] = filter;
         this['comparison_operator'] = comparisonOperator;
-        this['value'] = value;
         this['count'] = count;
     }
     public withMetricName(metricName: string): ListPolicy {
@@ -64,6 +65,16 @@ export class ListPolicy {
     public withValue(value: number): ListPolicy {
         this['value'] = value;
         return this;
+    }
+    public withHierarchicalValue(hierarchicalValue: HierarchicalValue): ListPolicy {
+        this['hierarchical_value'] = hierarchicalValue;
+        return this;
+    }
+    public set hierarchicalValue(hierarchicalValue: HierarchicalValue  | undefined) {
+        this['hierarchical_value'] = hierarchicalValue;
+    }
+    public get hierarchicalValue(): HierarchicalValue | undefined {
+        return this['hierarchical_value'];
     }
     public withUnit(unit: string): ListPolicy {
         this['unit'] = unit;

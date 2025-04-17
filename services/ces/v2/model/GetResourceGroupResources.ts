@@ -1,10 +1,12 @@
-import { Dimension2 } from './Dimension2';
+import { ResourceDimension } from './ResourceDimension';
 
 
 export class GetResourceGroupResources {
     public status?: GetResourceGroupResourcesStatusEnum | string;
-    public dimensions?: Array<Dimension2>;
-    public constructor(status?: string, dimensions?: Array<Dimension2>) { 
+    public dimensions?: Array<ResourceDimension>;
+    public tags?: string;
+    private 'enterprise_project_id'?: string;
+    public constructor(status?: string, dimensions?: Array<ResourceDimension>) { 
         this['status'] = status;
         this['dimensions'] = dimensions;
     }
@@ -12,9 +14,23 @@ export class GetResourceGroupResources {
         this['status'] = status;
         return this;
     }
-    public withDimensions(dimensions: Array<Dimension2>): GetResourceGroupResources {
+    public withDimensions(dimensions: Array<ResourceDimension>): GetResourceGroupResources {
         this['dimensions'] = dimensions;
         return this;
+    }
+    public withTags(tags: string): GetResourceGroupResources {
+        this['tags'] = tags;
+        return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): GetResourceGroupResources {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

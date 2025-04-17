@@ -1,6 +1,6 @@
 
 
-export class ResourceLevel {
+export class FilterWithoutTP {
     public constructor() { 
     }
 }
