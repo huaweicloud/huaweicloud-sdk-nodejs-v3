@@ -6,6 +6,7 @@ export class AvailabilityZone {
     public protocol?: Array<string>;
     private 'public_border_group'?: string;
     public category?: number;
+    private 'spec_code'?: string;
     public constructor(code?: string, state?: string, protocol?: Array<string>, publicBorderGroup?: string, category?: number) { 
         this['code'] = code;
         this['state'] = state;
@@ -38,5 +39,15 @@ export class AvailabilityZone {
     public withCategory(category: number): AvailabilityZone {
         this['category'] = category;
         return this;
+    }
+    public withSpecCode(specCode: string): AvailabilityZone {
+        this['spec_code'] = specCode;
+        return this;
+    }
+    public set specCode(specCode: string  | undefined) {
+        this['spec_code'] = specCode;
+    }
+    public get specCode(): string | undefined {
+        return this['spec_code'];
     }
 }

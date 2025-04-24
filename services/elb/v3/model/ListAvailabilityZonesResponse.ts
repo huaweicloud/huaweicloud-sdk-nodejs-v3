@@ -5,7 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListAvailabilityZonesResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'availability_zones'?: Array<Array<AvailabilityZone>>;
-    private 'spec_code'?: string;
     public constructor() { 
         super();
     }
@@ -28,15 +27,5 @@ export class ListAvailabilityZonesResponse extends SdkResponse {
     }
     public get availabilityZones(): Array<Array<AvailabilityZone>> | undefined {
         return this['availability_zones'];
-    }
-    public withSpecCode(specCode: string): ListAvailabilityZonesResponse {
-        this['spec_code'] = specCode;
-        return this;
-    }
-    public set specCode(specCode: string  | undefined) {
-        this['spec_code'] = specCode;
-    }
-    public get specCode(): string | undefined {
-        return this['spec_code'];
     }
 }

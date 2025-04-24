@@ -1,9 +1,9 @@
 import { AutoscalingRef } from './AutoscalingRef';
-import { BandwidthRef } from './BandwidthRef';
 import { EipInfo } from './EipInfo';
 import { GlobalEipInfo } from './GlobalEipInfo';
 import { ListenerRef } from './ListenerRef';
 import { PoolRef } from './PoolRef';
+import { ProxyProtocolExtension } from './ProxyProtocolExtension';
 import { PublicIpInfo } from './PublicIpInfo';
 import { Tag } from './Tag';
 
@@ -38,23 +38,28 @@ export class LoadBalancer {
     private 'l4_scale_flavor_id'?: string;
     private 'l7_flavor_id'?: string;
     private 'l7_scale_flavor_id'?: string;
+    private 'gw_flavor_id'?: string;
+    private 'loadbalancer_type'?: string;
     public publicips?: Array<PublicIpInfo>;
     private 'global_eips'?: Array<GlobalEipInfo>;
     private 'elb_virsubnet_ids'?: Array<string>;
     private 'elb_virsubnet_type'?: LoadBalancerElbVirsubnetTypeEnum | string;
     private 'ip_target_enable'?: boolean;
     private 'frozen_scene'?: string;
-    private 'ipv6_bandwidth'?: BandwidthRef;
     private 'deletion_protection_enable'?: boolean;
     public autoscaling?: AutoscalingRef;
     private 'public_border_group'?: string;
     private 'charge_mode'?: string;
+    private 'service_lb_mode'?: LoadBalancerServiceLbModeEnum | string;
+    private 'instance_type'?: string;
+    private 'instance_id'?: string;
+    private 'proxy_protocol_extensions'?: Array<ProxyProtocolExtension>;
     private 'waf_failure_action'?: string;
     private 'protection_status'?: LoadBalancerProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'log_group_id'?: string;
     private 'log_topic_id'?: string;
-    public constructor(id?: string, description?: string, provisioningStatus?: string, adminStateUp?: boolean, provider?: string, pools?: Array<PoolRef>, listeners?: Array<ListenerRef>, operatingStatus?: string, name?: string, projectId?: string, vipSubnetCidrId?: string, vipAddress?: string, vipPortId?: string, tags?: Array<Tag>, createdAt?: string, updatedAt?: string, guaranteed?: boolean, vpcId?: string, eips?: Array<EipInfo>, ipv6VipAddress?: string, ipv6VipVirsubnetId?: string, ipv6VipPortId?: string, availabilityZoneList?: Array<string>, enterpriseProjectId?: string, billingInfo?: string, l4FlavorId?: string, l4ScaleFlavorId?: string, l7FlavorId?: string, l7ScaleFlavorId?: string, publicips?: Array<PublicIpInfo>, globalEips?: Array<GlobalEipInfo>, elbVirsubnetIds?: Array<string>, elbVirsubnetType?: string, ipTargetEnable?: boolean, frozenScene?: string, ipv6Bandwidth?: BandwidthRef) { 
+    public constructor(id?: string, description?: string, provisioningStatus?: string, adminStateUp?: boolean, provider?: string, pools?: Array<PoolRef>, listeners?: Array<ListenerRef>, operatingStatus?: string, name?: string, projectId?: string, vipSubnetCidrId?: string, vipAddress?: string, vipPortId?: string, tags?: Array<Tag>, createdAt?: string, updatedAt?: string, guaranteed?: boolean, vpcId?: string, eips?: Array<EipInfo>, ipv6VipAddress?: string, ipv6VipVirsubnetId?: string, ipv6VipPortId?: string, availabilityZoneList?: Array<string>, enterpriseProjectId?: string, billingInfo?: string, l4FlavorId?: string, l4ScaleFlavorId?: string, l7FlavorId?: string, l7ScaleFlavorId?: string, publicips?: Array<PublicIpInfo>, globalEips?: Array<GlobalEipInfo>, elbVirsubnetIds?: Array<string>, elbVirsubnetType?: string, ipTargetEnable?: boolean, frozenScene?: string) { 
         this['id'] = id;
         this['description'] = description;
         this['provisioning_status'] = provisioningStatus;
@@ -90,7 +95,6 @@ export class LoadBalancer {
         this['elb_virsubnet_type'] = elbVirsubnetType;
         this['ip_target_enable'] = ipTargetEnable;
         this['frozen_scene'] = frozenScene;
-        this['ipv6_bandwidth'] = ipv6Bandwidth;
     }
     public withId(id: string): LoadBalancer {
         this['id'] = id;
@@ -328,6 +332,26 @@ export class LoadBalancer {
     public get l7ScaleFlavorId(): string | undefined {
         return this['l7_scale_flavor_id'];
     }
+    public withGwFlavorId(gwFlavorId: string): LoadBalancer {
+        this['gw_flavor_id'] = gwFlavorId;
+        return this;
+    }
+    public set gwFlavorId(gwFlavorId: string  | undefined) {
+        this['gw_flavor_id'] = gwFlavorId;
+    }
+    public get gwFlavorId(): string | undefined {
+        return this['gw_flavor_id'];
+    }
+    public withLoadbalancerType(loadbalancerType: string): LoadBalancer {
+        this['loadbalancer_type'] = loadbalancerType;
+        return this;
+    }
+    public set loadbalancerType(loadbalancerType: string  | undefined) {
+        this['loadbalancer_type'] = loadbalancerType;
+    }
+    public get loadbalancerType(): string | undefined {
+        return this['loadbalancer_type'];
+    }
     public withPublicips(publicips: Array<PublicIpInfo>): LoadBalancer {
         this['publicips'] = publicips;
         return this;
@@ -382,16 +406,6 @@ export class LoadBalancer {
     public get frozenScene(): string | undefined {
         return this['frozen_scene'];
     }
-    public withIpv6Bandwidth(ipv6Bandwidth: BandwidthRef): LoadBalancer {
-        this['ipv6_bandwidth'] = ipv6Bandwidth;
-        return this;
-    }
-    public set ipv6Bandwidth(ipv6Bandwidth: BandwidthRef  | undefined) {
-        this['ipv6_bandwidth'] = ipv6Bandwidth;
-    }
-    public get ipv6Bandwidth(): BandwidthRef | undefined {
-        return this['ipv6_bandwidth'];
-    }
     public withDeletionProtectionEnable(deletionProtectionEnable: boolean): LoadBalancer {
         this['deletion_protection_enable'] = deletionProtectionEnable;
         return this;
@@ -425,6 +439,46 @@ export class LoadBalancer {
     }
     public get chargeMode(): string | undefined {
         return this['charge_mode'];
+    }
+    public withServiceLbMode(serviceLbMode: LoadBalancerServiceLbModeEnum | string): LoadBalancer {
+        this['service_lb_mode'] = serviceLbMode;
+        return this;
+    }
+    public set serviceLbMode(serviceLbMode: LoadBalancerServiceLbModeEnum | string  | undefined) {
+        this['service_lb_mode'] = serviceLbMode;
+    }
+    public get serviceLbMode(): LoadBalancerServiceLbModeEnum | string | undefined {
+        return this['service_lb_mode'];
+    }
+    public withInstanceType(instanceType: string): LoadBalancer {
+        this['instance_type'] = instanceType;
+        return this;
+    }
+    public set instanceType(instanceType: string  | undefined) {
+        this['instance_type'] = instanceType;
+    }
+    public get instanceType(): string | undefined {
+        return this['instance_type'];
+    }
+    public withInstanceId(instanceId: string): LoadBalancer {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withProxyProtocolExtensions(proxyProtocolExtensions: Array<ProxyProtocolExtension>): LoadBalancer {
+        this['proxy_protocol_extensions'] = proxyProtocolExtensions;
+        return this;
+    }
+    public set proxyProtocolExtensions(proxyProtocolExtensions: Array<ProxyProtocolExtension>  | undefined) {
+        this['proxy_protocol_extensions'] = proxyProtocolExtensions;
+    }
+    public get proxyProtocolExtensions(): Array<ProxyProtocolExtension> | undefined {
+        return this['proxy_protocol_extensions'];
     }
     public withWafFailureAction(wafFailureAction: string): LoadBalancer {
         this['waf_failure_action'] = wafFailureAction;
@@ -485,6 +539,14 @@ export class LoadBalancer {
 export enum LoadBalancerElbVirsubnetTypeEnum {
     IPV4 = 'ipv4',
     DUALSTACK = 'dualstack'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LoadBalancerServiceLbModeEnum {
+    LB = 'lb',
+    EP = 'ep'
 }
 /**
     * @export

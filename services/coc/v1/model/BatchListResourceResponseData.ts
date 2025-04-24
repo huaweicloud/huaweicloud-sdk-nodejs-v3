@@ -4,6 +4,7 @@ import { Tag } from './Tag';
 export class BatchListResourceResponseData {
     public id?: string;
     private 'resource_id'?: string;
+    private 'domain_id'?: string;
     public name?: string;
     public provider?: string;
     public type?: string;
@@ -32,6 +33,16 @@ export class BatchListResourceResponseData {
     }
     public get resourceId(): string | undefined {
         return this['resource_id'];
+    }
+    public withDomainId(domainId: string): BatchListResourceResponseData {
+        this['domain_id'] = domainId;
+        return this;
+    }
+    public set domainId(domainId: string  | undefined) {
+        this['domain_id'] = domainId;
+    }
+    public get domainId(): string | undefined {
+        return this['domain_id'];
     }
     public withName(name: string): BatchListResourceResponseData {
         this['name'] = name;

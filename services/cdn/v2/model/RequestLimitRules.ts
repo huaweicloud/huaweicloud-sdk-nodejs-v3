@@ -8,6 +8,7 @@ export class RequestLimitRules {
     public type?: string;
     private 'limit_rate_after'?: number;
     private 'limit_rate_value'?: number;
+    private 'limit_time'?: string;
     public constructor(priority?: number, matchType?: string, type?: string, limitRateAfter?: number, limitRateValue?: number) { 
         this['priority'] = priority;
         this['match_type'] = matchType;
@@ -66,5 +67,15 @@ export class RequestLimitRules {
     }
     public get limitRateValue(): number | undefined {
         return this['limit_rate_value'];
+    }
+    public withLimitTime(limitTime: string): RequestLimitRules {
+        this['limit_time'] = limitTime;
+        return this;
+    }
+    public set limitTime(limitTime: string  | undefined) {
+        this['limit_time'] = limitTime;
+    }
+    public get limitTime(): string | undefined {
+        return this['limit_time'];
     }
 }

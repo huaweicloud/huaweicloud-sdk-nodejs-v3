@@ -20,7 +20,9 @@ export class Quota {
     private 'ipgroups_per_listener'?: number;
     private 'pools_per_l7policy'?: number;
     private 'l7policies_per_listener'?: number;
-    public constructor(projectId?: string, loadbalancer?: number, certificate?: number, listener?: number, l7policy?: number, conditionPerPolicy?: number, pool?: number, healthmonitor?: number, member?: number, membersPerPool?: number, listenersPerPool?: number, ipgroup?: number, ipgroupBindings?: number, ipgroupMaxLength?: number, securityPolicy?: number, listenersPerLoadbalancer?: number, ipgroupsPerListener?: number, poolsPerL7policy?: number, l7policiesPerListener?: number) { 
+    private 'free_instance_members_per_pool'?: number;
+    private 'free_instance_listeners_per_loadbalancer'?: number;
+    public constructor(projectId?: string, loadbalancer?: number, certificate?: number, listener?: number, l7policy?: number, conditionPerPolicy?: number, pool?: number, healthmonitor?: number, member?: number, membersPerPool?: number, listenersPerPool?: number, ipgroup?: number, ipgroupBindings?: number, ipgroupMaxLength?: number, securityPolicy?: number, listenersPerLoadbalancer?: number, ipgroupsPerListener?: number, poolsPerL7policy?: number, l7policiesPerListener?: number, freeInstanceMembersPerPool?: number, freeInstanceListenersPerLoadbalancer?: number) { 
         this['project_id'] = projectId;
         this['loadbalancer'] = loadbalancer;
         this['certificate'] = certificate;
@@ -40,6 +42,8 @@ export class Quota {
         this['ipgroups_per_listener'] = ipgroupsPerListener;
         this['pools_per_l7policy'] = poolsPerL7policy;
         this['l7policies_per_listener'] = l7policiesPerListener;
+        this['free_instance_members_per_pool'] = freeInstanceMembersPerPool;
+        this['free_instance_listeners_per_loadbalancer'] = freeInstanceListenersPerLoadbalancer;
     }
     public withProjectId(projectId: string): Quota {
         this['project_id'] = projectId;
@@ -182,5 +186,25 @@ export class Quota {
     }
     public get l7policiesPerListener(): number | undefined {
         return this['l7policies_per_listener'];
+    }
+    public withFreeInstanceMembersPerPool(freeInstanceMembersPerPool: number): Quota {
+        this['free_instance_members_per_pool'] = freeInstanceMembersPerPool;
+        return this;
+    }
+    public set freeInstanceMembersPerPool(freeInstanceMembersPerPool: number  | undefined) {
+        this['free_instance_members_per_pool'] = freeInstanceMembersPerPool;
+    }
+    public get freeInstanceMembersPerPool(): number | undefined {
+        return this['free_instance_members_per_pool'];
+    }
+    public withFreeInstanceListenersPerLoadbalancer(freeInstanceListenersPerLoadbalancer: number): Quota {
+        this['free_instance_listeners_per_loadbalancer'] = freeInstanceListenersPerLoadbalancer;
+        return this;
+    }
+    public set freeInstanceListenersPerLoadbalancer(freeInstanceListenersPerLoadbalancer: number  | undefined) {
+        this['free_instance_listeners_per_loadbalancer'] = freeInstanceListenersPerLoadbalancer;
+    }
+    public get freeInstanceListenersPerLoadbalancer(): number | undefined {
+        return this['free_instance_listeners_per_loadbalancer'];
     }
 }

@@ -146,6 +146,7 @@ import { UpdateDomainMultiCertificatesRequestBody } from './model/UpdateDomainMu
 import { UpdateDomainMultiCertificatesRequestBodyContent } from './model/UpdateDomainMultiCertificatesRequestBodyContent';
 import { UpdateDomainMultiCertificatesResponse } from './model/UpdateDomainMultiCertificatesResponse';
 import { UpdateDomainMultiCertificatesResponseBodyContent } from './model/UpdateDomainMultiCertificatesResponseBodyContent';
+import { UpdateDomainMultiCertificatesResponseBodyResult } from './model/UpdateDomainMultiCertificatesResponseBodyResult';
 import { UpdatePrivateBucketAccessBody } from './model/UpdatePrivateBucketAccessBody';
 import { UpdatePrivateBucketAccessRequest } from './model/UpdatePrivateBucketAccessRequest';
 import { UpdatePrivateBucketAccessResponse } from './model/UpdatePrivateBucketAccessResponse';

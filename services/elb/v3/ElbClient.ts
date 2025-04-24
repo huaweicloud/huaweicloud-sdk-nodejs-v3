@@ -162,6 +162,7 @@ import { DeletePoolResponse } from './model/DeletePoolResponse';
 import { DeleteSecurityPolicyRequest } from './model/DeleteSecurityPolicyRequest';
 import { DeleteSecurityPolicyResponse } from './model/DeleteSecurityPolicyResponse';
 import { EipInfo } from './model/EipInfo';
+import { Extension } from './model/Extension';
 import { FeatureConfig } from './model/FeatureConfig';
 import { FixtedResponseConfig } from './model/FixtedResponseConfig';
 import { Flavor } from './model/Flavor';
@@ -254,6 +255,7 @@ import { PreoccupyIp } from './model/PreoccupyIp';
 import { PrepaidChangeChargeModeOption } from './model/PrepaidChangeChargeModeOption';
 import { PrepaidCreateOption } from './model/PrepaidCreateOption';
 import { PrepaidUpdateOption } from './model/PrepaidUpdateOption';
+import { ProxyProtocolExtension } from './model/ProxyProtocolExtension';
 import { PublicIpInfo } from './model/PublicIpInfo';
 import { QuicCidHashStrategy } from './model/QuicCidHashStrategy';
 import { Quota } from './model/Quota';
@@ -744,7 +746,7 @@ export class ElbClient {
     }
 
     /**
-     * 创建云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 创建云日志。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1018,7 +1020,7 @@ export class ElbClient {
     }
 
     /**
-     * 删除云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 删除云日志。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1062,7 +1064,7 @@ export class ElbClient {
      *
      * @summary 删除后端服务器
      * @param {string} poolId 参数解释：后端服务器组ID。
-     * @param {string} memberId 后端服务器ID。 &gt;说明： 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。  member ID可以通过[查询后端服务器列表](ListMembers.xml)获取。
+     * @param {string} memberId 后端服务器ID。 &gt; 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。  member ID可以通过[查询后端服务器列表](ListMembers.xml)获取。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1314,6 +1316,9 @@ export class ElbClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询异步任务的job列表
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
+     * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
+     * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker
      * @param {string} [jobId] 参数解释：任务ID。
      * @param {string} [jobType] 参数解释：任务类型。
      * @param {string} [status] 参数解释：任务状态。  取值范围：INIT,RUNNING,FAIL,SUCCESS,ROLLBACKING,COMPLETE,ROLLBACK_FAIL,CANCEL
@@ -1520,7 +1525,7 @@ export class ElbClient {
     }
 
     /**
-     * 查询云日志列表。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 查询云日志列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1592,7 +1597,7 @@ export class ElbClient {
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
      * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
-     * @param {Array<string>} [name] 后端服务器名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
+     * @param {Array<string>} [name] 后端服务器名称。注意：该名称并非ECS名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<number>} [weight] 后端服务器的权重，请求将根据pool配置的负载均衡算法和后端服务器的权重进行负载分发。 权重值越大，分发的请求越多。权重为0的后端不再接受新的请求。  取值：0-100。  支持多值查询，查询条件格式：*weight&#x3D;xxx&amp;weight&#x3D;xxx*。
      * @param {boolean} [adminStateUp] 后端服务器的管理状态。  取值：true、false。  虽然创建、更新请求支持该字段，但实际取值决定于后端服务器对应的弹性云服务器是否存在。若存在，该值为true，否则，该值为false。
      * @param {Array<string>} [subnetCidrId] 后端服务器所在子网的IPv4子网ID或IPv6子网ID。  支持多值查询，查询条件格式：***subnet_cidr_id&#x3D;xxx&amp;subnet_cidr_id&#x3D;xxx*。  [不支持IPv6，请勿设置为IPv6子网ID。](tag:dt)
@@ -1667,7 +1672,7 @@ export class ElbClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额使用详情
-     * @param {Array<string>} [quotaKey] 资源类型。  取值： loadbalancer、listener、ipgroup、pool、member、healthmonitor、l7policy、certificate、security_policy、listeners_per_loadbalancer、listeners_per_pool、members_per_pool、condition_per_policy、ipgroup_bindings、ipgroup_max_length、ipgroups_per_listener、pools_per_l7policy、l7policies_per_listener。  支持多值查询，查询条件格式：quota_key&#x3D;xxx&amp;quota_key&#x3D;xxx。
+     * @param {Array<string>} [quotaKey] 资源类型。  取值： loadbalancer、listener、ipgroup、pool、member、healthmonitor、l7policy、certificate、security_policy、listeners_per_loadbalancer、listeners_per_pool、members_per_pool、condition_per_policy、ipgroup_bindings、ipgroup_max_length、ipgroups_per_listener、pools_per_l7policy、l7policies_per_listener、free_instance_members_per_pool、free_instance_listeners_per_loadbalancer。  支持多值查询，查询条件格式：quota_key&#x3D;xxx&amp;quota_key&#x3D;xxx。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1920,7 +1925,7 @@ export class ElbClient {
     }
 
     /**
-     * 云日志详情。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 云日志详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1964,7 +1969,7 @@ export class ElbClient {
      *
      * @summary 查询后端服务器详情
      * @param {string} poolId 参数解释：后端服务器组ID。
-     * @param {string} memberId 后端服务器ID。 &gt;说明： 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。
+     * @param {string} memberId 后端服务器ID。 &gt; 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2155,7 +2160,7 @@ export class ElbClient {
     }
 
     /**
-     * 更新云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 更新云日志。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2180,7 +2185,7 @@ export class ElbClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新后端服务器
-     * @param {string} memberId 后端服务器ID。 &gt;说明： 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。
+     * @param {string} memberId 后端服务器ID。 &gt; 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。
      * @param {string} poolId 参数解释：后端服务器组ID。
      * @param {UpdateMemberRequestBody} updateMemberRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -3189,7 +3194,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 创建云日志。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3741,7 +3746,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 删除云日志。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4582,6 +4587,12 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let limit;
+            
+            let marker;
+            
+            let pageReverse;
+            
             let jobId;
             
             let jobType;
@@ -4596,6 +4607,9 @@ export const ParamCreater = function () {
 
             if (listJobsRequest !== null && listJobsRequest !== undefined) {
                 if (listJobsRequest instanceof ListJobsRequest) {
+                    limit = listJobsRequest.limit;
+                    marker = listJobsRequest.marker;
+                    pageReverse = listJobsRequest.pageReverse;
                     jobId = listJobsRequest.jobId;
                     jobType = listJobsRequest.jobType;
                     status = listJobsRequest.status;
@@ -4603,6 +4617,9 @@ export const ParamCreater = function () {
                     resourceId = listJobsRequest.resourceId;
                     beginTime = listJobsRequest.beginTime;
                 } else {
+                    limit = listJobsRequest['limit'];
+                    marker = listJobsRequest['marker'];
+                    pageReverse = listJobsRequest['page_reverse'];
                     jobId = listJobsRequest['job_id'];
                     jobType = listJobsRequest['job_type'];
                     status = listJobsRequest['status'];
@@ -4613,6 +4630,15 @@ export const ParamCreater = function () {
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
             if (jobId !== null && jobId !== undefined) {
                 localVarQueryParameter['job_id'] = jobId;
             }
@@ -5468,7 +5494,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云日志列表。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 查询云日志列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6589,7 +6615,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 云日志详情。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 云日志详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7085,7 +7111,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 更新云日志。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

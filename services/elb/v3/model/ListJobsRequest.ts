@@ -1,6 +1,9 @@
 
 
 export class ListJobsRequest {
+    public limit?: number;
+    public marker?: string;
+    private 'page_reverse'?: boolean;
     private 'job_id'?: string;
     private 'job_type'?: string;
     public status?: string;
@@ -8,6 +11,24 @@ export class ListJobsRequest {
     private 'resource_id'?: string;
     private 'begin_time'?: string;
     public constructor() { 
+    }
+    public withLimit(limit: number): ListJobsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListJobsRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withPageReverse(pageReverse: boolean): ListJobsRequest {
+        this['page_reverse'] = pageReverse;
+        return this;
+    }
+    public set pageReverse(pageReverse: boolean  | undefined) {
+        this['page_reverse'] = pageReverse;
+    }
+    public get pageReverse(): boolean | undefined {
+        return this['page_reverse'];
     }
     public withJobId(jobId: string): ListJobsRequest {
         this['job_id'] = jobId;

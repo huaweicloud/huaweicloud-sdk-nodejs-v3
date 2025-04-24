@@ -7,6 +7,7 @@ export class UrlAuth {
     private 'expire_time'?: number;
     private 'sign_method'?: string;
     private 'match_type'?: string;
+    private 'match_rule'?: string;
     private 'inherit_config'?: InheritConfig;
     public key?: string;
     private 'backup_key'?: string;
@@ -53,6 +54,16 @@ export class UrlAuth {
     }
     public get matchType(): string | undefined {
         return this['match_type'];
+    }
+    public withMatchRule(matchRule: string): UrlAuth {
+        this['match_rule'] = matchRule;
+        return this;
+    }
+    public set matchRule(matchRule: string  | undefined) {
+        this['match_rule'] = matchRule;
+    }
+    public get matchRule(): string | undefined {
+        return this['match_rule'];
     }
     public withInheritConfig(inheritConfig: InheritConfig): UrlAuth {
         this['inherit_config'] = inheritConfig;

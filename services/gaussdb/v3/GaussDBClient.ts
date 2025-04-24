@@ -206,6 +206,9 @@ import { DeleteStarrocksInstanceRequest } from './model/DeleteStarrocksInstanceR
 import { DeleteStarrocksInstanceResponse } from './model/DeleteStarrocksInstanceResponse';
 import { DeleteTaskRecordRequest } from './model/DeleteTaskRecordRequest';
 import { DeleteTaskRecordResponse } from './model/DeleteTaskRecordResponse';
+import { DeleteTaurusDbNodeProcessesRequest } from './model/DeleteTaurusDbNodeProcessesRequest';
+import { DeleteTaurusDbNodeProcessesRequestBody } from './model/DeleteTaurusDbNodeProcessesRequestBody';
+import { DeleteTaurusDbNodeProcessesResponse } from './model/DeleteTaurusDbNodeProcessesResponse';
 import { DescribeBackupEncryptStatusRequest } from './model/DescribeBackupEncryptStatusRequest';
 import { DescribeBackupEncryptStatusResponse } from './model/DescribeBackupEncryptStatusResponse';
 import { DiagnosisInfo } from './model/DiagnosisInfo';
@@ -325,6 +328,8 @@ import { ListStarRocksDbParametersRequest } from './model/ListStarRocksDbParamet
 import { ListStarRocksDbParametersResponse } from './model/ListStarRocksDbParametersResponse';
 import { ListStarrocksInstanceInfoRequest } from './model/ListStarrocksInstanceInfoRequest';
 import { ListStarrocksInstanceInfoResponse } from './model/ListStarrocksInstanceInfoResponse';
+import { ListTaurusDbNodeProcessesRequest } from './model/ListTaurusDbNodeProcessesRequest';
+import { ListTaurusDbNodeProcessesResponse } from './model/ListTaurusDbNodeProcessesResponse';
 import { LtsConfig } from './model/LtsConfig';
 import { LtsConfigsV3 } from './model/LtsConfigsV3';
 import { LtsLogErrorDetail } from './model/LtsLogErrorDetail';
@@ -620,6 +625,7 @@ import { TableReplConfig } from './model/TableReplConfig';
 import { TablesConfig } from './model/TablesConfig';
 import { TagItem } from './model/TagItem';
 import { TaskDetailInfo } from './model/TaskDetailInfo';
+import { TaurusDbProcessInfo } from './model/TaurusDbProcessInfo';
 import { TaurusModifyInstanceMonitorRequestBody } from './model/TaurusModifyInstanceMonitorRequestBody';
 import { TaurusModifyProxyWeightRequest } from './model/TaurusModifyProxyWeightRequest';
 import { TaurusProxyScaleRequest } from './model/TaurusProxyScaleRequest';
@@ -1366,6 +1372,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 删除SQL限流规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除SQL限流规则
+     * @param {string} instanceId 实例ID。
+     * @param {DeleteSqlFilterRuleReq} deleteSqlFilterRuleReq 请求体
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSqlFilterRule(deleteSqlFilterRuleRequest?: DeleteSqlFilterRuleRequest): Promise<DeleteSqlFilterRuleResponse> {
+        const options = ParamCreater().deleteSqlFilterRule(deleteSqlFilterRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除指定任务记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1378,6 +1405,28 @@ export class GaussDBClient {
      */
     public deleteTaskRecord(deleteTaskRecordRequest?: DeleteTaskRecordRequest): Promise<DeleteTaskRecordResponse> {
         const options = ParamCreater().deleteTaskRecord(deleteTaskRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 终止TaurusDB节点中指定的用户会话线程，执行时将排除传入的内部会话线程。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 终止节点用户会话线程
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} nodeId **参数解释**：  节点ID，此参数是节点的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为no07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {DeleteTaurusDbNodeProcessesRequestBody} deleteTaurusDbNodeProcessesRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTaurusDbNodeProcesses(deleteTaurusDbNodeProcessesRequest?: DeleteTaurusDbNodeProcessesRequest): Promise<DeleteTaurusDbNodeProcessesResponse> {
+        const options = ParamCreater().deleteTaurusDbNodeProcesses(deleteTaurusDbNodeProcessesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2012,6 +2061,29 @@ export class GaussDBClient {
     }
 
     /**
+     * 分页查询TaurusDB节点中的用户会话线程，对应于show processlist命令，返回结果不含内部会话线程。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询节点用户会话线程
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} nodeId **参数解释**：  节点ID，此参数是节点的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为no07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us
+     * @param {number} [offset] **参数解释**：  索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。  **约束限制**：  必须为整数，不能为负数。  **取值范围**：  ≥0  **默认取值**：  0
+     * @param {number} [limit] **参数解释**：  查询记录数。  **约束限制**：  必须为整数，不能为负数。  **取值范围**：  1-100  **默认取值**：  100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTaurusDbNodeProcesses(listTaurusDbNodeProcessesRequest?: ListTaurusDbNodeProcessesRequest): Promise<ListTaurusDbNodeProcessesResponse> {
+        const options = ParamCreater().listTaurusDbNodeProcesses(listTaurusDbNodeProcessesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 打开或关闭备份加密。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2299,6 +2371,27 @@ export class GaussDBClient {
      */
     public setRecyclePolicy(setRecyclePolicyRequest?: SetRecyclePolicyRequest): Promise<SetRecyclePolicyResponse> {
         const options = ParamCreater().setRecyclePolicy(setRecyclePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置SQL限流规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置SQL限流规则
+     * @param {string} instanceId 实例ID。
+     * @param {OperateSqlFilterRuleReq} operateSqlFilterRuleReq 请求体
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setSqlFilterRule(setSqlFilterRuleRequest?: SetSqlFilterRuleRequest): Promise<SetSqlFilterRuleResponse> {
+        const options = ParamCreater().setSqlFilterRule(setSqlFilterRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2985,6 +3078,48 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询SQL限流开关状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询SQL限流开关状态
+     * @param {string} instanceId 实例ID。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlFilterControl(showSqlFilterControlRequest?: ShowSqlFilterControlRequest): Promise<ShowSqlFilterControlResponse> {
+        const options = ParamCreater().showSqlFilterControl(showSqlFilterControlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询SQL限流规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询SQL限流规则
+     * @param {string} instanceId 实例ID。
+     * @param {string} nodeId 节点ID。
+     * @param {string} [xLanguage] 语言。
+     * @param {string} [sqlType] SQL限流类型，取值为SELECT、UPDATE、DELETE，不区分大小写；若不传则默认查询所有类型的限流规则。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlFilterRule(showSqlFilterRuleRequest?: ShowSqlFilterRuleRequest): Promise<ShowSqlFilterRuleResponse> {
+        const options = ParamCreater().showSqlFilterRule(showSqlFilterRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 缩容数据库代理节点的数量。
      * DeC专属云账号暂不支持数据库代理。
      * 
@@ -3637,6 +3772,27 @@ export class GaussDBClient {
      */
     public updateSlowlogSensitiveSwitch(updateSlowlogSensitiveSwitchRequest?: UpdateSlowlogSensitiveSwitchRequest): Promise<UpdateSlowlogSensitiveSwitchResponse> {
         const options = ParamCreater().updateSlowlogSensitiveSwitch(updateSlowlogSensitiveSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或者关闭SQL限流。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或者关闭SQL限流
+     * @param {string} instanceId 实例ID。
+     * @param {OperateSqlFilterControlReq} operateSqlFilterControlReq 请求体
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSqlFilterControl(updateSqlFilterControlRequest?: UpdateSqlFilterControlRequest): Promise<UpdateSqlFilterControlResponse> {
+        const options = ParamCreater().updateSqlFilterControl(updateSqlFilterControlRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5011,111 +5167,6 @@ export class GaussDBClient {
      */
     public upgradeSrKernelVersion(upgradeSrKernelVersionRequest?: UpgradeSrKernelVersionRequest): Promise<UpgradeSrKernelVersionResponse> {
         const options = ParamCreater().upgradeSrKernelVersion(upgradeSrKernelVersionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除SQL限流规则。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除SQL限流规则
-     * @param {string} instanceId 实例ID。
-     * @param {DeleteSqlFilterRuleReq} deleteSqlFilterRuleReq 请求体
-     * @param {string} [xLanguage] 语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteSqlFilterRule(deleteSqlFilterRuleRequest?: DeleteSqlFilterRuleRequest): Promise<DeleteSqlFilterRuleResponse> {
-        const options = ParamCreater().deleteSqlFilterRule(deleteSqlFilterRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 设置SQL限流规则。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 设置SQL限流规则
-     * @param {string} instanceId 实例ID。
-     * @param {OperateSqlFilterRuleReq} operateSqlFilterRuleReq 请求体
-     * @param {string} [xLanguage] 语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public setSqlFilterRule(setSqlFilterRuleRequest?: SetSqlFilterRuleRequest): Promise<SetSqlFilterRuleResponse> {
-        const options = ParamCreater().setSqlFilterRule(setSqlFilterRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询SQL限流开关状态。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询SQL限流开关状态
-     * @param {string} instanceId 实例ID。
-     * @param {string} [xLanguage] 语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSqlFilterControl(showSqlFilterControlRequest?: ShowSqlFilterControlRequest): Promise<ShowSqlFilterControlResponse> {
-        const options = ParamCreater().showSqlFilterControl(showSqlFilterControlRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询SQL限流规则。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询SQL限流规则
-     * @param {string} instanceId 实例ID。
-     * @param {string} nodeId 节点ID。
-     * @param {string} [xLanguage] 语言。
-     * @param {string} [sqlType] SQL限流类型，取值为SELECT、UPDATE、DELETE，不区分大小写；若不传则默认查询所有类型的限流规则。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSqlFilterRule(showSqlFilterRuleRequest?: ShowSqlFilterRuleRequest): Promise<ShowSqlFilterRuleResponse> {
-        const options = ParamCreater().showSqlFilterRule(showSqlFilterRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 开启或者关闭SQL限流。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 开启或者关闭SQL限流
-     * @param {string} instanceId 实例ID。
-     * @param {OperateSqlFilterControlReq} operateSqlFilterControlReq 请求体
-     * @param {string} [xLanguage] 语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateSqlFilterControl(updateSqlFilterControlRequest?: UpdateSqlFilterControlRequest): Promise<UpdateSqlFilterControlResponse> {
-        const options = ParamCreater().updateSqlFilterControl(updateSqlFilterControlRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6639,6 +6690,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除SQL限流规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSqlFilterRule(deleteSqlFilterRuleRequest?: DeleteSqlFilterRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/rules",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deleteSqlFilterRuleRequest !== null && deleteSqlFilterRuleRequest !== undefined) {
+                if (deleteSqlFilterRuleRequest instanceof DeleteSqlFilterRuleRequest) {
+                    instanceId = deleteSqlFilterRuleRequest.instanceId;
+                    body = deleteSqlFilterRuleRequest.body
+                    xLanguage = deleteSqlFilterRuleRequest.xLanguage;
+                } else {
+                    instanceId = deleteSqlFilterRuleRequest['instance_id'];
+                    body = deleteSqlFilterRuleRequest['body'];
+                    xLanguage = deleteSqlFilterRuleRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteSqlFilterRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除指定任务记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6678,6 +6782,66 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 终止TaurusDB节点中指定的用户会话线程，执行时将排除传入的内部会话线程。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTaurusDbNodeProcesses(deleteTaurusDbNodeProcessesRequest?: DeleteTaurusDbNodeProcessesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/processes",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+
+            if (deleteTaurusDbNodeProcessesRequest !== null && deleteTaurusDbNodeProcessesRequest !== undefined) {
+                if (deleteTaurusDbNodeProcessesRequest instanceof DeleteTaurusDbNodeProcessesRequest) {
+                    instanceId = deleteTaurusDbNodeProcessesRequest.instanceId;
+                    nodeId = deleteTaurusDbNodeProcessesRequest.nodeId;
+                    body = deleteTaurusDbNodeProcessesRequest.body
+                    xLanguage = deleteTaurusDbNodeProcessesRequest.xLanguage;
+                } else {
+                    instanceId = deleteTaurusDbNodeProcessesRequest['instance_id'];
+                    nodeId = deleteTaurusDbNodeProcessesRequest['node_id'];
+                    body = deleteTaurusDbNodeProcessesRequest['body'];
+                    xLanguage = deleteTaurusDbNodeProcessesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteTaurusDbNodeProcesses.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling deleteTaurusDbNodeProcesses.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8402,6 +8566,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 分页查询TaurusDB节点中的用户会话线程，对应于show processlist命令，返回结果不含内部会话线程。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTaurusDbNodeProcesses(listTaurusDbNodeProcessesRequest?: ListTaurusDbNodeProcessesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/processes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTaurusDbNodeProcessesRequest !== null && listTaurusDbNodeProcessesRequest !== undefined) {
+                if (listTaurusDbNodeProcessesRequest instanceof ListTaurusDbNodeProcessesRequest) {
+                    instanceId = listTaurusDbNodeProcessesRequest.instanceId;
+                    nodeId = listTaurusDbNodeProcessesRequest.nodeId;
+                    xLanguage = listTaurusDbNodeProcessesRequest.xLanguage;
+                    offset = listTaurusDbNodeProcessesRequest.offset;
+                    limit = listTaurusDbNodeProcessesRequest.limit;
+                } else {
+                    instanceId = listTaurusDbNodeProcessesRequest['instance_id'];
+                    nodeId = listTaurusDbNodeProcessesRequest['node_id'];
+                    xLanguage = listTaurusDbNodeProcessesRequest['X-Language'];
+                    offset = listTaurusDbNodeProcessesRequest['offset'];
+                    limit = listTaurusDbNodeProcessesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listTaurusDbNodeProcesses.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listTaurusDbNodeProcesses.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 打开或关闭备份加密。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9132,6 +9362,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置SQL限流规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setSqlFilterRule(setSqlFilterRuleRequest?: SetSqlFilterRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/rules",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setSqlFilterRuleRequest !== null && setSqlFilterRuleRequest !== undefined) {
+                if (setSqlFilterRuleRequest instanceof SetSqlFilterRuleRequest) {
+                    instanceId = setSqlFilterRuleRequest.instanceId;
+                    body = setSqlFilterRuleRequest.body
+                    xLanguage = setSqlFilterRuleRequest.xLanguage;
+                } else {
+                    instanceId = setSqlFilterRuleRequest['instance_id'];
+                    body = setSqlFilterRuleRequest['body'];
+                    xLanguage = setSqlFilterRuleRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setSqlFilterRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10839,6 +11122,112 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询SQL限流开关状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlFilterControl(showSqlFilterControlRequest?: ShowSqlFilterControlRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showSqlFilterControlRequest !== null && showSqlFilterControlRequest !== undefined) {
+                if (showSqlFilterControlRequest instanceof ShowSqlFilterControlRequest) {
+                    instanceId = showSqlFilterControlRequest.instanceId;
+                    xLanguage = showSqlFilterControlRequest.xLanguage;
+                } else {
+                    instanceId = showSqlFilterControlRequest['instance_id'];
+                    xLanguage = showSqlFilterControlRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSqlFilterControl.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询SQL限流规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlFilterRule(showSqlFilterRuleRequest?: ShowSqlFilterRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+            
+            let sqlType;
+
+            if (showSqlFilterRuleRequest !== null && showSqlFilterRuleRequest !== undefined) {
+                if (showSqlFilterRuleRequest instanceof ShowSqlFilterRuleRequest) {
+                    instanceId = showSqlFilterRuleRequest.instanceId;
+                    nodeId = showSqlFilterRuleRequest.nodeId;
+                    xLanguage = showSqlFilterRuleRequest.xLanguage;
+                    sqlType = showSqlFilterRuleRequest.sqlType;
+                } else {
+                    instanceId = showSqlFilterRuleRequest['instance_id'];
+                    nodeId = showSqlFilterRuleRequest['node_id'];
+                    xLanguage = showSqlFilterRuleRequest['X-Language'];
+                    sqlType = showSqlFilterRuleRequest['sql_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSqlFilterRule.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showSqlFilterRule.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (sqlType !== null && sqlType !== undefined) {
+                localVarQueryParameter['sql_type'] = sqlType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 缩容数据库代理节点的数量。
          * DeC专属云账号暂不支持数据库代理。
          * 
@@ -12519,6 +12908,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSlowlogSensitiveSwitch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或者关闭SQL限流。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSqlFilterControl(updateSqlFilterControlRequest?: UpdateSqlFilterControlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/switch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateSqlFilterControlRequest !== null && updateSqlFilterControlRequest !== undefined) {
+                if (updateSqlFilterControlRequest instanceof UpdateSqlFilterControlRequest) {
+                    instanceId = updateSqlFilterControlRequest.instanceId;
+                    body = updateSqlFilterControlRequest.body
+                    xLanguage = updateSqlFilterControlRequest.xLanguage;
+                } else {
+                    instanceId = updateSqlFilterControlRequest['instance_id'];
+                    body = updateSqlFilterControlRequest['body'];
+                    xLanguage = updateSqlFilterControlRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSqlFilterControl.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -15998,271 +16440,6 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeSrKernelVersion.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除SQL限流规则。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteSqlFilterRule(deleteSqlFilterRuleRequest?: DeleteSqlFilterRuleRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/rules",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let xLanguage;
-
-            if (deleteSqlFilterRuleRequest !== null && deleteSqlFilterRuleRequest !== undefined) {
-                if (deleteSqlFilterRuleRequest instanceof DeleteSqlFilterRuleRequest) {
-                    instanceId = deleteSqlFilterRuleRequest.instanceId;
-                    body = deleteSqlFilterRuleRequest.body
-                    xLanguage = deleteSqlFilterRuleRequest.xLanguage;
-                } else {
-                    instanceId = deleteSqlFilterRuleRequest['instance_id'];
-                    body = deleteSqlFilterRuleRequest['body'];
-                    xLanguage = deleteSqlFilterRuleRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteSqlFilterRule.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 设置SQL限流规则。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        setSqlFilterRule(setSqlFilterRuleRequest?: SetSqlFilterRuleRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/rules",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let xLanguage;
-
-            if (setSqlFilterRuleRequest !== null && setSqlFilterRuleRequest !== undefined) {
-                if (setSqlFilterRuleRequest instanceof SetSqlFilterRuleRequest) {
-                    instanceId = setSqlFilterRuleRequest.instanceId;
-                    body = setSqlFilterRuleRequest.body
-                    xLanguage = setSqlFilterRuleRequest.xLanguage;
-                } else {
-                    instanceId = setSqlFilterRuleRequest['instance_id'];
-                    body = setSqlFilterRuleRequest['body'];
-                    xLanguage = setSqlFilterRuleRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setSqlFilterRule.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询SQL限流开关状态。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSqlFilterControl(showSqlFilterControlRequest?: ShowSqlFilterControlRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/switch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let xLanguage;
-
-            if (showSqlFilterControlRequest !== null && showSqlFilterControlRequest !== undefined) {
-                if (showSqlFilterControlRequest instanceof ShowSqlFilterControlRequest) {
-                    instanceId = showSqlFilterControlRequest.instanceId;
-                    xLanguage = showSqlFilterControlRequest.xLanguage;
-                } else {
-                    instanceId = showSqlFilterControlRequest['instance_id'];
-                    xLanguage = showSqlFilterControlRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSqlFilterControl.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询SQL限流规则。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSqlFilterRule(showSqlFilterRuleRequest?: ShowSqlFilterRuleRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/rules",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let instanceId;
-            
-            let nodeId;
-            
-            let xLanguage;
-            
-            let sqlType;
-
-            if (showSqlFilterRuleRequest !== null && showSqlFilterRuleRequest !== undefined) {
-                if (showSqlFilterRuleRequest instanceof ShowSqlFilterRuleRequest) {
-                    instanceId = showSqlFilterRuleRequest.instanceId;
-                    nodeId = showSqlFilterRuleRequest.nodeId;
-                    xLanguage = showSqlFilterRuleRequest.xLanguage;
-                    sqlType = showSqlFilterRuleRequest.sqlType;
-                } else {
-                    instanceId = showSqlFilterRuleRequest['instance_id'];
-                    nodeId = showSqlFilterRuleRequest['node_id'];
-                    xLanguage = showSqlFilterRuleRequest['X-Language'];
-                    sqlType = showSqlFilterRuleRequest['sql_type'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSqlFilterRule.');
-            }
-            if (nodeId === null || nodeId === undefined) {
-                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showSqlFilterRule.');
-            }
-            if (nodeId !== null && nodeId !== undefined) {
-                localVarQueryParameter['node_id'] = nodeId;
-            }
-            if (sqlType !== null && sqlType !== undefined) {
-                localVarQueryParameter['sql_type'] = sqlType;
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 开启或者关闭SQL限流。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateSqlFilterControl(updateSqlFilterControlRequest?: UpdateSqlFilterControlRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/switch",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let xLanguage;
-
-            if (updateSqlFilterControlRequest !== null && updateSqlFilterControlRequest !== undefined) {
-                if (updateSqlFilterControlRequest instanceof UpdateSqlFilterControlRequest) {
-                    instanceId = updateSqlFilterControlRequest.instanceId;
-                    body = updateSqlFilterControlRequest.body
-                    xLanguage = updateSqlFilterControlRequest.xLanguage;
-                } else {
-                    instanceId = updateSqlFilterControlRequest['instance_id'];
-                    body = updateSqlFilterControlRequest['body'];
-                    xLanguage = updateSqlFilterControlRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSqlFilterControl.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

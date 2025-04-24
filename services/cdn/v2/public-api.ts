@@ -144,6 +144,7 @@ export * from './model/UpdateDomainMultiCertificatesRequestBody';
 export * from './model/UpdateDomainMultiCertificatesRequestBodyContent';
 export * from './model/UpdateDomainMultiCertificatesResponse';
 export * from './model/UpdateDomainMultiCertificatesResponseBodyContent';
+export * from './model/UpdateDomainMultiCertificatesResponseBodyResult';
 export * from './model/UpdatePrivateBucketAccessBody';
 export * from './model/UpdatePrivateBucketAccessRequest';
 export * from './model/UpdatePrivateBucketAccessResponse';
