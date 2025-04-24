@@ -131,6 +131,8 @@ import { ShowQueueDetailsRequest } from './model/ShowQueueDetailsRequest';
 import { ShowQueueDetailsResponse } from './model/ShowQueueDetailsResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
+import { ShowRabbitMqProductCoresRequest } from './model/ShowRabbitMqProductCoresRequest';
+import { ShowRabbitMqProductCoresResponse } from './model/ShowRabbitMqProductCoresResponse';
 import { ShowRabbitMqProjectTagsRequest } from './model/ShowRabbitMqProjectTagsRequest';
 import { ShowRabbitMqProjectTagsResponse } from './model/ShowRabbitMqProjectTagsResponse';
 import { ShowRabbitMqTagsRequest } from './model/ShowRabbitMqTagsRequest';
@@ -408,15 +410,15 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {'rabbitmq'} engine 引擎类型：rabbitmq。
-     * @param {string} [name] 实例名称。
-     * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。
-     * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
-     * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
-     * @param {string} [enterpriseProjectId] 企业项目ID。
-     * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
-     * @param {string} [limit] 当次查询返回的最大实例个数，默认值为10，取值范围为1~50。
+     * @param {'rabbitmq'} engine **参数解释**： 引擎类型：rabbitmq。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [name] **参数解释**： 实例名称。获取方式：登录RabbitMQ控制台，在RabbitMQ实例详情页面查找实例名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：登录RabbitMQ控制台，在RabbitMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] **参数解释**： 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'true' | 'false'} [includeFailure] **参数解释**： 是否返回创建失败的实例数。 **约束限制**： 不涉及。 **取值范围**： - true：返回创建失败的实例数。 - false：不返回创建失败的实例数。  **默认取值**： 不涉及。
+     * @param {'true' | 'false'} [exactMatchName] **参数解释**： 是否按照实例名称进行精确匹配查询。 **约束限制**： 不涉及。 **取值范围**： - true：按照实例名称进行精确匹配查询。 - false：按照模糊匹配实例名称查询。  **默认取值**： false
+     * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 不涉及。
+     * @param {string} [limit] **参数解释**： 当次查询返回的最大实例个数。 **约束限制**： 不涉及。 **取值范围**： 1~50 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -684,6 +686,26 @@ export class RabbitMQClient {
      */
     public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
         const options = ParamCreater().showQuotas();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询RabbitMQ产品规格核数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询RabbitMQ产品规格核数
+     * @param {string} instanceId 实例ID。
+     * @param {string} productId 产品ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRabbitMqProductCores(showRabbitMqProductCoresRequest?: ShowRabbitMqProductCoresRequest): Promise<ShowRabbitMqProductCoresResponse> {
+        const options = ParamCreater().showRabbitMqProductCores(showRabbitMqProductCoresRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1072,9 +1094,9 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Vhost列表
-     * @param {string} instanceId 实例ID
-     * @param {number} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
-     * @param {number} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RabbitMQ控制台，在RabbitMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
+     * @param {number} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2240,6 +2262,56 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询RabbitMQ产品规格核数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRabbitMqProductCores(showRabbitMqProductCoresRequest?: ShowRabbitMqProductCoresRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rabbitmq/products/cores",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let productId;
+
+            if (showRabbitMqProductCoresRequest !== null && showRabbitMqProductCoresRequest !== undefined) {
+                if (showRabbitMqProductCoresRequest instanceof ShowRabbitMqProductCoresRequest) {
+                    instanceId = showRabbitMqProductCoresRequest.instanceId;
+                    productId = showRabbitMqProductCoresRequest.productId;
+                } else {
+                    instanceId = showRabbitMqProductCoresRequest['instance_id'];
+                    productId = showRabbitMqProductCoresRequest['product_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRabbitMqProductCores.');
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling showRabbitMqProductCores.');
+            }
+            if (productId !== null && productId !== undefined) {
+                localVarQueryParameter['product_id'] = productId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

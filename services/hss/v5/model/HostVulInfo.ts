@@ -1,6 +1,6 @@
 import { HostVulInfoAppList } from './HostVulInfoAppList';
 import { HostVulInfoCveList } from './HostVulInfoCveList';
-import { VulHostInfoDisabledOperateTypes } from './VulHostInfoDisabledOperateTypes';
+import { HostVulInfoDisabledOperateTypes } from './HostVulInfoDisabledOperateTypes';
 
 
 export class HostVulInfo {
@@ -26,7 +26,7 @@ export class HostVulInfo {
     private 'app_path'?: string;
     public version?: string;
     private 'support_restore'?: boolean;
-    private 'disabled_operate_types'?: Array<VulHostInfoDisabledOperateTypes>;
+    private 'disabled_operate_types'?: Array<HostVulInfoDisabledOperateTypes>;
     private 'repair_priority'?: string;
     public constructor() { 
     }
@@ -220,14 +220,14 @@ export class HostVulInfo {
     public get supportRestore(): boolean | undefined {
         return this['support_restore'];
     }
-    public withDisabledOperateTypes(disabledOperateTypes: Array<VulHostInfoDisabledOperateTypes>): HostVulInfo {
+    public withDisabledOperateTypes(disabledOperateTypes: Array<HostVulInfoDisabledOperateTypes>): HostVulInfo {
         this['disabled_operate_types'] = disabledOperateTypes;
         return this;
     }
-    public set disabledOperateTypes(disabledOperateTypes: Array<VulHostInfoDisabledOperateTypes>  | undefined) {
+    public set disabledOperateTypes(disabledOperateTypes: Array<HostVulInfoDisabledOperateTypes>  | undefined) {
         this['disabled_operate_types'] = disabledOperateTypes;
     }
-    public get disabledOperateTypes(): Array<VulHostInfoDisabledOperateTypes> | undefined {
+    public get disabledOperateTypes(): Array<HostVulInfoDisabledOperateTypes> | undefined {
         return this['disabled_operate_types'];
     }
     public withRepairPriority(repairPriority: string): HostVulInfo {

@@ -5,6 +5,7 @@ export class CreateExchangeResponse extends SdkResponse {
     public durable?: boolean;
     private 'default'?: boolean;
     public internal?: boolean;
+    private 'arguments'?: object;
     public name?: string;
     private 'auto_delete'?: boolean;
     public type?: string;
@@ -29,6 +30,16 @@ export class CreateExchangeResponse extends SdkResponse {
     public withInternal(internal: boolean): CreateExchangeResponse {
         this['internal'] = internal;
         return this;
+    }
+    public withArguments(_arguments: object): CreateExchangeResponse {
+        this['arguments'] = _arguments;
+        return this;
+    }
+    public set _arguments(_arguments: object  | undefined) {
+        this['arguments'] = _arguments;
+    }
+    public get _arguments(): object | undefined {
+        return this['arguments'];
     }
     public withName(name: string): CreateExchangeResponse {
         this['name'] = name;

@@ -204,6 +204,7 @@ import { HostTaskStatus } from './model/HostTaskStatus';
 import { HostVulInfo } from './model/HostVulInfo';
 import { HostVulInfoAppList } from './model/HostVulInfoAppList';
 import { HostVulInfoCveList } from './model/HostVulInfoCveList';
+import { HostVulInfoDisabledOperateTypes } from './model/HostVulInfoDisabledOperateTypes';
 import { HostVulOperateInfo } from './model/HostVulOperateInfo';
 import { IgnoreDir } from './model/IgnoreDir';
 import { ImageCheckRuleCheckCaseResponseInfo } from './model/ImageCheckRuleCheckCaseResponseInfo';
@@ -556,7 +557,6 @@ import { UserStatisticInfoResponseInfo } from './model/UserStatisticInfoResponse
 import { VirusNum } from './model/VirusNum';
 import { VulCveInfo } from './model/VulCveInfo';
 import { VulHostInfo } from './model/VulHostInfo';
-import { VulHostInfoDisabledOperateTypes } from './model/VulHostInfoDisabledOperateTypes';
 import { VulInfo } from './model/VulInfo';
 import { VulInfoCveList } from './model/VulInfoCveList';
 import { VulOperateInfo } from './model/VulOperateInfo';
@@ -2018,7 +2018,7 @@ export class HssClient {
      * @summary 查询云服务器列表
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [version] 主机开通的版本，包含如下7种输入。   - hss.version.null ：无。   - hss.version.basic ：基础版。   - hss.version.advanced ：专业版。   - hss.version.enterprise ：企业版。   - hss.version.premium ：旗舰版。   - hss.version.wtp ：网页防篡改版。   - hss.version.container.enterprise：容器版。
-     * @param {string} [agentStatus] Agent状态，包含如下6种。   - installed ：已安装。   - not_installed ：未安装。   - online ：在线。   - offline ：离线。   - install_failed ：安装失败。   - installing ：安装中。   - not_online ：不在线的（除了在线以外的所有状态，仅作为查询条件）。
+     * @param {string} [agentStatus] Agent的状态分为两类： - installed：已安装。已安装状态包含以下四种情况：    - online：在线。表示Agent已经成功安装并且与HSS云端防护中心保持连接。    - offline：离线。表示虽然Agent已经安装，但当前与HSS云端防护中心的连接中断。    - install_failed：安装失败。表示在尝试安装过程中遇到错误或问题，导致安装未能完成。    - installing：安装中。表示当前正在进行Agent安装。 - not_installed ：未安装。表示服务器中尚未安装Agent。 如果您要筛选除在线以外所有状态的Agent，可设置not_online（仅作为查询条件）
      * @param {string} [detectResult] 检测结果，包含如下4种。   - undetected ：未检测。   - clean ：无风险。   - risk ：有风险。   - scanning ：检测中。
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 服务器ID

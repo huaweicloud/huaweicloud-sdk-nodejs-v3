@@ -15,6 +15,9 @@ import { BatchAddOrDeleteTagsRequestBody } from './model/BatchAddOrDeleteTagsReq
 import { BatchAddOrDeleteTagsResponse } from './model/BatchAddOrDeleteTagsResponse';
 import { BatchDeleteMembersRequest } from './model/BatchDeleteMembersRequest';
 import { BatchDeleteMembersResponse } from './model/BatchDeleteMembersResponse';
+import { BatchDeleteTagsRequest } from './model/BatchDeleteTagsRequest';
+import { BatchDeleteTagsRequestBody } from './model/BatchDeleteTagsRequestBody';
+import { BatchDeleteTagsResponse } from './model/BatchDeleteTagsResponse';
 import { BatchUpdateMembersRequest } from './model/BatchUpdateMembersRequest';
 import { BatchUpdateMembersRequestBody } from './model/BatchUpdateMembersRequestBody';
 import { BatchUpdateMembersResponse } from './model/BatchUpdateMembersResponse';
@@ -81,6 +84,7 @@ import { GlanceUpdateImageRequest } from './model/GlanceUpdateImageRequest';
 import { GlanceUpdateImageRequestBody } from './model/GlanceUpdateImageRequestBody';
 import { GlanceUpdateImageResponse } from './model/GlanceUpdateImageResponse';
 import { ImageInfo } from './model/ImageInfo';
+import { ImageMember } from './model/ImageMember';
 import { ImageTag } from './model/ImageTag';
 import { ImportImageQuickRequest } from './model/ImportImageQuickRequest';
 import { ImportImageQuickResponse } from './model/ImportImageQuickResponse';
@@ -91,6 +95,8 @@ import { Links } from './model/Links';
 import { ListImageByTagsRequest } from './model/ListImageByTagsRequest';
 import { ListImageByTagsRequestBody } from './model/ListImageByTagsRequestBody';
 import { ListImageByTagsResponse } from './model/ListImageByTagsResponse';
+import { ListImageMembersRequest } from './model/ListImageMembersRequest';
+import { ListImageMembersResponse } from './model/ListImageMembersResponse';
 import { ListImageTagsRequest } from './model/ListImageTagsRequest';
 import { ListImageTagsResponse } from './model/ListImageTagsResponse';
 import { ListImagesRequest } from './model/ListImagesRequest';
@@ -115,6 +121,8 @@ import { RegisterImageRequestBody } from './model/RegisterImageRequestBody';
 import { RegisterImageResponse } from './model/RegisterImageResponse';
 import { ResourceTag } from './model/ResourceTag';
 import { ShowImageByTagsResource } from './model/ShowImageByTagsResource';
+import { ShowImageMemberRequest } from './model/ShowImageMemberRequest';
+import { ShowImageMemberResponse } from './model/ShowImageMemberResponse';
 import { ShowImageQuotaRequest } from './model/ShowImageQuotaRequest';
 import { ShowImageQuotaResponse } from './model/ShowImageQuotaResponse';
 import { ShowJobProgressRequest } from './model/ShowJobProgressRequest';
@@ -220,6 +228,26 @@ export class ImsClient {
      */
     public batchDeleteMembers(batchDeleteMembersRequest?: BatchDeleteMembersRequest): Promise<BatchDeleteMembersResponse> {
         const options = ParamCreater().batchDeleteMembers(batchDeleteMembersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于为指定镜像批量删除标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除镜像标签
+     * @param {string} imageId 镜像ID。
+     * @param {BatchDeleteTagsRequestBody} bodyparam 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest): Promise<BatchDeleteTagsResponse> {
+        const options = ParamCreater().batchDeleteTags(batchDeleteTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -458,6 +486,25 @@ export class ImsClient {
     }
 
     /**
+     * 该接口用于共享镜像过程中，获取接受该镜像的成员列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像成员列表
+     * @param {string} imageId 镜像id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImageMembers(listImageMembersRequest?: ListImageMembersRequest): Promise<ListImageMembersResponse> {
+        const options = ParamCreater().listImageMembers(listImageMembersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于为查询指定镜像上的所有标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -621,6 +668,26 @@ export class ImsClient {
      */
     public registerImage(registerImageRequest?: RegisterImageRequest): Promise<RegisterImageResponse> {
         const options = ParamCreater().registerImage(registerImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口主要用于镜像共享中查询某个镜像成员的详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像成员详情
+     * @param {string} imageId 镜像id
+     * @param {string} memberId 成员id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showImageMember(showImageMemberRequest?: ShowImageMemberRequest): Promise<ShowImageMemberResponse> {
+        const options = ParamCreater().showImageMember(showImageMemberRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1260,6 +1327,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于为指定镜像批量删除标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/cloudimages/{image_id}/tags/delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let imageId;
+
+            if (batchDeleteTagsRequest !== null && batchDeleteTagsRequest !== undefined) {
+                if (batchDeleteTagsRequest instanceof BatchDeleteTagsRequest) {
+                    imageId = batchDeleteTagsRequest.imageId;
+                    body = batchDeleteTagsRequest.body
+                } else {
+                    imageId = batchDeleteTagsRequest['image_id'];
+                    body = batchDeleteTagsRequest['body'];
+                }
+            }
+
+        
+            if (imageId === null || imageId === undefined) {
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling batchDeleteTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'image_id': imageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口为扩展接口，主要用于用户接受或者拒绝多个共享镜像时批量更新镜像成员的状态。
          * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
          * 
@@ -1720,6 +1833,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于共享镜像过程中，获取接受该镜像的成员列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImageMembers(listImageMembersRequest?: ListImageMembersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudimages/{image_id}/members",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let imageId;
+
+            if (listImageMembersRequest !== null && listImageMembersRequest !== undefined) {
+                if (listImageMembersRequest instanceof ListImageMembersRequest) {
+                    imageId = listImageMembersRequest.imageId;
+                } else {
+                    imageId = listImageMembersRequest['image_id'];
+                }
+            }
+
+        
+            if (imageId === null || imageId === undefined) {
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling listImageMembers.');
+            }
+
+            options.pathParams = { 'image_id': imageId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2292,6 +2442,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'image_id': imageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口主要用于镜像共享中查询某个镜像成员的详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showImageMember(showImageMemberRequest?: ShowImageMemberRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudimages/{image_id}/members/{member_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let imageId;
+            
+            let memberId;
+
+            if (showImageMemberRequest !== null && showImageMemberRequest !== undefined) {
+                if (showImageMemberRequest instanceof ShowImageMemberRequest) {
+                    imageId = showImageMemberRequest.imageId;
+                    memberId = showImageMemberRequest.memberId;
+                } else {
+                    imageId = showImageMemberRequest['image_id'];
+                    memberId = showImageMemberRequest['member_id'];
+                }
+            }
+
+        
+            if (imageId === null || imageId === undefined) {
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling showImageMember.');
+            }
+            if (memberId === null || memberId === undefined) {
+            throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling showImageMember.');
+            }
+
+            options.pathParams = { 'image_id': imageId,'member_id': memberId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

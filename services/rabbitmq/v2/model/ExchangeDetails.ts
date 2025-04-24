@@ -4,6 +4,7 @@ export class ExchangeDetails {
     public durable?: boolean;
     private 'default'?: boolean;
     public internal?: boolean;
+    private 'arguments'?: object;
     public name?: string;
     private 'auto_delete'?: boolean;
     public type?: string;
@@ -27,6 +28,16 @@ export class ExchangeDetails {
     public withInternal(internal: boolean): ExchangeDetails {
         this['internal'] = internal;
         return this;
+    }
+    public withArguments(_arguments: object): ExchangeDetails {
+        this['arguments'] = _arguments;
+        return this;
+    }
+    public set _arguments(_arguments: object  | undefined) {
+        this['arguments'] = _arguments;
+    }
+    public get _arguments(): object | undefined {
+        return this['arguments'];
     }
     public withName(name: string): ExchangeDetails {
         this['name'] = name;

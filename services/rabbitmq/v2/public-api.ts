@@ -129,6 +129,8 @@ export * from './model/ShowQueueDetailsRequest';
 export * from './model/ShowQueueDetailsResponse';
 export * from './model/ShowQuotasRequest';
 export * from './model/ShowQuotasResponse';
+export * from './model/ShowRabbitMqProductCoresRequest';
+export * from './model/ShowRabbitMqProductCoresResponse';
 export * from './model/ShowRabbitMqProjectTagsRequest';
 export * from './model/ShowRabbitMqProjectTagsResponse';
 export * from './model/ShowRabbitMqTagsRequest';
