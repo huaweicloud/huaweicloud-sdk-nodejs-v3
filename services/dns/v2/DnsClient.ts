@@ -3,12 +3,20 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AliasTarget } from './model/AliasTarget';
+import { AssociateEndpointIpaddressRequest } from './model/AssociateEndpointIpaddressRequest';
+import { AssociateEndpointIpaddressResponse } from './model/AssociateEndpointIpaddressResponse';
+import { AssociateOrDisassociateRouterWithRuleRequestBody } from './model/AssociateOrDisassociateRouterWithRuleRequestBody';
+import { AssociateResolverRuleRouterRequest } from './model/AssociateResolverRuleRouterRequest';
+import { AssociateResolverRuleRouterResponse } from './model/AssociateResolverRuleRouterResponse';
 import { AssociateRouterRequest } from './model/AssociateRouterRequest';
 import { AssociateRouterRequestBody } from './model/AssociateRouterRequestBody';
 import { AssociateRouterResponse } from './model/AssociateRouterResponse';
 import { BatchCreateRecordSetWithLine } from './model/BatchCreateRecordSetWithLine';
 import { BatchCreateTagRequest } from './model/BatchCreateTagRequest';
 import { BatchCreateTagResponse } from './model/BatchCreateTagResponse';
+import { BatchDeletePtrRecordsRequest } from './model/BatchDeletePtrRecordsRequest';
+import { BatchDeletePtrRecordsRequestBody } from './model/BatchDeletePtrRecordsRequestBody';
+import { BatchDeletePtrRecordsResponse } from './model/BatchDeletePtrRecordsResponse';
 import { BatchDeleteRecordSetWithLineRequest } from './model/BatchDeleteRecordSetWithLineRequest';
 import { BatchDeleteRecordSetWithLineRequestBody } from './model/BatchDeleteRecordSetWithLineRequestBody';
 import { BatchDeleteRecordSetWithLineResponse } from './model/BatchDeleteRecordSetWithLineResponse';
@@ -34,6 +42,9 @@ import { CreateCustomLineRequestBody } from './model/CreateCustomLineRequestBody
 import { CreateCustomLineResponse } from './model/CreateCustomLineResponse';
 import { CreateEipRecordSetRequest } from './model/CreateEipRecordSetRequest';
 import { CreateEipRecordSetResponse } from './model/CreateEipRecordSetResponse';
+import { CreateEndpointRequest } from './model/CreateEndpointRequest';
+import { CreateEndpointRequestBody } from './model/CreateEndpointRequestBody';
+import { CreateEndpointResponse } from './model/CreateEndpointResponse';
 import { CreateLineGroupRequest } from './model/CreateLineGroupRequest';
 import { CreateLineGroupResponse } from './model/CreateLineGroupResponse';
 import { CreateLineGroupsReq } from './model/CreateLineGroupsReq';
@@ -42,6 +53,9 @@ import { CreatePrivateZoneReq } from './model/CreatePrivateZoneReq';
 import { CreatePrivateZoneRequest } from './model/CreatePrivateZoneRequest';
 import { CreatePrivateZoneResponse } from './model/CreatePrivateZoneResponse';
 import { CreatePtrReq } from './model/CreatePtrReq';
+import { CreatePtrRequest } from './model/CreatePtrRequest';
+import { CreatePtrRequestBody } from './model/CreatePtrRequestBody';
+import { CreatePtrResponse } from './model/CreatePtrResponse';
 import { CreatePublicZoneReq } from './model/CreatePublicZoneReq';
 import { CreatePublicZoneRequest } from './model/CreatePublicZoneRequest';
 import { CreatePublicZoneResponse } from './model/CreatePublicZoneResponse';
@@ -54,27 +68,51 @@ import { CreateRecordSetWithBatchLinesResponse } from './model/CreateRecordSetWi
 import { CreateRecordSetWithLineRequest } from './model/CreateRecordSetWithLineRequest';
 import { CreateRecordSetWithLineRequestBody } from './model/CreateRecordSetWithLineRequestBody';
 import { CreateRecordSetWithLineResponse } from './model/CreateRecordSetWithLineResponse';
+import { CreateResolverRuleRequest } from './model/CreateResolverRuleRequest';
+import { CreateResolverRuleRequestBody } from './model/CreateResolverRuleRequestBody';
+import { CreateResolverRuleResponse } from './model/CreateResolverRuleResponse';
 import { CreateTagReq } from './model/CreateTagReq';
 import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagResponse } from './model/CreateTagResponse';
 import { DeleteCustomLineRequest } from './model/DeleteCustomLineRequest';
 import { DeleteCustomLineResponse } from './model/DeleteCustomLineResponse';
+import { DeleteEndpointRequest } from './model/DeleteEndpointRequest';
+import { DeleteEndpointResponse } from './model/DeleteEndpointResponse';
 import { DeleteLineGroupRequest } from './model/DeleteLineGroupRequest';
 import { DeleteLineGroupResponse } from './model/DeleteLineGroupResponse';
 import { DeletePrivateZoneRequest } from './model/DeletePrivateZoneRequest';
 import { DeletePrivateZoneResponse } from './model/DeletePrivateZoneResponse';
+import { DeletePtrRequest } from './model/DeletePtrRequest';
+import { DeletePtrResponse } from './model/DeletePtrResponse';
 import { DeletePublicZoneRequest } from './model/DeletePublicZoneRequest';
 import { DeletePublicZoneResponse } from './model/DeletePublicZoneResponse';
 import { DeleteRecordSetRequest } from './model/DeleteRecordSetRequest';
 import { DeleteRecordSetResponse } from './model/DeleteRecordSetResponse';
 import { DeleteRecordSetsRequest } from './model/DeleteRecordSetsRequest';
 import { DeleteRecordSetsResponse } from './model/DeleteRecordSetsResponse';
+import { DeleteResolverRuleRequest } from './model/DeleteResolverRuleRequest';
+import { DeleteResolverRuleResponse } from './model/DeleteResolverRuleResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
+import { DisableDnssecConfigRequest } from './model/DisableDnssecConfigRequest';
+import { DisableDnssecConfigResponse } from './model/DisableDnssecConfigResponse';
+import { DisassociateEndpointIpaddressRequest } from './model/DisassociateEndpointIpaddressRequest';
+import { DisassociateEndpointIpaddressResponse } from './model/DisassociateEndpointIpaddressResponse';
+import { DisassociateResolverRuleRouterRequest } from './model/DisassociateResolverRuleRouterRequest';
+import { DisassociateResolverRuleRouterResponse } from './model/DisassociateResolverRuleRouterResponse';
 import { DisassociateRouterRequest } from './model/DisassociateRouterRequest';
 import { DisassociateRouterResponse } from './model/DisassociateRouterResponse';
 import { DisassociaterouterRequestBody } from './model/DisassociaterouterRequestBody';
 import { DomainQuotaResponseQuotas } from './model/DomainQuotaResponseQuotas';
+import { EnableDnssecConfigRequest } from './model/EnableDnssecConfigRequest';
+import { EnableDnssecConfigResponse } from './model/EnableDnssecConfigResponse';
+import { EndpointResp } from './model/EndpointResp';
+import { FloatingIpsPtr } from './model/FloatingIpsPtr';
+import { IpInfo } from './model/IpInfo';
+import { IpValue } from './model/IpValue';
+import { IpaddressInfo } from './model/IpaddressInfo';
+import { Ipaddresses } from './model/Ipaddresses';
+import { IpaddressesData } from './model/IpaddressesData';
 import { Line } from './model/Line';
 import { Link } from './model/Link';
 import { LinksItem } from './model/LinksItem';
@@ -83,6 +121,12 @@ import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
 import { ListCustomLineRequest } from './model/ListCustomLineRequest';
 import { ListCustomLineResponse } from './model/ListCustomLineResponse';
+import { ListEndpointIpaddressesRequest } from './model/ListEndpointIpaddressesRequest';
+import { ListEndpointIpaddressesResponse } from './model/ListEndpointIpaddressesResponse';
+import { ListEndpointVpcsRequest } from './model/ListEndpointVpcsRequest';
+import { ListEndpointVpcsResponse } from './model/ListEndpointVpcsResponse';
+import { ListEndpointsRequest } from './model/ListEndpointsRequest';
+import { ListEndpointsResponse } from './model/ListEndpointsResponse';
 import { ListLineGroupsRequest } from './model/ListLineGroupsRequest';
 import { ListLineGroupsResponse } from './model/ListLineGroupsResponse';
 import { ListNameServersRequest } from './model/ListNameServersRequest';
@@ -92,6 +136,10 @@ import { ListPrivateZonesResponse } from './model/ListPrivateZonesResponse';
 import { ListPtrRecordsFloatingResp } from './model/ListPtrRecordsFloatingResp';
 import { ListPtrRecordsRequest } from './model/ListPtrRecordsRequest';
 import { ListPtrRecordsResponse } from './model/ListPtrRecordsResponse';
+import { ListPtrsRequest } from './model/ListPtrsRequest';
+import { ListPtrsResponse } from './model/ListPtrsResponse';
+import { ListPublicZoneLinesRequest } from './model/ListPublicZoneLinesRequest';
+import { ListPublicZoneLinesResponse } from './model/ListPublicZoneLinesResponse';
 import { ListPublicZonesRequest } from './model/ListPublicZonesRequest';
 import { ListPublicZonesResponse } from './model/ListPublicZonesResponse';
 import { ListRecordSets } from './model/ListRecordSets';
@@ -102,6 +150,9 @@ import { ListRecordSetsResponse } from './model/ListRecordSetsResponse';
 import { ListRecordSetsWithLineRequest } from './model/ListRecordSetsWithLineRequest';
 import { ListRecordSetsWithLineResponse } from './model/ListRecordSetsWithLineResponse';
 import { ListRecordSetsWithTags } from './model/ListRecordSetsWithTags';
+import { ListResolverRuleParam } from './model/ListResolverRuleParam';
+import { ListResolverRulesRequest } from './model/ListResolverRulesRequest';
+import { ListResolverRulesResponse } from './model/ListResolverRulesResponse';
 import { ListTagReq } from './model/ListTagReq';
 import { ListTagRequest } from './model/ListTagRequest';
 import { ListTagResponse } from './model/ListTagResponse';
@@ -112,26 +163,39 @@ import { Metadata } from './model/Metadata';
 import { NameServersResp } from './model/NameServersResp';
 import { Nameserver } from './model/Nameserver';
 import { NsRecords } from './model/NsRecords';
+import { PageInfo } from './model/PageInfo';
 import { PageLink } from './model/PageLink';
 import { PrivateNameServer } from './model/PrivateNameServer';
 import { PrivateZoneResp } from './model/PrivateZoneResp';
+import { PublicIpReq } from './model/PublicIpReq';
+import { PublicIpRes } from './model/PublicIpRes';
+import { PublicZoneLines } from './model/PublicZoneLines';
 import { PublicZoneResp } from './model/PublicZoneResp';
 import { QueryRecordSetWithLineAndTagsResp } from './model/QueryRecordSetWithLineAndTagsResp';
 import { QueryRecordSetWithLineResp } from './model/QueryRecordSetWithLineResp';
 import { RecordsetData } from './model/RecordsetData';
+import { ResolverRuleParam } from './model/ResolverRuleParam';
 import { ResourceItem } from './model/ResourceItem';
 import { RestorePtrRecordRequest } from './model/RestorePtrRecordRequest';
 import { RestorePtrRecordResponse } from './model/RestorePtrRecordResponse';
 import { RestorePtrReq } from './model/RestorePtrReq';
 import { Router } from './model/Router';
+import { RouterForRule } from './model/RouterForRule';
 import { RouterWithStatus } from './model/RouterWithStatus';
+import { SetPrivateZoneProxyPatternRequest } from './model/SetPrivateZoneProxyPatternRequest';
+import { SetPrivateZoneProxyPatternRequestBody } from './model/SetPrivateZoneProxyPatternRequestBody';
+import { SetPrivateZoneProxyPatternResponse } from './model/SetPrivateZoneProxyPatternResponse';
 import { SetRecordSetsStatusRequest } from './model/SetRecordSetsStatusRequest';
 import { SetRecordSetsStatusRequestBody } from './model/SetRecordSetsStatusRequestBody';
 import { SetRecordSetsStatusResponse } from './model/SetRecordSetsStatusResponse';
 import { ShowApiInfoRequest } from './model/ShowApiInfoRequest';
 import { ShowApiInfoResponse } from './model/ShowApiInfoResponse';
+import { ShowDnssecConfigRequest } from './model/ShowDnssecConfigRequest';
+import { ShowDnssecConfigResponse } from './model/ShowDnssecConfigResponse';
 import { ShowDomainQuotaRequest } from './model/ShowDomainQuotaRequest';
 import { ShowDomainQuotaResponse } from './model/ShowDomainQuotaResponse';
+import { ShowEndpointRequest } from './model/ShowEndpointRequest';
+import { ShowEndpointResponse } from './model/ShowEndpointResponse';
 import { ShowLineGroupRequest } from './model/ShowLineGroupRequest';
 import { ShowLineGroupResponse } from './model/ShowLineGroupResponse';
 import { ShowPrivateZoneNameServerRequest } from './model/ShowPrivateZoneNameServerRequest';
@@ -140,6 +204,8 @@ import { ShowPrivateZoneRequest } from './model/ShowPrivateZoneRequest';
 import { ShowPrivateZoneResponse } from './model/ShowPrivateZoneResponse';
 import { ShowPtrRecordSetRequest } from './model/ShowPtrRecordSetRequest';
 import { ShowPtrRecordSetResponse } from './model/ShowPtrRecordSetResponse';
+import { ShowPtrRequest } from './model/ShowPtrRequest';
+import { ShowPtrResponse } from './model/ShowPtrResponse';
 import { ShowPublicZoneNameServerRequest } from './model/ShowPublicZoneNameServerRequest';
 import { ShowPublicZoneNameServerResponse } from './model/ShowPublicZoneNameServerResponse';
 import { ShowPublicZoneRequest } from './model/ShowPublicZoneRequest';
@@ -151,6 +217,9 @@ import { ShowRecordSetRequest } from './model/ShowRecordSetRequest';
 import { ShowRecordSetResponse } from './model/ShowRecordSetResponse';
 import { ShowRecordSetWithLineRequest } from './model/ShowRecordSetWithLineRequest';
 import { ShowRecordSetWithLineResponse } from './model/ShowRecordSetWithLineResponse';
+import { ShowResolverRuleRequest } from './model/ShowResolverRuleRequest';
+import { ShowResolverRuleRespParam } from './model/ShowResolverRuleRespParam';
+import { ShowResolverRuleResponse } from './model/ShowResolverRuleResponse';
 import { ShowResourceTagRequest } from './model/ShowResourceTagRequest';
 import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
 import { Tag } from './model/Tag';
@@ -158,20 +227,27 @@ import { TagValues } from './model/TagValues';
 import { UpdateCustomLineRequest } from './model/UpdateCustomLineRequest';
 import { UpdateCustomLineRequestBody } from './model/UpdateCustomLineRequestBody';
 import { UpdateCustomLineResponse } from './model/UpdateCustomLineResponse';
+import { UpdateEndpointRequest } from './model/UpdateEndpointRequest';
+import { UpdateEndpointRequestBody } from './model/UpdateEndpointRequestBody';
+import { UpdateEndpointResponse } from './model/UpdateEndpointResponse';
 import { UpdateLineGroupsRequest } from './model/UpdateLineGroupsRequest';
 import { UpdateLineGroupsRequestBody } from './model/UpdateLineGroupsRequestBody';
 import { UpdateLineGroupsResponse } from './model/UpdateLineGroupsResponse';
 import { UpdatePrivateZoneInfoReq } from './model/UpdatePrivateZoneInfoReq';
 import { UpdatePrivateZoneRequest } from './model/UpdatePrivateZoneRequest';
 import { UpdatePrivateZoneResponse } from './model/UpdatePrivateZoneResponse';
+import { UpdatePrivateZoneStatusRequest } from './model/UpdatePrivateZoneStatusRequest';
+import { UpdatePrivateZoneStatusResponse } from './model/UpdatePrivateZoneStatusResponse';
 import { UpdatePtrRecordRequest } from './model/UpdatePtrRecordRequest';
 import { UpdatePtrRecordResponse } from './model/UpdatePtrRecordResponse';
 import { UpdatePtrReq } from './model/UpdatePtrReq';
+import { UpdatePtrRequest } from './model/UpdatePtrRequest';
+import { UpdatePtrRequestBody } from './model/UpdatePtrRequestBody';
+import { UpdatePtrResponse } from './model/UpdatePtrResponse';
 import { UpdatePublicZoneInfo } from './model/UpdatePublicZoneInfo';
 import { UpdatePublicZoneRequest } from './model/UpdatePublicZoneRequest';
 import { UpdatePublicZoneResponse } from './model/UpdatePublicZoneResponse';
 import { UpdatePublicZoneStatusRequest } from './model/UpdatePublicZoneStatusRequest';
-import { UpdatePublicZoneStatusRequestBody } from './model/UpdatePublicZoneStatusRequestBody';
 import { UpdatePublicZoneStatusResponse } from './model/UpdatePublicZoneStatusResponse';
 import { UpdateRecordSetReq } from './model/UpdateRecordSetReq';
 import { UpdateRecordSetRequest } from './model/UpdateRecordSetRequest';
@@ -179,8 +255,13 @@ import { UpdateRecordSetResponse } from './model/UpdateRecordSetResponse';
 import { UpdateRecordSetsReq } from './model/UpdateRecordSetsReq';
 import { UpdateRecordSetsRequest } from './model/UpdateRecordSetsRequest';
 import { UpdateRecordSetsResponse } from './model/UpdateRecordSetsResponse';
+import { UpdateResolverRuleRequest } from './model/UpdateResolverRuleRequest';
+import { UpdateResolverRuleRequestBody } from './model/UpdateResolverRuleRequestBody';
+import { UpdateResolverRuleResponse } from './model/UpdateResolverRuleResponse';
+import { UpdateZoneStatusRequestBody } from './model/UpdateZoneStatusRequestBody';
 import { ValuesItem } from './model/ValuesItem';
 import { VersionItem } from './model/VersionItem';
+import { VpcsData } from './model/VpcsData';
 import { ZoneData } from './model/ZoneData';
 
 export class DnsClient {
@@ -200,14 +281,135 @@ export class DnsClient {
 
 
     /**
-     * 批量删除Record Set。
-     * 响应结果中只包含本次实际删除的Record Set。
+     * 终端节点绑定IP地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 终端节点绑定IP地址
+     * @param {string} endpointId 终端节点ID。
+     * @param {Ipaddresses} associateEndpointIpaddressRequestBody 终端节点绑定IP地址请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateEndpointIpaddress(associateEndpointIpaddressRequest?: AssociateEndpointIpaddressRequest): Promise<AssociateEndpointIpaddressResponse> {
+        const options = ParamCreater().associateEndpointIpaddress(associateEndpointIpaddressRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解析器转发规则关联VPC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解析器转发规则关联VPC
+     * @param {string} resolverruleId 转发规则ID。
+     * @param {AssociateOrDisassociateRouterWithRuleRequestBody} associateResolverRuleRouterRequestBody 解析器转发规则关联VPC请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateResolverRuleRouter(associateResolverRuleRouterRequest?: AssociateResolverRuleRouterRequest): Promise<AssociateResolverRuleRouterResponse> {
+        const options = ParamCreater().associateResolverRuleRouter(associateResolverRuleRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在内网域名上关联VPC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在内网域名上关联VPC
+     * @param {string} zoneId 域名ID。
+     * @param {AssociateRouterRequestBody} associateRouterRequestBody 在内网域名上关联VPC请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateRouter(associateRouterRequest?: AssociateRouterRequest): Promise<AssociateRouterResponse> {
+        const options = ParamCreater().associateRouter(associateRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定实例批量添加或删除标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 为指定实例批量添加或删除标签
+     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceId 资源ID。
+     * @param {BatchHandTags} [batchHandTags] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateTag(batchCreateTagRequest?: BatchCreateTagRequest): Promise<BatchCreateTagResponse> {
+        const options = ParamCreater().batchCreateTag(batchCreateTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除反向解析。本接口为原子操作，所有记录应全部删除成功或全部失败。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除反向解析
+     * @param {BatchDeletePtrRecordsRequestBody} batchDeletePtrRecordsRequestBody 批量删除反向解析请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeletePtrRecords(batchDeletePtrRecordsRequest?: BatchDeletePtrRecordsRequest): Promise<BatchDeletePtrRecordsResponse> {
+        const options = ParamCreater().batchDeletePtrRecords(batchDeletePtrRecordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除域名下的记录集，当删除的资源不存在时，则默认删除成功。
+     * 响应结果中只包含本次实际删除的资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除域名下的记录集
+     * @param {string} zoneId 域名ID。
+     * @param {BatchDeleteRecordSetWithLineRequestBody} batchDeleteRecordSetWithLineRequestBody 批量删除域名下的记录集请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteRecordSetWithLine(batchDeleteRecordSetWithLineRequest?: BatchDeleteRecordSetWithLineRequest): Promise<BatchDeleteRecordSetWithLineResponse> {
+        const options = ParamCreater().batchDeleteRecordSetWithLine(batchDeleteRecordSetWithLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除记录集。
+     * 响应结果中只包含本次实际删除的记录集。
      * 支持批量删除公网域名和内网域名的记录集。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除Record Set
-     * @param {BatchDeleteRecordSetsRequestBody} batchDeleteRecordSetsRequestBody 批量删除Record Set请求。
+     * @summary 批量删除记录集
+     * @param {BatchDeleteRecordSetsRequestBody} batchDeleteRecordSetsRequestBody 批量删除记录集请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -221,13 +423,13 @@ export class DnsClient {
     }
 
     /**
-     * 批量删除Zone。
+     * 批量删除域名。
      * 本接口为原子操作，所有记录应全部删除成功或全部失败。
-     * 仅支持公网Zone、内网Zone。
+     * 支持公网域名、内网域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除Zone
+     * @summary 批量删除域名
      * @param {BatchDeleteZonesRequestBody} batchDeleteZonesRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -242,14 +444,14 @@ export class DnsClient {
     }
 
     /**
-     * 批量设置Record Set状态。
-     * 响应结果中只包含本次实际更新的Record Set。
+     * 批量设置记录集状态。
+     * 响应结果中只包含本次实际更新的记录集。
      * 支持公网域名和内网域名的记录集。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量设置Record Set状态
-     * @param {BatchSetRecordSetsStatusRequestBody} batchSetRecordSetsStatusRequestBody 批量设置Record Set状态请求。
+     * @summary 批量设置记录集状态
+     * @param {BatchSetRecordSetsStatusRequestBody} batchSetRecordSetsStatusRequestBody 批量设置记录集状态请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -263,14 +465,14 @@ export class DnsClient {
     }
 
     /**
-     * 批量设置Zone状态。
-     * 响应结果中只包含本次实际更新的Zone。
-     * 仅支持公网Zone、内网Zone。
+     * 批量设置域名状态。
+     * 响应结果中只包含本次实际更新的域名。
+     * 支持公网域名、内网域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量设置Zone状态
-     * @param {BatchSetZonesStatusRequestBody} batchSetZonesStatusRequestBody 批量设置Zone状态请求。
+     * @summary 批量设置域名状态
+     * @param {BatchSetZonesStatusRequestBody} batchSetZonesStatusRequestBody 批量设置域名状态请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -284,12 +486,33 @@ export class DnsClient {
     }
 
     /**
-     * 创建单个自定义线路
+     * 批量修改记录集。属于原子性操作，请求记录集将全部完成修改，或不做任何修改。
+     * 仅公网域名支持。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建单个自定义线路
-     * @param {CreateCustomLineRequestBody} createCustomLineRequestBody 创建单个自定义线路请求。
+     * @summary 批量修改记录集
+     * @param {string} zoneId 域名ID。
+     * @param {BatchUpdateRecordSetWithLineRequestBody} batchUpdateRecordSetWithLineRequestBody 批量修改记录集请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest?: BatchUpdateRecordSetWithLineRequest): Promise<BatchUpdateRecordSetWithLineResponse> {
+        const options = ParamCreater().batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建自定义线路。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建自定义线路
+     * @param {CreateCustomLineRequestBody} createCustomLineRequestBody 创建自定义线路请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -303,7 +526,47 @@ export class DnsClient {
     }
 
     /**
-     * 创建一个线路分组。 该接口部分区域未上线、如需使用请提交工单申请开通。
+     * 设置弹性公网IP的反向解析记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置弹性公网IP的反向解析记录
+     * @param {string} region 租户的区域信息。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
+     * @param {CreatePtrReq} createPtrReq 设置弹性公网IP的反向解析记录请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createEipRecordSet(createEipRecordSetRequest?: CreateEipRecordSetRequest): Promise<CreateEipRecordSetResponse> {
+        const options = ParamCreater().createEipRecordSet(createEipRecordSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建终端节点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建终端节点
+     * @param {CreateEndpointRequestBody} createEndpointRequestBody 创建终端节点请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createEndpoint(createEndpointRequest?: CreateEndpointRequest): Promise<CreateEndpointResponse> {
+        const options = ParamCreater().createEndpoint(createEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -322,12 +585,169 @@ export class DnsClient {
     }
 
     /**
-     * 删除单个自定义线路
+     * 创建内网域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除单个自定义线路
-     * @param {string} lineId 自定义线路id
+     * @summary 创建内网域名
+     * @param {CreatePrivateZoneReq} [createPrivateZoneReq] 创建内网域名请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrivateZone(createPrivateZoneRequest?: CreatePrivateZoneRequest): Promise<CreatePrivateZoneResponse> {
+        const options = ParamCreater().createPrivateZone(createPrivateZoneRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建弹性公网IP的反向解析记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建弹性公网IP的反向解析记录
+     * @param {CreatePtrRequestBody} createPtrRequestBody 创建弹性公网IP的反向解析记录请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPtr(createPtrRequest?: CreatePtrRequest): Promise<CreatePtrResponse> {
+        const options = ParamCreater().createPtr(createPtrRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建公网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建公网域名
+     * @param {CreatePublicZoneReq} createPublicZone 创建公网域名请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPublicZone(createPublicZoneRequest?: CreatePublicZoneRequest): Promise<CreatePublicZoneResponse> {
+        const options = ParamCreater().createPublicZone(createPublicZoneRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建记录集
+     * @param {string} zoneId 域名ID。
+     * @param {CreateRecordSetRequestBody} createRecordSetRequestBody 创建记录集请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRecordSet(createRecordSetRequest?: CreateRecordSetRequest): Promise<CreateRecordSetResponse> {
+        const options = ParamCreater().createRecordSet(createRecordSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量线路创建记录集。属于原子性操作，如果存在一个参数校验不通过，则创建失败。仅公网域名支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量线路创建记录集
+     * @param {string} zoneId 域名ID。
+     * @param {CreateRSetBatchLinesReq} createRSetBatchLinesReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRecordSetWithBatchLines(createRecordSetWithBatchLinesRequest?: CreateRecordSetWithBatchLinesRequest): Promise<CreateRecordSetWithBatchLinesResponse> {
+        const options = ParamCreater().createRecordSetWithBatchLines(createRecordSetWithBatchLinesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建记录集
+     * @param {string} zoneId 域名ID。
+     * @param {CreateRecordSetWithLineRequestBody} createRecordSetWithLineRequestBody 创建记录集请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRecordSetWithLine(createRecordSetWithLineRequest?: CreateRecordSetWithLineRequest): Promise<CreateRecordSetWithLineResponse> {
+        const options = ParamCreater().createRecordSetWithLine(createRecordSetWithLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建解析器转发规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建解析器转发规则
+     * @param {CreateResolverRuleRequestBody} createResolverRuleRequestBody 创建解析器转发规则请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createResolverRule(createResolverRuleRequest?: CreateResolverRuleRequest): Promise<CreateResolverRuleResponse> {
+        const options = ParamCreater().createResolverRule(createResolverRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定实例添加标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 为指定实例添加标签
+     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceId 资源ID。
+     * @param {CreateTagReq} [createTagReq] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTag(createTagRequest?: CreateTagRequest): Promise<CreateTagResponse> {
+        const options = ParamCreater().createTag(createTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义线路。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义线路
+     * @param {string} lineId 自定义线路ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -341,12 +761,31 @@ export class DnsClient {
     }
 
     /**
-     * 删除单个线路分组。该接口部分区域未上线、如需使用请提交工单申请开通。
+     * 删除终端节点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除终端节点
+     * @param {string} endpointId 终端节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest): Promise<DeleteEndpointResponse> {
+        const options = ParamCreater().deleteEndpoint(deleteEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除线路分组
-     * @param {string} linegroupId 线路分组ID
+     * @param {string} linegroupId 线路分组ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -360,7 +799,204 @@ export class DnsClient {
     }
 
     /**
-     * 查询所有的云解析服务API版本号列表
+     * 删除内网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除内网域名
+     * @param {string} zoneId 域名ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateZone(deletePrivateZoneRequest?: DeletePrivateZoneRequest): Promise<DeletePrivateZoneResponse> {
+        const options = ParamCreater().deletePrivateZone(deletePrivateZoneRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将弹性公网IP的反向解析记录恢复为默认值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 将弹性公网IP的反向解析记录恢复为默认值
+     * @param {string} ptrId 反向解析ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePtr(deletePtrRequest?: DeletePtrRequest): Promise<DeletePtrResponse> {
+        const options = ParamCreater().deletePtr(deletePtrRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除公网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除公网域名
+     * @param {string} zoneId 域名ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePublicZone(deletePublicZoneRequest?: DeletePublicZoneRequest): Promise<DeletePublicZoneResponse> {
+        const options = ParamCreater().deletePublicZone(deletePublicZoneRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除记录集。删除有添加智能解析的记录集时，需要用记录集管理（新版本）模块中删除接口进行删除。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除记录集
+     * @param {string} zoneId 域名ID。
+     * @param {string} recordsetId 记录集ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRecordSet(deleteRecordSetRequest?: DeleteRecordSetRequest): Promise<DeleteRecordSetResponse> {
+        const options = ParamCreater().deleteRecordSet(deleteRecordSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除记录集
+     * @param {string} zoneId 域名ID。
+     * @param {string} recordsetId 记录集ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRecordSets(deleteRecordSetsRequest?: DeleteRecordSetsRequest): Promise<DeleteRecordSetsResponse> {
+        const options = ParamCreater().deleteRecordSets(deleteRecordSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除解析器转发规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除解析器转发规则
+     * @param {string} resolverruleId 转发规则ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteResolverRule(deleteResolverRuleRequest?: DeleteResolverRuleRequest): Promise<DeleteResolverRuleResponse> {
+        const options = ParamCreater().deleteResolverRule(deleteResolverRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源标签
+     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。  
+     * @param {string} resourceId 资源ID。
+     * @param {string} key 标签key。  标签key不能为空或者空字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
+        const options = ParamCreater().deleteTag(deleteTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 终端节点解绑IP地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 终端节点解绑IP地址
+     * @param {string} endpointId 终端节点ID。
+     * @param {string} ipaddressId IP地址ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateEndpointIpaddress(disassociateEndpointIpaddressRequest?: DisassociateEndpointIpaddressRequest): Promise<DisassociateEndpointIpaddressResponse> {
+        const options = ParamCreater().disassociateEndpointIpaddress(disassociateEndpointIpaddressRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解析器转发规则解关联VPC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解析器转发规则解关联VPC
+     * @param {string} resolverruleId 转发规则ID。
+     * @param {AssociateOrDisassociateRouterWithRuleRequestBody} disassociateResolverRuleRouterRequestBody 解析器转发规则解关联VPC请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateResolverRuleRouter(disassociateResolverRuleRouterRequest?: DisassociateResolverRuleRouterRequest): Promise<DisassociateResolverRuleRouterResponse> {
+        const options = ParamCreater().disassociateResolverRuleRouter(disassociateResolverRuleRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在内网域名上解关联VPC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在内网域名上解关联VPC
+     * @param {string} zoneId 域名ID。
+     * @param {DisassociaterouterRequestBody} disassociaterouterRequestBody 在内网域名上解关联VPC请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateRouter(disassociateRouterRequest?: DisassociateRouterRequest): Promise<DisassociateRouterResponse> {
+        const options = ParamCreater().disassociateRouter(disassociateRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有的云解析服务API版本号列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -378,7 +1014,7 @@ export class DnsClient {
     }
 
     /**
-     * 查询自定义线路
+     * 查询自定义线路。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -403,7 +1039,70 @@ export class DnsClient {
     }
 
     /**
-     * 查询线路分组列表。该接口部分区域未上线、如需使用请提交工单申请开通。
+     * 查询终端节点下的IP地址列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询IP地址列表
+     * @param {string} endpointId 终端节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEndpointIpaddresses(listEndpointIpaddressesRequest?: ListEndpointIpaddressesRequest): Promise<ListEndpointIpaddressesResponse> {
+        const options = ParamCreater().listEndpointIpaddresses(listEndpointIpaddressesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询终端节点VPC列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询终端节点VPC列表
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
+     * @param {string} [vpcId] 待查询的VPC的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEndpointVpcs(listEndpointVpcsRequest?: ListEndpointVpcsRequest): Promise<ListEndpointVpcsResponse> {
+        const options = ParamCreater().listEndpointVpcs(listEndpointVpcsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询终端节点列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询终端节点列表
+     * @param {string} direction 终端节点方向。 取值： inbound，表示入站终端节点。 outbound，表示出站终端节点。
+     * @param {string} [vpcId] 待查询的终端节点所属VPC的ID。
+     * @param {string} [name] 终端节点名称。
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEndpoints(listEndpointsRequest?: ListEndpointsRequest): Promise<ListEndpointsResponse> {
+        const options = ParamCreater().listEndpoints(listEndpointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询线路分组列表。该接口部分区域未上线，如需使用请提交工单申请开通。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -445,17 +1144,29 @@ export class DnsClient {
     }
 
     /**
-     * 查询指定的云解析服务API版本号
+     * 查询内网域名列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定的云解析服务API版本号
-     * @param {string} version 待查询版本号。以v开头，如v2。
+     * @summary 查询内网域名列表
+     * @param {string} type 待查询的域名的类型。  取值范围：private。
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
+     * @param {string} [tags] 资源标签。
+     * @param {string} [name] 域名。  搜索模式默认为模糊搜索。
+     * @param {string} [id] 域名ID。
+     * @param {string} [status] 资源状态。
+     * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
+     * @param {string} [sortKey] 查询结果中域名列表的排序字段。  取值范围为：  name：域名 created_at：创建时间 updated_at：更新时间 默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中域名列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。
+     * @param {string} [routerId] 关联VPC的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showApiInfo(showApiInfoRequest?: ShowApiInfoRequest): Promise<ShowApiInfoResponse> {
-        const options = ParamCreater().showApiInfo(showApiInfoRequest);
+    public listPrivateZones(listPrivateZonesRequest?: ListPrivateZonesRequest): Promise<ListPrivateZonesResponse> {
+        const options = ParamCreater().listPrivateZones(listPrivateZonesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -464,115 +1175,16 @@ export class DnsClient {
     }
 
     /**
-     * 查询单租户在DNS服务下的资源配额，包括公网zone配额、内网zone配额、Record Set配额、PTR Record配额、入站终端节点配额、出站终端节点配额、自定义线路配额、线路分组配额等。
+     * 查询弹性公网IP的反向解析记录列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询租户配额
-     * @param {string} domainId 租户ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest): Promise<ShowDomainQuotaResponse> {
-        const options = ParamCreater().showDomainQuota(showDomainQuotaRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询线路分组。该接口部分区域未上线、如需使用请提交工单申请开通。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询线路分组
-     * @param {string} linegroupId 线路分组ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showLineGroup(showLineGroupRequest?: ShowLineGroupRequest): Promise<ShowLineGroupResponse> {
-        const options = ParamCreater().showLineGroup(showLineGroupRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 更新单个自定义线路
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新单个自定义线路
-     * @param {string} lineId 自定义线路id
-     * @param {UpdateCustomLineRequestBody} updateCustomLineRequestBody 更新单个自定义线路请求。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateCustomLine(updateCustomLineRequest?: UpdateCustomLineRequest): Promise<UpdateCustomLineResponse> {
-        const options = ParamCreater().updateCustomLine(updateCustomLineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 更新单个线路分组。该接口部分区域未上线、如需使用请提交工单申请开通。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新线路分组
-     * @param {string} linegroupId 线路分组ID
-     * @param {UpdateLineGroupsRequestBody} updateLineGroupsRequestBody 更新线路分组请求。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateLineGroups(updateLineGroupsRequest?: UpdateLineGroupsRequest): Promise<UpdateLineGroupsResponse> {
-        const options = ParamCreater().updateLineGroups(updateLineGroupsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 设置弹性公网IP的PTR记录
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 设置弹性公网IP的PTR记录
-     * @param {string} region 租户的区域信息。
-     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
-     * @param {CreatePtrReq} createPtrReq 设置弹性公网IP的PTR记录请求。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createEipRecordSet(createEipRecordSetRequest?: CreateEipRecordSetRequest): Promise<CreateEipRecordSetResponse> {
-        const options = ParamCreater().createEipRecordSet(createEipRecordSetRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询租户弹性公网IP的PTR记录列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询租户弹性公网IP的PTR记录列表
+     * @summary 查询弹性公网IP的反向解析记录列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {string} [enterpriseProjectId] 反向解析关联的企业项目ID，长度不超过36个字符。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
      * @param {string} [status] 资源状态。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -587,19 +1199,23 @@ export class DnsClient {
     }
 
     /**
-     * 将弹性公网IP的PTR记录恢复为默认值
+     * 查询弹性公网IP的反向解析记录列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 将弹性公网IP的PTR记录恢复为默认值
-     * @param {string} region 域名所属的区域。
-     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
-     * @param {RestorePtrReq} [restorePtrReq] 
+     * @summary 查询弹性公网IP的反向解析记录列表
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。 默认值为空。
+     * @param {number} [limit] 每页返回的资源个数。 取值范围：0~500 取值一般为10，20，50。默认值为500。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。 取值范围：0~2147483647 默认值为0。 当前设置marker不为空时，以marker为分页起始标识。
+     * @param {string} [enterpriseProjectId] 反向解析关联的企业项目ID，长度不超过36个字符。
+     * @param {string} [tags] 资源标签。 取值格式：key1,value1|key2,value2 多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
+     * @param {string} [status] 资源状态。
+     * @param {string} [resourceType] 弹性公网IP类型。  取值范围： publicip：弹性公网IP（EIP）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public restorePtrRecord(restorePtrRecordRequest?: RestorePtrRecordRequest): Promise<RestorePtrRecordResponse> {
-        const options = ParamCreater().restorePtrRecord(restorePtrRecordRequest);
+    public listPtrs(listPtrsRequest?: ListPtrsRequest): Promise<ListPtrsResponse> {
+        const options = ParamCreater().listPtrs(listPtrsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -608,18 +1224,19 @@ export class DnsClient {
     }
 
     /**
-     * 查询单个弹性公网IP的PTR记录
+     * 查询公网域名的线路列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单个弹性公网IP的PTR记录
-     * @param {string} region 租户的区域信息。 
-     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
+     * @summary 查询公网域名的线路列表
+     * @param {string} zoneId 域名ID。
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showPtrRecordSet(showPtrRecordSetRequest?: ShowPtrRecordSetRequest): Promise<ShowPtrRecordSetResponse> {
-        const options = ParamCreater().showPtrRecordSet(showPtrRecordSetRequest);
+    public listPublicZoneLines(listPublicZoneLinesRequest?: ListPublicZoneLinesRequest): Promise<ListPublicZoneLinesResponse> {
+        const options = ParamCreater().listPublicZoneLines(listPublicZoneLinesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -628,19 +1245,28 @@ export class DnsClient {
     }
 
     /**
-     * 修改弹性公网IP的PTR记录
+     * 查询公网域名列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改弹性公网IP的PTR记录
-     * @param {string} region 域名所属的区域。
-     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
-     * @param {UpdatePtrReq} [updatePtrReq] 
+     * @summary 查询公网域名列表
+     * @param {string} [type] 待查询的域名的类型。  取值范围：public 默认值为空。
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。  多个标签之间为“与”的关系。  关于资源标签，请参见添加资源标签。  搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  默认值为空。
+     * @param {string} [name] 域名。  搜索模式默认为模糊搜索。
+     * @param {string} [id] 域名ID。
+     * @param {string} [status] 资源状态。
+     * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
+     * @param {string} [sortKey] 查询结果中域名列表的排序字段。  取值范围为：  name：域名 created_at：创建时间 updated_at：更新时间 默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中域名列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updatePtrRecord(updatePtrRecordRequest?: UpdatePtrRecordRequest): Promise<UpdatePtrRecordResponse> {
-        const options = ParamCreater().updatePtrRecord(updatePtrRecordRequest);
+    public listPublicZones(listPublicZonesRequest?: ListPublicZonesRequest): Promise<ListPublicZonesResponse> {
+        const options = ParamCreater().listPublicZones(listPublicZonesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -649,166 +1275,24 @@ export class DnsClient {
     }
 
     /**
-     * 批量删除某个Zone下的Record Set资源，当删除的资源不存在时，则默认删除成功。
-     * 响应结果中只包含本次实际删除的资源。
+     * 查询租户记录集列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除某个Zone下的Record Set资源
-     * @param {string} zoneId 所属zone的ID。
-     * @param {BatchDeleteRecordSetWithLineRequestBody} batchDeleteRecordSetWithLineRequestBody 批量删除某个Zone下的Record Set资源请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteRecordSetWithLine(batchDeleteRecordSetWithLineRequest?: BatchDeleteRecordSetWithLineRequest): Promise<BatchDeleteRecordSetWithLineResponse> {
-        const options = ParamCreater().batchDeleteRecordSetWithLine(batchDeleteRecordSetWithLineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量修改RecordSet。属于原子性操作，请求Record Set将全部完成修改，或不做任何修改。
-     * 仅公网Zone支持。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量修改RecordSet
-     * @param {string} zoneId 所属zone的ID。
-     * @param {BatchUpdateRecordSetWithLineRequestBody} batchUpdateRecordSetWithLineRequestBody 批量修改RecordSet请求。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest?: BatchUpdateRecordSetWithLineRequest): Promise<BatchUpdateRecordSetWithLineResponse> {
-        const options = ParamCreater().batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建单个Record Set
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建单个Record Set
-     * @param {string} zoneId 所属zone的ID。
-     * @param {CreateRecordSetRequestBody} createRecordSetRequestBody 创建RecordSet请求对象。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createRecordSet(createRecordSetRequest?: CreateRecordSetRequest): Promise<CreateRecordSetResponse> {
-        const options = ParamCreater().createRecordSet(createRecordSetRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量线路创建RecordSet。属于原子性操作，如果存在一个参数校验不通过，则创建失败。仅公网Zone支持。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量线路创建RecordSet
-     * @param {string} zoneId 所属Zone的ID。
-     * @param {CreateRSetBatchLinesReq} createRSetBatchLinesReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createRecordSetWithBatchLines(createRecordSetWithBatchLinesRequest?: CreateRecordSetWithBatchLinesRequest): Promise<CreateRecordSetWithBatchLinesResponse> {
-        const options = ParamCreater().createRecordSetWithBatchLines(createRecordSetWithBatchLinesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建单个Record Set，仅适用于公网DNS
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建单个Record Set
-     * @param {string} zoneId 所属zone的ID。
-     * @param {CreateRecordSetWithLineRequestBody} createRecordSetWithLineRequestBody 创建单个Record Set请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createRecordSetWithLine(createRecordSetWithLineRequest?: CreateRecordSetWithLineRequest): Promise<CreateRecordSetWithLineResponse> {
-        const options = ParamCreater().createRecordSetWithLine(createRecordSetWithLineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除单个Record Set。删除有添加智能解析的记录集时，需要用Record Set多线路管理模块中删除接口进行删除。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除单个Record Set
-     * @param {string} zoneId 当前recordset所属的zoneID。
-     * @param {string} recordsetId 当前recordset所属的ID信息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteRecordSet(deleteRecordSetRequest?: DeleteRecordSetRequest): Promise<DeleteRecordSetResponse> {
-        const options = ParamCreater().deleteRecordSet(deleteRecordSetRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除单个Record Set
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除单个Record Set
-     * @param {string} zoneId Record Set所属的zone_id。
-     * @param {string} recordsetId Record Set的id信息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteRecordSets(deleteRecordSetsRequest?: DeleteRecordSetsRequest): Promise<DeleteRecordSetsResponse> {
-        const options = ParamCreater().deleteRecordSets(deleteRecordSetsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询租户Record Set资源列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询租户Record Set资源列表
-     * @param {string} [zoneType] 待查询的Record Set的域名类型。  取值范围：public、private  如果为空，表示查询公网类型的Record Set。 如果为public，表示查询公网类型的Record Set。 如果为private，表示查询内网类型的Record Set。 搜索模式默认为模糊搜索。  默认值为public。
+     * @summary 查询租户记录集列表
+     * @param {string} [zoneType] 待查询的记录集的域名类型。  取值范围：public、private  如果为空，表示查询公网类型的记录集。 如果为public，表示查询公网类型的记录集。 如果为private，表示查询内网类型的记录集。 搜索模式默认为模糊搜索。  默认值为public。
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
-     * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
-     * @param {string} [type] 待查询的Record Set的记录集类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
-     * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。
-     * @param {string} [records] 待查询的Record Set的值中包含此records。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
-     * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
+     * @param {string} [status] 待查询的记录集的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
+     * @param {string} [type] 待查询的记录集的类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
+     * @param {string} [name] 待查询的记录集的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [id] 待查询的记录集ID。
+     * @param {string} [records] 待查询的记录集的值中包含此records。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [sortKey] 查询结果中记录集列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中记录集列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -822,23 +1306,23 @@ export class DnsClient {
     }
 
     /**
-     * 查询单个Zone下Record Set列表
+     * 查询域名下的记录集列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单个Zone下Record Set列表
-     * @param {string} zoneId 所属zone id。
+     * @summary 查询域名下的记录集列表
+     * @param {string} zoneId 域名ID。
      * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
-     * @param {string} [status] 待查询的Record Set的状态。 取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
-     * @param {string} [type] 待查询的Record Set的记录集类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
-     * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围为：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
-     * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
+     * @param {string} [status] 待查询的记录集的状态。 取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
+     * @param {string} [type] 待查询的记录集的类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
+     * @param {string} [name] 待查询的记录集的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [id] 待查询的记录集ID。
+     * @param {string} [sortKey] 查询结果中记录集列表的排序字段。  取值范围为：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中记录集列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -852,27 +1336,27 @@ export class DnsClient {
     }
 
     /**
-     * 查询租户Record Set资源列表
+     * 查询租户记录集列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询租户Record Set资源列表
-     * @param {string} [zoneType] 待查询的Record Set的域名类型。  取值范围：public  搜索模式默认为模糊搜索。  默认值为public。
+     * @summary 查询租户记录集列表
+     * @param {string} [zoneType] 待查询的记录集的域名类型。  取值范围： public: 公网域名 private: 内网域名  默认值为public。
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [zoneId] zone的ID。
+     * @param {string} [zoneId] 域名的ID。
      * @param {string} [lineId] 解析线路ID。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
-     * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
-     * @param {string} [type] 待查询的Record Set的记录集类型。  取值范围：A、CNAME、MX、AAAA、TXT、SRV、NS、CAA
-     * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。
-     * @param {string} [records] 待查询的Record Set的值中包含此records。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
-     * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
+     * @param {string} [status] 待查询的记录集的状态。 取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
+     * @param {string} [type] 待查询的记录集的类型。  取值范围：A、CNAME、MX、AAAA、TXT、SRV、NS、CAA
+     * @param {string} [name] 待查询的记录集的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [id] 待查询的记录集ID。
+     * @param {string} [records] 待查询的记录集的值中包含此records。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [sortKey] 查询结果中记录集列表的排序字段。  取值范围： name：记录集名称 type：记录集类型  默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中记录集列表的排序方式。  取值范围： desc：降序排序 asc：升序排序  默认值为空，表示不排序。
      * @param {string} [healthCheckId] 健康检查ID。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
+     * @param {string} [searchMode] 查询条件搜索模式。  取值范围： like：模糊搜索 equal：精确搜索
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -886,194 +1370,23 @@ export class DnsClient {
     }
 
     /**
-     * 设置Record Set状态
+     * 查询解析器转发规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 设置Record Set状态
-     * @param {string} recordsetId 待设置Record Set的ID信息。
-     * @param {SetRecordSetsStatusRequestBody} [setRecordSetsStatusRequestBody] 设置Record Set状态请求。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public setRecordSetsStatus(setRecordSetsStatusRequest?: SetRecordSetsStatusRequest): Promise<SetRecordSetsStatusResponse> {
-        const options = ParamCreater().setRecordSetsStatus(setRecordSetsStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询单个Record Set。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询单个Record Set
-     * @param {string} zoneId 所属zone的ID。
-     * @param {string} recordsetId 待查询recordset的ID信息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showRecordSet(showRecordSetRequest?: ShowRecordSetRequest): Promise<ShowRecordSetResponse> {
-        const options = ParamCreater().showRecordSet(showRecordSetRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询单个Zone下Record Set列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询单个Zone下Record Set列表
-     * @param {string} zoneId 所属zone的ID。
-     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
+     * @summary 查询解析器转发规则列表
+     * @param {string} [domainName] 待查询的转发规则的域名。
+     * @param {string} [name] 待查询的转发规则的名称。
+     * @param {string} [endpointId] 终端节点ID。
+     * @param {string} [id] 转发规则ID。
      * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [lineId] 解析线路ID。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
-     * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
-     * @param {string} [type] 待查询的Record Set的记录集类型。  公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
-     * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
-     * @param {string} [id] 待查询的Record Set的id包含此id。
-     * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围：  name：记录集名称 type：记录集类型 默认值为空，表示不排序。
-     * @param {string} [sortDir] 查询结果中Record Set列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
-     * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showRecordSetByZone(showRecordSetByZoneRequest?: ShowRecordSetByZoneRequest): Promise<ShowRecordSetByZoneResponse> {
-        const options = ParamCreater().showRecordSetByZone(showRecordSetByZoneRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询单个Record Set，仅适用于公网DNS
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询单个Record Set
-     * @param {string} zoneId 所属zone的ID。
-     * @param {string} recordsetId 待查询recordset的ID信息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showRecordSetWithLine(showRecordSetWithLineRequest?: ShowRecordSetWithLineRequest): Promise<ShowRecordSetWithLineResponse> {
-        const options = ParamCreater().showRecordSetWithLine(showRecordSetWithLineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改单个Record Set
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改单个Record Set
-     * @param {string} zoneId 所属zone的ID。
-     * @param {string} recordsetId 待修改的recordset的ID信息。
-     * @param {UpdateRecordSetReq} [updateRecordSetReq] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateRecordSet(updateRecordSetRequest?: UpdateRecordSetRequest): Promise<UpdateRecordSetResponse> {
-        const options = ParamCreater().updateRecordSet(updateRecordSetRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改单个Record Set
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改单个Record Set
-     * @param {string} zoneId 所属zone的ID。
-     * @param {string} recordsetId 待查询recordset的ID信息。
-     * @param {UpdateRecordSetsReq} [updateRecordSetsReq] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateRecordSets(updateRecordSetsRequest?: UpdateRecordSetsRequest): Promise<UpdateRecordSetsResponse> {
-        const options = ParamCreater().updateRecordSets(updateRecordSetsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 为指定实例批量添加或删除标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 为指定实例批量添加或删除标签
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
-     * @param {string} resourceId 资源id。
-     * @param {BatchHandTags} [batchHandTags] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchCreateTag(batchCreateTagRequest?: BatchCreateTagRequest): Promise<BatchCreateTagResponse> {
-        const options = ParamCreater().batchCreateTag(batchCreateTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 为指定实例添加标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 为指定实例添加标签
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
-     * @param {string} resourceId 资源id。  
-     * @param {CreateTagReq} [createTagReq] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createTag(createTagRequest?: CreateTagRequest): Promise<CreateTagResponse> {
-        const options = ParamCreater().createTag(createTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除资源标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除资源标签
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。  
-     * @param {string} resourceId 资源id。  
-     * @param {string} key 标签key。  标签key不能为空或者空字符串。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
-        const options = ParamCreater().deleteTag(deleteTagRequest);
+    public listResolverRules(listResolverRulesRequest?: ListResolverRulesRequest): Promise<ListResolverRulesResponse> {
+        const options = ParamCreater().listResolverRules(listResolverRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1121,18 +1434,19 @@ export class DnsClient {
     }
 
     /**
-     * 查询指定实例的标签信息
+     * 将弹性公网IP的反向解析记录恢复为默认值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定实例的标签信息
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
-     * @param {string} resourceId 资源id。
+     * @summary 将弹性公网IP的反向解析记录恢复为默认值
+     * @param {string} region 域名所属的区域。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
+     * @param {RestorePtrReq} [restorePtrReq] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showResourceTag(showResourceTagRequest?: ShowResourceTagRequest): Promise<ShowResourceTagResponse> {
-        const options = ParamCreater().showResourceTag(showResourceTagRequest);
+    public restorePtrRecord(restorePtrRecordRequest?: RestorePtrRecordRequest): Promise<RestorePtrRecordResponse> {
+        const options = ParamCreater().restorePtrRecord(restorePtrRecordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1141,18 +1455,18 @@ export class DnsClient {
     }
 
     /**
-     * 在内网Zone上关联VPC
+     * 设置内网域名的子域名递归解析代理。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 在内网Zone上关联VPC
-     * @param {string} zoneId 关联VPC的Zone ID。
-     * @param {AssociateRouterRequestBody} associateRouterRequestBody 需要关联的Router(VPC)。
+     * @summary 设置内网域名的子域名递归解析代理
+     * @param {string} zoneId 域名ID。
+     * @param {SetPrivateZoneProxyPatternRequestBody} setPrivateZoneProxyPatternRequestBody 设置内网域名的子域名递归解析代理请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public associateRouter(associateRouterRequest?: AssociateRouterRequest): Promise<AssociateRouterResponse> {
-        const options = ParamCreater().associateRouter(associateRouterRequest);
+    public setPrivateZoneProxyPattern(setPrivateZoneProxyPatternRequest?: SetPrivateZoneProxyPatternRequest): Promise<SetPrivateZoneProxyPatternResponse> {
+        const options = ParamCreater().setPrivateZoneProxyPattern(setPrivateZoneProxyPatternRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1161,17 +1475,18 @@ export class DnsClient {
     }
 
     /**
-     * 创建单个内网Zone
+     * 设置记录集状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建单个内网Zone
-     * @param {CreatePrivateZoneReq} [createPrivateZoneReq] 创建单个内网Zone请求体。
+     * @summary 设置记录集状态
+     * @param {string} recordsetId 记录集ID。
+     * @param {SetRecordSetsStatusRequestBody} [setRecordSetsStatusRequestBody] 设置记录集状态请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createPrivateZone(createPrivateZoneRequest?: CreatePrivateZoneRequest): Promise<CreatePrivateZoneResponse> {
-        const options = ParamCreater().createPrivateZone(createPrivateZoneRequest);
+    public setRecordSetsStatus(setRecordSetsStatusRequest?: SetRecordSetsStatusRequest): Promise<SetRecordSetsStatusResponse> {
+        const options = ParamCreater().setRecordSetsStatus(setRecordSetsStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1180,17 +1495,17 @@ export class DnsClient {
     }
 
     /**
-     * 创建单个公网Zone
+     * 查询指定的云解析服务API版本号。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建单个公网Zone
-     * @param {CreatePublicZoneReq} createPublicZone 创建公网Zone请求对象。
+     * @summary 查询指定的云解析服务API版本号
+     * @param {string} version 待查询版本号。以v开头，如v2。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createPublicZone(createPublicZoneRequest?: CreatePublicZoneRequest): Promise<CreatePublicZoneResponse> {
-        const options = ParamCreater().createPublicZone(createPublicZoneRequest);
+    public showApiInfo(showApiInfoRequest?: ShowApiInfoRequest): Promise<ShowApiInfoResponse> {
+        const options = ParamCreater().showApiInfo(showApiInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1199,17 +1514,17 @@ export class DnsClient {
     }
 
     /**
-     * 删除单个内网Zone
+     * 查询租户在DNS服务下的资源配额，包括公网域名配额、内网域名配额、记录集配额、反向解析配额、自定义线路配额、线路分组配额、入站终端节点配额、出站终端节点配额、转发规则配额等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除单个内网Zone
-     * @param {string} zoneId 待删除zone的ID。
+     * @summary 查询租户配额
+     * @param {string} domainId 租户ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePrivateZone(deletePrivateZoneRequest?: DeletePrivateZoneRequest): Promise<DeletePrivateZoneResponse> {
-        const options = ParamCreater().deletePrivateZone(deletePrivateZoneRequest);
+    public showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest): Promise<ShowDomainQuotaResponse> {
+        const options = ParamCreater().showDomainQuota(showDomainQuotaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1218,17 +1533,17 @@ export class DnsClient {
     }
 
     /**
-     * 删除单个公网Zone
+     * 查询终端节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除单个公网Zone
-     * @param {string} zoneId 待删除zone的ID
+     * @summary 查询终端节点
+     * @param {string} endpointId 终端节点ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePublicZone(deletePublicZoneRequest?: DeletePublicZoneRequest): Promise<DeletePublicZoneResponse> {
-        const options = ParamCreater().deletePublicZone(deletePublicZoneRequest);
+    public showEndpoint(showEndpointRequest?: ShowEndpointRequest): Promise<ShowEndpointResponse> {
+        const options = ParamCreater().showEndpoint(showEndpointRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1237,18 +1552,17 @@ export class DnsClient {
     }
 
     /**
-     * 在内网Zone上解关联VPC
+     * 查询线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 在内网Zone上解关联VPC
-     * @param {string} zoneId 待解关联zone的ID。
-     * @param {DisassociaterouterRequestBody} disassociaterouterRequestBody 在内网Zone上解关联VPC请求。
+     * @summary 查询线路分组
+     * @param {string} linegroupId 线路分组ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disassociateRouter(disassociateRouterRequest?: DisassociateRouterRequest): Promise<DisassociateRouterResponse> {
-        const options = ParamCreater().disassociateRouter(disassociateRouterRequest);
+    public showLineGroup(showLineGroupRequest?: ShowLineGroupRequest): Promise<ShowLineGroupResponse> {
+        const options = ParamCreater().showLineGroup(showLineGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1257,73 +1571,12 @@ export class DnsClient {
     }
 
     /**
-     * 查询内网Zone列表
+     * 查询内网域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询内网Zone列表
-     * @param {string} type 待查询的zone的类型。  取值范围：private。
-     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
-     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
-     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [tags] 资源标签。
-     * @param {string} [name] Zone名称。  搜索模式默认为模糊搜索。
-     * @param {string} [id] Zone ID。
-     * @param {string} [status] 资源状态。
-     * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
-     * @param {string} [sortKey] 查询结果中zone列表的排序字段。  取值范围为：  name：域名 created_at：创建时间 updated_at：更新时间 默认值为空，表示不排序。
-     * @param {string} [sortDir] 查询结果中zone列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
-     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。
-     * @param {string} [routerId] 关联VPC的ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPrivateZones(listPrivateZonesRequest?: ListPrivateZonesRequest): Promise<ListPrivateZonesResponse> {
-        const options = ParamCreater().listPrivateZones(listPrivateZonesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询公网Zone列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公网Zone列表
-     * @param {string} [type] 待查询的zone的类型。  取值范围：public 默认值为空。
-     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
-     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
-     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
-     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。  多个标签之间为“与”的关系。  关于资源标签，请参见添加资源标签。  搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  默认值为空。
-     * @param {string} [name] Zone名称。  搜索模式默认为模糊搜索。
-     * @param {string} [id] Zone ID。
-     * @param {string} [status] 资源状态。
-     * @param {string} [searchMode] 查询条件搜索模式。  取值范围：  like：模糊搜索 equal：精确搜索
-     * @param {string} [sortKey] 查询结果中zone列表的排序字段。  取值范围为：  name：域名 created_at：创建时间 updated_at：更新时间 默认值为空，表示不排序。
-     * @param {string} [sortDir] 查询结果中zone列表的排序方式。  取值范围：  desc：降序排序 asc：升序排序 默认值为空，表示不排序。
-     * @param {string} [enterpriseProjectId] 域名关联的企业项目ID，长度不超过36个字符。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPublicZones(listPublicZonesRequest?: ListPublicZonesRequest): Promise<ListPublicZonesResponse> {
-        const options = ParamCreater().listPublicZones(listPublicZonesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询单个内网Zone
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询单个内网Zone
-     * @param {string} zoneId 待查询zone的ID。
+     * @summary 查询内网域名
+     * @param {string} zoneId 域名ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1337,12 +1590,12 @@ export class DnsClient {
     }
 
     /**
-     * 查询单个内网Zone的名称服务器
+     * 查询内网域名的名称服务器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单个内网Zone的名称服务器
-     * @param {string} zoneId 待查询内网zone的ID。
+     * @summary 查询内网域名的名称服务器
+     * @param {string} zoneId 域名ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1356,12 +1609,51 @@ export class DnsClient {
     }
 
     /**
-     * 查询单个公网Zone
+     * 查询弹性公网IP的反向解析记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单个公网Zone
-     * @param {string} zoneId 待查询zone的ID。
+     * @summary 查询弹性公网IP的反向解析记录
+     * @param {string} ptrId 反向解析ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPtr(showPtrRequest?: ShowPtrRequest): Promise<ShowPtrResponse> {
+        const options = ParamCreater().showPtr(showPtrRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询弹性公网IP的反向解析记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询弹性公网IP的反向解析记录
+     * @param {string} region 租户的区域信息。 
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPtrRecordSet(showPtrRecordSetRequest?: ShowPtrRecordSetRequest): Promise<ShowPtrRecordSetResponse> {
+        const options = ParamCreater().showPtrRecordSet(showPtrRecordSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询公网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网域名
+     * @param {string} zoneId 域名ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1375,12 +1667,12 @@ export class DnsClient {
     }
 
     /**
-     * 查询单个公网Zone的名称服务器
+     * 查询公网域名的名称服务器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单个公网Zone的名称服务器
-     * @param {string} zoneId 待查询zone的ID。  可以通过查询公网Zone列表获取。
+     * @summary 查询公网域名的名称服务器
+     * @param {string} zoneId 域名ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1394,13 +1686,183 @@ export class DnsClient {
     }
 
     /**
-     * 修改单个内网Zone
+     * 查询记录集。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改单个内网Zone
-     * @param {string} zoneId 待修改Zone的ID。
-     * @param {UpdatePrivateZoneInfoReq} updatePrivateZoneInfoReq 修改内网Zone信息请求。
+     * @summary 查询记录集
+     * @param {string} zoneId 域名ID。
+     * @param {string} recordsetId 记录集ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecordSet(showRecordSetRequest?: ShowRecordSetRequest): Promise<ShowRecordSetResponse> {
+        const options = ParamCreater().showRecordSet(showRecordSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询域名下的记录集列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名下的记录集列表
+     * @param {string} zoneId 域名ID。
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页。  默认值为空。
+     * @param {number} [limit] 每页返回的资源个数。  取值范围：0~500  取值一般为10，20，50。默认值为500。
+     * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
+     * @param {string} [lineId] 解析线路ID。
+     * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
+     * @param {string} [status] 待查询的记录集的状态。 取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
+     * @param {string} [type] 待查询的记录集的类型。  公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
+     * @param {string} [name] 待查询的记录集的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
+     * @param {string} [id] 待查询的记录集ID。
+     * @param {string} [sortKey] 查询结果中记录集列表的排序字段。  取值范围： name：记录集名称 type：记录集类型  默认值为空，表示不排序。
+     * @param {string} [sortDir] 查询结果中记录集列表的排序方式。  取值范围： desc：降序排序 asc：升序排序  默认值为空，表示不排序。
+     * @param {string} [searchMode] 查询条件搜索模式。  取值范围： like：模糊搜索 equal：精确搜索
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecordSetByZone(showRecordSetByZoneRequest?: ShowRecordSetByZoneRequest): Promise<ShowRecordSetByZoneResponse> {
+        const options = ParamCreater().showRecordSetByZone(showRecordSetByZoneRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询记录集
+     * @param {string} zoneId 域名ID。
+     * @param {string} recordsetId 记录集ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecordSetWithLine(showRecordSetWithLineRequest?: ShowRecordSetWithLineRequest): Promise<ShowRecordSetWithLineResponse> {
+        const options = ParamCreater().showRecordSetWithLine(showRecordSetWithLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询解析器转发规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询解析器转发规则
+     * @param {string} resolverruleId 转发规则ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResolverRule(showResolverRuleRequest?: ShowResolverRuleRequest): Promise<ShowResolverRuleResponse> {
+        const options = ParamCreater().showResolverRule(showResolverRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的标签信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定实例的标签信息
+     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceId 资源ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceTag(showResourceTagRequest?: ShowResourceTagRequest): Promise<ShowResourceTagResponse> {
+        const options = ParamCreater().showResourceTag(showResourceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新自定义线路。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新自定义线路
+     * @param {string} lineId 自定义线路ID。
+     * @param {UpdateCustomLineRequestBody} updateCustomLineRequestBody 更新自定义线路请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomLine(updateCustomLineRequest?: UpdateCustomLineRequest): Promise<UpdateCustomLineResponse> {
+        const options = ParamCreater().updateCustomLine(updateCustomLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改终端节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改终端节点
+     * @param {string} endpointId 终端节点ID。
+     * @param {UpdateEndpointRequestBody} updateEndpointRequestBody 修改终端节点请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEndpoint(updateEndpointRequest?: UpdateEndpointRequest): Promise<UpdateEndpointResponse> {
+        const options = ParamCreater().updateEndpoint(updateEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新线路分组
+     * @param {string} linegroupId 线路分组ID。
+     * @param {UpdateLineGroupsRequestBody} updateLineGroupsRequestBody 更新线路分组请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLineGroups(updateLineGroupsRequest?: UpdateLineGroupsRequest): Promise<UpdateLineGroupsResponse> {
+        const options = ParamCreater().updateLineGroups(updateLineGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改内网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改内网域名
+     * @param {string} zoneId 域名ID。
+     * @param {UpdatePrivateZoneInfoReq} updatePrivateZoneInfoReq 修改内网域名请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1414,13 +1876,74 @@ export class DnsClient {
     }
 
     /**
-     * 修改单个公网Zone
+     * 设置内网域名状态，支持暂停、启用域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改单个公网Zone
-     * @param {string} zoneId 待修改zone的ID
-     * @param {UpdatePublicZoneInfo} updatePublicZoneInfo 修改单个公网Zone请求。
+     * @summary 设置内网域名状态
+     * @param {string} zoneId 域名ID。
+     * @param {UpdateZoneStatusRequestBody} updatePrivateZoneStatusRequestBody 设置内网域名状态请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrivateZoneStatus(updatePrivateZoneStatusRequest?: UpdatePrivateZoneStatusRequest): Promise<UpdatePrivateZoneStatusResponse> {
+        const options = ParamCreater().updatePrivateZoneStatus(updatePrivateZoneStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改弹性公网IP的反向解析记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改弹性公网IP的反向解析记录
+     * @param {string} ptrId 反向解析ID。
+     * @param {UpdatePtrRequestBody} [updatePtrRequestBody] 修改弹性公网IP的反向解析记录请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePtr(updatePtrRequest?: UpdatePtrRequest): Promise<UpdatePtrResponse> {
+        const options = ParamCreater().updatePtr(updatePtrRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改弹性公网IP的反向解析记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改弹性公网IP的反向解析记录
+     * @param {string} region 域名所属的区域。
+     * @param {string} floatingipId 弹性公网IP（EIP）的ID。
+     * @param {UpdatePtrReq} [updatePtrReq] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePtrRecord(updatePtrRecordRequest?: UpdatePtrRecordRequest): Promise<UpdatePtrRecordResponse> {
+        const options = ParamCreater().updatePtrRecord(updatePtrRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改公网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改公网域名
+     * @param {string} zoneId 域名ID。
+     * @param {UpdatePublicZoneInfo} updatePublicZoneInfo 修改公网域名请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1434,18 +1957,137 @@ export class DnsClient {
     }
 
     /**
-     * 设置单个公网Zone状态，支持暂停、启用Zone
+     * 设置公网域名状态，支持暂停、启用域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 设置单个公网Zone状态
-     * @param {string} zoneId 待设置状态Zone的ID
-     * @param {UpdatePublicZoneStatusRequestBody} updatePublicZoneStatusRequestBody 设置单个公网Zone状态请求体。
+     * @summary 设置公网域名状态
+     * @param {string} zoneId 域名ID。
+     * @param {UpdateZoneStatusRequestBody} updatePublicZoneStatusRequestBody 设置公网域名状态请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updatePublicZoneStatus(updatePublicZoneStatusRequest?: UpdatePublicZoneStatusRequest): Promise<UpdatePublicZoneStatusResponse> {
         const options = ParamCreater().updatePublicZoneStatus(updatePublicZoneStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改记录集
+     * @param {string} zoneId 域名ID。
+     * @param {string} recordsetId 记录集ID。
+     * @param {UpdateRecordSetReq} [updateRecordSetReq] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecordSet(updateRecordSetRequest?: UpdateRecordSetRequest): Promise<UpdateRecordSetResponse> {
+        const options = ParamCreater().updateRecordSet(updateRecordSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改记录集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改记录集
+     * @param {string} zoneId 域名ID。
+     * @param {string} recordsetId 记录集ID。
+     * @param {UpdateRecordSetsReq} [updateRecordSetsReq] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecordSets(updateRecordSetsRequest?: UpdateRecordSetsRequest): Promise<UpdateRecordSetsResponse> {
+        const options = ParamCreater().updateRecordSets(updateRecordSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改解析器转发规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改解析器转发规则
+     * @param {string} resolverruleId 转发规则ID。
+     * @param {UpdateResolverRuleRequestBody} updateResolverRuleRequestBody 修改解析器转发规则请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateResolverRule(updateResolverRuleRequest?: UpdateResolverRuleRequest): Promise<UpdateResolverRuleResponse> {
+        const options = ParamCreater().updateResolverRule(updateResolverRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭公网域名的DNSSEC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭DNSSEC
+     * @param {string} zoneId 公网域名的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableDnssecConfig(disableDnssecConfigRequest?: DisableDnssecConfigRequest): Promise<DisableDnssecConfigResponse> {
+        const options = ParamCreater().disableDnssecConfig(disableDnssecConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启公网域名的DNSSEC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启DNSSEC
+     * @param {string} zoneId 公网域名的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDnssecConfig(enableDnssecConfigRequest?: EnableDnssecConfigRequest): Promise<EnableDnssecConfigResponse> {
+        const options = ParamCreater().enableDnssecConfig(enableDnssecConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询公网域名的DNSSEC。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询DNSSEC
+     * @param {string} zoneId 公网域名的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDnssecConfig(showDnssecConfigRequest?: ShowDnssecConfigRequest): Promise<ShowDnssecConfigResponse> {
+        const options = ParamCreater().showDnssecConfig(showDnssecConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1458,8 +2100,281 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 批量删除Record Set。
-         * 响应结果中只包含本次实际删除的Record Set。
+         * 终端节点绑定IP地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateEndpointIpaddress(associateEndpointIpaddressRequest?: AssociateEndpointIpaddressRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/endpoints/{endpoint_id}/ipaddresses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let endpointId;
+
+            if (associateEndpointIpaddressRequest !== null && associateEndpointIpaddressRequest !== undefined) {
+                if (associateEndpointIpaddressRequest instanceof AssociateEndpointIpaddressRequest) {
+                    endpointId = associateEndpointIpaddressRequest.endpointId;
+                    body = associateEndpointIpaddressRequest.body
+                } else {
+                    endpointId = associateEndpointIpaddressRequest['endpoint_id'];
+                    body = associateEndpointIpaddressRequest['body'];
+                }
+            }
+
+        
+            if (endpointId === null || endpointId === undefined) {
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling associateEndpointIpaddress.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'endpoint_id': endpointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解析器转发规则关联VPC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateResolverRuleRouter(associateResolverRuleRouterRequest?: AssociateResolverRuleRouterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/resolverrules/{resolverrule_id}/associaterouter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resolverruleId;
+
+            if (associateResolverRuleRouterRequest !== null && associateResolverRuleRouterRequest !== undefined) {
+                if (associateResolverRuleRouterRequest instanceof AssociateResolverRuleRouterRequest) {
+                    resolverruleId = associateResolverRuleRouterRequest.resolverruleId;
+                    body = associateResolverRuleRouterRequest.body
+                } else {
+                    resolverruleId = associateResolverRuleRouterRequest['resolverrule_id'];
+                    body = associateResolverRuleRouterRequest['body'];
+                }
+            }
+
+        
+            if (resolverruleId === null || resolverruleId === undefined) {
+            throw new RequiredError('resolverruleId','Required parameter resolverruleId was null or undefined when calling associateResolverRuleRouter.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resolverrule_id': resolverruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在内网域名上关联VPC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateRouter(associateRouterRequest?: AssociateRouterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones/{zone_id}/associaterouter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (associateRouterRequest !== null && associateRouterRequest !== undefined) {
+                if (associateRouterRequest instanceof AssociateRouterRequest) {
+                    zoneId = associateRouterRequest.zoneId;
+                    body = associateRouterRequest.body
+                } else {
+                    zoneId = associateRouterRequest['zone_id'];
+                    body = associateRouterRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling associateRouter.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为指定实例批量添加或删除标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateTag(batchCreateTagRequest?: BatchCreateTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (batchCreateTagRequest !== null && batchCreateTagRequest !== undefined) {
+                if (batchCreateTagRequest instanceof BatchCreateTagRequest) {
+                    resourceType = batchCreateTagRequest.resourceType;
+                    resourceId = batchCreateTagRequest.resourceId;
+                    body = batchCreateTagRequest.body
+                } else {
+                    resourceType = batchCreateTagRequest['resource_type'];
+                    resourceId = batchCreateTagRequest['resource_id'];
+                    body = batchCreateTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchCreateTag.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateTag.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除反向解析。本接口为原子操作，所有记录应全部删除成功或全部失败。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeletePtrRecords(batchDeletePtrRecordsRequest?: BatchDeletePtrRecordsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/reverse/floatingips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeletePtrRecordsRequest !== null && batchDeletePtrRecordsRequest !== undefined) {
+                if (batchDeletePtrRecordsRequest instanceof BatchDeletePtrRecordsRequest) {
+                    body = batchDeletePtrRecordsRequest.body
+                } else {
+                    body = batchDeletePtrRecordsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除域名下的记录集，当删除的资源不存在时，则默认删除成功。
+         * 响应结果中只包含本次实际删除的资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteRecordSetWithLine(batchDeleteRecordSetWithLineRequest?: BatchDeleteRecordSetWithLineRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/zones/{zone_id}/recordsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (batchDeleteRecordSetWithLineRequest !== null && batchDeleteRecordSetWithLineRequest !== undefined) {
+                if (batchDeleteRecordSetWithLineRequest instanceof BatchDeleteRecordSetWithLineRequest) {
+                    zoneId = batchDeleteRecordSetWithLineRequest.zoneId;
+                    body = batchDeleteRecordSetWithLineRequest.body
+                } else {
+                    zoneId = batchDeleteRecordSetWithLineRequest['zone_id'];
+                    body = batchDeleteRecordSetWithLineRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling batchDeleteRecordSetWithLine.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除记录集。
+         * 响应结果中只包含本次实际删除的记录集。
          * 支持批量删除公网域名和内网域名的记录集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1498,9 +2413,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除Zone。
+         * 批量删除域名。
          * 本接口为原子操作，所有记录应全部删除成功或全部失败。
-         * 仅支持公网Zone、内网Zone。
+         * 支持公网域名、内网域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1538,8 +2453,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量设置Record Set状态。
-         * 响应结果中只包含本次实际更新的Record Set。
+         * 批量设置记录集状态。
+         * 响应结果中只包含本次实际更新的记录集。
          * 支持公网域名和内网域名的记录集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1578,9 +2493,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量设置Zone状态。
-         * 响应结果中只包含本次实际更新的Zone。
-         * 仅支持公网Zone、内网Zone。
+         * 批量设置域名状态。
+         * 响应结果中只包含本次实际更新的域名。
+         * 支持公网域名、内网域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1618,7 +2533,54 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建单个自定义线路
+         * 批量修改记录集。属于原子性操作，请求记录集将全部完成修改，或不做任何修改。
+         * 仅公网域名支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest?: BatchUpdateRecordSetWithLineRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.1/zones/{zone_id}/recordsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (batchUpdateRecordSetWithLineRequest !== null && batchUpdateRecordSetWithLineRequest !== undefined) {
+                if (batchUpdateRecordSetWithLineRequest instanceof BatchUpdateRecordSetWithLineRequest) {
+                    zoneId = batchUpdateRecordSetWithLineRequest.zoneId;
+                    body = batchUpdateRecordSetWithLineRequest.body
+                } else {
+                    zoneId = batchUpdateRecordSetWithLineRequest['zone_id'];
+                    body = batchUpdateRecordSetWithLineRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling batchUpdateRecordSetWithLine.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建自定义线路。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1656,7 +2618,98 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建一个线路分组。 该接口部分区域未上线、如需使用请提交工单申请开通。
+         * 设置弹性公网IP的反向解析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createEipRecordSet(createEipRecordSetRequest?: CreateEipRecordSetRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let region;
+            
+            let floatingipId;
+
+            if (createEipRecordSetRequest !== null && createEipRecordSetRequest !== undefined) {
+                if (createEipRecordSetRequest instanceof CreateEipRecordSetRequest) {
+                    region = createEipRecordSetRequest.region;
+                    floatingipId = createEipRecordSetRequest.floatingipId;
+                    body = createEipRecordSetRequest.body
+                } else {
+                    region = createEipRecordSetRequest['region'];
+                    floatingipId = createEipRecordSetRequest['floatingip_id'];
+                    body = createEipRecordSetRequest['body'];
+                }
+            }
+
+        
+            if (region === null || region === undefined) {
+            throw new RequiredError('region','Required parameter region was null or undefined when calling createEipRecordSet.');
+            }
+            if (floatingipId === null || floatingipId === undefined) {
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling createEipRecordSet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建终端节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createEndpoint(createEndpointRequest?: CreateEndpointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/endpoints",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createEndpointRequest !== null && createEndpointRequest !== undefined) {
+                if (createEndpointRequest instanceof CreateEndpointRequest) {
+                    body = createEndpointRequest.body
+                } else {
+                    body = createEndpointRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1694,7 +2747,344 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除单个自定义线路
+         * 创建内网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrivateZone(createPrivateZoneRequest?: CreatePrivateZoneRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPrivateZoneRequest !== null && createPrivateZoneRequest !== undefined) {
+                if (createPrivateZoneRequest instanceof CreatePrivateZoneRequest) {
+                    body = createPrivateZoneRequest.body
+                } else {
+                    body = createPrivateZoneRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建弹性公网IP的反向解析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPtr(createPtrRequest?: CreatePtrRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/ptrs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPtrRequest !== null && createPtrRequest !== undefined) {
+                if (createPtrRequest instanceof CreatePtrRequest) {
+                    body = createPtrRequest.body
+                } else {
+                    body = createPtrRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建公网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPublicZone(createPublicZoneRequest?: CreatePublicZoneRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPublicZoneRequest !== null && createPublicZoneRequest !== undefined) {
+                if (createPublicZoneRequest instanceof CreatePublicZoneRequest) {
+                    body = createPublicZoneRequest.body
+                } else {
+                    body = createPublicZoneRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRecordSet(createRecordSetRequest?: CreateRecordSetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones/{zone_id}/recordsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (createRecordSetRequest !== null && createRecordSetRequest !== undefined) {
+                if (createRecordSetRequest instanceof CreateRecordSetRequest) {
+                    zoneId = createRecordSetRequest.zoneId;
+                    body = createRecordSetRequest.body
+                } else {
+                    zoneId = createRecordSetRequest['zone_id'];
+                    body = createRecordSetRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling createRecordSet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量线路创建记录集。属于原子性操作，如果存在一个参数校验不通过，则创建失败。仅公网域名支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRecordSetWithBatchLines(createRecordSetWithBatchLinesRequest?: CreateRecordSetWithBatchLinesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/zones/{zone_id}/recordsets/batch/lines",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (createRecordSetWithBatchLinesRequest !== null && createRecordSetWithBatchLinesRequest !== undefined) {
+                if (createRecordSetWithBatchLinesRequest instanceof CreateRecordSetWithBatchLinesRequest) {
+                    zoneId = createRecordSetWithBatchLinesRequest.zoneId;
+                    body = createRecordSetWithBatchLinesRequest.body
+                } else {
+                    zoneId = createRecordSetWithBatchLinesRequest['zone_id'];
+                    body = createRecordSetWithBatchLinesRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling createRecordSetWithBatchLines.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRecordSetWithLine(createRecordSetWithLineRequest?: CreateRecordSetWithLineRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/zones/{zone_id}/recordsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (createRecordSetWithLineRequest !== null && createRecordSetWithLineRequest !== undefined) {
+                if (createRecordSetWithLineRequest instanceof CreateRecordSetWithLineRequest) {
+                    zoneId = createRecordSetWithLineRequest.zoneId;
+                    body = createRecordSetWithLineRequest.body
+                } else {
+                    zoneId = createRecordSetWithLineRequest['zone_id'];
+                    body = createRecordSetWithLineRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling createRecordSetWithLine.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建解析器转发规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createResolverRule(createResolverRuleRequest?: CreateResolverRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/resolverrules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createResolverRuleRequest !== null && createResolverRuleRequest !== undefined) {
+                if (createResolverRuleRequest instanceof CreateResolverRuleRequest) {
+                    body = createResolverRuleRequest.body
+                } else {
+                    body = createResolverRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为指定实例添加标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTag(createTagRequest?: CreateTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (createTagRequest !== null && createTagRequest !== undefined) {
+                if (createTagRequest instanceof CreateTagRequest) {
+                    resourceType = createTagRequest.resourceType;
+                    resourceId = createTagRequest.resourceId;
+                    body = createTagRequest.body
+                } else {
+                    resourceType = createTagRequest['resource_type'];
+                    resourceId = createTagRequest['resource_id'];
+                    body = createTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createTag.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createTag.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除自定义线路。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1731,7 +3121,44 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除单个线路分组。该接口部分区域未上线、如需使用请提交工单申请开通。
+         * 删除终端节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/endpoints/{endpoint_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let endpointId;
+
+            if (deleteEndpointRequest !== null && deleteEndpointRequest !== undefined) {
+                if (deleteEndpointRequest instanceof DeleteEndpointRequest) {
+                    endpointId = deleteEndpointRequest.endpointId;
+                } else {
+                    endpointId = deleteEndpointRequest['endpoint_id'];
+                }
+            }
+
+        
+            if (endpointId === null || endpointId === undefined) {
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling deleteEndpoint.');
+            }
+
+            options.pathParams = { 'endpoint_id': endpointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1768,7 +3195,430 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询所有的云解析服务API版本号列表
+         * 删除内网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateZone(deletePrivateZoneRequest?: DeletePrivateZoneRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/zones/{zone_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (deletePrivateZoneRequest !== null && deletePrivateZoneRequest !== undefined) {
+                if (deletePrivateZoneRequest instanceof DeletePrivateZoneRequest) {
+                    zoneId = deletePrivateZoneRequest.zoneId;
+                } else {
+                    zoneId = deletePrivateZoneRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deletePrivateZone.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将弹性公网IP的反向解析记录恢复为默认值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePtr(deletePtrRequest?: DeletePtrRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/ptrs/{ptr_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ptrId;
+
+            if (deletePtrRequest !== null && deletePtrRequest !== undefined) {
+                if (deletePtrRequest instanceof DeletePtrRequest) {
+                    ptrId = deletePtrRequest.ptrId;
+                } else {
+                    ptrId = deletePtrRequest['ptr_id'];
+                }
+            }
+
+        
+            if (ptrId === null || ptrId === undefined) {
+            throw new RequiredError('ptrId','Required parameter ptrId was null or undefined when calling deletePtr.');
+            }
+
+            options.pathParams = { 'ptr_id': ptrId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除公网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePublicZone(deletePublicZoneRequest?: DeletePublicZoneRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/zones/{zone_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (deletePublicZoneRequest !== null && deletePublicZoneRequest !== undefined) {
+                if (deletePublicZoneRequest instanceof DeletePublicZoneRequest) {
+                    zoneId = deletePublicZoneRequest.zoneId;
+                } else {
+                    zoneId = deletePublicZoneRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deletePublicZone.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除记录集。删除有添加智能解析的记录集时，需要用记录集管理（新版本）模块中删除接口进行删除。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRecordSet(deleteRecordSetRequest?: DeleteRecordSetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/zones/{zone_id}/recordsets/{recordset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+            
+            let recordsetId;
+
+            if (deleteRecordSetRequest !== null && deleteRecordSetRequest !== undefined) {
+                if (deleteRecordSetRequest instanceof DeleteRecordSetRequest) {
+                    zoneId = deleteRecordSetRequest.zoneId;
+                    recordsetId = deleteRecordSetRequest.recordsetId;
+                } else {
+                    zoneId = deleteRecordSetRequest['zone_id'];
+                    recordsetId = deleteRecordSetRequest['recordset_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deleteRecordSet.');
+            }
+            if (recordsetId === null || recordsetId === undefined) {
+            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling deleteRecordSet.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRecordSets(deleteRecordSetsRequest?: DeleteRecordSetsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/zones/{zone_id}/recordsets/{recordset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+            
+            let recordsetId;
+
+            if (deleteRecordSetsRequest !== null && deleteRecordSetsRequest !== undefined) {
+                if (deleteRecordSetsRequest instanceof DeleteRecordSetsRequest) {
+                    zoneId = deleteRecordSetsRequest.zoneId;
+                    recordsetId = deleteRecordSetsRequest.recordsetId;
+                } else {
+                    zoneId = deleteRecordSetsRequest['zone_id'];
+                    recordsetId = deleteRecordSetsRequest['recordset_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deleteRecordSets.');
+            }
+            if (recordsetId === null || recordsetId === undefined) {
+            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling deleteRecordSets.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除解析器转发规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteResolverRule(deleteResolverRuleRequest?: DeleteResolverRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/resolverrules/{resolverrule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resolverruleId;
+
+            if (deleteResolverRuleRequest !== null && deleteResolverRuleRequest !== undefined) {
+                if (deleteResolverRuleRequest instanceof DeleteResolverRuleRequest) {
+                    resolverruleId = deleteResolverRuleRequest.resolverruleId;
+                } else {
+                    resolverruleId = deleteResolverRuleRequest['resolverrule_id'];
+                }
+            }
+
+        
+            if (resolverruleId === null || resolverruleId === undefined) {
+            throw new RequiredError('resolverruleId','Required parameter resolverruleId was null or undefined when calling deleteResolverRule.');
+            }
+
+            options.pathParams = { 'resolverrule_id': resolverruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTag(deleteTagRequest?: DeleteTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/{key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let key;
+
+            if (deleteTagRequest !== null && deleteTagRequest !== undefined) {
+                if (deleteTagRequest instanceof DeleteTagRequest) {
+                    resourceType = deleteTagRequest.resourceType;
+                    resourceId = deleteTagRequest.resourceId;
+                    key = deleteTagRequest.key;
+                } else {
+                    resourceType = deleteTagRequest['resource_type'];
+                    resourceId = deleteTagRequest['resource_id'];
+                    key = deleteTagRequest['key'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteTag.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteTag.');
+            }
+            if (key === null || key === undefined) {
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteTag.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'key': key, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 终端节点解绑IP地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateEndpointIpaddress(disassociateEndpointIpaddressRequest?: DisassociateEndpointIpaddressRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.1/endpoints/{endpoint_id}/ipaddresses/{ipaddress_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let endpointId;
+            
+            let ipaddressId;
+
+            if (disassociateEndpointIpaddressRequest !== null && disassociateEndpointIpaddressRequest !== undefined) {
+                if (disassociateEndpointIpaddressRequest instanceof DisassociateEndpointIpaddressRequest) {
+                    endpointId = disassociateEndpointIpaddressRequest.endpointId;
+                    ipaddressId = disassociateEndpointIpaddressRequest.ipaddressId;
+                } else {
+                    endpointId = disassociateEndpointIpaddressRequest['endpoint_id'];
+                    ipaddressId = disassociateEndpointIpaddressRequest['ipaddress_id'];
+                }
+            }
+
+        
+            if (endpointId === null || endpointId === undefined) {
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling disassociateEndpointIpaddress.');
+            }
+            if (ipaddressId === null || ipaddressId === undefined) {
+            throw new RequiredError('ipaddressId','Required parameter ipaddressId was null or undefined when calling disassociateEndpointIpaddress.');
+            }
+
+            options.pathParams = { 'endpoint_id': endpointId,'ipaddress_id': ipaddressId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解析器转发规则解关联VPC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateResolverRuleRouter(disassociateResolverRuleRouterRequest?: DisassociateResolverRuleRouterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/resolverrules/{resolverrule_id}/disassociaterouter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resolverruleId;
+
+            if (disassociateResolverRuleRouterRequest !== null && disassociateResolverRuleRouterRequest !== undefined) {
+                if (disassociateResolverRuleRouterRequest instanceof DisassociateResolverRuleRouterRequest) {
+                    resolverruleId = disassociateResolverRuleRouterRequest.resolverruleId;
+                    body = disassociateResolverRuleRouterRequest.body
+                } else {
+                    resolverruleId = disassociateResolverRuleRouterRequest['resolverrule_id'];
+                    body = disassociateResolverRuleRouterRequest['body'];
+                }
+            }
+
+        
+            if (resolverruleId === null || resolverruleId === undefined) {
+            throw new RequiredError('resolverruleId','Required parameter resolverruleId was null or undefined when calling disassociateResolverRuleRouter.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resolverrule_id': resolverruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在内网域名上解关联VPC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateRouter(disassociateRouterRequest?: DisassociateRouterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones/{zone_id}/disassociaterouter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (disassociateRouterRequest !== null && disassociateRouterRequest !== undefined) {
+                if (disassociateRouterRequest instanceof DisassociateRouterRequest) {
+                    zoneId = disassociateRouterRequest.zoneId;
+                    body = disassociateRouterRequest.body
+                } else {
+                    zoneId = disassociateRouterRequest['zone_id'];
+                    body = disassociateRouterRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling disassociateRouter.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有的云解析服务API版本号列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1789,7 +3639,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义线路
+         * 查询自定义线路。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1868,7 +3718,163 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询线路分组列表。该接口部分区域未上线、如需使用请提交工单申请开通。
+         * 查询终端节点下的IP地址列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEndpointIpaddresses(listEndpointIpaddressesRequest?: ListEndpointIpaddressesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/endpoints/{endpoint_id}/ipaddresses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let endpointId;
+
+            if (listEndpointIpaddressesRequest !== null && listEndpointIpaddressesRequest !== undefined) {
+                if (listEndpointIpaddressesRequest instanceof ListEndpointIpaddressesRequest) {
+                    endpointId = listEndpointIpaddressesRequest.endpointId;
+                } else {
+                    endpointId = listEndpointIpaddressesRequest['endpoint_id'];
+                }
+            }
+
+        
+            if (endpointId === null || endpointId === undefined) {
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling listEndpointIpaddresses.');
+            }
+
+            options.pathParams = { 'endpoint_id': endpointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询终端节点VPC列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEndpointVpcs(listEndpointVpcsRequest?: ListEndpointVpcsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/vpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let vpcId;
+
+            if (listEndpointVpcsRequest !== null && listEndpointVpcsRequest !== undefined) {
+                if (listEndpointVpcsRequest instanceof ListEndpointVpcsRequest) {
+                    limit = listEndpointVpcsRequest.limit;
+                    offset = listEndpointVpcsRequest.offset;
+                    vpcId = listEndpointVpcsRequest.vpcId;
+                } else {
+                    limit = listEndpointVpcsRequest['limit'];
+                    offset = listEndpointVpcsRequest['offset'];
+                    vpcId = listEndpointVpcsRequest['vpc_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询终端节点列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEndpoints(listEndpointsRequest?: ListEndpointsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/endpoints",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let direction;
+            
+            let vpcId;
+            
+            let name;
+            
+            let limit;
+            
+            let offset;
+
+            if (listEndpointsRequest !== null && listEndpointsRequest !== undefined) {
+                if (listEndpointsRequest instanceof ListEndpointsRequest) {
+                    direction = listEndpointsRequest.direction;
+                    vpcId = listEndpointsRequest.vpcId;
+                    name = listEndpointsRequest.name;
+                    limit = listEndpointsRequest.limit;
+                    offset = listEndpointsRequest.offset;
+                } else {
+                    direction = listEndpointsRequest['direction'];
+                    vpcId = listEndpointsRequest['vpc_id'];
+                    name = listEndpointsRequest['name'];
+                    limit = listEndpointsRequest['limit'];
+                    offset = listEndpointsRequest['offset'];
+                }
+            }
+
+        
+            if (direction === null || direction === undefined) {
+                throw new RequiredError('direction','Required parameter direction was null or undefined when calling listEndpoints.');
+            }
+            if (direction !== null && direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询线路分组列表。该接口部分区域未上线，如需使用请提交工单申请开通。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1970,51 +3976,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定的云解析服务API版本号
+         * 查询内网域名列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showApiInfo(showApiInfoRequest?: ShowApiInfoRequest) {
+        listPrivateZones(listPrivateZonesRequest?: ListPrivateZonesRequest) {
             const options = {
                 method: "GET",
-                url: "/{version}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let version;
-
-            if (showApiInfoRequest !== null && showApiInfoRequest !== undefined) {
-                if (showApiInfoRequest instanceof ShowApiInfoRequest) {
-                    version = showApiInfoRequest.version;
-                } else {
-                    version = showApiInfoRequest['version'];
-                }
-            }
-
-        
-            if (version === null || version === undefined) {
-            throw new RequiredError('version','Required parameter version was null or undefined when calling showApiInfo.');
-            }
-
-            options.pathParams = { 'version': version, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单租户在DNS服务下的资源配额，包括公网zone配额、内网zone配额、Record Set配额、PTR Record配额、入站终端节点配额、出站终端节点配额、自定义线路配额、线路分组配额等。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/quotamg/dns/quotas",
+                url: "/v2/zones",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2023,22 +3992,106 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let domainId;
+            let type;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+            
+            let tags;
+            
+            let name;
+            
+            let id;
+            
+            let status;
+            
+            let searchMode;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let enterpriseProjectId;
+            
+            let routerId;
 
-            if (showDomainQuotaRequest !== null && showDomainQuotaRequest !== undefined) {
-                if (showDomainQuotaRequest instanceof ShowDomainQuotaRequest) {
-                    domainId = showDomainQuotaRequest.domainId;
+            if (listPrivateZonesRequest !== null && listPrivateZonesRequest !== undefined) {
+                if (listPrivateZonesRequest instanceof ListPrivateZonesRequest) {
+                    type = listPrivateZonesRequest.type;
+                    limit = listPrivateZonesRequest.limit;
+                    marker = listPrivateZonesRequest.marker;
+                    offset = listPrivateZonesRequest.offset;
+                    tags = listPrivateZonesRequest.tags;
+                    name = listPrivateZonesRequest.name;
+                    id = listPrivateZonesRequest.id;
+                    status = listPrivateZonesRequest.status;
+                    searchMode = listPrivateZonesRequest.searchMode;
+                    sortKey = listPrivateZonesRequest.sortKey;
+                    sortDir = listPrivateZonesRequest.sortDir;
+                    enterpriseProjectId = listPrivateZonesRequest.enterpriseProjectId;
+                    routerId = listPrivateZonesRequest.routerId;
                 } else {
-                    domainId = showDomainQuotaRequest['domain_id'];
+                    type = listPrivateZonesRequest['type'];
+                    limit = listPrivateZonesRequest['limit'];
+                    marker = listPrivateZonesRequest['marker'];
+                    offset = listPrivateZonesRequest['offset'];
+                    tags = listPrivateZonesRequest['tags'];
+                    name = listPrivateZonesRequest['name'];
+                    id = listPrivateZonesRequest['id'];
+                    status = listPrivateZonesRequest['status'];
+                    searchMode = listPrivateZonesRequest['search_mode'];
+                    sortKey = listPrivateZonesRequest['sort_key'];
+                    sortDir = listPrivateZonesRequest['sort_dir'];
+                    enterpriseProjectId = listPrivateZonesRequest['enterprise_project_id'];
+                    routerId = listPrivateZonesRequest['router_id'];
                 }
             }
 
         
-            if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainQuota.');
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listPrivateZones.');
             }
-            if (domainId !== null && domainId !== undefined) {
-                localVarQueryParameter['domain_id'] = domainId;
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (searchMode !== null && searchMode !== undefined) {
+                localVarQueryParameter['search_mode'] = searchMode;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (routerId !== null && routerId !== undefined) {
+                localVarQueryParameter['router_id'] = routerId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2047,189 +4100,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询线路分组。该接口部分区域未上线、如需使用请提交工单申请开通。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showLineGroup(showLineGroupRequest?: ShowLineGroupRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2.1/linegroups/{linegroup_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let linegroupId;
-
-            if (showLineGroupRequest !== null && showLineGroupRequest !== undefined) {
-                if (showLineGroupRequest instanceof ShowLineGroupRequest) {
-                    linegroupId = showLineGroupRequest.linegroupId;
-                } else {
-                    linegroupId = showLineGroupRequest['linegroup_id'];
-                }
-            }
-
-        
-            if (linegroupId === null || linegroupId === undefined) {
-            throw new RequiredError('linegroupId','Required parameter linegroupId was null or undefined when calling showLineGroup.');
-            }
-
-            options.pathParams = { 'linegroup_id': linegroupId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新单个自定义线路
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateCustomLine(updateCustomLineRequest?: UpdateCustomLineRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2.1/customlines/{line_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let lineId;
-
-            if (updateCustomLineRequest !== null && updateCustomLineRequest !== undefined) {
-                if (updateCustomLineRequest instanceof UpdateCustomLineRequest) {
-                    lineId = updateCustomLineRequest.lineId;
-                    body = updateCustomLineRequest.body
-                } else {
-                    lineId = updateCustomLineRequest['line_id'];
-                    body = updateCustomLineRequest['body'];
-                }
-            }
-
-        
-            if (lineId === null || lineId === undefined) {
-            throw new RequiredError('lineId','Required parameter lineId was null or undefined when calling updateCustomLine.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'line_id': lineId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新单个线路分组。该接口部分区域未上线、如需使用请提交工单申请开通。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateLineGroups(updateLineGroupsRequest?: UpdateLineGroupsRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2.1/linegroups/{linegroup_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let linegroupId;
-
-            if (updateLineGroupsRequest !== null && updateLineGroupsRequest !== undefined) {
-                if (updateLineGroupsRequest instanceof UpdateLineGroupsRequest) {
-                    linegroupId = updateLineGroupsRequest.linegroupId;
-                    body = updateLineGroupsRequest.body
-                } else {
-                    linegroupId = updateLineGroupsRequest['linegroup_id'];
-                    body = updateLineGroupsRequest['body'];
-                }
-            }
-
-        
-            if (linegroupId === null || linegroupId === undefined) {
-            throw new RequiredError('linegroupId','Required parameter linegroupId was null or undefined when calling updateLineGroups.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'linegroup_id': linegroupId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 设置弹性公网IP的PTR记录
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createEipRecordSet(createEipRecordSetRequest?: CreateEipRecordSetRequest) {
-            const options = {
-                method: "PATCH",
-                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let region;
-            
-            let floatingipId;
-
-            if (createEipRecordSetRequest !== null && createEipRecordSetRequest !== undefined) {
-                if (createEipRecordSetRequest instanceof CreateEipRecordSetRequest) {
-                    region = createEipRecordSetRequest.region;
-                    floatingipId = createEipRecordSetRequest.floatingipId;
-                    body = createEipRecordSetRequest.body
-                } else {
-                    region = createEipRecordSetRequest['region'];
-                    floatingipId = createEipRecordSetRequest['floatingip_id'];
-                    body = createEipRecordSetRequest['body'];
-                }
-            }
-
-        
-            if (region === null || region === undefined) {
-            throw new RequiredError('region','Required parameter region was null or undefined when calling createEipRecordSet.');
-            }
-            if (floatingipId === null || floatingipId === undefined) {
-            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling createEipRecordSet.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询租户弹性公网IP的PTR记录列表
+         * 查询弹性公网IP的反向解析记录列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2301,471 +4172,252 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将弹性公网IP的PTR记录恢复为默认值
+         * 查询弹性公网IP的反向解析记录列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        restorePtrRecord(restorePtrRecordRequest?: RestorePtrRecordRequest) {
-            const options = {
-                method: "PATCH",
-                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let region;
-            
-            let floatingipId;
-
-            if (restorePtrRecordRequest !== null && restorePtrRecordRequest !== undefined) {
-                if (restorePtrRecordRequest instanceof RestorePtrRecordRequest) {
-                    region = restorePtrRecordRequest.region;
-                    floatingipId = restorePtrRecordRequest.floatingipId;
-                    body = restorePtrRecordRequest.body
-                } else {
-                    region = restorePtrRecordRequest['region'];
-                    floatingipId = restorePtrRecordRequest['floatingip_id'];
-                    body = restorePtrRecordRequest['body'];
-                }
-            }
-
-        
-            if (region === null || region === undefined) {
-            throw new RequiredError('region','Required parameter region was null or undefined when calling restorePtrRecord.');
-            }
-            if (floatingipId === null || floatingipId === undefined) {
-            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling restorePtrRecord.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单个弹性公网IP的PTR记录
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPtrRecordSet(showPtrRecordSetRequest?: ShowPtrRecordSetRequest) {
+        listPtrs(listPtrsRequest?: ListPtrsRequest) {
             const options = {
                 method: "GET",
-                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
+                url: "/v2.1/ptrs",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
-            let region;
+            let marker;
             
-            let floatingipId;
+            let limit;
+            
+            let offset;
+            
+            let enterpriseProjectId;
+            
+            let tags;
+            
+            let status;
+            
+            let resourceType;
 
-            if (showPtrRecordSetRequest !== null && showPtrRecordSetRequest !== undefined) {
-                if (showPtrRecordSetRequest instanceof ShowPtrRecordSetRequest) {
-                    region = showPtrRecordSetRequest.region;
-                    floatingipId = showPtrRecordSetRequest.floatingipId;
+            if (listPtrsRequest !== null && listPtrsRequest !== undefined) {
+                if (listPtrsRequest instanceof ListPtrsRequest) {
+                    marker = listPtrsRequest.marker;
+                    limit = listPtrsRequest.limit;
+                    offset = listPtrsRequest.offset;
+                    enterpriseProjectId = listPtrsRequest.enterpriseProjectId;
+                    tags = listPtrsRequest.tags;
+                    status = listPtrsRequest.status;
+                    resourceType = listPtrsRequest.resourceType;
                 } else {
-                    region = showPtrRecordSetRequest['region'];
-                    floatingipId = showPtrRecordSetRequest['floatingip_id'];
+                    marker = listPtrsRequest['marker'];
+                    limit = listPtrsRequest['limit'];
+                    offset = listPtrsRequest['offset'];
+                    enterpriseProjectId = listPtrsRequest['enterprise_project_id'];
+                    tags = listPtrsRequest['tags'];
+                    status = listPtrsRequest['status'];
+                    resourceType = listPtrsRequest['resource_type'];
                 }
             }
 
         
-            if (region === null || region === undefined) {
-            throw new RequiredError('region','Required parameter region was null or undefined when calling showPtrRecordSet.');
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
-            if (floatingipId === null || floatingipId === undefined) {
-            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling showPtrRecordSet.');
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
             }
 
-            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 修改弹性公网IP的PTR记录
+         * 查询公网域名的线路列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updatePtrRecord(updatePtrRecordRequest?: UpdatePtrRecordRequest) {
+        listPublicZoneLines(listPublicZoneLinesRequest?: ListPublicZoneLinesRequest) {
             const options = {
-                method: "PATCH",
-                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let region;
-            
-            let floatingipId;
-
-            if (updatePtrRecordRequest !== null && updatePtrRecordRequest !== undefined) {
-                if (updatePtrRecordRequest instanceof UpdatePtrRecordRequest) {
-                    region = updatePtrRecordRequest.region;
-                    floatingipId = updatePtrRecordRequest.floatingipId;
-                    body = updatePtrRecordRequest.body
-                } else {
-                    region = updatePtrRecordRequest['region'];
-                    floatingipId = updatePtrRecordRequest['floatingip_id'];
-                    body = updatePtrRecordRequest['body'];
-                }
-            }
-
-        
-            if (region === null || region === undefined) {
-            throw new RequiredError('region','Required parameter region was null or undefined when calling updatePtrRecord.');
-            }
-            if (floatingipId === null || floatingipId === undefined) {
-            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling updatePtrRecord.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量删除某个Zone下的Record Set资源，当删除的资源不存在时，则默认删除成功。
-         * 响应结果中只包含本次实际删除的资源。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDeleteRecordSetWithLine(batchDeleteRecordSetWithLineRequest?: BatchDeleteRecordSetWithLineRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2.1/zones/{zone_id}/recordsets",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-
-            if (batchDeleteRecordSetWithLineRequest !== null && batchDeleteRecordSetWithLineRequest !== undefined) {
-                if (batchDeleteRecordSetWithLineRequest instanceof BatchDeleteRecordSetWithLineRequest) {
-                    zoneId = batchDeleteRecordSetWithLineRequest.zoneId;
-                    body = batchDeleteRecordSetWithLineRequest.body
-                } else {
-                    zoneId = batchDeleteRecordSetWithLineRequest['zone_id'];
-                    body = batchDeleteRecordSetWithLineRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling batchDeleteRecordSetWithLine.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量修改RecordSet。属于原子性操作，请求Record Set将全部完成修改，或不做任何修改。
-         * 仅公网Zone支持。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest?: BatchUpdateRecordSetWithLineRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2.1/zones/{zone_id}/recordsets",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-
-            if (batchUpdateRecordSetWithLineRequest !== null && batchUpdateRecordSetWithLineRequest !== undefined) {
-                if (batchUpdateRecordSetWithLineRequest instanceof BatchUpdateRecordSetWithLineRequest) {
-                    zoneId = batchUpdateRecordSetWithLineRequest.zoneId;
-                    body = batchUpdateRecordSetWithLineRequest.body
-                } else {
-                    zoneId = batchUpdateRecordSetWithLineRequest['zone_id'];
-                    body = batchUpdateRecordSetWithLineRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling batchUpdateRecordSetWithLine.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建单个Record Set
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createRecordSet(createRecordSetRequest?: CreateRecordSetRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/zones/{zone_id}/recordsets",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-
-            if (createRecordSetRequest !== null && createRecordSetRequest !== undefined) {
-                if (createRecordSetRequest instanceof CreateRecordSetRequest) {
-                    zoneId = createRecordSetRequest.zoneId;
-                    body = createRecordSetRequest.body
-                } else {
-                    zoneId = createRecordSetRequest['zone_id'];
-                    body = createRecordSetRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling createRecordSet.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量线路创建RecordSet。属于原子性操作，如果存在一个参数校验不通过，则创建失败。仅公网Zone支持。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createRecordSetWithBatchLines(createRecordSetWithBatchLinesRequest?: CreateRecordSetWithBatchLinesRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2.1/zones/{zone_id}/recordsets/batch/lines",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-
-            if (createRecordSetWithBatchLinesRequest !== null && createRecordSetWithBatchLinesRequest !== undefined) {
-                if (createRecordSetWithBatchLinesRequest instanceof CreateRecordSetWithBatchLinesRequest) {
-                    zoneId = createRecordSetWithBatchLinesRequest.zoneId;
-                    body = createRecordSetWithBatchLinesRequest.body
-                } else {
-                    zoneId = createRecordSetWithBatchLinesRequest['zone_id'];
-                    body = createRecordSetWithBatchLinesRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling createRecordSetWithBatchLines.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建单个Record Set，仅适用于公网DNS
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createRecordSetWithLine(createRecordSetWithLineRequest?: CreateRecordSetWithLineRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2.1/zones/{zone_id}/recordsets",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-
-            if (createRecordSetWithLineRequest !== null && createRecordSetWithLineRequest !== undefined) {
-                if (createRecordSetWithLineRequest instanceof CreateRecordSetWithLineRequest) {
-                    zoneId = createRecordSetWithLineRequest.zoneId;
-                    body = createRecordSetWithLineRequest.body
-                } else {
-                    zoneId = createRecordSetWithLineRequest['zone_id'];
-                    body = createRecordSetWithLineRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling createRecordSetWithLine.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除单个Record Set。删除有添加智能解析的记录集时，需要用Record Set多线路管理模块中删除接口进行删除。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteRecordSet(deleteRecordSetRequest?: DeleteRecordSetRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/zones/{zone_id}/recordsets/{recordset_id}",
+                method: "GET",
+                url: "/v2.1/zones/{zone_id}/lines",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let zoneId;
             
-            let recordsetId;
+            let limit;
+            
+            let offset;
 
-            if (deleteRecordSetRequest !== null && deleteRecordSetRequest !== undefined) {
-                if (deleteRecordSetRequest instanceof DeleteRecordSetRequest) {
-                    zoneId = deleteRecordSetRequest.zoneId;
-                    recordsetId = deleteRecordSetRequest.recordsetId;
+            if (listPublicZoneLinesRequest !== null && listPublicZoneLinesRequest !== undefined) {
+                if (listPublicZoneLinesRequest instanceof ListPublicZoneLinesRequest) {
+                    zoneId = listPublicZoneLinesRequest.zoneId;
+                    limit = listPublicZoneLinesRequest.limit;
+                    offset = listPublicZoneLinesRequest.offset;
                 } else {
-                    zoneId = deleteRecordSetRequest['zone_id'];
-                    recordsetId = deleteRecordSetRequest['recordset_id'];
+                    zoneId = listPublicZoneLinesRequest['zone_id'];
+                    limit = listPublicZoneLinesRequest['limit'];
+                    offset = listPublicZoneLinesRequest['offset'];
                 }
             }
 
         
             if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deleteRecordSet.');
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling listPublicZoneLines.');
             }
-            if (recordsetId === null || recordsetId === undefined) {
-            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling deleteRecordSet.');
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
-            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'zone_id': zoneId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 删除单个Record Set
+         * 查询公网域名列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteRecordSets(deleteRecordSetsRequest?: DeleteRecordSetsRequest) {
+        listPublicZones(listPublicZonesRequest?: ListPublicZonesRequest) {
             const options = {
-                method: "DELETE",
-                url: "/v2.1/zones/{zone_id}/recordsets/{recordset_id}",
+                method: "GET",
+                url: "/v2/zones",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
-            let zoneId;
+            let type;
             
-            let recordsetId;
+            let limit;
+            
+            let marker;
+            
+            let offset;
+            
+            let tags;
+            
+            let name;
+            
+            let id;
+            
+            let status;
+            
+            let searchMode;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let enterpriseProjectId;
 
-            if (deleteRecordSetsRequest !== null && deleteRecordSetsRequest !== undefined) {
-                if (deleteRecordSetsRequest instanceof DeleteRecordSetsRequest) {
-                    zoneId = deleteRecordSetsRequest.zoneId;
-                    recordsetId = deleteRecordSetsRequest.recordsetId;
+            if (listPublicZonesRequest !== null && listPublicZonesRequest !== undefined) {
+                if (listPublicZonesRequest instanceof ListPublicZonesRequest) {
+                    type = listPublicZonesRequest.type;
+                    limit = listPublicZonesRequest.limit;
+                    marker = listPublicZonesRequest.marker;
+                    offset = listPublicZonesRequest.offset;
+                    tags = listPublicZonesRequest.tags;
+                    name = listPublicZonesRequest.name;
+                    id = listPublicZonesRequest.id;
+                    status = listPublicZonesRequest.status;
+                    searchMode = listPublicZonesRequest.searchMode;
+                    sortKey = listPublicZonesRequest.sortKey;
+                    sortDir = listPublicZonesRequest.sortDir;
+                    enterpriseProjectId = listPublicZonesRequest.enterpriseProjectId;
                 } else {
-                    zoneId = deleteRecordSetsRequest['zone_id'];
-                    recordsetId = deleteRecordSetsRequest['recordset_id'];
+                    type = listPublicZonesRequest['type'];
+                    limit = listPublicZonesRequest['limit'];
+                    marker = listPublicZonesRequest['marker'];
+                    offset = listPublicZonesRequest['offset'];
+                    tags = listPublicZonesRequest['tags'];
+                    name = listPublicZonesRequest['name'];
+                    id = listPublicZonesRequest['id'];
+                    status = listPublicZonesRequest['status'];
+                    searchMode = listPublicZonesRequest['search_mode'];
+                    sortKey = listPublicZonesRequest['sort_key'];
+                    sortDir = listPublicZonesRequest['sort_dir'];
+                    enterpriseProjectId = listPublicZonesRequest['enterprise_project_id'];
                 }
             }
 
         
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deleteRecordSets.');
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
-            if (recordsetId === null || recordsetId === undefined) {
-            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling deleteRecordSets.');
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (searchMode !== null && searchMode !== undefined) {
+                localVarQueryParameter['search_mode'] = searchMode;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
-            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询租户Record Set资源列表
+         * 查询租户记录集列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2886,7 +4538,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个Zone下Record Set列表
+         * 查询域名下的记录集列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3001,7 +4653,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户Record Set资源列表
+         * 查询租户记录集列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3143,7 +4795,262 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置Record Set状态
+         * 查询解析器转发规则列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResolverRules(listResolverRulesRequest?: ListResolverRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/resolverrules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainName;
+            
+            let name;
+            
+            let endpointId;
+            
+            let id;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+
+            if (listResolverRulesRequest !== null && listResolverRulesRequest !== undefined) {
+                if (listResolverRulesRequest instanceof ListResolverRulesRequest) {
+                    domainName = listResolverRulesRequest.domainName;
+                    name = listResolverRulesRequest.name;
+                    endpointId = listResolverRulesRequest.endpointId;
+                    id = listResolverRulesRequest.id;
+                    limit = listResolverRulesRequest.limit;
+                    offset = listResolverRulesRequest.offset;
+                    marker = listResolverRulesRequest.marker;
+                } else {
+                    domainName = listResolverRulesRequest['domain_name'];
+                    name = listResolverRulesRequest['name'];
+                    endpointId = listResolverRulesRequest['endpoint_id'];
+                    id = listResolverRulesRequest['id'];
+                    limit = listResolverRulesRequest['limit'];
+                    offset = listResolverRulesRequest['offset'];
+                    marker = listResolverRulesRequest['marker'];
+                }
+            }
+
+        
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (endpointId !== null && endpointId !== undefined) {
+                localVarQueryParameter['endpoint_id'] = endpointId;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签查询资源实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTag(listTagRequest?: ListTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/resource_instances/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+
+            if (listTagRequest !== null && listTagRequest !== undefined) {
+                if (listTagRequest instanceof ListTagRequest) {
+                    resourceType = listTagRequest.resourceType;
+                    body = listTagRequest.body
+                } else {
+                    resourceType = listTagRequest['resource_type'];
+                    body = listTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTag.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例类型的所有标签集合
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTags(listTagsRequest?: ListTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+
+            if (listTagsRequest !== null && listTagsRequest !== undefined) {
+                if (listTagsRequest instanceof ListTagsRequest) {
+                    resourceType = listTagsRequest.resourceType;
+                } else {
+                    resourceType = listTagsRequest['resource_type'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将弹性公网IP的反向解析记录恢复为默认值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restorePtrRecord(restorePtrRecordRequest?: RestorePtrRecordRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let region;
+            
+            let floatingipId;
+
+            if (restorePtrRecordRequest !== null && restorePtrRecordRequest !== undefined) {
+                if (restorePtrRecordRequest instanceof RestorePtrRecordRequest) {
+                    region = restorePtrRecordRequest.region;
+                    floatingipId = restorePtrRecordRequest.floatingipId;
+                    body = restorePtrRecordRequest.body
+                } else {
+                    region = restorePtrRecordRequest['region'];
+                    floatingipId = restorePtrRecordRequest['floatingip_id'];
+                    body = restorePtrRecordRequest['body'];
+                }
+            }
+
+        
+            if (region === null || region === undefined) {
+            throw new RequiredError('region','Required parameter region was null or undefined when calling restorePtrRecord.');
+            }
+            if (floatingipId === null || floatingipId === undefined) {
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling restorePtrRecord.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置内网域名的子域名递归解析代理。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setPrivateZoneProxyPattern(setPrivateZoneProxyPatternRequest?: SetPrivateZoneProxyPatternRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones/{zone_id}/actions/set-proxy-pattern",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (setPrivateZoneProxyPatternRequest !== null && setPrivateZoneProxyPatternRequest !== undefined) {
+                if (setPrivateZoneProxyPatternRequest instanceof SetPrivateZoneProxyPatternRequest) {
+                    zoneId = setPrivateZoneProxyPatternRequest.zoneId;
+                    body = setPrivateZoneProxyPatternRequest.body
+                } else {
+                    zoneId = setPrivateZoneProxyPatternRequest['zone_id'];
+                    body = setPrivateZoneProxyPatternRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling setPrivateZoneProxyPattern.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置记录集状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3186,7 +5093,387 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个Record Set。
+         * 查询指定的云解析服务API版本号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showApiInfo(showApiInfoRequest?: ShowApiInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/{version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let version;
+
+            if (showApiInfoRequest !== null && showApiInfoRequest !== undefined) {
+                if (showApiInfoRequest instanceof ShowApiInfoRequest) {
+                    version = showApiInfoRequest.version;
+                } else {
+                    version = showApiInfoRequest['version'];
+                }
+            }
+
+        
+            if (version === null || version === undefined) {
+            throw new RequiredError('version','Required parameter version was null or undefined when calling showApiInfo.');
+            }
+
+            options.pathParams = { 'version': version, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户在DNS服务下的资源配额，包括公网域名配额、内网域名配额、记录集配额、反向解析配额、自定义线路配额、线路分组配额、入站终端节点配额、出站终端节点配额、转发规则配额等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/quotamg/dns/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+
+            if (showDomainQuotaRequest !== null && showDomainQuotaRequest !== undefined) {
+                if (showDomainQuotaRequest instanceof ShowDomainQuotaRequest) {
+                    domainId = showDomainQuotaRequest.domainId;
+                } else {
+                    domainId = showDomainQuotaRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainQuota.');
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询终端节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEndpoint(showEndpointRequest?: ShowEndpointRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/endpoints/{endpoint_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let endpointId;
+
+            if (showEndpointRequest !== null && showEndpointRequest !== undefined) {
+                if (showEndpointRequest instanceof ShowEndpointRequest) {
+                    endpointId = showEndpointRequest.endpointId;
+                } else {
+                    endpointId = showEndpointRequest['endpoint_id'];
+                }
+            }
+
+        
+            if (endpointId === null || endpointId === undefined) {
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling showEndpoint.');
+            }
+
+            options.pathParams = { 'endpoint_id': endpointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLineGroup(showLineGroupRequest?: ShowLineGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/linegroups/{linegroup_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let linegroupId;
+
+            if (showLineGroupRequest !== null && showLineGroupRequest !== undefined) {
+                if (showLineGroupRequest instanceof ShowLineGroupRequest) {
+                    linegroupId = showLineGroupRequest.linegroupId;
+                } else {
+                    linegroupId = showLineGroupRequest['linegroup_id'];
+                }
+            }
+
+        
+            if (linegroupId === null || linegroupId === undefined) {
+            throw new RequiredError('linegroupId','Required parameter linegroupId was null or undefined when calling showLineGroup.');
+            }
+
+            options.pathParams = { 'linegroup_id': linegroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询内网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateZone(showPrivateZoneRequest?: ShowPrivateZoneRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/zones/{zone_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (showPrivateZoneRequest !== null && showPrivateZoneRequest !== undefined) {
+                if (showPrivateZoneRequest instanceof ShowPrivateZoneRequest) {
+                    zoneId = showPrivateZoneRequest.zoneId;
+                } else {
+                    zoneId = showPrivateZoneRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPrivateZone.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询内网域名的名称服务器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateZoneNameServer(showPrivateZoneNameServerRequest?: ShowPrivateZoneNameServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/zones/{zone_id}/nameservers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (showPrivateZoneNameServerRequest !== null && showPrivateZoneNameServerRequest !== undefined) {
+                if (showPrivateZoneNameServerRequest instanceof ShowPrivateZoneNameServerRequest) {
+                    zoneId = showPrivateZoneNameServerRequest.zoneId;
+                } else {
+                    zoneId = showPrivateZoneNameServerRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPrivateZoneNameServer.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询弹性公网IP的反向解析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPtr(showPtrRequest?: ShowPtrRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/ptrs/{ptr_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ptrId;
+
+            if (showPtrRequest !== null && showPtrRequest !== undefined) {
+                if (showPtrRequest instanceof ShowPtrRequest) {
+                    ptrId = showPtrRequest.ptrId;
+                } else {
+                    ptrId = showPtrRequest['ptr_id'];
+                }
+            }
+
+        
+            if (ptrId === null || ptrId === undefined) {
+            throw new RequiredError('ptrId','Required parameter ptrId was null or undefined when calling showPtr.');
+            }
+
+            options.pathParams = { 'ptr_id': ptrId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询弹性公网IP的反向解析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPtrRecordSet(showPtrRecordSetRequest?: ShowPtrRecordSetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let region;
+            
+            let floatingipId;
+
+            if (showPtrRecordSetRequest !== null && showPtrRecordSetRequest !== undefined) {
+                if (showPtrRecordSetRequest instanceof ShowPtrRecordSetRequest) {
+                    region = showPtrRecordSetRequest.region;
+                    floatingipId = showPtrRecordSetRequest.floatingipId;
+                } else {
+                    region = showPtrRecordSetRequest['region'];
+                    floatingipId = showPtrRecordSetRequest['floatingip_id'];
+                }
+            }
+
+        
+            if (region === null || region === undefined) {
+            throw new RequiredError('region','Required parameter region was null or undefined when calling showPtrRecordSet.');
+            }
+            if (floatingipId === null || floatingipId === undefined) {
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling showPtrRecordSet.');
+            }
+
+            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询公网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPublicZone(showPublicZoneRequest?: ShowPublicZoneRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/zones/{zone_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (showPublicZoneRequest !== null && showPublicZoneRequest !== undefined) {
+                if (showPublicZoneRequest instanceof ShowPublicZoneRequest) {
+                    zoneId = showPublicZoneRequest.zoneId;
+                } else {
+                    zoneId = showPublicZoneRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPublicZone.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询公网域名的名称服务器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPublicZoneNameServer(showPublicZoneNameServerRequest?: ShowPublicZoneNameServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/zones/{zone_id}/nameservers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (showPublicZoneNameServerRequest !== null && showPublicZoneNameServerRequest !== undefined) {
+                if (showPublicZoneNameServerRequest instanceof ShowPublicZoneNameServerRequest) {
+                    zoneId = showPublicZoneNameServerRequest.zoneId;
+                } else {
+                    zoneId = showPublicZoneNameServerRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPublicZoneNameServer.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询记录集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3230,7 +5517,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个Zone下Record Set列表
+         * 查询域名下的记录集列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3352,7 +5639,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个Record Set，仅适用于公网DNS
+         * 查询记录集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3396,308 +5683,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改单个Record Set
+         * 查询解析器转发规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateRecordSet(updateRecordSetRequest?: UpdateRecordSetRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/zones/{zone_id}/recordsets/{recordset_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-            
-            let recordsetId;
-
-            if (updateRecordSetRequest !== null && updateRecordSetRequest !== undefined) {
-                if (updateRecordSetRequest instanceof UpdateRecordSetRequest) {
-                    zoneId = updateRecordSetRequest.zoneId;
-                    recordsetId = updateRecordSetRequest.recordsetId;
-                    body = updateRecordSetRequest.body
-                } else {
-                    zoneId = updateRecordSetRequest['zone_id'];
-                    recordsetId = updateRecordSetRequest['recordset_id'];
-                    body = updateRecordSetRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling updateRecordSet.');
-            }
-            if (recordsetId === null || recordsetId === undefined) {
-            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling updateRecordSet.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改单个Record Set
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateRecordSets(updateRecordSetsRequest?: UpdateRecordSetsRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2.1/zones/{zone_id}/recordsets/{recordset_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let zoneId;
-            
-            let recordsetId;
-
-            if (updateRecordSetsRequest !== null && updateRecordSetsRequest !== undefined) {
-                if (updateRecordSetsRequest instanceof UpdateRecordSetsRequest) {
-                    zoneId = updateRecordSetsRequest.zoneId;
-                    recordsetId = updateRecordSetsRequest.recordsetId;
-                    body = updateRecordSetsRequest.body
-                } else {
-                    zoneId = updateRecordSetsRequest['zone_id'];
-                    recordsetId = updateRecordSetsRequest['recordset_id'];
-                    body = updateRecordSetsRequest['body'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling updateRecordSets.');
-            }
-            if (recordsetId === null || recordsetId === undefined) {
-            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling updateRecordSets.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 为指定实例批量添加或删除标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchCreateTag(batchCreateTagRequest?: BatchCreateTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/action",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let resourceType;
-            
-            let resourceId;
-
-            if (batchCreateTagRequest !== null && batchCreateTagRequest !== undefined) {
-                if (batchCreateTagRequest instanceof BatchCreateTagRequest) {
-                    resourceType = batchCreateTagRequest.resourceType;
-                    resourceId = batchCreateTagRequest.resourceId;
-                    body = batchCreateTagRequest.body
-                } else {
-                    resourceType = batchCreateTagRequest['resource_type'];
-                    resourceId = batchCreateTagRequest['resource_id'];
-                    body = batchCreateTagRequest['body'];
-                }
-            }
-
-        
-            if (resourceType === null || resourceType === undefined) {
-            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchCreateTag.');
-            }
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateTag.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 为指定实例添加标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createTag(createTagRequest?: CreateTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let resourceType;
-            
-            let resourceId;
-
-            if (createTagRequest !== null && createTagRequest !== undefined) {
-                if (createTagRequest instanceof CreateTagRequest) {
-                    resourceType = createTagRequest.resourceType;
-                    resourceId = createTagRequest.resourceId;
-                    body = createTagRequest.body
-                } else {
-                    resourceType = createTagRequest['resource_type'];
-                    resourceId = createTagRequest['resource_id'];
-                    body = createTagRequest['body'];
-                }
-            }
-
-        
-            if (resourceType === null || resourceType === undefined) {
-            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createTag.');
-            }
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createTag.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除资源标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteTag(deleteTagRequest?: DeleteTagRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/{key}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let resourceType;
-            
-            let resourceId;
-            
-            let key;
-
-            if (deleteTagRequest !== null && deleteTagRequest !== undefined) {
-                if (deleteTagRequest instanceof DeleteTagRequest) {
-                    resourceType = deleteTagRequest.resourceType;
-                    resourceId = deleteTagRequest.resourceId;
-                    key = deleteTagRequest.key;
-                } else {
-                    resourceType = deleteTagRequest['resource_type'];
-                    resourceId = deleteTagRequest['resource_id'];
-                    key = deleteTagRequest['key'];
-                }
-            }
-
-        
-            if (resourceType === null || resourceType === undefined) {
-            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteTag.');
-            }
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteTag.');
-            }
-            if (key === null || key === undefined) {
-            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteTag.');
-            }
-
-            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'key': key, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 使用标签查询资源实例
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listTag(listTagRequest?: ListTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/{resource_type}/resource_instances/action",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let resourceType;
-
-            if (listTagRequest !== null && listTagRequest !== undefined) {
-                if (listTagRequest instanceof ListTagRequest) {
-                    resourceType = listTagRequest.resourceType;
-                    body = listTagRequest.body
-                } else {
-                    resourceType = listTagRequest['resource_type'];
-                    body = listTagRequest['body'];
-                }
-            }
-
-        
-            if (resourceType === null || resourceType === undefined) {
-            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTag.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'resource_type': resourceType, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定实例类型的所有标签集合
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listTags(listTagsRequest?: ListTagsRequest) {
+        showResolverRule(showResolverRuleRequest?: ShowResolverRuleRequest) {
             const options = {
                 method: "GET",
-                url: "/v2/{project_id}/{resource_type}/tags",
+                url: "/v2.1/resolverrules/{resolverrule_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3706,22 +5699,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let resourceType;
+            let resolverruleId;
 
-            if (listTagsRequest !== null && listTagsRequest !== undefined) {
-                if (listTagsRequest instanceof ListTagsRequest) {
-                    resourceType = listTagsRequest.resourceType;
+            if (showResolverRuleRequest !== null && showResolverRuleRequest !== undefined) {
+                if (showResolverRuleRequest instanceof ShowResolverRuleRequest) {
+                    resolverruleId = showResolverRuleRequest.resolverruleId;
                 } else {
-                    resourceType = listTagsRequest['resource_type'];
+                    resolverruleId = showResolverRuleRequest['resolverrule_id'];
                 }
             }
 
         
-            if (resourceType === null || resourceType === undefined) {
-            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTags.');
+            if (resolverruleId === null || resolverruleId === undefined) {
+            throw new RequiredError('resolverruleId','Required parameter resolverruleId was null or undefined when calling showResolverRule.');
             }
 
-            options.pathParams = { 'resource_type': resourceType, };
+            options.pathParams = { 'resolverrule_id': resolverruleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3771,14 +5764,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 在内网Zone上关联VPC
+         * 更新自定义线路。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        associateRouter(associateRouterRequest?: AssociateRouterRequest) {
+        updateCustomLine(updateCustomLineRequest?: UpdateCustomLineRequest) {
             const options = {
-                method: "POST",
-                url: "/v2/zones/{zone_id}/associaterouter",
+                method: "PUT",
+                url: "/v2.1/customlines/{line_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3789,21 +5782,21 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let zoneId;
+            let lineId;
 
-            if (associateRouterRequest !== null && associateRouterRequest !== undefined) {
-                if (associateRouterRequest instanceof AssociateRouterRequest) {
-                    zoneId = associateRouterRequest.zoneId;
-                    body = associateRouterRequest.body
+            if (updateCustomLineRequest !== null && updateCustomLineRequest !== undefined) {
+                if (updateCustomLineRequest instanceof UpdateCustomLineRequest) {
+                    lineId = updateCustomLineRequest.lineId;
+                    body = updateCustomLineRequest.body
                 } else {
-                    zoneId = associateRouterRequest['zone_id'];
-                    body = associateRouterRequest['body'];
+                    lineId = updateCustomLineRequest['line_id'];
+                    body = updateCustomLineRequest['body'];
                 }
             }
 
         
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling associateRouter.');
+            if (lineId === null || lineId === undefined) {
+            throw new RequiredError('lineId','Required parameter lineId was null or undefined when calling updateCustomLine.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3811,167 +5804,20 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
+            options.pathParams = { 'line_id': lineId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 创建单个内网Zone
+         * 修改终端节点
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createPrivateZone(createPrivateZoneRequest?: CreatePrivateZoneRequest) {
+        updateEndpoint(updateEndpointRequest?: UpdateEndpointRequest) {
             const options = {
-                method: "POST",
-                url: "/v2/zones",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createPrivateZoneRequest !== null && createPrivateZoneRequest !== undefined) {
-                if (createPrivateZoneRequest instanceof CreatePrivateZoneRequest) {
-                    body = createPrivateZoneRequest.body
-                } else {
-                    body = createPrivateZoneRequest['body'];
-                }
-            }
-
-        
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建单个公网Zone
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createPublicZone(createPublicZoneRequest?: CreatePublicZoneRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/zones",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createPublicZoneRequest !== null && createPublicZoneRequest !== undefined) {
-                if (createPublicZoneRequest instanceof CreatePublicZoneRequest) {
-                    body = createPublicZoneRequest.body
-                } else {
-                    body = createPublicZoneRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除单个内网Zone
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deletePrivateZone(deletePrivateZoneRequest?: DeletePrivateZoneRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/zones/{zone_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let zoneId;
-
-            if (deletePrivateZoneRequest !== null && deletePrivateZoneRequest !== undefined) {
-                if (deletePrivateZoneRequest instanceof DeletePrivateZoneRequest) {
-                    zoneId = deletePrivateZoneRequest.zoneId;
-                } else {
-                    zoneId = deletePrivateZoneRequest['zone_id'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deletePrivateZone.');
-            }
-
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除单个公网Zone
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deletePublicZone(deletePublicZoneRequest?: DeletePublicZoneRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/zones/{zone_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let zoneId;
-
-            if (deletePublicZoneRequest !== null && deletePublicZoneRequest !== undefined) {
-                if (deletePublicZoneRequest instanceof DeletePublicZoneRequest) {
-                    zoneId = deletePublicZoneRequest.zoneId;
-                } else {
-                    zoneId = deletePublicZoneRequest['zone_id'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling deletePublicZone.');
-            }
-
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 在内网Zone上解关联VPC
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        disassociateRouter(disassociateRouterRequest?: DisassociateRouterRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/zones/{zone_id}/disassociaterouter",
+                method: "PUT",
+                url: "/v2.1/endpoints/{endpoint_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3982,21 +5828,21 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let zoneId;
+            let endpointId;
 
-            if (disassociateRouterRequest !== null && disassociateRouterRequest !== undefined) {
-                if (disassociateRouterRequest instanceof DisassociateRouterRequest) {
-                    zoneId = disassociateRouterRequest.zoneId;
-                    body = disassociateRouterRequest.body
+            if (updateEndpointRequest !== null && updateEndpointRequest !== undefined) {
+                if (updateEndpointRequest instanceof UpdateEndpointRequest) {
+                    endpointId = updateEndpointRequest.endpointId;
+                    body = updateEndpointRequest.body
                 } else {
-                    zoneId = disassociateRouterRequest['zone_id'];
-                    body = disassociateRouterRequest['body'];
+                    endpointId = updateEndpointRequest['endpoint_id'];
+                    body = updateEndpointRequest['body'];
                 }
             }
 
         
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling disassociateRouter.');
+            if (endpointId === null || endpointId === undefined) {
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling updateEndpoint.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4004,399 +5850,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'zone_id': zoneId, };
+            options.pathParams = { 'endpoint_id': endpointId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询内网Zone列表
+         * 更新线路分组。该接口部分区域未上线，如需使用请提交工单申请开通。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listPrivateZones(listPrivateZonesRequest?: ListPrivateZonesRequest) {
+        updateLineGroups(updateLineGroupsRequest?: UpdateLineGroupsRequest) {
             const options = {
-                method: "GET",
-                url: "/v2/zones",
+                method: "PUT",
+                url: "/v2.1/linegroups/{linegroup_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
-            
-            let limit;
-            
-            let marker;
-            
-            let offset;
-            
-            let tags;
-            
-            let name;
-            
-            let id;
-            
-            let status;
-            
-            let searchMode;
-            
-            let sortKey;
-            
-            let sortDir;
-            
-            let enterpriseProjectId;
-            
-            let routerId;
 
-            if (listPrivateZonesRequest !== null && listPrivateZonesRequest !== undefined) {
-                if (listPrivateZonesRequest instanceof ListPrivateZonesRequest) {
-                    type = listPrivateZonesRequest.type;
-                    limit = listPrivateZonesRequest.limit;
-                    marker = listPrivateZonesRequest.marker;
-                    offset = listPrivateZonesRequest.offset;
-                    tags = listPrivateZonesRequest.tags;
-                    name = listPrivateZonesRequest.name;
-                    id = listPrivateZonesRequest.id;
-                    status = listPrivateZonesRequest.status;
-                    searchMode = listPrivateZonesRequest.searchMode;
-                    sortKey = listPrivateZonesRequest.sortKey;
-                    sortDir = listPrivateZonesRequest.sortDir;
-                    enterpriseProjectId = listPrivateZonesRequest.enterpriseProjectId;
-                    routerId = listPrivateZonesRequest.routerId;
+            let body: any;
+            
+            let linegroupId;
+
+            if (updateLineGroupsRequest !== null && updateLineGroupsRequest !== undefined) {
+                if (updateLineGroupsRequest instanceof UpdateLineGroupsRequest) {
+                    linegroupId = updateLineGroupsRequest.linegroupId;
+                    body = updateLineGroupsRequest.body
                 } else {
-                    type = listPrivateZonesRequest['type'];
-                    limit = listPrivateZonesRequest['limit'];
-                    marker = listPrivateZonesRequest['marker'];
-                    offset = listPrivateZonesRequest['offset'];
-                    tags = listPrivateZonesRequest['tags'];
-                    name = listPrivateZonesRequest['name'];
-                    id = listPrivateZonesRequest['id'];
-                    status = listPrivateZonesRequest['status'];
-                    searchMode = listPrivateZonesRequest['search_mode'];
-                    sortKey = listPrivateZonesRequest['sort_key'];
-                    sortDir = listPrivateZonesRequest['sort_dir'];
-                    enterpriseProjectId = listPrivateZonesRequest['enterprise_project_id'];
-                    routerId = listPrivateZonesRequest['router_id'];
+                    linegroupId = updateLineGroupsRequest['linegroup_id'];
+                    body = updateLineGroupsRequest['body'];
                 }
             }
 
         
-            if (type === null || type === undefined) {
-                throw new RequiredError('type','Required parameter type was null or undefined when calling listPrivateZones.');
+            if (linegroupId === null || linegroupId === undefined) {
+            throw new RequiredError('linegroupId','Required parameter linegroupId was null or undefined when calling updateLineGroups.');
             }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (tags !== null && tags !== undefined) {
-                localVarQueryParameter['tags'] = tags;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (searchMode !== null && searchMode !== undefined) {
-                localVarQueryParameter['search_mode'] = searchMode;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (routerId !== null && routerId !== undefined) {
-                localVarQueryParameter['router_id'] = routerId;
-            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.queryParams = localVarQueryParameter;
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'linegroup_id': linegroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询公网Zone列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPublicZones(listPublicZonesRequest?: ListPublicZonesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/zones",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
-            
-            let limit;
-            
-            let marker;
-            
-            let offset;
-            
-            let tags;
-            
-            let name;
-            
-            let id;
-            
-            let status;
-            
-            let searchMode;
-            
-            let sortKey;
-            
-            let sortDir;
-            
-            let enterpriseProjectId;
-
-            if (listPublicZonesRequest !== null && listPublicZonesRequest !== undefined) {
-                if (listPublicZonesRequest instanceof ListPublicZonesRequest) {
-                    type = listPublicZonesRequest.type;
-                    limit = listPublicZonesRequest.limit;
-                    marker = listPublicZonesRequest.marker;
-                    offset = listPublicZonesRequest.offset;
-                    tags = listPublicZonesRequest.tags;
-                    name = listPublicZonesRequest.name;
-                    id = listPublicZonesRequest.id;
-                    status = listPublicZonesRequest.status;
-                    searchMode = listPublicZonesRequest.searchMode;
-                    sortKey = listPublicZonesRequest.sortKey;
-                    sortDir = listPublicZonesRequest.sortDir;
-                    enterpriseProjectId = listPublicZonesRequest.enterpriseProjectId;
-                } else {
-                    type = listPublicZonesRequest['type'];
-                    limit = listPublicZonesRequest['limit'];
-                    marker = listPublicZonesRequest['marker'];
-                    offset = listPublicZonesRequest['offset'];
-                    tags = listPublicZonesRequest['tags'];
-                    name = listPublicZonesRequest['name'];
-                    id = listPublicZonesRequest['id'];
-                    status = listPublicZonesRequest['status'];
-                    searchMode = listPublicZonesRequest['search_mode'];
-                    sortKey = listPublicZonesRequest['sort_key'];
-                    sortDir = listPublicZonesRequest['sort_dir'];
-                    enterpriseProjectId = listPublicZonesRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (tags !== null && tags !== undefined) {
-                localVarQueryParameter['tags'] = tags;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (searchMode !== null && searchMode !== undefined) {
-                localVarQueryParameter['search_mode'] = searchMode;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单个内网Zone
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPrivateZone(showPrivateZoneRequest?: ShowPrivateZoneRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/zones/{zone_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let zoneId;
-
-            if (showPrivateZoneRequest !== null && showPrivateZoneRequest !== undefined) {
-                if (showPrivateZoneRequest instanceof ShowPrivateZoneRequest) {
-                    zoneId = showPrivateZoneRequest.zoneId;
-                } else {
-                    zoneId = showPrivateZoneRequest['zone_id'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPrivateZone.');
-            }
-
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单个内网Zone的名称服务器
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPrivateZoneNameServer(showPrivateZoneNameServerRequest?: ShowPrivateZoneNameServerRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/zones/{zone_id}/nameservers",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let zoneId;
-
-            if (showPrivateZoneNameServerRequest !== null && showPrivateZoneNameServerRequest !== undefined) {
-                if (showPrivateZoneNameServerRequest instanceof ShowPrivateZoneNameServerRequest) {
-                    zoneId = showPrivateZoneNameServerRequest.zoneId;
-                } else {
-                    zoneId = showPrivateZoneNameServerRequest['zone_id'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPrivateZoneNameServer.');
-            }
-
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单个公网Zone
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPublicZone(showPublicZoneRequest?: ShowPublicZoneRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/zones/{zone_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let zoneId;
-
-            if (showPublicZoneRequest !== null && showPublicZoneRequest !== undefined) {
-                if (showPublicZoneRequest instanceof ShowPublicZoneRequest) {
-                    zoneId = showPublicZoneRequest.zoneId;
-                } else {
-                    zoneId = showPublicZoneRequest['zone_id'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPublicZone.');
-            }
-
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单个公网Zone的名称服务器
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPublicZoneNameServer(showPublicZoneNameServerRequest?: ShowPublicZoneNameServerRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/zones/{zone_id}/nameservers",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let zoneId;
-
-            if (showPublicZoneNameServerRequest !== null && showPublicZoneNameServerRequest !== undefined) {
-                if (showPublicZoneNameServerRequest instanceof ShowPublicZoneNameServerRequest) {
-                    zoneId = showPublicZoneNameServerRequest.zoneId;
-                } else {
-                    zoneId = showPublicZoneNameServerRequest['zone_id'];
-                }
-            }
-
-        
-            if (zoneId === null || zoneId === undefined) {
-            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showPublicZoneNameServer.');
-            }
-
-            options.pathParams = { 'zone_id': zoneId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改单个内网Zone
+         * 修改内网域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4442,7 +5948,146 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改单个公网Zone
+         * 设置内网域名状态，支持暂停、启用域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrivateZoneStatus(updatePrivateZoneStatusRequest?: UpdatePrivateZoneStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/zones/{zone_id}/statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+
+            if (updatePrivateZoneStatusRequest !== null && updatePrivateZoneStatusRequest !== undefined) {
+                if (updatePrivateZoneStatusRequest instanceof UpdatePrivateZoneStatusRequest) {
+                    zoneId = updatePrivateZoneStatusRequest.zoneId;
+                    body = updatePrivateZoneStatusRequest.body
+                } else {
+                    zoneId = updatePrivateZoneStatusRequest['zone_id'];
+                    body = updatePrivateZoneStatusRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling updatePrivateZoneStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改弹性公网IP的反向解析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePtr(updatePtrRequest?: UpdatePtrRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.1/ptrs/{ptr_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ptrId;
+
+            if (updatePtrRequest !== null && updatePtrRequest !== undefined) {
+                if (updatePtrRequest instanceof UpdatePtrRequest) {
+                    ptrId = updatePtrRequest.ptrId;
+                    body = updatePtrRequest.body
+                } else {
+                    ptrId = updatePtrRequest['ptr_id'];
+                    body = updatePtrRequest['body'];
+                }
+            }
+
+        
+            if (ptrId === null || ptrId === undefined) {
+            throw new RequiredError('ptrId','Required parameter ptrId was null or undefined when calling updatePtr.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ptr_id': ptrId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改弹性公网IP的反向解析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePtrRecord(updatePtrRecordRequest?: UpdatePtrRecordRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v2/reverse/floatingips/{region}:{floatingip_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let region;
+            
+            let floatingipId;
+
+            if (updatePtrRecordRequest !== null && updatePtrRecordRequest !== undefined) {
+                if (updatePtrRecordRequest instanceof UpdatePtrRecordRequest) {
+                    region = updatePtrRecordRequest.region;
+                    floatingipId = updatePtrRecordRequest.floatingipId;
+                    body = updatePtrRecordRequest.body
+                } else {
+                    region = updatePtrRecordRequest['region'];
+                    floatingipId = updatePtrRecordRequest['floatingip_id'];
+                    body = updatePtrRecordRequest['body'];
+                }
+            }
+
+        
+            if (region === null || region === undefined) {
+            throw new RequiredError('region','Required parameter region was null or undefined when calling updatePtrRecord.');
+            }
+            if (floatingipId === null || floatingipId === undefined) {
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling updatePtrRecord.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'region': region,'floatingip_id': floatingipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改公网域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4488,7 +6133,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置单个公网Zone状态，支持暂停、启用Zone
+         * 设置公网域名状态，支持暂停、启用域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4528,6 +6173,263 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecordSet(updateRecordSetRequest?: UpdateRecordSetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/zones/{zone_id}/recordsets/{recordset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+            
+            let recordsetId;
+
+            if (updateRecordSetRequest !== null && updateRecordSetRequest !== undefined) {
+                if (updateRecordSetRequest instanceof UpdateRecordSetRequest) {
+                    zoneId = updateRecordSetRequest.zoneId;
+                    recordsetId = updateRecordSetRequest.recordsetId;
+                    body = updateRecordSetRequest.body
+                } else {
+                    zoneId = updateRecordSetRequest['zone_id'];
+                    recordsetId = updateRecordSetRequest['recordset_id'];
+                    body = updateRecordSetRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling updateRecordSet.');
+            }
+            if (recordsetId === null || recordsetId === undefined) {
+            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling updateRecordSet.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改记录集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecordSets(updateRecordSetsRequest?: UpdateRecordSetsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.1/zones/{zone_id}/recordsets/{recordset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let zoneId;
+            
+            let recordsetId;
+
+            if (updateRecordSetsRequest !== null && updateRecordSetsRequest !== undefined) {
+                if (updateRecordSetsRequest instanceof UpdateRecordSetsRequest) {
+                    zoneId = updateRecordSetsRequest.zoneId;
+                    recordsetId = updateRecordSetsRequest.recordsetId;
+                    body = updateRecordSetsRequest.body
+                } else {
+                    zoneId = updateRecordSetsRequest['zone_id'];
+                    recordsetId = updateRecordSetsRequest['recordset_id'];
+                    body = updateRecordSetsRequest['body'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling updateRecordSets.');
+            }
+            if (recordsetId === null || recordsetId === undefined) {
+            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling updateRecordSets.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改解析器转发规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateResolverRule(updateResolverRuleRequest?: UpdateResolverRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.1/resolverrules/{resolverrule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resolverruleId;
+
+            if (updateResolverRuleRequest !== null && updateResolverRuleRequest !== undefined) {
+                if (updateResolverRuleRequest instanceof UpdateResolverRuleRequest) {
+                    resolverruleId = updateResolverRuleRequest.resolverruleId;
+                    body = updateResolverRuleRequest.body
+                } else {
+                    resolverruleId = updateResolverRuleRequest['resolverrule_id'];
+                    body = updateResolverRuleRequest['body'];
+                }
+            }
+
+        
+            if (resolverruleId === null || resolverruleId === undefined) {
+            throw new RequiredError('resolverruleId','Required parameter resolverruleId was null or undefined when calling updateResolverRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resolverrule_id': resolverruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭公网域名的DNSSEC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableDnssecConfig(disableDnssecConfigRequest?: DisableDnssecConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones/{zone_id}/disable-dnssec",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (disableDnssecConfigRequest !== null && disableDnssecConfigRequest !== undefined) {
+                if (disableDnssecConfigRequest instanceof DisableDnssecConfigRequest) {
+                    zoneId = disableDnssecConfigRequest.zoneId;
+                } else {
+                    zoneId = disableDnssecConfigRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling disableDnssecConfig.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启公网域名的DNSSEC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDnssecConfig(enableDnssecConfigRequest?: EnableDnssecConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/zones/{zone_id}/enable-dnssec",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (enableDnssecConfigRequest !== null && enableDnssecConfigRequest !== undefined) {
+                if (enableDnssecConfigRequest instanceof EnableDnssecConfigRequest) {
+                    zoneId = enableDnssecConfigRequest.zoneId;
+                } else {
+                    zoneId = enableDnssecConfigRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling enableDnssecConfig.');
+            }
+
+            options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询公网域名的DNSSEC。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDnssecConfig(showDnssecConfigRequest?: ShowDnssecConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/zones/{zone_id}/dnssec",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let zoneId;
+
+            if (showDnssecConfigRequest !== null && showDnssecConfigRequest !== undefined) {
+                if (showDnssecConfigRequest instanceof ShowDnssecConfigRequest) {
+                    zoneId = showDnssecConfigRequest.zoneId;
+                } else {
+                    zoneId = showDnssecConfigRequest['zone_id'];
+                }
+            }
+
+        
+            if (zoneId === null || zoneId === undefined) {
+            throw new RequiredError('zoneId','Required parameter zoneId was null or undefined when calling showDnssecConfig.');
+            }
+
             options.pathParams = { 'zone_id': zoneId, };
             options.headers = localVarHeaderParameter;
             return options;

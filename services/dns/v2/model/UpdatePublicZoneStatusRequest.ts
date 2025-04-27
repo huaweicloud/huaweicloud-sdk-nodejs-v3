@@ -1,9 +1,9 @@
-import { UpdatePublicZoneStatusRequestBody } from './UpdatePublicZoneStatusRequestBody';
+import { UpdateZoneStatusRequestBody } from './UpdateZoneStatusRequestBody';
 
 
 export class UpdatePublicZoneStatusRequest {
     private 'zone_id'?: string;
-    public body?: UpdatePublicZoneStatusRequestBody;
+    public body?: UpdateZoneStatusRequestBody;
     public constructor(zoneId?: string) { 
         this['zone_id'] = zoneId;
     }
@@ -17,7 +17,7 @@ export class UpdatePublicZoneStatusRequest {
     public get zoneId(): string | undefined {
         return this['zone_id'];
     }
-    public withBody(body: UpdatePublicZoneStatusRequestBody): UpdatePublicZoneStatusRequest {
+    public withBody(body: UpdateZoneStatusRequestBody): UpdatePublicZoneStatusRequest {
         this['body'] = body;
         return this;
     }

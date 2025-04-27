@@ -6,16 +6,16 @@ export class ZoneData {
     public name?: string;
     public description?: string;
     public email?: string;
-    public ttl?: string;
-    public serial?: string;
-    public masters?: string;
+    public ttl?: number;
+    public serial?: number;
+    public masters?: Array<string>;
     public status?: string;
     private 'pool_id'?: string;
     private 'project_id'?: string;
     private 'zone_type'?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
-    private 'record_num'?: string;
+    private 'record_num'?: number;
     public links?: Link;
     public constructor() { 
     }
@@ -35,15 +35,15 @@ export class ZoneData {
         this['email'] = email;
         return this;
     }
-    public withTtl(ttl: string): ZoneData {
+    public withTtl(ttl: number): ZoneData {
         this['ttl'] = ttl;
         return this;
     }
-    public withSerial(serial: string): ZoneData {
+    public withSerial(serial: number): ZoneData {
         this['serial'] = serial;
         return this;
     }
-    public withMasters(masters: string): ZoneData {
+    public withMasters(masters: Array<string>): ZoneData {
         this['masters'] = masters;
         return this;
     }
@@ -101,14 +101,14 @@ export class ZoneData {
     public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
-    public withRecordNum(recordNum: string): ZoneData {
+    public withRecordNum(recordNum: number): ZoneData {
         this['record_num'] = recordNum;
         return this;
     }
-    public set recordNum(recordNum: string  | undefined) {
+    public set recordNum(recordNum: number  | undefined) {
         this['record_num'] = recordNum;
     }
-    public get recordNum(): string | undefined {
+    public get recordNum(): number | undefined {
         return this['record_num'];
     }
     public withLinks(links: Link): ZoneData {

@@ -20,6 +20,7 @@ export class QueryRecordSetWithLineAndTagsResp {
     public links?: PageLink;
     public tags?: Array<Tag>;
     public line?: string;
+    private 'line_name'?: string;
     public weight?: number;
     private 'health_check_id'?: string;
     private 'alias_target'?: AliasTarget;
@@ -124,6 +125,16 @@ export class QueryRecordSetWithLineAndTagsResp {
     public withLine(line: string): QueryRecordSetWithLineAndTagsResp {
         this['line'] = line;
         return this;
+    }
+    public withLineName(lineName: string): QueryRecordSetWithLineAndTagsResp {
+        this['line_name'] = lineName;
+        return this;
+    }
+    public set lineName(lineName: string  | undefined) {
+        this['line_name'] = lineName;
+    }
+    public get lineName(): string | undefined {
+        return this['line_name'];
     }
     public withWeight(weight: number): QueryRecordSetWithLineAndTagsResp {
         this['weight'] = weight;

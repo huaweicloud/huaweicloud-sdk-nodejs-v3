@@ -337,6 +337,9 @@ import { LtsLogErrorQueryRequest } from './model/LtsLogErrorQueryRequest';
 import { LtsLogSlowDetail } from './model/LtsLogSlowDetail';
 import { LtsLogSlowQueryRequest } from './model/LtsLogSlowQueryRequest';
 import { ModifyAliasRequest } from './model/ModifyAliasRequest';
+import { ModifyAutoExpandPolicyReq } from './model/ModifyAutoExpandPolicyReq';
+import { ModifyAutoExpandPolicyRequest } from './model/ModifyAutoExpandPolicyRequest';
+import { ModifyAutoExpandPolicyResponse } from './model/ModifyAutoExpandPolicyResponse';
 import { ModifyBackupEncryptStatusRequest } from './model/ModifyBackupEncryptStatusRequest';
 import { ModifyBackupEncryptStatusResponse } from './model/ModifyBackupEncryptStatusResponse';
 import { ModifyBindEipRequest } from './model/ModifyBindEipRequest';
@@ -489,6 +492,8 @@ import { SetSqlFilterRuleRequest } from './model/SetSqlFilterRuleRequest';
 import { SetSqlFilterRuleResponse } from './model/SetSqlFilterRuleResponse';
 import { ShowAuditLogRequest } from './model/ShowAuditLogRequest';
 import { ShowAuditLogResponse } from './model/ShowAuditLogResponse';
+import { ShowAutoExpandPolicyRequest } from './model/ShowAutoExpandPolicyRequest';
+import { ShowAutoExpandPolicyResponse } from './model/ShowAutoExpandPolicyResponse';
 import { ShowAutoScalingHistoryRequest } from './model/ShowAutoScalingHistoryRequest';
 import { ShowAutoScalingHistoryResponse } from './model/ShowAutoScalingHistoryResponse';
 import { ShowAutoScalingPolicyRequest } from './model/ShowAutoScalingPolicyRequest';
@@ -554,6 +559,8 @@ import { ShowProxyVersionRequest } from './model/ShowProxyVersionRequest';
 import { ShowProxyVersionResponse } from './model/ShowProxyVersionResponse';
 import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
 import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
+import { ShowRestoreAvailableTablesRequest } from './model/ShowRestoreAvailableTablesRequest';
+import { ShowRestoreAvailableTablesResponse } from './model/ShowRestoreAvailableTablesResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
 import { ShowSlowLogStatisticsItem } from './model/ShowSlowLogStatisticsItem';
@@ -2084,6 +2091,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 修改存储空间自动扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改存储空间自动扩容策略。
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ModifyAutoExpandPolicyReq} modifyAutoExpandPolicyRequestBody **参数解释**：  自动扩容策略开关。 
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyAutoExpandPolicy(modifyAutoExpandPolicyRequest?: ModifyAutoExpandPolicyRequest): Promise<ModifyAutoExpandPolicyResponse> {
+        const options = ParamCreater().modifyAutoExpandPolicy(modifyAutoExpandPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 打开或关闭备份加密。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2412,6 +2440,26 @@ export class GaussDBClient {
      */
     public showAuditLog(showAuditLogRequest?: ShowAuditLogRequest): Promise<ShowAuditLogResponse> {
         const options = ParamCreater().showAuditLog(showAuditLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询存储空间自动扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询存储空间自动扩容策略。
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoExpandPolicy(showAutoExpandPolicyRequest?: ShowAutoExpandPolicyRequest): Promise<ShowAutoExpandPolicyResponse> {
+        const options = ParamCreater().showAutoExpandPolicy(showAutoExpandPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3005,6 +3053,30 @@ export class GaussDBClient {
      */
     public showRecyclePolicy(showRecyclePolicyRequest?: ShowRecyclePolicyRequest): Promise<ShowRecyclePolicyResponse> {
         const options = ParamCreater().showRecyclePolicy(showRecyclePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询表级时间点恢复可选表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询表级时间点恢复可选表
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} restoreTime **参数解释**：              备份时间点。  **约束限制**：  格式为UNIX时间戳，单位是毫秒，时区为UTC标准时区。传参时需要将对应时区的时间转为标准时区对应的时间戳，比如，北京时区的时间点需要-8h后再转为时间戳。  **取值范围**：              通过[查询可恢复时间段](https://support.huaweicloud.com/api-taurusdb/ShowBackupRestoreTime.html)获取。  **默认取值**：  不涉及。
+     * @param {string} lastTableInfo **参数解释**：              是否是最新库表。  **约束限制**：  不涉及。  **取值范围**：  - true：是最新库表。 - false：是恢复时间点库表。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us。 - zh-cn。  **默认值**：  en-us。
+     * @param {string} [databaseName] **参数解释**：   数据库名称，模糊匹配。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [tableName] **参数解释**：   表名称，模糊匹配。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRestoreAvailableTables(showRestoreAvailableTablesRequest?: ShowRestoreAvailableTablesRequest): Promise<ShowRestoreAvailableTablesResponse> {
+        const options = ParamCreater().showRestoreAvailableTables(showRestoreAvailableTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8632,6 +8704,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改存储空间自动扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyAutoExpandPolicy(modifyAutoExpandPolicyRequest?: ModifyAutoExpandPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/storage/auto-expand-policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (modifyAutoExpandPolicyRequest !== null && modifyAutoExpandPolicyRequest !== undefined) {
+                if (modifyAutoExpandPolicyRequest instanceof ModifyAutoExpandPolicyRequest) {
+                    instanceId = modifyAutoExpandPolicyRequest.instanceId;
+                    body = modifyAutoExpandPolicyRequest.body
+                    xLanguage = modifyAutoExpandPolicyRequest.xLanguage;
+                } else {
+                    instanceId = modifyAutoExpandPolicyRequest['instance_id'];
+                    body = modifyAutoExpandPolicyRequest['body'];
+                    xLanguage = modifyAutoExpandPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyAutoExpandPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 打开或关闭备份加密。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9453,6 +9578,50 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAuditLog.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询存储空间自动扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoExpandPolicy(showAutoExpandPolicyRequest?: ShowAutoExpandPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/storage/auto-expand-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showAutoExpandPolicyRequest !== null && showAutoExpandPolicyRequest !== undefined) {
+                if (showAutoExpandPolicyRequest instanceof ShowAutoExpandPolicyRequest) {
+                    instanceId = showAutoExpandPolicyRequest.instanceId;
+                    xLanguage = showAutoExpandPolicyRequest.xLanguage;
+                } else {
+                    instanceId = showAutoExpandPolicyRequest['instance_id'];
+                    xLanguage = showAutoExpandPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAutoExpandPolicy.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -10941,6 +11110,85 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询表级时间点恢复可选表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRestoreAvailableTables(showRestoreAvailableTablesRequest?: ShowRestoreAvailableTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.1/{project_id}/instances/{instance_id}/backups/restore/tables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let restoreTime;
+            
+            let lastTableInfo;
+            
+            let xLanguage;
+            
+            let databaseName;
+            
+            let tableName;
+
+            if (showRestoreAvailableTablesRequest !== null && showRestoreAvailableTablesRequest !== undefined) {
+                if (showRestoreAvailableTablesRequest instanceof ShowRestoreAvailableTablesRequest) {
+                    instanceId = showRestoreAvailableTablesRequest.instanceId;
+                    restoreTime = showRestoreAvailableTablesRequest.restoreTime;
+                    lastTableInfo = showRestoreAvailableTablesRequest.lastTableInfo;
+                    xLanguage = showRestoreAvailableTablesRequest.xLanguage;
+                    databaseName = showRestoreAvailableTablesRequest.databaseName;
+                    tableName = showRestoreAvailableTablesRequest.tableName;
+                } else {
+                    instanceId = showRestoreAvailableTablesRequest['instance_id'];
+                    restoreTime = showRestoreAvailableTablesRequest['restore_time'];
+                    lastTableInfo = showRestoreAvailableTablesRequest['last_table_info'];
+                    xLanguage = showRestoreAvailableTablesRequest['X-Language'];
+                    databaseName = showRestoreAvailableTablesRequest['database_name'];
+                    tableName = showRestoreAvailableTablesRequest['table_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRestoreAvailableTables.');
+            }
+            if (restoreTime === null || restoreTime === undefined) {
+                throw new RequiredError('restoreTime','Required parameter restoreTime was null or undefined when calling showRestoreAvailableTables.');
+            }
+            if (restoreTime !== null && restoreTime !== undefined) {
+                localVarQueryParameter['restore_time'] = restoreTime;
+            }
+            if (lastTableInfo === null || lastTableInfo === undefined) {
+                throw new RequiredError('lastTableInfo','Required parameter lastTableInfo was null or undefined when calling showRestoreAvailableTables.');
+            }
+            if (lastTableInfo !== null && lastTableInfo !== undefined) {
+                localVarQueryParameter['last_table_info'] = lastTableInfo;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
