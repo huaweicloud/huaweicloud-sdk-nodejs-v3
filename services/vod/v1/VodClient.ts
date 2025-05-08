@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddSubtitle } from './model/AddSubtitle';
 import { AdditionalManifest } from './model/AdditionalManifest';
+import { AdditionalObjectProcessReq } from './model/AdditionalObjectProcessReq';
 import { AssetDailySummaryResult } from './model/AssetDailySummaryResult';
 import { AssetDetails } from './model/AssetDetails';
 import { AssetInfo } from './model/AssetInfo';
@@ -39,11 +40,25 @@ import { CreateAssetProcessTaskResponse } from './model/CreateAssetProcessTaskRe
 import { CreateAssetReviewTaskRequest } from './model/CreateAssetReviewTaskRequest';
 import { CreateAssetReviewTaskResponse } from './model/CreateAssetReviewTaskResponse';
 import { CreateCategoryReq } from './model/CreateCategoryReq';
+import { CreateEditTaskRequest } from './model/CreateEditTaskRequest';
+import { CreateEditTaskRequestBody } from './model/CreateEditTaskRequestBody';
+import { CreateEditTaskResponse } from './model/CreateEditTaskResponse';
 import { CreateExtractAudioTaskRequest } from './model/CreateExtractAudioTaskRequest';
 import { CreateExtractAudioTaskResponse } from './model/CreateExtractAudioTaskResponse';
+import { CreateObjectProcessTaskRequest } from './model/CreateObjectProcessTaskRequest';
+import { CreateObjectProcessTaskResponse } from './model/CreateObjectProcessTaskResponse';
+import { CreateObjectReplicationRequest } from './model/CreateObjectReplicationRequest';
+import { CreateObjectReplicationRequestBody } from './model/CreateObjectReplicationRequestBody';
+import { CreateObjectReplicationResponse } from './model/CreateObjectReplicationResponse';
+import { CreateObjectRetrievalRequest } from './model/CreateObjectRetrievalRequest';
+import { CreateObjectRetrievalRequestBody } from './model/CreateObjectRetrievalRequestBody';
+import { CreateObjectRetrievalResponse } from './model/CreateObjectRetrievalResponse';
 import { CreatePreheatingAssetReq } from './model/CreatePreheatingAssetReq';
 import { CreatePreheatingAssetRequest } from './model/CreatePreheatingAssetRequest';
 import { CreatePreheatingAssetResponse } from './model/CreatePreheatingAssetResponse';
+import { CreateRealTimeClipRequest } from './model/CreateRealTimeClipRequest';
+import { CreateRealTimeClipRequestBody } from './model/CreateRealTimeClipRequestBody';
+import { CreateRealTimeClipResponse } from './model/CreateRealTimeClipResponse';
 import { CreateTakeOverTaskReq } from './model/CreateTakeOverTaskReq';
 import { CreateTakeOverTaskRequest } from './model/CreateTakeOverTaskRequest';
 import { CreateTakeOverTaskResponse } from './model/CreateTakeOverTaskResponse';
@@ -54,6 +69,8 @@ import { CreateTemplateGroupResponse } from './model/CreateTemplateGroupResponse
 import { CreateTranscodeTemplate } from './model/CreateTranscodeTemplate';
 import { CreateTranscodeTemplateRequest } from './model/CreateTranscodeTemplateRequest';
 import { CreateTranscodeTemplateResponse } from './model/CreateTranscodeTemplateResponse';
+import { CreateUploadByUrlRequest } from './model/CreateUploadByUrlRequest';
+import { CreateUploadByUrlResponse } from './model/CreateUploadByUrlResponse';
 import { CreateWatermarkTemplateReq } from './model/CreateWatermarkTemplateReq';
 import { CreateWatermarkTemplateRequest } from './model/CreateWatermarkTemplateRequest';
 import { CreateWatermarkTemplateResponse } from './model/CreateWatermarkTemplateResponse';
@@ -61,6 +78,8 @@ import { DeleteAssetCategoryRequest } from './model/DeleteAssetCategoryRequest';
 import { DeleteAssetCategoryResponse } from './model/DeleteAssetCategoryResponse';
 import { DeleteAssetsRequest } from './model/DeleteAssetsRequest';
 import { DeleteAssetsResponse } from './model/DeleteAssetsResponse';
+import { DeleteDyAssetRequest } from './model/DeleteDyAssetRequest';
+import { DeleteDyAssetResponse } from './model/DeleteDyAssetResponse';
 import { DeleteResult } from './model/DeleteResult';
 import { DeleteSubtitle } from './model/DeleteSubtitle';
 import { DeleteTemplateGroupCollectionRequest } from './model/DeleteTemplateGroupCollectionRequest';
@@ -74,8 +93,14 @@ import { DeleteTranscodeTemplateRequest } from './model/DeleteTranscodeTemplateR
 import { DeleteTranscodeTemplateResponse } from './model/DeleteTranscodeTemplateResponse';
 import { DeleteWatermarkTemplateRequest } from './model/DeleteWatermarkTemplateRequest';
 import { DeleteWatermarkTemplateResponse } from './model/DeleteWatermarkTemplateResponse';
+import { EditMediaTask } from './model/EditMediaTask';
+import { EditMediaTaskInput } from './model/EditMediaTaskInput';
+import { EditingSetting } from './model/EditingSetting';
 import { ExtractAudioTaskReq } from './model/ExtractAudioTaskReq';
 import { FileAddr } from './model/FileAddr';
+import { ImageSpriteTask } from './model/ImageSpriteTask';
+import { ImageSpriteTaskOutPut } from './model/ImageSpriteTaskOutPut';
+import { ImageWatermark } from './model/ImageWatermark';
 import { ListAssetCategoryRequest } from './model/ListAssetCategoryRequest';
 import { ListAssetCategoryResponse } from './model/ListAssetCategoryResponse';
 import { ListAssetDailySummaryLogRequest } from './model/ListAssetDailySummaryLogRequest';
@@ -96,15 +121,25 @@ import { ListTranscodeTemplateRequest } from './model/ListTranscodeTemplateReque
 import { ListTranscodeTemplateResponse } from './model/ListTranscodeTemplateResponse';
 import { ListWatermarkTemplateRequest } from './model/ListWatermarkTemplateRequest';
 import { ListWatermarkTemplateResponse } from './model/ListWatermarkTemplateResponse';
+import { MetaAudioInfo } from './model/MetaAudioInfo';
 import { MetaData } from './model/MetaData';
+import { MetaVideoInfo } from './model/MetaVideoInfo';
 import { ModifySubtitleRequest } from './model/ModifySubtitleRequest';
 import { ModifySubtitleResponse } from './model/ModifySubtitleResponse';
 import { ModifyTemplateGroupCollection } from './model/ModifyTemplateGroupCollection';
 import { ModifyTransTemplate } from './model/ModifyTransTemplate';
 import { ModifyTransTemplateGroup } from './model/ModifyTransTemplateGroup';
+import { ObjectImageSpriteTask } from './model/ObjectImageSpriteTask';
+import { ObjectList } from './model/ObjectList';
+import { ObjectMetaData } from './model/ObjectMetaData';
+import { ObjectProcessReq } from './model/ObjectProcessReq';
+import { ObjectTaskResult } from './model/ObjectTaskResult';
+import { ObjectThumbnailTask } from './model/ObjectThumbnailTask';
+import { ObjectTranscodeTask } from './model/ObjectTranscodeTask';
 import { ObsInfo } from './model/ObsInfo';
 import { Output } from './model/Output';
 import { Parameter } from './model/Parameter';
+import { PicInfo } from './model/PicInfo';
 import { PictureReviewRet } from './model/PictureReviewRet';
 import { PlayInfo } from './model/PlayInfo';
 import { PreheatingResult } from './model/PreheatingResult';
@@ -128,6 +163,7 @@ import { RefreshTaskReq } from './model/RefreshTaskReq';
 import { Review } from './model/Review';
 import { ReviewDetail } from './model/ReviewDetail';
 import { ReviewInfo } from './model/ReviewInfo';
+import { SVGWatermark } from './model/SVGWatermark';
 import { ShowAssetCipherRequest } from './model/ShowAssetCipherRequest';
 import { ShowAssetCipherResponse } from './model/ShowAssetCipherResponse';
 import { ShowAssetDetailRequest } from './model/ShowAssetDetailRequest';
@@ -138,6 +174,8 @@ import { ShowAssetTempAuthorityRequest } from './model/ShowAssetTempAuthorityReq
 import { ShowAssetTempAuthorityResponse } from './model/ShowAssetTempAuthorityResponse';
 import { ShowCdnStatisticsRequest } from './model/ShowCdnStatisticsRequest';
 import { ShowCdnStatisticsResponse } from './model/ShowCdnStatisticsResponse';
+import { ShowObjectMetaDataRequest } from './model/ShowObjectMetaDataRequest';
+import { ShowObjectMetaDataResponse } from './model/ShowObjectMetaDataResponse';
 import { ShowPreheatingAssetRequest } from './model/ShowPreheatingAssetRequest';
 import { ShowPreheatingAssetResponse } from './model/ShowPreheatingAssetResponse';
 import { ShowRefreshResultRequest } from './model/ShowRefreshResultRequest';
@@ -148,6 +186,8 @@ import { ShowTakeOverAssetDetailsRequest } from './model/ShowTakeOverAssetDetail
 import { ShowTakeOverAssetDetailsResponse } from './model/ShowTakeOverAssetDetailsResponse';
 import { ShowTakeOverTaskDetailsRequest } from './model/ShowTakeOverTaskDetailsRequest';
 import { ShowTakeOverTaskDetailsResponse } from './model/ShowTakeOverTaskDetailsResponse';
+import { ShowTaskDetailRequest } from './model/ShowTaskDetailRequest';
+import { ShowTaskDetailResponse } from './model/ShowTaskDetailResponse';
 import { ShowVodRetrievalRequest } from './model/ShowVodRetrievalRequest';
 import { ShowVodRetrievalResponse } from './model/ShowVodRetrievalResponse';
 import { ShowVodStatisticsRequest } from './model/ShowVodStatisticsRequest';
@@ -156,18 +196,23 @@ import { Subtitle } from './model/Subtitle';
 import { SubtitleInfo } from './model/SubtitleInfo';
 import { SubtitleModifyReq } from './model/SubtitleModifyReq';
 import { TakeOverTask } from './model/TakeOverTask';
+import { TaskOutPut } from './model/TaskOutPut';
 import { TaskResult } from './model/TaskResult';
 import { TemplateGroup } from './model/TemplateGroup';
 import { TemplateGroupCollection } from './model/TemplateGroupCollection';
 import { TextReviewRet } from './model/TextReviewRet';
+import { TextWatermark } from './model/TextWatermark';
 import { Thumbnail } from './model/Thumbnail';
 import { ThumbnailInfo } from './model/ThumbnailInfo';
 import { ThumbnailRsp } from './model/ThumbnailRsp';
+import { ThumbnailTask } from './model/ThumbnailTask';
+import { ThumbnailTaskOutPut } from './model/ThumbnailTaskOutPut';
 import { TopUrl } from './model/TopUrl';
 import { TransTemplateGroup } from './model/TransTemplateGroup';
 import { TransTemplateGroupCollection } from './model/TransTemplateGroupCollection';
 import { TransTemplateRsp } from './model/TransTemplateRsp';
 import { TranscodeInfo } from './model/TranscodeInfo';
+import { TranscodeTask } from './model/TranscodeTask';
 import { UnpublishAssetsRequest } from './model/UnpublishAssetsRequest';
 import { UnpublishAssetsResponse } from './model/UnpublishAssetsResponse';
 import { UpdateAssetCategoryRequest } from './model/UpdateAssetCategoryRequest';
@@ -201,16 +246,20 @@ import { UpdateWatermarkTemplateRequest } from './model/UpdateWatermarkTemplateR
 import { UpdateWatermarkTemplateResponse } from './model/UpdateWatermarkTemplateResponse';
 import { UploadAsset } from './model/UploadAsset';
 import { UploadAssetReq } from './model/UploadAssetReq';
+import { UploadByUrlReq } from './model/UploadByUrlReq';
 import { UploadMetaDataByUrl } from './model/UploadMetaDataByUrl';
 import { UploadMetaDataByUrlReq } from './model/UploadMetaDataByUrlReq';
 import { UploadMetaDataByUrlRequest } from './model/UploadMetaDataByUrlRequest';
 import { UploadMetaDataByUrlResponse } from './model/UploadMetaDataByUrlResponse';
 import { VideoInfo } from './model/VideoInfo';
+import { VideoProcess } from './model/VideoProcess';
 import { VideoTemplateInfo } from './model/VideoTemplateInfo';
 import { VideoTypeRef } from './model/VideoTypeRef';
 import { VodRetrievalData } from './model/VodRetrievalData';
 import { VodSampleData } from './model/VodSampleData';
+import { WatermarkRequest } from './model/WatermarkRequest';
 import { WatermarkTemplate } from './model/WatermarkTemplate';
+import { WorkflowTask } from './model/WorkflowTask';
 
 export class VodClient {
     public static newBuilder(): ClientBuilder<VodClient> {
@@ -414,6 +463,26 @@ export class VodClient {
     }
 
     /**
+     * ## 典型场景 ##
+     *   剪辑任务下发。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {CreateEditTaskRequestBody} createEditTaskRequestBody 剪辑任务下发消息体
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createEditTask(createEditTaskRequest?: CreateEditTaskRequest): Promise<CreateEditTaskResponse> {
+        const options = ParamCreater().createEditTask(createEditTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 本接口为异步接口，创建音频提取任务下发成功后会返回asset_id和提取的audio_asset_id，但此时音频提取任务并没有立即完成，可通过消息订阅界面配置的音频提取完成事件来获取音频提取任务完成与否。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -434,6 +503,73 @@ export class VodClient {
     }
 
     /**
+     * ## 典型场景 ##
+     *   视频处理。
+     * 
+     * ## 接口功能 ##
+     *   工作流方式视频处理
+     * 
+     * ## 接口约束 ##
+     *   无。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建视频处理任务
+     * @param {ObjectProcessReq} createObjectProcessTaskRequestBody 创建视频处理任务的请求体
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createObjectProcessTask(createObjectProcessTaskRequest?: CreateObjectProcessTaskRequest): Promise<CreateObjectProcessTaskResponse> {
+        const options = ParamCreater().createObjectProcessTask(createObjectProcessTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ## 典型场景 ##
+     *   触发从用户obs桶复制内容到用户obs桶，当前仅为斗鱼提供&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary obs桶内容复制
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {CreateObjectReplicationRequestBody} [createObjectReplicationRequestBody] 创建对象复制请求 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createObjectReplication(createObjectReplicationRequest?: CreateObjectReplicationRequest): Promise<CreateObjectReplicationResponse> {
+        const options = ParamCreater().createObjectReplication(createObjectReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary obs桶内容解冻
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {CreateObjectRetrievalRequestBody} [createObjectRetrievalRequestBody] 创建对象取回请求 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createObjectRetrieval(createObjectRetrievalRequest?: CreateObjectRetrievalRequest): Promise<CreateObjectRetrievalResponse> {
+        const options = ParamCreater().createObjectRetrieval(createObjectRetrievalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 媒资发布后，可通过指定媒资ID或URL向CDN预热。用户初次请求时，将由CDN节点提供请求媒资，加快用户下载缓存时间，提高用户体验。单租户每天最多预热1000个。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -446,6 +582,26 @@ export class VodClient {
      */
     public createPreheatingAsset(createPreheatingAssetRequest?: CreatePreheatingAssetRequest): Promise<CreatePreheatingAssetResponse> {
         const options = ParamCreater().createPreheatingAsset(createPreheatingAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ## 典型场景 ##
+     *   触发从直播时移桶截取一段流，当前仅为斗鱼提供&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 直播内容即时剪辑
+     * @param {CreateRealTimeClipRequestBody} [realTimeClipRequestBody] 创建粉丝截取请求 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRealTimeClip(createRealTimeClipRequest?: CreateRealTimeClipRequest): Promise<CreateRealTimeClipResponse> {
+        const options = ParamCreater().createRealTimeClip(createRealTimeClipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -536,6 +692,26 @@ export class VodClient {
     }
 
     /**
+     * ## 典型场景 ##
+     *   UGC场景URL拉取上传，当前仅为斗鱼提供&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary URL拉取上传
+     * @param {UploadByUrlReq} [uploadByUrlReq] URL拉取任务请求体 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUploadByUrl(createUploadByUrlRequest?: CreateUploadByUrlRequest): Promise<CreateUploadByUrlResponse> {
+        const options = ParamCreater().createUploadByUrl(createUploadByUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建水印模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -589,6 +765,30 @@ export class VodClient {
      */
     public deleteAssets(deleteAssetsRequest?: DeleteAssetsRequest): Promise<DeleteAssetsResponse> {
         const options = ParamCreater().deleteAssets(deleteAssetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ## 典型场景 ##
+     *   斗鱼删除桶文件及媒资表数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除斗鱼媒资
+     * @param {string} bucket obs桶名称
+     * @param {Array<string>} modelObject obs文件路径，不包含桶名
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [callbackUrl] 回调地址
+     * @param {string} [sessionContext] 用户透传信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDyAsset(deleteDyAssetRequest?: DeleteDyAssetRequest): Promise<DeleteDyAssetResponse> {
+        const options = ParamCreater().deleteDyAsset(deleteDyAssetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1116,6 +1316,29 @@ export class VodClient {
     }
 
     /**
+     * 查询媒体元数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询媒体元数据
+     * @param {string} bucket obs桶名称
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [modelObject] obs对象路径
+     * @param {string} [marker] 列举桶内对象列表时，指定一个标识符，作为列举时的起始位置，从该标识符以后按对象名的字典顺序返回对象列表
+     * @param {number} [limit] 列举对象的最大数目，返回的对象列表将是按照字典顺序的最多前limit个对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showObjectMetaData(showObjectMetaDataRequest?: ShowObjectMetaDataRequest): Promise<ShowObjectMetaDataResponse> {
+        const options = ParamCreater().showObjectMetaData(showObjectMetaDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询预热结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1166,6 +1389,27 @@ export class VodClient {
      */
     public showStorageModeType(showStorageModeTypeRequest?: ShowStorageModeTypeRequest): Promise<ShowStorageModeTypeResponse> {
         const options = ParamCreater().showStorageModeType();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ## 典型场景 ##
+     *   任务详情查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务详情
+     * @param {string} taskId 任务Id
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTaskDetail(showTaskDetailRequest?: ShowTaskDetailRequest): Promise<ShowTaskDetailResponse> {
+        const options = ParamCreater().showTaskDetail(showTaskDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1981,6 +2225,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * ## 典型场景 ##
+         *   剪辑任务下发。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createEditTask(createEditTaskRequest?: CreateEditTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/customization/edit",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (createEditTaskRequest !== null && createEditTaskRequest !== undefined) {
+                if (createEditTaskRequest instanceof CreateEditTaskRequest) {
+                    body = createEditTaskRequest.body
+                    xSdkDate = createEditTaskRequest.xSdkDate;
+                } else {
+                    body = createEditTaskRequest['body'];
+                    xSdkDate = createEditTaskRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 本接口为异步接口，创建音频提取任务下发成功后会返回asset_id和提取的audio_asset_id，但此时音频提取任务并没有立即完成，可通过消息订阅界面配置的音频提取完成事件来获取音频提取任务完成与否。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2015,6 +2305,142 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 典型场景 ##
+         *   视频处理。
+         * 
+         * ## 接口功能 ##
+         *   工作流方式视频处理
+         * 
+         * ## 接口约束 ##
+         *   无。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createObjectProcessTask(createObjectProcessTaskRequest?: CreateObjectProcessTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/customization/process",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (createObjectProcessTaskRequest !== null && createObjectProcessTaskRequest !== undefined) {
+                if (createObjectProcessTaskRequest instanceof CreateObjectProcessTaskRequest) {
+                    body = createObjectProcessTaskRequest.body
+                    xSdkDate = createObjectProcessTaskRequest.xSdkDate;
+                } else {
+                    body = createObjectProcessTaskRequest['body'];
+                    xSdkDate = createObjectProcessTaskRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 典型场景 ##
+         *   触发从用户obs桶复制内容到用户obs桶，当前仅为斗鱼提供&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createObjectReplication(createObjectReplicationRequest?: CreateObjectReplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/customization/object-replication",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (createObjectReplicationRequest !== null && createObjectReplicationRequest !== undefined) {
+                if (createObjectReplicationRequest instanceof CreateObjectReplicationRequest) {
+                    xSdkDate = createObjectReplicationRequest.xSdkDate;
+                    body = createObjectReplicationRequest.body
+                } else {
+                    xSdkDate = createObjectReplicationRequest['X-Sdk-Date'];
+                    body = createObjectReplicationRequest['body'];
+                }
+            }
+
+        
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createObjectRetrieval(createObjectRetrievalRequest?: CreateObjectRetrievalRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/customization/object-retrieval",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (createObjectRetrievalRequest !== null && createObjectRetrievalRequest !== undefined) {
+                if (createObjectRetrievalRequest instanceof CreateObjectRetrievalRequest) {
+                    xSdkDate = createObjectRetrievalRequest.xSdkDate;
+                    body = createObjectRetrievalRequest.body
+                } else {
+                    xSdkDate = createObjectRetrievalRequest['X-Sdk-Date'];
+                    body = createObjectRetrievalRequest['body'];
+                }
+            }
+
+        
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -2063,6 +2489,42 @@ export const ParamCreater = function () {
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 典型场景 ##
+         *   触发从直播时移桶截取一段流，当前仅为斗鱼提供&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRealTimeClip(createRealTimeClipRequest?: CreateRealTimeClipRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/customization/realtime-clip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createRealTimeClipRequest !== null && createRealTimeClipRequest !== undefined) {
+                if (createRealTimeClipRequest instanceof CreateRealTimeClipRequest) {
+                    body = createRealTimeClipRequest.body
+                } else {
+                    body = createRealTimeClipRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -2253,6 +2715,42 @@ export const ParamCreater = function () {
         },
     
         /**
+         * ## 典型场景 ##
+         *   UGC场景URL拉取上传，当前仅为斗鱼提供&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUploadByUrl(createUploadByUrlRequest?: CreateUploadByUrlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/customization/upload-by-url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createUploadByUrlRequest !== null && createUploadByUrlRequest !== undefined) {
+                if (createUploadByUrlRequest instanceof CreateUploadByUrlRequest) {
+                    body = createUploadByUrlRequest.body
+                } else {
+                    body = createUploadByUrlRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建水印模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2388,6 +2886,78 @@ export const ParamCreater = function () {
             }
             if (deleteType !== null && deleteType !== undefined) {
                 localVarQueryParameter['delete_type'] = deleteType;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 典型场景 ##
+         *   斗鱼删除桶文件及媒资表数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDyAsset(deleteDyAssetRequest?: DeleteDyAssetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/asset/customization/object",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let bucket;
+            
+            let modelObject;
+            
+            let xSdkDate;
+            
+            let callbackUrl;
+            
+            let sessionContext;
+
+            if (deleteDyAssetRequest !== null && deleteDyAssetRequest !== undefined) {
+                if (deleteDyAssetRequest instanceof DeleteDyAssetRequest) {
+                    bucket = deleteDyAssetRequest.bucket;
+                    modelObject = deleteDyAssetRequest.modelObject;
+                    xSdkDate = deleteDyAssetRequest.xSdkDate;
+                    callbackUrl = deleteDyAssetRequest.callbackUrl;
+                    sessionContext = deleteDyAssetRequest.sessionContext;
+                } else {
+                    bucket = deleteDyAssetRequest['bucket'];
+                    modelObject = deleteDyAssetRequest['object'];
+                    xSdkDate = deleteDyAssetRequest['X-Sdk-Date'];
+                    callbackUrl = deleteDyAssetRequest['callback_url'];
+                    sessionContext = deleteDyAssetRequest['session_context'];
+                }
+            }
+
+        
+            if (bucket === null || bucket === undefined) {
+                throw new RequiredError('bucket','Required parameter bucket was null or undefined when calling deleteDyAsset.');
+            }
+            if (bucket !== null && bucket !== undefined) {
+                localVarQueryParameter['bucket'] = bucket;
+            }
+            if (modelObject === null || modelObject === undefined) {
+                throw new RequiredError('modelObject','Required parameter modelObject was null or undefined when calling deleteDyAsset.');
+            }
+            if (modelObject !== null && modelObject !== undefined) {
+                localVarQueryParameter['object'] = modelObject;
+            }
+            if (callbackUrl !== null && callbackUrl !== undefined) {
+                localVarQueryParameter['callback_url'] = callbackUrl;
+            }
+            if (sessionContext !== null && sessionContext !== undefined) {
+                localVarQueryParameter['session_context'] = sessionContext;
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3823,6 +4393,74 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询媒体元数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showObjectMetaData(showObjectMetaDataRequest?: ShowObjectMetaDataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/customization/meta-data",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let bucket;
+            
+            let xSdkDate;
+            
+            let modelObject;
+            
+            let marker;
+            
+            let limit;
+
+            if (showObjectMetaDataRequest !== null && showObjectMetaDataRequest !== undefined) {
+                if (showObjectMetaDataRequest instanceof ShowObjectMetaDataRequest) {
+                    bucket = showObjectMetaDataRequest.bucket;
+                    xSdkDate = showObjectMetaDataRequest.xSdkDate;
+                    modelObject = showObjectMetaDataRequest.modelObject;
+                    marker = showObjectMetaDataRequest.marker;
+                    limit = showObjectMetaDataRequest.limit;
+                } else {
+                    bucket = showObjectMetaDataRequest['bucket'];
+                    xSdkDate = showObjectMetaDataRequest['X-Sdk-Date'];
+                    modelObject = showObjectMetaDataRequest['object'];
+                    marker = showObjectMetaDataRequest['marker'];
+                    limit = showObjectMetaDataRequest['limit'];
+                }
+            }
+
+        
+            if (bucket === null || bucket === undefined) {
+                throw new RequiredError('bucket','Required parameter bucket was null or undefined when calling showObjectMetaData.');
+            }
+            if (bucket !== null && bucket !== undefined) {
+                localVarQueryParameter['bucket'] = bucket;
+            }
+            if (modelObject !== null && modelObject !== undefined) {
+                localVarQueryParameter['object'] = modelObject;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询预热结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3933,6 +4571,54 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 典型场景 ##
+         *   任务详情查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTaskDetail(showTaskDetailRequest?: ShowTaskDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/customization/task/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let xSdkDate;
+
+            if (showTaskDetailRequest !== null && showTaskDetailRequest !== undefined) {
+                if (showTaskDetailRequest instanceof ShowTaskDetailRequest) {
+                    taskId = showTaskDetailRequest.taskId;
+                    xSdkDate = showTaskDetailRequest.xSdkDate;
+                } else {
+                    taskId = showTaskDetailRequest['task_id'];
+                    xSdkDate = showTaskDetailRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showTaskDetail.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

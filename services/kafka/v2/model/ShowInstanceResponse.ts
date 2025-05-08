@@ -1,3 +1,4 @@
+import { PortProtocolsEntity } from './PortProtocolsEntity';
 import { TagEntity } from './TagEntity';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -11,6 +12,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'storage_space'?: number;
     private 'partition_num'?: string;
     private 'used_storage_space'?: number;
+    private 'dns_enable'?: boolean;
     private 'connect_address'?: string;
     public port?: number;
     public status?: string;
@@ -50,6 +52,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'available_zone_names'?: Array<string>;
     private 'total_storage_space'?: number;
     private 'public_connect_address'?: string;
+    private 'public_connect_domain_name'?: string;
     private 'storage_resource_id'?: string;
     private 'storage_spec_code'?: string;
     private 'service_type'?: string;
@@ -57,8 +60,6 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'retention_policy'?: ShowInstanceResponseRetentionPolicyEnum | string;
     private 'kafka_public_status'?: string;
     private 'public_bandwidth'?: number;
-    private 'kafka_manager_enable'?: boolean;
-    private 'kafka_manager_user'?: string;
     private 'enable_log_collection'?: boolean;
     private 'new_auth_cert'?: boolean;
     private 'cross_vpc_info'?: string;
@@ -79,9 +80,11 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'disk_encrypted'?: boolean;
     private 'disk_encrypted_key'?: string;
     private 'kafka_private_connect_address'?: string;
+    private 'kafka_private_connect_domain_name'?: string;
     private 'ces_version'?: string;
     private 'public_access_enabled'?: string;
     private 'node_num'?: number;
+    private 'port_protocols'?: PortProtocolsEntity;
     private 'enable_acl'?: boolean;
     private 'new_spec_billing_enable'?: boolean;
     private 'broker_num'?: number;
@@ -145,6 +148,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get usedStorageSpace(): number | undefined {
         return this['used_storage_space'];
+    }
+    public withDnsEnable(dnsEnable: boolean): ShowInstanceResponse {
+        this['dns_enable'] = dnsEnable;
+        return this;
+    }
+    public set dnsEnable(dnsEnable: boolean  | undefined) {
+        this['dns_enable'] = dnsEnable;
+    }
+    public get dnsEnable(): boolean | undefined {
+        return this['dns_enable'];
     }
     public withConnectAddress(connectAddress: string): ShowInstanceResponse {
         this['connect_address'] = connectAddress;
@@ -518,6 +531,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get publicConnectAddress(): string | undefined {
         return this['public_connect_address'];
     }
+    public withPublicConnectDomainName(publicConnectDomainName: string): ShowInstanceResponse {
+        this['public_connect_domain_name'] = publicConnectDomainName;
+        return this;
+    }
+    public set publicConnectDomainName(publicConnectDomainName: string  | undefined) {
+        this['public_connect_domain_name'] = publicConnectDomainName;
+    }
+    public get publicConnectDomainName(): string | undefined {
+        return this['public_connect_domain_name'];
+    }
     public withStorageResourceId(storageResourceId: string): ShowInstanceResponse {
         this['storage_resource_id'] = storageResourceId;
         return this;
@@ -587,26 +610,6 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get publicBandwidth(): number | undefined {
         return this['public_bandwidth'];
-    }
-    public withKafkaManagerEnable(kafkaManagerEnable: boolean): ShowInstanceResponse {
-        this['kafka_manager_enable'] = kafkaManagerEnable;
-        return this;
-    }
-    public set kafkaManagerEnable(kafkaManagerEnable: boolean  | undefined) {
-        this['kafka_manager_enable'] = kafkaManagerEnable;
-    }
-    public get kafkaManagerEnable(): boolean | undefined {
-        return this['kafka_manager_enable'];
-    }
-    public withKafkaManagerUser(kafkaManagerUser: string): ShowInstanceResponse {
-        this['kafka_manager_user'] = kafkaManagerUser;
-        return this;
-    }
-    public set kafkaManagerUser(kafkaManagerUser: string  | undefined) {
-        this['kafka_manager_user'] = kafkaManagerUser;
-    }
-    public get kafkaManagerUser(): string | undefined {
-        return this['kafka_manager_user'];
     }
     public withEnableLogCollection(enableLogCollection: boolean): ShowInstanceResponse {
         this['enable_log_collection'] = enableLogCollection;
@@ -808,6 +811,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get kafkaPrivateConnectAddress(): string | undefined {
         return this['kafka_private_connect_address'];
     }
+    public withKafkaPrivateConnectDomainName(kafkaPrivateConnectDomainName: string): ShowInstanceResponse {
+        this['kafka_private_connect_domain_name'] = kafkaPrivateConnectDomainName;
+        return this;
+    }
+    public set kafkaPrivateConnectDomainName(kafkaPrivateConnectDomainName: string  | undefined) {
+        this['kafka_private_connect_domain_name'] = kafkaPrivateConnectDomainName;
+    }
+    public get kafkaPrivateConnectDomainName(): string | undefined {
+        return this['kafka_private_connect_domain_name'];
+    }
     public withCesVersion(cesVersion: string): ShowInstanceResponse {
         this['ces_version'] = cesVersion;
         return this;
@@ -837,6 +850,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get nodeNum(): number | undefined {
         return this['node_num'];
+    }
+    public withPortProtocols(portProtocols: PortProtocolsEntity): ShowInstanceResponse {
+        this['port_protocols'] = portProtocols;
+        return this;
+    }
+    public set portProtocols(portProtocols: PortProtocolsEntity  | undefined) {
+        this['port_protocols'] = portProtocols;
+    }
+    public get portProtocols(): PortProtocolsEntity | undefined {
+        return this['port_protocols'];
     }
     public withEnableAcl(enableAcl: boolean): ShowInstanceResponse {
         this['enable_acl'] = enableAcl;

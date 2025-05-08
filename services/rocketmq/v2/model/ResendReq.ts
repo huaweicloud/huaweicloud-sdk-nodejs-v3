@@ -5,7 +5,9 @@ export class ResendReq {
     public topic?: string;
     private 'client_id'?: string;
     private 'msg_id_list'?: Array<string>;
-    public constructor() { 
+    public constructor(group?: string, clientId?: string) { 
+        this['group'] = group;
+        this['client_id'] = clientId;
     }
     public withGroup(group: string): ResendReq {
         this['group'] = group;

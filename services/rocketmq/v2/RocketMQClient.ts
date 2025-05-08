@@ -13,6 +13,7 @@ import { BatchDeleteInstancesRequest } from './model/BatchDeleteInstancesRequest
 import { BatchDeleteInstancesResponse } from './model/BatchDeleteInstancesResponse';
 import { BatchDeleteTopicReq } from './model/BatchDeleteTopicReq';
 import { BatchDeleteTopicResp } from './model/BatchDeleteTopicResp';
+import { BatchUpdateConsumerGroup } from './model/BatchUpdateConsumerGroup';
 import { BatchUpdateConsumerGroupReq } from './model/BatchUpdateConsumerGroupReq';
 import { BatchUpdateConsumerGroupRequest } from './model/BatchUpdateConsumerGroupRequest';
 import { BatchUpdateConsumerGroupResponse } from './model/BatchUpdateConsumerGroupResponse';
@@ -56,9 +57,12 @@ import { DeleteTopicRequest } from './model/DeleteTopicRequest';
 import { DeleteTopicResponse } from './model/DeleteTopicResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
+import { EnableDnsRequest } from './model/EnableDnsRequest';
+import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExportDlqMessageReq } from './model/ExportDlqMessageReq';
 import { ExportDlqMessageRequest } from './model/ExportDlqMessageRequest';
 import { ExportDlqMessageResponse } from './model/ExportDlqMessageResponse';
+import { InstanceDetail } from './model/InstanceDetail';
 import { ListAccessPolicyRespPolicies } from './model/ListAccessPolicyRespPolicies';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesRespAvailableZones } from './model/ListAvailableZonesRespAvailableZones';
@@ -70,6 +74,8 @@ import { ListConsumeGroupAccessPolicyRequest } from './model/ListConsumeGroupAcc
 import { ListConsumeGroupAccessPolicyResponse } from './model/ListConsumeGroupAccessPolicyResponse';
 import { ListConsumerGroupOfTopicRequest } from './model/ListConsumerGroupOfTopicRequest';
 import { ListConsumerGroupOfTopicResponse } from './model/ListConsumerGroupOfTopicResponse';
+import { ListEngineProductsRequest } from './model/ListEngineProductsRequest';
+import { ListEngineProductsResponse } from './model/ListEngineProductsResponse';
 import { ListInstanceConsumerGroupsRequest } from './model/ListInstanceConsumerGroupsRequest';
 import { ListInstanceConsumerGroupsResponse } from './model/ListInstanceConsumerGroupsResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
@@ -98,7 +104,10 @@ import { MigrationRabbitVhostMetadata } from './model/MigrationRabbitVhostMetada
 import { MigrationRocketMqSubscriptionGroup } from './model/MigrationRocketMqSubscriptionGroup';
 import { MigrationRocketMqTopicConfig } from './model/MigrationRocketMqTopicConfig';
 import { ModifyConfigReq } from './model/ModifyConfigReq';
+import { ProductEntity } from './model/ProductEntity';
 import { Queue } from './model/Queue';
+import { QuotaResourceEntity } from './model/QuotaResourceEntity';
+import { QuotasRespQuotas } from './model/QuotasRespQuotas';
 import { ResendReq } from './model/ResendReq';
 import { ResetConsumeOffsetReq } from './model/ResetConsumeOffsetReq';
 import { ResetConsumeOffsetRequest } from './model/ResetConsumeOffsetRequest';
@@ -107,6 +116,8 @@ import { ResetConsumeOffsetResponse } from './model/ResetConsumeOffsetResponse';
 import { ResizeEngineInstanceReq } from './model/ResizeEngineInstanceReq';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RestartInstanceRequest } from './model/RestartInstanceRequest';
+import { RestartInstanceResponse } from './model/RestartInstanceResponse';
 import { RocketMQConfigReq } from './model/RocketMQConfigReq';
 import { RocketMQConfigResp } from './model/RocketMQConfigResp';
 import { RocketMQExtendProductInfoEntity } from './model/RocketMQExtendProductInfoEntity';
@@ -124,10 +135,11 @@ import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineI
 import { ShowGroupRequest } from './model/ShowGroupRequest';
 import { ShowGroupResponse } from './model/ShowGroupResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
-import { ShowInstanceResp } from './model/ShowInstanceResp';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowOneTopicRequest } from './model/ShowOneTopicRequest';
 import { ShowOneTopicResponse } from './model/ShowOneTopicResponse';
+import { ShowQuotasRequest } from './model/ShowQuotasRequest';
+import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRocketMqConfigsRequest } from './model/ShowRocketMqConfigsRequest';
 import { ShowRocketMqConfigsResponse } from './model/ShowRocketMqConfigsResponse';
 import { ShowRocketmqProjectTagsRequest } from './model/ShowRocketmqProjectTagsRequest';
@@ -328,7 +340,7 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建用户
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {User} createUserRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -422,6 +434,25 @@ export class RocketMQClient {
     }
 
     /**
+     * 开启RocketMQ实例域名访问能力。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启RocketMQ实例域名访问能力
+     * @param {string} instanceId 实例ID，从[查询所有实例列表](ListInstances.xml)获取实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
+        const options = ParamCreater().enableDns(enableDnsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 导出死信消息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -466,6 +497,8 @@ export class RocketMQClient {
      *
      * @summary 查询代理列表
      * @param {string} instanceId 实例ID。
+     * @param {number} [limit] 查询数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -502,15 +535,38 @@ export class RocketMQClient {
     }
 
     /**
+     * 查询相应引擎的产品规格列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询产品规格列表
+     * @param {string} engine **参数解释**： 消息引擎的类型。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} type **参数解释**： 产品类型。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} productId **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEngineProducts(listEngineProductsRequest?: ListEngineProductsRequest): Promise<ListEngineProductsResponse> {
+        const options = ParamCreater().listEngineProducts(listEngineProductsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询消费组列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询消费组列表
-     * @param {string} instanceId 实例ID。
-     * @param {string} [group] 消费组名称。
-     * @param {number} [limit] 查询数量。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [group] **参数解释**： 消费组名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -529,15 +585,15 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {'rocketmq'} engine 消息引擎：rocketmq。
-     * @param {string} [name] 实例名称。
-     * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,sbc,hk_sbc,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs,fcs)
-     * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
-     * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
-     * @param {string} [enterpriseProjectId] 企业项目ID。
-     * @param {number} [limit] 当次查询返回的最大个数，默认值为10，取值范围为1~50。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
+     * @param {'rocketmq'} engine **参数解释**： 消息引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [name] **参数解释**： 实例名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] **参数解释**： 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,sbc,hk_sbc,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs,fcs) **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'true' | 'false'} [includeFailure] **参数解释**： 是否返回创建失败的实例数。 **约束限制**： 不涉及。 **取值范围**： - \&#39;true\&#39;：返回创建失败的实例数。 - \&#39;false\&#39;：不返回创建失败的实例数。  **默认取值**： 不涉及。
+     * @param {'true' | 'false'} [exactMatchName] **参数解释**： 是否按照实例名称进行精确匹配查询。 **约束限制**： 不涉及。 **取值范围**： - \&#39;true\&#39;：表示按照实例名称进行精确匹配查询。 - \&#39;false\&#39;：表示模糊匹配实例名称查询。  **默认取值**： \&#39;false\&#39;。
+     * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 当次查询返回的实例最大个数。 **约束限制**： 不涉及。 **取值范围**： 1~50。 **默认取值**： 10。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -559,6 +615,8 @@ export class RocketMQClient {
      * @param {'reliability'} engine 消息引擎。
      * @param {string} instanceId 实例ID。
      * @param {string} msgId 消息ID。
+     * @param {number} [limit] 查询数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -712,6 +770,26 @@ export class RocketMQClient {
     }
 
     /**
+     * 重启指定实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启指定实例
+     * @param {string} engine 消息引擎类型。
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartInstance(restartInstanceRequest?: RestartInstanceRequest): Promise<RestartInstanceResponse> {
+        const options = ParamCreater().restartInstance(restartInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重发死信消息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -761,11 +839,11 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询消费列表或详情
-     * @param {string} instanceId 实例ID。
-     * @param {string} group 消费组名称。
-     * @param {string} [topic] 待查询的Topic，不指定时查询Topic列表，指定时查询详情。
-     * @param {number} [limit] 当次查询返回的最大个数，默认值为10，取值范围为1~50。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} group **参数解释**： 消费组名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [topic] **参数解释**： 待查询的Topic，不指定时查询Topic列表，指定时查询详情。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 当次查询返回Topic的最大个数。 **约束限制**： 不涉及。 **取值范围**： 1~50。 **默认取值**： 10。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -787,6 +865,8 @@ export class RocketMQClient {
      * @param {string} engine 消息引擎的类型。支持的类型为rocketmq。
      * @param {string} instanceId 实例ID。
      * @param {'advanced'} [type] 产品的类型。 advanced：专享版。
+     * @param {number} [limit] 查询数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -825,12 +905,30 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户最大可以创建的实例个数和已创建的实例个数，以及每个实例最大可以创建标签的个数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看租户配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
+        const options = ParamCreater().showQuotas();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -845,6 +943,8 @@ export class RocketMQClient {
      *
      * @summary 查询RocketMQ配置
      * @param {string} instanceId 实例ID。
+     * @param {number} [limit] 查询数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -863,11 +963,13 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
+     * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showRocketmqProjectTags(showRocketmqProjectTagsRequest?: ShowRocketmqProjectTagsRequest): Promise<ShowRocketmqProjectTagsResponse> {
-        const options = ParamCreater().showRocketmqProjectTags();
+        const options = ParamCreater().showRocketmqProjectTags(showRocketmqProjectTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -882,6 +984,8 @@ export class RocketMQClient {
      *
      * @summary 查询实例标签
      * @param {string} instanceId 实例ID。
+     * @param {number} [limit] 查询数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -981,9 +1085,9 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改用户参数
-     * @param {string} instanceId 实例ID。
-     * @param {string} userName 用户名。
-     * @param {User} updateUserRequestBody 请求消息。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} userName **参数解释**： 用户名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {User} updateUserRequestBody **参数解释**： 请求消息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1086,9 +1190,9 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主题列表
-     * @param {string} instanceId 实例ID。
-     * @param {number} [limit] 查询数量，取值范围为1~50。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 1~50。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1729,6 +1833,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启RocketMQ实例域名访问能力。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDns(enableDnsRequest?: EnableDnsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/rocketmq/instances/{instance_id}/dns",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (enableDnsRequest !== null && enableDnsRequest !== undefined) {
+                if (enableDnsRequest instanceof EnableDnsRequest) {
+                    instanceId = enableDnsRequest.instanceId;
+                } else {
+                    instanceId = enableDnsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 导出死信消息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1810,15 +1951,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let limit;
+            
+            let offset;
 
             if (listBrokersRequest !== null && listBrokersRequest !== undefined) {
                 if (listBrokersRequest instanceof ListBrokersRequest) {
                     instanceId = listBrokersRequest.instanceId;
+                    limit = listBrokersRequest.limit;
+                    offset = listBrokersRequest.offset;
                 } else {
                     instanceId = listBrokersRequest['instance_id'];
+                    limit = listBrokersRequest['limit'];
+                    offset = listBrokersRequest['offset'];
                 }
             }
 
@@ -1826,7 +1975,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBrokers.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1894,6 +2050,78 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'engine': engine,'instance_id': instanceId,'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询相应引擎的产品规格列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEngineProducts(listEngineProductsRequest?: ListEngineProductsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{engine}/products",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let type;
+            
+            let productId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listEngineProductsRequest !== null && listEngineProductsRequest !== undefined) {
+                if (listEngineProductsRequest instanceof ListEngineProductsRequest) {
+                    engine = listEngineProductsRequest.engine;
+                    type = listEngineProductsRequest.type;
+                    productId = listEngineProductsRequest.productId;
+                    limit = listEngineProductsRequest.limit;
+                    offset = listEngineProductsRequest.offset;
+                } else {
+                    engine = listEngineProductsRequest['engine'];
+                    type = listEngineProductsRequest['type'];
+                    productId = listEngineProductsRequest['product_id'];
+                    limit = listEngineProductsRequest['limit'];
+                    offset = listEngineProductsRequest['offset'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling listEngineProducts.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listEngineProducts.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling listEngineProducts.');
+            }
+            if (productId !== null && productId !== undefined) {
+                localVarQueryParameter['product_id'] = productId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'engine': engine, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2075,16 +2303,24 @@ export const ParamCreater = function () {
             let instanceId;
             
             let msgId;
+            
+            let limit;
+            
+            let offset;
 
             if (listMessageTraceRequest !== null && listMessageTraceRequest !== undefined) {
                 if (listMessageTraceRequest instanceof ListMessageTraceRequest) {
                     engine = listMessageTraceRequest.engine;
                     instanceId = listMessageTraceRequest.instanceId;
                     msgId = listMessageTraceRequest.msgId;
+                    limit = listMessageTraceRequest.limit;
+                    offset = listMessageTraceRequest.offset;
                 } else {
                     engine = listMessageTraceRequest['engine'];
                     instanceId = listMessageTraceRequest['instance_id'];
                     msgId = listMessageTraceRequest['msg_id'];
+                    limit = listMessageTraceRequest['limit'];
+                    offset = listMessageTraceRequest['offset'];
                 }
             }
 
@@ -2100,6 +2336,12 @@ export const ParamCreater = function () {
             }
             if (msgId !== null && msgId !== undefined) {
                 localVarQueryParameter['msg_id'] = msgId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2506,6 +2748,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重启指定实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartInstance(restartInstanceRequest?: RestartInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{engine}/instances/{instance_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let engine;
+            
+            let instanceId;
+
+            if (restartInstanceRequest !== null && restartInstanceRequest !== undefined) {
+                if (restartInstanceRequest instanceof RestartInstanceRequest) {
+                    engine = restartInstanceRequest.engine;
+                    instanceId = restartInstanceRequest.instanceId;
+                } else {
+                    engine = restartInstanceRequest['engine'];
+                    instanceId = restartInstanceRequest['instance_id'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling restartInstance.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartInstance.');
+            }
+
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重发死信消息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2712,16 +2998,24 @@ export const ParamCreater = function () {
             let instanceId;
             
             let type;
+            
+            let limit;
+            
+            let offset;
 
             if (showEngineInstanceExtendProductInfoRequest !== null && showEngineInstanceExtendProductInfoRequest !== undefined) {
                 if (showEngineInstanceExtendProductInfoRequest instanceof ShowEngineInstanceExtendProductInfoRequest) {
                     engine = showEngineInstanceExtendProductInfoRequest.engine;
                     instanceId = showEngineInstanceExtendProductInfoRequest.instanceId;
                     type = showEngineInstanceExtendProductInfoRequest.type;
+                    limit = showEngineInstanceExtendProductInfoRequest.limit;
+                    offset = showEngineInstanceExtendProductInfoRequest.offset;
                 } else {
                     engine = showEngineInstanceExtendProductInfoRequest['engine'];
                     instanceId = showEngineInstanceExtendProductInfoRequest['instance_id'];
                     type = showEngineInstanceExtendProductInfoRequest['type'];
+                    limit = showEngineInstanceExtendProductInfoRequest['limit'];
+                    offset = showEngineInstanceExtendProductInfoRequest['offset'];
                 }
             }
 
@@ -2734,6 +3028,12 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2824,6 +3124,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户最大可以创建的实例个数和已创建的实例个数，以及每个实例最大可以创建标签的个数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuotas() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询RocketMQ配置，若成功则返回配置的相关信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2838,15 +3159,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let limit;
+            
+            let offset;
 
             if (showRocketMqConfigsRequest !== null && showRocketMqConfigsRequest !== undefined) {
                 if (showRocketMqConfigsRequest instanceof ShowRocketMqConfigsRequest) {
                     instanceId = showRocketMqConfigsRequest.instanceId;
+                    limit = showRocketMqConfigsRequest.limit;
+                    offset = showRocketMqConfigsRequest.offset;
                 } else {
                     instanceId = showRocketMqConfigsRequest['instance_id'];
+                    limit = showRocketMqConfigsRequest['limit'];
+                    offset = showRocketMqConfigsRequest['offset'];
                 }
             }
 
@@ -2854,7 +3183,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRocketMqConfigs.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2865,7 +3201,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showRocketmqProjectTags() {
+        showRocketmqProjectTags(showRocketmqProjectTagsRequest?: ShowRocketmqProjectTagsRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/rocketmq/tags",
@@ -2875,8 +3211,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
 
+            if (showRocketmqProjectTagsRequest !== null && showRocketmqProjectTagsRequest !== undefined) {
+                if (showRocketmqProjectTagsRequest instanceof ShowRocketmqProjectTagsRequest) {
+                    limit = showRocketmqProjectTagsRequest.limit;
+                    offset = showRocketmqProjectTagsRequest.offset;
+                } else {
+                    limit = showRocketmqProjectTagsRequest['limit'];
+                    offset = showRocketmqProjectTagsRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2896,15 +3255,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let limit;
+            
+            let offset;
 
             if (showRocketmqTagsRequest !== null && showRocketmqTagsRequest !== undefined) {
                 if (showRocketmqTagsRequest instanceof ShowRocketmqTagsRequest) {
                     instanceId = showRocketmqTagsRequest.instanceId;
+                    limit = showRocketmqTagsRequest.limit;
+                    offset = showRocketmqTagsRequest.offset;
                 } else {
                     instanceId = showRocketmqTagsRequest['instance_id'];
+                    limit = showRocketmqTagsRequest['limit'];
+                    offset = showRocketmqTagsRequest['offset'];
                 }
             }
 
@@ -2912,7 +3279,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRocketmqTags.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

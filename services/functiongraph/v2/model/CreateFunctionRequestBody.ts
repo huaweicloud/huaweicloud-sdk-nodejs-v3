@@ -40,6 +40,8 @@ export class CreateFunctionRequestBody {
     private 'enable_dynamic_memory'?: boolean;
     private 'enable_lts_log'?: boolean;
     private 'lts_custom_tag'?: { [key: string]: string; };
+    private 'user_data_encrypt_kms_key_id'?: string;
+    private 'code_encrypt_kms_key_id'?: string;
     public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['package'] = _package;
@@ -341,6 +343,26 @@ export class CreateFunctionRequestBody {
     }
     public get ltsCustomTag(): { [key: string]: string; } | undefined {
         return this['lts_custom_tag'];
+    }
+    public withUserDataEncryptKmsKeyId(userDataEncryptKmsKeyId: string): CreateFunctionRequestBody {
+        this['user_data_encrypt_kms_key_id'] = userDataEncryptKmsKeyId;
+        return this;
+    }
+    public set userDataEncryptKmsKeyId(userDataEncryptKmsKeyId: string  | undefined) {
+        this['user_data_encrypt_kms_key_id'] = userDataEncryptKmsKeyId;
+    }
+    public get userDataEncryptKmsKeyId(): string | undefined {
+        return this['user_data_encrypt_kms_key_id'];
+    }
+    public withCodeEncryptKmsKeyId(codeEncryptKmsKeyId: string): CreateFunctionRequestBody {
+        this['code_encrypt_kms_key_id'] = codeEncryptKmsKeyId;
+        return this;
+    }
+    public set codeEncryptKmsKeyId(codeEncryptKmsKeyId: string  | undefined) {
+        this['code_encrypt_kms_key_id'] = codeEncryptKmsKeyId;
+    }
+    public get codeEncryptKmsKeyId(): string | undefined {
+        return this['code_encrypt_kms_key_id'];
     }
 }
 

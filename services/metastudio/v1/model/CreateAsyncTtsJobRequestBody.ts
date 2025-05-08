@@ -22,6 +22,7 @@ export class CreateAsyncTtsJobRequestBody {
     private 'srt_output_external_url'?: string;
     private 'action_output_external_url'?: string;
     private 'is_vocabulary_config_enable'?: boolean;
+    private 'is_concurrent_resource'?: boolean;
     public constructor(text?: string, voiceAssetId?: string) { 
         this['text'] = text;
         this['voice_asset_id'] = voiceAssetId;
@@ -195,6 +196,16 @@ export class CreateAsyncTtsJobRequestBody {
     }
     public get isVocabularyConfigEnable(): boolean | undefined {
         return this['is_vocabulary_config_enable'];
+    }
+    public withIsConcurrentResource(isConcurrentResource: boolean): CreateAsyncTtsJobRequestBody {
+        this['is_concurrent_resource'] = isConcurrentResource;
+        return this;
+    }
+    public set isConcurrentResource(isConcurrentResource: boolean  | undefined) {
+        this['is_concurrent_resource'] = isConcurrentResource;
+    }
+    public get isConcurrentResource(): boolean | undefined {
+        return this['is_concurrent_resource'];
     }
 }
 

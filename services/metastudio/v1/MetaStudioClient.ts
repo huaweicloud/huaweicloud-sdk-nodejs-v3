@@ -4718,12 +4718,14 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取TTS租户级自定义读法配置
-     * @param {string} type 自定义读法类型 CHINESE_G2P：拼音
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {string} [type] 自定义读法类型 CHINESE_G2P：拼音
+     * @param {string} [ttsServiceName] 声音模型名称
+     * @param {string} [isVocabularyConfigEnable] 是否应用词表配置，从周边服务传递
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {string} [startTime] 起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
@@ -17381,8 +17383,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let type;
-            
             let xRequestId;
             
             let authorization;
@@ -17392,6 +17392,12 @@ export const ParamCreater = function () {
             let xProjectId;
             
             let xAppUserId;
+            
+            let type;
+            
+            let ttsServiceName;
+            
+            let isVocabularyConfigEnable;
             
             let limit;
             
@@ -17405,24 +17411,28 @@ export const ParamCreater = function () {
 
             if (listTtscVocabularyConfigsRequest !== null && listTtscVocabularyConfigsRequest !== undefined) {
                 if (listTtscVocabularyConfigsRequest instanceof ListTtscVocabularyConfigsRequest) {
-                    type = listTtscVocabularyConfigsRequest.type;
                     xRequestId = listTtscVocabularyConfigsRequest.xRequestId;
                     authorization = listTtscVocabularyConfigsRequest.authorization;
                     xSdkDate = listTtscVocabularyConfigsRequest.xSdkDate;
                     xProjectId = listTtscVocabularyConfigsRequest.xProjectId;
                     xAppUserId = listTtscVocabularyConfigsRequest.xAppUserId;
+                    type = listTtscVocabularyConfigsRequest.type;
+                    ttsServiceName = listTtscVocabularyConfigsRequest.ttsServiceName;
+                    isVocabularyConfigEnable = listTtscVocabularyConfigsRequest.isVocabularyConfigEnable;
                     limit = listTtscVocabularyConfigsRequest.limit;
                     offset = listTtscVocabularyConfigsRequest.offset;
                     startTime = listTtscVocabularyConfigsRequest.startTime;
                     endTime = listTtscVocabularyConfigsRequest.endTime;
                     searchKey = listTtscVocabularyConfigsRequest.searchKey;
                 } else {
-                    type = listTtscVocabularyConfigsRequest['type'];
                     xRequestId = listTtscVocabularyConfigsRequest['X-Request-Id'];
                     authorization = listTtscVocabularyConfigsRequest['Authorization'];
                     xSdkDate = listTtscVocabularyConfigsRequest['X-Sdk-Date'];
                     xProjectId = listTtscVocabularyConfigsRequest['X-Project-Id'];
                     xAppUserId = listTtscVocabularyConfigsRequest['X-App-UserId'];
+                    type = listTtscVocabularyConfigsRequest['type'];
+                    ttsServiceName = listTtscVocabularyConfigsRequest['tts_service_name'];
+                    isVocabularyConfigEnable = listTtscVocabularyConfigsRequest['is_vocabulary_config_enable'];
                     limit = listTtscVocabularyConfigsRequest['limit'];
                     offset = listTtscVocabularyConfigsRequest['offset'];
                     startTime = listTtscVocabularyConfigsRequest['start_time'];
@@ -17432,11 +17442,14 @@ export const ParamCreater = function () {
             }
 
         
-            if (type === null || type === undefined) {
-                throw new RequiredError('type','Required parameter type was null or undefined when calling listTtscVocabularyConfigs.');
-            }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (ttsServiceName !== null && ttsServiceName !== undefined) {
+                localVarQueryParameter['tts_service_name'] = ttsServiceName;
+            }
+            if (isVocabularyConfigEnable !== null && isVocabularyConfigEnable !== undefined) {
+                localVarQueryParameter['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;

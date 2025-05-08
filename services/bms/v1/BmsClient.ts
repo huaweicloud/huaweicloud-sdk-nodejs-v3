@@ -58,6 +58,7 @@ import { ExtendParam } from './model/ExtendParam';
 import { ExtendParamEip } from './model/ExtendParamEip';
 import { Fault } from './model/Fault';
 import { FixedIps } from './model/FixedIps';
+import { FlavorDetailInfos } from './model/FlavorDetailInfos';
 import { FlavorInfo } from './model/FlavorInfo';
 import { FlavorInfos } from './model/FlavorInfos';
 import { FlavorsResp } from './model/FlavorsResp';
@@ -70,6 +71,8 @@ import { Links } from './model/Links';
 import { LinksInfo } from './model/LinksInfo';
 import { ListBareMetalServerDetailsRequest } from './model/ListBareMetalServerDetailsRequest';
 import { ListBareMetalServerDetailsResponse } from './model/ListBareMetalServerDetailsResponse';
+import { ListBareMetalServersDetailRequest } from './model/ListBareMetalServersDetailRequest';
+import { ListBareMetalServersDetailResponse } from './model/ListBareMetalServersDetailResponse';
 import { ListBareMetalServersRequest } from './model/ListBareMetalServersRequest';
 import { ListBareMetalServersResponse } from './model/ListBareMetalServersResponse';
 import { ListBaremetalFlavorDetailExtendsRequest } from './model/ListBaremetalFlavorDetailExtendsRequest';
@@ -105,6 +108,7 @@ import { SecurityGroups } from './model/SecurityGroups';
 import { SecurityGroupsInfo } from './model/SecurityGroupsInfo';
 import { SecurityGroupsList } from './model/SecurityGroupsList';
 import { ServerDetails } from './model/ServerDetails';
+import { ServerListDetails } from './model/ServerListDetails';
 import { ServerNics } from './model/ServerNics';
 import { ServerNicsReq } from './model/ServerNicsReq';
 import { ServerOsSchedulerHints } from './model/ServerOsSchedulerHints';
@@ -471,6 +475,30 @@ export class BmsClient {
      */
     public listBareMetalServers(listBareMetalServersRequest?: ListBareMetalServersRequest): Promise<ListBareMetalServersResponse> {
         const options = ParamCreater().listBareMetalServers(listBareMetalServersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户根据设置的请求条件筛选裸金属服务器，并获取裸金属服务器的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询裸金属服务器列表
+     * @param {string} [flavor] 裸金属服务器规格ID
+     * @param {string} [name] 裸金属服务器名称
+     * @param {string} [status] 裸金属服务器状态,只有管理员可以使用DELETED状态过滤查询已经删除的裸金属服务器。取值范围：ACTIVE、BUILD、ERROR、HARD_REBOOT、REBOOT、REBUILD、SHUTOFF
+     * @param {number} [limit] 每页返回裸金属服务器的条数，默认值是25，最大值为1000。limit为每页返回裸金属服务器详情的条数
+     * @param {number} [offset] 此接口为分页查询接口，offset为查询页码（起始页码为1），返回值包括总条数和裸金属服务器详情列表。传入offset：按limit值分页（limit默认为1000），返回第offset页裸金属服务器详情列表和总条数，总条数最大值为limit，不足按实际情况返回。不传入offset，传入limit：返回裸金属服务器详情列表和总条数，总条数最大值为limit，不足按实际情况返回。不传入offset，不传入limit：按25条分页，返回第1页裸金属服务器详情列表，总条数最大值为25，不足按实际情况返回。
+     * @param {string} [detail] 查询裸金属服务器结果的详细级别，级别越高，查询到的裸金属服务器信息越多，默认为4。可使用的级别为 1，2，3，4
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBareMetalServersDetail(listBareMetalServersDetailRequest?: ListBareMetalServersDetailRequest): Promise<ListBareMetalServersDetailResponse> {
+        const options = ParamCreater().listBareMetalServersDetail(listBareMetalServersDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1462,6 +1490,78 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户根据设置的请求条件筛选裸金属服务器，并获取裸金属服务器的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBareMetalServersDetail(listBareMetalServersDetailRequest?: ListBareMetalServersDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/baremetalservers/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flavor;
+            
+            let name;
+            
+            let status;
+            
+            let limit;
+            
+            let offset;
+            
+            let detail;
+
+            if (listBareMetalServersDetailRequest !== null && listBareMetalServersDetailRequest !== undefined) {
+                if (listBareMetalServersDetailRequest instanceof ListBareMetalServersDetailRequest) {
+                    flavor = listBareMetalServersDetailRequest.flavor;
+                    name = listBareMetalServersDetailRequest.name;
+                    status = listBareMetalServersDetailRequest.status;
+                    limit = listBareMetalServersDetailRequest.limit;
+                    offset = listBareMetalServersDetailRequest.offset;
+                    detail = listBareMetalServersDetailRequest.detail;
+                } else {
+                    flavor = listBareMetalServersDetailRequest['flavor'];
+                    name = listBareMetalServersDetailRequest['name'];
+                    status = listBareMetalServersDetailRequest['status'];
+                    limit = listBareMetalServersDetailRequest['limit'];
+                    offset = listBareMetalServersDetailRequest['offset'];
+                    detail = listBareMetalServersDetailRequest['detail'];
+                }
+            }
+
+        
+            if (flavor !== null && flavor !== undefined) {
+                localVarQueryParameter['flavor'] = flavor;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (detail !== null && detail !== undefined) {
+                localVarQueryParameter['detail'] = detail;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -58,6 +58,7 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'is_return_stream'?: boolean;
     private 'enable_lts_log'?: boolean;
     private 'lts_custom_tag'?: { [key: string]: string; };
+    private 'user_data_encrypt_kms_key_id'?: string;
     public constructor() { 
         super();
     }
@@ -504,6 +505,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     }
     public get ltsCustomTag(): { [key: string]: string; } | undefined {
         return this['lts_custom_tag'];
+    }
+    public withUserDataEncryptKmsKeyId(userDataEncryptKmsKeyId: string): UpdateFunctionConfigResponse {
+        this['user_data_encrypt_kms_key_id'] = userDataEncryptKmsKeyId;
+        return this;
+    }
+    public set userDataEncryptKmsKeyId(userDataEncryptKmsKeyId: string  | undefined) {
+        this['user_data_encrypt_kms_key_id'] = userDataEncryptKmsKeyId;
+    }
+    public get userDataEncryptKmsKeyId(): string | undefined {
+        return this['user_data_encrypt_kms_key_id'];
     }
 }
 

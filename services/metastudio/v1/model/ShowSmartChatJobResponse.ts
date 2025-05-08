@@ -236,7 +236,9 @@ export enum ShowSmartChatJobResponseStateEnum {
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
     CANCELED = 'CANCELED',
-    HEARTBEAT = 'HEARTBEAT'
+    HEARTBEAT = 'HEARTBEAT',
+    IDLE = 'IDLE',
+    DELETING = 'DELETING'
 }
 /**
     * @export

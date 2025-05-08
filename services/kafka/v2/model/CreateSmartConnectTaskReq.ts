@@ -94,7 +94,6 @@ export class CreateSmartConnectTaskReq {
     * @enum {string}
     */
 export enum CreateSmartConnectTaskReqSourceTypeEnum {
-    REDIS_REPLICATOR_SOURCE = 'REDIS_REPLICATOR_SOURCE',
     KAFKA_REPLICATOR_SOURCE = 'KAFKA_REPLICATOR_SOURCE',
     NONE = 'NONE'
 }
@@ -103,7 +102,6 @@ export enum CreateSmartConnectTaskReqSourceTypeEnum {
     * @enum {string}
     */
 export enum CreateSmartConnectTaskReqSinkTypeEnum {
-    REDIS_REPLICATOR_SINK = 'REDIS_REPLICATOR_SINK',
     OBS_SINK = 'OBS_SINK',
     NONE = 'NONE'
 }

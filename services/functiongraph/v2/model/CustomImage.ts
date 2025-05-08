@@ -8,6 +8,7 @@ export class CustomImage {
     private 'working_dir'?: string;
     public uid?: string;
     public gid?: string;
+    private 'is_public'?: boolean;
     public constructor() { 
     }
     public withEnabled(enabled: boolean): CustomImage {
@@ -43,5 +44,15 @@ export class CustomImage {
     public withGid(gid: string): CustomImage {
         this['gid'] = gid;
         return this;
+    }
+    public withIsPublic(isPublic: boolean): CustomImage {
+        this['is_public'] = isPublic;
+        return this;
+    }
+    public set isPublic(isPublic: boolean  | undefined) {
+        this['is_public'] = isPublic;
+    }
+    public get isPublic(): boolean | undefined {
+        return this['is_public'];
     }
 }

@@ -9,11 +9,10 @@ export class GetScriptJobBatchRequest {
     private 'X-Language'?: string;
     private 'x-project-id'?: string;
     private 'x-user-profile'?: string;
-    public constructor(batchIndex?: number, executeUuid?: string, limit?: number, marker?: number) { 
+    public constructor(batchIndex?: number, executeUuid?: string, limit?: number) { 
         this['batch_index'] = batchIndex;
         this['execute_uuid'] = executeUuid;
         this['limit'] = limit;
-        this['marker'] = marker;
     }
     public withBatchIndex(batchIndex: number): GetScriptJobBatchRequest {
         this['batch_index'] = batchIndex;

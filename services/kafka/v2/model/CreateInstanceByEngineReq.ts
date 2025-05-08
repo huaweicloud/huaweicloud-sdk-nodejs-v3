@@ -1,4 +1,5 @@
 import { BssParam } from './BssParam';
+import { PortProtocol } from './PortProtocol';
 import { TagEntity } from './TagEntity';
 
 
@@ -16,15 +17,15 @@ export class CreateInstanceByEngineReq {
     private 'subnet_id'?: string;
     private 'available_zones'?: Array<string>;
     private 'product_id'?: string;
-    private 'kafka_manager_user'?: string;
-    private 'kafka_manager_password'?: string;
     private 'maintain_begin'?: string;
     private 'maintain_end'?: string;
     private 'enable_publicip'?: boolean;
+    private 'tenant_ips'?: Array<string>;
     private 'publicip_id'?: string;
     private 'ssl_enable'?: boolean;
     private 'kafka_security_protocol'?: string;
     private 'sasl_enabled_mechanisms'?: Array<CreateInstanceByEngineReqSaslEnabledMechanismsEnum> | Array<string>;
+    private 'port_protocol'?: PortProtocol;
     private 'retention_policy'?: CreateInstanceByEngineReqRetentionPolicyEnum | string;
     private 'ipv6_enable'?: boolean;
     private 'disk_encrypted_enable'?: boolean;
@@ -156,26 +157,6 @@ export class CreateInstanceByEngineReq {
     public get productId(): string | undefined {
         return this['product_id'];
     }
-    public withKafkaManagerUser(kafkaManagerUser: string): CreateInstanceByEngineReq {
-        this['kafka_manager_user'] = kafkaManagerUser;
-        return this;
-    }
-    public set kafkaManagerUser(kafkaManagerUser: string  | undefined) {
-        this['kafka_manager_user'] = kafkaManagerUser;
-    }
-    public get kafkaManagerUser(): string | undefined {
-        return this['kafka_manager_user'];
-    }
-    public withKafkaManagerPassword(kafkaManagerPassword: string): CreateInstanceByEngineReq {
-        this['kafka_manager_password'] = kafkaManagerPassword;
-        return this;
-    }
-    public set kafkaManagerPassword(kafkaManagerPassword: string  | undefined) {
-        this['kafka_manager_password'] = kafkaManagerPassword;
-    }
-    public get kafkaManagerPassword(): string | undefined {
-        return this['kafka_manager_password'];
-    }
     public withMaintainBegin(maintainBegin: string): CreateInstanceByEngineReq {
         this['maintain_begin'] = maintainBegin;
         return this;
@@ -205,6 +186,16 @@ export class CreateInstanceByEngineReq {
     }
     public get enablePublicip(): boolean | undefined {
         return this['enable_publicip'];
+    }
+    public withTenantIps(tenantIps: Array<string>): CreateInstanceByEngineReq {
+        this['tenant_ips'] = tenantIps;
+        return this;
+    }
+    public set tenantIps(tenantIps: Array<string>  | undefined) {
+        this['tenant_ips'] = tenantIps;
+    }
+    public get tenantIps(): Array<string> | undefined {
+        return this['tenant_ips'];
     }
     public withPublicipId(publicipId: string): CreateInstanceByEngineReq {
         this['publicip_id'] = publicipId;
@@ -245,6 +236,16 @@ export class CreateInstanceByEngineReq {
     }
     public get saslEnabledMechanisms(): Array<CreateInstanceByEngineReqSaslEnabledMechanismsEnum> | Array<string> | undefined {
         return this['sasl_enabled_mechanisms'];
+    }
+    public withPortProtocol(portProtocol: PortProtocol): CreateInstanceByEngineReq {
+        this['port_protocol'] = portProtocol;
+        return this;
+    }
+    public set portProtocol(portProtocol: PortProtocol  | undefined) {
+        this['port_protocol'] = portProtocol;
+    }
+    public get portProtocol(): PortProtocol | undefined {
+        return this['port_protocol'];
     }
     public withRetentionPolicy(retentionPolicy: CreateInstanceByEngineReqRetentionPolicyEnum | string): CreateInstanceByEngineReq {
         this['retention_policy'] = retentionPolicy;

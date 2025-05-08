@@ -7,13 +7,14 @@ export class ListTtscVocabularyConfigsRequest {
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
     public type?: string;
+    private 'tts_service_name'?: string;
+    private 'is_vocabulary_config_enable'?: string;
     public limit?: number;
     public offset?: number;
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'search_key'?: string;
-    public constructor(type?: string) { 
-        this['type'] = type;
+    public constructor() { 
     }
     public withXRequestId(xRequestId: string): ListTtscVocabularyConfigsRequest {
         this['X-Request-Id'] = xRequestId;
@@ -68,6 +69,26 @@ export class ListTtscVocabularyConfigsRequest {
     public withType(type: string): ListTtscVocabularyConfigsRequest {
         this['type'] = type;
         return this;
+    }
+    public withTtsServiceName(ttsServiceName: string): ListTtscVocabularyConfigsRequest {
+        this['tts_service_name'] = ttsServiceName;
+        return this;
+    }
+    public set ttsServiceName(ttsServiceName: string  | undefined) {
+        this['tts_service_name'] = ttsServiceName;
+    }
+    public get ttsServiceName(): string | undefined {
+        return this['tts_service_name'];
+    }
+    public withIsVocabularyConfigEnable(isVocabularyConfigEnable: string): ListTtscVocabularyConfigsRequest {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+        return this;
+    }
+    public set isVocabularyConfigEnable(isVocabularyConfigEnable: string  | undefined) {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+    }
+    public get isVocabularyConfigEnable(): string | undefined {
+        return this['is_vocabulary_config_enable'];
     }
     public withLimit(limit: number): ListTtscVocabularyConfigsRequest {
         this['limit'] = limit;

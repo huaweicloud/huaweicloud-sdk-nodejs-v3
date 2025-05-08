@@ -4,6 +4,8 @@ export class ListMessageTraceRequest {
     public engine?: ListMessageTraceRequestEngineEnum | string;
     private 'instance_id'?: string;
     private 'msg_id'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(engine?: string, instanceId?: string, msgId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -32,6 +34,14 @@ export class ListMessageTraceRequest {
     }
     public get msgId(): string | undefined {
         return this['msg_id'];
+    }
+    public withLimit(limit: number): ListMessageTraceRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListMessageTraceRequest {
+        this['offset'] = offset;
+        return this;
     }
 }
 

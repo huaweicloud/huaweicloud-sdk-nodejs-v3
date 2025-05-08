@@ -2,6 +2,8 @@
 
 export class ShowRocketMqConfigsRequest {
     private 'instance_id'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,13 @@ export class ShowRocketMqConfigsRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withLimit(limit: number): ShowRocketMqConfigsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ShowRocketMqConfigsRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

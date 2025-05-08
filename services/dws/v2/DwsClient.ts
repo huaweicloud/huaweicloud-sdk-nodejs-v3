@@ -108,6 +108,8 @@ import { CreateDisasterRecoveryResponse } from './model/CreateDisasterRecoveryRe
 import { CreateEventSubRequest } from './model/CreateEventSubRequest';
 import { CreateEventSubResponse } from './model/CreateEventSubResponse';
 import { CreateLogicalClusterInfo } from './model/CreateLogicalClusterInfo';
+import { CreateLogicalClusterPlanRequest } from './model/CreateLogicalClusterPlanRequest';
+import { CreateLogicalClusterPlanResponse } from './model/CreateLogicalClusterPlanResponse';
 import { CreateLogicalClusterRequest } from './model/CreateLogicalClusterRequest';
 import { CreateLogicalClusterRequestBody } from './model/CreateLogicalClusterRequestBody';
 import { CreateLogicalClusterResponse } from './model/CreateLogicalClusterResponse';
@@ -144,6 +146,8 @@ import { DeleteDwsClusterRequest } from './model/DeleteDwsClusterRequest';
 import { DeleteDwsClusterResponse } from './model/DeleteDwsClusterResponse';
 import { DeleteEventSubRequest } from './model/DeleteEventSubRequest';
 import { DeleteEventSubResponse } from './model/DeleteEventSubResponse';
+import { DeleteLogicalClusterPlanRequest } from './model/DeleteLogicalClusterPlanRequest';
+import { DeleteLogicalClusterPlanResponse } from './model/DeleteLogicalClusterPlanResponse';
 import { DeleteLogicalClusterRequest } from './model/DeleteLogicalClusterRequest';
 import { DeleteLogicalClusterResponse } from './model/DeleteLogicalClusterResponse';
 import { DeleteQueueUserListRequest } from './model/DeleteQueueUserListRequest';
@@ -161,6 +165,8 @@ import { DeleteWorkloadPlanStageResponse } from './model/DeleteWorkloadPlanStage
 import { DeleteWorkloadQueueRequest } from './model/DeleteWorkloadQueueRequest';
 import { DeleteWorkloadQueueResponse } from './model/DeleteWorkloadQueueResponse';
 import { Detail } from './model/Detail';
+import { DisableLogicalClusterPlanRequest } from './model/DisableLogicalClusterPlanRequest';
+import { DisableLogicalClusterPlanResponse } from './model/DisableLogicalClusterPlanResponse';
 import { DisableLtsLogsRequest } from './model/DisableLtsLogsRequest';
 import { DisableLtsLogsResponse } from './model/DisableLtsLogsResponse';
 import { DisassociateEipRequest } from './model/DisassociateEipRequest';
@@ -175,6 +181,8 @@ import { DisasterRecoveryQueryResp } from './model/DisasterRecoveryQueryResp';
 import { DiskResp } from './model/DiskResp';
 import { DssPool } from './model/DssPool';
 import { ElbResp } from './model/ElbResp';
+import { EnableLogicalClusterPlanRequest } from './model/EnableLogicalClusterPlanRequest';
+import { EnableLogicalClusterPlanResponse } from './model/EnableLogicalClusterPlanResponse';
 import { EnableLogicalClusterRequest } from './model/EnableLogicalClusterRequest';
 import { EnableLogicalClusterRequestBody } from './model/EnableLogicalClusterRequestBody';
 import { EnableLogicalClusterResponse } from './model/EnableLogicalClusterResponse';
@@ -267,6 +275,8 @@ import { ListHostOverviewRequest } from './model/ListHostOverviewRequest';
 import { ListHostOverviewResponse } from './model/ListHostOverviewResponse';
 import { ListJobDetailsRequest } from './model/ListJobDetailsRequest';
 import { ListJobDetailsResponse } from './model/ListJobDetailsResponse';
+import { ListLogicalClusterPlansRequest } from './model/ListLogicalClusterPlansRequest';
+import { ListLogicalClusterPlansResponse } from './model/ListLogicalClusterPlansResponse';
 import { ListLogicalClusterRingsRequest } from './model/ListLogicalClusterRingsRequest';
 import { ListLogicalClusterRingsResponse } from './model/ListLogicalClusterRingsResponse';
 import { ListLogicalClusterTasksRequest } from './model/ListLogicalClusterTasksRequest';
@@ -332,6 +342,10 @@ import { ListWorkloadQueueResponse } from './model/ListWorkloadQueueResponse';
 import { ListWorkloadQueueUsersRequest } from './model/ListWorkloadQueueUsersRequest';
 import { ListWorkloadQueueUsersResponse } from './model/ListWorkloadQueueUsersResponse';
 import { LogicalClusterInfo } from './model/LogicalClusterInfo';
+import { LogicalClusterPlanActions } from './model/LogicalClusterPlanActions';
+import { LogicalClusterPlanActionsParam } from './model/LogicalClusterPlanActionsParam';
+import { LogicalClusterPlanBo } from './model/LogicalClusterPlanBo';
+import { LogicalClusterPlanVo } from './model/LogicalClusterPlanVo';
 import { LogicalClusterRingInfo } from './model/LogicalClusterRingInfo';
 import { LogicalClusterTaskInfo } from './model/LogicalClusterTaskInfo';
 import { LogicalClusterVolume } from './model/LogicalClusterVolume';
@@ -492,6 +506,10 @@ import { UpdateDisasterRecoveryRequest } from './model/UpdateDisasterRecoveryReq
 import { UpdateEventSubRequest } from './model/UpdateEventSubRequest';
 import { UpdateEventSubResponse } from './model/UpdateEventSubResponse';
 import { UpdateItemResp } from './model/UpdateItemResp';
+import { UpdateLogicalClusterPlanActions } from './model/UpdateLogicalClusterPlanActions';
+import { UpdateLogicalClusterPlanBo } from './model/UpdateLogicalClusterPlanBo';
+import { UpdateLogicalClusterPlanRequest } from './model/UpdateLogicalClusterPlanRequest';
+import { UpdateLogicalClusterPlanResponse } from './model/UpdateLogicalClusterPlanResponse';
 import { UpdateLogicalClusterRequest } from './model/UpdateLogicalClusterRequest';
 import { UpdateLogicalClusterRequestBody } from './model/UpdateLogicalClusterRequestBody';
 import { UpdateLogicalClusterResponse } from './model/UpdateLogicalClusterResponse';
@@ -1070,6 +1088,26 @@ export class DwsClient {
     }
 
     /**
+     * 此接口用于添加逻辑集群定时增删计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加逻辑集群定时增删计划
+     * @param {string} clusterId 指定集群的ID
+     * @param {LogicalClusterPlanBo} createLogicalClusterPlanRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLogicalClusterPlan(createLogicalClusterPlanRequest?: CreateLogicalClusterPlanRequest): Promise<CreateLogicalClusterPlanResponse> {
+        const options = ParamCreater().createLogicalClusterPlan(createLogicalClusterPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于为指定集群创建快照。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1310,6 +1348,26 @@ export class DwsClient {
     }
 
     /**
+     * 此接口用于删除逻辑集群定时增删计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除逻辑集群定时增删计划
+     * @param {string} clusterId 指定待删除集群的ID
+     * @param {string} planId 计划ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLogicalClusterPlan(deleteLogicalClusterPlanRequest?: DeleteLogicalClusterPlanRequest): Promise<DeleteLogicalClusterPlanResponse> {
+        const options = ParamCreater().deleteLogicalClusterPlan(deleteLogicalClusterPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除工作负载队列的绑定用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1451,6 +1509,26 @@ export class DwsClient {
     }
 
     /**
+     * 停用逻辑集群定时增删计划
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停用逻辑集群定时增删计划
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableLogicalClusterPlan(disableLogicalClusterPlanRequest?: DisableLogicalClusterPlanRequest): Promise<DisableLogicalClusterPlanResponse> {
+        const options = ParamCreater().disableLogicalClusterPlan(disableLogicalClusterPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于关闭集群LTS云日志服务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1522,6 +1600,26 @@ export class DwsClient {
      */
     public enableLogicalCluster(enableLogicalClusterRequest?: EnableLogicalClusterRequest): Promise<EnableLogicalClusterResponse> {
         const options = ParamCreater().enableLogicalCluster(enableLogicalClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用逻辑集群定时增删计划
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用逻辑集群定时增删计划
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableLogicalClusterPlan(enableLogicalClusterPlanRequest?: EnableLogicalClusterPlanRequest): Promise<EnableLogicalClusterPlanResponse> {
+        const options = ParamCreater().enableLogicalClusterPlan(enableLogicalClusterPlanRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2244,6 +2342,25 @@ export class DwsClient {
      */
     public listJobDetails(listJobDetailsRequest?: ListJobDetailsRequest): Promise<ListJobDetailsResponse> {
         const options = ParamCreater().listJobDetails(listJobDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 此接口用于查询逻辑集群定时增删计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询逻辑集群定时增删计划
+     * @param {string} clusterId 指定集群的ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogicalClusterPlans(listLogicalClusterPlansRequest?: ListLogicalClusterPlansRequest): Promise<ListLogicalClusterPlansResponse> {
+        const options = ParamCreater().listLogicalClusterPlans(listLogicalClusterPlansRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3808,6 +3925,27 @@ export class DwsClient {
     }
 
     /**
+     * 此接口用于编辑修改编辑逻辑集群增删计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑逻辑集群增删计划
+     * @param {string} clusterId 指定待编辑集群的ID
+     * @param {string} planId 逻辑集群增删计划ID
+     * @param {UpdateLogicalClusterPlanBo} updateLogicalClusterPlanRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogicalClusterPlan(updateLogicalClusterPlanRequest?: UpdateLogicalClusterPlanRequest): Promise<UpdateLogicalClusterPlanResponse> {
+        const options = ParamCreater().updateLogicalClusterPlan(updateLogicalClusterPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 您可以根据业务需求，设置可维护时间段。建议将可维护时间段设置在业务低峰期，避免业务在维护过程中异常中断。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5035,6 +5173,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 此接口用于添加逻辑集群定时增删计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLogicalClusterPlan(createLogicalClusterPlanRequest?: CreateLogicalClusterPlanRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createLogicalClusterPlanRequest !== null && createLogicalClusterPlanRequest !== undefined) {
+                if (createLogicalClusterPlanRequest instanceof CreateLogicalClusterPlanRequest) {
+                    clusterId = createLogicalClusterPlanRequest.clusterId;
+                    body = createLogicalClusterPlanRequest.body
+                } else {
+                    clusterId = createLogicalClusterPlanRequest['cluster_id'];
+                    body = createLogicalClusterPlanRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createLogicalClusterPlan.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于为指定集群创建快照。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5556,6 +5740,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 此接口用于删除逻辑集群定时增删计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLogicalClusterPlan(deleteLogicalClusterPlanRequest?: DeleteLogicalClusterPlanRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let planId;
+
+            if (deleteLogicalClusterPlanRequest !== null && deleteLogicalClusterPlanRequest !== undefined) {
+                if (deleteLogicalClusterPlanRequest instanceof DeleteLogicalClusterPlanRequest) {
+                    clusterId = deleteLogicalClusterPlanRequest.clusterId;
+                    planId = deleteLogicalClusterPlanRequest.planId;
+                } else {
+                    clusterId = deleteLogicalClusterPlanRequest['cluster_id'];
+                    planId = deleteLogicalClusterPlanRequest['plan_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteLogicalClusterPlan.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling deleteLogicalClusterPlan.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除工作负载队列的绑定用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5880,6 +6108,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 停用逻辑集群定时增删计划
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableLogicalClusterPlan(disableLogicalClusterPlanRequest?: DisableLogicalClusterPlanRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let planId;
+
+            if (disableLogicalClusterPlanRequest !== null && disableLogicalClusterPlanRequest !== undefined) {
+                if (disableLogicalClusterPlanRequest instanceof DisableLogicalClusterPlanRequest) {
+                    clusterId = disableLogicalClusterPlanRequest.clusterId;
+                    planId = disableLogicalClusterPlanRequest.planId;
+                } else {
+                    clusterId = disableLogicalClusterPlanRequest['cluster_id'];
+                    planId = disableLogicalClusterPlanRequest['plan_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling disableLogicalClusterPlan.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling disableLogicalClusterPlan.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于关闭集群LTS云日志服务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6046,6 +6318,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用逻辑集群定时增删计划
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableLogicalClusterPlan(enableLogicalClusterPlanRequest?: EnableLogicalClusterPlanRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}/enable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let planId;
+
+            if (enableLogicalClusterPlanRequest !== null && enableLogicalClusterPlanRequest !== undefined) {
+                if (enableLogicalClusterPlanRequest instanceof EnableLogicalClusterPlanRequest) {
+                    clusterId = enableLogicalClusterPlanRequest.clusterId;
+                    planId = enableLogicalClusterPlanRequest.planId;
+                } else {
+                    clusterId = enableLogicalClusterPlanRequest['cluster_id'];
+                    planId = enableLogicalClusterPlanRequest['plan_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling enableLogicalClusterPlan.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling enableLogicalClusterPlan.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7706,6 +8022,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口用于查询逻辑集群定时增删计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogicalClusterPlans(listLogicalClusterPlansRequest?: ListLogicalClusterPlansRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listLogicalClusterPlansRequest !== null && listLogicalClusterPlansRequest !== undefined) {
+                if (listLogicalClusterPlansRequest instanceof ListLogicalClusterPlansRequest) {
+                    clusterId = listLogicalClusterPlansRequest.clusterId;
+                } else {
+                    clusterId = listLogicalClusterPlansRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listLogicalClusterPlans.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11272,6 +11625,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'logical_cluster_id': logicalClusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口用于编辑修改编辑逻辑集群增删计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogicalClusterPlan(updateLogicalClusterPlanRequest?: UpdateLogicalClusterPlanRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let planId;
+
+            if (updateLogicalClusterPlanRequest !== null && updateLogicalClusterPlanRequest !== undefined) {
+                if (updateLogicalClusterPlanRequest instanceof UpdateLogicalClusterPlanRequest) {
+                    clusterId = updateLogicalClusterPlanRequest.clusterId;
+                    planId = updateLogicalClusterPlanRequest.planId;
+                    body = updateLogicalClusterPlanRequest.body
+                } else {
+                    clusterId = updateLogicalClusterPlanRequest['cluster_id'];
+                    planId = updateLogicalClusterPlanRequest['plan_id'];
+                    body = updateLogicalClusterPlanRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateLogicalClusterPlan.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling updateLogicalClusterPlan.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

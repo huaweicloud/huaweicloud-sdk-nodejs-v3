@@ -48,16 +48,26 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'new_spec_billing_enable'?: boolean;
     private 'enable_acl'?: boolean;
     private 'broker_num'?: number;
+    private 'dns_enable'?: boolean;
     private 'namesrv_address'?: string;
+    private 'namesrv_domain_name'?: string;
     private 'broker_address'?: string;
     private 'public_namesrv_address'?: string;
+    private 'public_namesrv_domain_name'?: string;
     private 'public_broker_address'?: string;
     private 'grpc_address'?: string;
+    private 'grpc_domain_name'?: string;
     private 'public_grpc_address'?: string;
+    private 'public_grpc_domain_name'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<TagEntity>;
     private 'total_storage_space'?: number;
     private 'resource_spec_code'?: string;
+    private 'produce_portion'?: number;
+    private 'consume_portion'?: number;
+    private 'dr_enable'?: boolean;
+    private 'config_ssl_need_restart_process'?: boolean;
+    private 'tls_mode'?: string;
     public constructor() { 
         super();
     }
@@ -475,6 +485,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get brokerNum(): number | undefined {
         return this['broker_num'];
     }
+    public withDnsEnable(dnsEnable: boolean): ShowInstanceResponse {
+        this['dns_enable'] = dnsEnable;
+        return this;
+    }
+    public set dnsEnable(dnsEnable: boolean  | undefined) {
+        this['dns_enable'] = dnsEnable;
+    }
+    public get dnsEnable(): boolean | undefined {
+        return this['dns_enable'];
+    }
     public withNamesrvAddress(namesrvAddress: string): ShowInstanceResponse {
         this['namesrv_address'] = namesrvAddress;
         return this;
@@ -484,6 +504,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get namesrvAddress(): string | undefined {
         return this['namesrv_address'];
+    }
+    public withNamesrvDomainName(namesrvDomainName: string): ShowInstanceResponse {
+        this['namesrv_domain_name'] = namesrvDomainName;
+        return this;
+    }
+    public set namesrvDomainName(namesrvDomainName: string  | undefined) {
+        this['namesrv_domain_name'] = namesrvDomainName;
+    }
+    public get namesrvDomainName(): string | undefined {
+        return this['namesrv_domain_name'];
     }
     public withBrokerAddress(brokerAddress: string): ShowInstanceResponse {
         this['broker_address'] = brokerAddress;
@@ -505,6 +535,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get publicNamesrvAddress(): string | undefined {
         return this['public_namesrv_address'];
     }
+    public withPublicNamesrvDomainName(publicNamesrvDomainName: string): ShowInstanceResponse {
+        this['public_namesrv_domain_name'] = publicNamesrvDomainName;
+        return this;
+    }
+    public set publicNamesrvDomainName(publicNamesrvDomainName: string  | undefined) {
+        this['public_namesrv_domain_name'] = publicNamesrvDomainName;
+    }
+    public get publicNamesrvDomainName(): string | undefined {
+        return this['public_namesrv_domain_name'];
+    }
     public withPublicBrokerAddress(publicBrokerAddress: string): ShowInstanceResponse {
         this['public_broker_address'] = publicBrokerAddress;
         return this;
@@ -525,6 +565,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get grpcAddress(): string | undefined {
         return this['grpc_address'];
     }
+    public withGrpcDomainName(grpcDomainName: string): ShowInstanceResponse {
+        this['grpc_domain_name'] = grpcDomainName;
+        return this;
+    }
+    public set grpcDomainName(grpcDomainName: string  | undefined) {
+        this['grpc_domain_name'] = grpcDomainName;
+    }
+    public get grpcDomainName(): string | undefined {
+        return this['grpc_domain_name'];
+    }
     public withPublicGrpcAddress(publicGrpcAddress: string): ShowInstanceResponse {
         this['public_grpc_address'] = publicGrpcAddress;
         return this;
@@ -534,6 +584,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get publicGrpcAddress(): string | undefined {
         return this['public_grpc_address'];
+    }
+    public withPublicGrpcDomainName(publicGrpcDomainName: string): ShowInstanceResponse {
+        this['public_grpc_domain_name'] = publicGrpcDomainName;
+        return this;
+    }
+    public set publicGrpcDomainName(publicGrpcDomainName: string  | undefined) {
+        this['public_grpc_domain_name'] = publicGrpcDomainName;
+    }
+    public get publicGrpcDomainName(): string | undefined {
+        return this['public_grpc_domain_name'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowInstanceResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -568,6 +628,56 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get resourceSpecCode(): string | undefined {
         return this['resource_spec_code'];
+    }
+    public withProducePortion(producePortion: number): ShowInstanceResponse {
+        this['produce_portion'] = producePortion;
+        return this;
+    }
+    public set producePortion(producePortion: number  | undefined) {
+        this['produce_portion'] = producePortion;
+    }
+    public get producePortion(): number | undefined {
+        return this['produce_portion'];
+    }
+    public withConsumePortion(consumePortion: number): ShowInstanceResponse {
+        this['consume_portion'] = consumePortion;
+        return this;
+    }
+    public set consumePortion(consumePortion: number  | undefined) {
+        this['consume_portion'] = consumePortion;
+    }
+    public get consumePortion(): number | undefined {
+        return this['consume_portion'];
+    }
+    public withDrEnable(drEnable: boolean): ShowInstanceResponse {
+        this['dr_enable'] = drEnable;
+        return this;
+    }
+    public set drEnable(drEnable: boolean  | undefined) {
+        this['dr_enable'] = drEnable;
+    }
+    public get drEnable(): boolean | undefined {
+        return this['dr_enable'];
+    }
+    public withConfigSslNeedRestartProcess(configSslNeedRestartProcess: boolean): ShowInstanceResponse {
+        this['config_ssl_need_restart_process'] = configSslNeedRestartProcess;
+        return this;
+    }
+    public set configSslNeedRestartProcess(configSslNeedRestartProcess: boolean  | undefined) {
+        this['config_ssl_need_restart_process'] = configSslNeedRestartProcess;
+    }
+    public get configSslNeedRestartProcess(): boolean | undefined {
+        return this['config_ssl_need_restart_process'];
+    }
+    public withTlsMode(tlsMode: string): ShowInstanceResponse {
+        this['tls_mode'] = tlsMode;
+        return this;
+    }
+    public set tlsMode(tlsMode: string  | undefined) {
+        this['tls_mode'] = tlsMode;
+    }
+    public get tlsMode(): string | undefined {
+        return this['tls_mode'];
     }
 }
 

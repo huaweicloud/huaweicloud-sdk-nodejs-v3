@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AcceptScriptRequest } from './model/AcceptScriptRequest';
+import { AcceptScriptResponse } from './model/AcceptScriptResponse';
 import { AccountRsp } from './model/AccountRsp';
 import { AddScriptModel } from './model/AddScriptModel';
 import { AlarmHandleHistory } from './model/AlarmHandleHistory';
@@ -9,6 +11,10 @@ import { AlarmInfoDTO } from './model/AlarmInfoDTO';
 import { ApplicationInfo } from './model/ApplicationInfo';
 import { ApplicationModelQueryResponseData } from './model/ApplicationModelQueryResponseData';
 import { ApplicationQueryResponseData } from './model/ApplicationQueryResponseData';
+import { ApprovalJobScriptModel } from './model/ApprovalJobScriptModel';
+import { AtomicInputModel } from './model/AtomicInputModel';
+import { AtomicModel } from './model/AtomicModel';
+import { AtomicOutputModel } from './model/AtomicOutputModel';
 import { AuthorizableTicketBody } from './model/AuthorizableTicketBody';
 import { AuthorizeTicketCommonInfo } from './model/AuthorizeTicketCommonInfo';
 import { AuthorizeTicketInfo } from './model/AuthorizeTicketInfo';
@@ -24,6 +30,10 @@ import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateAppli
 import { BatchListMultiCloudResourceResponseData } from './model/BatchListMultiCloudResourceResponseData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
 import { CceInfo } from './model/CceInfo';
+import { CheckScriptRiskRequest } from './model/CheckScriptRiskRequest';
+import { CheckScriptRiskResData } from './model/CheckScriptRiskResData';
+import { CheckScriptRiskResDataBlacklistCommands } from './model/CheckScriptRiskResDataBlacklistCommands';
+import { CheckScriptRiskResponse } from './model/CheckScriptRiskResponse';
 import { CocIssuesTicketDetailInfoResponseData } from './model/CocIssuesTicketDetailInfoResponseData';
 import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
@@ -34,6 +44,10 @@ import { CreateCocIncidentRequest } from './model/CreateCocIncidentRequest';
 import { CreateCocIncidentResponse } from './model/CreateCocIncidentResponse';
 import { CreateCocIssuesRequest } from './model/CreateCocIssuesRequest';
 import { CreateCocIssuesResponse } from './model/CreateCocIssuesResponse';
+import { CreateDocumentRequest } from './model/CreateDocumentRequest';
+import { CreateDocumentRequestBody } from './model/CreateDocumentRequestBody';
+import { CreateDocumentRequestBodyTags } from './model/CreateDocumentRequestBodyTags';
+import { CreateDocumentResponse } from './model/CreateDocumentResponse';
 import { CreateExternalIncidentRequest } from './model/CreateExternalIncidentRequest';
 import { CreateExternalIncidentResponseData } from './model/CreateExternalIncidentResponseData';
 import { CreateExternalIssuesRequest } from './model/CreateExternalIssuesRequest';
@@ -52,19 +66,30 @@ import { CreateWarRoomResponse } from './model/CreateWarRoomResponse';
 import { CustomBaselineRule } from './model/CustomBaselineRule';
 import { CustomBaselineRulePatchItem } from './model/CustomBaselineRulePatchItem';
 import { Customttribute } from './model/Customttribute';
+import { DeleteDocumentRequest } from './model/DeleteDocumentRequest';
+import { DeleteDocumentResponse } from './model/DeleteDocumentResponse';
 import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
 import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
 import { DeleteScriptRequest } from './model/DeleteScriptRequest';
 import { DeleteScriptResponse } from './model/DeleteScriptResponse';
 import { DisableScheduledTaskRequest } from './model/DisableScheduledTaskRequest';
 import { DisableScheduledTaskResponse } from './model/DisableScheduledTaskResponse';
+import { DocumentVersionVo } from './model/DocumentVersionVo';
 import { EditScriptModel } from './model/EditScriptModel';
 import { EnableScheduledTaskRequest } from './model/EnableScheduledTaskRequest';
 import { EnableScheduledTaskRequestBody } from './model/EnableScheduledTaskRequestBody';
 import { EnableScheduledTaskResponse } from './model/EnableScheduledTaskResponse';
 import { EnumDataInfo } from './model/EnumDataInfo';
+import { ExcutionStep } from './model/ExcutionStep';
+import { ExcutionStepInputs } from './model/ExcutionStepInputs';
 import { ExectionInstanceModel } from './model/ExectionInstanceModel';
 import { ExectuionStatistic } from './model/ExectuionStatistic';
+import { ExecuteDocumentRequest } from './model/ExecuteDocumentRequest';
+import { ExecuteDocumentRequsetBody } from './model/ExecuteDocumentRequsetBody';
+import { ExecuteDocumentRequsetBodyParameters } from './model/ExecuteDocumentRequsetBodyParameters';
+import { ExecuteDocumentRequsetBodySysTags } from './model/ExecuteDocumentRequsetBodySysTags';
+import { ExecuteDocumentRequsetBodyTargets } from './model/ExecuteDocumentRequsetBodyTargets';
+import { ExecuteDocumentResponse } from './model/ExecuteDocumentResponse';
 import { ExecuteInstancesBatchInfo } from './model/ExecuteInstancesBatchInfo';
 import { ExecutePublicScriptRequest } from './model/ExecutePublicScriptRequest';
 import { ExecutePublicScriptResponse } from './model/ExecutePublicScriptResponse';
@@ -73,6 +98,12 @@ import { ExecuteScriptRequest } from './model/ExecuteScriptRequest';
 import { ExecuteScriptResponse } from './model/ExecuteScriptResponse';
 import { ExecutionSummary } from './model/ExecutionSummary';
 import { ExtraFieldInfo } from './model/ExtraFieldInfo';
+import { GetDocumentAtomicInfoRequest } from './model/GetDocumentAtomicInfoRequest';
+import { GetDocumentAtomicInfoResponse } from './model/GetDocumentAtomicInfoResponse';
+import { GetDocumentRequest } from './model/GetDocumentRequest';
+import { GetDocumentResponse } from './model/GetDocumentResponse';
+import { GetExecutionRequest } from './model/GetExecutionRequest';
+import { GetExecutionResponse } from './model/GetExecutionResponse';
 import { GetPublicScriptRequest } from './model/GetPublicScriptRequest';
 import { GetPublicScriptResponse } from './model/GetPublicScriptResponse';
 import { GetScriptJobBatchRequest } from './model/GetScriptJobBatchRequest';
@@ -90,7 +121,10 @@ import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentReq
 import { HandleExternalIncidentResponseData } from './model/HandleExternalIncidentResponseData';
 import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoResponseData';
 import { InstanceCompliant } from './model/InstanceCompliant';
+import { InstancesBatchResultMode } from './model/InstancesBatchResultMode';
+import { InstancesBatchesMode } from './model/InstancesBatchesMode';
 import { InterruptRecord } from './model/InterruptRecord';
+import { JobScriptAnalyzeRequest } from './model/JobScriptAnalyzeRequest';
 import { JobScriptBatchDetailModel } from './model/JobScriptBatchDetailModel';
 import { JobScriptBatchListModel } from './model/JobScriptBatchListModel';
 import { JobScriptOrderInfoModel } from './model/JobScriptOrderInfoModel';
@@ -115,8 +149,22 @@ import { ListCceCompliantRequest } from './model/ListCceCompliantRequest';
 import { ListCceCompliantResponse } from './model/ListCceCompliantResponse';
 import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOperationHistoriesRequest';
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
+import { ListDocumentAtomicsRequest } from './model/ListDocumentAtomicsRequest';
+import { ListDocumentAtomicsResponse } from './model/ListDocumentAtomicsResponse';
+import { ListDocumentsRequest } from './model/ListDocumentsRequest';
+import { ListDocumentsResponse } from './model/ListDocumentsResponse';
+import { ListExecutionInstancesRequest } from './model/ListExecutionInstancesRequest';
+import { ListExecutionInstancesResponse } from './model/ListExecutionInstancesResponse';
+import { ListExecutionResponseData } from './model/ListExecutionResponseData';
+import { ListExecutionResponseParameters } from './model/ListExecutionResponseParameters';
+import { ListExecutionStepsRequest } from './model/ListExecutionStepsRequest';
+import { ListExecutionStepsResponse } from './model/ListExecutionStepsResponse';
+import { ListExecutionsRequest } from './model/ListExecutionsRequest';
+import { ListExecutionsResponse } from './model/ListExecutionsResponse';
 import { ListInstanceCompliantRequest } from './model/ListInstanceCompliantRequest';
 import { ListInstanceCompliantResponse } from './model/ListInstanceCompliantResponse';
+import { ListInstancesBatchRequest } from './model/ListInstancesBatchRequest';
+import { ListInstancesBatchResponse } from './model/ListInstancesBatchResponse';
 import { ListInterruptRecordsRequest } from './model/ListInterruptRecordsRequest';
 import { ListInterruptRecordsResponse } from './model/ListInterruptRecordsResponse';
 import { ListMultiCloudResourcesRequest } from './model/ListMultiCloudResourcesRequest';
@@ -135,6 +183,8 @@ import { ListScriptJobBatchesRequest } from './model/ListScriptJobBatchesRequest
 import { ListScriptJobBatchesResponse } from './model/ListScriptJobBatchesResponse';
 import { ListScriptJobsRequest } from './model/ListScriptJobsRequest';
 import { ListScriptJobsResponse } from './model/ListScriptJobsResponse';
+import { ListScriptResourceTagsRequest } from './model/ListScriptResourceTagsRequest';
+import { ListScriptResourceTagsResponse } from './model/ListScriptResourceTagsResponse';
 import { ListScriptsRequest } from './model/ListScriptsRequest';
 import { ListScriptsResponse } from './model/ListScriptsResponse';
 import { ListTenantWarRoomRequestBody } from './model/ListTenantWarRoomRequestBody';
@@ -145,8 +195,12 @@ import { MessageNotification } from './model/MessageNotification';
 import { NonCompliantSummary } from './model/NonCompliantSummary';
 import { NotificationObjConfiguration } from './model/NotificationObjConfiguration';
 import { ObjectFilter } from './model/ObjectFilter';
+import { OperateExecutionRequest } from './model/OperateExecutionRequest';
+import { OperateExecutionRequestBody } from './model/OperateExecutionRequestBody';
+import { OperateExecutionResponse } from './model/OperateExecutionResponse';
 import { OperateScriptJobRequest } from './model/OperateScriptJobRequest';
 import { OperateScriptJobResponse } from './model/OperateScriptJobResponse';
+import { OpsflowBaseResponse } from './model/OpsflowBaseResponse';
 import { PatchDetail } from './model/PatchDetail';
 import { PatchFilter } from './model/PatchFilter';
 import { PatchRule } from './model/PatchRule';
@@ -160,6 +214,7 @@ import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceInstanceProp } from './model/ResourceInstanceProp';
 import { ResourceMultiCountResponseData } from './model/ResourceMultiCountResponseData';
 import { ResourceQuery } from './model/ResourceQuery';
+import { ResourceTag } from './model/ResourceTag';
 import { ReviewerInfo } from './model/ReviewerInfo';
 import { ScheduleGroupInfo } from './model/ScheduleGroupInfo';
 import { ScheduleInstance } from './model/ScheduleInstance';
@@ -175,6 +230,7 @@ import { ScriptListModel } from './model/ScriptListModel';
 import { ScriptListPage } from './model/ScriptListPage';
 import { ScriptParamDefine } from './model/ScriptParamDefine';
 import { ScriptPropertiesModel } from './model/ScriptPropertiesModel';
+import { ScriptTag } from './model/ScriptTag';
 import { SeveritySummary } from './model/SeveritySummary';
 import { ShowAccountRequest } from './model/ShowAccountRequest';
 import { ShowAccountResponse } from './model/ShowAccountResponse';
@@ -208,12 +264,19 @@ import { SyncResourceReq } from './model/SyncResourceReq';
 import { SyncResourceRequest } from './model/SyncResourceRequest';
 import { SyncResourceResponse } from './model/SyncResourceResponse';
 import { Tag } from './model/Tag';
+import { Target } from './model/Target';
 import { TargetResource } from './model/TargetResource';
 import { TicketHistoryInfo } from './model/TicketHistoryInfo';
 import { TicketInfo } from './model/TicketInfo';
 import { TicketInfoEnumData } from './model/TicketInfoEnumData';
 import { TicketInformation } from './model/TicketInformation';
 import { TriggerTime } from './model/TriggerTime';
+import { UpdateDocumentRequest } from './model/UpdateDocumentRequest';
+import { UpdateDocumentResponse } from './model/UpdateDocumentResponse';
+import { UpdateResourceTagsRequest } from './model/UpdateResourceTagsRequest';
+import { UpdateResourceTagsRequestBody } from './model/UpdateResourceTagsRequestBody';
+import { UpdateResourceTagsResponse } from './model/UpdateResourceTagsResponse';
+import { UpdateRunbookRequestBody } from './model/UpdateRunbookRequestBody';
 import { UpdateScheduledTaskRequest } from './model/UpdateScheduledTaskRequest';
 import { UpdateScheduledTaskResponse } from './model/UpdateScheduledTaskResponse';
 import { UpdateScriptRequest } from './model/UpdateScriptRequest';
@@ -492,6 +555,168 @@ export class CocClient {
     }
 
     /**
+     * 创建自定义作业
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建自定义作业
+     * @param {CreateDocumentRequestBody} createDocumentRequestBody 创建作业请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDocument(createDocumentRequest?: CreateDocumentRequest): Promise<CreateDocumentResponse> {
+        const options = ParamCreater().createDocument(createDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义作业
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义作业
+     * @param {string} documentId 作业uuid
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDocument(deleteDocumentRequest?: DeleteDocumentRequest): Promise<DeleteDocumentResponse> {
+        const options = ParamCreater().deleteDocument(deleteDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 执行自定义作业
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行自定义作业
+     * @param {string} documentId 
+     * @param {ExecuteDocumentRequsetBody} executeDocumentRequsetBody 执行自定义作业请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeDocument(executeDocumentRequest?: ExecuteDocumentRequest): Promise<ExecuteDocumentResponse> {
+        const options = ParamCreater().executeDocument(executeDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自定义作业详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义作业详情
+     * @param {string} documentId 作业uuid
+     * @param {string} [version] 作业版本号，示例值v1、v2，不传默认查询最新版本
+     * @param {string} [documentType] 执行的作业类型 枚举：PUBLIC/PRIVATE 默认PRIVATE
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDocument(getDocumentRequest?: GetDocumentRequest): Promise<GetDocumentResponse> {
+        const options = ParamCreater().getDocument(getDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取原子能力详细
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取原子能力详细
+     * @param {string} atomicUniqueKey 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDocumentAtomicInfo(getDocumentAtomicInfoRequest?: GetDocumentAtomicInfoRequest): Promise<GetDocumentAtomicInfoResponse> {
+        const options = ParamCreater().getDocumentAtomicInfo(getDocumentAtomicInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取原子能力列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取原子能力列表
+     * @param {string} [limit] 
+     * @param {string} [offset] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDocumentAtomics(listDocumentAtomicsRequest?: ListDocumentAtomicsRequest): Promise<ListDocumentAtomicsResponse> {
+        const options = ParamCreater().listDocumentAtomics(listDocumentAtomicsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自定义作业列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义作业列表
+     * @param {number} [limit] 分页参数：每页返回记录个数限制
+     * @param {string} [offset] 偏移量
+     * @param {string} [nameLike] 作业名（模糊）
+     * @param {string} [creator] 创建人
+     * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {string} [documentType] 执行的作业类型 枚举：PUBLIC/NORMAL 默认NORMAL
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDocuments(listDocumentsRequest?: ListDocumentsRequest): Promise<ListDocumentsResponse> {
+        const options = ParamCreater().listDocuments(listDocumentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改自定义作业
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改自定义作业
+     * @param {string} documentId 
+     * @param {UpdateRunbookRequestBody} updateDemoInfoRequestBody DemoInfo object that needs to be modified
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDocument(updateDocumentRequest?: UpdateDocumentRequest): Promise<UpdateDocumentResponse> {
+        const options = ParamCreater().updateDocument(updateDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * Prometheus事件接入
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -504,6 +729,114 @@ export class CocClient {
      */
     public createReportPrometheusEvent(createReportPrometheusEventRequest?: CreateReportPrometheusEventRequest): Promise<CreateReportPrometheusEventResponse> {
         const options = ParamCreater().createReportPrometheusEvent(createReportPrometheusEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询作业工单详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询作业工单详情
+     * @param {string} executionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getExecution(getExecutionRequest?: GetExecutionRequest): Promise<GetExecutionResponse> {
+        const options = ParamCreater().getExecution(getExecutionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工单步骤批次实例，如脚本分批操作里的ECS实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工单步骤批次实例
+     * @param {number} [limit] 每页显示的条目数量
+     * @param {number} [offset] 从offset指定的下一条数据开始查询
+     * @param {string} [executionStepId] 工单步骤id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExecutionInstances(listExecutionInstancesRequest?: ListExecutionInstancesRequest): Promise<ListExecutionInstancesResponse> {
+        const options = ParamCreater().listExecutionInstances(listExecutionInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工单步骤详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工单步骤详情
+     * @param {string} executionId 
+     * @param {number} [limit] 每页显示的条目数量
+     * @param {number} [offset] 从offset指定的下一条数据开始查询
+     * @param {Array<string>} [executionStepIdList] 步骤id数组
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExecutionSteps(listExecutionStepsRequest?: ListExecutionStepsRequest): Promise<ListExecutionStepsResponse> {
+        const options = ParamCreater().listExecutionSteps(listExecutionStepsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询作业工单列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询作业工单列表
+     * @param {number} [limit] 分页参数：每页返回记录个数限制 不传默认第一页查10个
+     * @param {number} [offset] 分页参数：从offset指定的下一条数据开始查询，不传默认0
+     * @param {string} [creator] 创建人，模糊查询
+     * @param {number} [startTime] 开始时间，大于
+     * @param {number} [endTime] 结束时间，小于
+     * @param {string} [documentName] 作业名称，模糊查询
+     * @param {string} [documentId] 作业id
+     * @param {string} [tags] 标签过滤条件，例：?tags&#x3D;key1&#x3D;value1,key2&#x3D;value2
+     * @param {boolean} [excludeChildExecutions] 列表查询不返回子工单
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExecutions(listExecutionsRequest?: ListExecutionsRequest): Promise<ListExecutionsResponse> {
+        const options = ParamCreater().listExecutions(listExecutionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 操作工单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 操作工单
+     * @param {OperateExecutionRequestBody} [operateExecutionRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public operateExecution(operateExecutionRequest?: OperateExecutionRequest): Promise<OperateExecutionResponse> {
+        const options = ParamCreater().operateExecution(operateExecutionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -794,6 +1127,48 @@ export class CocClient {
     }
 
     /**
+     * 查询资源标签列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签列表
+     * @param {'coc:script'} resourceType 资源类型： - coc:script
+     * @param {string} [limit] 查询的限制数量。
+     * @param {string} [offset] 查询的起始位置。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScriptResourceTags(listScriptResourceTagsRequest?: ListScriptResourceTagsRequest): Promise<ListScriptResourceTagsResponse> {
+        const options = ParamCreater().listScriptResourceTags(listScriptResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资源标签
+     * @param {string} resourceId 资源id。
+     * @param {'coc:script'} resourceType 资源类型： - coc:script
+     * @param {UpdateResourceTagsRequestBody} [updateResourceTagsRequestBody] 更新标签请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateResourceTags(updateResourceTagsRequest?: UpdateResourceTagsRequest): Promise<UpdateResourceTagsResponse> {
+        const options = ParamCreater().updateResourceTags(updateResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * Create Scheduled Task
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -987,8 +1362,8 @@ export class CocClient {
      * @param {number} batchIndex 批次index
      * @param {string} executeUuid 脚本工单的执行Id，取自executeJobScript和ListJobScriptOrders返回体中
      * @param {number} limit 分页参数：每页返回记录个数限制
-     * @param {number} marker 分页参数：上一页最后一个记录id
      * @param {'READY' | 'PROCESSING' | 'ABNORMAL' | 'CANCELED' | 'FINISHED'} [status] 实例执行状态 READY：待执行 PROCESSING：执行中 ABNORMAL：异常 CANCELED：已取消 FINISHED：成功
+     * @param {number} [marker] 分页参数：上一页最后一个记录id
      * @param {string} [xLanguage] 国际化标记，zh-cn表示中文，en-us或不传表示英文
      * @param {string} [xProjectId] 项目ID，一个项目对应一个region
      * @param {string} [xUserProfile] IAM5.0用户信息
@@ -1127,6 +1502,53 @@ export class CocClient {
     }
 
     /**
+     * 功能：审批脚本。
+     * 约束条件：只有创建脚本填写了审批人，脚本为待审批状态才能审批。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 审批待审批的脚本
+     * @param {string} scriptUuid 脚本Uuid
+     * @param {ApprovalJobScriptModel} acceptScriptRequestBody 脚本审批
+     * @param {string} [xProjectId] 项目ID。
+     * @param {string} [xUserProfile] IAM5.0用户信息。
+     * @param {string} [xLanguage] 国际化标记，zh-cn表示中文，en-us或不传表示英文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public acceptScript(acceptScriptRequest?: AcceptScriptRequest): Promise<AcceptScriptResponse> {
+        const options = ParamCreater().acceptScript(acceptScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据作业内容，对作业评估风险，返回相关分析的结果和信息，结果仅供参考。
+     * 高危命令指影响系统或服务的正常运行，或造成系统特殊文件被恶意删除或修改命令。 高危命令检测通过校验规则正则匹配脚本内容中是否包含高危命令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 评估脚本风险等级
+     * @param {JobScriptAnalyzeRequest} checkScriptRiskRequestBody 脚本内容。
+     * @param {string} [xLanguage] 国际化标记，zh-cn表示中文，en-us或不传表示英文。
+     * @param {string} [xProjectId] 项目ID。
+     * @param {string} [xUserProfile] IAM5.0用户信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkScriptRisk(checkScriptRiskRequest?: CheckScriptRiskRequest): Promise<CheckScriptRiskResponse> {
+        const options = ParamCreater().checkScriptRisk(checkScriptRiskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建作业脚本：自定义脚本
      * - 脚本有标签属性，表示是高危脚本。创建时候不需要对脚本进行是否是高危的二次校验。
      * - 进行租户隔离；北向接口创建的脚本，审批人字段不填写，默认不需要审批
@@ -1228,6 +1650,37 @@ export class CocClient {
      */
     public getScript(getScriptRequest?: GetScriptRequest): Promise<GetScriptResponse> {
         const options = ParamCreater().getScript(getScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据分批策略获取分批结果，只支持自动分批：
+     * 规则如下：
+     * 1.单个批次的所有实例必须属于同一个区域；
+     *      * 2.单个批次的所有实例必须属于同一个可用区；
+     *      * 3.单个批次的所有实例必须属于同一个应用；
+     *      * 4.单个批次内同一分组下的实例不超过50%（除分组下仅以一个实例的情况外）；
+     *      * 5.前三批每批节点数量不超过10。
+     *      * 6.每批次实例数量不超过10。
+     * 
+     *    总机器数量为200。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取自动分批结果
+     * @param {InstancesBatchesMode} listInstancesBatchRequestBody 分批请求体。
+     * @param {string} [xLanguage] 国际化标记，zh-cn表示中文，en-us或不传表示英文。
+     * @param {string} [xProjectId] 项目ID。
+     * @param {string} [xUserProfile] IAM5.0用户信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesBatch(listInstancesBatchRequest?: ListInstancesBatchRequest): Promise<ListInstancesBatchResponse> {
+        const options = ParamCreater().listInstancesBatch(listInstancesBatchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2203,6 +2656,378 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建自定义作业
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDocument(createDocumentRequest?: CreateDocumentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/documents",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDocumentRequest !== null && createDocumentRequest !== undefined) {
+                if (createDocumentRequest instanceof CreateDocumentRequest) {
+                    body = createDocumentRequest.body
+                } else {
+                    body = createDocumentRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除自定义作业
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDocument(deleteDocumentRequest?: DeleteDocumentRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/documents/{document_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let documentId;
+
+            if (deleteDocumentRequest !== null && deleteDocumentRequest !== undefined) {
+                if (deleteDocumentRequest instanceof DeleteDocumentRequest) {
+                    documentId = deleteDocumentRequest.documentId;
+                } else {
+                    documentId = deleteDocumentRequest['document_id'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling deleteDocument.');
+            }
+
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 执行自定义作业
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeDocument(executeDocumentRequest?: ExecuteDocumentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/documents/{document_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let documentId;
+
+            if (executeDocumentRequest !== null && executeDocumentRequest !== undefined) {
+                if (executeDocumentRequest instanceof ExecuteDocumentRequest) {
+                    documentId = executeDocumentRequest.documentId;
+                    body = executeDocumentRequest.body
+                } else {
+                    documentId = executeDocumentRequest['document_id'];
+                    body = executeDocumentRequest['body'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling executeDocument.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自定义作业详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDocument(getDocumentRequest?: GetDocumentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/documents/{document_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let documentId;
+            
+            let version;
+            
+            let documentType;
+
+            if (getDocumentRequest !== null && getDocumentRequest !== undefined) {
+                if (getDocumentRequest instanceof GetDocumentRequest) {
+                    documentId = getDocumentRequest.documentId;
+                    version = getDocumentRequest.version;
+                    documentType = getDocumentRequest.documentType;
+                } else {
+                    documentId = getDocumentRequest['document_id'];
+                    version = getDocumentRequest['version'];
+                    documentType = getDocumentRequest['document_type'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling getDocument.');
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (documentType !== null && documentType !== undefined) {
+                localVarQueryParameter['document_type'] = documentType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取原子能力详细
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDocumentAtomicInfo(getDocumentAtomicInfoRequest?: GetDocumentAtomicInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/atomics/{atomic_unique_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let atomicUniqueKey;
+
+            if (getDocumentAtomicInfoRequest !== null && getDocumentAtomicInfoRequest !== undefined) {
+                if (getDocumentAtomicInfoRequest instanceof GetDocumentAtomicInfoRequest) {
+                    atomicUniqueKey = getDocumentAtomicInfoRequest.atomicUniqueKey;
+                } else {
+                    atomicUniqueKey = getDocumentAtomicInfoRequest['atomic_unique_key'];
+                }
+            }
+
+        
+            if (atomicUniqueKey === null || atomicUniqueKey === undefined) {
+            throw new RequiredError('atomicUniqueKey','Required parameter atomicUniqueKey was null or undefined when calling getDocumentAtomicInfo.');
+            }
+
+            options.pathParams = { 'atomic_unique_key': atomicUniqueKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取原子能力列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDocumentAtomics(listDocumentAtomicsRequest?: ListDocumentAtomicsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/atomics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDocumentAtomicsRequest !== null && listDocumentAtomicsRequest !== undefined) {
+                if (listDocumentAtomicsRequest instanceof ListDocumentAtomicsRequest) {
+                    limit = listDocumentAtomicsRequest.limit;
+                    offset = listDocumentAtomicsRequest.offset;
+                } else {
+                    limit = listDocumentAtomicsRequest['limit'];
+                    offset = listDocumentAtomicsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自定义作业列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDocuments(listDocumentsRequest?: ListDocumentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/documents",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let nameLike;
+            
+            let creator;
+            
+            let enterpriseProjectId;
+            
+            let documentType;
+
+            if (listDocumentsRequest !== null && listDocumentsRequest !== undefined) {
+                if (listDocumentsRequest instanceof ListDocumentsRequest) {
+                    limit = listDocumentsRequest.limit;
+                    offset = listDocumentsRequest.offset;
+                    nameLike = listDocumentsRequest.nameLike;
+                    creator = listDocumentsRequest.creator;
+                    enterpriseProjectId = listDocumentsRequest.enterpriseProjectId;
+                    documentType = listDocumentsRequest.documentType;
+                } else {
+                    limit = listDocumentsRequest['limit'];
+                    offset = listDocumentsRequest['offset'];
+                    nameLike = listDocumentsRequest['name_like'];
+                    creator = listDocumentsRequest['creator'];
+                    enterpriseProjectId = listDocumentsRequest['enterprise_project_id'];
+                    documentType = listDocumentsRequest['document_type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (nameLike !== null && nameLike !== undefined) {
+                localVarQueryParameter['name_like'] = nameLike;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (documentType !== null && documentType !== undefined) {
+                localVarQueryParameter['document_type'] = documentType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改自定义作业
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDocument(updateDocumentRequest?: UpdateDocumentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/documents/{document_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let documentId;
+
+            if (updateDocumentRequest !== null && updateDocumentRequest !== undefined) {
+                if (updateDocumentRequest instanceof UpdateDocumentRequest) {
+                    documentId = updateDocumentRequest.documentId;
+                    body = updateDocumentRequest.body
+                } else {
+                    documentId = updateDocumentRequest['document_id'];
+                    body = updateDocumentRequest['body'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling updateDocument.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * Prometheus事件接入
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2241,6 +3066,281 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'integration_key': integrationKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询作业工单详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getExecution(getExecutionRequest?: GetExecutionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/executions/{execution_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let executionId;
+
+            if (getExecutionRequest !== null && getExecutionRequest !== undefined) {
+                if (getExecutionRequest instanceof GetExecutionRequest) {
+                    executionId = getExecutionRequest.executionId;
+                } else {
+                    executionId = getExecutionRequest['execution_id'];
+                }
+            }
+
+        
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling getExecution.');
+            }
+
+            options.pathParams = { 'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工单步骤批次实例，如脚本分批操作里的ECS实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExecutionInstances(listExecutionInstancesRequest?: ListExecutionInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/executions/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let executionStepId;
+
+            if (listExecutionInstancesRequest !== null && listExecutionInstancesRequest !== undefined) {
+                if (listExecutionInstancesRequest instanceof ListExecutionInstancesRequest) {
+                    limit = listExecutionInstancesRequest.limit;
+                    offset = listExecutionInstancesRequest.offset;
+                    executionStepId = listExecutionInstancesRequest.executionStepId;
+                } else {
+                    limit = listExecutionInstancesRequest['limit'];
+                    offset = listExecutionInstancesRequest['offset'];
+                    executionStepId = listExecutionInstancesRequest['execution_step_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (executionStepId !== null && executionStepId !== undefined) {
+                localVarQueryParameter['execution_step_id'] = executionStepId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工单步骤详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExecutionSteps(listExecutionStepsRequest?: ListExecutionStepsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/executions/{execution_id}/steps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let executionId;
+            
+            let limit;
+            
+            let offset;
+            
+            let executionStepIdList;
+
+            if (listExecutionStepsRequest !== null && listExecutionStepsRequest !== undefined) {
+                if (listExecutionStepsRequest instanceof ListExecutionStepsRequest) {
+                    executionId = listExecutionStepsRequest.executionId;
+                    limit = listExecutionStepsRequest.limit;
+                    offset = listExecutionStepsRequest.offset;
+                    executionStepIdList = listExecutionStepsRequest.executionStepIdList;
+                } else {
+                    executionId = listExecutionStepsRequest['execution_id'];
+                    limit = listExecutionStepsRequest['limit'];
+                    offset = listExecutionStepsRequest['offset'];
+                    executionStepIdList = listExecutionStepsRequest['execution_step_id_list'];
+                }
+            }
+
+        
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listExecutionSteps.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (executionStepIdList !== null && executionStepIdList !== undefined) {
+                localVarQueryParameter['execution_step_id_list'] = executionStepIdList;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询作业工单列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExecutions(listExecutionsRequest?: ListExecutionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let creator;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let documentName;
+            
+            let documentId;
+            
+            let tags;
+            
+            let excludeChildExecutions;
+
+            if (listExecutionsRequest !== null && listExecutionsRequest !== undefined) {
+                if (listExecutionsRequest instanceof ListExecutionsRequest) {
+                    limit = listExecutionsRequest.limit;
+                    offset = listExecutionsRequest.offset;
+                    creator = listExecutionsRequest.creator;
+                    startTime = listExecutionsRequest.startTime;
+                    endTime = listExecutionsRequest.endTime;
+                    documentName = listExecutionsRequest.documentName;
+                    documentId = listExecutionsRequest.documentId;
+                    tags = listExecutionsRequest.tags;
+                    excludeChildExecutions = listExecutionsRequest.excludeChildExecutions;
+                } else {
+                    limit = listExecutionsRequest['limit'];
+                    offset = listExecutionsRequest['offset'];
+                    creator = listExecutionsRequest['creator'];
+                    startTime = listExecutionsRequest['start_time'];
+                    endTime = listExecutionsRequest['end_time'];
+                    documentName = listExecutionsRequest['document_name'];
+                    documentId = listExecutionsRequest['document_id'];
+                    tags = listExecutionsRequest['tags'];
+                    excludeChildExecutions = listExecutionsRequest['exclude_child_executions'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (documentName !== null && documentName !== undefined) {
+                localVarQueryParameter['document_name'] = documentName;
+            }
+            if (documentId !== null && documentId !== undefined) {
+                localVarQueryParameter['document_id'] = documentId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (excludeChildExecutions !== null && excludeChildExecutions !== undefined) {
+                localVarQueryParameter['exclude_child_executions'] = excludeChildExecutions;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 操作工单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        operateExecution(operateExecutionRequest?: OperateExecutionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (operateExecutionRequest !== null && operateExecutionRequest !== undefined) {
+                if (operateExecutionRequest instanceof OperateExecutionRequest) {
+                    body = operateExecutionRequest.body
+                } else {
+                    body = operateExecutionRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3003,6 +4103,108 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询资源标签列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScriptResourceTags(listScriptResourceTagsRequest?: ListScriptResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/script/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceType;
+            
+            let limit;
+            
+            let offset;
+
+            if (listScriptResourceTagsRequest !== null && listScriptResourceTagsRequest !== undefined) {
+                if (listScriptResourceTagsRequest instanceof ListScriptResourceTagsRequest) {
+                    resourceType = listScriptResourceTagsRequest.resourceType;
+                    limit = listScriptResourceTagsRequest.limit;
+                    offset = listScriptResourceTagsRequest.offset;
+                } else {
+                    resourceType = listScriptResourceTagsRequest['resource_type'];
+                    limit = listScriptResourceTagsRequest['limit'];
+                    offset = listScriptResourceTagsRequest['offset'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listScriptResourceTags.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateResourceTags(updateResourceTagsRequest?: UpdateResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/script/{resource_type}/{resource_id}/tags/update",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+            
+            let resourceType;
+
+            if (updateResourceTagsRequest !== null && updateResourceTagsRequest !== undefined) {
+                if (updateResourceTagsRequest instanceof UpdateResourceTagsRequest) {
+                    resourceId = updateResourceTagsRequest.resourceId;
+                    resourceType = updateResourceTagsRequest.resourceType;
+                    body = updateResourceTagsRequest.body
+                } else {
+                    resourceId = updateResourceTagsRequest['resource_id'];
+                    resourceType = updateResourceTagsRequest['resource_type'];
+                    body = updateResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling updateResourceTags.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling updateResourceTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * Create Scheduled Task
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3554,9 +4756,9 @@ export const ParamCreater = function () {
             
             let limit;
             
-            let marker;
-            
             let status;
+            
+            let marker;
             
             let xLanguage;
             
@@ -3569,8 +4771,8 @@ export const ParamCreater = function () {
                     batchIndex = getScriptJobBatchRequest.batchIndex;
                     executeUuid = getScriptJobBatchRequest.executeUuid;
                     limit = getScriptJobBatchRequest.limit;
-                    marker = getScriptJobBatchRequest.marker;
                     status = getScriptJobBatchRequest.status;
+                    marker = getScriptJobBatchRequest.marker;
                     xLanguage = getScriptJobBatchRequest.xLanguage;
                     xProjectId = getScriptJobBatchRequest.xProjectId;
                     xUserProfile = getScriptJobBatchRequest.xUserProfile;
@@ -3578,8 +4780,8 @@ export const ParamCreater = function () {
                     batchIndex = getScriptJobBatchRequest['batch_index'];
                     executeUuid = getScriptJobBatchRequest['execute_uuid'];
                     limit = getScriptJobBatchRequest['limit'];
-                    marker = getScriptJobBatchRequest['marker'];
                     status = getScriptJobBatchRequest['status'];
+                    marker = getScriptJobBatchRequest['marker'];
                     xLanguage = getScriptJobBatchRequest['X-Language'];
                     xProjectId = getScriptJobBatchRequest['x-project-id'];
                     xUserProfile = getScriptJobBatchRequest['x-user-profile'];
@@ -3599,14 +4801,11 @@ export const ParamCreater = function () {
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (marker === null || marker === undefined) {
-                throw new RequiredError('marker','Required parameter marker was null or undefined when calling getScriptJobBatch.');
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -3962,6 +5161,134 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 功能：审批脚本。
+         * 约束条件：只有创建脚本填写了审批人，脚本为待审批状态才能审批。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        acceptScript(acceptScriptRequest?: AcceptScriptRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/scripts/{script_uuid}/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let scriptUuid;
+            
+            let xProjectId;
+            
+            let xUserProfile;
+            
+            let xLanguage;
+
+            if (acceptScriptRequest !== null && acceptScriptRequest !== undefined) {
+                if (acceptScriptRequest instanceof AcceptScriptRequest) {
+                    scriptUuid = acceptScriptRequest.scriptUuid;
+                    body = acceptScriptRequest.body
+                    xProjectId = acceptScriptRequest.xProjectId;
+                    xUserProfile = acceptScriptRequest.xUserProfile;
+                    xLanguage = acceptScriptRequest.xLanguage;
+                } else {
+                    scriptUuid = acceptScriptRequest['script_uuid'];
+                    body = acceptScriptRequest['body'];
+                    xProjectId = acceptScriptRequest['x-project-id'];
+                    xUserProfile = acceptScriptRequest['x-user-profile'];
+                    xLanguage = acceptScriptRequest['X-Language'];
+                }
+            }
+
+        
+            if (scriptUuid === null || scriptUuid === undefined) {
+            throw new RequiredError('scriptUuid','Required parameter scriptUuid was null or undefined when calling acceptScript.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['x-project-id'] = String(xProjectId);
+            }
+            if (xUserProfile !== undefined && xUserProfile !== null) {
+                localVarHeaderParameter['x-user-profile'] = String(xUserProfile);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'script_uuid': scriptUuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据作业内容，对作业评估风险，返回相关分析的结果和信息，结果仅供参考。
+         * 高危命令指影响系统或服务的正常运行，或造成系统特殊文件被恶意删除或修改命令。 高危命令检测通过校验规则正则匹配脚本内容中是否包含高危命令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkScriptRisk(checkScriptRiskRequest?: CheckScriptRiskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/analyze-job",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xProjectId;
+            
+            let xUserProfile;
+
+            if (checkScriptRiskRequest !== null && checkScriptRiskRequest !== undefined) {
+                if (checkScriptRiskRequest instanceof CheckScriptRiskRequest) {
+                    body = checkScriptRiskRequest.body
+                    xLanguage = checkScriptRiskRequest.xLanguage;
+                    xProjectId = checkScriptRiskRequest.xProjectId;
+                    xUserProfile = checkScriptRiskRequest.xUserProfile;
+                } else {
+                    body = checkScriptRiskRequest['body'];
+                    xLanguage = checkScriptRiskRequest['X-Language'];
+                    xProjectId = checkScriptRiskRequest['x-project-id'];
+                    xUserProfile = checkScriptRiskRequest['x-user-profile'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['x-project-id'] = String(xProjectId);
+            }
+            if (xUserProfile !== undefined && xUserProfile !== null) {
+                localVarHeaderParameter['x-user-profile'] = String(xUserProfile);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建作业脚本：自定义脚本
          * - 脚本有标签属性，表示是高危脚本。创建时候不需要对脚本进行是否是高危的二次校验。
          * - 进行租户隔离；北向接口创建的脚本，审批人字段不填写，默认不需要审批
@@ -4219,6 +5546,74 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'script_uuid': scriptUuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据分批策略获取分批结果，只支持自动分批：
+         * 规则如下：
+         * 1.单个批次的所有实例必须属于同一个区域；
+         *      * 2.单个批次的所有实例必须属于同一个可用区；
+         *      * 3.单个批次的所有实例必须属于同一个应用；
+         *      * 4.单个批次内同一分组下的实例不超过50%（除分组下仅以一个实例的情况外）；
+         *      * 5.前三批每批节点数量不超过10。
+         *      * 6.每批次实例数量不超过10。
+         * 
+         *    总机器数量为200。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesBatch(listInstancesBatchRequest?: ListInstancesBatchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/instances/batches",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xProjectId;
+            
+            let xUserProfile;
+
+            if (listInstancesBatchRequest !== null && listInstancesBatchRequest !== undefined) {
+                if (listInstancesBatchRequest instanceof ListInstancesBatchRequest) {
+                    body = listInstancesBatchRequest.body
+                    xLanguage = listInstancesBatchRequest.xLanguage;
+                    xProjectId = listInstancesBatchRequest.xProjectId;
+                    xUserProfile = listInstancesBatchRequest.xUserProfile;
+                } else {
+                    body = listInstancesBatchRequest['body'];
+                    xLanguage = listInstancesBatchRequest['X-Language'];
+                    xProjectId = listInstancesBatchRequest['x-project-id'];
+                    xUserProfile = listInstancesBatchRequest['x-user-profile'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['x-project-id'] = String(xProjectId);
+            }
+            if (xUserProfile !== undefined && xUserProfile !== null) {
+                localVarHeaderParameter['x-user-profile'] = String(xUserProfile);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

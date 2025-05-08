@@ -3,6 +3,7 @@
 export class ObsInfo {
     public bucket?: string;
     private 'object'?: string;
+    public region?: string;
     public constructor(bucket?: string, modelObject?: string) { 
         this['bucket'] = bucket;
         this['object'] = modelObject;
@@ -20,5 +21,9 @@ export class ObsInfo {
     }
     public get modelObject(): string | undefined {
         return this['object'];
+    }
+    public withRegion(region: string): ObsInfo {
+        this['region'] = region;
+        return this;
     }
 }

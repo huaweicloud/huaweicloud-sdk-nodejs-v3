@@ -1,13 +1,6 @@
 
 
 export class SmartConnectTaskRespSourceConfig {
-    private 'redis_address'?: string;
-    private 'redis_type'?: string;
-    private 'dcs_instance_id'?: string;
-    private 'sync_mode'?: string;
-    private 'full_sync_wait_ms'?: number;
-    private 'full_sync_max_retry'?: number;
-    public ratelimit?: number;
     private 'current_cluster_name'?: string;
     private 'cluster_name'?: string;
     private 'user_name'?: string;
@@ -25,70 +18,6 @@ export class SmartConnectTaskRespSourceConfig {
     private 'compression_type'?: string;
     private 'topics_mapping'?: string;
     public constructor() { 
-    }
-    public withRedisAddress(redisAddress: string): SmartConnectTaskRespSourceConfig {
-        this['redis_address'] = redisAddress;
-        return this;
-    }
-    public set redisAddress(redisAddress: string  | undefined) {
-        this['redis_address'] = redisAddress;
-    }
-    public get redisAddress(): string | undefined {
-        return this['redis_address'];
-    }
-    public withRedisType(redisType: string): SmartConnectTaskRespSourceConfig {
-        this['redis_type'] = redisType;
-        return this;
-    }
-    public set redisType(redisType: string  | undefined) {
-        this['redis_type'] = redisType;
-    }
-    public get redisType(): string | undefined {
-        return this['redis_type'];
-    }
-    public withDcsInstanceId(dcsInstanceId: string): SmartConnectTaskRespSourceConfig {
-        this['dcs_instance_id'] = dcsInstanceId;
-        return this;
-    }
-    public set dcsInstanceId(dcsInstanceId: string  | undefined) {
-        this['dcs_instance_id'] = dcsInstanceId;
-    }
-    public get dcsInstanceId(): string | undefined {
-        return this['dcs_instance_id'];
-    }
-    public withSyncMode(syncMode: string): SmartConnectTaskRespSourceConfig {
-        this['sync_mode'] = syncMode;
-        return this;
-    }
-    public set syncMode(syncMode: string  | undefined) {
-        this['sync_mode'] = syncMode;
-    }
-    public get syncMode(): string | undefined {
-        return this['sync_mode'];
-    }
-    public withFullSyncWaitMs(fullSyncWaitMs: number): SmartConnectTaskRespSourceConfig {
-        this['full_sync_wait_ms'] = fullSyncWaitMs;
-        return this;
-    }
-    public set fullSyncWaitMs(fullSyncWaitMs: number  | undefined) {
-        this['full_sync_wait_ms'] = fullSyncWaitMs;
-    }
-    public get fullSyncWaitMs(): number | undefined {
-        return this['full_sync_wait_ms'];
-    }
-    public withFullSyncMaxRetry(fullSyncMaxRetry: number): SmartConnectTaskRespSourceConfig {
-        this['full_sync_max_retry'] = fullSyncMaxRetry;
-        return this;
-    }
-    public set fullSyncMaxRetry(fullSyncMaxRetry: number  | undefined) {
-        this['full_sync_max_retry'] = fullSyncMaxRetry;
-    }
-    public get fullSyncMaxRetry(): number | undefined {
-        return this['full_sync_max_retry'];
-    }
-    public withRatelimit(ratelimit: number): SmartConnectTaskRespSourceConfig {
-        this['ratelimit'] = ratelimit;
-        return this;
     }
     public withCurrentClusterName(currentClusterName: string): SmartConnectTaskRespSourceConfig {
         this['current_cluster_name'] = currentClusterName;

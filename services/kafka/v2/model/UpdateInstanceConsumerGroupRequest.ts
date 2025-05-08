@@ -1,11 +1,11 @@
-import { CreateGroupReq } from './CreateGroupReq';
+import { GroupCreateReq } from './GroupCreateReq';
 
 
 export class UpdateInstanceConsumerGroupRequest {
     public engine?: string;
     private 'instance_id'?: string;
     public group?: string;
-    public body?: CreateGroupReq;
+    public body?: GroupCreateReq;
     public constructor(engine?: string, instanceId?: string, group?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -29,7 +29,7 @@ export class UpdateInstanceConsumerGroupRequest {
         this['group'] = group;
         return this;
     }
-    public withBody(body: CreateGroupReq): UpdateInstanceConsumerGroupRequest {
+    public withBody(body: GroupCreateReq): UpdateInstanceConsumerGroupRequest {
         this['body'] = body;
         return this;
     }

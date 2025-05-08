@@ -43,6 +43,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'enable_class_isolation'?: boolean;
     private 'enable_lts_log'?: boolean;
     private 'lts_custom_tag'?: { [key: string]: string; };
+    private 'user_data_encrypt_kms_key_id'?: string;
     public constructor(funcName?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -379,6 +380,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get ltsCustomTag(): { [key: string]: string; } | undefined {
         return this['lts_custom_tag'];
+    }
+    public withUserDataEncryptKmsKeyId(userDataEncryptKmsKeyId: string): UpdateFunctionConfigRequestBody {
+        this['user_data_encrypt_kms_key_id'] = userDataEncryptKmsKeyId;
+        return this;
+    }
+    public set userDataEncryptKmsKeyId(userDataEncryptKmsKeyId: string  | undefined) {
+        this['user_data_encrypt_kms_key_id'] = userDataEncryptKmsKeyId;
+    }
+    public get userDataEncryptKmsKeyId(): string | undefined {
+        return this['user_data_encrypt_kms_key_id'];
     }
 }
 

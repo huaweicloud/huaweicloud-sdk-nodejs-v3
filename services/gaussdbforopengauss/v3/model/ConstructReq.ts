@@ -6,7 +6,6 @@ export class ConstructReq {
     private 'dr_user_name'?: string;
     private 'dr_user_password'?: string;
     private 'dr_task_name'?: string;
-    private 'lite_dr_mode'?: string;
     public constructor(disasterType?: string, drIp?: string, drUserName?: string, drUserPassword?: string) { 
         this['disaster_type'] = disasterType;
         this['dr_ip'] = drIp;
@@ -62,16 +61,6 @@ export class ConstructReq {
     }
     public get drTaskName(): string | undefined {
         return this['dr_task_name'];
-    }
-    public withLiteDrMode(liteDrMode: string): ConstructReq {
-        this['lite_dr_mode'] = liteDrMode;
-        return this;
-    }
-    public set liteDrMode(liteDrMode: string  | undefined) {
-        this['lite_dr_mode'] = liteDrMode;
-    }
-    public get liteDrMode(): string | undefined {
-        return this['lite_dr_mode'];
     }
 }
 

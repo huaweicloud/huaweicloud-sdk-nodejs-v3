@@ -25,6 +25,7 @@ export class RestScheduleConfDTO {
     public vmrID?: string;
     public concurrentParticipants?: number;
     public supportSimultaneousInterpretation?: boolean;
+    public confResType?: number;
     public constructor(mediaTypes?: string) { 
         this['mediaTypes'] = mediaTypes;
     }
@@ -110,6 +111,10 @@ export class RestScheduleConfDTO {
     }
     public withSupportSimultaneousInterpretation(supportSimultaneousInterpretation: boolean): RestScheduleConfDTO {
         this['supportSimultaneousInterpretation'] = supportSimultaneousInterpretation;
+        return this;
+    }
+    public withConfResType(confResType: number): RestScheduleConfDTO {
+        this['confResType'] = confResType;
         return this;
     }
 }

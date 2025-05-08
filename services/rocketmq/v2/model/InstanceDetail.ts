@@ -1,12 +1,12 @@
 import { TagEntity } from './TagEntity';
 
 
-export class ShowInstanceResp {
+export class InstanceDetail {
     public name?: string;
     public engine?: string;
     public status?: string;
     public description?: string;
-    public type?: ShowInstanceRespTypeEnum | string;
+    public type?: InstanceDetailTypeEnum | string;
     public specification?: string;
     private 'engine_version'?: string;
     private 'instance_id'?: string;
@@ -18,7 +18,6 @@ export class ShowInstanceResp {
     private 'security_group_id'?: string;
     private 'security_group_name'?: string;
     private 'subnet_id'?: string;
-    private 'subnet_name'?: string;
     private 'subnet_cidr'?: string;
     private 'available_zones'?: Array<string>;
     private 'available_zone_names'?: Array<string>;
@@ -47,43 +46,53 @@ export class ShowInstanceResp {
     private 'new_spec_billing_enable'?: boolean;
     private 'enable_acl'?: boolean;
     private 'broker_num'?: number;
+    private 'dns_enable'?: boolean;
     private 'namesrv_address'?: string;
+    private 'namesrv_domain_name'?: string;
     private 'broker_address'?: string;
     private 'public_namesrv_address'?: string;
+    private 'public_namesrv_domain_name'?: string;
     private 'public_broker_address'?: string;
     private 'grpc_address'?: string;
+    private 'grpc_domain_name'?: string;
     private 'public_grpc_address'?: string;
+    private 'public_grpc_domain_name'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<TagEntity>;
     private 'total_storage_space'?: number;
     private 'resource_spec_code'?: string;
+    private 'produce_portion'?: number;
+    private 'consume_portion'?: number;
+    private 'dr_enable'?: boolean;
+    private 'config_ssl_need_restart_process'?: boolean;
+    private 'tls_mode'?: string;
     public constructor() { 
     }
-    public withName(name: string): ShowInstanceResp {
+    public withName(name: string): InstanceDetail {
         this['name'] = name;
         return this;
     }
-    public withEngine(engine: string): ShowInstanceResp {
+    public withEngine(engine: string): InstanceDetail {
         this['engine'] = engine;
         return this;
     }
-    public withStatus(status: string): ShowInstanceResp {
+    public withStatus(status: string): InstanceDetail {
         this['status'] = status;
         return this;
     }
-    public withDescription(description: string): ShowInstanceResp {
+    public withDescription(description: string): InstanceDetail {
         this['description'] = description;
         return this;
     }
-    public withType(type: ShowInstanceRespTypeEnum | string): ShowInstanceResp {
+    public withType(type: InstanceDetailTypeEnum | string): InstanceDetail {
         this['type'] = type;
         return this;
     }
-    public withSpecification(specification: string): ShowInstanceResp {
+    public withSpecification(specification: string): InstanceDetail {
         this['specification'] = specification;
         return this;
     }
-    public withEngineVersion(engineVersion: string): ShowInstanceResp {
+    public withEngineVersion(engineVersion: string): InstanceDetail {
         this['engine_version'] = engineVersion;
         return this;
     }
@@ -93,7 +102,7 @@ export class ShowInstanceResp {
     public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
-    public withInstanceId(instanceId: string): ShowInstanceResp {
+    public withInstanceId(instanceId: string): InstanceDetail {
         this['instance_id'] = instanceId;
         return this;
     }
@@ -103,7 +112,7 @@ export class ShowInstanceResp {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withChargingMode(chargingMode: number): ShowInstanceResp {
+    public withChargingMode(chargingMode: number): InstanceDetail {
         this['charging_mode'] = chargingMode;
         return this;
     }
@@ -113,7 +122,7 @@ export class ShowInstanceResp {
     public get chargingMode(): number | undefined {
         return this['charging_mode'];
     }
-    public withVpcId(vpcId: string): ShowInstanceResp {
+    public withVpcId(vpcId: string): InstanceDetail {
         this['vpc_id'] = vpcId;
         return this;
     }
@@ -123,7 +132,7 @@ export class ShowInstanceResp {
     public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
-    public withVpcName(vpcName: string): ShowInstanceResp {
+    public withVpcName(vpcName: string): InstanceDetail {
         this['vpc_name'] = vpcName;
         return this;
     }
@@ -133,7 +142,7 @@ export class ShowInstanceResp {
     public get vpcName(): string | undefined {
         return this['vpc_name'];
     }
-    public withCreatedAt(createdAt: string): ShowInstanceResp {
+    public withCreatedAt(createdAt: string): InstanceDetail {
         this['created_at'] = createdAt;
         return this;
     }
@@ -143,7 +152,7 @@ export class ShowInstanceResp {
     public get createdAt(): string | undefined {
         return this['created_at'];
     }
-    public withProductId(productId: string): ShowInstanceResp {
+    public withProductId(productId: string): InstanceDetail {
         this['product_id'] = productId;
         return this;
     }
@@ -153,7 +162,7 @@ export class ShowInstanceResp {
     public get productId(): string | undefined {
         return this['product_id'];
     }
-    public withSecurityGroupId(securityGroupId: string): ShowInstanceResp {
+    public withSecurityGroupId(securityGroupId: string): InstanceDetail {
         this['security_group_id'] = securityGroupId;
         return this;
     }
@@ -163,7 +172,7 @@ export class ShowInstanceResp {
     public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
-    public withSecurityGroupName(securityGroupName: string): ShowInstanceResp {
+    public withSecurityGroupName(securityGroupName: string): InstanceDetail {
         this['security_group_name'] = securityGroupName;
         return this;
     }
@@ -173,7 +182,7 @@ export class ShowInstanceResp {
     public get securityGroupName(): string | undefined {
         return this['security_group_name'];
     }
-    public withSubnetId(subnetId: string): ShowInstanceResp {
+    public withSubnetId(subnetId: string): InstanceDetail {
         this['subnet_id'] = subnetId;
         return this;
     }
@@ -183,17 +192,7 @@ export class ShowInstanceResp {
     public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
-    public withSubnetName(subnetName: string): ShowInstanceResp {
-        this['subnet_name'] = subnetName;
-        return this;
-    }
-    public set subnetName(subnetName: string  | undefined) {
-        this['subnet_name'] = subnetName;
-    }
-    public get subnetName(): string | undefined {
-        return this['subnet_name'];
-    }
-    public withSubnetCidr(subnetCidr: string): ShowInstanceResp {
+    public withSubnetCidr(subnetCidr: string): InstanceDetail {
         this['subnet_cidr'] = subnetCidr;
         return this;
     }
@@ -203,7 +202,7 @@ export class ShowInstanceResp {
     public get subnetCidr(): string | undefined {
         return this['subnet_cidr'];
     }
-    public withAvailableZones(availableZones: Array<string>): ShowInstanceResp {
+    public withAvailableZones(availableZones: Array<string>): InstanceDetail {
         this['available_zones'] = availableZones;
         return this;
     }
@@ -213,7 +212,7 @@ export class ShowInstanceResp {
     public get availableZones(): Array<string> | undefined {
         return this['available_zones'];
     }
-    public withAvailableZoneNames(availableZoneNames: Array<string>): ShowInstanceResp {
+    public withAvailableZoneNames(availableZoneNames: Array<string>): InstanceDetail {
         this['available_zone_names'] = availableZoneNames;
         return this;
     }
@@ -223,7 +222,7 @@ export class ShowInstanceResp {
     public get availableZoneNames(): Array<string> | undefined {
         return this['available_zone_names'];
     }
-    public withUserId(userId: string): ShowInstanceResp {
+    public withUserId(userId: string): InstanceDetail {
         this['user_id'] = userId;
         return this;
     }
@@ -233,7 +232,7 @@ export class ShowInstanceResp {
     public get userId(): string | undefined {
         return this['user_id'];
     }
-    public withUserName(userName: string): ShowInstanceResp {
+    public withUserName(userName: string): InstanceDetail {
         this['user_name'] = userName;
         return this;
     }
@@ -243,7 +242,7 @@ export class ShowInstanceResp {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withMaintainBegin(maintainBegin: string): ShowInstanceResp {
+    public withMaintainBegin(maintainBegin: string): InstanceDetail {
         this['maintain_begin'] = maintainBegin;
         return this;
     }
@@ -253,7 +252,7 @@ export class ShowInstanceResp {
     public get maintainBegin(): string | undefined {
         return this['maintain_begin'];
     }
-    public withMaintainEnd(maintainEnd: string): ShowInstanceResp {
+    public withMaintainEnd(maintainEnd: string): InstanceDetail {
         this['maintain_end'] = maintainEnd;
         return this;
     }
@@ -263,7 +262,7 @@ export class ShowInstanceResp {
     public get maintainEnd(): string | undefined {
         return this['maintain_end'];
     }
-    public withEnableLogCollection(enableLogCollection: boolean): ShowInstanceResp {
+    public withEnableLogCollection(enableLogCollection: boolean): InstanceDetail {
         this['enable_log_collection'] = enableLogCollection;
         return this;
     }
@@ -273,7 +272,7 @@ export class ShowInstanceResp {
     public get enableLogCollection(): boolean | undefined {
         return this['enable_log_collection'];
     }
-    public withStorageSpace(storageSpace: number): ShowInstanceResp {
+    public withStorageSpace(storageSpace: number): InstanceDetail {
         this['storage_space'] = storageSpace;
         return this;
     }
@@ -283,7 +282,7 @@ export class ShowInstanceResp {
     public get storageSpace(): number | undefined {
         return this['storage_space'];
     }
-    public withUsedStorageSpace(usedStorageSpace: number): ShowInstanceResp {
+    public withUsedStorageSpace(usedStorageSpace: number): InstanceDetail {
         this['used_storage_space'] = usedStorageSpace;
         return this;
     }
@@ -293,7 +292,7 @@ export class ShowInstanceResp {
     public get usedStorageSpace(): number | undefined {
         return this['used_storage_space'];
     }
-    public withEnablePublicip(enablePublicip: boolean): ShowInstanceResp {
+    public withEnablePublicip(enablePublicip: boolean): InstanceDetail {
         this['enable_publicip'] = enablePublicip;
         return this;
     }
@@ -303,7 +302,7 @@ export class ShowInstanceResp {
     public get enablePublicip(): boolean | undefined {
         return this['enable_publicip'];
     }
-    public withPublicipId(publicipId: string): ShowInstanceResp {
+    public withPublicipId(publicipId: string): InstanceDetail {
         this['publicip_id'] = publicipId;
         return this;
     }
@@ -313,7 +312,7 @@ export class ShowInstanceResp {
     public get publicipId(): string | undefined {
         return this['publicip_id'];
     }
-    public withPublicipAddress(publicipAddress: string): ShowInstanceResp {
+    public withPublicipAddress(publicipAddress: string): InstanceDetail {
         this['publicip_address'] = publicipAddress;
         return this;
     }
@@ -323,7 +322,7 @@ export class ShowInstanceResp {
     public get publicipAddress(): string | undefined {
         return this['publicip_address'];
     }
-    public withSslEnable(sslEnable: boolean): ShowInstanceResp {
+    public withSslEnable(sslEnable: boolean): InstanceDetail {
         this['ssl_enable'] = sslEnable;
         return this;
     }
@@ -333,7 +332,7 @@ export class ShowInstanceResp {
     public get sslEnable(): boolean | undefined {
         return this['ssl_enable'];
     }
-    public withCrossVpcInfo(crossVpcInfo: string): ShowInstanceResp {
+    public withCrossVpcInfo(crossVpcInfo: string): InstanceDetail {
         this['cross_vpc_info'] = crossVpcInfo;
         return this;
     }
@@ -343,7 +342,7 @@ export class ShowInstanceResp {
     public get crossVpcInfo(): string | undefined {
         return this['cross_vpc_info'];
     }
-    public withStorageResourceId(storageResourceId: string): ShowInstanceResp {
+    public withStorageResourceId(storageResourceId: string): InstanceDetail {
         this['storage_resource_id'] = storageResourceId;
         return this;
     }
@@ -353,7 +352,7 @@ export class ShowInstanceResp {
     public get storageResourceId(): string | undefined {
         return this['storage_resource_id'];
     }
-    public withStorageSpecCode(storageSpecCode: string): ShowInstanceResp {
+    public withStorageSpecCode(storageSpecCode: string): InstanceDetail {
         this['storage_spec_code'] = storageSpecCode;
         return this;
     }
@@ -363,7 +362,7 @@ export class ShowInstanceResp {
     public get storageSpecCode(): string | undefined {
         return this['storage_spec_code'];
     }
-    public withServiceType(serviceType: string): ShowInstanceResp {
+    public withServiceType(serviceType: string): InstanceDetail {
         this['service_type'] = serviceType;
         return this;
     }
@@ -373,7 +372,7 @@ export class ShowInstanceResp {
     public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withStorageType(storageType: string): ShowInstanceResp {
+    public withStorageType(storageType: string): InstanceDetail {
         this['storage_type'] = storageType;
         return this;
     }
@@ -383,7 +382,7 @@ export class ShowInstanceResp {
     public get storageType(): string | undefined {
         return this['storage_type'];
     }
-    public withExtendTimes(extendTimes: number): ShowInstanceResp {
+    public withExtendTimes(extendTimes: number): InstanceDetail {
         this['extend_times'] = extendTimes;
         return this;
     }
@@ -393,7 +392,7 @@ export class ShowInstanceResp {
     public get extendTimes(): number | undefined {
         return this['extend_times'];
     }
-    public withIpv6Enable(ipv6Enable: boolean): ShowInstanceResp {
+    public withIpv6Enable(ipv6Enable: boolean): InstanceDetail {
         this['ipv6_enable'] = ipv6Enable;
         return this;
     }
@@ -403,7 +402,7 @@ export class ShowInstanceResp {
     public get ipv6Enable(): boolean | undefined {
         return this['ipv6_enable'];
     }
-    public withSupportFeatures(supportFeatures: string): ShowInstanceResp {
+    public withSupportFeatures(supportFeatures: string): InstanceDetail {
         this['support_features'] = supportFeatures;
         return this;
     }
@@ -413,7 +412,7 @@ export class ShowInstanceResp {
     public get supportFeatures(): string | undefined {
         return this['support_features'];
     }
-    public withDiskEncrypted(diskEncrypted: boolean): ShowInstanceResp {
+    public withDiskEncrypted(diskEncrypted: boolean): InstanceDetail {
         this['disk_encrypted'] = diskEncrypted;
         return this;
     }
@@ -423,7 +422,7 @@ export class ShowInstanceResp {
     public get diskEncrypted(): boolean | undefined {
         return this['disk_encrypted'];
     }
-    public withCesVersion(cesVersion: string): ShowInstanceResp {
+    public withCesVersion(cesVersion: string): InstanceDetail {
         this['ces_version'] = cesVersion;
         return this;
     }
@@ -433,7 +432,7 @@ export class ShowInstanceResp {
     public get cesVersion(): string | undefined {
         return this['ces_version'];
     }
-    public withNodeNum(nodeNum: number): ShowInstanceResp {
+    public withNodeNum(nodeNum: number): InstanceDetail {
         this['node_num'] = nodeNum;
         return this;
     }
@@ -443,7 +442,7 @@ export class ShowInstanceResp {
     public get nodeNum(): number | undefined {
         return this['node_num'];
     }
-    public withNewSpecBillingEnable(newSpecBillingEnable: boolean): ShowInstanceResp {
+    public withNewSpecBillingEnable(newSpecBillingEnable: boolean): InstanceDetail {
         this['new_spec_billing_enable'] = newSpecBillingEnable;
         return this;
     }
@@ -453,7 +452,7 @@ export class ShowInstanceResp {
     public get newSpecBillingEnable(): boolean | undefined {
         return this['new_spec_billing_enable'];
     }
-    public withEnableAcl(enableAcl: boolean): ShowInstanceResp {
+    public withEnableAcl(enableAcl: boolean): InstanceDetail {
         this['enable_acl'] = enableAcl;
         return this;
     }
@@ -463,7 +462,7 @@ export class ShowInstanceResp {
     public get enableAcl(): boolean | undefined {
         return this['enable_acl'];
     }
-    public withBrokerNum(brokerNum: number): ShowInstanceResp {
+    public withBrokerNum(brokerNum: number): InstanceDetail {
         this['broker_num'] = brokerNum;
         return this;
     }
@@ -473,7 +472,17 @@ export class ShowInstanceResp {
     public get brokerNum(): number | undefined {
         return this['broker_num'];
     }
-    public withNamesrvAddress(namesrvAddress: string): ShowInstanceResp {
+    public withDnsEnable(dnsEnable: boolean): InstanceDetail {
+        this['dns_enable'] = dnsEnable;
+        return this;
+    }
+    public set dnsEnable(dnsEnable: boolean  | undefined) {
+        this['dns_enable'] = dnsEnable;
+    }
+    public get dnsEnable(): boolean | undefined {
+        return this['dns_enable'];
+    }
+    public withNamesrvAddress(namesrvAddress: string): InstanceDetail {
         this['namesrv_address'] = namesrvAddress;
         return this;
     }
@@ -483,7 +492,17 @@ export class ShowInstanceResp {
     public get namesrvAddress(): string | undefined {
         return this['namesrv_address'];
     }
-    public withBrokerAddress(brokerAddress: string): ShowInstanceResp {
+    public withNamesrvDomainName(namesrvDomainName: string): InstanceDetail {
+        this['namesrv_domain_name'] = namesrvDomainName;
+        return this;
+    }
+    public set namesrvDomainName(namesrvDomainName: string  | undefined) {
+        this['namesrv_domain_name'] = namesrvDomainName;
+    }
+    public get namesrvDomainName(): string | undefined {
+        return this['namesrv_domain_name'];
+    }
+    public withBrokerAddress(brokerAddress: string): InstanceDetail {
         this['broker_address'] = brokerAddress;
         return this;
     }
@@ -493,7 +512,7 @@ export class ShowInstanceResp {
     public get brokerAddress(): string | undefined {
         return this['broker_address'];
     }
-    public withPublicNamesrvAddress(publicNamesrvAddress: string): ShowInstanceResp {
+    public withPublicNamesrvAddress(publicNamesrvAddress: string): InstanceDetail {
         this['public_namesrv_address'] = publicNamesrvAddress;
         return this;
     }
@@ -503,7 +522,17 @@ export class ShowInstanceResp {
     public get publicNamesrvAddress(): string | undefined {
         return this['public_namesrv_address'];
     }
-    public withPublicBrokerAddress(publicBrokerAddress: string): ShowInstanceResp {
+    public withPublicNamesrvDomainName(publicNamesrvDomainName: string): InstanceDetail {
+        this['public_namesrv_domain_name'] = publicNamesrvDomainName;
+        return this;
+    }
+    public set publicNamesrvDomainName(publicNamesrvDomainName: string  | undefined) {
+        this['public_namesrv_domain_name'] = publicNamesrvDomainName;
+    }
+    public get publicNamesrvDomainName(): string | undefined {
+        return this['public_namesrv_domain_name'];
+    }
+    public withPublicBrokerAddress(publicBrokerAddress: string): InstanceDetail {
         this['public_broker_address'] = publicBrokerAddress;
         return this;
     }
@@ -513,7 +542,7 @@ export class ShowInstanceResp {
     public get publicBrokerAddress(): string | undefined {
         return this['public_broker_address'];
     }
-    public withGrpcAddress(grpcAddress: string): ShowInstanceResp {
+    public withGrpcAddress(grpcAddress: string): InstanceDetail {
         this['grpc_address'] = grpcAddress;
         return this;
     }
@@ -523,7 +552,17 @@ export class ShowInstanceResp {
     public get grpcAddress(): string | undefined {
         return this['grpc_address'];
     }
-    public withPublicGrpcAddress(publicGrpcAddress: string): ShowInstanceResp {
+    public withGrpcDomainName(grpcDomainName: string): InstanceDetail {
+        this['grpc_domain_name'] = grpcDomainName;
+        return this;
+    }
+    public set grpcDomainName(grpcDomainName: string  | undefined) {
+        this['grpc_domain_name'] = grpcDomainName;
+    }
+    public get grpcDomainName(): string | undefined {
+        return this['grpc_domain_name'];
+    }
+    public withPublicGrpcAddress(publicGrpcAddress: string): InstanceDetail {
         this['public_grpc_address'] = publicGrpcAddress;
         return this;
     }
@@ -533,7 +572,17 @@ export class ShowInstanceResp {
     public get publicGrpcAddress(): string | undefined {
         return this['public_grpc_address'];
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ShowInstanceResp {
+    public withPublicGrpcDomainName(publicGrpcDomainName: string): InstanceDetail {
+        this['public_grpc_domain_name'] = publicGrpcDomainName;
+        return this;
+    }
+    public set publicGrpcDomainName(publicGrpcDomainName: string  | undefined) {
+        this['public_grpc_domain_name'] = publicGrpcDomainName;
+    }
+    public get publicGrpcDomainName(): string | undefined {
+        return this['public_grpc_domain_name'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): InstanceDetail {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
@@ -543,11 +592,11 @@ export class ShowInstanceResp {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withTags(tags: Array<TagEntity>): ShowInstanceResp {
+    public withTags(tags: Array<TagEntity>): InstanceDetail {
         this['tags'] = tags;
         return this;
     }
-    public withTotalStorageSpace(totalStorageSpace: number): ShowInstanceResp {
+    public withTotalStorageSpace(totalStorageSpace: number): InstanceDetail {
         this['total_storage_space'] = totalStorageSpace;
         return this;
     }
@@ -557,7 +606,7 @@ export class ShowInstanceResp {
     public get totalStorageSpace(): number | undefined {
         return this['total_storage_space'];
     }
-    public withResourceSpecCode(resourceSpecCode: string): ShowInstanceResp {
+    public withResourceSpecCode(resourceSpecCode: string): InstanceDetail {
         this['resource_spec_code'] = resourceSpecCode;
         return this;
     }
@@ -567,13 +616,63 @@ export class ShowInstanceResp {
     public get resourceSpecCode(): string | undefined {
         return this['resource_spec_code'];
     }
+    public withProducePortion(producePortion: number): InstanceDetail {
+        this['produce_portion'] = producePortion;
+        return this;
+    }
+    public set producePortion(producePortion: number  | undefined) {
+        this['produce_portion'] = producePortion;
+    }
+    public get producePortion(): number | undefined {
+        return this['produce_portion'];
+    }
+    public withConsumePortion(consumePortion: number): InstanceDetail {
+        this['consume_portion'] = consumePortion;
+        return this;
+    }
+    public set consumePortion(consumePortion: number  | undefined) {
+        this['consume_portion'] = consumePortion;
+    }
+    public get consumePortion(): number | undefined {
+        return this['consume_portion'];
+    }
+    public withDrEnable(drEnable: boolean): InstanceDetail {
+        this['dr_enable'] = drEnable;
+        return this;
+    }
+    public set drEnable(drEnable: boolean  | undefined) {
+        this['dr_enable'] = drEnable;
+    }
+    public get drEnable(): boolean | undefined {
+        return this['dr_enable'];
+    }
+    public withConfigSslNeedRestartProcess(configSslNeedRestartProcess: boolean): InstanceDetail {
+        this['config_ssl_need_restart_process'] = configSslNeedRestartProcess;
+        return this;
+    }
+    public set configSslNeedRestartProcess(configSslNeedRestartProcess: boolean  | undefined) {
+        this['config_ssl_need_restart_process'] = configSslNeedRestartProcess;
+    }
+    public get configSslNeedRestartProcess(): boolean | undefined {
+        return this['config_ssl_need_restart_process'];
+    }
+    public withTlsMode(tlsMode: string): InstanceDetail {
+        this['tls_mode'] = tlsMode;
+        return this;
+    }
+    public set tlsMode(tlsMode: string  | undefined) {
+        this['tls_mode'] = tlsMode;
+    }
+    public get tlsMode(): string | undefined {
+        return this['tls_mode'];
+    }
 }
 
 /**
     * @export
     * @enum {string}
     */
-export enum ShowInstanceRespTypeEnum {
+export enum InstanceDetailTypeEnum {
     SINGLE = 'single',
     CLUSTER = 'cluster'
 }

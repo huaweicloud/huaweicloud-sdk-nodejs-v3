@@ -4,6 +4,7 @@ export class VocabularyConfig {
     public id?: string;
     public key?: string;
     public value?: string;
+    public type?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor() { 
@@ -18,6 +19,10 @@ export class VocabularyConfig {
     }
     public withValue(value: string): VocabularyConfig {
         this['value'] = value;
+        return this;
+    }
+    public withType(type: string): VocabularyConfig {
+        this['type'] = type;
         return this;
     }
     public withCreateTime(createTime: string): VocabularyConfig {

@@ -1,10 +1,6 @@
 
 
 export class SmartConnectTaskReqSinkConfig {
-    private 'redis_address'?: string;
-    private 'redis_type'?: string;
-    private 'dcs_instance_id'?: string;
-    private 'redis_password'?: string;
     private 'consumer_strategy'?: string;
     private 'destination_file_type'?: string;
     private 'deliver_time_interval'?: number;
@@ -16,46 +12,6 @@ export class SmartConnectTaskReqSinkConfig {
     private 'record_delimiter'?: string;
     private 'store_keys'?: boolean;
     public constructor() { 
-    }
-    public withRedisAddress(redisAddress: string): SmartConnectTaskReqSinkConfig {
-        this['redis_address'] = redisAddress;
-        return this;
-    }
-    public set redisAddress(redisAddress: string  | undefined) {
-        this['redis_address'] = redisAddress;
-    }
-    public get redisAddress(): string | undefined {
-        return this['redis_address'];
-    }
-    public withRedisType(redisType: string): SmartConnectTaskReqSinkConfig {
-        this['redis_type'] = redisType;
-        return this;
-    }
-    public set redisType(redisType: string  | undefined) {
-        this['redis_type'] = redisType;
-    }
-    public get redisType(): string | undefined {
-        return this['redis_type'];
-    }
-    public withDcsInstanceId(dcsInstanceId: string): SmartConnectTaskReqSinkConfig {
-        this['dcs_instance_id'] = dcsInstanceId;
-        return this;
-    }
-    public set dcsInstanceId(dcsInstanceId: string  | undefined) {
-        this['dcs_instance_id'] = dcsInstanceId;
-    }
-    public get dcsInstanceId(): string | undefined {
-        return this['dcs_instance_id'];
-    }
-    public withRedisPassword(redisPassword: string): SmartConnectTaskReqSinkConfig {
-        this['redis_password'] = redisPassword;
-        return this;
-    }
-    public set redisPassword(redisPassword: string  | undefined) {
-        this['redis_password'] = redisPassword;
-    }
-    public get redisPassword(): string | undefined {
-        return this['redis_password'];
     }
     public withConsumerStrategy(consumerStrategy: string): SmartConnectTaskReqSinkConfig {
         this['consumer_strategy'] = consumerStrategy;

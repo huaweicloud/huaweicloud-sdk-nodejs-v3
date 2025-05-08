@@ -1,14 +1,14 @@
-import { ShowInstanceResp } from './ShowInstanceResp';
+import { InstanceDetail } from './InstanceDetail';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListInstancesResponse extends SdkResponse {
-    public instances?: Array<ShowInstanceResp>;
+    public instances?: Array<InstanceDetail>;
     private 'instance_num'?: number;
     public constructor() { 
         super();
     }
-    public withInstances(instances: Array<ShowInstanceResp>): ListInstancesResponse {
+    public withInstances(instances: Array<InstanceDetail>): ListInstancesResponse {
         this['instances'] = instances;
         return this;
     }

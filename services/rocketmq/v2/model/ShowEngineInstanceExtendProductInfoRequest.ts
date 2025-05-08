@@ -4,6 +4,8 @@ export class ShowEngineInstanceExtendProductInfoRequest {
     public engine?: string;
     private 'instance_id'?: string;
     public type?: ShowEngineInstanceExtendProductInfoRequestTypeEnum | string;
+    public limit?: number;
+    public offset?: number;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -24,6 +26,14 @@ export class ShowEngineInstanceExtendProductInfoRequest {
     }
     public withType(type: ShowEngineInstanceExtendProductInfoRequestTypeEnum | string): ShowEngineInstanceExtendProductInfoRequest {
         this['type'] = type;
+        return this;
+    }
+    public withLimit(limit: number): ShowEngineInstanceExtendProductInfoRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ShowEngineInstanceExtendProductInfoRequest {
+        this['offset'] = offset;
         return this;
     }
 }

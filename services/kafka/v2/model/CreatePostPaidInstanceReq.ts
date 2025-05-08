@@ -1,3 +1,4 @@
+import { PortProtocol } from './PortProtocol';
 import { TagEntity } from './TagEntity';
 
 
@@ -25,6 +26,7 @@ export class CreatePostPaidInstanceReq {
     private 'ssl_enable'?: boolean;
     private 'kafka_security_protocol'?: string;
     private 'sasl_enabled_mechanisms'?: Array<CreatePostPaidInstanceReqSaslEnabledMechanismsEnum> | Array<string>;
+    private 'port_protocol'?: PortProtocol;
     private 'retention_policy'?: CreatePostPaidInstanceReqRetentionPolicyEnum | string;
     private 'disk_encrypted_enable'?: boolean;
     private 'disk_encrypted_key'?: string;
@@ -244,6 +246,16 @@ export class CreatePostPaidInstanceReq {
     }
     public get saslEnabledMechanisms(): Array<CreatePostPaidInstanceReqSaslEnabledMechanismsEnum> | Array<string> | undefined {
         return this['sasl_enabled_mechanisms'];
+    }
+    public withPortProtocol(portProtocol: PortProtocol): CreatePostPaidInstanceReq {
+        this['port_protocol'] = portProtocol;
+        return this;
+    }
+    public set portProtocol(portProtocol: PortProtocol  | undefined) {
+        this['port_protocol'] = portProtocol;
+    }
+    public get portProtocol(): PortProtocol | undefined {
+        return this['port_protocol'];
     }
     public withRetentionPolicy(retentionPolicy: CreatePostPaidInstanceReqRetentionPolicyEnum | string): CreatePostPaidInstanceReq {
         this['retention_policy'] = retentionPolicy;

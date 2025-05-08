@@ -20,6 +20,7 @@ export class UpdateFunctionCodeResponse extends SdkResponse {
     private 'depend_version_list'?: Array<string>;
     private 'strategy_config'?: StrategyConfig;
     public dependencies?: Array<Dependency>;
+    private 'code_encrypt_kms_key_id'?: string;
     public constructor() { 
         super();
     }
@@ -154,6 +155,16 @@ export class UpdateFunctionCodeResponse extends SdkResponse {
     public withDependencies(dependencies: Array<Dependency>): UpdateFunctionCodeResponse {
         this['dependencies'] = dependencies;
         return this;
+    }
+    public withCodeEncryptKmsKeyId(codeEncryptKmsKeyId: string): UpdateFunctionCodeResponse {
+        this['code_encrypt_kms_key_id'] = codeEncryptKmsKeyId;
+        return this;
+    }
+    public set codeEncryptKmsKeyId(codeEncryptKmsKeyId: string  | undefined) {
+        this['code_encrypt_kms_key_id'] = codeEncryptKmsKeyId;
+    }
+    public get codeEncryptKmsKeyId(): string | undefined {
+        return this['code_encrypt_kms_key_id'];
     }
 }
 

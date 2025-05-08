@@ -7,6 +7,7 @@ export class UpdateFunctionCodeRequestBody {
     private 'code_filename'?: string;
     private 'func_code'?: FuncCode;
     private 'depend_version_list'?: Array<string>;
+    private 'code_encrypt_kms_key_id'?: string;
     public constructor(codeType?: string, funcCode?: FuncCode) { 
         this['code_type'] = codeType;
         this['func_code'] = funcCode;
@@ -60,6 +61,16 @@ export class UpdateFunctionCodeRequestBody {
     }
     public get dependVersionList(): Array<string> | undefined {
         return this['depend_version_list'];
+    }
+    public withCodeEncryptKmsKeyId(codeEncryptKmsKeyId: string): UpdateFunctionCodeRequestBody {
+        this['code_encrypt_kms_key_id'] = codeEncryptKmsKeyId;
+        return this;
+    }
+    public set codeEncryptKmsKeyId(codeEncryptKmsKeyId: string  | undefined) {
+        this['code_encrypt_kms_key_id'] = codeEncryptKmsKeyId;
+    }
+    public get codeEncryptKmsKeyId(): string | undefined {
+        return this['code_encrypt_kms_key_id'];
     }
 }
 
