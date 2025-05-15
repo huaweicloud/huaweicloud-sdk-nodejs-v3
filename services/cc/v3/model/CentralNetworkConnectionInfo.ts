@@ -7,6 +7,7 @@ import { ConnectionPointPair } from './ConnectionPointPair';
 import { ConnectionType } from './ConnectionType';
 import { ConnectionTypeEnum } from './ConnectionTypeEnum';
 import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
+import { Index } from './Index';
 import { UUID64Identifier } from './UUID64Identifier';
 
 

@@ -522,6 +522,8 @@ import { ShowTrainingSegmentInfoRequest } from './model/ShowTrainingSegmentInfoR
 import { ShowTrainingSegmentInfoResponse } from './model/ShowTrainingSegmentInfoResponse';
 import { ShowTtsAuditionFileRequest } from './model/ShowTtsAuditionFileRequest';
 import { ShowTtsAuditionFileResponse } from './model/ShowTtsAuditionFileResponse';
+import { ShowTtsPhoneticSymbolRequest } from './model/ShowTtsPhoneticSymbolRequest';
+import { ShowTtsPhoneticSymbolResponse } from './model/ShowTtsPhoneticSymbolResponse';
 import { ShowVideoMotionCaptureJobRequest } from './model/ShowVideoMotionCaptureJobRequest';
 import { ShowVideoMotionCaptureJobResponse } from './model/ShowVideoMotionCaptureJobResponse';
 import { ShowVideoScriptRequest } from './model/ShowVideoScriptRequest';
@@ -4808,6 +4810,32 @@ export class MetaStudioClient {
      */
     public showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest): Promise<ShowTtsAuditionFileResponse> {
         const options = ParamCreater().showTtsAuditionFile(showTtsAuditionFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据英文单词返回对应音标列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取英文单词音标
+     * @param {string} word 英文单词
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页
+     * @param {number} [limit] 查询数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest): Promise<ShowTtsPhoneticSymbolResponse> {
+        const options = ParamCreater().showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -17701,6 +17729,95 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据英文单词返回对应音标列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/phonetic-symbol",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let word;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showTtsPhoneticSymbolRequest !== null && showTtsPhoneticSymbolRequest !== undefined) {
+                if (showTtsPhoneticSymbolRequest instanceof ShowTtsPhoneticSymbolRequest) {
+                    word = showTtsPhoneticSymbolRequest.word;
+                    xRequestId = showTtsPhoneticSymbolRequest.xRequestId;
+                    authorization = showTtsPhoneticSymbolRequest.authorization;
+                    xSdkDate = showTtsPhoneticSymbolRequest.xSdkDate;
+                    xProjectId = showTtsPhoneticSymbolRequest.xProjectId;
+                    xAppUserId = showTtsPhoneticSymbolRequest.xAppUserId;
+                    offset = showTtsPhoneticSymbolRequest.offset;
+                    limit = showTtsPhoneticSymbolRequest.limit;
+                } else {
+                    word = showTtsPhoneticSymbolRequest['word'];
+                    xRequestId = showTtsPhoneticSymbolRequest['X-Request-Id'];
+                    authorization = showTtsPhoneticSymbolRequest['Authorization'];
+                    xSdkDate = showTtsPhoneticSymbolRequest['X-Sdk-Date'];
+                    xProjectId = showTtsPhoneticSymbolRequest['X-Project-Id'];
+                    xAppUserId = showTtsPhoneticSymbolRequest['X-App-UserId'];
+                    offset = showTtsPhoneticSymbolRequest['offset'];
+                    limit = showTtsPhoneticSymbolRequest['limit'];
+                }
+            }
+
+        
+            if (word === null || word === undefined) {
+                throw new RequiredError('word','Required parameter word was null or undefined when calling showTtsPhoneticSymbol.');
+            }
+            if (word !== null && word !== undefined) {
+                localVarQueryParameter['word'] = word;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

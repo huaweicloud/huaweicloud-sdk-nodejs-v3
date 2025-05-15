@@ -5,6 +5,7 @@ export class CreateReportCustomEventResponse extends SdkResponse {
     private 'provider_code'?: string;
     private 'error_code'?: string;
     private 'error_msg'?: string;
+    public data?: object;
     public constructor() { 
         super();
     }
@@ -37,5 +38,9 @@ export class CreateReportCustomEventResponse extends SdkResponse {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withData(data: object): CreateReportCustomEventResponse {
+        this['data'] = data;
+        return this;
     }
 }

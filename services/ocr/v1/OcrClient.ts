@@ -7,6 +7,10 @@ import { AcceptanceBillResult } from './model/AcceptanceBillResult';
 import { AutoClassificationRequestBody } from './model/AutoClassificationRequestBody';
 import { AutoClassificationResult } from './model/AutoClassificationResult';
 import { AutoClassificationResultStatus } from './model/AutoClassificationResultStatus';
+import { AutoIdDocClassificationAlarmConfidence } from './model/AutoIdDocClassificationAlarmConfidence';
+import { AutoIdDocClassificationAlarmResult } from './model/AutoIdDocClassificationAlarmResult';
+import { AutoIdDocClassificationRequestBody } from './model/AutoIdDocClassificationRequestBody';
+import { AutoIdDocClassificationResult } from './model/AutoIdDocClassificationResult';
 import { BankReceiptDict } from './model/BankReceiptDict';
 import { BankReceiptKvPair } from './model/BankReceiptKvPair';
 import { BankReceiptRequestBody } from './model/BankReceiptRequestBody';
@@ -119,6 +123,8 @@ import { RecognizeAcceptanceBillRequest } from './model/RecognizeAcceptanceBillR
 import { RecognizeAcceptanceBillResponse } from './model/RecognizeAcceptanceBillResponse';
 import { RecognizeAutoClassificationRequest } from './model/RecognizeAutoClassificationRequest';
 import { RecognizeAutoClassificationResponse } from './model/RecognizeAutoClassificationResponse';
+import { RecognizeAutoIdDocClassificationRequest } from './model/RecognizeAutoIdDocClassificationRequest';
+import { RecognizeAutoIdDocClassificationResponse } from './model/RecognizeAutoIdDocClassificationResponse';
 import { RecognizeBankReceiptRequest } from './model/RecognizeBankReceiptRequest';
 import { RecognizeBankReceiptResponse } from './model/RecognizeBankReceiptResponse';
 import { RecognizeBankcardRequest } from './model/RecognizeBankcardRequest';
@@ -323,6 +329,26 @@ export class OcrClient {
      */
     public recognizeAutoClassification(recognizeAutoClassificationRequest?: RecognizeAutoClassificationRequest): Promise<RecognizeAutoClassificationResponse> {
         const options = ParamCreater().recognizeAutoClassification(recognizeAutoClassificationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持9类证件的分类和告警检测，以JSON格式返回结果。支持的证件类型有秘鲁身份证、柬文身份证、香港身份证、澳门身份证、缅文身份证、缅文驾驶证、泰文身份证、护照和中华人民共和国居民身份证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 智能证件分类
+     * @param {AutoIdDocClassificationRequestBody} recognizeAutoIdDocClassificationRequestBody This is a auto id Document classification Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单的企业项目会被分类到企业ID对应的企业项目中。 - 携带格式正确但不存在的ID，正常使用OCR服务，账单的企业项目会显示对应不存在的企业项目ID。 - 不携带ID或格式错误ID（包含特殊字符等），正常使用OCR服务，账单的企业项目会被分类到\&quot;default\&quot;中。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeAutoIdDocClassification(recognizeAutoIdDocClassificationRequest?: RecognizeAutoIdDocClassificationRequest): Promise<RecognizeAutoIdDocClassificationResponse> {
+        const options = ParamCreater().recognizeAutoIdDocClassification(recognizeAutoIdDocClassificationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1455,6 +1481,51 @@ export const ParamCreater = function () {
                 } else {
                     body = recognizeAutoClassificationRequest['body'];
                     enterpriseProjectId = recognizeAutoClassificationRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持9类证件的分类和告警检测，以JSON格式返回结果。支持的证件类型有秘鲁身份证、柬文身份证、香港身份证、澳门身份证、缅文身份证、缅文驾驶证、泰文身份证、护照和中华人民共和国居民身份证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeAutoIdDocClassification(recognizeAutoIdDocClassificationRequest?: RecognizeAutoIdDocClassificationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/auto-id-doc-classification",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeAutoIdDocClassificationRequest !== null && recognizeAutoIdDocClassificationRequest !== undefined) {
+                if (recognizeAutoIdDocClassificationRequest instanceof RecognizeAutoIdDocClassificationRequest) {
+                    body = recognizeAutoIdDocClassificationRequest.body
+                    enterpriseProjectId = recognizeAutoIdDocClassificationRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeAutoIdDocClassificationRequest['body'];
+                    enterpriseProjectId = recognizeAutoIdDocClassificationRequest['Enterprise-Project-Id'];
                 }
             }
 

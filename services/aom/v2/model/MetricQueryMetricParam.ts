@@ -1,7 +1,7 @@
 import { Dimension } from './Dimension';
 
 
-export class MetricQueryMeritcParam {
+export class MetricQueryMetricParam {
     public dimensions?: Array<Dimension>;
     public metricName?: string;
     public namespace?: string;
@@ -10,15 +10,15 @@ export class MetricQueryMeritcParam {
         this['metricName'] = metricName;
         this['namespace'] = namespace;
     }
-    public withDimensions(dimensions: Array<Dimension>): MetricQueryMeritcParam {
+    public withDimensions(dimensions: Array<Dimension>): MetricQueryMetricParam {
         this['dimensions'] = dimensions;
         return this;
     }
-    public withMetricName(metricName: string): MetricQueryMeritcParam {
+    public withMetricName(metricName: string): MetricQueryMetricParam {
         this['metricName'] = metricName;
         return this;
     }
-    public withNamespace(namespace: string): MetricQueryMeritcParam {
+    public withNamespace(namespace: string): MetricQueryMetricParam {
         this['namespace'] = namespace;
         return this;
     }

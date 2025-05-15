@@ -26,6 +26,7 @@ export class OmsRegion {
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://oms.af-south-1.myhuaweicloud.com"]);
     public static CN_EAST_4 = new Region("cn-east-4", ["https://oms.cn-east-4.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://oms.ap-southeast-5.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://oms.cn-north-12.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -48,7 +49,8 @@ export class OmsRegion {
         "me-east-1":OmsRegion.ME_EAST_1,
         "af-south-1":OmsRegion.AF_SOUTH_1,
         "cn-east-4":OmsRegion.CN_EAST_4,
-        "ap-southeast-5":OmsRegion.AP_SOUTHEAST_5
+        "ap-southeast-5":OmsRegion.AP_SOUTHEAST_5,
+        "cn-north-12":OmsRegion.CN_NORTH_12
     };
   
     public static valueOf(regionId: string) {

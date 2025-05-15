@@ -7,10 +7,12 @@ export class ListCocTicketOperationHistoriesResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
     public data?: object;
-    public constructor(providerCode?: string, errorCode?: string) { 
+    public constructor(providerCode?: string, errorCode?: string, errorMsg?: string, data?: object) { 
         super();
         this['provider_code'] = providerCode;
         this['error_code'] = errorCode;
+        this['error_msg'] = errorMsg;
+        this['data'] = data;
     }
     public withProviderCode(providerCode: string): ListCocTicketOperationHistoriesResponse {
         this['provider_code'] = providerCode;

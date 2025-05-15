@@ -6,6 +6,9 @@ import { ApplyCentralNetworkPolicyRequest } from './model/ApplyCentralNetworkPol
 import { ApplyCentralNetworkPolicyResponse } from './model/ApplyCentralNetworkPolicyResponse';
 import { ApplyPolicyId } from './model/ApplyPolicyId';
 import { ApprovedStateEnum } from './model/ApprovedStateEnum';
+import { Area } from './model/Area';
+import { AreaBandwidthPackageSpecification } from './model/AreaBandwidthPackageSpecification';
+import { AreaId } from './model/AreaId';
 import { AreaIdDef } from './model/AreaIdDef';
 import { Asn } from './model/Asn';
 import { AssociateBandwidthPackage } from './model/AssociateBandwidthPackage';
@@ -40,6 +43,7 @@ import { AttachmentParentInstanceId } from './model/AttachmentParentInstanceId';
 import { Authorisation } from './model/Authorisation';
 import { AutoAssociateRouteEnabled } from './model/AutoAssociateRouteEnabled';
 import { AutoPropagateRouteEnabled } from './model/AutoPropagateRouteEnabled';
+import { BandwidthCapability } from './model/BandwidthCapability';
 import { BandwidthPackage } from './model/BandwidthPackage';
 import { BandwidthPackageId } from './model/BandwidthPackageId';
 import { BandwidthPackageLevel } from './model/BandwidthPackageLevel';
@@ -85,6 +89,7 @@ import { CentralNetworkQuotaKeyEnum } from './model/CentralNetworkQuotaKeyEnum';
 import { CentralNetworkState } from './model/CentralNetworkState';
 import { CentralNetworkStateEnum } from './model/CentralNetworkStateEnum';
 import { CloudConnection } from './model/CloudConnection';
+import { CloudConnectionCapability } from './model/CloudConnectionCapability';
 import { CloudConnectionId } from './model/CloudConnectionId';
 import { CloudConnectionQuota } from './model/CloudConnectionQuota';
 import { CloudConnectionRoute } from './model/CloudConnectionRoute';
@@ -236,11 +241,16 @@ import { GlobalDcGatewayProjectId } from './model/GlobalDcGatewayProjectId';
 import { GlobalDcGatewayRegionId } from './model/GlobalDcGatewayRegionId';
 import { HostedCloud } from './model/HostedCloud';
 import { HostedCloudEnum } from './model/HostedCloudEnum';
+import { Index } from './model/Index';
 import { InstanceDomainId } from './model/InstanceDomainId';
 import { InstanceId } from './model/InstanceId';
 import { InterRegion } from './model/InterRegion';
 import { InterRegionBandwidth } from './model/InterRegionBandwidth';
 import { IsFrozen } from './model/IsFrozen';
+import { ListAreaBandwidthPackageSpecificationsRequest } from './model/ListAreaBandwidthPackageSpecificationsRequest';
+import { ListAreaBandwidthPackageSpecificationsResponse } from './model/ListAreaBandwidthPackageSpecificationsResponse';
+import { ListAreasRequest } from './model/ListAreasRequest';
+import { ListAreasResponse } from './model/ListAreasResponse';
 import { ListAuthorisationsRequest } from './model/ListAuthorisationsRequest';
 import { ListAuthorisationsResponse } from './model/ListAuthorisationsResponse';
 import { ListBandwidthPackageLevelsRequest } from './model/ListBandwidthPackageLevelsRequest';
@@ -279,6 +289,8 @@ import { ListCentralNetworksByTagsRequestBody } from './model/ListCentralNetwork
 import { ListCentralNetworksByTagsResponse } from './model/ListCentralNetworksByTagsResponse';
 import { ListCentralNetworksRequest } from './model/ListCentralNetworksRequest';
 import { ListCentralNetworksResponse } from './model/ListCentralNetworksResponse';
+import { ListCloudConnectionCapabilitiesRequest } from './model/ListCloudConnectionCapabilitiesRequest';
+import { ListCloudConnectionCapabilitiesResponse } from './model/ListCloudConnectionCapabilitiesResponse';
 import { ListCloudConnectionQuotasRequest } from './model/ListCloudConnectionQuotasRequest';
 import { ListCloudConnectionQuotasResponse } from './model/ListCloudConnectionQuotasResponse';
 import { ListCloudConnectionRoutesRequest } from './model/ListCloudConnectionRoutesRequest';
@@ -313,6 +325,10 @@ import { ListNetworkInstancesRequest } from './model/ListNetworkInstancesRequest
 import { ListNetworkInstancesResponse } from './model/ListNetworkInstancesResponse';
 import { ListPermissionsRequest } from './model/ListPermissionsRequest';
 import { ListPermissionsResponse } from './model/ListPermissionsResponse';
+import { ListRegionBandwidthPackageSpecificationsRequest } from './model/ListRegionBandwidthPackageSpecificationsRequest';
+import { ListRegionBandwidthPackageSpecificationsResponse } from './model/ListRegionBandwidthPackageSpecificationsResponse';
+import { ListRegionsRequest } from './model/ListRegionsRequest';
+import { ListRegionsResponse } from './model/ListRegionsResponse';
 import { ListResponseBody } from './model/ListResponseBody';
 import { ListSiteNetworkCapabilitiesRequest } from './model/ListSiteNetworkCapabilitiesRequest';
 import { ListSiteNetworkCapabilitiesResponse } from './model/ListSiteNetworkCapabilitiesResponse';
@@ -323,6 +339,7 @@ import { ListSiteNetworksResponse } from './model/ListSiteNetworksResponse';
 import { ListSupportBindingConnectionBandwidthsRequest } from './model/ListSupportBindingConnectionBandwidthsRequest';
 import { ListSupportBindingConnectionBandwidthsResponse } from './model/ListSupportBindingConnectionBandwidthsResponse';
 import { LocalAreaId } from './model/LocalAreaId';
+import { LocalRegionId } from './model/LocalRegionId';
 import { MultivaluedTag } from './model/MultivaluedTag';
 import { Name } from './model/Name';
 import { NameDef } from './model/NameDef';
@@ -347,9 +364,12 @@ import { QueryTag } from './model/QueryTag';
 import { QuotaLimit } from './model/QuotaLimit';
 import { QuotaUnit } from './model/QuotaUnit';
 import { QuotaUsed } from './model/QuotaUsed';
+import { Region } from './model/Region';
+import { RegionBandwidthPackageSpecification } from './model/RegionBandwidthPackageSpecification';
 import { RegionId } from './model/RegionId';
 import { RegionIdDef } from './model/RegionIdDef';
 import { RemoteAreaId } from './model/RemoteAreaId';
+import { RemoteRegionId } from './model/RemoteRegionId';
 import { RequestId } from './model/RequestId';
 import { RequiredTag } from './model/RequiredTag';
 import { ResourceId } from './model/ResourceId';
@@ -394,6 +414,7 @@ import { SiteNetworkTopology } from './model/SiteNetworkTopology';
 import { SiteNetworkTopologyEnum } from './model/SiteNetworkTopologyEnum';
 import { SortDir } from './model/SortDir';
 import { SpecCode } from './model/SpecCode';
+import { SpecificationCodeInfo } from './model/SpecificationCodeInfo';
 import { Tag } from './model/Tag';
 import { TagBandwidthPackageRequest } from './model/TagBandwidthPackageRequest';
 import { TagBandwidthPackageRequestBody } from './model/TagBandwidthPackageRequestBody';
@@ -463,6 +484,8 @@ import { UpdateNetworkInstance } from './model/UpdateNetworkInstance';
 import { UpdateNetworkInstanceRequest } from './model/UpdateNetworkInstanceRequest';
 import { UpdateNetworkInstanceRequestBody } from './model/UpdateNetworkInstanceRequestBody';
 import { UpdateNetworkInstanceResponse } from './model/UpdateNetworkInstanceResponse';
+import { UpdateSiteConnectionBandwidth } from './model/UpdateSiteConnectionBandwidth';
+import { UpdateSiteConnectionBandwidthRequestBody } from './model/UpdateSiteConnectionBandwidthRequestBody';
 import { UpdateSiteConnectionBandwidthSize } from './model/UpdateSiteConnectionBandwidthSize';
 import { UpdateSiteConnectionBandwidthSizeRequestBody } from './model/UpdateSiteConnectionBandwidthSizeRequestBody';
 import { UpdateSiteNetwork } from './model/UpdateSiteNetwork';
@@ -539,8 +562,8 @@ export class CcClient {
      *
      * @summary 查询授权列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [description] 根据描述查询，可查询多个描述。
      * @param {Array<string>} [cloudConnectionId] 根据云连接的ID过滤列表。
@@ -565,8 +588,8 @@ export class CcClient {
      *
      * @summary 查询权限列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [description] 根据描述查询，可查询多个描述。
      * @param {Array<string>} [cloudConnectionId] 根据云连接的ID过滤列表。
@@ -707,8 +730,8 @@ export class CcClient {
      *
      * @summary 查询带宽包列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
      * @param {Array<string>} [cloudConnectionId] 根据云连接的ID过滤列表。
@@ -932,10 +955,10 @@ export class CcClient {
      * @summary 查询所有版本的中心网络策略列表
      * @param {string} centralNetworkId 中心网络的ID。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<CentralNetworkPolicyStateEnum>} [state] 根据状态查询，可查询多个状态。
      * @param {Array<Version>} [version] 根据版本查询，可查询多个名字。
      * @param {boolean} [isApplied] 是否被应用。
@@ -997,10 +1020,10 @@ export class CcClient {
      *
      * @summary 查询中心网络列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<CentralNetworkStateEnum>} [state] 根据状态查询，可查询多个状态。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
@@ -1028,7 +1051,7 @@ export class CcClient {
      * @summary 通过标签过滤中心网络实例
      * @param {ListCentralNetworksByTagsRequestBody} listCentralNetworksByTagsRequestBody 通过标签过滤中心网络实例的请求体。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1188,10 +1211,10 @@ export class CcClient {
      * @summary 查询中心网络附件列表
      * @param {string} centralNetworkId 中心网络的ID。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<AttachmentInstanceTypeEnum>} [attachmentInstanceType] 根据附件类型查询，可查询多个附件类型。
      * @param {Array<CentralNetworkConnectionStateEnum>} [state] 根据状态查询，可查询多个状态。
@@ -1217,10 +1240,10 @@ export class CcClient {
      * @summary 查询中心网络ER路由表附件列表
      * @param {string} centralNetworkId 中心网络的ID。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<CentralNetworkConnectionStateEnum>} [state] 根据状态查询，可查询多个状态。
      * @param {Array<string>} [attachmentInstanceId] Attachment实例的ID。
@@ -1245,10 +1268,10 @@ export class CcClient {
      * @summary 查询中心网络GDGW附件列表
      * @param {string} centralNetworkId 中心网络的ID。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<CentralNetworkConnectionStateEnum>} [state] 根据状态查询，可查询多个状态。
      * @param {Array<string>} [globalDcGatewayId] 根据GDW实例ID过滤列表。
@@ -1353,6 +1376,8 @@ export class CcClient {
      *
      * @summary 查询中心网络能力列表
      * @param {Array<CentralNetworkCapabilityEnum>} [capability] 根据租户能力名查询，可查询多个类型。
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1374,10 +1399,10 @@ export class CcClient {
      * @summary 查询中心网络连接列表
      * @param {string} centralNetworkId 中心网络的ID。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<CentralNetworkConnectionStateEnum>} [state] 根据状态查询，可查询多个状态。
      * @param {Array<string>} [globalConnectionBandwidthId] 根据带宽包ID过滤。
@@ -1425,7 +1450,7 @@ export class CcClient {
      * @summary 查询中心网络配额
      * @param {Array<CentralNetworkQuotaKeyEnum>} [quotaType] 根据配额类型查询，可查询多个类型。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1502,8 +1527,8 @@ export class CcClient {
      *
      * @summary 查询云连接列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [description] 根据描述查询，可查询多个描述。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
@@ -1621,6 +1646,25 @@ export class CcClient {
     }
 
     /**
+     * 查询云连接的能力列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云连接的能力列表
+     * @param {string} [resourceType] 类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudConnectionCapabilities(listCloudConnectionCapabilitiesRequest?: ListCloudConnectionCapabilitiesRequest): Promise<ListCloudConnectionCapabilitiesResponse> {
+        const options = ParamCreater().listCloudConnectionCapabilities(listCloudConnectionCapabilitiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云连接配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1628,7 +1672,7 @@ export class CcClient {
      * @summary 查询云连接配额
      * @param {'cloud_connection' | 'cloud_connection_region' | 'cloud_connection_route' | 'region_network_instance'} quotaType 配额类型： - cloud_connection: 可加载的云连接实例数 - cloud_connection_region: 某云连接实例下可加载的Region数 - cloud_connection_route: 某云连接实例下可加载的路由数 - region_network_instance: 某云连接实例下某个Region下可加载的网络实例数
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [cloudConnectionId] 云连接ID。当查询cloud_connection_region、cloud_connection_route、region_network_instance三种类型的配额时需要填写此参数。
      * @param {string} [regionId] 区域ID。当查询region_network_instance类型的配额时需要填写此参数。
      * @param {*} [options] Override http request option.
@@ -1651,7 +1695,7 @@ export class CcClient {
      *
      * @summary 查询云连接路由条目列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {Array<string>} [cloudConnectionId] 根据云连接的ID过滤列表。
      * @param {Array<string>} [instanceId] 根据网络实例ID过滤云连接路由条目列表。
      * @param {string} [regionId] 根据Region ID过滤云连接路由条目列表。
@@ -1949,8 +1993,8 @@ export class CcClient {
      *
      * @summary 查询线路等级列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {string} [localArea] 线路规格本端接入点编码信息。
      * @param {string} [remoteArea] 线路规格远端接入点编码信息。
      * @param {Array<'Pt' | 'Ag'>} [levels] 带宽等级信息： - Pt: 铂金 - Ag: 银
@@ -1974,8 +2018,8 @@ export class CcClient {
      *
      * @summary 查询站点列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {string} [nameEn] 站点信息自定义英文名称。
      * @param {string} [nameCn] 站点信息自定义中文名称。
      * @param {string} [siteCode] 站点编码。
@@ -2000,8 +2044,8 @@ export class CcClient {
      *
      * @summary 查询线路规格列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {string} [localArea] 线路规格本端接入点编码信息。
      * @param {string} [remoteArea] 线路规格远端接入点编码信息。
      * @param {Array<'Pt' | 'Au' | 'Ag'>} [level] 带宽等级： - Pt: 铂金 - Au: 金 - Ag: 银
@@ -2025,8 +2069,8 @@ export class CcClient {
      *
      * @summary 查询全域互联带宽列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
      * @param {Array<string>} [instanceId] 根据绑定实例id过滤全域互联带宽列表。
@@ -2055,7 +2099,7 @@ export class CcClient {
      *
      * @summary 查询符合绑定条件的全域互联带宽列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
      * @param {string} [localArea] 功能说明：本端接入点。   如果是region类型，则返回所有满足条件的城域带宽，不进行该字段的匹配过滤   如果是其他类型，则会用该字段跟全域互联带宽的local_area进行匹配过滤   附带过滤条件：会通过local_area和remote_area推算最佳全域互联带宽类型进行过滤查询   限制：local_area和remote_area同为空或者同不为空，且站点类型需一致
      * @param {string} [remoteArea] 功能说明：远端接入点。   如果是region类型，则返回所有满足条件的城域带宽，不进行该字段的匹配过滤   如果是其他类型，则会用该字段跟全域互联带宽的remote_area进行匹配过滤   附带过滤条件：会通过local_area和remote_area推算最佳全域互联带宽类型进行过滤查询   限制：local_area和remote_area同为空或者同不为空，且站点类型需一致
@@ -2157,8 +2201,8 @@ export class CcClient {
      *
      * @summary 查询域间带宽列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
      * @param {Array<string>} [cloudConnectionId] 根据云连接的ID过滤列表。
      * @param {Array<string>} [bandwidthPackageId] 根据带宽包列表过滤域间带宽实例列表。
@@ -2252,15 +2296,15 @@ export class CcClient {
     }
 
     /**
-     * 查询云连接列表。
+     * 查询网络实例列表。
      * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询网络实例列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<string>} [description] 根据描述查询，可查询多个描述。
      * @param {Array<string>} [cloudConnectionId] 根据云连接的ID过滤列表。
@@ -2327,7 +2371,7 @@ export class CcClient {
      * @summary 关联分支连接带宽
      * @param {string} siteNetworkId 分支网络的ID。
      * @param {string} siteConnectionId 分支连接的ID
-     * @param {AssociateSiteConnectionBandwidthRequestBody} associateSiteConnectionBandwidthRequestBody 关联分支连接带宽的请求体
+     * @param {AssociateSiteConnectionBandwidthRequestBody} associateSiteConnectionBandwidthRequestBody 关联分支连接带宽的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2368,7 +2412,7 @@ export class CcClient {
      * @summary 更改分支连接带宽包
      * @param {string} siteNetworkId 分支网络的ID。
      * @param {string} siteConnectionId 分支连接的ID
-     * @param {AssociateSiteConnectionBandwidthRequestBody} associateSiteConnectionBandwidthRequestBody 更改分支连接带宽包的请求体
+     * @param {UpdateSiteConnectionBandwidthRequestBody} updateSiteConnectionBandwidthRequestBody 更改分支连接带宽包的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2389,7 +2433,7 @@ export class CcClient {
      * @summary 更改分支连接带宽大小
      * @param {string} siteNetworkId 分支网络的ID。
      * @param {string} siteConnectionId 分支连接的ID
-     * @param {UpdateSiteConnectionBandwidthSizeRequestBody} updateSiteConnectionBandwidthSizeRequestBody 更改分支连接带宽大小的请求体
+     * @param {UpdateSiteConnectionBandwidthSizeRequestBody} updateSiteConnectionBandwidthSizeRequestBody 更改分支连接带宽大小的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2448,10 +2492,10 @@ export class CcClient {
      *
      * @summary 查询分支网络列表
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {string} [sortKey] 排序字段。
-     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
-     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序（asc为升序，desc为降序）。
+     * @param {Array<string>} [id] 根据ID查询，可查询多个ID。
      * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
      * @param {Array<SiteNetworkStateEnum>} [state] 根据状态查询，可查询多个状态。
      * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
@@ -2516,6 +2560,8 @@ export class CcClient {
      *
      * @summary 查询分支网络的能力列表
      * @param {Array<SiteNetworkSpecificationEnum>} [specification] 根据分支网络租户能力名查询，可查询多个类型。
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2536,7 +2582,7 @@ export class CcClient {
      * @summary 查询分支网络配额
      * @param {Array<SiteNetworkQuotaKeyEnum>} [quotaType] 根据配额类型查询，可查询多个类型。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
-     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2550,13 +2596,53 @@ export class CcClient {
     }
 
     /**
-     * 查询带宽包等级列表
+     * 查询大区互通类型的带宽包资源规格列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询大区互通类型的带宽包资源规格列表
+     * @param {Array<string>} [localAreaId] 根据本端大区ID过滤带宽包资源规格列表
+     * @param {Array<string>} [remoteAreaId] 根据对端大区ID过滤带宽包资源规格列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAreaBandwidthPackageSpecifications(listAreaBandwidthPackageSpecificationsRequest?: ListAreaBandwidthPackageSpecificationsRequest): Promise<ListAreaBandwidthPackageSpecificationsResponse> {
+        const options = ParamCreater().listAreaBandwidthPackageSpecifications(listAreaBandwidthPackageSpecificationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前支持的大区列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前支持的Area列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAreas(listAreasRequest?: ListAreasRequest): Promise<ListAreasResponse> {
+        const options = ParamCreater().listAreas();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询带宽包等级列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽包等级列表
-     * @param {string} [level] 根据带宽包等级进行查询
-     * @param {string} [name] 根据名称进行模糊查询
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {string} [level] 根据带宽包等级进行查询。
+     * @param {string} [name] 根据名称进行模糊查询。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2570,13 +2656,15 @@ export class CcClient {
     }
 
     /**
-     * 查询带宽包线路列表
+     * 查询带宽包线路列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽包线路列表
-     * @param {string} [level] 根据带宽包等级进行查询
-     * @param {string} [name] 根据名称进行模糊查询
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {string} [level] 根据带宽包等级进行查询。
+     * @param {string} [name] 根据名称进行模糊查询。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2590,19 +2678,59 @@ export class CcClient {
     }
 
     /**
-     * 查询带宽包站点列表
+     * 查询带宽包站点列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽包站点列表
-     * @param {string} [siteCode] 根据站点编码进行查询
-     * @param {string} [regionId] 根据区域ID进行查询
-     * @param {string} [name] 根据名称模糊查询
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向后翻页。 翻页过程中，查询条件不能修改，包括过滤条件、排序条件、limit。
+     * @param {string} [siteCode] 根据站点编码进行查询。
+     * @param {string} [regionId] 根据区域ID进行查询。
+     * @param {string} [name] 根据名称模糊查询。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listBandwidthPackageSites(listBandwidthPackageSitesRequest?: ListBandwidthPackageSitesRequest): Promise<ListBandwidthPackageSitesResponse> {
         const options = ParamCreater().listBandwidthPackageSites(listBandwidthPackageSitesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询区域互通类型的带宽包规格列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询区域互通类型的带宽包规格列表
+     * @param {string} [localRegionId] 根据城域带宽包本端区域ID过滤租户城域带宽配置列表
+     * @param {string} [remoteRegionId] 根据城域带宽包对端区域ID过滤租户城域带宽配置列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRegionBandwidthPackageSpecifications(listRegionBandwidthPackageSpecificationsRequest?: ListRegionBandwidthPackageSpecificationsRequest): Promise<ListRegionBandwidthPackageSpecificationsResponse> {
+        const options = ParamCreater().listRegionBandwidthPackageSpecifications(listRegionBandwidthPackageSpecificationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前支持的Region列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前支持的Region列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRegions(listRegionsRequest?: ListRegionsRequest): Promise<ListRegionsResponse> {
+        const options = ParamCreater().listRegions();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4741,18 +4869,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let capability;
+            
+            let limit;
+            
+            let marker;
 
             if (listCentralNetworkCapabilitiesRequest !== null && listCentralNetworkCapabilitiesRequest !== undefined) {
                 if (listCentralNetworkCapabilitiesRequest instanceof ListCentralNetworkCapabilitiesRequest) {
                     capability = listCentralNetworkCapabilitiesRequest.capability;
+                    limit = listCentralNetworkCapabilitiesRequest.limit;
+                    marker = listCentralNetworkCapabilitiesRequest.marker;
                 } else {
                     capability = listCentralNetworkCapabilitiesRequest['capability'];
+                    limit = listCentralNetworkCapabilitiesRequest['limit'];
+                    marker = listCentralNetworkCapabilitiesRequest['marker'];
                 }
             }
 
         
             if (capability !== null && capability !== undefined) {
                 localVarQueryParameter['capability'] = capability;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5379,6 +5521,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云连接的能力列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudConnectionCapabilities(listCloudConnectionCapabilitiesRequest?: ListCloudConnectionCapabilitiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/capabilities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceType;
+
+            if (listCloudConnectionCapabilitiesRequest !== null && listCloudConnectionCapabilitiesRequest !== undefined) {
+                if (listCloudConnectionCapabilitiesRequest instanceof ListCloudConnectionCapabilitiesRequest) {
+                    resourceType = listCloudConnectionCapabilitiesRequest.resourceType;
+                } else {
+                    resourceType = listCloudConnectionCapabilitiesRequest['resource_type'];
+                }
+            }
+
+        
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6878,7 +7057,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云连接列表。
+         * 查询网络实例列表。
          * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7548,18 +7727,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let specification;
+            
+            let limit;
+            
+            let marker;
 
             if (listSiteNetworkCapabilitiesRequest !== null && listSiteNetworkCapabilitiesRequest !== undefined) {
                 if (listSiteNetworkCapabilitiesRequest instanceof ListSiteNetworkCapabilitiesRequest) {
                     specification = listSiteNetworkCapabilitiesRequest.specification;
+                    limit = listSiteNetworkCapabilitiesRequest.limit;
+                    marker = listSiteNetworkCapabilitiesRequest.marker;
                 } else {
                     specification = listSiteNetworkCapabilitiesRequest['specification'];
+                    limit = listSiteNetworkCapabilitiesRequest['limit'];
+                    marker = listSiteNetworkCapabilitiesRequest['marker'];
                 }
             }
 
         
             if (specification !== null && specification !== undefined) {
                 localVarQueryParameter['specification'] = specification;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -7619,7 +7812,72 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询带宽包等级列表
+         * 查询大区互通类型的带宽包资源规格列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAreaBandwidthPackageSpecifications(listAreaBandwidthPackageSpecificationsRequest?: ListAreaBandwidthPackageSpecificationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/bandwidth-packages/area-specifications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let localAreaId;
+            
+            let remoteAreaId;
+
+            if (listAreaBandwidthPackageSpecificationsRequest !== null && listAreaBandwidthPackageSpecificationsRequest !== undefined) {
+                if (listAreaBandwidthPackageSpecificationsRequest instanceof ListAreaBandwidthPackageSpecificationsRequest) {
+                    localAreaId = listAreaBandwidthPackageSpecificationsRequest.localAreaId;
+                    remoteAreaId = listAreaBandwidthPackageSpecificationsRequest.remoteAreaId;
+                } else {
+                    localAreaId = listAreaBandwidthPackageSpecificationsRequest['local_area_id'];
+                    remoteAreaId = listAreaBandwidthPackageSpecificationsRequest['remote_area_id'];
+                }
+            }
+
+        
+            if (localAreaId !== null && localAreaId !== undefined) {
+                localVarQueryParameter['local_area_id'] = localAreaId;
+            }
+            if (remoteAreaId !== null && remoteAreaId !== undefined) {
+                localVarQueryParameter['remote_area_id'] = remoteAreaId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前支持的大区列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAreas() {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/areas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询带宽包等级列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7635,21 +7893,35 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let limit;
+            
+            let marker;
+            
             let level;
             
             let name;
 
             if (listBandwidthPackageLevelsRequest !== null && listBandwidthPackageLevelsRequest !== undefined) {
                 if (listBandwidthPackageLevelsRequest instanceof ListBandwidthPackageLevelsRequest) {
+                    limit = listBandwidthPackageLevelsRequest.limit;
+                    marker = listBandwidthPackageLevelsRequest.marker;
                     level = listBandwidthPackageLevelsRequest.level;
                     name = listBandwidthPackageLevelsRequest.name;
                 } else {
+                    limit = listBandwidthPackageLevelsRequest['limit'];
+                    marker = listBandwidthPackageLevelsRequest['marker'];
                     level = listBandwidthPackageLevelsRequest['level'];
                     name = listBandwidthPackageLevelsRequest['name'];
                 }
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
             if (level !== null && level !== undefined) {
                 localVarQueryParameter['level'] = level;
             }
@@ -7663,7 +7935,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询带宽包线路列表
+         * 查询带宽包线路列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7679,21 +7951,35 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let limit;
+            
+            let marker;
+            
             let level;
             
             let name;
 
             if (listBandwidthPackageLinesRequest !== null && listBandwidthPackageLinesRequest !== undefined) {
                 if (listBandwidthPackageLinesRequest instanceof ListBandwidthPackageLinesRequest) {
+                    limit = listBandwidthPackageLinesRequest.limit;
+                    marker = listBandwidthPackageLinesRequest.marker;
                     level = listBandwidthPackageLinesRequest.level;
                     name = listBandwidthPackageLinesRequest.name;
                 } else {
+                    limit = listBandwidthPackageLinesRequest['limit'];
+                    marker = listBandwidthPackageLinesRequest['marker'];
                     level = listBandwidthPackageLinesRequest['level'];
                     name = listBandwidthPackageLinesRequest['name'];
                 }
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
             if (level !== null && level !== undefined) {
                 localVarQueryParameter['level'] = level;
             }
@@ -7707,7 +7993,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询带宽包站点列表
+         * 查询带宽包站点列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7723,6 +8009,10 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let limit;
+            
+            let marker;
+            
             let siteCode;
             
             let regionId;
@@ -7731,10 +8021,14 @@ export const ParamCreater = function () {
 
             if (listBandwidthPackageSitesRequest !== null && listBandwidthPackageSitesRequest !== undefined) {
                 if (listBandwidthPackageSitesRequest instanceof ListBandwidthPackageSitesRequest) {
+                    limit = listBandwidthPackageSitesRequest.limit;
+                    marker = listBandwidthPackageSitesRequest.marker;
                     siteCode = listBandwidthPackageSitesRequest.siteCode;
                     regionId = listBandwidthPackageSitesRequest.regionId;
                     name = listBandwidthPackageSitesRequest.name;
                 } else {
+                    limit = listBandwidthPackageSitesRequest['limit'];
+                    marker = listBandwidthPackageSitesRequest['marker'];
                     siteCode = listBandwidthPackageSitesRequest['site_code'];
                     regionId = listBandwidthPackageSitesRequest['region_id'];
                     name = listBandwidthPackageSitesRequest['name'];
@@ -7742,6 +8036,12 @@ export const ParamCreater = function () {
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
             if (siteCode !== null && siteCode !== undefined) {
                 localVarQueryParameter['site_code'] = siteCode;
             }
@@ -7753,6 +8053,71 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询区域互通类型的带宽包规格列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRegionBandwidthPackageSpecifications(listRegionBandwidthPackageSpecificationsRequest?: ListRegionBandwidthPackageSpecificationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/bandwidth-packages/region-specifications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let localRegionId;
+            
+            let remoteRegionId;
+
+            if (listRegionBandwidthPackageSpecificationsRequest !== null && listRegionBandwidthPackageSpecificationsRequest !== undefined) {
+                if (listRegionBandwidthPackageSpecificationsRequest instanceof ListRegionBandwidthPackageSpecificationsRequest) {
+                    localRegionId = listRegionBandwidthPackageSpecificationsRequest.localRegionId;
+                    remoteRegionId = listRegionBandwidthPackageSpecificationsRequest.remoteRegionId;
+                } else {
+                    localRegionId = listRegionBandwidthPackageSpecificationsRequest['local_region_id'];
+                    remoteRegionId = listRegionBandwidthPackageSpecificationsRequest['remote_region_id'];
+                }
+            }
+
+        
+            if (localRegionId !== null && localRegionId !== undefined) {
+                localVarQueryParameter['local_region_id'] = localRegionId;
+            }
+            if (remoteRegionId !== null && remoteRegionId !== undefined) {
+                localVarQueryParameter['remote_region_id'] = remoteRegionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前支持的Region列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRegions() {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/ccaas/regions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

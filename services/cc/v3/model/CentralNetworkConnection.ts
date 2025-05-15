@@ -14,6 +14,7 @@ import { Description } from './Description';
 import { DomainId } from './DomainId';
 import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { GlobalConnectionBandwidthId } from './GlobalConnectionBandwidthId';
+import { Index } from './Index';
 import { IsFrozen } from './IsFrozen';
 import { Name } from './Name';
 import { UUID64Identifier } from './UUID64Identifier';

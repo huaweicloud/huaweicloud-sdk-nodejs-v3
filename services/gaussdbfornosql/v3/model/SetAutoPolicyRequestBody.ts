@@ -5,9 +5,8 @@ export class SetAutoPolicyRequestBody {
     private 'instance_ids'?: Array<string>;
     private 'switch_option'?: string;
     public policy?: Array<DiskAutoExpansionPolicy>;
-    public constructor(instanceIds?: Array<string>, policy?: Array<DiskAutoExpansionPolicy>) { 
+    public constructor(instanceIds?: Array<string>) { 
         this['instance_ids'] = instanceIds;
-        this['policy'] = policy;
     }
     public withInstanceIds(instanceIds: Array<string>): SetAutoPolicyRequestBody {
         this['instance_ids'] = instanceIds;

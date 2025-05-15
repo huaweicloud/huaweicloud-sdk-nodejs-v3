@@ -130,7 +130,7 @@ export * from './model/MetricDataPoints';
 export * from './model/MetricDataValue';
 export * from './model/MetricItemInfo';
 export * from './model/MetricItemResultAPI';
-export * from './model/MetricQueryMeritcParam';
+export * from './model/MetricQueryMetricParam';
 export * from './model/MuteConfig';
 export * from './model/MuteRule';
 export * from './model/NameRule';

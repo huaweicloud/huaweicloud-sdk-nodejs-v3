@@ -1067,6 +1067,7 @@ export class EcsClient {
      *
      * @summary 查询规格详情和规格扩展信息列表
      * @param {string} [availabilityZone] 可用区，需要指定可用区（AZ）的名称或者ID或者code。  可通过接口 [查询可用区列表接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;ECS&amp;api&#x3D;NovaListAvailabilityZones) 获取，也可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取。
+     * @param {string} [flavorId] 规格id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3682,18 +3683,25 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let availabilityZone;
+            
+            let flavorId;
 
             if (listFlavorsRequest !== null && listFlavorsRequest !== undefined) {
                 if (listFlavorsRequest instanceof ListFlavorsRequest) {
                     availabilityZone = listFlavorsRequest.availabilityZone;
+                    flavorId = listFlavorsRequest.flavorId;
                 } else {
                     availabilityZone = listFlavorsRequest['availability_zone'];
+                    flavorId = listFlavorsRequest['flavor_id'];
                 }
             }
 
         
             if (availabilityZone !== null && availabilityZone !== undefined) {
                 localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (flavorId !== null && flavorId !== undefined) {
+                localVarQueryParameter['flavor_id'] = flavorId;
             }
 
             options.queryParams = localVarQueryParameter;

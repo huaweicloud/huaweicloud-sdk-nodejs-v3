@@ -8,10 +8,12 @@ export class ShowCocIssuesDetailResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
     public data?: CocIssuesTicketDetailInfoResponseData;
-    public constructor(providerCode?: string, errorCode?: string) { 
+    public constructor(providerCode?: string, errorCode?: string, errorMsg?: string, data?: CocIssuesTicketDetailInfoResponseData) { 
         super();
         this['provider_code'] = providerCode;
         this['error_code'] = errorCode;
+        this['error_msg'] = errorMsg;
+        this['data'] = data;
     }
     public withProviderCode(providerCode: string): ShowCocIssuesDetailResponse {
         this['provider_code'] = providerCode;

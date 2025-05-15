@@ -1,18 +1,18 @@
-import { MetricQueryMeritcParam } from './MetricQueryMeritcParam';
+import { MetricQueryMetricParam } from './MetricQueryMetricParam';
 
 
 export class QueryMetricDataParam {
-    public metrics?: Array<MetricQueryMeritcParam>;
+    public metrics?: Array<MetricQueryMetricParam>;
     public period?: number;
     public statistics?: Array<string>;
     public timerange?: string;
-    public constructor(metrics?: Array<MetricQueryMeritcParam>, period?: number, statistics?: Array<string>, timerange?: string) { 
+    public constructor(metrics?: Array<MetricQueryMetricParam>, period?: number, statistics?: Array<string>, timerange?: string) { 
         this['metrics'] = metrics;
         this['period'] = period;
         this['statistics'] = statistics;
         this['timerange'] = timerange;
     }
-    public withMetrics(metrics: Array<MetricQueryMeritcParam>): QueryMetricDataParam {
+    public withMetrics(metrics: Array<MetricQueryMetricParam>): QueryMetricDataParam {
         this['metrics'] = metrics;
         return this;
     }

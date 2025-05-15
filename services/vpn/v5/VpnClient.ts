@@ -516,7 +516,7 @@ export class VpnClient {
      * @summary 查询对端网关列表
      * @param {string} [cgwId] CustomerGateway ID
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -635,7 +635,7 @@ export class VpnClient {
      *
      * @summary 查询P2C VPN网关列表
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -859,7 +859,7 @@ export class VpnClient {
      * @summary 查询VPN访问策略列表
      * @param {string} vpnServerId VPN服务端 ID
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -963,7 +963,7 @@ export class VpnClient {
      * @param {string} [vgwId] vgw ID
      * @param {Array<string>} [enterpriseProjectId] 企业项目id
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1212,7 +1212,7 @@ export class VpnClient {
      * @summary 查询VPN网关路由表
      * @param {string} vgwId VPN网关实例ID
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {number} [offset] 分页查询的偏移量
      * @param {boolean} [isIncludeNexthopResource] 是否包含下一跳资源信息
      * @param {*} [options] Override http request option.
@@ -1393,7 +1393,7 @@ export class VpnClient {
      *
      * @summary 查询租户下的所有服务端信息
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1535,7 +1535,7 @@ export class VpnClient {
      * @summary 查询VPN用户列表
      * @param {string} vpnServerId VPN服务端 ID
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1701,7 +1701,7 @@ export class VpnClient {
      * @summary 查询VPN用户组列表
      * @param {string} vpnServerId VPN服务端 ID
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1723,7 +1723,7 @@ export class VpnClient {
      * @param {string} vpnServerId VPN服务端 ID
      * @param {string} groupId 用户组ID
      * @param {number} [limit] 分页查询时每页返回的记录数量
-     * @param {string} [marker] 上一页最后一条记录的id，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

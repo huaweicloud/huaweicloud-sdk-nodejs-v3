@@ -285,8 +285,6 @@ import { ListSupportKernelPluginsRequest } from './model/ListSupportKernelPlugin
 import { ListSupportKernelPluginsResponse } from './model/ListSupportKernelPluginsResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
-import { ListTopIoTrafficsRequest } from './model/ListTopIoTrafficsRequest';
-import { ListTopIoTrafficsResponse } from './model/ListTopIoTrafficsResponse';
 import { ListVolume } from './model/ListVolume';
 import { ModifyEpsQuotaRequest } from './model/ModifyEpsQuotaRequest';
 import { ModifyEpsQuotaRequestBody } from './model/ModifyEpsQuotaRequestBody';
@@ -456,7 +454,6 @@ import { TagResult } from './model/TagResult';
 import { TagsOption } from './model/TagsOption';
 import { TagsResult } from './model/TagsResult';
 import { TaskDetailResult } from './model/TaskDetailResult';
-import { TopIoInfo } from './model/TopIoInfo';
 import { UpdateFeaturesRequest } from './model/UpdateFeaturesRequest';
 import { UpdateFeaturesRequestBody } from './model/UpdateFeaturesRequestBody';
 import { UpdateFeaturesResponse } from './model/UpdateFeaturesResponse';
@@ -2382,30 +2379,6 @@ export class GaussDBforopenGaussClient {
      */
     public listTasks(listTasksRequest?: ListTasksRequest): Promise<ListTasksResponse> {
         const options = ParamCreater().listTasks(listTasksRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询实例数据库进程下的Top IO流量数据，返回与会话信息相关联后的结果
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Top IO列表
-     * @param {string} instanceId 实例ID，严格匹配UUID规则。
-     * @param {string} nodeId 节点ID。节点应为CN或者非日志角色的DN节点，并且节点状态为正常。
-     * @param {string} componentId 组件ID。组件应为CN或者非日志角色的DN组件。 DN：Data Node，和CN对应的概念。负责实际执行表数据的存储、查询操作。 CN：Coordinator Node，负责数据库系统元数据存储、查询任务的分解和部分执行，以及将DN中查询结果汇聚在一起。
-     * @param {string} [xLanguage] 语言
-     * @param {number} [topIoNum] 期望查询数据库进程下TOP IO线程数（默认值为20）。接口返回TOP IO线程与会话信息关联后的结果，数量最大不超过该值。
-     * @param {'read' | 'write'} [sortCondition] TOP IO排序条件
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listTopIoTraffics(listTopIoTrafficsRequest?: ListTopIoTrafficsRequest): Promise<ListTopIoTrafficsResponse> {
-        const options = ParamCreater().listTopIoTraffics(listTopIoTrafficsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8582,85 +8555,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询实例数据库进程下的Top IO流量数据，返回与会话信息相关联后的结果
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listTopIoTraffics(listTopIoTrafficsRequest?: ListTopIoTrafficsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/instances/{instance_id}/top-io-traffics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let instanceId;
-            
-            let nodeId;
-            
-            let componentId;
-            
-            let xLanguage;
-            
-            let topIoNum;
-            
-            let sortCondition;
-
-            if (listTopIoTrafficsRequest !== null && listTopIoTrafficsRequest !== undefined) {
-                if (listTopIoTrafficsRequest instanceof ListTopIoTrafficsRequest) {
-                    instanceId = listTopIoTrafficsRequest.instanceId;
-                    nodeId = listTopIoTrafficsRequest.nodeId;
-                    componentId = listTopIoTrafficsRequest.componentId;
-                    xLanguage = listTopIoTrafficsRequest.xLanguage;
-                    topIoNum = listTopIoTrafficsRequest.topIoNum;
-                    sortCondition = listTopIoTrafficsRequest.sortCondition;
-                } else {
-                    instanceId = listTopIoTrafficsRequest['instance_id'];
-                    nodeId = listTopIoTrafficsRequest['node_id'];
-                    componentId = listTopIoTrafficsRequest['component_id'];
-                    xLanguage = listTopIoTrafficsRequest['X-Language'];
-                    topIoNum = listTopIoTrafficsRequest['top_io_num'];
-                    sortCondition = listTopIoTrafficsRequest['sort_condition'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listTopIoTraffics.');
-            }
-            if (nodeId === null || nodeId === undefined) {
-                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listTopIoTraffics.');
-            }
-            if (nodeId !== null && nodeId !== undefined) {
-                localVarQueryParameter['node_id'] = nodeId;
-            }
-            if (componentId === null || componentId === undefined) {
-                throw new RequiredError('componentId','Required parameter componentId was null or undefined when calling listTopIoTraffics.');
-            }
-            if (componentId !== null && componentId !== undefined) {
-                localVarQueryParameter['component_id'] = componentId;
-            }
-            if (topIoNum !== null && topIoNum !== undefined) {
-                localVarQueryParameter['top_io_num'] = topIoNum;
-            }
-            if (sortCondition !== null && sortCondition !== undefined) {
-                localVarQueryParameter['sort_condition'] = sortCondition;
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -18,6 +18,7 @@ import { AlarmTemplateID } from './model/AlarmTemplateID';
 import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
 import { AlarmType } from './model/AlarmType';
+import { AsyncAssociateRGAndTemplatesReq } from './model/AsyncAssociateRGAndTemplatesReq';
 import { BaseWidgetInfo } from './model/BaseWidgetInfo';
 import { BaseWidgetInfoProperties } from './model/BaseWidgetInfoProperties';
 import { BatchCreateResourcesRequest } from './model/BatchCreateResourcesRequest';
@@ -106,6 +107,7 @@ import { ExtendRelationId } from './model/ExtendRelationId';
 import { ExtraInfo } from './model/ExtraInfo';
 import { FilterWithoutTP } from './model/FilterWithoutTP';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
+import { GroupID } from './model/GroupID';
 import { HierarchicalValue } from './model/HierarchicalValue';
 import { Instance } from './model/Instance';
 import { IsFavoriteItem } from './model/IsFavoriteItem';
@@ -238,6 +240,8 @@ import { UpdateOneClickAlarmNotificationsRequest } from './model/UpdateOneClickA
 import { UpdateOneClickAlarmNotificationsRequestBody } from './model/UpdateOneClickAlarmNotificationsRequestBody';
 import { UpdateOneClickAlarmNotificationsResponse } from './model/UpdateOneClickAlarmNotificationsResponse';
 import { UpdatePolicy } from './model/UpdatePolicy';
+import { UpdateResourceGroupAssociationAlarmTemplateRequest } from './model/UpdateResourceGroupAssociationAlarmTemplateRequest';
+import { UpdateResourceGroupAssociationAlarmTemplateResponse } from './model/UpdateResourceGroupAssociationAlarmTemplateResponse';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
 import { UpdateResourceGroupResponse } from './model/UpdateResourceGroupResponse';
 import { UpdateWidgetInfo } from './model/UpdateWidgetInfo';
@@ -1270,6 +1274,26 @@ export class CesClient {
      */
     public updateResourceGroup(updateResourceGroupRequest?: UpdateResourceGroupRequest): Promise<UpdateResourceGroupResponse> {
         const options = ParamCreater().updateResourceGroup(updateResourceGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提交资源分组批量关联自定义告警模板异步任务，由异步任务覆盖性创建告警规则。每个用户创建处于待执行状态的异步任务数量上限为100个，单个资源分组仅可有1个未完成的任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资源分组异步关联自定义告警模板
+     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
+     * @param {AsyncAssociateRGAndTemplatesReq} updateResourceGroupAssociationAlarmTemplateRequestBody 资源分组异步关联告警模板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateResourceGroupAssociationAlarmTemplate(updateResourceGroupAssociationAlarmTemplateRequest?: UpdateResourceGroupAssociationAlarmTemplateRequest): Promise<UpdateResourceGroupAssociationAlarmTemplateResponse> {
+        const options = ParamCreater().updateResourceGroupAssociationAlarmTemplate(updateResourceGroupAssociationAlarmTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3675,6 +3699,52 @@ export const ParamCreater = function () {
         
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateResourceGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提交资源分组批量关联自定义告警模板异步任务，由异步任务覆盖性创建告警规则。每个用户创建处于待执行状态的异步任务数量上限为100个，单个资源分组仅可有1个未完成的任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateResourceGroupAssociationAlarmTemplate(updateResourceGroupAssociationAlarmTemplateRequest?: UpdateResourceGroupAssociationAlarmTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/resource-groups/{group_id}/alarm-templates/async-association",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+
+            if (updateResourceGroupAssociationAlarmTemplateRequest !== null && updateResourceGroupAssociationAlarmTemplateRequest !== undefined) {
+                if (updateResourceGroupAssociationAlarmTemplateRequest instanceof UpdateResourceGroupAssociationAlarmTemplateRequest) {
+                    groupId = updateResourceGroupAssociationAlarmTemplateRequest.groupId;
+                    body = updateResourceGroupAssociationAlarmTemplateRequest.body
+                } else {
+                    groupId = updateResourceGroupAssociationAlarmTemplateRequest['group_id'];
+                    body = updateResourceGroupAssociationAlarmTemplateRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateResourceGroupAssociationAlarmTemplate.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

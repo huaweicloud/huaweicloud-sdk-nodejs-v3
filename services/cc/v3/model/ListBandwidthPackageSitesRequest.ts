@@ -1,10 +1,20 @@
 
 
 export class ListBandwidthPackageSitesRequest {
+    public limit?: number;
+    public marker?: string;
     private 'site_code'?: string;
     private 'region_id'?: string;
     public name?: string;
     public constructor() { 
+    }
+    public withLimit(limit: number): ListBandwidthPackageSitesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListBandwidthPackageSitesRequest {
+        this['marker'] = marker;
+        return this;
     }
     public withSiteCode(siteCode: string): ListBandwidthPackageSitesRequest {
         this['site_code'] = siteCode;

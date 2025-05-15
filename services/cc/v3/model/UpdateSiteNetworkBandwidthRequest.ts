@@ -1,10 +1,10 @@
-import { AssociateSiteConnectionBandwidthRequestBody } from './AssociateSiteConnectionBandwidthRequestBody';
+import { UpdateSiteConnectionBandwidthRequestBody } from './UpdateSiteConnectionBandwidthRequestBody';
 
 
 export class UpdateSiteNetworkBandwidthRequest {
     private 'site_network_id'?: string;
     private 'site_connection_id'?: string;
-    public body?: AssociateSiteConnectionBandwidthRequestBody;
+    public body?: UpdateSiteConnectionBandwidthRequestBody;
     public constructor(siteNetworkId?: string, siteConnectionId?: string) { 
         this['site_network_id'] = siteNetworkId;
         this['site_connection_id'] = siteConnectionId;
@@ -29,7 +29,7 @@ export class UpdateSiteNetworkBandwidthRequest {
     public get siteConnectionId(): string | undefined {
         return this['site_connection_id'];
     }
-    public withBody(body: AssociateSiteConnectionBandwidthRequestBody): UpdateSiteNetworkBandwidthRequest {
+    public withBody(body: UpdateSiteConnectionBandwidthRequestBody): UpdateSiteNetworkBandwidthRequest {
         this['body'] = body;
         return this;
     }

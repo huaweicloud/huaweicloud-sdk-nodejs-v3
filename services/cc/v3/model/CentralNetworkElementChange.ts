@@ -30,5 +30,6 @@ export enum CentralNetworkElementChangeOperationIdEnum {
     CREATECENTRALNETWORKERCONNECTION = 'CreateCentralNetworkErConnection',
     DELETECENTRALNETWORKERCONNECTION = 'DeleteCentralNetworkErConnection',
     CREATECENTRALNETWORKERTABLE = 'CreateCentralNetworkErTable',
-    DELETECENTRALNETWORKERTABLE = 'DeleteCentralNetworkErTable'
+    DELETECENTRALNETWORKERTABLE = 'DeleteCentralNetworkErTable',
+    SWITCHCENTRALNETWORKERTABLE = 'SwitchCentralNetworkErTable'
 }

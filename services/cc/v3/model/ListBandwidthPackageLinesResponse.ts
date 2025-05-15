@@ -1,10 +1,12 @@
 import { BandwidthPackageLine } from './BandwidthPackageLine';
+import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListBandwidthPackageLinesResponse extends SdkResponse {
     private 'bandwidth_package_lines'?: Array<BandwidthPackageLine>;
     private 'request_id'?: string;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -27,5 +29,15 @@ export class ListBandwidthPackageLinesResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withPageInfo(pageInfo: PageInfo): ListBandwidthPackageLinesResponse {
+        this['page_info'] = pageInfo;
+        return this;
+    }
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
+        this['page_info'] = pageInfo;
+    }
+    public get pageInfo(): PageInfo | undefined {
+        return this['page_info'];
     }
 }

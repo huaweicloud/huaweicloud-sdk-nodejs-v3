@@ -519,6 +519,8 @@ export * from './model/ShowTrainingSegmentInfoRequest';
 export * from './model/ShowTrainingSegmentInfoResponse';
 export * from './model/ShowTtsAuditionFileRequest';
 export * from './model/ShowTtsAuditionFileResponse';
+export * from './model/ShowTtsPhoneticSymbolRequest';
+export * from './model/ShowTtsPhoneticSymbolResponse';
 export * from './model/ShowVideoMotionCaptureJobRequest';
 export * from './model/ShowVideoMotionCaptureJobResponse';
 export * from './model/ShowVideoScriptRequest';

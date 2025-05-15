@@ -132,7 +132,7 @@ import { MetricDataPoints } from './model/MetricDataPoints';
 import { MetricDataValue } from './model/MetricDataValue';
 import { MetricItemInfo } from './model/MetricItemInfo';
 import { MetricItemResultAPI } from './model/MetricItemResultAPI';
-import { MetricQueryMeritcParam } from './model/MetricQueryMeritcParam';
+import { MetricQueryMetricParam } from './model/MetricQueryMetricParam';
 import { MuteConfig } from './model/MuteConfig';
 import { MuteRule } from './model/MuteRule';
 import { NameRule } from './model/NameRule';

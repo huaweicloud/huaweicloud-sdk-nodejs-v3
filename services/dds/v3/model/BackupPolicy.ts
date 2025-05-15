@@ -4,8 +4,8 @@ export class BackupPolicy {
     private 'keep_days'?: string;
     private 'start_time'?: string;
     public period?: string;
-    public constructor(keepDays?: string) { 
-        this['keep_days'] = keepDays;
+    private 'enable_incremental_backup'?: boolean;
+    public constructor() { 
     }
     public withKeepDays(keepDays: string): BackupPolicy {
         this['keep_days'] = keepDays;
@@ -30,5 +30,15 @@ export class BackupPolicy {
     public withPeriod(period: string): BackupPolicy {
         this['period'] = period;
         return this;
+    }
+    public withEnableIncrementalBackup(enableIncrementalBackup: boolean): BackupPolicy {
+        this['enable_incremental_backup'] = enableIncrementalBackup;
+        return this;
+    }
+    public set enableIncrementalBackup(enableIncrementalBackup: boolean  | undefined) {
+        this['enable_incremental_backup'] = enableIncrementalBackup;
+    }
+    public get enableIncrementalBackup(): boolean | undefined {
+        return this['enable_incremental_backup'];
     }
 }

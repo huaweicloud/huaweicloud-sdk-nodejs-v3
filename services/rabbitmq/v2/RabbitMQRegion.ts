@@ -35,6 +35,7 @@ export class RabbitMQRegion {
     public static CN_EAST_4 = new Region("cn-east-4", ["https://dms.cn-east-4.myhuaweicloud.com"]);
     public static AF_NORTH_1 = new Region("af-north-1", ["https://dms.af-north-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://dms.ap-southeast-5.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dms.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -66,7 +67,8 @@ export class RabbitMQRegion {
         "my-kualalumpur-1":RabbitMQRegion.MY_KUALALUMPUR_1,
         "cn-east-4":RabbitMQRegion.CN_EAST_4,
         "af-north-1":RabbitMQRegion.AF_NORTH_1,
-        "ap-southeast-5":RabbitMQRegion.AP_SOUTHEAST_5
+        "ap-southeast-5":RabbitMQRegion.AP_SOUTHEAST_5,
+        "ru-moscow-1":RabbitMQRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {

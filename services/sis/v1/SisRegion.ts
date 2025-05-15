@@ -6,13 +6,11 @@ interface RegionMap {
 }
 
 export class SisRegion {
-    public static CN_NORTH_1 = new Region("cn-north-1", ["https://sis-ext.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://sis-ext.cn-north-4.myhuaweicloud.com"]);
     public static CN_EAST_3 = new Region("cn-east-3", ["https://sis-ext.cn-east-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
-        "cn-north-1":SisRegion.CN_NORTH_1,
         "cn-north-4":SisRegion.CN_NORTH_4,
         "cn-east-3":SisRegion.CN_EAST_3
     };
