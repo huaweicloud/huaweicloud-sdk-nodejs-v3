@@ -9,6 +9,9 @@ export class UpdateCertificateOption {
     private 'enc_certificate'?: string;
     private 'enc_private_key'?: string;
     private 'scm_certificate_id'?: string;
+    public source?: string;
+    private 'protection_status'?: UpdateCertificateOptionProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
     }
     public withCertificate(certificate: string): UpdateCertificateOption {
@@ -67,4 +70,37 @@ export class UpdateCertificateOption {
     public get scmCertificateId(): string | undefined {
         return this['scm_certificate_id'];
     }
+    public withSource(source: string): UpdateCertificateOption {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: UpdateCertificateOptionProtectionStatusEnum | string): UpdateCertificateOption {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: UpdateCertificateOptionProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): UpdateCertificateOptionProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): UpdateCertificateOption {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateCertificateOptionProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

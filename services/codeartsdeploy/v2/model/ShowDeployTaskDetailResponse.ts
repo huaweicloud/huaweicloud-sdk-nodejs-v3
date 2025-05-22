@@ -34,6 +34,7 @@ export class ShowDeployTaskDetailResponse extends SdkResponse {
     private 'role_id'?: number;
     public id?: string;
     private 'release_id'?: number;
+    private 'app_id'?: string;
     private 'is_disable'?: boolean;
     public duration?: string;
     private 'execution_state'?: string;
@@ -312,6 +313,16 @@ export class ShowDeployTaskDetailResponse extends SdkResponse {
     }
     public get releaseId(): number | undefined {
         return this['release_id'];
+    }
+    public withAppId(appId: string): ShowDeployTaskDetailResponse {
+        this['app_id'] = appId;
+        return this;
+    }
+    public set appId(appId: string  | undefined) {
+        this['app_id'] = appId;
+    }
+    public get appId(): string | undefined {
+        return this['app_id'];
     }
     public withIsDisable(isDisable: boolean): ShowDeployTaskDetailResponse {
         this['is_disable'] = isDisable;

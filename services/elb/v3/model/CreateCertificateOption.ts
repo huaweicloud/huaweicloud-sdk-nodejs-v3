@@ -13,6 +13,9 @@ export class CreateCertificateOption {
     private 'enc_certificate'?: string;
     private 'enc_private_key'?: string;
     private 'scm_certificate_id'?: string;
+    public source?: string;
+    private 'protection_status'?: CreateCertificateOptionProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): CreateCertificateOption {
@@ -105,6 +108,30 @@ export class CreateCertificateOption {
     public get scmCertificateId(): string | undefined {
         return this['scm_certificate_id'];
     }
+    public withSource(source: string): CreateCertificateOption {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: CreateCertificateOptionProtectionStatusEnum | string): CreateCertificateOption {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreateCertificateOptionProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CreateCertificateOptionProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreateCertificateOption {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -114,4 +141,12 @@ export class CreateCertificateOption {
 export enum CreateCertificateOptionTypeEnum {
     SERVER = 'server',
     CLIENT = 'client'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateCertificateOptionProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

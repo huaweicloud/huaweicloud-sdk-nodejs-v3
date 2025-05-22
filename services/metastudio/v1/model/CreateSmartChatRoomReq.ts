@@ -1,6 +1,8 @@
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
+import { ChatResourceConfig } from './ChatResourceConfig';
 import { ChatSubtitleConfig } from './ChatSubtitleConfig';
 import { ChatVoiceConfig } from './ChatVoiceConfig';
+import { CreateSmartChatRoomRequestBody } from './CreateSmartChatRoomRequestBody';
 import { LayerConfig } from './LayerConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { VideoConfig } from './VideoConfig';
@@ -22,6 +24,8 @@ export class CreateSmartChatRoomReq {
     private 'review_config'?: ReviewConfig;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
     private 'chat_video_type'?: CreateSmartChatRoomReqChatVideoTypeEnum | string;
+    private 'exit_mute_threshold'?: number;
+    private 'chat_resource_config'?: Array<ChatResourceConfig>;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -159,6 +163,26 @@ export class CreateSmartChatRoomReq {
     public get chatVideoType(): CreateSmartChatRoomReqChatVideoTypeEnum | string | undefined {
         return this['chat_video_type'];
     }
+    public withExitMuteThreshold(exitMuteThreshold: number): CreateSmartChatRoomReq {
+        this['exit_mute_threshold'] = exitMuteThreshold;
+        return this;
+    }
+    public set exitMuteThreshold(exitMuteThreshold: number  | undefined) {
+        this['exit_mute_threshold'] = exitMuteThreshold;
+    }
+    public get exitMuteThreshold(): number | undefined {
+        return this['exit_mute_threshold'];
+    }
+    public withChatResourceConfig(chatResourceConfig: Array<ChatResourceConfig>): CreateSmartChatRoomReq {
+        this['chat_resource_config'] = chatResourceConfig;
+        return this;
+    }
+    public set chatResourceConfig(chatResourceConfig: Array<ChatResourceConfig>  | undefined) {
+        this['chat_resource_config'] = chatResourceConfig;
+    }
+    public get chatResourceConfig(): Array<ChatResourceConfig> | undefined {
+        return this['chat_resource_config'];
+    }
 }
 
 /**
@@ -167,7 +191,11 @@ export class CreateSmartChatRoomReq {
     */
 export enum CreateSmartChatRoomReqDefaultLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }
 /**
     * @export

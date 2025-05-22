@@ -288,11 +288,11 @@ export class AadClient {
     }
 
     /**
-     * 策略和防护包绑定防护对象
+     * 策略和实例绑定防护对象
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 策略和防护包绑定防护对象
+     * @summary 策略和实例绑定防护对象
      * @param {string} policyId 策略id
      * @param {IpBindingV3Body} associateIpToPolicyAndPackageRequestBody 策略绑定ip的请求体
      * @param {*} [options] Override http request option.
@@ -484,11 +484,11 @@ export class AadClient {
     }
 
     /**
-     * 策略和防护包解绑防护对象
+     * 策略和实例解绑防护对象
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 策略和防护包解绑防护对象
+     * @summary 策略和实例解绑防护对象
      * @param {string} policyId 策略id
      * @param {IpBindingV3Body} disassociateIpFromPolicyAndPackageRequestBody 策略解绑ip的请求体
      * @param {*} [options] Override http request option.
@@ -579,11 +579,11 @@ export class AadClient {
     }
 
     /**
-     * 查询防护包列表
+     * 查询实例列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询防护包列表
+     * @summary 查询实例列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -647,7 +647,7 @@ export class AadClient {
      * @summary 查询防护对象列表
      * @param {number} [offset] 开始查询的偏移量,默认值:0
      * @param {number} [limit] 每页显示的条目数量,默认值:2000
-     * @param {string} [packageId] 防护包id
+     * @param {string} [packageId] 实例id
      * @param {string} [policyId] 策略id
      * @param {string} [ip] 防护ip
      * @param {string} [tag] 本地标签
@@ -687,7 +687,7 @@ export class AadClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可绑定的防护对象列表
-     * @param {string} packageId 防护包id
+     * @param {string} packageId 实例id
      * @param {number} [offset] 开始查询的偏移量,默认值:0
      * @param {number} [limit] 每页显示的条目数量,默认值:2000
      * @param {*} [options] Override http request option.
@@ -839,13 +839,13 @@ export class AadClient {
     }
 
     /**
-     * 更新防护包绑定的全量防护对象
+     * 更新实例绑定的全量防护对象
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新防护包绑定的全量防护对象
-     * @param {string} packageId 防护包id
-     * @param {UpdatePackageIpRequestBody} updatePackageIpRequestBody 防护包绑定全量ip的请求体
+     * @summary 更新实例绑定的全量防护对象
+     * @param {string} packageId 实例id
+     * @param {UpdatePackageIpRequestBody} updatePackageIpRequestBody 实例绑定全量ip的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -859,13 +859,13 @@ export class AadClient {
     }
 
     /**
-     * 更新防护包名字
+     * 更新实例名字
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新防护包名字
-     * @param {string} packageId 防护包id
-     * @param {UpdatePackageNameRequestBody} updatePackageNameRequestBody 更新防护包名的请求体
+     * @summary 更新实例名字
+     * @param {string} packageId 实例id
+     * @param {UpdatePackageNameRequestBody} updatePackageNameRequestBody 更新实例名的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1267,7 +1267,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 策略和防护包绑定防护对象
+         * 策略和实例绑定防护对象
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1683,7 +1683,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 策略和防护包解绑防护对象
+         * 策略和实例解绑防护对象
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1852,7 +1852,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询防护包列表
+         * 查询实例列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2412,7 +2412,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新防护包绑定的全量防护对象
+         * 更新实例绑定的全量防护对象
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2458,7 +2458,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新防护包名字
+         * 更新实例名字
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

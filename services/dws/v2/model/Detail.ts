@@ -4,9 +4,8 @@ export class Detail {
     public type?: string;
     public value?: string;
     public unit?: string;
-    public constructor(value?: string, unit?: string) { 
+    public constructor(value?: string) { 
         this['value'] = value;
-        this['unit'] = unit;
     }
     public withType(type: string): Detail {
         this['type'] = type;

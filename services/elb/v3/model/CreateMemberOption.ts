@@ -8,6 +8,7 @@ export class CreateMemberOption {
     private 'protocol_port'?: number;
     private 'subnet_cidr_id'?: string;
     public weight?: number;
+    private 'availability_zone'?: string;
     public constructor(address?: string) { 
         this['address'] = address;
     }
@@ -62,5 +63,15 @@ export class CreateMemberOption {
     public withWeight(weight: number): CreateMemberOption {
         this['weight'] = weight;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): CreateMemberOption {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

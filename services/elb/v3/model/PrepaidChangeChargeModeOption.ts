@@ -2,6 +2,7 @@
 
 export class PrepaidChangeChargeModeOption {
     private 'include_publicip'?: boolean;
+    private 'publicip_ids'?: Array<string>;
     private 'period_type'?: PrepaidChangeChargeModeOptionPeriodTypeEnum | string;
     private 'period_num'?: number;
     private 'auto_renew'?: boolean;
@@ -18,6 +19,16 @@ export class PrepaidChangeChargeModeOption {
     }
     public get includePublicip(): boolean | undefined {
         return this['include_publicip'];
+    }
+    public withPublicipIds(publicipIds: Array<string>): PrepaidChangeChargeModeOption {
+        this['publicip_ids'] = publicipIds;
+        return this;
+    }
+    public set publicipIds(publicipIds: Array<string>  | undefined) {
+        this['publicip_ids'] = publicipIds;
+    }
+    public get publicipIds(): Array<string> | undefined {
+        return this['publicip_ids'];
     }
     public withPeriodType(periodType: PrepaidChangeChargeModeOptionPeriodTypeEnum | string): PrepaidChangeChargeModeOption {
         this['period_type'] = periodType;

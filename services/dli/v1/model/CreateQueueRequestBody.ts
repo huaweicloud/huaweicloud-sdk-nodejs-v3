@@ -1,3 +1,4 @@
+import { CommonQueueProperty } from './CommonQueueProperty';
 import { Tag } from './Tag';
 
 
@@ -14,6 +15,7 @@ export class CreateQueueRequestBody {
     public feature?: string;
     public tags?: Array<Tag>;
     private 'elastic_resource_pool_name'?: string;
+    public properties?: CommonQueueProperty;
     public constructor(queueName?: string, cuCount?: number) { 
         this['queue_name'] = queueName;
         this['cu_count'] = cuCount;
@@ -107,5 +109,9 @@ export class CreateQueueRequestBody {
     }
     public get elasticResourcePoolName(): string | undefined {
         return this['elastic_resource_pool_name'];
+    }
+    public withProperties(properties: CommonQueueProperty): CreateQueueRequestBody {
+        this['properties'] = properties;
+        return this;
     }
 }

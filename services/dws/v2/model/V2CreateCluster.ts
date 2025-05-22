@@ -25,10 +25,9 @@ export class V2CreateCluster {
     public volume?: Volume;
     private 'enterprise_project_id'?: string;
     private 'ipv6_enable'?: boolean;
-    public constructor(name?: string, flavor?: string, numCn?: number, numNode?: number, dbName?: string, dbPassword?: string, dbPort?: number, availabilityZones?: Array<string>, vpcId?: string, subnetId?: string, datastoreVersion?: string, volume?: Volume) { 
+    public constructor(name?: string, flavor?: string, numNode?: number, dbName?: string, dbPassword?: string, dbPort?: number, availabilityZones?: Array<string>, vpcId?: string, subnetId?: string, datastoreVersion?: string, volume?: Volume) { 
         this['name'] = name;
         this['flavor'] = flavor;
-        this['num_cn'] = numCn;
         this['num_node'] = numNode;
         this['db_name'] = dbName;
         this['db_password'] = dbPassword;

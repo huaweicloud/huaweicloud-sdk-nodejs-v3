@@ -17,6 +17,7 @@ export class ListMembersRequest {
     private 'ip_version'?: Array<string>;
     private 'member_type'?: Array<string>;
     private 'instance_id'?: Array<string>;
+    private 'availability_zone'?: Array<string>;
     public constructor(poolId?: string) { 
         this['pool_id'] = poolId;
     }
@@ -143,5 +144,15 @@ export class ListMembersRequest {
     }
     public get instanceId(): Array<string> | undefined {
         return this['instance_id'];
+    }
+    public withAvailabilityZone(availabilityZone: Array<string>): ListMembersRequest {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: Array<string>  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): Array<string> | undefined {
+        return this['availability_zone'];
     }
 }

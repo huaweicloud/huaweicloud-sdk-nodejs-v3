@@ -249,5 +249,6 @@ export enum SmartLiveJobStateEnum {
 export enum SmartLiveJobUsedResourceTypeEnum {
     PERIOD = 'PERIOD',
     ONDEMAND = 'ONDEMAND',
+    ONE_TIME = 'ONE_TIME',
     UNKNOW = 'UNKNOW'
 }

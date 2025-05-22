@@ -3,23 +3,26 @@ import { BackupStrategyDetail } from './BackupStrategyDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSnapshotPolicyResponse extends SdkResponse {
-    private 'keep_day'?: string;
+    private 'keep_day'?: number;
     private 'backup_strategies'?: Array<BackupStrategyDetail>;
     private 'device_name'?: string;
     private 'server_ips'?: Array<string>;
     private 'server_port'?: string;
     private 'backup_param'?: string;
+    private 'auto_backup'?: boolean;
+    private 'backup_strategy_cluster_type_limit_num'?: number;
+    private 'backup_strategy_schema_type_limit_num'?: number;
     public constructor() { 
         super();
     }
-    public withKeepDay(keepDay: string): ListSnapshotPolicyResponse {
+    public withKeepDay(keepDay: number): ListSnapshotPolicyResponse {
         this['keep_day'] = keepDay;
         return this;
     }
-    public set keepDay(keepDay: string  | undefined) {
+    public set keepDay(keepDay: number  | undefined) {
         this['keep_day'] = keepDay;
     }
-    public get keepDay(): string | undefined {
+    public get keepDay(): number | undefined {
         return this['keep_day'];
     }
     public withBackupStrategies(backupStrategies: Array<BackupStrategyDetail>): ListSnapshotPolicyResponse {
@@ -71,5 +74,35 @@ export class ListSnapshotPolicyResponse extends SdkResponse {
     }
     public get backupParam(): string | undefined {
         return this['backup_param'];
+    }
+    public withAutoBackup(autoBackup: boolean): ListSnapshotPolicyResponse {
+        this['auto_backup'] = autoBackup;
+        return this;
+    }
+    public set autoBackup(autoBackup: boolean  | undefined) {
+        this['auto_backup'] = autoBackup;
+    }
+    public get autoBackup(): boolean | undefined {
+        return this['auto_backup'];
+    }
+    public withBackupStrategyClusterTypeLimitNum(backupStrategyClusterTypeLimitNum: number): ListSnapshotPolicyResponse {
+        this['backup_strategy_cluster_type_limit_num'] = backupStrategyClusterTypeLimitNum;
+        return this;
+    }
+    public set backupStrategyClusterTypeLimitNum(backupStrategyClusterTypeLimitNum: number  | undefined) {
+        this['backup_strategy_cluster_type_limit_num'] = backupStrategyClusterTypeLimitNum;
+    }
+    public get backupStrategyClusterTypeLimitNum(): number | undefined {
+        return this['backup_strategy_cluster_type_limit_num'];
+    }
+    public withBackupStrategySchemaTypeLimitNum(backupStrategySchemaTypeLimitNum: number): ListSnapshotPolicyResponse {
+        this['backup_strategy_schema_type_limit_num'] = backupStrategySchemaTypeLimitNum;
+        return this;
+    }
+    public set backupStrategySchemaTypeLimitNum(backupStrategySchemaTypeLimitNum: number  | undefined) {
+        this['backup_strategy_schema_type_limit_num'] = backupStrategySchemaTypeLimitNum;
+    }
+    public get backupStrategySchemaTypeLimitNum(): number | undefined {
+        return this['backup_strategy_schema_type_limit_num'];
     }
 }

@@ -1,3 +1,4 @@
+import { DualActiveInfo } from './DualActiveInfo';
 import { ListInstancesBackupStrategyResult } from './ListInstancesBackupStrategyResult';
 import { ListInstancesDatastoreResult } from './ListInstancesDatastoreResult';
 import { ListInstancesGroupResult } from './ListInstancesGroupResult';
@@ -30,6 +31,7 @@ export class ListInstancesResult {
     private 'lb_ip_address'?: string;
     private 'lb_port'?: string;
     private 'availability_zone'?: string;
+    private 'dual_active_info'?: DualActiveInfo;
     public constructor(id?: string, name?: string, status?: string, port?: string, region?: string, datastore?: ListInstancesDatastoreResult, mode?: string, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>) { 
         this['id'] = id;
         this['name'] = name;
@@ -240,5 +242,15 @@ export class ListInstancesResult {
     }
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
+    }
+    public withDualActiveInfo(dualActiveInfo: DualActiveInfo): ListInstancesResult {
+        this['dual_active_info'] = dualActiveInfo;
+        return this;
+    }
+    public set dualActiveInfo(dualActiveInfo: DualActiveInfo  | undefined) {
+        this['dual_active_info'] = dualActiveInfo;
+    }
+    public get dualActiveInfo(): DualActiveInfo | undefined {
+        return this['dual_active_info'];
     }
 }

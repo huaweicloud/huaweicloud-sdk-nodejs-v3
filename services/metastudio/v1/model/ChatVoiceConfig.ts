@@ -47,5 +47,9 @@ export class ChatVoiceConfig {
     */
 export enum ChatVoiceConfigLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

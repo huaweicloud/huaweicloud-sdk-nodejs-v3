@@ -2,7 +2,7 @@
 
 export class AuditDumpRecord {
     private 'cluster_id'?: string;
-    private 'exector_time'?: string;
+    private 'executor_time'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
     private 'bucket_name'?: string;
@@ -21,15 +21,15 @@ export class AuditDumpRecord {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withExectorTime(exectorTime: string): AuditDumpRecord {
-        this['exector_time'] = exectorTime;
+    public withExecutorTime(executorTime: string): AuditDumpRecord {
+        this['executor_time'] = executorTime;
         return this;
     }
-    public set exectorTime(exectorTime: string  | undefined) {
-        this['exector_time'] = exectorTime;
+    public set executorTime(executorTime: string  | undefined) {
+        this['executor_time'] = executorTime;
     }
-    public get exectorTime(): string | undefined {
-        return this['exector_time'];
+    public get executorTime(): string | undefined {
+        return this['executor_time'];
     }
     public withBeginTime(beginTime: string): AuditDumpRecord {
         this['begin_time'] = beginTime;

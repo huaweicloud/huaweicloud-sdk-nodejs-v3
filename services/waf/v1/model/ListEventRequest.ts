@@ -9,6 +9,7 @@ export class ListEventRequest {
     public to?: number;
     public attacks?: Array<string>;
     public hosts?: Array<string>;
+    public sips?: Array<string>;
     public page?: number;
     public pagesize?: number;
     public constructor(contentType?: string) { 
@@ -62,6 +63,10 @@ export class ListEventRequest {
     }
     public withHosts(hosts: Array<string>): ListEventRequest {
         this['hosts'] = hosts;
+        return this;
+    }
+    public withSips(sips: Array<string>): ListEventRequest {
+        this['sips'] = sips;
         return this;
     }
     public withPage(page: number): ListEventRequest {

@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { ApiVersionInfo } from './model/ApiVersionInfo';
 import { AutoscalingRef } from './model/AutoscalingRef';
 import { AvailabilityZone } from './model/AvailabilityZone';
+import { AzAffinity } from './model/AzAffinity';
 import { BandwidthRef } from './model/BandwidthRef';
 import { BaseJob } from './model/BaseJob';
 import { BatchAddAvailableZonesRequest } from './model/BatchAddAvailableZonesRequest';
@@ -103,6 +104,10 @@ import { CreateMasterSlavePoolOption } from './model/CreateMasterSlavePoolOption
 import { CreateMasterSlavePoolRequest } from './model/CreateMasterSlavePoolRequest';
 import { CreateMasterSlavePoolRequestBody } from './model/CreateMasterSlavePoolRequestBody';
 import { CreateMasterSlavePoolResponse } from './model/CreateMasterSlavePoolResponse';
+import { CreateMemberHealthCheckJobOption } from './model/CreateMemberHealthCheckJobOption';
+import { CreateMemberHealthCheckJobRequest } from './model/CreateMemberHealthCheckJobRequest';
+import { CreateMemberHealthCheckJobRequestBody } from './model/CreateMemberHealthCheckJobRequestBody';
+import { CreateMemberHealthCheckJobResponse } from './model/CreateMemberHealthCheckJobResponse';
 import { CreateMemberOption } from './model/CreateMemberOption';
 import { CreateMemberRequest } from './model/CreateMemberRequest';
 import { CreateMemberRequestBody } from './model/CreateMemberRequestBody';
@@ -127,6 +132,7 @@ import { CreateSecurityPolicyRequest } from './model/CreateSecurityPolicyRequest
 import { CreateSecurityPolicyRequestBody } from './model/CreateSecurityPolicyRequestBody';
 import { CreateSecurityPolicyResponse } from './model/CreateSecurityPolicyResponse';
 import { CreateTrafficLimitConfig } from './model/CreateTrafficLimitConfig';
+import { CreateTrafficMirrorConfig } from './model/CreateTrafficMirrorConfig';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
 import { DeleteHealthMonitorRequest } from './model/DeleteHealthMonitorRequest';
@@ -159,6 +165,8 @@ import { DeletePoolCascadeRequest } from './model/DeletePoolCascadeRequest';
 import { DeletePoolCascadeResponse } from './model/DeletePoolCascadeResponse';
 import { DeletePoolRequest } from './model/DeletePoolRequest';
 import { DeletePoolResponse } from './model/DeletePoolResponse';
+import { DeleteRecycleLoadBalancerRequest } from './model/DeleteRecycleLoadBalancerRequest';
+import { DeleteRecycleLoadBalancerResponse } from './model/DeleteRecycleLoadBalancerResponse';
 import { DeleteSecurityPolicyRequest } from './model/DeleteSecurityPolicyRequest';
 import { DeleteSecurityPolicyResponse } from './model/DeleteSecurityPolicyResponse';
 import { EipInfo } from './model/EipInfo';
@@ -215,6 +223,8 @@ import { ListPoolsRequest } from './model/ListPoolsRequest';
 import { ListPoolsResponse } from './model/ListPoolsResponse';
 import { ListQuotaDetailsRequest } from './model/ListQuotaDetailsRequest';
 import { ListQuotaDetailsResponse } from './model/ListQuotaDetailsResponse';
+import { ListRecycleBinLoadBalancersRequest } from './model/ListRecycleBinLoadBalancersRequest';
+import { ListRecycleBinLoadBalancersResponse } from './model/ListRecycleBinLoadBalancersResponse';
 import { ListSecurityPoliciesRequest } from './model/ListSecurityPoliciesRequest';
 import { ListSecurityPoliciesResponse } from './model/ListSecurityPoliciesResponse';
 import { ListSystemSecurityPoliciesRequest } from './model/ListSystemSecurityPoliciesRequest';
@@ -242,6 +252,11 @@ import { MasterSlaveHealthMonitor } from './model/MasterSlaveHealthMonitor';
 import { MasterSlaveMember } from './model/MasterSlaveMember';
 import { MasterSlavePool } from './model/MasterSlavePool';
 import { Member } from './model/Member';
+import { MemberCheckJob } from './model/MemberCheckJob';
+import { MemberCheckJobInfo } from './model/MemberCheckJobInfo';
+import { MemberCheckJobResult } from './model/MemberCheckJobResult';
+import { MemberCheckJobResultGroup } from './model/MemberCheckJobResultGroup';
+import { MemberCheckJobResultItem } from './model/MemberCheckJobResultItem';
 import { MemberHealthCheckFailedReason } from './model/MemberHealthCheckFailedReason';
 import { MemberInfo } from './model/MemberInfo';
 import { MemberRef } from './model/MemberRef';
@@ -260,6 +275,11 @@ import { PublicIpInfo } from './model/PublicIpInfo';
 import { QuicCidHashStrategy } from './model/QuicCidHashStrategy';
 import { Quota } from './model/Quota';
 import { QuotaInfo } from './model/QuotaInfo';
+import { RecycleBinPolicy } from './model/RecycleBinPolicy';
+import { RecycleBinPolicyRequestBody } from './model/RecycleBinPolicyRequestBody';
+import { RecycleBinRequestBody } from './model/RecycleBinRequestBody';
+import { RecycleBinResponseBody } from './model/RecycleBinResponseBody';
+import { RecycleLoadBalancer } from './model/RecycleLoadBalancer';
 import { RedirectPoolsConfig } from './model/RedirectPoolsConfig';
 import { RedirectPoolsExtendConfig } from './model/RedirectPoolsExtendConfig';
 import { RedirectPoolsStickySessionConfig } from './model/RedirectPoolsStickySessionConfig';
@@ -267,6 +287,8 @@ import { RedirectUrlConfig } from './model/RedirectUrlConfig';
 import { RemoveHeaderConfig } from './model/RemoveHeaderConfig';
 import { RemoveHeadersConfig } from './model/RemoveHeadersConfig';
 import { ResourceID } from './model/ResourceID';
+import { RestoreLoadbalancerRequest } from './model/RestoreLoadbalancerRequest';
+import { RestoreLoadbalancerResponse } from './model/RestoreLoadbalancerResponse';
 import { RewriteUrlConfig } from './model/RewriteUrlConfig';
 import { RuleCondition } from './model/RuleCondition';
 import { RuleRef } from './model/RuleRef';
@@ -300,12 +322,16 @@ import { ShowLogtankRequest } from './model/ShowLogtankRequest';
 import { ShowLogtankResponse } from './model/ShowLogtankResponse';
 import { ShowMasterSlavePoolRequest } from './model/ShowMasterSlavePoolRequest';
 import { ShowMasterSlavePoolResponse } from './model/ShowMasterSlavePoolResponse';
+import { ShowMemberHealthCheckJobRequest } from './model/ShowMemberHealthCheckJobRequest';
+import { ShowMemberHealthCheckJobResponse } from './model/ShowMemberHealthCheckJobResponse';
 import { ShowMemberRequest } from './model/ShowMemberRequest';
 import { ShowMemberResponse } from './model/ShowMemberResponse';
 import { ShowPoolRequest } from './model/ShowPoolRequest';
 import { ShowPoolResponse } from './model/ShowPoolResponse';
 import { ShowQuotaRequest } from './model/ShowQuotaRequest';
 import { ShowQuotaResponse } from './model/ShowQuotaResponse';
+import { ShowRecycleBinRequest } from './model/ShowRecycleBinRequest';
+import { ShowRecycleBinResponse } from './model/ShowRecycleBinResponse';
 import { ShowSecurityPolicyRequest } from './model/ShowSecurityPolicyRequest';
 import { ShowSecurityPolicyResponse } from './model/ShowSecurityPolicyResponse';
 import { SlowStart } from './model/SlowStart';
@@ -314,7 +340,9 @@ import { SystemSecurityPolicy } from './model/SystemSecurityPolicy';
 import { Tag } from './model/Tag';
 import { TargetLoadbalancerParam } from './model/TargetLoadbalancerParam';
 import { TrafficLimitConfig } from './model/TrafficLimitConfig';
+import { TrafficMirrorConfig } from './model/TrafficMirrorConfig';
 import { UpadateIpGroupIpOption } from './model/UpadateIpGroupIpOption';
+import { UpdateAzAffinity } from './model/UpdateAzAffinity';
 import { UpdateCertificateOption } from './model/UpdateCertificateOption';
 import { UpdateCertificateRequest } from './model/UpdateCertificateRequest';
 import { UpdateCertificateRequestBody } from './model/UpdateCertificateRequestBody';
@@ -367,6 +395,12 @@ import { UpdatePoolRequestBody } from './model/UpdatePoolRequestBody';
 import { UpdatePoolResponse } from './model/UpdatePoolResponse';
 import { UpdatePoolSessionPersistenceOption } from './model/UpdatePoolSessionPersistenceOption';
 import { UpdatePoolSlowStartOption } from './model/UpdatePoolSlowStartOption';
+import { UpdateRecycleBinEnableRequest } from './model/UpdateRecycleBinEnableRequest';
+import { UpdateRecycleBinEnableRequestBody } from './model/UpdateRecycleBinEnableRequestBody';
+import { UpdateRecycleBinEnableResponse } from './model/UpdateRecycleBinEnableResponse';
+import { UpdateRecycleBinPolicyRequest } from './model/UpdateRecycleBinPolicyRequest';
+import { UpdateRecycleBinPolicyRequestBody } from './model/UpdateRecycleBinPolicyRequestBody';
+import { UpdateRecycleBinPolicyResponse } from './model/UpdateRecycleBinPolicyResponse';
 import { UpdateRedirectPoolsConfig } from './model/UpdateRedirectPoolsConfig';
 import { UpdateRedirectPoolsExtendConfig } from './model/UpdateRedirectPoolsExtendConfig';
 import { UpdateRedirectPoolsStickySessionConfig } from './model/UpdateRedirectPoolsStickySessionConfig';
@@ -804,6 +838,26 @@ export class ElbClient {
     }
 
     /**
+     * 创建后端服务器检测任务。包括后端服务器的配置、ACL规则和安全组规则检查。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建后端服务器检测任务
+     * @param {string} memberId 参数解释：后端服务器ID。
+     * @param {CreateMemberHealthCheckJobRequestBody} createMemberHealthCheckJobRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createMemberHealthCheckJob(createMemberHealthCheckJobRequest?: CreateMemberHealthCheckJobRequest): Promise<CreateMemberHealthCheckJobResponse> {
+        const options = ParamCreater().createMemberHealthCheckJob(createMemberHealthCheckJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建后端服务器组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1116,6 +1170,25 @@ export class ElbClient {
     }
 
     /**
+     * 销毁回收站负载均衡器。销毁后无法再还原。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 销毁回收站负载均衡器
+     * @param {string} loadbalancerId 负载均衡器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRecycleLoadBalancer(deleteRecycleLoadBalancerRequest?: DeleteRecycleLoadBalancerRequest): Promise<DeleteRecycleLoadBalancerResponse> {
+        const options = ParamCreater().deleteRecycleLoadBalancer(deleteRecycleLoadBalancerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1215,6 +1288,9 @@ export class ElbClient {
      * @param {Array<string>} [scmCertificateId] SCM证书ID。  支持多值查询，查询条件格式：scm_certificate_id&#x3D;xxx&amp;scm_certificate_id&#x3D;xxx。
      * @param {Array<string>} [commonName] 证书的主域名。  支持多值查询，查询条件格式：common_name&#x3D;xxx&amp;common_name&#x3D;xxx。
      * @param {Array<string>} [fingerprint] 证书的指纹。  支持多值查询，查询条件格式：fingerprint&#x3D;xxx&amp;fingerprint&#x3D;xxx。
+     * @param {Array<string>} [source] 证书来源。  支持多值查询，查询条件格式：source&#x3D;xxx&amp;source&#x3D;xxx。
+     * @param {Array<string>} [protectionStatus] 修改保护状态。  支持多值查询，查询条件格式：protection_status&#x3D;xxx&amp;protection_status&#x3D;xxx。
+     * @param {Array<string>} [protectionReason] 设置修改保护的原因。  支持多值查询，查询条件格式：protection_reason&#x3D;xxx&amp;protection_reason&#x3D;xxx。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1294,7 +1370,7 @@ export class ElbClient {
      * @param {Array<number>} [maxRetriesDown] 健康检查连续失败多少次后，将后端服务器的健康检查状态由ONLINE判定为OFFLINE。取值范围：1-10。  支持多值查询，查询条件格式：******max_retries_down&#x3D;xxx&amp;max_retries_down&#x3D;xxx******。
      * @param {number} [timeout] 一次健康检查请求的超时时间。
      * @param {Array<string>} [type] 健康检查请求协议。  取值：TCP、UDP_CONNECT、HTTP、HTTPS、TLS和GRPC。  支持多值查询，查询条件格式：*****type&#x3D;xxx&amp;type&#x3D;xxx*****。
-     * @param {Array<string>} [expectedCodes] 期望响应状态码。  取值： - 单值：单个返回码，例如200。 - 列表：多个特定返回码，例如200，202。 - 区间：一个返回码区间，例如200-204。   默认值：200。  仅支持HTTP/HTTPS/GRPC设置该字段，其他协议设置不会生效。  支持多值查询，查询条件格式：****expected_codes&#x3D;xxx&amp;expected_codes&#x3D;xxx****。
+     * @param {Array<string>} [expectedCodes] 期望响应状态码。  取值： - 单值：单个返回码，例如200。 - 列表：多个特定返回码，例如200，202。 - 区间：一个返回码区间，例如200-204。   默认值：200。  该字段仅在HTTP/HTTPS/GRPC协议下有效，其他协议可以设置但不会生效。  支持多值查询，查询条件格式：****expected_codes&#x3D;xxx&amp;expected_codes&#x3D;xxx****。
      * @param {Array<string>} [urlPath] 健康检查测试member健康时发送的http请求路径。默认为“/”。  使用说明：以“/”开头。当type为HTTP/HTTPS时生效。  支持多值查询，查询条件格式：***url_path&#x3D;xxx&amp;url_path&#x3D;xxx***。
      * @param {Array<string>} [httpMethod] HTTP请求方法。  取值：GET、HEAD、POST。  支持多值查询，查询条件格式：**http_method&#x3D;xxx&amp;http_method&#x3D;xxx**。
      * @param {Array<string>} [enterpriseProjectId] 参数解释：所属的企业项目ID。 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:healthmonitors:list权限。 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
@@ -1418,6 +1494,7 @@ export class ElbClient {
      * @param {Array<string>} [defaultTlsContainerRef] 监听器的服务器证书ID。  支持多值查询，查询条件格式： *default_tls_container_ref&#x3D;xxx&amp;default_tls_container_ref&#x3D;xxx*。
      * @param {Array<string>} [clientCaTlsContainerRef] 监听器的CA证书ID。  支持多值查询，查询条件格式： *client_ca_tls_container_ref&#x3D;xxx&amp;client_ca_tls_container_ref&#x3D;xxx*。
      * @param {boolean} [adminStateUp] 监听器的管理状态。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
+     * @param {boolean} [includeRecycleBin] 参数解释：查询结果是否包含回收站负载均衡器的监听器  取值范围： - true ：包含回收站elb的监听器。 - false：不包含回收站elb的监听器。
      * @param {Array<number>} [connectionLimit] ​监听器的最大连接数。  取值：-1表示不限制连接数。  支持多值查询，查询条件格式：*connection_limit&#x3D;xxx&amp;connection_limit&#x3D;xxx*。  不支持该字段，请勿使用。
      * @param {Array<string>} [defaultPoolId] 监听器的默认后端服务器组ID。当请求没有匹配的转发策略时，转发到默认后端服务器上处理。  支持多值查询，查询条件格式：*default_pool_id&#x3D;xxx&amp;default_pool_id&#x3D;xxx*。
      * @param {Array<string>} [id] 监听器ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
@@ -1464,6 +1541,7 @@ export class ElbClient {
      * @param {Array<string>} [name] 负载均衡器名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<string>} [description] 负载均衡器的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
      * @param {boolean} [adminStateUp] 参数解释：负载均衡器的启用状态。  取值范围： - true ：启用。 - false：停用。  [不支持该字段，请勿使用。](tag:dt)
+     * @param {boolean} [includeRecycleBin] 参数解释：查询结果是否包含回收站负载均衡器  取值范围： - true ：包含回收站elb。 - false：不包含回收站elb。
      * @param {Array<string>} [provisioningStatus] 负载均衡器的配置状态。  取值： - ACTIVE：使用中。 - PENDING_DELETE：删除中。  支持多值查询，查询条件格式：*provisioning_status&#x3D;xxx&amp;provisioning_status&#x3D;xxx*。
      * @param {Array<string>} [operatingStatus] 负载均衡器的操作状态。  取值： - ONLINE：正常运行。 - FROZEN：已冻结。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;xxx*。
      * @param {boolean} [guaranteed] 是否独享型LB。  取值： - false：共享型 - true：独享型  [仅支持独享型，固定为true。](tag:hws_eu,hcso_dt)
@@ -1609,6 +1687,7 @@ export class ElbClient {
      * @param {Array<string>} [ipVersion] 当前后端服务器的IP地址版本。取值：v4、v6。
      * @param {Array<string>} [memberType] 后端服务器的类型。  取值： - ip：跨VPC的member。 - instance：关联到ECS的member。  支持多值查询，查询条件格式：*member_type&#x3D;xxx&amp;member_type&#x3D;xxx*。
      * @param {Array<string>} [instanceId] member关联的ECS实例ID，空表示跨VPC场景的member。  支持多值查询，查询条件格式：*instance_id&#x3D;xxx&amp;instance_id&#x3D;xxx*。
+     * @param {Array<string>} [availabilityZone] 后端服务器的可用区。  支持多值查询，查询条件格式：*availability_zone&#x3D;xxx&amp;availability_zone&#x3D;xxx*。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1654,6 +1733,7 @@ export class ElbClient {
      * @param {string} [publicBorderGroup] 网络公共边界组
      * @param {number} [quicCidLen] 查询相同QUIC CID策略配置的后端服务器组，仅用于查询条件，不作为响应参数字段。 支持多值查询，查询条件格式：*quic_cid_len&#x3D;3&amp;quic_cid_len&#x3D;5*
      * @param {number} [quicCidOffset] 查询相同QUIC CID策略配置的后端服务器组，仅用于查询条件，不作为响应参数字段。 支持多值查询，查询条件格式：*quic_cid_offset&#x3D;1&amp;quic_cid_offset&#x3D;3*
+     * @param {Array<string>} [azAffinity] 查询后端服务器组可用区亲和性策略是否开启。示例如下： \&quot;az_affinity\&quot;: {             \&quot;enable\&quot;: \&quot;true\&quot;         }  支持多值查询，查询条件格式：  *az_affinity&#x3D;enable&#x3D;true&amp;az_affinity&#x3D;enable&#x3D;false*。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1678,6 +1758,57 @@ export class ElbClient {
      */
     public listQuotaDetails(listQuotaDetailsRequest?: ListQuotaDetailsRequest): Promise<ListQuotaDetailsResponse> {
         const options = ParamCreater().listQuotaDetails(listQuotaDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询回收站负载均衡器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站负载均衡器列表
+     * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
+     * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
+     * @param {Array<string>} [id] 负载均衡器ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
+     * @param {Array<string>} [name] 负载均衡器名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
+     * @param {Array<string>} [description] 负载均衡器的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
+     * @param {boolean} [adminStateUp] 参数解释：负载均衡器的启用状态。  取值范围： - true ：启用。 - false：停用。  [不支持该字段，请勿使用。](tag:dt)
+     * @param {Array<string>} [operatingStatus] 负载均衡器的操作状态。  取值： - ONLINE：正常运行。 - FROZEN：已冻结。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;xxx*。
+     * @param {boolean} [guaranteed] 是否独享型LB。  取值： - false：共享型 - true：独享型  [仅支持独享型，固定为true。](tag:hws_eu,hcso_dt)
+     * @param {Array<string>} [vpcId] 负载均衡器所在的VPC ID。  支持多值查询，查询条件格式：*vpc_id&#x3D;xxx&amp;vpc_id&#x3D;xxx*。
+     * @param {Array<string>} [vipPortId] 负载均衡器的IPv4对应的port ID。  支持多值查询，查询条件格式：*vip_port_id&#x3D;xxx&amp;vip_port_id&#x3D;xxx*。
+     * @param {Array<string>} [vipAddress] 负载均衡器的IPv4虚拟IP地址。  支持多值查询，查询条件格式：*vip_address&#x3D;xxx&amp;vip_address&#x3D;xxx*。
+     * @param {Array<string>} [vipSubnetCidrId] 负载均衡器所在子网的IPv4子网ID，也称为该负载均衡器实例的前端子网。  支持多值查询，查询条件格式：*vip_subnet_cidr_id&#x3D;xxx&amp;vip_subnet_cidr_id&#x3D;xxx*。
+     * @param {Array<string>} [ipv6VipPortId] 双栈类型负载均衡器的IPv6对应的port ID。  支持多值查询，查询条件格式：*ipv6_vip_port_id&#x3D;xxx&amp;ipv6_vip_port_id&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt)
+     * @param {Array<string>} [ipv6VipAddress] 双栈类型负载均衡器的IPv6地址。  支持多值查询，查询条件格式：*ipv6_vip_address&#x3D;xxx&amp;ipv6_vip_address&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt)
+     * @param {Array<string>} [ipv6VipVirsubnetId] 双栈类型负载均衡器所在的子网IPv6网络ID，也称为该负载均衡器实例的前端子网。  支持多值查询，查询条件格式：*ipv6_vip_virsubnet_id&#x3D;xxx&amp;ipv6_vip_virsubnet_id&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt)
+     * @param {Array<string>} [eips] 负载均衡器绑定的EIP。例如要查询绑定以下EIP的LB： \&quot;eips\&quot;: [     {         \&quot;eip_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,         \&quot;eip_address\&quot;: \&quot;88.88.14.122\&quot;,         \&quot;ip_version\&quot;: 4     } ] 可以通如下查询： eips&#x3D;ip_version%3D4&amp;eips&#x3D;eip_address%3D88.88.14.122&amp;eips&#x3D;eip_id%3De9b72a9d-4275-455e-a724-853504e4d9c6  支持多值查询，查询条件格式： - eip_id作为查询条件：*eips&#x3D;eip_id&#x3D;xxx&amp;eips&#x3D;eip_id&#x3D;xxx*。 - eip_address作为查询条件：*eips&#x3D;eip_address&#x3D;xxx&amp;eips&#x3D;eip_address&#x3D;xxx*。 - ip_version作为查询条件：*eips&#x3D;ip_version&#x3D;xxx&amp;eips&#x3D;ip_version&#x3D;xxx*。  注：该字段与publicips字段一致。
+     * @param {Array<string>} [publicips] 负载均衡器绑定的公网IP。例如要查询绑定以下公网IP的LB： \&quot;publicips&#x3D;\&quot;: [     {         \&quot;public_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,         \&quot;public_address\&quot;: \&quot;88.88.14.122\&quot;,         \&quot;ip_version\&quot;: 4     } ] 可以通如下查询： publicips&#x3D;ip_version%3D4&amp;publicips&#x3D;public_address%3D88.88.14.122&amp;publicips&#x3D;public_id%3De9b72a9d-4275-455e-a724-853504e4d9c6   支持多值查询，查询条件格式： - publicip_id作为查询条件： *publicips&#x3D;publicip_id&#x3D;xxx&amp;publicips&#x3D;publicip_id&#x3D;xxx* - publicip_address作为查询条件： *publicips&#x3D;publicip_address&#x3D;xxx&amp;publicips&#x3D;publicip_address&#x3D;xxx* - ip_version作为查询条件： *publicips&#x3D;ip_version&#x3D;xxx&amp;publicips&#x3D;ip_version&#x3D;xxx*  注：该字段与eips字段一致。
+     * @param {Array<string>} [availabilityZoneList] 负载均衡器所在可用区列表。  支持多值查询，查询条件格式： *availability_zone_list&#x3D;xxx&amp;availability_zone_list&#x3D;xxx*。
+     * @param {Array<string>} [l4FlavorId] 网络型规格ID。  支持多值查询，查询条件格式：*l4_flavor_id&#x3D;xxx&amp;l4_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [l7FlavorId] 应用型规格ID。  支持多值查询，查询条件格式：*l7_flavor_id&#x3D;xxx&amp;l7_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [billingInfo] 资源账单信息。  支持多值查询，查询条件格式：*billing_info&#x3D;xxx&amp;billing_info&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hws_hk,hws_eu,hws_test,hcs,hcs_sm,hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b,hcso_dt,dt,ocb,ctc,cmcc,tm,sbc,g42,hws_ocb,hk_sbc,hk_tm,hk_g42)
+     * @param {Array<string>} [memberDeviceId] 负载均衡器中的后端服务器对应的弹性云服务器的ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_device_id&#x3D;xxx&amp;member_device_id&#x3D;xxx*。
+     * @param {Array<string>} [memberAddress] 负载均衡器中的后端服务器对应的弹性云服务器的IP地址。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_address&#x3D;xxx&amp;member_address&#x3D;xxx*。
+     * @param {Array<string>} [enterpriseProjectId] 参数解释：负载均衡器所属的企业项目ID。 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:loadbalancers:list权限。 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
+     * @param {Array<number>} [ipVersion] IP版本信息。  取值：4代表IPv4，6代表IPv6。  支持多值查询，查询条件格式：*ip_version&#x3D;xxx&amp;ip_version&#x3D;xxx*。  [不支持IPv6，请勿设置为6。](tag:dt)
+     * @param {boolean} [deletionProtectionEnable] 是否开启删除保护，false不开启，true开启。[不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42)  [荷兰region不支持该字段，请勿使用。](tag:dt)
+     * @param {Array<string>} [elbVirsubnetType] 下联面子网类型。  取值： - ipv4：ipv4。 - dualstack：双栈。  支持多值查询，查询条件格式： *elb_virsubnet_type&#x3D;ipv4&amp;elb_virsubnet_type&#x3D;dualstack*。
+     * @param {Array<string>} [autoscaling] 是否开启弹性扩缩容。示例如下： \&quot;autoscaling\&quot;: {             \&quot;enable\&quot;: \&quot;true\&quot;         }  支持多值查询，查询条件格式：  *autoscaling&#x3D;enable&#x3D;true&amp;autoscaling&#x3D;enable&#x3D;false*。  [不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42,hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [protectionStatus] 修改保护状态, 取值： - nonProtection: 不保护，默认值为nonProtection - consoleProtection: 控制台修改保护
+     * @param {Array<string>} [globalEips] 负载均衡器绑定的公网IP。示例如下：  {     \&quot;global_eips\&quot;: [         {             \&quot;global_eip_id\&quot;: \&quot;24000000-0000-0000-0000-100000000001\&quot;,             \&quot;global_eip_address\&quot;: \&quot;10.10.10.10\&quot;,             \&quot;ip_version\&quot;: 4         }     ] }   支持多值查询，查询条件格式：  - global_eip_id作为查询条件：*global_eips&#x3D;global_eip_id&#x3D;xxx&amp;global_eips&#x3D;global_eip_id&#x3D;xxx*。  - global_eip_address作为查询条件：*global_eips&#x3D;global_eip_address&#x3D;xxx&amp;global_eips&#x3D;global_eip_address&#x3D;xxx*。  - ip_version作为查询条件：*global_eips&#x3D;ip_version&#x3D;xxx&amp;global_eips&#x3D;ip_version&#x3D;xxx*。
+     * @param {string} [logTopicId] LB实例绑定的logtank的topic id信息，支持多值查询，查询条件格式：*log_topic_id&#x3D;xxx&amp;log_topic_id&#x3D;xxx*。
+     * @param {string} [logGroupId] LB实例绑定的logtank的group id信息，支持多值查询，查询条件格式：*log_group_id&#x3D;xxx&amp;log_group_id&#x3D;xxx*。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRecycleBinLoadBalancers(listRecycleBinLoadBalancersRequest?: ListRecycleBinLoadBalancersRequest): Promise<ListRecycleBinLoadBalancersResponse> {
+        const options = ParamCreater().listRecycleBinLoadBalancers(listRecycleBinLoadBalancersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1724,6 +1855,25 @@ export class ElbClient {
      */
     public listSystemSecurityPolicies(listSystemSecurityPoliciesRequest?: ListSystemSecurityPoliciesRequest): Promise<ListSystemSecurityPoliciesResponse> {
         const options = ParamCreater().listSystemSecurityPolicies();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 从回收站中还原负载均衡器
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 还原负载均衡器
+     * @param {string} loadbalancerId 负载均衡器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreLoadbalancer(restoreLoadbalancerRequest?: RestoreLoadbalancerRequest): Promise<RestoreLoadbalancerResponse> {
+        const options = ParamCreater().restoreLoadbalancer(restoreLoadbalancerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1983,6 +2133,25 @@ export class ElbClient {
     }
 
     /**
+     * 查询后端服务器检测任务的结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询后端服务器检测任务的结果
+     * @param {string} jobId 参数解释：创建后端服务器检测任务的接口返回的job_id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMemberHealthCheckJob(showMemberHealthCheckJobRequest?: ShowMemberHealthCheckJobRequest): Promise<ShowMemberHealthCheckJobResponse> {
+        const options = ParamCreater().showMemberHealthCheckJob(showMemberHealthCheckJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 后端服务器组详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2012,6 +2181,24 @@ export class ElbClient {
      */
     public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
         const options = ParamCreater().showQuota();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询回收站的配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站的配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecycleBin(showRecycleBinRequest?: ShowRecycleBinRequest): Promise<ShowRecycleBinResponse> {
+        const options = ParamCreater().showRecycleBin();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2213,6 +2400,44 @@ export class ElbClient {
      */
     public updatePool(updatePoolRequest?: UpdatePoolRequest): Promise<UpdatePoolResponse> {
         const options = ParamCreater().updatePool(updatePoolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或关闭回收站功能。开启后删除的LB可以进入回收站，否则将不进入回收站而是直接被删除无法恢复。关闭回收站前需要先将回收站中的实例还原或销毁。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开关回收站
+     * @param {UpdateRecycleBinEnableRequestBody} updateRecycleBinEnableRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecycleBinEnable(updateRecycleBinEnableRequest?: UpdateRecycleBinEnableRequest): Promise<UpdateRecycleBinEnableResponse> {
+        const options = ParamCreater().updateRecycleBinEnable(updateRecycleBinEnableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新回收站的配置。若回收站未开启，则更新会报错。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新回收站的配置
+     * @param {UpdateRecycleBinPolicyRequestBody} updateRecycleBinPolicyRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecycleBinPolicy(updateRecycleBinPolicyRequest?: UpdateRecycleBinPolicyRequest): Promise<UpdateRecycleBinPolicyResponse> {
+        const options = ParamCreater().updateRecycleBinPolicy(updateRecycleBinPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3316,6 +3541,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建后端服务器检测任务。包括后端服务器的配置、ACL规则和安全组规则检查。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createMemberHealthCheckJob(createMemberHealthCheckJobRequest?: CreateMemberHealthCheckJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/elb/members/{member_id}/health-check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let memberId;
+
+            if (createMemberHealthCheckJobRequest !== null && createMemberHealthCheckJobRequest !== undefined) {
+                if (createMemberHealthCheckJobRequest instanceof CreateMemberHealthCheckJobRequest) {
+                    memberId = createMemberHealthCheckJobRequest.memberId;
+                    body = createMemberHealthCheckJobRequest.body
+                } else {
+                    memberId = createMemberHealthCheckJobRequest['member_id'];
+                    body = createMemberHealthCheckJobRequest['body'];
+                }
+            }
+
+        
+            if (memberId === null || memberId === undefined) {
+            throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling createMemberHealthCheckJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'member_id': memberId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建后端服务器组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3938,6 +4209,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 销毁回收站负载均衡器。销毁后无法再还原。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRecycleLoadBalancer(deleteRecycleLoadBalancerRequest?: DeleteRecycleLoadBalancerRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/elb/recycle-bin/loadbalancers/{loadbalancer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let loadbalancerId;
+
+            if (deleteRecycleLoadBalancerRequest !== null && deleteRecycleLoadBalancerRequest !== undefined) {
+                if (deleteRecycleLoadBalancerRequest instanceof DeleteRecycleLoadBalancerRequest) {
+                    loadbalancerId = deleteRecycleLoadBalancerRequest.loadbalancerId;
+                } else {
+                    loadbalancerId = deleteRecycleLoadBalancerRequest['loadbalancer_id'];
+                }
+            }
+
+        
+            if (loadbalancerId === null || loadbalancerId === undefined) {
+            throw new RequiredError('loadbalancerId','Required parameter loadbalancerId was null or undefined when calling deleteRecycleLoadBalancer.');
+            }
+
+            options.pathParams = { 'loadbalancer_id': loadbalancerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4203,6 +4511,12 @@ export const ParamCreater = function () {
             let commonName;
             
             let fingerprint;
+            
+            let source;
+            
+            let protectionStatus;
+            
+            let protectionReason;
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
                 if (listCertificatesRequest instanceof ListCertificatesRequest) {
@@ -4218,6 +4532,9 @@ export const ParamCreater = function () {
                     scmCertificateId = listCertificatesRequest.scmCertificateId;
                     commonName = listCertificatesRequest.commonName;
                     fingerprint = listCertificatesRequest.fingerprint;
+                    source = listCertificatesRequest.source;
+                    protectionStatus = listCertificatesRequest.protectionStatus;
+                    protectionReason = listCertificatesRequest.protectionReason;
                 } else {
                     marker = listCertificatesRequest['marker'];
                     limit = listCertificatesRequest['limit'];
@@ -4231,6 +4548,9 @@ export const ParamCreater = function () {
                     scmCertificateId = listCertificatesRequest['scm_certificate_id'];
                     commonName = listCertificatesRequest['common_name'];
                     fingerprint = listCertificatesRequest['fingerprint'];
+                    source = listCertificatesRequest['source'];
+                    protectionStatus = listCertificatesRequest['protection_status'];
+                    protectionReason = listCertificatesRequest['protection_reason'];
                 }
             }
 
@@ -4270,6 +4590,15 @@ export const ParamCreater = function () {
             }
             if (fingerprint !== null && fingerprint !== undefined) {
                 localVarQueryParameter['fingerprint'] = fingerprint;
+            }
+            if (source !== null && source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (protectionStatus !== null && protectionStatus !== undefined) {
+                localVarQueryParameter['protection_status'] = protectionStatus;
+            }
+            if (protectionReason !== null && protectionReason !== undefined) {
+                localVarQueryParameter['protection_reason'] = protectionReason;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4969,6 +5298,8 @@ export const ParamCreater = function () {
             
             let adminStateUp;
             
+            let includeRecycleBin;
+            
             let connectionLimit;
             
             let defaultPoolId;
@@ -5022,6 +5353,7 @@ export const ParamCreater = function () {
                     defaultTlsContainerRef = listListenersRequest.defaultTlsContainerRef;
                     clientCaTlsContainerRef = listListenersRequest.clientCaTlsContainerRef;
                     adminStateUp = listListenersRequest.adminStateUp;
+                    includeRecycleBin = listListenersRequest.includeRecycleBin;
                     connectionLimit = listListenersRequest.connectionLimit;
                     defaultPoolId = listListenersRequest.defaultPoolId;
                     id = listListenersRequest.id;
@@ -5053,6 +5385,7 @@ export const ParamCreater = function () {
                     defaultTlsContainerRef = listListenersRequest['default_tls_container_ref'];
                     clientCaTlsContainerRef = listListenersRequest['client_ca_tls_container_ref'];
                     adminStateUp = listListenersRequest['admin_state_up'];
+                    includeRecycleBin = listListenersRequest['include_recycle_bin'];
                     connectionLimit = listListenersRequest['connection_limit'];
                     defaultPoolId = listListenersRequest['default_pool_id'];
                     id = listListenersRequest['id'];
@@ -5104,6 +5437,9 @@ export const ParamCreater = function () {
             }
             if (adminStateUp !== null && adminStateUp !== undefined) {
                 localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (includeRecycleBin !== null && includeRecycleBin !== undefined) {
+                localVarQueryParameter['include_recycle_bin'] = includeRecycleBin;
             }
             if (connectionLimit !== null && connectionLimit !== undefined) {
                 localVarQueryParameter['connection_limit'] = connectionLimit;
@@ -5205,6 +5541,8 @@ export const ParamCreater = function () {
             
             let adminStateUp;
             
+            let includeRecycleBin;
+            
             let provisioningStatus;
             
             let operatingStatus;
@@ -5272,6 +5610,7 @@ export const ParamCreater = function () {
                     name = listLoadBalancersRequest.name;
                     description = listLoadBalancersRequest.description;
                     adminStateUp = listLoadBalancersRequest.adminStateUp;
+                    includeRecycleBin = listLoadBalancersRequest.includeRecycleBin;
                     provisioningStatus = listLoadBalancersRequest.provisioningStatus;
                     operatingStatus = listLoadBalancersRequest.operatingStatus;
                     guaranteed = listLoadBalancersRequest.guaranteed;
@@ -5309,6 +5648,7 @@ export const ParamCreater = function () {
                     name = listLoadBalancersRequest['name'];
                     description = listLoadBalancersRequest['description'];
                     adminStateUp = listLoadBalancersRequest['admin_state_up'];
+                    includeRecycleBin = listLoadBalancersRequest['include_recycle_bin'];
                     provisioningStatus = listLoadBalancersRequest['provisioning_status'];
                     operatingStatus = listLoadBalancersRequest['operating_status'];
                     guaranteed = listLoadBalancersRequest['guaranteed'];
@@ -5362,6 +5702,9 @@ export const ParamCreater = function () {
             }
             if (adminStateUp !== null && adminStateUp !== undefined) {
                 localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (includeRecycleBin !== null && includeRecycleBin !== undefined) {
+                localVarQueryParameter['include_recycle_bin'] = includeRecycleBin;
             }
             if (provisioningStatus !== null && provisioningStatus !== undefined) {
                 localVarQueryParameter['provisioning_status'] = provisioningStatus;
@@ -5790,6 +6133,8 @@ export const ParamCreater = function () {
             let memberType;
             
             let instanceId;
+            
+            let availabilityZone;
 
             if (listMembersRequest !== null && listMembersRequest !== undefined) {
                 if (listMembersRequest instanceof ListMembersRequest) {
@@ -5809,6 +6154,7 @@ export const ParamCreater = function () {
                     ipVersion = listMembersRequest.ipVersion;
                     memberType = listMembersRequest.memberType;
                     instanceId = listMembersRequest.instanceId;
+                    availabilityZone = listMembersRequest.availabilityZone;
                 } else {
                     poolId = listMembersRequest['pool_id'];
                     marker = listMembersRequest['marker'];
@@ -5826,6 +6172,7 @@ export const ParamCreater = function () {
                     ipVersion = listMembersRequest['ip_version'];
                     memberType = listMembersRequest['member_type'];
                     instanceId = listMembersRequest['instance_id'];
+                    availabilityZone = listMembersRequest['availability_zone'];
                 }
             }
 
@@ -5877,6 +6224,9 @@ export const ParamCreater = function () {
             }
             if (instanceId !== null && instanceId !== undefined) {
                 localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5955,6 +6305,8 @@ export const ParamCreater = function () {
             let quicCidLen;
             
             let quicCidOffset;
+            
+            let azAffinity;
 
             if (listPoolsRequest !== null && listPoolsRequest !== undefined) {
                 if (listPoolsRequest instanceof ListPoolsRequest) {
@@ -5985,6 +6337,7 @@ export const ParamCreater = function () {
                     publicBorderGroup = listPoolsRequest.publicBorderGroup;
                     quicCidLen = listPoolsRequest.quicCidLen;
                     quicCidOffset = listPoolsRequest.quicCidOffset;
+                    azAffinity = listPoolsRequest.azAffinity;
                 } else {
                     marker = listPoolsRequest['marker'];
                     limit = listPoolsRequest['limit'];
@@ -6013,6 +6366,7 @@ export const ParamCreater = function () {
                     publicBorderGroup = listPoolsRequest['public_border_group'];
                     quicCidLen = listPoolsRequest['quic_cid_len'];
                     quicCidOffset = listPoolsRequest['quic_cid_offset'];
+                    azAffinity = listPoolsRequest['az_affinity'];
                 }
             }
 
@@ -6098,6 +6452,9 @@ export const ParamCreater = function () {
             if (quicCidOffset !== null && quicCidOffset !== undefined) {
                 localVarQueryParameter['quic_cid_offset'] = quicCidOffset;
             }
+            if (azAffinity !== null && azAffinity !== undefined) {
+                localVarQueryParameter['az_affinity'] = azAffinity;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -6134,6 +6491,267 @@ export const ParamCreater = function () {
         
             if (quotaKey !== null && quotaKey !== undefined) {
                 localVarQueryParameter['quota_key'] = quotaKey;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询回收站负载均衡器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRecycleBinLoadBalancers(listRecycleBinLoadBalancersRequest?: ListRecycleBinLoadBalancersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/elb/recycle-bin/loadbalancers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let limit;
+            
+            let pageReverse;
+            
+            let id;
+            
+            let name;
+            
+            let description;
+            
+            let adminStateUp;
+            
+            let operatingStatus;
+            
+            let guaranteed;
+            
+            let vpcId;
+            
+            let vipPortId;
+            
+            let vipAddress;
+            
+            let vipSubnetCidrId;
+            
+            let ipv6VipPortId;
+            
+            let ipv6VipAddress;
+            
+            let ipv6VipVirsubnetId;
+            
+            let eips;
+            
+            let publicips;
+            
+            let availabilityZoneList;
+            
+            let l4FlavorId;
+            
+            let l7FlavorId;
+            
+            let billingInfo;
+            
+            let memberDeviceId;
+            
+            let memberAddress;
+            
+            let enterpriseProjectId;
+            
+            let ipVersion;
+            
+            let deletionProtectionEnable;
+            
+            let elbVirsubnetType;
+            
+            let autoscaling;
+            
+            let protectionStatus;
+            
+            let globalEips;
+            
+            let logTopicId;
+            
+            let logGroupId;
+
+            if (listRecycleBinLoadBalancersRequest !== null && listRecycleBinLoadBalancersRequest !== undefined) {
+                if (listRecycleBinLoadBalancersRequest instanceof ListRecycleBinLoadBalancersRequest) {
+                    marker = listRecycleBinLoadBalancersRequest.marker;
+                    limit = listRecycleBinLoadBalancersRequest.limit;
+                    pageReverse = listRecycleBinLoadBalancersRequest.pageReverse;
+                    id = listRecycleBinLoadBalancersRequest.id;
+                    name = listRecycleBinLoadBalancersRequest.name;
+                    description = listRecycleBinLoadBalancersRequest.description;
+                    adminStateUp = listRecycleBinLoadBalancersRequest.adminStateUp;
+                    operatingStatus = listRecycleBinLoadBalancersRequest.operatingStatus;
+                    guaranteed = listRecycleBinLoadBalancersRequest.guaranteed;
+                    vpcId = listRecycleBinLoadBalancersRequest.vpcId;
+                    vipPortId = listRecycleBinLoadBalancersRequest.vipPortId;
+                    vipAddress = listRecycleBinLoadBalancersRequest.vipAddress;
+                    vipSubnetCidrId = listRecycleBinLoadBalancersRequest.vipSubnetCidrId;
+                    ipv6VipPortId = listRecycleBinLoadBalancersRequest.ipv6VipPortId;
+                    ipv6VipAddress = listRecycleBinLoadBalancersRequest.ipv6VipAddress;
+                    ipv6VipVirsubnetId = listRecycleBinLoadBalancersRequest.ipv6VipVirsubnetId;
+                    eips = listRecycleBinLoadBalancersRequest.eips;
+                    publicips = listRecycleBinLoadBalancersRequest.publicips;
+                    availabilityZoneList = listRecycleBinLoadBalancersRequest.availabilityZoneList;
+                    l4FlavorId = listRecycleBinLoadBalancersRequest.l4FlavorId;
+                    l7FlavorId = listRecycleBinLoadBalancersRequest.l7FlavorId;
+                    billingInfo = listRecycleBinLoadBalancersRequest.billingInfo;
+                    memberDeviceId = listRecycleBinLoadBalancersRequest.memberDeviceId;
+                    memberAddress = listRecycleBinLoadBalancersRequest.memberAddress;
+                    enterpriseProjectId = listRecycleBinLoadBalancersRequest.enterpriseProjectId;
+                    ipVersion = listRecycleBinLoadBalancersRequest.ipVersion;
+                    deletionProtectionEnable = listRecycleBinLoadBalancersRequest.deletionProtectionEnable;
+                    elbVirsubnetType = listRecycleBinLoadBalancersRequest.elbVirsubnetType;
+                    autoscaling = listRecycleBinLoadBalancersRequest.autoscaling;
+                    protectionStatus = listRecycleBinLoadBalancersRequest.protectionStatus;
+                    globalEips = listRecycleBinLoadBalancersRequest.globalEips;
+                    logTopicId = listRecycleBinLoadBalancersRequest.logTopicId;
+                    logGroupId = listRecycleBinLoadBalancersRequest.logGroupId;
+                } else {
+                    marker = listRecycleBinLoadBalancersRequest['marker'];
+                    limit = listRecycleBinLoadBalancersRequest['limit'];
+                    pageReverse = listRecycleBinLoadBalancersRequest['page_reverse'];
+                    id = listRecycleBinLoadBalancersRequest['id'];
+                    name = listRecycleBinLoadBalancersRequest['name'];
+                    description = listRecycleBinLoadBalancersRequest['description'];
+                    adminStateUp = listRecycleBinLoadBalancersRequest['admin_state_up'];
+                    operatingStatus = listRecycleBinLoadBalancersRequest['operating_status'];
+                    guaranteed = listRecycleBinLoadBalancersRequest['guaranteed'];
+                    vpcId = listRecycleBinLoadBalancersRequest['vpc_id'];
+                    vipPortId = listRecycleBinLoadBalancersRequest['vip_port_id'];
+                    vipAddress = listRecycleBinLoadBalancersRequest['vip_address'];
+                    vipSubnetCidrId = listRecycleBinLoadBalancersRequest['vip_subnet_cidr_id'];
+                    ipv6VipPortId = listRecycleBinLoadBalancersRequest['ipv6_vip_port_id'];
+                    ipv6VipAddress = listRecycleBinLoadBalancersRequest['ipv6_vip_address'];
+                    ipv6VipVirsubnetId = listRecycleBinLoadBalancersRequest['ipv6_vip_virsubnet_id'];
+                    eips = listRecycleBinLoadBalancersRequest['eips'];
+                    publicips = listRecycleBinLoadBalancersRequest['publicips'];
+                    availabilityZoneList = listRecycleBinLoadBalancersRequest['availability_zone_list'];
+                    l4FlavorId = listRecycleBinLoadBalancersRequest['l4_flavor_id'];
+                    l7FlavorId = listRecycleBinLoadBalancersRequest['l7_flavor_id'];
+                    billingInfo = listRecycleBinLoadBalancersRequest['billing_info'];
+                    memberDeviceId = listRecycleBinLoadBalancersRequest['member_device_id'];
+                    memberAddress = listRecycleBinLoadBalancersRequest['member_address'];
+                    enterpriseProjectId = listRecycleBinLoadBalancersRequest['enterprise_project_id'];
+                    ipVersion = listRecycleBinLoadBalancersRequest['ip_version'];
+                    deletionProtectionEnable = listRecycleBinLoadBalancersRequest['deletion_protection_enable'];
+                    elbVirsubnetType = listRecycleBinLoadBalancersRequest['elb_virsubnet_type'];
+                    autoscaling = listRecycleBinLoadBalancersRequest['autoscaling'];
+                    protectionStatus = listRecycleBinLoadBalancersRequest['protection_status'];
+                    globalEips = listRecycleBinLoadBalancersRequest['global_eips'];
+                    logTopicId = listRecycleBinLoadBalancersRequest['log_topic_id'];
+                    logGroupId = listRecycleBinLoadBalancersRequest['log_group_id'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (operatingStatus !== null && operatingStatus !== undefined) {
+                localVarQueryParameter['operating_status'] = operatingStatus;
+            }
+            if (guaranteed !== null && guaranteed !== undefined) {
+                localVarQueryParameter['guaranteed'] = guaranteed;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (vipPortId !== null && vipPortId !== undefined) {
+                localVarQueryParameter['vip_port_id'] = vipPortId;
+            }
+            if (vipAddress !== null && vipAddress !== undefined) {
+                localVarQueryParameter['vip_address'] = vipAddress;
+            }
+            if (vipSubnetCidrId !== null && vipSubnetCidrId !== undefined) {
+                localVarQueryParameter['vip_subnet_cidr_id'] = vipSubnetCidrId;
+            }
+            if (ipv6VipPortId !== null && ipv6VipPortId !== undefined) {
+                localVarQueryParameter['ipv6_vip_port_id'] = ipv6VipPortId;
+            }
+            if (ipv6VipAddress !== null && ipv6VipAddress !== undefined) {
+                localVarQueryParameter['ipv6_vip_address'] = ipv6VipAddress;
+            }
+            if (ipv6VipVirsubnetId !== null && ipv6VipVirsubnetId !== undefined) {
+                localVarQueryParameter['ipv6_vip_virsubnet_id'] = ipv6VipVirsubnetId;
+            }
+            if (eips !== null && eips !== undefined) {
+                localVarQueryParameter['eips'] = eips;
+            }
+            if (publicips !== null && publicips !== undefined) {
+                localVarQueryParameter['publicips'] = publicips;
+            }
+            if (availabilityZoneList !== null && availabilityZoneList !== undefined) {
+                localVarQueryParameter['availability_zone_list'] = availabilityZoneList;
+            }
+            if (l4FlavorId !== null && l4FlavorId !== undefined) {
+                localVarQueryParameter['l4_flavor_id'] = l4FlavorId;
+            }
+            if (l7FlavorId !== null && l7FlavorId !== undefined) {
+                localVarQueryParameter['l7_flavor_id'] = l7FlavorId;
+            }
+            if (billingInfo !== null && billingInfo !== undefined) {
+                localVarQueryParameter['billing_info'] = billingInfo;
+            }
+            if (memberDeviceId !== null && memberDeviceId !== undefined) {
+                localVarQueryParameter['member_device_id'] = memberDeviceId;
+            }
+            if (memberAddress !== null && memberAddress !== undefined) {
+                localVarQueryParameter['member_address'] = memberAddress;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (ipVersion !== null && ipVersion !== undefined) {
+                localVarQueryParameter['ip_version'] = ipVersion;
+            }
+            if (deletionProtectionEnable !== null && deletionProtectionEnable !== undefined) {
+                localVarQueryParameter['deletion_protection_enable'] = deletionProtectionEnable;
+            }
+            if (elbVirsubnetType !== null && elbVirsubnetType !== undefined) {
+                localVarQueryParameter['elb_virsubnet_type'] = elbVirsubnetType;
+            }
+            if (autoscaling !== null && autoscaling !== undefined) {
+                localVarQueryParameter['autoscaling'] = autoscaling;
+            }
+            if (protectionStatus !== null && protectionStatus !== undefined) {
+                localVarQueryParameter['protection_status'] = protectionStatus;
+            }
+            if (globalEips !== null && globalEips !== undefined) {
+                localVarQueryParameter['global_eips'] = globalEips;
+            }
+            if (logTopicId !== null && logTopicId !== undefined) {
+                localVarQueryParameter['log_topic_id'] = logTopicId;
+            }
+            if (logGroupId !== null && logGroupId !== undefined) {
+                localVarQueryParameter['log_group_id'] = logGroupId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -6246,6 +6864,43 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 从回收站中还原负载均衡器
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreLoadbalancer(restoreLoadbalancerRequest?: RestoreLoadbalancerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/elb/recycle-bin/loadbalancers/{loadbalancer_id}/recover",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let loadbalancerId;
+
+            if (restoreLoadbalancerRequest !== null && restoreLoadbalancerRequest !== undefined) {
+                if (restoreLoadbalancerRequest instanceof RestoreLoadbalancerRequest) {
+                    loadbalancerId = restoreLoadbalancerRequest.loadbalancerId;
+                } else {
+                    loadbalancerId = restoreLoadbalancerRequest['loadbalancer_id'];
+                }
+            }
+
+        
+            if (loadbalancerId === null || loadbalancerId === undefined) {
+            throw new RequiredError('loadbalancerId','Required parameter loadbalancerId was null or undefined when calling restoreLoadbalancer.');
+            }
+
+            options.pathParams = { 'loadbalancer_id': loadbalancerId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6733,6 +7388,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询后端服务器检测任务的结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMemberHealthCheckJob(showMemberHealthCheckJobRequest?: ShowMemberHealthCheckJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/elb/members/check/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showMemberHealthCheckJobRequest !== null && showMemberHealthCheckJobRequest !== undefined) {
+                if (showMemberHealthCheckJobRequest instanceof ShowMemberHealthCheckJobRequest) {
+                    jobId = showMemberHealthCheckJobRequest.jobId;
+                } else {
+                    jobId = showMemberHealthCheckJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showMemberHealthCheckJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 后端服务器组详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6778,6 +7470,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/elb/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询回收站的配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecycleBin() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/elb/recycle-bin",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7251,6 +7964,82 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'pool_id': poolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或关闭回收站功能。开启后删除的LB可以进入回收站，否则将不进入回收站而是直接被删除无法恢复。关闭回收站前需要先将回收站中的实例还原或销毁。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecycleBinEnable(updateRecycleBinEnableRequest?: UpdateRecycleBinEnableRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/elb/recycle-bin",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateRecycleBinEnableRequest !== null && updateRecycleBinEnableRequest !== undefined) {
+                if (updateRecycleBinEnableRequest instanceof UpdateRecycleBinEnableRequest) {
+                    body = updateRecycleBinEnableRequest.body
+                } else {
+                    body = updateRecycleBinEnableRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新回收站的配置。若回收站未开启，则更新会报错。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecycleBinPolicy(updateRecycleBinPolicyRequest?: UpdateRecycleBinPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/elb/recycle-bin/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateRecycleBinPolicyRequest !== null && updateRecycleBinPolicyRequest !== undefined) {
+                if (updateRecycleBinPolicyRequest instanceof UpdateRecycleBinPolicyRequest) {
+                    body = updateRecycleBinPolicyRequest.body
+                } else {
+                    body = updateRecycleBinPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

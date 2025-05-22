@@ -16,6 +16,7 @@ export class SmartChatRoomBaseInfo {
     private 'default_language'?: SmartChatRoomBaseInfoDefaultLanguageEnum | string;
     private 'create_time'?: string;
     private 'update_time'?: string;
+    private 'exit_mute_threshold'?: number;
     public constructor() { 
     }
     public withRoomId(roomId: string): SmartChatRoomBaseInfo {
@@ -132,6 +133,16 @@ export class SmartChatRoomBaseInfo {
     public get updateTime(): string | undefined {
         return this['update_time'];
     }
+    public withExitMuteThreshold(exitMuteThreshold: number): SmartChatRoomBaseInfo {
+        this['exit_mute_threshold'] = exitMuteThreshold;
+        return this;
+    }
+    public set exitMuteThreshold(exitMuteThreshold: number  | undefined) {
+        this['exit_mute_threshold'] = exitMuteThreshold;
+    }
+    public get exitMuteThreshold(): number | undefined {
+        return this['exit_mute_threshold'];
+    }
 }
 
 /**
@@ -140,5 +151,9 @@ export class SmartChatRoomBaseInfo {
     */
 export enum SmartChatRoomBaseInfoDefaultLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

@@ -2,6 +2,7 @@
 
 export class BatchCreateMembersOption {
     public name?: string;
+    private 'availability_zone'?: string;
     public address?: string;
     private 'protocol_port'?: number;
     private 'subnet_cidr_id'?: string;
@@ -13,6 +14,16 @@ export class BatchCreateMembersOption {
     public withName(name: string): BatchCreateMembersOption {
         this['name'] = name;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): BatchCreateMembersOption {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
     public withAddress(address: string): BatchCreateMembersOption {
         this['address'] = address;

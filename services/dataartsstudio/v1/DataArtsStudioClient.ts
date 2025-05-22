@@ -262,6 +262,9 @@ import { CreateFactoryEnvRequest } from './model/CreateFactoryEnvRequest';
 import { CreateFactoryEnvResponse } from './model/CreateFactoryEnvResponse';
 import { CreateFactoryJobRequest } from './model/CreateFactoryJobRequest';
 import { CreateFactoryJobResponse } from './model/CreateFactoryJobResponse';
+import { CreateFactoryPendingItemsPackageBody } from './model/CreateFactoryPendingItemsPackageBody';
+import { CreateFactoryPendingItemsPackageRequest } from './model/CreateFactoryPendingItemsPackageRequest';
+import { CreateFactoryPendingItemsPackageResponse } from './model/CreateFactoryPendingItemsPackageResponse';
 import { CreateFactorySupplementDataInstanceRequest } from './model/CreateFactorySupplementDataInstanceRequest';
 import { CreateFactorySupplementDataInstanceRequestBody } from './model/CreateFactorySupplementDataInstanceRequestBody';
 import { CreateFactorySupplementDataInstanceRequestBodyDependJobs } from './model/CreateFactorySupplementDataInstanceRequestBodyDependJobs';
@@ -663,6 +666,9 @@ import { ListFactoryJobInstancesByNameRequest } from './model/ListFactoryJobInst
 import { ListFactoryJobInstancesByNameResponse } from './model/ListFactoryJobInstancesByNameResponse';
 import { ListFactoryJobsRequest } from './model/ListFactoryJobsRequest';
 import { ListFactoryJobsResponse } from './model/ListFactoryJobsResponse';
+import { ListFactoryPendingItemsRequest } from './model/ListFactoryPendingItemsRequest';
+import { ListFactoryPendingItemsRespData } from './model/ListFactoryPendingItemsRespData';
+import { ListFactoryPendingItemsResponse } from './model/ListFactoryPendingItemsResponse';
 import { ListFactoryReleasePackagesRequest } from './model/ListFactoryReleasePackagesRequest';
 import { ListFactoryReleasePackagesResponse } from './model/ListFactoryReleasePackagesResponse';
 import { ListFactoryScriptsRequest } from './model/ListFactoryScriptsRequest';
@@ -2460,6 +2466,28 @@ export class DataArtsStudioClient {
      */
     public createFactoryJob(createFactoryJobRequest?: CreateFactoryJobRequest): Promise<CreateFactoryJobResponse> {
         const options = ParamCreater().createFactoryJob(createFactoryJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 待发布包发布
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 待发布包发布
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CreateFactoryPendingItemsPackageBody} createFactoryPendingItemsPackageRequestBody 待发布包请求体
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFactoryPendingItemsPackage(createFactoryPendingItemsPackageRequest?: CreateFactoryPendingItemsPackageRequest): Promise<CreateFactoryPendingItemsPackageResponse> {
+        const options = ParamCreater().createFactoryPendingItemsPackage(createFactoryPendingItemsPackageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5086,6 +5114,30 @@ export class DataArtsStudioClient {
      */
     public listFactoryJobs(listFactoryJobsRequest?: ListFactoryJobsRequest): Promise<ListFactoryJobsResponse> {
         const options = ParamCreater().listFactoryJobs(listFactoryJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询待发布包列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询待发布包列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [submitUserName] 提交人。
+     * @param {string} [itemName] 任务名称。
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数。范围[1,100] 默认值：10
+     * @param {number} [offset] 分页列表的页数，默认值为0。取值范围大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryPendingItems(listFactoryPendingItemsRequest?: ListFactoryPendingItemsRequest): Promise<ListFactoryPendingItemsResponse> {
+        const options = ParamCreater().listFactoryPendingItems(listFactoryPendingItemsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12794,6 +12846,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 待发布包发布
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFactoryPendingItemsPackage(createFactoryPendingItemsPackageRequest?: CreateFactoryPendingItemsPackageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/pending-items/package",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (createFactoryPendingItemsPackageRequest !== null && createFactoryPendingItemsPackageRequest !== undefined) {
+                if (createFactoryPendingItemsPackageRequest instanceof CreateFactoryPendingItemsPackageRequest) {
+                    workspace = createFactoryPendingItemsPackageRequest.workspace;
+                    body = createFactoryPendingItemsPackageRequest.body
+                    xProjectId = createFactoryPendingItemsPackageRequest.xProjectId;
+                    contentType = createFactoryPendingItemsPackageRequest.contentType;
+                } else {
+                    workspace = createFactoryPendingItemsPackageRequest['workspace'];
+                    body = createFactoryPendingItemsPackageRequest['body'];
+                    xProjectId = createFactoryPendingItemsPackageRequest['X-Project-Id'];
+                    contentType = createFactoryPendingItemsPackageRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建补数据实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20389,6 +20500,78 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询待发布包列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryPendingItems(listFactoryPendingItemsRequest?: ListFactoryPendingItemsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/pending-items",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let submitUserName;
+            
+            let itemName;
+            
+            let limit;
+            
+            let offset;
+
+            if (listFactoryPendingItemsRequest !== null && listFactoryPendingItemsRequest !== undefined) {
+                if (listFactoryPendingItemsRequest instanceof ListFactoryPendingItemsRequest) {
+                    workspace = listFactoryPendingItemsRequest.workspace;
+                    xProjectId = listFactoryPendingItemsRequest.xProjectId;
+                    submitUserName = listFactoryPendingItemsRequest.submitUserName;
+                    itemName = listFactoryPendingItemsRequest.itemName;
+                    limit = listFactoryPendingItemsRequest.limit;
+                    offset = listFactoryPendingItemsRequest.offset;
+                } else {
+                    workspace = listFactoryPendingItemsRequest['workspace'];
+                    xProjectId = listFactoryPendingItemsRequest['X-Project-Id'];
+                    submitUserName = listFactoryPendingItemsRequest['submit_user_name'];
+                    itemName = listFactoryPendingItemsRequest['item_name'];
+                    limit = listFactoryPendingItemsRequest['limit'];
+                    offset = listFactoryPendingItemsRequest['offset'];
+                }
+            }
+
+        
+            if (submitUserName !== null && submitUserName !== undefined) {
+                localVarQueryParameter['submit_user_name'] = submitUserName;
+            }
+            if (itemName !== null && itemName !== undefined) {
+                localVarQueryParameter['item_name'] = itemName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
             }
 
             options.queryParams = localVarQueryParameter;

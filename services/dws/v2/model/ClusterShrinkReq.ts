@@ -3,16 +3,12 @@
 export class ClusterShrinkReq {
     private 'shrink_number'?: number;
     public online?: boolean;
-    public type?: string;
     public retry?: boolean;
-    private 'force_backup'?: boolean;
     private 'need_agency'?: boolean;
-    public constructor(shrinkNumber?: number, online?: boolean, type?: string, forceBackup?: boolean, needAgency?: boolean) { 
-        this['shrink_number'] = shrinkNumber;
-        this['online'] = online;
-        this['type'] = type;
-        this['force_backup'] = forceBackup;
-        this['need_agency'] = needAgency;
+    private 'parallel_jobs'?: number;
+    public type?: string;
+    private 'force_backup'?: boolean;
+    public constructor() { 
     }
     public withShrinkNumber(shrinkNumber: number): ClusterShrinkReq {
         this['shrink_number'] = shrinkNumber;
@@ -28,12 +24,32 @@ export class ClusterShrinkReq {
         this['online'] = online;
         return this;
     }
-    public withType(type: string): ClusterShrinkReq {
-        this['type'] = type;
-        return this;
-    }
     public withRetry(retry: boolean): ClusterShrinkReq {
         this['retry'] = retry;
+        return this;
+    }
+    public withNeedAgency(needAgency: boolean): ClusterShrinkReq {
+        this['need_agency'] = needAgency;
+        return this;
+    }
+    public set needAgency(needAgency: boolean  | undefined) {
+        this['need_agency'] = needAgency;
+    }
+    public get needAgency(): boolean | undefined {
+        return this['need_agency'];
+    }
+    public withParallelJobs(parallelJobs: number): ClusterShrinkReq {
+        this['parallel_jobs'] = parallelJobs;
+        return this;
+    }
+    public set parallelJobs(parallelJobs: number  | undefined) {
+        this['parallel_jobs'] = parallelJobs;
+    }
+    public get parallelJobs(): number | undefined {
+        return this['parallel_jobs'];
+    }
+    public withType(type: string): ClusterShrinkReq {
+        this['type'] = type;
         return this;
     }
     public withForceBackup(forceBackup: boolean): ClusterShrinkReq {
@@ -45,15 +61,5 @@ export class ClusterShrinkReq {
     }
     public get forceBackup(): boolean | undefined {
         return this['force_backup'];
-    }
-    public withNeedAgency(needAgency: boolean): ClusterShrinkReq {
-        this['need_agency'] = needAgency;
-        return this;
-    }
-    public set needAgency(needAgency: boolean  | undefined) {
-        this['need_agency'] = needAgency;
-    }
-    public get needAgency(): boolean | undefined {
-        return this['need_agency'];
     }
 }

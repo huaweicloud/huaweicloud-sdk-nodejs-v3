@@ -2,7 +2,6 @@
 
 export class ListClusterNodesRequest {
     private 'cluster_id'?: string;
-    public deleted?: string;
     private 'node_ids'?: Array<string>;
     public offset?: number;
     public limit?: number;
@@ -10,6 +9,7 @@ export class ListClusterNodesRequest {
     public filter?: string;
     private 'order_by'?: string;
     public order?: string;
+    public deleted?: string;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
@@ -22,10 +22,6 @@ export class ListClusterNodesRequest {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
-    }
-    public withDeleted(deleted: string): ListClusterNodesRequest {
-        this['deleted'] = deleted;
-        return this;
     }
     public withNodeIds(nodeIds: Array<string>): ListClusterNodesRequest {
         this['node_ids'] = nodeIds;
@@ -71,6 +67,10 @@ export class ListClusterNodesRequest {
     }
     public withOrder(order: string): ListClusterNodesRequest {
         this['order'] = order;
+        return this;
+    }
+    public withDeleted(deleted: string): ListClusterNodesRequest {
+        this['deleted'] = deleted;
         return this;
     }
 }

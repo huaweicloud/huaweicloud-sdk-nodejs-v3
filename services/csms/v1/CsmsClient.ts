@@ -10,6 +10,9 @@ import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTags
 import { BatchImportSecretsRequest } from './model/BatchImportSecretsRequest';
 import { BatchImportSecretsResponse } from './model/BatchImportSecretsResponse';
 import { ChangeUsersPassword } from './model/ChangeUsersPassword';
+import { CheckSecretsRequest } from './model/CheckSecretsRequest';
+import { CheckSecretsRequestBody } from './model/CheckSecretsRequestBody';
+import { CheckSecretsResponse } from './model/CheckSecretsResponse';
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyRequestBody } from './model/CreateAgencyRequestBody';
 import { CreateAgencyResponse } from './model/CreateAgencyResponse';
@@ -94,6 +97,8 @@ import { ShowSecretStageRequest } from './model/ShowSecretStageRequest';
 import { ShowSecretStageResponse } from './model/ShowSecretStageResponse';
 import { ShowSecretVersionRequest } from './model/ShowSecretVersionRequest';
 import { ShowSecretVersionResponse } from './model/ShowSecretVersionResponse';
+import { ShowSecretsConfigRequest } from './model/ShowSecretsConfigRequest';
+import { ShowSecretsConfigResponse } from './model/ShowSecretsConfigResponse';
 import { ShowUserDetailRequest } from './model/ShowUserDetailRequest';
 import { ShowUserDetailResponse } from './model/ShowUserDetailResponse';
 import { Stage } from './model/Stage';
@@ -113,6 +118,9 @@ import { UpdateSecretResponse } from './model/UpdateSecretResponse';
 import { UpdateSecretStageRequest } from './model/UpdateSecretStageRequest';
 import { UpdateSecretStageRequestBody } from './model/UpdateSecretStageRequestBody';
 import { UpdateSecretStageResponse } from './model/UpdateSecretStageResponse';
+import { UpdateSecretsConfigRequest } from './model/UpdateSecretsConfigRequest';
+import { UpdateSecretsConfigRequestBody } from './model/UpdateSecretsConfigRequestBody';
+import { UpdateSecretsConfigResponse } from './model/UpdateSecretsConfigResponse';
 import { UpdateUserPasswordRequest } from './model/UpdateUserPasswordRequest';
 import { UpdateUserPasswordResponse } from './model/UpdateUserPasswordResponse';
 import { UpdateVersionRequest } from './model/UpdateVersionRequest';
@@ -174,6 +182,25 @@ export class CsmsClient {
      */
     public batchImportSecrets(batchImportSecretsRequest?: BatchImportSecretsRequest): Promise<BatchImportSecretsResponse> {
         const options = ParamCreater().batchImportSecrets(batchImportSecretsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检测传入的凭据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检测传入凭据的凭据强度
+     * @param {CheckSecretsRequestBody} checkSecretsRequestBody 凭据检测的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkSecrets(checkSecretsRequest?: CheckSecretsRequest): Promise<CheckSecretsResponse> {
+        const options = ParamCreater().checkSecrets(checkSecretsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -815,6 +842,24 @@ export class CsmsClient {
     }
 
     /**
+     * 获取租户的凭据检测配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取租户的凭据检测配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecretsConfig(showSecretsConfigRequest?: ShowSecretsConfigRequest): Promise<ShowSecretsConfigResponse> {
+        const options = ParamCreater().showSecretsConfig();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据用户id查询用户详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -907,6 +952,25 @@ export class CsmsClient {
      */
     public updateSecretStage(updateSecretStageRequest?: UpdateSecretStageRequest): Promise<UpdateSecretStageResponse> {
         const options = ParamCreater().updateSecretStage(updateSecretStageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更改获取租户的凭据检测配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更改获取租户的凭据检测配置
+     * @param {UpdateSecretsConfigRequestBody} updateSecretsConfigRequestBody 更改租户的凭据检测配置的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecretsConfig(updateSecretsConfigRequest?: UpdateSecretsConfigRequest): Promise<UpdateSecretsConfigResponse> {
+        const options = ParamCreater().updateSecretsConfig(updateSecretsConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1055,6 +1119,44 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检测传入的凭据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkSecrets(checkSecretsRequest?: CheckSecretsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/secrets/checker/check",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkSecretsRequest !== null && checkSecretsRequest !== undefined) {
+                if (checkSecretsRequest instanceof CheckSecretsRequest) {
+                    body = checkSecretsRequest.body
+                } else {
+                    body = checkSecretsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -2412,6 +2514,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取租户的凭据检测配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecretsConfig() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/secrets/checker/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据用户id查询用户详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2638,6 +2761,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_name': secretName,'stage_name': stageName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更改获取租户的凭据检测配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecretsConfig(updateSecretsConfigRequest?: UpdateSecretsConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/secrets/checker/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateSecretsConfigRequest !== null && updateSecretsConfigRequest !== undefined) {
+                if (updateSecretsConfigRequest instanceof UpdateSecretsConfigRequest) {
+                    body = updateSecretsConfigRequest.body
+                } else {
+                    body = updateSecretsConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

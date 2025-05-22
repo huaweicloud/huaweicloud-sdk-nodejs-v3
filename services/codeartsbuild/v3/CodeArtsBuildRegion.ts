@@ -16,6 +16,8 @@ export class CodeArtsBuildRegion {
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://cloudbuild-ext.ap-southeast-3.myhuaweicloud.com"]);
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://cloudbuild-ext.sa-brazil-1.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://cloudbuild-ext.la-north-2.myhuaweicloud.com"]);
+    public static LA_SOUTH_2 = new Region("la-south-2", ["https://cloudbuild-ext.la-south-2.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://cloudbuild-ext.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -28,7 +30,9 @@ export class CodeArtsBuildRegion {
         "cn-southwest-2":CodeArtsBuildRegion.CN_SOUTHWEST_2,
         "ap-southeast-3":CodeArtsBuildRegion.AP_SOUTHEAST_3,
         "sa-brazil-1":CodeArtsBuildRegion.SA_BRAZIL_1,
-        "la-north-2":CodeArtsBuildRegion.LA_NORTH_2
+        "la-north-2":CodeArtsBuildRegion.LA_NORTH_2,
+        "la-south-2":CodeArtsBuildRegion.LA_SOUTH_2,
+        "tr-west-1":CodeArtsBuildRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

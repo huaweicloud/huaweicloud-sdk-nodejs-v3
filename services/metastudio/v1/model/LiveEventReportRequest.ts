@@ -10,6 +10,8 @@ export class LiveEventReportRequest {
     private 'X-App-UserId'?: string;
     private 'auth_key'?: string;
     private 'expires_time'?: number;
+    private 'x-mss-auth-key'?: string;
+    private 'x-mss-expires-time'?: number;
     private 'refresh_url'?: boolean;
     public body?: ReportLiveEventReq;
     public constructor(roomId?: string, jobId?: string) { 
@@ -95,6 +97,26 @@ export class LiveEventReportRequest {
     }
     public get expiresTime(): number | undefined {
         return this['expires_time'];
+    }
+    public withXMssAuthKey(xMssAuthKey: string): LiveEventReportRequest {
+        this['x-mss-auth-key'] = xMssAuthKey;
+        return this;
+    }
+    public set xMssAuthKey(xMssAuthKey: string  | undefined) {
+        this['x-mss-auth-key'] = xMssAuthKey;
+    }
+    public get xMssAuthKey(): string | undefined {
+        return this['x-mss-auth-key'];
+    }
+    public withXMssExpiresTime(xMssExpiresTime: number): LiveEventReportRequest {
+        this['x-mss-expires-time'] = xMssExpiresTime;
+        return this;
+    }
+    public set xMssExpiresTime(xMssExpiresTime: number  | undefined) {
+        this['x-mss-expires-time'] = xMssExpiresTime;
+    }
+    public get xMssExpiresTime(): number | undefined {
+        return this['x-mss-expires-time'];
     }
     public withRefreshUrl(refreshUrl: boolean): LiveEventReportRequest {
         this['refresh_url'] = refreshUrl;

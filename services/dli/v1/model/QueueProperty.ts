@@ -25,5 +25,7 @@ export enum QueuePropertyKeyEnum {
     COMPUTEENGINE_MAXINSTANCES = 'computeEngine.maxInstances',
     COMPUTEENGINE_MAXPREFETCHINSTANCE = 'computeEngine.maxPrefetchInstance',
     JOB_MAXCONCURRENT = 'job.maxConcurrent',
-    MULTIPLESC_SUPPORT = 'multipleSc.support'
+    MULTIPLESC_SUPPORT = 'multipleSc.support',
+    JOB_SAVEJOBRESULTTOJOBBUCKET = 'job.saveJobResultToJobBucket',
+    COMPUTEENGINE_SPARK_NATIVEENABLED = 'computeEngine.spark.nativeEnabled'
 }

@@ -124,6 +124,7 @@ export class TriggerProcess {
 export enum TriggerProcessReplyModeEnum {
     SYSTEM_REPLY = 'SYSTEM_REPLY',
     CALLBACK = 'CALLBACK',
+    SYSTEM_REPLY_AND_CALLBACK = 'SYSTEM_REPLY_AND_CALLBACK',
     SHOW_LAYER = 'SHOW_LAYER',
     INTELLIGENT_REPLY = 'INTELLIGENT_REPLY'
 }

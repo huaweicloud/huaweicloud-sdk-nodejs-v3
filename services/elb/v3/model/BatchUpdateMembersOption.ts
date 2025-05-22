@@ -2,6 +2,7 @@
 
 export class BatchUpdateMembersOption {
     public id?: string;
+    private 'availability_zone'?: string;
     private 'admin_state_up'?: boolean;
     public name?: string;
     private 'protocol_port'?: number;
@@ -12,6 +13,16 @@ export class BatchUpdateMembersOption {
     public withId(id: string): BatchUpdateMembersOption {
         this['id'] = id;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): BatchUpdateMembersOption {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
     public withAdminStateUp(adminStateUp: boolean): BatchUpdateMembersOption {
         this['admin_state_up'] = adminStateUp;

@@ -34,5 +34,6 @@ export class LiveJobRunConfig {
 export enum LiveJobRunConfigAllowResourceTypeEnum {
     PERIOD = 'PERIOD',
     ONDEMAND = 'ONDEMAND',
-    UNLIMITED = 'UNLIMITED'
+    UNLIMITED = 'UNLIMITED',
+    ONE_TIME = 'ONE_TIME'
 }

@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AccessAreaFilter } from './model/AccessAreaFilter';
+import { AccountConfigModifyRequest } from './model/AccountConfigModifyRequest';
 import { BackSources } from './model/BackSources';
 import { BatchCopyConfigs } from './model/BatchCopyConfigs';
 import { BatchCopyDRequestBody } from './model/BatchCopyDRequestBody';
@@ -78,6 +79,8 @@ import { ListCdnDomainTopRefersResponse } from './model/ListCdnDomainTopRefersRe
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { LogObject } from './model/LogObject';
+import { ModifyAccountInfoRequest } from './model/ModifyAccountInfoRequest';
+import { ModifyAccountInfoResponse } from './model/ModifyAccountInfoResponse';
 import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
 import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
@@ -480,6 +483,25 @@ export class CdnClient {
      */
     public listDomains(listDomainsRequest?: ListDomainsRequest): Promise<ListDomainsResponse> {
         const options = ParamCreater().listDomains(listDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改租户配置，当前仅支持开启OBS和SCM委托授权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改租户配置
+     * @param {AccountConfigModifyRequest} [accountConfigModifyRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyAccountInfo(modifyAccountInfoRequest?: ModifyAccountInfoRequest): Promise<ModifyAccountInfoResponse> {
+        const options = ParamCreater().modifyAccountInfo(modifyAccountInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1847,6 +1869,41 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改租户配置，当前仅支持开启OBS和SCM委托授权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyAccountInfo(modifyAccountInfoRequest?: ModifyAccountInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/configuration/account-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifyAccountInfoRequest !== null && modifyAccountInfoRequest !== undefined) {
+                if (modifyAccountInfoRequest instanceof ModifyAccountInfoRequest) {
+                    body = modifyAccountInfoRequest.body
+                } else {
+                    body = modifyAccountInfoRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

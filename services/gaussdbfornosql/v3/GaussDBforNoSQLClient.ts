@@ -72,6 +72,8 @@ import { CreateDbUserRequest } from './model/CreateDbUserRequest';
 import { CreateDbUserResponse } from './model/CreateDbUserResponse';
 import { CreateDisasterRecoveryRequest } from './model/CreateDisasterRecoveryRequest';
 import { CreateDisasterRecoveryResponse } from './model/CreateDisasterRecoveryResponse';
+import { CreateGeminiDbDualActiveRequest } from './model/CreateGeminiDbDualActiveRequest';
+import { CreateGeminiDbDualActiveResponse } from './model/CreateGeminiDbDualActiveResponse';
 import { CreateInstanceFlavorOption } from './model/CreateInstanceFlavorOption';
 import { CreateInstanceFlavorResult } from './model/CreateInstanceFlavorResult';
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
@@ -99,6 +101,8 @@ import { DeleteDisasterRecoveryResponse } from './model/DeleteDisasterRecoveryRe
 import { DeleteEnlargeFailNodeRequest } from './model/DeleteEnlargeFailNodeRequest';
 import { DeleteEnlargeFailNodeRequestBody } from './model/DeleteEnlargeFailNodeRequestBody';
 import { DeleteEnlargeFailNodeResponse } from './model/DeleteEnlargeFailNodeResponse';
+import { DeleteGeminiDbDualActiveRequest } from './model/DeleteGeminiDbDualActiveRequest';
+import { DeleteGeminiDbDualActiveResponse } from './model/DeleteGeminiDbDualActiveResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteInstancesSessionRequest } from './model/DeleteInstancesSessionRequest';
@@ -112,6 +116,8 @@ import { DeleteRedisDisabledCommandsRequestBody } from './model/DeleteRedisDisab
 import { DeleteRedisDisabledCommandsResponse } from './model/DeleteRedisDisabledCommandsResponse';
 import { DifferentDetails } from './model/DifferentDetails';
 import { DiskAutoExpansionPolicy } from './model/DiskAutoExpansionPolicy';
+import { DualActiveInfo } from './model/DualActiveInfo';
+import { DualActiveRequestBody } from './model/DualActiveRequestBody';
 import { ErrorLogList } from './model/ErrorLogList';
 import { ErrorResponseBody } from './model/ErrorResponseBody';
 import { ExpandInstanceNodeRequest } from './model/ExpandInstanceNodeRequest';
@@ -828,6 +834,26 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 为了实现跨区域实例数据同步，GeminiDB提供了异地双活功能，即创建异地双活实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 搭建双活
+     * @param {string} instanceId 参数解释 实例Id，可以调用[5.3.3查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001397299481.xml)接口获取。如果未申请实例，可以调用[5.3.1创建实例](x-wc://file&#x3D;zh-cn_topic_0000001397139461.xml)接口创建。 约束限制 不涉及。 取值范围 不涉及。 默认取值 不涉及。
+     * @param {DualActiveRequestBody} createGeminiDbDualActiveRequestBody 参数解释 请求体。 约束限制 不涉及。 取值范围 不涉及。 默认取值 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGeminiDbDualActive(createGeminiDbDualActiveRequest?: CreateGeminiDbDualActiveRequest): Promise<CreateGeminiDbDualActiveResponse> {
+        const options = ParamCreater().createGeminiDbDualActive(createGeminiDbDualActiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建数据库实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -974,6 +1000,25 @@ export class GaussDBforNoSQLClient {
      */
     public deleteEnlargeFailNode(deleteEnlargeFailNodeRequest?: DeleteEnlargeFailNodeRequest): Promise<DeleteEnlargeFailNodeResponse> {
         const options = ParamCreater().deleteEnlargeFailNode(deleteEnlargeFailNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解除跨区域双活。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除双活
+     * @param {string} instanceId 参数解释 实例Id，可以调用[5.3.3查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001397299481.xml)接口获取。如果未申请实例，可以调用[5.3.1创建实例](x-wc://file&#x3D;zh-cn_topic_0000001397139461.xml)接口创建。 约束限制 不涉及。 取值范围 不涉及。 默认取值 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGeminiDbDualActive(deleteGeminiDbDualActiveRequest?: DeleteGeminiDbDualActiveRequest): Promise<DeleteGeminiDbDualActiveResponse> {
+        const options = ParamCreater().deleteGeminiDbDualActive(deleteGeminiDbDualActiveRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4150,6 +4195,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为了实现跨区域实例数据同步，GeminiDB提供了异地双活功能，即创建异地双活实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGeminiDbDualActive(createGeminiDbDualActiveRequest?: CreateGeminiDbDualActiveRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/dual-active-relationship",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createGeminiDbDualActiveRequest !== null && createGeminiDbDualActiveRequest !== undefined) {
+                if (createGeminiDbDualActiveRequest instanceof CreateGeminiDbDualActiveRequest) {
+                    instanceId = createGeminiDbDualActiveRequest.instanceId;
+                    body = createGeminiDbDualActiveRequest.body
+                } else {
+                    instanceId = createGeminiDbDualActiveRequest['instance_id'];
+                    body = createGeminiDbDualActiveRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createGeminiDbDualActive.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建数据库实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4455,6 +4546,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除跨区域双活。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGeminiDbDualActive(deleteGeminiDbDualActiveRequest?: DeleteGeminiDbDualActiveRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/dual-active-relationship",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (deleteGeminiDbDualActiveRequest !== null && deleteGeminiDbDualActiveRequest !== undefined) {
+                if (deleteGeminiDbDualActiveRequest instanceof DeleteGeminiDbDualActiveRequest) {
+                    instanceId = deleteGeminiDbDualActiveRequest.instanceId;
+                } else {
+                    instanceId = deleteGeminiDbDualActiveRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteGeminiDbDualActive.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

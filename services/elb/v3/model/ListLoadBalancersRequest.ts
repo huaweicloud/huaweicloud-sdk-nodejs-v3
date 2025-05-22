@@ -8,6 +8,7 @@ export class ListLoadBalancersRequest {
     public name?: Array<string>;
     public description?: Array<string>;
     private 'admin_state_up'?: boolean;
+    private 'include_recycle_bin'?: boolean;
     private 'provisioning_status'?: Array<string>;
     private 'operating_status'?: Array<string>;
     public guaranteed?: boolean;
@@ -78,6 +79,16 @@ export class ListLoadBalancersRequest {
     }
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
+    }
+    public withIncludeRecycleBin(includeRecycleBin: boolean): ListLoadBalancersRequest {
+        this['include_recycle_bin'] = includeRecycleBin;
+        return this;
+    }
+    public set includeRecycleBin(includeRecycleBin: boolean  | undefined) {
+        this['include_recycle_bin'] = includeRecycleBin;
+    }
+    public get includeRecycleBin(): boolean | undefined {
+        return this['include_recycle_bin'];
     }
     public withProvisioningStatus(provisioningStatus: Array<string>): ListLoadBalancersRequest {
         this['provisioning_status'] = provisioningStatus;

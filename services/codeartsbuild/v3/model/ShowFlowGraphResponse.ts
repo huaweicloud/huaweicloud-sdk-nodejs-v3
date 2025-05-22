@@ -1,4 +1,4 @@
-import { FlowGraphResult } from './FlowGraphResult';
+import { FlowGraph2Result } from './FlowGraph2Result';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ShowFlowGraphResponse extends SdkResponse {
     public success?: boolean;
     public message?: string;
     private 'err_code'?: string;
-    public result?: FlowGraphResult;
+    public result?: FlowGraph2Result;
     public constructor() { 
         super();
     }
@@ -28,7 +28,7 @@ export class ShowFlowGraphResponse extends SdkResponse {
     public get errCode(): string | undefined {
         return this['err_code'];
     }
-    public withResult(result: FlowGraphResult): ShowFlowGraphResponse {
+    public withResult(result: FlowGraph2Result): ShowFlowGraphResponse {
         this['result'] = result;
         return this;
     }

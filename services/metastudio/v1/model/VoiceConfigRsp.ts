@@ -58,5 +58,9 @@ export class VoiceConfigRsp {
     */
 export enum VoiceConfigRspLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }

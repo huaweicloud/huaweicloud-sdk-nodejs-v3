@@ -8,6 +8,7 @@ export class PlayPolicy {
     private 'random_play_mode'?: PlayPolicyRandomPlayModeEnum | string;
     private 'need_independent_capture_client'?: boolean;
     private 'live_exit_config'?: LiveExitConfig;
+    private 'is_rewrite_delay'?: boolean;
     public constructor() { 
     }
     public withRepeatCount(repeatCount: number): PlayPolicy {
@@ -69,6 +70,16 @@ export class PlayPolicy {
     }
     public get liveExitConfig(): LiveExitConfig | undefined {
         return this['live_exit_config'];
+    }
+    public withIsRewriteDelay(isRewriteDelay: boolean): PlayPolicy {
+        this['is_rewrite_delay'] = isRewriteDelay;
+        return this;
+    }
+    public set isRewriteDelay(isRewriteDelay: boolean  | undefined) {
+        this['is_rewrite_delay'] = isRewriteDelay;
+    }
+    public get isRewriteDelay(): boolean | undefined {
+        return this['is_rewrite_delay'];
     }
 }
 

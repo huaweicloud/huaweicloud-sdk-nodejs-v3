@@ -5,9 +5,7 @@ export class ListHostNetRequest {
     private 'instance_name'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(limit?: number, offset?: number) { 
-        this['limit'] = limit;
-        this['offset'] = offset;
+    public constructor() { 
     }
     public withClusterId(clusterId: string): ListHostNetRequest {
         this['cluster_id'] = clusterId;

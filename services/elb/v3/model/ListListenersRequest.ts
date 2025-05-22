@@ -10,6 +10,7 @@ export class ListListenersRequest {
     private 'default_tls_container_ref'?: Array<string>;
     private 'client_ca_tls_container_ref'?: Array<string>;
     private 'admin_state_up'?: boolean;
+    private 'include_recycle_bin'?: boolean;
     private 'connection_limit'?: Array<number>;
     private 'default_pool_id'?: Array<string>;
     public id?: Array<string>;
@@ -98,6 +99,16 @@ export class ListListenersRequest {
     }
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
+    }
+    public withIncludeRecycleBin(includeRecycleBin: boolean): ListListenersRequest {
+        this['include_recycle_bin'] = includeRecycleBin;
+        return this;
+    }
+    public set includeRecycleBin(includeRecycleBin: boolean  | undefined) {
+        this['include_recycle_bin'] = includeRecycleBin;
+    }
+    public get includeRecycleBin(): boolean | undefined {
+        return this['include_recycle_bin'];
     }
     public withConnectionLimit(connectionLimit: Array<number>): ListListenersRequest {
         this['connection_limit'] = connectionLimit;

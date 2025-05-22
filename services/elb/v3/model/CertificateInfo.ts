@@ -19,6 +19,9 @@ export class CertificateInfo {
     private 'common_name'?: string;
     public fingerprint?: string;
     private 'subject_alternative_names'?: Array<string>;
+    public source?: string;
+    private 'protection_status'?: CertificateInfoProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor(adminStateUp?: boolean, certificate?: string, description?: string, domain?: string, id?: string, name?: string, privateKey?: string, type?: string, createdAt?: string, updatedAt?: string, expireTime?: string, projectId?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['certificate'] = certificate;
@@ -171,4 +174,37 @@ export class CertificateInfo {
     public get subjectAlternativeNames(): Array<string> | undefined {
         return this['subject_alternative_names'];
     }
+    public withSource(source: string): CertificateInfo {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: CertificateInfoProtectionStatusEnum | string): CertificateInfo {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CertificateInfoProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CertificateInfoProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CertificateInfo {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CertificateInfoProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

@@ -1,6 +1,7 @@
 export * from './CdnClient';
 
 export * from './model/AccessAreaFilter';
+export * from './model/AccountConfigModifyRequest';
 export * from './model/BackSources';
 export * from './model/BatchCopyConfigs';
 export * from './model/BatchCopyDRequestBody';
@@ -76,6 +77,8 @@ export * from './model/ListCdnDomainTopRefersResponse';
 export * from './model/ListDomainsRequest';
 export * from './model/ListDomainsResponse';
 export * from './model/LogObject';
+export * from './model/ModifyAccountInfoRequest';
+export * from './model/ModifyAccountInfoResponse';
 export * from './model/ModifyDomainConfigRequestBody';
 export * from './model/OriginRequestHeader';
 export * from './model/OriginRequestUrlRewrite';

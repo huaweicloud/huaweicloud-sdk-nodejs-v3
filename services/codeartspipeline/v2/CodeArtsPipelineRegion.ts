@@ -18,6 +18,9 @@ export class CodeArtsPipelineRegion {
     public static LA_NORTH_2 = new Region("la-north-2", ["https://cloudpipeline-ext.la-north-2.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://pipeline-external.tr-west-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://pipeline-external.la-south-2.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://pipeline.af-north-1.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://pipeline.me-east-1.myhuaweicloud.com"]);
+    public static AF_SOUTH_1 = new Region("af-south-1", ["https://pipeline.af-south-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -32,7 +35,10 @@ export class CodeArtsPipelineRegion {
         "sa-brazil-1":CodeArtsPipelineRegion.SA_BRAZIL_1,
         "la-north-2":CodeArtsPipelineRegion.LA_NORTH_2,
         "tr-west-1":CodeArtsPipelineRegion.TR_WEST_1,
-        "la-south-2":CodeArtsPipelineRegion.LA_SOUTH_2
+        "la-south-2":CodeArtsPipelineRegion.LA_SOUTH_2,
+        "af-north-1":CodeArtsPipelineRegion.AF_NORTH_1,
+        "me-east-1":CodeArtsPipelineRegion.ME_EAST_1,
+        "af-south-1":CodeArtsPipelineRegion.AF_SOUTH_1
     };
   
     public static valueOf(regionId: string) {

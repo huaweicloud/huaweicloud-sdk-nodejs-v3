@@ -28,6 +28,7 @@ export class ListPoolsRequest {
     private 'public_border_group'?: string;
     private 'quic_cid_len'?: number;
     private 'quic_cid_offset'?: number;
+    private 'az_affinity'?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListPoolsRequest {
@@ -257,5 +258,15 @@ export class ListPoolsRequest {
     }
     public get quicCidOffset(): number | undefined {
         return this['quic_cid_offset'];
+    }
+    public withAzAffinity(azAffinity: Array<string>): ListPoolsRequest {
+        this['az_affinity'] = azAffinity;
+        return this;
+    }
+    public set azAffinity(azAffinity: Array<string>  | undefined) {
+        this['az_affinity'] = azAffinity;
+    }
+    public get azAffinity(): Array<string> | undefined {
+        return this['az_affinity'];
     }
 }

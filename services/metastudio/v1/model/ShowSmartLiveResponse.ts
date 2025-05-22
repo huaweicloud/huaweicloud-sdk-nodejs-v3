@@ -262,5 +262,6 @@ export enum ShowSmartLiveResponseStateEnum {
 export enum ShowSmartLiveResponseUsedResourceTypeEnum {
     PERIOD = 'PERIOD',
     ONDEMAND = 'ONDEMAND',
+    ONE_TIME = 'ONE_TIME',
     UNKNOW = 'UNKNOW'
 }

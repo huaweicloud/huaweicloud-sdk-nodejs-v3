@@ -1428,6 +1428,7 @@ export class WafClient {
      * @param {number} [to] 结束时间(13位时间戳)，需要和from同时使用，不能和recent参数同时使用
      * @param {Array<string>} [attacks] 攻击类型:   - vuln：其它攻击类型   - sqli： sql注入攻击   - lfi： 本地文件包含  - cmdi：命令注入攻击   - xss：XSS攻击   - robot：恶意爬虫   - rfi：远程文件包含   - custom_custom：精准防护   - cc: cc攻击   - webshell：网站木马   - custom_whiteblackip：黑白名单拦截   - custom_geoip：地理访问控制拦截   - antitamper：防篡改   - anticrawler：反爬虫    - leakage：网站信息防泄漏   - illegal：非法请求   - antiscan_high_freq_scan：高频扫描封禁   - antiscan_dir_traversal：目录遍历防护
      * @param {Array<string>} [hosts] 域名id，从获取防护网站列表（ListHost）接口获取域名id
+     * @param {Array<string>} [sips] 源ip，Web访问者的IP地址（攻击者IP地址）
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {*} [options] Override http request option.
@@ -5791,6 +5792,8 @@ export const ParamCreater = function () {
             
             let hosts;
             
+            let sips;
+            
             let page;
             
             let pagesize;
@@ -5805,6 +5808,7 @@ export const ParamCreater = function () {
                     to = listEventRequest.to;
                     attacks = listEventRequest.attacks;
                     hosts = listEventRequest.hosts;
+                    sips = listEventRequest.sips;
                     page = listEventRequest.page;
                     pagesize = listEventRequest.pagesize;
                 } else {
@@ -5816,6 +5820,7 @@ export const ParamCreater = function () {
                     to = listEventRequest['to'];
                     attacks = listEventRequest['attacks'];
                     hosts = listEventRequest['hosts'];
+                    sips = listEventRequest['sips'];
                     page = listEventRequest['page'];
                     pagesize = listEventRequest['pagesize'];
                 }
@@ -5839,6 +5844,9 @@ export const ParamCreater = function () {
             }
             if (hosts !== null && hosts !== undefined) {
                 localVarQueryParameter['hosts'] = hosts;
+            }
+            if (sips !== null && sips !== undefined) {
+                localVarQueryParameter['sips'] = sips;
             }
             if (page !== null && page !== undefined) {
                 localVarQueryParameter['page'] = page;

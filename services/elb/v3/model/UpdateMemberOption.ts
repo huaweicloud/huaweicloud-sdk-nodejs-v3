@@ -2,6 +2,7 @@
 
 export class UpdateMemberOption {
     private 'admin_state_up'?: boolean;
+    private 'availability_zone'?: string;
     public name?: string;
     public weight?: number;
     private 'protocol_port'?: number;
@@ -16,6 +17,16 @@ export class UpdateMemberOption {
     }
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
+    }
+    public withAvailabilityZone(availabilityZone: string): UpdateMemberOption {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
     public withName(name: string): UpdateMemberOption {
         this['name'] = name;

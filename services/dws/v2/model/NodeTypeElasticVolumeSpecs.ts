@@ -2,10 +2,10 @@
 
 export class NodeTypeElasticVolumeSpecs {
     public type?: string;
-    public step?: string;
+    public step?: number;
     private 'min_size'?: number;
     private 'max_size'?: number;
-    public constructor(type?: string, step?: string, minSize?: number, maxSize?: number) { 
+    public constructor(type?: string, step?: number, minSize?: number, maxSize?: number) { 
         this['type'] = type;
         this['step'] = step;
         this['min_size'] = minSize;
@@ -15,7 +15,7 @@ export class NodeTypeElasticVolumeSpecs {
         this['type'] = type;
         return this;
     }
-    public withStep(step: string): NodeTypeElasticVolumeSpecs {
+    public withStep(step: number): NodeTypeElasticVolumeSpecs {
         this['step'] = step;
         return this;
     }

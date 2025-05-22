@@ -2,7 +2,7 @@
 
 export class DatabaseOmUserInfo {
     private 'om_user_status'?: string;
-    private 'om_user_expires_time'?: string;
+    private 'om_user_expires_time'?: number;
     public constructor() { 
     }
     public withOmUserStatus(omUserStatus: string): DatabaseOmUserInfo {
@@ -15,14 +15,14 @@ export class DatabaseOmUserInfo {
     public get omUserStatus(): string | undefined {
         return this['om_user_status'];
     }
-    public withOmUserExpiresTime(omUserExpiresTime: string): DatabaseOmUserInfo {
+    public withOmUserExpiresTime(omUserExpiresTime: number): DatabaseOmUserInfo {
         this['om_user_expires_time'] = omUserExpiresTime;
         return this;
     }
-    public set omUserExpiresTime(omUserExpiresTime: string  | undefined) {
+    public set omUserExpiresTime(omUserExpiresTime: number  | undefined) {
         this['om_user_expires_time'] = omUserExpiresTime;
     }
-    public get omUserExpiresTime(): string | undefined {
+    public get omUserExpiresTime(): number | undefined {
         return this['om_user_expires_time'];
     }
 }

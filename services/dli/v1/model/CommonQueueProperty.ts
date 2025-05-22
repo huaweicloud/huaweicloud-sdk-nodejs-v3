@@ -4,6 +4,7 @@ export class CommonQueueProperty {
     private 'computeEngine.maxInstance'?: number;
     private 'job.maxConcurrent'?: number;
     private 'computeEngine.maxPrefetchInstance'?: number;
+    private 'computeEngine.spark.nativeEnabled'?: string;
     public constructor() { 
     }
     public withComputeEngineMaxInstance(computeEngineMaxInstance: number): CommonQueueProperty {
@@ -35,5 +36,15 @@ export class CommonQueueProperty {
     }
     public get computeEngineMaxPrefetchInstance(): number | undefined {
         return this['computeEngine.maxPrefetchInstance'];
+    }
+    public withComputeEngineSparkNativeEnabled(computeEngineSparkNativeEnabled: string): CommonQueueProperty {
+        this['computeEngine.spark.nativeEnabled'] = computeEngineSparkNativeEnabled;
+        return this;
+    }
+    public set computeEngineSparkNativeEnabled(computeEngineSparkNativeEnabled: string  | undefined) {
+        this['computeEngine.spark.nativeEnabled'] = computeEngineSparkNativeEnabled;
+    }
+    public get computeEngineSparkNativeEnabled(): string | undefined {
+        return this['computeEngine.spark.nativeEnabled'];
     }
 }

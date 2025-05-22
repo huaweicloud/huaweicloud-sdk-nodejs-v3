@@ -3,7 +3,8 @@
 export class EngineModifyReq {
     public flavor?: string;
     public inputs?: { [key: string]: string; };
-    public constructor() { 
+    public constructor(flavor?: string) { 
+        this['flavor'] = flavor;
     }
     public withFlavor(flavor: string): EngineModifyReq {
         this['flavor'] = flavor;

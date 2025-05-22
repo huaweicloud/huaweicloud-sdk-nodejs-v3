@@ -1,9 +1,9 @@
-import { ResourcesReq } from './ResourcesReq';
+import { AddResourcesReq } from './AddResourcesReq';
 
 
 export class BatchCreateResourcesRequest {
     private 'group_id'?: string;
-    public body?: ResourcesReq;
+    public body?: AddResourcesReq;
     public constructor(groupId?: string) { 
         this['group_id'] = groupId;
     }
@@ -17,7 +17,7 @@ export class BatchCreateResourcesRequest {
     public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withBody(body: ResourcesReq): BatchCreateResourcesRequest {
+    public withBody(body: AddResourcesReq): BatchCreateResourcesRequest {
         this['body'] = body;
         return this;
     }

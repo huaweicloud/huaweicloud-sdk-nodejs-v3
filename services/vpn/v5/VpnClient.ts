@@ -157,6 +157,8 @@ import { Quotas } from './model/Quotas';
 import { RemoveVpnUserFromGroupRequestBody } from './model/RemoveVpnUserFromGroupRequestBody';
 import { RemoveVpnUsersFromGroupRequest } from './model/RemoveVpnUsersFromGroupRequest';
 import { RemoveVpnUsersFromGroupResponse } from './model/RemoveVpnUsersFromGroupResponse';
+import { ResetVpnConnectionRequest } from './model/ResetVpnConnectionRequest';
+import { ResetVpnConnectionResponse } from './model/ResetVpnConnectionResponse';
 import { ResetVpnUserPasswordRequest } from './model/ResetVpnUserPasswordRequest';
 import { ResetVpnUserPasswordRequestBody } from './model/ResetVpnUserPasswordRequestBody';
 import { ResetVpnUserPasswordResponse } from './model/ResetVpnUserPasswordResponse';
@@ -969,6 +971,25 @@ export class VpnClient {
      */
     public listVpnConnections(listVpnConnectionsRequest?: ListVpnConnectionsRequest): Promise<ListVpnConnectionsResponse> {
         const options = ParamCreater().listVpnConnections(listVpnConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据连接ID，重置指定VPN连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置VPN连接
+     * @param {string} vpnConnectionId vpn连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetVpnConnection(resetVpnConnectionRequest?: ResetVpnConnectionRequest): Promise<ResetVpnConnectionResponse> {
+        const options = ParamCreater().resetVpnConnection(resetVpnConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['header-response-token'];
@@ -3349,6 +3370,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据连接ID，重置指定VPN连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetVpnConnection(resetVpnConnectionRequest?: ResetVpnConnectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/vpn-connection/{vpn_connection_id}/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vpnConnectionId;
+
+            if (resetVpnConnectionRequest !== null && resetVpnConnectionRequest !== undefined) {
+                if (resetVpnConnectionRequest instanceof ResetVpnConnectionRequest) {
+                    vpnConnectionId = resetVpnConnectionRequest.vpnConnectionId;
+                } else {
+                    vpnConnectionId = resetVpnConnectionRequest['vpn_connection_id'];
+                }
+            }
+
+        
+            if (vpnConnectionId === null || vpnConnectionId === undefined) {
+            throw new RequiredError('vpnConnectionId','Required parameter vpnConnectionId was null or undefined when calling resetVpnConnection.');
+            }
+
+            options.pathParams = { 'vpn_connection_id': vpnConnectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

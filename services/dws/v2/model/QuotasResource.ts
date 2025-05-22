@@ -2,10 +2,10 @@
 
 export class QuotasResource {
     public type?: string;
-    public used?: string;
+    public used?: number;
     public quota?: number;
-    public unit?: number;
-    public constructor(type?: string, used?: string, quota?: number, unit?: number) { 
+    public unit?: string;
+    public constructor(type?: string, used?: number, quota?: number, unit?: string) { 
         this['type'] = type;
         this['used'] = used;
         this['quota'] = quota;
@@ -15,7 +15,7 @@ export class QuotasResource {
         this['type'] = type;
         return this;
     }
-    public withUsed(used: string): QuotasResource {
+    public withUsed(used: number): QuotasResource {
         this['used'] = used;
         return this;
     }
@@ -23,7 +23,7 @@ export class QuotasResource {
         this['quota'] = quota;
         return this;
     }
-    public withUnit(unit: number): QuotasResource {
+    public withUnit(unit: string): QuotasResource {
         this['unit'] = unit;
         return this;
     }

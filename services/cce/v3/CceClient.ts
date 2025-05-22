@@ -245,6 +245,9 @@ import { ListUpgradeClusterTasksRequest } from './model/ListUpgradeClusterTasksR
 import { ListUpgradeClusterTasksResponse } from './model/ListUpgradeClusterTasksResponse';
 import { ListUpgradeWorkFlowsRequest } from './model/ListUpgradeWorkFlowsRequest';
 import { ListUpgradeWorkFlowsResponse } from './model/ListUpgradeWorkFlowsResponse';
+import { LockNodeScaledownRequestBody } from './model/LockNodeScaledownRequestBody';
+import { LockNodepoolNodeScaleDownRequest } from './model/LockNodepoolNodeScaleDownRequest';
+import { LockNodepoolNodeScaleDownResponse } from './model/LockNodepoolNodeScaleDownResponse';
 import { Login } from './model/Login';
 import { MaintenanceWindow } from './model/MaintenanceWindow';
 import { MasterEIPRequest } from './model/MasterEIPRequest';
@@ -285,6 +288,7 @@ import { NodePoolSpec } from './model/NodePoolSpec';
 import { NodePoolSpecUpdate } from './model/NodePoolSpecUpdate';
 import { NodePoolStatus } from './model/NodePoolStatus';
 import { NodePoolUpdate } from './model/NodePoolUpdate';
+import { NodePoolUpdateExtendParam } from './model/NodePoolUpdateExtendParam';
 import { NodePoolUpgradeSpec } from './model/NodePoolUpgradeSpec';
 import { NodePriority } from './model/NodePriority';
 import { NodePublicIP } from './model/NodePublicIP';
@@ -292,6 +296,7 @@ import { NodeRisks } from './model/NodeRisks';
 import { NodeSelector } from './model/NodeSelector';
 import { NodeSpec } from './model/NodeSpec';
 import { NodeSpecUpdate } from './model/NodeSpecUpdate';
+import { NodeSpecUpdateNodeNameTemplate } from './model/NodeSpecUpdateNodeNameTemplate';
 import { NodeSpecUpdateNodeNicSpecUpdate } from './model/NodeSpecUpdateNodeNicSpecUpdate';
 import { NodeSpecUpdateNodeNicSpecUpdatePrimaryNic } from './model/NodeSpecUpdateNodeNicSpecUpdatePrimaryNic';
 import { NodeStageStatus } from './model/NodeStageStatus';
@@ -484,6 +489,9 @@ import { Taint } from './model/Taint';
 import { TaskStatus } from './model/TaskStatus';
 import { TaskType } from './model/TaskType';
 import { Templatespec } from './model/Templatespec';
+import { UnlockNodeScaledownRequestBody } from './model/UnlockNodeScaledownRequestBody';
+import { UnlockNodepoolNodeScaleDownRequest } from './model/UnlockNodepoolNodeScaleDownRequest';
+import { UnlockNodepoolNodeScaleDownResponse } from './model/UnlockNodepoolNodeScaleDownResponse';
 import { UpdateAddonInstanceRequest } from './model/UpdateAddonInstanceRequest';
 import { UpdateAddonInstanceResponse } from './model/UpdateAddonInstanceResponse';
 import { UpdateAutopilotAddonInstanceRequest } from './model/UpdateAutopilotAddonInstanceRequest';
@@ -1494,6 +1502,27 @@ export class CceClient {
     }
 
     /**
+     * 该API用于节点开启缩容保护，开启缩容保护的节点无法通过修改节点池个数的方式被缩容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 节点开启缩容保护。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {LockNodeScaledownRequestBody} lockNodeScaledownRequestBody 节点开启缩容保护的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public lockNodepoolNodeScaleDown(lockNodepoolNodeScaleDownRequest?: LockNodepoolNodeScaleDownRequest): Promise<LockNodepoolNodeScaleDownResponse> {
+        const options = ParamCreater().lockNodepoolNodeScaleDown(lockNodepoolNodeScaleDownRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于在指定集群下迁移节点到另一集群。
      * 
      * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -2170,6 +2199,27 @@ export class CceClient {
      */
     public syncNode(syncNodeRequest?: SyncNodeRequest): Promise<SyncNodeResponse> {
         const options = ParamCreater().syncNode(syncNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于节点关闭缩容保护，关闭缩容保护的节点可以通过修改节点池个数的方式被缩容，只允许按需节点关闭缩容保护。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 节点关闭缩容保护。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {UnlockNodeScaledownRequestBody} unlockNodeScaledownRequestBody 节点关闭缩容保护的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unlockNodepoolNodeScaleDown(unlockNodepoolNodeScaleDownRequest?: UnlockNodepoolNodeScaleDownRequest): Promise<UnlockNodepoolNodeScaleDownResponse> {
+        const options = ParamCreater().unlockNodepoolNodeScaleDown(unlockNodepoolNodeScaleDownRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5818,6 +5868,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于节点开启缩容保护，开启缩容保护的节点无法通过修改节点池个数的方式被缩容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        lockNodepoolNodeScaleDown(lockNodepoolNodeScaleDownRequest?: LockNodepoolNodeScaleDownRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/locknodescaledown",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (lockNodepoolNodeScaleDownRequest !== null && lockNodepoolNodeScaleDownRequest !== undefined) {
+                if (lockNodepoolNodeScaleDownRequest instanceof LockNodepoolNodeScaleDownRequest) {
+                    clusterId = lockNodepoolNodeScaleDownRequest.clusterId;
+                    contentType = lockNodepoolNodeScaleDownRequest.contentType;
+                    body = lockNodepoolNodeScaleDownRequest.body
+                } else {
+                    clusterId = lockNodepoolNodeScaleDownRequest['cluster_id'];
+                    contentType = lockNodepoolNodeScaleDownRequest['Content-Type'];
+                    body = lockNodepoolNodeScaleDownRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling lockNodepoolNodeScaleDown.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于在指定集群下迁移节点到另一集群。
          * 
          * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -7394,6 +7497,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于节点关闭缩容保护，关闭缩容保护的节点可以通过修改节点池个数的方式被缩容，只允许按需节点关闭缩容保护。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unlockNodepoolNodeScaleDown(unlockNodepoolNodeScaleDownRequest?: UnlockNodepoolNodeScaleDownRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/unlocknodescaledown",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (unlockNodepoolNodeScaleDownRequest !== null && unlockNodepoolNodeScaleDownRequest !== undefined) {
+                if (unlockNodepoolNodeScaleDownRequest instanceof UnlockNodepoolNodeScaleDownRequest) {
+                    clusterId = unlockNodepoolNodeScaleDownRequest.clusterId;
+                    contentType = unlockNodepoolNodeScaleDownRequest.contentType;
+                    body = unlockNodepoolNodeScaleDownRequest.body
+                } else {
+                    clusterId = unlockNodepoolNodeScaleDownRequest['cluster_id'];
+                    contentType = unlockNodepoolNodeScaleDownRequest['Content-Type'];
+                    body = unlockNodepoolNodeScaleDownRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling unlockNodepoolNodeScaleDown.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -155,6 +155,8 @@ export * from './model/Quotas';
 export * from './model/RemoveVpnUserFromGroupRequestBody';
 export * from './model/RemoveVpnUsersFromGroupRequest';
 export * from './model/RemoveVpnUsersFromGroupResponse';
+export * from './model/ResetVpnConnectionRequest';
+export * from './model/ResetVpnConnectionResponse';
 export * from './model/ResetVpnUserPasswordRequest';
 export * from './model/ResetVpnUserPasswordRequestBody';
 export * from './model/ResetVpnUserPasswordResponse';

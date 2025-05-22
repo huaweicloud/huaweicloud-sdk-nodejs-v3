@@ -3,6 +3,8 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionInfo } from './model/ActionInfo';
+import { ActionItemVo } from './model/ActionItemVo';
+import { ActionSubItemVo } from './model/ActionSubItemVo';
 import { AddQueueUserListRequest } from './model/AddQueueUserListRequest';
 import { AddQueueUserListResponse } from './model/AddQueueUserListResponse';
 import { AddSnapshotCrossRegionPolicyRequest } from './model/AddSnapshotCrossRegionPolicyRequest';
@@ -12,6 +14,8 @@ import { AddWorkloadPlanStageRequest } from './model/AddWorkloadPlanStageRequest
 import { AddWorkloadPlanStageResponse } from './model/AddWorkloadPlanStageResponse';
 import { AddWorkloadQueueRequest } from './model/AddWorkloadQueueRequest';
 import { AddWorkloadQueueResponse } from './model/AddWorkloadQueueResponse';
+import { AddWorkloadRuleRequest } from './model/AddWorkloadRuleRequest';
+import { AddWorkloadRuleResponse } from './model/AddWorkloadRuleResponse';
 import { AlarmConfigResponse } from './model/AlarmConfigResponse';
 import { AlarmDetailResponse } from './model/AlarmDetailResponse';
 import { AlarmStatisticResponse } from './model/AlarmStatisticResponse';
@@ -40,6 +44,7 @@ import { BatchDeleteResourceTag } from './model/BatchDeleteResourceTag';
 import { BatchDeleteResourceTagRequest } from './model/BatchDeleteResourceTagRequest';
 import { BatchDeleteResourceTagResponse } from './model/BatchDeleteResourceTagResponse';
 import { BatchDeleteResourceTags } from './model/BatchDeleteResourceTags';
+import { BucketSplitInfo } from './model/BucketSplitInfo';
 import { CancelReadonlyClusterRequest } from './model/CancelReadonlyClusterRequest';
 import { CancelReadonlyClusterResponse } from './model/CancelReadonlyClusterResponse';
 import { ChangeSecurityGroupRequest } from './model/ChangeSecurityGroupRequest';
@@ -47,8 +52,12 @@ import { ChangeSecurityGroupRequestBody } from './model/ChangeSecurityGroupReque
 import { ChangeSecurityGroupResponse } from './model/ChangeSecurityGroupResponse';
 import { CheckClusterRequest } from './model/CheckClusterRequest';
 import { CheckClusterResponse } from './model/CheckClusterResponse';
+import { CheckClusterShrinkRequest } from './model/CheckClusterShrinkRequest';
+import { CheckClusterShrinkResponse } from './model/CheckClusterShrinkResponse';
 import { CheckDisasterNameRequest } from './model/CheckDisasterNameRequest';
 import { CheckDisasterNameResponse } from './model/CheckDisasterNameResponse';
+import { CheckGrowClusterRequest } from './model/CheckGrowClusterRequest';
+import { CheckGrowClusterResponse } from './model/CheckGrowClusterResponse';
 import { CheckTableNameResult } from './model/CheckTableNameResult';
 import { CheckTableRestoreRequest } from './model/CheckTableRestoreRequest';
 import { CheckTableRestoreRequestBody } from './model/CheckTableRestoreRequestBody';
@@ -65,11 +74,14 @@ import { ClusterFlavorDetailInfo } from './model/ClusterFlavorDetailInfo';
 import { ClusterFlavorResp } from './model/ClusterFlavorResp';
 import { ClusterInfo } from './model/ClusterInfo';
 import { ClusterMetric } from './model/ClusterMetric';
+import { ClusterNameReq } from './model/ClusterNameReq';
 import { ClusterNodeInfo } from './model/ClusterNodeInfo';
 import { ClusterRecoveryProgress } from './model/ClusterRecoveryProgress';
 import { ClusterRing } from './model/ClusterRing';
+import { ClusterRingVo } from './model/ClusterRingVo';
 import { ClusterShrinkReq } from './model/ClusterShrinkReq';
 import { ClusterSnapshots } from './model/ClusterSnapshots';
+import { ClusterTimezoneReq } from './model/ClusterTimezoneReq';
 import { ClusterUpdateRecordResp } from './model/ClusterUpdateRecordResp';
 import { CompatibleConfigurationResp } from './model/CompatibleConfigurationResp';
 import { CompatibleDataStoreResp } from './model/CompatibleDataStoreResp';
@@ -101,6 +113,8 @@ import { CreateClusterWorkloadRequest } from './model/CreateClusterWorkloadReque
 import { CreateClusterWorkloadResponse } from './model/CreateClusterWorkloadResponse';
 import { CreateDataSourceRequest } from './model/CreateDataSourceRequest';
 import { CreateDataSourceResponse } from './model/CreateDataSourceResponse';
+import { CreateDatabaseUserRequest } from './model/CreateDatabaseUserRequest';
+import { CreateDatabaseUserResponse } from './model/CreateDatabaseUserResponse';
 import { CreateDisasterRecovery } from './model/CreateDisasterRecovery';
 import { CreateDisasterRecoveryReq } from './model/CreateDisasterRecoveryReq';
 import { CreateDisasterRecoveryRequest } from './model/CreateDisasterRecoveryRequest';
@@ -140,6 +154,8 @@ import { DeleteClusterRequestBody } from './model/DeleteClusterRequestBody';
 import { DeleteClusterResponse } from './model/DeleteClusterResponse';
 import { DeleteDataSourceRequest } from './model/DeleteDataSourceRequest';
 import { DeleteDataSourceResponse } from './model/DeleteDataSourceResponse';
+import { DeleteDatabaseUserRequest } from './model/DeleteDatabaseUserRequest';
+import { DeleteDatabaseUserResponse } from './model/DeleteDatabaseUserResponse';
 import { DeleteDisasterRecoveryRequest } from './model/DeleteDisasterRecoveryRequest';
 import { DeleteDisasterRecoveryResponse } from './model/DeleteDisasterRecoveryResponse';
 import { DeleteDwsClusterRequest } from './model/DeleteDwsClusterRequest';
@@ -178,9 +194,11 @@ import { DisasterRecoveryCluster } from './model/DisasterRecoveryCluster';
 import { DisasterRecoveryClusterVo } from './model/DisasterRecoveryClusterVo';
 import { DisasterRecoveryId } from './model/DisasterRecoveryId';
 import { DisasterRecoveryQueryResp } from './model/DisasterRecoveryQueryResp';
+import { DiskInfoResponse } from './model/DiskInfoResponse';
 import { DiskResp } from './model/DiskResp';
 import { DssPool } from './model/DssPool';
 import { ElbResp } from './model/ElbResp';
+import { EmptyResponse } from './model/EmptyResponse';
 import { EnableLogicalClusterPlanRequest } from './model/EnableLogicalClusterPlanRequest';
 import { EnableLogicalClusterPlanResponse } from './model/EnableLogicalClusterPlanResponse';
 import { EnableLogicalClusterRequest } from './model/EnableLogicalClusterRequest';
@@ -188,30 +206,45 @@ import { EnableLogicalClusterRequestBody } from './model/EnableLogicalClusterReq
 import { EnableLogicalClusterResponse } from './model/EnableLogicalClusterResponse';
 import { EnableLtsLogsRequest } from './model/EnableLtsLogsRequest';
 import { EnableLtsLogsResponse } from './model/EnableLtsLogsResponse';
+import { EncryptCluster } from './model/EncryptCluster';
+import { EncryptClusterReq } from './model/EncryptClusterReq';
+import { EncryptClusterRequest } from './model/EncryptClusterRequest';
+import { EncryptClusterResponse } from './model/EncryptClusterResponse';
 import { Endpoints } from './model/Endpoints';
 import { EventResponse } from './model/EventResponse';
 import { EventSpecResponse } from './model/EventSpecResponse';
 import { EventSubRequest } from './model/EventSubRequest';
 import { EventSubUpdateRequest } from './model/EventSubUpdateRequest';
 import { EventSubscriptionResponse } from './model/EventSubscriptionResponse';
+import { ExceptRuleBo } from './model/ExceptRuleBo';
 import { ExecuteClusterUpgradeActionRequest } from './model/ExecuteClusterUpgradeActionRequest';
 import { ExecuteClusterUpgradeActionRequestBody } from './model/ExecuteClusterUpgradeActionRequestBody';
 import { ExecuteClusterUpgradeActionResponse } from './model/ExecuteClusterUpgradeActionResponse';
 import { ExecuteDatabaseOmUserActionRequest } from './model/ExecuteDatabaseOmUserActionRequest';
 import { ExecuteDatabaseOmUserActionResponse } from './model/ExecuteDatabaseOmUserActionResponse';
+import { ExecuteFlavorChangeRequest } from './model/ExecuteFlavorChangeRequest';
+import { ExecuteFlavorChangeResponse } from './model/ExecuteFlavorChangeResponse';
 import { ExecuteRedistributionClusterRequest } from './model/ExecuteRedistributionClusterRequest';
 import { ExecuteRedistributionClusterResponse } from './model/ExecuteRedistributionClusterResponse';
 import { ExpandInstanceStorage } from './model/ExpandInstanceStorage';
 import { ExpandInstanceStorageRequest } from './model/ExpandInstanceStorageRequest';
 import { ExpandInstanceStorageResponse } from './model/ExpandInstanceStorageResponse';
+import { ExportDatabaseUsersRequest } from './model/ExportDatabaseUsersRequest';
+import { ExportDatabaseUsersResponse } from './model/ExportDatabaseUsersResponse';
+import { ExportUserAuthorityRequest } from './model/ExportUserAuthorityRequest';
+import { ExportUserAuthorityResponse } from './model/ExportUserAuthorityResponse';
 import { ExtDataSource } from './model/ExtDataSource';
 import { ExtDataSourceReq } from './model/ExtDataSourceReq';
 import { FailedReason } from './model/FailedReason';
 import { FineGrainedSnapshotDetail } from './model/FineGrainedSnapshotDetail';
 import { FlavorAttributeInfo } from './model/FlavorAttributeInfo';
+import { FlavorInfoResponse } from './model/FlavorInfoResponse';
 import { FlavorVolumeNodeInfo } from './model/FlavorVolumeNodeInfo';
 import { Grant } from './model/Grant';
+import { GrantAuthority } from './model/GrantAuthority';
+import { GrowCheckResult } from './model/GrowCheckResult';
 import { HostOverviewResponse } from './model/HostOverviewResponse';
+import { IdentitySourceSyncRecordVo } from './model/IdentitySourceSyncRecordVo';
 import { IndicatorInfo } from './model/IndicatorInfo';
 import { LinkCopyReq } from './model/LinkCopyReq';
 import { LinkResp } from './model/LinkResp';
@@ -229,6 +262,8 @@ import { ListAvailabilityZonesRequest } from './model/ListAvailabilityZonesReque
 import { ListAvailabilityZonesResponse } from './model/ListAvailabilityZonesResponse';
 import { ListAvailableDisasterClustersRequest } from './model/ListAvailableDisasterClustersRequest';
 import { ListAvailableDisasterClustersResponse } from './model/ListAvailableDisasterClustersResponse';
+import { ListClusterActionsRequest } from './model/ListClusterActionsRequest';
+import { ListClusterActionsResponse } from './model/ListClusterActionsResponse';
 import { ListClusterCnRequest } from './model/ListClusterCnRequest';
 import { ListClusterCnResponse } from './model/ListClusterCnResponse';
 import { ListClusterConfigurationsParameterRequest } from './model/ListClusterConfigurationsParameterRequest';
@@ -237,6 +272,8 @@ import { ListClusterConfigurationsRequest } from './model/ListClusterConfigurati
 import { ListClusterConfigurationsResponse } from './model/ListClusterConfigurationsResponse';
 import { ListClusterDetailsRequest } from './model/ListClusterDetailsRequest';
 import { ListClusterDetailsResponse } from './model/ListClusterDetailsResponse';
+import { ListClusterEndpointsRequest } from './model/ListClusterEndpointsRequest';
+import { ListClusterEndpointsResponse } from './model/ListClusterEndpointsResponse';
 import { ListClusterNodesRequest } from './model/ListClusterNodesRequest';
 import { ListClusterNodesResponse } from './model/ListClusterNodesResponse';
 import { ListClusterScaleInNumbersRequest } from './model/ListClusterScaleInNumbersRequest';
@@ -253,6 +290,8 @@ import { ListConfigurationsAuditRecordsRequest } from './model/ListConfiguration
 import { ListConfigurationsAuditRecordsResponse } from './model/ListConfigurationsAuditRecordsResponse';
 import { ListDataSourceRequest } from './model/ListDataSourceRequest';
 import { ListDataSourceResponse } from './model/ListDataSourceResponse';
+import { ListDatabaseUserAuthoritiesRequest } from './model/ListDatabaseUserAuthoritiesRequest';
+import { ListDatabaseUserAuthoritiesResponse } from './model/ListDatabaseUserAuthoritiesResponse';
 import { ListDatabaseUsersRequest } from './model/ListDatabaseUsersRequest';
 import { ListDatabaseUsersResponse } from './model/ListDatabaseUsersResponse';
 import { ListDisasterRecoverRequest } from './model/ListDisasterRecoverRequest';
@@ -308,6 +347,8 @@ import { ListQueriesResponse } from './model/ListQueriesResponse';
 import { ListQueriesStatus } from './model/ListQueriesStatus';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
+import { ListRedistributionSchemaRequest } from './model/ListRedistributionSchemaRequest';
+import { ListRedistributionSchemaResponse } from './model/ListRedistributionSchemaResponse';
 import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListSnapshotCrossRegionPolicyRequest } from './model/ListSnapshotCrossRegionPolicyRequest';
@@ -324,11 +365,17 @@ import { ListSnapshotsRequest } from './model/ListSnapshotsRequest';
 import { ListSnapshotsResponse } from './model/ListSnapshotsResponse';
 import { ListStatisticsRequest } from './model/ListStatisticsRequest';
 import { ListStatisticsResponse } from './model/ListStatisticsResponse';
+import { ListSyncRecordsRequest } from './model/ListSyncRecordsRequest';
+import { ListSyncRecordsResponse } from './model/ListSyncRecordsResponse';
 import { ListTablesStatisticDto } from './model/ListTablesStatisticDto';
 import { ListTablesStatisticRequest } from './model/ListTablesStatisticRequest';
 import { ListTablesStatisticResponse } from './model/ListTablesStatisticResponse';
+import { ListTagsForResourceRequest } from './model/ListTagsForResourceRequest';
+import { ListTagsForResourceResponse } from './model/ListTagsForResourceResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListTargetFlavorsRequest } from './model/ListTargetFlavorsRequest';
+import { ListTargetFlavorsResponse } from './model/ListTargetFlavorsResponse';
 import { ListTopoRingsRequest } from './model/ListTopoRingsRequest';
 import { ListTopoRingsResponse } from './model/ListTopoRingsResponse';
 import { ListUpdatableVersionRequest } from './model/ListUpdatableVersionRequest';
@@ -341,6 +388,8 @@ import { ListWorkloadQueueRequest } from './model/ListWorkloadQueueRequest';
 import { ListWorkloadQueueResponse } from './model/ListWorkloadQueueResponse';
 import { ListWorkloadQueueUsersRequest } from './model/ListWorkloadQueueUsersRequest';
 import { ListWorkloadQueueUsersResponse } from './model/ListWorkloadQueueUsersResponse';
+import { ListWorkloadRulesRequest } from './model/ListWorkloadRulesRequest';
+import { ListWorkloadRulesResponse } from './model/ListWorkloadRulesResponse';
 import { LogicalClusterInfo } from './model/LogicalClusterInfo';
 import { LogicalClusterPlanActions } from './model/LogicalClusterPlanActions';
 import { LogicalClusterPlanActionsParam } from './model/LogicalClusterPlanActionsParam';
@@ -353,6 +402,10 @@ import { LtslogInfo } from './model/LtslogInfo';
 import { MaintainWindow } from './model/MaintainWindow';
 import { MaintenanceWindow } from './model/MaintenanceWindow';
 import { ModifyClusterDns } from './model/ModifyClusterDns';
+import { ModifyClusterNameRequest } from './model/ModifyClusterNameRequest';
+import { ModifyClusterNameResponse } from './model/ModifyClusterNameResponse';
+import { ModifyClusterTimezoneRequest } from './model/ModifyClusterTimezoneRequest';
+import { ModifyClusterTimezoneResponse } from './model/ModifyClusterTimezoneResponse';
 import { NetResp } from './model/NetResp';
 import { NodeTypeAvailableZones } from './model/NodeTypeAvailableZones';
 import { NodeTypeDatastores } from './model/NodeTypeDatastores';
@@ -360,6 +413,7 @@ import { NodeTypeDatastoresAttachments } from './model/NodeTypeDatastoresAttachm
 import { NodeTypeElasticVolumeSpecs } from './model/NodeTypeElasticVolumeSpecs';
 import { NodeTypes } from './model/NodeTypes';
 import { Nodes } from './model/Nodes';
+import { NoteInfo } from './model/NoteInfo';
 import { ObjectAuthority } from './model/ObjectAuthority';
 import { OccupyResource } from './model/OccupyResource';
 import { OpenPublicIp } from './model/OpenPublicIp';
@@ -368,9 +422,12 @@ import { PauseDisasterRecoveryRequest } from './model/PauseDisasterRecoveryReque
 import { PauseDisasterRecoveryResponse } from './model/PauseDisasterRecoveryResponse';
 import { PlanLog } from './model/PlanLog';
 import { PlanStage } from './model/PlanStage';
+import { PrivateEndpointResponse } from './model/PrivateEndpointResponse';
 import { ProjectTag } from './model/ProjectTag';
+import { PublicEndpointResponse } from './model/PublicEndpointResponse';
 import { PublicEndpoints } from './model/PublicEndpoints';
 import { PublicIp } from './model/PublicIp';
+import { PublicIpInfoResponse } from './model/PublicIpInfoResponse';
 import { QueueResourceItem } from './model/QueueResourceItem';
 import { QuotasQuotas } from './model/QuotasQuotas';
 import { QuotasResource } from './model/QuotasResource';
@@ -379,9 +436,13 @@ import { ReconfigureExtDataSourceAction } from './model/ReconfigureExtDataSource
 import { ReconfigureExtDataSourceActionReq } from './model/ReconfigureExtDataSourceActionReq';
 import { RedisConf } from './model/RedisConf';
 import { RedisConfReq } from './model/RedisConfReq';
+import { RedisPriorityConf } from './model/RedisPriorityConf';
+import { RedisPriorityTable } from './model/RedisPriorityTable';
 import { RedisProgress } from './model/RedisProgress';
+import { RedisSchema } from './model/RedisSchema';
 import { RedisTable } from './model/RedisTable';
 import { RedisTableDetail } from './model/RedisTableDetail';
+import { RedistributionConf } from './model/RedistributionConf';
 import { RedistributionReq } from './model/RedistributionReq';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordRequestBody } from './model/ResetPasswordRequestBody';
@@ -413,16 +474,28 @@ import { RestoreTableRequestBody } from './model/RestoreTableRequestBody';
 import { RestoreTableResponse } from './model/RestoreTableResponse';
 import { Revoke } from './model/Revoke';
 import { RingHost } from './model/RingHost';
+import { RingHostVo } from './model/RingHostVo';
 import { RoleAuthority } from './model/RoleAuthority';
+import { RotateKeyRequest } from './model/RotateKeyRequest';
+import { RotateKeyRequestBody } from './model/RotateKeyRequestBody';
+import { RotateKeyResponse } from './model/RotateKeyResponse';
 import { SaveClusterDescriptionInfoRequest } from './model/SaveClusterDescriptionInfoRequest';
 import { SaveClusterDescriptionInfoResponse } from './model/SaveClusterDescriptionInfoResponse';
 import { ScaleOut } from './model/ScaleOut';
 import { ScheduleConf } from './model/ScheduleConf';
 import { SchemaInfo } from './model/SchemaInfo';
+import { SetRedistributionPriorityRequest } from './model/SetRedistributionPriorityRequest';
+import { SetRedistributionPriorityResponse } from './model/SetRedistributionPriorityResponse';
+import { ShowClusterEncryptInfoRequest } from './model/ShowClusterEncryptInfoRequest';
+import { ShowClusterEncryptInfoResponse } from './model/ShowClusterEncryptInfoResponse';
 import { ShowClusterFlavorRequest } from './model/ShowClusterFlavorRequest';
 import { ShowClusterFlavorResponse } from './model/ShowClusterFlavorResponse';
 import { ShowClusterRedistributionRequest } from './model/ShowClusterRedistributionRequest';
 import { ShowClusterRedistributionResponse } from './model/ShowClusterRedistributionResponse';
+import { ShowClusterStorageExpandRangeRequest } from './model/ShowClusterStorageExpandRangeRequest';
+import { ShowClusterStorageExpandRangeResponse } from './model/ShowClusterStorageExpandRangeResponse';
+import { ShowClusterVolumeRequest } from './model/ShowClusterVolumeRequest';
+import { ShowClusterVolumeResponse } from './model/ShowClusterVolumeResponse';
 import { ShowClustersRequest } from './model/ShowClustersRequest';
 import { ShowClustersResponse } from './model/ShowClustersResponse';
 import { ShowDatabaseAuthorityRequest } from './model/ShowDatabaseAuthorityRequest';
@@ -449,6 +522,9 @@ import { ShowWorkloadQueueRequest } from './model/ShowWorkloadQueueRequest';
 import { ShowWorkloadQueueResponse } from './model/ShowWorkloadQueueResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
+import { ShrinkLogicalClusterRequest } from './model/ShrinkLogicalClusterRequest';
+import { ShrinkLogicalClusterRequestBody } from './model/ShrinkLogicalClusterRequestBody';
+import { ShrinkLogicalClusterResponse } from './model/ShrinkLogicalClusterResponse';
 import { SimpleFieldDto } from './model/SimpleFieldDto';
 import { Snapshot } from './model/Snapshot';
 import { SnapshotDetail } from './model/SnapshotDetail';
@@ -456,6 +532,7 @@ import { SnapshotRegion } from './model/SnapshotRegion';
 import { SnapshotResp } from './model/SnapshotResp';
 import { Snapshots } from './model/Snapshots';
 import { SnapshotsStatistic } from './model/SnapshotsStatistic';
+import { SpecResizeRequest } from './model/SpecResizeRequest';
 import { StartClusterRequest } from './model/StartClusterRequest';
 import { StartClusterResponse } from './model/StartClusterResponse';
 import { StartDisasterRecoveryRequest } from './model/StartDisasterRecoveryRequest';
@@ -517,8 +594,13 @@ import { UpdateMaintenanceWindowRequest } from './model/UpdateMaintenanceWindowR
 import { UpdateMaintenanceWindowResponse } from './model/UpdateMaintenanceWindowResponse';
 import { UpdateQueueResourcesRequest } from './model/UpdateQueueResourcesRequest';
 import { UpdateQueueResourcesResponse } from './model/UpdateQueueResourcesResponse';
+import { UpdateRedistributionConfigurationsRequest } from './model/UpdateRedistributionConfigurationsRequest';
+import { UpdateRedistributionConfigurationsResponse } from './model/UpdateRedistributionConfigurationsResponse';
 import { UpdateSchemasRequest } from './model/UpdateSchemasRequest';
 import { UpdateSchemasResponse } from './model/UpdateSchemasResponse';
+import { UpdateWorkloadPlanStageRequest } from './model/UpdateWorkloadPlanStageRequest';
+import { UpdateWorkloadPlanStageResponse } from './model/UpdateWorkloadPlanStageResponse';
+import { UserAuthorityReq } from './model/UserAuthorityReq';
 import { V2CreateCluster } from './model/V2CreateCluster';
 import { V2CreateClusterReq } from './model/V2CreateClusterReq';
 import { Volume } from './model/Volume';
@@ -564,9 +646,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加工作负载队列的绑定用户
-     * @param {string} clusterId 集群ID
-     * @param {string} queueName 队列名称
-     * @param {WorkloadQueueUserReq} addQueueUserListRequestBody 新增资源用户请求体
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} queueName **参数解释**： 队列名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadQueueUserReq} addQueueUserListRequestBody **参数解释**： 新增资源用户请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -580,7 +662,7 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于设置跨区域备份配置
+     * 该接口用于设置跨区域备份配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -604,9 +686,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加工作负载计划阶段
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
-     * @param {WorkloadPlanStageReq} addWorkloadPlanStageRequestBody 资源管理计划阶段
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadPlanStageReq} addWorkloadPlanStageRequestBody **参数解释**： 资源管理计划阶段。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -620,13 +702,13 @@ export class DwsClient {
     }
 
     /**
-     * 添加工作负载队列
+     * 添加工作负载队列。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加工作负载队列
-     * @param {string} clusterId 集群ID
-     * @param {WorkloadQueueReq} [workloadQueue] 工作负载队列
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {WorkloadQueueReq} [workloadQueue] **参数解释**： 工作负载队列请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -640,12 +722,31 @@ export class DwsClient {
     }
 
     /**
-     * 集群绑定Eip
+     * 添加异常规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加异常规则
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addWorkloadRule(addWorkloadRuleRequest?: AddWorkloadRuleRequest): Promise<AddWorkloadRuleResponse> {
+        const options = ParamCreater().addWorkloadRule(addWorkloadRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群绑定Eip。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群绑定EIP
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} eipId 未绑定的弹性IP的ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -660,12 +761,12 @@ export class DwsClient {
     }
 
     /**
-     * 集群绑定Elb接口
+     * 集群绑定Elb接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群绑定ELB
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} elbId 未绑定的弹性负载均衡ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -688,8 +789,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量增加CN节点
-     * @param {string} clusterId 集群的ID。
-     * @param {BatchCreateCn} payload 增加CN节点任务完成，集群总CN数量。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {BatchCreateCn} payload **参数解释**： 增加CN节点任务完成，集群总CN数量。 **取值范围**： 非null。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -708,7 +809,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加标签
-     * @param {string} clusterId 集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {BatchCreateResourceTags} tags 标签列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -731,8 +832,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除CN节点
-     * @param {string} clusterId 集群的ID。
-     * @param {BatchDeleteCn} instances 批量删除CN节点列表。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {BatchDeleteCn} instances **参数解释**： 批量删除CN节点列表。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -751,7 +852,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除标签
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {BatchDeleteResourceTags} tags 标签列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -766,13 +867,12 @@ export class DwsClient {
     }
 
     /**
-     * 当集群进入只读状态时，无法进行数据库相关操作，用户可以在管理控制台解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要对集群数据进行清理或扩容。
-     * - 解除只读支持1.7.2及以上版本。
+     * 当集群进入只读状态时，无法进行数据库相关操作，用户可以在管理控制台解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要对集群数据进行清理或扩容。 - 解除只读支持1.7.2及以上版本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解除只读
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -786,13 +886,13 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于修改集群安全组
+     * 该接口用于修改集群安全组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改集群安全组
-     * @param {string} clusterId 集群ID
-     * @param {ChangeSecurityGroupRequestBody} changeSecurityGroupRequestBody 安全组请求体
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ChangeSecurityGroupRequestBody} changeSecurityGroupRequestBody **参数解释**： 安全组请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -806,17 +906,38 @@ export class DwsClient {
     }
 
     /**
-     * 创建集群前预检查
+     * 创建集群前预检查，提前识别子网不足、配额不足等问题，避免发起创建集群请求后创建失败。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建集群前检查
-     * @param {ClusterCheckRequestBody} cluster 创建集群校验请求体
+     * @param {ClusterCheckRequestBody} cluster **参数解释**： 创建集群校验请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public checkCluster(checkClusterRequest?: CheckClusterRequest): Promise<CheckClusterResponse> {
         const options = ParamCreater().checkCluster(checkClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 缩容前检查，确保缩容前、缩容后均满足正常操作要求。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群缩容前检查
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} checkItem **参数解释**： 检查项，取值当前仅包含3种。 **约束限制**： 不涉及。 **取值范围**： guc：检查当前guc参数是否满足缩容条件； schema：检查所有schema下有无影响缩容的表； disk：检查缩容后磁盘容量是否满足要求。 **默认取值**： 不涉及。
+     * @param {number} shrinkCount **参数解释**： 待缩容节点数。 **约束限制**： 不涉及。 **取值范围**： 最小值为3，最大值为当前节点总数减3。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkClusterShrink(checkClusterShrinkRequest?: CheckClusterShrinkRequest): Promise<CheckClusterShrinkResponse> {
+        const options = ParamCreater().checkClusterShrink(checkClusterShrinkRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -847,7 +968,27 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于用户恢复表名检测
+     * 此接口用于集群扩容前检查，提前识别子网不足、权限不足等问题导致的扩容失败。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群扩容前检查
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ResizeClusterRequestBody} checkGrowClusterRequestBody **参数解释**： 扩容/添加空闲节点操作请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkGrowCluster(checkGrowClusterRequest?: CheckGrowClusterRequest): Promise<CheckGrowClusterResponse> {
+        const options = ParamCreater().checkGrowCluster(checkGrowClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于用户恢复表名检测。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -867,13 +1008,13 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群-物理集群转换到逻辑集群
+     * 物理集群转换到逻辑集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 物理集群转换到逻辑集群
-     * @param {string} clusterId 集群ID
-     * @param {string} name 逻辑集群名称
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} name **参数解释**： 逻辑集群名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -907,7 +1048,7 @@ export class DwsClient {
     }
 
     /**
-     * 创建告警订阅
+     * 创建告警订阅。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -933,7 +1074,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建集群
-     * @param {CreateClusterRequestBody} createClusterRequestBody This is a auto create Body Object
+     * @param {CreateClusterRequestBody} createClusterRequestBody **参数解释**： 创建集群对象。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -952,7 +1093,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 申请域名
-     * @param {string} clusterId 集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {CreateClusterDns} dns 申请域名参数详情。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -973,8 +1114,8 @@ export class DwsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary V2创建集群
-     * @param {V2CreateClusterReq} v2CreateClusterReqBody This is a auto create Body Object
+     * @summary 创建集群V2
+     * @param {V2CreateClusterReq} v2CreateClusterReqBody **参数解释**： 创建集群对象。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -988,13 +1129,13 @@ export class DwsClient {
     }
 
     /**
-     * 设置资源管理。
+     * 打开或关闭资源管理功能，新集群默认是打开状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 设置资源管理
-     * @param {string} clusterId 集群ID
-     * @param {WorkloadStatusReq} [workloadStatus] 资源管理状态
+     * @summary 打开或关闭资源管理功能
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {WorkloadStatusReq} [workloadStatus] **参数解释**： 资源管理状态请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1013,13 +1154,33 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建数据源
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {ExtDataSourceReq} extDataSourceReq 数据源请求
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createDataSource(createDataSourceRequest?: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
         const options = ParamCreater().createDataSource(createDataSourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据库用户/角色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据库用户/角色
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {UserAuthorityReq} createDatabaseUserRequestBody **参数解释**： 创建数据库用户/角色请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDatabaseUser(createDatabaseUserRequest?: CreateDatabaseUserRequest): Promise<CreateDatabaseUserResponse> {
+        const options = ParamCreater().createDatabaseUser(createDatabaseUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1049,7 +1210,7 @@ export class DwsClient {
     }
 
     /**
-     * 添加订阅的事件
+     * 添加订阅的事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1068,13 +1229,13 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群-创建逻辑集群
+     * 创建逻辑集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建逻辑集群
-     * @param {string} clusterId 集群ID
-     * @param {CreateLogicalClusterRequestBody} createLogicalClusterRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {CreateLogicalClusterRequestBody} createLogicalClusterRequestBody **参数解释**： 创建逻辑集群对象。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1093,8 +1254,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加逻辑集群定时增删计划
-     * @param {string} clusterId 指定集群的ID
-     * @param {LogicalClusterPlanBo} createLogicalClusterPlanRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {LogicalClusterPlanBo} createLogicalClusterPlanRequestBody **参数解释**： 创建计划请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1132,7 +1293,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加快照策略
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {CreateSnapshotPolicyRequestBody} [req] 备份策略
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1147,13 +1308,13 @@ export class DwsClient {
     }
 
     /**
-     * 添加工作负载计划
+     * 添加工作负载计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加工作负载计划
-     * @param {string} clusterId 集群ID
-     * @param {WorkloadPlanReq} workloadPlan 资源管理计划
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {WorkloadPlanReq} workloadPlan **参数解释**： 资源管理计划请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1167,7 +1328,7 @@ export class DwsClient {
     }
 
     /**
-     * 删除订阅的告警
+     * 删除订阅的告警。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1191,8 +1352,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除集群
-     * @param {string} clusterId 指定待删除集群的ID
-     * @param {DeleteClusterRequestBody} deleteClusterRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {DeleteClusterRequestBody} deleteClusterRequestBody **参数解释**： 删除集群请求信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1211,7 +1372,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除集群域名
-     * @param {string} clusterId 集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} type 域名类型，支持删除公网域名。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1226,13 +1387,13 @@ export class DwsClient {
     }
 
     /**
-     * 此接口用于删除节点。
+     * 此接口用于删除空闲节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除节点
-     * @param {string} clusterId 指定待删除节点集群的ID
-     * @param {DeleteClusterNodesRequestBody} deleteClusterNodesRequestBody This is a auto create Body Object
+     * @summary 删除空闲节点
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {DeleteClusterNodesRequestBody} deleteClusterNodesRequestBody **参数解释**： 删除节点请求信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1251,13 +1412,34 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除数据源
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} extDataSourceId 数据源id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteDataSource(deleteDataSourceRequest?: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
         const options = ParamCreater().deleteDataSource(deleteDataSourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据库用户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据库用户
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} name **参数解释**： 数据库用户名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {boolean} [cascade] **参数解释**： 是否忽略大小写。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDatabaseUser(deleteDatabaseUserRequest?: DeleteDatabaseUserRequest): Promise<DeleteDatabaseUserResponse> {
+        const options = ParamCreater().deleteDatabaseUser(deleteDatabaseUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1274,7 +1456,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除容灾
-     * @param {string} disasterRecoveryId 集群的ID
+     * @param {string} disasterRecoveryId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1293,9 +1475,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除集群V2
-     * @param {string} clusterId 集群ID
-     * @param {string} [keepLastManualBackup] 集群需要保留的快照数
-     * @param {string} [releaseEipType] 集群是否释放弹性公网IP，默认是NO_RELEASE不释放绑定的弹性公网IP，RELEASE_BINDING释放绑定的弹性公网IP
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} [keepLastManualBackup] **参数解释**： 集群需要保留的快照数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [releaseEipType] **参数解释**： 集群是否释放弹性公网IP，默认是NO_RELEASE，不释放绑定的弹性公网IP。 **约束限制**： 不涉及。 **取值范围**： NO_RELEASE：不释放绑定的弹性公网IP； RELEASE_BINDING：释放绑定的弹性公网IP； **默认取值**： NO_RELEASE
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1309,7 +1491,7 @@ export class DwsClient {
     }
 
     /**
-     * 删除订阅的事件
+     * 删除订阅的事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1333,8 +1515,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除逻辑集群
-     * @param {string} clusterId 指定待删除集群的ID
-     * @param {string} logicalClusterId 指定待删除逻辑集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} logicalClusterId **参数解释**： 指定待删除逻辑集群的ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1353,8 +1535,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除逻辑集群定时增删计划
-     * @param {string} clusterId 指定待删除集群的ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1373,9 +1555,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除工作负载队列的绑定用户
-     * @param {string} clusterId 集群ID
-     * @param {string} queueName 队列名称
-     * @param {WorkloadQueueUserReq} deleteQueueUserListRequestBody 删除资源队列用户请求体
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} queueName **参数解释**： 队列名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadQueueUserReq} deleteQueueUserListRequestBody **参数解释**： 删除资源队列用户请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1408,12 +1590,12 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于删除跨区域备份配置
+     * 该接口用于删除跨区域备份配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除跨区域备份配置
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1432,7 +1614,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除快照策略
-     * @param {string} clusterId 集群ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} id 快照策略ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1447,13 +1629,13 @@ export class DwsClient {
     }
 
     /**
-     * 删除工作负载计划
+     * 删除工作负载计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除工作负载计划
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1472,9 +1654,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除工作负载计划阶段
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
-     * @param {string} stageId 计划阶段ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} stageId **参数解释**： 计划阶段ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1493,9 +1675,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源池
-     * @param {string} clusterId 集群ID。
-     * @param {string} workloadQueueName 工作负载队列名称。
-     * @param {string} [logicalClusterName] 逻辑集群名称。逻辑集群模式下该字段必填。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} workloadQueueName **参数解释**： 工作负载队列名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [logicalClusterName] **参数解释**： 逻辑集群名称。逻辑集群模式下该字段必填。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1509,13 +1691,13 @@ export class DwsClient {
     }
 
     /**
-     * 停用逻辑集群定时增删计划
+     * 停用逻辑集群定时增删计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停用逻辑集群定时增删计划
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 增删计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1529,12 +1711,12 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于关闭集群LTS云日志服务
+     * 该接口用于关闭集群LTS云日志服务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭云服务日志
-     * @param {string} clusterId 集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1548,12 +1730,12 @@ export class DwsClient {
     }
 
     /**
-     * 集群解绑Eip
+     * 集群解绑Eip。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群解绑EIP
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} eipId 集群绑定的弹性IP
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1568,12 +1750,12 @@ export class DwsClient {
     }
 
     /**
-     * 集群解绑Elb接口
+     * 集群解绑Elb接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群解绑ELB
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} elbId 集群已绑定的弹性负载均衡ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1593,8 +1775,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换逻辑集群开关
-     * @param {string} clusterId 指定集群的ID
-     * @param {EnableLogicalClusterRequestBody} enableLogicalClusterRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {EnableLogicalClusterRequestBody} enableLogicalClusterRequestBody **参数解释**： 切换开关请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1608,13 +1790,13 @@ export class DwsClient {
     }
 
     /**
-     * 启用逻辑集群定时增删计划
+     * 启用逻辑集群定时增删计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启用逻辑集群定时增删计划
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 增删计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1628,12 +1810,12 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于开启集群LTS云日志服务
+     * 该接口用于开启集群LTS云日志服务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启云服务日志
-     * @param {string} clusterId 集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1647,12 +1829,35 @@ export class DwsClient {
     }
 
     /**
-     * 下发集群升级相关操作
+     * 转加密集群。
+     * **约束限制**：
+     * 转加密集群起始支持版本：8.0.0
+     * 转加密集群guestAgent起始支持版本：8.3.0.200
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 转加密集群
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {EncryptClusterReq} encryptClusterRequestBody **参数解释**： 转加密集群请求体。 **约束限制**： 非空。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public encryptCluster(encryptClusterRequest?: EncryptClusterRequest): Promise<EncryptClusterResponse> {
+        const options = ParamCreater().encryptCluster(encryptClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下发集群升级相关操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下发集群升级相关操作
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {ExecuteClusterUpgradeActionRequestBody} executeClusterUpgradeActionRequestBody 下发升级传递body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1667,18 +1872,40 @@ export class DwsClient {
     }
 
     /**
-     * 进行数据库运维账户操作
+     * 进行数据库运维账户操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 执行运维用户操作
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {DatabaseOmUserActionReq} executeDatabaseOmUserActionRequestBody 操作类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public executeDatabaseOmUserAction(executeDatabaseOmUserActionRequest?: ExecuteDatabaseOmUserActionRequest): Promise<ExecuteDatabaseOmUserActionResponse> {
         const options = ParamCreater().executeDatabaseOmUserAction(executeDatabaseOmUserActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 执行规格变更。
+     * **约束限制**：
+     * 包周期集群暂不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行规格变更
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {SpecResizeRequest} executeFlavorChangeRequestBody **参数解释**： 规格变更请求信息。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeFlavorChange(executeFlavorChangeRequest?: ExecuteFlavorChangeRequest): Promise<ExecuteFlavorChangeResponse> {
+        const options = ParamCreater().executeFlavorChange(executeFlavorChangeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1697,8 +1924,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下发重分布
-     * @param {string} clusterId 集群ID
-     * @param {RedistributionReq} redistributionReq 重分布请求
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {RedistributionReq} redistributionReq **参数解释**： 重分布请求。 **约束限制**： 重分布模式参数必传，建议offline。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1712,15 +1939,15 @@ export class DwsClient {
     }
 
     /**
-     * 随着客户业务的发展，磁盘空间往往最先出现资源瓶颈，在其他资源尚且充足的情况下，通过磁盘扩容可快速缓解存储资源瓶颈现象，操作过程中无需暂停业务，并且不会造成CPU、内存等资源浪费。
-     * - 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。
+     * 随着客户业务的发展，磁盘空间往往最先出现资源瓶颈，在其他资源尚且充足的情况下，通过磁盘扩容可快速缓解存储资源瓶颈现象，操作过程中无需暂停业务，并且不会造成CPU、内存等资源浪费。  
+     * - 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。  
      * - 按需+折扣套餐包消费模式下，存储扩容后超出折扣套餐包部分将按需收费。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 磁盘扩容
-     * @param {string} clusterId 集群的ID。
-     * @param {ExpandInstanceStorage} payload 磁盘扩容后单节点有效存储容量（GB / 节点）。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ExpandInstanceStorage} payload **参数解释**： 磁盘扩容后单节点有效存储容量（GB / 节点）。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1734,13 +1961,57 @@ export class DwsClient {
     }
 
     /**
-     * 查询告警配置
+     * 导出数据库用户/角色，接口返回的是输出流，xlsx文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出数据库用户/角色
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10000
+     * @param {string} [type] **参数解释**： 类型。 **约束限制**： 不涉及。 **取值范围**： ROLE：导出角色 USER：导出用户 **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportDatabaseUsers(exportDatabaseUsersRequest?: ExportDatabaseUsersRequest): Promise<ExportDatabaseUsersResponse> {
+        const options = ParamCreater().exportDatabaseUsers(exportDatabaseUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导出数据库用户/角色的权限列表，接口返回的是输出流，xlsx文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出数据库用户/角色的权限
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} name **参数解释**： 数据库用户/角色名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10000
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10000
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportUserAuthority(exportUserAuthorityRequest?: ExportUserAuthorityRequest): Promise<ExportUserAuthorityResponse> {
+        const options = ParamCreater().exportUserAuthority(exportUserAuthorityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警配置
-     * @param {string} [offset] 偏移量
-     * @param {string} [limit] 限制条目数
+     * @param {string} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1754,14 +2025,14 @@ export class DwsClient {
     }
 
     /**
-     * 查询告警详情列表
+     * 查询告警详情列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警详情列表
      * @param {string} timeZone 时区
-     * @param {string} [offset] 当前页
-     * @param {string} [limit] 总页数
+     * @param {string} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1775,7 +2046,7 @@ export class DwsClient {
     }
 
     /**
-     * 查询告警统计
+     * 查询告警统计。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1794,13 +2065,13 @@ export class DwsClient {
     }
 
     /**
-     * 查询订阅告警
+     * 查询订阅告警。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警订阅列表
-     * @param {string} [offset] 偏移量
-     * @param {string} [limit] 限制条目数
+     * @param {string} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1819,7 +2090,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询日志记录
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1878,12 +2149,32 @@ export class DwsClient {
     }
 
     /**
+     * 查询集群任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群任务详情
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} actionName **参数解释**： 任务名称。当前仅部分任务在操作中阶段支持查看任务详情。 **约束限制**： 不涉及。 **取值范围**： GROWING、RESIZE_FAILURE、RESTORING、RESTORING_FAILED、SNAPSHOTTING、SNAPSHOTTING_FAILED、FINE_GRAINED_RESTORING、FINE_GRAINED_RESTORING_FAILED **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterActions(listClusterActionsRequest?: ListClusterActionsRequest): Promise<ListClusterActionsResponse> {
+        const options = ParamCreater().listClusterActions(listClusterActionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询集群的CN节点列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群CN节点
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1902,7 +2193,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群参数组
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1921,7 +2212,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群参数配置
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} configurationId 参数组ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1941,7 +2232,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群详情
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1955,20 +2246,39 @@ export class DwsClient {
     }
 
     /**
-     * 查询节点列表
+     * 查询连接信息。包括公网域名、内网域名等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询连接信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterEndpoints(listClusterEndpointsRequest?: ListClusterEndpointsRequest): Promise<ListClusterEndpointsResponse> {
+        const options = ParamCreater().listClusterEndpoints(listClusterEndpointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询节点列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询节点列表
-     * @param {string} clusterId 集群ID
-     * @param {string} [deleted] 是否被删除，true/false
-     * @param {Array<string>} [nodeIds] 节点ID列表
-     * @param {number} [offset] 分页查询，偏移
-     * @param {number} [limit] 分页查询，每页显示的条目数量
-     * @param {string} [filterBy] 过滤字段
-     * @param {string} [filter] 过滤字段内容
-     * @param {string} [orderBy] 排序字段
-     * @param {string} [order] 排序：升序/降序
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {Array<string>} [nodeIds] **参数解释**： 节点ID列表。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： null
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页查询，每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
+     * @param {string} [filterBy] **参数解释**： 过滤字段。 **约束限制**： 不涉及。 **取值范围**： instCreateType：根据资源状态过滤 status：根据节点状态过滤 **默认取值**： null
+     * @param {string} [filter] **参数解释**： 过滤字段内容。 **约束限制**： 不涉及。 **取值范围**： 当根据资源状态过滤时，可选如下值： - ALL：全部 - INST：已使用 - NODE：空虚 当根据节点状态过滤时，可选如下值： - ALL：全部 - CREATING：创建中 - FREE：空闲 - ACTIVE：可用 - FAILED：不可用 - UNKNOWN：未知 - CREATE_FAILED：创建失败 - DELETING：删除中 - DELETE_FAILED：删除失败 **默认取值**： null
+     * @param {string} [orderBy] **参数解释**： 排序字段。默认无序返回。 **约束限制**： 不涉及。 **取值范围**： name：根据名称过滤 **默认取值**： null
+     * @param {string} [order] **参数解释**： 排序：升序/降序。 **约束限制**： 不涉及。 **取值范围**： asc：升序 desc：降序 **默认取值**： null
+     * @param {string} [deleted] **参数解释**： 是否被删除，字段已废弃。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： null
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1982,12 +2292,12 @@ export class DwsClient {
     }
 
     /**
-     * 查询合适的缩容数
+     * 查询合适的缩容数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询合适的缩容数
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2006,9 +2316,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群快照列表
-     * @param {string} clusterId 集群ID
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {string} [sortKey] 排序字段
      * @param {string} [sortDir] 排序规则
      * @param {*} [options] Override http request option.
@@ -2029,7 +2339,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群标签
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2048,7 +2358,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源管理
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2062,12 +2372,12 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于查询并显示集群列表
+     * 该接口用于查询并显示集群列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群列表
-     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有绑定eps集群，值为all_granted_eps
+     * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。查询所有绑定eps集群，则值为all_granted_eps。 **约束限制**： 不涉及。 **取值范围**： all_granted_eps、0等，0表示默认默认企业项目“default”的ID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2081,17 +2391,17 @@ export class DwsClient {
     }
 
     /**
-     * 查询参数修改审计记录
+     * 查询参数修改审计记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询参数修改审计记录
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {number} [actionTime] 任务时间
      * @param {string} [filterBy] 过滤配置信息
      * @param {string} [filter] 过滤条件
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2110,7 +2420,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据源
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2124,7 +2434,29 @@ export class DwsClient {
     }
 
     /**
-     * 查询所有数据库用户/角色
+     * 查询用户/角色拥有权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户/角色拥有权限
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} name **参数解释**： 用户名、角色名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 1000
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDatabaseUserAuthorities(listDatabaseUserAuthoritiesRequest?: ListDatabaseUserAuthoritiesRequest): Promise<ListDatabaseUserAuthoritiesResponse> {
+        const options = ParamCreater().listDatabaseUserAuthorities(listDatabaseUserAuthoritiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有数据库用户/角色。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2180,12 +2512,12 @@ export class DwsClient {
     }
 
     /**
-     * 查询集群可以关联的Elb列表
+     * 查询集群可以关联的Elb列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群可绑定的ELB列表
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2199,7 +2531,7 @@ export class DwsClient {
     }
 
     /**
-     * 查询事件配置
+     * 查询事件配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2209,8 +2541,8 @@ export class DwsClient {
      * @param {string} [severity] 事件级别
      * @param {string} [sourceType] 事件源类别
      * @param {string} [tag] 事件标签
-     * @param {string} [offset] 偏移量
-     * @param {string} [limit] 限制条目数
+     * @param {string} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2224,13 +2556,13 @@ export class DwsClient {
     }
 
     /**
-     * 查询订阅的事件
+     * 查询订阅的事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询订阅事件
-     * @param {string} [offset] 偏移量
-     * @param {string} [limit] 限制条目数
+     * @param {string} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2244,13 +2576,13 @@ export class DwsClient {
     }
 
     /**
-     * 查询事件列表
+     * 查询事件列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询事件列表
-     * @param {string} [offset] 偏移量
-     * @param {string} [limit] 限制条目数
+     * @param {string} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2264,16 +2596,16 @@ export class DwsClient {
     }
 
     /**
-     * openApi查询磁盘信息
+     * openApi查询磁盘信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary openApi查询磁盘信息
-     * @param {number} limit 数据条目数。
-     * @param {number} offset 数据偏移量。
-     * @param {string} [clusterId] 集群ID。获取方法，请参见9.6-获取集群ID。
+     * @param {string} [clusterId] **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} [instanceId] 实例ID。
      * @param {string} [instanceName] 实例名称。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2287,15 +2619,15 @@ export class DwsClient {
     }
 
     /**
-     * openapi获取网卡状态
+     * openapi获取网卡状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary openapi获取网卡状态
-     * @param {number} limit 数据条目数。
-     * @param {number} offset 数据偏移量。
-     * @param {string} [clusterId] 集群ID。获取方法，请参见9.6-获取集群ID。
+     * @param {string} [clusterId] **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} [instanceName] 实例名称。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2309,14 +2641,14 @@ export class DwsClient {
     }
 
     /**
-     * openApi查询主机概览
+     * openApi查询主机概览。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary openApi查询主机概览
-     * @param {number} limit 数据条目数。
-     * @param {number} offset 数据偏移量。
-     * @param {string} [clusterId] 集群ID。获取方法，请参见9.6-获取集群ID。
+     * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
+     * @param {number} offset **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {string} [clusterId] **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} [instanceName] 实例名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2331,11 +2663,11 @@ export class DwsClient {
     }
 
     /**
-     * 查询job进度信息
+     * 查询任务进度信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询job进度
+     * @summary 查询任务进度
      * @param {string} jobId 任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2355,7 +2687,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询逻辑集群定时增删计划
-     * @param {string} clusterId 指定集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2369,14 +2701,14 @@ export class DwsClient {
     }
 
     /**
-     * 查询逻辑集群可用ring环节点信息
+     * 查询逻辑集群可用ring环节点信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询逻辑集群可用ring环节点信息
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 分页查询，偏移
-     * @param {number} [limit] 分页查询，每页显示的条目数量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2390,18 +2722,18 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群-查询逻辑集群任务信息
+     * 查询逻辑集群任务信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询逻辑集群任务信息
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 分页查询，偏移
-     * @param {number} [limit] 分页查询，每页显示的条目数量
-     * @param {string} [logicalClusterName] 集群名称
-     * @param {string} [type] 类型
-     * @param {string} [orderBy] 排序字段
-     * @param {string} [order] 排序：升序/降序
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {string} [logicalClusterName] **参数解释**： 集群名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [type] **参数解释**： 类型。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [orderBy] **参数解释**： 排序字段。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [order] **参数解释**： 排序：升序/降序。 **约束限制**： 不涉及。 **取值范围**： ASC：表示按升序排序。 DESC：表示按降序排序。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2415,14 +2747,14 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群-查询逻辑集群磁盘信息
+     * 查询逻辑集群磁盘信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询逻辑集群磁盘信息
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 分页查询，偏移
-     * @param {number} [limit] 分页查询，每页显示的条目数量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2436,14 +2768,14 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群-查询逻辑集群列表
+     * 查询逻辑集群列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询逻辑集群列表
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 分页查询，偏移
-     * @param {number} [limit] 分页查询，每页显示的条目数量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2462,9 +2794,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取LTS日志列表
-     * @param {string} clusterId 集群ID
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2478,14 +2810,14 @@ export class DwsClient {
     }
 
     /**
-     * 查询集群使用指标列表
+     * 查询集群使用指标列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群使用指标列表
-     * @param {string} clusterId 集群ID
-     * @param {number} offset 偏移量，表示从此偏移量开始查询，offset&gt;&#x3D;0。
-     * @param {number} limit 每页显示的条目数量，最大1000。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} offset **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0，最大1000。 **默认取值**： 不限制。
      * @param {string} [orderBy] 排序字段。固定取值。 create_time：创建时间。
      * @param {string} [sortBy] 正序还是倒叙。固定取值。 asc：正序。 desc：倒序。
      * @param {*} [options] Override http request option.
@@ -2501,15 +2833,15 @@ export class DwsClient {
     }
 
     /**
-     * 获取指定指标相关采集数据
+     * 获取指定指标相关采集数据。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定指标相关采集数据
-     * @param {string} clusterId 集群ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} metricName 指标名称。
-     * @param {number} offset 偏移量，表示从此偏移量开始查询，offset&gt;&#x3D;0。
-     * @param {number} limit 每页显示的条目数量，最大1000。
+     * @param {number} offset **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0，最大1000。 **默认取值**： 不限制。
      * @param {number} from 采集开始时间，13位时间戳。
      * @param {number} to 采集结束时间，13位时间戳。开始时间到结束时间最多不超过一天。
      * @param {string} [orderBy] 排序字段。固定取值。 ctime：采集时间。
@@ -2527,7 +2859,7 @@ export class DwsClient {
     }
 
     /**
-     * openApi查询历史监控数据
+     * openApi查询历史监控数据。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2552,11 +2884,11 @@ export class DwsClient {
     }
 
     /**
-     * openApi查询性能监控指标
+     * 查询性能监控指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary openApi查询性能监控指标
+     * @summary 查询性能监控指标
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2570,11 +2902,11 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于查询所有GaussDB(DWS)服务支持的节点类型。
+     * 该接口用于查询所有GaussDB(DWS)服务支持的规格信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询节点类型
+     * @summary 查询规格信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2593,10 +2925,10 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看计划执行日志
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2615,7 +2947,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SQL列表
-     * @param {string} clusterId 集群ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {ListQueriesRequestBody} listQueriesRequestBody 参数请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2648,18 +2980,41 @@ export class DwsClient {
     }
 
     /**
+     * 获取待重分布表所属模式信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取待重分布表所属模式信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} dbName **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： ^[a-zA-Z0-9\\u4e00-\\u9fa5_.+&#x3D; :@!#-]{0,255}$ **默认取值**： null
+     * @param {number} [limit] **参数解释**： 分页条数。 **约束限制**： 不涉及。 **取值范围**： 有效值：大于等于1。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 有效值：大于等于0。 **默认取值**： 0
+     * @param {string} [schemaName] **参数解释**： schema名称。 **约束限制**： 不涉及。 **取值范围**： ^[a-zA-Z0-9\\u4e00-\\u9fa5_.+&#x3D; ,:@!#-]{0,2048}$ **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRedistributionSchema(listRedistributionSchemaRequest?: ListRedistributionSchemaRequest): Promise<ListRedistributionSchemaResponse> {
+        const options = ParamCreater().listRedistributionSchema(listRedistributionSchemaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询集群模式空间信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群模式空间信息
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} databaseName 数据库名称
-     * @param {string} [sortKey] 排序字段
-     * @param {string} [sortDir] 排序字段
-     * @param {string} [keywords] 查询关键词
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {string} [sortKey] **参数解释**： 排序字段。 **约束限制**： 不涉及。 **取值范围**： schemaName：模式名称排序。 **默认取值**： 不涉及。
+     * @param {string} [sortDir] **参数解释**： 排序字段。 **约束限制**： 不涉及。 **取值范围**： ASC：表示按升序排序。  DESC：表示按降序排序。 **默认取值**： 不涉及。
+     * @param {string} [keywords] **参数解释**： 查询关键词。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2673,13 +3028,13 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于获取跨区域快照可用region
+     * 该接口用于获取跨区域快照可用局点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取跨区域快照可用region
-     * @param {number} [offset] 分页偏移，默认0
-     * @param {number} [limit] 分页大小，默认10
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2693,14 +3048,14 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于查询所有跨区域快照配置
+     * 该接口用于查询所有跨区域快照配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有跨区域快照配置
-     * @param {string} [clusterId] 集群ID
-     * @param {number} [offset] 分页偏移
-     * @param {number} [limit] 分页大小
+     * @param {string} [clusterId] **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2738,7 +3093,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询快照策略
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2757,7 +3112,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 快照统计信息
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2807,15 +3162,38 @@ export class DwsClient {
     }
 
     /**
+     * 查询身份源同步记录。
+     * **约束限制**：
+     * 该功能在页面默认未开放给所有用户，当特性开启且有同步记录时查询才有结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询身份源同步记录
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 1000
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSyncRecords(listSyncRecordsRequest?: ListSyncRecordsRequest): Promise<ListSyncRecordsResponse> {
+        const options = ParamCreater().listSyncRecords(listSyncRecordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询表倾斜或脏页率信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询表倾斜或脏页率信息
-     * @param {string} clusterId 集群ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} rateType 查询类型。固定取值。 skew：表倾斜率。 dirtyPage：表脏页率。
-     * @param {number} offset 偏移量，表示从此偏移量开始查询，offset&gt;&#x3D;0。
-     * @param {number} limit 每页显示的条目数量。
+     * @param {number} offset **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
      * @param {string} [orderBy] 排序字段。固定取值。 table_size：表大小。rate：表倾斜率或脏页率。
      * @param {string} [sortBy] 正序还是倒叙。固定取值。 ASC：正序。DESC：倒序
      * @param {string} [filter] 查询条件。固定取值。 db_name：数据库名称。 schema_name：schema名称。 table_name：表名。 table_owner：所属用户。
@@ -2851,14 +3229,58 @@ export class DwsClient {
     }
 
     /**
-     * 查询集群拓扑ring环节点信息
+     * 查询指定集群的企业项目信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群企业项目信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页大小，默认10。 **约束限制**： 不涉及。 **取值范围**： 有效值大于等于1。 **默认取值**： 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTagsForResource(listTagsForResourceRequest?: ListTagsForResourceRequest): Promise<ListTagsForResourceResponse> {
+        const options = ParamCreater().listTagsForResource(listTagsForResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询支持变更的目标规格列表。
+     * **约束限制**：
+     * 无cluster_id时：可查询所有支持转换的目标规格，但是由于配额等原因，部分规格可能存在售罄无法使用。
+     * 存在cluster_id时：会自动关联此集群所在可用区下的配额充足的目标规格。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询支持变更的目标规格列表
+     * @param {string} flavorId **参数解释**： 集群当前的规格ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [clusterId] **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 此参数不传时，可查询所有支持转换的目标规格，但是由于配额等原因，部分规格可能存在售罄无法使用。 传递集群ID时会自动关联此集群所在可用区下的配额充足的目标规格。 **取值范围**： 不涉及。 **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTargetFlavors(listTargetFlavorsRequest?: ListTargetFlavorsRequest): Promise<ListTargetFlavorsResponse> {
+        const options = ParamCreater().listTargetFlavors(listTargetFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群拓扑ring环节点信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群拓扑ring环节点信息
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 分页查询，偏移
-     * @param {number} [limit] 分页查询，每页显示的条目数量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2872,14 +3294,14 @@ export class DwsClient {
     }
 
     /**
-     * 获取集群可升级的目标版本
+     * 获取集群可升级的目标版本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群可升级的目标版本
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 条目数
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {'cluster' | 'hotpatch'} [type] 升级类型 cluster:集群升级 hotpatch:热补丁升级
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2894,14 +3316,14 @@ export class DwsClient {
     }
 
     /**
-     * 通过此api获取当前集群升级记录
+     * 通过此接口获取当前集群升级记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群升级记录
-     * @param {string} clusterId 集群ID
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 条目数
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2920,10 +3342,10 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源管理计划列表
-     * @param {string} clusterId 集群ID
-     * @param {string} [logicalClusterName] 逻辑集群名称
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} [logicalClusterName] **参数解释**： 逻辑集群名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2937,13 +3359,13 @@ export class DwsClient {
     }
 
     /**
-     * 查询工作负载队列
+     * 查询工作负载队列。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询工作负载队列
-     * @param {string} clusterId 集群ID
-     * @param {string} [logicalClusterName] 逻辑集群名称。逻辑集群模式下该字段必填。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} [logicalClusterName] **参数解释**： 逻辑集群名称。逻辑集群模式下该字段必填。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2962,15 +3384,82 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获得工作负载队列的绑定用户列表
-     * @param {string} clusterId 集群ID
-     * @param {string} queueName 队列名称
-     * @param {number} [limit] 查询条数
-     * @param {number} [offset] 偏移量
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} queueName **参数解释**： 队列名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页查询，偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listWorkloadQueueUsers(listWorkloadQueueUsersRequest?: ListWorkloadQueueUsersRequest): Promise<ListWorkloadQueueUsersResponse> {
         const options = ParamCreater().listWorkloadQueueUsers(listWorkloadQueueUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前集群的异常规则列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前集群的异常规则列表
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10
+     * @param {string} [ruleName] **参数解释**： 分页单页大小。 **约束限制**： 异常规则名称。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [queueName] **参数解释**： 工作负载队列名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkloadRules(listWorkloadRulesRequest?: ListWorkloadRulesRequest): Promise<ListWorkloadRulesResponse> {
+        const options = ParamCreater().listWorkloadRules(listWorkloadRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改集群名称。
+     * **约束限制**：
+     * guestAgent插件版本8.3.1及以上才支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改集群名称
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ClusterNameReq} [modifyClusterNameRequestBody] **参数解释**： 修改集群名称请求。 **约束限制**： guestAgent插件版本8.3.1及以上才支持。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyClusterName(modifyClusterNameRequest?: ModifyClusterNameRequest): Promise<ModifyClusterNameResponse> {
+        const options = ParamCreater().modifyClusterName(modifyClusterNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改集群时区。该操作会将操作系统及数据库的时区都进行修改。
+     * **约束限制**：
+     * 修改时区依赖集群安装的guestAgent插件，插件版本在8.3.0.202及以上支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改集群时区
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ClusterTimezoneReq} modifyClusterTimezoneRequestBody **参数解释**： 修改时区请求体。 **约束限制**： 非空。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyClusterTimezone(modifyClusterTimezoneRequest?: ModifyClusterTimezoneRequest): Promise<ModifyClusterTimezoneResponse> {
+        const options = ParamCreater().modifyClusterTimezone(modifyClusterTimezoneRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3006,8 +3495,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重置密码
-     * @param {string} clusterId 指定待重置密码集群的ID
-     * @param {ResetPasswordRequestBody} resetPasswordRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ResetPasswordRequestBody} resetPasswordRequestBody **参数解释**： 重置密码的请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3021,13 +3510,16 @@ export class DwsClient {
     }
 
     /**
-     * 此接口用于扩容集群。
+     * 此接口用于扩容集群，亦可用于添加空闲节点。默认情况下：表示执行扩容操作。
+     * 通过create_node_only字段用以区分当前是**扩容**、**添加空闲节点**：
+     * - true：仅添加空闲节点
+     * - false：表示执行扩容操作
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 扩容集群调整集群大小
-     * @param {string} clusterId 待调整大小的集群ID
-     * @param {ResizeClusterRequestBody} [resizeClusterRequestBody] This is a auto create Body Object
+     * @summary 扩容集群
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ResizeClusterRequestBody} [resizeClusterRequestBody] **参数解释**： 扩容/添加空闲节点操作请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3046,8 +3538,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 从空闲节点扩容
-     * @param {string} clusterId 指定节点集群的ID
-     * @param {ResizeClusterWithExistedNodesRequestBody} resizeClusterWithExistedNodesRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ResizeClusterWithExistedNodesRequestBody} resizeClusterWithExistedNodesRequestBody **参数解释**： 请求信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3066,8 +3558,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重启集群
-     * @param {string} clusterId 指定待重启集群的ID
-     * @param {RestartClusterRequestBody} restartClusterRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {RestartClusterRequestBody} restartClusterRequestBody **参数解释**： 重启集群的请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3086,8 +3578,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重启逻辑集群
-     * @param {string} clusterId 指定重启集群的ID
-     * @param {string} logicalClusterId 指定待重启逻辑集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} logicalClusterId **参数解释**： 待重启的逻辑集群的ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3143,12 +3635,12 @@ export class DwsClient {
     }
 
     /**
-     * 此接口用于恢复暂停状态下的重分布操作,仅支持DWS2.0集群。
+     * 此接口用于恢复暂停状态下的重分布操作，仅支持DWS2.0集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 恢复重分布
-     * @param {string} clusterId 指定恢复重分布集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3162,7 +3654,7 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于恢复表
+     * 该接口用于恢复表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3182,14 +3674,34 @@ export class DwsClient {
     }
 
     /**
-     * 保存集群描述信息
+     * 轮转加密集群密钥。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 保存集群描述信息
-     * @param {string} clusterId 集群ID
-     * @param {ClusterDescriptionInfo} saveClusterDescriptionInfoRequestBody body请求体
-     * @param {string} [namespace] 命名空间
+     * @summary 轮转密钥
+     * @param {string} clusterId **参数解释**： 集群ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {RotateKeyRequestBody} [rotateKeyRequestBody] **参数解释**： 轮转密钥对象。当不传对象时轮转集群加密密钥;当对象传入KMS密钥ID时，轮转集群主密钥。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rotateKey(rotateKeyRequest?: RotateKeyRequest): Promise<RotateKeyResponse> {
+        const options = ParamCreater().rotateKey(rotateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改集群描述信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改集群描述信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {ClusterDescriptionInfo} saveClusterDescriptionInfoRequestBody **参数解释**： 描述信息请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [namespace] **参数解释**： 命名空间。 **约束限制**： 固定值DWS，不填也是DWS。 **取值范围**： DWS **默认取值**： DWS
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3203,13 +3715,55 @@ export class DwsClient {
     }
 
     /**
-     * 查询集群使用的规格详情
+     * 更新重分布表优先级。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新重分布表优先级
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {RedisPriorityConf} setRedistributionPriorityRequestBody **参数解释**： 更新重分布配置请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setRedistributionPriority(setRedistributionPriorityRequest?: SetRedistributionPriorityRequest): Promise<SetRedistributionPriorityResponse> {
+        const options = ParamCreater().setRedistributionPriority(setRedistributionPriorityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群加密信息。非加密集群不支持该功能，返回信息为空。
+     * **约束限制**：
+     * 转加密集群起始支持版本：8.0.0
+     * 转加密集群guestAgent起始支持版本：8.3.0.200
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群加密信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterEncryptInfo(showClusterEncryptInfoRequest?: ShowClusterEncryptInfoRequest): Promise<ShowClusterEncryptInfoResponse> {
+        const options = ParamCreater().showClusterEncryptInfo(showClusterEncryptInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群使用的规格详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群规格详情
-     * @param {string} clusterId 集群ID
-     * @param {string} [namespace] 命名空间
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [namespace] **参数解释**： 命名空间，一般只填DWS。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3229,12 +3783,12 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询重分布详情
-     * @param {string} clusterId 集群ID
-     * @param {number} [limit] 分页查询，每页大小
-     * @param {number} [offset] 分页查询，偏移
-     * @param {string} [dbName] 数据库名称
-     * @param {string} [tableName] 表名称
-     * @param {string} [type] 类型
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页查询，每页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {string} [dbName] **参数解释**： 数据库名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： null
+     * @param {string} [tableName] **参数解释**： 表名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： null
+     * @param {string} [type] **参数解释**： 类型，取值来自public.pgxc_redistb表的redistributed字段。多个可用逗号分割。 **约束限制**： 不涉及。 **取值范围**： i：重分布中； y：已完成； n：未开始； **默认取值**： null，即不过滤。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3248,7 +3802,48 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于查询并显示集群列表
+     * 此接口可用于查看磁盘扩容操作时支持的扩容范围。
+     * 
+     *  - 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。
+     *  - 按需+折扣套餐包消费模式下，存储扩容后超出折扣套餐包部分将按需收费。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询磁盘扩容范围
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterStorageExpandRange(showClusterStorageExpandRangeRequest?: ShowClusterStorageExpandRangeRequest): Promise<ShowClusterStorageExpandRangeResponse> {
+        const options = ParamCreater().showClusterStorageExpandRange(showClusterStorageExpandRangeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户侧节点磁盘使用情况信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询磁盘使用情况
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterVolume(showClusterVolumeRequest?: ShowClusterVolumeRequest): Promise<ShowClusterVolumeResponse> {
+        const options = ParamCreater().showClusterVolume(showClusterVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询并显示集群列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3266,7 +3861,7 @@ export class DwsClient {
     }
 
     /**
-     * 查询数据库对象权限
+     * 查询数据库对象权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3290,12 +3885,12 @@ export class DwsClient {
     }
 
     /**
-     * 获得数据库运维账户状态
+     * 获得数据库运维账户状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获得集群运维账户状态
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3309,7 +3904,7 @@ export class DwsClient {
     }
 
     /**
-     * 查询指定用户信息
+     * 查询指定用户信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3367,12 +3962,12 @@ export class DwsClient {
     }
 
     /**
-     * 查询单个实例
+     * 查询单个实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询单个实例
-     * @param {string} instanceId 实例ID
+     * @param {string} instanceId **参数解释**： 实例ID **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3386,12 +3981,12 @@ export class DwsClient {
     }
 
     /**
-     * 查询SQL执行信息
+     * 查询SQL执行信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SQL执行信息
-     * @param {string} clusterId 集群ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} queryId 查询ID。
      * @param {number} [ctime] 采集时间。
      * @param {*} [options] Override http request option.
@@ -3407,12 +4002,12 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于查询资源统计
+     * 该接口用于查询资源统计。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源统计
-     * @param {string} [namespace] 命名空间
+     * @param {string} [namespace] **参数解释**： 命名空间。 **约束限制**： 不涉及。 **取值范围**： 固定值dws。 **默认取值**： dws。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3431,8 +4026,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询某个工作负载计划详细信息
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3451,9 +4046,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询工作负载计划阶段详细信息
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
-     * @param {string} stageId 计划阶段ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} stageId **参数解释**： 计划阶段ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3472,9 +4067,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获得工作负载队列详细信息
-     * @param {string} clusterId 集群ID
-     * @param {string} queueName 资源队列名
-     * @param {string} [logicalClusterName] 逻辑集群名称。非逻辑集群模式下该字段不填,逻辑集群模式下需指定逻辑集群名称。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} queueName **参数解释**： 资源队列名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [logicalClusterName] **参数解释**： 逻辑集群名称。非逻辑集群模式下该字段不填,逻辑集群模式下需指定逻辑集群名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3493,8 +4088,8 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群缩容
-     * @param {string} clusterId 集群ID
-     * @param {ClusterShrinkReq} clusterShrinkReq 集群缩容请求
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {ClusterShrinkReq} clusterShrinkReq **参数解释**：  逻辑集群缩容请求体。  **约束限制**：  该值不能为空。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3508,12 +4103,33 @@ export class DwsClient {
     }
 
     /**
-     * 集群管理-启动集群
+     * 逻辑集群缩容，支持从弹性池缩容，或是从逻辑集群中缩容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 逻辑集群缩容
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} logicalClusterId **参数解释**： 逻辑集群id。  **约束限制**： 必须是有效的dws逻辑集群ID。  **取值范围**：  36位UUID。  **默认取值**：  不涉及。
+     * @param {ShrinkLogicalClusterRequestBody} shrinkLogicalClusterRequestBody **参数解释**： 缩容逻辑集群请求体。 **约束限制**： 必须是非空值。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public shrinkLogicalCluster(shrinkLogicalClusterRequest?: ShrinkLogicalClusterRequest): Promise<ShrinkLogicalClusterResponse> {
+        const options = ParamCreater().shrinkLogicalCluster(shrinkLogicalClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启动集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动集群
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3550,13 +4166,13 @@ export class DwsClient {
     }
 
     /**
-     * 启动工作负载计划
+     * 启动工作负载计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动工作负载计划
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3570,12 +4186,12 @@ export class DwsClient {
     }
 
     /**
-     * 集群管理-停止集群
+     * 停止集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停止集群
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3595,7 +4211,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 暂停重分布
-     * @param {string} clusterId 指定暂停重分布集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3609,13 +4225,13 @@ export class DwsClient {
     }
 
     /**
-     * 停止工作负载计划
+     * 停止工作负载计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停止工作负载计划
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3633,7 +4249,7 @@ export class DwsClient {
      * “异常切换”按钮用于容灾异常或者生产集群故障情况下主备切换操作。
      * 容灾异常切换仅8.1.2及以上集群版本支持。
      * 异常切换会将灾备集群升为主，若原生产集群故障后存在部分数据未同步到灾备集群，那灾备集群升主后将缺少这些数据，切换时请确认容灾最后同步时间，谨慎操作。
-     * 仅支持DWS 2.0集群
+     * 仅支持DWS 2.0集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3659,7 +4275,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 主备恢复
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3678,9 +4294,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换工作负载计划阶段
-     * @param {string} clusterId 集群ID
-     * @param {string} planId 计划ID
-     * @param {WorkloadPlanStageIdReq} switchPlanStageRequestBody 资源管理计划阶段ID信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadPlanStageIdReq} switchPlanStageRequestBody **参数解释**： 资源管理计划阶段ID信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3720,7 +4336,7 @@ export class DwsClient {
     }
 
     /**
-     * 同步IAM用户到数据库
+     * 同步IAM用户到数据库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3739,7 +4355,7 @@ export class DwsClient {
     }
 
     /**
-     * 更新订阅的告警
+     * 更新订阅的告警。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3764,7 +4380,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改集群域名
-     * @param {string} clusterId 集群的ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {ModifyClusterDns} dns 修改域名参数类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3784,7 +4400,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改集群参数配置
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} configurationId 参数组ID。
      * @param {ConfigurationParameterValues} dns 修改集群参数配置。
      * @param {*} [options] Override http request option.
@@ -3805,7 +4421,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新数据源
-     * @param {string} clusterId 集群ID
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} extDataSourceId 数据源id
      * @param {ReconfigureExtDataSourceActionReq} reconfigure 更新数据源配置
      * @param {*} [options] Override http request option.
@@ -3821,7 +4437,7 @@ export class DwsClient {
     }
 
     /**
-     * 修改数据库对象权限
+     * 修改数据库对象权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3841,7 +4457,7 @@ export class DwsClient {
     }
 
     /**
-     * 修改指定用户信息
+     * 修改指定用户信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3884,7 +4500,7 @@ export class DwsClient {
     }
 
     /**
-     * 更新订阅事件
+     * 更新订阅事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3909,9 +4525,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑逻辑集群
-     * @param {string} clusterId 指定待编辑集群的ID
-     * @param {string} logicalClusterId 指定待编辑逻辑集群的ID
-     * @param {UpdateLogicalClusterRequestBody} updateLogicalClusterRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} logicalClusterId **参数解释**： 指定待编辑逻辑集群的ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {UpdateLogicalClusterRequestBody} updateLogicalClusterRequestBody **参数解释**： 编辑逻辑集群的请求信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3930,9 +4546,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑逻辑集群增删计划
-     * @param {string} clusterId 指定待编辑集群的ID
-     * @param {string} planId 逻辑集群增删计划ID
-     * @param {UpdateLogicalClusterPlanBo} updateLogicalClusterPlanRequestBody This is a auto create Body Object
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 逻辑集群增删计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {UpdateLogicalClusterPlanBo} updateLogicalClusterPlanRequestBody **参数解释**： 逻辑集群增删计划请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3951,7 +4567,7 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改运维时间窗
-     * @param {string} clusterId 集群的ID。
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {MaintenanceWindow} payload 设置可维护时间段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3971,9 +4587,9 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新工作负载队列资源配置信息
-     * @param {string} clusterId 集群ID
-     * @param {string} queueName 队列名称
-     * @param {WorkloadQueueRequest} updateQueueResourcesRequestBody 资源池请求体
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} queueName **参数解释**： 队列名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadQueueRequest} updateQueueResourcesRequestBody **参数解释**： 资源池请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3987,19 +4603,61 @@ export class DwsClient {
     }
 
     /**
+     * 更新重分布配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新重分布配置
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {RedistributionConf} updateRedistributionConfigurationsRequestBody **参数解释**： 更新重分布配置请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRedistributionConfigurations(updateRedistributionConfigurationsRequest?: UpdateRedistributionConfigurationsRequest): Promise<UpdateRedistributionConfigurationsResponse> {
+        const options = ParamCreater().updateRedistributionConfigurations(updateRedistributionConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新模式空间限额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新模式空间限额
-     * @param {string} clusterId 集群ID
-     * @param {string} databaseName 数据库名称
-     * @param {WorkloadSchemaReq} updateSchemasRequestBody 资源管理计划
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} databaseName **参数解释**： 数据库名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadSchemaReq} updateSchemasRequestBody **参数解释**： 更新模式空间限额请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updateSchemas(updateSchemasRequest?: UpdateSchemasRequest): Promise<UpdateSchemasResponse> {
         const options = ParamCreater().updateSchemas(updateSchemasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改资源管理计划阶段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改资源管理计划阶段
+     * @param {string} clusterId **参数解释**： 集群ID。获取方式方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} planId **参数解释**： 计划ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} stageId **参数解释**： 计划阶段ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {WorkloadPlanStageReq} [updateWorkloadPlanStageRequestBody] **参数解释**： 计划阶段信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWorkloadPlanStage(updateWorkloadPlanStageRequest?: UpdateWorkloadPlanStageRequest): Promise<UpdateWorkloadPlanStageResponse> {
+        const options = ParamCreater().updateWorkloadPlanStage(updateWorkloadPlanStageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4065,7 +4723,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于设置跨区域备份配置
+         * 该接口用于设置跨区域备份配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4156,7 +4814,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加工作负载队列
+         * 添加工作负载队列。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4199,7 +4857,44 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 集群绑定Eip
+         * 添加异常规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addWorkloadRule(addWorkloadRuleRequest?: AddWorkloadRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/workload/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (addWorkloadRuleRequest !== null && addWorkloadRuleRequest !== undefined) {
+                if (addWorkloadRuleRequest instanceof AddWorkloadRuleRequest) {
+                    clusterId = addWorkloadRuleRequest.clusterId;
+                } else {
+                    clusterId = addWorkloadRuleRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addWorkloadRule.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群绑定Eip。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4243,7 +4938,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 集群绑定Elb接口
+         * 集群绑定Elb接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4477,8 +5172,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 当集群进入只读状态时，无法进行数据库相关操作，用户可以在管理控制台解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要对集群数据进行清理或扩容。
-         * - 解除只读支持1.7.2及以上版本。
+         * 当集群进入只读状态时，无法进行数据库相关操作，用户可以在管理控制台解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要对集群数据进行清理或扩容。 - 解除只读支持1.7.2及以上版本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4515,7 +5209,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改集群安全组
+         * 该接口用于修改集群安全组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4561,7 +5255,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建集群前预检查
+         * 创建集群前预检查，提前识别子网不足、配额不足等问题，避免发起创建集群请求后创建失败。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4594,6 +5288,64 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 缩容前检查，确保缩容前、缩容后均满足正常操作要求。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkClusterShrink(checkClusterShrinkRequest?: CheckClusterShrinkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/shrink-check",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let checkItem;
+            
+            let shrinkCount;
+
+            if (checkClusterShrinkRequest !== null && checkClusterShrinkRequest !== undefined) {
+                if (checkClusterShrinkRequest instanceof CheckClusterShrinkRequest) {
+                    clusterId = checkClusterShrinkRequest.clusterId;
+                    checkItem = checkClusterShrinkRequest.checkItem;
+                    shrinkCount = checkClusterShrinkRequest.shrinkCount;
+                } else {
+                    clusterId = checkClusterShrinkRequest['cluster_id'];
+                    checkItem = checkClusterShrinkRequest['check_item'];
+                    shrinkCount = checkClusterShrinkRequest['shrink_count'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling checkClusterShrink.');
+            }
+            if (checkItem === null || checkItem === undefined) {
+                throw new RequiredError('checkItem','Required parameter checkItem was null or undefined when calling checkClusterShrink.');
+            }
+            if (checkItem !== null && checkItem !== undefined) {
+                localVarQueryParameter['check_item'] = checkItem;
+            }
+            if (shrinkCount === null || shrinkCount === undefined) {
+                throw new RequiredError('shrinkCount','Required parameter shrinkCount was null or undefined when calling checkClusterShrink.');
+            }
+            if (shrinkCount !== null && shrinkCount !== undefined) {
+                localVarQueryParameter['shrink_count'] = shrinkCount;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4660,7 +5412,53 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于用户恢复表名检测
+         * 此接口用于集群扩容前检查，提前识别子网不足、权限不足等问题导致的扩容失败。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkGrowCluster(checkGrowClusterRequest?: CheckGrowClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/grow-check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (checkGrowClusterRequest !== null && checkGrowClusterRequest !== undefined) {
+                if (checkGrowClusterRequest instanceof CheckGrowClusterRequest) {
+                    clusterId = checkGrowClusterRequest.clusterId;
+                    body = checkGrowClusterRequest.body
+                } else {
+                    clusterId = checkGrowClusterRequest['cluster_id'];
+                    body = checkGrowClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling checkGrowCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于用户恢复表名检测。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4706,7 +5504,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群-物理集群转换到逻辑集群
+         * 物理集群转换到逻辑集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4796,7 +5594,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建告警订阅
+         * 创建告警订阅。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4960,7 +5758,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置资源管理。
+         * 打开或关闭资源管理功能，新集群默认是打开状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5049,6 +5847,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建数据库用户/角色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDatabaseUser(createDatabaseUserRequest?: CreateDatabaseUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/users",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createDatabaseUserRequest !== null && createDatabaseUserRequest !== undefined) {
+                if (createDatabaseUserRequest instanceof CreateDatabaseUserRequest) {
+                    clusterId = createDatabaseUserRequest.clusterId;
+                    body = createDatabaseUserRequest.body
+                } else {
+                    clusterId = createDatabaseUserRequest['cluster_id'];
+                    body = createDatabaseUserRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createDatabaseUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建集群间容灾。
          * 集群处于可用状态或者非均衡状态才可进行创建容灾操作。
          * 仅支持DWS 2.0集群。
@@ -5089,7 +5933,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加订阅的事件
+         * 添加订阅的事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5127,7 +5971,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群-创建逻辑集群
+         * 创建逻辑集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5300,7 +6144,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加工作负载计划
+         * 添加工作负载计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5346,7 +6190,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除订阅的告警
+         * 删除订阅的告警。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5477,7 +6321,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 此接口用于删除节点。
+         * 此接口用于删除空闲节点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5562,6 +6406,58 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'ext_data_source_id': extDataSourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据库用户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDatabaseUser(deleteDatabaseUserRequest?: DeleteDatabaseUserRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/users/{name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let name;
+            
+            let cascade;
+
+            if (deleteDatabaseUserRequest !== null && deleteDatabaseUserRequest !== undefined) {
+                if (deleteDatabaseUserRequest instanceof DeleteDatabaseUserRequest) {
+                    clusterId = deleteDatabaseUserRequest.clusterId;
+                    name = deleteDatabaseUserRequest.name;
+                    cascade = deleteDatabaseUserRequest.cascade;
+                } else {
+                    clusterId = deleteDatabaseUserRequest['cluster_id'];
+                    name = deleteDatabaseUserRequest['name'];
+                    cascade = deleteDatabaseUserRequest['cascade'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteDatabaseUser.');
+            }
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling deleteDatabaseUser.');
+            }
+            if (cascade !== null && cascade !== undefined) {
+                localVarQueryParameter['cascade'] = cascade;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'name': name, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5659,7 +6555,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除订阅的事件
+         * 删除订阅的事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5874,7 +6770,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除跨区域备份配置
+         * 该接口用于删除跨区域备份配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5958,7 +6854,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除工作负载计划
+         * 删除工作负载计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6108,7 +7004,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 停用逻辑集群定时增删计划
+         * 停用逻辑集群定时增删计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6152,7 +7048,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于关闭集群LTS云日志服务
+         * 该接口用于关闭集群LTS云日志服务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6189,7 +7085,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 集群解绑Eip
+         * 集群解绑Eip。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6233,7 +7129,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 集群解绑Elb接口
+         * 集群解绑Elb接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6323,7 +7219,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 启用逻辑集群定时增删计划
+         * 启用逻辑集群定时增删计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6367,7 +7263,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于开启集群LTS云日志服务
+         * 该接口用于开启集群LTS云日志服务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6404,7 +7300,56 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 下发集群升级相关操作
+         * 转加密集群。
+         * **约束限制**：
+         * 转加密集群起始支持版本：8.0.0
+         * 转加密集群guestAgent起始支持版本：8.3.0.200
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        encryptCluster(encryptClusterRequest?: EncryptClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/encrypt",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (encryptClusterRequest !== null && encryptClusterRequest !== undefined) {
+                if (encryptClusterRequest instanceof EncryptClusterRequest) {
+                    clusterId = encryptClusterRequest.clusterId;
+                    body = encryptClusterRequest.body
+                } else {
+                    clusterId = encryptClusterRequest['cluster_id'];
+                    body = encryptClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling encryptCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下发集群升级相关操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6450,7 +7395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 进行数据库运维账户操作
+         * 进行数据库运维账户操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6483,6 +7428,54 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling executeDatabaseOmUserAction.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 执行规格变更。
+         * **约束限制**：
+         * 包周期集群暂不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeFlavorChange(executeFlavorChangeRequest?: ExecuteFlavorChangeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/flavor",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (executeFlavorChangeRequest !== null && executeFlavorChangeRequest !== undefined) {
+                if (executeFlavorChangeRequest instanceof ExecuteFlavorChangeRequest) {
+                    clusterId = executeFlavorChangeRequest.clusterId;
+                    body = executeFlavorChangeRequest.body
+                } else {
+                    clusterId = executeFlavorChangeRequest['cluster_id'];
+                    body = executeFlavorChangeRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling executeFlavorChange.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6547,8 +7540,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 随着客户业务的发展，磁盘空间往往最先出现资源瓶颈，在其他资源尚且充足的情况下，通过磁盘扩容可快速缓解存储资源瓶颈现象，操作过程中无需暂停业务，并且不会造成CPU、内存等资源浪费。
-         * - 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。
+         * 随着客户业务的发展，磁盘空间往往最先出现资源瓶颈，在其他资源尚且充足的情况下，通过磁盘扩容可快速缓解存储资源瓶颈现象，操作过程中无需暂停业务，并且不会造成CPU、内存等资源浪费。  
+         * - 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。  
          * - 按需+折扣套餐包消费模式下，存储扩容后超出折扣套餐包部分将按需收费。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6595,7 +7588,125 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询告警配置
+         * 导出数据库用户/角色，接口返回的是输出流，xlsx文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportDatabaseUsers(exportDatabaseUsersRequest?: ExportDatabaseUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/users/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let offset;
+            
+            let limit;
+            
+            let type;
+
+            if (exportDatabaseUsersRequest !== null && exportDatabaseUsersRequest !== undefined) {
+                if (exportDatabaseUsersRequest instanceof ExportDatabaseUsersRequest) {
+                    clusterId = exportDatabaseUsersRequest.clusterId;
+                    offset = exportDatabaseUsersRequest.offset;
+                    limit = exportDatabaseUsersRequest.limit;
+                    type = exportDatabaseUsersRequest.type;
+                } else {
+                    clusterId = exportDatabaseUsersRequest['cluster_id'];
+                    offset = exportDatabaseUsersRequest['offset'];
+                    limit = exportDatabaseUsersRequest['limit'];
+                    type = exportDatabaseUsersRequest['type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling exportDatabaseUsers.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出数据库用户/角色的权限列表，接口返回的是输出流，xlsx文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportUserAuthority(exportUserAuthorityRequest?: ExportUserAuthorityRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/users/{name}/authority/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let name;
+            
+            let offset;
+            
+            let limit;
+
+            if (exportUserAuthorityRequest !== null && exportUserAuthorityRequest !== undefined) {
+                if (exportUserAuthorityRequest instanceof ExportUserAuthorityRequest) {
+                    clusterId = exportUserAuthorityRequest.clusterId;
+                    name = exportUserAuthorityRequest.name;
+                    offset = exportUserAuthorityRequest.offset;
+                    limit = exportUserAuthorityRequest.limit;
+                } else {
+                    clusterId = exportUserAuthorityRequest['cluster_id'];
+                    name = exportUserAuthorityRequest['name'];
+                    offset = exportUserAuthorityRequest['offset'];
+                    limit = exportUserAuthorityRequest['limit'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling exportUserAuthority.');
+            }
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling exportUserAuthority.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'name': name, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询告警配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6639,7 +7750,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询告警详情列表
+         * 查询告警详情列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6693,7 +7804,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询告警统计
+         * 查询告警统计。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6733,7 +7844,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询订阅告警
+         * 查询订阅告警。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6934,6 +8045,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询集群任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterActions(listClusterActionsRequest?: ListClusterActionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/actions/{action_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let actionName;
+
+            if (listClusterActionsRequest !== null && listClusterActionsRequest !== undefined) {
+                if (listClusterActionsRequest instanceof ListClusterActionsRequest) {
+                    clusterId = listClusterActionsRequest.clusterId;
+                    actionName = listClusterActionsRequest.actionName;
+                } else {
+                    clusterId = listClusterActionsRequest['cluster_id'];
+                    actionName = listClusterActionsRequest['action_name'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterActions.');
+            }
+            if (actionName === null || actionName === undefined) {
+            throw new RequiredError('actionName','Required parameter actionName was null or undefined when calling listClusterActions.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'action_name': actionName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询集群的CN节点列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7089,7 +8244,44 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询节点列表
+         * 查询连接信息。包括公网域名、内网域名等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterEndpoints(listClusterEndpointsRequest?: ListClusterEndpointsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/endpoints",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterEndpointsRequest !== null && listClusterEndpointsRequest !== undefined) {
+                if (listClusterEndpointsRequest instanceof ListClusterEndpointsRequest) {
+                    clusterId = listClusterEndpointsRequest.clusterId;
+                } else {
+                    clusterId = listClusterEndpointsRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterEndpoints.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询节点列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7107,8 +8299,6 @@ export const ParamCreater = function () {
             
             let clusterId;
             
-            let deleted;
-            
             let nodeIds;
             
             let offset;
@@ -7122,11 +8312,12 @@ export const ParamCreater = function () {
             let orderBy;
             
             let order;
+            
+            let deleted;
 
             if (listClusterNodesRequest !== null && listClusterNodesRequest !== undefined) {
                 if (listClusterNodesRequest instanceof ListClusterNodesRequest) {
                     clusterId = listClusterNodesRequest.clusterId;
-                    deleted = listClusterNodesRequest.deleted;
                     nodeIds = listClusterNodesRequest.nodeIds;
                     offset = listClusterNodesRequest.offset;
                     limit = listClusterNodesRequest.limit;
@@ -7134,9 +8325,9 @@ export const ParamCreater = function () {
                     filter = listClusterNodesRequest.filter;
                     orderBy = listClusterNodesRequest.orderBy;
                     order = listClusterNodesRequest.order;
+                    deleted = listClusterNodesRequest.deleted;
                 } else {
                     clusterId = listClusterNodesRequest['cluster_id'];
-                    deleted = listClusterNodesRequest['deleted'];
                     nodeIds = listClusterNodesRequest['node_ids'];
                     offset = listClusterNodesRequest['offset'];
                     limit = listClusterNodesRequest['limit'];
@@ -7144,15 +8335,13 @@ export const ParamCreater = function () {
                     filter = listClusterNodesRequest['filter'];
                     orderBy = listClusterNodesRequest['order_by'];
                     order = listClusterNodesRequest['order'];
+                    deleted = listClusterNodesRequest['deleted'];
                 }
             }
 
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterNodes.');
-            }
-            if (deleted !== null && deleted !== undefined) {
-                localVarQueryParameter['deleted'] = deleted;
             }
             if (nodeIds !== null && nodeIds !== undefined) {
                 localVarQueryParameter['node_ids'] = nodeIds;
@@ -7175,6 +8364,9 @@ export const ParamCreater = function () {
             if (order !== null && order !== undefined) {
                 localVarQueryParameter['order'] = order;
             }
+            if (deleted !== null && deleted !== undefined) {
+                localVarQueryParameter['deleted'] = deleted;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
@@ -7183,7 +8375,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询合适的缩容数
+         * 查询合适的缩容数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7360,7 +8552,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询并显示集群列表
+         * 该接口用于查询并显示集群列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7397,7 +8589,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询参数修改审计记录
+         * 查询参数修改审计记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7507,7 +8699,66 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询所有数据库用户/角色
+         * 查询用户/角色拥有权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDatabaseUserAuthorities(listDatabaseUserAuthoritiesRequest?: ListDatabaseUserAuthoritiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/users/{name}/authority",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let name;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDatabaseUserAuthoritiesRequest !== null && listDatabaseUserAuthoritiesRequest !== undefined) {
+                if (listDatabaseUserAuthoritiesRequest instanceof ListDatabaseUserAuthoritiesRequest) {
+                    clusterId = listDatabaseUserAuthoritiesRequest.clusterId;
+                    name = listDatabaseUserAuthoritiesRequest.name;
+                    offset = listDatabaseUserAuthoritiesRequest.offset;
+                    limit = listDatabaseUserAuthoritiesRequest.limit;
+                } else {
+                    clusterId = listDatabaseUserAuthoritiesRequest['cluster_id'];
+                    name = listDatabaseUserAuthoritiesRequest['name'];
+                    offset = listDatabaseUserAuthoritiesRequest['offset'];
+                    limit = listDatabaseUserAuthoritiesRequest['limit'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listDatabaseUserAuthorities.');
+            }
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling listDatabaseUserAuthorities.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'name': name, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有数据库用户/角色。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7587,7 +8838,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询集群可以关联的Elb列表
+         * 查询集群可以关联的Elb列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7624,7 +8875,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询事件配置
+         * 查询事件配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7703,7 +8954,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询订阅的事件
+         * 查询订阅的事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7747,7 +8998,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询事件列表
+         * 查询事件列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7791,7 +9042,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * openApi查询磁盘信息
+         * openApi查询磁盘信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7807,45 +9058,33 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let limit;
-            
-            let offset;
-            
             let clusterId;
             
             let instanceId;
             
             let instanceName;
+            
+            let limit;
+            
+            let offset;
 
             if (listHostDiskRequest !== null && listHostDiskRequest !== undefined) {
                 if (listHostDiskRequest instanceof ListHostDiskRequest) {
-                    limit = listHostDiskRequest.limit;
-                    offset = listHostDiskRequest.offset;
                     clusterId = listHostDiskRequest.clusterId;
                     instanceId = listHostDiskRequest.instanceId;
                     instanceName = listHostDiskRequest.instanceName;
+                    limit = listHostDiskRequest.limit;
+                    offset = listHostDiskRequest.offset;
                 } else {
-                    limit = listHostDiskRequest['limit'];
-                    offset = listHostDiskRequest['offset'];
                     clusterId = listHostDiskRequest['cluster_id'];
                     instanceId = listHostDiskRequest['instance_id'];
                     instanceName = listHostDiskRequest['instance_name'];
+                    limit = listHostDiskRequest['limit'];
+                    offset = listHostDiskRequest['offset'];
                 }
             }
 
         
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listHostDisk.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listHostDisk.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
             if (clusterId !== null && clusterId !== undefined) {
                 localVarQueryParameter['cluster_id'] = clusterId;
             }
@@ -7855,6 +9094,12 @@ export const ParamCreater = function () {
             if (instanceName !== null && instanceName !== undefined) {
                 localVarQueryParameter['instance_name'] = instanceName;
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -7862,7 +9107,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * openapi获取网卡状态
+         * openapi获取网卡状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7878,46 +9123,40 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let limit;
-            
-            let offset;
-            
             let clusterId;
             
             let instanceName;
+            
+            let limit;
+            
+            let offset;
 
             if (listHostNetRequest !== null && listHostNetRequest !== undefined) {
                 if (listHostNetRequest instanceof ListHostNetRequest) {
-                    limit = listHostNetRequest.limit;
-                    offset = listHostNetRequest.offset;
                     clusterId = listHostNetRequest.clusterId;
                     instanceName = listHostNetRequest.instanceName;
+                    limit = listHostNetRequest.limit;
+                    offset = listHostNetRequest.offset;
                 } else {
-                    limit = listHostNetRequest['limit'];
-                    offset = listHostNetRequest['offset'];
                     clusterId = listHostNetRequest['cluster_id'];
                     instanceName = listHostNetRequest['instance_name'];
+                    limit = listHostNetRequest['limit'];
+                    offset = listHostNetRequest['offset'];
                 }
             }
 
         
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listHostNet.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listHostNet.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
             if (clusterId !== null && clusterId !== undefined) {
                 localVarQueryParameter['cluster_id'] = clusterId;
             }
             if (instanceName !== null && instanceName !== undefined) {
                 localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -7926,7 +9165,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * openApi查询主机概览
+         * openApi查询主机概览。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7990,7 +9229,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询job进度信息
+         * 查询任务进度信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8064,7 +9303,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询逻辑集群可用ring环节点信息
+         * 查询逻辑集群可用ring环节点信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8116,7 +9355,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群-查询逻辑集群任务信息
+         * 查询逻辑集群任务信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8196,7 +9435,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群-查询逻辑集群磁盘信息
+         * 查询逻辑集群磁盘信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8248,7 +9487,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群-查询逻辑集群列表
+         * 查询逻辑集群列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8352,7 +9591,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询集群使用指标列表
+         * 查询集群使用指标列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8424,7 +9663,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定指标相关采集数据
+         * 获取指定指标相关采集数据。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8523,7 +9762,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * openApi查询历史监控数据
+         * openApi查询历史监控数据。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8614,7 +9853,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * openApi查询性能监控指标
+         * 查询性能监控指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8635,7 +9874,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询所有GaussDB(DWS)服务支持的节点类型。
+         * 该接口用于查询所有GaussDB(DWS)服务支持的规格信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8782,6 +10021,75 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取待重分布表所属模式信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRedistributionSchema(listRedistributionSchemaRequest?: ListRedistributionSchemaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/redistribution/schemas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let dbName;
+            
+            let limit;
+            
+            let offset;
+            
+            let schemaName;
+
+            if (listRedistributionSchemaRequest !== null && listRedistributionSchemaRequest !== undefined) {
+                if (listRedistributionSchemaRequest instanceof ListRedistributionSchemaRequest) {
+                    clusterId = listRedistributionSchemaRequest.clusterId;
+                    dbName = listRedistributionSchemaRequest.dbName;
+                    limit = listRedistributionSchemaRequest.limit;
+                    offset = listRedistributionSchemaRequest.offset;
+                    schemaName = listRedistributionSchemaRequest.schemaName;
+                } else {
+                    clusterId = listRedistributionSchemaRequest['cluster_id'];
+                    dbName = listRedistributionSchemaRequest['db_name'];
+                    limit = listRedistributionSchemaRequest['limit'];
+                    offset = listRedistributionSchemaRequest['offset'];
+                    schemaName = listRedistributionSchemaRequest['schema_name'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listRedistributionSchema.');
+            }
+            if (dbName === null || dbName === undefined) {
+                throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling listRedistributionSchema.');
+            }
+            if (dbName !== null && dbName !== undefined) {
+                localVarQueryParameter['db_name'] = dbName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (schemaName !== null && schemaName !== undefined) {
+                localVarQueryParameter['schema_name'] = schemaName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询集群模式空间信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8862,7 +10170,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取跨区域快照可用region
+         * 该接口用于获取跨区域快照可用局点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8906,7 +10214,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询所有跨区域快照配置
+         * 该接口用于查询所有跨区域快照配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9110,6 +10418,60 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询身份源同步记录。
+         * **约束限制**：
+         * 该功能在页面默认未开放给所有用户，当特性开启且有同步记录时查询才有结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSyncRecords(listSyncRecordsRequest?: ListSyncRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/sync-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSyncRecordsRequest !== null && listSyncRecordsRequest !== undefined) {
+                if (listSyncRecordsRequest instanceof ListSyncRecordsRequest) {
+                    clusterId = listSyncRecordsRequest.clusterId;
+                    offset = listSyncRecordsRequest.offset;
+                    limit = listSyncRecordsRequest.limit;
+                } else {
+                    clusterId = listSyncRecordsRequest['cluster_id'];
+                    offset = listSyncRecordsRequest['offset'];
+                    limit = listSyncRecordsRequest['limit'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listSyncRecords.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询表倾斜或脏页率信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9227,7 +10589,107 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询集群拓扑ring环节点信息
+         * 查询指定集群的企业项目信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTagsForResource(listTagsForResourceRequest?: ListTagsForResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/enterprise-projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTagsForResourceRequest !== null && listTagsForResourceRequest !== undefined) {
+                if (listTagsForResourceRequest instanceof ListTagsForResourceRequest) {
+                    clusterId = listTagsForResourceRequest.clusterId;
+                    offset = listTagsForResourceRequest.offset;
+                    limit = listTagsForResourceRequest.limit;
+                } else {
+                    clusterId = listTagsForResourceRequest['cluster_id'];
+                    offset = listTagsForResourceRequest['offset'];
+                    limit = listTagsForResourceRequest['limit'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listTagsForResource.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询支持变更的目标规格列表。
+         * **约束限制**：
+         * 无cluster_id时：可查询所有支持转换的目标规格，但是由于配额等原因，部分规格可能存在售罄无法使用。
+         * 存在cluster_id时：会自动关联此集群所在可用区下的配额充足的目标规格。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTargetFlavors(listTargetFlavorsRequest?: ListTargetFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/flavors/{flavor_id}/target-flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flavorId;
+            
+            let clusterId;
+
+            if (listTargetFlavorsRequest !== null && listTargetFlavorsRequest !== undefined) {
+                if (listTargetFlavorsRequest instanceof ListTargetFlavorsRequest) {
+                    flavorId = listTargetFlavorsRequest.flavorId;
+                    clusterId = listTargetFlavorsRequest.clusterId;
+                } else {
+                    flavorId = listTargetFlavorsRequest['flavor_id'];
+                    clusterId = listTargetFlavorsRequest['cluster_id'];
+                }
+            }
+
+        
+            if (flavorId === null || flavorId === undefined) {
+            throw new RequiredError('flavorId','Required parameter flavorId was null or undefined when calling listTargetFlavors.');
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'flavor_id': flavorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群拓扑ring环节点信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9279,7 +10741,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取集群可升级的目标版本
+         * 获取集群可升级的目标版本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9338,7 +10800,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过此api获取当前集群升级记录
+         * 通过此接口获取当前集群升级记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9449,7 +10911,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询工作负载队列
+         * 查询工作负载队列。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9553,6 +11015,165 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前集群的异常规则列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWorkloadRules(listWorkloadRulesRequest?: ListWorkloadRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/workload/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let offset;
+            
+            let limit;
+            
+            let ruleName;
+            
+            let queueName;
+
+            if (listWorkloadRulesRequest !== null && listWorkloadRulesRequest !== undefined) {
+                if (listWorkloadRulesRequest instanceof ListWorkloadRulesRequest) {
+                    clusterId = listWorkloadRulesRequest.clusterId;
+                    offset = listWorkloadRulesRequest.offset;
+                    limit = listWorkloadRulesRequest.limit;
+                    ruleName = listWorkloadRulesRequest.ruleName;
+                    queueName = listWorkloadRulesRequest.queueName;
+                } else {
+                    clusterId = listWorkloadRulesRequest['cluster_id'];
+                    offset = listWorkloadRulesRequest['offset'];
+                    limit = listWorkloadRulesRequest['limit'];
+                    ruleName = listWorkloadRulesRequest['rule_name'];
+                    queueName = listWorkloadRulesRequest['queue_name'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listWorkloadRules.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (ruleName !== null && ruleName !== undefined) {
+                localVarQueryParameter['rule_name'] = ruleName;
+            }
+            if (queueName !== null && queueName !== undefined) {
+                localVarQueryParameter['queue_name'] = queueName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改集群名称。
+         * **约束限制**：
+         * guestAgent插件版本8.3.1及以上才支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyClusterName(modifyClusterNameRequest?: ModifyClusterNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/clusters/{cluster_id}/cluster-name",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (modifyClusterNameRequest !== null && modifyClusterNameRequest !== undefined) {
+                if (modifyClusterNameRequest instanceof ModifyClusterNameRequest) {
+                    clusterId = modifyClusterNameRequest.clusterId;
+                    body = modifyClusterNameRequest.body
+                } else {
+                    clusterId = modifyClusterNameRequest['cluster_id'];
+                    body = modifyClusterNameRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling modifyClusterName.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改集群时区。该操作会将操作系统及数据库的时区都进行修改。
+         * **约束限制**：
+         * 修改时区依赖集群安装的guestAgent插件，插件版本在8.3.0.202及以上支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyClusterTimezone(modifyClusterTimezoneRequest?: ModifyClusterTimezoneRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/timezone",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (modifyClusterTimezoneRequest !== null && modifyClusterTimezoneRequest !== undefined) {
+                if (modifyClusterTimezoneRequest instanceof ModifyClusterTimezoneRequest) {
+                    clusterId = modifyClusterTimezoneRequest.clusterId;
+                    body = modifyClusterTimezoneRequest.body
+                } else {
+                    clusterId = modifyClusterTimezoneRequest['cluster_id'];
+                    body = modifyClusterTimezoneRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling modifyClusterTimezone.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于停止容灾操作。
          * 容灾状态为“运行中”和“停止失败”时可以执行停止容灾操作。
          * 停止后，将无法进行数据同步，请谨慎操作。
@@ -9639,7 +11260,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 此接口用于扩容集群。
+         * 此接口用于扩容集群，亦可用于添加空闲节点。默认情况下：表示执行扩容操作。
+         * 通过create_node_only字段用以区分当前是**扩容**、**添加空闲节点**：
+         * - true：仅添加空闲节点
+         * - false：表示执行扩容操作
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9904,7 +11528,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 此接口用于恢复暂停状态下的重分布操作,仅支持DWS2.0集群。
+         * 此接口用于恢复暂停状态下的重分布操作，仅支持DWS2.0集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9941,7 +11565,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于恢复表
+         * 该接口用于恢复表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9987,7 +11611,50 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 保存集群描述信息
+         * 轮转加密集群密钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rotateKey(rotateKeyRequest?: RotateKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/rotate-key",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (rotateKeyRequest !== null && rotateKeyRequest !== undefined) {
+                if (rotateKeyRequest instanceof RotateKeyRequest) {
+                    clusterId = rotateKeyRequest.clusterId;
+                    body = rotateKeyRequest.body
+                } else {
+                    clusterId = rotateKeyRequest['cluster_id'];
+                    body = rotateKeyRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling rotateKey.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改集群描述信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10041,7 +11708,93 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询集群使用的规格详情
+         * 更新重分布表优先级。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setRedistributionPriority(setRedistributionPriorityRequest?: SetRedistributionPriorityRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/clusters/{cluster_id}/redistribution/priority",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (setRedistributionPriorityRequest !== null && setRedistributionPriorityRequest !== undefined) {
+                if (setRedistributionPriorityRequest instanceof SetRedistributionPriorityRequest) {
+                    clusterId = setRedistributionPriorityRequest.clusterId;
+                    body = setRedistributionPriorityRequest.body
+                } else {
+                    clusterId = setRedistributionPriorityRequest['cluster_id'];
+                    body = setRedistributionPriorityRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling setRedistributionPriority.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群加密信息。非加密集群不支持该功能，返回信息为空。
+         * **约束限制**：
+         * 转加密集群起始支持版本：8.0.0
+         * 转加密集群guestAgent起始支持版本：8.3.0.200
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterEncryptInfo(showClusterEncryptInfoRequest?: ShowClusterEncryptInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/encrypt-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showClusterEncryptInfoRequest !== null && showClusterEncryptInfoRequest !== undefined) {
+                if (showClusterEncryptInfoRequest instanceof ShowClusterEncryptInfoRequest) {
+                    clusterId = showClusterEncryptInfoRequest.clusterId;
+                } else {
+                    clusterId = showClusterEncryptInfoRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterEncryptInfo.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群使用的规格详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10160,7 +11913,84 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询并显示集群列表
+         * 此接口可用于查看磁盘扩容操作时支持的扩容范围。
+         * 
+         *  - 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。
+         *  - 按需+折扣套餐包消费模式下，存储扩容后超出折扣套餐包部分将按需收费。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterStorageExpandRange(showClusterStorageExpandRangeRequest?: ShowClusterStorageExpandRangeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/storage-expand-range",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showClusterStorageExpandRangeRequest !== null && showClusterStorageExpandRangeRequest !== undefined) {
+                if (showClusterStorageExpandRangeRequest instanceof ShowClusterStorageExpandRangeRequest) {
+                    clusterId = showClusterStorageExpandRangeRequest.clusterId;
+                } else {
+                    clusterId = showClusterStorageExpandRangeRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterStorageExpandRange.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户侧节点磁盘使用情况信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterVolume(showClusterVolumeRequest?: ShowClusterVolumeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/volume",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showClusterVolumeRequest !== null && showClusterVolumeRequest !== undefined) {
+                if (showClusterVolumeRequest instanceof ShowClusterVolumeRequest) {
+                    clusterId = showClusterVolumeRequest.clusterId;
+                } else {
+                    clusterId = showClusterVolumeRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterVolume.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询并显示集群列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10181,7 +12011,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询数据库对象权限
+         * 查询数据库对象权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10263,7 +12093,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获得数据库运维账户状态
+         * 获得数据库运维账户状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10300,7 +12130,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定用户信息
+         * 查询指定用户信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10418,7 +12248,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个实例
+         * 查询单个实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10455,7 +12285,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询SQL执行信息
+         * 查询SQL执行信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10507,7 +12337,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询资源统计
+         * 该接口用于查询资源统计。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10737,7 +12567,60 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 集群管理-启动集群
+         * 逻辑集群缩容，支持从弹性池缩容，或是从逻辑集群中缩容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        shrinkLogicalCluster(shrinkLogicalClusterRequest?: ShrinkLogicalClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/logical-clusters/{logical_cluster_id}/shrink",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let logicalClusterId;
+
+            if (shrinkLogicalClusterRequest !== null && shrinkLogicalClusterRequest !== undefined) {
+                if (shrinkLogicalClusterRequest instanceof ShrinkLogicalClusterRequest) {
+                    clusterId = shrinkLogicalClusterRequest.clusterId;
+                    logicalClusterId = shrinkLogicalClusterRequest.logicalClusterId;
+                    body = shrinkLogicalClusterRequest.body
+                } else {
+                    clusterId = shrinkLogicalClusterRequest['cluster_id'];
+                    logicalClusterId = shrinkLogicalClusterRequest['logical_cluster_id'];
+                    body = shrinkLogicalClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling shrinkLogicalCluster.');
+            }
+            if (logicalClusterId === null || logicalClusterId === undefined) {
+            throw new RequiredError('logicalClusterId','Required parameter logicalClusterId was null or undefined when calling shrinkLogicalCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'logical_cluster_id': logicalClusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启动集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10815,7 +12698,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 启动工作负载计划
+         * 启动工作负载计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10859,7 +12742,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 集群管理-停止集群
+         * 停止集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10934,7 +12817,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 停止工作负载计划
+         * 停止工作负载计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10982,7 +12865,7 @@ export const ParamCreater = function () {
          * “异常切换”按钮用于容灾异常或者生产集群故障情况下主备切换操作。
          * 容灾异常切换仅8.1.2及以上集群版本支持。
          * 异常切换会将灾备集群升为主，若原生产集群故障后存在部分数据未同步到灾备集群，那灾备集群升主后将缺少这些数据，切换时请确认容灾最后同步时间，谨慎操作。
-         * 仅支持DWS 2.0集群
+         * 仅支持DWS 2.0集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11155,7 +13038,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 同步IAM用户到数据库
+         * 同步IAM用户到数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11192,7 +13075,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新订阅的告警
+         * 更新订阅的告警。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11387,7 +13270,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改数据库对象权限
+         * 修改数据库对象权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11433,7 +13316,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改指定用户信息
+         * 修改指定用户信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11531,7 +13414,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新订阅事件
+         * 更新订阅事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11782,6 +13665,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新重分布配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRedistributionConfigurations(updateRedistributionConfigurationsRequest?: UpdateRedistributionConfigurationsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/clusters/{cluster_id}/redistribution/configurations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (updateRedistributionConfigurationsRequest !== null && updateRedistributionConfigurationsRequest !== undefined) {
+                if (updateRedistributionConfigurationsRequest instanceof UpdateRedistributionConfigurationsRequest) {
+                    clusterId = updateRedistributionConfigurationsRequest.clusterId;
+                    body = updateRedistributionConfigurationsRequest.body
+                } else {
+                    clusterId = updateRedistributionConfigurationsRequest['cluster_id'];
+                    body = updateRedistributionConfigurationsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateRedistributionConfigurations.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新模式空间限额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11830,6 +13759,63 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改资源管理计划阶段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateWorkloadPlanStage(updateWorkloadPlanStageRequest?: UpdateWorkloadPlanStageRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans/{plan_id}/stages/{stage_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let planId;
+            
+            let stageId;
+
+            if (updateWorkloadPlanStageRequest !== null && updateWorkloadPlanStageRequest !== undefined) {
+                if (updateWorkloadPlanStageRequest instanceof UpdateWorkloadPlanStageRequest) {
+                    clusterId = updateWorkloadPlanStageRequest.clusterId;
+                    planId = updateWorkloadPlanStageRequest.planId;
+                    stageId = updateWorkloadPlanStageRequest.stageId;
+                    body = updateWorkloadPlanStageRequest.body
+                } else {
+                    clusterId = updateWorkloadPlanStageRequest['cluster_id'];
+                    planId = updateWorkloadPlanStageRequest['plan_id'];
+                    stageId = updateWorkloadPlanStageRequest['stage_id'];
+                    body = updateWorkloadPlanStageRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateWorkloadPlanStage.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling updateWorkloadPlanStage.');
+            }
+            if (stageId === null || stageId === undefined) {
+            throw new RequiredError('stageId','Required parameter stageId was null or undefined when calling updateWorkloadPlanStage.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId,'stage_id': stageId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

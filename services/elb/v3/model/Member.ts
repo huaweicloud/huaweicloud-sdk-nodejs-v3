@@ -4,6 +4,7 @@ import { MemberStatus } from './MemberStatus';
 
 export class Member {
     public id?: string;
+    private 'availability_zone'?: string;
     public name?: string;
     private 'project_id'?: string;
     private 'admin_state_up'?: boolean;
@@ -19,8 +20,9 @@ export class Member {
     private 'updated_at'?: string;
     private 'member_type'?: string;
     private 'instance_id'?: string;
-    public constructor(id?: string, name?: string, projectId?: string, adminStateUp?: boolean, protocolPort?: number, weight?: number, address?: string, ipVersion?: string, operatingStatus?: string, status?: Array<MemberStatus>) { 
+    public constructor(id?: string, availabilityZone?: string, name?: string, projectId?: string, adminStateUp?: boolean, protocolPort?: number, weight?: number, address?: string, ipVersion?: string, operatingStatus?: string, status?: Array<MemberStatus>) { 
         this['id'] = id;
+        this['availability_zone'] = availabilityZone;
         this['name'] = name;
         this['project_id'] = projectId;
         this['admin_state_up'] = adminStateUp;
@@ -34,6 +36,16 @@ export class Member {
     public withId(id: string): Member {
         this['id'] = id;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): Member {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
     public withName(name: string): Member {
         this['name'] = name;

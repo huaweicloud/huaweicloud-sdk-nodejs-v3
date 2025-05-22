@@ -1,3 +1,4 @@
+import { BucketSplitInfo } from './BucketSplitInfo';
 import { ScheduleConf } from './ScheduleConf';
 
 
@@ -6,6 +7,8 @@ export class RedisConf {
     private 'schedule_conf'?: ScheduleConf;
     private 'parallel_jobs'?: number;
     private 'parallel_job'?: number;
+    private 'priority_policy'?: string;
+    private 'bucket_split_info'?: BucketSplitInfo;
     public constructor(redisMode?: string, parallelJobs?: number, parallelJob?: number) { 
         this['redis_mode'] = redisMode;
         this['parallel_jobs'] = parallelJobs;
@@ -50,5 +53,25 @@ export class RedisConf {
     }
     public get parallelJob(): number | undefined {
         return this['parallel_job'];
+    }
+    public withPriorityPolicy(priorityPolicy: string): RedisConf {
+        this['priority_policy'] = priorityPolicy;
+        return this;
+    }
+    public set priorityPolicy(priorityPolicy: string  | undefined) {
+        this['priority_policy'] = priorityPolicy;
+    }
+    public get priorityPolicy(): string | undefined {
+        return this['priority_policy'];
+    }
+    public withBucketSplitInfo(bucketSplitInfo: BucketSplitInfo): RedisConf {
+        this['bucket_split_info'] = bucketSplitInfo;
+        return this;
+    }
+    public set bucketSplitInfo(bucketSplitInfo: BucketSplitInfo  | undefined) {
+        this['bucket_split_info'] = bucketSplitInfo;
+    }
+    public get bucketSplitInfo(): BucketSplitInfo | undefined {
+        return this['bucket_split_info'];
     }
 }

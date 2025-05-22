@@ -1,4 +1,5 @@
 import { CreateCorsConfig } from './CreateCorsConfig';
+import { CreateTrafficMirrorConfig } from './CreateTrafficMirrorConfig';
 import { UpdateInsertHeadersConfig } from './UpdateInsertHeadersConfig';
 import { UpdateRemoveHeadersConfig } from './UpdateRemoveHeadersConfig';
 import { UpdateRewriteUrlConfig } from './UpdateRewriteUrlConfig';
@@ -12,6 +13,7 @@ export class UpdateRedirectPoolsExtendConfig {
     private 'remove_headers_config'?: UpdateRemoveHeadersConfig;
     private 'traffic_limit_config'?: UpdateTrafficLimitConfig;
     private 'cors_config'?: CreateCorsConfig;
+    private 'traffic_mirror_config'?: CreateTrafficMirrorConfig;
     public constructor() { 
     }
     public withRewriteUrlEnable(rewriteUrlEnable: boolean): UpdateRedirectPoolsExtendConfig {
@@ -73,5 +75,15 @@ export class UpdateRedirectPoolsExtendConfig {
     }
     public get corsConfig(): CreateCorsConfig | undefined {
         return this['cors_config'];
+    }
+    public withTrafficMirrorConfig(trafficMirrorConfig: CreateTrafficMirrorConfig): UpdateRedirectPoolsExtendConfig {
+        this['traffic_mirror_config'] = trafficMirrorConfig;
+        return this;
+    }
+    public set trafficMirrorConfig(trafficMirrorConfig: CreateTrafficMirrorConfig  | undefined) {
+        this['traffic_mirror_config'] = trafficMirrorConfig;
+    }
+    public get trafficMirrorConfig(): CreateTrafficMirrorConfig | undefined {
+        return this['traffic_mirror_config'];
     }
 }

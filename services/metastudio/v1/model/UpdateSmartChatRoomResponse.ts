@@ -1,7 +1,8 @@
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
+import { ChatResourceConfigInfo } from './ChatResourceConfigInfo';
 import { ChatSubtitleConfig } from './ChatSubtitleConfig';
 import { ChatVoiceConfig } from './ChatVoiceConfig';
-import { CreateSmartChatRoomReq } from './CreateSmartChatRoomReq';
+import { CreateSmartChatRoomRequestBody } from './CreateSmartChatRoomRequestBody';
 import { LayerConfig } from './LayerConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { VideoConfig } from './VideoConfig';
@@ -24,10 +25,13 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     private 'review_config'?: ReviewConfig;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
     private 'chat_video_type'?: UpdateSmartChatRoomResponseChatVideoTypeEnum | string;
+    private 'exit_mute_threshold'?: number;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'cover_url'?: string;
+    private 'is_pool_mode'?: boolean;
+    private 'chat_resource_config'?: Array<ChatResourceConfigInfo>;
     private 'X-Request-Id'?: string;
     public constructor(roomName?: string) { 
         super();
@@ -167,6 +171,16 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     public get chatVideoType(): UpdateSmartChatRoomResponseChatVideoTypeEnum | string | undefined {
         return this['chat_video_type'];
     }
+    public withExitMuteThreshold(exitMuteThreshold: number): UpdateSmartChatRoomResponse {
+        this['exit_mute_threshold'] = exitMuteThreshold;
+        return this;
+    }
+    public set exitMuteThreshold(exitMuteThreshold: number  | undefined) {
+        this['exit_mute_threshold'] = exitMuteThreshold;
+    }
+    public get exitMuteThreshold(): number | undefined {
+        return this['exit_mute_threshold'];
+    }
     public withRoomId(roomId: string): UpdateSmartChatRoomResponse {
         this['room_id'] = roomId;
         return this;
@@ -207,6 +221,26 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     public get coverUrl(): string | undefined {
         return this['cover_url'];
     }
+    public withIsPoolMode(isPoolMode: boolean): UpdateSmartChatRoomResponse {
+        this['is_pool_mode'] = isPoolMode;
+        return this;
+    }
+    public set isPoolMode(isPoolMode: boolean  | undefined) {
+        this['is_pool_mode'] = isPoolMode;
+    }
+    public get isPoolMode(): boolean | undefined {
+        return this['is_pool_mode'];
+    }
+    public withChatResourceConfig(chatResourceConfig: Array<ChatResourceConfigInfo>): UpdateSmartChatRoomResponse {
+        this['chat_resource_config'] = chatResourceConfig;
+        return this;
+    }
+    public set chatResourceConfig(chatResourceConfig: Array<ChatResourceConfigInfo>  | undefined) {
+        this['chat_resource_config'] = chatResourceConfig;
+    }
+    public get chatResourceConfig(): Array<ChatResourceConfigInfo> | undefined {
+        return this['chat_resource_config'];
+    }
     public withXRequestId(xRequestId: string): UpdateSmartChatRoomResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -225,7 +259,11 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     */
 export enum UpdateSmartChatRoomResponseDefaultLanguageEnum {
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
 }
 /**
     * @export

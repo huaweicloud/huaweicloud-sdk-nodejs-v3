@@ -19,6 +19,7 @@ export class BatchUpdateMember {
     private 'port_id'?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    private 'availability_zone'?: string;
     public constructor(id?: string, name?: string, projectId?: string, adminStateUp?: boolean, protocolPort?: number, weight?: number, address?: string, operatingStatus?: string, portId?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -153,5 +154,15 @@ export class BatchUpdateMember {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withAvailabilityZone(availabilityZone: string): BatchUpdateMember {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

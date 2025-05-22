@@ -26,7 +26,6 @@ export class ClusterDetail {
     private 'recent_event'?: number;
     private 'availability_zone'?: string;
     private 'enterprise_project_id'?: string;
-    private 'node_type'?: string;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     private 'public_ip'?: PublicIp;
@@ -35,6 +34,7 @@ export class ClusterDetail {
     private 'sub_status'?: string;
     private 'task_status'?: string;
     private 'parameter_group'?: ParameterGroup;
+    private 'node_type'?: string;
     private 'node_type_id'?: string;
     private 'security_group_id'?: string;
     private 'order_id'?: string;
@@ -43,7 +43,7 @@ export class ClusterDetail {
     private 'resize_info'?: ResizeInfo;
     private 'failed_reasons'?: FailedReason;
     public elb?: ElbResp;
-    public constructor(id?: string, name?: string, status?: string, version?: string, updated?: string, created?: string, port?: number, endpoints?: Array<Endpoints>, nodes?: Array<Nodes>, tags?: Array<Tags>, userName?: string, numberOfNode?: number, recentEvent?: number, availabilityZone?: string, enterpriseProjectId?: string, nodeType?: string, vpcId?: string, subnetId?: string, publicIp?: PublicIp, publicEndpoints?: Array<PublicEndpoints>, actionProgress?: { [key: string]: string; }, subStatus?: string, taskStatus?: string, nodeTypeId?: string, securityGroupId?: string, privateIp?: Array<string>, maintainWindow?: MaintainWindow) { 
+    public constructor(id?: string, name?: string, status?: string, version?: string, updated?: string, created?: string, port?: number, endpoints?: Array<Endpoints>, nodes?: Array<Nodes>, tags?: Array<Tags>, userName?: string, numberOfNode?: number, recentEvent?: number, availabilityZone?: string, enterpriseProjectId?: string, vpcId?: string, subnetId?: string, publicIp?: PublicIp, publicEndpoints?: Array<PublicEndpoints>, actionProgress?: { [key: string]: string; }, subStatus?: string, taskStatus?: string, nodeType?: string, nodeTypeId?: string, securityGroupId?: string, privateIp?: Array<string>) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
@@ -59,7 +59,6 @@ export class ClusterDetail {
         this['recent_event'] = recentEvent;
         this['availability_zone'] = availabilityZone;
         this['enterprise_project_id'] = enterpriseProjectId;
-        this['node_type'] = nodeType;
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
         this['public_ip'] = publicIp;
@@ -67,10 +66,10 @@ export class ClusterDetail {
         this['action_progress'] = actionProgress;
         this['sub_status'] = subStatus;
         this['task_status'] = taskStatus;
+        this['node_type'] = nodeType;
         this['node_type_id'] = nodeTypeId;
         this['security_group_id'] = securityGroupId;
         this['private_ip'] = privateIp;
-        this['maintain_window'] = maintainWindow;
     }
     public withId(id: string): ClusterDetail {
         this['id'] = id;
@@ -162,16 +161,6 @@ export class ClusterDetail {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withNodeType(nodeType: string): ClusterDetail {
-        this['node_type'] = nodeType;
-        return this;
-    }
-    public set nodeType(nodeType: string  | undefined) {
-        this['node_type'] = nodeType;
-    }
-    public get nodeType(): string | undefined {
-        return this['node_type'];
-    }
     public withVpcId(vpcId: string): ClusterDetail {
         this['vpc_id'] = vpcId;
         return this;
@@ -251,6 +240,16 @@ export class ClusterDetail {
     }
     public get parameterGroup(): ParameterGroup | undefined {
         return this['parameter_group'];
+    }
+    public withNodeType(nodeType: string): ClusterDetail {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
     public withNodeTypeId(nodeTypeId: string): ClusterDetail {
         this['node_type_id'] = nodeTypeId;

@@ -13,6 +13,9 @@ export class ListCertificatesRequest {
     private 'scm_certificate_id'?: Array<string>;
     private 'common_name'?: Array<string>;
     public fingerprint?: Array<string>;
+    public source?: Array<string>;
+    private 'protection_status'?: Array<string>;
+    private 'protection_reason'?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListCertificatesRequest {
@@ -86,5 +89,29 @@ export class ListCertificatesRequest {
     public withFingerprint(fingerprint: Array<string>): ListCertificatesRequest {
         this['fingerprint'] = fingerprint;
         return this;
+    }
+    public withSource(source: Array<string>): ListCertificatesRequest {
+        this['source'] = source;
+        return this;
+    }
+    public withProtectionStatus(protectionStatus: Array<string>): ListCertificatesRequest {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: Array<string>  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): Array<string> | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: Array<string>): ListCertificatesRequest {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: Array<string>  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): Array<string> | undefined {
+        return this['protection_reason'];
     }
 }

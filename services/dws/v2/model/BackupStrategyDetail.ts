@@ -8,6 +8,7 @@ export class BackupStrategyDetail {
     private 'backup_level'?: string;
     private 'next_fire_time'?: string;
     private 'update_time'?: string;
+    private 'time_zone_offset'?: number;
     public constructor() { 
     }
     public withPolicyId(policyId: string): BackupStrategyDetail {
@@ -79,5 +80,15 @@ export class BackupStrategyDetail {
     }
     public get updateTime(): string | undefined {
         return this['update_time'];
+    }
+    public withTimeZoneOffset(timeZoneOffset: number): BackupStrategyDetail {
+        this['time_zone_offset'] = timeZoneOffset;
+        return this;
+    }
+    public set timeZoneOffset(timeZoneOffset: number  | undefined) {
+        this['time_zone_offset'] = timeZoneOffset;
+    }
+    public get timeZoneOffset(): number | undefined {
+        return this['time_zone_offset'];
     }
 }

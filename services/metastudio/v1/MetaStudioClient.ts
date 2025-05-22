@@ -45,6 +45,8 @@ import { Cancel2DDigitalHumanVideoResponse } from './model/Cancel2DDigitalHumanV
 import { CancelPhotoDigitalHumanVideoRequest } from './model/CancelPhotoDigitalHumanVideoRequest';
 import { CancelPhotoDigitalHumanVideoResponse } from './model/CancelPhotoDigitalHumanVideoResponse';
 import { ChardMode } from './model/ChardMode';
+import { ChatResourceConfig } from './model/ChatResourceConfig';
+import { ChatResourceConfigInfo } from './model/ChatResourceConfigInfo';
 import { ChatSubtitleConfig } from './model/ChatSubtitleConfig';
 import { ChatVoiceConfig } from './model/ChatVoiceConfig';
 import { CoStreamerConfig } from './model/CoStreamerConfig';
@@ -155,6 +157,7 @@ import { CreateRobotResponse } from './model/CreateRobotResponse';
 import { CreateSisHotWords } from './model/CreateSisHotWords';
 import { CreateSmartChatRoomReq } from './model/CreateSmartChatRoomReq';
 import { CreateSmartChatRoomRequest } from './model/CreateSmartChatRoomRequest';
+import { CreateSmartChatRoomRequestBody } from './model/CreateSmartChatRoomRequestBody';
 import { CreateSmartChatRoomResponse } from './model/CreateSmartChatRoomResponse';
 import { CreateSmartLiveRoomReq } from './model/CreateSmartLiveRoomReq';
 import { CreateSmartLiveRoomReqBaseInfo } from './model/CreateSmartLiveRoomReqBaseInfo';
@@ -1954,6 +1957,103 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建智能直播间互动规则库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建智能直播间互动规则库
+     * @param {InteractionRuleGroup} createInteractionRuleGroupRequestBody 创建智能直播间互动规则。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInteractionRuleGroup(createInteractionRuleGroupRequest?: CreateInteractionRuleGroupRequest): Promise<CreateInteractionRuleGroupResponse> {
+        const options = ParamCreater().createInteractionRuleGroup(createInteractionRuleGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除智能直播间互动规则库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除智能直播间互动规则库
+     * @param {string} groupId 互动规则库ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInteractionRuleGroup(deleteInteractionRuleGroupRequest?: DeleteInteractionRuleGroupRequest): Promise<DeleteInteractionRuleGroupResponse> {
+        const options = ParamCreater().deleteInteractionRuleGroup(deleteInteractionRuleGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于智能直播间互动规则库列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询智能直播间互动规则库列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [groupName] 规则库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInteractionRuleGroups(listInteractionRuleGroupsRequest?: ListInteractionRuleGroupsRequest): Promise<ListInteractionRuleGroupsResponse> {
+        const options = ParamCreater().listInteractionRuleGroups(listInteractionRuleGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于更新智能直播间互动规则库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新智能直播间互动规则库
+     * @param {string} groupId 互动规则库ID。
+     * @param {InteractionRuleGroup} updateInteractionRuleGroupRequestBody 创建智能直播间互动规则。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInteractionRuleGroup(updateInteractionRuleGroupRequest?: UpdateInteractionRuleGroupRequest): Promise<UpdateInteractionRuleGroupResponse> {
+        const options = ParamCreater().updateInteractionRuleGroup(updateInteractionRuleGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建知识库意图和问法。一个意图包含一个主题，一个答案，若干个问法等。接口使用限制详见[API使用限制](metastudio_02_0000.xml)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3533,7 +3633,9 @@ export class MetaStudioClient {
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [authKey] 鉴权Key。通过HmacSHA256生成的鉴权key
-     * @param {number} [expiresTime] **参数解释**： 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。
+     * @param {number} [expiresTime] 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
+     * @param {string} [xMssAuthKey] 鉴权Key。通过HmacSHA256生成的鉴权key
+     * @param {number} [xMssExpiresTime] **参数解释**： 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。
      * @param {boolean} [refreshUrl] 是否刷新URL
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3644,29 +3746,6 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建智能直播间互动规则库。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建智能直播间互动规则库
-     * @param {InteractionRuleGroup} createInteractionRuleGroupRequestBody 创建智能直播间互动规则。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createInteractionRuleGroup(createInteractionRuleGroupRequest?: CreateInteractionRuleGroupRequest): Promise<CreateInteractionRuleGroupResponse> {
-        const options = ParamCreater().createInteractionRuleGroup(createInteractionRuleGroupRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口用于创建智能直播间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3690,29 +3769,6 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除智能直播间互动规则库。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除智能直播间互动规则库
-     * @param {string} groupId 互动规则库ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteInteractionRuleGroup(deleteInteractionRuleGroupRequest?: DeleteInteractionRuleGroupRequest): Promise<DeleteInteractionRuleGroupResponse> {
-        const options = ParamCreater().deleteInteractionRuleGroup(deleteInteractionRuleGroupRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口用于删除智能直播间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3728,33 +3784,6 @@ export class MetaStudioClient {
      */
     public deleteSmartLiveRoom(deleteSmartLiveRoomRequest?: DeleteSmartLiveRoomRequest): Promise<DeleteSmartLiveRoomResponse> {
         const options = ParamCreater().deleteSmartLiveRoom(deleteSmartLiveRoomRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于智能直播间互动规则库列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询智能直播间互动规则库列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
-     * @param {number} [limit] 每页显示的条目数量。
-     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
-     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
-     * @param {string} [groupName] 规则库名称
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listInteractionRuleGroups(listInteractionRuleGroupsRequest?: ListInteractionRuleGroupsRequest): Promise<ListInteractionRuleGroupsResponse> {
-        const options = ParamCreater().listInteractionRuleGroups(listInteractionRuleGroupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3796,11 +3825,11 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询智能直播剧本详情。
+     * 该接口用于查询智能直播间剧本详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询智能直播剧本详情
+     * @summary 查询智能直播间剧本详情
      * @param {string} roomId 直播间ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -3811,30 +3840,6 @@ export class MetaStudioClient {
      */
     public showSmartLiveRoom(showSmartLiveRoomRequest?: ShowSmartLiveRoomRequest): Promise<ShowSmartLiveRoomResponse> {
         const options = ParamCreater().showSmartLiveRoom(showSmartLiveRoomRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于更新智能直播间互动规则库。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新智能直播间互动规则库
-     * @param {string} groupId 互动规则库ID。
-     * @param {InteractionRuleGroup} updateInteractionRuleGroupRequestBody 创建智能直播间互动规则。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateInteractionRuleGroup(updateInteractionRuleGroupRequest?: UpdateInteractionRuleGroupRequest): Promise<UpdateInteractionRuleGroupResponse> {
-        const options = ParamCreater().updateInteractionRuleGroup(updateInteractionRuleGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -4610,7 +4615,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于对外生成音频文件
+     * 该接口用于对外生成音频文件。每个预制音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
      * 
      * &gt; 使用本接口前，需要在MetaStudio控制台服务概览页面，开通“声音合成”的按需计费。
      * &gt; 详细操作为：单击“声音合成”卡片中的“去开通”，在弹出的“开通按需计费服务提示”对话框中，勾选同意协议。单击“确定”，开通按需计费。
@@ -9085,6 +9090,304 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建智能直播间互动规则库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInteractionRuleGroup(createInteractionRuleGroupRequest?: CreateInteractionRuleGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-interaction-rule-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createInteractionRuleGroupRequest !== null && createInteractionRuleGroupRequest !== undefined) {
+                if (createInteractionRuleGroupRequest instanceof CreateInteractionRuleGroupRequest) {
+                    body = createInteractionRuleGroupRequest.body
+                    authorization = createInteractionRuleGroupRequest.authorization;
+                    xSdkDate = createInteractionRuleGroupRequest.xSdkDate;
+                    xProjectId = createInteractionRuleGroupRequest.xProjectId;
+                    xAppUserId = createInteractionRuleGroupRequest.xAppUserId;
+                } else {
+                    body = createInteractionRuleGroupRequest['body'];
+                    authorization = createInteractionRuleGroupRequest['Authorization'];
+                    xSdkDate = createInteractionRuleGroupRequest['X-Sdk-Date'];
+                    xProjectId = createInteractionRuleGroupRequest['X-Project-Id'];
+                    xAppUserId = createInteractionRuleGroupRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除智能直播间互动规则库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInteractionRuleGroup(deleteInteractionRuleGroupRequest?: DeleteInteractionRuleGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/smart-live-interaction-rule-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteInteractionRuleGroupRequest !== null && deleteInteractionRuleGroupRequest !== undefined) {
+                if (deleteInteractionRuleGroupRequest instanceof DeleteInteractionRuleGroupRequest) {
+                    groupId = deleteInteractionRuleGroupRequest.groupId;
+                    authorization = deleteInteractionRuleGroupRequest.authorization;
+                    xSdkDate = deleteInteractionRuleGroupRequest.xSdkDate;
+                    xProjectId = deleteInteractionRuleGroupRequest.xProjectId;
+                    xAppUserId = deleteInteractionRuleGroupRequest.xAppUserId;
+                } else {
+                    groupId = deleteInteractionRuleGroupRequest['group_id'];
+                    authorization = deleteInteractionRuleGroupRequest['Authorization'];
+                    xSdkDate = deleteInteractionRuleGroupRequest['X-Sdk-Date'];
+                    xProjectId = deleteInteractionRuleGroupRequest['X-Project-Id'];
+                    xAppUserId = deleteInteractionRuleGroupRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteInteractionRuleGroup.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于智能直播间互动规则库列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInteractionRuleGroups(listInteractionRuleGroupsRequest?: ListInteractionRuleGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-interaction-rule-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let createSince;
+            
+            let createUntil;
+            
+            let groupName;
+
+            if (listInteractionRuleGroupsRequest !== null && listInteractionRuleGroupsRequest !== undefined) {
+                if (listInteractionRuleGroupsRequest instanceof ListInteractionRuleGroupsRequest) {
+                    authorization = listInteractionRuleGroupsRequest.authorization;
+                    xSdkDate = listInteractionRuleGroupsRequest.xSdkDate;
+                    xProjectId = listInteractionRuleGroupsRequest.xProjectId;
+                    xAppUserId = listInteractionRuleGroupsRequest.xAppUserId;
+                    offset = listInteractionRuleGroupsRequest.offset;
+                    limit = listInteractionRuleGroupsRequest.limit;
+                    createSince = listInteractionRuleGroupsRequest.createSince;
+                    createUntil = listInteractionRuleGroupsRequest.createUntil;
+                    groupName = listInteractionRuleGroupsRequest.groupName;
+                } else {
+                    authorization = listInteractionRuleGroupsRequest['Authorization'];
+                    xSdkDate = listInteractionRuleGroupsRequest['X-Sdk-Date'];
+                    xProjectId = listInteractionRuleGroupsRequest['X-Project-Id'];
+                    xAppUserId = listInteractionRuleGroupsRequest['X-App-UserId'];
+                    offset = listInteractionRuleGroupsRequest['offset'];
+                    limit = listInteractionRuleGroupsRequest['limit'];
+                    createSince = listInteractionRuleGroupsRequest['create_since'];
+                    createUntil = listInteractionRuleGroupsRequest['create_until'];
+                    groupName = listInteractionRuleGroupsRequest['group_name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (groupName !== null && groupName !== undefined) {
+                localVarQueryParameter['group_name'] = groupName;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于更新智能直播间互动规则库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInteractionRuleGroup(updateInteractionRuleGroupRequest?: UpdateInteractionRuleGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/smart-live-interaction-rule-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateInteractionRuleGroupRequest !== null && updateInteractionRuleGroupRequest !== undefined) {
+                if (updateInteractionRuleGroupRequest instanceof UpdateInteractionRuleGroupRequest) {
+                    groupId = updateInteractionRuleGroupRequest.groupId;
+                    body = updateInteractionRuleGroupRequest.body
+                    authorization = updateInteractionRuleGroupRequest.authorization;
+                    xSdkDate = updateInteractionRuleGroupRequest.xSdkDate;
+                    xProjectId = updateInteractionRuleGroupRequest.xProjectId;
+                    xAppUserId = updateInteractionRuleGroupRequest.xAppUserId;
+                } else {
+                    groupId = updateInteractionRuleGroupRequest['group_id'];
+                    body = updateInteractionRuleGroupRequest['body'];
+                    authorization = updateInteractionRuleGroupRequest['Authorization'];
+                    xSdkDate = updateInteractionRuleGroupRequest['X-Sdk-Date'];
+                    xProjectId = updateInteractionRuleGroupRequest['X-Project-Id'];
+                    xAppUserId = updateInteractionRuleGroupRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateInteractionRuleGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13923,6 +14226,10 @@ export const ParamCreater = function () {
             
             let expiresTime;
             
+            let xMssAuthKey;
+            
+            let xMssExpiresTime;
+            
             let refreshUrl;
 
             if (liveEventReportRequest !== null && liveEventReportRequest !== undefined) {
@@ -13936,6 +14243,8 @@ export const ParamCreater = function () {
                     xAppUserId = liveEventReportRequest.xAppUserId;
                     authKey = liveEventReportRequest.authKey;
                     expiresTime = liveEventReportRequest.expiresTime;
+                    xMssAuthKey = liveEventReportRequest.xMssAuthKey;
+                    xMssExpiresTime = liveEventReportRequest.xMssExpiresTime;
                     refreshUrl = liveEventReportRequest.refreshUrl;
                 } else {
                     roomId = liveEventReportRequest['room_id'];
@@ -13947,6 +14256,8 @@ export const ParamCreater = function () {
                     xAppUserId = liveEventReportRequest['X-App-UserId'];
                     authKey = liveEventReportRequest['auth_key'];
                     expiresTime = liveEventReportRequest['expires_time'];
+                    xMssAuthKey = liveEventReportRequest['x-mss-auth-key'];
+                    xMssExpiresTime = liveEventReportRequest['x-mss-expires-time'];
                     refreshUrl = liveEventReportRequest['refresh_url'];
                 }
             }
@@ -13981,6 +14292,12 @@ export const ParamCreater = function () {
             }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            if (xMssAuthKey !== undefined && xMssAuthKey !== null) {
+                localVarHeaderParameter['x-mss-auth-key'] = String(xMssAuthKey);
+            }
+            if (xMssExpiresTime !== undefined && xMssExpiresTime !== null) {
+                localVarHeaderParameter['x-mss-expires-time'] = String(xMssExpiresTime);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -14284,72 +14601,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建智能直播间互动规则库。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createInteractionRuleGroup(createInteractionRuleGroupRequest?: CreateInteractionRuleGroupRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/smart-live-interaction-rule-groups",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (createInteractionRuleGroupRequest !== null && createInteractionRuleGroupRequest !== undefined) {
-                if (createInteractionRuleGroupRequest instanceof CreateInteractionRuleGroupRequest) {
-                    body = createInteractionRuleGroupRequest.body
-                    authorization = createInteractionRuleGroupRequest.authorization;
-                    xSdkDate = createInteractionRuleGroupRequest.xSdkDate;
-                    xProjectId = createInteractionRuleGroupRequest.xProjectId;
-                    xAppUserId = createInteractionRuleGroupRequest.xAppUserId;
-                } else {
-                    body = createInteractionRuleGroupRequest['body'];
-                    authorization = createInteractionRuleGroupRequest['Authorization'];
-                    xSdkDate = createInteractionRuleGroupRequest['X-Sdk-Date'];
-                    xProjectId = createInteractionRuleGroupRequest['X-Project-Id'];
-                    xAppUserId = createInteractionRuleGroupRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口用于创建智能直播间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14416,71 +14667,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除智能直播间互动规则库。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteInteractionRuleGroup(deleteInteractionRuleGroupRequest?: DeleteInteractionRuleGroupRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/smart-live-interaction-rule-groups/{group_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let groupId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (deleteInteractionRuleGroupRequest !== null && deleteInteractionRuleGroupRequest !== undefined) {
-                if (deleteInteractionRuleGroupRequest instanceof DeleteInteractionRuleGroupRequest) {
-                    groupId = deleteInteractionRuleGroupRequest.groupId;
-                    authorization = deleteInteractionRuleGroupRequest.authorization;
-                    xSdkDate = deleteInteractionRuleGroupRequest.xSdkDate;
-                    xProjectId = deleteInteractionRuleGroupRequest.xProjectId;
-                    xAppUserId = deleteInteractionRuleGroupRequest.xAppUserId;
-                } else {
-                    groupId = deleteInteractionRuleGroupRequest['group_id'];
-                    authorization = deleteInteractionRuleGroupRequest['Authorization'];
-                    xSdkDate = deleteInteractionRuleGroupRequest['X-Sdk-Date'];
-                    xProjectId = deleteInteractionRuleGroupRequest['X-Project-Id'];
-                    xAppUserId = deleteInteractionRuleGroupRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (groupId === null || groupId === undefined) {
-            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteInteractionRuleGroup.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'group_id': groupId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口用于删除智能直播间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14541,99 +14727,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'room_id': roomId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于智能直播间互动规则库列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listInteractionRuleGroups(listInteractionRuleGroupsRequest?: ListInteractionRuleGroupsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/smart-live-interaction-rule-groups",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-            
-            let offset;
-            
-            let limit;
-            
-            let createSince;
-            
-            let createUntil;
-            
-            let groupName;
-
-            if (listInteractionRuleGroupsRequest !== null && listInteractionRuleGroupsRequest !== undefined) {
-                if (listInteractionRuleGroupsRequest instanceof ListInteractionRuleGroupsRequest) {
-                    authorization = listInteractionRuleGroupsRequest.authorization;
-                    xSdkDate = listInteractionRuleGroupsRequest.xSdkDate;
-                    xProjectId = listInteractionRuleGroupsRequest.xProjectId;
-                    xAppUserId = listInteractionRuleGroupsRequest.xAppUserId;
-                    offset = listInteractionRuleGroupsRequest.offset;
-                    limit = listInteractionRuleGroupsRequest.limit;
-                    createSince = listInteractionRuleGroupsRequest.createSince;
-                    createUntil = listInteractionRuleGroupsRequest.createUntil;
-                    groupName = listInteractionRuleGroupsRequest.groupName;
-                } else {
-                    authorization = listInteractionRuleGroupsRequest['Authorization'];
-                    xSdkDate = listInteractionRuleGroupsRequest['X-Sdk-Date'];
-                    xProjectId = listInteractionRuleGroupsRequest['X-Project-Id'];
-                    xAppUserId = listInteractionRuleGroupsRequest['X-App-UserId'];
-                    offset = listInteractionRuleGroupsRequest['offset'];
-                    limit = listInteractionRuleGroupsRequest['limit'];
-                    createSince = listInteractionRuleGroupsRequest['create_since'];
-                    createUntil = listInteractionRuleGroupsRequest['create_until'];
-                    groupName = listInteractionRuleGroupsRequest['group_name'];
-                }
-            }
-
-        
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (createSince !== null && createSince !== undefined) {
-                localVarQueryParameter['create_since'] = createSince;
-            }
-            if (createUntil !== null && createUntil !== undefined) {
-                localVarQueryParameter['create_until'] = createUntil;
-            }
-            if (groupName !== null && groupName !== undefined) {
-                localVarQueryParameter['group_name'] = groupName;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14774,7 +14867,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询智能直播剧本详情。
+         * 该接口用于查询智能直播间剧本详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14834,80 +14927,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'room_id': roomId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于更新智能直播间互动规则库。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateInteractionRuleGroup(updateInteractionRuleGroupRequest?: UpdateInteractionRuleGroupRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/smart-live-interaction-rule-groups/{group_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let groupId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (updateInteractionRuleGroupRequest !== null && updateInteractionRuleGroupRequest !== undefined) {
-                if (updateInteractionRuleGroupRequest instanceof UpdateInteractionRuleGroupRequest) {
-                    groupId = updateInteractionRuleGroupRequest.groupId;
-                    body = updateInteractionRuleGroupRequest.body
-                    authorization = updateInteractionRuleGroupRequest.authorization;
-                    xSdkDate = updateInteractionRuleGroupRequest.xSdkDate;
-                    xProjectId = updateInteractionRuleGroupRequest.xProjectId;
-                    xAppUserId = updateInteractionRuleGroupRequest.xAppUserId;
-                } else {
-                    groupId = updateInteractionRuleGroupRequest['group_id'];
-                    body = updateInteractionRuleGroupRequest['body'];
-                    authorization = updateInteractionRuleGroupRequest['Authorization'];
-                    xSdkDate = updateInteractionRuleGroupRequest['X-Sdk-Date'];
-                    xProjectId = updateInteractionRuleGroupRequest['X-Project-Id'];
-                    xAppUserId = updateInteractionRuleGroupRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (groupId === null || groupId === undefined) {
-            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateInteractionRuleGroup.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17087,7 +17106,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于对外生成音频文件
+         * 该接口用于对外生成音频文件。每个预制音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
          * 
          * &gt; 使用本接口前，需要在MetaStudio控制台服务概览页面，开通“声音合成”的按需计费。
          * &gt; 详细操作为：单击“声音合成”卡片中的“去开通”，在弹出的“开通按需计费服务提示”对话框中，勾选同意协议。单击“确定”，开通按需计费。

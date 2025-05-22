@@ -4,9 +4,9 @@ import { NodeTypeDatastoresAttachments } from './NodeTypeDatastoresAttachments';
 export class NodeTypeDatastores {
     public version?: string;
     public attachments?: NodeTypeDatastoresAttachments;
-    public constructor(version?: string, attachments?: NodeTypeDatastoresAttachments) { 
+    public role?: string;
+    public constructor(version?: string) { 
         this['version'] = version;
-        this['attachments'] = attachments;
     }
     public withVersion(version: string): NodeTypeDatastores {
         this['version'] = version;
@@ -14,6 +14,10 @@ export class NodeTypeDatastores {
     }
     public withAttachments(attachments: NodeTypeDatastoresAttachments): NodeTypeDatastores {
         this['attachments'] = attachments;
+        return this;
+    }
+    public withRole(role: string): NodeTypeDatastores {
+        this['role'] = role;
         return this;
     }
 }

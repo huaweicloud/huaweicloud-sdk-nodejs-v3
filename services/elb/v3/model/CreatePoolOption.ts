@@ -1,3 +1,4 @@
+import { AzAffinity } from './AzAffinity';
 import { ConnectionDrain } from './ConnectionDrain';
 import { CreatePoolSessionPersistenceOption } from './CreatePoolSessionPersistenceOption';
 import { CreatePoolSlowStartOption } from './CreatePoolSlowStartOption';
@@ -7,6 +8,7 @@ import { QuicCidHashStrategy } from './QuicCidHashStrategy';
 
 export class CreatePoolOption {
     private 'admin_state_up'?: boolean;
+    private 'az_affinity'?: AzAffinity;
     public description?: string;
     private 'lb_algorithm'?: string;
     private 'listener_id'?: string;
@@ -40,6 +42,16 @@ export class CreatePoolOption {
     }
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
+    }
+    public withAzAffinity(azAffinity: AzAffinity): CreatePoolOption {
+        this['az_affinity'] = azAffinity;
+        return this;
+    }
+    public set azAffinity(azAffinity: AzAffinity  | undefined) {
+        this['az_affinity'] = azAffinity;
+    }
+    public get azAffinity(): AzAffinity | undefined {
+        return this['az_affinity'];
     }
     public withDescription(description: string): CreatePoolOption {
         this['description'] = description;

@@ -14,6 +14,7 @@ import { BackupInstanceBody } from './model/BackupInstanceBody';
 import { BackupPlan } from './model/BackupPlan';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupRecordResponse } from './model/BackupRecordResponse';
+import { BandWidth } from './model/BandWidth';
 import { BandwidthAutoScalingPolicy } from './model/BandwidthAutoScalingPolicy';
 import { BandwidthInfo } from './model/BandwidthInfo';
 import { BatchCreateOrDeleteTagsRequest } from './model/BatchCreateOrDeleteTagsRequest';
@@ -73,6 +74,9 @@ import { CreateInstanceResponse } from './model/CreateInstanceResponse';
 import { CreateMigrationTaskBody } from './model/CreateMigrationTaskBody';
 import { CreateMigrationTaskRequest } from './model/CreateMigrationTaskRequest';
 import { CreateMigrationTaskResponse } from './model/CreateMigrationTaskResponse';
+import { CreateOfflineKeyAnalysisRequest } from './model/CreateOfflineKeyAnalysisRequest';
+import { CreateOfflineKeyAnalysisRequestBody } from './model/CreateOfflineKeyAnalysisRequestBody';
+import { CreateOfflineKeyAnalysisResponse } from './model/CreateOfflineKeyAnalysisResponse';
 import { CreateOnlineMigrationTaskBody } from './model/CreateOnlineMigrationTaskBody';
 import { CreateOnlineMigrationTaskRequest } from './model/CreateOnlineMigrationTaskRequest';
 import { CreateOnlineMigrationTaskResponse } from './model/CreateOnlineMigrationTaskResponse';
@@ -110,6 +114,8 @@ import { DeleteIpFromDomainNameResponse } from './model/DeleteIpFromDomainNameRe
 import { DeleteMigrateTaskRequest } from './model/DeleteMigrateTaskRequest';
 import { DeleteMigrationTaskRequest } from './model/DeleteMigrationTaskRequest';
 import { DeleteMigrationTaskResponse } from './model/DeleteMigrationTaskResponse';
+import { DeleteOfflineKeyAnalysisTaskRequest } from './model/DeleteOfflineKeyAnalysisTaskRequest';
+import { DeleteOfflineKeyAnalysisTaskResponse } from './model/DeleteOfflineKeyAnalysisTaskResponse';
 import { DeletePublicIpRequest } from './model/DeletePublicIpRequest';
 import { DeletePublicIpResponse } from './model/DeletePublicIpResponse';
 import { DeleteSingleInstanceRequest } from './model/DeleteSingleInstanceRequest';
@@ -120,9 +126,12 @@ import { DiagnosisItem } from './model/DiagnosisItem';
 import { DiagnosisNodeReport } from './model/DiagnosisNodeReport';
 import { DiagnosisReportInfo } from './model/DiagnosisReportInfo';
 import { DimChild } from './model/DimChild';
+import { DimsInfo } from './model/DimsInfo';
 import { DomainNameEntity } from './model/DomainNameEntity';
 import { DomainNameInfo } from './model/DomainNameInfo';
 import { DownloadBackupFilesReq } from './model/DownloadBackupFilesReq';
+import { DownloadHotKeyRequest } from './model/DownloadHotKeyRequest';
+import { DownloadHotKeyResponse } from './model/DownloadHotKeyResponse';
 import { DownloadSslCertRequest } from './model/DownloadSslCertRequest';
 import { DownloadSslCertResponse } from './model/DownloadSslCertResponse';
 import { ExchangeInstanceIpRequest } from './model/ExchangeInstanceIpRequest';
@@ -162,6 +171,11 @@ import { Instances } from './model/Instances';
 import { InstancesMonitoredObject } from './model/InstancesMonitoredObject';
 import { IpExchangeRequest } from './model/IpExchangeRequest';
 import { Item } from './model/Item';
+import { KeySpace } from './model/KeySpace';
+import { KeyTypeByte } from './model/KeyTypeByte';
+import { KeyTypeNum } from './model/KeyTypeNum';
+import { LargestKey } from './model/LargestKey';
+import { LargestKeyPrefix } from './model/LargestKeyPrefix';
 import { LinksItem } from './model/LinksItem';
 import { ListAclAccountsRequest } from './model/ListAclAccountsRequest';
 import { ListAclAccountsResponse } from './model/ListAclAccountsResponse';
@@ -210,6 +224,8 @@ import { ListMonitoredObjectsRequest } from './model/ListMonitoredObjectsRequest
 import { ListMonitoredObjectsResponse } from './model/ListMonitoredObjectsResponse';
 import { ListNumberOfInstancesInDifferentStatusRequest } from './model/ListNumberOfInstancesInDifferentStatusRequest';
 import { ListNumberOfInstancesInDifferentStatusResponse } from './model/ListNumberOfInstancesInDifferentStatusResponse';
+import { ListOfflineKeyAnalysisTaskRequest } from './model/ListOfflineKeyAnalysisTaskRequest';
+import { ListOfflineKeyAnalysisTaskResponse } from './model/ListOfflineKeyAnalysisTaskResponse';
 import { ListRedislogRequest } from './model/ListRedislogRequest';
 import { ListRedislogResponse } from './model/ListRedislogResponse';
 import { ListRestoreRecordsRequest } from './model/ListRestoreRecordsRequest';
@@ -227,6 +243,9 @@ import { LogoffWebCliRequest } from './model/LogoffWebCliRequest';
 import { LogoffWebCliResponse } from './model/LogoffWebCliResponse';
 import { LogoutWebCliBody } from './model/LogoutWebCliBody';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
+import { MigrateAZRequestBody } from './model/MigrateAZRequestBody';
+import { MigrateAzRequest } from './model/MigrateAzRequest';
+import { MigrateAzResponse } from './model/MigrateAzResponse';
 import { MigrationLog } from './model/MigrationLog';
 import { MigrationTaskList } from './model/MigrationTaskList';
 import { MigrationUpdateRequestEntity } from './model/MigrationUpdateRequestEntity';
@@ -235,6 +254,7 @@ import { ModifyInstancePasswordBody } from './model/ModifyInstancePasswordBody';
 import { ModifyIpWhitelistBody } from './model/ModifyIpWhitelistBody';
 import { ModifyRedisConfigBody } from './model/ModifyRedisConfigBody';
 import { NodesInfoResp } from './model/NodesInfoResp';
+import { OfflineKeyAnalysisRecord } from './model/OfflineKeyAnalysisRecord';
 import { Operations } from './model/Operations';
 import { PriorityBody } from './model/PriorityBody';
 import { Proxy2NodeMonitoredObject } from './model/Proxy2NodeMonitoredObject';
@@ -260,6 +280,8 @@ import { RestartOrFlushInstancesResponse } from './model/RestartOrFlushInstances
 import { RestoreInstanceBody } from './model/RestoreInstanceBody';
 import { RestoreInstanceRequest } from './model/RestoreInstanceRequest';
 import { RestoreInstanceResponse } from './model/RestoreInstanceResponse';
+import { RollbackExchangeInstanceIpRequest } from './model/RollbackExchangeInstanceIpRequest';
+import { RollbackExchangeInstanceIpResponse } from './model/RollbackExchangeInstanceIpResponse';
 import { RunlogItem } from './model/RunlogItem';
 import { ScanClientsRequest } from './model/ScanClientsRequest';
 import { ScanClientsRequestBody } from './model/ScanClientsRequestBody';
@@ -297,6 +319,8 @@ import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowInstanceSslDetailRequest } from './model/ShowInstanceSslDetailRequest';
 import { ShowInstanceSslDetailResponse } from './model/ShowInstanceSslDetailResponse';
+import { ShowInstanceTopologyRequest } from './model/ShowInstanceTopologyRequest';
+import { ShowInstanceTopologyResponse } from './model/ShowInstanceTopologyResponse';
 import { ShowInstanceVersionRequest } from './model/ShowInstanceVersionRequest';
 import { ShowInstanceVersionResponse } from './model/ShowInstanceVersionResponse';
 import { ShowIpWhitelistRequest } from './model/ShowIpWhitelistRequest';
@@ -309,6 +333,8 @@ import { ShowMigrationTaskStatsRequest } from './model/ShowMigrationTaskStatsReq
 import { ShowMigrationTaskStatsResponse } from './model/ShowMigrationTaskStatsResponse';
 import { ShowNodesInformationRequest } from './model/ShowNodesInformationRequest';
 import { ShowNodesInformationResponse } from './model/ShowNodesInformationResponse';
+import { ShowOfflineKeyAnalysisTaskRequest } from './model/ShowOfflineKeyAnalysisTaskRequest';
+import { ShowOfflineKeyAnalysisTaskResponse } from './model/ShowOfflineKeyAnalysisTaskResponse';
 import { ShowQuotaOfTenantRequest } from './model/ShowQuotaOfTenantRequest';
 import { ShowQuotaOfTenantResponse } from './model/ShowQuotaOfTenantResponse';
 import { ShowReplicationStatesRequest } from './model/ShowReplicationStatesRequest';
@@ -332,6 +358,7 @@ import { StopMigrationTaskSyncResponse } from './model/StopMigrationTaskSyncResp
 import { SubStepDetail } from './model/SubStepDetail';
 import { Tag } from './model/Tag';
 import { TargetInstanceBody } from './model/TargetInstanceBody';
+import { TopologyInfo } from './model/TopologyInfo';
 import { UpdateAclAccountPassWordRequest } from './model/UpdateAclAccountPassWordRequest';
 import { UpdateAclAccountPassWordResponse } from './model/UpdateAclAccountPassWordResponse';
 import { UpdateAclAccountRemarkRequest } from './model/UpdateAclAccountRemarkRequest';
@@ -368,6 +395,8 @@ import { UpdateInstanceConfigRequest } from './model/UpdateInstanceConfigRequest
 import { UpdateInstanceConfigResponse } from './model/UpdateInstanceConfigResponse';
 import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
+import { UpdateIpWhitelistAsyncRequest } from './model/UpdateIpWhitelistAsyncRequest';
+import { UpdateIpWhitelistAsyncResponse } from './model/UpdateIpWhitelistAsyncResponse';
 import { UpdateIpWhitelistRequest } from './model/UpdateIpWhitelistRequest';
 import { UpdateIpWhitelistResponse } from './model/UpdateIpWhitelistResponse';
 import { UpdateMigrationTaskRequest } from './model/UpdateMigrationTaskRequest';
@@ -1076,6 +1105,26 @@ export class DcsClient {
      */
     public deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest): Promise<DeleteSingleInstanceResponse> {
         const options = ParamCreater().deleteSingleInstance(deleteSingleInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载热key。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载热key
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {string} taskId **参数解释**： 热Key分析任务ID，可通过DCS控制台进入实例缓存分析界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadHotKey(downloadHotKeyRequest?: DownloadHotKeyRequest): Promise<DownloadHotKeyResponse> {
+        const options = ParamCreater().downloadHotKey(downloadHotKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1886,6 +1935,26 @@ export class DcsClient {
     }
 
     /**
+     * 迁移缓存实例可用区，完成单可用区实例跨可用区改造。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 变更可用区
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {MigrateAZRequestBody} [migrateAZRequestBody] 迁移缓存实例可用区请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateAz(migrateAzRequest?: MigrateAzRequest): Promise<MigrateAzResponse> {
+        const options = ParamCreater().migrateAz(migrateAzRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重置ACL账号密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1981,6 +2050,25 @@ export class DcsClient {
      */
     public restoreInstance(restoreInstanceRequest?: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
         const options = ParamCreater().restoreInstance(restoreInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * IP交换回滚。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary IP交换回滚
+     * @param {string} taskId **参数解释**： 数据迁移任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rollbackExchangeInstanceIp(rollbackExchangeInstanceIpRequest?: RollbackExchangeInstanceIpRequest): Promise<RollbackExchangeInstanceIpResponse> {
+        const options = ParamCreater().rollbackExchangeInstanceIp(rollbackExchangeInstanceIpRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2314,6 +2402,25 @@ export class DcsClient {
      */
     public showInstanceSslDetail(showInstanceSslDetailRequest?: ShowInstanceSslDetailRequest): Promise<ShowInstanceSslDetailResponse> {
         const options = ParamCreater().showInstanceSslDetail(showInstanceSslDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群实例拓扑关系图。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群实例拓扑关系图
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceTopology(showInstanceTopologyRequest?: ShowInstanceTopologyRequest): Promise<ShowInstanceTopologyResponse> {
+        const options = ParamCreater().showInstanceTopology(showInstanceTopologyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2816,6 +2923,27 @@ export class DcsClient {
     }
 
     /**
+     * 为指定实例设置IP白名单分组，包含创建、停用、编辑、删除白名单四个功能。返回异步任务jobId，设置白名单分组信息会覆盖掉已有的白名单信息，因此在新增IP白名单分组时，需保留已有的白名单信息后再编辑新的白名单分组信息。
+     * [仅Redis 4.0及以上版本的实例支持设置IP白名单分组，Redis 3.0实例不支持该功能。](tag:dt)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置IP白名单分组异步接口
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {ModifyIpWhitelistBody} updateIpWhitelistAsyncRequestBody 设置IP白名单分组异步接口请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIpWhitelistAsync(updateIpWhitelistAsyncRequest?: UpdateIpWhitelistAsyncRequest): Promise<UpdateIpWhitelistAsyncResponse> {
+        const options = ParamCreater().updateIpWhitelistAsync(updateIpWhitelistAsyncRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置迁移任务自动重连
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2988,6 +3116,88 @@ export class DcsClient {
      */
     public updateIpWhitelist(updateIpWhitelistRequest?: UpdateIpWhitelistRequest): Promise<UpdateIpWhitelistResponse> {
         const options = ParamCreater().updateIpWhitelist(updateIpWhitelistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建离线全量key分析任务。离线全量key分析用于分析实例指定节点备份文件中的TOP100大key，每种数据类型前缀数量TOP50的key和每种数据类型key的内存占用和数量的分布情况。仅Redis 4.0、5.0、6.0版本及Redis企业版实例支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建离线全量key分析任务
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {CreateOfflineKeyAnalysisRequestBody} createOfflineKeyAnalysisRequestBody 创建离线全量key分析任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOfflineKeyAnalysis(createOfflineKeyAnalysisRequest?: CreateOfflineKeyAnalysisRequest): Promise<CreateOfflineKeyAnalysisResponse> {
+        const options = ParamCreater().createOfflineKeyAnalysis(createOfflineKeyAnalysisRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除离线全量key分析记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除离线全量key分析记录
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {string} taskId **参数解释**： 任务ID。可通过DCS控制台进入离线全量key分析界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOfflineKeyAnalysisTask(deleteOfflineKeyAnalysisTaskRequest?: DeleteOfflineKeyAnalysisTaskRequest): Promise<DeleteOfflineKeyAnalysisTaskResponse> {
+        const options = ParamCreater().deleteOfflineKeyAnalysisTask(deleteOfflineKeyAnalysisTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询离线全量key分析任务列表，支持Redis4.0、5.0、6.0版本及Redis企业版。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询离线全量key分析任务列表
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 10 
+     * @param {'waiting' | 'running' | 'success' | 'failed'} [status] **参数解释**： 离线分析的任务状态。 **约束限制**： 不涉及。 **取值范围**： waiting：任务等待中。 running：任务进行中。 success：任务执行成功。 failed：任务执行失败。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOfflineKeyAnalysisTask(listOfflineKeyAnalysisTaskRequest?: ListOfflineKeyAnalysisTaskRequest): Promise<ListOfflineKeyAnalysisTaskResponse> {
+        const options = ParamCreater().listOfflineKeyAnalysisTask(listOfflineKeyAnalysisTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询离线全量key分析详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询离线全量key分析详情
+     * @param {string} instanceId **参数解释**： 实例ID。可通过DCS控制台进入实例详情界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {string} taskId **参数解释**： 任务ID。可通过DCS控制台进入离线全量key分析界面查看。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOfflineKeyAnalysisTask(showOfflineKeyAnalysisTaskRequest?: ShowOfflineKeyAnalysisTaskRequest): Promise<ShowOfflineKeyAnalysisTaskResponse> {
+        const options = ParamCreater().showOfflineKeyAnalysisTask(showOfflineKeyAnalysisTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4425,6 +4635,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载热key。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadHotKey(downloadHotKeyRequest?: DownloadHotKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/hotkey/{task_id}/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (downloadHotKeyRequest !== null && downloadHotKeyRequest !== undefined) {
+                if (downloadHotKeyRequest instanceof DownloadHotKeyRequest) {
+                    instanceId = downloadHotKeyRequest.instanceId;
+                    taskId = downloadHotKeyRequest.taskId;
+                } else {
+                    instanceId = downloadHotKeyRequest['instance_id'];
+                    taskId = downloadHotKeyRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling downloadHotKey.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling downloadHotKey.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6397,6 +6651,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 迁移缓存实例可用区，完成单可用区实例跨可用区改造。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        migrateAz(migrateAzRequest?: MigrateAzRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/available-zones",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (migrateAzRequest !== null && migrateAzRequest !== undefined) {
+                if (migrateAzRequest instanceof MigrateAzRequest) {
+                    instanceId = migrateAzRequest.instanceId;
+                    body = migrateAzRequest.body
+                } else {
+                    instanceId = migrateAzRequest['instance_id'];
+                    body = migrateAzRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling migrateAz.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重置ACL账号密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6618,6 +6915,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * IP交换回滚。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rollbackExchangeInstanceIp(rollbackExchangeInstanceIpRequest?: RollbackExchangeInstanceIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/migration-task/{task_id}/rollback-ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (rollbackExchangeInstanceIpRequest !== null && rollbackExchangeInstanceIpRequest !== undefined) {
+                if (rollbackExchangeInstanceIpRequest instanceof RollbackExchangeInstanceIpRequest) {
+                    taskId = rollbackExchangeInstanceIpRequest.taskId;
+                } else {
+                    taskId = rollbackExchangeInstanceIpRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling rollbackExchangeInstanceIp.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7323,6 +7657,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceSslDetail.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群实例拓扑关系图。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceTopology(showInstanceTopologyRequest?: ShowInstanceTopologyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceTopologyRequest !== null && showInstanceTopologyRequest !== undefined) {
+                if (showInstanceTopologyRequest instanceof ShowInstanceTopologyRequest) {
+                    instanceId = showInstanceTopologyRequest.instanceId;
+                } else {
+                    instanceId = showInstanceTopologyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceTopology.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -8387,6 +8758,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定实例设置IP白名单分组，包含创建、停用、编辑、删除白名单四个功能。返回异步任务jobId，设置白名单分组信息会覆盖掉已有的白名单信息，因此在新增IP白名单分组时，需保留已有的白名单信息后再编辑新的白名单分组信息。
+         * [仅Redis 4.0及以上版本的实例支持设置IP白名单分组，Redis 3.0实例不支持该功能。](tag:dt)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIpWhitelistAsync(updateIpWhitelistAsyncRequest?: UpdateIpWhitelistAsyncRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instance/{instance_id}/whitelist-async",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateIpWhitelistAsyncRequest !== null && updateIpWhitelistAsyncRequest !== undefined) {
+                if (updateIpWhitelistAsyncRequest instanceof UpdateIpWhitelistAsyncRequest) {
+                    instanceId = updateIpWhitelistAsyncRequest.instanceId;
+                    body = updateIpWhitelistAsyncRequest.body
+                } else {
+                    instanceId = updateIpWhitelistAsyncRequest['instance_id'];
+                    body = updateIpWhitelistAsyncRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateIpWhitelistAsync.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置迁移任务自动重连
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8789,6 +9207,199 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建离线全量key分析任务。离线全量key分析用于分析实例指定节点备份文件中的TOP100大key，每种数据类型前缀数量TOP50的key和每种数据类型key的内存占用和数量的分布情况。仅Redis 4.0、5.0、6.0版本及Redis企业版实例支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOfflineKeyAnalysis(createOfflineKeyAnalysisRequest?: CreateOfflineKeyAnalysisRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/offline/key-analysis",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createOfflineKeyAnalysisRequest !== null && createOfflineKeyAnalysisRequest !== undefined) {
+                if (createOfflineKeyAnalysisRequest instanceof CreateOfflineKeyAnalysisRequest) {
+                    instanceId = createOfflineKeyAnalysisRequest.instanceId;
+                    body = createOfflineKeyAnalysisRequest.body
+                } else {
+                    instanceId = createOfflineKeyAnalysisRequest['instance_id'];
+                    body = createOfflineKeyAnalysisRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createOfflineKeyAnalysis.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除离线全量key分析记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOfflineKeyAnalysisTask(deleteOfflineKeyAnalysisTaskRequest?: DeleteOfflineKeyAnalysisTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/offline/key-analysis/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (deleteOfflineKeyAnalysisTaskRequest !== null && deleteOfflineKeyAnalysisTaskRequest !== undefined) {
+                if (deleteOfflineKeyAnalysisTaskRequest instanceof DeleteOfflineKeyAnalysisTaskRequest) {
+                    instanceId = deleteOfflineKeyAnalysisTaskRequest.instanceId;
+                    taskId = deleteOfflineKeyAnalysisTaskRequest.taskId;
+                } else {
+                    instanceId = deleteOfflineKeyAnalysisTaskRequest['instance_id'];
+                    taskId = deleteOfflineKeyAnalysisTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteOfflineKeyAnalysisTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteOfflineKeyAnalysisTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询离线全量key分析任务列表，支持Redis4.0、5.0、6.0版本及Redis企业版。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOfflineKeyAnalysisTask(listOfflineKeyAnalysisTaskRequest?: ListOfflineKeyAnalysisTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/offline/key-analysis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listOfflineKeyAnalysisTaskRequest !== null && listOfflineKeyAnalysisTaskRequest !== undefined) {
+                if (listOfflineKeyAnalysisTaskRequest instanceof ListOfflineKeyAnalysisTaskRequest) {
+                    instanceId = listOfflineKeyAnalysisTaskRequest.instanceId;
+                    offset = listOfflineKeyAnalysisTaskRequest.offset;
+                    limit = listOfflineKeyAnalysisTaskRequest.limit;
+                    status = listOfflineKeyAnalysisTaskRequest.status;
+                } else {
+                    instanceId = listOfflineKeyAnalysisTaskRequest['instance_id'];
+                    offset = listOfflineKeyAnalysisTaskRequest['offset'];
+                    limit = listOfflineKeyAnalysisTaskRequest['limit'];
+                    status = listOfflineKeyAnalysisTaskRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listOfflineKeyAnalysisTask.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询离线全量key分析详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOfflineKeyAnalysisTask(showOfflineKeyAnalysisTaskRequest?: ShowOfflineKeyAnalysisTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/offline/key-analysis/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (showOfflineKeyAnalysisTaskRequest !== null && showOfflineKeyAnalysisTaskRequest !== undefined) {
+                if (showOfflineKeyAnalysisTaskRequest instanceof ShowOfflineKeyAnalysisTaskRequest) {
+                    instanceId = showOfflineKeyAnalysisTaskRequest.instanceId;
+                    taskId = showOfflineKeyAnalysisTaskRequest.taskId;
+                } else {
+                    instanceId = showOfflineKeyAnalysisTaskRequest['instance_id'];
+                    taskId = showOfflineKeyAnalysisTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showOfflineKeyAnalysisTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showOfflineKeyAnalysisTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

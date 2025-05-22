@@ -1,3 +1,4 @@
+import { AzAffinity } from './AzAffinity';
 import { ConnectionDrain } from './ConnectionDrain';
 import { ListenerRef } from './ListenerRef';
 import { LoadBalancerRef } from './LoadBalancerRef';
@@ -10,6 +11,7 @@ import { SlowStart } from './SlowStart';
 
 export class Pool {
     private 'admin_state_up'?: boolean;
+    private 'az_affinity'?: AzAffinity;
     public description?: string;
     private 'healthmonitor_id'?: string;
     public id?: string;
@@ -64,6 +66,16 @@ export class Pool {
     }
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
+    }
+    public withAzAffinity(azAffinity: AzAffinity): Pool {
+        this['az_affinity'] = azAffinity;
+        return this;
+    }
+    public set azAffinity(azAffinity: AzAffinity  | undefined) {
+        this['az_affinity'] = azAffinity;
+    }
+    public get azAffinity(): AzAffinity | undefined {
+        return this['az_affinity'];
     }
     public withDescription(description: string): Pool {
         this['description'] = description;

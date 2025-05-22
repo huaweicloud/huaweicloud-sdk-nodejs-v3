@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddAlarmRuleResourcesRequest } from './model/AddAlarmRuleResourcesRequest';
 import { AddAlarmRuleResourcesResponse } from './model/AddAlarmRuleResourcesResponse';
+import { AddResourcesReq } from './model/AddResourcesReq';
 import { AdditionalInfo } from './model/AdditionalInfo';
 import { AgentDimension } from './model/AgentDimension';
 import { AlarmCondition } from './model/AlarmCondition';
@@ -83,6 +84,7 @@ import { DashBoardIdItem } from './model/DashBoardIdItem';
 import { DashBoardInfo } from './model/DashBoardInfo';
 import { DashBoardNameItem } from './model/DashBoardNameItem';
 import { DataPointInfo } from './model/DataPointInfo';
+import { DelResourcesReq } from './model/DelResourcesReq';
 import { DeleteAlarmRuleResourcesRequest } from './model/DeleteAlarmRuleResourcesRequest';
 import { DeleteAlarmRuleResourcesResponse } from './model/DeleteAlarmRuleResourcesResponse';
 import { DeleteDashboardsRequest } from './model/DeleteDashboardsRequest';
@@ -197,7 +199,6 @@ import { ResourceNameItem } from './model/ResourceNameItem';
 import { ResourceNamespace } from './model/ResourceNamespace';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourcesInListResp } from './model/ResourcesInListResp';
-import { ResourcesReq } from './model/ResourcesReq';
 import { ResourcesReqV2 } from './model/ResourcesReqV2';
 import { RollupDimension } from './model/RollupDimension';
 import { RollupEnable } from './model/RollupEnable';
@@ -298,7 +299,7 @@ export class CesClient {
      *
      * @summary 自定义资源分组批量增加关联资源
      * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
-     * @param {ResourcesReq} batchCreateResourcesRequestBody 添加资源请求体
+     * @param {AddResourcesReq} batchCreateResourcesRequestBody 添加资源请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -413,7 +414,7 @@ export class CesClient {
      *
      * @summary 自定义资源分组批量删除关联资源
      * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
-     * @param {ResourcesReq} batchDeleteResourcesRequestBody 删除资源请求体
+     * @param {DelResourcesReq} batchDeleteResourcesRequestBody 删除资源请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

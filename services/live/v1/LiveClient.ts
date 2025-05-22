@@ -170,12 +170,18 @@ import { RecordRule } from './model/RecordRule';
 import { RecordRuleRequest } from './model/RecordRuleRequest';
 import { RunRecordRequest } from './model/RunRecordRequest';
 import { RunRecordResponse } from './model/RunRecordResponse';
+import { SCTE35InfoItem } from './model/SCTE35InfoItem';
+import { SCTE35StatisticReq } from './model/SCTE35StatisticReq';
+import { SCTE35StatisticRsp } from './model/SCTE35StatisticRsp';
 import { ScheduleRecordTasks } from './model/ScheduleRecordTasks';
 import { ScheduleRecordTasksReq } from './model/ScheduleRecordTasksReq';
 import { SecondarySourcesInfo } from './model/SecondarySourcesInfo';
 import { SetRefererChainInfo } from './model/SetRefererChainInfo';
 import { SetRefererChainRequest } from './model/SetRefererChainRequest';
 import { SetRefererChainResponse } from './model/SetRefererChainResponse';
+import { ShowChannelStatisticReq } from './model/ShowChannelStatisticReq';
+import { ShowChannelStatisticRequest } from './model/ShowChannelStatisticRequest';
+import { ShowChannelStatisticResponse } from './model/ShowChannelStatisticResponse';
 import { ShowDomainHttpsCertRequest } from './model/ShowDomainHttpsCertRequest';
 import { ShowDomainHttpsCertResponse } from './model/ShowDomainHttpsCertResponse';
 import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
@@ -235,6 +241,7 @@ import { UpdateStreamForbiddenRequest } from './model/UpdateStreamForbiddenReque
 import { UpdateStreamForbiddenResponse } from './model/UpdateStreamForbiddenResponse';
 import { UpdateTranscodingsTemplateRequest } from './model/UpdateTranscodingsTemplateRequest';
 import { UpdateTranscodingsTemplateResponse } from './model/UpdateTranscodingsTemplateResponse';
+import { VideoDescriptions } from './model/VideoDescriptions';
 import { VideoFormatVar } from './model/VideoFormatVar';
 import { VodInfoV2 } from './model/VodInfoV2';
 import { VodPackageInfo } from './model/VodPackageInfo';
@@ -1791,6 +1798,29 @@ export class LiveClient {
      */
     public modifyOttChannelInfoStats(modifyOttChannelInfoStatsRequest?: ModifyOttChannelInfoStatsRequest): Promise<ModifyOttChannelInfoStatsResponse> {
         const options = ParamCreater().modifyOttChannelInfoStats(modifyOttChannelInfoStatsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询频道的统计信息（入流scte35信号）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询频道统计信息
+     * @param {ShowChannelStatisticReq} showChannelStatisticRequestBody Request body for querying statistics
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {number} [limit] 每页记录数，取值范围[1,100]，默认值10。
+     * @param {number} [offset] 偏移量。表示从此偏移量开始查询，offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showChannelStatistic(showChannelStatisticRequest?: ShowChannelStatisticRequest): Promise<ShowChannelStatisticResponse> {
+        const options = ParamCreater().showChannelStatistic(showChannelStatisticRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5435,6 +5465,73 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询频道的统计信息（入流scte35信号）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showChannelStatistic(showChannelStatisticRequest?: ShowChannelStatisticRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ott/channels/statistic",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+            
+            let limit;
+            
+            let offset;
+
+            if (showChannelStatisticRequest !== null && showChannelStatisticRequest !== undefined) {
+                if (showChannelStatisticRequest instanceof ShowChannelStatisticRequest) {
+                    body = showChannelStatisticRequest.body
+                    accessControlAllowInternal = showChannelStatisticRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = showChannelStatisticRequest.accessControlAllowExternal;
+                    limit = showChannelStatisticRequest.limit;
+                    offset = showChannelStatisticRequest.offset;
+                } else {
+                    body = showChannelStatisticRequest['body'];
+                    accessControlAllowInternal = showChannelStatisticRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = showChannelStatisticRequest['Access-Control-Allow-External'];
+                    limit = showChannelStatisticRequest['limit'];
+                    offset = showChannelStatisticRequest['offset'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

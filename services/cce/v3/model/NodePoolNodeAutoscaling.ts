@@ -6,6 +6,8 @@ export class NodePoolNodeAutoscaling {
     public maxNodeCount?: number;
     public scaleDownCooldownTime?: number;
     public priority?: number;
+    public scaleDownUnneededTime?: number;
+    public scaleDownUtilizationThreshold?: number;
     public constructor() { 
     }
     public withEnable(enable: boolean): NodePoolNodeAutoscaling {
@@ -26,6 +28,14 @@ export class NodePoolNodeAutoscaling {
     }
     public withPriority(priority: number): NodePoolNodeAutoscaling {
         this['priority'] = priority;
+        return this;
+    }
+    public withScaleDownUnneededTime(scaleDownUnneededTime: number): NodePoolNodeAutoscaling {
+        this['scaleDownUnneededTime'] = scaleDownUnneededTime;
+        return this;
+    }
+    public withScaleDownUtilizationThreshold(scaleDownUtilizationThreshold: number): NodePoolNodeAutoscaling {
+        this['scaleDownUtilizationThreshold'] = scaleDownUtilizationThreshold;
         return this;
     }
 }

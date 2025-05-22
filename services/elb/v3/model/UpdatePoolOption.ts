@@ -1,6 +1,7 @@
 import { ConnectionDrain } from './ConnectionDrain';
 import { PoolHealth } from './PoolHealth';
 import { QuicCidHashStrategy } from './QuicCidHashStrategy';
+import { UpdateAzAffinity } from './UpdateAzAffinity';
 import { UpdatePoolSessionPersistenceOption } from './UpdatePoolSessionPersistenceOption';
 import { UpdatePoolSlowStartOption } from './UpdatePoolSlowStartOption';
 
@@ -21,6 +22,7 @@ export class UpdatePoolOption {
     private 'connection_drain'?: ConnectionDrain;
     private 'pool_health'?: PoolHealth;
     private 'quic_cid_hash_strategy'?: QuicCidHashStrategy;
+    private 'az_affinity'?: UpdateAzAffinity;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -154,6 +156,16 @@ export class UpdatePoolOption {
     }
     public get quicCidHashStrategy(): QuicCidHashStrategy | undefined {
         return this['quic_cid_hash_strategy'];
+    }
+    public withAzAffinity(azAffinity: UpdateAzAffinity): UpdatePoolOption {
+        this['az_affinity'] = azAffinity;
+        return this;
+    }
+    public set azAffinity(azAffinity: UpdateAzAffinity  | undefined) {
+        this['az_affinity'] = azAffinity;
+    }
+    public get azAffinity(): UpdateAzAffinity | undefined {
+        return this['az_affinity'];
     }
 }
 
