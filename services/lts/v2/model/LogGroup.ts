@@ -6,6 +6,7 @@ export class LogGroup {
     private 'log_group_id'?: string;
     private 'ttl_in_days'?: number;
     public tag?: { [key: string]: string; };
+    private 'log_group_name_alias'?: string;
     public constructor(creationTime?: number, logGroupName?: string, logGroupId?: string, ttlInDays?: number) { 
         this['creation_time'] = creationTime;
         this['log_group_name'] = logGroupName;
@@ -55,5 +56,15 @@ export class LogGroup {
     public withTag(tag: { [key: string]: string; }): LogGroup {
         this['tag'] = tag;
         return this;
+    }
+    public withLogGroupNameAlias(logGroupNameAlias: string): LogGroup {
+        this['log_group_name_alias'] = logGroupNameAlias;
+        return this;
+    }
+    public set logGroupNameAlias(logGroupNameAlias: string  | undefined) {
+        this['log_group_name_alias'] = logGroupNameAlias;
+    }
+    public get logGroupNameAlias(): string | undefined {
+        return this['log_group_name_alias'];
     }
 }

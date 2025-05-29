@@ -262,6 +262,7 @@ import { ListServiceSetsRequest } from './model/ListServiceSetsRequest';
 import { ListServiceSetsResponse } from './model/ListServiceSetsResponse';
 import { LogConfigDto } from './model/LogConfigDto';
 import { Mapstringstring } from './model/Mapstringstring';
+import { ObjectInfoDto } from './model/ObjectInfoDto';
 import { OrderRuleAclDto } from './model/OrderRuleAclDto';
 import { OrderRuleId } from './model/OrderRuleId';
 import { PacketMessage } from './model/PacketMessage';
@@ -344,6 +345,8 @@ import { UpdateDomainSetRequest } from './model/UpdateDomainSetRequest';
 import { UpdateDomainSetResponse } from './model/UpdateDomainSetResponse';
 import { UpdateLogConfigRequest } from './model/UpdateLogConfigRequest';
 import { UpdateLogConfigResponse } from './model/UpdateLogConfigResponse';
+import { UpdateObjectConfigDescRequest } from './model/UpdateObjectConfigDescRequest';
+import { UpdateObjectConfigDescResponse } from './model/UpdateObjectConfigDescResponse';
 import { UpdateRuleAclDto } from './model/UpdateRuleAclDto';
 import { UpdateSecurityPolciesActionDto } from './model/UpdateSecurityPolciesActionDto';
 import { UpdateServiceSetRequest } from './model/UpdateServiceSetRequest';
@@ -1901,6 +1904,26 @@ export class CfwClient {
      */
     public updateLogConfig(updateLogConfigRequest?: UpdateLogConfigRequest): Promise<UpdateLogConfigResponse> {
         const options = ParamCreater().updateLogConfig(updateLogConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 编辑对象组内成员的描述信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑对象组内成员的描述信息
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {ObjectInfoDto} objectInfoDto 组成员描述信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateObjectConfigDesc(updateObjectConfigDescRequest?: UpdateObjectConfigDescRequest): Promise<UpdateObjectConfigDescResponse> {
+        const options = ParamCreater().updateObjectConfigDesc(updateObjectConfigDescRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7436,6 +7459,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 编辑对象组内成员的描述信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateObjectConfigDesc(updateObjectConfigDescRequest?: UpdateObjectConfigDescRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/config/object/description",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (updateObjectConfigDescRequest !== null && updateObjectConfigDescRequest !== undefined) {
+                if (updateObjectConfigDescRequest instanceof UpdateObjectConfigDescRequest) {
+                    projectId = updateObjectConfigDescRequest.projectId;
+                    body = updateObjectConfigDescRequest.body
+                } else {
+                    projectId = updateObjectConfigDescRequest['project_id'];
+                    body = updateObjectConfigDescRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateObjectConfigDesc.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;

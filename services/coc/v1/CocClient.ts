@@ -4,10 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AcceptScriptRequest } from './model/AcceptScriptRequest';
 import { AcceptScriptResponse } from './model/AcceptScriptResponse';
-import { AccountRsp } from './model/AccountRsp';
 import { AddScriptModel } from './model/AddScriptModel';
-import { AlarmHandleHistory } from './model/AlarmHandleHistory';
-import { AlarmInfoDTO } from './model/AlarmInfoDTO';
 import { ApplicationInfo } from './model/ApplicationInfo';
 import { ApplicationModelQueryResponseData } from './model/ApplicationModelQueryResponseData';
 import { ApplicationQueryResponseData } from './model/ApplicationQueryResponseData';
@@ -29,7 +26,6 @@ import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicati
 import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateApplicationViewResponseBody';
 import { BatchListMultiCloudResourceResponseData } from './model/BatchListMultiCloudResourceResponseData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
-import { CceInfo } from './model/CceInfo';
 import { CheckScriptRiskRequest } from './model/CheckScriptRiskRequest';
 import { CheckScriptRiskResData } from './model/CheckScriptRiskResData';
 import { CheckScriptRiskResDataBlacklistCommands } from './model/CheckScriptRiskResDataBlacklistCommands';
@@ -63,8 +59,6 @@ import { CreateScriptResponse } from './model/CreateScriptResponse';
 import { CreateWarRoomRequest } from './model/CreateWarRoomRequest';
 import { CreateWarRoomRequestBody } from './model/CreateWarRoomRequestBody';
 import { CreateWarRoomResponse } from './model/CreateWarRoomResponse';
-import { CustomBaselineRule } from './model/CustomBaselineRule';
-import { CustomBaselineRulePatchItem } from './model/CustomBaselineRulePatchItem';
 import { Customttribute } from './model/Customttribute';
 import { DeleteDocumentRequest } from './model/DeleteDocumentRequest';
 import { DeleteDocumentResponse } from './model/DeleteDocumentResponse';
@@ -123,7 +117,6 @@ import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoRespon
 import { InstanceCompliant } from './model/InstanceCompliant';
 import { InstancesBatchResultMode } from './model/InstancesBatchResultMode';
 import { InstancesBatchesMode } from './model/InstancesBatchesMode';
-import { InterruptRecord } from './model/InterruptRecord';
 import { JobScriptAnalyzeRequest } from './model/JobScriptAnalyzeRequest';
 import { JobScriptBatchDetailModel } from './model/JobScriptBatchDetailModel';
 import { JobScriptBatchListModel } from './model/JobScriptBatchListModel';
@@ -134,8 +127,6 @@ import { JobScriptOrderListPage } from './model/JobScriptOrderListPage';
 import { JobScriptOrderListProp } from './model/JobScriptOrderListProp';
 import { JobScriptOrderOperationBody } from './model/JobScriptOrderOperationBody';
 import { JobScriptOrderStatisticsModel } from './model/JobScriptOrderStatisticsModel';
-import { ListAlarmHandleHistoriesRequest } from './model/ListAlarmHandleHistoriesRequest';
-import { ListAlarmHandleHistoriesResponse } from './model/ListAlarmHandleHistoriesResponse';
 import { ListApplicationModelRequest } from './model/ListApplicationModelRequest';
 import { ListApplicationModelResponse } from './model/ListApplicationModelResponse';
 import { ListApplicationsRequest } from './model/ListApplicationsRequest';
@@ -145,8 +136,6 @@ import { ListAuthorizableTicketsExternalResponse } from './model/ListAuthorizabl
 import { ListAuthorizableTicketsReq } from './model/ListAuthorizableTicketsReq';
 import { ListBaseRequest } from './model/ListBaseRequest';
 import { ListBaseResponse } from './model/ListBaseResponse';
-import { ListCceCompliantRequest } from './model/ListCceCompliantRequest';
-import { ListCceCompliantResponse } from './model/ListCceCompliantResponse';
 import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOperationHistoriesRequest';
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
 import { ListDocumentAtomicsRequest } from './model/ListDocumentAtomicsRequest';
@@ -165,12 +154,8 @@ import { ListInstanceCompliantRequest } from './model/ListInstanceCompliantReque
 import { ListInstanceCompliantResponse } from './model/ListInstanceCompliantResponse';
 import { ListInstancesBatchRequest } from './model/ListInstancesBatchRequest';
 import { ListInstancesBatchResponse } from './model/ListInstancesBatchResponse';
-import { ListInterruptRecordsRequest } from './model/ListInterruptRecordsRequest';
-import { ListInterruptRecordsResponse } from './model/ListInterruptRecordsResponse';
 import { ListMultiCloudResourcesRequest } from './model/ListMultiCloudResourcesRequest';
 import { ListMultiCloudResourcesResponse } from './model/ListMultiCloudResourcesResponse';
-import { ListPersonnelRequest } from './model/ListPersonnelRequest';
-import { ListPersonnelResponse } from './model/ListPersonnelResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
 import { ListResourceRequest } from './model/ListResourceRequest';
@@ -193,7 +178,6 @@ import { ListWarRoomsRequest } from './model/ListWarRoomsRequest';
 import { ListWarRoomsResponse } from './model/ListWarRoomsResponse';
 import { MessageNotification } from './model/MessageNotification';
 import { NonCompliantSummary } from './model/NonCompliantSummary';
-import { NotificationObjConfiguration } from './model/NotificationObjConfiguration';
 import { ObjectFilter } from './model/ObjectFilter';
 import { OperateExecutionRequest } from './model/OperateExecutionRequest';
 import { OperateExecutionRequestBody } from './model/OperateExecutionRequestBody';
@@ -202,9 +186,6 @@ import { OperateScriptJobRequest } from './model/OperateScriptJobRequest';
 import { OperateScriptJobResponse } from './model/OperateScriptJobResponse';
 import { OpsflowBaseResponse } from './model/OpsflowBaseResponse';
 import { PatchDetail } from './model/PatchDetail';
-import { PatchFilter } from './model/PatchFilter';
-import { PatchRule } from './model/PatchRule';
-import { PersonnelResponse } from './model/PersonnelResponse';
 import { PublicScriptDetailModel } from './model/PublicScriptDetailModel';
 import { PublicScriptListModel } from './model/PublicScriptListModel';
 import { PublicScriptListPage } from './model/PublicScriptListPage';
@@ -232,34 +213,14 @@ import { ScriptParamDefine } from './model/ScriptParamDefine';
 import { ScriptPropertiesModel } from './model/ScriptPropertiesModel';
 import { ScriptTag } from './model/ScriptTag';
 import { SeveritySummary } from './model/SeveritySummary';
-import { ShowAccountRequest } from './model/ShowAccountRequest';
-import { ShowAccountResponse } from './model/ShowAccountResponse';
-import { ShowAlarmRequest } from './model/ShowAlarmRequest';
-import { ShowAlarmResponse } from './model/ShowAlarmResponse';
 import { ShowCocIncidentDetailRequest } from './model/ShowCocIncidentDetailRequest';
 import { ShowCocIncidentDetailResponse } from './model/ShowCocIncidentDetailResponse';
 import { ShowCocIssuesDetailRequest } from './model/ShowCocIssuesDetailRequest';
 import { ShowCocIssuesDetailResponse } from './model/ShowCocIssuesDetailResponse';
 import { ShowInstancePatchItemsRequest } from './model/ShowInstancePatchItemsRequest';
 import { ShowInstancePatchItemsResponse } from './model/ShowInstancePatchItemsResponse';
-import { ShowPatchBaselineRequest } from './model/ShowPatchBaselineRequest';
-import { ShowPatchBaselineResponse } from './model/ShowPatchBaselineResponse';
 import { ShowScheduledTaskRequest } from './model/ShowScheduledTaskRequest';
 import { ShowScheduledTaskResponse } from './model/ShowScheduledTaskResponse';
-import { ShowSlaCustomizedTemplateRequest } from './model/ShowSlaCustomizedTemplateRequest';
-import { ShowSlaCustomizedTemplateResponse } from './model/ShowSlaCustomizedTemplateResponse';
-import { ShowSlaOrderRequest } from './model/ShowSlaOrderRequest';
-import { ShowSlaOrderResponse } from './model/ShowSlaOrderResponse';
-import { ShowSloDetailRequest } from './model/ShowSloDetailRequest';
-import { ShowSloDetailResponse } from './model/ShowSloDetailResponse';
-import { SlaEscalationRuleInfo } from './model/SlaEscalationRuleInfo';
-import { SlaPreWarningRuleInfo } from './model/SlaPreWarningRuleInfo';
-import { SlaRecord } from './model/SlaRecord';
-import { SlaRuleInfo } from './model/SlaRuleInfo';
-import { SlaTriggeringRuleInfo } from './model/SlaTriggeringRuleInfo';
-import { SliDetail } from './model/SliDetail';
-import { SyncAddPersonnelRequest } from './model/SyncAddPersonnelRequest';
-import { SyncAddPersonnelResponse } from './model/SyncAddPersonnelResponse';
 import { SyncResourceReq } from './model/SyncResourceReq';
 import { SyncResourceRequest } from './model/SyncResourceRequest';
 import { SyncResourceResponse } from './model/SyncResourceResponse';
@@ -303,69 +264,6 @@ export class CocClient {
         return __dirname;
     }
 
-
-    /**
-     * show account ，使用场景：托管功能 sre 账号使用，查询自己管理的客户账号
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询客户账号
-     * @param {string} [name] 账号名称
-     * @param {string} [delegator] 账号id
-     * @param {string} [status] 账号状态
-     * @param {number} [offset] 分页参数
-     * @param {number} [limit] 分页参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAccount(showAccountRequest?: ShowAccountRequest): Promise<ShowAccountResponse> {
-        const options = ParamCreater().showAccount(showAccountRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询告警工单历史
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询告警工单历史
-     * @param {string} alarmId 告警id
-     * @param {number} offset 偏移量
-     * @param {number} limit 每页限制数量
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAlarmHandleHistories(listAlarmHandleHistoriesRequest?: ListAlarmHandleHistoriesRequest): Promise<ListAlarmHandleHistoriesResponse> {
-        const options = ParamCreater().listAlarmHandleHistories(listAlarmHandleHistoriesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Get alarm info by id
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Alarm
-     * @param {string} alarmId 告警id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAlarm(showAlarmRequest?: ShowAlarmRequest): Promise<ShowAlarmResponse> {
-        const options = ParamCreater().showAlarm(showAlarmRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 
     /**
      * 查询应用
@@ -426,45 +324,6 @@ export class CocClient {
      */
     public batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest): Promise<BatchCreateApplicationViewResponse> {
         const options = ParamCreater().batchCreateApplicationView(batchCreateApplicationViewRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Get baseline info by id
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Baseline
-     * @param {string} baselineId 基线id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPatchBaseline(showPatchBaselineRequest?: ShowPatchBaselineRequest): Promise<ShowPatchBaselineResponse> {
-        const options = ParamCreater().showPatchBaseline(showPatchBaselineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 分页获取合规性报告cce信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取合规性报告cce信息
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 每页限制
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listCceCompliant(listCceCompliantRequest?: ListCceCompliantRequest): Promise<ListCceCompliantResponse> {
-        const options = ParamCreater().listCceCompliant(listCceCompliantRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -996,47 +855,6 @@ export class CocClient {
      */
     public listMultiCloudResources(listMultiCloudResourcesRequest?: ListMultiCloudResourcesRequest): Promise<ListMultiCloudResourcesResponse> {
         const options = ParamCreater().listMultiCloudResources(listMultiCloudResourcesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取人员列表（公网调用）
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询人员列表
-     * @param {number} offset 偏移量
-     * @param {number} limit 分页
-     * @param {boolean} [hasMobile] 是否有手机号
-     * @param {string} [name] IAM账号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPersonnel(listPersonnelRequest?: ListPersonnelRequest): Promise<ListPersonnelResponse> {
-        const options = ParamCreater().listPersonnel(listPersonnelRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 同步人员
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 同步人员
-     * @param {string} domainId 租户Id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public syncAddPersonnel(syncAddPersonnelRequest?: SyncAddPersonnelRequest): Promise<SyncAddPersonnelResponse> {
-        const options = ParamCreater().syncAddPersonnel(syncAddPersonnelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1827,88 +1645,6 @@ export class CocClient {
     }
 
     /**
-     * Get Sla Template info by id
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Sla模板详情
-     * @param {string} templateId 模板ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSlaCustomizedTemplate(showSlaCustomizedTemplateRequest?: ShowSlaCustomizedTemplateRequest): Promise<ShowSlaCustomizedTemplateResponse> {
-        const options = ParamCreater().showSlaCustomizedTemplate(showSlaCustomizedTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * SLA 工单信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询SLA工单信息
-     * @param {string} orderId 工单ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSlaOrder(showSlaOrderRequest?: ShowSlaOrderRequest): Promise<ShowSlaOrderResponse> {
-        const options = ParamCreater().showSlaOrder(showSlaOrderRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询中断记录
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询中断记录
-     * @param {string} sloId SLO的ID
-     * @param {number} [offset] 分页指针
-     * @param {number} [limit] 每页数量
-     * @param {string} [sourceId] 资源ID
-     * @param {string} [regionId] regionId
-     * @param {number} [startTime] 时间范围 - 开始时间
-     * @param {number} [endTime] 时间范围 - 结束时间
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listInterruptRecords(listInterruptRecordsRequest?: ListInterruptRecordsRequest): Promise<ListInterruptRecordsResponse> {
-        const options = ParamCreater().listInterruptRecords(listInterruptRecordsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询SLO详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询SLO详情
-     * @param {string} sloId SLO的ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSloDetail(showSloDetailRequest?: ShowSloDetailRequest): Promise<ShowSloDetailResponse> {
-        const options = ParamCreater().showSloDetail(showSloDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建租户区WarRoom
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1949,166 +1685,6 @@ export class CocClient {
 
 export const ParamCreater = function () {
     return {
-    
-        /**
-         * show account ，使用场景：托管功能 sre 账号使用，查询自己管理的客户账号
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAccount(showAccountRequest?: ShowAccountRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/host/accounts",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let name;
-            
-            let delegator;
-            
-            let status;
-            
-            let offset;
-            
-            let limit;
-
-            if (showAccountRequest !== null && showAccountRequest !== undefined) {
-                if (showAccountRequest instanceof ShowAccountRequest) {
-                    name = showAccountRequest.name;
-                    delegator = showAccountRequest.delegator;
-                    status = showAccountRequest.status;
-                    offset = showAccountRequest.offset;
-                    limit = showAccountRequest.limit;
-                } else {
-                    name = showAccountRequest['name'];
-                    delegator = showAccountRequest['delegator'];
-                    status = showAccountRequest['status'];
-                    offset = showAccountRequest['offset'];
-                    limit = showAccountRequest['limit'];
-                }
-            }
-
-        
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (delegator !== null && delegator !== undefined) {
-                localVarQueryParameter['delegator'] = delegator;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询告警工单历史
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAlarmHandleHistories(listAlarmHandleHistoriesRequest?: ListAlarmHandleHistoriesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/alarm-mgmt/alarm/{alarm_id}/handle-histories",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let alarmId;
-            
-            let offset;
-            
-            let limit;
-
-            if (listAlarmHandleHistoriesRequest !== null && listAlarmHandleHistoriesRequest !== undefined) {
-                if (listAlarmHandleHistoriesRequest instanceof ListAlarmHandleHistoriesRequest) {
-                    alarmId = listAlarmHandleHistoriesRequest.alarmId;
-                    offset = listAlarmHandleHistoriesRequest.offset;
-                    limit = listAlarmHandleHistoriesRequest.limit;
-                } else {
-                    alarmId = listAlarmHandleHistoriesRequest['alarm_id'];
-                    offset = listAlarmHandleHistoriesRequest['offset'];
-                    limit = listAlarmHandleHistoriesRequest['limit'];
-                }
-            }
-
-        
-            if (alarmId === null || alarmId === undefined) {
-            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling listAlarmHandleHistories.');
-            }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAlarmHandleHistories.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAlarmHandleHistories.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'alarm_id': alarmId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Get alarm info by id
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAlarm(showAlarmRequest?: ShowAlarmRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/alarm-mgmt/alarm/{alarm_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let alarmId;
-
-            if (showAlarmRequest !== null && showAlarmRequest !== undefined) {
-                if (showAlarmRequest instanceof ShowAlarmRequest) {
-                    alarmId = showAlarmRequest.alarmId;
-                } else {
-                    alarmId = showAlarmRequest['alarm_id'];
-                }
-            }
-
-        
-            if (alarmId === null || alarmId === undefined) {
-            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling showAlarm.');
-            }
-
-            options.pathParams = { 'alarm_id': alarmId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
     
         /**
          * 查询应用
@@ -2281,87 +1857,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Get baseline info by id
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPatchBaseline(showPatchBaselineRequest?: ShowPatchBaselineRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/patch/baseline/{baseline_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let baselineId;
-
-            if (showPatchBaselineRequest !== null && showPatchBaselineRequest !== undefined) {
-                if (showPatchBaselineRequest instanceof ShowPatchBaselineRequest) {
-                    baselineId = showPatchBaselineRequest.baselineId;
-                } else {
-                    baselineId = showPatchBaselineRequest['baseline_id'];
-                }
-            }
-
-        
-            if (baselineId === null || baselineId === undefined) {
-            throw new RequiredError('baselineId','Required parameter baselineId was null or undefined when calling showPatchBaseline.');
-            }
-
-            options.pathParams = { 'baseline_id': baselineId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 分页获取合规性报告cce信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listCceCompliant(listCceCompliantRequest?: ListCceCompliantRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/patch/cce/compliant",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let offset;
-            
-            let limit;
-
-            if (listCceCompliantRequest !== null && listCceCompliantRequest !== undefined) {
-                if (listCceCompliantRequest instanceof ListCceCompliantRequest) {
-                    offset = listCceCompliantRequest.offset;
-                    limit = listCceCompliantRequest.limit;
-                } else {
-                    offset = listCceCompliantRequest['offset'];
-                    limit = listCceCompliantRequest['limit'];
-                }
-            }
-
-        
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3698,107 +3193,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取人员列表（公网调用）
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPersonnel(listPersonnelRequest?: ListPersonnelRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/personnel",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let offset;
-            
-            let limit;
-            
-            let hasMobile;
-            
-            let name;
-
-            if (listPersonnelRequest !== null && listPersonnelRequest !== undefined) {
-                if (listPersonnelRequest instanceof ListPersonnelRequest) {
-                    offset = listPersonnelRequest.offset;
-                    limit = listPersonnelRequest.limit;
-                    hasMobile = listPersonnelRequest.hasMobile;
-                    name = listPersonnelRequest.name;
-                } else {
-                    offset = listPersonnelRequest['offset'];
-                    limit = listPersonnelRequest['limit'];
-                    hasMobile = listPersonnelRequest['has_mobile'];
-                    name = listPersonnelRequest['name'];
-                }
-            }
-
-        
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPersonnel.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPersonnel.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (hasMobile !== null && hasMobile !== undefined) {
-                localVarQueryParameter['has_mobile'] = hasMobile;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 同步人员
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        syncAddPersonnel(syncAddPersonnelRequest?: SyncAddPersonnelRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/sync/{domain_id}/personnels",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let domainId;
-
-            if (syncAddPersonnelRequest !== null && syncAddPersonnelRequest !== undefined) {
-                if (syncAddPersonnelRequest instanceof SyncAddPersonnelRequest) {
-                    domainId = syncAddPersonnelRequest.domainId;
-                } else {
-                    domainId = syncAddPersonnelRequest['domain_id'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling syncAddPersonnel.');
-            }
-
-            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6020,197 +5414,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Get Sla Template info by id
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSlaCustomizedTemplate(showSlaCustomizedTemplateRequest?: ShowSlaCustomizedTemplateRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/sla-mgmt/customized-template/{template_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let templateId;
-
-            if (showSlaCustomizedTemplateRequest !== null && showSlaCustomizedTemplateRequest !== undefined) {
-                if (showSlaCustomizedTemplateRequest instanceof ShowSlaCustomizedTemplateRequest) {
-                    templateId = showSlaCustomizedTemplateRequest.templateId;
-                } else {
-                    templateId = showSlaCustomizedTemplateRequest['template_id'];
-                }
-            }
-
-        
-            if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showSlaCustomizedTemplate.');
-            }
-
-            options.pathParams = { 'template_id': templateId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * SLA 工单信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSlaOrder(showSlaOrderRequest?: ShowSlaOrderRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/sla-mgmt/orders/{order_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let orderId;
-
-            if (showSlaOrderRequest !== null && showSlaOrderRequest !== undefined) {
-                if (showSlaOrderRequest instanceof ShowSlaOrderRequest) {
-                    orderId = showSlaOrderRequest.orderId;
-                } else {
-                    orderId = showSlaOrderRequest['order_id'];
-                }
-            }
-
-        
-            if (orderId === null || orderId === undefined) {
-            throw new RequiredError('orderId','Required parameter orderId was null or undefined when calling showSlaOrder.');
-            }
-
-            options.pathParams = { 'order_id': orderId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询中断记录
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listInterruptRecords(listInterruptRecordsRequest?: ListInterruptRecordsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/slo-mgmt/slos/{slo_id}/interrupt-records",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let sloId;
-            
-            let offset;
-            
-            let limit;
-            
-            let sourceId;
-            
-            let regionId;
-            
-            let startTime;
-            
-            let endTime;
-
-            if (listInterruptRecordsRequest !== null && listInterruptRecordsRequest !== undefined) {
-                if (listInterruptRecordsRequest instanceof ListInterruptRecordsRequest) {
-                    sloId = listInterruptRecordsRequest.sloId;
-                    offset = listInterruptRecordsRequest.offset;
-                    limit = listInterruptRecordsRequest.limit;
-                    sourceId = listInterruptRecordsRequest.sourceId;
-                    regionId = listInterruptRecordsRequest.regionId;
-                    startTime = listInterruptRecordsRequest.startTime;
-                    endTime = listInterruptRecordsRequest.endTime;
-                } else {
-                    sloId = listInterruptRecordsRequest['slo_id'];
-                    offset = listInterruptRecordsRequest['offset'];
-                    limit = listInterruptRecordsRequest['limit'];
-                    sourceId = listInterruptRecordsRequest['source_id'];
-                    regionId = listInterruptRecordsRequest['region_id'];
-                    startTime = listInterruptRecordsRequest['start_time'];
-                    endTime = listInterruptRecordsRequest['end_time'];
-                }
-            }
-
-        
-            if (sloId === null || sloId === undefined) {
-            throw new RequiredError('sloId','Required parameter sloId was null or undefined when calling listInterruptRecords.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (sourceId !== null && sourceId !== undefined) {
-                localVarQueryParameter['source_id'] = sourceId;
-            }
-            if (regionId !== null && regionId !== undefined) {
-                localVarQueryParameter['region_id'] = regionId;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'slo_id': sloId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询SLO详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSloDetail(showSloDetailRequest?: ShowSloDetailRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/slo-mgmt/slos/{slo_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let sloId;
-
-            if (showSloDetailRequest !== null && showSloDetailRequest !== undefined) {
-                if (showSloDetailRequest instanceof ShowSloDetailRequest) {
-                    sloId = showSloDetailRequest.sloId;
-                } else {
-                    sloId = showSloDetailRequest['slo_id'];
-                }
-            }
-
-        
-            if (sloId === null || sloId === undefined) {
-            throw new RequiredError('sloId','Required parameter sloId was null or undefined when calling showSloDetail.');
-            }
-
-            options.pathParams = { 'slo_id': sloId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

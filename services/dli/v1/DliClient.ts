@@ -2797,6 +2797,7 @@ export class DliClient {
      * @param {number} [end] 用于查询开始时间在该时间点之前的作业。时间格式为unix时间戳，单位：毫秒。
      * @param {string} [engineType] 
      * @param {string} [jobStatus] 
+     * @param {string} [jobId] 
      * @param {'ALL' | 'DDL' | 'DCL' | 'IMPORT' | 'EXPORT' | 'QUERY' | 'INSERT'} [jobType] 指定查询的作业类型，包含DDL、DCL、IMPORT、EXPORT、QUERY、INSERT，若要查询所有类型的作业，则传入ALL。
      * @param {'duration_desc' | 'duration_asc' | 'start_time_desc' | 'start_time_asc'} [order] 指定作业排序方式，默认为start_time_desc（作业提交时间降序），支持duration_desc（作业运行时长降序）、duration_asc（作业运行时长升序）、start_time_desc（作业提交时间降序）、start_time_asc（作业提交时间升序）四种排序方式。
      * @param {string} [owner] 提交作业的用户名称
@@ -8378,6 +8379,8 @@ export const ParamCreater = function () {
             
             let jobStatus;
             
+            let jobId;
+            
             let jobType;
             
             let order;
@@ -8403,6 +8406,7 @@ export const ParamCreater = function () {
                     end = listSqlJobsRequest.end;
                     engineType = listSqlJobsRequest.engineType;
                     jobStatus = listSqlJobsRequest.jobStatus;
+                    jobId = listSqlJobsRequest.jobId;
                     jobType = listSqlJobsRequest.jobType;
                     order = listSqlJobsRequest.order;
                     owner = listSqlJobsRequest.owner;
@@ -8418,6 +8422,7 @@ export const ParamCreater = function () {
                     end = listSqlJobsRequest['end'];
                     engineType = listSqlJobsRequest['engine-type'];
                     jobStatus = listSqlJobsRequest['job-status'];
+                    jobId = listSqlJobsRequest['job-id'];
                     jobType = listSqlJobsRequest['job-type'];
                     order = listSqlJobsRequest['order'];
                     owner = listSqlJobsRequest['owner'];
@@ -8445,6 +8450,9 @@ export const ParamCreater = function () {
             }
             if (jobStatus !== null && jobStatus !== undefined) {
                 localVarQueryParameter['job-status'] = jobStatus;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job-id'] = jobId;
             }
             if (jobType !== null && jobType !== undefined) {
                 localVarQueryParameter['job-type'] = jobType;

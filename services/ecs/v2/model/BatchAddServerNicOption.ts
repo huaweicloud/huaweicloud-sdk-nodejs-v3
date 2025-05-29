@@ -4,12 +4,12 @@ import { ServerNicSecurityGroup } from './ServerNicSecurityGroup';
 
 export class BatchAddServerNicOption {
     private 'subnet_id'?: string;
+    private 'port_id'?: string;
     private 'security_groups'?: Array<ServerNicSecurityGroup>;
     private 'ip_address'?: string;
     private 'ipv6_enable'?: boolean;
     private 'ipv6_bandwidth'?: Ipv6Bandwidth;
-    public constructor(subnetId?: string) { 
-        this['subnet_id'] = subnetId;
+    public constructor() { 
     }
     public withSubnetId(subnetId: string): BatchAddServerNicOption {
         this['subnet_id'] = subnetId;
@@ -20,6 +20,16 @@ export class BatchAddServerNicOption {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withPortId(portId: string): BatchAddServerNicOption {
+        this['port_id'] = portId;
+        return this;
+    }
+    public set portId(portId: string  | undefined) {
+        this['port_id'] = portId;
+    }
+    public get portId(): string | undefined {
+        return this['port_id'];
     }
     public withSecurityGroups(securityGroups: Array<ServerNicSecurityGroup>): BatchAddServerNicOption {
         this['security_groups'] = securityGroups;

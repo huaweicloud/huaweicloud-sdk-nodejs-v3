@@ -620,6 +620,9 @@ import { SwitchGaussMySqlConfigurationRequest } from './model/SwitchGaussMySqlCo
 import { SwitchGaussMySqlConfigurationResponse } from './model/SwitchGaussMySqlConfigurationResponse';
 import { SwitchGaussMySqlInstanceSslRequest } from './model/SwitchGaussMySqlInstanceSslRequest';
 import { SwitchGaussMySqlInstanceSslResponse } from './model/SwitchGaussMySqlInstanceSslResponse';
+import { SwitchGaussMySqlProxyEipRequest } from './model/SwitchGaussMySqlProxyEipRequest';
+import { SwitchGaussMySqlProxyEipRequestBody } from './model/SwitchGaussMySqlProxyEipRequestBody';
+import { SwitchGaussMySqlProxyEipResponse } from './model/SwitchGaussMySqlProxyEipResponse';
 import { SwitchGaussMySqlProxySslRequest } from './model/SwitchGaussMySqlProxySslRequest';
 import { SwitchGaussMySqlProxySslResponse } from './model/SwitchGaussMySqlProxySslResponse';
 import { SwitchProxySSLRequest } from './model/SwitchProxySSLRequest';
@@ -3271,6 +3274,28 @@ export class GaussDBClient {
      */
     public switchGaussMySqlInstanceSsl(switchGaussMySqlInstanceSslRequest?: SwitchGaussMySqlInstanceSslRequest): Promise<SwitchGaussMySqlInstanceSslResponse> {
         const options = ParamCreater().switchGaussMySqlInstanceSsl(switchGaussMySqlInstanceSslRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Proxy绑定解绑弹性公网IP。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Proxy绑定解绑弹性公网IP
+     * @param {string} instanceId 实例ID，此参数是实例的唯一标识。只能由英文字母、数字组成，后缀为in07，长度为36个字符。
+     * @param {string} proxyId 数据库代理ID，此参数是代理的唯一标识。只能由英文字母、数字组成，后缀为po01，长度为36个字符。
+     * @param {SwitchGaussMySqlProxyEipRequestBody} switchGaussMySqlProxyEipRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchGaussMySqlProxyEip(switchGaussMySqlProxyEipRequest?: SwitchGaussMySqlProxyEipRequest): Promise<SwitchGaussMySqlProxyEipResponse> {
+        const options = ParamCreater().switchGaussMySqlProxyEip(switchGaussMySqlProxyEipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11698,6 +11723,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Proxy绑定解绑弹性公网IP。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchGaussMySqlProxyEip(switchGaussMySqlProxyEipRequest?: SwitchGaussMySqlProxyEipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/bind",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (switchGaussMySqlProxyEipRequest !== null && switchGaussMySqlProxyEipRequest !== undefined) {
+                if (switchGaussMySqlProxyEipRequest instanceof SwitchGaussMySqlProxyEipRequest) {
+                    instanceId = switchGaussMySqlProxyEipRequest.instanceId;
+                    proxyId = switchGaussMySqlProxyEipRequest.proxyId;
+                    body = switchGaussMySqlProxyEipRequest.body
+                    xLanguage = switchGaussMySqlProxyEipRequest.xLanguage;
+                } else {
+                    instanceId = switchGaussMySqlProxyEipRequest['instance_id'];
+                    proxyId = switchGaussMySqlProxyEipRequest['proxy_id'];
+                    body = switchGaussMySqlProxyEipRequest['body'];
+                    xLanguage = switchGaussMySqlProxyEipRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchGaussMySqlProxyEip.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling switchGaussMySqlProxyEip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

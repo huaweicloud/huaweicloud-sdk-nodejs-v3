@@ -1488,8 +1488,6 @@ export class LtsClient {
      * @param {'OBS' | 'DIS' | 'DMS'} [logTransferType] 日志转储类型。OBS指OBS日志转储，DIS指DIS日志转储，DMS指DMS日志转储
      * @param {string} [logGroupName] 日志组名称
      * @param {string} [logStreamName] 日志流名称
-     * @param {number} [offset] 查询游标，初始传入0，后续从上一次的返回值中获取
-     * @param {number} [limit] 每页数据量，最大值为100
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4951,10 +4949,6 @@ export const ParamCreater = function () {
             let logGroupName;
             
             let logStreamName;
-            
-            let offset;
-            
-            let limit;
 
             if (listTransfersRequest !== null && listTransfersRequest !== undefined) {
                 if (listTransfersRequest instanceof ListTransfersRequest) {
@@ -4962,15 +4956,11 @@ export const ParamCreater = function () {
                     logTransferType = listTransfersRequest.logTransferType;
                     logGroupName = listTransfersRequest.logGroupName;
                     logStreamName = listTransfersRequest.logStreamName;
-                    offset = listTransfersRequest.offset;
-                    limit = listTransfersRequest.limit;
                 } else {
                     contentType = listTransfersRequest['Content-Type'];
                     logTransferType = listTransfersRequest['log_transfer_type'];
                     logGroupName = listTransfersRequest['log_group_name'];
                     logStreamName = listTransfersRequest['log_stream_name'];
-                    offset = listTransfersRequest['offset'];
-                    limit = listTransfersRequest['limit'];
                 }
             }
 
@@ -4983,12 +4973,6 @@ export const ParamCreater = function () {
             }
             if (logStreamName !== null && logStreamName !== undefined) {
                 localVarQueryParameter['log_stream_name'] = logStreamName;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

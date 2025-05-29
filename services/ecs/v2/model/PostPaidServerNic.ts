@@ -4,12 +4,12 @@ import { PostPaidServerIpv6Bandwidth } from './PostPaidServerIpv6Bandwidth';
 
 export class PostPaidServerNic {
     private 'subnet_id'?: string;
+    private 'port_id'?: string;
     private 'ip_address'?: string;
     private 'ipv6_enable'?: boolean;
     private 'ipv6_bandwidth'?: PostPaidServerIpv6Bandwidth;
     private 'allowed_address_pairs'?: Array<CreateServerNicAllowedAddressPairs>;
-    public constructor(subnetId?: string) { 
-        this['subnet_id'] = subnetId;
+    public constructor() { 
     }
     public withSubnetId(subnetId: string): PostPaidServerNic {
         this['subnet_id'] = subnetId;
@@ -20,6 +20,16 @@ export class PostPaidServerNic {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withPortId(portId: string): PostPaidServerNic {
+        this['port_id'] = portId;
+        return this;
+    }
+    public set portId(portId: string  | undefined) {
+        this['port_id'] = portId;
+    }
+    public get portId(): string | undefined {
+        return this['port_id'];
     }
     public withIpAddress(ipAddress: string): PostPaidServerNic {
         this['ip_address'] = ipAddress;

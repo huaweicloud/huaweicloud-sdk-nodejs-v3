@@ -4,12 +4,12 @@ import { PrePaidServerIpv6Bandwidth } from './PrePaidServerIpv6Bandwidth';
 
 export class PrePaidServerNic {
     private 'subnet_id'?: string;
+    private 'port_id'?: string;
     private 'ip_address'?: string;
     private 'ipv6_enable'?: boolean;
     private 'ipv6_bandwidth'?: PrePaidServerIpv6Bandwidth;
     private 'allowed_address_pairs'?: Array<CreateServerNicAllowedAddressPairs>;
-    public constructor(subnetId?: string) { 
-        this['subnet_id'] = subnetId;
+    public constructor() { 
     }
     public withSubnetId(subnetId: string): PrePaidServerNic {
         this['subnet_id'] = subnetId;
@@ -20,6 +20,16 @@ export class PrePaidServerNic {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withPortId(portId: string): PrePaidServerNic {
+        this['port_id'] = portId;
+        return this;
+    }
+    public set portId(portId: string  | undefined) {
+        this['port_id'] = portId;
+    }
+    public get portId(): string | undefined {
+        return this['port_id'];
     }
     public withIpAddress(ipAddress: string): PrePaidServerNic {
         this['ip_address'] = ipAddress;

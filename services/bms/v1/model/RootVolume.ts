@@ -1,3 +1,4 @@
+import { RootVolumeMetadata } from './RootVolumeMetadata';
 
 
 export class RootVolume {
@@ -5,6 +6,7 @@ export class RootVolume {
     public size?: number;
     private 'cluster_id'?: string;
     private 'cluster_type'?: RootVolumeClusterTypeEnum | string;
+    public metadata?: RootVolumeMetadata;
     public constructor(volumetype?: string, size?: number) { 
         this['volumetype'] = volumetype;
         this['size'] = size;
@@ -36,6 +38,10 @@ export class RootVolume {
     }
     public get clusterType(): RootVolumeClusterTypeEnum | string | undefined {
         return this['cluster_type'];
+    }
+    public withMetadata(metadata: RootVolumeMetadata): RootVolume {
+        this['metadata'] = metadata;
+        return this;
     }
 }
 

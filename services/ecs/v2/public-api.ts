@@ -300,6 +300,7 @@ export * from './model/ResizeServerRequestBody';
 export * from './model/ResizeServerResponse';
 export * from './model/ResourceTag';
 export * from './model/SecurityGroup';
+export * from './model/SerialConsoleOptions';
 export * from './model/ServerAddress';
 export * from './model/ServerAttachableQuantity';
 export * from './model/ServerBlockDevice';

@@ -107,6 +107,9 @@ import { DeleteLtsConfigRequestBodyLtsConfigs } from './model/DeleteLtsConfigReq
 import { DeleteLtsConfigResponse } from './model/DeleteLtsConfigResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
+import { DeleteMongosNodeRequest } from './model/DeleteMongosNodeRequest';
+import { DeleteMongosNodeRequestBody } from './model/DeleteMongosNodeRequestBody';
+import { DeleteMongosNodeResponse } from './model/DeleteMongosNodeResponse';
 import { DeleteReadonlyNodeRequest } from './model/DeleteReadonlyNodeRequest';
 import { DeleteReadonlyNodeRequestBody } from './model/DeleteReadonlyNodeRequestBody';
 import { DeleteReadonlyNodeResponse } from './model/DeleteReadonlyNodeResponse';
@@ -977,6 +980,26 @@ export class DdsClient {
      */
     public deleteManualBackup(deleteManualBackupRequest?: DeleteManualBackupRequest): Promise<DeleteManualBackupResponse> {
         const options = ParamCreater().deleteManualBackup(deleteManualBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当集群实例需要缩减mongos节点时，需要调用此API。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除mongos节点
+     * @param {string} instanceId 实例ID。
+     * @param {DeleteMongosNodeRequestBody} [deleteMongosNodeRequestBody] 准备删除的mongos节点。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteMongosNode(deleteMongosNodeRequest?: DeleteMongosNodeRequest): Promise<DeleteMongosNodeResponse> {
+        const options = ParamCreater().deleteMongosNode(deleteMongosNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4137,6 +4160,49 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当集群实例需要缩减mongos节点时，需要调用此API。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteMongosNode(deleteMongosNodeRequest?: DeleteMongosNodeRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/mongos-node",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteMongosNodeRequest !== null && deleteMongosNodeRequest !== undefined) {
+                if (deleteMongosNodeRequest instanceof DeleteMongosNodeRequest) {
+                    instanceId = deleteMongosNodeRequest.instanceId;
+                    body = deleteMongosNodeRequest.body
+                } else {
+                    instanceId = deleteMongosNodeRequest['instance_id'];
+                    body = deleteMongosNodeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteMongosNode.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

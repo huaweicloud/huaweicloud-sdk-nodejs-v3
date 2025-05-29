@@ -917,6 +917,7 @@ import { SearchDebugInfoRequest } from './model/SearchDebugInfoRequest';
 import { SearchDebugInfoResponse } from './model/SearchDebugInfoResponse';
 import { SearchDesignLatestApprovalDiffRequest } from './model/SearchDesignLatestApprovalDiffRequest';
 import { SearchDesignLatestApprovalDiffResponse } from './model/SearchDesignLatestApprovalDiffResponse';
+import { SearchDetailV2 } from './model/SearchDetailV2';
 import { SearchDwByTypeRequest } from './model/SearchDwByTypeRequest';
 import { SearchDwByTypeResponse } from './model/SearchDwByTypeResponse';
 import { SearchDwByTypeResultData } from './model/SearchDwByTypeResultData';
@@ -1035,6 +1036,8 @@ import { ShowFactLogicTableByIdResponse } from './model/ShowFactLogicTableByIdRe
 import { ShowFactLogicTableByIdResultData } from './model/ShowFactLogicTableByIdResultData';
 import { ShowFactoryEnvRequest } from './model/ShowFactoryEnvRequest';
 import { ShowFactoryEnvResponse } from './model/ShowFactoryEnvResponse';
+import { ShowFactoryFullTextRequest } from './model/ShowFactoryFullTextRequest';
+import { ShowFactoryFullTextResponse } from './model/ShowFactoryFullTextResponse';
 import { ShowFactoryPackageDetailRequest } from './model/ShowFactoryPackageDetailRequest';
 import { ShowFactoryPackageDetailResponse } from './model/ShowFactoryPackageDetailResponse';
 import { ShowFactorySupplementDataRequest } from './model/ShowFactorySupplementDataRequest';
@@ -7727,6 +7730,42 @@ export class DataArtsStudioClient {
      */
     public showFactoryEnv(showFactoryEnvRequest?: ShowFactoryEnvRequest): Promise<ShowFactoryEnvResponse> {
         const options = ParamCreater().showFactoryEnv(showFactoryEnvRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 全局搜索
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 全局搜索
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [workspaceId] 搜索空间范围: 默认不传参，在全部空间内搜索。 - 当前工作空间ID: 当前工作空间的ID
+     * @param {string} [searchText] 全局搜索关键字，输入至少两位字符。
+     * @param {string} [jobType] 作业类型: （多选）样例: job_type&#x3D;BATCH 默认为全部。 - BATCH: 批作业 - REAL_TIME: 流作业
+     * @param {string} [scriptType] 脚本类型: （多选）样例: script_type&#x3D;HIVE,DLI。 默认为全部，不过滤任何类型脚本。 - HIVE: Hive SQL - [DLI: DLI SQL](tag:nohcs) - DWS: DWS SQL - SparkSQL: Spark SQL - SparkPython: Spark Python - FlinkSQL: Flink SQL - [RDS: RDS SQL](tag:nohcs) - PRESTO: Presto SQL - HETUENGINE: HeruEngine - ClickHouse: ClickHouse - IMPALA: Impala SQL - SHELL: Shell - PYTHON: Python
+     * @param {string} [nodeType] 节点类型: （多选）节点类型列表。样例: node_type&#x3D;com.cloud.datacraft.processactivity.ExecuteHiveJob 默认为全部。 - com.cloud.datacraft.processactivity.ExecuteHiveJob: MRS Hive SQL - com.cloud.datacraft.activity.ExecuteSparkSQL: MRS Spark SQL - com.cloud.datacraft.activity.MRSSparkPython: MRS Spark Python - com.cloud.datacraft.processactivity.ExecuteImpalaJob: MRS Impala SQL - [com.cloud.datacraft.activity.DLISQL: DLI SQL](tag:nohcs) - [com.cloud.datacraft.activity.DliFlinkJob: DLI Flink Job](tag:nohcs) - com.cloud.datacraft.processactivity.ExecuteDWSJob: DWS SQL - com.cloud.datacraft.activity.ExecuteQuery: RDS SQL - com.cloud.datacraft.activity.MRSPrestoSQL: MRS Presto SQL - com.cloud.datacraft.processactivity.ExecuteScript: Shell - com.cloud.datacraft.processactivity.ExecutePythonScript: Python - com.cloud.datacraft.processactivity.ExecuteClickHouseJob: ClickHouse - com.cloud.datacraft.processactivity.ExecuteHetuEngineJob: HetuEngine - com.cloud.datacraft.activity.DataMigration: DataMigration
+     * @param {string} [newSaveOrCommit] 最新修改: 样例: new_save_or_commit&#x3D;save 默认为save: 最新保存 - save: 最新保存 - commit: 最新提交
+     * @param {string} [owners] 责任人名称: （多选）人员列表或我的节点。样例: owners&#x3D;dayu_wm 默认不过滤责任人。
+     * @param {string} [docTypes] 搜索范围: （多选）样例: doc_types&#x3D;script 默认为全部。 - node: 开发作业 - script: 脚本
+     * @param {number} [beginTime] 开始时间，配合结束时间参数使用，默认没有时间范围。样例: begin_time&#x3D;1746633600000
+     * @param {number} [endTime] 结束时间，配合开始时间参数使用，默认没有时间范围。样例: endTime&#x3D;1746806399999
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数，范围[1,100]。样例: limit&#x3D;10 默认值: 10。
+     * @param {number} [offset] 分页的起始页，取值范围大于等于0。样例: offset&#x3D;0 默认值: 0。
+     * @param {string} [ifQueryParameters] 是否搜索配置参数部分的内容: 样例: if_query_parameters&#x3D;false 默认为false: 不搜索配置参数部分的内容 - true: 是 - false: 否
+     * @param {number} [matchType] 匹配方式: 样例: match_type&#x3D;0 默认为0: 通用。 - 0: 通用 - 1: 模糊
+     * @param {string} [scheduleState] 调度状态: 仅支持作业查找场景，需配置new_save_or_commit参数为commit 默认为全部。 - running: 已调度 - stop: 未调度
+     * @param {string} [isExact] 是否精确搜索: 开启后配合exact_field参数使用。 默认为false: 非精确搜索 - true: 精确搜索 - false: 非精确搜索
+     * @param {string} [exactField] 精确查询的字段, 开启精确搜索时生效: - jobName: 作业名 - scriptName: 脚本名 - jobId: 作业ID - scriptId: 脚本ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFactoryFullText(showFactoryFullTextRequest?: ShowFactoryFullTextRequest): Promise<ShowFactoryFullTextResponse> {
+        const options = ParamCreater().showFactoryFullText(showFactoryFullTextRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -28493,6 +28532,162 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 全局搜索
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFactoryFullText(showFactoryFullTextRequest?: ShowFactoryFullTextRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/search",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let workspaceId;
+            
+            let searchText;
+            
+            let jobType;
+            
+            let scriptType;
+            
+            let nodeType;
+            
+            let newSaveOrCommit;
+            
+            let owners;
+            
+            let docTypes;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let limit;
+            
+            let offset;
+            
+            let ifQueryParameters;
+            
+            let matchType;
+            
+            let scheduleState;
+            
+            let isExact;
+            
+            let exactField;
+
+            if (showFactoryFullTextRequest !== null && showFactoryFullTextRequest !== undefined) {
+                if (showFactoryFullTextRequest instanceof ShowFactoryFullTextRequest) {
+                    workspace = showFactoryFullTextRequest.workspace;
+                    workspaceId = showFactoryFullTextRequest.workspaceId;
+                    searchText = showFactoryFullTextRequest.searchText;
+                    jobType = showFactoryFullTextRequest.jobType;
+                    scriptType = showFactoryFullTextRequest.scriptType;
+                    nodeType = showFactoryFullTextRequest.nodeType;
+                    newSaveOrCommit = showFactoryFullTextRequest.newSaveOrCommit;
+                    owners = showFactoryFullTextRequest.owners;
+                    docTypes = showFactoryFullTextRequest.docTypes;
+                    beginTime = showFactoryFullTextRequest.beginTime;
+                    endTime = showFactoryFullTextRequest.endTime;
+                    limit = showFactoryFullTextRequest.limit;
+                    offset = showFactoryFullTextRequest.offset;
+                    ifQueryParameters = showFactoryFullTextRequest.ifQueryParameters;
+                    matchType = showFactoryFullTextRequest.matchType;
+                    scheduleState = showFactoryFullTextRequest.scheduleState;
+                    isExact = showFactoryFullTextRequest.isExact;
+                    exactField = showFactoryFullTextRequest.exactField;
+                } else {
+                    workspace = showFactoryFullTextRequest['workspace'];
+                    workspaceId = showFactoryFullTextRequest['workspace_id'];
+                    searchText = showFactoryFullTextRequest['search_text'];
+                    jobType = showFactoryFullTextRequest['job_type'];
+                    scriptType = showFactoryFullTextRequest['script_type'];
+                    nodeType = showFactoryFullTextRequest['node_type'];
+                    newSaveOrCommit = showFactoryFullTextRequest['new_save_or_commit'];
+                    owners = showFactoryFullTextRequest['owners'];
+                    docTypes = showFactoryFullTextRequest['doc_types'];
+                    beginTime = showFactoryFullTextRequest['begin_time'];
+                    endTime = showFactoryFullTextRequest['end_time'];
+                    limit = showFactoryFullTextRequest['limit'];
+                    offset = showFactoryFullTextRequest['offset'];
+                    ifQueryParameters = showFactoryFullTextRequest['if_query_parameters'];
+                    matchType = showFactoryFullTextRequest['match_type'];
+                    scheduleState = showFactoryFullTextRequest['schedule_state'];
+                    isExact = showFactoryFullTextRequest['is_exact'];
+                    exactField = showFactoryFullTextRequest['exact_field'];
+                }
+            }
+
+        
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (searchText !== null && searchText !== undefined) {
+                localVarQueryParameter['search_text'] = searchText;
+            }
+            if (jobType !== null && jobType !== undefined) {
+                localVarQueryParameter['job_type'] = jobType;
+            }
+            if (scriptType !== null && scriptType !== undefined) {
+                localVarQueryParameter['script_type'] = scriptType;
+            }
+            if (nodeType !== null && nodeType !== undefined) {
+                localVarQueryParameter['node_type'] = nodeType;
+            }
+            if (newSaveOrCommit !== null && newSaveOrCommit !== undefined) {
+                localVarQueryParameter['new_save_or_commit'] = newSaveOrCommit;
+            }
+            if (owners !== null && owners !== undefined) {
+                localVarQueryParameter['owners'] = owners;
+            }
+            if (docTypes !== null && docTypes !== undefined) {
+                localVarQueryParameter['doc_types'] = docTypes;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (ifQueryParameters !== null && ifQueryParameters !== undefined) {
+                localVarQueryParameter['if_query_parameters'] = ifQueryParameters;
+            }
+            if (matchType !== null && matchType !== undefined) {
+                localVarQueryParameter['match_type'] = matchType;
+            }
+            if (scheduleState !== null && scheduleState !== undefined) {
+                localVarQueryParameter['schedule_state'] = scheduleState;
+            }
+            if (isExact !== null && isExact !== undefined) {
+                localVarQueryParameter['is_exact'] = isExact;
+            }
+            if (exactField !== null && exactField !== undefined) {
+                localVarQueryParameter['exact_field'] = exactField;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

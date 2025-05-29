@@ -7,6 +7,7 @@ import { PostPaidServerRootVolume } from './PostPaidServerRootVolume';
 import { PostPaidServerSchedulerHints } from './PostPaidServerSchedulerHints';
 import { PostPaidServerSecurityGroup } from './PostPaidServerSecurityGroup';
 import { PostPaidServerTag } from './PostPaidServerTag';
+import { SerialConsoleOptions } from './SerialConsoleOptions';
 
 
 export class PostPaidServer {
@@ -34,6 +35,7 @@ export class PostPaidServer {
     public vpcid?: string;
     public description?: string;
     private 'cpu_options'?: CpuOptions;
+    private 'serial_console_options'?: SerialConsoleOptions;
     public constructor(flavorRef?: string, imageRef?: string, name?: string, nics?: Array<PostPaidServerNic>, rootVolume?: PostPaidServerRootVolume, vpcid?: string) { 
         this['flavorRef'] = flavorRef;
         this['imageRef'] = imageRef;
@@ -203,5 +205,15 @@ export class PostPaidServer {
     }
     public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
+    }
+    public withSerialConsoleOptions(serialConsoleOptions: SerialConsoleOptions): PostPaidServer {
+        this['serial_console_options'] = serialConsoleOptions;
+        return this;
+    }
+    public set serialConsoleOptions(serialConsoleOptions: SerialConsoleOptions  | undefined) {
+        this['serial_console_options'] = serialConsoleOptions;
+    }
+    public get serialConsoleOptions(): SerialConsoleOptions | undefined {
+        return this['serial_console_options'];
     }
 }

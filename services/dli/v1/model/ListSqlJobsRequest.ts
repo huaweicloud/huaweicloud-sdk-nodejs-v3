@@ -6,6 +6,7 @@ export class ListSqlJobsRequest {
     public end?: number;
     private 'engine-type'?: string;
     private 'job-status'?: string;
+    private 'job-id'?: string;
     private 'job-type'?: ListSqlJobsRequestJobTypeEnum | string;
     public order?: ListSqlJobsRequestOrderEnum | string;
     public owner?: string;
@@ -60,6 +61,16 @@ export class ListSqlJobsRequest {
     }
     public get jobStatus(): string | undefined {
         return this['job-status'];
+    }
+    public withJobId(jobId: string): ListSqlJobsRequest {
+        this['job-id'] = jobId;
+        return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job-id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job-id'];
     }
     public withJobType(jobType: ListSqlJobsRequestJobTypeEnum | string): ListSqlJobsRequest {
         this['job-type'] = jobType;

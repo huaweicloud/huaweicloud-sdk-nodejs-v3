@@ -22,9 +22,7 @@ export class CreateImageRequestBody {
     public architecture?: CreateImageRequestBodyArchitectureEnum | string;
     private 'volume_id'?: string;
     private 'hw_firmware_type'?: CreateImageRequestBodyHwFirmwareTypeEnum | string;
-    public constructor(instanceId?: string, name?: string) { 
-        this['instance_id'] = instanceId;
-        this['name'] = name;
+    public constructor() { 
     }
     public withDataImages(dataImages: Array<CreateDataImage>): CreateImageRequestBody {
         this['data_images'] = dataImages;

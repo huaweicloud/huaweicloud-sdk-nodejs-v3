@@ -1,3 +1,4 @@
+import { DataVolumesMetadata } from './DataVolumesMetadata';
 
 
 export class DataVolumes {
@@ -6,6 +7,7 @@ export class DataVolumes {
     public shareable?: boolean;
     private 'cluster_id'?: string;
     private 'cluster_type'?: DataVolumesClusterTypeEnum | string;
+    public metadata?: DataVolumesMetadata;
     public constructor(volumetype?: string, size?: number) { 
         this['volumetype'] = volumetype;
         this['size'] = size;
@@ -41,6 +43,10 @@ export class DataVolumes {
     }
     public get clusterType(): DataVolumesClusterTypeEnum | string | undefined {
         return this['cluster_type'];
+    }
+    public withMetadata(metadata: DataVolumesMetadata): DataVolumes {
+        this['metadata'] = metadata;
+        return this;
     }
 }
 

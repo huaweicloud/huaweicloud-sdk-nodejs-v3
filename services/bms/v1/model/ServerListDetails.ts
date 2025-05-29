@@ -15,7 +15,7 @@ export class ServerListDetails {
     private 'vm_state'?: ServerListDetailsVmStateEnum | string;
     private 'availability_zone'?: string;
     public fault?: Fault;
-    private 'in_recycle_in'?: boolean;
+    private 'in_recycle_bin'?: boolean;
     public constructor(id?: string, name?: string, tenantId?: string, status?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -100,15 +100,15 @@ export class ServerListDetails {
         this['fault'] = fault;
         return this;
     }
-    public withInRecycleIn(inRecycleIn: boolean): ServerListDetails {
-        this['in_recycle_in'] = inRecycleIn;
+    public withInRecycleBin(inRecycleBin: boolean): ServerListDetails {
+        this['in_recycle_bin'] = inRecycleBin;
         return this;
     }
-    public set inRecycleIn(inRecycleIn: boolean  | undefined) {
-        this['in_recycle_in'] = inRecycleIn;
+    public set inRecycleBin(inRecycleBin: boolean  | undefined) {
+        this['in_recycle_bin'] = inRecycleBin;
     }
-    public get inRecycleIn(): boolean | undefined {
-        return this['in_recycle_in'];
+    public get inRecycleBin(): boolean | undefined {
+        return this['in_recycle_bin'];
     }
 }
 

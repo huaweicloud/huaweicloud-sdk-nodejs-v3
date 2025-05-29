@@ -302,6 +302,7 @@ import { ResizeServerRequestBody } from './model/ResizeServerRequestBody';
 import { ResizeServerResponse } from './model/ResizeServerResponse';
 import { ResourceTag } from './model/ResourceTag';
 import { SecurityGroup } from './model/SecurityGroup';
+import { SerialConsoleOptions } from './model/SerialConsoleOptions';
 import { ServerAddress } from './model/ServerAddress';
 import { ServerAttachableQuantity } from './model/ServerAttachableQuantity';
 import { ServerBlockDevice } from './model/ServerBlockDevice';

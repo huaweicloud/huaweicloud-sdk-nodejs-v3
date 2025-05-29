@@ -7,6 +7,7 @@ import { PrePaidServerRootVolume } from './PrePaidServerRootVolume';
 import { PrePaidServerSchedulerHints } from './PrePaidServerSchedulerHints';
 import { PrePaidServerSecurityGroup } from './PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './PrePaidServerTag';
+import { SerialConsoleOptions } from './SerialConsoleOptions';
 
 
 export class PrePaidServer {
@@ -34,6 +35,7 @@ export class PrePaidServer {
     private 'server_tags'?: Array<PrePaidServerTag>;
     public description?: string;
     private 'cpu_options'?: CpuOptions;
+    private 'serial_console_options'?: SerialConsoleOptions;
     public constructor(imageRef?: string, flavorRef?: string, name?: string, vpcid?: string, nics?: Array<PrePaidServerNic>, rootVolume?: PrePaidServerRootVolume) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
@@ -203,5 +205,15 @@ export class PrePaidServer {
     }
     public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
+    }
+    public withSerialConsoleOptions(serialConsoleOptions: SerialConsoleOptions): PrePaidServer {
+        this['serial_console_options'] = serialConsoleOptions;
+        return this;
+    }
+    public set serialConsoleOptions(serialConsoleOptions: SerialConsoleOptions  | undefined) {
+        this['serial_console_options'] = serialConsoleOptions;
+    }
+    public get serialConsoleOptions(): SerialConsoleOptions | undefined {
+        return this['serial_console_options'];
     }
 }

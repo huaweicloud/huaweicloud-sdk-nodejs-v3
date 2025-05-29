@@ -12,6 +12,7 @@ export class AddOrUpdateAlarmRuleV4RequestBody {
     private 'event_alarm_spec'?: EventAlarmSpec;
     private 'metric_alarm_spec'?: MetricAlarmSpec;
     private 'prom_instance_id'?: string;
+    public alias?: string;
     public constructor(alarmRuleName?: string, alarmRuleType?: string) { 
         this['alarm_rule_name'] = alarmRuleName;
         this['alarm_rule_type'] = alarmRuleType;
@@ -95,6 +96,10 @@ export class AddOrUpdateAlarmRuleV4RequestBody {
     }
     public get promInstanceId(): string | undefined {
         return this['prom_instance_id'];
+    }
+    public withAlias(alias: string): AddOrUpdateAlarmRuleV4RequestBody {
+        this['alias'] = alias;
+        return this;
     }
 }
 
