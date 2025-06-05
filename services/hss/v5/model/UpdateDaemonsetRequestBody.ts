@@ -1,5 +1,5 @@
+import { CreateDaemonsetRequestBodyScheduleInfo } from './CreateDaemonsetRequestBodyScheduleInfo';
 import { RuntimeRequestBody } from './RuntimeRequestBody';
-import { UpdateDaemonsetRequestBodyScheduleInfo } from './UpdateDaemonsetRequestBodyScheduleInfo';
 
 
 export class UpdateDaemonsetRequestBody {
@@ -7,7 +7,7 @@ export class UpdateDaemonsetRequestBody {
     private 'cluster_name'?: string;
     private 'auto_upgrade'?: boolean;
     private 'runtime_info'?: Array<RuntimeRequestBody>;
-    private 'schedule_info'?: UpdateDaemonsetRequestBodyScheduleInfo;
+    private 'schedule_info'?: CreateDaemonsetRequestBodyScheduleInfo;
     private 'invoked_service'?: string;
     private 'charging_mode'?: UpdateDaemonsetRequestBodyChargingModeEnum | string;
     private 'cce_protection_type'?: UpdateDaemonsetRequestBodyCceProtectionTypeEnum | string;
@@ -54,14 +54,14 @@ export class UpdateDaemonsetRequestBody {
     public get runtimeInfo(): Array<RuntimeRequestBody> | undefined {
         return this['runtime_info'];
     }
-    public withScheduleInfo(scheduleInfo: UpdateDaemonsetRequestBodyScheduleInfo): UpdateDaemonsetRequestBody {
+    public withScheduleInfo(scheduleInfo: CreateDaemonsetRequestBodyScheduleInfo): UpdateDaemonsetRequestBody {
         this['schedule_info'] = scheduleInfo;
         return this;
     }
-    public set scheduleInfo(scheduleInfo: UpdateDaemonsetRequestBodyScheduleInfo  | undefined) {
+    public set scheduleInfo(scheduleInfo: CreateDaemonsetRequestBodyScheduleInfo  | undefined) {
         this['schedule_info'] = scheduleInfo;
     }
-    public get scheduleInfo(): UpdateDaemonsetRequestBodyScheduleInfo | undefined {
+    public get scheduleInfo(): CreateDaemonsetRequestBodyScheduleInfo | undefined {
         return this['schedule_info'];
     }
     public withInvokedService(invokedService: string): UpdateDaemonsetRequestBody {

@@ -7,8 +7,7 @@ export class ChangeEventRequest {
     private 'container_name'?: string;
     private 'container_id'?: string;
     public body?: ChangeEventRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ChangeEventRequest {
         this['region'] = region;

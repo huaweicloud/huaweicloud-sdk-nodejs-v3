@@ -6,8 +6,7 @@ export class BatchAddAccountsRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: BatchAddAccountsRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withXSecurityToken(xSecurityToken: string): BatchAddAccountsRequest {
         this['X-Security-Token'] = xSecurityToken;

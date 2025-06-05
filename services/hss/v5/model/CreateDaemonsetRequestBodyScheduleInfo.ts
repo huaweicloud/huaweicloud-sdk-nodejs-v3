@@ -1,11 +1,11 @@
 
 
-export class UpdateDaemonsetRequestBodyScheduleInfo {
+export class CreateDaemonsetRequestBodyScheduleInfo {
     private 'node_selector'?: Array<string>;
     private 'pod_tolerances'?: Array<string>;
     public constructor() { 
     }
-    public withNodeSelector(nodeSelector: Array<string>): UpdateDaemonsetRequestBodyScheduleInfo {
+    public withNodeSelector(nodeSelector: Array<string>): CreateDaemonsetRequestBodyScheduleInfo {
         this['node_selector'] = nodeSelector;
         return this;
     }
@@ -15,7 +15,7 @@ export class UpdateDaemonsetRequestBodyScheduleInfo {
     public get nodeSelector(): Array<string> | undefined {
         return this['node_selector'];
     }
-    public withPodTolerances(podTolerances: Array<string>): UpdateDaemonsetRequestBodyScheduleInfo {
+    public withPodTolerances(podTolerances: Array<string>): CreateDaemonsetRequestBodyScheduleInfo {
         this['pod_tolerances'] = podTolerances;
         return this;
     }

@@ -6,8 +6,7 @@ export class DeleteAccountRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: DeleteAccountRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withXSecurityToken(xSecurityToken: string): DeleteAccountRequest {
         this['X-Security-Token'] = xSecurityToken;

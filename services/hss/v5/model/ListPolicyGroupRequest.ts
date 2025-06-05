@@ -8,8 +8,7 @@ export class ListPolicyGroupRequest {
     public limit?: number;
     private 'container_mode'?: boolean;
     private 'group_id'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListPolicyGroupRequest {
         this['region'] = region;

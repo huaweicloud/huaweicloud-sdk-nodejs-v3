@@ -6,8 +6,7 @@ export class ListAccountsRequest {
     public limit?: number;
     public offset?: number;
     private 'enterprise_project_id'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withXSecurityToken(xSecurityToken: string): ListAccountsRequest {
         this['X-Security-Token'] = xSecurityToken;

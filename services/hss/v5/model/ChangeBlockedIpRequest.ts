@@ -5,8 +5,7 @@ export class ChangeBlockedIpRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: ChangeBlockedIpRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ChangeBlockedIpRequest {
         this['region'] = region;

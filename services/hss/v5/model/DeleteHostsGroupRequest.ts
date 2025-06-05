@@ -4,8 +4,7 @@ export class DeleteHostsGroupRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     private 'group_id'?: string;
-    public constructor(region?: string, groupId?: string) { 
-        this['region'] = region;
+    public constructor(groupId?: string) { 
         this['group_id'] = groupId;
     }
     public withRegion(region: string): DeleteHostsGroupRequest {

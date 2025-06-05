@@ -10,6 +10,7 @@ export class ListQuotasDetailResponse extends SdkResponse {
     private 'idle_num'?: number;
     private 'normal_num'?: number;
     private 'expired_num'?: number;
+    private 'create_time'?: number;
     private 'freeze_num'?: number;
     private 'quota_statistics_list'?: Array<QuotaStatisticsResponseInfo>;
     private 'total_num'?: number;
@@ -76,6 +77,16 @@ export class ListQuotasDetailResponse extends SdkResponse {
     }
     public get expiredNum(): number | undefined {
         return this['expired_num'];
+    }
+    public withCreateTime(createTime: number): ListQuotasDetailResponse {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: number  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): number | undefined {
+        return this['create_time'];
     }
     public withFreezeNum(freezeNum: number): ListQuotasDetailResponse {
         this['freeze_num'] = freezeNum;

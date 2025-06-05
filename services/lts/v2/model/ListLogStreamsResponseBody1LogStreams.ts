@@ -12,6 +12,7 @@ export class ListLogStreamsResponseBody1LogStreams {
     private 'auth_web_tracking'?: boolean;
     private 'ttl_in_days'?: number;
     private 'hot_storage_days'?: number;
+    private 'log_group_id'?: string;
     public constructor(creationTime?: number, logStreamId?: string, logStreamName?: string, tag?: { [key: string]: string; }, filterCount?: number) { 
         this['creation_time'] = creationTime;
         this['log_stream_id'] = logStreamId;
@@ -122,5 +123,15 @@ export class ListLogStreamsResponseBody1LogStreams {
     }
     public get hotStorageDays(): number | undefined {
         return this['hot_storage_days'];
+    }
+    public withLogGroupId(logGroupId: string): ListLogStreamsResponseBody1LogStreams {
+        this['log_group_id'] = logGroupId;
+        return this;
+    }
+    public set logGroupId(logGroupId: string  | undefined) {
+        this['log_group_id'] = logGroupId;
+    }
+    public get logGroupId(): string | undefined {
+        return this['log_group_id'];
     }
 }

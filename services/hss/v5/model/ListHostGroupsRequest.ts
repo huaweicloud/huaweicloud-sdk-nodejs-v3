@@ -6,8 +6,7 @@ export class ListHostGroupsRequest {
     public offset?: number;
     public limit?: number;
     private 'group_name'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListHostGroupsRequest {
         this['region'] = region;

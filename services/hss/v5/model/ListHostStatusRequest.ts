@@ -38,6 +38,7 @@ export class ListHostStatusRequest {
     private 'protect_interrupt'?: boolean;
     public incluster?: boolean;
     private 'protect_degradation'?: boolean;
+    private 'cluster_id'?: string;
     public limit?: number;
     public offset?: number;
     public constructor() { 
@@ -381,6 +382,16 @@ export class ListHostStatusRequest {
     }
     public get protectDegradation(): boolean | undefined {
         return this['protect_degradation'];
+    }
+    public withClusterId(clusterId: string): ListHostStatusRequest {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
     }
     public withLimit(limit: number): ListHostStatusRequest {
         this['limit'] = limit;

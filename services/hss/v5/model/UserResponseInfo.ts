@@ -12,6 +12,7 @@ export class UserResponseInfo {
     private 'user_home_dir'?: string;
     public shell?: string;
     private 'recent_scan_time'?: number;
+    private 'first_scan_time'?: number;
     private 'container_id'?: string;
     private 'container_name'?: string;
     public constructor() { 
@@ -119,6 +120,16 @@ export class UserResponseInfo {
     }
     public get recentScanTime(): number | undefined {
         return this['recent_scan_time'];
+    }
+    public withFirstScanTime(firstScanTime: number): UserResponseInfo {
+        this['first_scan_time'] = firstScanTime;
+        return this;
+    }
+    public set firstScanTime(firstScanTime: number  | undefined) {
+        this['first_scan_time'] = firstScanTime;
+    }
+    public get firstScanTime(): number | undefined {
+        return this['first_scan_time'];
     }
     public withContainerId(containerId: string): UserResponseInfo {
         this['container_id'] = containerId;

@@ -1,5 +1,5 @@
 import { RepairPriorityListInfo } from './RepairPriorityListInfo';
-import { VulInfoCveList } from './VulInfoCveList';
+import { ShowVulReportDataResponseInfoCveList } from './ShowVulReportDataResponseInfoCveList';
 import { VulnerabilityHostNumberInfo } from './VulnerabilityHostNumberInfo';
 
 
@@ -17,7 +17,7 @@ export class VulInfo {
     public description?: string;
     public type?: string;
     private 'host_id_list'?: Array<string>;
-    private 'cve_list'?: Array<VulInfoCveList>;
+    private 'cve_list'?: Array<ShowVulReportDataResponseInfoCveList>;
     private 'patch_url'?: string;
     private 'repair_priority'?: string;
     private 'hosts_num'?: VulnerabilityHostNumberInfo;
@@ -140,14 +140,14 @@ export class VulInfo {
     public get hostIdList(): Array<string> | undefined {
         return this['host_id_list'];
     }
-    public withCveList(cveList: Array<VulInfoCveList>): VulInfo {
+    public withCveList(cveList: Array<ShowVulReportDataResponseInfoCveList>): VulInfo {
         this['cve_list'] = cveList;
         return this;
     }
-    public set cveList(cveList: Array<VulInfoCveList>  | undefined) {
+    public set cveList(cveList: Array<ShowVulReportDataResponseInfoCveList>  | undefined) {
         this['cve_list'] = cveList;
     }
-    public get cveList(): Array<VulInfoCveList> | undefined {
+    public get cveList(): Array<ShowVulReportDataResponseInfoCveList> | undefined {
         return this['cve_list'];
     }
     public withPatchUrl(patchUrl: string): VulInfo {

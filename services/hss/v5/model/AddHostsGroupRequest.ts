@@ -6,8 +6,7 @@ export class AddHostsGroupRequest {
     private 'enterprise_project_id'?: string;
     private 'Content-Type'?: string;
     public body?: AddHostsGroupRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): AddHostsGroupRequest {
         this['region'] = region;

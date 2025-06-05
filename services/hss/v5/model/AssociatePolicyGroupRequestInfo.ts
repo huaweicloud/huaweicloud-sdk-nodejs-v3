@@ -3,6 +3,7 @@
 export class AssociatePolicyGroupRequestInfo {
     private 'target_policy_group_id'?: string;
     private 'operate_all'?: boolean;
+    private 'deploy_type'?: string;
     private 'host_id_list'?: Array<string>;
     public constructor(targetPolicyGroupId?: string) { 
         this['target_policy_group_id'] = targetPolicyGroupId;
@@ -26,6 +27,16 @@ export class AssociatePolicyGroupRequestInfo {
     }
     public get operateAll(): boolean | undefined {
         return this['operate_all'];
+    }
+    public withDeployType(deployType: string): AssociatePolicyGroupRequestInfo {
+        this['deploy_type'] = deployType;
+        return this;
+    }
+    public set deployType(deployType: string  | undefined) {
+        this['deploy_type'] = deployType;
+    }
+    public get deployType(): string | undefined {
+        return this['deploy_type'];
     }
     public withHostIdList(hostIdList: Array<string>): AssociatePolicyGroupRequestInfo {
         this['host_id_list'] = hostIdList;

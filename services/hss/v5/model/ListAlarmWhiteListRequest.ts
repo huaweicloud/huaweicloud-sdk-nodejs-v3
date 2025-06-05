@@ -7,8 +7,7 @@ export class ListAlarmWhiteListRequest {
     private 'event_type'?: number;
     public offset?: number;
     public limit?: number;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListAlarmWhiteListRequest {
         this['region'] = region;

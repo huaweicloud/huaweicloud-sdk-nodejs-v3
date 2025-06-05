@@ -4,9 +4,8 @@ export class ListQueryExportTaskRequest {
     private 'task_id'?: string;
     public region?: string;
     private 'enterprise_project_id'?: string;
-    public constructor(taskId?: string, region?: string) { 
+    public constructor(taskId?: string) { 
         this['task_id'] = taskId;
-        this['region'] = region;
     }
     public withTaskId(taskId: string): ListQueryExportTaskRequest {
         this['task_id'] = taskId;

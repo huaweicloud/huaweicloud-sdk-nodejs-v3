@@ -16,6 +16,7 @@ export class ProtectionPolicyInfo {
     private 'operating_system'?: string;
     private 'process_whitelist'?: Array<TrustProcessInfo>;
     private 'default_policy'?: number;
+    private 'ai_protection_status'?: string;
     public constructor() { 
     }
     public withPolicyId(policyId: string): ProtectionPolicyInfo {
@@ -157,5 +158,15 @@ export class ProtectionPolicyInfo {
     }
     public get defaultPolicy(): number | undefined {
         return this['default_policy'];
+    }
+    public withAiProtectionStatus(aiProtectionStatus: string): ProtectionPolicyInfo {
+        this['ai_protection_status'] = aiProtectionStatus;
+        return this;
+    }
+    public set aiProtectionStatus(aiProtectionStatus: string  | undefined) {
+        this['ai_protection_status'] = aiProtectionStatus;
+    }
+    public get aiProtectionStatus(): string | undefined {
+        return this['ai_protection_status'];
     }
 }

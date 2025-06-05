@@ -8,8 +8,7 @@ export class ListProtectionPolicyRequest {
     private 'policy_name'?: string;
     private 'protect_policy_id'?: string;
     private 'operating_system'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListProtectionPolicyRequest {
         this['region'] = region;

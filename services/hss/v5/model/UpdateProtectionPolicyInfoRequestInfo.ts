@@ -6,6 +6,7 @@ export class UpdateProtectionPolicyInfoRequestInfo {
     private 'policy_name'?: string;
     private 'protection_mode'?: string;
     private 'bait_protection_status'?: string;
+    private 'deploy_mode'?: string;
     private 'protection_directory'?: string;
     private 'protection_type'?: string;
     private 'exclude_directory'?: string;
@@ -61,6 +62,16 @@ export class UpdateProtectionPolicyInfoRequestInfo {
     }
     public get baitProtectionStatus(): string | undefined {
         return this['bait_protection_status'];
+    }
+    public withDeployMode(deployMode: string): UpdateProtectionPolicyInfoRequestInfo {
+        this['deploy_mode'] = deployMode;
+        return this;
+    }
+    public set deployMode(deployMode: string  | undefined) {
+        this['deploy_mode'] = deployMode;
+    }
+    public get deployMode(): string | undefined {
+        return this['deploy_mode'];
     }
     public withProtectionDirectory(protectionDirectory: string): UpdateProtectionPolicyInfoRequestInfo {
         this['protection_directory'] = protectionDirectory;

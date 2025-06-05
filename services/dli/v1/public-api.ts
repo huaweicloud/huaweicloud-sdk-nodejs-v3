@@ -90,6 +90,7 @@ export * from './model/CreateQueuePropertyRequestBody';
 export * from './model/CreateQueuePropertyResponse';
 export * from './model/CreateQueueRequest';
 export * from './model/CreateQueueRequestBody';
+export * from './model/CreateQueueRequestBodyProperties';
 export * from './model/CreateQueueResponse';
 export * from './model/CreateRouteToEnhancedConnectionRequest';
 export * from './model/CreateRouteToEnhancedConnectionRequestBody';

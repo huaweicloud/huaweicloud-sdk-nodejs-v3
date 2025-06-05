@@ -4,9 +4,8 @@ export class ListDownloadExportedFileRequest {
     private 'file_id'?: string;
     public region?: string;
     private 'enterprise_project_id'?: string;
-    public constructor(fileId?: string, region?: string) { 
+    public constructor(fileId?: string) { 
         this['file_id'] = fileId;
-        this['region'] = region;
     }
     public withFileId(fileId: string): ListDownloadExportedFileRequest {
         this['file_id'] = fileId;

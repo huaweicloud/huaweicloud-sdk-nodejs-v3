@@ -5,8 +5,7 @@ export class UpdateBackupPolicyInfoRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: UpdateBackupPolicyRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): UpdateBackupPolicyInfoRequest {
         this['region'] = region;

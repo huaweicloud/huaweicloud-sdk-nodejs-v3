@@ -14,8 +14,7 @@ export class ListWtpProtectHostRequest {
     private 'agent_status'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListWtpProtectHostRequest {
         this['region'] = region;

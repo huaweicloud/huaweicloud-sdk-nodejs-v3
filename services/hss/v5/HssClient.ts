@@ -69,6 +69,9 @@ import { BatchScanPrivateImageRequestInfo } from './model/BatchScanPrivateImageR
 import { BatchScanSwrImageInfo } from './model/BatchScanSwrImageInfo';
 import { BatchScanSwrImageRequest } from './model/BatchScanSwrImageRequest';
 import { BatchScanSwrImageResponse } from './model/BatchScanSwrImageResponse';
+import { BatchStartProtectionRequest } from './model/BatchStartProtectionRequest';
+import { BatchStartProtectionRequestInfo } from './model/BatchStartProtectionRequestInfo';
+import { BatchStartProtectionResponse } from './model/BatchStartProtectionResponse';
 import { BlockedIpRequestInfo } from './model/BlockedIpRequestInfo';
 import { BlockedIpResponseInfo } from './model/BlockedIpResponseInfo';
 import { CCEClusterInfoListRequestBody } from './model/CCEClusterInfoListRequestBody';
@@ -107,15 +110,20 @@ import { CheckRuleKeyInfoRequestInfo } from './model/CheckRuleKeyInfoRequestInfo
 import { CheckRuleRiskInfoResponseInfo } from './model/CheckRuleRiskInfoResponseInfo';
 import { CloseProtectionInfoRequestInfo } from './model/CloseProtectionInfoRequestInfo';
 import { ClusterConfigResponseInfo } from './model/ClusterConfigResponseInfo';
+import { ClusterInfoResponseDsInfo } from './model/ClusterInfoResponseDsInfo';
 import { ContainerBaseInfo } from './model/ContainerBaseInfo';
 import { ContainerName } from './model/ContainerName';
 import { ContainerNodeInfo } from './model/ContainerNodeInfo';
+import { CreateAgentDaemonsetRequest } from './model/CreateAgentDaemonsetRequest';
+import { CreateAgentDaemonsetResponse } from './model/CreateAgentDaemonsetResponse';
 import { CreateAntiVirusPolicyRequest } from './model/CreateAntiVirusPolicyRequest';
 import { CreateAntiVirusPolicyRequestBody } from './model/CreateAntiVirusPolicyRequestBody';
 import { CreateAntiVirusPolicyResponse } from './model/CreateAntiVirusPolicyResponse';
 import { CreateAntiVirusTaskRequest } from './model/CreateAntiVirusTaskRequest';
 import { CreateAntiVirusTaskRequestInfo } from './model/CreateAntiVirusTaskRequestInfo';
 import { CreateAntiVirusTaskResponse } from './model/CreateAntiVirusTaskResponse';
+import { CreateDaemonsetRequestBody } from './model/CreateDaemonsetRequestBody';
+import { CreateDaemonsetRequestBodyScheduleInfo } from './model/CreateDaemonsetRequestBodyScheduleInfo';
 import { CreateDecoyPortPolicyRequest } from './model/CreateDecoyPortPolicyRequest';
 import { CreateDecoyPortPolicyResponse } from './model/CreateDecoyPortPolicyResponse';
 import { CreateQuotasOrderRequest } from './model/CreateQuotasOrderRequest';
@@ -180,6 +188,7 @@ import { FileOwner } from './model/FileOwner';
 import { FilePath } from './model/FilePath';
 import { FileSize } from './model/FileSize';
 import { FileType } from './model/FileType';
+import { GeneralImageVulsResponseInfoCveList } from './model/GeneralImageVulsResponseInfoCveList';
 import { GroupId } from './model/GroupId';
 import { GroupName } from './model/GroupName';
 import { HandleAntiVirusResultRequest } from './model/HandleAntiVirusResultRequest';
@@ -203,7 +212,6 @@ import { HostStatus } from './model/HostStatus';
 import { HostTaskStatus } from './model/HostTaskStatus';
 import { HostVulInfo } from './model/HostVulInfo';
 import { HostVulInfoAppList } from './model/HostVulInfoAppList';
-import { HostVulInfoCveList } from './model/HostVulInfoCveList';
 import { HostVulInfoDisabledOperateTypes } from './model/HostVulInfoDisabledOperateTypes';
 import { HostVulOperateInfo } from './model/HostVulOperateInfo';
 import { IgnoreDir } from './model/IgnoreDir';
@@ -476,6 +484,10 @@ import { SetWtpProtectionStatusInfoRequest } from './model/SetWtpProtectionStatu
 import { SetWtpProtectionStatusInfoResponse } from './model/SetWtpProtectionStatusInfoResponse';
 import { SetWtpProtectionStatusRequestInfo } from './model/SetWtpProtectionStatusRequestInfo';
 import { Severity } from './model/Severity';
+import { ShowAgentDaemonsetDetailInfoRequest } from './model/ShowAgentDaemonsetDetailInfoRequest';
+import { ShowAgentDaemonsetDetailInfoResponse } from './model/ShowAgentDaemonsetDetailInfoResponse';
+import { ShowAntivirusPayPerScanStatusRequest } from './model/ShowAntivirusPayPerScanStatusRequest';
+import { ShowAntivirusPayPerScanStatusResponse } from './model/ShowAntivirusPayPerScanStatusResponse';
 import { ShowAntivirusStatisticRequest } from './model/ShowAntivirusStatisticRequest';
 import { ShowAntivirusStatisticResponse } from './model/ShowAntivirusStatisticResponse';
 import { ShowAppRaspSwitchStatusRequest } from './model/ShowAppRaspSwitchStatusRequest';
@@ -505,6 +517,7 @@ import { ShowRiskConfigDetailRequest } from './model/ShowRiskConfigDetailRequest
 import { ShowRiskConfigDetailResponse } from './model/ShowRiskConfigDetailResponse';
 import { ShowSingleBackupPolicyInfoRequest } from './model/ShowSingleBackupPolicyInfoRequest';
 import { ShowSingleBackupPolicyInfoResponse } from './model/ShowSingleBackupPolicyInfoResponse';
+import { ShowVulReportDataResponseInfoCveList } from './model/ShowVulReportDataResponseInfoCveList';
 import { ShowVulScanPolicyRequest } from './model/ShowVulScanPolicyRequest';
 import { ShowVulScanPolicyResponse } from './model/ShowVulScanPolicyResponse';
 import { ShowVulStaticsRequest } from './model/ShowVulStaticsRequest';
@@ -542,7 +555,6 @@ import { UpdateBackupPolicyInfoResponse } from './model/UpdateBackupPolicyInfoRe
 import { UpdateBackupPolicyRequestInfo } from './model/UpdateBackupPolicyRequestInfo';
 import { UpdateBackupPolicyRequestInfo1 } from './model/UpdateBackupPolicyRequestInfo1';
 import { UpdateDaemonsetRequestBody } from './model/UpdateDaemonsetRequestBody';
-import { UpdateDaemonsetRequestBodyScheduleInfo } from './model/UpdateDaemonsetRequestBodyScheduleInfo';
 import { UpdateProtectionPolicyInfoRequestInfo } from './model/UpdateProtectionPolicyInfoRequestInfo';
 import { UpdateProtectionPolicyRequest } from './model/UpdateProtectionPolicyRequest';
 import { UpdateProtectionPolicyResponse } from './model/UpdateProtectionPolicyResponse';
@@ -558,7 +570,6 @@ import { VirusNum } from './model/VirusNum';
 import { VulCveInfo } from './model/VulCveInfo';
 import { VulHostInfo } from './model/VulHostInfo';
 import { VulInfo } from './model/VulInfo';
-import { VulInfoCveList } from './model/VulInfoCveList';
 import { VulOperateInfo } from './model/VulOperateInfo';
 import { VulScanTaskHostInfo } from './model/VulScanTaskHostInfo';
 import { VulScanTaskHostInfoFailedReasons } from './model/VulScanTaskHostInfoFailedReasons';
@@ -598,7 +609,7 @@ export class HssClient {
      * @summary 新建cce集成防护配置
      * @param {string} region Region ID
      * @param {CceIntegrationProtectionRequestBody} addCceIntegrationProtectionRequestBody 新建cce集成防护配置
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -617,8 +628,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建服务器组
-     * @param {string} region Region ID
      * @param {AddHostsGroupRequestInfo} addHostsGroupRequestBody 创建服务器组的请求体
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
@@ -640,7 +651,7 @@ export class HssClient {
      *
      * @summary 添加登录白名单
      * @param {AddLoginWhiteListRequestInfo} addLoginWhiteListRequestBody 登录白名单
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -660,7 +671,7 @@ export class HssClient {
      *
      * @summary 添加防护策略
      * @param {AddProtectionPolicyInfoRequestInfo} addProtectionPolicyRequestBody 需要添加的防护策略的请求体
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [region] region id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -681,7 +692,7 @@ export class HssClient {
      *
      * @summary 添加系统用户白名单
      * @param {AddSystemUserWhiteListRequestInfo} addSystemUserWhiteListRequestBody 系统用户白名单
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -700,8 +711,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 部署策略组
-     * @param {string} region Region ID
      * @param {AssociatePolicyGroupRequestInfo} associatePolicyGroupRequestBody request
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
@@ -722,9 +733,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加账号
-     * @param {string} region Region ID
      * @param {BatchAddAccountsRequestInfo} batchAddAccountsRequestBody Batch add Accounts
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -782,13 +793,33 @@ export class HssClient {
     }
 
     /**
+     * 批量开启勒索病毒防护,若开启备份防护，请保证该region有cbr云备份服务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量开启勒索病毒防护2.0
+     * @param {BatchStartProtectionRequestInfo} batchStartProtectionRequestBody 开启勒索病毒防护请求体
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchStartProtection(batchStartProtectionRequest?: BatchStartProtectionRequest): Promise<BatchStartProtectionResponse> {
+        const options = ParamCreater().batchStartProtection(batchStartProtectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 编辑自定义查杀策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑自定义查杀策略
      * @param {ChangeAntivirusPolicyRequestInfo} changeAntivirusPolicyRequestBody 任务详情
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -807,8 +838,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解除已拦截IP
-     * @param {string} region Region ID
      * @param {ChangeBlockedIpRequestInfo} changeBlockedIpRequestBody 解除拦截IP列表
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -851,8 +882,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 处理告警事件
-     * @param {string} region Region ID
      * @param {ChangeEventRequestInfo} changeEventRequestBody 处理告警事件列表
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [containerName] 容器实例名称
      * @param {string} [containerId] 容器Id
@@ -874,8 +905,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑服务器组
-     * @param {string} region Region ID
      * @param {ChangeHostsGroupRequestInfo} changeHostsGroupRequestBody request
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
@@ -896,8 +927,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 恢复已隔离文件
-     * @param {string} region Region ID
      * @param {ChangeIsolatedFileRequestInfo} changeIsolatedFileRequestBody 恢复已隔离文件列表
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -953,13 +984,34 @@ export class HssClient {
     }
 
     /**
+     * 创建集群daemonset
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建集群daemonset
+     * @param {string} clusterId 集群id
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
+     * @param {CreateDaemonsetRequestBody} [createAgentDaemonsetRequestBody] 服务器列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAgentDaemonset(createAgentDaemonsetRequest?: CreateAgentDaemonsetRequest): Promise<CreateAgentDaemonsetResponse> {
+        const options = ParamCreater().createAgentDaemonset(createAgentDaemonsetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建自定义查杀策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建自定义查杀策略
      * @param {CreateAntiVirusPolicyRequestBody} createAntiVirusPolicyRequestBody 任务详情
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -979,7 +1031,7 @@ export class HssClient {
      *
      * @summary 创建病毒扫描任务
      * @param {CreateAntiVirusTaskRequestInfo} createAntiVirusTaskRequestBody 任务详情
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -999,7 +1051,7 @@ export class HssClient {
      *
      * @summary 新增动态端口蜜罐策略
      * @param {HoneypotPortPolicyContent} createDecoyPortPolicyRequestBody request
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1018,9 +1070,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary HSS服务创建订单订购配额
-     * @param {string} region Region ID
      * @param {CreateQuotasOrderRequestInfo} createQuotasOrderRequestBody 创建订单订购配额请求体对象
      * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1060,9 +1112,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除账号
-     * @param {string} region Region ID
      * @param {DeleteAccountRequestInfo} deleteAccountRequestBody Delete Account
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1084,7 +1136,7 @@ export class HssClient {
      * @summary 删除集群daemonset
      * @param {string} region Region ID
      * @param {string} clusterId 集群id
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [invokedService] 调用服务,默认hss，cce集成防护调用场景使用，包括:    - hss： hss服务    - cce： cce服务，cce集成防护调用需要传参cce
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1105,7 +1157,7 @@ export class HssClient {
      *
      * @summary 删除自定义查杀策略
      * @param {DeleteAntivirusPolicyRequestInfo} deleteAntivirusPolicyRequestBody 任务详情
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1124,9 +1176,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭主机动态端口蜜罐策略
-     * @param {string} policyId policy ID
+     * @param {string} policyId 策略ID
      * @param {string} hostId 服务器ID,可填多个，通过,分隔
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1145,8 +1197,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除动态端口蜜罐策略
-     * @param {string} policyId policy ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} policyId 策略ID
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1165,8 +1217,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务器组
-     * @param {string} region Region ID
      * @param {string} groupId 服务器组ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1187,7 +1239,7 @@ export class HssClient {
      *
      * @summary 删除已隔离文件
      * @param {DeleteIsolatedFileRequestInfo} deleteIsolatedFileRequestBody 删除已隔离文件列表
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1250,7 +1302,7 @@ export class HssClient {
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
      * @param {ExportAntiVirusResultRequestBody} exportAntiVirusResultRequestBody 导出数据的表头字段列表
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [hostName] 服务器名称
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [publicIp] 服务器公网IP
@@ -1317,7 +1369,7 @@ export class HssClient {
      *
      * @summary 处置病毒扫描结果
      * @param {OperateAntiVirusResultRequestInfo} handleAntiVirusResultRequestBody 处置详情
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1336,8 +1388,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询多账号列表
-     * @param {string} region Region ID
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {string} [region] Region ID
      * @param {number} [limit] 每页显示数量
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
@@ -1361,7 +1413,7 @@ export class HssClient {
      * @summary 查询agent安装脚本
      * @param {string} region Region ID
      * @param {'x86_64' | 'aarch64'} osArch 系统架构：x86_64和aarch64；当os_type为Windows时，只能选择x86_64
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {'Windows' | 'Linux'} [osType] os类型：Windows和Linux
      * @param {boolean} [outsideHost] 是否非华为云
      * @param {string} [outsideGroupId] 服务器组ID
@@ -1385,7 +1437,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警白名单列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [hash] 事件白名单SHA256
      * @param {number} [eventType] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
@@ -1413,7 +1465,7 @@ export class HssClient {
      * @param {number} limit 每页显示个数
      * @param {string} scanType 任务类型，包含如下:   - quick ：快速扫描   - full : 全盘扫描   - custom : 自定义扫描
      * @param {string} startType 启动类型，包含如下:   - now ：立即启动   - period : 周期启动
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [hostId] 服务器ID
      * @param {string} [hostName] 服务器名称
      * @param {string} [privateIp] 服务器私有IP
@@ -1441,7 +1493,7 @@ export class HssClient {
      * @summary 查询自定义查杀策略列表
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [policyName] 策略名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1463,7 +1515,7 @@ export class HssClient {
      * @summary 查询病毒扫描结果列表
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [hostName] 服务器名称
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [publicIp] 服务器公网IP
@@ -1496,7 +1548,7 @@ export class HssClient {
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
      * @param {boolean} whetherPaidTask 此次扫描任务是否付费
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [taskName] 任务名称
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [beginTime] 自定义查询时间，与查询时间范围天数互斥，查询时间段的起始时间，毫秒级时间戳，end_time减去begin_time小于等于2天，与查询时间范围天数互斥
@@ -1526,7 +1578,7 @@ export class HssClient {
      * @summary 查询病毒扫描历史处置记录列表
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [malwareName] 病毒名称
      * @param {string} [filePath] 文件路径
      * @param {Array<string>} [severityList] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 致命
@@ -1742,7 +1794,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已拦截IP列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
@@ -1769,7 +1821,7 @@ export class HssClient {
      *
      * @summary 获取集群配置
      * @param {string} region Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {CCEClusterInfoListRequestBody} [listCceClusterConfigRequestBody] 集群id列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1809,7 +1861,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询容器节点列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
@@ -1862,7 +1914,7 @@ export class HssClient {
      * @summary 查看动态端口蜜罐策略
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1882,7 +1934,7 @@ export class HssClient {
      *
      * @summary 下载导出文件
      * @param {string} fileId 文件id
-     * @param {string} region Region Id
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1904,7 +1956,7 @@ export class HssClient {
      * @summary 查询告警事件历史处置记录列表
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [severity] 威胁等级，包含如下:   - Security ：安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [attackTag] 攻击标识，包含如下：   - attack_success : 攻击成功   - attack_attempt : 攻击尝试   - attack_blocked : 攻击被阻断   - abnormal_behavior : 异常行为   - collapsible_host : 主机失陷   - system_vulnerability : 系统脆弱性
      * @param {string} [assetValue] 资产重要性，包含如下3种   - important ：重要资产   - common ：一般资产   - test ：测试资产
@@ -1936,7 +1988,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务器组列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
@@ -1959,11 +2011,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机静态网页防篡改防护动态
-     * @param {string} region Region Id
      * @param {number} startTime 起始时间(ms)
      * @param {number} endTime 终止时间(ms)
      * @param {number} limit limit
      * @param {number} offset 偏移量：指定返回记录的开始位置
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [hostId] Host Id，为空时查所有主机
      * @param {string} [hostName] 服务器名称
@@ -1988,11 +2040,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机动态网页防篡改防护动态
-     * @param {string} region Region Id
      * @param {number} startTime 起始时间(ms)
      * @param {number} endTime 终止时间(ms)
      * @param {number} limit limit
      * @param {number} offset 偏移量：指定返回记录的开始位置
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [hostId] Host Id，为空时查所有主机
      * @param {number} [alarmLevel] 告警级别 - 1 : 低危 - 2 : 中危 - 3 : 高危 - 4 : 严重
@@ -2053,6 +2105,7 @@ export class HssClient {
      * @param {boolean} [protectInterrupt] 是否防护中断
      * @param {boolean} [incluster] 是否集群内节点
      * @param {boolean} [protectDegradation] 是否防护降级
+     * @param {string} [clusterId] 集群ID
      * @param {number} [limit] 每页显示数量
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
@@ -2235,7 +2288,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已隔离文件列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [filePath] 文件路径
      * @param {string} [hostName] 服务器名称
@@ -2316,7 +2369,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询常用登录IP信息
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [ipAddr] 登录IP地址+掩码
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2336,7 +2389,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询常用登录地信息
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {number} [areaCode] 国家城市的编码
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2356,7 +2409,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SSH登录IP白名单列表
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [whiteIp] 白名单IP/IP网段,IP网段由IP地址和掩码组成,以\&#39;/\&#39;连接。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2378,7 +2431,7 @@ export class HssClient {
      * @summary 查询登录白名单列表
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [loginIp] 登录源IP
      * @param {string} [loginUserName] 登录用户名
@@ -2402,7 +2455,7 @@ export class HssClient {
      * @summary 查询备份恢复任务列表
      * @param {number} offset 查询起始点
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [status] 恢复状态，包含如下：   - success : 成功   - skipped : 跳过   - failed : 失败   - running : 正在运行   - timeout : 超时   - waiting : 等待
      * @param {string} [resourceName] 服务器名称
      * @param {number} [lastDays] 查询时间范围
@@ -2424,8 +2477,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询账号组织
-     * @param {string} region Region ID
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {string} [region] Region ID
      * @param {boolean} [isRefresh] 是否强制从organization同步组织信息
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
@@ -2474,7 +2527,7 @@ export class HssClient {
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
      * @param {string} agentId agent ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2493,7 +2546,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询策略组列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [groupName] 策略组名
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
@@ -2648,7 +2701,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询勒索病毒的防护策略列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
@@ -2673,7 +2726,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询勒索防护服务器列表
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
@@ -2727,7 +2780,7 @@ export class HssClient {
      *
      * @summary 查询导出任务信息
      * @param {string} taskId 任务id
-     * @param {string} region Region Id
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2778,7 +2831,7 @@ export class HssClient {
      * @summary 查询勒索防护服务器列表
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 服务器ID
      * @param {string} [osType] 操作系统类型，包含如下2种。   - Linux ：Linux。   - Windows ：Windows。
@@ -2942,7 +2995,7 @@ export class HssClient {
      *
      * @summary 查入侵事件列表
      * @param {string} category 事件类别，包含如下:   - host : 主机安全事件   - container : 容器安全事件
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
@@ -2983,8 +3036,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询swr镜像仓库镜像列表
-     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [namespace] 组织名称
      * @param {string} [imageName] 镜像名称
@@ -3023,7 +3076,7 @@ export class HssClient {
      * @summary 查询系统用白名单列表
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [hostId] 服务器ID
      * @param {string} [hostName] 服务器名称
      * @param {string} [privateIp] 服务器私有IP
@@ -3049,7 +3102,7 @@ export class HssClient {
      * @summary 查询双因子主机列表
      * @param {number} limit 默认10
      * @param {number} offset 默认0
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [hostName] 主机名
      * @param {string} [displayName] 显示名称
      * @param {*} [options] Override http request option.
@@ -3344,7 +3397,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护列表
-     * @param {string} region Region Id
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 主机ID
@@ -3375,9 +3428,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑动态端口蜜罐策略
-     * @param {string} policyId policy ID
+     * @param {string} policyId 策略ID
      * @param {HoneypotPortPolicyContent} modifyDecoyPortPolicyRequestBody request
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3397,7 +3450,7 @@ export class HssClient {
      *
      * @summary 删除告警白名单
      * @param {RemoveAlarmWhiteListRequestInfo} removeAlarmWhiteListRequestBody request
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3417,7 +3470,7 @@ export class HssClient {
      *
      * @summary 删除登录白名单
      * @param {RemoveLoginWhiteListRequestInfo} removeLoginWhiteListRequestBody request
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3437,7 +3490,7 @@ export class HssClient {
      *
      * @summary 删除系统用户白名单
      * @param {RemoveSystemUserWhiteListRequestInfo} removeSystemUserWhiteListRequestBody request
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3477,9 +3530,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启/关闭动态网页防篡改防护
-     * @param {string} region Region Id
      * @param {SetRaspSwitchRequestInfo} setRaspSwitchRequestBody 请求体request
      * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3500,7 +3553,7 @@ export class HssClient {
      *
      * @summary 设置双因子登录配置
      * @param {SetTwoFactorLoginConfigRequestBody} setTwoFactorLoginConfigRequestBody set two factor login config
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3519,9 +3572,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启关闭网页防篡改防护
-     * @param {string} region Region Id
      * @param {SetWtpProtectionStatusRequestInfo} setWtpProtectionStatusInfoRequestBody 请求体request
      * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3536,12 +3589,51 @@ export class HssClient {
     }
 
     /**
+     * 获取集群daemonset信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群daemonset信息
+     * @param {string} clusterId 集群id
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgentDaemonsetDetailInfo(showAgentDaemonsetDetailInfoRequest?: ShowAgentDaemonsetDetailInfoRequest): Promise<ShowAgentDaemonsetDetailInfoResponse> {
+        const options = ParamCreater().showAgentDaemonsetDetailInfo(showAgentDaemonsetDetailInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询“病毒查杀按次计费”开关状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询“病毒查杀按次计费”开关状态
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAntivirusPayPerScanStatus(showAntivirusPayPerScanStatusRequest?: ShowAntivirusPayPerScanStatusRequest): Promise<ShowAntivirusPayPerScanStatusResponse> {
+        const options = ParamCreater().showAntivirusPayPerScanStatus(showAntivirusPayPerScanStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询病毒查杀统计信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询病毒查杀统计信息
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3602,7 +3694,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询HSS存储库绑定的备份策略信息
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3646,10 +3738,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看动态端口蜜罐策略详情
-     * @param {string} policyId policy ID
+     * @param {string} policyId 策略ID
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {number} limit 每页显示个数
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3698,7 +3790,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询产商品信息
-     * @param {string} region Region ID
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [siteCode] 站点信息：   - HWC_CN ：中国站   - HWC_HK ：国际站   - HWC_EU : 欧洲站
      * @param {*} [options] Override http request option.
@@ -3761,7 +3853,7 @@ export class HssClient {
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {string} hostId 服务器ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {string} [keyword] 搜索关键词
      * @param {number} [appProtectStatus] java单个应用防护状态，包含如下3种。 - 0 ：未防护。 - 1 ：防护失败。 - 2 ：防护成功。
      * @param {*} [options] Override http request option.
@@ -3829,7 +3921,7 @@ export class HssClient {
      *
      * @summary 查询单个备份策略信息
      * @param {string} policyId 备份策略ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3886,8 +3978,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启勒索病毒防护
-     * @param {string} region Region ID
      * @param {ProtectionInfoRequestInfo} startProtectionRequestBody 开启勒索病毒防护请求体
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3907,8 +3999,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭勒索病毒防护
-     * @param {string} region Region ID
      * @param {CloseProtectionInfoRequestInfo} stopProtectionRequestBody 关闭勒索病毒防护请求体
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3928,9 +4020,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换主机动态端口蜜罐策略
-     * @param {string} policyId policy ID
+     * @param {string} policyId 策略ID
      * @param {string} hostId 服务器ID,可填多个，通过,分隔
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3949,8 +4041,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换防护状态
-     * @param {string} region Region ID
      * @param {SwitchHostsProtectStatusRequestInfo} switchHostsProtectStatusRequestBody 服务器列表
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3972,7 +4064,7 @@ export class HssClient {
      * @summary 更新集群daemonset
      * @param {string} region Region ID
      * @param {string} clusterId 集群id
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {UpdateDaemonsetRequestBody} [updateAgentDaemonsetRequestBody] 服务器列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3992,8 +4084,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改存储库绑定的备份策略
-     * @param {string} region Region ID
      * @param {UpdateBackupPolicyRequestInfo} updateBackupPolicyInfoRequestBody 修改备份策略请求体
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4013,8 +4105,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改勒索防护策略
-     * @param {string} region Region ID
      * @param {UpdateProtectionPolicyInfoRequestInfo} updateProtectionPolicyRequestBody 需要修改的防护策略的请求体
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4035,7 +4127,7 @@ export class HssClient {
      *
      * @summary 修改系统用户白名单
      * @param {UpdateSystemUserWhiteListRequestInfo} updateSystemUserWhiteListRequestBody 系统用户白名单
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度1-256位 **默认取值**: 0 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4132,13 +4224,13 @@ export const ParamCreater = function () {
 
             if (addHostsGroupRequest !== null && addHostsGroupRequest !== undefined) {
                 if (addHostsGroupRequest instanceof AddHostsGroupRequest) {
-                    region = addHostsGroupRequest.region;
                     body = addHostsGroupRequest.body
+                    region = addHostsGroupRequest.region;
                     enterpriseProjectId = addHostsGroupRequest.enterpriseProjectId;
                     contentType = addHostsGroupRequest.contentType;
                 } else {
-                    region = addHostsGroupRequest['region'];
                     body = addHostsGroupRequest['body'];
+                    region = addHostsGroupRequest['region'];
                     enterpriseProjectId = addHostsGroupRequest['enterprise_project_id'];
                     contentType = addHostsGroupRequest['Content-Type'];
                 }
@@ -4337,13 +4429,13 @@ export const ParamCreater = function () {
 
             if (associatePolicyGroupRequest !== null && associatePolicyGroupRequest !== undefined) {
                 if (associatePolicyGroupRequest instanceof AssociatePolicyGroupRequest) {
-                    region = associatePolicyGroupRequest.region;
                     body = associatePolicyGroupRequest.body
+                    region = associatePolicyGroupRequest.region;
                     enterpriseProjectId = associatePolicyGroupRequest.enterpriseProjectId;
                     contentType = associatePolicyGroupRequest.contentType;
                 } else {
-                    region = associatePolicyGroupRequest['region'];
                     body = associatePolicyGroupRequest['body'];
+                    region = associatePolicyGroupRequest['region'];
                     enterpriseProjectId = associatePolicyGroupRequest['enterprise_project_id'];
                     contentType = associatePolicyGroupRequest['Content-Type'];
                 }
@@ -4389,22 +4481,22 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
-            let region;
-            
             let xSecurityToken;
+            
+            let region;
             
             let enterpriseProjectId;
 
             if (batchAddAccountsRequest !== null && batchAddAccountsRequest !== undefined) {
                 if (batchAddAccountsRequest instanceof BatchAddAccountsRequest) {
-                    region = batchAddAccountsRequest.region;
                     body = batchAddAccountsRequest.body
                     xSecurityToken = batchAddAccountsRequest.xSecurityToken;
+                    region = batchAddAccountsRequest.region;
                     enterpriseProjectId = batchAddAccountsRequest.enterpriseProjectId;
                 } else {
-                    region = batchAddAccountsRequest['region'];
                     body = batchAddAccountsRequest['body'];
                     xSecurityToken = batchAddAccountsRequest['X-Security-Token'];
+                    region = batchAddAccountsRequest['region'];
                     enterpriseProjectId = batchAddAccountsRequest['enterprise_project_id'];
                 }
             }
@@ -4544,6 +4636,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量开启勒索病毒防护,若开启备份防护，请保证该region有cbr云备份服务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchStartProtection(batchStartProtectionRequest?: BatchStartProtectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ransomware/protection/batch-open",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (batchStartProtectionRequest !== null && batchStartProtectionRequest !== undefined) {
+                if (batchStartProtectionRequest instanceof BatchStartProtectionRequest) {
+                    body = batchStartProtectionRequest.body
+                    enterpriseProjectId = batchStartProtectionRequest.enterpriseProjectId;
+                } else {
+                    body = batchStartProtectionRequest['body'];
+                    enterpriseProjectId = batchStartProtectionRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 编辑自定义查杀策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4614,12 +4752,12 @@ export const ParamCreater = function () {
 
             if (changeBlockedIpRequest !== null && changeBlockedIpRequest !== undefined) {
                 if (changeBlockedIpRequest instanceof ChangeBlockedIpRequest) {
-                    region = changeBlockedIpRequest.region;
                     body = changeBlockedIpRequest.body
+                    region = changeBlockedIpRequest.region;
                     enterpriseProjectId = changeBlockedIpRequest.enterpriseProjectId;
                 } else {
-                    region = changeBlockedIpRequest['region'];
                     body = changeBlockedIpRequest['body'];
+                    region = changeBlockedIpRequest['region'];
                     enterpriseProjectId = changeBlockedIpRequest['enterprise_project_id'];
                 }
             }
@@ -4741,14 +4879,14 @@ export const ParamCreater = function () {
 
             if (changeEventRequest !== null && changeEventRequest !== undefined) {
                 if (changeEventRequest instanceof ChangeEventRequest) {
-                    region = changeEventRequest.region;
                     body = changeEventRequest.body
+                    region = changeEventRequest.region;
                     enterpriseProjectId = changeEventRequest.enterpriseProjectId;
                     containerName = changeEventRequest.containerName;
                     containerId = changeEventRequest.containerId;
                 } else {
-                    region = changeEventRequest['region'];
                     body = changeEventRequest['body'];
+                    region = changeEventRequest['region'];
                     enterpriseProjectId = changeEventRequest['enterprise_project_id'];
                     containerName = changeEventRequest['container_name'];
                     containerId = changeEventRequest['container_id'];
@@ -4806,13 +4944,13 @@ export const ParamCreater = function () {
 
             if (changeHostsGroupRequest !== null && changeHostsGroupRequest !== undefined) {
                 if (changeHostsGroupRequest instanceof ChangeHostsGroupRequest) {
-                    region = changeHostsGroupRequest.region;
                     body = changeHostsGroupRequest.body
+                    region = changeHostsGroupRequest.region;
                     enterpriseProjectId = changeHostsGroupRequest.enterpriseProjectId;
                     contentType = changeHostsGroupRequest.contentType;
                 } else {
-                    region = changeHostsGroupRequest['region'];
                     body = changeHostsGroupRequest['body'];
+                    region = changeHostsGroupRequest['region'];
                     enterpriseProjectId = changeHostsGroupRequest['enterprise_project_id'];
                     contentType = changeHostsGroupRequest['Content-Type'];
                 }
@@ -4864,12 +5002,12 @@ export const ParamCreater = function () {
 
             if (changeIsolatedFileRequest !== null && changeIsolatedFileRequest !== undefined) {
                 if (changeIsolatedFileRequest instanceof ChangeIsolatedFileRequest) {
-                    region = changeIsolatedFileRequest.region;
                     body = changeIsolatedFileRequest.body
+                    region = changeIsolatedFileRequest.region;
                     enterpriseProjectId = changeIsolatedFileRequest.enterpriseProjectId;
                 } else {
-                    region = changeIsolatedFileRequest['region'];
                     body = changeIsolatedFileRequest['body'];
+                    region = changeIsolatedFileRequest['region'];
                     enterpriseProjectId = changeIsolatedFileRequest['enterprise_project_id'];
                 }
             }
@@ -4987,6 +5125,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建集群daemonset
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAgentDaemonset(createAgentDaemonsetRequest?: CreateAgentDaemonsetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/container/kubernetes/clusters/{cluster_id}/daemonsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let clusterId;
+            
+            let enterpriseProjectId;
+
+            if (createAgentDaemonsetRequest !== null && createAgentDaemonsetRequest !== undefined) {
+                if (createAgentDaemonsetRequest instanceof CreateAgentDaemonsetRequest) {
+                    clusterId = createAgentDaemonsetRequest.clusterId;
+                    enterpriseProjectId = createAgentDaemonsetRequest.enterpriseProjectId;
+                    body = createAgentDaemonsetRequest.body
+                } else {
+                    clusterId = createAgentDaemonsetRequest['cluster_id'];
+                    enterpriseProjectId = createAgentDaemonsetRequest['enterprise_project_id'];
+                    body = createAgentDaemonsetRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAgentDaemonset.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5148,22 +5337,22 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
-            let region;
-            
             let contentType;
+            
+            let region;
             
             let enterpriseProjectId;
 
             if (createQuotasOrderRequest !== null && createQuotasOrderRequest !== undefined) {
                 if (createQuotasOrderRequest instanceof CreateQuotasOrderRequest) {
-                    region = createQuotasOrderRequest.region;
                     body = createQuotasOrderRequest.body
                     contentType = createQuotasOrderRequest.contentType;
+                    region = createQuotasOrderRequest.region;
                     enterpriseProjectId = createQuotasOrderRequest.enterpriseProjectId;
                 } else {
-                    region = createQuotasOrderRequest['region'];
                     body = createQuotasOrderRequest['body'];
                     contentType = createQuotasOrderRequest['Content-Type'];
+                    region = createQuotasOrderRequest['region'];
                     enterpriseProjectId = createQuotasOrderRequest['enterprise_project_id'];
                 }
             }
@@ -5254,22 +5443,22 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
-            let region;
-            
             let xSecurityToken;
+            
+            let region;
             
             let enterpriseProjectId;
 
             if (deleteAccountRequest !== null && deleteAccountRequest !== undefined) {
                 if (deleteAccountRequest instanceof DeleteAccountRequest) {
-                    region = deleteAccountRequest.region;
                     body = deleteAccountRequest.body
                     xSecurityToken = deleteAccountRequest.xSecurityToken;
+                    region = deleteAccountRequest.region;
                     enterpriseProjectId = deleteAccountRequest.enterpriseProjectId;
                 } else {
-                    region = deleteAccountRequest['region'];
                     body = deleteAccountRequest['body'];
                     xSecurityToken = deleteAccountRequest['X-Security-Token'];
+                    region = deleteAccountRequest['region'];
                     enterpriseProjectId = deleteAccountRequest['enterprise_project_id'];
                 }
             }
@@ -5517,20 +5706,20 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let groupId;
+            
+            let region;
             
             let enterpriseProjectId;
 
             if (deleteHostsGroupRequest !== null && deleteHostsGroupRequest !== undefined) {
                 if (deleteHostsGroupRequest instanceof DeleteHostsGroupRequest) {
-                    region = deleteHostsGroupRequest.region;
                     groupId = deleteHostsGroupRequest.groupId;
+                    region = deleteHostsGroupRequest.region;
                     enterpriseProjectId = deleteHostsGroupRequest.enterpriseProjectId;
                 } else {
-                    region = deleteHostsGroupRequest['region'];
                     groupId = deleteHostsGroupRequest['group_id'];
+                    region = deleteHostsGroupRequest['region'];
                     enterpriseProjectId = deleteHostsGroupRequest['enterprise_project_id'];
                 }
             }
@@ -6071,9 +6260,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let xSecurityToken;
+            
+            let region;
             
             let limit;
             
@@ -6083,14 +6272,14 @@ export const ParamCreater = function () {
 
             if (listAccountsRequest !== null && listAccountsRequest !== undefined) {
                 if (listAccountsRequest instanceof ListAccountsRequest) {
-                    region = listAccountsRequest.region;
                     xSecurityToken = listAccountsRequest.xSecurityToken;
+                    region = listAccountsRequest.region;
                     limit = listAccountsRequest.limit;
                     offset = listAccountsRequest.offset;
                     enterpriseProjectId = listAccountsRequest.enterpriseProjectId;
                 } else {
-                    region = listAccountsRequest['region'];
                     xSecurityToken = listAccountsRequest['X-Security-Token'];
+                    region = listAccountsRequest['region'];
                     limit = listAccountsRequest['limit'];
                     offset = listAccountsRequest['offset'];
                     enterpriseProjectId = listAccountsRequest['enterprise_project_id'];
@@ -8191,8 +8380,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let startTime;
             
             let endTime;
@@ -8200,6 +8387,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -8215,11 +8404,11 @@ export const ParamCreater = function () {
 
             if (listHostProtectHistoryInfoRequest !== null && listHostProtectHistoryInfoRequest !== undefined) {
                 if (listHostProtectHistoryInfoRequest instanceof ListHostProtectHistoryInfoRequest) {
-                    region = listHostProtectHistoryInfoRequest.region;
                     startTime = listHostProtectHistoryInfoRequest.startTime;
                     endTime = listHostProtectHistoryInfoRequest.endTime;
                     limit = listHostProtectHistoryInfoRequest.limit;
                     offset = listHostProtectHistoryInfoRequest.offset;
+                    region = listHostProtectHistoryInfoRequest.region;
                     enterpriseProjectId = listHostProtectHistoryInfoRequest.enterpriseProjectId;
                     hostId = listHostProtectHistoryInfoRequest.hostId;
                     hostName = listHostProtectHistoryInfoRequest.hostName;
@@ -8227,11 +8416,11 @@ export const ParamCreater = function () {
                     filePath = listHostProtectHistoryInfoRequest.filePath;
                     fileOperation = listHostProtectHistoryInfoRequest.fileOperation;
                 } else {
-                    region = listHostProtectHistoryInfoRequest['region'];
                     startTime = listHostProtectHistoryInfoRequest['start_time'];
                     endTime = listHostProtectHistoryInfoRequest['end_time'];
                     limit = listHostProtectHistoryInfoRequest['limit'];
                     offset = listHostProtectHistoryInfoRequest['offset'];
+                    region = listHostProtectHistoryInfoRequest['region'];
                     enterpriseProjectId = listHostProtectHistoryInfoRequest['enterprise_project_id'];
                     hostId = listHostProtectHistoryInfoRequest['host_id'];
                     hostName = listHostProtectHistoryInfoRequest['host_name'];
@@ -8310,8 +8499,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let startTime;
             
             let endTime;
@@ -8319,6 +8506,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -8332,22 +8521,22 @@ export const ParamCreater = function () {
 
             if (listHostRaspProtectHistoryInfoRequest !== null && listHostRaspProtectHistoryInfoRequest !== undefined) {
                 if (listHostRaspProtectHistoryInfoRequest instanceof ListHostRaspProtectHistoryInfoRequest) {
-                    region = listHostRaspProtectHistoryInfoRequest.region;
                     startTime = listHostRaspProtectHistoryInfoRequest.startTime;
                     endTime = listHostRaspProtectHistoryInfoRequest.endTime;
                     limit = listHostRaspProtectHistoryInfoRequest.limit;
                     offset = listHostRaspProtectHistoryInfoRequest.offset;
+                    region = listHostRaspProtectHistoryInfoRequest.region;
                     enterpriseProjectId = listHostRaspProtectHistoryInfoRequest.enterpriseProjectId;
                     hostId = listHostRaspProtectHistoryInfoRequest.hostId;
                     alarmLevel = listHostRaspProtectHistoryInfoRequest.alarmLevel;
                     severity = listHostRaspProtectHistoryInfoRequest.severity;
                     protectStatus = listHostRaspProtectHistoryInfoRequest.protectStatus;
                 } else {
-                    region = listHostRaspProtectHistoryInfoRequest['region'];
                     startTime = listHostRaspProtectHistoryInfoRequest['start_time'];
                     endTime = listHostRaspProtectHistoryInfoRequest['end_time'];
                     limit = listHostRaspProtectHistoryInfoRequest['limit'];
                     offset = listHostRaspProtectHistoryInfoRequest['offset'];
+                    region = listHostRaspProtectHistoryInfoRequest['region'];
                     enterpriseProjectId = listHostRaspProtectHistoryInfoRequest['enterprise_project_id'];
                     hostId = listHostRaspProtectHistoryInfoRequest['host_id'];
                     alarmLevel = listHostRaspProtectHistoryInfoRequest['alarm_level'];
@@ -8496,6 +8685,8 @@ export const ParamCreater = function () {
             
             let protectDegradation;
             
+            let clusterId;
+            
             let limit;
             
             let offset;
@@ -8539,6 +8730,7 @@ export const ParamCreater = function () {
                     protectInterrupt = listHostStatusRequest.protectInterrupt;
                     incluster = listHostStatusRequest.incluster;
                     protectDegradation = listHostStatusRequest.protectDegradation;
+                    clusterId = listHostStatusRequest.clusterId;
                     limit = listHostStatusRequest.limit;
                     offset = listHostStatusRequest.offset;
                 } else {
@@ -8579,6 +8771,7 @@ export const ParamCreater = function () {
                     protectInterrupt = listHostStatusRequest['protect_interrupt'];
                     incluster = listHostStatusRequest['incluster'];
                     protectDegradation = listHostStatusRequest['protect_degradation'];
+                    clusterId = listHostStatusRequest['cluster_id'];
                     limit = listHostStatusRequest['limit'];
                     offset = listHostStatusRequest['offset'];
                 }
@@ -8692,6 +8885,9 @@ export const ParamCreater = function () {
             }
             if (protectDegradation !== null && protectDegradation !== undefined) {
                 localVarQueryParameter['protect_degradation'] = protectDegradation;
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -9973,9 +10169,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let xSecurityToken;
+            
+            let region;
             
             let isRefresh;
             
@@ -9983,13 +10179,13 @@ export const ParamCreater = function () {
 
             if (listOrganizationTreeRequest !== null && listOrganizationTreeRequest !== undefined) {
                 if (listOrganizationTreeRequest instanceof ListOrganizationTreeRequest) {
-                    region = listOrganizationTreeRequest.region;
                     xSecurityToken = listOrganizationTreeRequest.xSecurityToken;
+                    region = listOrganizationTreeRequest.region;
                     isRefresh = listOrganizationTreeRequest.isRefresh;
                     enterpriseProjectId = listOrganizationTreeRequest.enterpriseProjectId;
                 } else {
-                    region = listOrganizationTreeRequest['region'];
                     xSecurityToken = listOrganizationTreeRequest['X-Security-Token'];
+                    region = listOrganizationTreeRequest['region'];
                     isRefresh = listOrganizationTreeRequest['is_refresh'];
                     enterpriseProjectId = listOrganizationTreeRequest['enterprise_project_id'];
                 }
@@ -11933,9 +12129,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let imageType;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -11975,8 +12171,8 @@ export const ParamCreater = function () {
 
             if (listSwrImageRepositoryRequest !== null && listSwrImageRepositoryRequest !== undefined) {
                 if (listSwrImageRepositoryRequest instanceof ListSwrImageRepositoryRequest) {
-                    region = listSwrImageRepositoryRequest.region;
                     imageType = listSwrImageRepositoryRequest.imageType;
+                    region = listSwrImageRepositoryRequest.region;
                     enterpriseProjectId = listSwrImageRepositoryRequest.enterpriseProjectId;
                     namespace = listSwrImageRepositoryRequest.namespace;
                     imageName = listSwrImageRepositoryRequest.imageName;
@@ -11996,8 +12192,8 @@ export const ParamCreater = function () {
                     hasVul = listSwrImageRepositoryRequest.hasVul;
                     instanceId = listSwrImageRepositoryRequest.instanceId;
                 } else {
-                    region = listSwrImageRepositoryRequest['region'];
                     imageType = listSwrImageRepositoryRequest['image_type'];
+                    region = listSwrImageRepositoryRequest['region'];
                     enterpriseProjectId = listSwrImageRepositoryRequest['enterprise_project_id'];
                     namespace = listSwrImageRepositoryRequest['namespace'];
                     imageName = listSwrImageRepositoryRequest['image_name'];
@@ -13612,22 +13808,22 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
-            let region;
-            
             let contentType;
+            
+            let region;
             
             let enterpriseProjectId;
 
             if (setRaspSwitchRequest !== null && setRaspSwitchRequest !== undefined) {
                 if (setRaspSwitchRequest instanceof SetRaspSwitchRequest) {
-                    region = setRaspSwitchRequest.region;
                     body = setRaspSwitchRequest.body
                     contentType = setRaspSwitchRequest.contentType;
+                    region = setRaspSwitchRequest.region;
                     enterpriseProjectId = setRaspSwitchRequest.enterpriseProjectId;
                 } else {
-                    region = setRaspSwitchRequest['region'];
                     body = setRaspSwitchRequest['body'];
                     contentType = setRaspSwitchRequest['Content-Type'];
+                    region = setRaspSwitchRequest['region'];
                     enterpriseProjectId = setRaspSwitchRequest['enterprise_project_id'];
                 }
             }
@@ -13718,22 +13914,22 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
-            let region;
-            
             let contentType;
+            
+            let region;
             
             let enterpriseProjectId;
 
             if (setWtpProtectionStatusInfoRequest !== null && setWtpProtectionStatusInfoRequest !== undefined) {
                 if (setWtpProtectionStatusInfoRequest instanceof SetWtpProtectionStatusInfoRequest) {
-                    region = setWtpProtectionStatusInfoRequest.region;
                     body = setWtpProtectionStatusInfoRequest.body
                     contentType = setWtpProtectionStatusInfoRequest.contentType;
+                    region = setWtpProtectionStatusInfoRequest.region;
                     enterpriseProjectId = setWtpProtectionStatusInfoRequest.enterpriseProjectId;
                 } else {
-                    region = setWtpProtectionStatusInfoRequest['region'];
                     body = setWtpProtectionStatusInfoRequest['body'];
                     contentType = setWtpProtectionStatusInfoRequest['Content-Type'];
+                    region = setWtpProtectionStatusInfoRequest['region'];
                     enterpriseProjectId = setWtpProtectionStatusInfoRequest['enterprise_project_id'];
                 }
             }
@@ -13754,6 +13950,88 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群daemonset信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgentDaemonsetDetailInfo(showAgentDaemonsetDetailInfoRequest?: ShowAgentDaemonsetDetailInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/container/kubernetes/clusters/{cluster_id}/daemonsets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let enterpriseProjectId;
+
+            if (showAgentDaemonsetDetailInfoRequest !== null && showAgentDaemonsetDetailInfoRequest !== undefined) {
+                if (showAgentDaemonsetDetailInfoRequest instanceof ShowAgentDaemonsetDetailInfoRequest) {
+                    clusterId = showAgentDaemonsetDetailInfoRequest.clusterId;
+                    enterpriseProjectId = showAgentDaemonsetDetailInfoRequest.enterpriseProjectId;
+                } else {
+                    clusterId = showAgentDaemonsetDetailInfoRequest['cluster_id'];
+                    enterpriseProjectId = showAgentDaemonsetDetailInfoRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAgentDaemonsetDetailInfo.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询“病毒查杀按次计费”开关状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAntivirusPayPerScanStatus(showAntivirusPayPerScanStatusRequest?: ShowAntivirusPayPerScanStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/antivirus/pay-per-scan",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showAntivirusPayPerScanStatusRequest !== null && showAntivirusPayPerScanStatusRequest !== undefined) {
+                if (showAntivirusPayPerScanStatusRequest instanceof ShowAntivirusPayPerScanStatusRequest) {
+                    enterpriseProjectId = showAntivirusPayPerScanStatusRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showAntivirusPayPerScanStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -14722,12 +15000,12 @@ export const ParamCreater = function () {
 
             if (startProtectionRequest !== null && startProtectionRequest !== undefined) {
                 if (startProtectionRequest instanceof StartProtectionRequest) {
-                    region = startProtectionRequest.region;
                     body = startProtectionRequest.body
+                    region = startProtectionRequest.region;
                     enterpriseProjectId = startProtectionRequest.enterpriseProjectId;
                 } else {
-                    region = startProtectionRequest['region'];
                     body = startProtectionRequest['body'];
+                    region = startProtectionRequest['region'];
                     enterpriseProjectId = startProtectionRequest['enterprise_project_id'];
                 }
             }
@@ -14775,12 +15053,12 @@ export const ParamCreater = function () {
 
             if (stopProtectionRequest !== null && stopProtectionRequest !== undefined) {
                 if (stopProtectionRequest instanceof StopProtectionRequest) {
-                    region = stopProtectionRequest.region;
                     body = stopProtectionRequest.body
+                    region = stopProtectionRequest.region;
                     enterpriseProjectId = stopProtectionRequest.enterpriseProjectId;
                 } else {
-                    region = stopProtectionRequest['region'];
                     body = stopProtectionRequest['body'];
+                    region = stopProtectionRequest['region'];
                     enterpriseProjectId = stopProtectionRequest['enterprise_project_id'];
                 }
             }
@@ -14883,12 +15161,12 @@ export const ParamCreater = function () {
 
             if (switchHostsProtectStatusRequest !== null && switchHostsProtectStatusRequest !== undefined) {
                 if (switchHostsProtectStatusRequest instanceof SwitchHostsProtectStatusRequest) {
-                    region = switchHostsProtectStatusRequest.region;
                     body = switchHostsProtectStatusRequest.body
+                    region = switchHostsProtectStatusRequest.region;
                     enterpriseProjectId = switchHostsProtectStatusRequest.enterpriseProjectId;
                 } else {
-                    region = switchHostsProtectStatusRequest['region'];
                     body = switchHostsProtectStatusRequest['body'];
+                    region = switchHostsProtectStatusRequest['region'];
                     enterpriseProjectId = switchHostsProtectStatusRequest['enterprise_project_id'];
                 }
             }
@@ -14994,12 +15272,12 @@ export const ParamCreater = function () {
 
             if (updateBackupPolicyInfoRequest !== null && updateBackupPolicyInfoRequest !== undefined) {
                 if (updateBackupPolicyInfoRequest instanceof UpdateBackupPolicyInfoRequest) {
-                    region = updateBackupPolicyInfoRequest.region;
                     body = updateBackupPolicyInfoRequest.body
+                    region = updateBackupPolicyInfoRequest.region;
                     enterpriseProjectId = updateBackupPolicyInfoRequest.enterpriseProjectId;
                 } else {
-                    region = updateBackupPolicyInfoRequest['region'];
                     body = updateBackupPolicyInfoRequest['body'];
+                    region = updateBackupPolicyInfoRequest['region'];
                     enterpriseProjectId = updateBackupPolicyInfoRequest['enterprise_project_id'];
                 }
             }
@@ -15047,12 +15325,12 @@ export const ParamCreater = function () {
 
             if (updateProtectionPolicyRequest !== null && updateProtectionPolicyRequest !== undefined) {
                 if (updateProtectionPolicyRequest instanceof UpdateProtectionPolicyRequest) {
-                    region = updateProtectionPolicyRequest.region;
                     body = updateProtectionPolicyRequest.body
+                    region = updateProtectionPolicyRequest.region;
                     enterpriseProjectId = updateProtectionPolicyRequest.enterpriseProjectId;
                 } else {
-                    region = updateProtectionPolicyRequest['region'];
                     body = updateProtectionPolicyRequest['body'];
+                    region = updateProtectionPolicyRequest['region'];
                     enterpriseProjectId = updateProtectionPolicyRequest['enterprise_project_id'];
                 }
             }

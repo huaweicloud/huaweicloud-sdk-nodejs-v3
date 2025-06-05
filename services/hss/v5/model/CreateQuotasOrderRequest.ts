@@ -6,8 +6,7 @@ export class CreateQuotasOrderRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: CreateQuotasOrderRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withContentType(contentType: string): CreateQuotasOrderRequest {
         this['Content-Type'] = contentType;

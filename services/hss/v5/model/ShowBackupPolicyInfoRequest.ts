@@ -3,8 +3,7 @@
 export class ShowBackupPolicyInfoRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ShowBackupPolicyInfoRequest {
         this['region'] = region;

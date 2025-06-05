@@ -1,10 +1,10 @@
+import { ExtraInfo } from './ExtraInfo';
 import { HierarchicalValue } from './HierarchicalValue';
-import { MetricExtraInfo } from './MetricExtraInfo';
 
 
 export class UpdatePolicy {
     private 'metric_name'?: string;
-    private 'extra_info'?: MetricExtraInfo;
+    private 'extra_info'?: ExtraInfo;
     public period?: number;
     public filter?: string;
     private 'comparison_operator'?: string;
@@ -34,14 +34,14 @@ export class UpdatePolicy {
     public get metricName(): string | undefined {
         return this['metric_name'];
     }
-    public withExtraInfo(extraInfo: MetricExtraInfo): UpdatePolicy {
+    public withExtraInfo(extraInfo: ExtraInfo): UpdatePolicy {
         this['extra_info'] = extraInfo;
         return this;
     }
-    public set extraInfo(extraInfo: MetricExtraInfo  | undefined) {
+    public set extraInfo(extraInfo: ExtraInfo  | undefined) {
         this['extra_info'] = extraInfo;
     }
-    public get extraInfo(): MetricExtraInfo | undefined {
+    public get extraInfo(): ExtraInfo | undefined {
         return this['extra_info'];
     }
     public withPeriod(period: number): UpdatePolicy {

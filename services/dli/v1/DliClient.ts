@@ -92,6 +92,7 @@ import { CreateQueuePropertyRequestBody } from './model/CreateQueuePropertyReque
 import { CreateQueuePropertyResponse } from './model/CreateQueuePropertyResponse';
 import { CreateQueueRequest } from './model/CreateQueueRequest';
 import { CreateQueueRequestBody } from './model/CreateQueueRequestBody';
+import { CreateQueueRequestBodyProperties } from './model/CreateQueueRequestBodyProperties';
 import { CreateQueueResponse } from './model/CreateQueueResponse';
 import { CreateRouteToEnhancedConnectionRequest } from './model/CreateRouteToEnhancedConnectionRequest';
 import { CreateRouteToEnhancedConnectionRequestBody } from './model/CreateRouteToEnhancedConnectionRequestBody';

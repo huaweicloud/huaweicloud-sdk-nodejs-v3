@@ -1,11 +1,11 @@
 
 
-export class VulInfoCveList {
+export class GeneralImageVulsResponseInfoCveList {
     private 'cve_id'?: string;
     public cvss?: number;
     public constructor() { 
     }
-    public withCveId(cveId: string): VulInfoCveList {
+    public withCveId(cveId: string): GeneralImageVulsResponseInfoCveList {
         this['cve_id'] = cveId;
         return this;
     }
@@ -15,7 +15,7 @@ export class VulInfoCveList {
     public get cveId(): string | undefined {
         return this['cve_id'];
     }
-    public withCvss(cvss: number): VulInfoCveList {
+    public withCvss(cvss: number): GeneralImageVulsResponseInfoCveList {
         this['cvss'] = cvss;
         return this;
     }

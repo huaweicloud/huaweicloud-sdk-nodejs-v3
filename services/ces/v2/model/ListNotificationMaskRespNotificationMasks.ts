@@ -26,6 +26,7 @@ export class ListNotificationMaskRespNotificationMasks {
     private 'start_time'?: string;
     private 'end_date'?: string;
     private 'end_time'?: string;
+    private 'effective_timezone'?: string;
     public policies?: Array<PoliciesInListResp>;
     public constructor(notificationMaskId?: string, relationType?: RelationType, maskStatus?: MaskStatus, maskType?: MaskType) { 
         this['notification_mask_id'] = notificationMaskId;
@@ -206,6 +207,16 @@ export class ListNotificationMaskRespNotificationMasks {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): ListNotificationMaskRespNotificationMasks {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
     public withPolicies(policies: Array<PoliciesInListResp>): ListNotificationMaskRespNotificationMasks {
         this['policies'] = policies;

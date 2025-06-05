@@ -21,8 +21,7 @@ export class ListSwrImageRepositoryRequest {
     private 'has_unsafe_setting'?: boolean;
     private 'has_vul'?: boolean;
     private 'instance_id'?: string;
-    public constructor(region?: string, imageType?: string) { 
-        this['region'] = region;
+    public constructor(imageType?: string) { 
         this['image_type'] = imageType;
     }
     public withRegion(region: string): ListSwrImageRepositoryRequest {

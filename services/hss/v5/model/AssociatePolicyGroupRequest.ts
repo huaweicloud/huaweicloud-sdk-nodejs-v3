@@ -6,8 +6,7 @@ export class AssociatePolicyGroupRequest {
     private 'enterprise_project_id'?: string;
     private 'Content-Type'?: string;
     public body?: AssociatePolicyGroupRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): AssociatePolicyGroupRequest {
         this['region'] = region;

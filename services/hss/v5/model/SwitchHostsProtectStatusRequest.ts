@@ -5,8 +5,7 @@ export class SwitchHostsProtectStatusRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: SwitchHostsProtectStatusRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): SwitchHostsProtectStatusRequest {
         this['region'] = region;

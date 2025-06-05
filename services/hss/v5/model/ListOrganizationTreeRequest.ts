@@ -5,8 +5,7 @@ export class ListOrganizationTreeRequest {
     public region?: string;
     private 'is_refresh'?: boolean;
     private 'enterprise_project_id'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withXSecurityToken(xSecurityToken: string): ListOrganizationTreeRequest {
         this['X-Security-Token'] = xSecurityToken;

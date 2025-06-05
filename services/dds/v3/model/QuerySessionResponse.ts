@@ -11,6 +11,8 @@ export class QuerySessionResponse {
     public client?: string;
     public description?: string;
     public namespace?: string;
+    public db?: string;
+    public user?: string;
     public constructor(id?: string, active?: boolean, operation?: string, type?: string, costTime?: string, planSummary?: string, host?: string, client?: string, description?: string, namespace?: string) { 
         this['id'] = id;
         this['active'] = active;
@@ -73,6 +75,14 @@ export class QuerySessionResponse {
     }
     public withNamespace(namespace: string): QuerySessionResponse {
         this['namespace'] = namespace;
+        return this;
+    }
+    public withDb(db: string): QuerySessionResponse {
+        this['db'] = db;
+        return this;
+    }
+    public withUser(user: string): QuerySessionResponse {
+        this['user'] = user;
         return this;
     }
 }

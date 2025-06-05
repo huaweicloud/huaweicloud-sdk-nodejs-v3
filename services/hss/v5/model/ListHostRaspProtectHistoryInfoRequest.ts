@@ -11,8 +11,7 @@ export class ListHostRaspProtectHistoryInfoRequest {
     private 'alarm_level'?: number;
     public severity?: string;
     private 'protect_status'?: string;
-    public constructor(region?: string, startTime?: number, endTime?: number, limit?: number, offset?: number) { 
-        this['region'] = region;
+    public constructor(startTime?: number, endTime?: number, limit?: number, offset?: number) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['limit'] = limit;

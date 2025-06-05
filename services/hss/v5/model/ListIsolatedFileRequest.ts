@@ -15,8 +15,7 @@ export class ListIsolatedFileRequest {
     private 'last_days'?: number;
     private 'begin_time'?: number;
     private 'end_time'?: number;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListIsolatedFileRequest {
         this['region'] = region;

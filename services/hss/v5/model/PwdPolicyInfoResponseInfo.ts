@@ -11,6 +11,12 @@ export class PwdPolicyInfoResponseInfo {
     private 'lowercase_letter'?: boolean;
     private 'number'?: boolean;
     private 'special_character'?: boolean;
+    private 'min_length_num'?: number;
+    private 'min_uppercase_letter'?: number;
+    private 'min_lowercase_letter'?: number;
+    private 'min_number'?: number;
+    private 'min_special_character'?: number;
+    private 'update_time'?: number;
     public suggestion?: string;
     public constructor() { 
     }
@@ -113,6 +119,66 @@ export class PwdPolicyInfoResponseInfo {
     }
     public get specialCharacter(): boolean | undefined {
         return this['special_character'];
+    }
+    public withMinLengthNum(minLengthNum: number): PwdPolicyInfoResponseInfo {
+        this['min_length_num'] = minLengthNum;
+        return this;
+    }
+    public set minLengthNum(minLengthNum: number  | undefined) {
+        this['min_length_num'] = minLengthNum;
+    }
+    public get minLengthNum(): number | undefined {
+        return this['min_length_num'];
+    }
+    public withMinUppercaseLetter(minUppercaseLetter: number): PwdPolicyInfoResponseInfo {
+        this['min_uppercase_letter'] = minUppercaseLetter;
+        return this;
+    }
+    public set minUppercaseLetter(minUppercaseLetter: number  | undefined) {
+        this['min_uppercase_letter'] = minUppercaseLetter;
+    }
+    public get minUppercaseLetter(): number | undefined {
+        return this['min_uppercase_letter'];
+    }
+    public withMinLowercaseLetter(minLowercaseLetter: number): PwdPolicyInfoResponseInfo {
+        this['min_lowercase_letter'] = minLowercaseLetter;
+        return this;
+    }
+    public set minLowercaseLetter(minLowercaseLetter: number  | undefined) {
+        this['min_lowercase_letter'] = minLowercaseLetter;
+    }
+    public get minLowercaseLetter(): number | undefined {
+        return this['min_lowercase_letter'];
+    }
+    public withMinNumber(minNumber: number): PwdPolicyInfoResponseInfo {
+        this['min_number'] = minNumber;
+        return this;
+    }
+    public set minNumber(minNumber: number  | undefined) {
+        this['min_number'] = minNumber;
+    }
+    public get minNumber(): number | undefined {
+        return this['min_number'];
+    }
+    public withMinSpecialCharacter(minSpecialCharacter: number): PwdPolicyInfoResponseInfo {
+        this['min_special_character'] = minSpecialCharacter;
+        return this;
+    }
+    public set minSpecialCharacter(minSpecialCharacter: number  | undefined) {
+        this['min_special_character'] = minSpecialCharacter;
+    }
+    public get minSpecialCharacter(): number | undefined {
+        return this['min_special_character'];
+    }
+    public withUpdateTime(updateTime: number): PwdPolicyInfoResponseInfo {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
     }
     public withSuggestion(suggestion: string): PwdPolicyInfoResponseInfo {
         this['suggestion'] = suggestion;

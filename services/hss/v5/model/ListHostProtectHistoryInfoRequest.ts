@@ -12,8 +12,7 @@ export class ListHostProtectHistoryInfoRequest {
     private 'host_ip'?: string;
     private 'file_path'?: string;
     private 'file_operation'?: string;
-    public constructor(region?: string, startTime?: number, endTime?: number, limit?: number, offset?: number) { 
-        this['region'] = region;
+    public constructor(startTime?: number, endTime?: number, limit?: number, offset?: number) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['limit'] = limit;

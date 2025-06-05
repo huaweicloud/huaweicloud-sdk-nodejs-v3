@@ -9,8 +9,7 @@ export class ListContainerNodesRequest {
     private 'agent_status'?: string;
     private 'protect_status'?: string;
     private 'container_tags'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListContainerNodesRequest {
         this['region'] = region;

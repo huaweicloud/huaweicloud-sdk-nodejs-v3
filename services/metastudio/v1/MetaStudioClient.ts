@@ -89,6 +89,9 @@ import { CreateAsyncTtsJobResponse } from './model/CreateAsyncTtsJobResponse';
 import { CreateBatchKnowledgeQuestionReq } from './model/CreateBatchKnowledgeQuestionReq';
 import { CreateBatchKnowledgeQuestionRequest } from './model/CreateBatchKnowledgeQuestionRequest';
 import { CreateBatchKnowledgeQuestionResponse } from './model/CreateBatchKnowledgeQuestionResponse';
+import { CreateDialogReportConfigReq } from './model/CreateDialogReportConfigReq';
+import { CreateDialogReportConfigRequest } from './model/CreateDialogReportConfigRequest';
+import { CreateDialogReportConfigResponse } from './model/CreateDialogReportConfigResponse';
 import { CreateDialogUrlReq } from './model/CreateDialogUrlReq';
 import { CreateDialogUrlRequest } from './model/CreateDialogUrlRequest';
 import { CreateDialogUrlResponse } from './model/CreateDialogUrlResponse';
@@ -201,6 +204,8 @@ import { DeleteAgencyWithRoleTypeRequest } from './model/DeleteAgencyWithRoleTyp
 import { DeleteAgencyWithRoleTypeResponse } from './model/DeleteAgencyWithRoleTypeResponse';
 import { DeleteAssetRequest } from './model/DeleteAssetRequest';
 import { DeleteAssetResponse } from './model/DeleteAssetResponse';
+import { DeleteDialogReportConfigRequest } from './model/DeleteDialogReportConfigRequest';
+import { DeleteDialogReportConfigResponse } from './model/DeleteDialogReportConfigResponse';
 import { DeleteDigitalHumanBusinessCardRequest } from './model/DeleteDigitalHumanBusinessCardRequest';
 import { DeleteDigitalHumanBusinessCardResponse } from './model/DeleteDigitalHumanBusinessCardResponse';
 import { DeleteFileRequest } from './model/DeleteFileRequest';
@@ -467,6 +472,8 @@ import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
 import { ShowAsyncTtsJobRequest } from './model/ShowAsyncTtsJobRequest';
 import { ShowAsyncTtsJobResponse } from './model/ShowAsyncTtsJobResponse';
+import { ShowDialogReportConfigRequest } from './model/ShowDialogReportConfigRequest';
+import { ShowDialogReportConfigResponse } from './model/ShowDialogReportConfigResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
 import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
 import { ShowHotQuestionRequest } from './model/ShowHotQuestionRequest';
@@ -589,6 +596,9 @@ import { UpdateBatchKnowledgeQuestionReq } from './model/UpdateBatchKnowledgeQue
 import { UpdateBatchKnowledgeQuestionRequest } from './model/UpdateBatchKnowledgeQuestionRequest';
 import { UpdateBatchKnowledgeQuestionResponse } from './model/UpdateBatchKnowledgeQuestionResponse';
 import { UpdateCustomPlatformAuthConfig } from './model/UpdateCustomPlatformAuthConfig';
+import { UpdateDialogReportConfigReq } from './model/UpdateDialogReportConfigReq';
+import { UpdateDialogReportConfigRequest } from './model/UpdateDialogReportConfigRequest';
+import { UpdateDialogReportConfigResponse } from './model/UpdateDialogReportConfigResponse';
 import { UpdateDigitalAssetRequest } from './model/UpdateDigitalAssetRequest';
 import { UpdateDigitalAssetRequestBody } from './model/UpdateDigitalAssetRequestBody';
 import { UpdateDigitalAssetResponse } from './model/UpdateDigitalAssetResponse';
@@ -974,6 +984,96 @@ export class MetaStudioClient {
      */
     public stopSmartChatJob(stopSmartChatJobRequest?: StopSmartChatJobRequest): Promise<StopSmartChatJobResponse> {
         const options = ParamCreater().stopSmartChatJob(stopSmartChatJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建对话结果上报配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建对话结果上报配置
+     * @param {CreateDialogReportConfigReq} createDialogReportConfigRequestBody 创建对话结果上报配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDialogReportConfig(createDialogReportConfigRequest?: CreateDialogReportConfigRequest): Promise<CreateDialogReportConfigResponse> {
+        const options = ParamCreater().createDialogReportConfig(createDialogReportConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除对话结果上报配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除对话结果上报配置
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDialogReportConfig(deleteDialogReportConfigRequest?: DeleteDialogReportConfigRequest): Promise<DeleteDialogReportConfigResponse> {
+        const options = ParamCreater().deleteDialogReportConfig(deleteDialogReportConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询对话结果上报配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询对话结果上报配置
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDialogReportConfig(showDialogReportConfigRequest?: ShowDialogReportConfigRequest): Promise<ShowDialogReportConfigResponse> {
+        const options = ParamCreater().showDialogReportConfig(showDialogReportConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改对话结果上报配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改对话结果上报配置
+     * @param {UpdateDialogReportConfigReq} updateDialogReportConfigRequestBody 修改对话结果上报配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDialogReportConfig(updateDialogReportConfigRequest?: UpdateDialogReportConfigRequest): Promise<UpdateDialogReportConfigResponse> {
+        const options = ParamCreater().updateDialogReportConfig(updateDialogReportConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -2768,7 +2868,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {'CN' | 'EN'} [language] 智能交互语言  * CN:中文  * EN:英文
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
      * @param {number} [pacifyWordsType] 安抚话术类型 &gt; 0:通用安抚话术, 1:基于意图匹配安抚话术
      * @param {string} [intent] 安抚话术意图
      * @param {*} [options] Override http request option.
@@ -2836,7 +2936,7 @@ export class MetaStudioClient {
      *
      * @summary 查询安抚话术功能开关
      * @param {string} robotId 应用ID。
-     * @param {'CN' | 'EN'} language 智能交互语言  * CN:中文  * EN:英文
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} language 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -2860,7 +2960,7 @@ export class MetaStudioClient {
      *
      * @summary 查询安抚话术等待触发时长
      * @param {string} robotId 应用ID。
-     * @param {'CN' | 'EN'} language 智能交互语言  * CN:中文  * EN:英文
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} language 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -6102,6 +6202,252 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建对话结果上报配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDialogReportConfig(createDialogReportConfigRequest?: CreateDialogReportConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/dialog-report-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createDialogReportConfigRequest !== null && createDialogReportConfigRequest !== undefined) {
+                if (createDialogReportConfigRequest instanceof CreateDialogReportConfigRequest) {
+                    body = createDialogReportConfigRequest.body
+                    authorization = createDialogReportConfigRequest.authorization;
+                    xSdkDate = createDialogReportConfigRequest.xSdkDate;
+                    xProjectId = createDialogReportConfigRequest.xProjectId;
+                    xAppUserId = createDialogReportConfigRequest.xAppUserId;
+                } else {
+                    body = createDialogReportConfigRequest['body'];
+                    authorization = createDialogReportConfigRequest['Authorization'];
+                    xSdkDate = createDialogReportConfigRequest['X-Sdk-Date'];
+                    xProjectId = createDialogReportConfigRequest['X-Project-Id'];
+                    xAppUserId = createDialogReportConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除对话结果上报配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDialogReportConfig(deleteDialogReportConfigRequest?: DeleteDialogReportConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-chat/dialog-report-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteDialogReportConfigRequest !== null && deleteDialogReportConfigRequest !== undefined) {
+                if (deleteDialogReportConfigRequest instanceof DeleteDialogReportConfigRequest) {
+                    authorization = deleteDialogReportConfigRequest.authorization;
+                    xSdkDate = deleteDialogReportConfigRequest.xSdkDate;
+                    xProjectId = deleteDialogReportConfigRequest.xProjectId;
+                    xAppUserId = deleteDialogReportConfigRequest.xAppUserId;
+                } else {
+                    authorization = deleteDialogReportConfigRequest['Authorization'];
+                    xSdkDate = deleteDialogReportConfigRequest['X-Sdk-Date'];
+                    xProjectId = deleteDialogReportConfigRequest['X-Project-Id'];
+                    xAppUserId = deleteDialogReportConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询对话结果上报配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDialogReportConfig(showDialogReportConfigRequest?: ShowDialogReportConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/dialog-report-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showDialogReportConfigRequest !== null && showDialogReportConfigRequest !== undefined) {
+                if (showDialogReportConfigRequest instanceof ShowDialogReportConfigRequest) {
+                    authorization = showDialogReportConfigRequest.authorization;
+                    xSdkDate = showDialogReportConfigRequest.xSdkDate;
+                    xProjectId = showDialogReportConfigRequest.xProjectId;
+                    xAppUserId = showDialogReportConfigRequest.xAppUserId;
+                } else {
+                    authorization = showDialogReportConfigRequest['Authorization'];
+                    xSdkDate = showDialogReportConfigRequest['X-Sdk-Date'];
+                    xProjectId = showDialogReportConfigRequest['X-Project-Id'];
+                    xAppUserId = showDialogReportConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改对话结果上报配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDialogReportConfig(updateDialogReportConfigRequest?: UpdateDialogReportConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/dialog-report-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateDialogReportConfigRequest !== null && updateDialogReportConfigRequest !== undefined) {
+                if (updateDialogReportConfigRequest instanceof UpdateDialogReportConfigRequest) {
+                    body = updateDialogReportConfigRequest.body
+                    authorization = updateDialogReportConfigRequest.authorization;
+                    xSdkDate = updateDialogReportConfigRequest.xSdkDate;
+                    xProjectId = updateDialogReportConfigRequest.xProjectId;
+                    xAppUserId = updateDialogReportConfigRequest.xAppUserId;
+                } else {
+                    body = updateDialogReportConfigRequest['body'];
+                    authorization = updateDialogReportConfigRequest['Authorization'];
+                    xSdkDate = updateDialogReportConfigRequest['X-Sdk-Date'];
+                    xProjectId = updateDialogReportConfigRequest['X-Project-Id'];
+                    xAppUserId = updateDialogReportConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -9,8 +9,7 @@ export class ListBlockedIpRequest {
     private 'intercept_status'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListBlockedIpRequest {
         this['region'] = region;

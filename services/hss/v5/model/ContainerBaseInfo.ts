@@ -1,6 +1,8 @@
 
 
 export class ContainerBaseInfo {
+    public id?: string;
+    private 'region_id'?: string;
     private 'container_id'?: string;
     private 'container_name'?: string;
     private 'image_name'?: string;
@@ -19,6 +21,20 @@ export class ContainerBaseInfo {
     private 'high_risk'?: number;
     private 'fatal_risk'?: number;
     public constructor() { 
+    }
+    public withId(id: string): ContainerBaseInfo {
+        this['id'] = id;
+        return this;
+    }
+    public withRegionId(regionId: string): ContainerBaseInfo {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string  | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId(): string | undefined {
+        return this['region_id'];
     }
     public withContainerId(containerId: string): ContainerBaseInfo {
         this['container_id'] = containerId;

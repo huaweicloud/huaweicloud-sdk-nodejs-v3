@@ -6,8 +6,7 @@ export class SetRaspSwitchRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: SetRaspSwitchRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withContentType(contentType: string): SetRaspSwitchRequest {
         this['Content-Type'] = contentType;

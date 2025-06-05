@@ -11,6 +11,7 @@ export class QuotaResourcesResponseInfo {
     private 'charging_mode'?: string;
     public tags?: Array<TagInfo>;
     private 'expire_time'?: number;
+    private 'create_time'?: number;
     private 'shared_quota'?: string;
     private 'enterprise_project_id'?: string;
     private 'enterprise_project_name'?: string;
@@ -93,6 +94,16 @@ export class QuotaResourcesResponseInfo {
     }
     public get expireTime(): number | undefined {
         return this['expire_time'];
+    }
+    public withCreateTime(createTime: number): QuotaResourcesResponseInfo {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: number  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): number | undefined {
+        return this['create_time'];
     }
     public withSharedQuota(sharedQuota: string): QuotaResourcesResponseInfo {
         this['shared_quota'] = sharedQuota;

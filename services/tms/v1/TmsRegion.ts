@@ -7,7 +7,7 @@ interface RegionMap {
 
 export class TmsRegion {
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://tms.myhuaweicloud.com"]);
-    public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://tms.ap-southeast-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://tms-intl.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://tms.eu-west-101.myhuaweicloud.eu"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://tms.ru-moscow-1.myhuaweicloud.com"]);
     

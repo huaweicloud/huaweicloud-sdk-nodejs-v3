@@ -1,3 +1,4 @@
+import { HierarchicalValue } from './HierarchicalValue';
 import { Period } from './Period';
 import { SuppressDuration } from './SuppressDuration';
 
@@ -9,11 +10,13 @@ export class OneClickAlarmPolicy {
     public filter?: string;
     private 'comparison_operator'?: string;
     public value?: number;
+    private 'hierarchical_value'?: HierarchicalValue;
     public unit?: string;
     public count?: number;
     private 'suppress_duration'?: SuppressDuration;
     public level?: number;
     public enabled?: boolean;
+    private 'selected_unit'?: string;
     public constructor(alarmPolicyId?: string, metricName?: string, period?: Period, filter?: string, comparisonOperator?: string, value?: number, count?: number, enabled?: boolean) { 
         this['alarm_policy_id'] = alarmPolicyId;
         this['metric_name'] = metricName;
@@ -66,6 +69,16 @@ export class OneClickAlarmPolicy {
         this['value'] = value;
         return this;
     }
+    public withHierarchicalValue(hierarchicalValue: HierarchicalValue): OneClickAlarmPolicy {
+        this['hierarchical_value'] = hierarchicalValue;
+        return this;
+    }
+    public set hierarchicalValue(hierarchicalValue: HierarchicalValue  | undefined) {
+        this['hierarchical_value'] = hierarchicalValue;
+    }
+    public get hierarchicalValue(): HierarchicalValue | undefined {
+        return this['hierarchical_value'];
+    }
     public withUnit(unit: string): OneClickAlarmPolicy {
         this['unit'] = unit;
         return this;
@@ -91,5 +104,15 @@ export class OneClickAlarmPolicy {
     public withEnabled(enabled: boolean): OneClickAlarmPolicy {
         this['enabled'] = enabled;
         return this;
+    }
+    public withSelectedUnit(selectedUnit: string): OneClickAlarmPolicy {
+        this['selected_unit'] = selectedUnit;
+        return this;
+    }
+    public set selectedUnit(selectedUnit: string  | undefined) {
+        this['selected_unit'] = selectedUnit;
+    }
+    public get selectedUnit(): string | undefined {
+        return this['selected_unit'];
     }
 }

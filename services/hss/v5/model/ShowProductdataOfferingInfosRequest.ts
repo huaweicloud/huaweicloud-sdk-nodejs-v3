@@ -4,8 +4,7 @@ export class ShowProductdataOfferingInfosRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     private 'site_code'?: string;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ShowProductdataOfferingInfosRequest {
         this['region'] = region;

@@ -22,6 +22,8 @@ export class VulhandleHistoryResponseInfoDataList {
     private 'app_version'?: string;
     private 'handle_type'?: string;
     private 'cluster_id'?: string;
+    private 'container_name'?: string;
+    private 'container_id'?: string;
     public constructor() { 
     }
     public withId(id: string): VulhandleHistoryResponseInfoDataList {
@@ -199,5 +201,25 @@ export class VulhandleHistoryResponseInfoDataList {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withContainerName(containerName: string): VulhandleHistoryResponseInfoDataList {
+        this['container_name'] = containerName;
+        return this;
+    }
+    public set containerName(containerName: string  | undefined) {
+        this['container_name'] = containerName;
+    }
+    public get containerName(): string | undefined {
+        return this['container_name'];
+    }
+    public withContainerId(containerId: string): VulhandleHistoryResponseInfoDataList {
+        this['container_id'] = containerId;
+        return this;
+    }
+    public set containerId(containerId: string  | undefined) {
+        this['container_id'] = containerId;
+    }
+    public get containerId(): string | undefined {
+        return this['container_id'];
     }
 }

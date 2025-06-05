@@ -6,8 +6,7 @@ export class SetWtpProtectionStatusInfoRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: SetWtpProtectionStatusRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withContentType(contentType: string): SetWtpProtectionStatusInfoRequest {
         this['Content-Type'] = contentType;

@@ -19,8 +19,9 @@ export class ShowFactoryFullTextRequest {
     private 'schedule_state'?: string;
     private 'is_exact'?: string;
     private 'exact_field'?: string;
-    public constructor(workspace?: string) { 
+    public constructor(workspace?: string, searchText?: string) { 
         this['workspace'] = workspace;
+        this['search_text'] = searchText;
     }
     public withWorkspace(workspace: string): ShowFactoryFullTextRequest {
         this['workspace'] = workspace;

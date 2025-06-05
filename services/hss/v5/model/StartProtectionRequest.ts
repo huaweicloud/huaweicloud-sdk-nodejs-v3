@@ -5,8 +5,7 @@ export class StartProtectionRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: ProtectionInfoRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): StartProtectionRequest {
         this['region'] = region;

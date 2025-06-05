@@ -10,8 +10,7 @@ export class ListProtectionServerRequest {
     private 'host_ip'?: string;
     private 'host_status'?: string;
     private 'last_days'?: number;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListProtectionServerRequest {
         this['region'] = region;

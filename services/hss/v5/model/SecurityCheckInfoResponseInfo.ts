@@ -5,6 +5,7 @@ export class SecurityCheckInfoResponseInfo {
     private 'check_name'?: string;
     private 'check_type'?: string;
     public standard?: string;
+    private 'executable_file_path'?: string;
     private 'check_rule_num'?: number;
     private 'failed_rule_num'?: number;
     private 'host_num'?: number;
@@ -39,6 +40,16 @@ export class SecurityCheckInfoResponseInfo {
     public withStandard(standard: string): SecurityCheckInfoResponseInfo {
         this['standard'] = standard;
         return this;
+    }
+    public withExecutableFilePath(executableFilePath: string): SecurityCheckInfoResponseInfo {
+        this['executable_file_path'] = executableFilePath;
+        return this;
+    }
+    public set executableFilePath(executableFilePath: string  | undefined) {
+        this['executable_file_path'] = executableFilePath;
+    }
+    public get executableFilePath(): string | undefined {
+        return this['executable_file_path'];
     }
     public withCheckRuleNum(checkRuleNum: number): SecurityCheckInfoResponseInfo {
         this['check_rule_num'] = checkRuleNum;

@@ -171,6 +171,7 @@ import { CatalogMoveParaDTO } from './model/CatalogMoveParaDTO';
 import { CatalogParamsVO } from './model/CatalogParamsVO';
 import { CatalogVO } from './model/CatalogVO';
 import { CategoryDetailVO } from './model/CategoryDetailVO';
+import { CategoryInfo } from './model/CategoryInfo';
 import { ChangeCatalogRequest } from './model/ChangeCatalogRequest';
 import { ChangeCatalogResponse } from './model/ChangeCatalogResponse';
 import { ChangeResourceRequest } from './model/ChangeResourceRequest';
@@ -608,6 +609,8 @@ import { ListCatalogListResponse } from './model/ListCatalogListResponse';
 import { ListCatalogTreeRequest } from './model/ListCatalogTreeRequest';
 import { ListCatalogTreeResponse } from './model/ListCatalogTreeResponse';
 import { ListCatalogTreeResultData } from './model/ListCatalogTreeResultData';
+import { ListCategoriesTreeRequest } from './model/ListCategoriesTreeRequest';
+import { ListCategoriesTreeResponse } from './model/ListCategoriesTreeResponse';
 import { ListCategoryRequest } from './model/ListCategoryRequest';
 import { ListCategoryResponse } from './model/ListCategoryResponse';
 import { ListColumnsRequest } from './model/ListColumnsRequest';
@@ -656,6 +659,8 @@ import { ListDimensionsResultDataValue } from './model/ListDimensionsResultDataV
 import { ListDirectoriesRequest } from './model/ListDirectoriesRequest';
 import { ListDirectoriesResponse } from './model/ListDirectoriesResponse';
 import { ListDirectoriesResultData } from './model/ListDirectoriesResultData';
+import { ListEntityDetailsRequest } from './model/ListEntityDetailsRequest';
+import { ListEntityDetailsResponse } from './model/ListEntityDetailsResponse';
 import { ListFactLogicTablesRequest } from './model/ListFactLogicTablesRequest';
 import { ListFactLogicTablesResponse } from './model/ListFactLogicTablesResponse';
 import { ListFactLogicTablesResultData } from './model/ListFactLogicTablesResultData';
@@ -684,6 +689,8 @@ import { ListInstanceListRequest } from './model/ListInstanceListRequest';
 import { ListInstanceListResponse } from './model/ListInstanceListResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
+import { ListLogicEntitiesRequest } from './model/ListLogicEntitiesRequest';
+import { ListLogicEntitiesResponse } from './model/ListLogicEntitiesResponse';
 import { ListManagerWorkSpacesRequest } from './model/ListManagerWorkSpacesRequest';
 import { ListManagerWorkSpacesResponse } from './model/ListManagerWorkSpacesResponse';
 import { ListMessageRequest } from './model/ListMessageRequest';
@@ -4522,6 +4529,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 获取某空间下资产目录树。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 空间资产目录树(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} workspaceId 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCategoriesTree(listCategoriesTreeRequest?: ListCategoriesTreeRequest): Promise<ListCategoriesTreeResponse> {
+        const options = ParamCreater().listCategoriesTree(listCategoriesTreeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取作业目录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5015,6 +5042,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 批量获取资产信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量获取资产信息(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {Array<string>} listEntityDetailsRequestBody 批量获取资产信息请求，guid列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEntityDetails(listEntityDetailsRequest?: ListEntityDetailsRequest): Promise<ListEntityDetailsResponse> {
+        const options = ParamCreater().listEntityDetails(listEntityDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过中英文名称、创建者、审核人、状态、修改时间分页查找事实表信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5253,6 +5300,26 @@ export class DataArtsStudioClient {
      */
     public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
         const options = ParamCreater().listInstances(listInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取主题目录下逻辑实体。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取目录下逻辑实体(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} guid 主题目录资产guid，获取方法请参见[数据资产guid](dataartsstudio_02_0351.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogicEntities(listLogicEntitiesRequest?: ListLogicEntitiesRequest): Promise<ListLogicEntitiesResponse> {
+        const options = ParamCreater().listLogicEntities(listLogicEntitiesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7744,11 +7811,11 @@ export class DataArtsStudioClient {
      *
      * @summary 全局搜索
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} searchText 全局搜索关键字，输入至少两位字符。
      * @param {string} [workspaceId] 搜索空间范围: 默认不传参，在全部空间内搜索。 - 当前工作空间ID: 当前工作空间的ID
-     * @param {string} [searchText] 全局搜索关键字，输入至少两位字符。
      * @param {string} [jobType] 作业类型: （多选）样例: job_type&#x3D;BATCH 默认为全部。 - BATCH: 批作业 - REAL_TIME: 流作业
-     * @param {string} [scriptType] 脚本类型: （多选）样例: script_type&#x3D;HIVE,DLI。 默认为全部，不过滤任何类型脚本。 - HIVE: Hive SQL - [DLI: DLI SQL](tag:nohcs) - DWS: DWS SQL - SparkSQL: Spark SQL - SparkPython: Spark Python - FlinkSQL: Flink SQL - [RDS: RDS SQL](tag:nohcs) - PRESTO: Presto SQL - HETUENGINE: HeruEngine - ClickHouse: ClickHouse - IMPALA: Impala SQL - SHELL: Shell - PYTHON: Python
-     * @param {string} [nodeType] 节点类型: （多选）节点类型列表。样例: node_type&#x3D;com.cloud.datacraft.processactivity.ExecuteHiveJob 默认为全部。 - com.cloud.datacraft.processactivity.ExecuteHiveJob: MRS Hive SQL - com.cloud.datacraft.activity.ExecuteSparkSQL: MRS Spark SQL - com.cloud.datacraft.activity.MRSSparkPython: MRS Spark Python - com.cloud.datacraft.processactivity.ExecuteImpalaJob: MRS Impala SQL - [com.cloud.datacraft.activity.DLISQL: DLI SQL](tag:nohcs) - [com.cloud.datacraft.activity.DliFlinkJob: DLI Flink Job](tag:nohcs) - com.cloud.datacraft.processactivity.ExecuteDWSJob: DWS SQL - com.cloud.datacraft.activity.ExecuteQuery: RDS SQL - com.cloud.datacraft.activity.MRSPrestoSQL: MRS Presto SQL - com.cloud.datacraft.processactivity.ExecuteScript: Shell - com.cloud.datacraft.processactivity.ExecutePythonScript: Python - com.cloud.datacraft.processactivity.ExecuteClickHouseJob: ClickHouse - com.cloud.datacraft.processactivity.ExecuteHetuEngineJob: HetuEngine - com.cloud.datacraft.activity.DataMigration: DataMigration
+     * @param {string} [scriptType] 脚本类型: （多选）样例: script_type&#x3D;HIVE,DLI。 默认为全部，不过滤任何类型脚本。 - HIVE: Hive SQL - DLI: DLI SQL - DWS: DWS SQL - SparkSQL: Spark SQL - SparkPython: Spark Python - FlinkSQL: Flink SQL - RDS: RDS SQL - PRESTO: Presto SQL - HETUENGINE: HeruEngine - ClickHouse: ClickHouse - IMPALA: Impala SQL - SHELL: Shell - PYTHON: Python
+     * @param {string} [nodeType] 节点类型: （多选）节点类型列表。样例: node_type&#x3D;com.cloud.datacraft.processactivity.ExecuteHiveJob 默认为全部。 - com.cloud.datacraft.processactivity.ExecuteHiveJob: MRS Hive SQL - com.cloud.datacraft.activity.ExecuteSparkSQL: MRS Spark SQL - com.cloud.datacraft.activity.MRSSparkPython: MRS Spark Python - com.cloud.datacraft.processactivity.ExecuteImpalaJob: MRS Impala SQL - com.cloud.datacraft.activity.DLISQL: DLI SQL - com.cloud.datacraft.activity.DliFlinkJob: DLI Flink Job - com.cloud.datacraft.processactivity.ExecuteDWSJob: DWS SQL - com.cloud.datacraft.activity.ExecuteQuery: RDS SQL - com.cloud.datacraft.activity.MRSPrestoSQL: MRS Presto SQL - com.cloud.datacraft.processactivity.ExecuteScript: Shell - com.cloud.datacraft.processactivity.ExecutePythonScript: Python - com.cloud.datacraft.processactivity.ExecuteClickHouseJob: ClickHouse - com.cloud.datacraft.processactivity.ExecuteHetuEngineJob: HetuEngine - com.cloud.datacraft.activity.DataMigration: DataMigration
      * @param {string} [newSaveOrCommit] 最新修改: 样例: new_save_or_commit&#x3D;save 默认为save: 最新保存 - save: 最新保存 - commit: 最新提交
      * @param {string} [owners] 责任人名称: （多选）人员列表或我的节点。样例: owners&#x3D;dayu_wm 默认不过滤责任人。
      * @param {string} [docTypes] 搜索范围: （多选）样例: doc_types&#x3D;script 默认为全部。 - node: 开发作业 - script: 脚本
@@ -18525,6 +18592,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取某空间下资产目录树。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCategoriesTree(listCategoriesTreeRequest?: ListCategoriesTreeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/datamap/categories/workspace/{workspace_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instance;
+            
+            let workspaceId;
+
+            if (listCategoriesTreeRequest !== null && listCategoriesTreeRequest !== undefined) {
+                if (listCategoriesTreeRequest instanceof ListCategoriesTreeRequest) {
+                    instance = listCategoriesTreeRequest.instance;
+                    workspaceId = listCategoriesTreeRequest.workspaceId;
+                } else {
+                    instance = listCategoriesTreeRequest['instance'];
+                    workspaceId = listCategoriesTreeRequest['workspace_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listCategoriesTree.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取作业目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20160,6 +20271,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量获取资产信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEntityDetails(listEntityDetailsRequest?: ListEntityDetailsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/datamap/entities/guids",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instance;
+
+            if (listEntityDetailsRequest !== null && listEntityDetailsRequest !== undefined) {
+                if (listEntityDetailsRequest instanceof ListEntityDetailsRequest) {
+                    instance = listEntityDetailsRequest.instance;
+                    body = listEntityDetailsRequest.body
+                } else {
+                    instance = listEntityDetailsRequest['instance'];
+                    body = listEntityDetailsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过中英文名称、创建者、审核人、状态、修改时间分页查找事实表信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20919,6 +21075,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取主题目录下逻辑实体。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogicEntities(listLogicEntitiesRequest?: ListLogicEntitiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/datamap/logicentitys/guid/{guid}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instance;
+            
+            let guid;
+
+            if (listLogicEntitiesRequest !== null && listLogicEntitiesRequest !== undefined) {
+                if (listLogicEntitiesRequest instanceof ListLogicEntitiesRequest) {
+                    instance = listLogicEntitiesRequest.instance;
+                    guid = listLogicEntitiesRequest.guid;
+                } else {
+                    instance = listLogicEntitiesRequest['instance'];
+                    guid = listLogicEntitiesRequest['guid'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling listLogicEntities.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -28555,9 +28755,9 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let workspaceId;
-            
             let searchText;
+            
+            let workspaceId;
             
             let jobType;
             
@@ -28592,8 +28792,8 @@ export const ParamCreater = function () {
             if (showFactoryFullTextRequest !== null && showFactoryFullTextRequest !== undefined) {
                 if (showFactoryFullTextRequest instanceof ShowFactoryFullTextRequest) {
                     workspace = showFactoryFullTextRequest.workspace;
-                    workspaceId = showFactoryFullTextRequest.workspaceId;
                     searchText = showFactoryFullTextRequest.searchText;
+                    workspaceId = showFactoryFullTextRequest.workspaceId;
                     jobType = showFactoryFullTextRequest.jobType;
                     scriptType = showFactoryFullTextRequest.scriptType;
                     nodeType = showFactoryFullTextRequest.nodeType;
@@ -28611,8 +28811,8 @@ export const ParamCreater = function () {
                     exactField = showFactoryFullTextRequest.exactField;
                 } else {
                     workspace = showFactoryFullTextRequest['workspace'];
-                    workspaceId = showFactoryFullTextRequest['workspace_id'];
                     searchText = showFactoryFullTextRequest['search_text'];
+                    workspaceId = showFactoryFullTextRequest['workspace_id'];
                     jobType = showFactoryFullTextRequest['job_type'];
                     scriptType = showFactoryFullTextRequest['script_type'];
                     nodeType = showFactoryFullTextRequest['node_type'];
@@ -28632,11 +28832,14 @@ export const ParamCreater = function () {
             }
 
         
-            if (workspaceId !== null && workspaceId !== undefined) {
-                localVarQueryParameter['workspace_id'] = workspaceId;
+            if (searchText === null || searchText === undefined) {
+                throw new RequiredError('searchText','Required parameter searchText was null or undefined when calling showFactoryFullText.');
             }
             if (searchText !== null && searchText !== undefined) {
                 localVarQueryParameter['search_text'] = searchText;
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
             }
             if (jobType !== null && jobType !== undefined) {
                 localVarQueryParameter['job_type'] = jobType;

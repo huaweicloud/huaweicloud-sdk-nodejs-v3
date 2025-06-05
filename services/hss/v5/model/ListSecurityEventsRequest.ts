@@ -25,9 +25,8 @@ export class ListSecurityEventsRequest {
     private 'att_ck'?: string;
     private 'event_name'?: string;
     private 'auto_block'?: boolean;
-    public constructor(category?: string, region?: string) { 
+    public constructor(category?: string) { 
         this['category'] = category;
-        this['region'] = region;
     }
     public withCategory(category: string): ListSecurityEventsRequest {
         this['category'] = category;
