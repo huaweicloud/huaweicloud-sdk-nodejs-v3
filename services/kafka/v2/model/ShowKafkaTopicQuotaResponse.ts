@@ -3,12 +3,17 @@ import { KafkaTopicQuota } from './KafkaTopicQuota';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowKafkaTopicQuotaResponse extends SdkResponse {
-    public partitions?: Array<KafkaTopicQuota>;
+    public quotas?: Array<KafkaTopicQuota>;
+    public count?: number;
     public constructor() { 
         super();
     }
-    public withPartitions(partitions: Array<KafkaTopicQuota>): ShowKafkaTopicQuotaResponse {
-        this['partitions'] = partitions;
+    public withQuotas(quotas: Array<KafkaTopicQuota>): ShowKafkaTopicQuotaResponse {
+        this['quotas'] = quotas;
+        return this;
+    }
+    public withCount(count: number): ShowKafkaTopicQuotaResponse {
+        this['count'] = count;
         return this;
     }
 }

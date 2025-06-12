@@ -8,6 +8,7 @@ export class ShowServerResponseServerCertificate {
     private 'serial_number'?: string;
     private 'expiration_time'?: Date;
     private 'signature_algorithm'?: string;
+    public source?: string;
     public constructor() { 
     }
     public withId(id: string): ShowServerResponseServerCertificate {
@@ -55,5 +56,9 @@ export class ShowServerResponseServerCertificate {
     }
     public get signatureAlgorithm(): string | undefined {
         return this['signature_algorithm'];
+    }
+    public withSource(source: string): ShowServerResponseServerCertificate {
+        this['source'] = source;
+        return this;
     }
 }

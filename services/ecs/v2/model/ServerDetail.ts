@@ -1,5 +1,6 @@
 import { CpuOptions } from './CpuOptions';
 import { Hypervisor } from './Hypervisor';
+import { SecurityOptions } from './SecurityOptions';
 import { ServerAddress } from './ServerAddress';
 import { ServerExtendVolumeAttachment } from './ServerExtendVolumeAttachment';
 import { ServerFlavor } from './ServerFlavor';
@@ -56,6 +57,7 @@ export class ServerDetail {
     private 'enterprise_project_id'?: string;
     private 'sys_tags'?: Array<ServerSystemTag>;
     private 'cpu_options'?: CpuOptions;
+    private 'security_options'?: SecurityOptions;
     public hypervisor?: Hypervisor;
     public constructor(status?: string, updated?: string, autoTerminateTime?: string, hostId?: string, oSEXTSRVATTRHost?: string, addresses?: { [key: string]: Array<ServerAddress>; }, keyName?: string, image?: ServerImage, oSEXTSTSTaskState?: string, oSEXTSTSVmState?: string, oSEXTSRVATTRInstanceName?: string, oSEXTSRVATTRHypervisorHostname?: string, flavor?: ServerFlavor, id?: string, securityGroups?: Array<ServerSecurityGroup>, oSEXTAZAvailabilityZone?: string, userId?: string, name?: string, created?: string, tenantId?: string, accessIPv4?: string, accessIPv6?: string, oSEXTSTSPowerState?: number, configDrive?: string, metadata?: { [key: string]: string; }, oSSRVUSGLaunchedAt?: string, oSSRVUSGTerminatedAt?: string, osExtendedVolumesVolumesAttached?: Array<ServerExtendVolumeAttachment>, hostStatus?: string, oSEXTSRVATTRHostname?: string, oSEXTSRVATTRLaunchIndex?: number, oSEXTSRVATTRKernelId?: string, oSEXTSRVATTRRamdiskId?: string, oSEXTSRVATTRRootDeviceName?: string, locked?: boolean) { 
         this['status'] = status;
@@ -451,6 +453,16 @@ export class ServerDetail {
     }
     public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
+    }
+    public withSecurityOptions(securityOptions: SecurityOptions): ServerDetail {
+        this['security_options'] = securityOptions;
+        return this;
+    }
+    public set securityOptions(securityOptions: SecurityOptions  | undefined) {
+        this['security_options'] = securityOptions;
+    }
+    public get securityOptions(): SecurityOptions | undefined {
+        return this['security_options'];
     }
     public withHypervisor(hypervisor: Hypervisor): ServerDetail {
         this['hypervisor'] = hypervisor;

@@ -1,17 +1,19 @@
+import { SendMessageResp } from './SendMessageResp';
 
 
-export class RestartInstanceRequest {
+export class SendMessageRequest {
     public engine?: string;
     private 'instance_id'?: string;
+    public body?: SendMessageResp;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
     }
-    public withEngine(engine: string): RestartInstanceRequest {
+    public withEngine(engine: string): SendMessageRequest {
         this['engine'] = engine;
         return this;
     }
-    public withInstanceId(instanceId: string): RestartInstanceRequest {
+    public withInstanceId(instanceId: string): SendMessageRequest {
         this['instance_id'] = instanceId;
         return this;
     }
@@ -20,5 +22,9 @@ export class RestartInstanceRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withBody(body: SendMessageResp): SendMessageRequest {
+        this['body'] = body;
+        return this;
     }
 }

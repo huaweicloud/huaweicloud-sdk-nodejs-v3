@@ -4,6 +4,7 @@ export class ListMessagesRequest {
     public engine?: ListMessagesRequestEngineEnum | string;
     private 'instance_id'?: string;
     public topic?: string;
+    public queue?: string;
     public limit?: string;
     public offset?: string;
     public key?: string;
@@ -31,6 +32,10 @@ export class ListMessagesRequest {
     }
     public withTopic(topic: string): ListMessagesRequest {
         this['topic'] = topic;
+        return this;
+    }
+    public withQueue(queue: string): ListMessagesRequest {
+        this['queue'] = queue;
         return this;
     }
     public withLimit(limit: string): ListMessagesRequest {

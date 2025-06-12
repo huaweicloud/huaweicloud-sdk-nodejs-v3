@@ -3,6 +3,7 @@
 export class VpnAccessPolicy {
     public id?: string;
     public name?: string;
+    public type?: string;
     private 'user_group_id'?: string;
     private 'user_group_name'?: string;
     public description?: string;
@@ -17,6 +18,10 @@ export class VpnAccessPolicy {
     }
     public withName(name: string): VpnAccessPolicy {
         this['name'] = name;
+        return this;
+    }
+    public withType(type: string): VpnAccessPolicy {
+        this['type'] = type;
         return this;
     }
     public withUserGroupId(userGroupId: string): VpnAccessPolicy {

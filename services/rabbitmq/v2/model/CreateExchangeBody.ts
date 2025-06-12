@@ -6,6 +6,7 @@ export class CreateExchangeBody {
     public durable?: boolean;
     private 'auto_delete'?: boolean;
     public internal?: boolean;
+    private 'arguments'?: object;
     public constructor(name?: string, type?: string, autoDelete?: boolean) { 
         this['name'] = name;
         this['type'] = type;
@@ -36,5 +37,15 @@ export class CreateExchangeBody {
     public withInternal(internal: boolean): CreateExchangeBody {
         this['internal'] = internal;
         return this;
+    }
+    public withArguments(_arguments: object): CreateExchangeBody {
+        this['arguments'] = _arguments;
+        return this;
+    }
+    public set _arguments(_arguments: object  | undefined) {
+        this['arguments'] = _arguments;
+    }
+    public get _arguments(): object | undefined {
+        return this['arguments'];
     }
 }

@@ -1,9 +1,12 @@
+import { UpdateTopicQueueEntity } from './UpdateTopicQueueEntity';
 
 
 export class UpdateTopicReq {
     private 'read_queue_num'?: number;
     private 'write_queue_num'?: number;
     public permission?: UpdateTopicReqPermissionEnum | string;
+    public queues?: Array<UpdateTopicQueueEntity>;
+    private 'topic_desc'?: string;
     public constructor() { 
     }
     public withReadQueueNum(readQueueNum: number): UpdateTopicReq {
@@ -29,6 +32,20 @@ export class UpdateTopicReq {
     public withPermission(permission: UpdateTopicReqPermissionEnum | string): UpdateTopicReq {
         this['permission'] = permission;
         return this;
+    }
+    public withQueues(queues: Array<UpdateTopicQueueEntity>): UpdateTopicReq {
+        this['queues'] = queues;
+        return this;
+    }
+    public withTopicDesc(topicDesc: string): UpdateTopicReq {
+        this['topic_desc'] = topicDesc;
+        return this;
+    }
+    public set topicDesc(topicDesc: string  | undefined) {
+        this['topic_desc'] = topicDesc;
+    }
+    public get topicDesc(): string | undefined {
+        return this['topic_desc'];
     }
 }
 

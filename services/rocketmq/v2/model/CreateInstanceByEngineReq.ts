@@ -17,9 +17,12 @@ export class CreateInstanceByEngineReq {
     private 'enterprise_project_id'?: string;
     private 'enable_acl'?: boolean;
     private 'ipv6_enable'?: boolean;
+    private 'proxy_enable'?: boolean;
     private 'enable_publicip'?: boolean;
     private 'publicip_id'?: string;
     private 'broker_num'?: number;
+    private 'arch_type'?: string;
+    private 'tls_mode'?: string;
     private 'bss_param'?: BssParam;
     public constructor(name?: string, engine?: string, engineVersion?: string, storageSpace?: number, vpcId?: string, subnetId?: string, securityGroupId?: string, availableZones?: Array<string>, productId?: string, storageSpecCode?: string, brokerNum?: number) { 
         this['name'] = name;
@@ -166,6 +169,16 @@ export class CreateInstanceByEngineReq {
     public get ipv6Enable(): boolean | undefined {
         return this['ipv6_enable'];
     }
+    public withProxyEnable(proxyEnable: boolean): CreateInstanceByEngineReq {
+        this['proxy_enable'] = proxyEnable;
+        return this;
+    }
+    public set proxyEnable(proxyEnable: boolean  | undefined) {
+        this['proxy_enable'] = proxyEnable;
+    }
+    public get proxyEnable(): boolean | undefined {
+        return this['proxy_enable'];
+    }
     public withEnablePublicip(enablePublicip: boolean): CreateInstanceByEngineReq {
         this['enable_publicip'] = enablePublicip;
         return this;
@@ -195,6 +208,26 @@ export class CreateInstanceByEngineReq {
     }
     public get brokerNum(): number | undefined {
         return this['broker_num'];
+    }
+    public withArchType(archType: string): CreateInstanceByEngineReq {
+        this['arch_type'] = archType;
+        return this;
+    }
+    public set archType(archType: string  | undefined) {
+        this['arch_type'] = archType;
+    }
+    public get archType(): string | undefined {
+        return this['arch_type'];
+    }
+    public withTlsMode(tlsMode: string): CreateInstanceByEngineReq {
+        this['tls_mode'] = tlsMode;
+        return this;
+    }
+    public set tlsMode(tlsMode: string  | undefined) {
+        this['tls_mode'] = tlsMode;
+    }
+    public get tlsMode(): string | undefined {
+        return this['tls_mode'];
     }
     public withBssParam(bssParam: BssParam): CreateInstanceByEngineReq {
         this['bss_param'] = bssParam;

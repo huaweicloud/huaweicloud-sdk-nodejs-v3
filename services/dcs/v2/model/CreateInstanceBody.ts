@@ -1,6 +1,7 @@
 import { BackupPolicy } from './BackupPolicy';
 import { BssParam } from './BssParam';
 import { ResourceTag } from './ResourceTag';
+import { SpecParam } from './SpecParam';
 
 
 export class CreateInstanceBody {
@@ -32,6 +33,7 @@ export class CreateInstanceBody {
     public port?: number;
     private 'rename_commands'?: object;
     private 'template_id'?: string;
+    private 'spec_param'?: SpecParam;
     public constructor(name?: string, engine?: string, capacity?: number, specCode?: string, azCodes?: Array<string>, vpcId?: string, subnetId?: string) { 
         this['name'] = name;
         this['engine'] = engine;
@@ -278,5 +280,15 @@ export class CreateInstanceBody {
     }
     public get templateId(): string | undefined {
         return this['template_id'];
+    }
+    public withSpecParam(specParam: SpecParam): CreateInstanceBody {
+        this['spec_param'] = specParam;
+        return this;
+    }
+    public set specParam(specParam: SpecParam  | undefined) {
+        this['spec_param'] = specParam;
+    }
+    public get specParam(): SpecParam | undefined {
+        return this['spec_param'];
     }
 }

@@ -4,7 +4,7 @@ import { DiskAutoExpansionPolicy } from './DiskAutoExpansionPolicy';
 export class SetAutoPolicyRequestBody {
     private 'instance_ids'?: Array<string>;
     private 'switch_option'?: string;
-    public policy?: Array<DiskAutoExpansionPolicy>;
+    public policy?: DiskAutoExpansionPolicy;
     public constructor(instanceIds?: Array<string>) { 
         this['instance_ids'] = instanceIds;
     }
@@ -28,7 +28,7 @@ export class SetAutoPolicyRequestBody {
     public get switchOption(): string | undefined {
         return this['switch_option'];
     }
-    public withPolicy(policy: Array<DiskAutoExpansionPolicy>): SetAutoPolicyRequestBody {
+    public withPolicy(policy: DiskAutoExpansionPolicy): SetAutoPolicyRequestBody {
         this['policy'] = policy;
         return this;
     }

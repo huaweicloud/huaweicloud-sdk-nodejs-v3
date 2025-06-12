@@ -6,6 +6,8 @@ export class ListPrivateModuleVersionsRequest {
     private 'module_id'?: string;
     private 'sort_key'?: Array<ListPrivateModuleVersionsRequestSortKeyEnum> | Array<string>;
     private 'sort_dir'?: Array<ListPrivateModuleVersionsRequestSortDirEnum> | Array<string>;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string, moduleName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['module_name'] = moduleName;
@@ -59,6 +61,14 @@ export class ListPrivateModuleVersionsRequest {
     }
     public get sortDir(): Array<ListPrivateModuleVersionsRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
+    }
+    public withMarker(marker: string): ListPrivateModuleVersionsRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListPrivateModuleVersionsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }
 

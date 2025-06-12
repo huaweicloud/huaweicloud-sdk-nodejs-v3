@@ -155,6 +155,8 @@ import { ListTopicProducersRequest } from './model/ListTopicProducersRequest';
 import { ListTopicProducersResponse } from './model/ListTopicProducersResponse';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
 import { MessagesEntity } from './model/MessagesEntity';
+import { ModifyConnectorTaskRequest } from './model/ModifyConnectorTaskRequest';
+import { ModifyConnectorTaskResponse } from './model/ModifyConnectorTaskResponse';
 import { ModifyInstanceConfig } from './model/ModifyInstanceConfig';
 import { ModifyInstanceConfigsReq } from './model/ModifyInstanceConfigsReq';
 import { ModifyInstanceConfigsRequest } from './model/ModifyInstanceConfigsRequest';
@@ -297,6 +299,7 @@ import { SmartConnectTaskReqSinkConfig } from './model/SmartConnectTaskReqSinkCo
 import { SmartConnectTaskReqSourceConfig } from './model/SmartConnectTaskReqSourceConfig';
 import { SmartConnectTaskRespSinkConfig } from './model/SmartConnectTaskRespSinkConfig';
 import { SmartConnectTaskRespSourceConfig } from './model/SmartConnectTaskRespSourceConfig';
+import { SmartConnectValidateEntity } from './model/SmartConnectValidateEntity';
 import { StopKafkaRebalanceLogTaskRequest } from './model/StopKafkaRebalanceLogTaskRequest';
 import { StopKafkaRebalanceLogTaskResponse } from './model/StopKafkaRebalanceLogTaskResponse';
 import { TagEntity } from './model/TagEntity';
@@ -335,6 +338,8 @@ import { UpdateTopicAccessPolicyResponse } from './model/UpdateTopicAccessPolicy
 import { UpdateTopicReplicaRequest } from './model/UpdateTopicReplicaRequest';
 import { UpdateTopicReplicaResponse } from './model/UpdateTopicReplicaResponse';
 import { UpdateUserReq } from './model/UpdateUserReq';
+import { ValidateConnectorConnectivityRequest } from './model/ValidateConnectorConnectivityRequest';
+import { ValidateConnectorConnectivityResponse } from './model/ValidateConnectorConnectivityResponse';
 
 export class KafkaClient {
     public static newBuilder(): ClientBuilder<KafkaClient> {
@@ -616,12 +621,12 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例提交创建topic级别的流控任务，若成功则返回流控任务的job_id。
+     * 该接口用于向Kafka实例提交创建Topic级别的流控任务，若成功则返回流控任务的job_id。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建topic流控配置
-     * @param {string} instanceId 实例ID。
+     * @summary 创建Topic流控配置
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {KafkaTopicQuota} createKafkaTopicQuotaBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -697,7 +702,7 @@ export class KafkaClient {
     /**
      * 创建实例。
      * 
-     * [该接口支持创建按需和包周期两种计费方式的实例。](tag:hws,hws_eu,hws_hk,ctc)
+     * [该接口支持创建按需和包周期两种计费方式的实例。](tag:hws,hws_eu,hws_hk,ctc,cmcc)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -817,12 +822,12 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例提交删除topic级别的流控任务，若成功则返回流控任务的job_id。
+     * 该接口用于向Kafka实例提交删除Topic级别的流控任务，若成功则返回流控任务的job_id。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除topic流控配置
-     * @param {string} instanceId 实例ID。
+     * @summary 删除Topic流控配置
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {KafkaTopicQuota} deleteKafkaTopicQuotaBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1017,10 +1022,10 @@ export class KafkaClient {
      * @param {string} instanceId 实例ID。
      * @param {string} group 消费组ID。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
-     * @param {number} [limit] 当次查询返回的最大topic个数，默认值为10，取值范围为1~50。
-     * @param {string} [sortKey] 排序规则： - topic：按topic名称排序。 - partition：按分区数排序。 - messages：按消息数量排序，默认方式。
+     * @param {number} [limit] 当次查询返回的最大Topic个数，默认值为10，取值范围为1~50。
+     * @param {string} [sortKey] 排序规则： - topic：按Topic名称排序。 - partition：按分区数排序。 - messages：按消息数量排序，默认方式。
      * @param {string} [sortDir] 排序方式。 - asc：升序。 - desc：降序，默认方式。
-     * @param {string} [topic] topic名称。
+     * @param {string} [topic] Topic名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1063,7 +1068,7 @@ export class KafkaClient {
      * @summary Kafka实例查询Topic
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
-     * @param {string} [limit] **参数解释**： 当次查询返回的最大实例个数。 **约束限制**： 不涉及。 **取值范围**： 1~50。 **默认取值**： 10。
+     * @param {string} [limit] **参数解释**： 当次查询返回的最大实例个数。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1214,12 +1219,12 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例提交修改topic级别的流控任务，若成功则返回流控任务的job_id。
+     * 该接口用于向Kafka实例提交修改Topic级别的流控任务，若成功则返回流控任务的job_id。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改topic流控配置
-     * @param {string} instanceId 实例ID。
+     * @summary 修改Topic流控配置
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {KafkaTopicQuota} modifyKafkaTopicQuotaBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1428,7 +1433,7 @@ export class KafkaClient {
      * @summary Kafka生产消息
      * @param {string} instanceId 实例ID
      * @param {string} actionId 动作ID，生产消息对应的action_id为send。
-     * @param {SendKafkaMessageRequestBody} sendKafkaMessageRequestBody 请求消息，请求体内容包括topic、partition和消息key，详情请参考schema。
+     * @param {SendKafkaMessageRequestBody} sendKafkaMessageRequestBody 请求消息，请求体内容包括Topic、partition和消息key，详情请参考schema。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1809,16 +1814,16 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于查询topic级别的流控任务。
+     * 该接口用于查询Topic级别的流控任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询topic流控配置
-     * @param {string} instanceId 实例ID。
-     * @param {string} [type] 查询类型，默认为topic。
-     * @param {string} [limit] 每一页显示的流控数量。
-     * @param {string} [offset] 页数。
-     * @param {string} [keyword] 查询关键字。
+     * @summary 查询Topic流控配置
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [type] **参数解释**： 查询类型。 **约束限制**： 查询类型必须以字母开头且只支持大小写字母、中横线、下划线以及数字。 **取值范围**： 默认为topic **默认取值**： topic
+     * @param {string} [limit] **参数解释**： 每一页显示的流控数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [offset] **参数解释**： 页数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [keyword] **参数解释**： 查询关键字。 **约束限制**： 查询关键字必须以字母开头且只支持大小写字母、中横线、下划线以及数字。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2060,11 +2065,11 @@ export class KafkaClient {
     }
 
     /**
-     * 开启或关闭实例自动创建topic功能。
+     * 开启或关闭实例自动创建Topic功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 开启或关闭实例自动创建topic功能
+     * @summary 开启或关闭实例自动创建Topic功能
      * @param {string} instanceId 实例ID。
      * @param {UpdateInstanceAutoCreateTopicReq} updateInstanceAutoCreateTopicRequestBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -2330,13 +2335,13 @@ export class KafkaClient {
     }
 
     /**
-     * 删除Smart Connector任务。
+     * 删除Smart Connect任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除Smart Connector任务
+     * @summary 删除Smart Connect任务
      * @param {string} instanceId 实例ID。
-     * @param {string} taskId Smart Connector任务ID。
+     * @param {string} taskId Smart Connect任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2363,6 +2368,27 @@ export class KafkaClient {
      */
     public listConnectorTasks(listConnectorTasksRequest?: ListConnectorTasksRequest): Promise<ListConnectorTasksResponse> {
         const options = ParamCreater().listConnectorTasks(listConnectorTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改Smart Connect任务配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Smart Connect任务配置。
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId 任务ID。
+     * @param {SmartConnectTaskEntity} modifyConnectorTaskBody 修改Smart Connect任务配置请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyConnectorTask(modifyConnectorTaskRequest?: ModifyConnectorTaskRequest): Promise<ModifyConnectorTaskResponse> {
+        const options = ParamCreater().modifyConnectorTask(modifyConnectorTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2451,18 +2477,38 @@ export class KafkaClient {
     }
 
     /**
-     * 查询Smart Connector任务详情。
+     * 查询Smart Connect任务详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Smart Connector任务详情
+     * @summary 查询Smart Connect任务详情
      * @param {string} instanceId 实例ID。
-     * @param {string} taskId Smart Connector任务ID。
+     * @param {string} taskId Smart Connect任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showConnectorTask(showConnectorTaskRequest?: ShowConnectorTaskRequest): Promise<ShowConnectorTaskResponse> {
         const options = ParamCreater().showConnectorTask(showConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 校验Connector连通性。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验Connector连通性
+     * @param {string} instanceId 实例ID。
+     * @param {SmartConnectValidateEntity} validateConnectorConnectivityBody 校验Connector连通性请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public validateConnectorConnectivity(validateConnectorConnectivityRequest?: ValidateConnectorConnectivityRequest): Promise<ValidateConnectorConnectivityResponse> {
+        const options = ParamCreater().validateConnectorConnectivity(validateConnectorConnectivityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3053,7 +3099,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例提交创建topic级别的流控任务，若成功则返回流控任务的job_id。
+         * 该接口用于向Kafka实例提交创建Topic级别的流控任务，若成功则返回流控任务的job_id。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3231,7 +3277,7 @@ export const ParamCreater = function () {
         /**
          * 创建实例。
          * 
-         * [该接口支持创建按需和包周期两种计费方式的实例。](tag:hws,hws_eu,hws_hk,ctc)
+         * [该接口支持创建按需和包周期两种计费方式的实例。](tag:hws,hws_eu,hws_hk,ctc,cmcc)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3502,7 +3548,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例提交删除topic级别的流控任务，若成功则返回流控任务的job_id。
+         * 该接口用于向Kafka实例提交删除Topic级别的流控任务，若成功则返回流控任务的job_id。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4530,7 +4576,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例提交修改topic级别的流控任务，若成功则返回流控任务的job_id。
+         * 该接口用于向Kafka实例提交修改Topic级别的流控任务，若成功则返回流控任务的job_id。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5911,7 +5957,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询topic级别的流控任务。
+         * 该接口用于查询Topic级别的流控任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6504,7 +6550,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 开启或关闭实例自动创建topic功能。
+         * 开启或关闭实例自动创建Topic功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7146,7 +7192,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除Smart Connector任务。
+         * 删除Smart Connect任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7237,6 +7283,59 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改Smart Connect任务配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyConnectorTask(modifyConnectorTaskRequest?: ModifyConnectorTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (modifyConnectorTaskRequest !== null && modifyConnectorTaskRequest !== undefined) {
+                if (modifyConnectorTaskRequest instanceof ModifyConnectorTaskRequest) {
+                    instanceId = modifyConnectorTaskRequest.instanceId;
+                    taskId = modifyConnectorTaskRequest.taskId;
+                    body = modifyConnectorTaskRequest.body
+                } else {
+                    instanceId = modifyConnectorTaskRequest['instance_id'];
+                    taskId = modifyConnectorTaskRequest['task_id'];
+                    body = modifyConnectorTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyConnectorTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling modifyConnectorTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7418,7 +7517,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Smart Connector任务详情。
+         * 查询Smart Connect任务详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7457,6 +7556,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验Connector连通性。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        validateConnectorConnectivity(validateConnectorConnectivityRequest?: ValidateConnectorConnectivityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/validate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (validateConnectorConnectivityRequest !== null && validateConnectorConnectivityRequest !== undefined) {
+                if (validateConnectorConnectivityRequest instanceof ValidateConnectorConnectivityRequest) {
+                    instanceId = validateConnectorConnectivityRequest.instanceId;
+                    body = validateConnectorConnectivityRequest.body
+                } else {
+                    instanceId = validateConnectorConnectivityRequest['instance_id'];
+                    body = validateConnectorConnectivityRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling validateConnectorConnectivity.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

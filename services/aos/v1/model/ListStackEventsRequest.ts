@@ -8,6 +8,8 @@ export class ListStackEventsRequest {
     private 'deployment_id'?: string;
     public filter?: string;
     public field?: string;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string, projectId?: string, stackName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -69,6 +71,14 @@ export class ListStackEventsRequest {
     }
     public withField(field: string): ListStackEventsRequest {
         this['field'] = field;
+        return this;
+    }
+    public withMarker(marker: string): ListStackEventsRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListStackEventsRequest {
+        this['limit'] = limit;
         return this;
     }
 }

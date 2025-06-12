@@ -119,6 +119,8 @@ import { ServersInfoType } from './model/ServersInfoType';
 import { ServersList } from './model/ServersList';
 import { ShowBaremetalServerInterfaceAttachmentsRequest } from './model/ShowBaremetalServerInterfaceAttachmentsRequest';
 import { ShowBaremetalServerInterfaceAttachmentsResponse } from './model/ShowBaremetalServerInterfaceAttachmentsResponse';
+import { ShowBaremetalServerMetadataOptionsRequest } from './model/ShowBaremetalServerMetadataOptionsRequest';
+import { ShowBaremetalServerMetadataOptionsResponse } from './model/ShowBaremetalServerMetadataOptionsResponse';
 import { ShowBaremetalServerTagsRequest } from './model/ShowBaremetalServerTagsRequest';
 import { ShowBaremetalServerTagsResponse } from './model/ShowBaremetalServerTagsResponse';
 import { ShowBaremetalServerVolumeInfoRequest } from './model/ShowBaremetalServerVolumeInfoRequest';
@@ -142,6 +144,9 @@ import { SystemTags } from './model/SystemTags';
 import { UpdateBaremetalServerInterfaceAttachmentsReq } from './model/UpdateBaremetalServerInterfaceAttachmentsReq';
 import { UpdateBaremetalServerInterfaceAttachmentsRequest } from './model/UpdateBaremetalServerInterfaceAttachmentsRequest';
 import { UpdateBaremetalServerInterfaceAttachmentsResponse } from './model/UpdateBaremetalServerInterfaceAttachmentsResponse';
+import { UpdateBaremetalServerMetadataOptionsRequest } from './model/UpdateBaremetalServerMetadataOptionsRequest';
+import { UpdateBaremetalServerMetadataOptionsRequestBody } from './model/UpdateBaremetalServerMetadataOptionsRequestBody';
+import { UpdateBaremetalServerMetadataOptionsResponse } from './model/UpdateBaremetalServerMetadataOptionsResponse';
 import { UpdateBaremetalServerMetadataReq } from './model/UpdateBaremetalServerMetadataReq';
 import { UpdateBaremetalServerMetadataRequest } from './model/UpdateBaremetalServerMetadataRequest';
 import { UpdateBaremetalServerMetadataResponse } from './model/UpdateBaremetalServerMetadataResponse';
@@ -587,6 +592,25 @@ export class BmsClient {
     }
 
     /**
+     * 查询云服务器元数据配置，通过本接口，您可以查询指裸金属服务器的元数据配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询裸金属服务器元数据配置
+     * @param {string} serverId 裸金属服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBaremetalServerMetadataOptions(showBaremetalServerMetadataOptionsRequest?: ShowBaremetalServerMetadataOptionsRequest): Promise<ShowBaremetalServerMetadataOptionsResponse> {
+        const options = ParamCreater().showBaremetalServerMetadataOptions(showBaremetalServerMetadataOptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 查询指定云服务器的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -732,6 +756,26 @@ export class BmsClient {
      */
     public updateBaremetalServerMetadata(updateBaremetalServerMetadataRequest?: UpdateBaremetalServerMetadataRequest): Promise<UpdateBaremetalServerMetadataResponse> {
         const options = ParamCreater().updateBaremetalServerMetadata(updateBaremetalServerMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新裸金属服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新裸金属服务器元数据配置
+     * @param {string} serverId 裸金属服务器ID。
+     * @param {UpdateBaremetalServerMetadataOptionsRequestBody} updateBaremetalServerMetadataOptionsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBaremetalServerMetadataOptions(updateBaremetalServerMetadataOptionsRequest?: UpdateBaremetalServerMetadataOptionsRequest): Promise<UpdateBaremetalServerMetadataOptionsResponse> {
+        const options = ParamCreater().updateBaremetalServerMetadataOptions(updateBaremetalServerMetadataOptionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1738,6 +1782,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询云服务器元数据配置，通过本接口，您可以查询指裸金属服务器的元数据配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBaremetalServerMetadataOptions(showBaremetalServerMetadataOptionsRequest?: ShowBaremetalServerMetadataOptionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/baremetalservers/{server_id}/metadata-options",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showBaremetalServerMetadataOptionsRequest !== null && showBaremetalServerMetadataOptionsRequest !== undefined) {
+                if (showBaremetalServerMetadataOptionsRequest instanceof ShowBaremetalServerMetadataOptionsRequest) {
+                    serverId = showBaremetalServerMetadataOptionsRequest.serverId;
+                } else {
+                    serverId = showBaremetalServerMetadataOptionsRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showBaremetalServerMetadataOptions.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 查询指定云服务器的标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2037,6 +2118,52 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateBaremetalServerMetadata.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新裸金属服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBaremetalServerMetadataOptions(updateBaremetalServerMetadataOptionsRequest?: UpdateBaremetalServerMetadataOptionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/baremetalservers/{server_id}/metadata-options",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+
+            if (updateBaremetalServerMetadataOptionsRequest !== null && updateBaremetalServerMetadataOptionsRequest !== undefined) {
+                if (updateBaremetalServerMetadataOptionsRequest instanceof UpdateBaremetalServerMetadataOptionsRequest) {
+                    serverId = updateBaremetalServerMetadataOptionsRequest.serverId;
+                    body = updateBaremetalServerMetadataOptionsRequest.body
+                } else {
+                    serverId = updateBaremetalServerMetadataOptionsRequest['server_id'];
+                    body = updateBaremetalServerMetadataOptionsRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateBaremetalServerMetadataOptions.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -5,7 +5,10 @@ export class AMQPUser {
     private 'access_key'?: string;
     private 'secret_key'?: string;
     public vhosts?: Array<AMQPUserPerm>;
-    public constructor() { 
+    public constructor(accessKey?: string, secretKey?: string, vhosts?: Array<AMQPUserPerm>) { 
+        this['access_key'] = accessKey;
+        this['secret_key'] = secretKey;
+        this['vhosts'] = vhosts;
     }
     public withAccessKey(accessKey: string): AMQPUser {
         this['access_key'] = accessKey;

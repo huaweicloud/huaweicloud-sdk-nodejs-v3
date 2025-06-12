@@ -4,6 +4,7 @@ import { TagRef } from './TagRef';
 
 export class DeviceResource {
     private 'device_name'?: ParameterRef;
+    private 'device_id'?: ParameterRef;
     private 'node_id'?: ParameterRef;
     private 'product_id'?: object;
     public tags?: Array<TagRef>;
@@ -20,6 +21,16 @@ export class DeviceResource {
     }
     public get deviceName(): ParameterRef | undefined {
         return this['device_name'];
+    }
+    public withDeviceId(deviceId: ParameterRef): DeviceResource {
+        this['device_id'] = deviceId;
+        return this;
+    }
+    public set deviceId(deviceId: ParameterRef  | undefined) {
+        this['device_id'] = deviceId;
+    }
+    public get deviceId(): ParameterRef | undefined {
+        return this['device_id'];
     }
     public withNodeId(nodeId: ParameterRef): DeviceResource {
         this['node_id'] = nodeId;

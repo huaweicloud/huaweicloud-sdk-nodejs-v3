@@ -5,6 +5,8 @@ export class ListStackOutputsRequest {
     private 'project_id'?: string;
     private 'stack_name'?: string;
     private 'stack_id'?: string;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string, projectId?: string, stackName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -49,5 +51,13 @@ export class ListStackOutputsRequest {
     }
     public get stackId(): string | undefined {
         return this['stack_id'];
+    }
+    public withMarker(marker: string): ListStackOutputsRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListStackOutputsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

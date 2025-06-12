@@ -354,6 +354,7 @@ export enum PostSourceServerBodyStateEnum {
     SYNCING = 'syncing',
     STOPPING = 'stopping',
     STOPPED = 'stopped',
+    SKIPPING = 'skipping',
     DELETING = 'deleting',
     ERROR = 'error',
     CLONING = 'cloning',

@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AddKeystorePermissionResponseBody } from './model/AddKeystorePermissionResponseBody';
 import { BuildInfoRecord } from './model/BuildInfoRecord';
 import { BuildInfoRecordCommitInfo } from './model/BuildInfoRecordCommitInfo';
+import { BuildParameter } from './model/BuildParameter';
 import { BuildParams } from './model/BuildParams';
 import { BuildParamsBodyResult } from './model/BuildParamsBodyResult';
 import { BuildRecord } from './model/BuildRecord';
@@ -12,6 +13,8 @@ import { BuildRecordBuildRecordType } from './model/BuildRecordBuildRecordType';
 import { BuildRecordParameters } from './model/BuildRecordParameters';
 import { BuildStageRecord } from './model/BuildStageRecord';
 import { BuildStep } from './model/BuildStep';
+import { CheckJobCountIsTopLimitRequest } from './model/CheckJobCountIsTopLimitRequest';
+import { CheckJobCountIsTopLimitResponse } from './model/CheckJobCountIsTopLimitResponse';
 import { CheckJobNameIsExistsRequest } from './model/CheckJobNameIsExistsRequest';
 import { CheckJobNameIsExistsResponse } from './model/CheckJobNameIsExistsResponse';
 import { Constraints } from './model/Constraints';
@@ -40,6 +43,8 @@ import { DisableNoticeRequest } from './model/DisableNoticeRequest';
 import { DisableNoticeResponse } from './model/DisableNoticeResponse';
 import { DownloadBuildLogRequest } from './model/DownloadBuildLogRequest';
 import { DownloadBuildLogResponse } from './model/DownloadBuildLogResponse';
+import { DownloadJunitCoverageZipRequest } from './model/DownloadJunitCoverageZipRequest';
+import { DownloadJunitCoverageZipResponse } from './model/DownloadJunitCoverageZipResponse';
 import { DownloadKeystoreByNameRequest } from './model/DownloadKeystoreByNameRequest';
 import { DownloadKeystoreByNameResponse } from './model/DownloadKeystoreByNameResponse';
 import { DownloadKeystoreRequest } from './model/DownloadKeystoreRequest';
@@ -57,18 +62,41 @@ import { FlowGraph2ResultEdges } from './model/FlowGraph2ResultEdges';
 import { FullStagesResult } from './model/FullStagesResult';
 import { HistoryRecord } from './model/HistoryRecord';
 import { HistoryRecord1 } from './model/HistoryRecord1';
+import { IsDisableResult } from './model/IsDisableResult';
 import { Job } from './model/Job';
+import { JobStatusBody } from './model/JobStatusBody';
+import { JobSummary } from './model/JobSummary';
+import { JobSummaryBodyResult } from './model/JobSummaryBodyResult';
+import { JobUpdateRecordListVoResult } from './model/JobUpdateRecordListVoResult';
+import { JobUpdateRecordListVoResultJobUpdateRecords } from './model/JobUpdateRecordListVoResultJobUpdateRecords';
 import { LimitsParam } from './model/LimitsParam';
 import { ListBuildInfoRecordBodyResult } from './model/ListBuildInfoRecordBodyResult';
 import { ListBuildInfoRecordByJobIdRequest } from './model/ListBuildInfoRecordByJobIdRequest';
 import { ListBuildInfoRecordByJobIdResponse } from './model/ListBuildInfoRecordByJobIdResponse';
 import { ListBuildInfoRecordRequest } from './model/ListBuildInfoRecordRequest';
 import { ListBuildInfoRecordResponse } from './model/ListBuildInfoRecordResponse';
+import { ListBuildParameterRequest } from './model/ListBuildParameterRequest';
+import { ListBuildParameterResponse } from './model/ListBuildParameterResponse';
+import { ListCustomTemplateRequest } from './model/ListCustomTemplateRequest';
+import { ListCustomTemplateResponse } from './model/ListCustomTemplateResponse';
 import { ListJobConfigRequest } from './model/ListJobConfigRequest';
 import { ListJobConfigResponse } from './model/ListJobConfigResponse';
+import { ListJobRequest } from './model/ListJobRequest';
+import { ListJobResponse } from './model/ListJobResponse';
+import { ListJobResult } from './model/ListJobResult';
+import { ListJobResultJobList } from './model/ListJobResultJobList';
+import { ListJunitCoverageSummaryRequest } from './model/ListJunitCoverageSummaryRequest';
+import { ListJunitCoverageSummaryResponse } from './model/ListJunitCoverageSummaryResponse';
+import { ListJunitCoverageSummaryResult } from './model/ListJunitCoverageSummaryResult';
+import { ListJunitCoverageSummaryResultUnitSummaryList } from './model/ListJunitCoverageSummaryResultUnitSummaryList';
 import { ListKeystoreRequest } from './model/ListKeystoreRequest';
 import { ListKeystoreResponse } from './model/ListKeystoreResponse';
 import { ListKeystoreResult } from './model/ListKeystoreResult';
+import { ListKeystoreSearchRequest } from './model/ListKeystoreSearchRequest';
+import { ListKeystoreSearchResponse } from './model/ListKeystoreSearchResponse';
+import { ListKeystoreSearchResponseBodyResult } from './model/ListKeystoreSearchResponseBodyResult';
+import { ListKeystoreSearchResponseBodyResultKeystoreList } from './model/ListKeystoreSearchResponseBodyResultKeystoreList';
+import { ListKeystoreSearchResponseBodyResultPermission } from './model/ListKeystoreSearchResponseBodyResultPermission';
 import { ListNoticeRequest } from './model/ListNoticeRequest';
 import { ListNoticeResponse } from './model/ListNoticeResponse';
 import { ListOfficialTemplateRequest } from './model/ListOfficialTemplateRequest';
@@ -86,13 +114,20 @@ import { ListRelatedProjectInfoRequest } from './model/ListRelatedProjectInfoReq
 import { ListRelatedProjectInfoResponse } from './model/ListRelatedProjectInfoResponse';
 import { ListRelatedProjectInfoResult } from './model/ListRelatedProjectInfoResult';
 import { ListRelatedProjectInfoResultProjectInfoList } from './model/ListRelatedProjectInfoResultProjectInfoList';
+import { ListRepoBranchRequest } from './model/ListRepoBranchRequest';
+import { ListRepoBranchResponse } from './model/ListRepoBranchResponse';
+import { ListRepositoryRequest } from './model/ListRepositoryRequest';
+import { ListRepositoryResponse } from './model/ListRepositoryResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
+import { ListUpdateJobHistoryRequest } from './model/ListUpdateJobHistoryRequest';
+import { ListUpdateJobHistoryResponse } from './model/ListUpdateJobHistoryResponse';
 import { OutPutInfoResult } from './model/OutPutInfoResult';
 import { OutPutResult } from './model/OutPutResult';
 import { Parameter } from './model/Parameter';
 import { ParameterItem } from './model/ParameterItem';
 import { Params } from './model/Params';
+import { QueryCustomTemplatesResult } from './model/QueryCustomTemplatesResult';
 import { QueryJobNoticeItems } from './model/QueryJobNoticeItems';
 import { QueryTemplate } from './model/QueryTemplate';
 import { QueryTemplatesItems } from './model/QueryTemplatesItems';
@@ -102,6 +137,7 @@ import { RecordInfo2Result } from './model/RecordInfo2Result';
 import { RecordInfoResult } from './model/RecordInfoResult';
 import { RecyclingJob } from './model/RecyclingJob';
 import { RecyclingJobsResult } from './model/RecyclingJobsResult';
+import { RepositoriesResult } from './model/RepositoriesResult';
 import { RunJobRequest } from './model/RunJobRequest';
 import { RunJobRequestBody } from './model/RunJobRequestBody';
 import { RunJobResponse } from './model/RunJobResponse';
@@ -112,14 +148,23 @@ import { ShowBuildParamsListRequest } from './model/ShowBuildParamsListRequest';
 import { ShowBuildParamsListResponse } from './model/ShowBuildParamsListResponse';
 import { ShowBuildRecordBuildScriptRequest } from './model/ShowBuildRecordBuildScriptRequest';
 import { ShowBuildRecordBuildScriptResponse } from './model/ShowBuildRecordBuildScriptResponse';
+import { ShowBuildRecordFlowGraphRequest } from './model/ShowBuildRecordFlowGraphRequest';
+import { ShowBuildRecordFlowGraphResponse } from './model/ShowBuildRecordFlowGraphResponse';
 import { ShowBuildRecordFullStagesRequest } from './model/ShowBuildRecordFullStagesRequest';
 import { ShowBuildRecordFullStagesResponse } from './model/ShowBuildRecordFullStagesResponse';
 import { ShowBuildRecordRequest } from './model/ShowBuildRecordRequest';
 import { ShowBuildRecordResponse } from './model/ShowBuildRecordResponse';
+import { ShowCopyNameRequest } from './model/ShowCopyNameRequest';
+import { ShowCopyNameResponse } from './model/ShowCopyNameResponse';
 import { ShowDefaultBuildParametersParams } from './model/ShowDefaultBuildParametersParams';
 import { ShowDefaultBuildParametersRequest } from './model/ShowDefaultBuildParametersRequest';
 import { ShowDefaultBuildParametersResponse } from './model/ShowDefaultBuildParametersResponse';
 import { ShowDefaultBuildParametersResult } from './model/ShowDefaultBuildParametersResult';
+import { ShowDefaultProjectPermissionRequest } from './model/ShowDefaultProjectPermissionRequest';
+import { ShowDefaultProjectPermissionResponse } from './model/ShowDefaultProjectPermissionResponse';
+import { ShowDefaultProjectPermissionResponseBodyResult } from './model/ShowDefaultProjectPermissionResponseBodyResult';
+import { ShowDisableRequest } from './model/ShowDisableRequest';
+import { ShowDisableResponse } from './model/ShowDisableResponse';
 import { ShowDockerfileTemplateRequest } from './model/ShowDockerfileTemplateRequest';
 import { ShowDockerfileTemplateResponse } from './model/ShowDockerfileTemplateResponse';
 import { ShowFlowGraphRequest } from './model/ShowFlowGraphRequest';
@@ -130,6 +175,8 @@ import { ShowImageTemplateListRequest } from './model/ShowImageTemplateListReque
 import { ShowImageTemplateListResponse } from './model/ShowImageTemplateListResponse';
 import { ShowImageTemplateListResponseBodyResult } from './model/ShowImageTemplateListResponseBodyResult';
 import { ShowImageTemplateListResponseBodyResultImageTemplates } from './model/ShowImageTemplateListResponseBodyResultImageTemplates';
+import { ShowJobBuildRecordDetailRequest } from './model/ShowJobBuildRecordDetailRequest';
+import { ShowJobBuildRecordDetailResponse } from './model/ShowJobBuildRecordDetailResponse';
 import { ShowJobBuildSuccessRatioRequest } from './model/ShowJobBuildSuccessRatioRequest';
 import { ShowJobBuildSuccessRatioResponse } from './model/ShowJobBuildSuccessRatioResponse';
 import { ShowJobBuildSuccessRatioResult } from './model/ShowJobBuildSuccessRatioResult';
@@ -154,10 +201,14 @@ import { ShowJobRolePermissionResponse } from './model/ShowJobRolePermissionResp
 import { ShowJobRolePermissionResult } from './model/ShowJobRolePermissionResult';
 import { ShowJobStatusRequest } from './model/ShowJobStatusRequest';
 import { ShowJobStatusResponse } from './model/ShowJobStatusResponse';
+import { ShowJobStepStatusRequest } from './model/ShowJobStepStatusRequest';
+import { ShowJobStepStatusResponse } from './model/ShowJobStepStatusResponse';
 import { ShowJobSuccessRatioRequest } from './model/ShowJobSuccessRatioRequest';
 import { ShowJobSuccessRatioResponse } from './model/ShowJobSuccessRatioResponse';
 import { ShowJobSystemParametersRequest } from './model/ShowJobSystemParametersRequest';
 import { ShowJobSystemParametersResponse } from './model/ShowJobSystemParametersResponse';
+import { ShowJobTotalRequest } from './model/ShowJobTotalRequest';
+import { ShowJobTotalResponse } from './model/ShowJobTotalResponse';
 import { ShowKeystorePermissionRequest } from './model/ShowKeystorePermissionRequest';
 import { ShowKeystorePermissionResponse } from './model/ShowKeystorePermissionResponse';
 import { ShowKeystorePermissionResponseBodyResult } from './model/ShowKeystorePermissionResponseBodyResult';
@@ -186,6 +237,11 @@ import { ShowReportSummaryResponse } from './model/ShowReportSummaryResponse';
 import { ShowRunningStatusRequest } from './model/ShowRunningStatusRequest';
 import { ShowRunningStatusResponse } from './model/ShowRunningStatusResponse';
 import { ShowRunningStatusResult } from './model/ShowRunningStatusResult';
+import { ShowSummaryBuildJobInfoRequest } from './model/ShowSummaryBuildJobInfoRequest';
+import { ShowSummaryBuildJobInfoResponse } from './model/ShowSummaryBuildJobInfoResponse';
+import { ShowUserOverPackageQuotaRequest } from './model/ShowUserOverPackageQuotaRequest';
+import { ShowUserOverPackageQuotaResponse } from './model/ShowUserOverPackageQuotaResponse';
+import { ShowUserOverPackageQuotaResult } from './model/ShowUserOverPackageQuotaResult';
 import { ShowUserProjectPermissionResult } from './model/ShowUserProjectPermissionResult';
 import { ShowYamlTemplateRequest } from './model/ShowYamlTemplateRequest';
 import { ShowYamlTemplateResponse } from './model/ShowYamlTemplateResponse';
@@ -196,6 +252,7 @@ import { StopJobRequestBody } from './model/StopJobRequestBody';
 import { StopJobResponse } from './model/StopJobResponse';
 import { SystemParametersResult } from './model/SystemParametersResult';
 import { TemplateList } from './model/TemplateList';
+import { TotalResponseBodyResult } from './model/TotalResponseBodyResult';
 import { UpdateBuildJobParameter } from './model/UpdateBuildJobParameter';
 import { UpdateBuildJobParameterParam } from './model/UpdateBuildJobParameterParam';
 import { UpdateBuildJobRequest } from './model/UpdateBuildJobRequest';
@@ -223,26 +280,6 @@ export class CodeArtsBuildClient {
         return __dirname;
     }
 
-
-    /**
-     * 查看项目下任务名是否存在
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看项目下任务名是否存在
-     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
-     * @param {string} jobName 任务名称
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkJobNameIsExists(checkJobNameIsExistsRequest?: CheckJobNameIsExistsRequest): Promise<CheckJobNameIsExistsResponse> {
-        const options = ParamCreater().checkJobNameIsExists(checkJobNameIsExistsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 
     /**
      * 创建构建任务
@@ -400,27 +437,6 @@ export class CodeArtsBuildClient {
     }
 
     /**
-     * 文件管理文件下载
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 文件管理文件下载
-     * @param {string} name 文件名
-     * @param {string} domainId 租户ID
-     * @param {string} id 文件ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public downloadKeystoreByName(downloadKeystoreByNameRequest?: DownloadKeystoreByNameRequest): Promise<DownloadKeystoreByNameResponse> {
-        const options = ParamCreater().downloadKeystoreByName(downloadKeystoreByNameRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 下载构建实时日志
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -506,29 +522,6 @@ export class CodeArtsBuildClient {
     }
 
     /**
-     * 获取任务构建记录列表v1
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取任务构建记录列表v1
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {string} startTime 区间开始时间，格式yyyy-MM-dd HH:mm:ss。
-     * @param {string} endTime 区间结束时间，格式yyyy-MM-dd HH:mm:ss。
-     * @param {number} [pageIndex] 分页页码，表示从此页开始查询， page_index大于等于0
-     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listBuildInfoRecordByJobId(listBuildInfoRecordByJobIdRequest?: ListBuildInfoRecordByJobIdRequest): Promise<ListBuildInfoRecordByJobIdResponse> {
-        const options = ParamCreater().listBuildInfoRecordByJobId(listBuildInfoRecordByJobIdRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 获取构建任务详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -549,24 +542,6 @@ export class CodeArtsBuildClient {
     }
 
     /**
-     * 查询用户可使用文件
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询用户可使用文件
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listKeystore(listKeystoreRequest?: ListKeystoreRequest): Promise<ListKeystoreResponse> {
-        const options = ParamCreater().listKeystore();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询通知
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -578,123 +553,6 @@ export class CodeArtsBuildClient {
      */
     public listNotice(listNoticeRequest?: ListNoticeRequest): Promise<ListNoticeResponse> {
         const options = ParamCreater().listNotice(listNoticeRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询官方模版
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询官方模版
-     * @param {string} [name] 检索的模板的名字模糊查询
-     * @param {string} [page] 分页页码， 表示从此页开始查询
-     * @param {string} [pageSize] 每页显示的条目数量，page_size小于等于100
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listOfficialTemplate(listOfficialTemplateRequest?: ListOfficialTemplateRequest): Promise<ListOfficialTemplateResponse> {
-        const options = ParamCreater().listOfficialTemplate(listOfficialTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询项目任务列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询项目任务列表
-     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
-     * @param {number} pageIndex **参数解释**： 分页页码， 表示从此页开始查询。 **约束限制**： 不涉及。 **取值范围**： 只能使用数字，大于等于0。
-     * @param {number} pageSize **参数解释**： 每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 只能使用数字，小于等于100。
-     * @param {string} [search] 查询条件
-     * @param {string} [sortField] 排序的字段
-     * @param {string} [sortOrder] 排序顺序
-     * @param {string} [creatorId] 创建人ID
-     * @param {string} [buildStatus] 构建状态过滤条件
-     * @param {boolean} [byGroup] 是否分组
-     * @param {string} [groupPathId] 分组ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProjectJobs(listProjectJobsRequest?: ListProjectJobsRequest): Promise<ListProjectJobsResponse> {
-        const options = ParamCreater().listProjectJobs(listProjectJobsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定工程的构建记录列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取指定工程的构建记录列表
-     * @param {string} buildProjectId 构建工程项目ID，36位数字、小写字母组合。
-     * @param {number} [page] 分页页码，表示从此页开始查询，大于等于0
-     * @param {number} [limit] 每页显示的条目数量，小于等于100
-     * @param {Array<string>} [triggers] 需要搜索的触发类型列表
-     * @param {Array<string>} [branches] 需要搜索的分支列表
-     * @param {Array<string>} [tags] 需要搜索的标签列表
-     * @param {string} [fromDate] 查询起止时间,格式：yyyy-MM-dd HH:mm:ss
-     * @param {string} [toDate] 查询结束时间,格式：yyyy-MM-dd HH:mm:ss
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listRecords(listRecordsRequest?: ListRecordsRequest): Promise<ListRecordsResponse> {
-        const options = ParamCreater().listRecords(listRecordsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看回收站中删除的构建任务列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看回收站中删除的构建任务列表
-     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
-     * @param {number} [pageNo] 分页页码， 表示从此页开始查询， page_no大于等于1
-     * @param {string} [search] 搜索的任务名称
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listRecyclingJob(listRecyclingJobRequest?: ListRecyclingJobRequest): Promise<ListRecyclingJobResponse> {
-        const options = ParamCreater().listRecyclingJob(listRecyclingJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取项目列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取项目列表
-     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
-     * @param {number} [pageNo] 分页页码，表示从此页开始查询， page大于等于1
-     * @param {string} [search] 搜索内容
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listRelatedProjectInfo(listRelatedProjectInfoRequest?: ListRelatedProjectInfoRequest): Promise<ListRelatedProjectInfoResponse> {
-        const options = ParamCreater().listRelatedProjectInfo(listRelatedProjectInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -743,139 +601,6 @@ export class CodeArtsBuildClient {
     }
 
     /**
-     * 获取任务构建记录列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取任务构建记录列表
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBuildInfoRecord(showBuildInfoRecordRequest?: ShowBuildInfoRecordRequest): Promise<ShowBuildInfoRecordResponse> {
-        const options = ParamCreater().showBuildInfoRecord(showBuildInfoRecordRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 编辑页获取参数类型的接口
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 编辑页获取参数类型的接口
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBuildParamsList(showBuildParamsListRequest?: ShowBuildParamsListRequest): Promise<ShowBuildParamsListResponse> {
-        const options = ParamCreater().showBuildParamsList();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定构建记录详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定构建记录详情
-     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBuildRecord(showBuildRecordRequest?: ShowBuildRecordRequest): Promise<ShowBuildRecordResponse> {
-        const options = ParamCreater().showBuildRecord(showBuildRecordRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取构建记录的构建脚本
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取构建记录的构建脚本
-     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBuildRecordBuildScript(showBuildRecordBuildScriptRequest?: ShowBuildRecordBuildScriptRequest): Promise<ShowBuildRecordBuildScriptResponse> {
-        const options = ParamCreater().showBuildRecordBuildScript(showBuildRecordBuildScriptRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取任务各阶段信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取任务各阶段信息
-     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
-     * @param {boolean} [cascade] 是否联级获取steps
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBuildRecordFullStages(showBuildRecordFullStagesRequest?: ShowBuildRecordFullStagesRequest): Promise<ShowBuildRecordFullStagesResponse> {
-        const options = ParamCreater().showBuildRecordFullStages(showBuildRecordFullStagesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取编译构建默认参数
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取编译构建默认参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showDefaultBuildParameters(showDefaultBuildParametersRequest?: ShowDefaultBuildParametersRequest): Promise<ShowDefaultBuildParametersResponse> {
-        const options = ParamCreater().showDefaultBuildParameters();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取dockerfileTemplate
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取dockerfileTemplate
-     * @param {string} imageId 请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showDockerfileTemplate(showDockerfileTemplateRequest?: ShowDockerfileTemplateRequest): Promise<ShowDockerfileTemplateResponse> {
-        const options = ParamCreater().showDockerfileTemplate(showDockerfileTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 获取构建历史详情信息接口
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -888,128 +613,6 @@ export class CodeArtsBuildClient {
      */
     public showHistoryDetails(showHistoryDetailsRequest?: ShowHistoryDetailsRequest): Promise<ShowHistoryDetailsResponse> {
         const options = ParamCreater().showHistoryDetails(showHistoryDetailsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取镜像模板列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取镜像模板列表
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showImageTemplateList(showImageTemplateListRequest?: ShowImageTemplateListRequest): Promise<ShowImageTemplateListResponse> {
-        const options = ParamCreater().showImageTemplateList();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询构建成功率
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询构建成功率
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {string} repositoryName 代码仓名称。
-     * @param {number} interval 查询时间，查最近几天的。
-     * @param {string} [branch] 代码仓分支名。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobBuildSuccessRatio(showJobBuildSuccessRatioRequest?: ShowJobBuildSuccessRatioRequest): Promise<ShowJobBuildSuccessRatioResponse> {
-        const options = ParamCreater().showJobBuildSuccessRatio(showJobBuildSuccessRatioRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 洞察构建时长
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 洞察构建时长
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {string} repositoryName 代码仓名称。
-     * @param {number} interval 查询时间，查最近几天的。
-     * @param {string} [branch] 代码仓分支名。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobBuildTime(showJobBuildTimeRequest?: ShowJobBuildTimeRequest): Promise<ShowJobBuildTimeResponse> {
-        const options = ParamCreater().showJobBuildTime(showJobBuildTimeRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取构建任务详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取构建任务详情
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {string} [getAllParams] 输入\&quot;true\&quot;或者\&quot;false\&quot;来控制返回参数是不是完整的
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobConfig(showJobConfigRequest?: ShowJobConfigRequest): Promise<ShowJobConfigResponse> {
-        const options = ParamCreater().showJobConfig(showJobConfigRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取构建任务配置的对比差异
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取构建任务配置的对比差异
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {string} revisedlNo 新记录的序号
-     * @param {string} originalNo 原记录的序号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobConfigDiff(showJobConfigDiffRequest?: ShowJobConfigDiffRequest): Promise<ShowJobConfigDiffResponse> {
-        const options = ParamCreater().showJobConfigDiff(showJobConfigDiffRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看构建任务构建信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看构建任务构建信息
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobInfo(showJobInfoRequest?: ShowJobInfoRequest): Promise<ShowJobInfoResponse> {
-        const options = ParamCreater().showJobInfo(showJobInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1031,44 +634,6 @@ export class CodeArtsBuildClient {
      */
     public showJobListByProjectId(showJobListByProjectIdRequest?: ShowJobListByProjectIdRequest): Promise<ShowJobListByProjectIdResponse> {
         const options = ParamCreater().showJobListByProjectId(showJobListByProjectIdRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取通知信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取通知信息
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobNoticeConfigInfo(showJobNoticeConfigInfoRequest?: ShowJobNoticeConfigInfoRequest): Promise<ShowJobNoticeConfigInfoResponse> {
-        const options = ParamCreater().showJobNoticeConfigInfo(showJobNoticeConfigInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取构建任务的角色权限矩阵信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取构建任务的角色权限矩阵信息
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobRolePermission(showJobRolePermissionRequest?: ShowJobRolePermissionRequest): Promise<ShowJobRolePermissionResponse> {
-        const options = ParamCreater().showJobRolePermission(showJobRolePermissionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1109,45 +674,6 @@ export class CodeArtsBuildClient {
      */
     public showJobSuccessRatio(showJobSuccessRatioRequest?: ShowJobSuccessRatioRequest): Promise<ShowJobSuccessRatioResponse> {
         const options = ParamCreater().showJobSuccessRatio(showJobSuccessRatioRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看系统预定义参数
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看系统预定义参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobSystemParameters(showJobSystemParametersRequest?: ShowJobSystemParametersRequest): Promise<ShowJobSystemParametersResponse> {
-        const options = ParamCreater().showJobSystemParameters();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 文件管理查询权限
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 文件管理查询权限
-     * @param {string} keystoreId 文件秘钥Id
-     * @param {number} pageSize **参数解释**： 每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 只能使用数字，小于等于100。
-     * @param {string} page 分页页码，表示从此页开始查询，page大于等于1
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showKeystorePermission(showKeystorePermissionRequest?: ShowKeystorePermissionRequest): Promise<ShowKeystorePermissionResponse> {
-        const options = ParamCreater().showKeystorePermission(showKeystorePermissionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1241,25 +767,6 @@ export class CodeArtsBuildClient {
     }
 
     /**
-     * 获取用户权限
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取用户权限
-     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showProjectPermission(showProjectPermissionRequest?: ShowProjectPermissionRequest): Promise<ShowProjectPermissionResponse> {
-        const options = ParamCreater().showProjectPermission(showProjectPermissionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 获取构建记录信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1272,83 +779,6 @@ export class CodeArtsBuildClient {
      */
     public showRecordDetail(showRecordDetailRequest?: ShowRecordDetailRequest): Promise<ShowRecordDetailResponse> {
         const options = ParamCreater().showRecordDetail(showRecordDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取当前用户的项目信息列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取当前用户的项目信息列表
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showRelatedProject(showRelatedProjectRequest?: ShowRelatedProjectRequest): Promise<ShowRelatedProjectResponse> {
-        const options = ParamCreater().showRelatedProject();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取覆盖率接口
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取覆盖率接口
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showReportSummary(showReportSummaryRequest?: ShowReportSummaryRequest): Promise<ShowReportSummaryResponse> {
-        const options = ParamCreater().showReportSummary(showReportSummaryRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看任务是否在构建
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看任务是否在构建
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showRunningStatus(showRunningStatusRequest?: ShowRunningStatusRequest): Promise<ShowRunningStatusResponse> {
-        const options = ParamCreater().showRunningStatus(showRunningStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取代码化构建默认模板
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取代码化构建默认模板
-     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
-     * @param {string} [defaultHost] 默认主机类型
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showYamlTemplate(showYamlTemplateRequest?: ShowYamlTemplateRequest): Promise<ShowYamlTemplateResponse> {
-        const options = ParamCreater().showYamlTemplate(showYamlTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1408,6 +838,614 @@ export class CodeArtsBuildClient {
      */
     public updateNotice(updateNoticeRequest?: UpdateNoticeRequest): Promise<UpdateNoticeResponse> {
         const options = ParamCreater().updateNotice(updateNoticeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目列表
+     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {number} [pageNo] 分页页码，表示从此页开始查询， page大于等于1
+     * @param {string} [search] 搜索内容
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRelatedProjectInfo(listRelatedProjectInfoRequest?: ListRelatedProjectInfoRequest): Promise<ListRelatedProjectInfoResponse> {
+        const options = ParamCreater().listRelatedProjectInfo(listRelatedProjectInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取用户权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取用户权限
+     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectPermission(showProjectPermissionRequest?: ShowProjectPermissionRequest): Promise<ShowProjectPermissionResponse> {
+        const options = ParamCreater().showProjectPermission(showProjectPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前用户的项目信息列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前用户的项目信息列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRelatedProject(showRelatedProjectRequest?: ShowRelatedProjectRequest): Promise<ShowRelatedProjectResponse> {
+        const options = ParamCreater().showRelatedProject();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取租户任务总数和成功率接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取租户任务总数和成功率接口
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSummaryBuildJobInfo(showSummaryBuildJobInfoRequest?: ShowSummaryBuildJobInfoRequest): Promise<ShowSummaryBuildJobInfoResponse> {
+        const options = ParamCreater().showSummaryBuildJobInfo();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当前用户所在项目所属租户的包周期每月时长是否超额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 当前用户所在项目所属租户的包周期每月时长是否超额
+     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUserOverPackageQuota(showUserOverPackageQuotaRequest?: ShowUserOverPackageQuotaRequest): Promise<ShowUserOverPackageQuotaResponse> {
+        const options = ParamCreater().showUserOverPackageQuota(showUserOverPackageQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取dockerfileTemplate
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取dockerfileTemplate
+     * @param {string} imageId 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDockerfileTemplate(showDockerfileTemplateRequest?: ShowDockerfileTemplateRequest): Promise<ShowDockerfileTemplateResponse> {
+        const options = ParamCreater().showDockerfileTemplate(showDockerfileTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像模板列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showImageTemplateList(showImageTemplateListRequest?: ShowImageTemplateListRequest): Promise<ShowImageTemplateListResponse> {
+        const options = ParamCreater().showImageTemplateList();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检查任务数量是否上限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检查任务数量是否上限
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkJobCountIsTopLimit(checkJobCountIsTopLimitRequest?: CheckJobCountIsTopLimitRequest): Promise<CheckJobCountIsTopLimitResponse> {
+        const options = ParamCreater().checkJobCountIsTopLimit();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看项目下任务名是否存在
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看项目下任务名是否存在
+     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
+     * @param {string} jobName 任务名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkJobNameIsExists(checkJobNameIsExistsRequest?: CheckJobNameIsExistsRequest): Promise<CheckJobNameIsExistsResponse> {
+        const options = ParamCreater().checkJobNameIsExists(checkJobNameIsExistsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 详情页获取构建参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 详情页获取构建参数
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBuildParameter(listBuildParameterRequest?: ListBuildParameterRequest): Promise<ListBuildParameterResponse> {
+        const options = ParamCreater().listBuildParameter(listBuildParameterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看用户全部的构建任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看用户全部的构建任务列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJob(listJobRequest?: ListJobRequest): Promise<ListJobResponse> {
+        const options = ParamCreater().listJob();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目任务列表
+     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
+     * @param {number} pageIndex **参数解释**： 分页页码， 表示从此页开始查询。 **约束限制**： 不涉及。 **取值范围**： 只能使用数字，大于等于0。
+     * @param {number} pageSize **参数解释**： 每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 只能使用数字，小于等于100。
+     * @param {string} [search] 查询条件
+     * @param {string} [sortField] 排序的字段
+     * @param {string} [sortOrder] 排序顺序
+     * @param {string} [creatorId] 创建人ID
+     * @param {string} [buildStatus] 构建状态过滤条件
+     * @param {boolean} [byGroup] 是否分组
+     * @param {string} [groupPathId] 分组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectJobs(listProjectJobsRequest?: ListProjectJobsRequest): Promise<ListProjectJobsResponse> {
+        const options = ParamCreater().listProjectJobs(listProjectJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看回收站中删除的构建任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看回收站中删除的构建任务列表
+     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {number} [pageNo] 分页页码， 表示从此页开始查询， page_no大于等于1
+     * @param {string} [search] 搜索的任务名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRecyclingJob(listRecyclingJobRequest?: ListRecyclingJobRequest): Promise<ListRecyclingJobResponse> {
+        const options = ParamCreater().listRecyclingJob(listRecyclingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取修改历史
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取修改历史
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} [pageNo] 分页页码， 表示从此页开始查询， page_no大于等于1
+     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpdateJobHistory(listUpdateJobHistoryRequest?: ListUpdateJobHistoryRequest): Promise<ListUpdateJobHistoryResponse> {
+        const options = ParamCreater().listUpdateJobHistory(listUpdateJobHistoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 编辑页获取参数类型的接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑页获取参数类型的接口
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuildParamsList(showBuildParamsListRequest?: ShowBuildParamsListRequest): Promise<ShowBuildParamsListResponse> {
+        const options = ParamCreater().showBuildParamsList();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 复制任务名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制任务名
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCopyName(showCopyNameRequest?: ShowCopyNameRequest): Promise<ShowCopyNameResponse> {
+        const options = ParamCreater().showCopyName(showCopyNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取编译构建默认参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取编译构建默认参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDefaultBuildParameters(showDefaultBuildParametersRequest?: ShowDefaultBuildParametersRequest): Promise<ShowDefaultBuildParametersResponse> {
+        const options = ParamCreater().showDefaultBuildParameters();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前项目默认角色权限矩阵信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前项目默认角色权限矩阵信息
+     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDefaultProjectPermission(showDefaultProjectPermissionRequest?: ShowDefaultProjectPermissionRequest): Promise<ShowDefaultProjectPermissionResponse> {
+        const options = ParamCreater().showDefaultProjectPermission(showDefaultProjectPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务是否已禁用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务是否已禁用
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDisable(showDisableRequest?: ShowDisableRequest): Promise<ShowDisableResponse> {
+        const options = ParamCreater().showDisable(showDisableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取构建任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建任务详情
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} [getAllParams] 输入\&quot;true\&quot;或者\&quot;false\&quot;来控制返回参数是不是完整的
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobConfig(showJobConfigRequest?: ShowJobConfigRequest): Promise<ShowJobConfigResponse> {
+        const options = ParamCreater().showJobConfig(showJobConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取构建任务配置的对比差异
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建任务配置的对比差异
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} revisedlNo 新记录的序号
+     * @param {string} originalNo 原记录的序号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobConfigDiff(showJobConfigDiffRequest?: ShowJobConfigDiffRequest): Promise<ShowJobConfigDiffResponse> {
+        const options = ParamCreater().showJobConfigDiff(showJobConfigDiffRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看构建任务构建信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看构建任务构建信息
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobInfo(showJobInfoRequest?: ShowJobInfoRequest): Promise<ShowJobInfoResponse> {
+        const options = ParamCreater().showJobInfo(showJobInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取通知信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取通知信息
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobNoticeConfigInfo(showJobNoticeConfigInfoRequest?: ShowJobNoticeConfigInfoRequest): Promise<ShowJobNoticeConfigInfoResponse> {
+        const options = ParamCreater().showJobNoticeConfigInfo(showJobNoticeConfigInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取构建任务的角色权限矩阵信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建任务的角色权限矩阵信息
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobRolePermission(showJobRolePermissionRequest?: ShowJobRolePermissionRequest): Promise<ShowJobRolePermissionResponse> {
+        const options = ParamCreater().showJobRolePermission(showJobRolePermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务状态
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} [buildNo] 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobStepStatus(showJobStepStatusRequest?: ShowJobStepStatusRequest): Promise<ShowJobStepStatusResponse> {
+        const options = ParamCreater().showJobStepStatus(showJobStepStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看系统预定义参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看系统预定义参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobSystemParameters(showJobSystemParametersRequest?: ShowJobSystemParametersRequest): Promise<ShowJobSystemParametersResponse> {
+        const options = ParamCreater().showJobSystemParameters();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看任务是否在构建
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看任务是否在构建
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRunningStatus(showRunningStatusRequest?: ShowRunningStatusRequest): Promise<ShowRunningStatusResponse> {
+        const options = ParamCreater().showRunningStatus(showRunningStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 文件管理文件下载
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 文件管理文件下载
+     * @param {string} name 文件名
+     * @param {string} domainId 租户ID
+     * @param {string} id 文件ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadKeystoreByName(downloadKeystoreByNameRequest?: DownloadKeystoreByNameRequest): Promise<DownloadKeystoreByNameResponse> {
+        const options = ParamCreater().downloadKeystoreByName(downloadKeystoreByNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户可使用文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户可使用文件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKeystore(listKeystoreRequest?: ListKeystoreRequest): Promise<ListKeystoreResponse> {
+        const options = ParamCreater().listKeystore();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户下文件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户下文件列表
+     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {number} [page] 分页页码，表示从此页开始查询， page大于等于1
+     * @param {string} [search] 搜索的文件名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKeystoreSearch(listKeystoreSearchRequest?: ListKeystoreSearchRequest): Promise<ListKeystoreSearchResponse> {
+        const options = ParamCreater().listKeystoreSearch(listKeystoreSearchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 文件管理查询权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 文件管理查询权限
+     * @param {string} keystoreId 文件秘钥Id
+     * @param {number} pageSize **参数解释**： 每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 只能使用数字，小于等于100。
+     * @param {string} page 分页页码，表示从此页开始查询，page大于等于1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKeystorePermission(showKeystorePermissionRequest?: ShowKeystorePermissionRequest): Promise<ShowKeystorePermissionResponse> {
+        const options = ParamCreater().showKeystorePermission(showKeystorePermissionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1491,60 +1529,405 @@ export class CodeArtsBuildClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 获取任务构建记录列表v1
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务构建记录列表v1
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} startTime 区间开始时间，格式yyyy-MM-dd HH:mm:ss。
+     * @param {string} endTime 区间结束时间，格式yyyy-MM-dd HH:mm:ss。
+     * @param {number} [pageIndex] 分页页码，表示从此页开始查询， page_index大于等于0
+     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBuildInfoRecordByJobId(listBuildInfoRecordByJobIdRequest?: ListBuildInfoRecordByJobIdRequest): Promise<ListBuildInfoRecordByJobIdResponse> {
+        const options = ParamCreater().listBuildInfoRecordByJobId(listBuildInfoRecordByJobIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定工程的构建记录列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定工程的构建记录列表
+     * @param {string} buildProjectId 构建工程项目ID，36位数字、小写字母组合。
+     * @param {number} [page] 分页页码，表示从此页开始查询，大于等于0
+     * @param {number} [limit] 每页显示的条目数量，小于等于100
+     * @param {Array<string>} [triggers] 需要搜索的触发类型列表
+     * @param {Array<string>} [branches] 需要搜索的分支列表
+     * @param {Array<string>} [tags] 需要搜索的标签列表
+     * @param {string} [fromDate] 查询起止时间,格式：yyyy-MM-dd HH:mm:ss
+     * @param {string} [toDate] 查询结束时间,格式：yyyy-MM-dd HH:mm:ss
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRecords(listRecordsRequest?: ListRecordsRequest): Promise<ListRecordsResponse> {
+        const options = ParamCreater().listRecords(listRecordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取任务构建记录列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务构建记录列表
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuildInfoRecord(showBuildInfoRecordRequest?: ShowBuildInfoRecordRequest): Promise<ShowBuildInfoRecordResponse> {
+        const options = ParamCreater().showBuildInfoRecord(showBuildInfoRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定构建记录详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定构建记录详情
+     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuildRecord(showBuildRecordRequest?: ShowBuildRecordRequest): Promise<ShowBuildRecordResponse> {
+        const options = ParamCreater().showBuildRecord(showBuildRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取构建记录的构建脚本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建记录的构建脚本
+     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuildRecordBuildScript(showBuildRecordBuildScriptRequest?: ShowBuildRecordBuildScriptRequest): Promise<ShowBuildRecordBuildScriptResponse> {
+        const options = ParamCreater().showBuildRecordBuildScript(showBuildRecordBuildScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取构建记录的有向无环图
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建记录的有向无环图
+     * @param {string} buildFlowRecordId 父任务构建记录ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuildRecordFlowGraph(showBuildRecordFlowGraphRequest?: ShowBuildRecordFlowGraphRequest): Promise<ShowBuildRecordFlowGraphResponse> {
+        const options = ParamCreater().showBuildRecordFlowGraph(showBuildRecordFlowGraphRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取任务各阶段信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务各阶段信息
+     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
+     * @param {boolean} [cascade] 是否联级获取steps
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuildRecordFullStages(showBuildRecordFullStagesRequest?: ShowBuildRecordFullStagesRequest): Promise<ShowBuildRecordFullStagesResponse> {
+        const options = ParamCreater().showBuildRecordFullStages(showBuildRecordFullStagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取构建记录信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建记录信息
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobBuildRecordDetail(showJobBuildRecordDetailRequest?: ShowJobBuildRecordDetailRequest): Promise<ShowJobBuildRecordDetailResponse> {
+        const options = ParamCreater().showJobBuildRecordDetail(showJobBuildRecordDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 构建历史页获取构建次数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 构建历史页获取构建次数
+     * @param {string} buildProjectId 构建工程项目ID，36位数字、小写字母组合。
+     * @param {string} [fromDate] 区间开始时间，格式yyyy-MM-dd HH:mm:ss。
+     * @param {string} [toDate] 区间结束时间，格式yyyy-MM-dd HH:mm:ss。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobTotal(showJobTotalRequest?: ShowJobTotalRequest): Promise<ShowJobTotalResponse> {
+        const options = ParamCreater().showJobTotal(showJobTotalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取单元测试覆盖率报告压缩包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取单元测试覆盖率报告压缩包
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {string} rootId 资源ID，下载覆盖率报告时使用
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadJunitCoverageZip(downloadJunitCoverageZipRequest?: DownloadJunitCoverageZipRequest): Promise<DownloadJunitCoverageZipResponse> {
+        const options = ParamCreater().downloadJunitCoverageZip(downloadJunitCoverageZipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取单元测试覆盖率报告列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取单元测试覆盖率报告列表
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJunitCoverageSummary(listJunitCoverageSummaryRequest?: ListJunitCoverageSummaryRequest): Promise<ListJunitCoverageSummaryResponse> {
+        const options = ParamCreater().listJunitCoverageSummary(listJunitCoverageSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取该任务所有分支信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取该任务所有分支信息
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} repositoryName 代码仓库名，不支持中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepoBranch(listRepoBranchRequest?: ListRepoBranchRequest): Promise<ListRepoBranchResponse> {
+        const options = ParamCreater().listRepoBranch(listRepoBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看仓库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看仓库
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepository(listRepositoryRequest?: ListRepositoryRequest): Promise<ListRepositoryResponse> {
+        const options = ParamCreater().listRepository(listRepositoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询构建成功率
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询构建成功率
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} repositoryName 代码仓名称。
+     * @param {number} interval 查询时间，查最近几天的。
+     * @param {string} [branch] 代码仓分支名。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobBuildSuccessRatio(showJobBuildSuccessRatioRequest?: ShowJobBuildSuccessRatioRequest): Promise<ShowJobBuildSuccessRatioResponse> {
+        const options = ParamCreater().showJobBuildSuccessRatio(showJobBuildSuccessRatioRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 洞察构建时长
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 洞察构建时长
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} repositoryName 代码仓名称。
+     * @param {number} interval 查询时间，查最近几天的。
+     * @param {string} [branch] 代码仓分支名。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobBuildTime(showJobBuildTimeRequest?: ShowJobBuildTimeRequest): Promise<ShowJobBuildTimeResponse> {
+        const options = ParamCreater().showJobBuildTime(showJobBuildTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取覆盖率接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取覆盖率接口
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showReportSummary(showReportSummaryRequest?: ShowReportSummaryRequest): Promise<ShowReportSummaryResponse> {
+        const options = ParamCreater().showReportSummary(showReportSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据条件查询特定模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据条件查询特定模板
+     * @param {string} [name] 名称
+     * @param {string} [filter] 过滤条件
+     * @param {number} [page] 分页页码，表示从此页开始查询，page大于等于1
+     * @param {number} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {string} [tags] 构建状态过滤条件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomTemplate(listCustomTemplateRequest?: ListCustomTemplateRequest): Promise<ListCustomTemplateResponse> {
+        const options = ParamCreater().listCustomTemplate(listCustomTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询官方模版
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询官方模版
+     * @param {string} [name] 检索的模板的名字模糊查询
+     * @param {string} [page] 分页页码， 表示从此页开始查询
+     * @param {string} [pageSize] 每页显示的条目数量，page_size小于等于100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOfficialTemplate(listOfficialTemplateRequest?: ListOfficialTemplateRequest): Promise<ListOfficialTemplateResponse> {
+        const options = ParamCreater().listOfficialTemplate(listOfficialTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码化构建默认模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码化构建默认模板
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {string} [defaultHost] 默认主机类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showYamlTemplate(showYamlTemplateRequest?: ShowYamlTemplateRequest): Promise<ShowYamlTemplateResponse> {
+        const options = ParamCreater().showYamlTemplate(showYamlTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
-    
-        /**
-         * 查看项目下任务名是否存在
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkJobNameIsExists(checkJobNameIsExistsRequest?: CheckJobNameIsExistsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/check/exist",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let projectId;
-            
-            let jobName;
-
-            if (checkJobNameIsExistsRequest !== null && checkJobNameIsExistsRequest !== undefined) {
-                if (checkJobNameIsExistsRequest instanceof CheckJobNameIsExistsRequest) {
-                    projectId = checkJobNameIsExistsRequest.projectId;
-                    jobName = checkJobNameIsExistsRequest.jobName;
-                } else {
-                    projectId = checkJobNameIsExistsRequest['project_id'];
-                    jobName = checkJobNameIsExistsRequest['job_name'];
-                }
-            }
-
-        
-            if (projectId === null || projectId === undefined) {
-                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkJobNameIsExists.');
-            }
-            if (projectId !== null && projectId !== undefined) {
-                localVarQueryParameter['project_id'] = projectId;
-            }
-            if (jobName === null || jobName === undefined) {
-                throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling checkJobNameIsExists.');
-            }
-            if (jobName !== null && jobName !== undefined) {
-                localVarQueryParameter['job_name'] = jobName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
     
         /**
          * 创建构建任务
@@ -1877,66 +2260,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 文件管理文件下载
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        downloadKeystoreByName(downloadKeystoreByNameRequest?: DownloadKeystoreByNameRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/keystore/download",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let name;
-            
-            let domainId;
-            
-            let id;
-
-            if (downloadKeystoreByNameRequest !== null && downloadKeystoreByNameRequest !== undefined) {
-                if (downloadKeystoreByNameRequest instanceof DownloadKeystoreByNameRequest) {
-                    name = downloadKeystoreByNameRequest.name;
-                    domainId = downloadKeystoreByNameRequest.domainId;
-                    id = downloadKeystoreByNameRequest.id;
-                } else {
-                    name = downloadKeystoreByNameRequest['name'];
-                    domainId = downloadKeystoreByNameRequest['domain_id'];
-                    id = downloadKeystoreByNameRequest['id'];
-                }
-            }
-
-        
-            if (name === null || name === undefined) {
-                throw new RequiredError('name','Required parameter name was null or undefined when calling downloadKeystoreByName.');
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling downloadKeystoreByName.');
-            }
-            if (domainId !== null && domainId !== undefined) {
-                localVarQueryParameter['domain_id'] = domainId;
-            }
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling downloadKeystoreByName.');
-            }
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 下载构建实时日志
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2163,78 +2486,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取任务构建记录列表v1
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listBuildInfoRecordByJobId(listBuildInfoRecordByJobIdRequest?: ListBuildInfoRecordByJobIdRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/record/{job_id}/list",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let startTime;
-            
-            let endTime;
-            
-            let pageIndex;
-            
-            let pageSize;
-
-            if (listBuildInfoRecordByJobIdRequest !== null && listBuildInfoRecordByJobIdRequest !== undefined) {
-                if (listBuildInfoRecordByJobIdRequest instanceof ListBuildInfoRecordByJobIdRequest) {
-                    jobId = listBuildInfoRecordByJobIdRequest.jobId;
-                    startTime = listBuildInfoRecordByJobIdRequest.startTime;
-                    endTime = listBuildInfoRecordByJobIdRequest.endTime;
-                    pageIndex = listBuildInfoRecordByJobIdRequest.pageIndex;
-                    pageSize = listBuildInfoRecordByJobIdRequest.pageSize;
-                } else {
-                    jobId = listBuildInfoRecordByJobIdRequest['job_id'];
-                    startTime = listBuildInfoRecordByJobIdRequest['start_time'];
-                    endTime = listBuildInfoRecordByJobIdRequest['end_time'];
-                    pageIndex = listBuildInfoRecordByJobIdRequest['page_index'];
-                    pageSize = listBuildInfoRecordByJobIdRequest['page_size'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listBuildInfoRecordByJobId.');
-            }
-            if (startTime === null || startTime === undefined) {
-                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listBuildInfoRecordByJobId.');
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime === null || endTime === undefined) {
-                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listBuildInfoRecordByJobId.');
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-            if (pageIndex !== null && pageIndex !== undefined) {
-                localVarQueryParameter['page_index'] = pageIndex;
-            }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 获取构建任务详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2280,27 +2531,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户可使用文件
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listKeystore() {
-            const options = {
-                method: "GET",
-                url: "/v2/keystore/name",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询通知
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2333,353 +2563,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询官方模版
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listOfficialTemplate(listOfficialTemplateRequest?: ListOfficialTemplateRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/template/officialtemplates",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let name;
-            
-            let page;
-            
-            let pageSize;
-
-            if (listOfficialTemplateRequest !== null && listOfficialTemplateRequest !== undefined) {
-                if (listOfficialTemplateRequest instanceof ListOfficialTemplateRequest) {
-                    name = listOfficialTemplateRequest.name;
-                    page = listOfficialTemplateRequest.page;
-                    pageSize = listOfficialTemplateRequest.pageSize;
-                } else {
-                    name = listOfficialTemplateRequest['name'];
-                    page = listOfficialTemplateRequest['page'];
-                    pageSize = listOfficialTemplateRequest['page_size'];
-                }
-            }
-
-        
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (page !== null && page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询项目任务列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listProjectJobs(listProjectJobsRequest?: ListProjectJobsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/{project_id}/list",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let projectId;
-            
-            let pageIndex;
-            
-            let pageSize;
-            
-            let search;
-            
-            let sortField;
-            
-            let sortOrder;
-            
-            let creatorId;
-            
-            let buildStatus;
-            
-            let byGroup;
-            
-            let groupPathId;
-
-            if (listProjectJobsRequest !== null && listProjectJobsRequest !== undefined) {
-                if (listProjectJobsRequest instanceof ListProjectJobsRequest) {
-                    projectId = listProjectJobsRequest.projectId;
-                    pageIndex = listProjectJobsRequest.pageIndex;
-                    pageSize = listProjectJobsRequest.pageSize;
-                    search = listProjectJobsRequest.search;
-                    sortField = listProjectJobsRequest.sortField;
-                    sortOrder = listProjectJobsRequest.sortOrder;
-                    creatorId = listProjectJobsRequest.creatorId;
-                    buildStatus = listProjectJobsRequest.buildStatus;
-                    byGroup = listProjectJobsRequest.byGroup;
-                    groupPathId = listProjectJobsRequest.groupPathId;
-                } else {
-                    projectId = listProjectJobsRequest['project_id'];
-                    pageIndex = listProjectJobsRequest['page_index'];
-                    pageSize = listProjectJobsRequest['page_size'];
-                    search = listProjectJobsRequest['search'];
-                    sortField = listProjectJobsRequest['sort_field'];
-                    sortOrder = listProjectJobsRequest['sort_order'];
-                    creatorId = listProjectJobsRequest['creator_id'];
-                    buildStatus = listProjectJobsRequest['build_status'];
-                    byGroup = listProjectJobsRequest['by_group'];
-                    groupPathId = listProjectJobsRequest['group_path_id'];
-                }
-            }
-
-        
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectJobs.');
-            }
-            if (pageIndex === null || pageIndex === undefined) {
-                throw new RequiredError('pageIndex','Required parameter pageIndex was null or undefined when calling listProjectJobs.');
-            }
-            if (pageIndex !== null && pageIndex !== undefined) {
-                localVarQueryParameter['page_index'] = pageIndex;
-            }
-            if (pageSize === null || pageSize === undefined) {
-                throw new RequiredError('pageSize','Required parameter pageSize was null or undefined when calling listProjectJobs.');
-            }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-            if (sortField !== null && sortField !== undefined) {
-                localVarQueryParameter['sort_field'] = sortField;
-            }
-            if (sortOrder !== null && sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
-            }
-            if (creatorId !== null && creatorId !== undefined) {
-                localVarQueryParameter['creator_id'] = creatorId;
-            }
-            if (buildStatus !== null && buildStatus !== undefined) {
-                localVarQueryParameter['build_status'] = buildStatus;
-            }
-            if (byGroup !== null && byGroup !== undefined) {
-                localVarQueryParameter['by_group'] = byGroup;
-            }
-            if (groupPathId !== null && groupPathId !== undefined) {
-                localVarQueryParameter['group_path_id'] = groupPathId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'project_id': projectId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定工程的构建记录列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listRecords(listRecordsRequest?: ListRecordsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/record/{build_project_id}/records",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let buildProjectId;
-            
-            let page;
-            
-            let limit;
-            
-            let triggers;
-            
-            let branches;
-            
-            let tags;
-            
-            let fromDate;
-            
-            let toDate;
-
-            if (listRecordsRequest !== null && listRecordsRequest !== undefined) {
-                if (listRecordsRequest instanceof ListRecordsRequest) {
-                    buildProjectId = listRecordsRequest.buildProjectId;
-                    page = listRecordsRequest.page;
-                    limit = listRecordsRequest.limit;
-                    triggers = listRecordsRequest.triggers;
-                    branches = listRecordsRequest.branches;
-                    tags = listRecordsRequest.tags;
-                    fromDate = listRecordsRequest.fromDate;
-                    toDate = listRecordsRequest.toDate;
-                } else {
-                    buildProjectId = listRecordsRequest['build_project_id'];
-                    page = listRecordsRequest['page'];
-                    limit = listRecordsRequest['limit'];
-                    triggers = listRecordsRequest['triggers'];
-                    branches = listRecordsRequest['branches'];
-                    tags = listRecordsRequest['tags'];
-                    fromDate = listRecordsRequest['from_date'];
-                    toDate = listRecordsRequest['to_date'];
-                }
-            }
-
-        
-            if (buildProjectId === null || buildProjectId === undefined) {
-            throw new RequiredError('buildProjectId','Required parameter buildProjectId was null or undefined when calling listRecords.');
-            }
-            if (page !== null && page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (triggers !== null && triggers !== undefined) {
-                localVarQueryParameter['triggers'] = triggers;
-            }
-            if (branches !== null && branches !== undefined) {
-                localVarQueryParameter['branches'] = branches;
-            }
-            if (tags !== null && tags !== undefined) {
-                localVarQueryParameter['tags'] = tags;
-            }
-            if (fromDate !== null && fromDate !== undefined) {
-                localVarQueryParameter['from_date'] = fromDate;
-            }
-            if (toDate !== null && toDate !== undefined) {
-                localVarQueryParameter['to_date'] = toDate;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'build_project_id': buildProjectId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查看回收站中删除的构建任务列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listRecyclingJob(listRecyclingJobRequest?: ListRecyclingJobRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/recycling-jobs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let pageSize;
-            
-            let pageNo;
-            
-            let search;
-
-            if (listRecyclingJobRequest !== null && listRecyclingJobRequest !== undefined) {
-                if (listRecyclingJobRequest instanceof ListRecyclingJobRequest) {
-                    pageSize = listRecyclingJobRequest.pageSize;
-                    pageNo = listRecyclingJobRequest.pageNo;
-                    search = listRecyclingJobRequest.search;
-                } else {
-                    pageSize = listRecyclingJobRequest['page_size'];
-                    pageNo = listRecyclingJobRequest['page_no'];
-                    search = listRecyclingJobRequest['search'];
-                }
-            }
-
-        
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-            if (pageNo !== null && pageNo !== undefined) {
-                localVarQueryParameter['page_no'] = pageNo;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取项目列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listRelatedProjectInfo(listRelatedProjectInfoRequest?: ListRelatedProjectInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/domain/project/related-page",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let pageSize;
-            
-            let pageNo;
-            
-            let search;
-
-            if (listRelatedProjectInfoRequest !== null && listRelatedProjectInfoRequest !== undefined) {
-                if (listRelatedProjectInfoRequest instanceof ListRelatedProjectInfoRequest) {
-                    pageSize = listRelatedProjectInfoRequest.pageSize;
-                    pageNo = listRelatedProjectInfoRequest.pageNo;
-                    search = listRelatedProjectInfoRequest.search;
-                } else {
-                    pageSize = listRelatedProjectInfoRequest['page_size'];
-                    pageNo = listRelatedProjectInfoRequest['page_no'];
-                    search = listRelatedProjectInfoRequest['search'];
-                }
-            }
-
-        
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-            if (pageNo !== null && pageNo !== undefined) {
-                localVarQueryParameter['page_no'] = pageNo;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2774,251 +2657,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取任务构建记录列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBuildInfoRecord(showBuildInfoRecordRequest?: ShowBuildInfoRecordRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/record/{job_id}/{build_no}/build-info-record",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-            
-            let buildNo;
-
-            if (showBuildInfoRecordRequest !== null && showBuildInfoRecordRequest !== undefined) {
-                if (showBuildInfoRecordRequest instanceof ShowBuildInfoRecordRequest) {
-                    jobId = showBuildInfoRecordRequest.jobId;
-                    buildNo = showBuildInfoRecordRequest.buildNo;
-                } else {
-                    jobId = showBuildInfoRecordRequest['job_id'];
-                    buildNo = showBuildInfoRecordRequest['build_no'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showBuildInfoRecord.');
-            }
-            if (buildNo === null || buildNo === undefined) {
-            throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling showBuildInfoRecord.');
-            }
-
-            options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 编辑页获取参数类型的接口
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBuildParamsList() {
-            const options = {
-                method: "GET",
-                url: "/v1/job/build-params",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定构建记录详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBuildRecord(showBuildRecordRequest?: ShowBuildRecordRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/record/{record_id}/info",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let recordId;
-
-            if (showBuildRecordRequest !== null && showBuildRecordRequest !== undefined) {
-                if (showBuildRecordRequest instanceof ShowBuildRecordRequest) {
-                    recordId = showBuildRecordRequest.recordId;
-                } else {
-                    recordId = showBuildRecordRequest['record_id'];
-                }
-            }
-
-        
-            if (recordId === null || recordId === undefined) {
-            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showBuildRecord.');
-            }
-
-            options.pathParams = { 'record_id': recordId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取构建记录的构建脚本
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBuildRecordBuildScript(showBuildRecordBuildScriptRequest?: ShowBuildRecordBuildScriptRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/record/{record_id}/build-script",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let recordId;
-
-            if (showBuildRecordBuildScriptRequest !== null && showBuildRecordBuildScriptRequest !== undefined) {
-                if (showBuildRecordBuildScriptRequest instanceof ShowBuildRecordBuildScriptRequest) {
-                    recordId = showBuildRecordBuildScriptRequest.recordId;
-                } else {
-                    recordId = showBuildRecordBuildScriptRequest['record_id'];
-                }
-            }
-
-        
-            if (recordId === null || recordId === undefined) {
-            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showBuildRecordBuildScript.');
-            }
-
-            options.pathParams = { 'record_id': recordId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取任务各阶段信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBuildRecordFullStages(showBuildRecordFullStagesRequest?: ShowBuildRecordFullStagesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/record/{record_id}/full-stages",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let recordId;
-            
-            let cascade;
-
-            if (showBuildRecordFullStagesRequest !== null && showBuildRecordFullStagesRequest !== undefined) {
-                if (showBuildRecordFullStagesRequest instanceof ShowBuildRecordFullStagesRequest) {
-                    recordId = showBuildRecordFullStagesRequest.recordId;
-                    cascade = showBuildRecordFullStagesRequest.cascade;
-                } else {
-                    recordId = showBuildRecordFullStagesRequest['record_id'];
-                    cascade = showBuildRecordFullStagesRequest['cascade'];
-                }
-            }
-
-        
-            if (recordId === null || recordId === undefined) {
-            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showBuildRecordFullStages.');
-            }
-            if (cascade !== null && cascade !== undefined) {
-                localVarQueryParameter['cascade'] = cascade;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'record_id': recordId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取编译构建默认参数
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showDefaultBuildParameters() {
-            const options = {
-                method: "GET",
-                url: "/v1/job/default-parameters",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取dockerfileTemplate
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showDockerfileTemplate(showDockerfileTemplateRequest?: ShowDockerfileTemplateRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/image/dockerfile-template",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let imageId;
-
-            if (showDockerfileTemplateRequest !== null && showDockerfileTemplateRequest !== undefined) {
-                if (showDockerfileTemplateRequest instanceof ShowDockerfileTemplateRequest) {
-                    imageId = showDockerfileTemplateRequest.imageId;
-                } else {
-                    imageId = showDockerfileTemplateRequest['image_id'];
-                }
-            }
-
-        
-            if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling showDockerfileTemplate.');
-            }
-            if (imageId !== null && imageId !== undefined) {
-                localVarQueryParameter['image_id'] = imageId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 获取构建历史详情信息接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3058,301 +2696,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId,'build_number': buildNumber, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取镜像模板列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showImageTemplateList() {
-            const options = {
-                method: "GET",
-                url: "/v1/image/templates",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询构建成功率
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobBuildSuccessRatio(showJobBuildSuccessRatioRequest?: ShowJobBuildSuccessRatioRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/report/ratio",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let repositoryName;
-            
-            let interval;
-            
-            let branch;
-
-            if (showJobBuildSuccessRatioRequest !== null && showJobBuildSuccessRatioRequest !== undefined) {
-                if (showJobBuildSuccessRatioRequest instanceof ShowJobBuildSuccessRatioRequest) {
-                    jobId = showJobBuildSuccessRatioRequest.jobId;
-                    repositoryName = showJobBuildSuccessRatioRequest.repositoryName;
-                    interval = showJobBuildSuccessRatioRequest.interval;
-                    branch = showJobBuildSuccessRatioRequest.branch;
-                } else {
-                    jobId = showJobBuildSuccessRatioRequest['job_id'];
-                    repositoryName = showJobBuildSuccessRatioRequest['repository_name'];
-                    interval = showJobBuildSuccessRatioRequest['interval'];
-                    branch = showJobBuildSuccessRatioRequest['branch'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobBuildSuccessRatio.');
-            }
-            if (jobId !== null && jobId !== undefined) {
-                localVarQueryParameter['job_id'] = jobId;
-            }
-            if (repositoryName === null || repositoryName === undefined) {
-                throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showJobBuildSuccessRatio.');
-            }
-            if (repositoryName !== null && repositoryName !== undefined) {
-                localVarQueryParameter['repository_name'] = repositoryName;
-            }
-            if (interval === null || interval === undefined) {
-                throw new RequiredError('interval','Required parameter interval was null or undefined when calling showJobBuildSuccessRatio.');
-            }
-            if (interval !== null && interval !== undefined) {
-                localVarQueryParameter['interval'] = interval;
-            }
-            if (branch !== null && branch !== undefined) {
-                localVarQueryParameter['branch'] = branch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 洞察构建时长
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobBuildTime(showJobBuildTimeRequest?: ShowJobBuildTimeRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/report/time",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let repositoryName;
-            
-            let interval;
-            
-            let branch;
-
-            if (showJobBuildTimeRequest !== null && showJobBuildTimeRequest !== undefined) {
-                if (showJobBuildTimeRequest instanceof ShowJobBuildTimeRequest) {
-                    jobId = showJobBuildTimeRequest.jobId;
-                    repositoryName = showJobBuildTimeRequest.repositoryName;
-                    interval = showJobBuildTimeRequest.interval;
-                    branch = showJobBuildTimeRequest.branch;
-                } else {
-                    jobId = showJobBuildTimeRequest['job_id'];
-                    repositoryName = showJobBuildTimeRequest['repository_name'];
-                    interval = showJobBuildTimeRequest['interval'];
-                    branch = showJobBuildTimeRequest['branch'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobBuildTime.');
-            }
-            if (jobId !== null && jobId !== undefined) {
-                localVarQueryParameter['job_id'] = jobId;
-            }
-            if (repositoryName === null || repositoryName === undefined) {
-                throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showJobBuildTime.');
-            }
-            if (repositoryName !== null && repositoryName !== undefined) {
-                localVarQueryParameter['repository_name'] = repositoryName;
-            }
-            if (interval === null || interval === undefined) {
-                throw new RequiredError('interval','Required parameter interval was null or undefined when calling showJobBuildTime.');
-            }
-            if (interval !== null && interval !== undefined) {
-                localVarQueryParameter['interval'] = interval;
-            }
-            if (branch !== null && branch !== undefined) {
-                localVarQueryParameter['branch'] = branch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取构建任务详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobConfig(showJobConfigRequest?: ShowJobConfigRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/{job_id}/config",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let getAllParams;
-
-            if (showJobConfigRequest !== null && showJobConfigRequest !== undefined) {
-                if (showJobConfigRequest instanceof ShowJobConfigRequest) {
-                    jobId = showJobConfigRequest.jobId;
-                    getAllParams = showJobConfigRequest.getAllParams;
-                } else {
-                    jobId = showJobConfigRequest['job_id'];
-                    getAllParams = showJobConfigRequest['get_all_params'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobConfig.');
-            }
-            if (getAllParams !== null && getAllParams !== undefined) {
-                localVarQueryParameter['get_all_params'] = getAllParams;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取构建任务配置的对比差异
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobConfigDiff(showJobConfigDiffRequest?: ShowJobConfigDiffRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/{job_id}/diff",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let revisedlNo;
-            
-            let originalNo;
-
-            if (showJobConfigDiffRequest !== null && showJobConfigDiffRequest !== undefined) {
-                if (showJobConfigDiffRequest instanceof ShowJobConfigDiffRequest) {
-                    jobId = showJobConfigDiffRequest.jobId;
-                    revisedlNo = showJobConfigDiffRequest.revisedlNo;
-                    originalNo = showJobConfigDiffRequest.originalNo;
-                } else {
-                    jobId = showJobConfigDiffRequest['job_id'];
-                    revisedlNo = showJobConfigDiffRequest['revisedl_no'];
-                    originalNo = showJobConfigDiffRequest['original_no'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobConfigDiff.');
-            }
-            if (revisedlNo === null || revisedlNo === undefined) {
-                throw new RequiredError('revisedlNo','Required parameter revisedlNo was null or undefined when calling showJobConfigDiff.');
-            }
-            if (revisedlNo !== null && revisedlNo !== undefined) {
-                localVarQueryParameter['revisedl_no'] = revisedlNo;
-            }
-            if (originalNo === null || originalNo === undefined) {
-                throw new RequiredError('originalNo','Required parameter originalNo was null or undefined when calling showJobConfigDiff.');
-            }
-            if (originalNo !== null && originalNo !== undefined) {
-                localVarQueryParameter['original_no'] = originalNo;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查看构建任务构建信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobInfo(showJobInfoRequest?: ShowJobInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/{job_id}/info",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-
-            if (showJobInfoRequest !== null && showJobInfoRequest !== undefined) {
-                if (showJobInfoRequest instanceof ShowJobInfoRequest) {
-                    jobId = showJobInfoRequest.jobId;
-                } else {
-                    jobId = showJobInfoRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobInfo.');
-            }
-
-            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3411,83 +2754,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取通知信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobNoticeConfigInfo(showJobNoticeConfigInfoRequest?: ShowJobNoticeConfigInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/{job_id}/notice",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-
-            if (showJobNoticeConfigInfoRequest !== null && showJobNoticeConfigInfoRequest !== undefined) {
-                if (showJobNoticeConfigInfoRequest instanceof ShowJobNoticeConfigInfoRequest) {
-                    jobId = showJobNoticeConfigInfoRequest.jobId;
-                } else {
-                    jobId = showJobNoticeConfigInfoRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobNoticeConfigInfo.');
-            }
-
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取构建任务的角色权限矩阵信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobRolePermission(showJobRolePermissionRequest?: ShowJobRolePermissionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/permission/role",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-
-            if (showJobRolePermissionRequest !== null && showJobRolePermissionRequest !== undefined) {
-                if (showJobRolePermissionRequest instanceof ShowJobRolePermissionRequest) {
-                    jobId = showJobRolePermissionRequest.jobId;
-                } else {
-                    jobId = showJobRolePermissionRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobRolePermission.');
-            }
-            if (jobId !== null && jobId !== undefined) {
-                localVarQueryParameter['job_id'] = jobId;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3583,85 +2849,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查看系统预定义参数
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobSystemParameters() {
-            const options = {
-                method: "GET",
-                url: "/v1/job/system-parameters",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 文件管理查询权限
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showKeystorePermission(showKeystorePermissionRequest?: ShowKeystorePermissionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/keystore/permission/{keystore_id}/query",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let keystoreId;
-            
-            let pageSize;
-            
-            let page;
-
-            if (showKeystorePermissionRequest !== null && showKeystorePermissionRequest !== undefined) {
-                if (showKeystorePermissionRequest instanceof ShowKeystorePermissionRequest) {
-                    keystoreId = showKeystorePermissionRequest.keystoreId;
-                    pageSize = showKeystorePermissionRequest.pageSize;
-                    page = showKeystorePermissionRequest.page;
-                } else {
-                    keystoreId = showKeystorePermissionRequest['keystore_id'];
-                    pageSize = showKeystorePermissionRequest['page_size'];
-                    page = showKeystorePermissionRequest['page'];
-                }
-            }
-
-        
-            if (keystoreId === null || keystoreId === undefined) {
-            throw new RequiredError('keystoreId','Required parameter keystoreId was null or undefined when calling showKeystorePermission.');
-            }
-            if (pageSize === null || pageSize === undefined) {
-                throw new RequiredError('pageSize','Required parameter pageSize was null or undefined when calling showKeystorePermission.');
-            }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-            if (page === null || page === undefined) {
-                throw new RequiredError('page','Required parameter page was null or undefined when calling showKeystorePermission.');
-            }
-            if (page !== null && page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'keystore_id': keystoreId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3905,46 +3092,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取用户权限
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showProjectPermission(showProjectPermissionRequest?: ShowProjectPermissionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/domain/user-permission",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let projectId;
-
-            if (showProjectPermissionRequest !== null && showProjectPermissionRequest !== undefined) {
-                if (showProjectPermissionRequest instanceof ShowProjectPermissionRequest) {
-                    projectId = showProjectPermissionRequest.projectId;
-                } else {
-                    projectId = showProjectPermissionRequest['project_id'];
-                }
-            }
-
-        
-            if (projectId === null || projectId === undefined) {
-                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectPermission.');
-            }
-            if (projectId !== null && projectId !== undefined) {
-                localVarQueryParameter['project_id'] = projectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 获取构建记录信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3984,157 +3131,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取当前用户的项目信息列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showRelatedProject() {
-            const options = {
-                method: "GET",
-                url: "/v1/domain/project/related",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取覆盖率接口
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showReportSummary(showReportSummaryRequest?: ShowReportSummaryRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/report/{job_id}/summary",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let buildNo;
-
-            if (showReportSummaryRequest !== null && showReportSummaryRequest !== undefined) {
-                if (showReportSummaryRequest instanceof ShowReportSummaryRequest) {
-                    jobId = showReportSummaryRequest.jobId;
-                    buildNo = showReportSummaryRequest.buildNo;
-                } else {
-                    jobId = showReportSummaryRequest['job_id'];
-                    buildNo = showReportSummaryRequest['build_no'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showReportSummary.');
-            }
-            if (buildNo === null || buildNo === undefined) {
-                throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling showReportSummary.');
-            }
-            if (buildNo !== null && buildNo !== undefined) {
-                localVarQueryParameter['build_no'] = buildNo;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查看任务是否在构建
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showRunningStatus(showRunningStatusRequest?: ShowRunningStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/job/{job_id}/running-status",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-
-            if (showRunningStatusRequest !== null && showRunningStatusRequest !== undefined) {
-                if (showRunningStatusRequest instanceof ShowRunningStatusRequest) {
-                    jobId = showRunningStatusRequest.jobId;
-                } else {
-                    jobId = showRunningStatusRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showRunningStatus.');
-            }
-
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取代码化构建默认模板
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showYamlTemplate(showYamlTemplateRequest?: ShowYamlTemplateRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/template/{job_id}/default-template",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let jobId;
-            
-            let defaultHost;
-
-            if (showYamlTemplateRequest !== null && showYamlTemplateRequest !== undefined) {
-                if (showYamlTemplateRequest instanceof ShowYamlTemplateRequest) {
-                    jobId = showYamlTemplateRequest.jobId;
-                    defaultHost = showYamlTemplateRequest.defaultHost;
-                } else {
-                    jobId = showYamlTemplateRequest['job_id'];
-                    defaultHost = showYamlTemplateRequest['default_host'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showYamlTemplate.');
-            }
-            if (defaultHost !== null && defaultHost !== undefined) {
-                localVarQueryParameter['default_host'] = defaultHost;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4263,6 +3259,1262 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRelatedProjectInfo(listRelatedProjectInfoRequest?: ListRelatedProjectInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/domain/project/related-page",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageSize;
+            
+            let pageNo;
+            
+            let search;
+
+            if (listRelatedProjectInfoRequest !== null && listRelatedProjectInfoRequest !== undefined) {
+                if (listRelatedProjectInfoRequest instanceof ListRelatedProjectInfoRequest) {
+                    pageSize = listRelatedProjectInfoRequest.pageSize;
+                    pageNo = listRelatedProjectInfoRequest.pageNo;
+                    search = listRelatedProjectInfoRequest.search;
+                } else {
+                    pageSize = listRelatedProjectInfoRequest['page_size'];
+                    pageNo = listRelatedProjectInfoRequest['page_no'];
+                    search = listRelatedProjectInfoRequest['search'];
+                }
+            }
+
+        
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取用户权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectPermission(showProjectPermissionRequest?: ShowProjectPermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/domain/user-permission",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+
+            if (showProjectPermissionRequest !== null && showProjectPermissionRequest !== undefined) {
+                if (showProjectPermissionRequest instanceof ShowProjectPermissionRequest) {
+                    projectId = showProjectPermissionRequest.projectId;
+                } else {
+                    projectId = showProjectPermissionRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectPermission.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前用户的项目信息列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRelatedProject() {
+            const options = {
+                method: "GET",
+                url: "/v1/domain/project/related",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取租户任务总数和成功率接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSummaryBuildJobInfo() {
+            const options = {
+                method: "GET",
+                url: "/v1/domain/job-summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当前用户所在项目所属租户的包周期每月时长是否超额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUserOverPackageQuota(showUserOverPackageQuotaRequest?: ShowUserOverPackageQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/domain/package/quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+
+            if (showUserOverPackageQuotaRequest !== null && showUserOverPackageQuotaRequest !== undefined) {
+                if (showUserOverPackageQuotaRequest instanceof ShowUserOverPackageQuotaRequest) {
+                    projectId = showUserOverPackageQuotaRequest.projectId;
+                } else {
+                    projectId = showUserOverPackageQuotaRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showUserOverPackageQuota.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取dockerfileTemplate
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDockerfileTemplate(showDockerfileTemplateRequest?: ShowDockerfileTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/image/dockerfile-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let imageId;
+
+            if (showDockerfileTemplateRequest !== null && showDockerfileTemplateRequest !== undefined) {
+                if (showDockerfileTemplateRequest instanceof ShowDockerfileTemplateRequest) {
+                    imageId = showDockerfileTemplateRequest.imageId;
+                } else {
+                    imageId = showDockerfileTemplateRequest['image_id'];
+                }
+            }
+
+        
+            if (imageId === null || imageId === undefined) {
+                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling showDockerfileTemplate.');
+            }
+            if (imageId !== null && imageId !== undefined) {
+                localVarQueryParameter['image_id'] = imageId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showImageTemplateList() {
+            const options = {
+                method: "GET",
+                url: "/v1/image/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检查任务数量是否上限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkJobCountIsTopLimit() {
+            const options = {
+                method: "GET",
+                url: "/v1/job/check/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看项目下任务名是否存在
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkJobNameIsExists(checkJobNameIsExistsRequest?: CheckJobNameIsExistsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/check/exist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let jobName;
+
+            if (checkJobNameIsExistsRequest !== null && checkJobNameIsExistsRequest !== undefined) {
+                if (checkJobNameIsExistsRequest instanceof CheckJobNameIsExistsRequest) {
+                    projectId = checkJobNameIsExistsRequest.projectId;
+                    jobName = checkJobNameIsExistsRequest.jobName;
+                } else {
+                    projectId = checkJobNameIsExistsRequest['project_id'];
+                    jobName = checkJobNameIsExistsRequest['job_name'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkJobNameIsExists.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (jobName === null || jobName === undefined) {
+                throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling checkJobNameIsExists.');
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 详情页获取构建参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBuildParameter(listBuildParameterRequest?: ListBuildParameterRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/{build_no}/history-parameters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (listBuildParameterRequest !== null && listBuildParameterRequest !== undefined) {
+                if (listBuildParameterRequest instanceof ListBuildParameterRequest) {
+                    jobId = listBuildParameterRequest.jobId;
+                    buildNo = listBuildParameterRequest.buildNo;
+                } else {
+                    jobId = listBuildParameterRequest['job_id'];
+                    buildNo = listBuildParameterRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listBuildParameter.');
+            }
+            if (buildNo === null || buildNo === undefined) {
+            throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling listBuildParameter.');
+            }
+
+            options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看用户全部的构建任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJob() {
+            const options = {
+                method: "GET",
+                url: "/v1/job/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectJobs(listProjectJobsRequest?: ListProjectJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{project_id}/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let pageIndex;
+            
+            let pageSize;
+            
+            let search;
+            
+            let sortField;
+            
+            let sortOrder;
+            
+            let creatorId;
+            
+            let buildStatus;
+            
+            let byGroup;
+            
+            let groupPathId;
+
+            if (listProjectJobsRequest !== null && listProjectJobsRequest !== undefined) {
+                if (listProjectJobsRequest instanceof ListProjectJobsRequest) {
+                    projectId = listProjectJobsRequest.projectId;
+                    pageIndex = listProjectJobsRequest.pageIndex;
+                    pageSize = listProjectJobsRequest.pageSize;
+                    search = listProjectJobsRequest.search;
+                    sortField = listProjectJobsRequest.sortField;
+                    sortOrder = listProjectJobsRequest.sortOrder;
+                    creatorId = listProjectJobsRequest.creatorId;
+                    buildStatus = listProjectJobsRequest.buildStatus;
+                    byGroup = listProjectJobsRequest.byGroup;
+                    groupPathId = listProjectJobsRequest.groupPathId;
+                } else {
+                    projectId = listProjectJobsRequest['project_id'];
+                    pageIndex = listProjectJobsRequest['page_index'];
+                    pageSize = listProjectJobsRequest['page_size'];
+                    search = listProjectJobsRequest['search'];
+                    sortField = listProjectJobsRequest['sort_field'];
+                    sortOrder = listProjectJobsRequest['sort_order'];
+                    creatorId = listProjectJobsRequest['creator_id'];
+                    buildStatus = listProjectJobsRequest['build_status'];
+                    byGroup = listProjectJobsRequest['by_group'];
+                    groupPathId = listProjectJobsRequest['group_path_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectJobs.');
+            }
+            if (pageIndex === null || pageIndex === undefined) {
+                throw new RequiredError('pageIndex','Required parameter pageIndex was null or undefined when calling listProjectJobs.');
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize === null || pageSize === undefined) {
+                throw new RequiredError('pageSize','Required parameter pageSize was null or undefined when calling listProjectJobs.');
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortOrder !== null && sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (creatorId !== null && creatorId !== undefined) {
+                localVarQueryParameter['creator_id'] = creatorId;
+            }
+            if (buildStatus !== null && buildStatus !== undefined) {
+                localVarQueryParameter['build_status'] = buildStatus;
+            }
+            if (byGroup !== null && byGroup !== undefined) {
+                localVarQueryParameter['by_group'] = byGroup;
+            }
+            if (groupPathId !== null && groupPathId !== undefined) {
+                localVarQueryParameter['group_path_id'] = groupPathId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看回收站中删除的构建任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRecyclingJob(listRecyclingJobRequest?: ListRecyclingJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/recycling-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageSize;
+            
+            let pageNo;
+            
+            let search;
+
+            if (listRecyclingJobRequest !== null && listRecyclingJobRequest !== undefined) {
+                if (listRecyclingJobRequest instanceof ListRecyclingJobRequest) {
+                    pageSize = listRecyclingJobRequest.pageSize;
+                    pageNo = listRecyclingJobRequest.pageNo;
+                    search = listRecyclingJobRequest.search;
+                } else {
+                    pageSize = listRecyclingJobRequest['page_size'];
+                    pageNo = listRecyclingJobRequest['page_no'];
+                    search = listRecyclingJobRequest['search'];
+                }
+            }
+
+        
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取修改历史
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpdateJobHistory(listUpdateJobHistoryRequest?: ListUpdateJobHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let pageNo;
+            
+            let pageSize;
+
+            if (listUpdateJobHistoryRequest !== null && listUpdateJobHistoryRequest !== undefined) {
+                if (listUpdateJobHistoryRequest instanceof ListUpdateJobHistoryRequest) {
+                    jobId = listUpdateJobHistoryRequest.jobId;
+                    pageNo = listUpdateJobHistoryRequest.pageNo;
+                    pageSize = listUpdateJobHistoryRequest.pageSize;
+                } else {
+                    jobId = listUpdateJobHistoryRequest['job_id'];
+                    pageNo = listUpdateJobHistoryRequest['page_no'];
+                    pageSize = listUpdateJobHistoryRequest['page_size'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listUpdateJobHistory.');
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 编辑页获取参数类型的接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuildParamsList() {
+            const options = {
+                method: "GET",
+                url: "/v1/job/build-params",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 复制任务名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCopyName(showCopyNameRequest?: ShowCopyNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/copy-name",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showCopyNameRequest !== null && showCopyNameRequest !== undefined) {
+                if (showCopyNameRequest instanceof ShowCopyNameRequest) {
+                    jobId = showCopyNameRequest.jobId;
+                } else {
+                    jobId = showCopyNameRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showCopyName.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取编译构建默认参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDefaultBuildParameters() {
+            const options = {
+                method: "GET",
+                url: "/v1/job/default-parameters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前项目默认角色权限矩阵信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDefaultProjectPermission(showDefaultProjectPermissionRequest?: ShowDefaultProjectPermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/project/default-permission",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let jobId;
+
+            if (showDefaultProjectPermissionRequest !== null && showDefaultProjectPermissionRequest !== undefined) {
+                if (showDefaultProjectPermissionRequest instanceof ShowDefaultProjectPermissionRequest) {
+                    projectId = showDefaultProjectPermissionRequest.projectId;
+                    jobId = showDefaultProjectPermissionRequest.jobId;
+                } else {
+                    projectId = showDefaultProjectPermissionRequest['project_id'];
+                    jobId = showDefaultProjectPermissionRequest['job_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showDefaultProjectPermission.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showDefaultProjectPermission.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务是否已禁用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDisable(showDisableRequest?: ShowDisableRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/check/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showDisableRequest !== null && showDisableRequest !== undefined) {
+                if (showDisableRequest instanceof ShowDisableRequest) {
+                    jobId = showDisableRequest.jobId;
+                } else {
+                    jobId = showDisableRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showDisable.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobConfig(showJobConfigRequest?: ShowJobConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let getAllParams;
+
+            if (showJobConfigRequest !== null && showJobConfigRequest !== undefined) {
+                if (showJobConfigRequest instanceof ShowJobConfigRequest) {
+                    jobId = showJobConfigRequest.jobId;
+                    getAllParams = showJobConfigRequest.getAllParams;
+                } else {
+                    jobId = showJobConfigRequest['job_id'];
+                    getAllParams = showJobConfigRequest['get_all_params'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobConfig.');
+            }
+            if (getAllParams !== null && getAllParams !== undefined) {
+                localVarQueryParameter['get_all_params'] = getAllParams;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建任务配置的对比差异
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobConfigDiff(showJobConfigDiffRequest?: ShowJobConfigDiffRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/diff",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let revisedlNo;
+            
+            let originalNo;
+
+            if (showJobConfigDiffRequest !== null && showJobConfigDiffRequest !== undefined) {
+                if (showJobConfigDiffRequest instanceof ShowJobConfigDiffRequest) {
+                    jobId = showJobConfigDiffRequest.jobId;
+                    revisedlNo = showJobConfigDiffRequest.revisedlNo;
+                    originalNo = showJobConfigDiffRequest.originalNo;
+                } else {
+                    jobId = showJobConfigDiffRequest['job_id'];
+                    revisedlNo = showJobConfigDiffRequest['revisedl_no'];
+                    originalNo = showJobConfigDiffRequest['original_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobConfigDiff.');
+            }
+            if (revisedlNo === null || revisedlNo === undefined) {
+                throw new RequiredError('revisedlNo','Required parameter revisedlNo was null or undefined when calling showJobConfigDiff.');
+            }
+            if (revisedlNo !== null && revisedlNo !== undefined) {
+                localVarQueryParameter['revisedl_no'] = revisedlNo;
+            }
+            if (originalNo === null || originalNo === undefined) {
+                throw new RequiredError('originalNo','Required parameter originalNo was null or undefined when calling showJobConfigDiff.');
+            }
+            if (originalNo !== null && originalNo !== undefined) {
+                localVarQueryParameter['original_no'] = originalNo;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看构建任务构建信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobInfo(showJobInfoRequest?: ShowJobInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showJobInfoRequest !== null && showJobInfoRequest !== undefined) {
+                if (showJobInfoRequest instanceof ShowJobInfoRequest) {
+                    jobId = showJobInfoRequest.jobId;
+                } else {
+                    jobId = showJobInfoRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobInfo.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取通知信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobNoticeConfigInfo(showJobNoticeConfigInfoRequest?: ShowJobNoticeConfigInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/notice",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showJobNoticeConfigInfoRequest !== null && showJobNoticeConfigInfoRequest !== undefined) {
+                if (showJobNoticeConfigInfoRequest instanceof ShowJobNoticeConfigInfoRequest) {
+                    jobId = showJobNoticeConfigInfoRequest.jobId;
+                } else {
+                    jobId = showJobNoticeConfigInfoRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobNoticeConfigInfo.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建任务的角色权限矩阵信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobRolePermission(showJobRolePermissionRequest?: ShowJobRolePermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/permission/role",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+
+            if (showJobRolePermissionRequest !== null && showJobRolePermissionRequest !== undefined) {
+                if (showJobRolePermissionRequest instanceof ShowJobRolePermissionRequest) {
+                    jobId = showJobRolePermissionRequest.jobId;
+                } else {
+                    jobId = showJobRolePermissionRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobRolePermission.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobStepStatus(showJobStepStatusRequest?: ShowJobStepStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (showJobStepStatusRequest !== null && showJobStepStatusRequest !== undefined) {
+                if (showJobStepStatusRequest instanceof ShowJobStepStatusRequest) {
+                    jobId = showJobStepStatusRequest.jobId;
+                    buildNo = showJobStepStatusRequest.buildNo;
+                } else {
+                    jobId = showJobStepStatusRequest['job_id'];
+                    buildNo = showJobStepStatusRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobStepStatus.');
+            }
+            if (buildNo !== null && buildNo !== undefined) {
+                localVarQueryParameter['build_no'] = buildNo;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看系统预定义参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobSystemParameters() {
+            const options = {
+                method: "GET",
+                url: "/v1/job/system-parameters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看任务是否在构建
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRunningStatus(showRunningStatusRequest?: ShowRunningStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/{job_id}/running-status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showRunningStatusRequest !== null && showRunningStatusRequest !== undefined) {
+                if (showRunningStatusRequest instanceof ShowRunningStatusRequest) {
+                    jobId = showRunningStatusRequest.jobId;
+                } else {
+                    jobId = showRunningStatusRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showRunningStatus.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 文件管理文件下载
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadKeystoreByName(downloadKeystoreByNameRequest?: DownloadKeystoreByNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/keystore/download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let domainId;
+            
+            let id;
+
+            if (downloadKeystoreByNameRequest !== null && downloadKeystoreByNameRequest !== undefined) {
+                if (downloadKeystoreByNameRequest instanceof DownloadKeystoreByNameRequest) {
+                    name = downloadKeystoreByNameRequest.name;
+                    domainId = downloadKeystoreByNameRequest.domainId;
+                    id = downloadKeystoreByNameRequest.id;
+                } else {
+                    name = downloadKeystoreByNameRequest['name'];
+                    domainId = downloadKeystoreByNameRequest['domain_id'];
+                    id = downloadKeystoreByNameRequest['id'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling downloadKeystoreByName.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (domainId === null || domainId === undefined) {
+                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling downloadKeystoreByName.');
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling downloadKeystoreByName.');
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户可使用文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKeystore() {
+            const options = {
+                method: "GET",
+                url: "/v2/keystore/name",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户下文件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKeystoreSearch(listKeystoreSearchRequest?: ListKeystoreSearchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/keystore/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageSize;
+            
+            let page;
+            
+            let search;
+
+            if (listKeystoreSearchRequest !== null && listKeystoreSearchRequest !== undefined) {
+                if (listKeystoreSearchRequest instanceof ListKeystoreSearchRequest) {
+                    pageSize = listKeystoreSearchRequest.pageSize;
+                    page = listKeystoreSearchRequest.page;
+                    search = listKeystoreSearchRequest.search;
+                } else {
+                    pageSize = listKeystoreSearchRequest['page_size'];
+                    page = listKeystoreSearchRequest['page'];
+                    search = listKeystoreSearchRequest['search'];
+                }
+            }
+
+        
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 文件管理查询权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKeystorePermission(showKeystorePermissionRequest?: ShowKeystorePermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/keystore/permission/{keystore_id}/query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keystoreId;
+            
+            let pageSize;
+            
+            let page;
+
+            if (showKeystorePermissionRequest !== null && showKeystorePermissionRequest !== undefined) {
+                if (showKeystorePermissionRequest instanceof ShowKeystorePermissionRequest) {
+                    keystoreId = showKeystorePermissionRequest.keystoreId;
+                    pageSize = showKeystorePermissionRequest.pageSize;
+                    page = showKeystorePermissionRequest.page;
+                } else {
+                    keystoreId = showKeystorePermissionRequest['keystore_id'];
+                    pageSize = showKeystorePermissionRequest['page_size'];
+                    page = showKeystorePermissionRequest['page'];
+                }
+            }
+
+        
+            if (keystoreId === null || keystoreId === undefined) {
+            throw new RequiredError('keystoreId','Required parameter keystoreId was null or undefined when calling showKeystorePermission.');
+            }
+            if (pageSize === null || pageSize === undefined) {
+                throw new RequiredError('pageSize','Required parameter pageSize was null or undefined when calling showKeystorePermission.');
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (page === null || page === undefined) {
+                throw new RequiredError('page','Required parameter page was null or undefined when calling showKeystorePermission.');
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'keystore_id': keystoreId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4419,6 +4671,1001 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取任务构建记录列表v1
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBuildInfoRecordByJobId(listBuildInfoRecordByJobIdRequest?: ListBuildInfoRecordByJobIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{job_id}/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let pageIndex;
+            
+            let pageSize;
+
+            if (listBuildInfoRecordByJobIdRequest !== null && listBuildInfoRecordByJobIdRequest !== undefined) {
+                if (listBuildInfoRecordByJobIdRequest instanceof ListBuildInfoRecordByJobIdRequest) {
+                    jobId = listBuildInfoRecordByJobIdRequest.jobId;
+                    startTime = listBuildInfoRecordByJobIdRequest.startTime;
+                    endTime = listBuildInfoRecordByJobIdRequest.endTime;
+                    pageIndex = listBuildInfoRecordByJobIdRequest.pageIndex;
+                    pageSize = listBuildInfoRecordByJobIdRequest.pageSize;
+                } else {
+                    jobId = listBuildInfoRecordByJobIdRequest['job_id'];
+                    startTime = listBuildInfoRecordByJobIdRequest['start_time'];
+                    endTime = listBuildInfoRecordByJobIdRequest['end_time'];
+                    pageIndex = listBuildInfoRecordByJobIdRequest['page_index'];
+                    pageSize = listBuildInfoRecordByJobIdRequest['page_size'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listBuildInfoRecordByJobId.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listBuildInfoRecordByJobId.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listBuildInfoRecordByJobId.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定工程的构建记录列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRecords(listRecordsRequest?: ListRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{build_project_id}/records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let buildProjectId;
+            
+            let page;
+            
+            let limit;
+            
+            let triggers;
+            
+            let branches;
+            
+            let tags;
+            
+            let fromDate;
+            
+            let toDate;
+
+            if (listRecordsRequest !== null && listRecordsRequest !== undefined) {
+                if (listRecordsRequest instanceof ListRecordsRequest) {
+                    buildProjectId = listRecordsRequest.buildProjectId;
+                    page = listRecordsRequest.page;
+                    limit = listRecordsRequest.limit;
+                    triggers = listRecordsRequest.triggers;
+                    branches = listRecordsRequest.branches;
+                    tags = listRecordsRequest.tags;
+                    fromDate = listRecordsRequest.fromDate;
+                    toDate = listRecordsRequest.toDate;
+                } else {
+                    buildProjectId = listRecordsRequest['build_project_id'];
+                    page = listRecordsRequest['page'];
+                    limit = listRecordsRequest['limit'];
+                    triggers = listRecordsRequest['triggers'];
+                    branches = listRecordsRequest['branches'];
+                    tags = listRecordsRequest['tags'];
+                    fromDate = listRecordsRequest['from_date'];
+                    toDate = listRecordsRequest['to_date'];
+                }
+            }
+
+        
+            if (buildProjectId === null || buildProjectId === undefined) {
+            throw new RequiredError('buildProjectId','Required parameter buildProjectId was null or undefined when calling listRecords.');
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (triggers !== null && triggers !== undefined) {
+                localVarQueryParameter['triggers'] = triggers;
+            }
+            if (branches !== null && branches !== undefined) {
+                localVarQueryParameter['branches'] = branches;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (fromDate !== null && fromDate !== undefined) {
+                localVarQueryParameter['from_date'] = fromDate;
+            }
+            if (toDate !== null && toDate !== undefined) {
+                localVarQueryParameter['to_date'] = toDate;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'build_project_id': buildProjectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取任务构建记录列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuildInfoRecord(showBuildInfoRecordRequest?: ShowBuildInfoRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{job_id}/{build_no}/build-info-record",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (showBuildInfoRecordRequest !== null && showBuildInfoRecordRequest !== undefined) {
+                if (showBuildInfoRecordRequest instanceof ShowBuildInfoRecordRequest) {
+                    jobId = showBuildInfoRecordRequest.jobId;
+                    buildNo = showBuildInfoRecordRequest.buildNo;
+                } else {
+                    jobId = showBuildInfoRecordRequest['job_id'];
+                    buildNo = showBuildInfoRecordRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showBuildInfoRecord.');
+            }
+            if (buildNo === null || buildNo === undefined) {
+            throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling showBuildInfoRecord.');
+            }
+
+            options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定构建记录详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuildRecord(showBuildRecordRequest?: ShowBuildRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{record_id}/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let recordId;
+
+            if (showBuildRecordRequest !== null && showBuildRecordRequest !== undefined) {
+                if (showBuildRecordRequest instanceof ShowBuildRecordRequest) {
+                    recordId = showBuildRecordRequest.recordId;
+                } else {
+                    recordId = showBuildRecordRequest['record_id'];
+                }
+            }
+
+        
+            if (recordId === null || recordId === undefined) {
+            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showBuildRecord.');
+            }
+
+            options.pathParams = { 'record_id': recordId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建记录的构建脚本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuildRecordBuildScript(showBuildRecordBuildScriptRequest?: ShowBuildRecordBuildScriptRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{record_id}/build-script",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let recordId;
+
+            if (showBuildRecordBuildScriptRequest !== null && showBuildRecordBuildScriptRequest !== undefined) {
+                if (showBuildRecordBuildScriptRequest instanceof ShowBuildRecordBuildScriptRequest) {
+                    recordId = showBuildRecordBuildScriptRequest.recordId;
+                } else {
+                    recordId = showBuildRecordBuildScriptRequest['record_id'];
+                }
+            }
+
+        
+            if (recordId === null || recordId === undefined) {
+            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showBuildRecordBuildScript.');
+            }
+
+            options.pathParams = { 'record_id': recordId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建记录的有向无环图
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuildRecordFlowGraph(showBuildRecordFlowGraphRequest?: ShowBuildRecordFlowGraphRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{build_flow_record_id}/flow-graph",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let buildFlowRecordId;
+
+            if (showBuildRecordFlowGraphRequest !== null && showBuildRecordFlowGraphRequest !== undefined) {
+                if (showBuildRecordFlowGraphRequest instanceof ShowBuildRecordFlowGraphRequest) {
+                    buildFlowRecordId = showBuildRecordFlowGraphRequest.buildFlowRecordId;
+                } else {
+                    buildFlowRecordId = showBuildRecordFlowGraphRequest['build_flow_record_id'];
+                }
+            }
+
+        
+            if (buildFlowRecordId === null || buildFlowRecordId === undefined) {
+            throw new RequiredError('buildFlowRecordId','Required parameter buildFlowRecordId was null or undefined when calling showBuildRecordFlowGraph.');
+            }
+
+            options.pathParams = { 'build_flow_record_id': buildFlowRecordId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取任务各阶段信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuildRecordFullStages(showBuildRecordFullStagesRequest?: ShowBuildRecordFullStagesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{record_id}/full-stages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let recordId;
+            
+            let cascade;
+
+            if (showBuildRecordFullStagesRequest !== null && showBuildRecordFullStagesRequest !== undefined) {
+                if (showBuildRecordFullStagesRequest instanceof ShowBuildRecordFullStagesRequest) {
+                    recordId = showBuildRecordFullStagesRequest.recordId;
+                    cascade = showBuildRecordFullStagesRequest.cascade;
+                } else {
+                    recordId = showBuildRecordFullStagesRequest['record_id'];
+                    cascade = showBuildRecordFullStagesRequest['cascade'];
+                }
+            }
+
+        
+            if (recordId === null || recordId === undefined) {
+            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showBuildRecordFullStages.');
+            }
+            if (cascade !== null && cascade !== undefined) {
+                localVarQueryParameter['cascade'] = cascade;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'record_id': recordId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建记录信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobBuildRecordDetail(showJobBuildRecordDetailRequest?: ShowJobBuildRecordDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{job_id}/{build_no}/record-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (showJobBuildRecordDetailRequest !== null && showJobBuildRecordDetailRequest !== undefined) {
+                if (showJobBuildRecordDetailRequest instanceof ShowJobBuildRecordDetailRequest) {
+                    jobId = showJobBuildRecordDetailRequest.jobId;
+                    buildNo = showJobBuildRecordDetailRequest.buildNo;
+                } else {
+                    jobId = showJobBuildRecordDetailRequest['job_id'];
+                    buildNo = showJobBuildRecordDetailRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobBuildRecordDetail.');
+            }
+            if (buildNo === null || buildNo === undefined) {
+            throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling showJobBuildRecordDetail.');
+            }
+
+            options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 构建历史页获取构建次数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobTotal(showJobTotalRequest?: ShowJobTotalRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/record/{build_project_id}/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let buildProjectId;
+            
+            let fromDate;
+            
+            let toDate;
+
+            if (showJobTotalRequest !== null && showJobTotalRequest !== undefined) {
+                if (showJobTotalRequest instanceof ShowJobTotalRequest) {
+                    buildProjectId = showJobTotalRequest.buildProjectId;
+                    fromDate = showJobTotalRequest.fromDate;
+                    toDate = showJobTotalRequest.toDate;
+                } else {
+                    buildProjectId = showJobTotalRequest['build_project_id'];
+                    fromDate = showJobTotalRequest['from_date'];
+                    toDate = showJobTotalRequest['to_date'];
+                }
+            }
+
+        
+            if (buildProjectId === null || buildProjectId === undefined) {
+            throw new RequiredError('buildProjectId','Required parameter buildProjectId was null or undefined when calling showJobTotal.');
+            }
+            if (fromDate !== null && fromDate !== undefined) {
+                localVarQueryParameter['from_date'] = fromDate;
+            }
+            if (toDate !== null && toDate !== undefined) {
+                localVarQueryParameter['to_date'] = toDate;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'build_project_id': buildProjectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取单元测试覆盖率报告压缩包
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadJunitCoverageZip(downloadJunitCoverageZipRequest?: DownloadJunitCoverageZipRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/junit/coverage/download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let buildNo;
+            
+            let rootId;
+
+            if (downloadJunitCoverageZipRequest !== null && downloadJunitCoverageZipRequest !== undefined) {
+                if (downloadJunitCoverageZipRequest instanceof DownloadJunitCoverageZipRequest) {
+                    jobId = downloadJunitCoverageZipRequest.jobId;
+                    buildNo = downloadJunitCoverageZipRequest.buildNo;
+                    rootId = downloadJunitCoverageZipRequest.rootId;
+                } else {
+                    jobId = downloadJunitCoverageZipRequest['job_id'];
+                    buildNo = downloadJunitCoverageZipRequest['build_no'];
+                    rootId = downloadJunitCoverageZipRequest['root_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling downloadJunitCoverageZip.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (buildNo === null || buildNo === undefined) {
+                throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling downloadJunitCoverageZip.');
+            }
+            if (buildNo !== null && buildNo !== undefined) {
+                localVarQueryParameter['build_no'] = buildNo;
+            }
+            if (rootId === null || rootId === undefined) {
+                throw new RequiredError('rootId','Required parameter rootId was null or undefined when calling downloadJunitCoverageZip.');
+            }
+            if (rootId !== null && rootId !== undefined) {
+                localVarQueryParameter['root_id'] = rootId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取单元测试覆盖率报告列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJunitCoverageSummary(listJunitCoverageSummaryRequest?: ListJunitCoverageSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/junit/coverage/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (listJunitCoverageSummaryRequest !== null && listJunitCoverageSummaryRequest !== undefined) {
+                if (listJunitCoverageSummaryRequest instanceof ListJunitCoverageSummaryRequest) {
+                    jobId = listJunitCoverageSummaryRequest.jobId;
+                    buildNo = listJunitCoverageSummaryRequest.buildNo;
+                } else {
+                    jobId = listJunitCoverageSummaryRequest['job_id'];
+                    buildNo = listJunitCoverageSummaryRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listJunitCoverageSummary.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (buildNo === null || buildNo === undefined) {
+                throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling listJunitCoverageSummary.');
+            }
+            if (buildNo !== null && buildNo !== undefined) {
+                localVarQueryParameter['build_no'] = buildNo;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取该任务所有分支信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepoBranch(listRepoBranchRequest?: ListRepoBranchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let repositoryName;
+
+            if (listRepoBranchRequest !== null && listRepoBranchRequest !== undefined) {
+                if (listRepoBranchRequest instanceof ListRepoBranchRequest) {
+                    jobId = listRepoBranchRequest.jobId;
+                    repositoryName = listRepoBranchRequest.repositoryName;
+                } else {
+                    jobId = listRepoBranchRequest['job_id'];
+                    repositoryName = listRepoBranchRequest['repository_name'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listRepoBranch.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+                throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling listRepoBranch.');
+            }
+            if (repositoryName !== null && repositoryName !== undefined) {
+                localVarQueryParameter['repository_name'] = repositoryName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看仓库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepository(listRepositoryRequest?: ListRepositoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/{job_id}/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (listRepositoryRequest !== null && listRepositoryRequest !== undefined) {
+                if (listRepositoryRequest instanceof ListRepositoryRequest) {
+                    jobId = listRepositoryRequest.jobId;
+                } else {
+                    jobId = listRepositoryRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listRepository.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询构建成功率
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobBuildSuccessRatio(showJobBuildSuccessRatioRequest?: ShowJobBuildSuccessRatioRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/ratio",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let repositoryName;
+            
+            let interval;
+            
+            let branch;
+
+            if (showJobBuildSuccessRatioRequest !== null && showJobBuildSuccessRatioRequest !== undefined) {
+                if (showJobBuildSuccessRatioRequest instanceof ShowJobBuildSuccessRatioRequest) {
+                    jobId = showJobBuildSuccessRatioRequest.jobId;
+                    repositoryName = showJobBuildSuccessRatioRequest.repositoryName;
+                    interval = showJobBuildSuccessRatioRequest.interval;
+                    branch = showJobBuildSuccessRatioRequest.branch;
+                } else {
+                    jobId = showJobBuildSuccessRatioRequest['job_id'];
+                    repositoryName = showJobBuildSuccessRatioRequest['repository_name'];
+                    interval = showJobBuildSuccessRatioRequest['interval'];
+                    branch = showJobBuildSuccessRatioRequest['branch'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobBuildSuccessRatio.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+                throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showJobBuildSuccessRatio.');
+            }
+            if (repositoryName !== null && repositoryName !== undefined) {
+                localVarQueryParameter['repository_name'] = repositoryName;
+            }
+            if (interval === null || interval === undefined) {
+                throw new RequiredError('interval','Required parameter interval was null or undefined when calling showJobBuildSuccessRatio.');
+            }
+            if (interval !== null && interval !== undefined) {
+                localVarQueryParameter['interval'] = interval;
+            }
+            if (branch !== null && branch !== undefined) {
+                localVarQueryParameter['branch'] = branch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 洞察构建时长
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobBuildTime(showJobBuildTimeRequest?: ShowJobBuildTimeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/time",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let repositoryName;
+            
+            let interval;
+            
+            let branch;
+
+            if (showJobBuildTimeRequest !== null && showJobBuildTimeRequest !== undefined) {
+                if (showJobBuildTimeRequest instanceof ShowJobBuildTimeRequest) {
+                    jobId = showJobBuildTimeRequest.jobId;
+                    repositoryName = showJobBuildTimeRequest.repositoryName;
+                    interval = showJobBuildTimeRequest.interval;
+                    branch = showJobBuildTimeRequest.branch;
+                } else {
+                    jobId = showJobBuildTimeRequest['job_id'];
+                    repositoryName = showJobBuildTimeRequest['repository_name'];
+                    interval = showJobBuildTimeRequest['interval'];
+                    branch = showJobBuildTimeRequest['branch'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobBuildTime.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+                throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showJobBuildTime.');
+            }
+            if (repositoryName !== null && repositoryName !== undefined) {
+                localVarQueryParameter['repository_name'] = repositoryName;
+            }
+            if (interval === null || interval === undefined) {
+                throw new RequiredError('interval','Required parameter interval was null or undefined when calling showJobBuildTime.');
+            }
+            if (interval !== null && interval !== undefined) {
+                localVarQueryParameter['interval'] = interval;
+            }
+            if (branch !== null && branch !== undefined) {
+                localVarQueryParameter['branch'] = branch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取覆盖率接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showReportSummary(showReportSummaryRequest?: ShowReportSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/report/{job_id}/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (showReportSummaryRequest !== null && showReportSummaryRequest !== undefined) {
+                if (showReportSummaryRequest instanceof ShowReportSummaryRequest) {
+                    jobId = showReportSummaryRequest.jobId;
+                    buildNo = showReportSummaryRequest.buildNo;
+                } else {
+                    jobId = showReportSummaryRequest['job_id'];
+                    buildNo = showReportSummaryRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showReportSummary.');
+            }
+            if (buildNo === null || buildNo === undefined) {
+                throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling showReportSummary.');
+            }
+            if (buildNo !== null && buildNo !== undefined) {
+                localVarQueryParameter['build_no'] = buildNo;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据条件查询特定模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCustomTemplate(listCustomTemplateRequest?: ListCustomTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/template/custom",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let filter;
+            
+            let page;
+            
+            let pageSize;
+            
+            let tags;
+
+            if (listCustomTemplateRequest !== null && listCustomTemplateRequest !== undefined) {
+                if (listCustomTemplateRequest instanceof ListCustomTemplateRequest) {
+                    name = listCustomTemplateRequest.name;
+                    filter = listCustomTemplateRequest.filter;
+                    page = listCustomTemplateRequest.page;
+                    pageSize = listCustomTemplateRequest.pageSize;
+                    tags = listCustomTemplateRequest.tags;
+                } else {
+                    name = listCustomTemplateRequest['name'];
+                    filter = listCustomTemplateRequest['filter'];
+                    page = listCustomTemplateRequest['page'];
+                    pageSize = listCustomTemplateRequest['page_size'];
+                    tags = listCustomTemplateRequest['tags'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询官方模版
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOfficialTemplate(listOfficialTemplateRequest?: ListOfficialTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/template/officialtemplates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let page;
+            
+            let pageSize;
+
+            if (listOfficialTemplateRequest !== null && listOfficialTemplateRequest !== undefined) {
+                if (listOfficialTemplateRequest instanceof ListOfficialTemplateRequest) {
+                    name = listOfficialTemplateRequest.name;
+                    page = listOfficialTemplateRequest.page;
+                    pageSize = listOfficialTemplateRequest.pageSize;
+                } else {
+                    name = listOfficialTemplateRequest['name'];
+                    page = listOfficialTemplateRequest['page'];
+                    pageSize = listOfficialTemplateRequest['page_size'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码化构建默认模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showYamlTemplate(showYamlTemplateRequest?: ShowYamlTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/template/{job_id}/default-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let defaultHost;
+
+            if (showYamlTemplateRequest !== null && showYamlTemplateRequest !== undefined) {
+                if (showYamlTemplateRequest instanceof ShowYamlTemplateRequest) {
+                    jobId = showYamlTemplateRequest.jobId;
+                    defaultHost = showYamlTemplateRequest.defaultHost;
+                } else {
+                    jobId = showYamlTemplateRequest['job_id'];
+                    defaultHost = showYamlTemplateRequest['default_host'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showYamlTemplate.');
+            }
+            if (defaultHost !== null && defaultHost !== undefined) {
+                localVarQueryParameter['default_host'] = defaultHost;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

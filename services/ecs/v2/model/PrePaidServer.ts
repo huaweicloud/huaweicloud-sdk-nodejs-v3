@@ -7,7 +7,9 @@ import { PrePaidServerRootVolume } from './PrePaidServerRootVolume';
 import { PrePaidServerSchedulerHints } from './PrePaidServerSchedulerHints';
 import { PrePaidServerSecurityGroup } from './PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './PrePaidServerTag';
+import { SecurityOptions } from './SecurityOptions';
 import { SerialConsoleOptions } from './SerialConsoleOptions';
+import { UpdateServerMetadataOptionsRequestBody } from './UpdateServerMetadataOptionsRequestBody';
 
 
 export class PrePaidServer {
@@ -35,7 +37,9 @@ export class PrePaidServer {
     private 'server_tags'?: Array<PrePaidServerTag>;
     public description?: string;
     private 'cpu_options'?: CpuOptions;
+    private 'security_options'?: SecurityOptions;
     private 'serial_console_options'?: SerialConsoleOptions;
+    private 'metadata_options'?: UpdateServerMetadataOptionsRequestBody;
     public constructor(imageRef?: string, flavorRef?: string, name?: string, vpcid?: string, nics?: Array<PrePaidServerNic>, rootVolume?: PrePaidServerRootVolume) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
@@ -206,6 +210,16 @@ export class PrePaidServer {
     public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
     }
+    public withSecurityOptions(securityOptions: SecurityOptions): PrePaidServer {
+        this['security_options'] = securityOptions;
+        return this;
+    }
+    public set securityOptions(securityOptions: SecurityOptions  | undefined) {
+        this['security_options'] = securityOptions;
+    }
+    public get securityOptions(): SecurityOptions | undefined {
+        return this['security_options'];
+    }
     public withSerialConsoleOptions(serialConsoleOptions: SerialConsoleOptions): PrePaidServer {
         this['serial_console_options'] = serialConsoleOptions;
         return this;
@@ -215,5 +229,15 @@ export class PrePaidServer {
     }
     public get serialConsoleOptions(): SerialConsoleOptions | undefined {
         return this['serial_console_options'];
+    }
+    public withMetadataOptions(metadataOptions: UpdateServerMetadataOptionsRequestBody): PrePaidServer {
+        this['metadata_options'] = metadataOptions;
+        return this;
+    }
+    public set metadataOptions(metadataOptions: UpdateServerMetadataOptionsRequestBody  | undefined) {
+        this['metadata_options'] = metadataOptions;
+    }
+    public get metadataOptions(): UpdateServerMetadataOptionsRequestBody | undefined {
+        return this['metadata_options'];
     }
 }

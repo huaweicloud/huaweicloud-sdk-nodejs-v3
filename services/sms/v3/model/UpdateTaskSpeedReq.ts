@@ -15,6 +15,7 @@ export class UpdateTaskSpeedReq {
     private 'agent_mem_usage'?: number;
     private 'total_disk_io'?: number;
     private 'agent_disk_io'?: number;
+    private 'need_migration_test'?: boolean;
     private 'agent_time'?: string;
     public constructor(subtaskName?: string, progress?: number, replicatesize?: number, totalsize?: number, processTrace?: string) { 
         this['subtask_name'] = subtaskName;
@@ -144,6 +145,16 @@ export class UpdateTaskSpeedReq {
     }
     public get agentDiskIo(): number | undefined {
         return this['agent_disk_io'];
+    }
+    public withNeedMigrationTest(needMigrationTest: boolean): UpdateTaskSpeedReq {
+        this['need_migration_test'] = needMigrationTest;
+        return this;
+    }
+    public set needMigrationTest(needMigrationTest: boolean  | undefined) {
+        this['need_migration_test'] = needMigrationTest;
+    }
+    public get needMigrationTest(): boolean | undefined {
+        return this['need_migration_test'];
     }
     public withAgentTime(agentTime: string): UpdateTaskSpeedReq {
         this['agent_time'] = agentTime;

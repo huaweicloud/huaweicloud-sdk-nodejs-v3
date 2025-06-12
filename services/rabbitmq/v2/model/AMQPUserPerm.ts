@@ -5,7 +5,11 @@ export class AMQPUserPerm {
     public conf?: string;
     public write?: string;
     public read?: string;
-    public constructor() { 
+    public constructor(vhost?: string, conf?: string, write?: string, read?: string) { 
+        this['vhost'] = vhost;
+        this['conf'] = conf;
+        this['write'] = write;
+        this['read'] = read;
     }
     public withVhost(vhost: string): AMQPUserPerm {
         this['vhost'] = vhost;

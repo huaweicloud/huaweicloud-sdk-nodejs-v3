@@ -98,6 +98,7 @@ import { DataClassRefPojo } from './model/DataClassRefPojo';
 import { DataClassResponseBody } from './model/DataClassResponseBody';
 import { DataObject } from './model/DataObject';
 import { DataObjectDetail } from './model/DataObjectDetail';
+import { DataObjectNetworkList } from './model/DataObjectNetworkList';
 import { DataclassInfoRef } from './model/DataclassInfoRef';
 import { DataobjectInfo } from './model/DataobjectInfo';
 import { DataobjectSearch } from './model/DataobjectSearch';
@@ -125,6 +126,8 @@ import { DeletePlaybookRuleRequest } from './model/DeletePlaybookRuleRequest';
 import { DeletePlaybookRuleResponse } from './model/DeletePlaybookRuleResponse';
 import { DeletePlaybookVersionRequest } from './model/DeletePlaybookVersionRequest';
 import { DeletePlaybookVersionResponse } from './model/DeletePlaybookVersionResponse';
+import { DeleteWorkspaceRequest } from './model/DeleteWorkspaceRequest';
+import { DeleteWorkspaceResponse } from './model/DeleteWorkspaceResponse';
 import { DisableAlertRuleRequest } from './model/DisableAlertRuleRequest';
 import { DisableAlertRuleResponse } from './model/DisableAlertRuleResponse';
 import { EnableAlertRuleRequest } from './model/EnableAlertRuleRequest';
@@ -229,6 +232,9 @@ import { ShowPlaybookTopologyRequest } from './model/ShowPlaybookTopologyRequest
 import { ShowPlaybookTopologyResponse } from './model/ShowPlaybookTopologyResponse';
 import { ShowPlaybookVersionRequest } from './model/ShowPlaybookVersionRequest';
 import { ShowPlaybookVersionResponse } from './model/ShowPlaybookVersionResponse';
+import { ShowWorkspaceRequest } from './model/ShowWorkspaceRequest';
+import { ShowWorkspaceResponse } from './model/ShowWorkspaceResponse';
+import { ShowWorkspaceResponseBodyWorkspace } from './model/ShowWorkspaceResponseBodyWorkspace';
 import { TagInfo } from './model/TagInfo';
 import { TagsPojo } from './model/TagsPojo';
 import { UpdateAlertRuleRequest } from './model/UpdateAlertRuleRequest';
@@ -245,6 +251,9 @@ import { UpdatePlaybookRuleRequest } from './model/UpdatePlaybookRuleRequest';
 import { UpdatePlaybookRuleResponse } from './model/UpdatePlaybookRuleResponse';
 import { UpdatePlaybookVersionRequest } from './model/UpdatePlaybookVersionRequest';
 import { UpdatePlaybookVersionResponse } from './model/UpdatePlaybookVersionResponse';
+import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
+import { UpdateWorkspaceRequestBody } from './model/UpdateWorkspaceRequestBody';
+import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
 
 export class SecMasterClient {
     public static newBuilder(): ClientBuilder<SecMasterClient> {
@@ -675,7 +684,7 @@ export class SecMasterClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 安全云脑按需订购
-     * @param {'zh-cn' | 'en-us'} xLanguage 用户当前语言环境
+     * @param {'zh-cn' | 'en-us'} xLanguage 用户当前语言环境 zh-cn or en-us.
      * @param {PostPaidParam} createPostPaidOrderRequestBody 云脑按需订阅参数请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -898,6 +907,27 @@ export class SecMasterClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除工作空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除工作空间
+     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @param {string} workspaceId 工作空间ID
+     * @param {boolean} [permanentDelete] 是否永久删除， true or false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteWorkspace(deleteWorkspaceRequest?: DeleteWorkspaceRequest): Promise<DeleteWorkspaceResponse> {
+        const options = ParamCreater().deleteWorkspace(deleteWorkspaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1338,11 +1368,11 @@ export class SecMasterClient {
     }
 
     /**
-     * 工作空间列表查询:可通过工作空间名称、工作空间描述、创建时间等条件对租户的工作空间进行筛选。
+     * 可通过工作空间名称、工作空间描述、创建时间等条件对租户的工作空间进行筛选。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 工作空间列表查询
+     * @summary 查询工作空间列表
      * @param {string} contentType application/json;charset&#x3D;UTF-8
      * @param {number} offset 偏移量 指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，
      * @param {number} limit 每页显示个数
@@ -1645,6 +1675,26 @@ export class SecMasterClient {
     }
 
     /**
+     * 查询工作空间名称、描述等详情信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作空间详情
+     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @param {string} workspaceId 工作空间ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkspace(showWorkspaceRequest?: ShowWorkspaceRequest): Promise<ShowWorkspaceResponse> {
+        const options = ParamCreater().showWorkspace(showWorkspaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * Update alert rule
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1773,6 +1823,27 @@ export class SecMasterClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新工作空间名称、描述等信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新工作空间
+     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @param {string} workspaceId 工作空间ID
+     * @param {UpdateWorkspaceRequestBody} updateWorkspaceRequestBody 更新工作空间对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWorkspace(updateWorkspaceRequest?: UpdateWorkspaceRequest): Promise<UpdateWorkspaceResponse> {
+        const options = ParamCreater().updateWorkspace(updateWorkspaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3421,6 +3492,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除工作空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteWorkspace(deleteWorkspaceRequest?: DeleteWorkspaceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/workspaces/{workspace_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let permanentDelete;
+
+            if (deleteWorkspaceRequest !== null && deleteWorkspaceRequest !== undefined) {
+                if (deleteWorkspaceRequest instanceof DeleteWorkspaceRequest) {
+                    contentType = deleteWorkspaceRequest.contentType;
+                    workspaceId = deleteWorkspaceRequest.workspaceId;
+                    permanentDelete = deleteWorkspaceRequest.permanentDelete;
+                } else {
+                    contentType = deleteWorkspaceRequest['content-type'];
+                    workspaceId = deleteWorkspaceRequest['workspace_id'];
+                    permanentDelete = deleteWorkspaceRequest['permanent_delete'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteWorkspace.');
+            }
+            if (permanentDelete !== null && permanentDelete !== undefined) {
+                localVarQueryParameter['permanent_delete'] = permanentDelete;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * Disable alert rule
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4787,7 +4910,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 工作空间列表查询:可通过工作空间名称、工作空间描述、创建时间等条件对租户的工作空间进行筛选。
+         * 可通过工作空间名称、工作空间描述、创建时间等条件对租户的工作空间进行筛选。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5610,6 +5733,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询工作空间名称、描述等详情信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWorkspace(showWorkspaceRequest?: ShowWorkspaceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/workspaces/{workspace_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let workspaceId;
+
+            if (showWorkspaceRequest !== null && showWorkspaceRequest !== undefined) {
+                if (showWorkspaceRequest instanceof ShowWorkspaceRequest) {
+                    contentType = showWorkspaceRequest.contentType;
+                    workspaceId = showWorkspaceRequest.workspaceId;
+                } else {
+                    contentType = showWorkspaceRequest['content-type'];
+                    workspaceId = showWorkspaceRequest['workspace_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showWorkspace.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * Update alert rule
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5966,6 +6133,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新工作空间名称、描述等信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateWorkspace(updateWorkspaceRequest?: UpdateWorkspaceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/workspaces/{workspace_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+
+            if (updateWorkspaceRequest !== null && updateWorkspaceRequest !== undefined) {
+                if (updateWorkspaceRequest instanceof UpdateWorkspaceRequest) {
+                    contentType = updateWorkspaceRequest.contentType;
+                    workspaceId = updateWorkspaceRequest.workspaceId;
+                    body = updateWorkspaceRequest.body
+                } else {
+                    contentType = updateWorkspaceRequest['content-type'];
+                    workspaceId = updateWorkspaceRequest['workspace_id'];
+                    body = updateWorkspaceRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateWorkspace.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

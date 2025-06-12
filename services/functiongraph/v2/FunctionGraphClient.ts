@@ -1307,6 +1307,7 @@ export class FunctionGraphClient {
      * @param {string} [marker] 上一次查询到的最后的记录位置。
      * @param {string} [maxitems] 每次查询获取的最大函数记录数量 最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
      * @param {string} [packageName] 自定义分组名称。
+     * @param {string} [funcName] 函数名称。支持模糊查询
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4823,6 +4824,8 @@ export const ParamCreater = function () {
             let maxitems;
             
             let packageName;
+            
+            let funcName;
 
             if (listFunctionsRequest !== null && listFunctionsRequest !== undefined) {
                 if (listFunctionsRequest instanceof ListFunctionsRequest) {
@@ -4830,11 +4833,13 @@ export const ParamCreater = function () {
                     marker = listFunctionsRequest.marker;
                     maxitems = listFunctionsRequest.maxitems;
                     packageName = listFunctionsRequest.packageName;
+                    funcName = listFunctionsRequest.funcName;
                 } else {
                     contentType = listFunctionsRequest['Content-Type'];
                     marker = listFunctionsRequest['marker'];
                     maxitems = listFunctionsRequest['maxitems'];
                     packageName = listFunctionsRequest['package_name'];
+                    funcName = listFunctionsRequest['func_name'];
                 }
             }
 
@@ -4847,6 +4852,9 @@ export const ParamCreater = function () {
             }
             if (packageName !== null && packageName !== undefined) {
                 localVarQueryParameter['package_name'] = packageName;
+            }
+            if (funcName !== null && funcName !== undefined) {
+                localVarQueryParameter['func_name'] = funcName;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

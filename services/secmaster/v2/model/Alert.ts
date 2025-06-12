@@ -392,9 +392,9 @@ export enum AlertHandleStatusEnum {
     * @enum {string}
     */
 export enum AlertIpdrrPhaseEnum {
-    PREPARTION = 'Prepartion',
+    PREPARATION = 'Preparation',
     DETECTION_AND_ANALYSIS = 'Detection and Analysis',
-    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    CONTAINERADICATION_RECOVERY = 'Contain，Eradication& Recovery',
     POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
 }
 /**

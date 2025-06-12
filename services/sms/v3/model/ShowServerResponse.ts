@@ -267,6 +267,7 @@ export enum ShowServerResponseStateEnum {
     SYNCING = 'syncing',
     STOPPING = 'stopping',
     STOPPED = 'stopped',
+    SKIPPING = 'skipping',
     DELETING = 'deleting',
     ERROR = 'error',
     CLONING = 'cloning',
@@ -274,7 +275,11 @@ export enum ShowServerResponseStateEnum {
     FINISHED = 'finished',
     CLEARING = 'clearing',
     CLEARED = 'cleared',
-    CLEARFAILED = 'clearfailed'
+    CLEARFAILED = 'clearfailed',
+    PREMIGREADY = 'premigready',
+    PREMIGING = 'premiging',
+    PREMIGED = 'premiged',
+    PREMIGFAILED = 'premigfailed'
 }
 /**
     * @export

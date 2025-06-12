@@ -1,4 +1,5 @@
 import { Login } from './Login';
+import { NodeEIPSpec } from './NodeEIPSpec';
 import { NodePoolUpdateExtendParam } from './NodePoolUpdateExtendParam';
 import { NodeSpecUpdateNodeNameTemplate } from './NodeSpecUpdateNodeNameTemplate';
 import { NodeSpecUpdateNodeNicSpecUpdate } from './NodeSpecUpdateNodeNicSpecUpdate';
@@ -26,6 +27,7 @@ export class NodeSpecUpdate {
     public serverEnterpriseProjectID?: string;
     public nodeNicSpecUpdate?: NodeSpecUpdateNodeNicSpecUpdate;
     public extendParam?: NodePoolUpdateExtendParam;
+    public publicIP?: NodeEIPSpec;
     public constructor(taints?: Array<Taint>, k8sTags?: { [key: string]: string; }, userTags?: Array<UserTag>) { 
         this['taints'] = taints;
         this['k8sTags'] = k8sTags;
@@ -93,6 +95,10 @@ export class NodeSpecUpdate {
     }
     public withExtendParam(extendParam: NodePoolUpdateExtendParam): NodeSpecUpdate {
         this['extendParam'] = extendParam;
+        return this;
+    }
+    public withPublicIP(publicIP: NodeEIPSpec): NodeSpecUpdate {
+        this['publicIP'] = publicIP;
         return this;
     }
 }

@@ -10,6 +10,7 @@ import { ApplyExecutionPlanRequest } from './model/ApplyExecutionPlanRequest';
 import { ApplyExecutionPlanRequestBody } from './model/ApplyExecutionPlanRequestBody';
 import { ApplyExecutionPlanResponse } from './model/ApplyExecutionPlanResponse';
 import { BaseTemplate } from './model/BaseTemplate';
+import { BaseTemplateBody } from './model/BaseTemplateBody';
 import { BaseTemplateVersion } from './model/BaseTemplateVersion';
 import { CallIdentityPrimitiveTypeHolder } from './model/CallIdentityPrimitiveTypeHolder';
 import { ConfigurationPrimitiveTypeHolder } from './model/ConfigurationPrimitiveTypeHolder';
@@ -50,6 +51,12 @@ import { CreateStackResponse } from './model/CreateStackResponse';
 import { CreateStackSetRequest } from './model/CreateStackSetRequest';
 import { CreateStackSetRequestBody } from './model/CreateStackSetRequestBody';
 import { CreateStackSetResponse } from './model/CreateStackSetResponse';
+import { CreateTemplateRequest } from './model/CreateTemplateRequest';
+import { CreateTemplateRequestBody } from './model/CreateTemplateRequestBody';
+import { CreateTemplateResponse } from './model/CreateTemplateResponse';
+import { CreateTemplateVersionRequest } from './model/CreateTemplateVersionRequest';
+import { CreateTemplateVersionRequestBody } from './model/CreateTemplateVersionRequestBody';
+import { CreateTemplateVersionResponse } from './model/CreateTemplateVersionResponse';
 import { DeleteExecutionPlanRequest } from './model/DeleteExecutionPlanRequest';
 import { DeleteExecutionPlanResponse } from './model/DeleteExecutionPlanResponse';
 import { DeletePrivateHookRequest } from './model/DeletePrivateHookRequest';
@@ -60,6 +67,10 @@ import { DeletePrivateModuleRequest } from './model/DeletePrivateModuleRequest';
 import { DeletePrivateModuleResponse } from './model/DeletePrivateModuleResponse';
 import { DeletePrivateModuleVersionRequest } from './model/DeletePrivateModuleVersionRequest';
 import { DeletePrivateModuleVersionResponse } from './model/DeletePrivateModuleVersionResponse';
+import { DeletePrivateProviderRequest } from './model/DeletePrivateProviderRequest';
+import { DeletePrivateProviderResponse } from './model/DeletePrivateProviderResponse';
+import { DeletePrivateProviderVersionRequest } from './model/DeletePrivateProviderVersionRequest';
+import { DeletePrivateProviderVersionResponse } from './model/DeletePrivateProviderVersionResponse';
 import { DeleteStackEnhancedRequest } from './model/DeleteStackEnhancedRequest';
 import { DeleteStackEnhancedRequestBody } from './model/DeleteStackEnhancedRequestBody';
 import { DeleteStackEnhancedResponse } from './model/DeleteStackEnhancedResponse';
@@ -124,6 +135,10 @@ import { ListPrivateModuleVersionsRequest } from './model/ListPrivateModuleVersi
 import { ListPrivateModuleVersionsResponse } from './model/ListPrivateModuleVersionsResponse';
 import { ListPrivateModulesRequest } from './model/ListPrivateModulesRequest';
 import { ListPrivateModulesResponse } from './model/ListPrivateModulesResponse';
+import { ListPrivateProviderVersionsRequest } from './model/ListPrivateProviderVersionsRequest';
+import { ListPrivateProviderVersionsResponse } from './model/ListPrivateProviderVersionsResponse';
+import { ListPrivateProvidersRequest } from './model/ListPrivateProvidersRequest';
+import { ListPrivateProvidersResponse } from './model/ListPrivateProvidersResponse';
 import { ListStackEventsRequest } from './model/ListStackEventsRequest';
 import { ListStackEventsResponse } from './model/ListStackEventsResponse';
 import { ListStackInstancesRequest } from './model/ListStackInstancesRequest';
@@ -150,6 +165,7 @@ import { OperationIdPrimitiveTypeHolder } from './model/OperationIdPrimitiveType
 import { OperationPreferences } from './model/OperationPreferences';
 import { OperationPreferencesTypeHolder } from './model/OperationPreferencesTypeHolder';
 import { OrganizationalUnitIdsPrimitiveTypeHolder } from './model/OrganizationalUnitIdsPrimitiveTypeHolder';
+import { PageInfo } from './model/PageInfo';
 import { ParseTemplateVariablesRequest } from './model/ParseTemplateVariablesRequest';
 import { ParseTemplateVariablesRequestBody } from './model/ParseTemplateVariablesRequestBody';
 import { ParseTemplateVariablesResponse } from './model/ParseTemplateVariablesResponse';
@@ -180,13 +196,18 @@ import { PrivateModuleVersionPrimitiveTypeHolder } from './model/PrivateModuleVe
 import { PrivateModuleVersionSummary } from './model/PrivateModuleVersionSummary';
 import { PrivatePolicyBodyPrimitiveTypeHolder } from './model/PrivatePolicyBodyPrimitiveTypeHolder';
 import { PrivatePolicyURIPrimitiveTypeHolder } from './model/PrivatePolicyURIPrimitiveTypeHolder';
+import { PrivateProviderCreateTimePrimitiveTypeHolder } from './model/PrivateProviderCreateTimePrimitiveTypeHolder';
 import { PrivateProviderDescriptionPrimitiveTypeHolder } from './model/PrivateProviderDescriptionPrimitiveTypeHolder';
 import { PrivateProviderIdPrimitiveTypeHolder } from './model/PrivateProviderIdPrimitiveTypeHolder';
 import { PrivateProviderNamePrimitiveTypeHolder } from './model/PrivateProviderNamePrimitiveTypeHolder';
 import { PrivateProviderSourcePrimitiveTypeHolder } from './model/PrivateProviderSourcePrimitiveTypeHolder';
+import { PrivateProviderSummary } from './model/PrivateProviderSummary';
+import { PrivateProviderUpdateTimePrimitiveTypeHolder } from './model/PrivateProviderUpdateTimePrimitiveTypeHolder';
+import { PrivateProviderVersionCreateTimePrimitiveTypeHolder } from './model/PrivateProviderVersionCreateTimePrimitiveTypeHolder';
 import { PrivateProviderVersionDescriptionPrimitiveTypeHolder } from './model/PrivateProviderVersionDescriptionPrimitiveTypeHolder';
 import { PrivateProviderVersionPrimitiveTypeHolder } from './model/PrivateProviderVersionPrimitiveTypeHolder';
 import { PrivateProviderVersionRequiredPrimitiveTypeHolder } from './model/PrivateProviderVersionRequiredPrimitiveTypeHolder';
+import { PrivateProviderVersionSummary } from './model/PrivateProviderVersionSummary';
 import { ProviderAgencyNamePrimitiveTypeHolder } from './model/ProviderAgencyNamePrimitiveTypeHolder';
 import { ProviderAgencyUrnPrimitiveTypeHolder } from './model/ProviderAgencyUrnPrimitiveTypeHolder';
 import { RegionsPrimitiveTypeHolder } from './model/RegionsPrimitiveTypeHolder';
@@ -207,6 +228,10 @@ import { ShowPrivateModuleVersionContentRequest } from './model/ShowPrivateModul
 import { ShowPrivateModuleVersionContentResponse } from './model/ShowPrivateModuleVersionContentResponse';
 import { ShowPrivateModuleVersionMetadataRequest } from './model/ShowPrivateModuleVersionMetadataRequest';
 import { ShowPrivateModuleVersionMetadataResponse } from './model/ShowPrivateModuleVersionMetadataResponse';
+import { ShowPrivateProviderMetadataRequest } from './model/ShowPrivateProviderMetadataRequest';
+import { ShowPrivateProviderMetadataResponse } from './model/ShowPrivateProviderMetadataResponse';
+import { ShowPrivateProviderVersionMetadataRequest } from './model/ShowPrivateProviderVersionMetadataRequest';
+import { ShowPrivateProviderVersionMetadataResponse } from './model/ShowPrivateProviderVersionMetadataResponse';
 import { ShowStackInstanceRequest } from './model/ShowStackInstanceRequest';
 import { ShowStackInstanceResponse } from './model/ShowStackInstanceResponse';
 import { ShowStackSetMetadataRequest } from './model/ShowStackSetMetadataRequest';
@@ -259,6 +284,9 @@ import { UpdatePrivateHookMetadataResponse } from './model/UpdatePrivateHookMeta
 import { UpdatePrivateModuleMetadataRequest } from './model/UpdatePrivateModuleMetadataRequest';
 import { UpdatePrivateModuleMetadataRequestBody } from './model/UpdatePrivateModuleMetadataRequestBody';
 import { UpdatePrivateModuleMetadataResponse } from './model/UpdatePrivateModuleMetadataResponse';
+import { UpdatePrivateProviderMetadataRequest } from './model/UpdatePrivateProviderMetadataRequest';
+import { UpdatePrivateProviderMetadataRequestBody } from './model/UpdatePrivateProviderMetadataRequestBody';
+import { UpdatePrivateProviderMetadataResponse } from './model/UpdatePrivateProviderMetadataResponse';
 import { UpdateStackInstancesRequest } from './model/UpdateStackInstancesRequest';
 import { UpdateStackInstancesRequestBody } from './model/UpdateStackInstancesRequestBody';
 import { UpdateStackInstancesResponse } from './model/UpdateStackInstancesResponse';
@@ -453,6 +481,207 @@ export class AosClient {
      */
     public createPrivateProviderVersion(createPrivateProviderVersionRequest?: CreatePrivateProviderVersionRequest): Promise<CreatePrivateProviderVersionResponse> {
         const options = ParamCreater().createPrivateProviderVersion(createPrivateProviderVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除私有provider（DeletePrivateProvider）
+     * 
+     * 删除某个私有provider及私有provider下的所有provider版本。
+     * 
+     *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * ** 请谨慎操作，删除私有provider将会删除该私有provider下的所有provider版本。 **
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除私有provider
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} providerName 私有provider（private-provider）的名称。此名字在domain_id+region下应唯一，可以使用小写英文、数字、中划线。仅支持以小写英文、数字开头结尾。
+     * @param {string} [providerId] 私有provider的唯一Id，由资源编排服务随机生成，为UUID。  由于私有provider名称仅仅在同一时间下唯一，即用户允许先生成一个叫helloword的私有provider，删除，再重新创建一个同名私有provider。  对于团队并行开发，用户可能希望确保，当前我操作的私有provider就是我以为的那个，而不是由其他队友删除后创建的同名私有provider。  因此，使用ID就可以做到强匹配。资源编排服务保证每次创建私有provider所对应的Id都不相同。  如果给予的provider_id和当前私有provider的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateProvider(deletePrivateProviderRequest?: DeletePrivateProviderRequest): Promise<DeletePrivateProviderResponse> {
+        const options = ParamCreater().deletePrivateProvider(deletePrivateProviderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除私有provider版本（DeletePrivateProviderVersion）
+     * 
+     * 删除某个私有provider版本
+     * 
+     *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * **请谨慎操作**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除私有provider版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} providerName 私有provider（private-provider）的名称。此名字在domain_id+region下应唯一，可以使用小写英文、数字、中划线。仅支持以小写英文、数字开头结尾。
+     * @param {string} providerVersion provider的版本号。版本号遵循语义化版本号（Semantic Version），为用户自定义
+     * @param {string} [providerId] 私有provider的唯一Id，由资源编排服务随机生成，为UUID。  由于私有provider名称仅仅在同一时间下唯一，即用户允许先生成一个叫helloword的私有provider，删除，再重新创建一个同名私有provider。  对于团队并行开发，用户可能希望确保，当前我操作的私有provider就是我以为的那个，而不是由其他队友删除后创建的同名私有provider。  因此，使用ID就可以做到强匹配。资源编排服务保证每次创建私有provider所对应的Id都不相同。  如果给予的provider_id和当前私有provider的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateProviderVersion(deletePrivateProviderVersionRequest?: DeletePrivateProviderVersionRequest): Promise<DeletePrivateProviderVersionResponse> {
+        const options = ParamCreater().deletePrivateProviderVersion(deletePrivateProviderVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举私有provider版本（ListPrivateProviderVersions）
+     * 
+     * 列举所选择的私有provider中所有的provider版本信息。
+     * 
+     *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+     *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     *   * 如果provider下不存在provider版本，则返回空list。
+     *   * 如果provider不存在则返回404。
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举私有provider版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} providerName 私有provider（private-provider）的名称。此名字在domain_id+region下应唯一，可以使用小写英文、数字、中划线。仅支持以小写英文、数字开头结尾。
+     * @param {string} [providerId] 私有provider的唯一Id，由资源编排服务随机生成，为UUID。  由于私有provider名称仅仅在同一时间下唯一，即用户允许先生成一个叫helloword的私有provider，删除，再重新创建一个同名私有provider。  对于团队并行开发，用户可能希望确保，当前我操作的私有provider就是我以为的那个，而不是由其他队友删除后创建的同名私有provider。  因此，使用ID就可以做到强匹配。资源编排服务保证每次创建私有provider所对应的Id都不相同。  如果给予的provider_id和当前私有provider的Id不一致，则返回400。
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrivateProviderVersions(listPrivateProviderVersionsRequest?: ListPrivateProviderVersionsRequest): Promise<ListPrivateProviderVersionsResponse> {
+        const options = ParamCreater().listPrivateProviderVersions(listPrivateProviderVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举私有provider（ListPrivateProviders）
+     * 
+     * 列举当前局点下用户所有的私有provider。
+     * 
+     *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+     *   * 如果当前用户下没有任何私有provider，则返回空list。
+     *   * 如果需要某个provider的所有版本信息，可以调用ListPrivateProviderVersions。
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举私有provider
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrivateProviders(listPrivateProvidersRequest?: ListPrivateProvidersRequest): Promise<ListPrivateProvidersResponse> {
+        const options = ParamCreater().listPrivateProviders(listPrivateProvidersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有provider元数据（ShowPrivateProviderMetadata）
+     * 
+     * 获取某个私有provider的元数据信息
+     * 
+     *   * 具体返回的信息见ShowPrivateProviderMetadataResponseBody，如果想查看私有provider下全部provider版本，请调用ListPrivateProviderVersions。
+     *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有provider元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} providerName 私有provider（private-provider）的名称。此名字在domain_id+region下应唯一，可以使用小写英文、数字、中划线。仅支持以小写英文、数字开头结尾。
+     * @param {string} [providerId] 私有provider的唯一Id，由资源编排服务随机生成，为UUID。  由于私有provider名称仅仅在同一时间下唯一，即用户允许先生成一个叫helloword的私有provider，删除，再重新创建一个同名私有provider。  对于团队并行开发，用户可能希望确保，当前我操作的私有provider就是我以为的那个，而不是由其他队友删除后创建的同名私有provider。  因此，使用ID就可以做到强匹配。资源编排服务保证每次创建私有provider所对应的Id都不相同。  如果给予的provider_id和当前私有provider的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateProviderMetadata(showPrivateProviderMetadataRequest?: ShowPrivateProviderMetadataRequest): Promise<ShowPrivateProviderMetadataResponse> {
+        const options = ParamCreater().showPrivateProviderMetadata(showPrivateProviderMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有provider版本元数据（ShowPrivateProviderVersionMetadata）
+     * 
+     * 获取某个私有provider版本的元数据信息
+     *   
+     *   * 具体返回信息见ShowPrivateProviderVersionMetadataResponseBody
+     *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有provider版本元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} providerName 私有provider（private-provider）的名称。此名字在domain_id+region下应唯一，可以使用小写英文、数字、中划线。仅支持以小写英文、数字开头结尾。
+     * @param {string} providerVersion provider的版本号。版本号遵循语义化版本号（Semantic Version），为用户自定义
+     * @param {string} [providerId] 私有provider的唯一Id，由资源编排服务随机生成，为UUID。  由于私有provider名称仅仅在同一时间下唯一，即用户允许先生成一个叫helloword的私有provider，删除，再重新创建一个同名私有provider。  对于团队并行开发，用户可能希望确保，当前我操作的私有provider就是我以为的那个，而不是由其他队友删除后创建的同名私有provider。  因此，使用ID就可以做到强匹配。资源编排服务保证每次创建私有provider所对应的Id都不相同。  如果给予的provider_id和当前私有provider的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateProviderVersionMetadata(showPrivateProviderVersionMetadataRequest?: ShowPrivateProviderVersionMetadataRequest): Promise<ShowPrivateProviderVersionMetadataResponse> {
+        const options = ParamCreater().showPrivateProviderVersionMetadata(showPrivateProviderVersionMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新私有provider元数据（UpdatePrivateProviderMetadata）
+     * 
+     * 更新当前私有provider的元数据信息
+     * 
+     *   * 目前只支持更新私有provider的描述
+     *   * 如果需要创建新的版本，请调用CreatePrivateProviderVersion
+     *   * 更新为增量更新，即如果某个参数不提供，则保持原始值
+     *   * 如果请求中没有需要被更新的参数，则返回400。注意：即使更新原始值和目标值一致也被认为是有效更新
+     *   * 更新后私有provider的更新时间（update_time）也会被更新
+     *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新私有provider元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} providerName 私有provider（private-provider）的名称。此名字在domain_id+region下应唯一，可以使用小写英文、数字、中划线。仅支持以小写英文、数字开头结尾。
+     * @param {UpdatePrivateProviderMetadataRequestBody} updatePrivateProviderMetadataRequestBody UpdatePrivateProviderMetadata API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrivateProviderMetadata(updatePrivateProviderMetadataRequest?: UpdatePrivateProviderMetadataRequest): Promise<UpdatePrivateProviderMetadataResponse> {
+        const options = ParamCreater().updatePrivateProviderMetadata(updatePrivateProviderMetadataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -759,10 +988,9 @@ export class AosClient {
      * 列举当前局点下用户指定资源栈下所有的执行计划
      * 
      *   * 默认按照生成时间降序排序，最新生成的在最前
-     *   * 注意：目前暂时返回全量执行计划信息，即不支持分页
      *   * 如果指定的资源栈下没有任何执行计划，则返回空list
      *   * 如果指定的资源栈不存在，则返回404
-     * 
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * ListExecutionPlans返回的只有摘要信息（具体摘要信息见ListExecutionPlansResponseBody），如果用户需要详细的执行计划元数据请调用GetExecutionPlanMetadata
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -772,6 +1000,8 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给予的stack_id和当前资源栈的ID不一致，则返回400
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -936,9 +1166,9 @@ export class AosClient {
      * 列举当前局点下用户所有的私有hook。
      * 
      *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir的数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
-     *   * 注意：目前暂时返回全量hook的信息，即不支持分页。
      *   * 若当前用户没有任何私有hook，则返回空list。
      *   * 具体返回的信息见ListPrivateHooksResponseBody。
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -946,6 +1176,8 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1203,6 +1435,7 @@ export class AosClient {
      *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
      *   * 如果模块不存在则返回404。
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * ListPrivateModuleVersions返回的只有摘要信息（具体摘要信息见ListPrivateModuleVersionsResponseBody），如果用户需要详细的模块版本元数据请调用ShowPrivateModuleVersionMetadata
      * 
@@ -1214,6 +1447,8 @@ export class AosClient {
      * @param {string} [moduleId] 私有模块（private-module）的唯一Id。  此Id由资源编排服务在生成模块的时候生成，为UUID。  由于私有模块名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有模块，删除，再重新创建一个同名私有模块。  对于团队并行开发，用户可能希望确保，当前我操作的私有模块就是我认为的那个，而不是其他队友删除后创建的同名私有模块。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有模块所对应的Id都不相同，更新不会影响Id。如果给予的module_id和当前模块的Id不一致，则返回400
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1234,6 +1469,7 @@ export class AosClient {
      *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      *   * 如果当前用户下没有任何私有模块，则返回空list。
      *   * 如果需要某个模块的所有版本信息，可以调用ListModuleVersions。
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * ListPrivateModules返回的只有摘要信息（具体摘要信息见ListPrivateModulesResponseBody），如果用户需要详细的模块元数据请调用ShowPrivateModuleMetadata
      * 
@@ -1243,6 +1479,8 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1651,6 +1889,7 @@ export class AosClient {
      * * 可以使用filter作为过滤器，过滤出指定事件类型（event_type）、资源类型（resource_type）、资源名称（resource_name）的资源栈事件
      * * 可以使用field选择数据应返回的属性，属性事件类型（event_type）不可配置，一定会返回，可选择的属性有逝去时间（elapsed_seconds）、事件消息（event_message）、 资源ID键（resource_id_key）、资源ID值（resource_id_value）、资源键（resource_key）、资源类型（resource_type）、资源名称（resource_name）和时间戳（timestamp）
      * * 事件返回将以时间降序排列
+     * * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1662,6 +1901,8 @@ export class AosClient {
      * @param {string} [deploymentId] 标识部署的唯一Id，此Id由资源编排服务在触发部署、回滚等操作时生成，为UUID。
      * @param {string} [filter] 过滤条件       * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {string} [field] 选择的属性名称  * 属性名仅支持包含大小写英文、数字和下划线 * 多个属性名称之间以逗号（,）分隔
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1687,6 +1928,7 @@ export class AosClient {
      *   * 正在回滚（ROLLBACK_IN_PROGRESS）
      * 
      * output为HCL官方定义的语法，其返回信息类似于常见编程语言中的返回值，详细定义请参考HCL官方的说明
+     * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1695,6 +1937,8 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给予的stack_id和当前资源栈的ID不一致，则返回400
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1719,6 +1963,8 @@ export class AosClient {
      *   * 正在删除（DELETION_IN_PROGRESS）
      *   * 正在回滚（ROLLBACK_IN_PROGRESS）
      * 
+     * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+     * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列举资源栈资源
@@ -1726,6 +1972,8 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给予的stack_id和当前资源栈的ID不一致，则返回400
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1744,8 +1992,8 @@ export class AosClient {
      * 此API用于列举当前局点下用户所有的资源栈
      * 
      *   * 默认按照生成时间降序排序，最新生成的在最前
-     *   * 注意：目前暂时返回全量资源栈信息，即不支持分页
      *   * 如果没有任何资源栈，则返回空list
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * ListStacks返回的只有摘要信息（具体摘要信息见ListStacksResponseBody），如果用户需要详细的资源栈元数据请调用GetStackMetadata
      * 
@@ -1754,6 +2002,8 @@ export class AosClient {
      * @summary 列举资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1982,6 +2232,7 @@ export class AosClient {
      * * 可以使用filter作为过滤器，过滤出指定局点（region）或指定成员账号（stack_domain_id）下的资源栈实例
      * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      * * 如果指定资源栈集下没有任何资源栈实例，则返回空list
+     * * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1993,6 +2244,8 @@ export class AosClient {
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
      * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2013,6 +2266,7 @@ export class AosClient {
      * 可以使用filter作为过滤器，过滤出指定操作状态（status）或操作类型（action）下的资源栈集操作。
      * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      * 如果指定资源栈集下没有任何资源栈集操作，则返回空list。
+     * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2024,6 +2278,8 @@ export class AosClient {
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
      * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2045,6 +2301,7 @@ export class AosClient {
      * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      * * 注意：目前暂时返回全量资源栈集信息，即不支持分页
      * * 如果没有任何资源栈集，则返回空list
+     * * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2054,6 +2311,8 @@ export class AosClient {
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
      * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2255,6 +2514,64 @@ export class AosClient {
      */
     public parseTemplateVariables(parseTemplateVariablesRequest?: ParseTemplateVariablesRequest): Promise<ParseTemplateVariablesResponse> {
         const options = ParamCreater().parseTemplateVariables(parseTemplateVariablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建模板（CreateTemplate）
+     * 
+     * 此API用于创建一个带有版本的模板
+     * 
+     *   * 请求中必须包括template_uri或是template_body。前者为模板内容obs链接，后者为模板内容
+     *   * 模板管理名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板
+     *   * 模板创建时，会自动生成模板版本号为V1的模板版本
+     *   * 模板必须存在一个或多个模板版本，即不存在没有模板版本的模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建模板
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {CreateTemplateRequestBody} createTemplateRequestBody create-template request parameters
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTemplate(createTemplateRequest?: CreateTemplateRequest): Promise<CreateTemplateResponse> {
+        const options = ParamCreater().createTemplate(createTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建模板版本（CreateTemplateVersion）
+     * 
+     * 此API用于创建新的模板版本
+     * 
+     *   * 请求中必须包括template_uri或template_body。前者为模板内容obs链接，后者为模板内容
+     *   * 新创建的模板版本版本ID会自动在当前最大模板版本ID的基础上加1
+     *   * 创建模板版本需要的具体信息详见：CreateTemplateVersionRequestBody
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建模板版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} templateName 用户希望创建的模板名称
+     * @param {CreateTemplateVersionRequestBody} createTemplateVersionRequestBody create-template-version request parameters
+     * @param {string} [templateId] 模板的ID。当template_id存在时，模板服务会检查template_id是否和template_name匹配，不匹配会返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTemplateVersion(createTemplateVersionRequest?: CreateTemplateVersionRequest): Promise<CreateTemplateVersionResponse> {
+        const options = ParamCreater().createTemplateVersion(createTemplateVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2704,6 +3021,472 @@ export const ParamCreater = function () {
         
             if (providerName === null || providerName === undefined) {
             throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling createPrivateProviderVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_name': providerName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除私有provider（DeletePrivateProvider）
+         * 
+         * 删除某个私有provider及私有provider下的所有provider版本。
+         * 
+         *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * ** 请谨慎操作，删除私有provider将会删除该私有provider下的所有provider版本。 **
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateProvider(deletePrivateProviderRequest?: DeletePrivateProviderRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/private-providers/{provider_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let providerName;
+            
+            let providerId;
+
+            if (deletePrivateProviderRequest !== null && deletePrivateProviderRequest !== undefined) {
+                if (deletePrivateProviderRequest instanceof DeletePrivateProviderRequest) {
+                    clientRequestId = deletePrivateProviderRequest.clientRequestId;
+                    providerName = deletePrivateProviderRequest.providerName;
+                    providerId = deletePrivateProviderRequest.providerId;
+                } else {
+                    clientRequestId = deletePrivateProviderRequest['Client-Request-Id'];
+                    providerName = deletePrivateProviderRequest['provider_name'];
+                    providerId = deletePrivateProviderRequest['provider_id'];
+                }
+            }
+
+        
+            if (providerName === null || providerName === undefined) {
+            throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling deletePrivateProvider.');
+            }
+            if (providerId !== null && providerId !== undefined) {
+                localVarQueryParameter['provider_id'] = providerId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'provider_name': providerName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除私有provider版本（DeletePrivateProviderVersion）
+         * 
+         * 删除某个私有provider版本
+         * 
+         *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * **请谨慎操作**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateProviderVersion(deletePrivateProviderVersionRequest?: DeletePrivateProviderVersionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/private-providers/{provider_name}/versions/{provider_version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let providerName;
+            
+            let providerVersion;
+            
+            let providerId;
+
+            if (deletePrivateProviderVersionRequest !== null && deletePrivateProviderVersionRequest !== undefined) {
+                if (deletePrivateProviderVersionRequest instanceof DeletePrivateProviderVersionRequest) {
+                    clientRequestId = deletePrivateProviderVersionRequest.clientRequestId;
+                    providerName = deletePrivateProviderVersionRequest.providerName;
+                    providerVersion = deletePrivateProviderVersionRequest.providerVersion;
+                    providerId = deletePrivateProviderVersionRequest.providerId;
+                } else {
+                    clientRequestId = deletePrivateProviderVersionRequest['Client-Request-Id'];
+                    providerName = deletePrivateProviderVersionRequest['provider_name'];
+                    providerVersion = deletePrivateProviderVersionRequest['provider_version'];
+                    providerId = deletePrivateProviderVersionRequest['provider_id'];
+                }
+            }
+
+        
+            if (providerName === null || providerName === undefined) {
+            throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling deletePrivateProviderVersion.');
+            }
+            if (providerVersion === null || providerVersion === undefined) {
+            throw new RequiredError('providerVersion','Required parameter providerVersion was null or undefined when calling deletePrivateProviderVersion.');
+            }
+            if (providerId !== null && providerId !== undefined) {
+                localVarQueryParameter['provider_id'] = providerId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'provider_name': providerName,'provider_version': providerVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举私有provider版本（ListPrivateProviderVersions）
+         * 
+         * 列举所选择的私有provider中所有的provider版本信息。
+         * 
+         *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+         *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         *   * 如果provider下不存在provider版本，则返回空list。
+         *   * 如果provider不存在则返回404。
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrivateProviderVersions(listPrivateProviderVersionsRequest?: ListPrivateProviderVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-providers/{provider_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let providerName;
+            
+            let providerId;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let marker;
+            
+            let limit;
+
+            if (listPrivateProviderVersionsRequest !== null && listPrivateProviderVersionsRequest !== undefined) {
+                if (listPrivateProviderVersionsRequest instanceof ListPrivateProviderVersionsRequest) {
+                    clientRequestId = listPrivateProviderVersionsRequest.clientRequestId;
+                    providerName = listPrivateProviderVersionsRequest.providerName;
+                    providerId = listPrivateProviderVersionsRequest.providerId;
+                    sortKey = listPrivateProviderVersionsRequest.sortKey;
+                    sortDir = listPrivateProviderVersionsRequest.sortDir;
+                    marker = listPrivateProviderVersionsRequest.marker;
+                    limit = listPrivateProviderVersionsRequest.limit;
+                } else {
+                    clientRequestId = listPrivateProviderVersionsRequest['Client-Request-Id'];
+                    providerName = listPrivateProviderVersionsRequest['provider_name'];
+                    providerId = listPrivateProviderVersionsRequest['provider_id'];
+                    sortKey = listPrivateProviderVersionsRequest['sort_key'];
+                    sortDir = listPrivateProviderVersionsRequest['sort_dir'];
+                    marker = listPrivateProviderVersionsRequest['marker'];
+                    limit = listPrivateProviderVersionsRequest['limit'];
+                }
+            }
+
+        
+            if (providerName === null || providerName === undefined) {
+            throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling listPrivateProviderVersions.');
+            }
+            if (providerId !== null && providerId !== undefined) {
+                localVarQueryParameter['provider_id'] = providerId;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'provider_name': providerName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举私有provider（ListPrivateProviders）
+         * 
+         * 列举当前局点下用户所有的私有provider。
+         * 
+         *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+         *   * 如果当前用户下没有任何私有provider，则返回空list。
+         *   * 如果需要某个provider的所有版本信息，可以调用ListPrivateProviderVersions。
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrivateProviders(listPrivateProvidersRequest?: ListPrivateProvidersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let marker;
+            
+            let limit;
+
+            if (listPrivateProvidersRequest !== null && listPrivateProvidersRequest !== undefined) {
+                if (listPrivateProvidersRequest instanceof ListPrivateProvidersRequest) {
+                    clientRequestId = listPrivateProvidersRequest.clientRequestId;
+                    sortKey = listPrivateProvidersRequest.sortKey;
+                    sortDir = listPrivateProvidersRequest.sortDir;
+                    marker = listPrivateProvidersRequest.marker;
+                    limit = listPrivateProvidersRequest.limit;
+                } else {
+                    clientRequestId = listPrivateProvidersRequest['Client-Request-Id'];
+                    sortKey = listPrivateProvidersRequest['sort_key'];
+                    sortDir = listPrivateProvidersRequest['sort_dir'];
+                    marker = listPrivateProvidersRequest['marker'];
+                    limit = listPrivateProvidersRequest['limit'];
+                }
+            }
+
+        
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有provider元数据（ShowPrivateProviderMetadata）
+         * 
+         * 获取某个私有provider的元数据信息
+         * 
+         *   * 具体返回的信息见ShowPrivateProviderMetadataResponseBody，如果想查看私有provider下全部provider版本，请调用ListPrivateProviderVersions。
+         *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateProviderMetadata(showPrivateProviderMetadataRequest?: ShowPrivateProviderMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-providers/{provider_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let providerName;
+            
+            let providerId;
+
+            if (showPrivateProviderMetadataRequest !== null && showPrivateProviderMetadataRequest !== undefined) {
+                if (showPrivateProviderMetadataRequest instanceof ShowPrivateProviderMetadataRequest) {
+                    clientRequestId = showPrivateProviderMetadataRequest.clientRequestId;
+                    providerName = showPrivateProviderMetadataRequest.providerName;
+                    providerId = showPrivateProviderMetadataRequest.providerId;
+                } else {
+                    clientRequestId = showPrivateProviderMetadataRequest['Client-Request-Id'];
+                    providerName = showPrivateProviderMetadataRequest['provider_name'];
+                    providerId = showPrivateProviderMetadataRequest['provider_id'];
+                }
+            }
+
+        
+            if (providerName === null || providerName === undefined) {
+            throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling showPrivateProviderMetadata.');
+            }
+            if (providerId !== null && providerId !== undefined) {
+                localVarQueryParameter['provider_id'] = providerId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'provider_name': providerName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有provider版本元数据（ShowPrivateProviderVersionMetadata）
+         * 
+         * 获取某个私有provider版本的元数据信息
+         *   
+         *   * 具体返回信息见ShowPrivateProviderVersionMetadataResponseBody
+         *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateProviderVersionMetadata(showPrivateProviderVersionMetadataRequest?: ShowPrivateProviderVersionMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-providers/{provider_name}/versions/{provider_version}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let providerName;
+            
+            let providerVersion;
+            
+            let providerId;
+
+            if (showPrivateProviderVersionMetadataRequest !== null && showPrivateProviderVersionMetadataRequest !== undefined) {
+                if (showPrivateProviderVersionMetadataRequest instanceof ShowPrivateProviderVersionMetadataRequest) {
+                    clientRequestId = showPrivateProviderVersionMetadataRequest.clientRequestId;
+                    providerName = showPrivateProviderVersionMetadataRequest.providerName;
+                    providerVersion = showPrivateProviderVersionMetadataRequest.providerVersion;
+                    providerId = showPrivateProviderVersionMetadataRequest.providerId;
+                } else {
+                    clientRequestId = showPrivateProviderVersionMetadataRequest['Client-Request-Id'];
+                    providerName = showPrivateProviderVersionMetadataRequest['provider_name'];
+                    providerVersion = showPrivateProviderVersionMetadataRequest['provider_version'];
+                    providerId = showPrivateProviderVersionMetadataRequest['provider_id'];
+                }
+            }
+
+        
+            if (providerName === null || providerName === undefined) {
+            throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling showPrivateProviderVersionMetadata.');
+            }
+            if (providerVersion === null || providerVersion === undefined) {
+            throw new RequiredError('providerVersion','Required parameter providerVersion was null or undefined when calling showPrivateProviderVersionMetadata.');
+            }
+            if (providerId !== null && providerId !== undefined) {
+                localVarQueryParameter['provider_id'] = providerId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'provider_name': providerName,'provider_version': providerVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新私有provider元数据（UpdatePrivateProviderMetadata）
+         * 
+         * 更新当前私有provider的元数据信息
+         * 
+         *   * 目前只支持更新私有provider的描述
+         *   * 如果需要创建新的版本，请调用CreatePrivateProviderVersion
+         *   * 更新为增量更新，即如果某个参数不提供，则保持原始值
+         *   * 如果请求中没有需要被更新的参数，则返回400。注意：即使更新原始值和目标值一致也被认为是有效更新
+         *   * 更新后私有provider的更新时间（update_time）也会被更新
+         *   * 如果provider_name和provider_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrivateProviderMetadata(updatePrivateProviderMetadataRequest?: UpdatePrivateProviderMetadataRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/private-providers/{provider_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let providerName;
+
+            if (updatePrivateProviderMetadataRequest !== null && updatePrivateProviderMetadataRequest !== undefined) {
+                if (updatePrivateProviderMetadataRequest instanceof UpdatePrivateProviderMetadataRequest) {
+                    clientRequestId = updatePrivateProviderMetadataRequest.clientRequestId;
+                    providerName = updatePrivateProviderMetadataRequest.providerName;
+                    body = updatePrivateProviderMetadataRequest.body
+                } else {
+                    clientRequestId = updatePrivateProviderMetadataRequest['Client-Request-Id'];
+                    providerName = updatePrivateProviderMetadataRequest['provider_name'];
+                    body = updatePrivateProviderMetadataRequest['body'];
+                }
+            }
+
+        
+            if (providerName === null || providerName === undefined) {
+            throw new RequiredError('providerName','Required parameter providerName was null or undefined when calling updatePrivateProviderMetadata.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3293,10 +4076,9 @@ export const ParamCreater = function () {
          * 列举当前局点下用户指定资源栈下所有的执行计划
          * 
          *   * 默认按照生成时间降序排序，最新生成的在最前
-         *   * 注意：目前暂时返回全量执行计划信息，即不支持分页
          *   * 如果指定的资源栈下没有任何执行计划，则返回空list
          *   * 如果指定的资源栈不存在，则返回404
-         * 
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * ListExecutionPlans返回的只有摘要信息（具体摘要信息见ListExecutionPlansResponseBody），如果用户需要详细的执行计划元数据请调用GetExecutionPlanMetadata
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3320,6 +4102,10 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
+            
+            let marker;
+            
+            let limit;
 
             if (listExecutionPlansRequest !== null && listExecutionPlansRequest !== undefined) {
                 if (listExecutionPlansRequest instanceof ListExecutionPlansRequest) {
@@ -3327,11 +4113,15 @@ export const ParamCreater = function () {
                     projectId = listExecutionPlansRequest.projectId;
                     stackName = listExecutionPlansRequest.stackName;
                     stackId = listExecutionPlansRequest.stackId;
+                    marker = listExecutionPlansRequest.marker;
+                    limit = listExecutionPlansRequest.limit;
                 } else {
                     clientRequestId = listExecutionPlansRequest['Client-Request-Id'];
                     projectId = listExecutionPlansRequest['project_id'];
                     stackName = listExecutionPlansRequest['stack_name'];
                     stackId = listExecutionPlansRequest['stack_id'];
+                    marker = listExecutionPlansRequest['marker'];
+                    limit = listExecutionPlansRequest['limit'];
                 }
             }
 
@@ -3344,6 +4134,12 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -3632,9 +4428,9 @@ export const ParamCreater = function () {
          * 列举当前局点下用户所有的私有hook。
          * 
          *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir的数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
-         *   * 注意：目前暂时返回全量hook的信息，即不支持分页。
          *   * 若当前用户没有任何私有hook，则返回空list。
          *   * 具体返回的信息见ListPrivateHooksResponseBody。
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3655,16 +4451,24 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let marker;
+            
+            let limit;
 
             if (listPrivateHooksRequest !== null && listPrivateHooksRequest !== undefined) {
                 if (listPrivateHooksRequest instanceof ListPrivateHooksRequest) {
                     clientRequestId = listPrivateHooksRequest.clientRequestId;
                     sortKey = listPrivateHooksRequest.sortKey;
                     sortDir = listPrivateHooksRequest.sortDir;
+                    marker = listPrivateHooksRequest.marker;
+                    limit = listPrivateHooksRequest.limit;
                 } else {
                     clientRequestId = listPrivateHooksRequest['Client-Request-Id'];
                     sortKey = listPrivateHooksRequest['sort_key'];
                     sortDir = listPrivateHooksRequest['sort_dir'];
+                    marker = listPrivateHooksRequest['marker'];
+                    limit = listPrivateHooksRequest['limit'];
                 }
             }
 
@@ -3674,6 +4478,12 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4191,6 +5001,7 @@ export const ParamCreater = function () {
          *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          *   * 如果module_name和module_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
          *   * 如果模块不存在则返回404。
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * ListPrivateModuleVersions返回的只有摘要信息（具体摘要信息见ListPrivateModuleVersionsResponseBody），如果用户需要详细的模块版本元数据请调用ShowPrivateModuleVersionMetadata
          * 
@@ -4217,6 +5028,10 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let marker;
+            
+            let limit;
 
             if (listPrivateModuleVersionsRequest !== null && listPrivateModuleVersionsRequest !== undefined) {
                 if (listPrivateModuleVersionsRequest instanceof ListPrivateModuleVersionsRequest) {
@@ -4225,12 +5040,16 @@ export const ParamCreater = function () {
                     moduleId = listPrivateModuleVersionsRequest.moduleId;
                     sortKey = listPrivateModuleVersionsRequest.sortKey;
                     sortDir = listPrivateModuleVersionsRequest.sortDir;
+                    marker = listPrivateModuleVersionsRequest.marker;
+                    limit = listPrivateModuleVersionsRequest.limit;
                 } else {
                     clientRequestId = listPrivateModuleVersionsRequest['Client-Request-Id'];
                     moduleName = listPrivateModuleVersionsRequest['module_name'];
                     moduleId = listPrivateModuleVersionsRequest['module_id'];
                     sortKey = listPrivateModuleVersionsRequest['sort_key'];
                     sortDir = listPrivateModuleVersionsRequest['sort_dir'];
+                    marker = listPrivateModuleVersionsRequest['marker'];
+                    limit = listPrivateModuleVersionsRequest['limit'];
                 }
             }
 
@@ -4246,6 +5065,12 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4265,6 +5090,7 @@ export const ParamCreater = function () {
          *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          *   * 如果当前用户下没有任何私有模块，则返回空list。
          *   * 如果需要某个模块的所有版本信息，可以调用ListModuleVersions。
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * ListPrivateModules返回的只有摘要信息（具体摘要信息见ListPrivateModulesResponseBody），如果用户需要详细的模块元数据请调用ShowPrivateModuleMetadata
          * 
@@ -4287,16 +5113,24 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let marker;
+            
+            let limit;
 
             if (listPrivateModulesRequest !== null && listPrivateModulesRequest !== undefined) {
                 if (listPrivateModulesRequest instanceof ListPrivateModulesRequest) {
                     clientRequestId = listPrivateModulesRequest.clientRequestId;
                     sortKey = listPrivateModulesRequest.sortKey;
                     sortDir = listPrivateModulesRequest.sortDir;
+                    marker = listPrivateModulesRequest.marker;
+                    limit = listPrivateModulesRequest.limit;
                 } else {
                     clientRequestId = listPrivateModulesRequest['Client-Request-Id'];
                     sortKey = listPrivateModulesRequest['sort_key'];
                     sortDir = listPrivateModulesRequest['sort_dir'];
+                    marker = listPrivateModulesRequest['marker'];
+                    limit = listPrivateModulesRequest['limit'];
                 }
             }
 
@@ -4306,6 +5140,12 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -5147,6 +5987,7 @@ export const ParamCreater = function () {
          * * 可以使用filter作为过滤器，过滤出指定事件类型（event_type）、资源类型（resource_type）、资源名称（resource_name）的资源栈事件
          * * 可以使用field选择数据应返回的属性，属性事件类型（event_type）不可配置，一定会返回，可选择的属性有逝去时间（elapsed_seconds）、事件消息（event_message）、 资源ID键（resource_id_key）、资源ID值（resource_id_value）、资源键（resource_key）、资源类型（resource_type）、资源名称（resource_name）和时间戳（timestamp）
          * * 事件返回将以时间降序排列
+         * * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5175,6 +6016,10 @@ export const ParamCreater = function () {
             let filter;
             
             let field;
+            
+            let marker;
+            
+            let limit;
 
             if (listStackEventsRequest !== null && listStackEventsRequest !== undefined) {
                 if (listStackEventsRequest instanceof ListStackEventsRequest) {
@@ -5185,6 +6030,8 @@ export const ParamCreater = function () {
                     deploymentId = listStackEventsRequest.deploymentId;
                     filter = listStackEventsRequest.filter;
                     field = listStackEventsRequest.field;
+                    marker = listStackEventsRequest.marker;
+                    limit = listStackEventsRequest.limit;
                 } else {
                     clientRequestId = listStackEventsRequest['Client-Request-Id'];
                     projectId = listStackEventsRequest['project_id'];
@@ -5193,6 +6040,8 @@ export const ParamCreater = function () {
                     deploymentId = listStackEventsRequest['deployment_id'];
                     filter = listStackEventsRequest['filter'];
                     field = listStackEventsRequest['field'];
+                    marker = listStackEventsRequest['marker'];
+                    limit = listStackEventsRequest['limit'];
                 }
             }
 
@@ -5214,6 +6063,12 @@ export const ParamCreater = function () {
             }
             if (field !== null && field !== undefined) {
                 localVarQueryParameter['field'] = field;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -5238,6 +6093,7 @@ export const ParamCreater = function () {
          *   * 正在回滚（ROLLBACK_IN_PROGRESS）
          * 
          * output为HCL官方定义的语法，其返回信息类似于常见编程语言中的返回值，详细定义请参考HCL官方的说明
+         * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5260,6 +6116,10 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
+            
+            let marker;
+            
+            let limit;
 
             if (listStackOutputsRequest !== null && listStackOutputsRequest !== undefined) {
                 if (listStackOutputsRequest instanceof ListStackOutputsRequest) {
@@ -5267,11 +6127,15 @@ export const ParamCreater = function () {
                     projectId = listStackOutputsRequest.projectId;
                     stackName = listStackOutputsRequest.stackName;
                     stackId = listStackOutputsRequest.stackId;
+                    marker = listStackOutputsRequest.marker;
+                    limit = listStackOutputsRequest.limit;
                 } else {
                     clientRequestId = listStackOutputsRequest['Client-Request-Id'];
                     projectId = listStackOutputsRequest['project_id'];
                     stackName = listStackOutputsRequest['stack_name'];
                     stackId = listStackOutputsRequest['stack_id'];
+                    marker = listStackOutputsRequest['marker'];
+                    limit = listStackOutputsRequest['limit'];
                 }
             }
 
@@ -5284,6 +6148,12 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -5307,6 +6177,8 @@ export const ParamCreater = function () {
          *   * 正在删除（DELETION_IN_PROGRESS）
          *   * 正在回滚（ROLLBACK_IN_PROGRESS）
          * 
+         * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+         * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStackResources(listStackResourcesRequest?: ListStackResourcesRequest) {
@@ -5328,6 +6200,10 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
+            
+            let marker;
+            
+            let limit;
 
             if (listStackResourcesRequest !== null && listStackResourcesRequest !== undefined) {
                 if (listStackResourcesRequest instanceof ListStackResourcesRequest) {
@@ -5335,11 +6211,15 @@ export const ParamCreater = function () {
                     projectId = listStackResourcesRequest.projectId;
                     stackName = listStackResourcesRequest.stackName;
                     stackId = listStackResourcesRequest.stackId;
+                    marker = listStackResourcesRequest.marker;
+                    limit = listStackResourcesRequest.limit;
                 } else {
                     clientRequestId = listStackResourcesRequest['Client-Request-Id'];
                     projectId = listStackResourcesRequest['project_id'];
                     stackName = listStackResourcesRequest['stack_name'];
                     stackId = listStackResourcesRequest['stack_id'];
+                    marker = listStackResourcesRequest['marker'];
+                    limit = listStackResourcesRequest['limit'];
                 }
             }
 
@@ -5352,6 +6232,12 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -5369,8 +6255,8 @@ export const ParamCreater = function () {
          * 此API用于列举当前局点下用户所有的资源栈
          * 
          *   * 默认按照生成时间降序排序，最新生成的在最前
-         *   * 注意：目前暂时返回全量资源栈信息，即不支持分页
          *   * 如果没有任何资源栈，则返回空list
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * ListStacks返回的只有摘要信息（具体摘要信息见ListStacksResponseBody），如果用户需要详细的资源栈元数据请调用GetStackMetadata
          * 
@@ -5386,19 +6272,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clientRequestId;
             
             let projectId;
+            
+            let marker;
+            
+            let limit;
 
             if (listStacksRequest !== null && listStacksRequest !== undefined) {
                 if (listStacksRequest instanceof ListStacksRequest) {
                     clientRequestId = listStacksRequest.clientRequestId;
                     projectId = listStacksRequest.projectId;
+                    marker = listStacksRequest.marker;
+                    limit = listStacksRequest.limit;
                 } else {
                     clientRequestId = listStacksRequest['Client-Request-Id'];
                     projectId = listStacksRequest['project_id'];
+                    marker = listStacksRequest['marker'];
+                    limit = listStacksRequest['limit'];
                 }
             }
 
@@ -5406,10 +6300,17 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listStacks.');
             }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5859,6 +6760,7 @@ export const ParamCreater = function () {
          * * 可以使用filter作为过滤器，过滤出指定局点（region）或指定成员账号（stack_domain_id）下的资源栈实例
          * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          * * 如果指定资源栈集下没有任何资源栈实例，则返回空list
+         * * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5887,6 +6789,10 @@ export const ParamCreater = function () {
             let sortDir;
             
             let callIdentity;
+            
+            let marker;
+            
+            let limit;
 
             if (listStackInstancesRequest !== null && listStackInstancesRequest !== undefined) {
                 if (listStackInstancesRequest instanceof ListStackInstancesRequest) {
@@ -5897,6 +6803,8 @@ export const ParamCreater = function () {
                     sortKey = listStackInstancesRequest.sortKey;
                     sortDir = listStackInstancesRequest.sortDir;
                     callIdentity = listStackInstancesRequest.callIdentity;
+                    marker = listStackInstancesRequest.marker;
+                    limit = listStackInstancesRequest.limit;
                 } else {
                     clientRequestId = listStackInstancesRequest['Client-Request-Id'];
                     stackSetName = listStackInstancesRequest['stack_set_name'];
@@ -5905,6 +6813,8 @@ export const ParamCreater = function () {
                     sortKey = listStackInstancesRequest['sort_key'];
                     sortDir = listStackInstancesRequest['sort_dir'];
                     callIdentity = listStackInstancesRequest['call_identity'];
+                    marker = listStackInstancesRequest['marker'];
+                    limit = listStackInstancesRequest['limit'];
                 }
             }
 
@@ -5927,6 +6837,12 @@ export const ParamCreater = function () {
             if (callIdentity !== null && callIdentity !== undefined) {
                 localVarQueryParameter['call_identity'] = callIdentity;
             }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
@@ -5945,6 +6861,7 @@ export const ParamCreater = function () {
          * 可以使用filter作为过滤器，过滤出指定操作状态（status）或操作类型（action）下的资源栈集操作。
          * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          * 如果指定资源栈集下没有任何资源栈集操作，则返回空list。
+         * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5973,6 +6890,10 @@ export const ParamCreater = function () {
             let sortDir;
             
             let callIdentity;
+            
+            let marker;
+            
+            let limit;
 
             if (listStackSetOperationsRequest !== null && listStackSetOperationsRequest !== undefined) {
                 if (listStackSetOperationsRequest instanceof ListStackSetOperationsRequest) {
@@ -5983,6 +6904,8 @@ export const ParamCreater = function () {
                     sortKey = listStackSetOperationsRequest.sortKey;
                     sortDir = listStackSetOperationsRequest.sortDir;
                     callIdentity = listStackSetOperationsRequest.callIdentity;
+                    marker = listStackSetOperationsRequest.marker;
+                    limit = listStackSetOperationsRequest.limit;
                 } else {
                     clientRequestId = listStackSetOperationsRequest['Client-Request-Id'];
                     stackSetName = listStackSetOperationsRequest['stack_set_name'];
@@ -5991,6 +6914,8 @@ export const ParamCreater = function () {
                     sortKey = listStackSetOperationsRequest['sort_key'];
                     sortDir = listStackSetOperationsRequest['sort_dir'];
                     callIdentity = listStackSetOperationsRequest['call_identity'];
+                    marker = listStackSetOperationsRequest['marker'];
+                    limit = listStackSetOperationsRequest['limit'];
                 }
             }
 
@@ -6013,6 +6938,12 @@ export const ParamCreater = function () {
             if (callIdentity !== null && callIdentity !== undefined) {
                 localVarQueryParameter['call_identity'] = callIdentity;
             }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
@@ -6032,6 +6963,7 @@ export const ParamCreater = function () {
          * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          * * 注意：目前暂时返回全量资源栈集信息，即不支持分页
          * * 如果没有任何资源栈集，则返回空list
+         * * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6056,6 +6988,10 @@ export const ParamCreater = function () {
             let sortDir;
             
             let callIdentity;
+            
+            let marker;
+            
+            let limit;
 
             if (listStackSetsRequest !== null && listStackSetsRequest !== undefined) {
                 if (listStackSetsRequest instanceof ListStackSetsRequest) {
@@ -6064,12 +7000,16 @@ export const ParamCreater = function () {
                     sortKey = listStackSetsRequest.sortKey;
                     sortDir = listStackSetsRequest.sortDir;
                     callIdentity = listStackSetsRequest.callIdentity;
+                    marker = listStackSetsRequest.marker;
+                    limit = listStackSetsRequest.limit;
                 } else {
                     clientRequestId = listStackSetsRequest['Client-Request-Id'];
                     filter = listStackSetsRequest['filter'];
                     sortKey = listStackSetsRequest['sort_key'];
                     sortDir = listStackSetsRequest['sort_dir'];
                     callIdentity = listStackSetsRequest['call_identity'];
+                    marker = listStackSetsRequest['marker'];
+                    limit = listStackSetsRequest['limit'];
                 }
             }
 
@@ -6085,6 +7025,12 @@ export const ParamCreater = function () {
             }
             if (callIdentity !== null && callIdentity !== undefined) {
                 localVarQueryParameter['call_identity'] = callIdentity;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -6555,6 +7501,141 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建模板（CreateTemplate）
+         * 
+         * 此API用于创建一个带有版本的模板
+         * 
+         *   * 请求中必须包括template_uri或是template_body。前者为模板内容obs链接，后者为模板内容
+         *   * 模板管理名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板
+         *   * 模板创建时，会自动生成模板版本号为V1的模板版本
+         *   * 模板必须存在一个或多个模板版本，即不存在没有模板版本的模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTemplate(createTemplateRequest?: CreateTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let projectId;
+
+            if (createTemplateRequest !== null && createTemplateRequest !== undefined) {
+                if (createTemplateRequest instanceof CreateTemplateRequest) {
+                    clientRequestId = createTemplateRequest.clientRequestId;
+                    projectId = createTemplateRequest.projectId;
+                    body = createTemplateRequest.body
+                } else {
+                    clientRequestId = createTemplateRequest['Client-Request-Id'];
+                    projectId = createTemplateRequest['project_id'];
+                    body = createTemplateRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建模板版本（CreateTemplateVersion）
+         * 
+         * 此API用于创建新的模板版本
+         * 
+         *   * 请求中必须包括template_uri或template_body。前者为模板内容obs链接，后者为模板内容
+         *   * 新创建的模板版本版本ID会自动在当前最大模板版本ID的基础上加1
+         *   * 创建模板版本需要的具体信息详见：CreateTemplateVersionRequestBody
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTemplateVersion(createTemplateVersionRequest?: CreateTemplateVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/templates/{template_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let clientRequestId;
+            
+            let projectId;
+            
+            let templateName;
+            
+            let templateId;
+
+            if (createTemplateVersionRequest !== null && createTemplateVersionRequest !== undefined) {
+                if (createTemplateVersionRequest instanceof CreateTemplateVersionRequest) {
+                    clientRequestId = createTemplateVersionRequest.clientRequestId;
+                    projectId = createTemplateVersionRequest.projectId;
+                    templateName = createTemplateVersionRequest.templateName;
+                    body = createTemplateVersionRequest.body
+                    templateId = createTemplateVersionRequest.templateId;
+                } else {
+                    clientRequestId = createTemplateVersionRequest['Client-Request-Id'];
+                    projectId = createTemplateVersionRequest['project_id'];
+                    templateName = createTemplateVersionRequest['template_name'];
+                    body = createTemplateVersionRequest['body'];
+                    templateId = createTemplateVersionRequest['template_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createTemplateVersion.');
+            }
+            if (templateName === null || templateName === undefined) {
+            throw new RequiredError('templateName','Required parameter templateName was null or undefined when calling createTemplateVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (templateId !== null && templateId !== undefined) {
+                localVarQueryParameter['template_id'] = templateId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'template_name': templateName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

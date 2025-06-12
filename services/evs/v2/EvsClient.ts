@@ -10,6 +10,9 @@ import { BatchCreateVolumeTagsResponse } from './model/BatchCreateVolumeTagsResp
 import { BatchDeleteVolumeTagsRequest } from './model/BatchDeleteVolumeTagsRequest';
 import { BatchDeleteVolumeTagsRequestBody } from './model/BatchDeleteVolumeTagsRequestBody';
 import { BatchDeleteVolumeTagsResponse } from './model/BatchDeleteVolumeTagsResponse';
+import { BatchResizeVolumeRequestBody } from './model/BatchResizeVolumeRequestBody';
+import { BatchResizeVolumesRequest } from './model/BatchResizeVolumesRequest';
+import { BatchResizeVolumesResponse } from './model/BatchResizeVolumesResponse';
 import { BssParamForCreateVolume } from './model/BssParamForCreateVolume';
 import { BssParamForResizeVolume } from './model/BssParamForResizeVolume';
 import { BssParamForRetypeVolume } from './model/BssParamForRetypeVolume';
@@ -69,6 +72,7 @@ import { ModifyVolumeQoSRequest } from './model/ModifyVolumeQoSRequest';
 import { ModifyVolumeQoSRequestBody } from './model/ModifyVolumeQoSRequestBody';
 import { ModifyVolumeQoSResponse } from './model/ModifyVolumeQoSResponse';
 import { OsExtend } from './model/OsExtend';
+import { PrepaidParamForBatchResizeVolume } from './model/PrepaidParamForBatchResizeVolume';
 import { QuotaDetail } from './model/QuotaDetail';
 import { QuotaDetailBackupGigabytes } from './model/QuotaDetailBackupGigabytes';
 import { QuotaDetailBackups } from './model/QuotaDetailBackups';
@@ -143,6 +147,7 @@ import { VolumeTransfer } from './model/VolumeTransfer';
 import { VolumeTransferSummary } from './model/VolumeTransferSummary';
 import { VolumeType } from './model/VolumeType';
 import { VolumeTypeExtraSpecs } from './model/VolumeTypeExtraSpecs';
+import { VolumesForBatchResizeVolume } from './model/VolumesForBatchResizeVolume';
 import { ZoneState } from './model/ZoneState';
 
 export class EvsClient {
@@ -197,6 +202,29 @@ export class EvsClient {
      */
     public batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest): Promise<BatchDeleteVolumeTagsResponse> {
         const options = ParamCreater().batchDeleteVolumeTags(batchDeleteVolumeTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对按需或者包周期云硬盘进行批量扩容。
+     * [在批量扩容存在包周期云硬盘的场景下：](tag:hws)
+     * - [如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。](tag:hws)
+     * - [如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/api_order_00030.html)\&quot;。](tag:hws)
+     * - [如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。](tag:hws)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量扩容云硬盘
+     * @param {BatchResizeVolumeRequestBody} batchResizeVolumeRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchResizeVolumes(batchResizeVolumesRequest?: BatchResizeVolumesRequest): Promise<BatchResizeVolumesResponse> {
+        const options = ParamCreater().batchResizeVolumes(batchResizeVolumesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -903,6 +931,48 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对按需或者包周期云硬盘进行批量扩容。
+         * [在批量扩容存在包周期云硬盘的场景下：](tag:hws)
+         * - [如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。](tag:hws)
+         * - [如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/api_order_00030.html)\&quot;。](tag:hws)
+         * - [如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。](tag:hws)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchResizeVolumes(batchResizeVolumesRequest?: BatchResizeVolumesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/volumes/batch-extend",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchResizeVolumesRequest !== null && batchResizeVolumesRequest !== undefined) {
+                if (batchResizeVolumesRequest instanceof BatchResizeVolumesRequest) {
+                    body = batchResizeVolumesRequest.body
+                } else {
+                    body = batchResizeVolumesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

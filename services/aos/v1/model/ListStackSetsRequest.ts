@@ -6,6 +6,8 @@ export class ListStackSetsRequest {
     private 'sort_key'?: Array<ListStackSetsRequestSortKeyEnum> | Array<string>;
     private 'sort_dir'?: Array<ListStackSetsRequestSortDirEnum> | Array<string>;
     private 'call_identity'?: ListStackSetsRequestCallIdentityEnum | string;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string) { 
         this['Client-Request-Id'] = clientRequestId;
     }
@@ -52,6 +54,14 @@ export class ListStackSetsRequest {
     }
     public get callIdentity(): ListStackSetsRequestCallIdentityEnum | string | undefined {
         return this['call_identity'];
+    }
+    public withMarker(marker: string): ListStackSetsRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListStackSetsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }
 

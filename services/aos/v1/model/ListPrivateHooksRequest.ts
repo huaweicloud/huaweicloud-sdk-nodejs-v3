@@ -4,6 +4,8 @@ export class ListPrivateHooksRequest {
     private 'Client-Request-Id'?: string;
     private 'sort_key'?: Array<ListPrivateHooksRequestSortKeyEnum> | Array<string>;
     private 'sort_dir'?: Array<ListPrivateHooksRequestSortDirEnum> | Array<string>;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string) { 
         this['Client-Request-Id'] = clientRequestId;
     }
@@ -36,6 +38,14 @@ export class ListPrivateHooksRequest {
     }
     public get sortDir(): Array<ListPrivateHooksRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
+    }
+    public withMarker(marker: string): ListPrivateHooksRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListPrivateHooksRequest {
+        this['limit'] = limit;
+        return this;
     }
 }
 

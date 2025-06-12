@@ -2,11 +2,11 @@ import { AlertAlertType } from './AlertAlertType';
 import { AlertDataSource } from './AlertDataSource';
 import { AlertEnvironment } from './AlertEnvironment';
 import { AlertFileInfo } from './AlertFileInfo';
-import { AlertNetworkList } from './AlertNetworkList';
 import { AlertProcess } from './AlertProcess';
 import { AlertRemediation } from './AlertRemediation';
 import { AlertResourceList } from './AlertResourceList';
 import { AlertUserInfo } from './AlertUserInfo';
+import { DataObjectNetworkList } from './DataObjectNetworkList';
 import { ShowAlertRspMalware } from './ShowAlertRspMalware';
 
 
@@ -30,7 +30,7 @@ export class DataObject {
     public severity?: DataObjectSeverityEnum | string;
     public criticality?: number;
     private 'alert_type'?: AlertAlertType;
-    private 'network_list'?: Array<AlertNetworkList>;
+    private 'network_list'?: Array<DataObjectNetworkList>;
     private 'resource_list'?: Array<AlertResourceList>;
     public remediation?: AlertRemediation;
     private 'verification_state'?: DataObjectVerificationStateEnum | string;
@@ -182,14 +182,14 @@ export class DataObject {
     public get alertType(): AlertAlertType | undefined {
         return this['alert_type'];
     }
-    public withNetworkList(networkList: Array<AlertNetworkList>): DataObject {
+    public withNetworkList(networkList: Array<DataObjectNetworkList>): DataObject {
         this['network_list'] = networkList;
         return this;
     }
-    public set networkList(networkList: Array<AlertNetworkList>  | undefined) {
+    public set networkList(networkList: Array<DataObjectNetworkList>  | undefined) {
         this['network_list'] = networkList;
     }
-    public get networkList(): Array<AlertNetworkList> | undefined {
+    public get networkList(): Array<DataObjectNetworkList> | undefined {
         return this['network_list'];
     }
     public withResourceList(resourceList: Array<AlertResourceList>): DataObject {
@@ -370,9 +370,9 @@ export enum DataObjectHandleStatusEnum {
     * @enum {string}
     */
 export enum DataObjectIpdrrPhaseEnum {
-    PREPARTION = 'Prepartion',
+    PREPARATION = 'Preparation',
     DETECTION_AND_ANALYSIS = 'Detection and Analysis',
-    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    CONTAINERADICATION_RECOVERY = 'Contain，Eradication& Recovery',
     POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
 }
 /**

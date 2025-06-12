@@ -345,6 +345,7 @@ import { SimpleKeyScanRecord } from './model/SimpleKeyScanRecord';
 import { SingleBackgroundTask } from './model/SingleBackgroundTask';
 import { SlowlogItem } from './model/SlowlogItem';
 import { SourceInstanceBody } from './model/SourceInstanceBody';
+import { SpecParam } from './model/SpecParam';
 import { StartInstanceResizeCheckJobRequest } from './model/StartInstanceResizeCheckJobRequest';
 import { StartInstanceResizeCheckJobRequestBody } from './model/StartInstanceResizeCheckJobRequestBody';
 import { StartInstanceResizeCheckJobResponse } from './model/StartInstanceResizeCheckJobResponse';

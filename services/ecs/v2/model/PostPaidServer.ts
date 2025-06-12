@@ -7,7 +7,9 @@ import { PostPaidServerRootVolume } from './PostPaidServerRootVolume';
 import { PostPaidServerSchedulerHints } from './PostPaidServerSchedulerHints';
 import { PostPaidServerSecurityGroup } from './PostPaidServerSecurityGroup';
 import { PostPaidServerTag } from './PostPaidServerTag';
+import { SecurityOptions } from './SecurityOptions';
 import { SerialConsoleOptions } from './SerialConsoleOptions';
+import { UpdateServerMetadataOptionsRequestBody } from './UpdateServerMetadataOptionsRequestBody';
 
 
 export class PostPaidServer {
@@ -35,7 +37,9 @@ export class PostPaidServer {
     public vpcid?: string;
     public description?: string;
     private 'cpu_options'?: CpuOptions;
+    private 'security_options'?: SecurityOptions;
     private 'serial_console_options'?: SerialConsoleOptions;
+    private 'metadata_options'?: UpdateServerMetadataOptionsRequestBody;
     public constructor(flavorRef?: string, imageRef?: string, name?: string, nics?: Array<PostPaidServerNic>, rootVolume?: PostPaidServerRootVolume, vpcid?: string) { 
         this['flavorRef'] = flavorRef;
         this['imageRef'] = imageRef;
@@ -206,6 +210,16 @@ export class PostPaidServer {
     public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
     }
+    public withSecurityOptions(securityOptions: SecurityOptions): PostPaidServer {
+        this['security_options'] = securityOptions;
+        return this;
+    }
+    public set securityOptions(securityOptions: SecurityOptions  | undefined) {
+        this['security_options'] = securityOptions;
+    }
+    public get securityOptions(): SecurityOptions | undefined {
+        return this['security_options'];
+    }
     public withSerialConsoleOptions(serialConsoleOptions: SerialConsoleOptions): PostPaidServer {
         this['serial_console_options'] = serialConsoleOptions;
         return this;
@@ -215,5 +229,15 @@ export class PostPaidServer {
     }
     public get serialConsoleOptions(): SerialConsoleOptions | undefined {
         return this['serial_console_options'];
+    }
+    public withMetadataOptions(metadataOptions: UpdateServerMetadataOptionsRequestBody): PostPaidServer {
+        this['metadata_options'] = metadataOptions;
+        return this;
+    }
+    public set metadataOptions(metadataOptions: UpdateServerMetadataOptionsRequestBody  | undefined) {
+        this['metadata_options'] = metadataOptions;
+    }
+    public get metadataOptions(): UpdateServerMetadataOptionsRequestBody | undefined {
+        return this['metadata_options'];
     }
 }

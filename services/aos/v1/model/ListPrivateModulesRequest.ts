@@ -4,6 +4,8 @@ export class ListPrivateModulesRequest {
     private 'Client-Request-Id'?: string;
     private 'sort_key'?: Array<ListPrivateModulesRequestSortKeyEnum> | Array<string>;
     private 'sort_dir'?: Array<ListPrivateModulesRequestSortDirEnum> | Array<string>;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string) { 
         this['Client-Request-Id'] = clientRequestId;
     }
@@ -36,6 +38,14 @@ export class ListPrivateModulesRequest {
     }
     public get sortDir(): Array<ListPrivateModulesRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
+    }
+    public withMarker(marker: string): ListPrivateModulesRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListPrivateModulesRequest {
+        this['limit'] = limit;
+        return this;
     }
 }
 

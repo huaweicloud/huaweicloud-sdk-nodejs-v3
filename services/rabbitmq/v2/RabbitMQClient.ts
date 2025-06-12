@@ -286,11 +286,11 @@ export class RabbitMQClient {
     }
 
     /**
-     * 删除指定的实例，释放该实例的所有资源。
+     * 删除指定实例，释放该实例的所有资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除指定的实例
+     * @summary 删除指定实例
      * @param {string} instanceId 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1374,7 +1374,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除指定的实例，释放该实例的所有资源。
+         * 删除指定实例，释放该实例的所有资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

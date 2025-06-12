@@ -7,6 +7,7 @@ import { PublicIp } from './PublicIp';
 import { RootVolume } from './RootVolume';
 import { SecurityGroupsInfo } from './SecurityGroupsInfo';
 import { SystemTags } from './SystemTags';
+import { UpdateBaremetalServerMetadataOptionsRequestBody } from './UpdateBaremetalServerMetadataOptionsRequestBody';
 
 
 export class CreateServers {
@@ -28,6 +29,7 @@ export class CreateServers {
     public extendparam?: ExtendParam;
     public schedulerHints?: CreateSchedulerHints;
     private 'server_tags'?: Array<SystemTags>;
+    private 'metadata_options'?: UpdateBaremetalServerMetadataOptionsRequestBody;
     public constructor(imageRef?: string, flavorRef?: string, name?: string, metadata?: MetaDataInfo, nics?: Array<Nics>, availabilityZone?: string, vpcid?: string, extendparam?: ExtendParam) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
@@ -151,5 +153,15 @@ export class CreateServers {
     }
     public get serverTags(): Array<SystemTags> | undefined {
         return this['server_tags'];
+    }
+    public withMetadataOptions(metadataOptions: UpdateBaremetalServerMetadataOptionsRequestBody): CreateServers {
+        this['metadata_options'] = metadataOptions;
+        return this;
+    }
+    public set metadataOptions(metadataOptions: UpdateBaremetalServerMetadataOptionsRequestBody  | undefined) {
+        this['metadata_options'] = metadataOptions;
+    }
+    public get metadataOptions(): UpdateBaremetalServerMetadataOptionsRequestBody | undefined {
+        return this['metadata_options'];
     }
 }

@@ -10,6 +10,7 @@ export class FuncVpc {
     public cidr?: string;
     public gateway?: string;
     private 'security_groups'?: Array<string>;
+    private 'is_safety'?: boolean;
     public constructor(vpcId?: string, subnetId?: string) { 
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
@@ -85,5 +86,15 @@ export class FuncVpc {
     }
     public get securityGroups(): Array<string> | undefined {
         return this['security_groups'];
+    }
+    public withIsSafety(isSafety: boolean): FuncVpc {
+        this['is_safety'] = isSafety;
+        return this;
+    }
+    public set isSafety(isSafety: boolean  | undefined) {
+        this['is_safety'] = isSafety;
+    }
+    public get isSafety(): boolean | undefined {
+        return this['is_safety'];
     }
 }

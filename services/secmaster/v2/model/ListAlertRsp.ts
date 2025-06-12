@@ -48,11 +48,18 @@ export class ListAlertRsp {
     public creator?: string;
     private 'close_reason'?: ListAlertRspCloseReasonEnum | string;
     private 'close_comment'?: string;
+    private 'alert_list'?: Array<string>;
+    private 'incident_list'?: Array<string>;
+    private 'indicator_list'?: Array<string>;
     public malware?: ShowAlertRspMalware;
     private 'system_info'?: object;
     public process?: Array<AlertProcess>;
     private 'user_info'?: Array<AlertUserInfo>;
     private 'file_info'?: Array<AlertFileInfo>;
+    private 'origin_id'?: string;
+    public ttd?: number;
+    public ttr?: number;
+    private 'is_auto_closed'?: string;
     private 'system_alert_table'?: object;
     public constructor() { 
     }
@@ -330,6 +337,36 @@ export class ListAlertRsp {
     public get closeComment(): string | undefined {
         return this['close_comment'];
     }
+    public withAlertList(alertList: Array<string>): ListAlertRsp {
+        this['alert_list'] = alertList;
+        return this;
+    }
+    public set alertList(alertList: Array<string>  | undefined) {
+        this['alert_list'] = alertList;
+    }
+    public get alertList(): Array<string> | undefined {
+        return this['alert_list'];
+    }
+    public withIncidentList(incidentList: Array<string>): ListAlertRsp {
+        this['incident_list'] = incidentList;
+        return this;
+    }
+    public set incidentList(incidentList: Array<string>  | undefined) {
+        this['incident_list'] = incidentList;
+    }
+    public get incidentList(): Array<string> | undefined {
+        return this['incident_list'];
+    }
+    public withIndicatorList(indicatorList: Array<string>): ListAlertRsp {
+        this['indicator_list'] = indicatorList;
+        return this;
+    }
+    public set indicatorList(indicatorList: Array<string>  | undefined) {
+        this['indicator_list'] = indicatorList;
+    }
+    public get indicatorList(): Array<string> | undefined {
+        return this['indicator_list'];
+    }
     public withMalware(malware: ShowAlertRspMalware): ListAlertRsp {
         this['malware'] = malware;
         return this;
@@ -367,6 +404,34 @@ export class ListAlertRsp {
     }
     public get fileInfo(): Array<AlertFileInfo> | undefined {
         return this['file_info'];
+    }
+    public withOriginId(originId: string): ListAlertRsp {
+        this['origin_id'] = originId;
+        return this;
+    }
+    public set originId(originId: string  | undefined) {
+        this['origin_id'] = originId;
+    }
+    public get originId(): string | undefined {
+        return this['origin_id'];
+    }
+    public withTtd(ttd: number): ListAlertRsp {
+        this['ttd'] = ttd;
+        return this;
+    }
+    public withTtr(ttr: number): ListAlertRsp {
+        this['ttr'] = ttr;
+        return this;
+    }
+    public withIsAutoClosed(isAutoClosed: string): ListAlertRsp {
+        this['is_auto_closed'] = isAutoClosed;
+        return this;
+    }
+    public set isAutoClosed(isAutoClosed: string  | undefined) {
+        this['is_auto_closed'] = isAutoClosed;
+    }
+    public get isAutoClosed(): string | undefined {
+        return this['is_auto_closed'];
     }
     public withSystemAlertTable(systemAlertTable: object): ListAlertRsp {
         this['system_alert_table'] = systemAlertTable;
@@ -414,9 +479,9 @@ export enum ListAlertRspHandleStatusEnum {
     * @enum {string}
     */
 export enum ListAlertRspIpdrrPhaseEnum {
-    PREPARTION = 'Prepartion',
+    PREPARATION = 'Preparation',
     DETECTION_AND_ANALYSIS = 'Detection and Analysis',
-    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    CONTAINERADICATION_RECOVERY = 'Contain，Eradication& Recovery',
     POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
 }
 /**
@@ -424,9 +489,9 @@ export enum ListAlertRspIpdrrPhaseEnum {
     * @enum {string}
     */
 export enum ListAlertRspChopPhaseEnum {
-    PREPARTION = 'Prepartion',
+    PREPARATION = 'Preparation',
     DETECTION_AND_ANALYSIS = 'Detection and Analysis',
-    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    CONTAINERADICATION_RECOVERY = 'Contain，Eradication& Recovery',
     POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
 }
 /**
@@ -434,9 +499,9 @@ export enum ListAlertRspChopPhaseEnum {
     * @enum {string}
     */
 export enum ListAlertRspPpdrPhaseEnum {
-    PREPARTION = 'Prepartion',
+    PREPARATION = 'Preparation',
     DETECTION_AND_ANALYSIS = 'Detection and Analysis',
-    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    CONTAINERADICATION_RECOVERY = 'Contain，Eradication& Recovery',
     POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
 }
 /**

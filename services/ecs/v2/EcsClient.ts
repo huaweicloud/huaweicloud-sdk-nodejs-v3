@@ -88,6 +88,8 @@ import { CreateServerNicAllowedAddressPairs } from './model/CreateServerNicAllow
 import { CreateServersRequest } from './model/CreateServersRequest';
 import { CreateServersRequestBody } from './model/CreateServersRequestBody';
 import { CreateServersResponse } from './model/CreateServersResponse';
+import { DeleteRecycleBinServerRequest } from './model/DeleteRecycleBinServerRequest';
+import { DeleteRecycleBinServerResponse } from './model/DeleteRecycleBinServerResponse';
 import { DeleteServerGroupMemberRequest } from './model/DeleteServerGroupMemberRequest';
 import { DeleteServerGroupMemberRequestBody } from './model/DeleteServerGroupMemberRequestBody';
 import { DeleteServerGroupMemberResponse } from './model/DeleteServerGroupMemberResponse';
@@ -132,6 +134,8 @@ import { ListFlavorSellPoliciesResponse } from './model/ListFlavorSellPoliciesRe
 import { ListFlavorSellPoliciesResult } from './model/ListFlavorSellPoliciesResult';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
+import { ListRecycleBinServersRequest } from './model/ListRecycleBinServersRequest';
+import { ListRecycleBinServersResponse } from './model/ListRecycleBinServersResponse';
 import { ListResizeFlavorsRequest } from './model/ListResizeFlavorsRequest';
 import { ListResizeFlavorsResponse } from './model/ListResizeFlavorsResponse';
 import { ListResizeFlavorsResult } from './model/ListResizeFlavorsResult';
@@ -274,6 +278,8 @@ import { PrePaidServerSecurityGroup } from './model/PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './model/PrePaidServerTag';
 import { ProjectFlavorLimit } from './model/ProjectFlavorLimit';
 import { ProjectTag } from './model/ProjectTag';
+import { RecycleBin } from './model/RecycleBin';
+import { RecycleBinPolicys } from './model/RecycleBinPolicys';
 import { RegisterServerMonitorRequest } from './model/RegisterServerMonitorRequest';
 import { RegisterServerMonitorRequestBody } from './model/RegisterServerMonitorRequestBody';
 import { RegisterServerMonitorResponse } from './model/RegisterServerMonitorResponse';
@@ -301,7 +307,10 @@ import { ResizeServerRequest } from './model/ResizeServerRequest';
 import { ResizeServerRequestBody } from './model/ResizeServerRequestBody';
 import { ResizeServerResponse } from './model/ResizeServerResponse';
 import { ResourceTag } from './model/ResourceTag';
+import { RevertRecycleBinServerRequest } from './model/RevertRecycleBinServerRequest';
+import { RevertRecycleBinServerResponse } from './model/RevertRecycleBinServerResponse';
 import { SecurityGroup } from './model/SecurityGroup';
+import { SecurityOptions } from './model/SecurityOptions';
 import { SerialConsoleOptions } from './model/SerialConsoleOptions';
 import { ServerAddress } from './model/ServerAddress';
 import { ServerAttachableQuantity } from './model/ServerAttachableQuantity';
@@ -326,6 +335,10 @@ import { ServerTags } from './model/ServerTags';
 import { ServerVolumeAttachment } from './model/ServerVolumeAttachment';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
+import { ShowRecycleBinRequest } from './model/ShowRecycleBinRequest';
+import { ShowRecycleBinResponse } from './model/ShowRecycleBinResponse';
+import { ShowRecycleBinServerRequest } from './model/ShowRecycleBinServerRequest';
+import { ShowRecycleBinServerResponse } from './model/ShowRecycleBinServerResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
 import { ShowResetPasswordFlagResponse } from './model/ShowResetPasswordFlagResponse';
 import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
@@ -335,6 +348,8 @@ import { ShowServerGroupResponse } from './model/ShowServerGroupResponse';
 import { ShowServerGroupResult } from './model/ShowServerGroupResult';
 import { ShowServerLimitsRequest } from './model/ShowServerLimitsRequest';
 import { ShowServerLimitsResponse } from './model/ShowServerLimitsResponse';
+import { ShowServerMetadataOptionsRequest } from './model/ShowServerMetadataOptionsRequest';
+import { ShowServerMetadataOptionsResponse } from './model/ShowServerMetadataOptionsResponse';
 import { ShowServerPasswordRequest } from './model/ShowServerPasswordRequest';
 import { ShowServerPasswordResponse } from './model/ShowServerPasswordResponse';
 import { ShowServerRemoteConsoleRequest } from './model/ShowServerRemoteConsoleRequest';
@@ -348,6 +363,14 @@ import { SimpleFlavor } from './model/SimpleFlavor';
 import { SubJob } from './model/SubJob';
 import { SubJobEntities } from './model/SubJobEntities';
 import { UpdateNicInfoRequestBody } from './model/UpdateNicInfoRequestBody';
+import { UpdateRecycleBinOption } from './model/UpdateRecycleBinOption';
+import { UpdateRecycleBinPolicyOption } from './model/UpdateRecycleBinPolicyOption';
+import { UpdateRecycleBinPolicyReq } from './model/UpdateRecycleBinPolicyReq';
+import { UpdateRecycleBinPolicyRequest } from './model/UpdateRecycleBinPolicyRequest';
+import { UpdateRecycleBinPolicyResponse } from './model/UpdateRecycleBinPolicyResponse';
+import { UpdateRecycleBinReq } from './model/UpdateRecycleBinReq';
+import { UpdateRecycleBinRequest } from './model/UpdateRecycleBinRequest';
+import { UpdateRecycleBinResponse } from './model/UpdateRecycleBinResponse';
 import { UpdateServerAddress } from './model/UpdateServerAddress';
 import { UpdateServerAutoTerminateTimeRequest } from './model/UpdateServerAutoTerminateTimeRequest';
 import { UpdateServerAutoTerminateTimeRequestBody } from './model/UpdateServerAutoTerminateTimeRequestBody';
@@ -358,6 +381,9 @@ import { UpdateServerBlockDeviceRequest } from './model/UpdateServerBlockDeviceR
 import { UpdateServerBlockDeviceResponse } from './model/UpdateServerBlockDeviceResponse';
 import { UpdateServerInterfaceRequest } from './model/UpdateServerInterfaceRequest';
 import { UpdateServerInterfaceResponse } from './model/UpdateServerInterfaceResponse';
+import { UpdateServerMetadataOptionsRequest } from './model/UpdateServerMetadataOptionsRequest';
+import { UpdateServerMetadataOptionsRequestBody } from './model/UpdateServerMetadataOptionsRequestBody';
+import { UpdateServerMetadataOptionsResponse } from './model/UpdateServerMetadataOptionsResponse';
 import { UpdateServerMetadataRequest } from './model/UpdateServerMetadataRequest';
 import { UpdateServerMetadataRequestBody } from './model/UpdateServerMetadataRequestBody';
 import { UpdateServerMetadataResponse } from './model/UpdateServerMetadataResponse';
@@ -851,6 +877,24 @@ export class EcsClient {
     }
 
     /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除回收站中虚拟机
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRecycleBinServer(deleteRecycleBinServerRequest?: DeleteRecycleBinServerRequest): Promise<DeleteRecycleBinServerResponse> {
+        const options = ParamCreater().deleteRecycleBinServer(deleteRecycleBinServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除云服务器组。
      * 
      * 与原生的删除云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
@@ -1074,6 +1118,33 @@ export class EcsClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors(listFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站中虚拟机列表
+     * @param {string} [allTenants] 所有租户 管理员字段 1: 返回所有租户的VM 0: 返回当前租户的VM，如果为0，与不设置该查询字段的效果一致
+     * @param {string} [availabilityZone] 
+     * @param {'Available values : power_state' | 'host_status' | 'hostname' | 'hypervisor_hostname' | 'user_data' | 'key_name' | 'root_device_name' | 'volumes_attached' | 'security_groups' | 'addresses' | 'image' | 'metadata' | 'tags' | 'system_tags' | 'dedicated_host_id' | 'enterprise_project_id' | 'cpu_options'} [expectFields] 
+     * @param {string} [ipAddress] 
+     * @param {number} [limit] 
+     * @param {string} [marker] 
+     * @param {string} [name] 
+     * @param {string} [offset] 
+     * @param {Array<string>} [tags] 
+     * @param {Array<string>} [tagsKey] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRecycleBinServers(listRecycleBinServersRequest?: ListRecycleBinServersRequest): Promise<ListRecycleBinServersResponse> {
+        const options = ParamCreater().listRecycleBinServers(listRecycleBinServersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1777,6 +1848,61 @@ export class EcsClient {
     }
 
     /**
+     * 回收站中的虚拟机从回收站中恢复
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复回收站中虚拟机
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public revertRecycleBinServer(revertRecycleBinServerRequest?: RevertRecycleBinServerRequest): Promise<RevertRecycleBinServerResponse> {
+        const options = ParamCreater().revertRecycleBinServer(revertRecycleBinServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询回收站配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecycleBin(showRecycleBinRequest?: ShowRecycleBinRequest): Promise<ShowRecycleBinResponse> {
+        const options = ParamCreater().showRecycleBin();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站中指定云服务器
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecycleBinServer(showRecycleBinServerRequest?: ShowRecycleBinServerRequest): Promise<ShowRecycleBinServerResponse> {
+        const options = ParamCreater().showRecycleBinServer(showRecycleBinServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询弹性云服务器是否支持一键重置密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1876,6 +2002,25 @@ export class EcsClient {
     }
 
     /**
+     * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云服务器元数据配置
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerMetadataOptions(showServerMetadataOptionsRequest?: ShowServerMetadataOptionsRequest): Promise<ShowServerMetadataOptionsResponse> {
+        const options = ParamCreater().showServerMetadataOptions(showServerMetadataOptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1928,6 +2073,44 @@ export class EcsClient {
      */
     public showServerTags(showServerTagsRequest?: ShowServerTagsRequest): Promise<ShowServerTagsResponse> {
         const options = ParamCreater().showServerTags(showServerTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新回收站属性信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新回收站配置
+     * @param {UpdateRecycleBinReq} updateRecycleBinReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecycleBin(updateRecycleBinRequest?: UpdateRecycleBinRequest): Promise<UpdateRecycleBinResponse> {
+        const options = ParamCreater().updateRecycleBin(updateRecycleBinRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新回收站策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新回收站策略
+     * @param {UpdateRecycleBinPolicyReq} updateRecycleBinPolicyReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecycleBinPolicy(updateRecycleBinPolicyRequest?: UpdateRecycleBinPolicyRequest): Promise<UpdateRecycleBinPolicyResponse> {
+        const options = ParamCreater().updateRecycleBinPolicy(updateRecycleBinPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2038,6 +2221,26 @@ export class EcsClient {
      */
     public updateServerMetadata(updateServerMetadataRequest?: UpdateServerMetadataRequest): Promise<UpdateServerMetadataResponse> {
         const options = ParamCreater().updateServerMetadata(updateServerMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新云服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新云服务器元数据配置
+     * @param {string} serverId 云服务器ID。
+     * @param {UpdateServerMetadataOptionsRequestBody} updateServerMetadataOptionsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateServerMetadataOptions(updateServerMetadataOptionsRequest?: UpdateServerMetadataOptionsRequest): Promise<UpdateServerMetadataOptionsResponse> {
+        const options = ParamCreater().updateServerMetadataOptions(updateServerMetadataOptionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3084,6 +3287,42 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRecycleBinServer(deleteRecycleBinServerRequest?: DeleteRecycleBinServerRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/recycle-bin/cloudservers/{server_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (deleteRecycleBinServerRequest !== null && deleteRecycleBinServerRequest !== undefined) {
+                if (deleteRecycleBinServerRequest instanceof DeleteRecycleBinServerRequest) {
+                    serverId = deleteRecycleBinServerRequest.serverId;
+                } else {
+                    serverId = deleteRecycleBinServerRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling deleteRecycleBinServer.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除云服务器组。
          * 
          * 与原生的删除云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
@@ -3703,6 +3942,105 @@ export const ParamCreater = function () {
             }
             if (flavorId !== null && flavorId !== undefined) {
                 localVarQueryParameter['flavor_id'] = flavorId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRecycleBinServers(listRecycleBinServersRequest?: ListRecycleBinServersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/recycle-bin/cloudservers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let allTenants;
+            
+            let availabilityZone;
+            
+            let expectFields;
+            
+            let ipAddress;
+            
+            let limit;
+            
+            let marker;
+            
+            let name;
+            
+            let offset;
+            
+            let tags;
+            
+            let tagsKey;
+
+            if (listRecycleBinServersRequest !== null && listRecycleBinServersRequest !== undefined) {
+                if (listRecycleBinServersRequest instanceof ListRecycleBinServersRequest) {
+                    allTenants = listRecycleBinServersRequest.allTenants;
+                    availabilityZone = listRecycleBinServersRequest.availabilityZone;
+                    expectFields = listRecycleBinServersRequest.expectFields;
+                    ipAddress = listRecycleBinServersRequest.ipAddress;
+                    limit = listRecycleBinServersRequest.limit;
+                    marker = listRecycleBinServersRequest.marker;
+                    name = listRecycleBinServersRequest.name;
+                    offset = listRecycleBinServersRequest.offset;
+                    tags = listRecycleBinServersRequest.tags;
+                    tagsKey = listRecycleBinServersRequest.tagsKey;
+                } else {
+                    allTenants = listRecycleBinServersRequest['all_tenants'];
+                    availabilityZone = listRecycleBinServersRequest['availability_zone'];
+                    expectFields = listRecycleBinServersRequest['expect-fields'];
+                    ipAddress = listRecycleBinServersRequest['ip_address'];
+                    limit = listRecycleBinServersRequest['limit'];
+                    marker = listRecycleBinServersRequest['marker'];
+                    name = listRecycleBinServersRequest['name'];
+                    offset = listRecycleBinServersRequest['offset'];
+                    tags = listRecycleBinServersRequest['tags'];
+                    tagsKey = listRecycleBinServersRequest['tags_key'];
+                }
+            }
+
+        
+            if (allTenants !== null && allTenants !== undefined) {
+                localVarQueryParameter['all_tenants'] = allTenants;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (expectFields !== null && expectFields !== undefined) {
+                localVarQueryParameter['expect-fields'] = expectFields;
+            }
+            if (ipAddress !== null && ipAddress !== undefined) {
+                localVarQueryParameter['ip_address'] = ipAddress;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (tagsKey !== null && tagsKey !== undefined) {
+                localVarQueryParameter['tags_key'] = tagsKey;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5290,6 +5628,100 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 回收站中的虚拟机从回收站中恢复
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        revertRecycleBinServer(revertRecycleBinServerRequest?: RevertRecycleBinServerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/recycle-bin/cloudservers/{server_id}/actions/revert",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (revertRecycleBinServerRequest !== null && revertRecycleBinServerRequest !== undefined) {
+                if (revertRecycleBinServerRequest instanceof RevertRecycleBinServerRequest) {
+                    serverId = revertRecycleBinServerRequest.serverId;
+                } else {
+                    serverId = revertRecycleBinServerRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling revertRecycleBinServer.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询回收站配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecycleBin() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/recycle-bin",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecycleBinServer(showRecycleBinServerRequest?: ShowRecycleBinServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/recycle-bin/cloudservers/{server_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showRecycleBinServerRequest !== null && showRecycleBinServerRequest !== undefined) {
+                if (showRecycleBinServerRequest instanceof ShowRecycleBinServerRequest) {
+                    serverId = showRecycleBinServerRequest.serverId;
+                } else {
+                    serverId = showRecycleBinServerRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showRecycleBinServer.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询弹性云服务器是否支持一键重置密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5470,6 +5902,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showServerMetadataOptions(showServerMetadataOptionsRequest?: ShowServerMetadataOptionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/metadata-options",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showServerMetadataOptionsRequest !== null && showServerMetadataOptionsRequest !== undefined) {
+                if (showServerMetadataOptionsRequest instanceof ShowServerMetadataOptionsRequest) {
+                    serverId = showServerMetadataOptionsRequest.serverId;
+                } else {
+                    serverId = showServerMetadataOptionsRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerMetadataOptions.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5587,6 +6056,82 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新回收站属性信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecycleBin(updateRecycleBinRequest?: UpdateRecycleBinRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/recycle-bin",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateRecycleBinRequest !== null && updateRecycleBinRequest !== undefined) {
+                if (updateRecycleBinRequest instanceof UpdateRecycleBinRequest) {
+                    body = updateRecycleBinRequest.body
+                } else {
+                    body = updateRecycleBinRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新回收站策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecycleBinPolicy(updateRecycleBinPolicyRequest?: UpdateRecycleBinPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/recycle-bin/policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateRecycleBinPolicyRequest !== null && updateRecycleBinPolicyRequest !== undefined) {
+                if (updateRecycleBinPolicyRequest instanceof UpdateRecycleBinPolicyRequest) {
+                    body = updateRecycleBinPolicyRequest.body
+                } else {
+                    body = updateRecycleBinPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5831,6 +6376,52 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerMetadata.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新云服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateServerMetadataOptions(updateServerMetadataOptionsRequest?: UpdateServerMetadataOptionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/{server_id}/metadata-options",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+
+            if (updateServerMetadataOptionsRequest !== null && updateServerMetadataOptionsRequest !== undefined) {
+                if (updateServerMetadataOptionsRequest instanceof UpdateServerMetadataOptionsRequest) {
+                    serverId = updateServerMetadataOptionsRequest.serverId;
+                    body = updateServerMetadataOptionsRequest.body
+                } else {
+                    serverId = updateServerMetadataOptionsRequest['server_id'];
+                    body = updateServerMetadataOptionsRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerMetadataOptions.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

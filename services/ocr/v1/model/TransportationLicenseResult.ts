@@ -16,6 +16,8 @@ export class TransportationLicenseResult {
     private 'expiry_date'?: string;
     private 'review_expiry_date'?: string;
     private 'assessed_technical_level'?: string;
+    private 'image_location'?: Array<Array<number>>;
+    private 'adjusted_image'?: string;
     public confidence?: object;
     public constructor() { 
     }
@@ -168,6 +170,26 @@ export class TransportationLicenseResult {
     }
     public get assessedTechnicalLevel(): string | undefined {
         return this['assessed_technical_level'];
+    }
+    public withImageLocation(imageLocation: Array<Array<number>>): TransportationLicenseResult {
+        this['image_location'] = imageLocation;
+        return this;
+    }
+    public set imageLocation(imageLocation: Array<Array<number>>  | undefined) {
+        this['image_location'] = imageLocation;
+    }
+    public get imageLocation(): Array<Array<number>> | undefined {
+        return this['image_location'];
+    }
+    public withAdjustedImage(adjustedImage: string): TransportationLicenseResult {
+        this['adjusted_image'] = adjustedImage;
+        return this;
+    }
+    public set adjustedImage(adjustedImage: string  | undefined) {
+        this['adjusted_image'] = adjustedImage;
+    }
+    public get adjustedImage(): string | undefined {
+        return this['adjusted_image'];
     }
     public withConfidence(confidence: object): TransportationLicenseResult {
         this['confidence'] = confidence;

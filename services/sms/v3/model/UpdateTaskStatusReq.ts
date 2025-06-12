@@ -56,5 +56,6 @@ export enum UpdateTaskStatusReqOperationEnum {
     RESTART = 'restart',
     NETWORK_CHECK = 'network_check',
     SKIP = 'skip',
-    CLEAR = 'clear'
+    CLEAR = 'clear',
+    MIGRATION_TEST = 'migration_test'
 }

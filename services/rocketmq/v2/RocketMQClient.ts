@@ -7,6 +7,9 @@ import { BatchCreateOrDeleteRocketmqTagResponse } from './model/BatchCreateOrDel
 import { BatchCreateOrDeleteTagReq } from './model/BatchCreateOrDeleteTagReq';
 import { BatchDeleteConsumerGroupReq } from './model/BatchDeleteConsumerGroupReq';
 import { BatchDeleteConsumerGroupResp } from './model/BatchDeleteConsumerGroupResp';
+import { BatchDeleteDiagnosisReportReq } from './model/BatchDeleteDiagnosisReportReq';
+import { BatchDeleteDiagnosisReportRequest } from './model/BatchDeleteDiagnosisReportRequest';
+import { BatchDeleteDiagnosisReportResponse } from './model/BatchDeleteDiagnosisReportResponse';
 import { BatchDeleteInstanceReq } from './model/BatchDeleteInstanceReq';
 import { BatchDeleteInstanceRespResults } from './model/BatchDeleteInstanceRespResults';
 import { BatchDeleteInstancesRequest } from './model/BatchDeleteInstancesRequest';
@@ -26,6 +29,8 @@ import { ConsumerList } from './model/ConsumerList';
 import { CreateConsumerGroupOrBatchDeleteConsumerGroupReq } from './model/CreateConsumerGroupOrBatchDeleteConsumerGroupReq';
 import { CreateConsumerGroupOrBatchDeleteConsumerGroupRequest } from './model/CreateConsumerGroupOrBatchDeleteConsumerGroupRequest';
 import { CreateConsumerGroupOrBatchDeleteConsumerGroupResponse } from './model/CreateConsumerGroupOrBatchDeleteConsumerGroupResponse';
+import { CreateDiagnosisTaskRequest } from './model/CreateDiagnosisTaskRequest';
+import { CreateDiagnosisTaskResponse } from './model/CreateDiagnosisTaskResponse';
 import { CreateGroupResp } from './model/CreateGroupResp';
 import { CreateInstanceByEngineReq } from './model/CreateInstanceByEngineReq';
 import { CreateInstanceByEngineRequest } from './model/CreateInstanceByEngineRequest';
@@ -47,6 +52,8 @@ import { CreateUserRequest } from './model/CreateUserRequest';
 import { CreateUserResponse } from './model/CreateUserResponse';
 import { DeadletterResendReq } from './model/DeadletterResendReq';
 import { DeadletterResendRespResendResults } from './model/DeadletterResendRespResendResults';
+import { DeleteBackgroundTaskRequest } from './model/DeleteBackgroundTaskRequest';
+import { DeleteBackgroundTaskResponse } from './model/DeleteBackgroundTaskResponse';
 import { DeleteConsumerGroupRequest } from './model/DeleteConsumerGroupRequest';
 import { DeleteConsumerGroupResponse } from './model/DeleteConsumerGroupResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
@@ -57,6 +64,8 @@ import { DeleteTopicRequest } from './model/DeleteTopicRequest';
 import { DeleteTopicResponse } from './model/DeleteTopicResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
+import { DiagnosisRep } from './model/DiagnosisRep';
+import { DiagnosisReportResp } from './model/DiagnosisReportResp';
 import { EnableDnsRequest } from './model/EnableDnsRequest';
 import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExportDlqMessageReq } from './model/ExportDlqMessageReq';
@@ -67,6 +76,9 @@ import { ListAccessPolicyRespPolicies } from './model/ListAccessPolicyRespPolici
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesRespAvailableZones } from './model/ListAvailableZonesRespAvailableZones';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
+import { ListBackgroundTasksRequest } from './model/ListBackgroundTasksRequest';
+import { ListBackgroundTasksRespTasks } from './model/ListBackgroundTasksRespTasks';
+import { ListBackgroundTasksResponse } from './model/ListBackgroundTasksResponse';
 import { ListBrokersRequest } from './model/ListBrokersRequest';
 import { ListBrokersRespBrokers } from './model/ListBrokersRespBrokers';
 import { ListBrokersResponse } from './model/ListBrokersResponse';
@@ -74,6 +86,8 @@ import { ListConsumeGroupAccessPolicyRequest } from './model/ListConsumeGroupAcc
 import { ListConsumeGroupAccessPolicyResponse } from './model/ListConsumeGroupAccessPolicyResponse';
 import { ListConsumerGroupOfTopicRequest } from './model/ListConsumerGroupOfTopicRequest';
 import { ListConsumerGroupOfTopicResponse } from './model/ListConsumerGroupOfTopicResponse';
+import { ListDiagnosisReportsRequest } from './model/ListDiagnosisReportsRequest';
+import { ListDiagnosisReportsResponse } from './model/ListDiagnosisReportsResponse';
 import { ListEngineProductsRequest } from './model/ListEngineProductsRequest';
 import { ListEngineProductsResponse } from './model/ListEngineProductsResponse';
 import { ListInstanceConsumerGroupsRequest } from './model/ListInstanceConsumerGroupsRequest';
@@ -104,6 +118,9 @@ import { MigrationRabbitVhostMetadata } from './model/MigrationRabbitVhostMetada
 import { MigrationRocketMqSubscriptionGroup } from './model/MigrationRocketMqSubscriptionGroup';
 import { MigrationRocketMqTopicConfig } from './model/MigrationRocketMqTopicConfig';
 import { ModifyConfigReq } from './model/ModifyConfigReq';
+import { ModifyInstanceSslConfigRequest } from './model/ModifyInstanceSslConfigRequest';
+import { ModifyInstanceSslConfigResponse } from './model/ModifyInstanceSslConfigResponse';
+import { PlainSSLSwitchRep } from './model/PlainSSLSwitchRep';
 import { ProductEntity } from './model/ProductEntity';
 import { Queue } from './model/Queue';
 import { QuotaResourceEntity } from './model/QuotaResourceEntity';
@@ -116,8 +133,6 @@ import { ResetConsumeOffsetResponse } from './model/ResetConsumeOffsetResponse';
 import { ResizeEngineInstanceReq } from './model/ResizeEngineInstanceReq';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
-import { RestartInstanceRequest } from './model/RestartInstanceRequest';
-import { RestartInstanceResponse } from './model/RestartInstanceResponse';
 import { RocketMQConfigReq } from './model/RocketMQConfigReq';
 import { RocketMQConfigResp } from './model/RocketMQConfigResp';
 import { RocketMQExtendProductInfoEntity } from './model/RocketMQExtendProductInfoEntity';
@@ -126,10 +141,18 @@ import { RocketMQExtendProductPropertiesEntity } from './model/RocketMQExtendPro
 import { RocketMQProductSupportFeaturesEntity } from './model/RocketMQProductSupportFeaturesEntity';
 import { SendDlqMessageRequest } from './model/SendDlqMessageRequest';
 import { SendDlqMessageResponse } from './model/SendDlqMessageResponse';
+import { SendMessageProperties } from './model/SendMessageProperties';
+import { SendMessageRequest } from './model/SendMessageRequest';
+import { SendMessageResp } from './model/SendMessageResp';
+import { SendMessageResponse } from './model/SendMessageResponse';
 import { ShowConsumerConnectionsRequest } from './model/ShowConsumerConnectionsRequest';
 import { ShowConsumerConnectionsResponse } from './model/ShowConsumerConnectionsResponse';
 import { ShowConsumerListOrDetailsRequest } from './model/ShowConsumerListOrDetailsRequest';
 import { ShowConsumerListOrDetailsResponse } from './model/ShowConsumerListOrDetailsResponse';
+import { ShowDiagnosisReportRequest } from './model/ShowDiagnosisReportRequest';
+import { ShowDiagnosisReportResponse } from './model/ShowDiagnosisReportResponse';
+import { ShowDiagnosisStackRequest } from './model/ShowDiagnosisStackRequest';
+import { ShowDiagnosisStackResponse } from './model/ShowDiagnosisStackResponse';
 import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineInstanceExtendProductInfoRequest';
 import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
 import { ShowGroupRequest } from './model/ShowGroupRequest';
@@ -165,6 +188,7 @@ import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdateRocketMqConfigsRequest } from './model/UpdateRocketMqConfigsRequest';
 import { UpdateRocketMqConfigsResponse } from './model/UpdateRocketMqConfigsResponse';
+import { UpdateTopicQueueEntity } from './model/UpdateTopicQueueEntity';
 import { UpdateTopicReq } from './model/UpdateTopicReq';
 import { UpdateTopicRequest } from './model/UpdateTopicRequest';
 import { UpdateTopicResponse } from './model/UpdateTopicResponse';
@@ -205,6 +229,27 @@ export class RocketMQClient {
      */
     public batchCreateOrDeleteRocketmqTag(batchCreateOrDeleteRocketmqTagRequest?: BatchCreateOrDeleteRocketmqTagRequest): Promise<BatchCreateOrDeleteRocketmqTagResponse> {
         const options = ParamCreater().batchCreateOrDeleteRocketmqTag(batchCreateOrDeleteRocketmqTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除实例诊断记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除实例诊断记录
+     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {BatchDeleteDiagnosisReportReq} batchDeleteDiagnosisReportBody **参数解释**： 批量删除诊断报告请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteDiagnosisReport(batchDeleteDiagnosisReportRequest?: BatchDeleteDiagnosisReportRequest): Promise<BatchDeleteDiagnosisReportResponse> {
+        const options = ParamCreater().batchDeleteDiagnosisReport(batchDeleteDiagnosisReportRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -265,6 +310,27 @@ export class RocketMQClient {
      */
     public createConsumerGroupOrBatchDeleteConsumerGroup(createConsumerGroupOrBatchDeleteConsumerGroupRequest?: CreateConsumerGroupOrBatchDeleteConsumerGroupRequest): Promise<CreateConsumerGroupOrBatchDeleteConsumerGroupResponse> {
         const options = ParamCreater().createConsumerGroupOrBatchDeleteConsumerGroup(createConsumerGroupOrBatchDeleteConsumerGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建实例诊断任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建实例诊断任务
+     * @param {string} engine 引擎。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {DiagnosisRep} createDiagnosisTaskBody **参数解释**： 创建诊断任务请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDiagnosisTask(createDiagnosisTaskRequest?: CreateDiagnosisTaskRequest): Promise<CreateDiagnosisTaskResponse> {
+        const options = ParamCreater().createDiagnosisTask(createDiagnosisTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -347,6 +413,26 @@ export class RocketMQClient {
      */
     public createUser(createUserRequest?: CreateUserRequest): Promise<CreateUserResponse> {
         const options = ParamCreater().createUser(createUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除后台任务管理中的指定记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除后台任务管理中的指定记录
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} taskId **参数解释**： 任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest): Promise<DeleteBackgroundTaskResponse> {
+        const options = ParamCreater().deleteBackgroundTask(deleteBackgroundTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -491,6 +577,29 @@ export class RocketMQClient {
     }
 
     /**
+     * 查询实例的后台任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的后台任务列表
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [start] **参数解释**： 开启查询的任务编号。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [beginTime] **参数解释**： 查询任务的最小时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
+     * @param {string} [endTime] **参数解释**： 查询任务的最大时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBackgroundTasks(listBackgroundTasksRequest?: ListBackgroundTasksRequest): Promise<ListBackgroundTasksResponse> {
+        const options = ParamCreater().listBackgroundTasks(listBackgroundTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询代理列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -527,6 +636,28 @@ export class RocketMQClient {
      */
     public listConsumeGroupAccessPolicy(listConsumeGroupAccessPolicyRequest?: ListConsumeGroupAccessPolicyRequest): Promise<ListConsumeGroupAccessPolicyResponse> {
         const options = ParamCreater().listConsumeGroupAccessPolicy(listConsumeGroupAccessPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例诊断报告列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例诊断报告列表
+     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDiagnosisReports(listDiagnosisReportsRequest?: ListDiagnosisReportsRequest): Promise<ListDiagnosisReportsResponse> {
+        const options = ParamCreater().listDiagnosisReports(listDiagnosisReportsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -638,6 +769,7 @@ export class RocketMQClient {
      * @param {'reliability'} engine 消息引擎。
      * @param {string} instanceId 实例ID。
      * @param {string} topic 主题名称。
+     * @param {string} [queue] 队列。
      * @param {string} [limit] 查询数量。
      * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
      * @param {string} [key] 消息的key。
@@ -725,6 +857,27 @@ export class RocketMQClient {
     }
 
     /**
+     * 修改实例ssl相关配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例ssl相关配置
+     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {PlainSSLSwitchRep} modifyInstanceSslConfigBody **参数解释**： 修改实例ssl配置请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyInstanceSslConfig(modifyInstanceSslConfigRequest?: ModifyInstanceSslConfigRequest): Promise<ModifyInstanceSslConfigResponse> {
+        const options = ParamCreater().modifyInstanceSslConfig(modifyInstanceSslConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重置消费进度。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -770,26 +923,6 @@ export class RocketMQClient {
     }
 
     /**
-     * 重启指定实例。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 重启指定实例
-     * @param {string} engine 消息引擎类型。
-     * @param {string} instanceId 实例ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public restartInstance(restartInstanceRequest?: RestartInstanceRequest): Promise<RestartInstanceResponse> {
-        const options = ParamCreater().restartInstance(restartInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 重发死信消息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -803,6 +936,27 @@ export class RocketMQClient {
      */
     public sendDlqMessage(sendDlqMessageRequest?: SendDlqMessageRequest): Promise<SendDlqMessageResponse> {
         const options = ParamCreater().sendDlqMessage(sendDlqMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 发送消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 发送消息
+     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {SendMessageResp} sendMessageBody **参数解释**： 发送消息请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public sendMessage(sendMessageRequest?: SendMessageRequest): Promise<SendMessageResponse> {
+        const options = ParamCreater().sendMessage(sendMessageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -849,6 +1003,46 @@ export class RocketMQClient {
      */
     public showConsumerListOrDetails(showConsumerListOrDetailsRequest?: ShowConsumerListOrDetailsRequest): Promise<ShowConsumerListOrDetailsResponse> {
         const options = ParamCreater().showConsumerListOrDetails(showConsumerListOrDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例诊断报告。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例诊断报告
+     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} reportId **参数解释**： 报告ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDiagnosisReport(showDiagnosisReportRequest?: ShowDiagnosisReportRequest): Promise<ShowDiagnosisReportResponse> {
+        const options = ParamCreater().showDiagnosisReport(showDiagnosisReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询stack信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询stack信息
+     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} stackId **参数解释**： 堆ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDiagnosisStack(showDiagnosisStackRequest?: ShowDiagnosisStackRequest): Promise<ShowDiagnosisStackResponse> {
+        const options = ParamCreater().showDiagnosisStack(showDiagnosisStackRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1317,6 +1511,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除实例诊断记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteDiagnosisReport(batchDeleteDiagnosisReportRequest?: BatchDeleteDiagnosisReportRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/diagnosis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (batchDeleteDiagnosisReportRequest !== null && batchDeleteDiagnosisReportRequest !== undefined) {
+                if (batchDeleteDiagnosisReportRequest instanceof BatchDeleteDiagnosisReportRequest) {
+                    engine = batchDeleteDiagnosisReportRequest.engine;
+                    instanceId = batchDeleteDiagnosisReportRequest.instanceId;
+                    body = batchDeleteDiagnosisReportRequest.body
+                } else {
+                    engine = batchDeleteDiagnosisReportRequest['engine'];
+                    instanceId = batchDeleteDiagnosisReportRequest['instance_id'];
+                    body = batchDeleteDiagnosisReportRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling batchDeleteDiagnosisReport.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteDiagnosisReport.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除实例。**实例删除后，实例中原有的数据将被删除，且没有备份，请谨慎操作。**
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1450,6 +1697,59 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建实例诊断任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDiagnosisTask(createDiagnosisTaskRequest?: CreateDiagnosisTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/diagnosis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (createDiagnosisTaskRequest !== null && createDiagnosisTaskRequest !== undefined) {
+                if (createDiagnosisTaskRequest instanceof CreateDiagnosisTaskRequest) {
+                    engine = createDiagnosisTaskRequest.engine;
+                    instanceId = createDiagnosisTaskRequest.instanceId;
+                    body = createDiagnosisTaskRequest.body
+                } else {
+                    engine = createDiagnosisTaskRequest['engine'];
+                    instanceId = createDiagnosisTaskRequest['instance_id'];
+                    body = createDiagnosisTaskRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling createDiagnosisTask.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createDiagnosisTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1657,6 +1957,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除后台任务管理中的指定记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (deleteBackgroundTaskRequest !== null && deleteBackgroundTaskRequest !== undefined) {
+                if (deleteBackgroundTaskRequest instanceof DeleteBackgroundTaskRequest) {
+                    instanceId = deleteBackgroundTaskRequest.instanceId;
+                    taskId = deleteBackgroundTaskRequest.taskId;
+                } else {
+                    instanceId = deleteBackgroundTaskRequest['instance_id'];
+                    taskId = deleteBackgroundTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteBackgroundTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteBackgroundTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1937,6 +2281,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例的后台任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBackgroundTasks(listBackgroundTasksRequest?: ListBackgroundTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let start;
+            
+            let limit;
+            
+            let beginTime;
+            
+            let endTime;
+
+            if (listBackgroundTasksRequest !== null && listBackgroundTasksRequest !== undefined) {
+                if (listBackgroundTasksRequest instanceof ListBackgroundTasksRequest) {
+                    instanceId = listBackgroundTasksRequest.instanceId;
+                    start = listBackgroundTasksRequest.start;
+                    limit = listBackgroundTasksRequest.limit;
+                    beginTime = listBackgroundTasksRequest.beginTime;
+                    endTime = listBackgroundTasksRequest.endTime;
+                } else {
+                    instanceId = listBackgroundTasksRequest['instance_id'];
+                    start = listBackgroundTasksRequest['start'];
+                    limit = listBackgroundTasksRequest['limit'];
+                    beginTime = listBackgroundTasksRequest['begin_time'];
+                    endTime = listBackgroundTasksRequest['end_time'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBackgroundTasks.');
+            }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询代理列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2050,6 +2460,65 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'engine': engine,'instance_id': instanceId,'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例诊断报告列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDiagnosisReports(listDiagnosisReportsRequest?: ListDiagnosisReportsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/diagnosis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDiagnosisReportsRequest !== null && listDiagnosisReportsRequest !== undefined) {
+                if (listDiagnosisReportsRequest instanceof ListDiagnosisReportsRequest) {
+                    engine = listDiagnosisReportsRequest.engine;
+                    instanceId = listDiagnosisReportsRequest.instanceId;
+                    offset = listDiagnosisReportsRequest.offset;
+                    limit = listDiagnosisReportsRequest.limit;
+                } else {
+                    engine = listDiagnosisReportsRequest['engine'];
+                    instanceId = listDiagnosisReportsRequest['instance_id'];
+                    offset = listDiagnosisReportsRequest['offset'];
+                    limit = listDiagnosisReportsRequest['limit'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling listDiagnosisReports.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDiagnosisReports.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2373,6 +2842,8 @@ export const ParamCreater = function () {
             
             let topic;
             
+            let queue;
+            
             let limit;
             
             let offset;
@@ -2390,6 +2861,7 @@ export const ParamCreater = function () {
                     engine = listMessagesRequest.engine;
                     instanceId = listMessagesRequest.instanceId;
                     topic = listMessagesRequest.topic;
+                    queue = listMessagesRequest.queue;
                     limit = listMessagesRequest.limit;
                     offset = listMessagesRequest.offset;
                     key = listMessagesRequest.key;
@@ -2400,6 +2872,7 @@ export const ParamCreater = function () {
                     engine = listMessagesRequest['engine'];
                     instanceId = listMessagesRequest['instance_id'];
                     topic = listMessagesRequest['topic'];
+                    queue = listMessagesRequest['queue'];
                     limit = listMessagesRequest['limit'];
                     offset = listMessagesRequest['offset'];
                     key = listMessagesRequest['key'];
@@ -2421,6 +2894,9 @@ export const ParamCreater = function () {
             }
             if (topic !== null && topic !== undefined) {
                 localVarQueryParameter['topic'] = topic;
+            }
+            if (queue !== null && queue !== undefined) {
+                localVarQueryParameter['queue'] = queue;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2633,6 +3109,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改实例ssl相关配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyInstanceSslConfig(modifyInstanceSslConfigRequest?: ModifyInstanceSslConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{engine}/instances/{instance_id}/plain-ssl-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (modifyInstanceSslConfigRequest !== null && modifyInstanceSslConfigRequest !== undefined) {
+                if (modifyInstanceSslConfigRequest instanceof ModifyInstanceSslConfigRequest) {
+                    engine = modifyInstanceSslConfigRequest.engine;
+                    instanceId = modifyInstanceSslConfigRequest.instanceId;
+                    body = modifyInstanceSslConfigRequest.body
+                } else {
+                    engine = modifyInstanceSslConfigRequest['engine'];
+                    instanceId = modifyInstanceSslConfigRequest['instance_id'];
+                    body = modifyInstanceSslConfigRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling modifyInstanceSslConfig.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyInstanceSslConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重置消费进度。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2748,50 +3277,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重启指定实例。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        restartInstance(restartInstanceRequest?: RestartInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/{engine}/instances/{instance_id}/restart",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let engine;
-            
-            let instanceId;
-
-            if (restartInstanceRequest !== null && restartInstanceRequest !== undefined) {
-                if (restartInstanceRequest instanceof RestartInstanceRequest) {
-                    engine = restartInstanceRequest.engine;
-                    instanceId = restartInstanceRequest.instanceId;
-                } else {
-                    engine = restartInstanceRequest['engine'];
-                    instanceId = restartInstanceRequest['instance_id'];
-                }
-            }
-
-        
-            if (engine === null || engine === undefined) {
-            throw new RequiredError('engine','Required parameter engine was null or undefined when calling restartInstance.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartInstance.');
-            }
-
-            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 重发死信消息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2832,6 +3317,59 @@ export const ParamCreater = function () {
             }
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling sendDlqMessage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 发送消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        sendMessage(sendMessageRequest?: SendMessageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/messages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (sendMessageRequest !== null && sendMessageRequest !== undefined) {
+                if (sendMessageRequest instanceof SendMessageRequest) {
+                    engine = sendMessageRequest.engine;
+                    instanceId = sendMessageRequest.instanceId;
+                    body = sendMessageRequest.body
+                } else {
+                    engine = sendMessageRequest['engine'];
+                    instanceId = sendMessageRequest['instance_id'];
+                    body = sendMessageRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling sendMessage.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling sendMessage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2972,6 +3510,94 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'group': group, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例诊断报告。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDiagnosisReport(showDiagnosisReportRequest?: ShowDiagnosisReportRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{engine}/{project_id}/diagnosis/{report_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let engine;
+            
+            let reportId;
+
+            if (showDiagnosisReportRequest !== null && showDiagnosisReportRequest !== undefined) {
+                if (showDiagnosisReportRequest instanceof ShowDiagnosisReportRequest) {
+                    engine = showDiagnosisReportRequest.engine;
+                    reportId = showDiagnosisReportRequest.reportId;
+                } else {
+                    engine = showDiagnosisReportRequest['engine'];
+                    reportId = showDiagnosisReportRequest['report_id'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showDiagnosisReport.');
+            }
+            if (reportId === null || reportId === undefined) {
+            throw new RequiredError('reportId','Required parameter reportId was null or undefined when calling showDiagnosisReport.');
+            }
+
+            options.pathParams = { 'engine': engine,'report_id': reportId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询stack信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDiagnosisStack(showDiagnosisStackRequest?: ShowDiagnosisStackRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{engine}/{project_id}/diagnosis/stack/{stack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let engine;
+            
+            let stackId;
+
+            if (showDiagnosisStackRequest !== null && showDiagnosisStackRequest !== undefined) {
+                if (showDiagnosisStackRequest instanceof ShowDiagnosisStackRequest) {
+                    engine = showDiagnosisStackRequest.engine;
+                    stackId = showDiagnosisStackRequest.stackId;
+                } else {
+                    engine = showDiagnosisStackRequest['engine'];
+                    stackId = showDiagnosisStackRequest['stack_id'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showDiagnosisStack.');
+            }
+            if (stackId === null || stackId === undefined) {
+            throw new RequiredError('stackId','Required parameter stackId was null or undefined when calling showDiagnosisStack.');
+            }
+
+            options.pathParams = { 'engine': engine,'stack_id': stackId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

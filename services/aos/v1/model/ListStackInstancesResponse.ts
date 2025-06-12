@@ -1,9 +1,11 @@
+import { PageInfo } from './PageInfo';
 import { StackInstance } from './StackInstance';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListStackInstancesResponse extends SdkResponse {
     private 'stack_instances'?: Array<StackInstance>;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -16,5 +18,15 @@ export class ListStackInstancesResponse extends SdkResponse {
     }
     public get stackInstances(): Array<StackInstance> | undefined {
         return this['stack_instances'];
+    }
+    public withPageInfo(pageInfo: PageInfo): ListStackInstancesResponse {
+        this['page_info'] = pageInfo;
+        return this;
+    }
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
+        this['page_info'] = pageInfo;
+    }
+    public get pageInfo(): PageInfo | undefined {
+        return this['page_info'];
     }
 }
