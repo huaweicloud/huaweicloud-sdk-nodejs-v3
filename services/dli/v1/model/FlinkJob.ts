@@ -6,7 +6,7 @@ export class FlinkJob {
     public name?: string;
     public desc?: string;
     private 'user_name'?: string;
-    private 'job_type'?: string;
+    private 'job_type'?: FlinkJobJobTypeEnum | string;
     public status?: string;
     private 'status_desc'?: string;
     private 'create_time'?: number;
@@ -60,14 +60,14 @@ export class FlinkJob {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withJobType(jobType: string): FlinkJob {
+    public withJobType(jobType: FlinkJobJobTypeEnum | string): FlinkJob {
         this['job_type'] = jobType;
         return this;
     }
-    public set jobType(jobType: string  | undefined) {
+    public set jobType(jobType: FlinkJobJobTypeEnum | string  | undefined) {
         this['job_type'] = jobType;
     }
-    public get jobType(): string | undefined {
+    public get jobType(): FlinkJobJobTypeEnum | string | undefined {
         return this['job_type'];
     }
     public withStatus(status: string): FlinkJob {
@@ -268,4 +268,15 @@ export class FlinkJob {
     public get jobConfig(): FlinkJobConfig | undefined {
         return this['job_config'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum FlinkJobJobTypeEnum {
+    FLINK_SQL_JOB = 'flink_sql_job',
+    FLINK_OPENSOURCE_SQL_JOB = 'flink_opensource_sql_job',
+    FLINK_SQL_EDGE_JOB = 'flink_sql_edge_job',
+    FLINK_JAR_JOB = 'flink_jar_job'
 }

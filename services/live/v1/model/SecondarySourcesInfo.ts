@@ -7,6 +7,7 @@ export class SecondarySourcesInfo {
     public height?: number;
     private 'bitrate_for3u8'?: boolean;
     public passphrase?: string;
+    public pbkeylen?: number;
     private 'backup_urls'?: Array<string>;
     private 'stream_id'?: string;
     public latency?: number;
@@ -40,6 +41,10 @@ export class SecondarySourcesInfo {
     }
     public withPassphrase(passphrase: string): SecondarySourcesInfo {
         this['passphrase'] = passphrase;
+        return this;
+    }
+    public withPbkeylen(pbkeylen: number): SecondarySourcesInfo {
+        this['pbkeylen'] = pbkeylen;
         return this;
     }
     public withBackupUrls(backupUrls: Array<string>): SecondarySourcesInfo {

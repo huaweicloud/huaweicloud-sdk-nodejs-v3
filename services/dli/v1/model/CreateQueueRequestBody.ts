@@ -16,6 +16,7 @@ export class CreateQueueRequestBody {
     public tags?: Array<Tag>;
     private 'elastic_resource_pool_name'?: string;
     public properties?: CreateQueueRequestBodyProperties;
+    public engine?: string;
     public constructor(queueName?: string, cuCount?: number) { 
         this['queue_name'] = queueName;
         this['cu_count'] = cuCount;
@@ -112,6 +113,10 @@ export class CreateQueueRequestBody {
     }
     public withProperties(properties: CreateQueueRequestBodyProperties): CreateQueueRequestBody {
         this['properties'] = properties;
+        return this;
+    }
+    public withEngine(engine: string): CreateQueueRequestBody {
+        this['engine'] = engine;
         return this;
     }
 }

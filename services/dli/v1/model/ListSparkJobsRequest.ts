@@ -10,7 +10,7 @@ export class ListSparkJobsRequest {
     private 'queue_name'?: string;
     public size?: number;
     public start?: number;
-    public state?: string;
+    public state?: ListSparkJobsRequestStateEnum | string;
     public constructor() { 
     }
     public withClusterName(clusterName: string): ListSparkJobsRequest {
@@ -73,8 +73,20 @@ export class ListSparkJobsRequest {
         this['start'] = start;
         return this;
     }
-    public withState(state: string): ListSparkJobsRequest {
+    public withState(state: ListSparkJobsRequestStateEnum | string): ListSparkJobsRequest {
         this['state'] = state;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListSparkJobsRequestStateEnum {
+    STARTING = 'starting',
+    RUNNING = 'running',
+    DEAD = 'dead',
+    SUCCESS = 'success',
+    RECOVERING = 'recovering'
 }

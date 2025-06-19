@@ -7,10 +7,13 @@ export class CreateBuildJobScm {
     private 'web_url'?: string;
     private 'scm_type'?: string;
     private 'is_auto_build'?: boolean;
+    private 'enable_git_lfs'?: boolean;
     private 'build_type'?: string;
     public depth?: string;
     private 'end_point_id'?: string;
     public source?: string;
+    private 'group_name'?: string;
+    private 'repo_name'?: string;
     public constructor(url?: string, scmType?: string) { 
         this['url'] = url;
         this['scm_type'] = scmType;
@@ -63,6 +66,16 @@ export class CreateBuildJobScm {
     public get isAutoBuild(): boolean | undefined {
         return this['is_auto_build'];
     }
+    public withEnableGitLfs(enableGitLfs: boolean): CreateBuildJobScm {
+        this['enable_git_lfs'] = enableGitLfs;
+        return this;
+    }
+    public set enableGitLfs(enableGitLfs: boolean  | undefined) {
+        this['enable_git_lfs'] = enableGitLfs;
+    }
+    public get enableGitLfs(): boolean | undefined {
+        return this['enable_git_lfs'];
+    }
     public withBuildType(buildType: string): CreateBuildJobScm {
         this['build_type'] = buildType;
         return this;
@@ -90,5 +103,25 @@ export class CreateBuildJobScm {
     public withSource(source: string): CreateBuildJobScm {
         this['source'] = source;
         return this;
+    }
+    public withGroupName(groupName: string): CreateBuildJobScm {
+        this['group_name'] = groupName;
+        return this;
+    }
+    public set groupName(groupName: string  | undefined) {
+        this['group_name'] = groupName;
+    }
+    public get groupName(): string | undefined {
+        return this['group_name'];
+    }
+    public withRepoName(repoName: string): CreateBuildJobScm {
+        this['repo_name'] = repoName;
+        return this;
+    }
+    public set repoName(repoName: string  | undefined) {
+        this['repo_name'] = repoName;
+    }
+    public get repoName(): string | undefined {
+        return this['repo_name'];
     }
 }

@@ -206,7 +206,8 @@ export enum SyncTaskInfoSrcCloudTypeEnum {
     KINGSOFTCLOUD = 'KingsoftCloud',
     BAIDU = 'Baidu',
     QINIU = 'Qiniu',
-    UCLOUD = 'UCloud'
+    UCLOUD = 'UCloud',
+    GOOGLE = 'Google'
 }
 /**
     * @export

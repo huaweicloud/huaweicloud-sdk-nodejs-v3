@@ -320,6 +320,7 @@ export * from './model/UpdateInstanceReq';
 export * from './model/UpdateInstanceRequest';
 export * from './model/UpdateInstanceResponse';
 export * from './model/UpdateInstanceTopicReq';
+export * from './model/UpdateInstanceTopicReqTopicOtherConfigs';
 export * from './model/UpdateInstanceTopicReqTopics';
 export * from './model/UpdateInstanceTopicRequest';
 export * from './model/UpdateInstanceTopicResponse';

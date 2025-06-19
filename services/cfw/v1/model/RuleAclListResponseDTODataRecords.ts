@@ -8,6 +8,7 @@ export class RuleAclListResponseDTODataRecords {
     public applications?: Array<string>;
     private 'address_type'?: number;
     public name?: string;
+    private 'order_id'?: number;
     public direction?: RuleAclListResponseDTODataRecordsDirectionEnum | number;
     private 'action_type'?: number;
     public status?: number;
@@ -53,6 +54,16 @@ export class RuleAclListResponseDTODataRecords {
     public withName(name: string): RuleAclListResponseDTODataRecords {
         this['name'] = name;
         return this;
+    }
+    public withOrderId(orderId: number): RuleAclListResponseDTODataRecords {
+        this['order_id'] = orderId;
+        return this;
+    }
+    public set orderId(orderId: number  | undefined) {
+        this['order_id'] = orderId;
+    }
+    public get orderId(): number | undefined {
+        return this['order_id'];
     }
     public withDirection(direction: RuleAclListResponseDTODataRecordsDirectionEnum | number): RuleAclListResponseDTODataRecords {
         this['direction'] = direction;

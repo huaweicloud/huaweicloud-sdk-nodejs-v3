@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSqlJobStatusResponse extends SdkResponse {
     private 'job_id'?: string;
-    private 'job_type'?: string;
+    private 'job_type'?: ShowSqlJobStatusResponseJobTypeEnum | string;
     private 'queue_name'?: string;
     public owner?: string;
     private 'start_time'?: number;
@@ -39,14 +39,14 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withJobType(jobType: string): ShowSqlJobStatusResponse {
+    public withJobType(jobType: ShowSqlJobStatusResponseJobTypeEnum | string): ShowSqlJobStatusResponse {
         this['job_type'] = jobType;
         return this;
     }
-    public set jobType(jobType: string  | undefined) {
+    public set jobType(jobType: ShowSqlJobStatusResponseJobTypeEnum | string  | undefined) {
         this['job_type'] = jobType;
     }
-    public get jobType(): string | undefined {
+    public get jobType(): ShowSqlJobStatusResponseJobTypeEnum | string | undefined {
         return this['job_type'];
     }
     public withQueueName(queueName: string): ShowSqlJobStatusResponse {
@@ -219,6 +219,23 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSqlJobStatusResponseJobTypeEnum {
+    DDL = 'DDL',
+    DCL = 'DCL',
+    IMPORT = 'IMPORT',
+    EXPORT = 'EXPORT',
+    QUERY = 'QUERY',
+    INSERT = 'INSERT',
+    DATA_MIGRATION = 'DATA_MIGRATION',
+    UPDATE = 'UPDATE',
+    DELETE = 'DELETE',
+    RESTART_QUEUE = 'RESTART_QUEUE',
+    SCALE_QUEUE = 'SCALE_QUEUE'
+}
 /**
     * @export
     * @enum {string}

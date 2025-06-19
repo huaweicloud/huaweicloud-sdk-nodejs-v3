@@ -1,14 +1,14 @@
-import { DeleteBuildJobResponseBodyResult } from './DeleteBuildJobResponseBodyResult';
+import { DeleteTheJobResponseBodyResult } from './DeleteTheJobResponseBodyResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteBuildJobResponse extends SdkResponse {
-    public result?: DeleteBuildJobResponseBodyResult;
+    public result?: DeleteTheJobResponseBodyResult;
     public status?: string;
     public constructor() { 
         super();
     }
-    public withResult(result: DeleteBuildJobResponseBodyResult): DeleteBuildJobResponse {
+    public withResult(result: DeleteTheJobResponseBodyResult): DeleteBuildJobResponse {
         this['result'] = result;
         return this;
     }

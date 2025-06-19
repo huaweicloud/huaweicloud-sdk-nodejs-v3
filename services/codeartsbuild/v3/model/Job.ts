@@ -18,6 +18,15 @@ export class Job {
     private 'is_copy'?: boolean;
     private 'is_forbidden'?: boolean;
     private 'is_view'?: boolean;
+    private 'last_build_user'?: string;
+    private 'trigger_type'?: string;
+    private 'build_time'?: number;
+    private 'scm_web_url'?: string;
+    private 'scm_type'?: string;
+    private 'repo_id'?: string;
+    private 'build_project_id'?: string;
+    private 'last_job_running_status'?: string;
+    private 'last_build_user_id'?: string;
     public constructor() { 
     }
     public withId(id: string): Job {
@@ -171,5 +180,95 @@ export class Job {
     }
     public get isView(): boolean | undefined {
         return this['is_view'];
+    }
+    public withLastBuildUser(lastBuildUser: string): Job {
+        this['last_build_user'] = lastBuildUser;
+        return this;
+    }
+    public set lastBuildUser(lastBuildUser: string  | undefined) {
+        this['last_build_user'] = lastBuildUser;
+    }
+    public get lastBuildUser(): string | undefined {
+        return this['last_build_user'];
+    }
+    public withTriggerType(triggerType: string): Job {
+        this['trigger_type'] = triggerType;
+        return this;
+    }
+    public set triggerType(triggerType: string  | undefined) {
+        this['trigger_type'] = triggerType;
+    }
+    public get triggerType(): string | undefined {
+        return this['trigger_type'];
+    }
+    public withBuildTime(buildTime: number): Job {
+        this['build_time'] = buildTime;
+        return this;
+    }
+    public set buildTime(buildTime: number  | undefined) {
+        this['build_time'] = buildTime;
+    }
+    public get buildTime(): number | undefined {
+        return this['build_time'];
+    }
+    public withScmWebUrl(scmWebUrl: string): Job {
+        this['scm_web_url'] = scmWebUrl;
+        return this;
+    }
+    public set scmWebUrl(scmWebUrl: string  | undefined) {
+        this['scm_web_url'] = scmWebUrl;
+    }
+    public get scmWebUrl(): string | undefined {
+        return this['scm_web_url'];
+    }
+    public withScmType(scmType: string): Job {
+        this['scm_type'] = scmType;
+        return this;
+    }
+    public set scmType(scmType: string  | undefined) {
+        this['scm_type'] = scmType;
+    }
+    public get scmType(): string | undefined {
+        return this['scm_type'];
+    }
+    public withRepoId(repoId: string): Job {
+        this['repo_id'] = repoId;
+        return this;
+    }
+    public set repoId(repoId: string  | undefined) {
+        this['repo_id'] = repoId;
+    }
+    public get repoId(): string | undefined {
+        return this['repo_id'];
+    }
+    public withBuildProjectId(buildProjectId: string): Job {
+        this['build_project_id'] = buildProjectId;
+        return this;
+    }
+    public set buildProjectId(buildProjectId: string  | undefined) {
+        this['build_project_id'] = buildProjectId;
+    }
+    public get buildProjectId(): string | undefined {
+        return this['build_project_id'];
+    }
+    public withLastJobRunningStatus(lastJobRunningStatus: string): Job {
+        this['last_job_running_status'] = lastJobRunningStatus;
+        return this;
+    }
+    public set lastJobRunningStatus(lastJobRunningStatus: string  | undefined) {
+        this['last_job_running_status'] = lastJobRunningStatus;
+    }
+    public get lastJobRunningStatus(): string | undefined {
+        return this['last_job_running_status'];
+    }
+    public withLastBuildUserId(lastBuildUserId: string): Job {
+        this['last_build_user_id'] = lastBuildUserId;
+        return this;
+    }
+    public set lastBuildUserId(lastBuildUserId: string  | undefined) {
+        this['last_build_user_id'] = lastBuildUserId;
+    }
+    public get lastBuildUserId(): string | undefined {
+        return this['last_build_user_id'];
     }
 }

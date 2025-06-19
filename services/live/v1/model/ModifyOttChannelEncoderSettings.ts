@@ -1,4 +1,3 @@
-import { EncoderSettingsExpand } from './EncoderSettingsExpand';
 import { ModifyOttChannelEncoderSettingsEncoderSettings } from './ModifyOttChannelEncoderSettingsEncoderSettings';
 
 
@@ -7,7 +6,6 @@ export class ModifyOttChannelEncoderSettings {
     private 'app_name'?: string;
     public id?: string;
     private 'encoder_settings'?: Array<ModifyOttChannelEncoderSettingsEncoderSettings>;
-    private 'encoder_settings_expand'?: EncoderSettingsExpand;
     public constructor(domain?: string, appName?: string, id?: string) { 
         this['domain'] = domain;
         this['app_name'] = appName;
@@ -40,15 +38,5 @@ export class ModifyOttChannelEncoderSettings {
     }
     public get encoderSettings(): Array<ModifyOttChannelEncoderSettingsEncoderSettings> | undefined {
         return this['encoder_settings'];
-    }
-    public withEncoderSettingsExpand(encoderSettingsExpand: EncoderSettingsExpand): ModifyOttChannelEncoderSettings {
-        this['encoder_settings_expand'] = encoderSettingsExpand;
-        return this;
-    }
-    public set encoderSettingsExpand(encoderSettingsExpand: EncoderSettingsExpand  | undefined) {
-        this['encoder_settings_expand'] = encoderSettingsExpand;
-    }
-    public get encoderSettingsExpand(): EncoderSettingsExpand | undefined {
-        return this['encoder_settings_expand'];
     }
 }

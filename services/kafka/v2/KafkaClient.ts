@@ -322,6 +322,7 @@ import { UpdateInstanceReq } from './model/UpdateInstanceReq';
 import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdateInstanceTopicReq } from './model/UpdateInstanceTopicReq';
+import { UpdateInstanceTopicReqTopicOtherConfigs } from './model/UpdateInstanceTopicReqTopicOtherConfigs';
 import { UpdateInstanceTopicReqTopics } from './model/UpdateInstanceTopicReqTopics';
 import { UpdateInstanceTopicRequest } from './model/UpdateInstanceTopicRequest';
 import { UpdateInstanceTopicResponse } from './model/UpdateInstanceTopicResponse';
@@ -1799,7 +1800,7 @@ export class KafkaClient {
      * @summary 查询topic的磁盘存储情况
      * @param {string} instanceId 实例ID。
      * @param {string} [minSize] 占用磁盘大小，默认值1G (1K，1M，1G)。
-     * @param {string} [top] 占用磁盘大小，查询top N。
+     * @param {string} [top] **参数解释**： 占用磁盘大小，查询top N。 **约束限制**： 不涉及。 **取值范围**： 1~1000。 **默认取值**： 不涉及。
      * @param {string} [percentage] 占用磁盘大小，查询大于占比的分区。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1949,7 +1950,7 @@ export class KafkaClient {
      * @summary 查询分区最新消息的位置
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} topic **参数解释**： Topic名称。 **约束限制**： Topic名称必须以字母开头且只支持大小写字母、中横线、下划线以及数字。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {number} partition **参数解释**： 分区编号。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} partition **参数解释**： 分区编号。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2381,9 +2382,9 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改Smart Connect任务配置。
-     * @param {string} instanceId 实例ID。
-     * @param {string} taskId 任务ID。
-     * @param {SmartConnectTaskEntity} modifyConnectorTaskBody 修改Smart Connect任务配置请求体。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} taskId **参数解释**： 任务ID。获取方法如下：登录Kafka控制台，在Smart Connect页面查找任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {SmartConnectTaskEntity} modifyConnectorTaskBody **参数解释**： 修改Smart Connect任务配置请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2502,8 +2503,8 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 校验Connector连通性
-     * @param {string} instanceId 实例ID。
-     * @param {SmartConnectValidateEntity} validateConnectorConnectivityBody 校验Connector连通性请求体。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录Kafka控制台，在Kafka实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {SmartConnectValidateEntity} validateConnectorConnectivityBody **参数解释**： 校验Connector连通性请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

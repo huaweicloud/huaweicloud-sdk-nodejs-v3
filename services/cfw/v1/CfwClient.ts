@@ -129,6 +129,8 @@ import { DeleteDomainsRequest } from './model/DeleteDomainsRequest';
 import { DeleteDomainsResponse } from './model/DeleteDomainsResponse';
 import { DeleteFirewallRequest } from './model/DeleteFirewallRequest';
 import { DeleteFirewallResponse } from './model/DeleteFirewallResponse';
+import { DeleteIpBlacklistRequest } from './model/DeleteIpBlacklistRequest';
+import { DeleteIpBlacklistResponse } from './model/DeleteIpBlacklistResponse';
 import { DeleteRuleAclDto } from './model/DeleteRuleAclDto';
 import { DeleteServiceItemDto } from './model/DeleteServiceItemDto';
 import { DeleteServiceItemRequest } from './model/DeleteServiceItemRequest';
@@ -150,9 +152,13 @@ import { EipOperateProtectReq } from './model/EipOperateProtectReq';
 import { EipOperateProtectReqIpInfos } from './model/EipOperateProtectReqIpInfos';
 import { EipResource } from './model/EipResource';
 import { EipResponseData } from './model/EipResponseData';
+import { EnableIpBlacklistRequest } from './model/EnableIpBlacklistRequest';
+import { EnableIpBlacklistResponse } from './model/EnableIpBlacklistResponse';
 import { Er } from './model/Er';
 import { ErInstance } from './model/ErInstance';
 import { EwProtectResourceInfo } from './model/EwProtectResourceInfo';
+import { ExportIpBlacklistRequest } from './model/ExportIpBlacklistRequest';
+import { ExportIpBlacklistResponse } from './model/ExportIpBlacklistResponse';
 import { FailedEipInfo } from './model/FailedEipInfo';
 import { FirewallInstanceResource } from './model/FirewallInstanceResource';
 import { FirewallInstanceVO } from './model/FirewallInstanceVO';
@@ -173,6 +179,13 @@ import { HttpQueryCfwAttackLogsResponseDTOData } from './model/HttpQueryCfwAttac
 import { HttpQueryCfwAttackLogsResponseDTODataRecords } from './model/HttpQueryCfwAttackLogsResponseDTODataRecords';
 import { HttpQueryCfwFlowLogsResponseDTOData } from './model/HttpQueryCfwFlowLogsResponseDTOData';
 import { HttpQueryCfwFlowLogsResponseDTODataRecords } from './model/HttpQueryCfwFlowLogsResponseDTODataRecords';
+import { ImportIpBlacklistRequest } from './model/ImportIpBlacklistRequest';
+import { ImportIpBlacklistResponse } from './model/ImportIpBlacklistResponse';
+import { IpBlacklistDeleteDto } from './model/IpBlacklistDeleteDto';
+import { IpBlacklistEnableDto } from './model/IpBlacklistEnableDto';
+import { IpBlacklistImportDto } from './model/IpBlacklistImportDto';
+import { IpBlacklistSwitchInfoVo } from './model/IpBlacklistSwitchInfoVo';
+import { IpBlacklistVO } from './model/IpBlacklistVO';
 import { IpRegionDto } from './model/IpRegionDto';
 import { IpsProtectDTO } from './model/IpsProtectDTO';
 import { IpsProtectModeObject } from './model/IpsProtectModeObject';
@@ -231,6 +244,10 @@ import { ListFirewallListRequest } from './model/ListFirewallListRequest';
 import { ListFirewallListResponse } from './model/ListFirewallListResponse';
 import { ListFlowLogsRequest } from './model/ListFlowLogsRequest';
 import { ListFlowLogsResponse } from './model/ListFlowLogsResponse';
+import { ListIpBlacklistRequest } from './model/ListIpBlacklistRequest';
+import { ListIpBlacklistResponse } from './model/ListIpBlacklistResponse';
+import { ListIpBlacklistSwitchRequest } from './model/ListIpBlacklistSwitchRequest';
+import { ListIpBlacklistSwitchResponse } from './model/ListIpBlacklistSwitchResponse';
 import { ListIpsProtectModeRequest } from './model/ListIpsProtectModeRequest';
 import { ListIpsProtectModeResponse } from './model/ListIpsProtectModeResponse';
 import { ListIpsRules1Request } from './model/ListIpsRules1Request';
@@ -266,11 +283,14 @@ import { ObjectInfoDto } from './model/ObjectInfoDto';
 import { OrderRuleAclDto } from './model/OrderRuleAclDto';
 import { OrderRuleId } from './model/OrderRuleId';
 import { PacketMessage } from './model/PacketMessage';
+import { PageDataIpBlacklistsVo } from './model/PageDataIpBlacklistsVo';
 import { PageInfo } from './model/PageInfo';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
 import { ResourceTag } from './model/ResourceTag';
 import { ResponseData } from './model/ResponseData';
+import { RetryIpBlacklistRequest } from './model/RetryIpBlacklistRequest';
+import { RetryIpBlacklistResponse } from './model/RetryIpBlacklistResponse';
 import { RuleAclListResponseDTOData } from './model/RuleAclListResponseDTOData';
 import { RuleAclListResponseDTODataRecords } from './model/RuleAclListResponseDTODataRecords';
 import { RuleAddressDto } from './model/RuleAddressDto';
@@ -900,6 +920,27 @@ export class CfwClient {
     }
 
     /**
+     * 删除流量过滤功能下已经导入的IP黑名单，指定生效范围进行删除。 标准版的墙只会存在生效范围为EIP的IP黑名单，专业版的墙会存在生效范围为EIP和NAT的IP黑名单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除已经导入的IP黑名单
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {IpBlacklistDeleteDto} deleteIpBlacklistRequestBody 删除IP黑名单请求的参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIpBlacklist(deleteIpBlacklistRequest?: DeleteIpBlacklistRequest): Promise<DeleteIpBlacklistResponse> {
+        const options = ParamCreater().deleteIpBlacklist(deleteIpBlacklistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除服务组成员
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -957,6 +998,72 @@ export class CfwClient {
      */
     public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
         const options = ParamCreater().deleteTag(deleteTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或者关闭流量过滤功能，当前流量过滤是通过导入IP黑名单实现的。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或者关闭流量过滤的IP黑名单功能
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {IpBlacklistEnableDto} enableIpBlacklistRequestBody 流量过滤的开关信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableIpBlacklist(enableIpBlacklistRequest?: EnableIpBlacklistRequest): Promise<EnableIpBlacklistResponse> {
+        const options = ParamCreater().enableIpBlacklist(enableIpBlacklistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 指定IP黑名单的名字进行导出，当前只有两种文件名，在EIP生效的文件名为ip-blacklist-eip.txt，在 NAT生效的文件名为ip-blacklist-nat.txt。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出用于流量过滤的IP黑名单
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。可通过[项目ID获取方式](cfw_02_0015.xml)获取
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} name IP黑名单的名字，如果要导出生效范围为EIP的IP黑名单，就指定名字为ip-blacklist-eip.txt，如果要导出生效范围为NAT的IP黑名单，就指定名字为ip-blacklist-nat.txt。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportIpBlacklist(exportIpBlacklistRequest?: ExportIpBlacklistRequest): Promise<ExportIpBlacklistResponse> {
+        const options = ParamCreater().exportIpBlacklist(exportIpBlacklistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['Content-Disposition', 'Content-Length', 'Content-Type'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 此接口用来导入IP黑名单，IP列表保存在request的body中，IP列表支持的格式如下：
+     * 单个IP地址，例如：100.1.1.10
+     * 连续的IP地址段，例如：80.1.1.3-80.1.1.30
+     * 掩码格式的网段，例如：6.6.6.0/24
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入IP黑名单用于流量过滤
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {IpBlacklistImportDto} importIpBlacklistRequestBody IP黑名单的导入参数，包括导入的方式(增量或者全量)、生效的范围和IP列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importIpBlacklist(importIpBlacklistRequest?: ImportIpBlacklistRequest): Promise<ImportIpBlacklistResponse> {
+        const options = ParamCreater().importIpBlacklist(importIpBlacklistRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1444,6 +1551,48 @@ export class CfwClient {
     }
 
     /**
+     * 获取防火墙实例中已经导入的IP黑名单信息，标准版防火墙只会显示一条EIP的记录，专业版防火墙可能显示EIP、NAT或EIP和NAT的记录，根据导入的情况确定。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取导入的IP黑名单列表信息
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {number} limit 在分页查询的情况下，每页查询的记录条数，范围为1-1024
+     * @param {number} offset 数据查询的偏移量，在分页查询的时候使用，指定查询记录的起始位置，必须为数字，取值范围为大于等于0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpBlacklist(listIpBlacklistRequest?: ListIpBlacklistRequest): Promise<ListIpBlacklistResponse> {
+        const options = ParamCreater().listIpBlacklist(listIpBlacklistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 流量过滤功能可以打开或者关闭，通过此接口可以获取当前的开关信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取流量过滤功能的开关信息
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpBlacklistSwitch(listIpBlacklistSwitchRequest?: ListIpBlacklistSwitchRequest): Promise<ListIpBlacklistSwitchResponse> {
+        const options = ParamCreater().listIpBlacklistSwitch(listIpBlacklistSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取CFW任务执行状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1617,6 +1766,27 @@ export class CfwClient {
      */
     public listServiceSets(listServiceSetsRequest?: ListServiceSetsRequest): Promise<ListServiceSetsResponse> {
         const options = ParamCreater().listServiceSets(listServiceSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于流量过滤的IP黑名单导入失败后，调用此接口进行重试。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 用于流量过滤的IP黑名单导入失败后进行重新导入
+     * @param {string} projectId 项目ID，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml)
+     * @param {string} fwInstanceId 防火墙ID，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取
+     * @param {string} [name] 指定导入失败的IP黑名单的名字
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryIpBlacklist(retryIpBlacklistRequest?: RetryIpBlacklistRequest): Promise<RetryIpBlacklistResponse> {
+        const options = ParamCreater().retryIpBlacklist(retryIpBlacklistRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4070,6 +4240,63 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除流量过滤功能下已经导入的IP黑名单，指定生效范围进行删除。 标准版的墙只会存在生效范围为EIP的IP黑名单，专业版的墙会存在生效范围为EIP和NAT的IP黑名单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIpBlacklist(deleteIpBlacklistRequest?: DeleteIpBlacklistRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/ptf/ip-blacklist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+
+            if (deleteIpBlacklistRequest !== null && deleteIpBlacklistRequest !== undefined) {
+                if (deleteIpBlacklistRequest instanceof DeleteIpBlacklistRequest) {
+                    projectId = deleteIpBlacklistRequest.projectId;
+                    fwInstanceId = deleteIpBlacklistRequest.fwInstanceId;
+                    body = deleteIpBlacklistRequest.body
+                } else {
+                    projectId = deleteIpBlacklistRequest['project_id'];
+                    fwInstanceId = deleteIpBlacklistRequest['fw_instance_id'];
+                    body = deleteIpBlacklistRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteIpBlacklist.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling deleteIpBlacklist.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除服务组成员
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4233,6 +4460,181 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId,'fw_instance_id': fwInstanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或者关闭流量过滤功能，当前流量过滤是通过导入IP黑名单实现的。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableIpBlacklist(enableIpBlacklistRequest?: EnableIpBlacklistRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ptf/ip-blacklist/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+
+            if (enableIpBlacklistRequest !== null && enableIpBlacklistRequest !== undefined) {
+                if (enableIpBlacklistRequest instanceof EnableIpBlacklistRequest) {
+                    projectId = enableIpBlacklistRequest.projectId;
+                    fwInstanceId = enableIpBlacklistRequest.fwInstanceId;
+                    body = enableIpBlacklistRequest.body
+                } else {
+                    projectId = enableIpBlacklistRequest['project_id'];
+                    fwInstanceId = enableIpBlacklistRequest['fw_instance_id'];
+                    body = enableIpBlacklistRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling enableIpBlacklist.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling enableIpBlacklist.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 指定IP黑名单的名字进行导出，当前只有两种文件名，在EIP生效的文件名为ip-blacklist-eip.txt，在 NAT生效的文件名为ip-blacklist-nat.txt。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportIpBlacklist(exportIpBlacklistRequest?: ExportIpBlacklistRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ptf/ip-blacklist/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let name;
+
+            if (exportIpBlacklistRequest !== null && exportIpBlacklistRequest !== undefined) {
+                if (exportIpBlacklistRequest instanceof ExportIpBlacklistRequest) {
+                    projectId = exportIpBlacklistRequest.projectId;
+                    fwInstanceId = exportIpBlacklistRequest.fwInstanceId;
+                    name = exportIpBlacklistRequest.name;
+                } else {
+                    projectId = exportIpBlacklistRequest['project_id'];
+                    fwInstanceId = exportIpBlacklistRequest['fw_instance_id'];
+                    name = exportIpBlacklistRequest['name'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling exportIpBlacklist.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling exportIpBlacklist.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling exportIpBlacklist.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口用来导入IP黑名单，IP列表保存在request的body中，IP列表支持的格式如下：
+         * 单个IP地址，例如：100.1.1.10
+         * 连续的IP地址段，例如：80.1.1.3-80.1.1.30
+         * 掩码格式的网段，例如：6.6.6.0/24
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importIpBlacklist(importIpBlacklistRequest?: ImportIpBlacklistRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ptf/ip-blacklist/import",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+
+            if (importIpBlacklistRequest !== null && importIpBlacklistRequest !== undefined) {
+                if (importIpBlacklistRequest instanceof ImportIpBlacklistRequest) {
+                    projectId = importIpBlacklistRequest.projectId;
+                    fwInstanceId = importIpBlacklistRequest.fwInstanceId;
+                    body = importIpBlacklistRequest.body
+                } else {
+                    projectId = importIpBlacklistRequest['project_id'];
+                    fwInstanceId = importIpBlacklistRequest['fw_instance_id'];
+                    body = importIpBlacklistRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling importIpBlacklist.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling importIpBlacklist.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6104,6 +6506,122 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取防火墙实例中已经导入的IP黑名单信息，标准版防火墙只会显示一条EIP的记录，专业版防火墙可能显示EIP、NAT或EIP和NAT的记录，根据导入的情况确定。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpBlacklist(listIpBlacklistRequest?: ListIpBlacklistRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ptf/ip-blacklist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listIpBlacklistRequest !== null && listIpBlacklistRequest !== undefined) {
+                if (listIpBlacklistRequest instanceof ListIpBlacklistRequest) {
+                    projectId = listIpBlacklistRequest.projectId;
+                    fwInstanceId = listIpBlacklistRequest.fwInstanceId;
+                    limit = listIpBlacklistRequest.limit;
+                    offset = listIpBlacklistRequest.offset;
+                } else {
+                    projectId = listIpBlacklistRequest['project_id'];
+                    fwInstanceId = listIpBlacklistRequest['fw_instance_id'];
+                    limit = listIpBlacklistRequest['limit'];
+                    offset = listIpBlacklistRequest['offset'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIpBlacklist.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listIpBlacklist.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listIpBlacklist.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listIpBlacklist.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 流量过滤功能可以打开或者关闭，通过此接口可以获取当前的开关信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpBlacklistSwitch(listIpBlacklistSwitchRequest?: ListIpBlacklistSwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ptf/ip-blacklist/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+
+            if (listIpBlacklistSwitchRequest !== null && listIpBlacklistSwitchRequest !== undefined) {
+                if (listIpBlacklistSwitchRequest instanceof ListIpBlacklistSwitchRequest) {
+                    projectId = listIpBlacklistSwitchRequest.projectId;
+                    fwInstanceId = listIpBlacklistSwitchRequest.fwInstanceId;
+                } else {
+                    projectId = listIpBlacklistSwitchRequest['project_id'];
+                    fwInstanceId = listIpBlacklistSwitchRequest['fw_instance_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIpBlacklistSwitch.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listIpBlacklistSwitch.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取CFW任务执行状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6631,6 +7149,61 @@ export const ParamCreater = function () {
             }
             if (queryServiceSetType !== null && queryServiceSetType !== undefined) {
                 localVarQueryParameter['query_service_set_type'] = queryServiceSetType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于流量过滤的IP黑名单导入失败后，调用此接口进行重试。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryIpBlacklist(retryIpBlacklistRequest?: RetryIpBlacklistRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ptf/ip-blacklist/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let name;
+
+            if (retryIpBlacklistRequest !== null && retryIpBlacklistRequest !== undefined) {
+                if (retryIpBlacklistRequest instanceof RetryIpBlacklistRequest) {
+                    projectId = retryIpBlacklistRequest.projectId;
+                    fwInstanceId = retryIpBlacklistRequest.fwInstanceId;
+                    name = retryIpBlacklistRequest.name;
+                } else {
+                    projectId = retryIpBlacklistRequest['project_id'];
+                    fwInstanceId = retryIpBlacklistRequest['fw_instance_id'];
+                    name = retryIpBlacklistRequest['name'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling retryIpBlacklist.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling retryIpBlacklist.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
 
             options.queryParams = localVarQueryParameter;

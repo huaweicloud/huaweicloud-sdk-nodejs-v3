@@ -1,3 +1,4 @@
+import { ResourceConfig } from './ResourceConfig';
 import { Tag } from './Tag';
 
 
@@ -27,6 +28,8 @@ export class CreateFlinkJarJobRequestBody {
     private 'checkpoint_path'?: string;
     private 'runtime_config'?: string;
     public tags?: Array<Tag>;
+    private 'resource_config'?: ResourceConfig;
+    private 'resource_config_version'?: string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -243,5 +246,25 @@ export class CreateFlinkJarJobRequestBody {
     public withTags(tags: Array<Tag>): CreateFlinkJarJobRequestBody {
         this['tags'] = tags;
         return this;
+    }
+    public withResourceConfig(resourceConfig: ResourceConfig): CreateFlinkJarJobRequestBody {
+        this['resource_config'] = resourceConfig;
+        return this;
+    }
+    public set resourceConfig(resourceConfig: ResourceConfig  | undefined) {
+        this['resource_config'] = resourceConfig;
+    }
+    public get resourceConfig(): ResourceConfig | undefined {
+        return this['resource_config'];
+    }
+    public withResourceConfigVersion(resourceConfigVersion: string): CreateFlinkJarJobRequestBody {
+        this['resource_config_version'] = resourceConfigVersion;
+        return this;
+    }
+    public set resourceConfigVersion(resourceConfigVersion: string  | undefined) {
+        this['resource_config_version'] = resourceConfigVersion;
+    }
+    public get resourceConfigVersion(): string | undefined {
+        return this['resource_config_version'];
     }
 }

@@ -15,6 +15,7 @@ export class ShowEnhancedConnectionResponse extends SdkResponse {
     private 'dest_network_id'?: string;
     private 'create_time'?: number;
     public hosts?: Array<EnhancedConnectionHost>;
+    private 'ipv6_enable'?: boolean;
     public constructor() { 
         super();
     }
@@ -97,5 +98,15 @@ export class ShowEnhancedConnectionResponse extends SdkResponse {
     public withHosts(hosts: Array<EnhancedConnectionHost>): ShowEnhancedConnectionResponse {
         this['hosts'] = hosts;
         return this;
+    }
+    public withIpv6Enable(ipv6Enable: boolean): ShowEnhancedConnectionResponse {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
     }
 }

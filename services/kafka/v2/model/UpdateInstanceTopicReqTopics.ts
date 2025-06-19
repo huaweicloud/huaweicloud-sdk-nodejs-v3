@@ -1,4 +1,4 @@
-import { CreateInstanceTopicReqTopicOtherConfigs } from './CreateInstanceTopicReqTopicOtherConfigs';
+import { UpdateInstanceTopicReqTopicOtherConfigs } from './UpdateInstanceTopicReqTopicOtherConfigs';
 
 
 export class UpdateInstanceTopicReqTopics {
@@ -8,7 +8,7 @@ export class UpdateInstanceTopicReqTopics {
     private 'sync_message_flush'?: boolean;
     private 'new_partition_numbers'?: number;
     private 'new_partition_brokers'?: Array<number>;
-    private 'topic_other_configs'?: Array<CreateInstanceTopicReqTopicOtherConfigs>;
+    private 'topic_other_configs'?: Array<UpdateInstanceTopicReqTopicOtherConfigs>;
     private 'topic_desc'?: string;
     public constructor(id?: string) { 
         this['id'] = id;
@@ -67,14 +67,14 @@ export class UpdateInstanceTopicReqTopics {
     public get newPartitionBrokers(): Array<number> | undefined {
         return this['new_partition_brokers'];
     }
-    public withTopicOtherConfigs(topicOtherConfigs: Array<CreateInstanceTopicReqTopicOtherConfigs>): UpdateInstanceTopicReqTopics {
+    public withTopicOtherConfigs(topicOtherConfigs: Array<UpdateInstanceTopicReqTopicOtherConfigs>): UpdateInstanceTopicReqTopics {
         this['topic_other_configs'] = topicOtherConfigs;
         return this;
     }
-    public set topicOtherConfigs(topicOtherConfigs: Array<CreateInstanceTopicReqTopicOtherConfigs>  | undefined) {
+    public set topicOtherConfigs(topicOtherConfigs: Array<UpdateInstanceTopicReqTopicOtherConfigs>  | undefined) {
         this['topic_other_configs'] = topicOtherConfigs;
     }
-    public get topicOtherConfigs(): Array<CreateInstanceTopicReqTopicOtherConfigs> | undefined {
+    public get topicOtherConfigs(): Array<UpdateInstanceTopicReqTopicOtherConfigs> | undefined {
         return this['topic_other_configs'];
     }
     public withTopicDesc(topicDesc: string): UpdateInstanceTopicReqTopics {

@@ -94,6 +94,9 @@ import { CreateIefSystemEventsResponse } from './model/CreateIefSystemEventsResp
 import { CreateJobAuthInfoRequest } from './model/CreateJobAuthInfoRequest';
 import { CreateJobAuthInfoRequestBody } from './model/CreateJobAuthInfoRequestBody';
 import { CreateJobAuthInfoResponse } from './model/CreateJobAuthInfoResponse';
+import { CreatePeriodElasticResourcePoolSpecChangeOrderRequest } from './model/CreatePeriodElasticResourcePoolSpecChangeOrderRequest';
+import { CreatePeriodElasticResourcePoolSpecChangeOrderRequestBody } from './model/CreatePeriodElasticResourcePoolSpecChangeOrderRequestBody';
+import { CreatePeriodElasticResourcePoolSpecChangeOrderResponse } from './model/CreatePeriodElasticResourcePoolSpecChangeOrderResponse';
 import { CreateQueuePlanRequest } from './model/CreateQueuePlanRequest';
 import { CreateQueuePlanResponse } from './model/CreateQueuePlanResponse';
 import { CreateQueuePropertyRequest } from './model/CreateQueuePropertyRequest';
@@ -112,6 +115,8 @@ import { CreateSparkJobResponse } from './model/CreateSparkJobResponse';
 import { CreateSparkJobTemplateRequest } from './model/CreateSparkJobTemplateRequest';
 import { CreateSparkJobTemplateRequestBody } from './model/CreateSparkJobTemplateRequestBody';
 import { CreateSparkJobTemplateResponse } from './model/CreateSparkJobTemplateResponse';
+import { CreateSqlJobDefendRuleRequest } from './model/CreateSqlJobDefendRuleRequest';
+import { CreateSqlJobDefendRuleResponse } from './model/CreateSqlJobDefendRuleResponse';
 import { CreateSqlJobRequest } from './model/CreateSqlJobRequest';
 import { CreateSqlJobRequestBody } from './model/CreateSqlJobRequestBody';
 import { CreateSqlJobResponse } from './model/CreateSqlJobResponse';
@@ -156,6 +161,8 @@ import { DeleteQueueRequest } from './model/DeleteQueueRequest';
 import { DeleteQueueResponse } from './model/DeleteQueueResponse';
 import { DeleteRouteFromEnhancedConnectionRequest } from './model/DeleteRouteFromEnhancedConnectionRequest';
 import { DeleteRouteFromEnhancedConnectionResponse } from './model/DeleteRouteFromEnhancedConnectionResponse';
+import { DeleteSqlJobDefendRuleRequest } from './model/DeleteSqlJobDefendRuleRequest';
+import { DeleteSqlJobDefendRuleResponse } from './model/DeleteSqlJobDefendRuleResponse';
 import { DeleteTableRequest } from './model/DeleteTableRequest';
 import { DeleteTableResponse } from './model/DeleteTableResponse';
 import { DisassociateQueueFromEnhancedConnectionRequest } from './model/DisassociateQueueFromEnhancedConnectionRequest';
@@ -258,6 +265,10 @@ import { ListSparkJobTemplatesRequest } from './model/ListSparkJobTemplatesReque
 import { ListSparkJobTemplatesResponse } from './model/ListSparkJobTemplatesResponse';
 import { ListSparkJobsRequest } from './model/ListSparkJobsRequest';
 import { ListSparkJobsResponse } from './model/ListSparkJobsResponse';
+import { ListSqlJobDefendRulesRequest } from './model/ListSqlJobDefendRulesRequest';
+import { ListSqlJobDefendRulesResponse } from './model/ListSqlJobDefendRulesResponse';
+import { ListSqlJobSystemDefendRulesRequest } from './model/ListSqlJobSystemDefendRulesRequest';
+import { ListSqlJobSystemDefendRulesResponse } from './model/ListSqlJobSystemDefendRulesResponse';
 import { ListSqlJobTemplatesRequest } from './model/ListSqlJobTemplatesRequest';
 import { ListSqlJobTemplatesResponse } from './model/ListSqlJobTemplatesResponse';
 import { ListSqlJobsRequest } from './model/ListSqlJobsRequest';
@@ -296,6 +307,9 @@ import { RegisterAuthorizedQueueResponse } from './model/RegisterAuthorizedQueue
 import { RegisterBucketRequest } from './model/RegisterBucketRequest';
 import { RegisterBucketRequestBody } from './model/RegisterBucketRequestBody';
 import { RegisterBucketResponse } from './model/RegisterBucketResponse';
+import { Resource } from './model/Resource';
+import { ResourceConfig } from './model/ResourceConfig';
+import { ResourceSpec } from './model/ResourceSpec';
 import { RunAuthorizationActionRequest } from './model/RunAuthorizationActionRequest';
 import { RunAuthorizationActionRequestBody } from './model/RunAuthorizationActionRequestBody';
 import { RunAuthorizationActionResponse } from './model/RunAuthorizationActionResponse';
@@ -346,23 +360,31 @@ import { ShowSparkJobStatusRequest } from './model/ShowSparkJobStatusRequest';
 import { ShowSparkJobStatusResponse } from './model/ShowSparkJobStatusResponse';
 import { ShowSparkJobTemplateRequest } from './model/ShowSparkJobTemplateRequest';
 import { ShowSparkJobTemplateResponse } from './model/ShowSparkJobTemplateResponse';
+import { ShowSqlJobDefendRuleRequest } from './model/ShowSqlJobDefendRuleRequest';
+import { ShowSqlJobDefendRuleResponse } from './model/ShowSqlJobDefendRuleResponse';
 import { ShowSqlJobDetailRequest } from './model/ShowSqlJobDetailRequest';
 import { ShowSqlJobDetailResponse } from './model/ShowSqlJobDetailResponse';
 import { ShowSqlJobProgressRequest } from './model/ShowSqlJobProgressRequest';
 import { ShowSqlJobProgressResponse } from './model/ShowSqlJobProgressResponse';
 import { ShowSqlJobStatusRequest } from './model/ShowSqlJobStatusRequest';
 import { ShowSqlJobStatusResponse } from './model/ShowSqlJobStatusResponse';
+import { ShowSqlJobSystemDefendRuleRequest } from './model/ShowSqlJobSystemDefendRuleRequest';
+import { ShowSqlJobSystemDefendRuleResponse } from './model/ShowSqlJobSystemDefendRuleResponse';
+import { ShowSqlJobSystemDefendRuleResponseBody } from './model/ShowSqlJobSystemDefendRuleResponseBody';
 import { ShowTableRequest } from './model/ShowTableRequest';
 import { ShowTableResponse } from './model/ShowTableResponse';
 import { SparkJob } from './model/SparkJob';
 import { SparkJobTemplate } from './model/SparkJobTemplate';
 import { SparkJobTemplateDetail } from './model/SparkJobTemplateDetail';
 import { SqlJob } from './model/SqlJob';
+import { SqlJobDefendRule } from './model/SqlJobDefendRule';
+import { SqlJobDefendRuleRequestBody } from './model/SqlJobDefendRuleRequestBody';
 import { SqlJobTemplate } from './model/SqlJobTemplate';
 import { SqlSampleTemplate } from './model/SqlSampleTemplate';
 import { State } from './model/State';
 import { StopFlinkJobsRequestBody } from './model/StopFlinkJobsRequestBody';
 import { SubJob } from './model/SubJob';
+import { SysRuleParam } from './model/SysRuleParam';
 import { Table } from './model/Table';
 import { TablePrivilege } from './model/TablePrivilege';
 import { TableUserPrivilege } from './model/TableUserPrivilege';
@@ -414,6 +436,8 @@ import { UpdateQueuePropertyResponse } from './model/UpdateQueuePropertyResponse
 import { UpdateSparkJobTemplateRequest } from './model/UpdateSparkJobTemplateRequest';
 import { UpdateSparkJobTemplateRequestBody } from './model/UpdateSparkJobTemplateRequestBody';
 import { UpdateSparkJobTemplateResponse } from './model/UpdateSparkJobTemplateResponse';
+import { UpdateSqlJobDefendRuleRequest } from './model/UpdateSqlJobDefendRuleRequest';
+import { UpdateSqlJobDefendRuleResponse } from './model/UpdateSqlJobDefendRuleResponse';
 import { UpdateSqlJobTemplateRequest } from './model/UpdateSqlJobTemplateRequest';
 import { UpdateSqlJobTemplateRequestBody } from './model/UpdateSqlJobTemplateRequestBody';
 import { UpdateSqlJobTemplateResponse } from './model/UpdateSqlJobTemplateResponse';
@@ -738,6 +762,25 @@ export class DliClient {
      */
     public createJobAuthInfo(createJobAuthInfoRequest?: CreateJobAuthInfoRequest): Promise<CreateJobAuthInfoResponse> {
         const options = ParamCreater().createJobAuthInfo(createJobAuthInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 包周期弹性资源池规格变更下单接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 包周期弹性资源池规格变更下单接口
+     * @param {CreatePeriodElasticResourcePoolSpecChangeOrderRequestBody} createPeriodElasticResourcePoolSpecChangeOrderRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPeriodElasticResourcePoolSpecChangeOrder(createPeriodElasticResourcePoolSpecChangeOrderRequest?: CreatePeriodElasticResourcePoolSpecChangeOrderRequest): Promise<CreatePeriodElasticResourcePoolSpecChangeOrderResponse> {
+        const options = ParamCreater().createPeriodElasticResourcePoolSpecChangeOrder(createPeriodElasticResourcePoolSpecChangeOrderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1397,10 +1440,10 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有队列
-     * @param {string} [queueType] 队列的类型,。有如下三种类型： sql general all 如果不指定，默认为sql。
-     * @param {string} [tags] 查询根据标签进行过滤
-     * @param {boolean} [withChargeInfo] 是否返回收费信息
-     * @param {boolean} [withPriv] 是否返回权限信息。
+     * @param {string} [queueType] 参数解释:  队列的类型 示例: sql 约束限制:  无 取值范围: sql, general, all 默认取值: sql
+     * @param {string} [tags] 参数解释: 查询根据标签进行过滤 示例: taga&#x3D;tagb,owner&#x3D;ph 约束限制:  符合“key1&#x3D;value1,key2&#x3D;value2”的字符串 取值范围: 无 默认取值: 无
+     * @param {boolean} [withChargeInfo] 是否返回收费信息 示例: true 约束限制:  无 取值范围: true, false 默认取值: 无
+     * @param {boolean} [withPriv] 是否返回权限信息 示例: true 约束限制:  无 取值范围: true, false 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1442,6 +1485,8 @@ export class DliClient {
      *
      * @summary 查询指定资源类型的标签信息
      * @param {'dli_queue' | 'dli_enhanced_datasource' | 'dli_database' | 'dli_package_resource' | 'dli_flink_job' | 'dli_elastic_resource_pool'} resourceType 资源类型
+     * @param {number} [limit] 查询记录数。
+     * @param {number} [offset] 索引位置偏移量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2365,18 +2410,18 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Flink作业列表
-     * @param {string} [jobType] 作业类型
-     * @param {number} [limit] 返回的数据条数。默认为10。
-     * @param {string} [name] 作业名称。长度限制：0-57个字符。
-     * @param {number} [offset] 作业偏移量。
-     * @param {string} [order] 查询结果排序，升序asc和降序desc两种可选，默认降序。
-     * @param {string} [queueName] 队列名称。
-     * @param {number} [rootJobId] 边缘父作业ID, 用于查询指定边缘作业的子作业。不带该参数时, 查询所有非边缘作业和边缘父作业, 不包括边缘子作业。
-     * @param {boolean} [showDetail] 是否返回作业详情信息。默认为false。
-     * @param {string} [status] 作业状态。 作业的状态如下： job_init：草稿 job_submitting：提交中 job_submit_fail：提交失败 job_running：运行中（开始计费，提交作业后，返回正常结果） job_running_exception：运行异常（停止计费。作业发生运行时异常，停止运行作业） job_downloading：下载中 job_idle：空闲 job_canceling：停止中 job_cancel_success：已停止 job_cancel_fail：停止失败 job_savepointing：保存点创建中 job_arrearage_stopped：因欠费被停止（结束计费。用户账户欠费，作业停止） job_arrearage_recovering：欠费作业恢复中（用户账户欠费，账户充值，作业恢复中） job_finish：已完成
-     * @param {string} [sysEnterpriseProjectName] 
-     * @param {string} [tags] 
-     * @param {string} [userName] 用户名，可作为筛选条件
+     * @param {'flink_sql_job' | 'flink_opensource_sql_job' | 'flink_sql_edge_job' | 'flink_jar_job'} [jobType] 参数解释:  作业类型 示例: flink_jar_job 约束限制:  无 取值范围: flink_sql_job（flink sql作业） flink_opensource_sql_job（flink opensource sql作业） flink_sql_edge_job（flink sql边缘作业） flink_jar_job（flink自定义作业） 默认取值: 无
+     * @param {number} [limit] 参数解释:  返回的数据条数。默认为10 示例: 100 约束限制:  无 取值范围: 大于等于0的整数 默认取值: 10
+     * @param {string} [name] 参数解释:  作业名称 示例: myjob 约束限制:  长度在[0,57]的字符串 取值范围: 无 默认取值: 无
+     * @param {number} [offset] 参数解释:  作业偏移量 示例: 10000 约束限制:  无 取值范围: 大于等于0的整数 默认取值: 0
+     * @param {string} [order] 参数解释:  查询结果排序 示例: asc 约束限制:  无 取值范围: asc desc 默认取值: desc
+     * @param {string} [queueName] 参数解释:  队列名称 示例: queue1 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {number} [rootJobId] 参数解释:  边缘父作业ID, 用于查询指定边缘作业的子作业。不带该参数时, 查询所有非边缘作业和边缘父作业, 不包括边缘子作业 示例: 548483 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {boolean} [showDetail] 参数解释:  是否返回作业详情信息 示例: false 约束限制:  无 取值范围: true,false 默认取值: false
+     * @param {'job_init' | 'job_submitting' | 'job_submit_fail' | 'job_running' | 'job_running_exception' | 'job_downloading' | 'job_idle' | 'job_canceling' | 'job_cancel_success' | 'job_cancel_fail' | 'job_savepointing' | 'job_arrearage_stopped' | 'job_arrearage_recovering' | 'job_finish'} [status] 参数解释:  作业状态 示例: job_submitting 约束限制:  无 取值范围: job_init（草稿） job_submitting（提交中） job_submit_fail（提交失败） job_running（运行中） job_running_exception（运行异常） job_downloading（下载中） job_idle（空闲） job_canceling（停止中） job_cancel_success（已停止） job_cancel_fail（停止失败） job_savepointing（保存点创建中） job_arrearage_stopped（因欠费被停止） job_arrearage_recovering（欠费作业恢复中） job_finish（已完成） 默认取值: 无
+     * @param {string} [sysEnterpriseProjectName] 参数解释:  企业项目名称 示例: DLI 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {string} [tags] 参数解释:  标签列表 示例: key_zy1&#x3D;zy01,AA&#x3D;aa 约束限制:  符合键值对格式(如“key&#x3D;value”)的字符串 取值范围: 无 默认取值: 无
+     * @param {string} [userName] 参数解释:  用户名，可作为筛选条件 示例: ei_dlics_d00352431 约束限制:  无 取值范围: 无 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2612,7 +2657,7 @@ export class DliClient {
      *
      * @summary 创建批处理作业
      * @param {CreateSparkJobRequestBody} createSparkJobRequestBody 创建批处理作业请求body体。
-     * @param {string} [USER_ID] 
+     * @param {string} [USER_ID] 参数解释:   用户ID 示例: 48cc2c48765f481480c7db940d6409d1 约束限制:  无 取值范围: 无 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2672,16 +2717,16 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询批处理作业列表
-     * @param {string} [clusterName] DLI队列名称，不填写则获取当前Project下所有批处理作业(不推荐使用)。
-     * @param {number} [end] 用于查询开始时间在该时间点之前的作业。时间格式为unix时间戳，单位：毫秒。
-     * @param {number} [from] 起始批处理作业的索引号，默认从0开始。
-     * @param {string} [jobName] 批处理作业的名称。
-     * @param {string} [jobId] 
-     * @param {string} [order] 指定作业排序方式，默认为CREATE_TIME_DESC（作业提交时间降序），支持DURATION_DESC（作业运行时长降序）、DURATION_ASC（作业运行时长升序）、CREATE_TIME_DESC（作业提交时间降序）、CREATE_TIME_ASC（作业提交时间升序）四种排序方式。
-     * @param {string} [queueName] 
-     * @param {number} [size] 查询批处理作业的数量。
-     * @param {number} [start] 用于查询开始时间在该时间点之后的作业。时间格式为unix时间戳，单位：毫秒。
-     * @param {string} [state] 
+     * @param {string} [clusterName] 参数解释:   DLI队列名称，不填写则获取当前Project下所有批处理作业(不推荐使用) 示例: cluster1 约束限制:  匹配正则表达式\&#39;^(?!_)(?![0-9]+$)[A-Za-z0-9_]*$\&#39;的字符串 取值范围: 无 默认取值: 无
+     * @param {number} [end] 参数解释:   用于查询开始时间在该时间点之前的作业。时间格式为unix时间戳，单位：毫秒 示例: 156789546456 约束限制:  无 取值范围: 大于等于0的整数 默认取值: 无
+     * @param {number} [from] 参数解释:   起始批处理作业的索引号，默认从0开始 示例: 0 约束限制:  无 取值范围: 大于等于0的整数 默认取值: 无
+     * @param {string} [jobName] 参数解释:   批处理作业的名称 示例: dli_test 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {string} [jobId] 参数解释:   批处理作业的ID 示例: 03923a72-5ace-466a-a573-e8c7b08b8cf3 约束限制:  匹配正则表达式\&#39;^[A-Fa-f0-9_-]*$\&#39;的字符串 取值范围: 无 默认取值: 无
+     * @param {string} [order] 参数解释:   指定作业排序方式 示例: DURATION_DESC 约束限制:  无 取值范围: DURATION_DESC（作业运行时长降序） DURATION_ASC（作业运行时长升序） CREATE_TIME_DESC（作业提交时间降序） CREATE_TIME_ASC（作业提交时间升序） 默认取值: 无
+     * @param {string} [queueName] 参数解释:   队列名称 示例: 03923a72-5ace-466a-a573-e8c7b08b8cf3 约束限制:  匹配正则表达式\&#39;^[A-Fa-f0-9_-]*$\&#39;的字符串 取值范围: 无 默认取值: 无
+     * @param {number} [size] 参数解释:   查询批处理作业的数量 示例: 1 约束限制:  无 取值范围: 无 默认取值: 100
+     * @param {number} [start] 参数解释:   用于查询开始时间在该时间点之后的作业。时间格式为unix时间戳，单位：毫秒 示例: 156456784655 约束限制:  无 取值范围: 大于等于0的整数 默认取值: 无
+     * @param {'starting' | 'running' | 'dead' | 'success' | 'recovering'} [state] 参数解释:   批处理作业的状态 示例: success 约束限制:  无 取值范围: starting（批处理作业正在启动） running（批处理作业正在执行任务） dead（批处理作业已退出） success（批处理作业执行成功） recovering（批处理作业正在恢复） 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2700,7 +2745,7 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询批处理作业详情
-     * @param {string} batchId 批处理作业的ID。
+     * @param {string} batchId 参数解释:  批处理作业的ID 示例: 0a324461-d9d9-45da-a52a-3b3c7a3d809e 约束限制:  无 取值范围: 无 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2742,7 +2787,7 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询批处理作业状态
-     * @param {string} batchId 批处理作业的ID。
+     * @param {string} batchId 参数解释:  批处理作业的ID 示例: 0a324461-d9d9-45da-a52a-3b3c7a3d809e 约束限制:  匹配正则表达式\&#39;^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\&#39;的字符串 取值范围: 无 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2873,6 +2918,25 @@ export class DliClient {
     }
 
     /**
+     * 该API用于创建SQL拦截规则，拦截匹配规则的SQL。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建SQL拦截规则
+     * @param {SqlJobDefendRuleRequestBody} createSqlJobDefendRuleRequestBody 新增的拦截规则请求body体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSqlJobDefendRule(createSqlJobDefendRuleRequest?: CreateSqlJobDefendRuleRequest): Promise<CreateSqlJobDefendRuleResponse> {
+        const options = ParamCreater().createSqlJobDefendRule(createSqlJobDefendRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于存储指定的SQL语句，后续可以重复使用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2884,6 +2948,25 @@ export class DliClient {
      */
     public createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest): Promise<CreateSqlJobTemplateResponse> {
         const options = ParamCreater().createSqlJobTemplate(createSqlJobTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于删除SQL拦截规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除SQL拦截规则
+     * @param {string} ruleId 拦截规则唯一标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSqlJobDefendRule(deleteSqlJobDefendRuleRequest?: DeleteSqlJobDefendRuleRequest): Promise<DeleteSqlJobDefendRuleResponse> {
+        const options = ParamCreater().deleteSqlJobDefendRule(deleteSqlJobDefendRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2904,6 +2987,46 @@ export class DliClient {
      */
     public exportSqlJobResult(exportSqlJobResultRequest?: ExportSqlJobResultRequest): Promise<ExportSqlJobResultResponse> {
         const options = ParamCreater().exportSqlJobResult(exportSqlJobResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量获取SQL拦截规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量获取SQL拦截规则
+     * @param {string} [queueName] 队列名称。
+     * @param {string} [ruleName] 规则名称。
+     * @param {number} [offset] 分页偏移量。
+     * @param {number} [limit] 分页个数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlJobDefendRules(listSqlJobDefendRulesRequest?: ListSqlJobDefendRulesRequest): Promise<ListSqlJobDefendRulesResponse> {
+        const options = ParamCreater().listSqlJobDefendRules(listSqlJobDefendRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取系统预制SQL拦截规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量获取系统预制SQL拦截规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlJobSystemDefendRules(listSqlJobSystemDefendRulesRequest?: ListSqlJobSystemDefendRulesRequest): Promise<ListSqlJobSystemDefendRulesResponse> {
+        const options = ParamCreater().listSqlJobSystemDefendRules();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2936,21 +3059,22 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有作业
-     * @param {number} [currentPage] 当前页码，默认为第一页。
-     * @param {string} [dbName] 
-     * @param {number} [end] 用于查询开始时间在该时间点之前的作业。时间格式为unix时间戳，单位：毫秒。
-     * @param {string} [engineType] 
-     * @param {string} [jobStatus] 
-     * @param {string} [jobId] 
-     * @param {'ALL' | 'DDL' | 'DCL' | 'IMPORT' | 'EXPORT' | 'QUERY' | 'INSERT'} [jobType] 指定查询的作业类型，包含DDL、DCL、IMPORT、EXPORT、QUERY、INSERT，若要查询所有类型的作业，则传入ALL。
-     * @param {'duration_desc' | 'duration_asc' | 'start_time_desc' | 'start_time_asc'} [order] 指定作业排序方式，默认为start_time_desc（作业提交时间降序），支持duration_desc（作业运行时长降序）、duration_asc（作业运行时长升序）、start_time_desc（作业提交时间降序）、start_time_asc（作业提交时间升序）四种排序方式。
-     * @param {string} [owner] 提交作业的用户名称
-     * @param {number} [pageSize] 每页显示的最大作业个数，范围: [1, 100]。默认值：50。
-     * @param {string} [queueName] 指定queue_name作为作业过滤条件，查询在指定queue上运行的作业。
-     * @param {string} [sqlPattern] 指定sql片段作为作业过滤条件，不区分大小写。
-     * @param {number} [start] 用于查询开始时间在该时间点之后的作业。时间格式为unix时间戳，单位：毫秒。
-     * @param {string} [tableName] 
-     * @param {string} [tags] 指定作业标签作为过滤条件，支持多标签过滤。格式为“key&#x3D;value”，如：GET /v1.0/{project_id}/jobs?tags&#x3D;k1%3Dv1，“&#x3D;”需要转义为“%3D”，“k1”为标签键，“v1”为标签值。
+     * @param {number} [currentPage] 参数解释:  当前页码，默认为第一页 示例: 55 约束限制:  无 取值范围: 大于1的整数 默认取值: 1
+     * @param {string} [dbName] 参数解释:  数据库名称 示例: UQuery 约束限制:  长度小于等于16 取值范围: 无 默认取值: 无
+     * @param {number} [end] 参数解释:  用于查询开始时间在该时间点之前的作业。时间格式为unix时间戳，单位：毫秒 示例: 156789546456 约束限制:  无 取值范围: 大于等于0的整数 默认取值: 无
+     * @param {'spark' | 'hetuEngine'} [engineType] 参数解释:  引擎类型。支持配置spark引擎或hetuEngine引擎 示例: spark 约束限制:  无 取值范围: spark、hetuEngine 默认取值: 无
+     * @param {'LAUNCHING' | 'RUNNING' | 'FAILED' | 'CANCELLED' | 'COMPUTED' | 'SUSPENDED' | 'ACTIVE' | 'DELETED' | 'CREATING' | 'FINISHED' | 'SCALING'} [jobStatus] 参数解释:  指定查询的作业状态 示例: FINISHED 约束限制:  长度小于等于16 取值范围: LAUNCHING RUNNING FAILED CANCELLED COMPUTED SUSPENDED ACTIVE DELETED CREATING FINISHED SCALING 默认取值: 无
+     * @param {string} [jobId] 参数解释:  作业id 示例: bac76d9b-2891-4c50-a920-b98d8634fd0f 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {'DDL' | 'DCL' | 'IMPORT' | 'EXPORT' | 'QUERY' | 'INSERT' | 'DATA_MIGRATION' | 'UPDATE' | 'DELETE' | 'RESTART_QUEUE' | 'SCALE_QUEUE' | 'ALL'} [jobType] 参数解释:  指定查询的作业类型，包含DDL、DCL、IMPORT、EXPORT、QUERY、INSERT、DATA_MIGRATION、UPDATE、DELETE、RESTART_QUEUE、SCALE_QUEUE，若要查询所有类型的作业，则传入ALL。 示例: QUERY 约束限制:  无 取值范围: DDL、DCL、IMPORT、EXPORT、QUERY、INSERT、DATA_MIGRATION、UPDATE、DELETE、RESTART_QUEUE、SCALE_QUEUE、ALL 默认取值: 无
+     * @param {'duration_desc' | 'duration_asc' | 'start_time_desc' | 'start_time_asc'} [order] 参数解释:  指定作业排序方式 示例: duration_desc 约束限制:  无 取值范围: start_time_desc（作业提交时间降序） start_time_asc（作业提交时间升序） duration_desc（作业运行时长降序） duration_asc（作业运行时长升序） 默认取值: start_time_desc
+     * @param {string} [owner] 参数解释:  提交作业的用户名称 示例: ei_dlics_d00352431 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {number} [pageSize] 参数解释:  每页显示的最大作业个数 示例: 5 约束限制:  无 取值范围: [1, 100] 默认取值: 50
+     * @param {string} [queueName] 参数解释:  指定queue_name作为作业过滤条件，查询在指定queue上运行的作业 示例: q1 约束限制:  匹配正则表达式^(?!_)(?![0-9]+$)[A-Za-z0-9_]*$且长度在[1, 128]范围内的字符串 取值范围: 无 默认取值: 无
+     * @param {string} [sqlPattern] 参数解释:  指定sql片段作为作业过滤条件，不区分大小写 示例: .*? 约束限制:  长度在[0, 1024]范围内的字符串 取值范围: 无 默认取值: 无
+     * @param {number} [start] 参数解释:  用于查询开始时间在该时间点之后的作业。时间格式为unix时间戳，单位：毫秒 示例: 156456784655 约束限制:  无 取值范围: 大于等于1的整数 默认取值: 无
+     * @param {string} [tableName] 参数解释:  记录其操作的表名称。类型为Import和Export作业才有“table_name”属性 示例: CS_JOB 约束限制:  无 取值范围: 无 默认取值: 无
+     * @param {string} [tags] 参数解释:  指定作业标签作为过滤条件，支持多标签过滤。格式为“key&#x3D;value”，如：GET /v1.0/{project_id}/jobs?tags&#x3D;k1%3Dv1，“&#x3D;”需要转义为“%3D”，“k1”为标签键，“v1”为标签值 示例: key&#x3D;value 约束限制:  格式为“key&#x3D;value”的字符串 取值范围: 无 默认取值: 无
+     * @param {Array<'DDL' | 'DCL' | 'IMPORT' | 'EXPORT' | 'QUERY' | 'INSERT' | 'UPDATE' | 'DELETE'>} [jobTypes] 参数解释:  指定查询的作业类型列表，包含DDL、DCL、IMPORT、EXPORT、QUERY、INSERT、DATA_MIGRATION、UPDATE、DELETE、RESTART_QUEUE、SCALE_QUEUE，若要查询所有类型的作业，则传入ALL。 示例: QUERY 约束限制:  无 取值范围: DDL、DCL、IMPORT、EXPORT、QUERY、INSERT、DATA_MIGRATION、UPDATE、DELETE、RESTART_QUEUE、SCALE_QUEUE、ALL 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2977,6 +3101,25 @@ export class DliClient {
      */
     public previewSqlJobResult(previewSqlJobResultRequest?: PreviewSqlJobResultRequest): Promise<PreviewSqlJobResultResponse> {
         const options = ParamCreater().previewSqlJobResult(previewSqlJobResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取单个SQL拦截规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取SQL拦截规则
+     * @param {string} ruleId 拦截规则唯一标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlJobDefendRule(showSqlJobDefendRuleRequest?: ShowSqlJobDefendRuleRequest): Promise<ShowSqlJobDefendRuleResponse> {
+        const options = ParamCreater().showSqlJobDefendRule(showSqlJobDefendRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3028,12 +3171,51 @@ export class DliClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询作业状态
-     * @param {string} jobId 作业ID。
+     * @param {string} jobId 参数解释:  作业ID 示例: 6d2146a0-c2d5-41bd-8ca0-ca9694ada992 约束限制:  无 取值范围: 无 默认取值: 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showSqlJobStatus(showSqlJobStatusRequest?: ShowSqlJobStatusRequest): Promise<ShowSqlJobStatusResponse> {
         const options = ParamCreater().showSqlJobStatus(showSqlJobStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取系统预制SQL拦截规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取单个系统预制SQL拦截规则
+     * @param {string} ruleId 系统规则唯一标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlJobSystemDefendRule(showSqlJobSystemDefendRuleRequest?: ShowSqlJobSystemDefendRuleRequest): Promise<ShowSqlJobSystemDefendRuleResponse> {
+        const options = ParamCreater().showSqlJobSystemDefendRule(showSqlJobSystemDefendRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于更新SQL拦截规则，拦截匹配规则的SQL。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新SQL拦截规则
+     * @param {string} ruleId 拦截规则唯一标识。
+     * @param {SqlJobDefendRuleRequestBody} updateSqlJobDefendRuleRequestBody 修改的拦截规则请求body体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSqlJobDefendRule(updateSqlJobDefendRuleRequest?: UpdateSqlJobDefendRuleRequest): Promise<UpdateSqlJobDefendRuleResponse> {
+        const options = ParamCreater().updateSqlJobDefendRule(updateSqlJobDefendRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3975,6 +4157,44 @@ export const ParamCreater = function () {
                     body = createJobAuthInfoRequest.body
                 } else {
                     body = createJobAuthInfoRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 包周期弹性资源池规格变更下单接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPeriodElasticResourcePoolSpecChangeOrder(createPeriodElasticResourcePoolSpecChangeOrderRequest?: CreatePeriodElasticResourcePoolSpecChangeOrderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/orders/elastic-resource-pools/specification-change",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPeriodElasticResourcePoolSpecChangeOrderRequest !== null && createPeriodElasticResourcePoolSpecChangeOrderRequest !== undefined) {
+                if (createPeriodElasticResourcePoolSpecChangeOrderRequest instanceof CreatePeriodElasticResourcePoolSpecChangeOrderRequest) {
+                    body = createPeriodElasticResourcePoolSpecChangeOrderRequest.body
+                } else {
+                    body = createPeriodElasticResourcePoolSpecChangeOrderRequest['body'];
                 }
             }
 
@@ -5561,15 +5781,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let resourceType;
+            
+            let limit;
+            
+            let offset;
 
             if (listResourcesTagsRequest !== null && listResourcesTagsRequest !== undefined) {
                 if (listResourcesTagsRequest instanceof ListResourcesTagsRequest) {
                     resourceType = listResourcesTagsRequest.resourceType;
+                    limit = listResourcesTagsRequest.limit;
+                    offset = listResourcesTagsRequest.offset;
                 } else {
                     resourceType = listResourcesTagsRequest['resource_type'];
+                    limit = listResourcesTagsRequest['limit'];
+                    offset = listResourcesTagsRequest['offset'];
                 }
             }
 
@@ -5577,7 +5805,14 @@ export const ParamCreater = function () {
             if (resourceType === null || resourceType === undefined) {
             throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listResourcesTags.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'resource_type': resourceType, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -8673,6 +8908,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于创建SQL拦截规则，拦截匹配规则的SQL。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSqlJobDefendRule(createSqlJobDefendRuleRequest?: CreateSqlJobDefendRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/sql-defend-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createSqlJobDefendRuleRequest !== null && createSqlJobDefendRuleRequest !== undefined) {
+                if (createSqlJobDefendRuleRequest instanceof CreateSqlJobDefendRuleRequest) {
+                    body = createSqlJobDefendRuleRequest.body
+                } else {
+                    body = createSqlJobDefendRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于存储指定的SQL语句，后续可以重复使用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8706,6 +8979,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除SQL拦截规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSqlJobDefendRule(deleteSqlJobDefendRuleRequest?: DeleteSqlJobDefendRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/sql-defend-rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ruleId;
+
+            if (deleteSqlJobDefendRuleRequest !== null && deleteSqlJobDefendRuleRequest !== undefined) {
+                if (deleteSqlJobDefendRuleRequest instanceof DeleteSqlJobDefendRuleRequest) {
+                    ruleId = deleteSqlJobDefendRuleRequest.ruleId;
+                } else {
+                    ruleId = deleteSqlJobDefendRuleRequest['rule_id'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deleteSqlJobDefendRule.');
+            }
+
+            options.pathParams = { 'rule_id': ruleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8752,6 +9062,85 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量获取SQL拦截规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlJobDefendRules(listSqlJobDefendRulesRequest?: ListSqlJobDefendRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sql-defend-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let queueName;
+            
+            let ruleName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSqlJobDefendRulesRequest !== null && listSqlJobDefendRulesRequest !== undefined) {
+                if (listSqlJobDefendRulesRequest instanceof ListSqlJobDefendRulesRequest) {
+                    queueName = listSqlJobDefendRulesRequest.queueName;
+                    ruleName = listSqlJobDefendRulesRequest.ruleName;
+                    offset = listSqlJobDefendRulesRequest.offset;
+                    limit = listSqlJobDefendRulesRequest.limit;
+                } else {
+                    queueName = listSqlJobDefendRulesRequest['queue_name'];
+                    ruleName = listSqlJobDefendRulesRequest['rule_name'];
+                    offset = listSqlJobDefendRulesRequest['offset'];
+                    limit = listSqlJobDefendRulesRequest['limit'];
+                }
+            }
+
+        
+            if (queueName !== null && queueName !== undefined) {
+                localVarQueryParameter['queue_name'] = queueName;
+            }
+            if (ruleName !== null && ruleName !== undefined) {
+                localVarQueryParameter['rule_name'] = ruleName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取系统预制SQL拦截规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlJobSystemDefendRules() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sql-defend-sys-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8839,6 +9228,8 @@ export const ParamCreater = function () {
             let tableName;
             
             let tags;
+            
+            let jobTypes;
 
             if (listSqlJobsRequest !== null && listSqlJobsRequest !== undefined) {
                 if (listSqlJobsRequest instanceof ListSqlJobsRequest) {
@@ -8857,6 +9248,7 @@ export const ParamCreater = function () {
                     start = listSqlJobsRequest.start;
                     tableName = listSqlJobsRequest.tableName;
                     tags = listSqlJobsRequest.tags;
+                    jobTypes = listSqlJobsRequest.jobTypes;
                 } else {
                     currentPage = listSqlJobsRequest['current-page'];
                     dbName = listSqlJobsRequest['db_name'];
@@ -8873,6 +9265,7 @@ export const ParamCreater = function () {
                     start = listSqlJobsRequest['start'];
                     tableName = listSqlJobsRequest['table_name'];
                     tags = listSqlJobsRequest['tags'];
+                    jobTypes = listSqlJobsRequest['job_types'];
                 }
             }
 
@@ -8922,6 +9315,9 @@ export const ParamCreater = function () {
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
             }
+            if (jobTypes !== null && jobTypes !== undefined) {
+                localVarQueryParameter['job_types'] = jobTypes;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -8970,6 +9366,43 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取单个SQL拦截规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlJobDefendRule(showSqlJobDefendRuleRequest?: ShowSqlJobDefendRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sql-defend-rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ruleId;
+
+            if (showSqlJobDefendRuleRequest !== null && showSqlJobDefendRuleRequest !== undefined) {
+                if (showSqlJobDefendRuleRequest instanceof ShowSqlJobDefendRuleRequest) {
+                    ruleId = showSqlJobDefendRuleRequest.ruleId;
+                } else {
+                    ruleId = showSqlJobDefendRuleRequest['rule_id'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showSqlJobDefendRule.');
+            }
+
+            options.pathParams = { 'rule_id': ruleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9081,6 +9514,89 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取系统预制SQL拦截规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlJobSystemDefendRule(showSqlJobSystemDefendRuleRequest?: ShowSqlJobSystemDefendRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sql-defend-sys-rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ruleId;
+
+            if (showSqlJobSystemDefendRuleRequest !== null && showSqlJobSystemDefendRuleRequest !== undefined) {
+                if (showSqlJobSystemDefendRuleRequest instanceof ShowSqlJobSystemDefendRuleRequest) {
+                    ruleId = showSqlJobSystemDefendRuleRequest.ruleId;
+                } else {
+                    ruleId = showSqlJobSystemDefendRuleRequest['rule_id'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showSqlJobSystemDefendRule.');
+            }
+
+            options.pathParams = { 'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新SQL拦截规则，拦截匹配规则的SQL。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSqlJobDefendRule(updateSqlJobDefendRuleRequest?: UpdateSqlJobDefendRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/sql-defend-rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ruleId;
+
+            if (updateSqlJobDefendRuleRequest !== null && updateSqlJobDefendRuleRequest !== undefined) {
+                if (updateSqlJobDefendRuleRequest instanceof UpdateSqlJobDefendRuleRequest) {
+                    ruleId = updateSqlJobDefendRuleRequest.ruleId;
+                    body = updateSqlJobDefendRuleRequest.body
+                } else {
+                    ruleId = updateSqlJobDefendRuleRequest['rule_id'];
+                    body = updateSqlJobDefendRuleRequest['body'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateSqlJobDefendRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'rule_id': ruleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

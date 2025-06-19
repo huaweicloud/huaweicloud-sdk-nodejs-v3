@@ -2,7 +2,7 @@
 
 export class FlinkJobConfig {
     private 'checkpoint_enabled'?: boolean;
-    private 'checkpoint_mode'?: string;
+    private 'checkpoint_mode'?: FlinkJobConfigCheckpointModeEnum | string;
     private 'checkpoint_interval'?: number;
     private 'log_enabled'?: boolean;
     private 'obs_bucket'?: string;
@@ -48,14 +48,14 @@ export class FlinkJobConfig {
     public get checkpointEnabled(): boolean | undefined {
         return this['checkpoint_enabled'];
     }
-    public withCheckpointMode(checkpointMode: string): FlinkJobConfig {
+    public withCheckpointMode(checkpointMode: FlinkJobConfigCheckpointModeEnum | string): FlinkJobConfig {
         this['checkpoint_mode'] = checkpointMode;
         return this;
     }
-    public set checkpointMode(checkpointMode: string  | undefined) {
+    public set checkpointMode(checkpointMode: FlinkJobConfigCheckpointModeEnum | string  | undefined) {
         this['checkpoint_mode'] = checkpointMode;
     }
-    public get checkpointMode(): string | undefined {
+    public get checkpointMode(): FlinkJobConfigCheckpointModeEnum | string | undefined {
         return this['checkpoint_mode'];
     }
     public withCheckpointInterval(checkpointInterval: number): FlinkJobConfig {
@@ -370,4 +370,13 @@ export class FlinkJobConfig {
     public get realCuNumber(): number | undefined {
         return this['real_cu_number'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum FlinkJobConfigCheckpointModeEnum {
+    EXACTLY_ONCE = 'exactly_once',
+    AT_LEAST_ONCE = 'at_least_once'
 }

@@ -3,6 +3,7 @@ import { Privilege } from './Privilege';
 
 export class RunAuthorizationActionRequestBody {
     private 'user_name'?: string;
+    public projectId?: string;
     private 'grant_project_id'?: string;
     public action?: RunAuthorizationActionRequestBodyActionEnum | string;
     public privileges?: Array<Privilege>;
@@ -19,6 +20,10 @@ export class RunAuthorizationActionRequestBody {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withProjectId(projectId: string): RunAuthorizationActionRequestBody {
+        this['projectId'] = projectId;
+        return this;
     }
     public withGrantProjectId(grantProjectId: string): RunAuthorizationActionRequestBody {
         this['grant_project_id'] = grantProjectId;

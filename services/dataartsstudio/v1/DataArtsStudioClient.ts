@@ -1229,6 +1229,8 @@ import { UpdateDesignTableQualityResponse } from './model/UpdateDesignTableQuali
 import { UpdateDesignTableQualityResultData } from './model/UpdateDesignTableQualityResultData';
 import { UpdateDirectoryRequest } from './model/UpdateDirectoryRequest';
 import { UpdateDirectoryResponse } from './model/UpdateDirectoryResponse';
+import { UpdateEntityAttributeRequest } from './model/UpdateEntityAttributeRequest';
+import { UpdateEntityAttributeResponse } from './model/UpdateEntityAttributeResponse';
 import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest';
 import { UpdateFactoryJobNameRequestBody } from './model/UpdateFactoryJobNameRequestBody';
 import { UpdateFactoryJobNameResponse } from './model/UpdateFactoryJobNameResponse';
@@ -9109,6 +9111,28 @@ export class DataArtsStudioClient {
      */
     public updateDirectory(updateDirectoryRequest?: UpdateDirectoryRequest): Promise<UpdateDirectoryResponse> {
         const options = ParamCreater().updateDirectory(updateDirectoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改资产指定属性。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改资产指定属性
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} guid 资产guid，获取方法请参见[数据资产guid](dataartsstudio_02_0351.xml)。
+     * @param {string} attrName 要修改的属性名称，如description、alias、comment等。
+     * @param {string} attrValue 要修改的属性值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEntityAttribute(updateEntityAttributeRequest?: UpdateEntityAttributeRequest): Promise<UpdateEntityAttributeResponse> {
+        const options = ParamCreater().updateEntityAttribute(updateEntityAttributeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -32199,6 +32223,71 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改资产指定属性。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEntityAttribute(updateEntityAttributeRequest?: UpdateEntityAttributeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/asset/guid/{guid}/attribute",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let guid;
+            
+            let attrName;
+            
+            let attrValue;
+
+            if (updateEntityAttributeRequest !== null && updateEntityAttributeRequest !== undefined) {
+                if (updateEntityAttributeRequest instanceof UpdateEntityAttributeRequest) {
+                    workspace = updateEntityAttributeRequest.workspace;
+                    guid = updateEntityAttributeRequest.guid;
+                    attrName = updateEntityAttributeRequest.attrName;
+                    attrValue = updateEntityAttributeRequest.attrValue;
+                } else {
+                    workspace = updateEntityAttributeRequest['workspace'];
+                    guid = updateEntityAttributeRequest['guid'];
+                    attrName = updateEntityAttributeRequest['attr_name'];
+                    attrValue = updateEntityAttributeRequest['attr_value'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling updateEntityAttribute.');
+            }
+            if (attrName === null || attrName === undefined) {
+                throw new RequiredError('attrName','Required parameter attrName was null or undefined when calling updateEntityAttribute.');
+            }
+            if (attrName !== null && attrName !== undefined) {
+                localVarQueryParameter['attr_name'] = attrName;
+            }
+            if (attrValue === null || attrValue === undefined) {
+                throw new RequiredError('attrValue','Required parameter attrValue was null or undefined when calling updateEntityAttribute.');
+            }
+            if (attrValue !== null && attrValue !== undefined) {
+                localVarQueryParameter['attr_value'] = attrValue;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },

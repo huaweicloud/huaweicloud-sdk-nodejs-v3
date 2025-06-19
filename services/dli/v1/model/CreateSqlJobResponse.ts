@@ -8,7 +8,7 @@ export class CreateSqlJobResponse extends SdkResponse {
     private 'job_type'?: CreateSqlJobResponseJobTypeEnum | string;
     public schema?: Array<object>;
     public rows?: Array<Array<object>>;
-    private 'job_mode'?: string;
+    private 'job_mode'?: CreateSqlJobResponseJobModeEnum | string;
     public constructor() { 
         super();
     }
@@ -54,14 +54,14 @@ export class CreateSqlJobResponse extends SdkResponse {
         this['rows'] = rows;
         return this;
     }
-    public withJobMode(jobMode: string): CreateSqlJobResponse {
+    public withJobMode(jobMode: CreateSqlJobResponseJobModeEnum | string): CreateSqlJobResponse {
         this['job_mode'] = jobMode;
         return this;
     }
-    public set jobMode(jobMode: string  | undefined) {
+    public set jobMode(jobMode: CreateSqlJobResponseJobModeEnum | string  | undefined) {
         this['job_mode'] = jobMode;
     }
-    public get jobMode(): string | undefined {
+    public get jobMode(): CreateSqlJobResponseJobModeEnum | string | undefined {
         return this['job_mode'];
     }
 }
@@ -76,5 +76,19 @@ export enum CreateSqlJobResponseJobTypeEnum {
     IMPORT = 'IMPORT',
     EXPORT = 'EXPORT',
     QUERY = 'QUERY',
-    INSERT = 'INSERT'
+    INSERT = 'INSERT',
+    DATA_MIGRATION = 'DATA_MIGRATION',
+    UPDATE = 'UPDATE',
+    DELETE = 'DELETE',
+    RESTART_QUEUE = 'RESTART_QUEUE',
+    SCALE_QUEUE = 'SCALE_QUEUE',
+    ALL = 'ALL'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSqlJobResponseJobModeEnum {
+    ASYNC = 'async',
+    SYNC = 'sync'
 }

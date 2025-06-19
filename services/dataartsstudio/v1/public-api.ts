@@ -1226,6 +1226,8 @@ export * from './model/UpdateDesignTableQualityResponse';
 export * from './model/UpdateDesignTableQualityResultData';
 export * from './model/UpdateDirectoryRequest';
 export * from './model/UpdateDirectoryResponse';
+export * from './model/UpdateEntityAttributeRequest';
+export * from './model/UpdateEntityAttributeResponse';
 export * from './model/UpdateFactoryJobNameRequest';
 export * from './model/UpdateFactoryJobNameRequestBody';
 export * from './model/UpdateFactoryJobNameResponse';

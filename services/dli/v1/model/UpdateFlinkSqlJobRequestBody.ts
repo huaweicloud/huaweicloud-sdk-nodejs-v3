@@ -1,3 +1,4 @@
+import { ResourceConfig } from './ResourceConfig';
 
 
 export class UpdateFlinkSqlJobRequestBody {
@@ -28,6 +29,9 @@ export class UpdateFlinkSqlJobRequestBody {
     private 'operator_config'?: string;
     private 'static_estimator_config'?: string;
     private 'flink_version'?: string;
+    private 'execution_agency_urn'?: string;
+    private 'resource_config_version'?: string;
+    private 'resource_config'?: ResourceConfig;
     public constructor() { 
     }
     public withName(name: string): UpdateFlinkSqlJobRequestBody {
@@ -287,5 +291,35 @@ export class UpdateFlinkSqlJobRequestBody {
     }
     public get flinkVersion(): string | undefined {
         return this['flink_version'];
+    }
+    public withExecutionAgencyUrn(executionAgencyUrn: string): UpdateFlinkSqlJobRequestBody {
+        this['execution_agency_urn'] = executionAgencyUrn;
+        return this;
+    }
+    public set executionAgencyUrn(executionAgencyUrn: string  | undefined) {
+        this['execution_agency_urn'] = executionAgencyUrn;
+    }
+    public get executionAgencyUrn(): string | undefined {
+        return this['execution_agency_urn'];
+    }
+    public withResourceConfigVersion(resourceConfigVersion: string): UpdateFlinkSqlJobRequestBody {
+        this['resource_config_version'] = resourceConfigVersion;
+        return this;
+    }
+    public set resourceConfigVersion(resourceConfigVersion: string  | undefined) {
+        this['resource_config_version'] = resourceConfigVersion;
+    }
+    public get resourceConfigVersion(): string | undefined {
+        return this['resource_config_version'];
+    }
+    public withResourceConfig(resourceConfig: ResourceConfig): UpdateFlinkSqlJobRequestBody {
+        this['resource_config'] = resourceConfig;
+        return this;
+    }
+    public set resourceConfig(resourceConfig: ResourceConfig  | undefined) {
+        this['resource_config'] = resourceConfig;
+    }
+    public get resourceConfig(): ResourceConfig | undefined {
+        return this['resource_config'];
     }
 }

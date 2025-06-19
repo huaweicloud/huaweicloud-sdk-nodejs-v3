@@ -1,3 +1,4 @@
+import { EncoderSettingsExpand } from './EncoderSettingsExpand';
 import { InputStreamInfo } from './InputStreamInfo';
 
 
@@ -6,6 +7,7 @@ export class ModifyOttChannelInputReq {
     private 'app_name'?: string;
     public id?: string;
     public input?: InputStreamInfo;
+    private 'encoder_settings_expand'?: EncoderSettingsExpand;
     public constructor(domain?: string, appName?: string, id?: string) { 
         this['domain'] = domain;
         this['app_name'] = appName;
@@ -32,5 +34,15 @@ export class ModifyOttChannelInputReq {
     public withInput(input: InputStreamInfo): ModifyOttChannelInputReq {
         this['input'] = input;
         return this;
+    }
+    public withEncoderSettingsExpand(encoderSettingsExpand: EncoderSettingsExpand): ModifyOttChannelInputReq {
+        this['encoder_settings_expand'] = encoderSettingsExpand;
+        return this;
+    }
+    public set encoderSettingsExpand(encoderSettingsExpand: EncoderSettingsExpand  | undefined) {
+        this['encoder_settings_expand'] = encoderSettingsExpand;
+    }
+    public get encoderSettingsExpand(): EncoderSettingsExpand | undefined {
+        return this['encoder_settings_expand'];
     }
 }

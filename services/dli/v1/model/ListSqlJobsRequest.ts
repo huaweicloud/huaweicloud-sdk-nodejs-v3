@@ -4,8 +4,8 @@ export class ListSqlJobsRequest {
     private 'current-page'?: number;
     private 'db_name'?: string;
     public end?: number;
-    private 'engine-type'?: string;
-    private 'job-status'?: string;
+    private 'engine-type'?: ListSqlJobsRequestEngineTypeEnum | string;
+    private 'job-status'?: ListSqlJobsRequestJobStatusEnum | string;
     private 'job-id'?: string;
     private 'job-type'?: ListSqlJobsRequestJobTypeEnum | string;
     public order?: ListSqlJobsRequestOrderEnum | string;
@@ -16,6 +16,7 @@ export class ListSqlJobsRequest {
     public start?: number;
     private 'table_name'?: string;
     public tags?: string;
+    private 'job_types'?: Array<ListSqlJobsRequestJobTypesEnum> | Array<string>;
     public constructor() { 
     }
     public withCurrentPage(currentPage: number): ListSqlJobsRequest {
@@ -42,24 +43,24 @@ export class ListSqlJobsRequest {
         this['end'] = end;
         return this;
     }
-    public withEngineType(engineType: string): ListSqlJobsRequest {
+    public withEngineType(engineType: ListSqlJobsRequestEngineTypeEnum | string): ListSqlJobsRequest {
         this['engine-type'] = engineType;
         return this;
     }
-    public set engineType(engineType: string  | undefined) {
+    public set engineType(engineType: ListSqlJobsRequestEngineTypeEnum | string  | undefined) {
         this['engine-type'] = engineType;
     }
-    public get engineType(): string | undefined {
+    public get engineType(): ListSqlJobsRequestEngineTypeEnum | string | undefined {
         return this['engine-type'];
     }
-    public withJobStatus(jobStatus: string): ListSqlJobsRequest {
+    public withJobStatus(jobStatus: ListSqlJobsRequestJobStatusEnum | string): ListSqlJobsRequest {
         this['job-status'] = jobStatus;
         return this;
     }
-    public set jobStatus(jobStatus: string  | undefined) {
+    public set jobStatus(jobStatus: ListSqlJobsRequestJobStatusEnum | string  | undefined) {
         this['job-status'] = jobStatus;
     }
-    public get jobStatus(): string | undefined {
+    public get jobStatus(): ListSqlJobsRequestJobStatusEnum | string | undefined {
         return this['job-status'];
     }
     public withJobId(jobId: string): ListSqlJobsRequest {
@@ -138,20 +139,60 @@ export class ListSqlJobsRequest {
         this['tags'] = tags;
         return this;
     }
+    public withJobTypes(jobTypes: Array<ListSqlJobsRequestJobTypesEnum> | Array<string>): ListSqlJobsRequest {
+        this['job_types'] = jobTypes;
+        return this;
+    }
+    public set jobTypes(jobTypes: Array<ListSqlJobsRequestJobTypesEnum> | Array<string>  | undefined) {
+        this['job_types'] = jobTypes;
+    }
+    public get jobTypes(): Array<ListSqlJobsRequestJobTypesEnum> | Array<string> | undefined {
+        return this['job_types'];
+    }
 }
 
 /**
     * @export
     * @enum {string}
     */
+export enum ListSqlJobsRequestEngineTypeEnum {
+    SPARK = 'spark',
+    HETUENGINE = 'hetuEngine'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListSqlJobsRequestJobStatusEnum {
+    LAUNCHING = 'LAUNCHING',
+    RUNNING = 'RUNNING',
+    FAILED = 'FAILED',
+    CANCELLED = 'CANCELLED',
+    COMPUTED = 'COMPUTED',
+    SUSPENDED = 'SUSPENDED',
+    ACTIVE = 'ACTIVE',
+    DELETED = 'DELETED',
+    CREATING = 'CREATING',
+    FINISHED = 'FINISHED',
+    SCALING = 'SCALING'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum ListSqlJobsRequestJobTypeEnum {
-    ALL = 'ALL',
     DDL = 'DDL',
     DCL = 'DCL',
     IMPORT = 'IMPORT',
     EXPORT = 'EXPORT',
     QUERY = 'QUERY',
-    INSERT = 'INSERT'
+    INSERT = 'INSERT',
+    DATA_MIGRATION = 'DATA_MIGRATION',
+    UPDATE = 'UPDATE',
+    DELETE = 'DELETE',
+    RESTART_QUEUE = 'RESTART_QUEUE',
+    SCALE_QUEUE = 'SCALE_QUEUE',
+    ALL = 'ALL'
 }
 /**
     * @export
@@ -162,4 +203,18 @@ export enum ListSqlJobsRequestOrderEnum {
     DURATION_ASC = 'duration_asc',
     START_TIME_DESC = 'start_time_desc',
     START_TIME_ASC = 'start_time_asc'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListSqlJobsRequestJobTypesEnum {
+    DDL = 'DDL',
+    DCL = 'DCL',
+    IMPORT = 'IMPORT',
+    EXPORT = 'EXPORT',
+    QUERY = 'QUERY',
+    INSERT = 'INSERT',
+    UPDATE = 'UPDATE',
+    DELETE = 'DELETE'
 }

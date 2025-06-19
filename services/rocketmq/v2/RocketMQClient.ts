@@ -120,6 +120,7 @@ import { MigrationRocketMqTopicConfig } from './model/MigrationRocketMqTopicConf
 import { ModifyConfigReq } from './model/ModifyConfigReq';
 import { ModifyInstanceSslConfigRequest } from './model/ModifyInstanceSslConfigRequest';
 import { ModifyInstanceSslConfigResponse } from './model/ModifyInstanceSslConfigResponse';
+import { NodeContextEntity } from './model/NodeContextEntity';
 import { PlainSSLSwitchRep } from './model/PlainSSLSwitchRep';
 import { ProductEntity } from './model/ProductEntity';
 import { Queue } from './model/Queue';
@@ -157,6 +158,8 @@ import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineIn
 import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
 import { ShowGroupRequest } from './model/ShowGroupRequest';
 import { ShowGroupResponse } from './model/ShowGroupResponse';
+import { ShowInstanceNodesRequest } from './model/ShowInstanceNodesRequest';
+import { ShowInstanceNodesResponse } from './model/ShowInstanceNodesResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowOneTopicRequest } from './model/ShowOneTopicRequest';
@@ -1105,6 +1108,28 @@ export class RocketMQClient {
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例节点信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例节点
+     * @param {string} engine 消息引擎类型。
+     * @param {string} instanceId 实例id。
+     * @param {number} [limit] 查询数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceNodes(showInstanceNodesRequest?: ShowInstanceNodesRequest): Promise<ShowInstanceNodesResponse> {
+        const options = ParamCreater().showInstanceNodes(showInstanceNodesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3745,6 +3770,65 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例节点信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceNodes(showInstanceNodesRequest?: ShowInstanceNodesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{engine}/instances/{instance_id}/nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+
+            if (showInstanceNodesRequest !== null && showInstanceNodesRequest !== undefined) {
+                if (showInstanceNodesRequest instanceof ShowInstanceNodesRequest) {
+                    engine = showInstanceNodesRequest.engine;
+                    instanceId = showInstanceNodesRequest.instanceId;
+                    limit = showInstanceNodesRequest.limit;
+                    offset = showInstanceNodesRequest.offset;
+                } else {
+                    engine = showInstanceNodesRequest['engine'];
+                    instanceId = showInstanceNodesRequest['instance_id'];
+                    limit = showInstanceNodesRequest['limit'];
+                    offset = showInstanceNodesRequest['offset'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showInstanceNodes.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceNodes.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

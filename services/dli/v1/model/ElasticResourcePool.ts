@@ -21,6 +21,8 @@ export class ElasticResourcePool {
     private 'charging_mode'?: number;
     public manager?: string;
     public label?: { [key: string]: string; };
+    private 'ipv6_enable'?: boolean;
+    private 'ipv6_cidr_in_subnet'?: string;
     public constructor() { 
     }
     public withElasticResourcePoolName(elasticResourcePoolName: string): ElasticResourcePool {
@@ -180,5 +182,25 @@ export class ElasticResourcePool {
     public withLabel(label: { [key: string]: string; }): ElasticResourcePool {
         this['label'] = label;
         return this;
+    }
+    public withIpv6Enable(ipv6Enable: boolean): ElasticResourcePool {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
+    }
+    public withIpv6CidrInSubnet(ipv6CidrInSubnet: string): ElasticResourcePool {
+        this['ipv6_cidr_in_subnet'] = ipv6CidrInSubnet;
+        return this;
+    }
+    public set ipv6CidrInSubnet(ipv6CidrInSubnet: string  | undefined) {
+        this['ipv6_cidr_in_subnet'] = ipv6CidrInSubnet;
+    }
+    public get ipv6CidrInSubnet(): string | undefined {
+        return this['ipv6_cidr_in_subnet'];
     }
 }

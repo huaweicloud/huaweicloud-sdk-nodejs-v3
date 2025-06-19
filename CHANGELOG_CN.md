@@ -1,3 +1,476 @@
+# 3.1.154 2025-06-19
+
+### HuaweiCloud SDK AOS
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **EstimateExecutionPlanPrice**
+    - 响应参数变更
+      - `+ items.module_address`
+
+### HuaweiCloud SDK CAE
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListComponentSnapshots**
+    - 响应参数变更
+      - `+ items.context.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+  - **ShowComponent**
+    - 响应参数变更
+      - `+ spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+  - **UpdateComponent**
+    - 请求参数变更
+      - `+ spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+  - **CreateComponent**
+    - 请求参数变更
+      - `+ spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+    - 响应参数变更
+      - `+ spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+  - **ListComponents**
+    - 响应参数变更
+      - `+ items.spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+  - **CreateComponentWithConfiguration**
+    - 请求参数变更
+      - `+ spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+    - 响应参数变更
+      - `+ spec.runtime: enum value [Dotnet6,Dotnet7,Dotnet8]`
+
+### HuaweiCloud SDK CCE
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowNodePool**
+    - 响应参数变更
+      - `+ status.scaleGroupStatuses`
+      - `* spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+  - **UpdateNodePool**
+    - 请求参数变更
+      - `* spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+    - 响应参数变更
+      - `+ status.scaleGroupStatuses`
+      - `* spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+  - **DeleteNodePool**
+    - 响应参数变更
+      - `+ status.scaleGroupStatuses`
+      - `* spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+  - **CreateNodePool**
+    - 请求参数变更
+      - `+ status.scaleGroupStatuses`
+      - `* spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+    - 响应参数变更
+      - `+ status.scaleGroupStatuses`
+      - `* spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+  - **ListNodePools**
+    - 响应参数变更
+      - `+ items.status.scaleGroupStatuses`
+      - `* items.spec.extensionScaleGroups: object<ExtensionScaleGroup> -> list<ExtensionScaleGroup>`
+
+### HuaweiCloud SDK CDM
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持以下接口：
+    - `ShowAvailabilityZones`
+    - `ShowDatastores`
+    - `ShowFlavors`
+    - `ShowFlavorDetail`
+    - `ShowEnterpriseProjects`
+    - `ShowClusterEnterpriseProjects`
+    - `ShowInstanceDetail`
+    - `ModifyCluster`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK COC
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持以下接口：
+    - `CreateWarRoom`
+    - `ListWarRooms`
+    - `CreateCocIncident`
+    - `HandleCocIncident`
+    - `ShowCocIncidentDetail`
+    - `ListCocTicketOperationHistories`
+    - `ListAuthorizableTicketsExternal`
+    - `CreateCocIssues`
+    - `ShowCocIssuesDetail`
+    - `CreateReportPrometheusEvent`
+    - `CreateReportCustomEvent`
+    - `ListInstanceCompliant`
+    - `ShowInstancePatchItems`
+    - `GetScriptJobInfo`
+    - `ListScriptJobBatches`
+    - `GetScriptJobStatistics`
+    - `GetScriptJobBatch`
+    - `ListScriptJobs`
+    - `OperateScriptJob`
+    - `ListScripts`
+    - `CreateScript`
+    - `GetScript`
+    - `UpdateScript`
+    - `ExecuteScript`
+    - `DeleteScript`
+    - `ListPublicScripts`
+    - `GetPublicScript`
+    - `ExecutePublicScript`
+    - `ListResource`
+    - `SyncResource`
+    - `ListApplications`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK Config
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持接口`CollectRemediationExecutionStatusesSummary`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DCS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 支持接口`BatchRestartOnlineMigrationTasks`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchStopMigrationTasks**
+    - 响应参数变更
+      - `+ migration_tasks.error_msg`
+      - `+ migration_tasks.error_code`
+
+### HuaweiCloud SDK DLI
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowQueue**
+    - 响应参数变更
+      - `+ default_spark_version`
+      - `+ support_hetu_engine_versions`
+      - `+ support_spark_versions`
+      - `+ default_hetu_engine_version`
+      - `+ support_flink_jar_versions`
+      - `+ support_flink_sql_versions`
+      - `+ default_flink_sql_version`
+      - `+ default_flink_jar_version`
+  - **ListQueues**
+    - 响应参数变更
+      - `+ queues.support_spark_versions`
+      - `+ queues.default_spark_version`
+      - `+ queues.support_hetu_engine_versions`
+      - `+ queues.default_hetu_engine_version`
+      - `+ queues.support_flink_sql_versions`
+      - `+ queues.default_flink_sql_version`
+      - `+ queues.support_flink_jar_versions`
+      - `+ queues.default_flink_jar_version`
+
+### HuaweiCloud SDK EIP
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **UpdatePrePaidBandwidth**
+    - 请求参数变更
+      - `+ extendParam.period_type`
+      - `+ extendParam.period_num`
+
+### HuaweiCloud SDK EIP
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListEipBandwidths**
+    - 响应参数变更
+      - `* eip_bandwidths.tenant_id: uuid -> string`
+  - **ListProjectGeipBindings**
+    - 响应参数变更
+      - `* geip_bindings.vnic.vni: int32 -> string`
+
+### HuaweiCloud SDK ELB
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListAvailabilityZones**
+    - 响应参数变更
+      - `+ spec_code`
+  - **ListFlavors**
+    - 请求参数变更
+      - `- loadbalancer_type`
+  - **ShowLoadBalancer**
+    - 响应参数变更
+      - `+ loadbalancer.gw_flavor_id`
+      - `+ loadbalancer.loadbalancer_type`
+  - **UpdateLoadBalancer**
+    - 响应参数变更
+      - `+ loadbalancer.gw_flavor_id`
+      - `+ loadbalancer.loadbalancer_type`
+  - **BatchAddAvailableZones**
+    - 响应参数变更
+      - `+ loadbalancer.gw_flavor_id`
+      - `+ loadbalancer.loadbalancer_type`
+  - **BatchRemoveAvailableZones**
+    - 响应参数变更
+      - `+ loadbalancer.gw_flavor_id`
+      - `+ loadbalancer.loadbalancer_type`
+  - **ListLoadBalancers**
+    - 响应参数变更
+      - `+ loadbalancers.gw_flavor_id`
+      - `+ loadbalancers.loadbalancer_type`
+  - **CreateLoadBalancer**
+    - 响应参数变更
+      - `+ loadbalancer.gw_flavor_id`
+      - `+ loadbalancer.loadbalancer_type`
+
+### HuaweiCloud SDK GaussDBforopenGauss
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateInstance**
+    - 请求参数变更
+      - `+ ha.instance_mode`
+  - **ShowBatchUpgradeCandidateVersions**
+    - 响应参数变更
+      - `+ hotfix_rollback_infos`
+
+### HuaweiCloud SDK IAM
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK IMS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListImages**
+    - 请求参数变更
+      - `+ visibility: enum value [shared]`
+    - 响应参数变更
+      - `+ images.visibility: enum value [shared]`
+  - **UpdateImage**
+    - 响应参数变更
+      - `+ visibility: enum value [shared]`
+
+### HuaweiCloud SDK LTS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListLogs**
+    - 请求参数变更
+      - `+ query`
+      - `+ is_analysis_query`
+    - 响应参数变更
+      - `+ analysisLogs`
+
+### HuaweiCloud SDK OCR
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **RecognizeTransportationLicense**
+    - 响应参数变更
+      - `+ result.expiry_date`
+      - `+ result.review_expiry_date`
+      - `+ result.assessed_technical_level`
+
+### HuaweiCloud SDK RDS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK ServiceStage
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **UpdateComponentAction**
+    - 请求参数变更
+      - `+ action: enum value [rollback_current]`
+  - **ShowComponentInfo**
+    - 响应参数变更
+      - `+ swimlane_id`
+      - `+ deploy_strategy.gray_release.replica_surge_mode`
+      - `+ deploy_strategy.gray_release.deployment_mode`
+      - `+ deploy_strategy.gray_release.rule_match_mode`
+      - `+ deploy_strategy.gray_release.rules`
+      - `+ deploy_strategy.gray_release.type: enum value [WEIGHT,CONTENT]`
+      - `- deploy_strategy.gray_release.type: enum value [weight,content]`
+  - **ModifyComponent**
+    - 请求参数变更
+      - `+ swimlane_id`
+      - `+ deploy_strategy.gray_release.replica_surge_mode`
+      - `+ deploy_strategy.gray_release.deployment_mode`
+      - `+ deploy_strategy.gray_release.rule_match_mode`
+      - `+ deploy_strategy.gray_release.rules`
+      - `+ deploy_strategy.gray_release.type: enum value [WEIGHT,CONTENT]`
+      - `- deploy_strategy.gray_release.type: enum value [weight,content]`
+  - **CreateComponent**
+    - 请求参数变更
+      - `+ swimlane_id`
+      - `+ deploy_strategy.gray_release.replica_surge_mode`
+      - `+ deploy_strategy.gray_release.deployment_mode`
+      - `+ deploy_strategy.gray_release.rule_match_mode`
+      - `+ deploy_strategy.gray_release.rules`
+      - `+ deploy_strategy.gray_release.type: enum value [WEIGHT,CONTENT]`
+      - `- deploy_strategy.gray_release.type: enum value [weight,content]`
+
+### HuaweiCloud SDK SMS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowTask**
+    - 响应参数变更
+      - `- exist_server`
+  - **UpdateTask**
+    - 请求参数变更
+      - `+ exist_server`
+
+### HuaweiCloud SDK VPCEP
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListEndpointInfoDetails**
+    - 响应参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+  - **UpdateEndpointWhite**
+    - 响应参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+  - **UpdateEndpointPolicy**
+    - 请求参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+    - 响应参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+  - **DeleteEndpointPolicy**
+    - 响应参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+  - **CreateEndpoint**
+    - 请求参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+    - 响应参数变更
+      - `+ policy_statement.Effect: enum value [Deny]`
+      - `- policy_statement.Effect: enum value [Refuse]`
+  - **ListEndpoints**
+    - 响应参数变更
+      - `+ endpoints.policy_statement.Effect: enum value [Deny]`
+      - `- endpoints.policy_statement.Effect: enum value [Refuse]`
+
+### HuaweiCloud SDK VPN
+
+- _接口版本_
+  - V5
+- _新增特性_
+  - 支持接口`UpdatePostpaidVgwSpecification`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK Workspace
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.1.153 2025-06-12
 
 ### HuaweiCloud SDK AOS

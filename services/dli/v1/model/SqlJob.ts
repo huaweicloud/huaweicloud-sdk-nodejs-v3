@@ -23,6 +23,9 @@ export class SqlJob {
     private 'end_time'?: number;
     private 'cpu_cost'?: string;
     private 'output_byte'?: string;
+    private 'result_path'?: string;
+    private 'result_format'?: string;
+    private 'execution_details_path'?: string;
     public constructor(jobId?: string, jobType?: string, queueName?: string, owner?: string, startTime?: number, status?: string, inputSize?: number, resultCount?: number, detail?: string, statement?: string) { 
         this['job_id'] = jobId;
         this['job_type'] = jobType;
@@ -202,6 +205,36 @@ export class SqlJob {
     }
     public get outputByte(): string | undefined {
         return this['output_byte'];
+    }
+    public withResultPath(resultPath: string): SqlJob {
+        this['result_path'] = resultPath;
+        return this;
+    }
+    public set resultPath(resultPath: string  | undefined) {
+        this['result_path'] = resultPath;
+    }
+    public get resultPath(): string | undefined {
+        return this['result_path'];
+    }
+    public withResultFormat(resultFormat: string): SqlJob {
+        this['result_format'] = resultFormat;
+        return this;
+    }
+    public set resultFormat(resultFormat: string  | undefined) {
+        this['result_format'] = resultFormat;
+    }
+    public get resultFormat(): string | undefined {
+        return this['result_format'];
+    }
+    public withExecutionDetailsPath(executionDetailsPath: string): SqlJob {
+        this['execution_details_path'] = executionDetailsPath;
+        return this;
+    }
+    public set executionDetailsPath(executionDetailsPath: string  | undefined) {
+        this['execution_details_path'] = executionDetailsPath;
+    }
+    public get executionDetailsPath(): string | undefined {
+        return this['execution_details_path'];
     }
 }
 

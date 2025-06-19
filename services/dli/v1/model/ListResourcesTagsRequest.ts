@@ -2,6 +2,8 @@
 
 export class ListResourcesTagsRequest {
     private 'resource_type'?: ListResourcesTagsRequestResourceTypeEnum | string;
+    public limit?: number;
+    public offset?: number;
     public constructor(resourceType?: string) { 
         this['resource_type'] = resourceType;
     }
@@ -14,6 +16,14 @@ export class ListResourcesTagsRequest {
     }
     public get resourceType(): ListResourcesTagsRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
+    }
+    public withLimit(limit: number): ListResourcesTagsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListResourcesTagsRequest {
+        this['offset'] = offset;
+        return this;
     }
 }
 

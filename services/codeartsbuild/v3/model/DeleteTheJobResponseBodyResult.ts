@@ -1,11 +1,11 @@
 
 
-export class DeleteBuildJobResponseBodyResult {
+export class DeleteTheJobResponseBodyResult {
     private 'job_id'?: string;
     private 'project_id'?: string;
     public constructor() { 
     }
-    public withJobId(jobId: string): DeleteBuildJobResponseBodyResult {
+    public withJobId(jobId: string): DeleteTheJobResponseBodyResult {
         this['job_id'] = jobId;
         return this;
     }
@@ -15,7 +15,7 @@ export class DeleteBuildJobResponseBodyResult {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withProjectId(projectId: string): DeleteBuildJobResponseBodyResult {
+    public withProjectId(projectId: string): DeleteTheJobResponseBodyResult {
         this['project_id'] = projectId;
         return this;
     }

@@ -1,3 +1,4 @@
+import { ResourceConfig } from './ResourceConfig';
 
 
 export class UpdateFlinkJarJobRequestBody {
@@ -26,6 +27,8 @@ export class UpdateFlinkJarJobRequestBody {
     private 'checkpoint_path'?: string;
     private 'runtime_config'?: string;
     private 'job_type'?: string;
+    private 'resource_config'?: ResourceConfig;
+    private 'resource_config_version'?: string;
     public constructor() { 
     }
     public withName(name: string): UpdateFlinkJarJobRequestBody {
@@ -247,5 +250,25 @@ export class UpdateFlinkJarJobRequestBody {
     }
     public get jobType(): string | undefined {
         return this['job_type'];
+    }
+    public withResourceConfig(resourceConfig: ResourceConfig): UpdateFlinkJarJobRequestBody {
+        this['resource_config'] = resourceConfig;
+        return this;
+    }
+    public set resourceConfig(resourceConfig: ResourceConfig  | undefined) {
+        this['resource_config'] = resourceConfig;
+    }
+    public get resourceConfig(): ResourceConfig | undefined {
+        return this['resource_config'];
+    }
+    public withResourceConfigVersion(resourceConfigVersion: string): UpdateFlinkJarJobRequestBody {
+        this['resource_config_version'] = resourceConfigVersion;
+        return this;
+    }
+    public set resourceConfigVersion(resourceConfigVersion: string  | undefined) {
+        this['resource_config_version'] = resourceConfigVersion;
+    }
+    public get resourceConfigVersion(): string | undefined {
+        return this['resource_config_version'];
     }
 }

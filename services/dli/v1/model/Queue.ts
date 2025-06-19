@@ -6,7 +6,7 @@ export class Queue {
     public description?: string;
     public owner?: string;
     private 'create_time'?: number;
-    private 'queue_type'?: string;
+    private 'queue_type'?: QueueQueueTypeEnum | string;
     private 'cu_count'?: number;
     private 'charging_mode'?: number;
     private 'resource_id'?: string;
@@ -72,14 +72,14 @@ export class Queue {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withQueueType(queueType: string): Queue {
+    public withQueueType(queueType: QueueQueueTypeEnum | string): Queue {
         this['queue_type'] = queueType;
         return this;
     }
-    public set queueType(queueType: string  | undefined) {
+    public set queueType(queueType: QueueQueueTypeEnum | string  | undefined) {
         this['queue_type'] = queueType;
     }
-    public get queueType(): string | undefined {
+    public get queueType(): QueueQueueTypeEnum | string | undefined {
         return this['queue_type'];
     }
     public withCuCount(cuCount: number): Queue {
@@ -314,4 +314,14 @@ export class Queue {
     public get defaultFlinkJarVersion(): string | undefined {
         return this['default_flink_jar_version'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QueueQueueTypeEnum {
+    SQL = 'sql',
+    GENERAL = 'general',
+    ALL = 'all'
 }

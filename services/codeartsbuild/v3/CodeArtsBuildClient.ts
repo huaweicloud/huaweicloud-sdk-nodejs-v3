@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddKeystorePermissionResponseBody } from './model/AddKeystorePermissionResponseBody';
+import { BriefRecordItems } from './model/BriefRecordItems';
 import { BuildInfoRecord } from './model/BuildInfoRecord';
 import { BuildInfoRecordCommitInfo } from './model/BuildInfoRecordCommitInfo';
 import { BuildParameter } from './model/BuildParameter';
@@ -17,7 +18,15 @@ import { CheckJobCountIsTopLimitRequest } from './model/CheckJobCountIsTopLimitR
 import { CheckJobCountIsTopLimitResponse } from './model/CheckJobCountIsTopLimitResponse';
 import { CheckJobNameIsExistsRequest } from './model/CheckJobNameIsExistsRequest';
 import { CheckJobNameIsExistsResponse } from './model/CheckJobNameIsExistsResponse';
+import { CheckWebhookUrlRequest } from './model/CheckWebhookUrlRequest';
+import { CheckWebhookUrlRequestBody } from './model/CheckWebhookUrlRequestBody';
+import { CheckWebhookUrlResponse } from './model/CheckWebhookUrlResponse';
+import { ClearRecyclingJobsRequest } from './model/ClearRecyclingJobsRequest';
+import { ClearRecyclingJobsResponse } from './model/ClearRecyclingJobsResponse';
 import { Constraints } from './model/Constraints';
+import { CopyBuildJobRequestBody } from './model/CopyBuildJobRequestBody';
+import { CopyJobRequest } from './model/CopyJobRequest';
+import { CopyJobResponse } from './model/CopyJobResponse';
 import { CreateBuildJobParameter } from './model/CreateBuildJobParameter';
 import { CreateBuildJobParameterParam } from './model/CreateBuildJobParameterParam';
 import { CreateBuildJobRequest } from './model/CreateBuildJobRequest';
@@ -26,6 +35,7 @@ import { CreateBuildJobResponse } from './model/CreateBuildJobResponse';
 import { CreateBuildJobResponseBodyResult } from './model/CreateBuildJobResponseBodyResult';
 import { CreateBuildJobScm } from './model/CreateBuildJobScm';
 import { CreateBuildJobSteps } from './model/CreateBuildJobSteps';
+import { CreateBuildTimeout } from './model/CreateBuildTimeout';
 import { CreateTemplate } from './model/CreateTemplate';
 import { CreateTemplateSteps } from './model/CreateTemplateSteps';
 import { CreateTemplatesItems } from './model/CreateTemplatesItems';
@@ -34,13 +44,26 @@ import { CreateTemplatesRequestBody } from './model/CreateTemplatesRequestBody';
 import { CreateTemplatesResponse } from './model/CreateTemplatesResponse';
 import { DeleteBuildJobRequest } from './model/DeleteBuildJobRequest';
 import { DeleteBuildJobResponse } from './model/DeleteBuildJobResponse';
-import { DeleteBuildJobResponseBodyResult } from './model/DeleteBuildJobResponseBodyResult';
+import { DeleteKeystorePermissionRequest } from './model/DeleteKeystorePermissionRequest';
+import { DeleteKeystorePermissionResponse } from './model/DeleteKeystorePermissionResponse';
+import { DeleteKeystoreRequest } from './model/DeleteKeystoreRequest';
+import { DeleteKeystoreResponse } from './model/DeleteKeystoreResponse';
+import { DeleteRecyclingJobsRequest } from './model/DeleteRecyclingJobsRequest';
+import { DeleteRecyclingJobsResponse } from './model/DeleteRecyclingJobsResponse';
+import { DeleteTemplateRequest } from './model/DeleteTemplateRequest';
+import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
 import { DeleteTemplatesRequest } from './model/DeleteTemplatesRequest';
 import { DeleteTemplatesResponse } from './model/DeleteTemplatesResponse';
+import { DeleteTheJobRequest } from './model/DeleteTheJobRequest';
+import { DeleteTheJobResponse } from './model/DeleteTheJobResponse';
+import { DeleteTheJobResponseBodyResult } from './model/DeleteTheJobResponseBodyResult';
 import { DisableBuildJobRequest } from './model/DisableBuildJobRequest';
 import { DisableBuildJobResponse } from './model/DisableBuildJobResponse';
 import { DisableNoticeRequest } from './model/DisableNoticeRequest';
 import { DisableNoticeResponse } from './model/DisableNoticeResponse';
+import { DisableTheJobRequest } from './model/DisableTheJobRequest';
+import { DisableTheJobRequestBody } from './model/DisableTheJobRequestBody';
+import { DisableTheJobResponse } from './model/DisableTheJobResponse';
 import { DownloadBuildLogRequest } from './model/DownloadBuildLogRequest';
 import { DownloadBuildLogResponse } from './model/DownloadBuildLogResponse';
 import { DownloadJunitCoverageZipRequest } from './model/DownloadJunitCoverageZipRequest';
@@ -57,6 +80,8 @@ import { DownloadTaskLogRequest } from './model/DownloadTaskLogRequest';
 import { DownloadTaskLogResponse } from './model/DownloadTaskLogResponse';
 import { EnableBuildJobRequest } from './model/EnableBuildJobRequest';
 import { EnableBuildJobResponse } from './model/EnableBuildJobResponse';
+import { ExecuteJobRequest } from './model/ExecuteJobRequest';
+import { ExecuteJobResponse } from './model/ExecuteJobResponse';
 import { FlowGraph2Result } from './model/FlowGraph2Result';
 import { FlowGraph2ResultEdges } from './model/FlowGraph2ResultEdges';
 import { FullStagesResult } from './model/FullStagesResult';
@@ -69,7 +94,11 @@ import { JobSummary } from './model/JobSummary';
 import { JobSummaryBodyResult } from './model/JobSummaryBodyResult';
 import { JobUpdateRecordListVoResult } from './model/JobUpdateRecordListVoResult';
 import { JobUpdateRecordListVoResultJobUpdateRecords } from './model/JobUpdateRecordListVoResultJobUpdateRecords';
+import { JobsRequestBody } from './model/JobsRequestBody';
 import { LimitsParam } from './model/LimitsParam';
+import { ListBriefRecordRequest } from './model/ListBriefRecordRequest';
+import { ListBriefRecordResponse } from './model/ListBriefRecordResponse';
+import { ListBriefRecordResponseBodyResult } from './model/ListBriefRecordResponseBodyResult';
 import { ListBuildInfoRecordBodyResult } from './model/ListBuildInfoRecordBodyResult';
 import { ListBuildInfoRecordByJobIdRequest } from './model/ListBuildInfoRecordByJobIdRequest';
 import { ListBuildInfoRecordByJobIdResponse } from './model/ListBuildInfoRecordByJobIdResponse';
@@ -104,6 +133,9 @@ import { ListOfficialTemplateResponse } from './model/ListOfficialTemplateRespon
 import { ListOfficialTemplateResult } from './model/ListOfficialTemplateResult';
 import { ListProjectJobsRequest } from './model/ListProjectJobsRequest';
 import { ListProjectJobsResponse } from './model/ListProjectJobsResponse';
+import { ListRecommendOfficialTemplateRequest } from './model/ListRecommendOfficialTemplateRequest';
+import { ListRecommendOfficialTemplateRequestBody } from './model/ListRecommendOfficialTemplateRequestBody';
+import { ListRecommendOfficialTemplateResponse } from './model/ListRecommendOfficialTemplateResponse';
 import { ListRecordsRequest } from './model/ListRecordsRequest';
 import { ListRecordsResponse } from './model/ListRecordsResponse';
 import { ListRecordsResult } from './model/ListRecordsResult';
@@ -138,10 +170,16 @@ import { RecordInfoResult } from './model/RecordInfoResult';
 import { RecyclingJob } from './model/RecyclingJob';
 import { RecyclingJobsResult } from './model/RecyclingJobsResult';
 import { RepositoriesResult } from './model/RepositoriesResult';
+import { RestoreRecyclingJobsRequest } from './model/RestoreRecyclingJobsRequest';
+import { RestoreRecyclingJobsResponse } from './model/RestoreRecyclingJobsResponse';
 import { RunJobRequest } from './model/RunJobRequest';
 import { RunJobRequestBody } from './model/RunJobRequestBody';
 import { RunJobResponse } from './model/RunJobResponse';
 import { Scm } from './model/Scm';
+import { SetKeepTimeRequest } from './model/SetKeepTimeRequest';
+import { SetKeepTimeRequestBody } from './model/SetKeepTimeRequestBody';
+import { SetKeepTimeResponse } from './model/SetKeepTimeResponse';
+import { SetKeepTimeResult } from './model/SetKeepTimeResult';
 import { ShowBuildInfoRecordRequest } from './model/ShowBuildInfoRecordRequest';
 import { ShowBuildInfoRecordResponse } from './model/ShowBuildInfoRecordResponse';
 import { ShowBuildParamsListRequest } from './model/ShowBuildParamsListRequest';
@@ -253,6 +291,7 @@ import { StopJobResponse } from './model/StopJobResponse';
 import { SystemParametersResult } from './model/SystemParametersResult';
 import { TemplateList } from './model/TemplateList';
 import { TotalResponseBodyResult } from './model/TotalResponseBodyResult';
+import { Trigger } from './model/Trigger';
 import { UpdateBuildJobParameter } from './model/UpdateBuildJobParameter';
 import { UpdateBuildJobParameterParam } from './model/UpdateBuildJobParameterParam';
 import { UpdateBuildJobRequest } from './model/UpdateBuildJobRequest';
@@ -260,6 +299,8 @@ import { UpdateBuildJobRequestBody } from './model/UpdateBuildJobRequestBody';
 import { UpdateBuildJobResponse } from './model/UpdateBuildJobResponse';
 import { UpdateBuildJobScm } from './model/UpdateBuildJobScm';
 import { UpdateBuildJobSteps } from './model/UpdateBuildJobSteps';
+import { UpdateNewJobRequest } from './model/UpdateNewJobRequest';
+import { UpdateNewJobResponse } from './model/UpdateNewJobResponse';
 import { UpdateNoticeRequest } from './model/UpdateNoticeRequest';
 import { UpdateNoticeRequestBody } from './model/UpdateNoticeRequestBody';
 import { UpdateNoticeResponse } from './model/UpdateNoticeResponse';
@@ -1016,6 +1057,139 @@ export class CodeArtsBuildClient {
     }
 
     /**
+     * 检查webhook地址参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检查webhook地址参数
+     * @param {CheckWebhookUrlRequestBody} checkWebhookUrlRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkWebhookUrl(checkWebhookUrlRequest?: CheckWebhookUrlRequest): Promise<CheckWebhookUrlResponse> {
+        const options = ParamCreater().checkWebhookUrl(checkWebhookUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 清空回收站中的任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 清空回收站中的任务
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public clearRecyclingJobs(clearRecyclingJobsRequest?: ClearRecyclingJobsRequest): Promise<ClearRecyclingJobsResponse> {
+        const options = ParamCreater().clearRecyclingJobs();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 复制构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制构建任务
+     * @param {CopyBuildJobRequestBody} copyJobRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyJob(copyJobRequest?: CopyJobRequest): Promise<CopyJobResponse> {
+        const options = ParamCreater().copyJob(copyJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除回收站中的任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除回收站中的任务
+     * @param {JobsRequestBody} deleteRecyclingJobsRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRecyclingJobs(deleteRecyclingJobsRequest?: DeleteRecyclingJobsRequest): Promise<DeleteRecyclingJobsResponse> {
+        const options = ParamCreater().deleteRecyclingJobs(deleteRecyclingJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除任务
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTheJob(deleteTheJobRequest?: DeleteTheJobRequest): Promise<DeleteTheJobResponse> {
+        const options = ParamCreater().deleteTheJob(deleteTheJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 禁用任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用任务
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {DisableTheJobRequestBody} disableTheJobRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableTheJob(disableTheJobRequest?: DisableTheJobRequest): Promise<DisableTheJobResponse> {
+        const options = ParamCreater().disableTheJob(disableTheJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 执行构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行构建
+     * @param {RunJobRequestBody} executeJobRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeJob(executeJobRequest?: ExecuteJobRequest): Promise<ExecuteJobResponse> {
+        const options = ParamCreater().executeJob(executeJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 详情页获取构建参数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1116,6 +1290,44 @@ export class CodeArtsBuildClient {
      */
     public listUpdateJobHistory(listUpdateJobHistoryRequest?: ListUpdateJobHistoryRequest): Promise<ListUpdateJobHistoryResponse> {
         const options = ParamCreater().listUpdateJobHistory(listUpdateJobHistoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 恢复回收站中的任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复回收站中的任务
+     * @param {JobsRequestBody} restoreRecyclingJobsRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreRecyclingJobs(restoreRecyclingJobsRequest?: RestoreRecyclingJobsRequest): Promise<RestoreRecyclingJobsResponse> {
+        const options = ParamCreater().restoreRecyclingJobs(restoreRecyclingJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置回收站中的任务保留时间,该接口需要租户账号才能访问，租户子账号无权限访问。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置回收站中的任务保留时间
+     * @param {SetKeepTimeRequestBody} setKeepTimeRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setKeepTime(setKeepTimeRequest?: SetKeepTimeRequest): Promise<SetKeepTimeResponse> {
+        const options = ParamCreater().setKeepTime(setKeepTimeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1373,6 +1585,63 @@ export class CodeArtsBuildClient {
     }
 
     /**
+     * 更新构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新构建任务
+     * @param {UpdateBuildJobRequestBody} updateNewJobRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNewJob(updateNewJobRequest?: UpdateNewJobRequest): Promise<UpdateNewJobResponse> {
+        const options = ParamCreater().updateNewJob(updateNewJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除文件管理文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除文件管理文件
+     * @param {string} keystoreId 文件秘钥Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKeystore(deleteKeystoreRequest?: DeleteKeystoreRequest): Promise<DeleteKeystoreResponse> {
+        const options = ParamCreater().deleteKeystore(deleteKeystoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 文件管理删除权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 文件管理删除权限
+     * @param {string} permissionId 文件管理权限ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKeystorePermission(deleteKeystorePermissionRequest?: DeleteKeystorePermissionRequest): Promise<DeleteKeystorePermissionResponse> {
+        const options = ParamCreater().deleteKeystorePermission(deleteKeystorePermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 文件管理文件下载
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1523,6 +1792,26 @@ export class CodeArtsBuildClient {
      */
     public stopJob(stopJobRequest?: StopJobRequest): Promise<StopJobResponse> {
         const options = ParamCreater().stopJob(stopJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定工程的简要构建信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定工程的简要构建信息
+     * @param {number} limit 每页显示的条目数量，limit小于等于100
+     * @param {Array<string>} listBriefRecordRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBriefRecord(listBriefRecordRequest?: ListBriefRecordRequest): Promise<ListBriefRecordResponse> {
+        const options = ParamCreater().listBriefRecord(listBriefRecordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1862,6 +2151,25 @@ export class CodeArtsBuildClient {
     }
 
     /**
+     * 删除构建模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除构建模板
+     * @param {string} uuid uuid
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
+        const options = ParamCreater().deleteTemplate(deleteTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据条件查询特定模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1898,6 +2206,25 @@ export class CodeArtsBuildClient {
      */
     public listOfficialTemplate(listOfficialTemplateRequest?: ListOfficialTemplateRequest): Promise<ListOfficialTemplateResponse> {
         const options = ParamCreater().listOfficialTemplate(listOfficialTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取官方推荐模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取官方推荐模板
+     * @param {ListRecommendOfficialTemplateRequestBody} listRecommendOfficialTemplateRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRecommendOfficialTemplate(listRecommendOfficialTemplateRequest?: ListRecommendOfficialTemplateRequest): Promise<ListRecommendOfficialTemplateResponse> {
+        const options = ParamCreater().listRecommendOfficialTemplate(listRecommendOfficialTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3569,6 +3896,262 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 检查webhook地址参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkWebhookUrl(checkWebhookUrlRequest?: CheckWebhookUrlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/check/webhook-url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkWebhookUrlRequest !== null && checkWebhookUrlRequest !== undefined) {
+                if (checkWebhookUrlRequest instanceof CheckWebhookUrlRequest) {
+                    body = checkWebhookUrlRequest.body
+                } else {
+                    body = checkWebhookUrlRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 清空回收站中的任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        clearRecyclingJobs() {
+            const options = {
+                method: "DELETE",
+                url: "/v1/job/recycling-empty",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 复制构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyJob(copyJobRequest?: CopyJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/copy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (copyJobRequest !== null && copyJobRequest !== undefined) {
+                if (copyJobRequest instanceof CopyJobRequest) {
+                    body = copyJobRequest.body
+                } else {
+                    body = copyJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除回收站中的任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRecyclingJobs(deleteRecyclingJobsRequest?: DeleteRecyclingJobsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/job/recycling-deletion",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteRecyclingJobsRequest !== null && deleteRecyclingJobsRequest !== undefined) {
+                if (deleteRecyclingJobsRequest instanceof DeleteRecyclingJobsRequest) {
+                    body = deleteRecyclingJobsRequest.body
+                } else {
+                    body = deleteRecyclingJobsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTheJob(deleteTheJobRequest?: DeleteTheJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/job/{job_id}/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (deleteTheJobRequest !== null && deleteTheJobRequest !== undefined) {
+                if (deleteTheJobRequest instanceof DeleteTheJobRequest) {
+                    jobId = deleteTheJobRequest.jobId;
+                } else {
+                    jobId = deleteTheJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteTheJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 禁用任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableTheJob(disableTheJobRequest?: DisableTheJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/{job_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+
+            if (disableTheJobRequest !== null && disableTheJobRequest !== undefined) {
+                if (disableTheJobRequest instanceof DisableTheJobRequest) {
+                    jobId = disableTheJobRequest.jobId;
+                    body = disableTheJobRequest.body
+                } else {
+                    jobId = disableTheJobRequest['job_id'];
+                    body = disableTheJobRequest['body'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling disableTheJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 执行构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeJob(executeJobRequest?: ExecuteJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/execute",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (executeJobRequest !== null && executeJobRequest !== undefined) {
+                if (executeJobRequest instanceof ExecuteJobRequest) {
+                    body = executeJobRequest.body
+                } else {
+                    body = executeJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 详情页获取构建参数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3839,6 +4422,82 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 恢复回收站中的任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreRecyclingJobs(restoreRecyclingJobsRequest?: RestoreRecyclingJobsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/recycling-restoration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (restoreRecyclingJobsRequest !== null && restoreRecyclingJobsRequest !== undefined) {
+                if (restoreRecyclingJobsRequest instanceof RestoreRecyclingJobsRequest) {
+                    body = restoreRecyclingJobsRequest.body
+                } else {
+                    body = restoreRecyclingJobsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置回收站中的任务保留时间,该接口需要租户账号才能访问，租户子账号无权限访问。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setKeepTime(setKeepTimeRequest?: SetKeepTimeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/keep-time",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setKeepTimeRequest !== null && setKeepTimeRequest !== undefined) {
+                if (setKeepTimeRequest instanceof SetKeepTimeRequest) {
+                    body = setKeepTimeRequest.body
+                } else {
+                    body = setKeepTimeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4330,6 +4989,118 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNewJob(updateNewJobRequest?: UpdateNewJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateNewJobRequest !== null && updateNewJobRequest !== undefined) {
+                if (updateNewJobRequest instanceof UpdateNewJobRequest) {
+                    body = updateNewJobRequest.body
+                } else {
+                    body = updateNewJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除文件管理文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKeystore(deleteKeystoreRequest?: DeleteKeystoreRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/keystore/{keystore_id}/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let keystoreId;
+
+            if (deleteKeystoreRequest !== null && deleteKeystoreRequest !== undefined) {
+                if (deleteKeystoreRequest instanceof DeleteKeystoreRequest) {
+                    keystoreId = deleteKeystoreRequest.keystoreId;
+                } else {
+                    keystoreId = deleteKeystoreRequest['keystore_id'];
+                }
+            }
+
+        
+            if (keystoreId === null || keystoreId === undefined) {
+            throw new RequiredError('keystoreId','Required parameter keystoreId was null or undefined when calling deleteKeystore.');
+            }
+
+            options.pathParams = { 'keystore_id': keystoreId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 文件管理删除权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKeystorePermission(deleteKeystorePermissionRequest?: DeleteKeystorePermissionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/keystore/permission/{permission_id}/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let permissionId;
+
+            if (deleteKeystorePermissionRequest !== null && deleteKeystorePermissionRequest !== undefined) {
+                if (deleteKeystorePermissionRequest instanceof DeleteKeystorePermissionRequest) {
+                    permissionId = deleteKeystorePermissionRequest.permissionId;
+                } else {
+                    permissionId = deleteKeystorePermissionRequest['permission_id'];
+                }
+            }
+
+        
+            if (permissionId === null || permissionId === undefined) {
+            throw new RequiredError('permissionId','Required parameter permissionId was null or undefined when calling deleteKeystorePermission.');
+            }
+
+            options.pathParams = { 'permission_id': permissionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 文件管理文件下载
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4671,6 +5442,55 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定工程的简要构建信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBriefRecord(listBriefRecordRequest?: ListBriefRecordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/record/brief",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+
+            if (listBriefRecordRequest !== null && listBriefRecordRequest !== undefined) {
+                if (listBriefRecordRequest instanceof ListBriefRecordRequest) {
+                    limit = listBriefRecordRequest.limit;
+                    body = listBriefRecordRequest.body
+                } else {
+                    limit = listBriefRecordRequest['limit'];
+                    body = listBriefRecordRequest['body'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listBriefRecord.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5510,6 +6330,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除构建模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/template/{uuid}/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let uuid;
+
+            if (deleteTemplateRequest !== null && deleteTemplateRequest !== undefined) {
+                if (deleteTemplateRequest instanceof DeleteTemplateRequest) {
+                    uuid = deleteTemplateRequest.uuid;
+                } else {
+                    uuid = deleteTemplateRequest['uuid'];
+                }
+            }
+
+        
+            if (uuid === null || uuid === undefined) {
+            throw new RequiredError('uuid','Required parameter uuid was null or undefined when calling deleteTemplate.');
+            }
+
+            options.pathParams = { 'uuid': uuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据条件查询特定模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5621,6 +6478,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取官方推荐模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRecommendOfficialTemplate(listRecommendOfficialTemplateRequest?: ListRecommendOfficialTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/template/recommend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listRecommendOfficialTemplateRequest !== null && listRecommendOfficialTemplateRequest !== undefined) {
+                if (listRecommendOfficialTemplateRequest instanceof ListRecommendOfficialTemplateRequest) {
+                    body = listRecommendOfficialTemplateRequest.body
+                } else {
+                    body = listRecommendOfficialTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

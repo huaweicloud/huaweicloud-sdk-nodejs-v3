@@ -1,6 +1,8 @@
 import { CreateBuildJobParameter } from './CreateBuildJobParameter';
 import { CreateBuildJobScm } from './CreateBuildJobScm';
 import { CreateBuildJobSteps } from './CreateBuildJobSteps';
+import { CreateBuildTimeout } from './CreateBuildTimeout';
+import { Trigger } from './Trigger';
 
 
 export class CreateBuildJobRequestBody {
@@ -10,10 +12,14 @@ export class CreateBuildJobRequestBody {
     private 'auto_update_sub_module'?: string;
     public flavor?: string;
     public parameters?: Array<CreateBuildJobParameter>;
+    private 'group_id'?: string;
+    public timeout?: CreateBuildTimeout;
     public scms?: Array<CreateBuildJobScm>;
     public steps?: Array<CreateBuildJobSteps>;
     private 'host_type'?: string;
     private 'build_config_type'?: string;
+    private 'build_if_code_updated'?: boolean;
+    public triggers?: Array<Trigger>;
     public constructor(arch?: string, projectId?: string, jobName?: string, steps?: Array<CreateBuildJobSteps>) { 
         this['arch'] = arch;
         this['project_id'] = projectId;
@@ -62,6 +68,20 @@ export class CreateBuildJobRequestBody {
         this['parameters'] = parameters;
         return this;
     }
+    public withGroupId(groupId: string): CreateBuildJobRequestBody {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withTimeout(timeout: CreateBuildTimeout): CreateBuildJobRequestBody {
+        this['timeout'] = timeout;
+        return this;
+    }
     public withScms(scms: Array<CreateBuildJobScm>): CreateBuildJobRequestBody {
         this['scms'] = scms;
         return this;
@@ -89,5 +109,19 @@ export class CreateBuildJobRequestBody {
     }
     public get buildConfigType(): string | undefined {
         return this['build_config_type'];
+    }
+    public withBuildIfCodeUpdated(buildIfCodeUpdated: boolean): CreateBuildJobRequestBody {
+        this['build_if_code_updated'] = buildIfCodeUpdated;
+        return this;
+    }
+    public set buildIfCodeUpdated(buildIfCodeUpdated: boolean  | undefined) {
+        this['build_if_code_updated'] = buildIfCodeUpdated;
+    }
+    public get buildIfCodeUpdated(): boolean | undefined {
+        return this['build_if_code_updated'];
+    }
+    public withTriggers(triggers: Array<Trigger>): CreateBuildJobRequestBody {
+        this['triggers'] = triggers;
+        return this;
     }
 }

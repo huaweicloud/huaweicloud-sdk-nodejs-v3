@@ -13,6 +13,7 @@ export class EnhancedConnection {
     private 'create_time'?: number;
     public hosts?: Array<EnhancedConnectionHost>;
     public isPrivis?: boolean;
+    private 'ipv6_enable'?: boolean;
     public constructor() { 
     }
     public withId(id: string): EnhancedConnection {
@@ -84,5 +85,15 @@ export class EnhancedConnection {
     public withIsPrivis(isPrivis: boolean): EnhancedConnection {
         this['isPrivis'] = isPrivis;
         return this;
+    }
+    public withIpv6Enable(ipv6Enable: boolean): EnhancedConnection {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
     }
 }
