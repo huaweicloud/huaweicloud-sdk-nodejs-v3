@@ -5,6 +5,9 @@ export class Queue {
     private 'queue_name'?: string;
     public description?: string;
     public owner?: string;
+    public engine?: QueueEngineEnum | string;
+    private 'used_cu'?: number;
+    private 'support_opensource_flink_versions'?: Array<string>;
     private 'create_time'?: number;
     private 'queue_type'?: QueueQueueTypeEnum | string;
     private 'cu_count'?: number;
@@ -19,7 +22,7 @@ export class Queue {
     private 'is_restarting'?: boolean;
     public labels?: string;
     public feature?: string;
-    private 'resource_type'?: string;
+    private 'queue_resource_type'?: string;
     private 'cu_spec'?: number;
     private 'cu_scale_out_limit'?: number;
     private 'cu_scale_in_limit'?: number;
@@ -61,6 +64,30 @@ export class Queue {
     public withOwner(owner: string): Queue {
         this['owner'] = owner;
         return this;
+    }
+    public withEngine(engine: QueueEngineEnum | string): Queue {
+        this['engine'] = engine;
+        return this;
+    }
+    public withUsedCu(usedCu: number): Queue {
+        this['used_cu'] = usedCu;
+        return this;
+    }
+    public set usedCu(usedCu: number  | undefined) {
+        this['used_cu'] = usedCu;
+    }
+    public get usedCu(): number | undefined {
+        return this['used_cu'];
+    }
+    public withSupportOpensourceFlinkVersions(supportOpensourceFlinkVersions: Array<string>): Queue {
+        this['support_opensource_flink_versions'] = supportOpensourceFlinkVersions;
+        return this;
+    }
+    public set supportOpensourceFlinkVersions(supportOpensourceFlinkVersions: Array<string>  | undefined) {
+        this['support_opensource_flink_versions'] = supportOpensourceFlinkVersions;
+    }
+    public get supportOpensourceFlinkVersions(): Array<string> | undefined {
+        return this['support_opensource_flink_versions'];
     }
     public withCreateTime(createTime: number): Queue {
         this['create_time'] = createTime;
@@ -184,15 +211,15 @@ export class Queue {
         this['feature'] = feature;
         return this;
     }
-    public withResourceType(resourceType: string): Queue {
-        this['resource_type'] = resourceType;
+    public withQueueResourceType(queueResourceType: string): Queue {
+        this['queue_resource_type'] = queueResourceType;
         return this;
     }
-    public set resourceType(resourceType: string  | undefined) {
-        this['resource_type'] = resourceType;
+    public set queueResourceType(queueResourceType: string  | undefined) {
+        this['queue_resource_type'] = queueResourceType;
     }
-    public get resourceType(): string | undefined {
-        return this['resource_type'];
+    public get queueResourceType(): string | undefined {
+        return this['queue_resource_type'];
     }
     public withCuSpec(cuSpec: number): Queue {
         this['cu_spec'] = cuSpec;
@@ -316,6 +343,14 @@ export class Queue {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QueueEngineEnum {
+    SPARK = 'spark',
+    HETUENGINE = 'hetuEngine'
+}
 /**
     * @export
     * @enum {string}

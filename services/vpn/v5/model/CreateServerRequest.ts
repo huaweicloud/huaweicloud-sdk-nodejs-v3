@@ -11,6 +11,7 @@ export class CreateServerRequest {
     private 'server_certificate'?: CreateServerRequestServerCertificate;
     private 'client_ca_certificates'?: Array<CreateServerRequestClientCaCertificates>;
     private 'ssl_options'?: CreateServerRequestSslOptions;
+    private 'dns_servers'?: Array<string>;
     public constructor(clientCidr?: string, localSubnets?: Array<string>) { 
         this['client_cidr'] = clientCidr;
         this['local_subnets'] = localSubnets;
@@ -84,6 +85,16 @@ export class CreateServerRequest {
     }
     public get sslOptions(): CreateServerRequestSslOptions | undefined {
         return this['ssl_options'];
+    }
+    public withDnsServers(dnsServers: Array<string>): CreateServerRequest {
+        this['dns_servers'] = dnsServers;
+        return this;
+    }
+    public set dnsServers(dnsServers: Array<string>  | undefined) {
+        this['dns_servers'] = dnsServers;
+    }
+    public get dnsServers(): Array<string> | undefined {
+        return this['dns_servers'];
     }
 }
 

@@ -1,7 +1,9 @@
+import { AddExceptRuleReq } from './AddExceptRuleReq';
 
 
 export class AddWorkloadRuleRequest {
     private 'cluster_id'?: string;
+    public body?: AddExceptRuleReq;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
@@ -14,5 +16,9 @@ export class AddWorkloadRuleRequest {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withBody(body: AddExceptRuleReq): AddWorkloadRuleRequest {
+        this['body'] = body;
+        return this;
     }
 }

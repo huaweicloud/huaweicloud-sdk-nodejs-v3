@@ -27,6 +27,7 @@ export class CreateFlinkJarJobRequestBody {
     private 'resume_max_num'?: number;
     private 'checkpoint_path'?: string;
     private 'runtime_config'?: string;
+    private 'execution_agency_urn'?: string;
     public tags?: Array<Tag>;
     private 'resource_config'?: ResourceConfig;
     private 'resource_config_version'?: string;
@@ -242,6 +243,16 @@ export class CreateFlinkJarJobRequestBody {
     }
     public get runtimeConfig(): string | undefined {
         return this['runtime_config'];
+    }
+    public withExecutionAgencyUrn(executionAgencyUrn: string): CreateFlinkJarJobRequestBody {
+        this['execution_agency_urn'] = executionAgencyUrn;
+        return this;
+    }
+    public set executionAgencyUrn(executionAgencyUrn: string  | undefined) {
+        this['execution_agency_urn'] = executionAgencyUrn;
+    }
+    public get executionAgencyUrn(): string | undefined {
+        return this['execution_agency_urn'];
     }
     public withTags(tags: Array<Tag>): CreateFlinkJarJobRequestBody {
         this['tags'] = tags;

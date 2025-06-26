@@ -337,8 +337,6 @@ import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowRecycleBinRequest } from './model/ShowRecycleBinRequest';
 import { ShowRecycleBinResponse } from './model/ShowRecycleBinResponse';
-import { ShowRecycleBinServerRequest } from './model/ShowRecycleBinServerRequest';
-import { ShowRecycleBinServerResponse } from './model/ShowRecycleBinServerResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
 import { ShowResetPasswordFlagResponse } from './model/ShowResetPasswordFlagResponse';
 import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
@@ -1877,24 +1875,6 @@ export class EcsClient {
      */
     public showRecycleBin(showRecycleBinRequest?: ShowRecycleBinRequest): Promise<ShowRecycleBinResponse> {
         const options = ParamCreater().showRecycleBin();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询回收站中指定云服务器
-     * @param {string} serverId 云服务器ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showRecycleBinServer(showRecycleBinServerRequest?: ShowRecycleBinServerRequest): Promise<ShowRecycleBinServerResponse> {
-        const options = ParamCreater().showRecycleBinServer(showRecycleBinServerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5681,42 +5661,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showRecycleBinServer(showRecycleBinServerRequest?: ShowRecycleBinServerRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/recycle-bin/cloudservers/{server_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let serverId;
-
-            if (showRecycleBinServerRequest !== null && showRecycleBinServerRequest !== undefined) {
-                if (showRecycleBinServerRequest instanceof ShowRecycleBinServerRequest) {
-                    serverId = showRecycleBinServerRequest.serverId;
-                } else {
-                    serverId = showRecycleBinServerRequest['server_id'];
-                }
-            }
-
-        
-            if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showRecycleBinServer.');
-            }
-
-            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

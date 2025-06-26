@@ -1847,6 +1847,7 @@ export class DcsClient {
      * @param {number} [limit] 每页显示的条目数量。
      * @param {'start_time' | 'duration'} [sortKey] 返回结果按该关键字排序，支持start_time，duration，默认为“start_time”
      * @param {'desc' | 'asc'} [sortDir] 降序或升序（分别对应desc和asc，默认为“desc”）
+     * @param {string} [role] 查询节点，分为proxy和server。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6461,6 +6462,8 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let role;
 
             if (listSlowlogRequest !== null && listSlowlogRequest !== undefined) {
                 if (listSlowlogRequest instanceof ListSlowlogRequest) {
@@ -6471,6 +6474,7 @@ export const ParamCreater = function () {
                     limit = listSlowlogRequest.limit;
                     sortKey = listSlowlogRequest.sortKey;
                     sortDir = listSlowlogRequest.sortDir;
+                    role = listSlowlogRequest.role;
                 } else {
                     instanceId = listSlowlogRequest['instance_id'];
                     startTime = listSlowlogRequest['start_time'];
@@ -6479,6 +6483,7 @@ export const ParamCreater = function () {
                     limit = listSlowlogRequest['limit'];
                     sortKey = listSlowlogRequest['sort_key'];
                     sortDir = listSlowlogRequest['sort_dir'];
+                    role = listSlowlogRequest['role'];
                 }
             }
 
@@ -6509,6 +6514,9 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (role !== null && role !== undefined) {
+                localVarQueryParameter['role'] = role;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -21,6 +21,7 @@ export class UpdateFlinkJarJobRequestBody {
     private 'tm_slot_num'?: number;
     public feature?: string;
     private 'flink_version'?: string;
+    private 'execution_agency_urn'?: string;
     public image?: string;
     private 'resume_checkpoint'?: boolean;
     private 'resume_max_num'?: number;
@@ -196,6 +197,16 @@ export class UpdateFlinkJarJobRequestBody {
     }
     public get flinkVersion(): string | undefined {
         return this['flink_version'];
+    }
+    public withExecutionAgencyUrn(executionAgencyUrn: string): UpdateFlinkJarJobRequestBody {
+        this['execution_agency_urn'] = executionAgencyUrn;
+        return this;
+    }
+    public set executionAgencyUrn(executionAgencyUrn: string  | undefined) {
+        this['execution_agency_urn'] = executionAgencyUrn;
+    }
+    public get executionAgencyUrn(): string | undefined {
+        return this['execution_agency_urn'];
     }
     public withImage(image: string): UpdateFlinkJarJobRequestBody {
         this['image'] = image;

@@ -34,6 +34,7 @@ export class DcsRegion {
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dcs.my-kualalumpur-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dcs.ru-moscow-1.myhuaweicloud.com"]);
     public static CN_EAST_4 = new Region("cn-east-4", ["https://dcs.cn-east-4.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://dcs.ap-southeast-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -64,7 +65,8 @@ export class DcsRegion {
         "cn-east-5":DcsRegion.CN_EAST_5,
         "my-kualalumpur-1":DcsRegion.MY_KUALALUMPUR_1,
         "ru-moscow-1":DcsRegion.RU_MOSCOW_1,
-        "cn-east-4":DcsRegion.CN_EAST_4
+        "cn-east-4":DcsRegion.CN_EAST_4,
+        "ap-southeast-5":DcsRegion.AP_SOUTHEAST_5
     };
   
     public static valueOf(regionId: string) {

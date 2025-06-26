@@ -18,6 +18,8 @@ export class VoiceModelAssetMeta {
     private 'is_support_vc_process'?: boolean;
     private 'is_support_thai_auto_split'?: boolean;
     private 'is_flexus'?: boolean;
+    private 'is_enhance_rhythm'?: boolean;
+    public age?: string;
     public constructor() { 
     }
     public withOrder(order: number): VoiceModelAssetMeta {
@@ -129,6 +131,20 @@ export class VoiceModelAssetMeta {
     }
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
+    }
+    public withIsEnhanceRhythm(isEnhanceRhythm: boolean): VoiceModelAssetMeta {
+        this['is_enhance_rhythm'] = isEnhanceRhythm;
+        return this;
+    }
+    public set isEnhanceRhythm(isEnhanceRhythm: boolean  | undefined) {
+        this['is_enhance_rhythm'] = isEnhanceRhythm;
+    }
+    public get isEnhanceRhythm(): boolean | undefined {
+        return this['is_enhance_rhythm'];
+    }
+    public withAge(age: string): VoiceModelAssetMeta {
+        this['age'] = age;
+        return this;
     }
 }
 

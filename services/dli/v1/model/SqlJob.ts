@@ -17,6 +17,7 @@ export class SqlJob {
     private 'table_name'?: string;
     private 'with_column_header'?: boolean;
     public detail?: string;
+    private 'engine_type'?: SqlJobEngineTypeEnum | string;
     public statement?: string;
     public tags?: Array<Tag>;
     public message?: string;
@@ -164,6 +165,16 @@ export class SqlJob {
         this['detail'] = detail;
         return this;
     }
+    public withEngineType(engineType: SqlJobEngineTypeEnum | string): SqlJob {
+        this['engine_type'] = engineType;
+        return this;
+    }
+    public set engineType(engineType: SqlJobEngineTypeEnum | string  | undefined) {
+        this['engine_type'] = engineType;
+    }
+    public get engineType(): SqlJobEngineTypeEnum | string | undefined {
+        return this['engine_type'];
+    }
     public withStatement(statement: string): SqlJob {
         this['statement'] = statement;
         return this;
@@ -248,4 +259,12 @@ export enum SqlJobStatusEnum {
     FINISHED = 'FINISHED',
     FAILED = 'FAILED',
     CANCELLED = 'CANCELLED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SqlJobEngineTypeEnum {
+    SPARK = 'spark',
+    HETUENGINE = 'hetuEngine'
 }

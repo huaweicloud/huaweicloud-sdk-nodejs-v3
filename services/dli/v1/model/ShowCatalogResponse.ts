@@ -6,6 +6,8 @@ export class ShowCatalogResponse extends SdkResponse {
     public name?: string;
     private 'create_time'?: number;
     public parameters?: { [key: string]: string; };
+    public description?: string;
+    public status?: string;
     public constructor() { 
         super();
     }
@@ -35,6 +37,14 @@ export class ShowCatalogResponse extends SdkResponse {
     }
     public withParameters(parameters: { [key: string]: string; }): ShowCatalogResponse {
         this['parameters'] = parameters;
+        return this;
+    }
+    public withDescription(description: string): ShowCatalogResponse {
+        this['description'] = description;
+        return this;
+    }
+    public withStatus(status: string): ShowCatalogResponse {
+        this['status'] = status;
         return this;
     }
 }

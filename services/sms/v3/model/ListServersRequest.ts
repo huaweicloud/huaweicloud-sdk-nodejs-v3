@@ -98,7 +98,11 @@ export enum ListServersRequestStateEnum {
     FINISHED = 'finished',
     CLEARING = 'clearing',
     CLEARED = 'cleared',
-    CLEARFAILED = 'clearfailed'
+    CLEARFAILED = 'clearfailed',
+    PREMIGREADY = 'premigready',
+    PREMIGING = 'premiging',
+    PREMIGED = 'premiged',
+    PREMIGFAILED = 'premigfailed'
 }
 /**
     * @export

@@ -21,6 +21,7 @@ export class ShowResponseP2cVgw {
     public version?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
+    private 'applied_at'?: Date;
     public constructor() { 
     }
     public withId(id: string): ShowResponseP2cVgw {
@@ -160,5 +161,15 @@ export class ShowResponseP2cVgw {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withAppliedAt(appliedAt: Date): ShowResponseP2cVgw {
+        this['applied_at'] = appliedAt;
+        return this;
+    }
+    public set appliedAt(appliedAt: Date  | undefined) {
+        this['applied_at'] = appliedAt;
+    }
+    public get appliedAt(): Date | undefined {
+        return this['applied_at'];
     }
 }

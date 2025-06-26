@@ -2,8 +2,7 @@
 
 export class ListAlarmStatisticRequest {
     private 'time_zone'?: string;
-    public constructor(timeZone?: string) { 
-        this['time_zone'] = timeZone;
+    public constructor() { 
     }
     public withTimeZone(timeZone: string): ListAlarmStatisticRequest {
         this['time_zone'] = timeZone;

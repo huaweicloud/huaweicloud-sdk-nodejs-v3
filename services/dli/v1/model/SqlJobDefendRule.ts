@@ -7,7 +7,7 @@ export class SqlJobDefendRule {
     private 'rule_id'?: SqlJobDefendRuleRuleIdEnum | string;
     public category?: SqlJobDefendRuleCategoryEnum | string;
     private 'engine_rules'?: object;
-    public queueNames?: Array<string>;
+    private 'queue_names'?: Array<string>;
     public desc?: string;
     private 'sys_desc'?: string;
     private 'create_time'?: number;
@@ -69,8 +69,14 @@ export class SqlJobDefendRule {
         return this['engine_rules'];
     }
     public withQueueNames(queueNames: Array<string>): SqlJobDefendRule {
-        this['queueNames'] = queueNames;
+        this['queue_names'] = queueNames;
         return this;
+    }
+    public set queueNames(queueNames: Array<string>  | undefined) {
+        this['queue_names'] = queueNames;
+    }
+    public get queueNames(): Array<string> | undefined {
+        return this['queue_names'];
     }
     public withDesc(desc: string): SqlJobDefendRule {
         this['desc'] = desc;

@@ -112,5 +112,6 @@ export class HumanModel2DAssetMeta {
 export enum HumanModel2DAssetMetaModelVersionEnum {
     V2 = 'V2',
     V3 = 'V3',
-    V3_2 = 'V3_2'
+    V3_2 = 'V3_2',
+    V3_3 = 'V3_3'
 }

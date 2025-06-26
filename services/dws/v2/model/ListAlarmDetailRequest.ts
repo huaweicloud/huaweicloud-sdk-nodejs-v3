@@ -4,8 +4,7 @@ export class ListAlarmDetailRequest {
     private 'time_zone'?: string;
     public offset?: string;
     public limit?: string;
-    public constructor(timeZone?: string) { 
-        this['time_zone'] = timeZone;
+    public constructor() { 
     }
     public withTimeZone(timeZone: string): ListAlarmDetailRequest {
         this['time_zone'] = timeZone;

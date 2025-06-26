@@ -1,5 +1,7 @@
 export * from './SmsClient';
 
+export * from './model/BatchConsistencyReq';
+export * from './model/BatchGetConsistencyResultReq';
 export * from './model/BtrfsFileSystem';
 export * from './model/BtrfsSubvolumn';
 export * from './model/CheckNetAclRequest';
@@ -42,6 +44,8 @@ export * from './model/DeleteTemplatesResponse';
 export * from './model/DeletetemplatesReq';
 export * from './model/DiskIntargetServer';
 export * from './model/EnvironmentCheck';
+export * from './model/ExportConsistencyResultsRequest';
+export * from './model/ExportConsistencyResultsResponse';
 export * from './model/InitTargetServer';
 export * from './model/Link';
 export * from './model/ListApiVersionRequest';

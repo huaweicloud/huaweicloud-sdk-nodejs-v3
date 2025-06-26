@@ -335,8 +335,6 @@ export * from './model/ShowJobRequest';
 export * from './model/ShowJobResponse';
 export * from './model/ShowRecycleBinRequest';
 export * from './model/ShowRecycleBinResponse';
-export * from './model/ShowRecycleBinServerRequest';
-export * from './model/ShowRecycleBinServerResponse';
 export * from './model/ShowResetPasswordFlagRequest';
 export * from './model/ShowResetPasswordFlagResponse';
 export * from './model/ShowServerBlockDeviceRequest';

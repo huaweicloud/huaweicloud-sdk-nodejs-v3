@@ -4,6 +4,7 @@ export class RunCatalogActionRequestBody {
     public action?: RunCatalogActionRequestBodyActionEnum | string;
     public name?: string;
     public parameters?: { [key: string]: string; };
+    public description?: string;
     public constructor(action?: string, name?: string, parameters?: { [key: string]: string; }) { 
         this['action'] = action;
         this['name'] = name;
@@ -19,6 +20,10 @@ export class RunCatalogActionRequestBody {
     }
     public withParameters(parameters: { [key: string]: string; }): RunCatalogActionRequestBody {
         this['parameters'] = parameters;
+        return this;
+    }
+    public withDescription(description: string): RunCatalogActionRequestBody {
+        this['description'] = description;
         return this;
     }
 }

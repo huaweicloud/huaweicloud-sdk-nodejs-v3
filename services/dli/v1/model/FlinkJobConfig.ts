@@ -21,6 +21,7 @@ export class FlinkJobConfig {
     private 'dependency_files'?: Array<string>;
     private 'executor_number'?: number;
     private 'executor_cu_number'?: number;
+    private 'execution_agency_urn'?: string;
     private 'resume_checkpoint'?: boolean;
     private 'runtime_config'?: string;
     private 'graph_editor_enabled'?: boolean;
@@ -231,6 +232,16 @@ export class FlinkJobConfig {
     }
     public get executorCuNumber(): number | undefined {
         return this['executor_cu_number'];
+    }
+    public withExecutionAgencyUrn(executionAgencyUrn: string): FlinkJobConfig {
+        this['execution_agency_urn'] = executionAgencyUrn;
+        return this;
+    }
+    public set executionAgencyUrn(executionAgencyUrn: string  | undefined) {
+        this['execution_agency_urn'] = executionAgencyUrn;
+    }
+    public get executionAgencyUrn(): string | undefined {
+        return this['execution_agency_urn'];
     }
     public withResumeCheckpoint(resumeCheckpoint: boolean): FlinkJobConfig {
         this['resume_checkpoint'] = resumeCheckpoint;

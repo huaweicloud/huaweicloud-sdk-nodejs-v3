@@ -5,6 +5,7 @@ export class Catalog {
     private 'create_time'?: number;
     public parameters?: { [key: string]: string; };
     public description?: string;
+    public status?: string;
     public constructor() { 
     }
     public withName(name: string): Catalog {
@@ -27,6 +28,10 @@ export class Catalog {
     }
     public withDescription(description: string): Catalog {
         this['description'] = description;
+        return this;
+    }
+    public withStatus(status: string): Catalog {
+        this['status'] = status;
         return this;
     }
 }

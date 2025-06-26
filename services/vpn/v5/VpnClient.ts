@@ -9,6 +9,9 @@ import { AvailabilityZones } from './model/AvailabilityZones';
 import { AvailableSpec } from './model/AvailableSpec';
 import { BatchCreateResourceTagsRequest } from './model/BatchCreateResourceTagsRequest';
 import { BatchCreateResourceTagsResponse } from './model/BatchCreateResourceTagsResponse';
+import { BatchCreateVpnConnectionRequest } from './model/BatchCreateVpnConnectionRequest';
+import { BatchCreateVpnConnectionRequestBody } from './model/BatchCreateVpnConnectionRequestBody';
+import { BatchCreateVpnConnectionResponse } from './model/BatchCreateVpnConnectionResponse';
 import { BatchCreateVpnUsersRequest } from './model/BatchCreateVpnUsersRequest';
 import { BatchCreateVpnUsersRequestBody } from './model/BatchCreateVpnUsersRequestBody';
 import { BatchCreateVpnUsersResponse } from './model/BatchCreateVpnUsersResponse';
@@ -17,6 +20,7 @@ import { BatchDeleteResourceTagsResponse } from './model/BatchDeleteResourceTags
 import { BatchDeleteVpnUsersRequest } from './model/BatchDeleteVpnUsersRequest';
 import { BatchDeleteVpnUsersRequestBody } from './model/BatchDeleteVpnUsersRequestBody';
 import { BatchDeleteVpnUsersResponse } from './model/BatchDeleteVpnUsersResponse';
+import { BgpPeer } from './model/BgpPeer';
 import { CaCertificate } from './model/CaCertificate';
 import { CaCertificateRequest } from './model/CaCertificateRequest';
 import { CheckClientCaCertificateRequest } from './model/CheckClientCaCertificateRequest';
@@ -911,6 +915,25 @@ export class VpnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同时创建1-2条VPN连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建VPN连接
+     * @param {BatchCreateVpnConnectionRequestBody} batchCreateVpnConnectionRequestBody 请求参数对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateVpnConnection(batchCreateVpnConnectionRequest?: BatchCreateVpnConnectionRequest): Promise<BatchCreateVpnConnectionResponse> {
+        const options = ParamCreater().batchCreateVpnConnection(batchCreateVpnConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3216,6 +3239,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'vpn_server_id': vpnServerId,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同时创建1-2条VPN连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateVpnConnection(batchCreateVpnConnectionRequest?: BatchCreateVpnConnectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/vpn-connections/batch-create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchCreateVpnConnectionRequest !== null && batchCreateVpnConnectionRequest !== undefined) {
+                if (batchCreateVpnConnectionRequest instanceof BatchCreateVpnConnectionRequest) {
+                    body = batchCreateVpnConnectionRequest.body
+                } else {
+                    body = batchCreateVpnConnectionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

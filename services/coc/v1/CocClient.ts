@@ -16,6 +16,8 @@ import { AuthorizableTicketBody } from './model/AuthorizableTicketBody';
 import { AuthorizeTicketCommonInfo } from './model/AuthorizeTicketCommonInfo';
 import { AuthorizeTicketInfo } from './model/AuthorizeTicketInfo';
 import { BaseResponse } from './model/BaseResponse';
+import { BasicDTO } from './model/BasicDTO';
+import { BasicResponse } from './model/BasicResponse';
 import { BatchCreateApplicationViewRequest } from './model/BatchCreateApplicationViewRequest';
 import { BatchCreateApplicationViewRequestBody } from './model/BatchCreateApplicationViewRequestBody';
 import { BatchCreateApplicationViewRequestBodyApplicationList } from './model/BatchCreateApplicationViewRequestBodyApplicationList';
@@ -26,6 +28,8 @@ import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicati
 import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateApplicationViewResponseBody';
 import { BatchListMultiCloudResourceResponseData } from './model/BatchListMultiCloudResourceResponseData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
+import { CancelDiagnosisTaskRequest } from './model/CancelDiagnosisTaskRequest';
+import { CancelDiagnosisTaskResponse } from './model/CancelDiagnosisTaskResponse';
 import { CheckScriptRiskRequest } from './model/CheckScriptRiskRequest';
 import { CheckScriptRiskResData } from './model/CheckScriptRiskResData';
 import { CheckScriptRiskResDataBlacklistCommands } from './model/CheckScriptRiskResDataBlacklistCommands';
@@ -40,6 +44,8 @@ import { CreateCocIncidentRequest } from './model/CreateCocIncidentRequest';
 import { CreateCocIncidentResponse } from './model/CreateCocIncidentResponse';
 import { CreateCocIssuesRequest } from './model/CreateCocIssuesRequest';
 import { CreateCocIssuesResponse } from './model/CreateCocIssuesResponse';
+import { CreateDiagnosisTaskRequest } from './model/CreateDiagnosisTaskRequest';
+import { CreateDiagnosisTaskResponse } from './model/CreateDiagnosisTaskResponse';
 import { CreateDocumentRequest } from './model/CreateDocumentRequest';
 import { CreateDocumentRequestBody } from './model/CreateDocumentRequestBody';
 import { CreateDocumentRequestBodyTags } from './model/CreateDocumentRequestBodyTags';
@@ -66,6 +72,13 @@ import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
 import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
 import { DeleteScriptRequest } from './model/DeleteScriptRequest';
 import { DeleteScriptResponse } from './model/DeleteScriptResponse';
+import { DiagnosisSummaryItem } from './model/DiagnosisSummaryItem';
+import { DiagnosisTask } from './model/DiagnosisTask';
+import { DiagnosisTaskDetail } from './model/DiagnosisTaskDetail';
+import { DiagnosisTaskNode } from './model/DiagnosisTaskNode';
+import { DiagnosisTaskNodeDetail } from './model/DiagnosisTaskNodeDetail';
+import { DiagnosisTaskPage } from './model/DiagnosisTaskPage';
+import { DiagnosisTaskSubmitBody } from './model/DiagnosisTaskSubmitBody';
 import { DisableScheduledTaskRequest } from './model/DisableScheduledTaskRequest';
 import { DisableScheduledTaskResponse } from './model/DisableScheduledTaskResponse';
 import { DocumentVersionVo } from './model/DocumentVersionVo';
@@ -138,6 +151,8 @@ import { ListBaseRequest } from './model/ListBaseRequest';
 import { ListBaseResponse } from './model/ListBaseResponse';
 import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOperationHistoriesRequest';
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
+import { ListDiagnosisTasksRequest } from './model/ListDiagnosisTasksRequest';
+import { ListDiagnosisTasksResponse } from './model/ListDiagnosisTasksResponse';
 import { ListDocumentAtomicsRequest } from './model/ListDocumentAtomicsRequest';
 import { ListDocumentAtomicsResponse } from './model/ListDocumentAtomicsResponse';
 import { ListDocumentsRequest } from './model/ListDocumentsRequest';
@@ -185,6 +200,7 @@ import { OperateExecutionResponse } from './model/OperateExecutionResponse';
 import { OperateScriptJobRequest } from './model/OperateScriptJobRequest';
 import { OperateScriptJobResponse } from './model/OperateScriptJobResponse';
 import { OpsflowBaseResponse } from './model/OpsflowBaseResponse';
+import { Page } from './model/Page';
 import { PatchDetail } from './model/PatchDetail';
 import { PublicScriptDetailModel } from './model/PublicScriptDetailModel';
 import { PublicScriptListModel } from './model/PublicScriptListModel';
@@ -196,6 +212,9 @@ import { ResourceInstanceProp } from './model/ResourceInstanceProp';
 import { ResourceMultiCountResponseData } from './model/ResourceMultiCountResponseData';
 import { ResourceQuery } from './model/ResourceQuery';
 import { ResourceTag } from './model/ResourceTag';
+import { RetryDiagnosisTaskRequest } from './model/RetryDiagnosisTaskRequest';
+import { RetryDiagnosisTaskRequestBody } from './model/RetryDiagnosisTaskRequestBody';
+import { RetryDiagnosisTaskResponse } from './model/RetryDiagnosisTaskResponse';
 import { ReviewerInfo } from './model/ReviewerInfo';
 import { ScheduleGroupInfo } from './model/ScheduleGroupInfo';
 import { ScheduleInstance } from './model/ScheduleInstance';
@@ -217,6 +236,12 @@ import { ShowCocIncidentDetailRequest } from './model/ShowCocIncidentDetailReque
 import { ShowCocIncidentDetailResponse } from './model/ShowCocIncidentDetailResponse';
 import { ShowCocIssuesDetailRequest } from './model/ShowCocIssuesDetailRequest';
 import { ShowCocIssuesDetailResponse } from './model/ShowCocIssuesDetailResponse';
+import { ShowDiagnosisNodeRequest } from './model/ShowDiagnosisNodeRequest';
+import { ShowDiagnosisNodeResponse } from './model/ShowDiagnosisNodeResponse';
+import { ShowDiagnosisSummaryRequest } from './model/ShowDiagnosisSummaryRequest';
+import { ShowDiagnosisSummaryResponse } from './model/ShowDiagnosisSummaryResponse';
+import { ShowDiagnosisTaskRequest } from './model/ShowDiagnosisTaskRequest';
+import { ShowDiagnosisTaskResponse } from './model/ShowDiagnosisTaskResponse';
 import { ShowInstancePatchItemsRequest } from './model/ShowInstancePatchItemsRequest';
 import { ShowInstancePatchItemsResponse } from './model/ShowInstancePatchItemsResponse';
 import { ShowScheduledTaskRequest } from './model/ShowScheduledTaskRequest';
@@ -406,6 +431,151 @@ export class CocClient {
      */
     public createReportCustomEvent(createReportCustomEventRequest?: CreateReportCustomEventRequest): Promise<CreateReportCustomEventResponse> {
         const options = ParamCreater().createReportCustomEvent(createReportCustomEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消诊断任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消诊断任务
+     * @param {string} taskId 诊断任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelDiagnosisTask(cancelDiagnosisTaskRequest?: CancelDiagnosisTaskRequest): Promise<CancelDiagnosisTaskResponse> {
+        const options = ParamCreater().cancelDiagnosisTask(cancelDiagnosisTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提交诊断任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 提交诊断任务
+     * @param {DiagnosisTaskSubmitBody} [createDiagnosisTaskRequestBody] 诊断任务提交对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDiagnosisTask(createDiagnosisTaskRequest?: CreateDiagnosisTaskRequest): Promise<CreateDiagnosisTaskResponse> {
+        const options = ParamCreater().createDiagnosisTask(createDiagnosisTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询诊断记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询诊断记录
+     * @param {number} pageIndex 分页查询页索引
+     * @param {number} pageSize 分页查询页大小
+     * @param {string} [taskId] 诊断任务工单ID
+     * @param {'ECS' | 'RDS' | 'DCS' | 'DMS' | 'ELB'} [type] 诊断任务实例类别
+     * @param {'cancel' | 'executing' | 'waiting' | 'failed' | 'finish'} [status] 诊断任务执行状态
+     * @param {string} [region] 被诊断实例所在区域
+     * @param {string} [creator] 诊断工单创建者
+     * @param {number} [startTime] 诊断工单的开始执行时间
+     * @param {number} [endTime] 诊断工单的执行结束时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDiagnosisTasks(listDiagnosisTasksRequest?: ListDiagnosisTasksRequest): Promise<ListDiagnosisTasksResponse> {
+        const options = ParamCreater().listDiagnosisTasks(listDiagnosisTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重试诊断任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试诊断任务
+     * @param {string} taskId 诊断任务ID
+     * @param {RetryDiagnosisTaskRequestBody} retryDiagnosisTaskRequestBody 重试诊断任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryDiagnosisTask(retryDiagnosisTaskRequest?: RetryDiagnosisTaskRequest): Promise<RetryDiagnosisTaskResponse> {
+        const options = ParamCreater().retryDiagnosisTask(retryDiagnosisTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定诊断记录下的指定诊断步骤的详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定诊断记录下的指定诊断步骤的详情
+     * @param {string} taskId 诊断工单ID
+     * @param {'holmesInstall' | 'dataCollection' | 'diagnosisFault' | 'holmesUnInstall' | 'rdsDiagnosis' | 'dcsDiagnosis' | 'dmsDiagnosis' | 'elbDiagnosis'} code 诊断步骤编码
+     * @param {string} instanceId 被诊断实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDiagnosisNode(showDiagnosisNodeRequest?: ShowDiagnosisNodeRequest): Promise<ShowDiagnosisNodeResponse> {
+        const options = ParamCreater().showDiagnosisNode(showDiagnosisNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询诊断任务的结果概要
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询批量诊断任务的结果概要
+     * @param {string} taskId 诊断任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDiagnosisSummary(showDiagnosisSummaryRequest?: ShowDiagnosisSummaryRequest): Promise<ShowDiagnosisSummaryResponse> {
+        const options = ParamCreater().showDiagnosisSummary(showDiagnosisSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询单个诊断任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单个诊断任务详情
+     * @param {string} taskId 诊断工单ID
+     * @param {string} instanceId 非必填，被诊断实例的ID，传入后查询该实例诊断报告
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDiagnosisTask(showDiagnosisTaskRequest?: ShowDiagnosisTaskRequest): Promise<ShowDiagnosisTaskResponse> {
+        const options = ParamCreater().showDiagnosisTask(showDiagnosisTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2146,6 +2316,363 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'integration_key': integrationKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 取消诊断任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelDiagnosisTask(cancelDiagnosisTaskRequest?: CancelDiagnosisTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/diagnosis/tasks/{task_id}/cancel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (cancelDiagnosisTaskRequest !== null && cancelDiagnosisTaskRequest !== undefined) {
+                if (cancelDiagnosisTaskRequest instanceof CancelDiagnosisTaskRequest) {
+                    taskId = cancelDiagnosisTaskRequest.taskId;
+                } else {
+                    taskId = cancelDiagnosisTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling cancelDiagnosisTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提交诊断任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDiagnosisTask(createDiagnosisTaskRequest?: CreateDiagnosisTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/diagnosis/tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDiagnosisTaskRequest !== null && createDiagnosisTaskRequest !== undefined) {
+                if (createDiagnosisTaskRequest instanceof CreateDiagnosisTaskRequest) {
+                    body = createDiagnosisTaskRequest.body
+                } else {
+                    body = createDiagnosisTaskRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询诊断记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDiagnosisTasks(listDiagnosisTasksRequest?: ListDiagnosisTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/diagnosis/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageIndex;
+            
+            let pageSize;
+            
+            let taskId;
+            
+            let type;
+            
+            let status;
+            
+            let region;
+            
+            let creator;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listDiagnosisTasksRequest !== null && listDiagnosisTasksRequest !== undefined) {
+                if (listDiagnosisTasksRequest instanceof ListDiagnosisTasksRequest) {
+                    pageIndex = listDiagnosisTasksRequest.pageIndex;
+                    pageSize = listDiagnosisTasksRequest.pageSize;
+                    taskId = listDiagnosisTasksRequest.taskId;
+                    type = listDiagnosisTasksRequest.type;
+                    status = listDiagnosisTasksRequest.status;
+                    region = listDiagnosisTasksRequest.region;
+                    creator = listDiagnosisTasksRequest.creator;
+                    startTime = listDiagnosisTasksRequest.startTime;
+                    endTime = listDiagnosisTasksRequest.endTime;
+                } else {
+                    pageIndex = listDiagnosisTasksRequest['page_index'];
+                    pageSize = listDiagnosisTasksRequest['page_size'];
+                    taskId = listDiagnosisTasksRequest['task_id'];
+                    type = listDiagnosisTasksRequest['type'];
+                    status = listDiagnosisTasksRequest['status'];
+                    region = listDiagnosisTasksRequest['region'];
+                    creator = listDiagnosisTasksRequest['creator'];
+                    startTime = listDiagnosisTasksRequest['start_time'];
+                    endTime = listDiagnosisTasksRequest['end_time'];
+                }
+            }
+
+        
+            if (pageIndex === null || pageIndex === undefined) {
+                throw new RequiredError('pageIndex','Required parameter pageIndex was null or undefined when calling listDiagnosisTasks.');
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize === null || pageSize === undefined) {
+                throw new RequiredError('pageSize','Required parameter pageSize was null or undefined when calling listDiagnosisTasks.');
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (region !== null && region !== undefined) {
+                localVarQueryParameter['region'] = region;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重试诊断任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryDiagnosisTask(retryDiagnosisTaskRequest?: RetryDiagnosisTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/diagnosis/tasks/{task_id}/retry",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (retryDiagnosisTaskRequest !== null && retryDiagnosisTaskRequest !== undefined) {
+                if (retryDiagnosisTaskRequest instanceof RetryDiagnosisTaskRequest) {
+                    taskId = retryDiagnosisTaskRequest.taskId;
+                    body = retryDiagnosisTaskRequest.body
+                } else {
+                    taskId = retryDiagnosisTaskRequest['task_id'];
+                    body = retryDiagnosisTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling retryDiagnosisTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定诊断记录下的指定诊断步骤的详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDiagnosisNode(showDiagnosisNodeRequest?: ShowDiagnosisNodeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/diagnosis/tasks/{task_id}/node/{code}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let code;
+            
+            let instanceId;
+
+            if (showDiagnosisNodeRequest !== null && showDiagnosisNodeRequest !== undefined) {
+                if (showDiagnosisNodeRequest instanceof ShowDiagnosisNodeRequest) {
+                    taskId = showDiagnosisNodeRequest.taskId;
+                    code = showDiagnosisNodeRequest.code;
+                    instanceId = showDiagnosisNodeRequest.instanceId;
+                } else {
+                    taskId = showDiagnosisNodeRequest['task_id'];
+                    code = showDiagnosisNodeRequest['code'];
+                    instanceId = showDiagnosisNodeRequest['instance_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showDiagnosisNode.');
+            }
+            if (code === null || code === undefined) {
+            throw new RequiredError('code','Required parameter code was null or undefined when calling showDiagnosisNode.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDiagnosisNode.');
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId,'code': code, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询诊断任务的结果概要
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDiagnosisSummary(showDiagnosisSummaryRequest?: ShowDiagnosisSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/diagnosis/tasks/{task_id}/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showDiagnosisSummaryRequest !== null && showDiagnosisSummaryRequest !== undefined) {
+                if (showDiagnosisSummaryRequest instanceof ShowDiagnosisSummaryRequest) {
+                    taskId = showDiagnosisSummaryRequest.taskId;
+                } else {
+                    taskId = showDiagnosisSummaryRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showDiagnosisSummary.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询单个诊断任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDiagnosisTask(showDiagnosisTaskRequest?: ShowDiagnosisTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/diagnosis/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (showDiagnosisTaskRequest !== null && showDiagnosisTaskRequest !== undefined) {
+                if (showDiagnosisTaskRequest instanceof ShowDiagnosisTaskRequest) {
+                    taskId = showDiagnosisTaskRequest.taskId;
+                    instanceId = showDiagnosisTaskRequest.instanceId;
+                } else {
+                    taskId = showDiagnosisTaskRequest['task_id'];
+                    instanceId = showDiagnosisTaskRequest['instance_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showDiagnosisTask.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDiagnosisTask.');
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

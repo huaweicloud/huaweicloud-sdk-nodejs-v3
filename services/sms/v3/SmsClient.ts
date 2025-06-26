@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { BatchConsistencyReq } from './model/BatchConsistencyReq';
+import { BatchGetConsistencyResultReq } from './model/BatchGetConsistencyResultReq';
 import { BtrfsFileSystem } from './model/BtrfsFileSystem';
 import { BtrfsSubvolumn } from './model/BtrfsSubvolumn';
 import { CheckNetAclRequest } from './model/CheckNetAclRequest';
@@ -44,6 +46,8 @@ import { DeleteTemplatesResponse } from './model/DeleteTemplatesResponse';
 import { DeletetemplatesReq } from './model/DeletetemplatesReq';
 import { DiskIntargetServer } from './model/DiskIntargetServer';
 import { EnvironmentCheck } from './model/EnvironmentCheck';
+import { ExportConsistencyResultsRequest } from './model/ExportConsistencyResultsRequest';
+import { ExportConsistencyResultsResponse } from './model/ExportConsistencyResultsResponse';
 import { InitTargetServer } from './model/InitTargetServer';
 import { Link } from './model/Link';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
@@ -192,28 +196,6 @@ export class SmsClient {
         return __dirname;
     }
 
-
-    /**
-     * 检查网卡安全组。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 检查网卡安全组端口是否符合要求
-     * @param {string} tProjectId 目的虚拟机所属project_id
-     * @param {string} tNetworkId 目的端子网ID
-     * @param {string} regionId 区域ID
-     * @param {string} osType 操作系统类型
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkNetAcl(checkNetAclRequest?: CheckNetAclRequest): Promise<CheckNetAclResponse> {
-        const options = ParamCreater().checkNetAcl(checkNetAclRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 
     /**
      * 上传迁移任务的日志。
@@ -444,6 +426,26 @@ export class SmsClient {
     }
 
     /**
+     * 使用该接口批量导出一致性校验结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量获取一致性校验结果
+     * @param {BatchGetConsistencyResultReq} exportConsistencyResultsRequestBody 一致性校验结果请求体
+     * @param {string} [xLanguage] 中英文选择
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportConsistencyResults(exportConsistencyResultsRequest?: ExportConsistencyResultsRequest): Promise<ExportConsistencyResultsResponse> {
+        const options = ParamCreater().exportConsistencyResults(exportConsistencyResultsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 主机迁移过程中可能发生错误，使用该接口可以批量查询迁移过程中出现错误的源端服务器信息，以及它们的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -491,7 +493,7 @@ export class SmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询源端服务器列表
-     * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'skipping' | 'deleting' | 'error' | 'cloning' | 'cutovering' | 'finished' | 'clearing' | 'cleared' | 'clearfailed'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 skipping：跳过中 deleting：删除中 error：错误 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成 clearing: 清理快照资源中 cleared：清理快照资源完成 clearfailed：清理快照资源失败
+     * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'skipping' | 'deleting' | 'error' | 'cloning' | 'cutovering' | 'finished' | 'clearing' | 'cleared' | 'clearfailed' | 'premigready' | 'premiging' | 'premiged' | 'premigfailed'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 skipping：跳过中 deleting：删除中 error：错误 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成 clearing: 清理快照资源中 cleared：清理快照资源完成 clearfailed：清理快照资源失败 premigready: 迁移演练已就绪 premiging: 迁移演练中 premiged: 迁移演练已完成 premigfailed: 迁移演练失败
      * @param {string} [name] 源端服务器名称
      * @param {string} [id] 源端服务器ID
      * @param {string} [ip] 源端服务器IP地址
@@ -753,25 +755,6 @@ export class SmsClient {
     }
 
     /**
-     * 计算sha256，加密字段值为uuid。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 计算sha256
-     * @param {string} key 关键字，加密字段值为uuid。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSha256(showSha256Request?: ShowSha256Request): Promise<ShowSha256Response> {
-        const options = ParamCreater().showSha256(showSha256Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询指定ID的模板中的目的端服务器的密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -840,25 +823,6 @@ export class SmsClient {
      */
     public showsSpeedLimits(showsSpeedLimitsRequest?: ShowsSpeedLimitsRequest): Promise<ShowsSpeedLimitsResponse> {
         const options = ParamCreater().showsSpeedLimits(showsSpeedLimitsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 解锁指定任务的目的端服务器。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 解锁指定任务的目的端服务器
-     * @param {string} taskId 指定任务的ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest): Promise<UnlockTargetEcsResponse> {
-        const options = ParamCreater().unlockTargetEcs(unlockTargetEcsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1165,6 +1129,28 @@ export class SmsClient {
     }
 
     /**
+     * 检查网卡安全组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检查网卡安全组端口是否符合要求
+     * @param {string} tProjectId 目的虚拟机所属project_id
+     * @param {string} tNetworkId 目的端子网ID
+     * @param {string} regionId 区域ID
+     * @param {string} osType 操作系统类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkNetAcl(checkNetAclRequest?: CheckNetAclRequest): Promise<CheckNetAclResponse> {
+        const options = ParamCreater().checkNetAcl(checkNetAclRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询主机迁移服务的API版本信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1200,75 +1186,48 @@ export class SmsClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 计算sha256，加密字段值为uuid。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 计算sha256
+     * @param {string} key 关键字，加密字段值为uuid。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSha256(showSha256Request?: ShowSha256Request): Promise<ShowSha256Response> {
+        const options = ParamCreater().showSha256(showSha256Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解锁指定任务的目的端服务器。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解锁指定任务的目的端服务器
+     * @param {string} taskId 指定任务的ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest): Promise<UnlockTargetEcsResponse> {
+        const options = ParamCreater().unlockTargetEcs(unlockTargetEcsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
-    
-        /**
-         * 检查网卡安全组。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkNetAcl(checkNetAclRequest?: CheckNetAclRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/tasks/{t_project_id}/networkacl/{t_network_id}/check",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let tProjectId;
-            
-            let tNetworkId;
-            
-            let regionId;
-            
-            let osType;
-
-            if (checkNetAclRequest !== null && checkNetAclRequest !== undefined) {
-                if (checkNetAclRequest instanceof CheckNetAclRequest) {
-                    tProjectId = checkNetAclRequest.tProjectId;
-                    tNetworkId = checkNetAclRequest.tNetworkId;
-                    regionId = checkNetAclRequest.regionId;
-                    osType = checkNetAclRequest.osType;
-                } else {
-                    tProjectId = checkNetAclRequest['t_project_id'];
-                    tNetworkId = checkNetAclRequest['t_network_id'];
-                    regionId = checkNetAclRequest['region_id'];
-                    osType = checkNetAclRequest['os_type'];
-                }
-            }
-
-        
-            if (tProjectId === null || tProjectId === undefined) {
-            throw new RequiredError('tProjectId','Required parameter tProjectId was null or undefined when calling checkNetAcl.');
-            }
-            if (tNetworkId === null || tNetworkId === undefined) {
-            throw new RequiredError('tNetworkId','Required parameter tNetworkId was null or undefined when calling checkNetAcl.');
-            }
-            if (regionId === null || regionId === undefined) {
-                throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling checkNetAcl.');
-            }
-            if (regionId !== null && regionId !== undefined) {
-                localVarQueryParameter['region_id'] = regionId;
-            }
-            if (osType === null || osType === undefined) {
-                throw new RequiredError('osType','Required parameter osType was null or undefined when calling checkNetAcl.');
-            }
-            if (osType !== null && osType !== undefined) {
-                localVarQueryParameter['os_type'] = osType;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 't_project_id': tProjectId,'t_network_id': tNetworkId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
     
         /**
          * 上传迁移任务的日志。
@@ -1704,6 +1663,51 @@ export const ParamCreater = function () {
 
         
             localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用该接口批量导出一致性校验结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportConsistencyResults(exportConsistencyResultsRequest?: ExportConsistencyResultsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/tasks/consistency-results/export",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (exportConsistencyResultsRequest !== null && exportConsistencyResultsRequest !== undefined) {
+                if (exportConsistencyResultsRequest instanceof ExportConsistencyResultsRequest) {
+                    body = exportConsistencyResultsRequest.body
+                    xLanguage = exportConsistencyResultsRequest.xLanguage;
+                } else {
+                    body = exportConsistencyResultsRequest['body'];
+                    xLanguage = exportConsistencyResultsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -2422,43 +2426,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 计算sha256，加密字段值为uuid。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSha256(showSha256Request?: ShowSha256Request) {
-            const options = {
-                method: "GET",
-                url: "/v3/sha256/{key}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let key;
-
-            if (showSha256Request !== null && showSha256Request !== undefined) {
-                if (showSha256Request instanceof ShowSha256Request) {
-                    key = showSha256Request.key;
-                } else {
-                    key = showSha256Request['key'];
-                }
-            }
-
-        
-            if (key === null || key === undefined) {
-            throw new RequiredError('key','Required parameter key was null or undefined when calling showSha256.');
-            }
-
-            options.pathParams = { 'key': key, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询指定ID的模板中的目的端服务器的密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2599,43 +2566,6 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showsSpeedLimits.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 解锁指定任务的目的端服务器。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/tasks/{task_id}/unlock",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (unlockTargetEcsRequest !== null && unlockTargetEcsRequest !== undefined) {
-                if (unlockTargetEcsRequest instanceof UnlockTargetEcsRequest) {
-                    taskId = unlockTargetEcsRequest.taskId;
-                } else {
-                    taskId = unlockTargetEcsRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling unlockTargetEcs.');
             }
 
             options.pathParams = { 'task_id': taskId, };
@@ -3286,6 +3216,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 检查网卡安全组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkNetAcl(checkNetAclRequest?: CheckNetAclRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/tasks/{t_project_id}/networkacl/{t_network_id}/check",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tProjectId;
+            
+            let tNetworkId;
+            
+            let regionId;
+            
+            let osType;
+
+            if (checkNetAclRequest !== null && checkNetAclRequest !== undefined) {
+                if (checkNetAclRequest instanceof CheckNetAclRequest) {
+                    tProjectId = checkNetAclRequest.tProjectId;
+                    tNetworkId = checkNetAclRequest.tNetworkId;
+                    regionId = checkNetAclRequest.regionId;
+                    osType = checkNetAclRequest.osType;
+                } else {
+                    tProjectId = checkNetAclRequest['t_project_id'];
+                    tNetworkId = checkNetAclRequest['t_network_id'];
+                    regionId = checkNetAclRequest['region_id'];
+                    osType = checkNetAclRequest['os_type'];
+                }
+            }
+
+        
+            if (tProjectId === null || tProjectId === undefined) {
+            throw new RequiredError('tProjectId','Required parameter tProjectId was null or undefined when calling checkNetAcl.');
+            }
+            if (tNetworkId === null || tNetworkId === undefined) {
+            throw new RequiredError('tNetworkId','Required parameter tNetworkId was null or undefined when calling checkNetAcl.');
+            }
+            if (regionId === null || regionId === undefined) {
+                throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling checkNetAcl.');
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (osType === null || osType === undefined) {
+                throw new RequiredError('osType','Required parameter osType was null or undefined when calling checkNetAcl.');
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 't_project_id': tProjectId,'t_network_id': tNetworkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询主机迁移服务的API版本信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3339,6 +3334,80 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'version': version, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 计算sha256，加密字段值为uuid。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSha256(showSha256Request?: ShowSha256Request) {
+            const options = {
+                method: "GET",
+                url: "/v3/sha256/{key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let key;
+
+            if (showSha256Request !== null && showSha256Request !== undefined) {
+                if (showSha256Request instanceof ShowSha256Request) {
+                    key = showSha256Request.key;
+                } else {
+                    key = showSha256Request['key'];
+                }
+            }
+
+        
+            if (key === null || key === undefined) {
+            throw new RequiredError('key','Required parameter key was null or undefined when calling showSha256.');
+            }
+
+            options.pathParams = { 'key': key, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解锁指定任务的目的端服务器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/tasks/{task_id}/unlock",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (unlockTargetEcsRequest !== null && unlockTargetEcsRequest !== undefined) {
+                if (unlockTargetEcsRequest instanceof UnlockTargetEcsRequest) {
+                    taskId = unlockTargetEcsRequest.taskId;
+                } else {
+                    taskId = unlockTargetEcsRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling unlockTargetEcs.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

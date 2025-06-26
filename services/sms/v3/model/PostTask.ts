@@ -25,6 +25,7 @@ export class PostTask {
     private 'speed_limit'?: number;
     private 'over_speed_threshold'?: number;
     private 'is_need_consistency_check'?: boolean;
+    private 'need_migration_test'?: boolean;
     public constructor(name?: string, type?: string, osType?: string, sourceServer?: SourceServerByTask, targetServer?: TargetServerByTask, regionName?: string, regionId?: string, projectName?: string, projectId?: string) { 
         this['name'] = name;
         this['type'] = type;
@@ -231,6 +232,16 @@ export class PostTask {
     }
     public get isNeedConsistencyCheck(): boolean | undefined {
         return this['is_need_consistency_check'];
+    }
+    public withNeedMigrationTest(needMigrationTest: boolean): PostTask {
+        this['need_migration_test'] = needMigrationTest;
+        return this;
+    }
+    public set needMigrationTest(needMigrationTest: boolean  | undefined) {
+        this['need_migration_test'] = needMigrationTest;
+    }
+    public get needMigrationTest(): boolean | undefined {
+        return this['need_migration_test'];
     }
 }
 

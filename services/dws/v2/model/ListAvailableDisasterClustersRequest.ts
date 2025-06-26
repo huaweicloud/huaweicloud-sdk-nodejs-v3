@@ -2,11 +2,11 @@
 
 export class ListAvailableDisasterClustersRequest {
     private 'primary_cluster_id'?: string;
+    private 'standby_az_code'?: string;
     private 'primary_spec_id'?: string;
     private 'primary_cluster_dn_num'?: string;
     private 'standby_region'?: string;
     private 'standby_project_id'?: string;
-    private 'standby_az_code'?: string;
     private 'dr_type'?: string;
     private 'datastore_type'?: string;
     private 'datastore_version'?: string;
@@ -23,6 +23,16 @@ export class ListAvailableDisasterClustersRequest {
     }
     public get primaryClusterId(): string | undefined {
         return this['primary_cluster_id'];
+    }
+    public withStandbyAzCode(standbyAzCode: string): ListAvailableDisasterClustersRequest {
+        this['standby_az_code'] = standbyAzCode;
+        return this;
+    }
+    public set standbyAzCode(standbyAzCode: string  | undefined) {
+        this['standby_az_code'] = standbyAzCode;
+    }
+    public get standbyAzCode(): string | undefined {
+        return this['standby_az_code'];
     }
     public withPrimarySpecId(primarySpecId: string): ListAvailableDisasterClustersRequest {
         this['primary_spec_id'] = primarySpecId;
@@ -63,16 +73,6 @@ export class ListAvailableDisasterClustersRequest {
     }
     public get standbyProjectId(): string | undefined {
         return this['standby_project_id'];
-    }
-    public withStandbyAzCode(standbyAzCode: string): ListAvailableDisasterClustersRequest {
-        this['standby_az_code'] = standbyAzCode;
-        return this;
-    }
-    public set standbyAzCode(standbyAzCode: string  | undefined) {
-        this['standby_az_code'] = standbyAzCode;
-    }
-    public get standbyAzCode(): string | undefined {
-        return this['standby_az_code'];
     }
     public withDrType(drType: string): ListAvailableDisasterClustersRequest {
         this['dr_type'] = drType;

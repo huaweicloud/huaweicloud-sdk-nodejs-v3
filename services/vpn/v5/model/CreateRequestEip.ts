@@ -6,6 +6,7 @@ export class CreateRequestEip {
     private 'charge_mode'?: CreateRequestEipChargeModeEnum | string;
     private 'bandwidth_size'?: number;
     private 'bandwidth_name'?: string;
+    private 'bandwidth_id'?: string;
     public constructor() { 
     }
     public withId(id: string): CreateRequestEip {
@@ -45,6 +46,16 @@ export class CreateRequestEip {
     }
     public get bandwidthName(): string | undefined {
         return this['bandwidth_name'];
+    }
+    public withBandwidthId(bandwidthId: string): CreateRequestEip {
+        this['bandwidth_id'] = bandwidthId;
+        return this;
+    }
+    public set bandwidthId(bandwidthId: string  | undefined) {
+        this['bandwidth_id'] = bandwidthId;
+    }
+    public get bandwidthId(): string | undefined {
+        return this['bandwidth_id'];
     }
 }
 

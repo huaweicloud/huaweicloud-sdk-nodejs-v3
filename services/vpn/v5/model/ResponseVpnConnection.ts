@@ -1,3 +1,4 @@
+import { BgpPeer } from './BgpPeer';
 import { IkePolicy } from './IkePolicy';
 import { IpsecPolicy } from './IpsecPolicy';
 import { PolicyRule } from './PolicyRule';
@@ -28,6 +29,7 @@ export class ResponseVpnConnection {
     public tags?: Array<VpnResourceTag>;
     private 'peer_subnets_v6'?: Array<string>;
     private 'policy_rules_v6'?: Array<PolicyRule>;
+    private 'bgp_peer'?: BgpPeer;
     public constructor() { 
     }
     public withId(id: string): ResponseVpnConnection {
@@ -217,6 +219,16 @@ export class ResponseVpnConnection {
     }
     public get policyRulesV6(): Array<PolicyRule> | undefined {
         return this['policy_rules_v6'];
+    }
+    public withBgpPeer(bgpPeer: BgpPeer): ResponseVpnConnection {
+        this['bgp_peer'] = bgpPeer;
+        return this;
+    }
+    public set bgpPeer(bgpPeer: BgpPeer  | undefined) {
+        this['bgp_peer'] = bgpPeer;
+    }
+    public get bgpPeer(): BgpPeer | undefined {
+        return this['bgp_peer'];
     }
 }
 

@@ -2,7 +2,7 @@
 
 export class WorkloadStatus {
     private 'workload_switch'?: string;
-    private 'max_concurrency_num'?: string;
+    private 'max_concurrency_num'?: number;
     public constructor(workloadSwitch?: string) { 
         this['workload_switch'] = workloadSwitch;
     }
@@ -16,14 +16,14 @@ export class WorkloadStatus {
     public get workloadSwitch(): string | undefined {
         return this['workload_switch'];
     }
-    public withMaxConcurrencyNum(maxConcurrencyNum: string): WorkloadStatus {
+    public withMaxConcurrencyNum(maxConcurrencyNum: number): WorkloadStatus {
         this['max_concurrency_num'] = maxConcurrencyNum;
         return this;
     }
-    public set maxConcurrencyNum(maxConcurrencyNum: string  | undefined) {
+    public set maxConcurrencyNum(maxConcurrencyNum: number  | undefined) {
         this['max_concurrency_num'] = maxConcurrencyNum;
     }
-    public get maxConcurrencyNum(): string | undefined {
+    public get maxConcurrencyNum(): number | undefined {
         return this['max_concurrency_num'];
     }
 }

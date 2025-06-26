@@ -5,7 +5,7 @@ export class SqlJobDefendRuleRequestBody {
     private 'rule_id'?: SqlJobDefendRuleRequestBodyRuleIdEnum | string;
     public category?: SqlJobDefendRuleRequestBodyCategoryEnum | string;
     private 'engine_rules'?: object;
-    public queueNames?: Array<string>;
+    private 'queue_names'?: Array<string>;
     public constructor(ruleName?: string, ruleId?: string, category?: string, engineRules?: object) { 
         this['rule_name'] = ruleName;
         this['rule_id'] = ruleId;
@@ -47,8 +47,14 @@ export class SqlJobDefendRuleRequestBody {
         return this['engine_rules'];
     }
     public withQueueNames(queueNames: Array<string>): SqlJobDefendRuleRequestBody {
-        this['queueNames'] = queueNames;
+        this['queue_names'] = queueNames;
         return this;
+    }
+    public set queueNames(queueNames: Array<string>  | undefined) {
+        this['queue_names'] = queueNames;
+    }
+    public get queueNames(): Array<string> | undefined {
+        return this['queue_names'];
     }
 }
 

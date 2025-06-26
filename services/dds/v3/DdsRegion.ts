@@ -32,6 +32,11 @@ export class DdsRegion {
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dds.my-kualalumpur-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dds.ru-moscow-1.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://dds.ae-ad-1.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://dds.cn-east-5.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://dds.cn-east-4.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://dds.cn-north-12.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://dds.af-north-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://dds.ap-southeast-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -60,7 +65,12 @@ export class DdsRegion {
         "eu-west-0":DdsRegion.EU_WEST_0,
         "my-kualalumpur-1":DdsRegion.MY_KUALALUMPUR_1,
         "ru-moscow-1":DdsRegion.RU_MOSCOW_1,
-        "ae-ad-1":DdsRegion.AE_AD_1
+        "ae-ad-1":DdsRegion.AE_AD_1,
+        "cn-east-5":DdsRegion.CN_EAST_5,
+        "cn-east-4":DdsRegion.CN_EAST_4,
+        "cn-north-12":DdsRegion.CN_NORTH_12,
+        "af-north-1":DdsRegion.AF_NORTH_1,
+        "ap-southeast-5":DdsRegion.AP_SOUTHEAST_5
     };
   
     public static valueOf(regionId: string) {

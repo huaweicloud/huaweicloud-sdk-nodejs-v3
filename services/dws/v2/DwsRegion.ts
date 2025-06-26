@@ -15,6 +15,9 @@ export class DwsRegion {
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://dws.cn-southwest-2.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://dws.cn-north-2.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://dws.cn-south-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://dws.cn-south-4.myhuaweicloud.cn"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://dws.cn-north-12.myhuaweicloud.cn"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://dws.cn-east-4.myhuaweicloud.cn"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://dws.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://dws.ap-southeast-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://dws.ap-southeast-3.myhuaweicloud.com"]);
@@ -42,6 +45,9 @@ export class DwsRegion {
         "cn-southwest-2":DwsRegion.CN_SOUTHWEST_2,
         "cn-north-2":DwsRegion.CN_NORTH_2,
         "cn-south-1":DwsRegion.CN_SOUTH_1,
+        "cn-south-4":DwsRegion.CN_SOUTH_4,
+        "cn-north-12":DwsRegion.CN_NORTH_12,
+        "cn-east-4":DwsRegion.CN_EAST_4,
         "ap-southeast-1":DwsRegion.AP_SOUTHEAST_1,
         "ap-southeast-2":DwsRegion.AP_SOUTHEAST_2,
         "ap-southeast-3":DwsRegion.AP_SOUTHEAST_3,

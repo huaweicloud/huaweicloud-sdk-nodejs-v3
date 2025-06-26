@@ -27,6 +27,7 @@ export class CreateSparkJobRequestBody {
     private 'auto_recovery'?: boolean;
     private 'max_retry_times'?: number;
     public image?: string;
+    private 'execution_agency_urn'?: string;
     private 'obs_bucket'?: string;
     private 'catalog_name'?: string;
     public constructor(file?: string, className?: string) { 
@@ -158,6 +159,16 @@ export class CreateSparkJobRequestBody {
     public withImage(image: string): CreateSparkJobRequestBody {
         this['image'] = image;
         return this;
+    }
+    public withExecutionAgencyUrn(executionAgencyUrn: string): CreateSparkJobRequestBody {
+        this['execution_agency_urn'] = executionAgencyUrn;
+        return this;
+    }
+    public set executionAgencyUrn(executionAgencyUrn: string  | undefined) {
+        this['execution_agency_urn'] = executionAgencyUrn;
+    }
+    public get executionAgencyUrn(): string | undefined {
+        return this['execution_agency_urn'];
     }
     public withObsBucket(obsBucket: string): CreateSparkJobRequestBody {
         this['obs_bucket'] = obsBucket;

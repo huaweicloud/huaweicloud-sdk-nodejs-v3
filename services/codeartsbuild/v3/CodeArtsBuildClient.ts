@@ -1,6 +1,7 @@
 import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+import FormData from 'form-data';
 
 import { AddKeystorePermissionResponseBody } from './model/AddKeystorePermissionResponseBody';
 import { BriefRecordItems } from './model/BriefRecordItems';
@@ -36,7 +37,11 @@ import { CreateBuildJobResponseBodyResult } from './model/CreateBuildJobResponse
 import { CreateBuildJobScm } from './model/CreateBuildJobScm';
 import { CreateBuildJobSteps } from './model/CreateBuildJobSteps';
 import { CreateBuildTimeout } from './model/CreateBuildTimeout';
+import { CreateNewJobRequest } from './model/CreateNewJobRequest';
+import { CreateNewJobResponse } from './model/CreateNewJobResponse';
 import { CreateTemplate } from './model/CreateTemplate';
+import { CreateTemplateRequest } from './model/CreateTemplateRequest';
+import { CreateTemplateResponse } from './model/CreateTemplateResponse';
 import { CreateTemplateSteps } from './model/CreateTemplateSteps';
 import { CreateTemplatesItems } from './model/CreateTemplatesItems';
 import { CreateTemplatesRequest } from './model/CreateTemplatesRequest';
@@ -175,6 +180,9 @@ import { RestoreRecyclingJobsResponse } from './model/RestoreRecyclingJobsRespon
 import { RunJobRequest } from './model/RunJobRequest';
 import { RunJobRequestBody } from './model/RunJobRequestBody';
 import { RunJobResponse } from './model/RunJobResponse';
+import { SaveTemplateUsedInfoRequest } from './model/SaveTemplateUsedInfoRequest';
+import { SaveTemplateUsedInfoRequestBody } from './model/SaveTemplateUsedInfoRequestBody';
+import { SaveTemplateUsedInfoResponse } from './model/SaveTemplateUsedInfoResponse';
 import { Scm } from './model/Scm';
 import { SetKeepTimeRequest } from './model/SetKeepTimeRequest';
 import { SetKeepTimeRequestBody } from './model/SetKeepTimeRequestBody';
@@ -234,6 +242,7 @@ import { ShowJobListByProjectIdRequest } from './model/ShowJobListByProjectIdReq
 import { ShowJobListByProjectIdResponse } from './model/ShowJobListByProjectIdResponse';
 import { ShowJobNoticeConfigInfoRequest } from './model/ShowJobNoticeConfigInfoRequest';
 import { ShowJobNoticeConfigInfoResponse } from './model/ShowJobNoticeConfigInfoResponse';
+import { ShowJobPermissionResult } from './model/ShowJobPermissionResult';
 import { ShowJobRolePermissionRequest } from './model/ShowJobRolePermissionRequest';
 import { ShowJobRolePermissionResponse } from './model/ShowJobRolePermissionResponse';
 import { ShowJobRolePermissionResult } from './model/ShowJobRolePermissionResult';
@@ -258,6 +267,8 @@ import { ShowListPeriodHistoryRequest } from './model/ShowListPeriodHistoryReque
 import { ShowListPeriodHistoryResponse } from './model/ShowListPeriodHistoryResponse';
 import { ShowOutputInfoRequest } from './model/ShowOutputInfoRequest';
 import { ShowOutputInfoResponse } from './model/ShowOutputInfoResponse';
+import { ShowProjectJobPermissionRequest } from './model/ShowProjectJobPermissionRequest';
+import { ShowProjectJobPermissionResponse } from './model/ShowProjectJobPermissionResponse';
 import { ShowProjectPermissionRequest } from './model/ShowProjectPermissionRequest';
 import { ShowProjectPermissionResponse } from './model/ShowProjectPermissionResponse';
 import { ShowRecordDetailRequest } from './model/ShowRecordDetailRequest';
@@ -283,6 +294,7 @@ import { ShowUserOverPackageQuotaResult } from './model/ShowUserOverPackageQuota
 import { ShowUserProjectPermissionResult } from './model/ShowUserProjectPermissionResult';
 import { ShowYamlTemplateRequest } from './model/ShowYamlTemplateRequest';
 import { ShowYamlTemplateResponse } from './model/ShowYamlTemplateResponse';
+import { StatusSuccessResultWithUUIDResult } from './model/StatusSuccessResultWithUUIDResult';
 import { StopBuildJobRequest } from './model/StopBuildJobRequest';
 import { StopBuildJobResponse } from './model/StopBuildJobResponse';
 import { StopJobRequest } from './model/StopJobRequest';
@@ -299,11 +311,18 @@ import { UpdateBuildJobRequestBody } from './model/UpdateBuildJobRequestBody';
 import { UpdateBuildJobResponse } from './model/UpdateBuildJobResponse';
 import { UpdateBuildJobScm } from './model/UpdateBuildJobScm';
 import { UpdateBuildJobSteps } from './model/UpdateBuildJobSteps';
+import { UpdateKeystoreRequest } from './model/UpdateKeystoreRequest';
+import { UpdateKeystoreRequestBody } from './model/UpdateKeystoreRequestBody';
+import { UpdateKeystoreResponse } from './model/UpdateKeystoreResponse';
 import { UpdateNewJobRequest } from './model/UpdateNewJobRequest';
 import { UpdateNewJobResponse } from './model/UpdateNewJobResponse';
 import { UpdateNoticeRequest } from './model/UpdateNoticeRequest';
 import { UpdateNoticeRequestBody } from './model/UpdateNoticeRequestBody';
 import { UpdateNoticeResponse } from './model/UpdateNoticeResponse';
+import { UploadKeystoreRequest } from './model/UploadKeystoreRequest';
+import { UploadKeystoreRequestBody } from './model/UploadKeystoreRequestBody';
+import { UploadKeystoreResponse } from './model/UploadKeystoreResponse';
+import { UploadKeystoreResult } from './model/UploadKeystoreResult';
 import { Vertices } from './model/Vertices';
 
 export class CodeArtsBuildClient {
@@ -1113,6 +1132,25 @@ export class CodeArtsBuildClient {
     }
 
     /**
+     * 创建构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建构建任务
+     * @param {CreateBuildJobRequestBody} createNewJobRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createNewJob(createNewJobRequest?: CreateNewJobRequest): Promise<CreateNewJobResponse> {
+        const options = ParamCreater().createNewJob(createNewJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除回收站中的任务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1566,6 +1604,26 @@ export class CodeArtsBuildClient {
     }
 
     /**
+     * 获取任务权限矩阵
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务权限矩阵
+     * @param {string} projectId CodeArts项目ID，32位数字、小写字母组合。
+     * @param {string} jobId 构建的任务ID； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectJobPermission(showProjectJobPermissionRequest?: ShowProjectJobPermissionRequest): Promise<ShowProjectJobPermissionResponse> {
+        const options = ParamCreater().showProjectJobPermission(showProjectJobPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看任务是否在构建
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1715,6 +1773,47 @@ export class CodeArtsBuildClient {
      */
     public showKeystorePermission(showKeystorePermissionRequest?: ShowKeystorePermissionRequest): Promise<ShowKeystorePermissionResponse> {
         const options = ParamCreater().showKeystorePermission(showKeystorePermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新文件信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新文件信息
+     * @param {string} id 文件ID
+     * @param {UpdateKeystoreRequestBody} updateKeystoreRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKeystore(updateKeystoreRequest?: UpdateKeystoreRequest): Promise<UpdateKeystoreResponse> {
+        const options = ParamCreater().updateKeystore(updateKeystoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传文件
+     * @param {any} file 文件
+     * @param {string} privacy 同意隐私声明，允许使用用户敏感信息进行相关业务操作。
+     * @param {string} [description] 文件描述
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadKeystore(uploadKeystoreRequest?: UploadKeystoreRequest): Promise<UploadKeystoreResponse> {
+        const options = ParamCreater().uploadKeystore(uploadKeystoreRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2151,6 +2250,25 @@ export class CodeArtsBuildClient {
     }
 
     /**
+     * 创建构建模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建构建模板
+     * @param {CreateTemplatesRequestBody} createTemplateRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTemplate(createTemplateRequest?: CreateTemplateRequest): Promise<CreateTemplateResponse> {
+        const options = ParamCreater().createTemplate(createTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除构建模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2225,6 +2343,25 @@ export class CodeArtsBuildClient {
      */
     public listRecommendOfficialTemplate(listRecommendOfficialTemplateRequest?: ListRecommendOfficialTemplateRequest): Promise<ListRecommendOfficialTemplateResponse> {
         const options = ParamCreater().listRecommendOfficialTemplate(listRecommendOfficialTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 保存模板使用记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 保存模板使用记录
+     * @param {SaveTemplateUsedInfoRequestBody} saveTemplateUsedInfoRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveTemplateUsedInfo(saveTemplateUsedInfoRequest?: SaveTemplateUsedInfoRequest): Promise<SaveTemplateUsedInfoResponse> {
+        const options = ParamCreater().saveTemplateUsedInfo(saveTemplateUsedInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3993,6 +4130,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createNewJob(createNewJobRequest?: CreateNewJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/job/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createNewJobRequest !== null && createNewJobRequest !== undefined) {
+                if (createNewJobRequest instanceof CreateNewJobRequest) {
+                    body = createNewJobRequest.body
+                } else {
+                    body = createNewJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除回收站中的任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4952,6 +5127,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取任务权限矩阵
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectJobPermission(showProjectJobPermissionRequest?: ShowProjectJobPermissionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/job/permission",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let jobId;
+
+            if (showProjectJobPermissionRequest !== null && showProjectJobPermissionRequest !== undefined) {
+                if (showProjectJobPermissionRequest instanceof ShowProjectJobPermissionRequest) {
+                    projectId = showProjectJobPermissionRequest.projectId;
+                    jobId = showProjectJobPermissionRequest.jobId;
+                } else {
+                    projectId = showProjectJobPermissionRequest['project_id'];
+                    jobId = showProjectJobPermissionRequest['job_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectJobPermission.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showProjectJobPermission.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看任务是否在构建
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5286,6 +5511,112 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'keystore_id': keystoreId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新文件信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKeystore(updateKeystoreRequest?: UpdateKeystoreRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/keystore/update/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateKeystoreRequest !== null && updateKeystoreRequest !== undefined) {
+                if (updateKeystoreRequest instanceof UpdateKeystoreRequest) {
+                    id = updateKeystoreRequest.id;
+                    body = updateKeystoreRequest.body
+                } else {
+                    id = updateKeystoreRequest['id'];
+                    body = updateKeystoreRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateKeystore.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadKeystore(uploadKeystoreRequest?: UploadKeystoreRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/keystore/upload",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            let file;
+            
+            let privacy;
+            
+            let description;
+            
+
+            if (uploadKeystoreRequest !== null && uploadKeystoreRequest !== undefined) {
+                if (uploadKeystoreRequest instanceof UploadKeystoreRequest) {
+                    file = uploadKeystoreRequest.body?.file;
+                    privacy = uploadKeystoreRequest.body?.privacy;
+                    description = uploadKeystoreRequest.body?.description;
+                } else {
+                    file = uploadKeystoreRequest['body']['file'];
+                    privacy = uploadKeystoreRequest['body']['privacy'];
+                    description = uploadKeystoreRequest['body']['description'];
+                }
+            }
+
+        
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadKeystore.');
+            }
+            if (privacy === null || privacy === undefined) {
+            throw new RequiredError('privacy','Required parameter privacy was null or undefined when calling uploadKeystore.');
+            }
+            if (privacy !== undefined) { 
+                localVarFormParams.append('privacy', privacy as any);
+            }
+            if (description !== undefined) { 
+                localVarFormParams.append('description', description as any);
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6330,6 +6661,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建构建模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTemplate(createTemplateRequest?: CreateTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/template/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createTemplateRequest !== null && createTemplateRequest !== undefined) {
+                if (createTemplateRequest instanceof CreateTemplateRequest) {
+                    body = createTemplateRequest.body
+                } else {
+                    body = createTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除构建模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6506,6 +6875,44 @@ export const ParamCreater = function () {
                     body = listRecommendOfficialTemplateRequest.body
                 } else {
                     body = listRecommendOfficialTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 保存模板使用记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveTemplateUsedInfo(saveTemplateUsedInfoRequest?: SaveTemplateUsedInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/template/used-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (saveTemplateUsedInfoRequest !== null && saveTemplateUsedInfoRequest !== undefined) {
+                if (saveTemplateUsedInfoRequest instanceof SaveTemplateUsedInfoRequest) {
+                    body = saveTemplateUsedInfoRequest.body
+                } else {
+                    body = saveTemplateUsedInfoRequest['body'];
                 }
             }
 

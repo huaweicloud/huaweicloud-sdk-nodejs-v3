@@ -2,12 +2,54 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { Accessory } from './model/Accessory';
+import { AddDomainNameRequest } from './model/AddDomainNameRequest';
+import { AddDomainNameRequestBody } from './model/AddDomainNameRequestBody';
+import { AddDomainNameResponse } from './model/AddDomainNameResponse';
+import { Artifact } from './model/Artifact';
+import { ArtifactTag } from './model/ArtifactTag';
+import { AuditLog } from './model/AuditLog';
 import { AuthInfo } from './model/AuthInfo';
+import { AuthToken } from './model/AuthToken';
+import { BuildHistory } from './model/BuildHistory';
 import { CreateAuthorizationTokenRequest } from './model/CreateAuthorizationTokenRequest';
 import { CreateAuthorizationTokenResponse } from './model/CreateAuthorizationTokenResponse';
+import { CreateEndpointPolicyRequestBody } from './model/CreateEndpointPolicyRequestBody';
 import { CreateImageSyncRepoRequest } from './model/CreateImageSyncRepoRequest';
 import { CreateImageSyncRepoRequestBody } from './model/CreateImageSyncRepoRequestBody';
 import { CreateImageSyncRepoResponse } from './model/CreateImageSyncRepoResponse';
+import { CreateImmutableRuleBody } from './model/CreateImmutableRuleBody';
+import { CreateImmutableRuleRequest } from './model/CreateImmutableRuleRequest';
+import { CreateImmutableRuleResponse } from './model/CreateImmutableRuleResponse';
+import { CreateInstanceEndpointPolicyRequest } from './model/CreateInstanceEndpointPolicyRequest';
+import { CreateInstanceEndpointPolicyResponse } from './model/CreateInstanceEndpointPolicyResponse';
+import { CreateInstanceInternalEndpointRequest } from './model/CreateInstanceInternalEndpointRequest';
+import { CreateInstanceInternalEndpointResponse } from './model/CreateInstanceInternalEndpointResponse';
+import { CreateInstanceLtCredentialRequest } from './model/CreateInstanceLtCredentialRequest';
+import { CreateInstanceLtCredentialResponse } from './model/CreateInstanceLtCredentialResponse';
+import { CreateInstanceNamespaceRequest } from './model/CreateInstanceNamespaceRequest';
+import { CreateInstanceNamespaceRequestBody } from './model/CreateInstanceNamespaceRequestBody';
+import { CreateInstanceNamespaceResponse } from './model/CreateInstanceNamespaceResponse';
+import { CreateInstanceRegistryRequest } from './model/CreateInstanceRegistryRequest';
+import { CreateInstanceRegistryResponse } from './model/CreateInstanceRegistryResponse';
+import { CreateInstanceReplicationPolicyRequest } from './model/CreateInstanceReplicationPolicyRequest';
+import { CreateInstanceReplicationPolicyResponse } from './model/CreateInstanceReplicationPolicyResponse';
+import { CreateInstanceRequest } from './model/CreateInstanceRequest';
+import { CreateInstanceRequestBody } from './model/CreateInstanceRequestBody';
+import { CreateInstanceRequestBodyResourceTags } from './model/CreateInstanceRequestBodyResourceTags';
+import { CreateInstanceResourceTagsRequest } from './model/CreateInstanceResourceTagsRequest';
+import { CreateInstanceResourceTagsResponse } from './model/CreateInstanceResourceTagsResponse';
+import { CreateInstanceResponse } from './model/CreateInstanceResponse';
+import { CreateInstanceRetentionPolicyRequest } from './model/CreateInstanceRetentionPolicyRequest';
+import { CreateInstanceRetentionPolicyResponse } from './model/CreateInstanceRetentionPolicyResponse';
+import { CreateInstanceSignPolicyRequest } from './model/CreateInstanceSignPolicyRequest';
+import { CreateInstanceSignPolicyResponse } from './model/CreateInstanceSignPolicyResponse';
+import { CreateInstanceTempCredentialRequest } from './model/CreateInstanceTempCredentialRequest';
+import { CreateInstanceTempCredentialResponse } from './model/CreateInstanceTempCredentialResponse';
+import { CreateInstanceWebhookRequest } from './model/CreateInstanceWebhookRequest';
+import { CreateInstanceWebhookResponse } from './model/CreateInstanceWebhookResponse';
+import { CreateIntranetAccessRequestBody } from './model/CreateIntranetAccessRequestBody';
+import { CreateLongTermCredentialRequestBody } from './model/CreateLongTermCredentialRequestBody';
 import { CreateManualImageSyncRepoRequest } from './model/CreateManualImageSyncRepoRequest';
 import { CreateManualImageSyncRepoRequestBody } from './model/CreateManualImageSyncRepoRequestBody';
 import { CreateManualImageSyncRepoResponse } from './model/CreateManualImageSyncRepoResponse';
@@ -16,6 +58,9 @@ import { CreateNamespaceAuthResponse } from './model/CreateNamespaceAuthResponse
 import { CreateNamespaceRequest } from './model/CreateNamespaceRequest';
 import { CreateNamespaceRequestBody } from './model/CreateNamespaceRequestBody';
 import { CreateNamespaceResponse } from './model/CreateNamespaceResponse';
+import { CreateRegistryRequestBody } from './model/CreateRegistryRequestBody';
+import { CreateReplicationExecutionRequestBody } from './model/CreateReplicationExecutionRequestBody';
+import { CreateReplicationPolicyRequestBody } from './model/CreateReplicationPolicyRequestBody';
 import { CreateRepoDomainsRequest } from './model/CreateRepoDomainsRequest';
 import { CreateRepoDomainsRequestBody } from './model/CreateRepoDomainsRequestBody';
 import { CreateRepoDomainsResponse } from './model/CreateRepoDomainsResponse';
@@ -25,19 +70,57 @@ import { CreateRepoResponse } from './model/CreateRepoResponse';
 import { CreateRepoTagRequest } from './model/CreateRepoTagRequest';
 import { CreateRepoTagRequestBody } from './model/CreateRepoTagRequestBody';
 import { CreateRepoTagResponse } from './model/CreateRepoTagResponse';
+import { CreateResourceTagsRequestBody } from './model/CreateResourceTagsRequestBody';
+import { CreateRetentionPolicyRequestBody } from './model/CreateRetentionPolicyRequestBody';
 import { CreateRetentionRequest } from './model/CreateRetentionRequest';
 import { CreateRetentionRequestBody } from './model/CreateRetentionRequestBody';
 import { CreateRetentionResponse } from './model/CreateRetentionResponse';
 import { CreateSecretRequest } from './model/CreateSecretRequest';
 import { CreateSecretResponse } from './model/CreateSecretResponse';
+import { CreateSignaturePolicyRequestBody } from './model/CreateSignaturePolicyRequestBody';
+import { CreateSubResourceTagsRequest } from './model/CreateSubResourceTagsRequest';
+import { CreateSubResourceTagsResponse } from './model/CreateSubResourceTagsResponse';
 import { CreateTriggerRequest } from './model/CreateTriggerRequest';
 import { CreateTriggerRequestBody } from './model/CreateTriggerRequestBody';
 import { CreateTriggerResponse } from './model/CreateTriggerResponse';
 import { CreateUserRepositoryAuthRequest } from './model/CreateUserRepositoryAuthRequest';
 import { CreateUserRepositoryAuthResponse } from './model/CreateUserRepositoryAuthResponse';
+import { CreateWebhookPolicyRequestBody } from './model/CreateWebhookPolicyRequestBody';
+import { Credential } from './model/Credential';
+import { DeleteDomainNameRequest } from './model/DeleteDomainNameRequest';
+import { DeleteDomainNameResponse } from './model/DeleteDomainNameResponse';
 import { DeleteImageSyncRepoRequest } from './model/DeleteImageSyncRepoRequest';
 import { DeleteImageSyncRepoRequestBody } from './model/DeleteImageSyncRepoRequestBody';
 import { DeleteImageSyncRepoResponse } from './model/DeleteImageSyncRepoResponse';
+import { DeleteImmutableRuleRequest } from './model/DeleteImmutableRuleRequest';
+import { DeleteImmutableRuleResponse } from './model/DeleteImmutableRuleResponse';
+import { DeleteInstanceArtifactRequest } from './model/DeleteInstanceArtifactRequest';
+import { DeleteInstanceArtifactResponse } from './model/DeleteInstanceArtifactResponse';
+import { DeleteInstanceInternalEndpointRequest } from './model/DeleteInstanceInternalEndpointRequest';
+import { DeleteInstanceInternalEndpointResponse } from './model/DeleteInstanceInternalEndpointResponse';
+import { DeleteInstanceJobRequest } from './model/DeleteInstanceJobRequest';
+import { DeleteInstanceJobResponse } from './model/DeleteInstanceJobResponse';
+import { DeleteInstanceLtCredentialRequest } from './model/DeleteInstanceLtCredentialRequest';
+import { DeleteInstanceLtCredentialResponse } from './model/DeleteInstanceLtCredentialResponse';
+import { DeleteInstanceNamespaceRequest } from './model/DeleteInstanceNamespaceRequest';
+import { DeleteInstanceNamespaceResponse } from './model/DeleteInstanceNamespaceResponse';
+import { DeleteInstanceRegistryRequest } from './model/DeleteInstanceRegistryRequest';
+import { DeleteInstanceRegistryResponse } from './model/DeleteInstanceRegistryResponse';
+import { DeleteInstanceReplicationPolicyRequest } from './model/DeleteInstanceReplicationPolicyRequest';
+import { DeleteInstanceReplicationPolicyResponse } from './model/DeleteInstanceReplicationPolicyResponse';
+import { DeleteInstanceRepositoryRequest } from './model/DeleteInstanceRepositoryRequest';
+import { DeleteInstanceRepositoryResponse } from './model/DeleteInstanceRepositoryResponse';
+import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
+import { DeleteInstanceRequestBody } from './model/DeleteInstanceRequestBody';
+import { DeleteInstanceResourceTagsRequest } from './model/DeleteInstanceResourceTagsRequest';
+import { DeleteInstanceResourceTagsResponse } from './model/DeleteInstanceResourceTagsResponse';
+import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteInstanceRetentionPolicyRequest } from './model/DeleteInstanceRetentionPolicyRequest';
+import { DeleteInstanceRetentionPolicyResponse } from './model/DeleteInstanceRetentionPolicyResponse';
+import { DeleteInstanceSignPolicyRequest } from './model/DeleteInstanceSignPolicyRequest';
+import { DeleteInstanceSignPolicyResponse } from './model/DeleteInstanceSignPolicyResponse';
+import { DeleteInstanceWebhookRequest } from './model/DeleteInstanceWebhookRequest';
+import { DeleteInstanceWebhookResponse } from './model/DeleteInstanceWebhookResponse';
 import { DeleteNamespaceAuthRequest } from './model/DeleteNamespaceAuthRequest';
 import { DeleteNamespaceAuthResponse } from './model/DeleteNamespaceAuthResponse';
 import { DeleteNamespacesRequest } from './model/DeleteNamespacesRequest';
@@ -48,18 +131,111 @@ import { DeleteRepoRequest } from './model/DeleteRepoRequest';
 import { DeleteRepoResponse } from './model/DeleteRepoResponse';
 import { DeleteRepoTagRequest } from './model/DeleteRepoTagRequest';
 import { DeleteRepoTagResponse } from './model/DeleteRepoTagResponse';
+import { DeleteResourceTagsRequestBody } from './model/DeleteResourceTagsRequestBody';
 import { DeleteRetentionRequest } from './model/DeleteRetentionRequest';
 import { DeleteRetentionResponse } from './model/DeleteRetentionResponse';
+import { DeleteSubResourceTagsRequest } from './model/DeleteSubResourceTagsRequest';
+import { DeleteSubResourceTagsResponse } from './model/DeleteSubResourceTagsResponse';
 import { DeleteTriggerRequest } from './model/DeleteTriggerRequest';
 import { DeleteTriggerResponse } from './model/DeleteTriggerResponse';
 import { DeleteUserRepositoryAuthRequest } from './model/DeleteUserRepositoryAuthRequest';
 import { DeleteUserRepositoryAuthResponse } from './model/DeleteUserRepositoryAuthResponse';
+import { DnsConf } from './model/DnsConf';
+import { DomainNameInfo } from './model/DomainNameInfo';
+import { ExecuteInstanceReplicationPolicyRequest } from './model/ExecuteInstanceReplicationPolicyRequest';
+import { ExecuteInstanceReplicationPolicyResponse } from './model/ExecuteInstanceReplicationPolicyResponse';
+import { ExecuteInstanceRetentionPolicyRequest } from './model/ExecuteInstanceRetentionPolicyRequest';
+import { ExecuteInstanceRetentionPolicyResponse } from './model/ExecuteInstanceRetentionPolicyResponse';
+import { ExecuteInstanceSignPolicyRequest } from './model/ExecuteInstanceSignPolicyRequest';
+import { ExecuteInstanceSignPolicyResponse } from './model/ExecuteInstanceSignPolicyResponse';
+import { ExecuteRetentionPolicyRequestBody } from './model/ExecuteRetentionPolicyRequestBody';
+import { Execution } from './model/Execution';
+import { Filter } from './model/Filter';
+import { ImageRetention } from './model/ImageRetention';
 import { ImageTag } from './model/ImageTag';
+import { ImmutableRule } from './model/ImmutableRule';
+import { Instance } from './model/Instance';
+import { InternalEndpoint } from './model/InternalEndpoint';
+import { IpInfo } from './model/IpInfo';
+import { Job } from './model/Job';
+import { JobDetail } from './model/JobDetail';
 import { Link } from './model/Link';
 import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
+import { ListAuditLogsRequest } from './model/ListAuditLogsRequest';
+import { ListAuditLogsResponse } from './model/ListAuditLogsResponse';
+import { ListDomainNamesRequest } from './model/ListDomainNamesRequest';
+import { ListDomainNamesResponse } from './model/ListDomainNamesResponse';
+import { ListFeatureGatesRequest } from './model/ListFeatureGatesRequest';
+import { ListFeatureGatesResponse } from './model/ListFeatureGatesResponse';
+import { ListGlobalFeatureGatesRequest } from './model/ListGlobalFeatureGatesRequest';
+import { ListGlobalFeatureGatesResponse } from './model/ListGlobalFeatureGatesResponse';
 import { ListImageAutoSyncReposDetailsRequest } from './model/ListImageAutoSyncReposDetailsRequest';
 import { ListImageAutoSyncReposDetailsResponse } from './model/ListImageAutoSyncReposDetailsResponse';
+import { ListImmutableRulesRequest } from './model/ListImmutableRulesRequest';
+import { ListImmutableRulesResponse } from './model/ListImmutableRulesResponse';
+import { ListInstanceAccessoriesRequest } from './model/ListInstanceAccessoriesRequest';
+import { ListInstanceAccessoriesResponse } from './model/ListInstanceAccessoriesResponse';
+import { ListInstanceAllArtifactsRequest } from './model/ListInstanceAllArtifactsRequest';
+import { ListInstanceAllArtifactsResponse } from './model/ListInstanceAllArtifactsResponse';
+import { ListInstanceArtifactsRequest } from './model/ListInstanceArtifactsRequest';
+import { ListInstanceArtifactsResponse } from './model/ListInstanceArtifactsResponse';
+import { ListInstanceInternalEndpointsRequest } from './model/ListInstanceInternalEndpointsRequest';
+import { ListInstanceInternalEndpointsResponse } from './model/ListInstanceInternalEndpointsResponse';
+import { ListInstanceJobsRequest } from './model/ListInstanceJobsRequest';
+import { ListInstanceJobsResponse } from './model/ListInstanceJobsResponse';
+import { ListInstanceLtCredentialsRequest } from './model/ListInstanceLtCredentialsRequest';
+import { ListInstanceLtCredentialsResponse } from './model/ListInstanceLtCredentialsResponse';
+import { ListInstanceNamespacesRequest } from './model/ListInstanceNamespacesRequest';
+import { ListInstanceNamespacesResponse } from './model/ListInstanceNamespacesResponse';
+import { ListInstanceProjectTagsRequest } from './model/ListInstanceProjectTagsRequest';
+import { ListInstanceProjectTagsResponse } from './model/ListInstanceProjectTagsResponse';
+import { ListInstanceRegistriesRequest } from './model/ListInstanceRegistriesRequest';
+import { ListInstanceRegistriesResponse } from './model/ListInstanceRegistriesResponse';
+import { ListInstanceReplicationPoliciesRequest } from './model/ListInstanceReplicationPoliciesRequest';
+import { ListInstanceReplicationPoliciesResponse } from './model/ListInstanceReplicationPoliciesResponse';
+import { ListInstanceReplicationPolicyExecSubTasksRequest } from './model/ListInstanceReplicationPolicyExecSubTasksRequest';
+import { ListInstanceReplicationPolicyExecSubTasksResponse } from './model/ListInstanceReplicationPolicyExecSubTasksResponse';
+import { ListInstanceReplicationPolicyExecTasksRequest } from './model/ListInstanceReplicationPolicyExecTasksRequest';
+import { ListInstanceReplicationPolicyExecTasksResponse } from './model/ListInstanceReplicationPolicyExecTasksResponse';
+import { ListInstanceReplicationPolicyExecutionsRequest } from './model/ListInstanceReplicationPolicyExecutionsRequest';
+import { ListInstanceReplicationPolicyExecutionsResponse } from './model/ListInstanceReplicationPolicyExecutionsResponse';
+import { ListInstanceRepositoriesRequest } from './model/ListInstanceRepositoriesRequest';
+import { ListInstanceRepositoriesResponse } from './model/ListInstanceRepositoriesResponse';
+import { ListInstanceRequest } from './model/ListInstanceRequest';
+import { ListInstanceResourceInstancesRequest } from './model/ListInstanceResourceInstancesRequest';
+import { ListInstanceResourceInstancesResponse } from './model/ListInstanceResourceInstancesResponse';
+import { ListInstanceResourceTagsRequest } from './model/ListInstanceResourceTagsRequest';
+import { ListInstanceResourceTagsResponse } from './model/ListInstanceResourceTagsResponse';
+import { ListInstanceResponse } from './model/ListInstanceResponse';
+import { ListInstanceRetentionPoliciesRequest } from './model/ListInstanceRetentionPoliciesRequest';
+import { ListInstanceRetentionPoliciesResponse } from './model/ListInstanceRetentionPoliciesResponse';
+import { ListInstanceRetentionPolicyExecSubTasksRequest } from './model/ListInstanceRetentionPolicyExecSubTasksRequest';
+import { ListInstanceRetentionPolicyExecSubTasksResponse } from './model/ListInstanceRetentionPolicyExecSubTasksResponse';
+import { ListInstanceRetentionPolicyExecTasksRequest } from './model/ListInstanceRetentionPolicyExecTasksRequest';
+import { ListInstanceRetentionPolicyExecTasksResponse } from './model/ListInstanceRetentionPolicyExecTasksResponse';
+import { ListInstanceRetentionPolicyExecutionsRequest } from './model/ListInstanceRetentionPolicyExecutionsRequest';
+import { ListInstanceRetentionPolicyExecutionsResponse } from './model/ListInstanceRetentionPolicyExecutionsResponse';
+import { ListInstanceSignPoliciesRequest } from './model/ListInstanceSignPoliciesRequest';
+import { ListInstanceSignPoliciesResponse } from './model/ListInstanceSignPoliciesResponse';
+import { ListInstanceSignPolicyExecTasksRequest } from './model/ListInstanceSignPolicyExecTasksRequest';
+import { ListInstanceSignPolicyExecTasksResponse } from './model/ListInstanceSignPolicyExecTasksResponse';
+import { ListInstanceSignPolicyExecutionsRequest } from './model/ListInstanceSignPolicyExecutionsRequest';
+import { ListInstanceSignPolicyExecutionsResponse } from './model/ListInstanceSignPolicyExecutionsResponse';
+import { ListInstanceSignatureExecutionSubtasksRequest } from './model/ListInstanceSignatureExecutionSubtasksRequest';
+import { ListInstanceSignatureExecutionSubtasksResponse } from './model/ListInstanceSignatureExecutionSubtasksResponse';
+import { ListInstanceStatisticsRequest } from './model/ListInstanceStatisticsRequest';
+import { ListInstanceStatisticsResponse } from './model/ListInstanceStatisticsResponse';
+import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
+import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
+import { ListInstanceWebhookJobsRequest } from './model/ListInstanceWebhookJobsRequest';
+import { ListInstanceWebhookJobsResponse } from './model/ListInstanceWebhookJobsResponse';
+import { ListInstanceWebhooksRequest } from './model/ListInstanceWebhooksRequest';
+import { ListInstanceWebhooksResponse } from './model/ListInstanceWebhooksResponse';
+import { ListNamespaceRepositoriesRequest } from './model/ListNamespaceRepositoriesRequest';
+import { ListNamespaceRepositoriesResponse } from './model/ListNamespaceRepositoriesResponse';
+import { ListNamespaceTagsRequest } from './model/ListNamespaceTagsRequest';
+import { ListNamespaceTagsResponse } from './model/ListNamespaceTagsResponse';
 import { ListNamespacesRequest } from './model/ListNamespacesRequest';
 import { ListNamespacesResponse } from './model/ListNamespacesResponse';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
@@ -70,18 +246,39 @@ import { ListReposDetailsRequest } from './model/ListReposDetailsRequest';
 import { ListReposDetailsResponse } from './model/ListReposDetailsResponse';
 import { ListRepositoryTagsRequest } from './model/ListRepositoryTagsRequest';
 import { ListRepositoryTagsResponse } from './model/ListRepositoryTagsResponse';
+import { ListResourceInstancesRequestBody } from './model/ListResourceInstancesRequestBody';
 import { ListRetentionHistoriesRequest } from './model/ListRetentionHistoriesRequest';
 import { ListRetentionHistoriesResponse } from './model/ListRetentionHistoriesResponse';
 import { ListRetentionsRequest } from './model/ListRetentionsRequest';
 import { ListRetentionsResponse } from './model/ListRetentionsResponse';
 import { ListSharedReposDetailsRequest } from './model/ListSharedReposDetailsRequest';
 import { ListSharedReposDetailsResponse } from './model/ListSharedReposDetailsResponse';
+import { ListSubResourceInstancesRequest } from './model/ListSubResourceInstancesRequest';
+import { ListSubResourceInstancesResponse } from './model/ListSubResourceInstancesResponse';
+import { ListSubResourceTagsRequest } from './model/ListSubResourceTagsRequest';
+import { ListSubResourceTagsResponse } from './model/ListSubResourceTagsResponse';
 import { ListTriggersDetailsRequest } from './model/ListTriggersDetailsRequest';
 import { ListTriggersDetailsResponse } from './model/ListTriggersDetailsResponse';
+import { Namespace } from './model/Namespace';
+import { NamespaceMetadata } from './model/NamespaceMetadata';
+import { ProjectTag } from './model/ProjectTag';
+import { Registry } from './model/Registry';
+import { ReplicationPolicy } from './model/ReplicationPolicy';
+import { ReplicationRegistry } from './model/ReplicationRegistry';
 import { ReportData } from './model/ReportData';
+import { Repository } from './model/Repository';
+import { RepositoryTag } from './model/RepositoryTag';
+import { Resource } from './model/Resource';
+import { ResourceTag } from './model/ResourceTag';
 import { Retention } from './model/Retention';
+import { RetentionExecution } from './model/RetentionExecution';
 import { RetentionLog } from './model/RetentionLog';
+import { RetentionRule } from './model/RetentionRule';
+import { RetentionRuleResponseBody } from './model/RetentionRuleResponseBody';
+import { RetentionSelector } from './model/RetentionSelector';
 import { Rule } from './model/Rule';
+import { RuleSelector } from './model/RuleSelector';
+import { ScopeRule } from './model/ScopeRule';
 import { ShowAccessDomainRequest } from './model/ShowAccessDomainRequest';
 import { ShowAccessDomainResponse } from './model/ShowAccessDomainResponse';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
@@ -90,6 +287,36 @@ import { ShowDomainOverviewRequest } from './model/ShowDomainOverviewRequest';
 import { ShowDomainOverviewResponse } from './model/ShowDomainOverviewResponse';
 import { ShowDomainResourceReportsRequest } from './model/ShowDomainResourceReportsRequest';
 import { ShowDomainResourceReportsResponse } from './model/ShowDomainResourceReportsResponse';
+import { ShowInstanceArtifactAdditionRequest } from './model/ShowInstanceArtifactAdditionRequest';
+import { ShowInstanceArtifactAdditionResponse } from './model/ShowInstanceArtifactAdditionResponse';
+import { ShowInstanceArtifactRequest } from './model/ShowInstanceArtifactRequest';
+import { ShowInstanceArtifactResponse } from './model/ShowInstanceArtifactResponse';
+import { ShowInstanceConfigurationRequest } from './model/ShowInstanceConfigurationRequest';
+import { ShowInstanceConfigurationResponse } from './model/ShowInstanceConfigurationResponse';
+import { ShowInstanceEndpointPolicyRequest } from './model/ShowInstanceEndpointPolicyRequest';
+import { ShowInstanceEndpointPolicyResponse } from './model/ShowInstanceEndpointPolicyResponse';
+import { ShowInstanceInternalEndpointRequest } from './model/ShowInstanceInternalEndpointRequest';
+import { ShowInstanceInternalEndpointResponse } from './model/ShowInstanceInternalEndpointResponse';
+import { ShowInstanceJobRequest } from './model/ShowInstanceJobRequest';
+import { ShowInstanceJobResponse } from './model/ShowInstanceJobResponse';
+import { ShowInstanceNamespaceRequest } from './model/ShowInstanceNamespaceRequest';
+import { ShowInstanceNamespaceResponse } from './model/ShowInstanceNamespaceResponse';
+import { ShowInstanceRegistryRequest } from './model/ShowInstanceRegistryRequest';
+import { ShowInstanceRegistryResponse } from './model/ShowInstanceRegistryResponse';
+import { ShowInstanceReplicationPolicyRequest } from './model/ShowInstanceReplicationPolicyRequest';
+import { ShowInstanceReplicationPolicyResponse } from './model/ShowInstanceReplicationPolicyResponse';
+import { ShowInstanceRepositoryRequest } from './model/ShowInstanceRepositoryRequest';
+import { ShowInstanceRepositoryResponse } from './model/ShowInstanceRepositoryResponse';
+import { ShowInstanceRequest } from './model/ShowInstanceRequest';
+import { ShowInstanceResourceInstancesCountRequest } from './model/ShowInstanceResourceInstancesCountRequest';
+import { ShowInstanceResourceInstancesCountResponse } from './model/ShowInstanceResourceInstancesCountResponse';
+import { ShowInstanceResponse } from './model/ShowInstanceResponse';
+import { ShowInstanceRetentionPolicyRequest } from './model/ShowInstanceRetentionPolicyRequest';
+import { ShowInstanceRetentionPolicyResponse } from './model/ShowInstanceRetentionPolicyResponse';
+import { ShowInstanceSignPolicyRequest } from './model/ShowInstanceSignPolicyRequest';
+import { ShowInstanceSignPolicyResponse } from './model/ShowInstanceSignPolicyResponse';
+import { ShowInstanceWebhookRequest } from './model/ShowInstanceWebhookRequest';
+import { ShowInstanceWebhookResponse } from './model/ShowInstanceWebhookResponse';
 import { ShowNamespace } from './model/ShowNamespace';
 import { ShowNamespaceAuthRequest } from './model/ShowNamespaceAuthRequest';
 import { ShowNamespaceAuthResponse } from './model/ShowNamespaceAuthResponse';
@@ -105,35 +332,89 @@ import { ShowRetentionRequest } from './model/ShowRetentionRequest';
 import { ShowRetentionResponse } from './model/ShowRetentionResponse';
 import { ShowShareFeatureGatesRequest } from './model/ShowShareFeatureGatesRequest';
 import { ShowShareFeatureGatesResponse } from './model/ShowShareFeatureGatesResponse';
+import { ShowSubResourceInstancesCountRequest } from './model/ShowSubResourceInstancesCountRequest';
+import { ShowSubResourceInstancesCountResponse } from './model/ShowSubResourceInstancesCountResponse';
 import { ShowSyncJobRequest } from './model/ShowSyncJobRequest';
 import { ShowSyncJobResponse } from './model/ShowSyncJobResponse';
 import { ShowTriggerRequest } from './model/ShowTriggerRequest';
 import { ShowTriggerResponse } from './model/ShowTriggerResponse';
 import { ShowUserRepositoryAuthRequest } from './model/ShowUserRepositoryAuthRequest';
 import { ShowUserRepositoryAuthResponse } from './model/ShowUserRepositoryAuthResponse';
+import { SignPolicyDetail } from './model/SignPolicyDetail';
+import { SignRuleSelector } from './model/SignRuleSelector';
+import { SignScopeRule } from './model/SignScopeRule';
+import { SignatureExecutionSubTask } from './model/SignatureExecutionSubTask';
+import { SignatureExecutionTask } from './model/SignatureExecutionTask';
+import { StopInstanceReplicationPolicyExecutionRequest } from './model/StopInstanceReplicationPolicyExecutionRequest';
+import { StopInstanceReplicationPolicyExecutionResponse } from './model/StopInstanceReplicationPolicyExecutionResponse';
+import { Subtask } from './model/Subtask';
+import { SubtaskDetail } from './model/SubtaskDetail';
 import { SyncJob } from './model/SyncJob';
 import { SyncRepo } from './model/SyncRepo';
 import { TagSelector } from './model/TagSelector';
+import { TagsFilter } from './model/TagsFilter';
+import { Target } from './model/Target';
+import { Task } from './model/Task';
+import { TaskDetail } from './model/TaskDetail';
 import { Trigger } from './model/Trigger';
+import { TriggerConfig } from './model/TriggerConfig';
 import { TriggerHistories } from './model/TriggerHistories';
+import { TriggerSetting } from './model/TriggerSetting';
+import { UpdateDomainNameRequest } from './model/UpdateDomainNameRequest';
+import { UpdateDomainNameRequestBody } from './model/UpdateDomainNameRequestBody';
+import { UpdateDomainNameResponse } from './model/UpdateDomainNameResponse';
+import { UpdateImmutableRuleBody } from './model/UpdateImmutableRuleBody';
+import { UpdateImmutableRuleRequest } from './model/UpdateImmutableRuleRequest';
+import { UpdateImmutableRuleResponse } from './model/UpdateImmutableRuleResponse';
+import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfigurationRequest';
+import { UpdateInstanceConfigurationRequestBody } from './model/UpdateInstanceConfigurationRequestBody';
+import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfigurationResponse';
+import { UpdateInstanceEndpointPolicyRequest } from './model/UpdateInstanceEndpointPolicyRequest';
+import { UpdateInstanceEndpointPolicyResponse } from './model/UpdateInstanceEndpointPolicyResponse';
+import { UpdateInstanceLtCredentialRequest } from './model/UpdateInstanceLtCredentialRequest';
+import { UpdateInstanceLtCredentialResponse } from './model/UpdateInstanceLtCredentialResponse';
+import { UpdateInstanceNamespaceRequest } from './model/UpdateInstanceNamespaceRequest';
+import { UpdateInstanceNamespaceResponse } from './model/UpdateInstanceNamespaceResponse';
+import { UpdateInstanceRegistryRequest } from './model/UpdateInstanceRegistryRequest';
+import { UpdateInstanceRegistryResponse } from './model/UpdateInstanceRegistryResponse';
+import { UpdateInstanceReplicationPolicyRequest } from './model/UpdateInstanceReplicationPolicyRequest';
+import { UpdateInstanceReplicationPolicyResponse } from './model/UpdateInstanceReplicationPolicyResponse';
+import { UpdateInstanceRepositoryRequest } from './model/UpdateInstanceRepositoryRequest';
+import { UpdateInstanceRepositoryResponse } from './model/UpdateInstanceRepositoryResponse';
+import { UpdateInstanceRetentionPolicyRequest } from './model/UpdateInstanceRetentionPolicyRequest';
+import { UpdateInstanceRetentionPolicyResponse } from './model/UpdateInstanceRetentionPolicyResponse';
+import { UpdateInstanceSignPolicyRequest } from './model/UpdateInstanceSignPolicyRequest';
+import { UpdateInstanceSignPolicyResponse } from './model/UpdateInstanceSignPolicyResponse';
+import { UpdateInstanceWebhookRequest } from './model/UpdateInstanceWebhookRequest';
+import { UpdateInstanceWebhookResponse } from './model/UpdateInstanceWebhookResponse';
+import { UpdateLongTermCredentialRequestBody } from './model/UpdateLongTermCredentialRequestBody';
 import { UpdateNamespaceAuthRequest } from './model/UpdateNamespaceAuthRequest';
 import { UpdateNamespaceAuthResponse } from './model/UpdateNamespaceAuthResponse';
+import { UpdateNamespaceRequestBody } from './model/UpdateNamespaceRequestBody';
+import { UpdateRegistryRequestBody } from './model/UpdateRegistryRequestBody';
+import { UpdateReplicationPolicyRequestBody } from './model/UpdateReplicationPolicyRequestBody';
+import { UpdateRepoConfigRequestBody } from './model/UpdateRepoConfigRequestBody';
 import { UpdateRepoDomainsRequest } from './model/UpdateRepoDomainsRequest';
 import { UpdateRepoDomainsRequestBody } from './model/UpdateRepoDomainsRequestBody';
 import { UpdateRepoDomainsResponse } from './model/UpdateRepoDomainsResponse';
 import { UpdateRepoRequest } from './model/UpdateRepoRequest';
 import { UpdateRepoRequestBody } from './model/UpdateRepoRequestBody';
 import { UpdateRepoResponse } from './model/UpdateRepoResponse';
+import { UpdateRetentionPolicyRequestBody } from './model/UpdateRetentionPolicyRequestBody';
 import { UpdateRetentionRequest } from './model/UpdateRetentionRequest';
 import { UpdateRetentionRequestBody } from './model/UpdateRetentionRequestBody';
 import { UpdateRetentionResponse } from './model/UpdateRetentionResponse';
+import { UpdateSignaturePolicyRequestBody } from './model/UpdateSignaturePolicyRequestBody';
 import { UpdateTriggerRequest } from './model/UpdateTriggerRequest';
 import { UpdateTriggerRequestBody } from './model/UpdateTriggerRequestBody';
 import { UpdateTriggerResponse } from './model/UpdateTriggerResponse';
 import { UpdateUserRepositoryAuthRequest } from './model/UpdateUserRepositoryAuthRequest';
 import { UpdateUserRepositoryAuthResponse } from './model/UpdateUserRepositoryAuthResponse';
+import { UpdateWebhookPolicyRequestBody } from './model/UpdateWebhookPolicyRequestBody';
+import { UpdateWhiteListRequestBody } from './model/UpdateWhiteListRequestBody';
 import { UserAuth } from './model/UserAuth';
 import { VersionDetail } from './model/VersionDetail';
+import { WebhookPolicyDetail } from './model/WebhookPolicyDetail';
 
 export class SwrClient {
     public static newBuilder(): ClientBuilder<SwrClient> {
@@ -1221,6 +1502,2164 @@ export class SwrClient {
      */
     public showApiVersion(showApiVersionRequest?: ShowApiVersionRequest): Promise<ShowApiVersionResponse> {
         const options = ParamCreater().showApiVersion(showApiVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 增加域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 增加域名
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {AddDomainNameRequestBody} addDomainNameBody 增加域名body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addDomainName(addDomainNameRequest?: AddDomainNameRequest): Promise<AddDomainNameResponse> {
+        const options = ParamCreater().addDomainName(addDomainNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建不可变Tag策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建不可变Tag策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {CreateImmutableRuleBody} createImmutableRuleRequestBody 创建不可变Tag策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createImmutableRule(createImmutableRuleRequest?: CreateImmutableRuleRequest): Promise<CreateImmutableRuleResponse> {
+        const options = ParamCreater().createImmutableRule(createImmutableRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建企业仓库实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建实例
+     * @param {CreateInstanceRequestBody} createInstanceRequestBody 创建实例需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstance(createInstanceRequest?: CreateInstanceRequest): Promise<CreateInstanceResponse> {
+        const options = ParamCreater().createInstance(createInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或关闭公网访问
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或关闭公网访问
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateEndpointPolicyRequestBody} createEndpointPolicyRequestBody 开启或关闭公网访问的请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceEndpointPolicy(createInstanceEndpointPolicyRequest?: CreateInstanceEndpointPolicyRequest): Promise<CreateInstanceEndpointPolicyResponse> {
+        const options = ParamCreater().createInstanceEndpointPolicy(createInstanceEndpointPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增内网访问
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增内网访问
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateIntranetAccessRequestBody} createIntranetAccessRequestBody 创建内网访问控制的请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceInternalEndpoint(createInstanceInternalEndpointRequest?: CreateInstanceInternalEndpointRequest): Promise<CreateInstanceInternalEndpointResponse> {
+        const options = ParamCreater().createInstanceInternalEndpoint(createInstanceInternalEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建长期访问凭证
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建长期访问凭证
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateLongTermCredentialRequestBody} createLongTermCredentialRequestBody 需要创建长期访问凭证的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceLtCredential(createInstanceLtCredentialRequest?: CreateInstanceLtCredentialRequest): Promise<CreateInstanceLtCredentialResponse> {
+        const options = ParamCreater().createInstanceLtCredential(createInstanceLtCredentialRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建命名空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建命名空间
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateInstanceNamespaceRequestBody} createEnterpriseNamespaceRequestBody 创建命名空间需要的名称和元数据
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceNamespace(createInstanceNamespaceRequest?: CreateInstanceNamespaceRequest): Promise<CreateInstanceNamespaceResponse> {
+        const options = ParamCreater().createInstanceNamespace(createInstanceNamespaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建镜像同步的目标仓库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建镜像同步的目标仓库
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateRegistryRequestBody} createRegistryRequestBody 创建同步仓库需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceRegistry(createInstanceRegistryRequest?: CreateInstanceRegistryRequest): Promise<CreateInstanceRegistryResponse> {
+        const options = ParamCreater().createInstanceRegistry(createInstanceRegistryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建镜像同步策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建镜像同步策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateReplicationPolicyRequestBody} createReplicationPolicyRequestBody 创建同步策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceReplicationPolicy(createInstanceReplicationPolicyRequest?: CreateInstanceReplicationPolicyRequest): Promise<CreateInstanceReplicationPolicyResponse> {
+        const options = ParamCreater().createInstanceReplicationPolicy(createInstanceReplicationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加资源标签
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {CreateResourceTagsRequestBody} createResourceTagsRequestBody 批量添加的资源标签的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceResourceTags(createInstanceResourceTagsRequest?: CreateInstanceResourceTagsRequest): Promise<CreateInstanceResourceTagsResponse> {
+        const options = ParamCreater().createInstanceResourceTags(createInstanceResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建老化策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建老化策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {CreateRetentionPolicyRequestBody} createRetentionPolicyRequestBody 创建老化策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceRetentionPolicy(createInstanceRetentionPolicyRequest?: CreateInstanceRetentionPolicyRequest): Promise<CreateInstanceRetentionPolicyResponse> {
+        const options = ParamCreater().createInstanceRetentionPolicy(createInstanceRetentionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建签名策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建签名策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {CreateSignaturePolicyRequestBody} createSignaturePolicyRequestBody 创建签名策略所需的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceSignPolicy(createInstanceSignPolicyRequest?: CreateInstanceSignPolicyRequest): Promise<CreateInstanceSignPolicyResponse> {
+        const options = ParamCreater().createInstanceSignPolicy(createInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取临时访问凭证
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取临时访问凭证
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceTempCredential(createInstanceTempCredentialRequest?: CreateInstanceTempCredentialRequest): Promise<CreateInstanceTempCredentialResponse> {
+        const options = ParamCreater().createInstanceTempCredential(createInstanceTempCredentialRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建触发器策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建触发器策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {CreateWebhookPolicyRequestBody} createWebhookPolicyRequestBody 创建触发器策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceWebhook(createInstanceWebhookRequest?: CreateInstanceWebhookRequest): Promise<CreateInstanceWebhookResponse> {
+        const options = ParamCreater().createInstanceWebhook(createInstanceWebhookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加子资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加子资源标签
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
+     * @param {string} subResourceId 子资源id
+     * @param {CreateResourceTagsRequestBody} createResourceTagsRequestBody 批量添加的子资源标签的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubResourceTags(createSubResourceTagsRequest?: CreateSubResourceTagsRequest): Promise<CreateSubResourceTagsResponse> {
+        const options = ParamCreater().createSubResourceTags(createSubResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除域名，SWR企业仓库的默认域名无法删除。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除域名
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} domainnameId 域名ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDomainName(deleteDomainNameRequest?: DeleteDomainNameRequest): Promise<DeleteDomainNameResponse> {
+        const options = ParamCreater().deleteDomainName(deleteDomainNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除不可变Tag策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除不可变Tag策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} immutableRuleId 不可变Tag策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteImmutableRule(deleteImmutableRuleRequest?: DeleteImmutableRuleRequest): Promise<DeleteImmutableRuleResponse> {
+        const options = ParamCreater().deleteImmutableRule(deleteImmutableRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {DeleteInstanceRequestBody} deleteInstanceRequestBody 删除实例需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
+        const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除制品
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除制品
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {string} reference 制品摘要
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceArtifact(deleteInstanceArtifactRequest?: DeleteInstanceArtifactRequest): Promise<DeleteInstanceArtifactResponse> {
+        const options = ParamCreater().deleteInstanceArtifact(deleteInstanceArtifactRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除内网访问
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除内网访问
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} internalEndpointsId 内网访问ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceInternalEndpoint(deleteInstanceInternalEndpointRequest?: DeleteInstanceInternalEndpointRequest): Promise<DeleteInstanceInternalEndpointResponse> {
+        const options = ParamCreater().deleteInstanceInternalEndpoint(deleteInstanceInternalEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除任务
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceJob(deleteInstanceJobRequest?: DeleteInstanceJobRequest): Promise<DeleteInstanceJobResponse> {
+        const options = ParamCreater().deleteInstanceJob(deleteInstanceJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除长期访问凭证
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除长期访问凭证
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} credentialId 访问凭证ID，即token_id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceLtCredential(deleteInstanceLtCredentialRequest?: DeleteInstanceLtCredentialRequest): Promise<DeleteInstanceLtCredentialResponse> {
+        const options = ParamCreater().deleteInstanceLtCredential(deleteInstanceLtCredentialRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除命名空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除命名空间
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称，小写字母或数字开头，后面跟小写字母、数字、点、下划线或中划线（其中点、下划线、中划线不能直接连续），小写字母或数字结尾，1-64个字符。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceNamespace(deleteInstanceNamespaceRequest?: DeleteInstanceNamespaceRequest): Promise<DeleteInstanceNamespaceResponse> {
+        const options = ParamCreater().deleteInstanceNamespace(deleteInstanceNamespaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除同步仓库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除镜像同步的目标仓库
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} registryId 同步仓库ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceRegistry(deleteInstanceRegistryRequest?: DeleteInstanceRegistryRequest): Promise<DeleteInstanceRegistryResponse> {
+        const options = ParamCreater().deleteInstanceRegistry(deleteInstanceRegistryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除镜像同步策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除镜像同步策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} policyId 同步策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceReplicationPolicy(deleteInstanceReplicationPolicyRequest?: DeleteInstanceReplicationPolicyRequest): Promise<DeleteInstanceReplicationPolicyResponse> {
+        const options = ParamCreater().deleteInstanceReplicationPolicy(deleteInstanceReplicationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除仓库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除制品仓库
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 制品仓库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceRepository(deleteInstanceRepositoryRequest?: DeleteInstanceRepositoryRequest): Promise<DeleteInstanceRepositoryResponse> {
+        const options = ParamCreater().deleteInstanceRepository(deleteInstanceRepositoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除资源标签
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {DeleteResourceTagsRequestBody} deleteResourceTagsRequestBody 批量删除的资源标签的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceResourceTags(deleteInstanceResourceTagsRequest?: DeleteInstanceResourceTagsRequest): Promise<DeleteInstanceResourceTagsResponse> {
+        const options = ParamCreater().deleteInstanceResourceTags(deleteInstanceResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除老化策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除老化策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceRetentionPolicy(deleteInstanceRetentionPolicyRequest?: DeleteInstanceRetentionPolicyRequest): Promise<DeleteInstanceRetentionPolicyResponse> {
+        const options = ParamCreater().deleteInstanceRetentionPolicy(deleteInstanceRetentionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除签名策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除签名策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceSignPolicy(deleteInstanceSignPolicyRequest?: DeleteInstanceSignPolicyRequest): Promise<DeleteInstanceSignPolicyResponse> {
+        const options = ParamCreater().deleteInstanceSignPolicy(deleteInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除触发器策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除触发器策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 触发器策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceWebhook(deleteInstanceWebhookRequest?: DeleteInstanceWebhookRequest): Promise<DeleteInstanceWebhookResponse> {
+        const options = ParamCreater().deleteInstanceWebhook(deleteInstanceWebhookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除子资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除子资源标签
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
+     * @param {string} subResourceId 子资源id
+     * @param {DeleteResourceTagsRequestBody} deleteResourceTagsRequestBody 批量删除的子资源标签的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSubResourceTags(deleteSubResourceTagsRequest?: DeleteSubResourceTagsRequest): Promise<DeleteSubResourceTagsResponse> {
+        const options = ParamCreater().deleteSubResourceTags(deleteSubResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 手动执行同步策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 手动执行镜像同步策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {CreateReplicationExecutionRequestBody} createReplicationExecutionRequestBody 手动执行同步策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeInstanceReplicationPolicy(executeInstanceReplicationPolicyRequest?: ExecuteInstanceReplicationPolicyRequest): Promise<ExecuteInstanceReplicationPolicyResponse> {
+        const options = ParamCreater().executeInstanceReplicationPolicy(executeInstanceReplicationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 执行老化策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行老化策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {ExecuteRetentionPolicyRequestBody} applyRetentionPolicyRequestBody 执行老化策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeInstanceRetentionPolicy(executeInstanceRetentionPolicyRequest?: ExecuteInstanceRetentionPolicyRequest): Promise<ExecuteInstanceRetentionPolicyResponse> {
+        const options = ParamCreater().executeInstanceRetentionPolicy(executeInstanceRetentionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 手动执行签名策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 手动执行签名策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeInstanceSignPolicy(executeInstanceSignPolicyRequest?: ExecuteInstanceSignPolicyRequest): Promise<ExecuteInstanceSignPolicyResponse> {
+        const options = ParamCreater().executeInstanceSignPolicy(executeInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取上传下载的相关审计日志列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取上传下载的相关审计日志列表
+     * @param {string} operation 类型，目前支持pull,delete,create
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAuditLogs(listAuditLogsRequest?: ListAuditLogsRequest): Promise<ListAuditLogsResponse> {
+        const options = ParamCreater().listAuditLogs(listAuditLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前实例的所有域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有域名列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} [uid] 域名ID
+     * @param {string} [domainName] 域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainNames(listDomainNamesRequest?: ListDomainNamesRequest): Promise<ListDomainNamesResponse> {
+        const options = ParamCreater().listDomainNames(listDomainNamesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询特性开关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询特性开关信息
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFeatureGates(listFeatureGatesRequest?: ListFeatureGatesRequest): Promise<ListFeatureGatesResponse> {
+        const options = ParamCreater().listFeatureGates(listFeatureGatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询全局特性开关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全局特性开关信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalFeatureGates(listGlobalFeatureGatesRequest?: ListGlobalFeatureGatesRequest): Promise<ListGlobalFeatureGatesResponse> {
+        const options = ParamCreater().listGlobalFeatureGates();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取不可变Tag策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取不可变Tag策略列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [namespaceId] 所属命名空间ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImmutableRules(listImmutableRulesRequest?: ListImmutableRulesRequest): Promise<ListImmutableRulesResponse> {
+        const options = ParamCreater().listImmutableRules(listImmutableRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例列表
+     * @param {number} [offset] 起始索引，默认为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为100，最大值为100。**注意：offset和limit参数需要配套使用。**
+     * @param {'Initial' | 'Creating' | 'Running' | 'Unavailable'} [status] 实例状态, Initial, Creating, Running, Unavailable
+     * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstance(listInstanceRequest?: ListInstanceRequest): Promise<ListInstanceResponse> {
+        const options = ParamCreater().listInstance(listInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品附件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品附件列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 制品名称
+     * @param {string} reference 制品摘要
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {'signature.cosign'} [type] 附件类型，signature.cosign
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceAccessories(listInstanceAccessoriesRequest?: ListInstanceAccessoriesRequest): Promise<ListInstanceAccessoriesResponse> {
+        const options = ParamCreater().listInstanceAccessories(listInstanceAccessoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库实例的所有制品版本列表（此接口只在企业仓库实例版本大于25.6.0以上的版本才支持）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库实例的所有制品版本列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [marker] 分页查询时的查询标记，使用上一次接口调用返回的nextMarker值。默认值为1。**注意：marker和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：marker和limit参数需要配套使用。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceAllArtifacts(listInstanceAllArtifactsRequest?: ListInstanceAllArtifactsRequest): Promise<ListInstanceAllArtifactsResponse> {
+        const options = ParamCreater().listInstanceAllArtifacts(listInstanceAllArtifactsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品版本列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {'IMAGE' | 'CHART'} [type] 制品类型
+     * @param {string} [tags] 制品包含版本，模糊匹配条件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceArtifacts(listInstanceArtifactsRequest?: ListInstanceArtifactsRequest): Promise<ListInstanceArtifactsResponse> {
+        const options = ParamCreater().listInstanceArtifacts(listInstanceArtifactsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取内网访问列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取内网访问列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为100，最大值为100。**注意：offset和limit参数需要配套使用。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceInternalEndpoints(listInstanceInternalEndpointsRequest?: ListInstanceInternalEndpointsRequest): Promise<ListInstanceInternalEndpointsResponse> {
+        const options = ParamCreater().listInstanceInternalEndpoints(listInstanceInternalEndpointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务列表
+     * @param {'Creating' | 'Initializing' | 'Running' | 'Failed' | 'Success'} [status] 任务状态, 支持的状态为：Creating,Initializing,Running,Failed,Success
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为100，最大值为100。**注意：offset和limit参数需要配套使用。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceJobs(listInstanceJobsRequest?: ListInstanceJobsRequest): Promise<ListInstanceJobsResponse> {
+        const options = ParamCreater().listInstanceJobs(listInstanceJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询长期访问凭证列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询长期访问凭证列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [offset] 起始索引，默认为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为100，最大值为100。**注意：offset和limit参数需要配套使用。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceLtCredentials(listInstanceLtCredentialsRequest?: ListInstanceLtCredentialsRequest): Promise<ListInstanceLtCredentialsResponse> {
+        const options = ParamCreater().listInstanceLtCredentials(listInstanceLtCredentialsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取命名空间列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取命名空间列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {'updated_at'} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）
+     * @param {'desc' | 'asc'} [orderType] 排序类型，可设置为desc（降序）、asc（升序），与order_column配合使用
+     * @param {string} [name] 命名空间名称，小写字母或数字开头，后面跟小写字母、数字、点、下划线或中划线（其中点、下划线、中划线不能直接连续），小写字母或数字结尾，1-64个字符。
+     * @param {string} [_public] 是否公开，非空且非true默认返回false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceNamespaces(listInstanceNamespacesRequest?: ListInstanceNamespacesRequest): Promise<ListInstanceNamespacesResponse> {
+        const options = ParamCreater().listInstanceNamespaces(listInstanceNamespacesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目下所有实例标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下所有实例标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceProjectTags(listInstanceProjectTagsRequest?: ListInstanceProjectTagsRequest): Promise<ListInstanceProjectTagsResponse> {
+        const options = ParamCreater().listInstanceProjectTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步的目标仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步的目标仓库列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {'created_at' | 'updated_at' | 'name'} [orderColumn] 排序字段，支持created_at、updated_at、name，默认为created_at
+     * @param {'desc' | 'asc'} [orderType] 排序方式，支持desc、asc，默认desc; 注意：order_type需要与order_column配合使用
+     * @param {string} [name] 名称，模糊查询
+     * @param {string} [type] 仓库类型
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceRegistries(listInstanceRegistriesRequest?: ListInstanceRegistriesRequest): Promise<ListInstanceRegistriesResponse> {
+        const options = ParamCreater().listInstanceRegistries(listInstanceRegistriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步策略列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} [orderColumn] 排序字段，支持created_at、updated_at、name，默认为created_at
+     * @param {string} [orderType] 排序方式，支持desc、asc，默认desc; 注意：order_type需要与order_column配合使用。
+     * @param {string} [name] 名称，模糊查询
+     * @param {number} [registryId] 仓库ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceReplicationPolicies(listInstanceReplicationPoliciesRequest?: ListInstanceReplicationPoliciesRequest): Promise<ListInstanceReplicationPoliciesResponse> {
+        const options = ParamCreater().listInstanceReplicationPolicies(listInstanceReplicationPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步策略执行任务的镜像版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步策略执行任务的镜像版本列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} executionId 同步策略执行记录ID
+     * @param {number} taskId 任务ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {string} [status] 状态，可选Initialized、Pending、InProgress、Succeed、Failed、Stopped
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceReplicationPolicyExecSubTasks(listInstanceReplicationPolicyExecSubTasksRequest?: ListInstanceReplicationPolicyExecSubTasksRequest): Promise<ListInstanceReplicationPolicyExecSubTasksResponse> {
+        const options = ParamCreater().listInstanceReplicationPolicyExecSubTasks(listInstanceReplicationPolicyExecSubTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步策略执行任务的镜像列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步策略执行任务的镜像列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} executionId 同步策略执行记录ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceReplicationPolicyExecTasks(listInstanceReplicationPolicyExecTasksRequest?: ListInstanceReplicationPolicyExecTasksRequest): Promise<ListInstanceReplicationPolicyExecTasksResponse> {
+        const options = ParamCreater().listInstanceReplicationPolicyExecTasks(listInstanceReplicationPolicyExecTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步策略执行记录列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步策略执行记录列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [policyId] 同步策略ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100 **注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceReplicationPolicyExecutions(listInstanceReplicationPolicyExecutionsRequest?: ListInstanceReplicationPolicyExecutionsRequest): Promise<ListInstanceReplicationPolicyExecutionsResponse> {
+        const options = ParamCreater().listInstanceReplicationPolicyExecutions(listInstanceReplicationPolicyExecutionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品仓库列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {'created_at' | 'updated_at'} [orderColumn] 排序字段，支持created_at、updated_at，默认为created_at
+     * @param {'desc' | 'asc'} [orderType] 排序方式，支持desc、asc，默认desc
+     * @param {number} [namespaceId] 所属命名空间ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceRepositories(listInstanceRepositoriesRequest?: ListInstanceRepositoriesRequest): Promise<ListInstanceRepositoriesResponse> {
+        const options = ParamCreater().listInstanceRepositories(listInstanceRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按照标签检索资源列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按照标签检索资源列表
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询资源实例列表需要的信息
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为200，最小值为1，最大值为200。**注意：offset和limit参数需要配套使用。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceResourceInstances(listInstanceResourceInstancesRequest?: ListInstanceResourceInstancesRequest): Promise<ListInstanceResourceInstancesResponse> {
+        const options = ParamCreater().listInstanceResourceInstances(listInstanceResourceInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceResourceTags(listInstanceResourceTagsRequest?: ListInstanceResourceTagsRequest): Promise<ListInstanceResourceTagsResponse> {
+        const options = ParamCreater().listInstanceResourceTags(listInstanceResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取老化策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取老化策略列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} [name] 老化策略名称
+     * @param {number} [namespaceId] 所属命名空间ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceRetentionPolicies(listInstanceRetentionPoliciesRequest?: ListInstanceRetentionPoliciesRequest): Promise<ListInstanceRetentionPoliciesResponse> {
+        const options = ParamCreater().listInstanceRetentionPolicies(listInstanceRetentionPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取老化策略执行任务的镜像版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取老化策略执行任务的镜像版本列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {number} executionId 老化策略执行记录ID
+     * @param {number} taskId 任务ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {string} [status] 状态，可选Initialized、Pending、InProgress、Succeed、Failed、Stopped
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceRetentionPolicyExecSubTasks(listInstanceRetentionPolicyExecSubTasksRequest?: ListInstanceRetentionPolicyExecSubTasksRequest): Promise<ListInstanceRetentionPolicyExecSubTasksResponse> {
+        const options = ParamCreater().listInstanceRetentionPolicyExecSubTasks(listInstanceRetentionPolicyExecSubTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取老化策略执行任务的镜像列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取老化策略执行任务的镜像列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {number} executionId 老化策略执行记录ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {string} [status] 状态，可选Initialized、Pending、InProgress、Succeed、Failed、Stopped
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceRetentionPolicyExecTasks(listInstanceRetentionPolicyExecTasksRequest?: ListInstanceRetentionPolicyExecTasksRequest): Promise<ListInstanceRetentionPolicyExecTasksResponse> {
+        const options = ParamCreater().listInstanceRetentionPolicyExecTasks(listInstanceRetentionPolicyExecTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取老化策略执行记录列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取老化策略执行记录列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceRetentionPolicyExecutions(listInstanceRetentionPolicyExecutionsRequest?: ListInstanceRetentionPolicyExecutionsRequest): Promise<ListInstanceRetentionPolicyExecutionsResponse> {
+        const options = ParamCreater().listInstanceRetentionPolicyExecutions(listInstanceRetentionPolicyExecutionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取签名策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取签名策略列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceSignPolicies(listInstanceSignPoliciesRequest?: ListInstanceSignPoliciesRequest): Promise<ListInstanceSignPoliciesResponse> {
+        const options = ParamCreater().listInstanceSignPolicies(listInstanceSignPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取签名执行记录任务的镜像列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取签名执行记录任务的镜像列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 策略ID
+     * @param {number} executionId 签名策略执行记录ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceSignPolicyExecTasks(listInstanceSignPolicyExecTasksRequest?: ListInstanceSignPolicyExecTasksRequest): Promise<ListInstanceSignPolicyExecTasksResponse> {
+        const options = ParamCreater().listInstanceSignPolicyExecTasks(listInstanceSignPolicyExecTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取签名执行记录列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取签名执行记录列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 策略ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceSignPolicyExecutions(listInstanceSignPolicyExecutionsRequest?: ListInstanceSignPolicyExecutionsRequest): Promise<ListInstanceSignPolicyExecutionsResponse> {
+        const options = ParamCreater().listInstanceSignPolicyExecutions(listInstanceSignPolicyExecutionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取签名策略执行任务的镜像版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取签名策略执行任务的镜像版本列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 签名策略ID
+     * @param {number} executionId 签名策略执行记录ID
+     * @param {number} taskId 任务ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {string} [status] 状态，可选Initialized、Pending、InProgress、Succeed、Failed、Stopped
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceSignatureExecutionSubtasks(listInstanceSignatureExecutionSubtasksRequest?: ListInstanceSignatureExecutionSubtasksRequest): Promise<ListInstanceSignatureExecutionSubtasksResponse> {
+        const options = ParamCreater().listInstanceSignatureExecutionSubtasks(listInstanceSignatureExecutionSubtasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取实例统计数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例统计数据
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceStatistics(listInstanceStatisticsRequest?: ListInstanceStatisticsRequest): Promise<ListInstanceStatisticsResponse> {
+        const options = ParamCreater().listInstanceStatistics(listInstanceStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品仓库的Tag列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品仓库的Tag列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {boolean} [isAccessory] 是否返回制品附件，默认为true
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceTags(listInstanceTagsRequest?: ListInstanceTagsRequest): Promise<ListInstanceTagsResponse> {
+        const options = ParamCreater().listInstanceTags(listInstanceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取触发器执行任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取触发器执行任务列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 触发器策略ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {string} [status] 状态，可选Initialized、Pending、InProgress、Succeed、Failed、Stopped
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceWebhookJobs(listInstanceWebhookJobsRequest?: ListInstanceWebhookJobsRequest): Promise<ListInstanceWebhookJobsResponse> {
+        const options = ParamCreater().listInstanceWebhookJobs(listInstanceWebhookJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取触发器策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取触发器策略列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} [orderColumn] 排序字段，支持created_at、updated_at、name，默认为created_at
+     * @param {'desc' | 'asc'} [orderType] 排序方式，支持desc、asc，默认desc;order_type需要与order_column配合使用
+     * @param {string} [name] 策略名称，模糊查询
+     * @param {number} [namespaceId] 所属命名空间ID
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceWebhooks(listInstanceWebhooksRequest?: ListInstanceWebhooksRequest): Promise<ListInstanceWebhooksResponse> {
+        const options = ParamCreater().listInstanceWebhooks(listInstanceWebhooksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取命名空间下所有制品仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取命名空间下所有制品仓库列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 所属命名空间名称
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
+     * @param {'created_at' | 'updated_at'} [orderColumn] 排序字段，支持created_at、updated_at，默认为created_at
+     * @param {'desc' | 'asc'} [orderType] 排序方式，支持desc、asc，默认desc;order_column和order_type参数需要配套使用
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNamespaceRepositories(listNamespaceRepositoriesRequest?: ListNamespaceRepositoriesRequest): Promise<ListNamespaceRepositoriesResponse> {
+        const options = ParamCreater().listNamespaceRepositories(listNamespaceRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例下所有命名空间标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例下所有命名空间标签
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNamespaceTags(listNamespaceTagsRequest?: ListNamespaceTagsRequest): Promise<ListNamespaceTagsResponse> {
+        const options = ParamCreater().listNamespaceTags(listNamespaceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按照标签检索子资源列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按照标签检索子资源列表
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询子资源实例列表需要的信息
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为200，最小值为1，最大值为200。**注意：offset和limit参数需要配套使用。**
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubResourceInstances(listSubResourceInstancesRequest?: ListSubResourceInstancesRequest): Promise<ListSubResourceInstancesResponse> {
+        const options = ParamCreater().listSubResourceInstances(listSubResourceInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询子资源标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询子资源标签
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
+     * @param {string} subResourceId 子资源id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubResourceTags(listSubResourceTagsRequest?: ListSubResourceTagsRequest): Promise<ListSubResourceTagsResponse> {
+        const options = ParamCreater().listSubResourceTags(listSubResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取实例详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
+        const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 制品名称
+     * @param {string} reference 制品摘要
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceArtifact(showInstanceArtifactRequest?: ShowInstanceArtifactRequest): Promise<ShowInstanceArtifactResponse> {
+        const options = ParamCreater().showInstanceArtifact(showInstanceArtifactRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品附加信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品附加信息
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {string} reference 制品摘要
+     * @param {'build_history'} addition 制品附加信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceArtifactAddition(showInstanceArtifactAdditionRequest?: ShowInstanceArtifactAdditionRequest): Promise<ShowInstanceArtifactAdditionResponse> {
+        const options = ParamCreater().showInstanceArtifactAddition(showInstanceArtifactAdditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看实例配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看实例配置
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceConfiguration(showInstanceConfigurationRequest?: ShowInstanceConfigurationRequest): Promise<ShowInstanceConfigurationResponse> {
+        const options = ParamCreater().showInstanceConfiguration(showInstanceConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取公网访问信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取公网访问信息
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceEndpointPolicy(showInstanceEndpointPolicyRequest?: ShowInstanceEndpointPolicyRequest): Promise<ShowInstanceEndpointPolicyResponse> {
+        const options = ParamCreater().showInstanceEndpointPolicy(showInstanceEndpointPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询内网访问详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询内网访问详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} internalEndpointsId 内网访问ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceInternalEndpoint(showInstanceInternalEndpointRequest?: ShowInstanceInternalEndpointRequest): Promise<ShowInstanceInternalEndpointResponse> {
+        const options = ParamCreater().showInstanceInternalEndpoint(showInstanceInternalEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务详情
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceJob(showInstanceJobRequest?: ShowInstanceJobRequest): Promise<ShowInstanceJobResponse> {
+        const options = ParamCreater().showInstanceJob(showInstanceJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取命名空间详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取命名空间详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称，小写字母或数字开头，后面跟小写字母、数字、点、下划线或中划线（其中点、下划线、中划线不能直接连续），小写字母或数字结尾，1-64个字符。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceNamespace(showInstanceNamespaceRequest?: ShowInstanceNamespaceRequest): Promise<ShowInstanceNamespaceResponse> {
+        const options = ParamCreater().showInstanceNamespace(showInstanceNamespaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步的目标仓库详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步的目标仓库详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} registryId 同步仓库ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceRegistry(showInstanceRegistryRequest?: ShowInstanceRegistryRequest): Promise<ShowInstanceRegistryResponse> {
+        const options = ParamCreater().showInstanceRegistry(showInstanceRegistryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像同步策略详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像同步策略详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} policyId 策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceReplicationPolicy(showInstanceReplicationPolicyRequest?: ShowInstanceReplicationPolicyRequest): Promise<ShowInstanceReplicationPolicyResponse> {
+        const options = ParamCreater().showInstanceReplicationPolicy(showInstanceReplicationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品仓库详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品仓库详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceRepository(showInstanceRepositoryRequest?: ShowInstanceRepositoryRequest): Promise<ShowInstanceRepositoryResponse> {
+        const options = ParamCreater().showInstanceRepository(showInstanceRepositoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按照标签检索资源数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按照标签检索资源数量
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询资源实例数量需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceResourceInstancesCount(showInstanceResourceInstancesCountRequest?: ShowInstanceResourceInstancesCountRequest): Promise<ShowInstanceResourceInstancesCountResponse> {
+        const options = ParamCreater().showInstanceResourceInstancesCount(showInstanceResourceInstancesCountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取老化策略详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取老化策略详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceRetentionPolicy(showInstanceRetentionPolicyRequest?: ShowInstanceRetentionPolicyRequest): Promise<ShowInstanceRetentionPolicyResponse> {
+        const options = ParamCreater().showInstanceRetentionPolicy(showInstanceRetentionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取签名策略详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取签名策略详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceSignPolicy(showInstanceSignPolicyRequest?: ShowInstanceSignPolicyRequest): Promise<ShowInstanceSignPolicyResponse> {
+        const options = ParamCreater().showInstanceSignPolicy(showInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取触发器策略详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取触发器策略详情
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 触发器策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceWebhook(showInstanceWebhookRequest?: ShowInstanceWebhookRequest): Promise<ShowInstanceWebhookResponse> {
+        const options = ParamCreater().showInstanceWebhook(showInstanceWebhookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按照标签检索子资源数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按照标签检索子资源数量
+     * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
+     * @param {string} resourceId 资源id
+     * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询子资源实例数量需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSubResourceInstancesCount(showSubResourceInstancesCountRequest?: ShowSubResourceInstancesCountRequest): Promise<ShowSubResourceInstancesCountResponse> {
+        const options = ParamCreater().showSubResourceInstancesCount(showSubResourceInstancesCountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止镜像同步任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止镜像同步任务
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} executionId 同步策略执行记录ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopInstanceReplicationPolicyExecution(stopInstanceReplicationPolicyExecutionRequest?: StopInstanceReplicationPolicyExecutionRequest): Promise<StopInstanceReplicationPolicyExecutionResponse> {
+        const options = ParamCreater().stopInstanceReplicationPolicyExecution(stopInstanceReplicationPolicyExecutionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新域名
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} domainnameId 域名ID
+     * @param {UpdateDomainNameRequestBody} updateDomainNameBody 更新域名请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDomainName(updateDomainNameRequest?: UpdateDomainNameRequest): Promise<UpdateDomainNameResponse> {
+        const options = ParamCreater().updateDomainName(updateDomainNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改不可变Tag策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改不可变Tag策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} immutableRuleId 不可变Tag策略ID
+     * @param {UpdateImmutableRuleBody} updateImmutableRuleRequestBody 修改不可变策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateImmutableRule(updateImmutableRuleRequest?: UpdateImmutableRuleRequest): Promise<UpdateImmutableRuleResponse> {
+        const options = ParamCreater().updateImmutableRule(updateImmutableRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例配置
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {UpdateInstanceConfigurationRequestBody} updateInstanceConfigurationRequestBody 要修改的实例配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceConfiguration(updateInstanceConfigurationRequest?: UpdateInstanceConfigurationRequest): Promise<UpdateInstanceConfigurationResponse> {
+        const options = ParamCreater().updateInstanceConfiguration(updateInstanceConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新公网访问白名单，更新为全量更新方式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新公网访问白名单
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {UpdateWhiteListRequestBody} updateWhiteListRequestBody 更新白名单需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceEndpointPolicy(updateInstanceEndpointPolicyRequest?: UpdateInstanceEndpointPolicyRequest): Promise<UpdateInstanceEndpointPolicyResponse> {
+        const options = ParamCreater().updateInstanceEndpointPolicy(updateInstanceEndpointPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用/停用长期访问凭证
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用/停用长期访问凭证
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} credentialId 访问凭证ID，即token_id
+     * @param {UpdateLongTermCredentialRequestBody} updateLongTermCredentialRequestBody 启用/停用长期访问凭证需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceLtCredential(updateInstanceLtCredentialRequest?: UpdateInstanceLtCredentialRequest): Promise<UpdateInstanceLtCredentialResponse> {
+        const options = ParamCreater().updateInstanceLtCredential(updateInstanceLtCredentialRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改命名空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改命名空间
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称，小写字母或数字开头，后面跟小写字母、数字、点、下划线或中划线（其中点、下划线、中划线不能直接连续），小写字母或数字结尾，1-64个字符。
+     * @param {UpdateNamespaceRequestBody} updateNamespaceRequestBody 修改实例需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceNamespace(updateInstanceNamespaceRequest?: UpdateInstanceNamespaceRequest): Promise<UpdateInstanceNamespaceResponse> {
+        const options = ParamCreater().updateInstanceNamespace(updateInstanceNamespaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改镜像同步的目标仓库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改镜像同步的目标仓库
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} registryId 同步仓库ID
+     * @param {UpdateRegistryRequestBody} updateRegistryRequestBody 修改同步仓库需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceRegistry(updateInstanceRegistryRequest?: UpdateInstanceRegistryRequest): Promise<UpdateInstanceRegistryResponse> {
+        const options = ParamCreater().updateInstanceRegistry(updateInstanceRegistryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改镜像同步策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改镜像同步策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} policyId 同步策略ID
+     * @param {UpdateReplicationPolicyRequestBody} updateReplicationPolicyRequestBody 更新同步策略所需的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceReplicationPolicy(updateInstanceReplicationPolicyRequest?: UpdateInstanceReplicationPolicyRequest): Promise<UpdateInstanceReplicationPolicyResponse> {
+        const options = ParamCreater().updateInstanceReplicationPolicy(updateInstanceReplicationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改制品仓库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改制品仓库
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 制品仓库名称
+     * @param {UpdateRepoConfigRequestBody} updateRepoConfigRequestBody 修改仓库配置需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceRepository(updateInstanceRepositoryRequest?: UpdateInstanceRepositoryRequest): Promise<UpdateInstanceRepositoryResponse> {
+        const options = ParamCreater().updateInstanceRepository(updateInstanceRepositoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改老化策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改老化策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 老化策略ID
+     * @param {UpdateRetentionPolicyRequestBody} updateRetentionPolicyRequestBody 更新老化策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceRetentionPolicy(updateInstanceRetentionPolicyRequest?: UpdateInstanceRetentionPolicyRequest): Promise<UpdateInstanceRetentionPolicyResponse> {
+        const options = ParamCreater().updateInstanceRetentionPolicy(updateInstanceRetentionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改签名策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改签名策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 策略ID
+     * @param {UpdateSignaturePolicyRequestBody} updateSignaturePolicyRequestBody 更新签名策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceSignPolicy(updateInstanceSignPolicyRequest?: UpdateInstanceSignPolicyRequest): Promise<UpdateInstanceSignPolicyResponse> {
+        const options = ParamCreater().updateInstanceSignPolicy(updateInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改触发器策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改触发器策略
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 触发器ID
+     * @param {UpdateWebhookPolicyRequestBody} updateWebhookPolicyRequestBody 修改触发器策略需要的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceWebhook(updateInstanceWebhookRequest?: UpdateInstanceWebhookRequest): Promise<UpdateInstanceWebhookResponse> {
+        const options = ParamCreater().updateInstanceWebhook(updateInstanceWebhookRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3997,6 +6436,5499 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'api_version': apiVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 增加域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addDomainName(addDomainNameRequest?: AddDomainNameRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/domainname",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addDomainNameRequest !== null && addDomainNameRequest !== undefined) {
+                if (addDomainNameRequest instanceof AddDomainNameRequest) {
+                    instanceId = addDomainNameRequest.instanceId;
+                    body = addDomainNameRequest.body
+                } else {
+                    instanceId = addDomainNameRequest['instance_id'];
+                    body = addDomainNameRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling addDomainName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建不可变Tag策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createImmutableRule(createImmutableRuleRequest?: CreateImmutableRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/immutabletagrules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (createImmutableRuleRequest !== null && createImmutableRuleRequest !== undefined) {
+                if (createImmutableRuleRequest instanceof CreateImmutableRuleRequest) {
+                    instanceId = createImmutableRuleRequest.instanceId;
+                    namespaceName = createImmutableRuleRequest.namespaceName;
+                    body = createImmutableRuleRequest.body
+                } else {
+                    instanceId = createImmutableRuleRequest['instance_id'];
+                    namespaceName = createImmutableRuleRequest['namespace_name'];
+                    body = createImmutableRuleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createImmutableRule.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling createImmutableRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建企业仓库实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstance(createInstanceRequest?: CreateInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createInstanceRequest !== null && createInstanceRequest !== undefined) {
+                if (createInstanceRequest instanceof CreateInstanceRequest) {
+                    body = createInstanceRequest.body
+                } else {
+                    body = createInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或关闭公网访问
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceEndpointPolicy(createInstanceEndpointPolicyRequest?: CreateInstanceEndpointPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/endpoint-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createInstanceEndpointPolicyRequest !== null && createInstanceEndpointPolicyRequest !== undefined) {
+                if (createInstanceEndpointPolicyRequest instanceof CreateInstanceEndpointPolicyRequest) {
+                    instanceId = createInstanceEndpointPolicyRequest.instanceId;
+                    body = createInstanceEndpointPolicyRequest.body
+                } else {
+                    instanceId = createInstanceEndpointPolicyRequest['instance_id'];
+                    body = createInstanceEndpointPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceEndpointPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增内网访问
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceInternalEndpoint(createInstanceInternalEndpointRequest?: CreateInstanceInternalEndpointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoints",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createInstanceInternalEndpointRequest !== null && createInstanceInternalEndpointRequest !== undefined) {
+                if (createInstanceInternalEndpointRequest instanceof CreateInstanceInternalEndpointRequest) {
+                    instanceId = createInstanceInternalEndpointRequest.instanceId;
+                    body = createInstanceInternalEndpointRequest.body
+                } else {
+                    instanceId = createInstanceInternalEndpointRequest['instance_id'];
+                    body = createInstanceInternalEndpointRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceInternalEndpoint.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建长期访问凭证
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceLtCredential(createInstanceLtCredentialRequest?: CreateInstanceLtCredentialRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/long-term-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createInstanceLtCredentialRequest !== null && createInstanceLtCredentialRequest !== undefined) {
+                if (createInstanceLtCredentialRequest instanceof CreateInstanceLtCredentialRequest) {
+                    instanceId = createInstanceLtCredentialRequest.instanceId;
+                    body = createInstanceLtCredentialRequest.body
+                } else {
+                    instanceId = createInstanceLtCredentialRequest['instance_id'];
+                    body = createInstanceLtCredentialRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceLtCredential.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建命名空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceNamespace(createInstanceNamespaceRequest?: CreateInstanceNamespaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createInstanceNamespaceRequest !== null && createInstanceNamespaceRequest !== undefined) {
+                if (createInstanceNamespaceRequest instanceof CreateInstanceNamespaceRequest) {
+                    instanceId = createInstanceNamespaceRequest.instanceId;
+                    body = createInstanceNamespaceRequest.body
+                } else {
+                    instanceId = createInstanceNamespaceRequest['instance_id'];
+                    body = createInstanceNamespaceRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceNamespace.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建镜像同步的目标仓库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceRegistry(createInstanceRegistryRequest?: CreateInstanceRegistryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/registries",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createInstanceRegistryRequest !== null && createInstanceRegistryRequest !== undefined) {
+                if (createInstanceRegistryRequest instanceof CreateInstanceRegistryRequest) {
+                    instanceId = createInstanceRegistryRequest.instanceId;
+                    body = createInstanceRegistryRequest.body
+                } else {
+                    instanceId = createInstanceRegistryRequest['instance_id'];
+                    body = createInstanceRegistryRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceRegistry.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建镜像同步策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceReplicationPolicy(createInstanceReplicationPolicyRequest?: CreateInstanceReplicationPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createInstanceReplicationPolicyRequest !== null && createInstanceReplicationPolicyRequest !== undefined) {
+                if (createInstanceReplicationPolicyRequest instanceof CreateInstanceReplicationPolicyRequest) {
+                    instanceId = createInstanceReplicationPolicyRequest.instanceId;
+                    body = createInstanceReplicationPolicyRequest.body
+                } else {
+                    instanceId = createInstanceReplicationPolicyRequest['instance_id'];
+                    body = createInstanceReplicationPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceReplicationPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceResourceTags(createInstanceResourceTagsRequest?: CreateInstanceResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (createInstanceResourceTagsRequest !== null && createInstanceResourceTagsRequest !== undefined) {
+                if (createInstanceResourceTagsRequest instanceof CreateInstanceResourceTagsRequest) {
+                    resourceType = createInstanceResourceTagsRequest.resourceType;
+                    resourceId = createInstanceResourceTagsRequest.resourceId;
+                    body = createInstanceResourceTagsRequest.body
+                } else {
+                    resourceType = createInstanceResourceTagsRequest['resource_type'];
+                    resourceId = createInstanceResourceTagsRequest['resource_id'];
+                    body = createInstanceResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createInstanceResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createInstanceResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建老化策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceRetentionPolicy(createInstanceRetentionPolicyRequest?: CreateInstanceRetentionPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (createInstanceRetentionPolicyRequest !== null && createInstanceRetentionPolicyRequest !== undefined) {
+                if (createInstanceRetentionPolicyRequest instanceof CreateInstanceRetentionPolicyRequest) {
+                    instanceId = createInstanceRetentionPolicyRequest.instanceId;
+                    namespaceName = createInstanceRetentionPolicyRequest.namespaceName;
+                    body = createInstanceRetentionPolicyRequest.body
+                } else {
+                    instanceId = createInstanceRetentionPolicyRequest['instance_id'];
+                    namespaceName = createInstanceRetentionPolicyRequest['namespace_name'];
+                    body = createInstanceRetentionPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceRetentionPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling createInstanceRetentionPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建签名策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceSignPolicy(createInstanceSignPolicyRequest?: CreateInstanceSignPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (createInstanceSignPolicyRequest !== null && createInstanceSignPolicyRequest !== undefined) {
+                if (createInstanceSignPolicyRequest instanceof CreateInstanceSignPolicyRequest) {
+                    instanceId = createInstanceSignPolicyRequest.instanceId;
+                    namespaceName = createInstanceSignPolicyRequest.namespaceName;
+                    body = createInstanceSignPolicyRequest.body
+                } else {
+                    instanceId = createInstanceSignPolicyRequest['instance_id'];
+                    namespaceName = createInstanceSignPolicyRequest['namespace_name'];
+                    body = createInstanceSignPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceSignPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling createInstanceSignPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取临时访问凭证
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceTempCredential(createInstanceTempCredentialRequest?: CreateInstanceTempCredentialRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/temp-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (createInstanceTempCredentialRequest !== null && createInstanceTempCredentialRequest !== undefined) {
+                if (createInstanceTempCredentialRequest instanceof CreateInstanceTempCredentialRequest) {
+                    instanceId = createInstanceTempCredentialRequest.instanceId;
+                } else {
+                    instanceId = createInstanceTempCredentialRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceTempCredential.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建触发器策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceWebhook(createInstanceWebhookRequest?: CreateInstanceWebhookRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/webhook/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (createInstanceWebhookRequest !== null && createInstanceWebhookRequest !== undefined) {
+                if (createInstanceWebhookRequest instanceof CreateInstanceWebhookRequest) {
+                    instanceId = createInstanceWebhookRequest.instanceId;
+                    namespaceName = createInstanceWebhookRequest.namespaceName;
+                    body = createInstanceWebhookRequest.body
+                } else {
+                    instanceId = createInstanceWebhookRequest['instance_id'];
+                    namespaceName = createInstanceWebhookRequest['namespace_name'];
+                    body = createInstanceWebhookRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createInstanceWebhook.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling createInstanceWebhook.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加子资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubResourceTags(createSubResourceTagsRequest?: CreateSubResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/{sub_resource_type}/{sub_resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let subResourceType;
+            
+            let subResourceId;
+
+            if (createSubResourceTagsRequest !== null && createSubResourceTagsRequest !== undefined) {
+                if (createSubResourceTagsRequest instanceof CreateSubResourceTagsRequest) {
+                    resourceType = createSubResourceTagsRequest.resourceType;
+                    resourceId = createSubResourceTagsRequest.resourceId;
+                    subResourceType = createSubResourceTagsRequest.subResourceType;
+                    subResourceId = createSubResourceTagsRequest.subResourceId;
+                    body = createSubResourceTagsRequest.body
+                } else {
+                    resourceType = createSubResourceTagsRequest['resource_type'];
+                    resourceId = createSubResourceTagsRequest['resource_id'];
+                    subResourceType = createSubResourceTagsRequest['sub_resource_type'];
+                    subResourceId = createSubResourceTagsRequest['sub_resource_id'];
+                    body = createSubResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createSubResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createSubResourceTags.');
+            }
+            if (subResourceType === null || subResourceType === undefined) {
+            throw new RequiredError('subResourceType','Required parameter subResourceType was null or undefined when calling createSubResourceTags.');
+            }
+            if (subResourceId === null || subResourceId === undefined) {
+            throw new RequiredError('subResourceId','Required parameter subResourceId was null or undefined when calling createSubResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'sub_resource_type': subResourceType,'sub_resource_id': subResourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除域名，SWR企业仓库的默认域名无法删除。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDomainName(deleteDomainNameRequest?: DeleteDomainNameRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/domainname/{domainname_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let domainnameId;
+
+            if (deleteDomainNameRequest !== null && deleteDomainNameRequest !== undefined) {
+                if (deleteDomainNameRequest instanceof DeleteDomainNameRequest) {
+                    instanceId = deleteDomainNameRequest.instanceId;
+                    domainnameId = deleteDomainNameRequest.domainnameId;
+                } else {
+                    instanceId = deleteDomainNameRequest['instance_id'];
+                    domainnameId = deleteDomainNameRequest['domainname_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteDomainName.');
+            }
+            if (domainnameId === null || domainnameId === undefined) {
+            throw new RequiredError('domainnameId','Required parameter domainnameId was null or undefined when calling deleteDomainName.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'domainname_id': domainnameId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除不可变Tag策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteImmutableRule(deleteImmutableRuleRequest?: DeleteImmutableRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/immutabletagrules/{immutable_rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let immutableRuleId;
+
+            if (deleteImmutableRuleRequest !== null && deleteImmutableRuleRequest !== undefined) {
+                if (deleteImmutableRuleRequest instanceof DeleteImmutableRuleRequest) {
+                    instanceId = deleteImmutableRuleRequest.instanceId;
+                    namespaceName = deleteImmutableRuleRequest.namespaceName;
+                    immutableRuleId = deleteImmutableRuleRequest.immutableRuleId;
+                } else {
+                    instanceId = deleteImmutableRuleRequest['instance_id'];
+                    namespaceName = deleteImmutableRuleRequest['namespace_name'];
+                    immutableRuleId = deleteImmutableRuleRequest['immutable_rule_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteImmutableRule.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteImmutableRule.');
+            }
+            if (immutableRuleId === null || immutableRuleId === undefined) {
+            throw new RequiredError('immutableRuleId','Required parameter immutableRuleId was null or undefined when calling deleteImmutableRule.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'immutable_rule_id': immutableRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteInstanceRequest !== null && deleteInstanceRequest !== undefined) {
+                if (deleteInstanceRequest instanceof DeleteInstanceRequest) {
+                    instanceId = deleteInstanceRequest.instanceId;
+                    body = deleteInstanceRequest.body
+                } else {
+                    instanceId = deleteInstanceRequest['instance_id'];
+                    body = deleteInstanceRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除制品
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceArtifact(deleteInstanceArtifactRequest?: DeleteInstanceArtifactRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+
+            if (deleteInstanceArtifactRequest !== null && deleteInstanceArtifactRequest !== undefined) {
+                if (deleteInstanceArtifactRequest instanceof DeleteInstanceArtifactRequest) {
+                    instanceId = deleteInstanceArtifactRequest.instanceId;
+                    namespaceName = deleteInstanceArtifactRequest.namespaceName;
+                    repositoryName = deleteInstanceArtifactRequest.repositoryName;
+                    reference = deleteInstanceArtifactRequest.reference;
+                } else {
+                    instanceId = deleteInstanceArtifactRequest['instance_id'];
+                    namespaceName = deleteInstanceArtifactRequest['namespace_name'];
+                    repositoryName = deleteInstanceArtifactRequest['repository_name'];
+                    reference = deleteInstanceArtifactRequest['reference'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceArtifact.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceArtifact.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling deleteInstanceArtifact.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling deleteInstanceArtifact.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除内网访问
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceInternalEndpoint(deleteInstanceInternalEndpointRequest?: DeleteInstanceInternalEndpointRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoints/{internal_endpoints_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let internalEndpointsId;
+
+            if (deleteInstanceInternalEndpointRequest !== null && deleteInstanceInternalEndpointRequest !== undefined) {
+                if (deleteInstanceInternalEndpointRequest instanceof DeleteInstanceInternalEndpointRequest) {
+                    instanceId = deleteInstanceInternalEndpointRequest.instanceId;
+                    internalEndpointsId = deleteInstanceInternalEndpointRequest.internalEndpointsId;
+                } else {
+                    instanceId = deleteInstanceInternalEndpointRequest['instance_id'];
+                    internalEndpointsId = deleteInstanceInternalEndpointRequest['internal_endpoints_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceInternalEndpoint.');
+            }
+            if (internalEndpointsId === null || internalEndpointsId === undefined) {
+            throw new RequiredError('internalEndpointsId','Required parameter internalEndpointsId was null or undefined when calling deleteInstanceInternalEndpoint.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'internal_endpoints_id': internalEndpointsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceJob(deleteInstanceJobRequest?: DeleteInstanceJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (deleteInstanceJobRequest !== null && deleteInstanceJobRequest !== undefined) {
+                if (deleteInstanceJobRequest instanceof DeleteInstanceJobRequest) {
+                    jobId = deleteInstanceJobRequest.jobId;
+                } else {
+                    jobId = deleteInstanceJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteInstanceJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除长期访问凭证
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceLtCredential(deleteInstanceLtCredentialRequest?: DeleteInstanceLtCredentialRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/long-term-credentials/{credential_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let credentialId;
+
+            if (deleteInstanceLtCredentialRequest !== null && deleteInstanceLtCredentialRequest !== undefined) {
+                if (deleteInstanceLtCredentialRequest instanceof DeleteInstanceLtCredentialRequest) {
+                    instanceId = deleteInstanceLtCredentialRequest.instanceId;
+                    credentialId = deleteInstanceLtCredentialRequest.credentialId;
+                } else {
+                    instanceId = deleteInstanceLtCredentialRequest['instance_id'];
+                    credentialId = deleteInstanceLtCredentialRequest['credential_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceLtCredential.');
+            }
+            if (credentialId === null || credentialId === undefined) {
+            throw new RequiredError('credentialId','Required parameter credentialId was null or undefined when calling deleteInstanceLtCredential.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'credential_id': credentialId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除命名空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceNamespace(deleteInstanceNamespaceRequest?: DeleteInstanceNamespaceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (deleteInstanceNamespaceRequest !== null && deleteInstanceNamespaceRequest !== undefined) {
+                if (deleteInstanceNamespaceRequest instanceof DeleteInstanceNamespaceRequest) {
+                    instanceId = deleteInstanceNamespaceRequest.instanceId;
+                    namespaceName = deleteInstanceNamespaceRequest.namespaceName;
+                } else {
+                    instanceId = deleteInstanceNamespaceRequest['instance_id'];
+                    namespaceName = deleteInstanceNamespaceRequest['namespace_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceNamespace.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceNamespace.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除同步仓库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceRegistry(deleteInstanceRegistryRequest?: DeleteInstanceRegistryRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/registries/{registry_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let registryId;
+
+            if (deleteInstanceRegistryRequest !== null && deleteInstanceRegistryRequest !== undefined) {
+                if (deleteInstanceRegistryRequest instanceof DeleteInstanceRegistryRequest) {
+                    instanceId = deleteInstanceRegistryRequest.instanceId;
+                    registryId = deleteInstanceRegistryRequest.registryId;
+                } else {
+                    instanceId = deleteInstanceRegistryRequest['instance_id'];
+                    registryId = deleteInstanceRegistryRequest['registry_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceRegistry.');
+            }
+            if (registryId === null || registryId === undefined) {
+            throw new RequiredError('registryId','Required parameter registryId was null or undefined when calling deleteInstanceRegistry.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'registry_id': registryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除镜像同步策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceReplicationPolicy(deleteInstanceReplicationPolicyRequest?: DeleteInstanceReplicationPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let policyId;
+
+            if (deleteInstanceReplicationPolicyRequest !== null && deleteInstanceReplicationPolicyRequest !== undefined) {
+                if (deleteInstanceReplicationPolicyRequest instanceof DeleteInstanceReplicationPolicyRequest) {
+                    instanceId = deleteInstanceReplicationPolicyRequest.instanceId;
+                    policyId = deleteInstanceReplicationPolicyRequest.policyId;
+                } else {
+                    instanceId = deleteInstanceReplicationPolicyRequest['instance_id'];
+                    policyId = deleteInstanceReplicationPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceReplicationPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteInstanceReplicationPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除仓库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceRepository(deleteInstanceRepositoryRequest?: DeleteInstanceRepositoryRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+
+            if (deleteInstanceRepositoryRequest !== null && deleteInstanceRepositoryRequest !== undefined) {
+                if (deleteInstanceRepositoryRequest instanceof DeleteInstanceRepositoryRequest) {
+                    instanceId = deleteInstanceRepositoryRequest.instanceId;
+                    namespaceName = deleteInstanceRepositoryRequest.namespaceName;
+                    repositoryName = deleteInstanceRepositoryRequest.repositoryName;
+                } else {
+                    instanceId = deleteInstanceRepositoryRequest['instance_id'];
+                    namespaceName = deleteInstanceRepositoryRequest['namespace_name'];
+                    repositoryName = deleteInstanceRepositoryRequest['repository_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceRepository.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceRepository.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling deleteInstanceRepository.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceResourceTags(deleteInstanceResourceTagsRequest?: DeleteInstanceResourceTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (deleteInstanceResourceTagsRequest !== null && deleteInstanceResourceTagsRequest !== undefined) {
+                if (deleteInstanceResourceTagsRequest instanceof DeleteInstanceResourceTagsRequest) {
+                    resourceType = deleteInstanceResourceTagsRequest.resourceType;
+                    resourceId = deleteInstanceResourceTagsRequest.resourceId;
+                    body = deleteInstanceResourceTagsRequest.body
+                } else {
+                    resourceType = deleteInstanceResourceTagsRequest['resource_type'];
+                    resourceId = deleteInstanceResourceTagsRequest['resource_id'];
+                    body = deleteInstanceResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteInstanceResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteInstanceResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除老化策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceRetentionPolicy(deleteInstanceRetentionPolicyRequest?: DeleteInstanceRetentionPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (deleteInstanceRetentionPolicyRequest !== null && deleteInstanceRetentionPolicyRequest !== undefined) {
+                if (deleteInstanceRetentionPolicyRequest instanceof DeleteInstanceRetentionPolicyRequest) {
+                    instanceId = deleteInstanceRetentionPolicyRequest.instanceId;
+                    namespaceName = deleteInstanceRetentionPolicyRequest.namespaceName;
+                    policyId = deleteInstanceRetentionPolicyRequest.policyId;
+                } else {
+                    instanceId = deleteInstanceRetentionPolicyRequest['instance_id'];
+                    namespaceName = deleteInstanceRetentionPolicyRequest['namespace_name'];
+                    policyId = deleteInstanceRetentionPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceRetentionPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceRetentionPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteInstanceRetentionPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除签名策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceSignPolicy(deleteInstanceSignPolicyRequest?: DeleteInstanceSignPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (deleteInstanceSignPolicyRequest !== null && deleteInstanceSignPolicyRequest !== undefined) {
+                if (deleteInstanceSignPolicyRequest instanceof DeleteInstanceSignPolicyRequest) {
+                    instanceId = deleteInstanceSignPolicyRequest.instanceId;
+                    namespaceName = deleteInstanceSignPolicyRequest.namespaceName;
+                    policyId = deleteInstanceSignPolicyRequest.policyId;
+                } else {
+                    instanceId = deleteInstanceSignPolicyRequest['instance_id'];
+                    namespaceName = deleteInstanceSignPolicyRequest['namespace_name'];
+                    policyId = deleteInstanceSignPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceSignPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceSignPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteInstanceSignPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除触发器策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceWebhook(deleteInstanceWebhookRequest?: DeleteInstanceWebhookRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/webhook/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (deleteInstanceWebhookRequest !== null && deleteInstanceWebhookRequest !== undefined) {
+                if (deleteInstanceWebhookRequest instanceof DeleteInstanceWebhookRequest) {
+                    instanceId = deleteInstanceWebhookRequest.instanceId;
+                    namespaceName = deleteInstanceWebhookRequest.namespaceName;
+                    policyId = deleteInstanceWebhookRequest.policyId;
+                } else {
+                    instanceId = deleteInstanceWebhookRequest['instance_id'];
+                    namespaceName = deleteInstanceWebhookRequest['namespace_name'];
+                    policyId = deleteInstanceWebhookRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceWebhook.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceWebhook.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteInstanceWebhook.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除子资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSubResourceTags(deleteSubResourceTagsRequest?: DeleteSubResourceTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/{sub_resource_type}/{sub_resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let subResourceType;
+            
+            let subResourceId;
+
+            if (deleteSubResourceTagsRequest !== null && deleteSubResourceTagsRequest !== undefined) {
+                if (deleteSubResourceTagsRequest instanceof DeleteSubResourceTagsRequest) {
+                    resourceType = deleteSubResourceTagsRequest.resourceType;
+                    resourceId = deleteSubResourceTagsRequest.resourceId;
+                    subResourceType = deleteSubResourceTagsRequest.subResourceType;
+                    subResourceId = deleteSubResourceTagsRequest.subResourceId;
+                    body = deleteSubResourceTagsRequest.body
+                } else {
+                    resourceType = deleteSubResourceTagsRequest['resource_type'];
+                    resourceId = deleteSubResourceTagsRequest['resource_id'];
+                    subResourceType = deleteSubResourceTagsRequest['sub_resource_type'];
+                    subResourceId = deleteSubResourceTagsRequest['sub_resource_id'];
+                    body = deleteSubResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteSubResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteSubResourceTags.');
+            }
+            if (subResourceType === null || subResourceType === undefined) {
+            throw new RequiredError('subResourceType','Required parameter subResourceType was null or undefined when calling deleteSubResourceTags.');
+            }
+            if (subResourceId === null || subResourceId === undefined) {
+            throw new RequiredError('subResourceId','Required parameter subResourceId was null or undefined when calling deleteSubResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'sub_resource_type': subResourceType,'sub_resource_id': subResourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 手动执行同步策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeInstanceReplicationPolicy(executeInstanceReplicationPolicyRequest?: ExecuteInstanceReplicationPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (executeInstanceReplicationPolicyRequest !== null && executeInstanceReplicationPolicyRequest !== undefined) {
+                if (executeInstanceReplicationPolicyRequest instanceof ExecuteInstanceReplicationPolicyRequest) {
+                    instanceId = executeInstanceReplicationPolicyRequest.instanceId;
+                    body = executeInstanceReplicationPolicyRequest.body
+                } else {
+                    instanceId = executeInstanceReplicationPolicyRequest['instance_id'];
+                    body = executeInstanceReplicationPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeInstanceReplicationPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 执行老化策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeInstanceRetentionPolicy(executeInstanceRetentionPolicyRequest?: ExecuteInstanceRetentionPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (executeInstanceRetentionPolicyRequest !== null && executeInstanceRetentionPolicyRequest !== undefined) {
+                if (executeInstanceRetentionPolicyRequest instanceof ExecuteInstanceRetentionPolicyRequest) {
+                    instanceId = executeInstanceRetentionPolicyRequest.instanceId;
+                    namespaceName = executeInstanceRetentionPolicyRequest.namespaceName;
+                    policyId = executeInstanceRetentionPolicyRequest.policyId;
+                    body = executeInstanceRetentionPolicyRequest.body
+                } else {
+                    instanceId = executeInstanceRetentionPolicyRequest['instance_id'];
+                    namespaceName = executeInstanceRetentionPolicyRequest['namespace_name'];
+                    policyId = executeInstanceRetentionPolicyRequest['policy_id'];
+                    body = executeInstanceRetentionPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeInstanceRetentionPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling executeInstanceRetentionPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling executeInstanceRetentionPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 手动执行签名策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeInstanceSignPolicy(executeInstanceSignPolicyRequest?: ExecuteInstanceSignPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (executeInstanceSignPolicyRequest !== null && executeInstanceSignPolicyRequest !== undefined) {
+                if (executeInstanceSignPolicyRequest instanceof ExecuteInstanceSignPolicyRequest) {
+                    instanceId = executeInstanceSignPolicyRequest.instanceId;
+                    namespaceName = executeInstanceSignPolicyRequest.namespaceName;
+                    policyId = executeInstanceSignPolicyRequest.policyId;
+                } else {
+                    instanceId = executeInstanceSignPolicyRequest['instance_id'];
+                    namespaceName = executeInstanceSignPolicyRequest['namespace_name'];
+                    policyId = executeInstanceSignPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeInstanceSignPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling executeInstanceSignPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling executeInstanceSignPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取上传下载的相关审计日志列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAuditLogs(listAuditLogsRequest?: ListAuditLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/audit-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let operation;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAuditLogsRequest !== null && listAuditLogsRequest !== undefined) {
+                if (listAuditLogsRequest instanceof ListAuditLogsRequest) {
+                    operation = listAuditLogsRequest.operation;
+                    instanceId = listAuditLogsRequest.instanceId;
+                    offset = listAuditLogsRequest.offset;
+                    limit = listAuditLogsRequest.limit;
+                } else {
+                    operation = listAuditLogsRequest['operation'];
+                    instanceId = listAuditLogsRequest['instance_id'];
+                    offset = listAuditLogsRequest['offset'];
+                    limit = listAuditLogsRequest['limit'];
+                }
+            }
+
+        
+            if (operation === null || operation === undefined) {
+                throw new RequiredError('operation','Required parameter operation was null or undefined when calling listAuditLogs.');
+            }
+            if (operation !== null && operation !== undefined) {
+                localVarQueryParameter['operation'] = operation;
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAuditLogs.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前实例的所有域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainNames(listDomainNamesRequest?: ListDomainNamesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/domainname",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let uid;
+            
+            let domainName;
+
+            if (listDomainNamesRequest !== null && listDomainNamesRequest !== undefined) {
+                if (listDomainNamesRequest instanceof ListDomainNamesRequest) {
+                    instanceId = listDomainNamesRequest.instanceId;
+                    uid = listDomainNamesRequest.uid;
+                    domainName = listDomainNamesRequest.domainName;
+                } else {
+                    instanceId = listDomainNamesRequest['instance_id'];
+                    uid = listDomainNamesRequest['uid'];
+                    domainName = listDomainNamesRequest['domain_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDomainNames.');
+            }
+            if (uid !== null && uid !== undefined) {
+                localVarQueryParameter['uid'] = uid;
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询特性开关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFeatureGates(listFeatureGatesRequest?: ListFeatureGatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/feature-gates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listFeatureGatesRequest !== null && listFeatureGatesRequest !== undefined) {
+                if (listFeatureGatesRequest instanceof ListFeatureGatesRequest) {
+                    instanceId = listFeatureGatesRequest.instanceId;
+                } else {
+                    instanceId = listFeatureGatesRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listFeatureGates.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询全局特性开关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalFeatureGates() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/feature-gates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取不可变Tag策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImmutableRules(listImmutableRulesRequest?: ListImmutableRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/immutabletagrules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listImmutableRulesRequest !== null && listImmutableRulesRequest !== undefined) {
+                if (listImmutableRulesRequest instanceof ListImmutableRulesRequest) {
+                    instanceId = listImmutableRulesRequest.instanceId;
+                    namespaceId = listImmutableRulesRequest.namespaceId;
+                    offset = listImmutableRulesRequest.offset;
+                    limit = listImmutableRulesRequest.limit;
+                } else {
+                    instanceId = listImmutableRulesRequest['instance_id'];
+                    namespaceId = listImmutableRulesRequest['namespace_id'];
+                    offset = listImmutableRulesRequest['offset'];
+                    limit = listImmutableRulesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listImmutableRules.');
+            }
+            if (namespaceId !== null && namespaceId !== undefined) {
+                localVarQueryParameter['namespace_id'] = namespaceId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstance(listInstanceRequest?: ListInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+            
+            let enterpriseProjectId;
+
+            if (listInstanceRequest !== null && listInstanceRequest !== undefined) {
+                if (listInstanceRequest instanceof ListInstanceRequest) {
+                    offset = listInstanceRequest.offset;
+                    limit = listInstanceRequest.limit;
+                    status = listInstanceRequest.status;
+                    enterpriseProjectId = listInstanceRequest.enterpriseProjectId;
+                } else {
+                    offset = listInstanceRequest['offset'];
+                    limit = listInstanceRequest['limit'];
+                    status = listInstanceRequest['status'];
+                    enterpriseProjectId = listInstanceRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品附件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceAccessories(listInstanceAccessoriesRequest?: ListInstanceAccessoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}/accessories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+            
+            let offset;
+            
+            let limit;
+            
+            let type;
+
+            if (listInstanceAccessoriesRequest !== null && listInstanceAccessoriesRequest !== undefined) {
+                if (listInstanceAccessoriesRequest instanceof ListInstanceAccessoriesRequest) {
+                    instanceId = listInstanceAccessoriesRequest.instanceId;
+                    namespaceName = listInstanceAccessoriesRequest.namespaceName;
+                    repositoryName = listInstanceAccessoriesRequest.repositoryName;
+                    reference = listInstanceAccessoriesRequest.reference;
+                    offset = listInstanceAccessoriesRequest.offset;
+                    limit = listInstanceAccessoriesRequest.limit;
+                    type = listInstanceAccessoriesRequest.type;
+                } else {
+                    instanceId = listInstanceAccessoriesRequest['instance_id'];
+                    namespaceName = listInstanceAccessoriesRequest['namespace_name'];
+                    repositoryName = listInstanceAccessoriesRequest['repository_name'];
+                    reference = listInstanceAccessoriesRequest['reference'];
+                    offset = listInstanceAccessoriesRequest['offset'];
+                    limit = listInstanceAccessoriesRequest['limit'];
+                    type = listInstanceAccessoriesRequest['type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceAccessories.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceAccessories.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling listInstanceAccessories.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling listInstanceAccessories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库实例的所有制品版本列表（此接口只在企业仓库实例版本大于25.6.0以上的版本才支持）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceAllArtifacts(listInstanceAllArtifactsRequest?: ListInstanceAllArtifactsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/artifacts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let marker;
+            
+            let limit;
+
+            if (listInstanceAllArtifactsRequest !== null && listInstanceAllArtifactsRequest !== undefined) {
+                if (listInstanceAllArtifactsRequest instanceof ListInstanceAllArtifactsRequest) {
+                    instanceId = listInstanceAllArtifactsRequest.instanceId;
+                    marker = listInstanceAllArtifactsRequest.marker;
+                    limit = listInstanceAllArtifactsRequest.limit;
+                } else {
+                    instanceId = listInstanceAllArtifactsRequest['instance_id'];
+                    marker = listInstanceAllArtifactsRequest['marker'];
+                    limit = listInstanceAllArtifactsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceAllArtifacts.');
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceArtifacts(listInstanceArtifactsRequest?: ListInstanceArtifactsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let offset;
+            
+            let limit;
+            
+            let type;
+            
+            let tags;
+
+            if (listInstanceArtifactsRequest !== null && listInstanceArtifactsRequest !== undefined) {
+                if (listInstanceArtifactsRequest instanceof ListInstanceArtifactsRequest) {
+                    instanceId = listInstanceArtifactsRequest.instanceId;
+                    namespaceName = listInstanceArtifactsRequest.namespaceName;
+                    repositoryName = listInstanceArtifactsRequest.repositoryName;
+                    offset = listInstanceArtifactsRequest.offset;
+                    limit = listInstanceArtifactsRequest.limit;
+                    type = listInstanceArtifactsRequest.type;
+                    tags = listInstanceArtifactsRequest.tags;
+                } else {
+                    instanceId = listInstanceArtifactsRequest['instance_id'];
+                    namespaceName = listInstanceArtifactsRequest['namespace_name'];
+                    repositoryName = listInstanceArtifactsRequest['repository_name'];
+                    offset = listInstanceArtifactsRequest['offset'];
+                    limit = listInstanceArtifactsRequest['limit'];
+                    type = listInstanceArtifactsRequest['type'];
+                    tags = listInstanceArtifactsRequest['tags'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceArtifacts.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceArtifacts.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling listInstanceArtifacts.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取内网访问列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceInternalEndpoints(listInstanceInternalEndpointsRequest?: ListInstanceInternalEndpointsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoints",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceInternalEndpointsRequest !== null && listInstanceInternalEndpointsRequest !== undefined) {
+                if (listInstanceInternalEndpointsRequest instanceof ListInstanceInternalEndpointsRequest) {
+                    instanceId = listInstanceInternalEndpointsRequest.instanceId;
+                    offset = listInstanceInternalEndpointsRequest.offset;
+                    limit = listInstanceInternalEndpointsRequest.limit;
+                } else {
+                    instanceId = listInstanceInternalEndpointsRequest['instance_id'];
+                    offset = listInstanceInternalEndpointsRequest['offset'];
+                    limit = listInstanceInternalEndpointsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceInternalEndpoints.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceJobs(listInstanceJobsRequest?: ListInstanceJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let status;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceJobsRequest !== null && listInstanceJobsRequest !== undefined) {
+                if (listInstanceJobsRequest instanceof ListInstanceJobsRequest) {
+                    status = listInstanceJobsRequest.status;
+                    offset = listInstanceJobsRequest.offset;
+                    limit = listInstanceJobsRequest.limit;
+                } else {
+                    status = listInstanceJobsRequest['status'];
+                    offset = listInstanceJobsRequest['offset'];
+                    limit = listInstanceJobsRequest['limit'];
+                }
+            }
+
+        
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询长期访问凭证列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceLtCredentials(listInstanceLtCredentialsRequest?: ListInstanceLtCredentialsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/long-term-credentials",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceLtCredentialsRequest !== null && listInstanceLtCredentialsRequest !== undefined) {
+                if (listInstanceLtCredentialsRequest instanceof ListInstanceLtCredentialsRequest) {
+                    instanceId = listInstanceLtCredentialsRequest.instanceId;
+                    offset = listInstanceLtCredentialsRequest.offset;
+                    limit = listInstanceLtCredentialsRequest.limit;
+                } else {
+                    instanceId = listInstanceLtCredentialsRequest['instance_id'];
+                    offset = listInstanceLtCredentialsRequest['offset'];
+                    limit = listInstanceLtCredentialsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceLtCredentials.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取命名空间列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceNamespaces(listInstanceNamespacesRequest?: ListInstanceNamespacesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderColumn;
+            
+            let orderType;
+            
+            let name;
+            
+            let _public;
+
+            if (listInstanceNamespacesRequest !== null && listInstanceNamespacesRequest !== undefined) {
+                if (listInstanceNamespacesRequest instanceof ListInstanceNamespacesRequest) {
+                    instanceId = listInstanceNamespacesRequest.instanceId;
+                    offset = listInstanceNamespacesRequest.offset;
+                    limit = listInstanceNamespacesRequest.limit;
+                    orderColumn = listInstanceNamespacesRequest.orderColumn;
+                    orderType = listInstanceNamespacesRequest.orderType;
+                    name = listInstanceNamespacesRequest.name;
+                    _public = listInstanceNamespacesRequest._public;
+                } else {
+                    instanceId = listInstanceNamespacesRequest['instance_id'];
+                    offset = listInstanceNamespacesRequest['offset'];
+                    limit = listInstanceNamespacesRequest['limit'];
+                    orderColumn = listInstanceNamespacesRequest['order_column'];
+                    orderType = listInstanceNamespacesRequest['order_type'];
+                    name = listInstanceNamespacesRequest['name'];
+                    _public = listInstanceNamespacesRequest['public'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceNamespaces.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (_public !== null && _public !== undefined) {
+                localVarQueryParameter['public'] = _public;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目下所有实例标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceProjectTags() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步的目标仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceRegistries(listInstanceRegistriesRequest?: ListInstanceRegistriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/registries",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let orderColumn;
+            
+            let orderType;
+            
+            let name;
+            
+            let type;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceRegistriesRequest !== null && listInstanceRegistriesRequest !== undefined) {
+                if (listInstanceRegistriesRequest instanceof ListInstanceRegistriesRequest) {
+                    instanceId = listInstanceRegistriesRequest.instanceId;
+                    orderColumn = listInstanceRegistriesRequest.orderColumn;
+                    orderType = listInstanceRegistriesRequest.orderType;
+                    name = listInstanceRegistriesRequest.name;
+                    type = listInstanceRegistriesRequest.type;
+                    offset = listInstanceRegistriesRequest.offset;
+                    limit = listInstanceRegistriesRequest.limit;
+                } else {
+                    instanceId = listInstanceRegistriesRequest['instance_id'];
+                    orderColumn = listInstanceRegistriesRequest['order_column'];
+                    orderType = listInstanceRegistriesRequest['order_type'];
+                    name = listInstanceRegistriesRequest['name'];
+                    type = listInstanceRegistriesRequest['type'];
+                    offset = listInstanceRegistriesRequest['offset'];
+                    limit = listInstanceRegistriesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceRegistries.');
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceReplicationPolicies(listInstanceReplicationPoliciesRequest?: ListInstanceReplicationPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let orderColumn;
+            
+            let orderType;
+            
+            let name;
+            
+            let registryId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceReplicationPoliciesRequest !== null && listInstanceReplicationPoliciesRequest !== undefined) {
+                if (listInstanceReplicationPoliciesRequest instanceof ListInstanceReplicationPoliciesRequest) {
+                    instanceId = listInstanceReplicationPoliciesRequest.instanceId;
+                    orderColumn = listInstanceReplicationPoliciesRequest.orderColumn;
+                    orderType = listInstanceReplicationPoliciesRequest.orderType;
+                    name = listInstanceReplicationPoliciesRequest.name;
+                    registryId = listInstanceReplicationPoliciesRequest.registryId;
+                    offset = listInstanceReplicationPoliciesRequest.offset;
+                    limit = listInstanceReplicationPoliciesRequest.limit;
+                } else {
+                    instanceId = listInstanceReplicationPoliciesRequest['instance_id'];
+                    orderColumn = listInstanceReplicationPoliciesRequest['order_column'];
+                    orderType = listInstanceReplicationPoliciesRequest['order_type'];
+                    name = listInstanceReplicationPoliciesRequest['name'];
+                    registryId = listInstanceReplicationPoliciesRequest['registry_id'];
+                    offset = listInstanceReplicationPoliciesRequest['offset'];
+                    limit = listInstanceReplicationPoliciesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceReplicationPolicies.');
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (registryId !== null && registryId !== undefined) {
+                localVarQueryParameter['registry_id'] = registryId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步策略执行任务的镜像版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceReplicationPolicyExecSubTasks(listInstanceReplicationPolicyExecSubTasksRequest?: ListInstanceReplicationPolicyExecSubTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/executions/{execution_id}/tasks/{task_id}/subtasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let executionId;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listInstanceReplicationPolicyExecSubTasksRequest !== null && listInstanceReplicationPolicyExecSubTasksRequest !== undefined) {
+                if (listInstanceReplicationPolicyExecSubTasksRequest instanceof ListInstanceReplicationPolicyExecSubTasksRequest) {
+                    instanceId = listInstanceReplicationPolicyExecSubTasksRequest.instanceId;
+                    executionId = listInstanceReplicationPolicyExecSubTasksRequest.executionId;
+                    taskId = listInstanceReplicationPolicyExecSubTasksRequest.taskId;
+                    offset = listInstanceReplicationPolicyExecSubTasksRequest.offset;
+                    limit = listInstanceReplicationPolicyExecSubTasksRequest.limit;
+                    status = listInstanceReplicationPolicyExecSubTasksRequest.status;
+                } else {
+                    instanceId = listInstanceReplicationPolicyExecSubTasksRequest['instance_id'];
+                    executionId = listInstanceReplicationPolicyExecSubTasksRequest['execution_id'];
+                    taskId = listInstanceReplicationPolicyExecSubTasksRequest['task_id'];
+                    offset = listInstanceReplicationPolicyExecSubTasksRequest['offset'];
+                    limit = listInstanceReplicationPolicyExecSubTasksRequest['limit'];
+                    status = listInstanceReplicationPolicyExecSubTasksRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceReplicationPolicyExecSubTasks.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listInstanceReplicationPolicyExecSubTasks.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listInstanceReplicationPolicyExecSubTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'execution_id': executionId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步策略执行任务的镜像列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceReplicationPolicyExecTasks(listInstanceReplicationPolicyExecTasksRequest?: ListInstanceReplicationPolicyExecTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/executions/{execution_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let executionId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceReplicationPolicyExecTasksRequest !== null && listInstanceReplicationPolicyExecTasksRequest !== undefined) {
+                if (listInstanceReplicationPolicyExecTasksRequest instanceof ListInstanceReplicationPolicyExecTasksRequest) {
+                    instanceId = listInstanceReplicationPolicyExecTasksRequest.instanceId;
+                    executionId = listInstanceReplicationPolicyExecTasksRequest.executionId;
+                    offset = listInstanceReplicationPolicyExecTasksRequest.offset;
+                    limit = listInstanceReplicationPolicyExecTasksRequest.limit;
+                } else {
+                    instanceId = listInstanceReplicationPolicyExecTasksRequest['instance_id'];
+                    executionId = listInstanceReplicationPolicyExecTasksRequest['execution_id'];
+                    offset = listInstanceReplicationPolicyExecTasksRequest['offset'];
+                    limit = listInstanceReplicationPolicyExecTasksRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceReplicationPolicyExecTasks.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listInstanceReplicationPolicyExecTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步策略执行记录列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceReplicationPolicyExecutions(listInstanceReplicationPolicyExecutionsRequest?: ListInstanceReplicationPolicyExecutionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let policyId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceReplicationPolicyExecutionsRequest !== null && listInstanceReplicationPolicyExecutionsRequest !== undefined) {
+                if (listInstanceReplicationPolicyExecutionsRequest instanceof ListInstanceReplicationPolicyExecutionsRequest) {
+                    instanceId = listInstanceReplicationPolicyExecutionsRequest.instanceId;
+                    policyId = listInstanceReplicationPolicyExecutionsRequest.policyId;
+                    offset = listInstanceReplicationPolicyExecutionsRequest.offset;
+                    limit = listInstanceReplicationPolicyExecutionsRequest.limit;
+                } else {
+                    instanceId = listInstanceReplicationPolicyExecutionsRequest['instance_id'];
+                    policyId = listInstanceReplicationPolicyExecutionsRequest['policy_id'];
+                    offset = listInstanceReplicationPolicyExecutionsRequest['offset'];
+                    limit = listInstanceReplicationPolicyExecutionsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceReplicationPolicyExecutions.');
+            }
+            if (policyId !== null && policyId !== undefined) {
+                localVarQueryParameter['policy_id'] = policyId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceRepositories(listInstanceRepositoriesRequest?: ListInstanceRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderColumn;
+            
+            let orderType;
+            
+            let namespaceId;
+
+            if (listInstanceRepositoriesRequest !== null && listInstanceRepositoriesRequest !== undefined) {
+                if (listInstanceRepositoriesRequest instanceof ListInstanceRepositoriesRequest) {
+                    instanceId = listInstanceRepositoriesRequest.instanceId;
+                    offset = listInstanceRepositoriesRequest.offset;
+                    limit = listInstanceRepositoriesRequest.limit;
+                    orderColumn = listInstanceRepositoriesRequest.orderColumn;
+                    orderType = listInstanceRepositoriesRequest.orderType;
+                    namespaceId = listInstanceRepositoriesRequest.namespaceId;
+                } else {
+                    instanceId = listInstanceRepositoriesRequest['instance_id'];
+                    offset = listInstanceRepositoriesRequest['offset'];
+                    limit = listInstanceRepositoriesRequest['limit'];
+                    orderColumn = listInstanceRepositoriesRequest['order_column'];
+                    orderType = listInstanceRepositoriesRequest['order_type'];
+                    namespaceId = listInstanceRepositoriesRequest['namespace_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceRepositories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+            if (namespaceId !== null && namespaceId !== undefined) {
+                localVarQueryParameter['namespace_id'] = namespaceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按照标签检索资源列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceResourceInstances(listInstanceResourceInstancesRequest?: ListInstanceResourceInstancesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let resourceType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceResourceInstancesRequest !== null && listInstanceResourceInstancesRequest !== undefined) {
+                if (listInstanceResourceInstancesRequest instanceof ListInstanceResourceInstancesRequest) {
+                    resourceType = listInstanceResourceInstancesRequest.resourceType;
+                    body = listInstanceResourceInstancesRequest.body
+                    offset = listInstanceResourceInstancesRequest.offset;
+                    limit = listInstanceResourceInstancesRequest.limit;
+                } else {
+                    resourceType = listInstanceResourceInstancesRequest['resource_type'];
+                    body = listInstanceResourceInstancesRequest['body'];
+                    offset = listInstanceResourceInstancesRequest['offset'];
+                    limit = listInstanceResourceInstancesRequest['limit'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listInstanceResourceInstances.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceResourceTags(listInstanceResourceTagsRequest?: ListInstanceResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (listInstanceResourceTagsRequest !== null && listInstanceResourceTagsRequest !== undefined) {
+                if (listInstanceResourceTagsRequest instanceof ListInstanceResourceTagsRequest) {
+                    resourceType = listInstanceResourceTagsRequest.resourceType;
+                    resourceId = listInstanceResourceTagsRequest.resourceId;
+                } else {
+                    resourceType = listInstanceResourceTagsRequest['resource_type'];
+                    resourceId = listInstanceResourceTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listInstanceResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listInstanceResourceTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取老化策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceRetentionPolicies(listInstanceRetentionPoliciesRequest?: ListInstanceRetentionPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/retention/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let name;
+            
+            let namespaceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceRetentionPoliciesRequest !== null && listInstanceRetentionPoliciesRequest !== undefined) {
+                if (listInstanceRetentionPoliciesRequest instanceof ListInstanceRetentionPoliciesRequest) {
+                    instanceId = listInstanceRetentionPoliciesRequest.instanceId;
+                    name = listInstanceRetentionPoliciesRequest.name;
+                    namespaceId = listInstanceRetentionPoliciesRequest.namespaceId;
+                    offset = listInstanceRetentionPoliciesRequest.offset;
+                    limit = listInstanceRetentionPoliciesRequest.limit;
+                } else {
+                    instanceId = listInstanceRetentionPoliciesRequest['instance_id'];
+                    name = listInstanceRetentionPoliciesRequest['name'];
+                    namespaceId = listInstanceRetentionPoliciesRequest['namespace_id'];
+                    offset = listInstanceRetentionPoliciesRequest['offset'];
+                    limit = listInstanceRetentionPoliciesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceRetentionPolicies.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (namespaceId !== null && namespaceId !== undefined) {
+                localVarQueryParameter['namespace_id'] = namespaceId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取老化策略执行任务的镜像版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceRetentionPolicyExecSubTasks(listInstanceRetentionPolicyExecSubTasksRequest?: ListInstanceRetentionPolicyExecSubTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}/executions/{execution_id}/tasks/{task_id}/subtasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let executionId;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listInstanceRetentionPolicyExecSubTasksRequest !== null && listInstanceRetentionPolicyExecSubTasksRequest !== undefined) {
+                if (listInstanceRetentionPolicyExecSubTasksRequest instanceof ListInstanceRetentionPolicyExecSubTasksRequest) {
+                    instanceId = listInstanceRetentionPolicyExecSubTasksRequest.instanceId;
+                    namespaceName = listInstanceRetentionPolicyExecSubTasksRequest.namespaceName;
+                    policyId = listInstanceRetentionPolicyExecSubTasksRequest.policyId;
+                    executionId = listInstanceRetentionPolicyExecSubTasksRequest.executionId;
+                    taskId = listInstanceRetentionPolicyExecSubTasksRequest.taskId;
+                    offset = listInstanceRetentionPolicyExecSubTasksRequest.offset;
+                    limit = listInstanceRetentionPolicyExecSubTasksRequest.limit;
+                    status = listInstanceRetentionPolicyExecSubTasksRequest.status;
+                } else {
+                    instanceId = listInstanceRetentionPolicyExecSubTasksRequest['instance_id'];
+                    namespaceName = listInstanceRetentionPolicyExecSubTasksRequest['namespace_name'];
+                    policyId = listInstanceRetentionPolicyExecSubTasksRequest['policy_id'];
+                    executionId = listInstanceRetentionPolicyExecSubTasksRequest['execution_id'];
+                    taskId = listInstanceRetentionPolicyExecSubTasksRequest['task_id'];
+                    offset = listInstanceRetentionPolicyExecSubTasksRequest['offset'];
+                    limit = listInstanceRetentionPolicyExecSubTasksRequest['limit'];
+                    status = listInstanceRetentionPolicyExecSubTasksRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceRetentionPolicyExecSubTasks.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceRetentionPolicyExecSubTasks.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceRetentionPolicyExecSubTasks.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listInstanceRetentionPolicyExecSubTasks.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listInstanceRetentionPolicyExecSubTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId,'execution_id': executionId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取老化策略执行任务的镜像列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceRetentionPolicyExecTasks(listInstanceRetentionPolicyExecTasksRequest?: ListInstanceRetentionPolicyExecTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}/executions/{execution_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let executionId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listInstanceRetentionPolicyExecTasksRequest !== null && listInstanceRetentionPolicyExecTasksRequest !== undefined) {
+                if (listInstanceRetentionPolicyExecTasksRequest instanceof ListInstanceRetentionPolicyExecTasksRequest) {
+                    instanceId = listInstanceRetentionPolicyExecTasksRequest.instanceId;
+                    namespaceName = listInstanceRetentionPolicyExecTasksRequest.namespaceName;
+                    policyId = listInstanceRetentionPolicyExecTasksRequest.policyId;
+                    executionId = listInstanceRetentionPolicyExecTasksRequest.executionId;
+                    offset = listInstanceRetentionPolicyExecTasksRequest.offset;
+                    limit = listInstanceRetentionPolicyExecTasksRequest.limit;
+                    status = listInstanceRetentionPolicyExecTasksRequest.status;
+                } else {
+                    instanceId = listInstanceRetentionPolicyExecTasksRequest['instance_id'];
+                    namespaceName = listInstanceRetentionPolicyExecTasksRequest['namespace_name'];
+                    policyId = listInstanceRetentionPolicyExecTasksRequest['policy_id'];
+                    executionId = listInstanceRetentionPolicyExecTasksRequest['execution_id'];
+                    offset = listInstanceRetentionPolicyExecTasksRequest['offset'];
+                    limit = listInstanceRetentionPolicyExecTasksRequest['limit'];
+                    status = listInstanceRetentionPolicyExecTasksRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceRetentionPolicyExecTasks.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceRetentionPolicyExecTasks.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceRetentionPolicyExecTasks.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listInstanceRetentionPolicyExecTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取老化策略执行记录列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceRetentionPolicyExecutions(listInstanceRetentionPolicyExecutionsRequest?: ListInstanceRetentionPolicyExecutionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceRetentionPolicyExecutionsRequest !== null && listInstanceRetentionPolicyExecutionsRequest !== undefined) {
+                if (listInstanceRetentionPolicyExecutionsRequest instanceof ListInstanceRetentionPolicyExecutionsRequest) {
+                    instanceId = listInstanceRetentionPolicyExecutionsRequest.instanceId;
+                    namespaceName = listInstanceRetentionPolicyExecutionsRequest.namespaceName;
+                    policyId = listInstanceRetentionPolicyExecutionsRequest.policyId;
+                    offset = listInstanceRetentionPolicyExecutionsRequest.offset;
+                    limit = listInstanceRetentionPolicyExecutionsRequest.limit;
+                } else {
+                    instanceId = listInstanceRetentionPolicyExecutionsRequest['instance_id'];
+                    namespaceName = listInstanceRetentionPolicyExecutionsRequest['namespace_name'];
+                    policyId = listInstanceRetentionPolicyExecutionsRequest['policy_id'];
+                    offset = listInstanceRetentionPolicyExecutionsRequest['offset'];
+                    limit = listInstanceRetentionPolicyExecutionsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceRetentionPolicyExecutions.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceRetentionPolicyExecutions.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceRetentionPolicyExecutions.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取签名策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceSignPolicies(listInstanceSignPoliciesRequest?: ListInstanceSignPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/signature/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceSignPoliciesRequest !== null && listInstanceSignPoliciesRequest !== undefined) {
+                if (listInstanceSignPoliciesRequest instanceof ListInstanceSignPoliciesRequest) {
+                    instanceId = listInstanceSignPoliciesRequest.instanceId;
+                    offset = listInstanceSignPoliciesRequest.offset;
+                    limit = listInstanceSignPoliciesRequest.limit;
+                } else {
+                    instanceId = listInstanceSignPoliciesRequest['instance_id'];
+                    offset = listInstanceSignPoliciesRequest['offset'];
+                    limit = listInstanceSignPoliciesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceSignPolicies.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取签名执行记录任务的镜像列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceSignPolicyExecTasks(listInstanceSignPolicyExecTasksRequest?: ListInstanceSignPolicyExecTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}/executions/{execution_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let executionId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceSignPolicyExecTasksRequest !== null && listInstanceSignPolicyExecTasksRequest !== undefined) {
+                if (listInstanceSignPolicyExecTasksRequest instanceof ListInstanceSignPolicyExecTasksRequest) {
+                    instanceId = listInstanceSignPolicyExecTasksRequest.instanceId;
+                    namespaceName = listInstanceSignPolicyExecTasksRequest.namespaceName;
+                    policyId = listInstanceSignPolicyExecTasksRequest.policyId;
+                    executionId = listInstanceSignPolicyExecTasksRequest.executionId;
+                    offset = listInstanceSignPolicyExecTasksRequest.offset;
+                    limit = listInstanceSignPolicyExecTasksRequest.limit;
+                } else {
+                    instanceId = listInstanceSignPolicyExecTasksRequest['instance_id'];
+                    namespaceName = listInstanceSignPolicyExecTasksRequest['namespace_name'];
+                    policyId = listInstanceSignPolicyExecTasksRequest['policy_id'];
+                    executionId = listInstanceSignPolicyExecTasksRequest['execution_id'];
+                    offset = listInstanceSignPolicyExecTasksRequest['offset'];
+                    limit = listInstanceSignPolicyExecTasksRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceSignPolicyExecTasks.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceSignPolicyExecTasks.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceSignPolicyExecTasks.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listInstanceSignPolicyExecTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取签名执行记录列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceSignPolicyExecutions(listInstanceSignPolicyExecutionsRequest?: ListInstanceSignPolicyExecutionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceSignPolicyExecutionsRequest !== null && listInstanceSignPolicyExecutionsRequest !== undefined) {
+                if (listInstanceSignPolicyExecutionsRequest instanceof ListInstanceSignPolicyExecutionsRequest) {
+                    instanceId = listInstanceSignPolicyExecutionsRequest.instanceId;
+                    namespaceName = listInstanceSignPolicyExecutionsRequest.namespaceName;
+                    policyId = listInstanceSignPolicyExecutionsRequest.policyId;
+                    offset = listInstanceSignPolicyExecutionsRequest.offset;
+                    limit = listInstanceSignPolicyExecutionsRequest.limit;
+                } else {
+                    instanceId = listInstanceSignPolicyExecutionsRequest['instance_id'];
+                    namespaceName = listInstanceSignPolicyExecutionsRequest['namespace_name'];
+                    policyId = listInstanceSignPolicyExecutionsRequest['policy_id'];
+                    offset = listInstanceSignPolicyExecutionsRequest['offset'];
+                    limit = listInstanceSignPolicyExecutionsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceSignPolicyExecutions.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceSignPolicyExecutions.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceSignPolicyExecutions.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取签名策略执行任务的镜像版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceSignatureExecutionSubtasks(listInstanceSignatureExecutionSubtasksRequest?: ListInstanceSignatureExecutionSubtasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}/executions/{execution_id}/tasks/{task_id}/subtasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let executionId;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listInstanceSignatureExecutionSubtasksRequest !== null && listInstanceSignatureExecutionSubtasksRequest !== undefined) {
+                if (listInstanceSignatureExecutionSubtasksRequest instanceof ListInstanceSignatureExecutionSubtasksRequest) {
+                    instanceId = listInstanceSignatureExecutionSubtasksRequest.instanceId;
+                    namespaceName = listInstanceSignatureExecutionSubtasksRequest.namespaceName;
+                    policyId = listInstanceSignatureExecutionSubtasksRequest.policyId;
+                    executionId = listInstanceSignatureExecutionSubtasksRequest.executionId;
+                    taskId = listInstanceSignatureExecutionSubtasksRequest.taskId;
+                    offset = listInstanceSignatureExecutionSubtasksRequest.offset;
+                    limit = listInstanceSignatureExecutionSubtasksRequest.limit;
+                    status = listInstanceSignatureExecutionSubtasksRequest.status;
+                } else {
+                    instanceId = listInstanceSignatureExecutionSubtasksRequest['instance_id'];
+                    namespaceName = listInstanceSignatureExecutionSubtasksRequest['namespace_name'];
+                    policyId = listInstanceSignatureExecutionSubtasksRequest['policy_id'];
+                    executionId = listInstanceSignatureExecutionSubtasksRequest['execution_id'];
+                    taskId = listInstanceSignatureExecutionSubtasksRequest['task_id'];
+                    offset = listInstanceSignatureExecutionSubtasksRequest['offset'];
+                    limit = listInstanceSignatureExecutionSubtasksRequest['limit'];
+                    status = listInstanceSignatureExecutionSubtasksRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceSignatureExecutionSubtasks.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceSignatureExecutionSubtasks.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceSignatureExecutionSubtasks.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling listInstanceSignatureExecutionSubtasks.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listInstanceSignatureExecutionSubtasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId,'execution_id': executionId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取实例统计数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceStatistics(listInstanceStatisticsRequest?: ListInstanceStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listInstanceStatisticsRequest !== null && listInstanceStatisticsRequest !== undefined) {
+                if (listInstanceStatisticsRequest instanceof ListInstanceStatisticsRequest) {
+                    instanceId = listInstanceStatisticsRequest.instanceId;
+                } else {
+                    instanceId = listInstanceStatisticsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceStatistics.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品仓库的Tag列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceTags(listInstanceTagsRequest?: ListInstanceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let offset;
+            
+            let limit;
+            
+            let isAccessory;
+
+            if (listInstanceTagsRequest !== null && listInstanceTagsRequest !== undefined) {
+                if (listInstanceTagsRequest instanceof ListInstanceTagsRequest) {
+                    instanceId = listInstanceTagsRequest.instanceId;
+                    namespaceName = listInstanceTagsRequest.namespaceName;
+                    repositoryName = listInstanceTagsRequest.repositoryName;
+                    offset = listInstanceTagsRequest.offset;
+                    limit = listInstanceTagsRequest.limit;
+                    isAccessory = listInstanceTagsRequest.isAccessory;
+                } else {
+                    instanceId = listInstanceTagsRequest['instance_id'];
+                    namespaceName = listInstanceTagsRequest['namespace_name'];
+                    repositoryName = listInstanceTagsRequest['repository_name'];
+                    offset = listInstanceTagsRequest['offset'];
+                    limit = listInstanceTagsRequest['limit'];
+                    isAccessory = listInstanceTagsRequest['is_accessory'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceTags.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceTags.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling listInstanceTags.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (isAccessory !== null && isAccessory !== undefined) {
+                localVarQueryParameter['is_accessory'] = isAccessory;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取触发器执行任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceWebhookJobs(listInstanceWebhookJobsRequest?: ListInstanceWebhookJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/webhook/policies/{policy_id}/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listInstanceWebhookJobsRequest !== null && listInstanceWebhookJobsRequest !== undefined) {
+                if (listInstanceWebhookJobsRequest instanceof ListInstanceWebhookJobsRequest) {
+                    instanceId = listInstanceWebhookJobsRequest.instanceId;
+                    namespaceName = listInstanceWebhookJobsRequest.namespaceName;
+                    policyId = listInstanceWebhookJobsRequest.policyId;
+                    offset = listInstanceWebhookJobsRequest.offset;
+                    limit = listInstanceWebhookJobsRequest.limit;
+                    status = listInstanceWebhookJobsRequest.status;
+                } else {
+                    instanceId = listInstanceWebhookJobsRequest['instance_id'];
+                    namespaceName = listInstanceWebhookJobsRequest['namespace_name'];
+                    policyId = listInstanceWebhookJobsRequest['policy_id'];
+                    offset = listInstanceWebhookJobsRequest['offset'];
+                    limit = listInstanceWebhookJobsRequest['limit'];
+                    status = listInstanceWebhookJobsRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceWebhookJobs.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceWebhookJobs.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listInstanceWebhookJobs.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取触发器策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceWebhooks(listInstanceWebhooksRequest?: ListInstanceWebhooksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/webhook/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let orderColumn;
+            
+            let orderType;
+            
+            let name;
+            
+            let namespaceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceWebhooksRequest !== null && listInstanceWebhooksRequest !== undefined) {
+                if (listInstanceWebhooksRequest instanceof ListInstanceWebhooksRequest) {
+                    instanceId = listInstanceWebhooksRequest.instanceId;
+                    orderColumn = listInstanceWebhooksRequest.orderColumn;
+                    orderType = listInstanceWebhooksRequest.orderType;
+                    name = listInstanceWebhooksRequest.name;
+                    namespaceId = listInstanceWebhooksRequest.namespaceId;
+                    offset = listInstanceWebhooksRequest.offset;
+                    limit = listInstanceWebhooksRequest.limit;
+                } else {
+                    instanceId = listInstanceWebhooksRequest['instance_id'];
+                    orderColumn = listInstanceWebhooksRequest['order_column'];
+                    orderType = listInstanceWebhooksRequest['order_type'];
+                    name = listInstanceWebhooksRequest['name'];
+                    namespaceId = listInstanceWebhooksRequest['namespace_id'];
+                    offset = listInstanceWebhooksRequest['offset'];
+                    limit = listInstanceWebhooksRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceWebhooks.');
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (namespaceId !== null && namespaceId !== undefined) {
+                localVarQueryParameter['namespace_id'] = namespaceId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取命名空间下所有制品仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNamespaceRepositories(listNamespaceRepositoriesRequest?: ListNamespaceRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderColumn;
+            
+            let orderType;
+
+            if (listNamespaceRepositoriesRequest !== null && listNamespaceRepositoriesRequest !== undefined) {
+                if (listNamespaceRepositoriesRequest instanceof ListNamespaceRepositoriesRequest) {
+                    instanceId = listNamespaceRepositoriesRequest.instanceId;
+                    namespaceName = listNamespaceRepositoriesRequest.namespaceName;
+                    offset = listNamespaceRepositoriesRequest.offset;
+                    limit = listNamespaceRepositoriesRequest.limit;
+                    orderColumn = listNamespaceRepositoriesRequest.orderColumn;
+                    orderType = listNamespaceRepositoriesRequest.orderType;
+                } else {
+                    instanceId = listNamespaceRepositoriesRequest['instance_id'];
+                    namespaceName = listNamespaceRepositoriesRequest['namespace_name'];
+                    offset = listNamespaceRepositoriesRequest['offset'];
+                    limit = listNamespaceRepositoriesRequest['limit'];
+                    orderColumn = listNamespaceRepositoriesRequest['order_column'];
+                    orderType = listNamespaceRepositoriesRequest['order_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listNamespaceRepositories.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listNamespaceRepositories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例下所有命名空间标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNamespaceTags(listNamespaceTagsRequest?: ListNamespaceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces-tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listNamespaceTagsRequest !== null && listNamespaceTagsRequest !== undefined) {
+                if (listNamespaceTagsRequest instanceof ListNamespaceTagsRequest) {
+                    instanceId = listNamespaceTagsRequest.instanceId;
+                } else {
+                    instanceId = listNamespaceTagsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listNamespaceTags.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按照标签检索子资源列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubResourceInstances(listSubResourceInstancesRequest?: ListSubResourceInstancesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/{sub_resource_type}/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let subResourceType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSubResourceInstancesRequest !== null && listSubResourceInstancesRequest !== undefined) {
+                if (listSubResourceInstancesRequest instanceof ListSubResourceInstancesRequest) {
+                    resourceType = listSubResourceInstancesRequest.resourceType;
+                    resourceId = listSubResourceInstancesRequest.resourceId;
+                    subResourceType = listSubResourceInstancesRequest.subResourceType;
+                    body = listSubResourceInstancesRequest.body
+                    offset = listSubResourceInstancesRequest.offset;
+                    limit = listSubResourceInstancesRequest.limit;
+                } else {
+                    resourceType = listSubResourceInstancesRequest['resource_type'];
+                    resourceId = listSubResourceInstancesRequest['resource_id'];
+                    subResourceType = listSubResourceInstancesRequest['sub_resource_type'];
+                    body = listSubResourceInstancesRequest['body'];
+                    offset = listSubResourceInstancesRequest['offset'];
+                    limit = listSubResourceInstancesRequest['limit'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listSubResourceInstances.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listSubResourceInstances.');
+            }
+            if (subResourceType === null || subResourceType === undefined) {
+            throw new RequiredError('subResourceType','Required parameter subResourceType was null or undefined when calling listSubResourceInstances.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'sub_resource_type': subResourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询子资源标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubResourceTags(listSubResourceTagsRequest?: ListSubResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/{sub_resource_type}/{sub_resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let subResourceType;
+            
+            let subResourceId;
+
+            if (listSubResourceTagsRequest !== null && listSubResourceTagsRequest !== undefined) {
+                if (listSubResourceTagsRequest instanceof ListSubResourceTagsRequest) {
+                    resourceType = listSubResourceTagsRequest.resourceType;
+                    resourceId = listSubResourceTagsRequest.resourceId;
+                    subResourceType = listSubResourceTagsRequest.subResourceType;
+                    subResourceId = listSubResourceTagsRequest.subResourceId;
+                } else {
+                    resourceType = listSubResourceTagsRequest['resource_type'];
+                    resourceId = listSubResourceTagsRequest['resource_id'];
+                    subResourceType = listSubResourceTagsRequest['sub_resource_type'];
+                    subResourceId = listSubResourceTagsRequest['sub_resource_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listSubResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listSubResourceTags.');
+            }
+            if (subResourceType === null || subResourceType === undefined) {
+            throw new RequiredError('subResourceType','Required parameter subResourceType was null or undefined when calling listSubResourceTags.');
+            }
+            if (subResourceId === null || subResourceId === undefined) {
+            throw new RequiredError('subResourceId','Required parameter subResourceId was null or undefined when calling listSubResourceTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'sub_resource_type': subResourceType,'sub_resource_id': subResourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取实例详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstance(showInstanceRequest?: ShowInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceRequest !== null && showInstanceRequest !== undefined) {
+                if (showInstanceRequest instanceof ShowInstanceRequest) {
+                    instanceId = showInstanceRequest.instanceId;
+                } else {
+                    instanceId = showInstanceRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstance.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceArtifact(showInstanceArtifactRequest?: ShowInstanceArtifactRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+
+            if (showInstanceArtifactRequest !== null && showInstanceArtifactRequest !== undefined) {
+                if (showInstanceArtifactRequest instanceof ShowInstanceArtifactRequest) {
+                    instanceId = showInstanceArtifactRequest.instanceId;
+                    namespaceName = showInstanceArtifactRequest.namespaceName;
+                    repositoryName = showInstanceArtifactRequest.repositoryName;
+                    reference = showInstanceArtifactRequest.reference;
+                } else {
+                    instanceId = showInstanceArtifactRequest['instance_id'];
+                    namespaceName = showInstanceArtifactRequest['namespace_name'];
+                    repositoryName = showInstanceArtifactRequest['repository_name'];
+                    reference = showInstanceArtifactRequest['reference'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceArtifact.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceArtifact.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showInstanceArtifact.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling showInstanceArtifact.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品附加信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceArtifactAddition(showInstanceArtifactAdditionRequest?: ShowInstanceArtifactAdditionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}/additions/{addition}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+            
+            let addition;
+
+            if (showInstanceArtifactAdditionRequest !== null && showInstanceArtifactAdditionRequest !== undefined) {
+                if (showInstanceArtifactAdditionRequest instanceof ShowInstanceArtifactAdditionRequest) {
+                    instanceId = showInstanceArtifactAdditionRequest.instanceId;
+                    namespaceName = showInstanceArtifactAdditionRequest.namespaceName;
+                    repositoryName = showInstanceArtifactAdditionRequest.repositoryName;
+                    reference = showInstanceArtifactAdditionRequest.reference;
+                    addition = showInstanceArtifactAdditionRequest.addition;
+                } else {
+                    instanceId = showInstanceArtifactAdditionRequest['instance_id'];
+                    namespaceName = showInstanceArtifactAdditionRequest['namespace_name'];
+                    repositoryName = showInstanceArtifactAdditionRequest['repository_name'];
+                    reference = showInstanceArtifactAdditionRequest['reference'];
+                    addition = showInstanceArtifactAdditionRequest['addition'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceArtifactAddition.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceArtifactAddition.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showInstanceArtifactAddition.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling showInstanceArtifactAddition.');
+            }
+            if (addition === null || addition === undefined) {
+            throw new RequiredError('addition','Required parameter addition was null or undefined when calling showInstanceArtifactAddition.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference,'addition': addition, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看实例配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceConfiguration(showInstanceConfigurationRequest?: ShowInstanceConfigurationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceConfigurationRequest !== null && showInstanceConfigurationRequest !== undefined) {
+                if (showInstanceConfigurationRequest instanceof ShowInstanceConfigurationRequest) {
+                    instanceId = showInstanceConfigurationRequest.instanceId;
+                } else {
+                    instanceId = showInstanceConfigurationRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceConfiguration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取公网访问信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceEndpointPolicy(showInstanceEndpointPolicyRequest?: ShowInstanceEndpointPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/endpoint-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceEndpointPolicyRequest !== null && showInstanceEndpointPolicyRequest !== undefined) {
+                if (showInstanceEndpointPolicyRequest instanceof ShowInstanceEndpointPolicyRequest) {
+                    instanceId = showInstanceEndpointPolicyRequest.instanceId;
+                } else {
+                    instanceId = showInstanceEndpointPolicyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceEndpointPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询内网访问详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceInternalEndpoint(showInstanceInternalEndpointRequest?: ShowInstanceInternalEndpointRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoints/{internal_endpoints_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let internalEndpointsId;
+
+            if (showInstanceInternalEndpointRequest !== null && showInstanceInternalEndpointRequest !== undefined) {
+                if (showInstanceInternalEndpointRequest instanceof ShowInstanceInternalEndpointRequest) {
+                    instanceId = showInstanceInternalEndpointRequest.instanceId;
+                    internalEndpointsId = showInstanceInternalEndpointRequest.internalEndpointsId;
+                } else {
+                    instanceId = showInstanceInternalEndpointRequest['instance_id'];
+                    internalEndpointsId = showInstanceInternalEndpointRequest['internal_endpoints_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceInternalEndpoint.');
+            }
+            if (internalEndpointsId === null || internalEndpointsId === undefined) {
+            throw new RequiredError('internalEndpointsId','Required parameter internalEndpointsId was null or undefined when calling showInstanceInternalEndpoint.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'internal_endpoints_id': internalEndpointsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceJob(showInstanceJobRequest?: ShowInstanceJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showInstanceJobRequest !== null && showInstanceJobRequest !== undefined) {
+                if (showInstanceJobRequest instanceof ShowInstanceJobRequest) {
+                    jobId = showInstanceJobRequest.jobId;
+                } else {
+                    jobId = showInstanceJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showInstanceJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取命名空间详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceNamespace(showInstanceNamespaceRequest?: ShowInstanceNamespaceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (showInstanceNamespaceRequest !== null && showInstanceNamespaceRequest !== undefined) {
+                if (showInstanceNamespaceRequest instanceof ShowInstanceNamespaceRequest) {
+                    instanceId = showInstanceNamespaceRequest.instanceId;
+                    namespaceName = showInstanceNamespaceRequest.namespaceName;
+                } else {
+                    instanceId = showInstanceNamespaceRequest['instance_id'];
+                    namespaceName = showInstanceNamespaceRequest['namespace_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceNamespace.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceNamespace.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步的目标仓库详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceRegistry(showInstanceRegistryRequest?: ShowInstanceRegistryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/registries/{registry_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let registryId;
+
+            if (showInstanceRegistryRequest !== null && showInstanceRegistryRequest !== undefined) {
+                if (showInstanceRegistryRequest instanceof ShowInstanceRegistryRequest) {
+                    instanceId = showInstanceRegistryRequest.instanceId;
+                    registryId = showInstanceRegistryRequest.registryId;
+                } else {
+                    instanceId = showInstanceRegistryRequest['instance_id'];
+                    registryId = showInstanceRegistryRequest['registry_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceRegistry.');
+            }
+            if (registryId === null || registryId === undefined) {
+            throw new RequiredError('registryId','Required parameter registryId was null or undefined when calling showInstanceRegistry.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'registry_id': registryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取镜像同步策略详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceReplicationPolicy(showInstanceReplicationPolicyRequest?: ShowInstanceReplicationPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let policyId;
+
+            if (showInstanceReplicationPolicyRequest !== null && showInstanceReplicationPolicyRequest !== undefined) {
+                if (showInstanceReplicationPolicyRequest instanceof ShowInstanceReplicationPolicyRequest) {
+                    instanceId = showInstanceReplicationPolicyRequest.instanceId;
+                    policyId = showInstanceReplicationPolicyRequest.policyId;
+                } else {
+                    instanceId = showInstanceReplicationPolicyRequest['instance_id'];
+                    policyId = showInstanceReplicationPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceReplicationPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showInstanceReplicationPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品仓库详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceRepository(showInstanceRepositoryRequest?: ShowInstanceRepositoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+
+            if (showInstanceRepositoryRequest !== null && showInstanceRepositoryRequest !== undefined) {
+                if (showInstanceRepositoryRequest instanceof ShowInstanceRepositoryRequest) {
+                    instanceId = showInstanceRepositoryRequest.instanceId;
+                    namespaceName = showInstanceRepositoryRequest.namespaceName;
+                    repositoryName = showInstanceRepositoryRequest.repositoryName;
+                } else {
+                    instanceId = showInstanceRepositoryRequest['instance_id'];
+                    namespaceName = showInstanceRepositoryRequest['namespace_name'];
+                    repositoryName = showInstanceRepositoryRequest['repository_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceRepository.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceRepository.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showInstanceRepository.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按照标签检索资源数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceResourceInstancesCount(showInstanceResourceInstancesCountRequest?: ShowInstanceResourceInstancesCountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+
+            if (showInstanceResourceInstancesCountRequest !== null && showInstanceResourceInstancesCountRequest !== undefined) {
+                if (showInstanceResourceInstancesCountRequest instanceof ShowInstanceResourceInstancesCountRequest) {
+                    resourceType = showInstanceResourceInstancesCountRequest.resourceType;
+                    body = showInstanceResourceInstancesCountRequest.body
+                } else {
+                    resourceType = showInstanceResourceInstancesCountRequest['resource_type'];
+                    body = showInstanceResourceInstancesCountRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showInstanceResourceInstancesCount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取老化策略详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceRetentionPolicy(showInstanceRetentionPolicyRequest?: ShowInstanceRetentionPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (showInstanceRetentionPolicyRequest !== null && showInstanceRetentionPolicyRequest !== undefined) {
+                if (showInstanceRetentionPolicyRequest instanceof ShowInstanceRetentionPolicyRequest) {
+                    instanceId = showInstanceRetentionPolicyRequest.instanceId;
+                    namespaceName = showInstanceRetentionPolicyRequest.namespaceName;
+                    policyId = showInstanceRetentionPolicyRequest.policyId;
+                } else {
+                    instanceId = showInstanceRetentionPolicyRequest['instance_id'];
+                    namespaceName = showInstanceRetentionPolicyRequest['namespace_name'];
+                    policyId = showInstanceRetentionPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceRetentionPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceRetentionPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showInstanceRetentionPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取签名策略详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceSignPolicy(showInstanceSignPolicyRequest?: ShowInstanceSignPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (showInstanceSignPolicyRequest !== null && showInstanceSignPolicyRequest !== undefined) {
+                if (showInstanceSignPolicyRequest instanceof ShowInstanceSignPolicyRequest) {
+                    instanceId = showInstanceSignPolicyRequest.instanceId;
+                    namespaceName = showInstanceSignPolicyRequest.namespaceName;
+                    policyId = showInstanceSignPolicyRequest.policyId;
+                } else {
+                    instanceId = showInstanceSignPolicyRequest['instance_id'];
+                    namespaceName = showInstanceSignPolicyRequest['namespace_name'];
+                    policyId = showInstanceSignPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceSignPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceSignPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showInstanceSignPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取触发器策略详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceWebhook(showInstanceWebhookRequest?: ShowInstanceWebhookRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/webhook/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (showInstanceWebhookRequest !== null && showInstanceWebhookRequest !== undefined) {
+                if (showInstanceWebhookRequest instanceof ShowInstanceWebhookRequest) {
+                    instanceId = showInstanceWebhookRequest.instanceId;
+                    namespaceName = showInstanceWebhookRequest.namespaceName;
+                    policyId = showInstanceWebhookRequest.policyId;
+                } else {
+                    instanceId = showInstanceWebhookRequest['instance_id'];
+                    namespaceName = showInstanceWebhookRequest['namespace_name'];
+                    policyId = showInstanceWebhookRequest['policy_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceWebhook.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceWebhook.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showInstanceWebhook.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按照标签检索子资源数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSubResourceInstancesCount(showSubResourceInstancesCountRequest?: ShowSubResourceInstancesCountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/{sub_resource_type}/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let subResourceType;
+
+            if (showSubResourceInstancesCountRequest !== null && showSubResourceInstancesCountRequest !== undefined) {
+                if (showSubResourceInstancesCountRequest instanceof ShowSubResourceInstancesCountRequest) {
+                    resourceType = showSubResourceInstancesCountRequest.resourceType;
+                    resourceId = showSubResourceInstancesCountRequest.resourceId;
+                    subResourceType = showSubResourceInstancesCountRequest.subResourceType;
+                    body = showSubResourceInstancesCountRequest.body
+                } else {
+                    resourceType = showSubResourceInstancesCountRequest['resource_type'];
+                    resourceId = showSubResourceInstancesCountRequest['resource_id'];
+                    subResourceType = showSubResourceInstancesCountRequest['sub_resource_type'];
+                    body = showSubResourceInstancesCountRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showSubResourceInstancesCount.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showSubResourceInstancesCount.');
+            }
+            if (subResourceType === null || subResourceType === undefined) {
+            throw new RequiredError('subResourceType','Required parameter subResourceType was null or undefined when calling showSubResourceInstancesCount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'sub_resource_type': subResourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止镜像同步任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopInstanceReplicationPolicyExecution(stopInstanceReplicationPolicyExecutionRequest?: StopInstanceReplicationPolicyExecutionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/executions/{execution_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let executionId;
+
+            if (stopInstanceReplicationPolicyExecutionRequest !== null && stopInstanceReplicationPolicyExecutionRequest !== undefined) {
+                if (stopInstanceReplicationPolicyExecutionRequest instanceof StopInstanceReplicationPolicyExecutionRequest) {
+                    instanceId = stopInstanceReplicationPolicyExecutionRequest.instanceId;
+                    executionId = stopInstanceReplicationPolicyExecutionRequest.executionId;
+                } else {
+                    instanceId = stopInstanceReplicationPolicyExecutionRequest['instance_id'];
+                    executionId = stopInstanceReplicationPolicyExecutionRequest['execution_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling stopInstanceReplicationPolicyExecution.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling stopInstanceReplicationPolicyExecution.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDomainName(updateDomainNameRequest?: UpdateDomainNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/domainname/{domainname_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let domainnameId;
+
+            if (updateDomainNameRequest !== null && updateDomainNameRequest !== undefined) {
+                if (updateDomainNameRequest instanceof UpdateDomainNameRequest) {
+                    instanceId = updateDomainNameRequest.instanceId;
+                    domainnameId = updateDomainNameRequest.domainnameId;
+                    body = updateDomainNameRequest.body
+                } else {
+                    instanceId = updateDomainNameRequest['instance_id'];
+                    domainnameId = updateDomainNameRequest['domainname_id'];
+                    body = updateDomainNameRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDomainName.');
+            }
+            if (domainnameId === null || domainnameId === undefined) {
+            throw new RequiredError('domainnameId','Required parameter domainnameId was null or undefined when calling updateDomainName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'domainname_id': domainnameId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改不可变Tag策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateImmutableRule(updateImmutableRuleRequest?: UpdateImmutableRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/immutabletagrules/{immutable_rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let immutableRuleId;
+
+            if (updateImmutableRuleRequest !== null && updateImmutableRuleRequest !== undefined) {
+                if (updateImmutableRuleRequest instanceof UpdateImmutableRuleRequest) {
+                    instanceId = updateImmutableRuleRequest.instanceId;
+                    namespaceName = updateImmutableRuleRequest.namespaceName;
+                    immutableRuleId = updateImmutableRuleRequest.immutableRuleId;
+                    body = updateImmutableRuleRequest.body
+                } else {
+                    instanceId = updateImmutableRuleRequest['instance_id'];
+                    namespaceName = updateImmutableRuleRequest['namespace_name'];
+                    immutableRuleId = updateImmutableRuleRequest['immutable_rule_id'];
+                    body = updateImmutableRuleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateImmutableRule.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling updateImmutableRule.');
+            }
+            if (immutableRuleId === null || immutableRuleId === undefined) {
+            throw new RequiredError('immutableRuleId','Required parameter immutableRuleId was null or undefined when calling updateImmutableRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'immutable_rule_id': immutableRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceConfiguration(updateInstanceConfigurationRequest?: UpdateInstanceConfigurationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateInstanceConfigurationRequest !== null && updateInstanceConfigurationRequest !== undefined) {
+                if (updateInstanceConfigurationRequest instanceof UpdateInstanceConfigurationRequest) {
+                    instanceId = updateInstanceConfigurationRequest.instanceId;
+                    body = updateInstanceConfigurationRequest.body
+                } else {
+                    instanceId = updateInstanceConfigurationRequest['instance_id'];
+                    body = updateInstanceConfigurationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceConfiguration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新公网访问白名单，更新为全量更新方式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceEndpointPolicy(updateInstanceEndpointPolicyRequest?: UpdateInstanceEndpointPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/endpoint-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateInstanceEndpointPolicyRequest !== null && updateInstanceEndpointPolicyRequest !== undefined) {
+                if (updateInstanceEndpointPolicyRequest instanceof UpdateInstanceEndpointPolicyRequest) {
+                    instanceId = updateInstanceEndpointPolicyRequest.instanceId;
+                    body = updateInstanceEndpointPolicyRequest.body
+                } else {
+                    instanceId = updateInstanceEndpointPolicyRequest['instance_id'];
+                    body = updateInstanceEndpointPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceEndpointPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用/停用长期访问凭证
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceLtCredential(updateInstanceLtCredentialRequest?: UpdateInstanceLtCredentialRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/long-term-credentials/{credential_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let credentialId;
+
+            if (updateInstanceLtCredentialRequest !== null && updateInstanceLtCredentialRequest !== undefined) {
+                if (updateInstanceLtCredentialRequest instanceof UpdateInstanceLtCredentialRequest) {
+                    instanceId = updateInstanceLtCredentialRequest.instanceId;
+                    credentialId = updateInstanceLtCredentialRequest.credentialId;
+                    body = updateInstanceLtCredentialRequest.body
+                } else {
+                    instanceId = updateInstanceLtCredentialRequest['instance_id'];
+                    credentialId = updateInstanceLtCredentialRequest['credential_id'];
+                    body = updateInstanceLtCredentialRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceLtCredential.');
+            }
+            if (credentialId === null || credentialId === undefined) {
+            throw new RequiredError('credentialId','Required parameter credentialId was null or undefined when calling updateInstanceLtCredential.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'credential_id': credentialId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改命名空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceNamespace(updateInstanceNamespaceRequest?: UpdateInstanceNamespaceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+
+            if (updateInstanceNamespaceRequest !== null && updateInstanceNamespaceRequest !== undefined) {
+                if (updateInstanceNamespaceRequest instanceof UpdateInstanceNamespaceRequest) {
+                    instanceId = updateInstanceNamespaceRequest.instanceId;
+                    namespaceName = updateInstanceNamespaceRequest.namespaceName;
+                    body = updateInstanceNamespaceRequest.body
+                } else {
+                    instanceId = updateInstanceNamespaceRequest['instance_id'];
+                    namespaceName = updateInstanceNamespaceRequest['namespace_name'];
+                    body = updateInstanceNamespaceRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceNamespace.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling updateInstanceNamespace.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改镜像同步的目标仓库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceRegistry(updateInstanceRegistryRequest?: UpdateInstanceRegistryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/registries/{registry_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let registryId;
+
+            if (updateInstanceRegistryRequest !== null && updateInstanceRegistryRequest !== undefined) {
+                if (updateInstanceRegistryRequest instanceof UpdateInstanceRegistryRequest) {
+                    instanceId = updateInstanceRegistryRequest.instanceId;
+                    registryId = updateInstanceRegistryRequest.registryId;
+                    body = updateInstanceRegistryRequest.body
+                } else {
+                    instanceId = updateInstanceRegistryRequest['instance_id'];
+                    registryId = updateInstanceRegistryRequest['registry_id'];
+                    body = updateInstanceRegistryRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceRegistry.');
+            }
+            if (registryId === null || registryId === undefined) {
+            throw new RequiredError('registryId','Required parameter registryId was null or undefined when calling updateInstanceRegistry.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'registry_id': registryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改镜像同步策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceReplicationPolicy(updateInstanceReplicationPolicyRequest?: UpdateInstanceReplicationPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/replication/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let policyId;
+
+            if (updateInstanceReplicationPolicyRequest !== null && updateInstanceReplicationPolicyRequest !== undefined) {
+                if (updateInstanceReplicationPolicyRequest instanceof UpdateInstanceReplicationPolicyRequest) {
+                    instanceId = updateInstanceReplicationPolicyRequest.instanceId;
+                    policyId = updateInstanceReplicationPolicyRequest.policyId;
+                    body = updateInstanceReplicationPolicyRequest.body
+                } else {
+                    instanceId = updateInstanceReplicationPolicyRequest['instance_id'];
+                    policyId = updateInstanceReplicationPolicyRequest['policy_id'];
+                    body = updateInstanceReplicationPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceReplicationPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateInstanceReplicationPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改制品仓库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceRepository(updateInstanceRepositoryRequest?: UpdateInstanceRepositoryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+
+            if (updateInstanceRepositoryRequest !== null && updateInstanceRepositoryRequest !== undefined) {
+                if (updateInstanceRepositoryRequest instanceof UpdateInstanceRepositoryRequest) {
+                    instanceId = updateInstanceRepositoryRequest.instanceId;
+                    namespaceName = updateInstanceRepositoryRequest.namespaceName;
+                    repositoryName = updateInstanceRepositoryRequest.repositoryName;
+                    body = updateInstanceRepositoryRequest.body
+                } else {
+                    instanceId = updateInstanceRepositoryRequest['instance_id'];
+                    namespaceName = updateInstanceRepositoryRequest['namespace_name'];
+                    repositoryName = updateInstanceRepositoryRequest['repository_name'];
+                    body = updateInstanceRepositoryRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceRepository.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling updateInstanceRepository.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling updateInstanceRepository.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改老化策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceRetentionPolicy(updateInstanceRetentionPolicyRequest?: UpdateInstanceRetentionPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/retention/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (updateInstanceRetentionPolicyRequest !== null && updateInstanceRetentionPolicyRequest !== undefined) {
+                if (updateInstanceRetentionPolicyRequest instanceof UpdateInstanceRetentionPolicyRequest) {
+                    instanceId = updateInstanceRetentionPolicyRequest.instanceId;
+                    namespaceName = updateInstanceRetentionPolicyRequest.namespaceName;
+                    policyId = updateInstanceRetentionPolicyRequest.policyId;
+                    body = updateInstanceRetentionPolicyRequest.body
+                } else {
+                    instanceId = updateInstanceRetentionPolicyRequest['instance_id'];
+                    namespaceName = updateInstanceRetentionPolicyRequest['namespace_name'];
+                    policyId = updateInstanceRetentionPolicyRequest['policy_id'];
+                    body = updateInstanceRetentionPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceRetentionPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling updateInstanceRetentionPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateInstanceRetentionPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改签名策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceSignPolicy(updateInstanceSignPolicyRequest?: UpdateInstanceSignPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/signature/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (updateInstanceSignPolicyRequest !== null && updateInstanceSignPolicyRequest !== undefined) {
+                if (updateInstanceSignPolicyRequest instanceof UpdateInstanceSignPolicyRequest) {
+                    instanceId = updateInstanceSignPolicyRequest.instanceId;
+                    namespaceName = updateInstanceSignPolicyRequest.namespaceName;
+                    policyId = updateInstanceSignPolicyRequest.policyId;
+                    body = updateInstanceSignPolicyRequest.body
+                } else {
+                    instanceId = updateInstanceSignPolicyRequest['instance_id'];
+                    namespaceName = updateInstanceSignPolicyRequest['namespace_name'];
+                    policyId = updateInstanceSignPolicyRequest['policy_id'];
+                    body = updateInstanceSignPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceSignPolicy.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling updateInstanceSignPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateInstanceSignPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改触发器策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceWebhook(updateInstanceWebhookRequest?: UpdateInstanceWebhookRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/webhook/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let policyId;
+
+            if (updateInstanceWebhookRequest !== null && updateInstanceWebhookRequest !== undefined) {
+                if (updateInstanceWebhookRequest instanceof UpdateInstanceWebhookRequest) {
+                    instanceId = updateInstanceWebhookRequest.instanceId;
+                    namespaceName = updateInstanceWebhookRequest.namespaceName;
+                    policyId = updateInstanceWebhookRequest.policyId;
+                    body = updateInstanceWebhookRequest.body
+                } else {
+                    instanceId = updateInstanceWebhookRequest['instance_id'];
+                    namespaceName = updateInstanceWebhookRequest['namespace_name'];
+                    policyId = updateInstanceWebhookRequest['policy_id'];
+                    body = updateInstanceWebhookRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceWebhook.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling updateInstanceWebhook.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateInstanceWebhook.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

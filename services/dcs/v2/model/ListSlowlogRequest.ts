@@ -8,6 +8,7 @@ export class ListSlowlogRequest {
     private 'sort_dir'?: ListSlowlogRequestSortDirEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    public role?: string;
     public constructor(instanceId?: string, startTime?: string, endTime?: string) { 
         this['instance_id'] = instanceId;
         this['start_time'] = startTime;
@@ -70,6 +71,10 @@ export class ListSlowlogRequest {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withRole(role: string): ListSlowlogRequest {
+        this['role'] = role;
+        return this;
     }
 }
 

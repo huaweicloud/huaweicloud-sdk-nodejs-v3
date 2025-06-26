@@ -8,13 +8,13 @@ export class DatabasePermissionReq {
     private 'grant_list'?: Array<Grant>;
     private 'revoke_list'?: Array<Revoke>;
     private 'role_list'?: Array<string>;
-    private 'object_list'?: object;
+    private 'object_list'?: Array<string>;
     private 'all_object'?: boolean;
     public cascade?: boolean;
     public database?: string;
     public schema?: string;
     public table?: string;
-    public constructor(type?: string, isGrant?: boolean, roleList?: Array<string>, objectList?: object, database?: string) { 
+    public constructor(type?: string, isGrant?: boolean, roleList?: Array<string>, objectList?: Array<string>, database?: string) { 
         this['type'] = type;
         this['is_grant'] = isGrant;
         this['role_list'] = roleList;
@@ -65,14 +65,14 @@ export class DatabasePermissionReq {
     public get roleList(): Array<string> | undefined {
         return this['role_list'];
     }
-    public withObjectList(objectList: object): DatabasePermissionReq {
+    public withObjectList(objectList: Array<string>): DatabasePermissionReq {
         this['object_list'] = objectList;
         return this;
     }
-    public set objectList(objectList: object  | undefined) {
+    public set objectList(objectList: Array<string>  | undefined) {
         this['object_list'] = objectList;
     }
-    public get objectList(): object | undefined {
+    public get objectList(): Array<string> | undefined {
         return this['object_list'];
     }
     public withAllObject(allObject: boolean): DatabasePermissionReq {

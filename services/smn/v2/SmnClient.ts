@@ -27,6 +27,7 @@ import { BatchUpdateSubscriptionsFilterPolicesRequest } from './model/BatchUpdat
 import { BatchUpdateSubscriptionsFilterPolicesResponse } from './model/BatchUpdateSubscriptionsFilterPolicesResponse';
 import { CancelSubscriptionRequest } from './model/CancelSubscriptionRequest';
 import { CancelSubscriptionResponse } from './model/CancelSubscriptionResponse';
+import { CountDetail } from './model/CountDetail';
 import { CreateApplicationEndpointRequest } from './model/CreateApplicationEndpointRequest';
 import { CreateApplicationEndpointRequestBody } from './model/CreateApplicationEndpointRequestBody';
 import { CreateApplicationEndpointResponse } from './model/CreateApplicationEndpointResponse';
@@ -101,6 +102,8 @@ import { ListTopicAttributesRequest } from './model/ListTopicAttributesRequest';
 import { ListTopicAttributesResponse } from './model/ListTopicAttributesResponse';
 import { ListTopicDetailsRequest } from './model/ListTopicDetailsRequest';
 import { ListTopicDetailsResponse } from './model/ListTopicDetailsResponse';
+import { ListTopicMessageStatisticsRequest } from './model/ListTopicMessageStatisticsRequest';
+import { ListTopicMessageStatisticsResponse } from './model/ListTopicMessageStatisticsResponse';
 import { ListTopicsItem } from './model/ListTopicsItem';
 import { ListTopicsRequest } from './model/ListTopicsRequest';
 import { ListTopicsResponse } from './model/ListTopicsResponse';
@@ -130,8 +133,10 @@ import { ShowHttpDetectResultRequest } from './model/ShowHttpDetectResultRequest
 import { ShowHttpDetectResultResponse } from './model/ShowHttpDetectResultResponse';
 import { ShowNotifyPolicyRequest } from './model/ShowNotifyPolicyRequest';
 import { ShowNotifyPolicyResponse } from './model/ShowNotifyPolicyResponse';
+import { StatisticsDetail } from './model/StatisticsDetail';
 import { SubscriptionExtension } from './model/SubscriptionExtension';
 import { SubscriptionsFilterPolicy } from './model/SubscriptionsFilterPolicy';
+import { SumCountDetail } from './model/SumCountDetail';
 import { TagMatch } from './model/TagMatch';
 import { TagResource } from './model/TagResource';
 import { TopicAttribute } from './model/TopicAttribute';
@@ -752,6 +757,27 @@ export class SmnClient {
      */
     public listTopicDetails(listTopicDetailsRequest?: ListTopicDetailsRequest): Promise<ListTopicDetailsResponse> {
         const options = ParamCreater().listTopicDetails(listTopicDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Topic的发送数据详情，最多支持查询31天内所有计量数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主题的发送详情
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} startTime 起始时间
+     * @param {string} endTime 结束时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTopicMessageStatistics(listTopicMessageStatisticsRequest?: ListTopicMessageStatisticsRequest): Promise<ListTopicMessageStatisticsResponse> {
+        const options = ParamCreater().listTopicMessageStatistics(listTopicMessageStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2526,6 +2552,64 @@ export const ParamCreater = function () {
             throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling listTopicDetails.');
             }
 
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Topic的发送数据详情，最多支持查询31天内所有计量数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTopicMessageStatistics(listTopicMessageStatisticsRequest?: ListTopicMessageStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let topicUrn;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listTopicMessageStatisticsRequest !== null && listTopicMessageStatisticsRequest !== undefined) {
+                if (listTopicMessageStatisticsRequest instanceof ListTopicMessageStatisticsRequest) {
+                    topicUrn = listTopicMessageStatisticsRequest.topicUrn;
+                    startTime = listTopicMessageStatisticsRequest.startTime;
+                    endTime = listTopicMessageStatisticsRequest.endTime;
+                } else {
+                    topicUrn = listTopicMessageStatisticsRequest['topic_urn'];
+                    startTime = listTopicMessageStatisticsRequest['start_time'];
+                    endTime = listTopicMessageStatisticsRequest['end_time'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling listTopicMessageStatistics.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listTopicMessageStatistics.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listTopicMessageStatistics.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'topic_urn': topicUrn, };
             options.headers = localVarHeaderParameter;
             return options;

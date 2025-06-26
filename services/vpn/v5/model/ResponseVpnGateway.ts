@@ -33,6 +33,7 @@ export class ResponseVpnGateway {
     public eip1?: ResponseEip;
     public eip2?: ResponseEip;
     private 'created_at'?: Date;
+    private 'applied_at'?: Date;
     private 'updated_at'?: Date;
     private 'policy_template'?: PolicyTemplate;
     private 'supported_flavors'?: Array<string>;
@@ -293,6 +294,16 @@ export class ResponseVpnGateway {
     }
     public get createdAt(): Date | undefined {
         return this['created_at'];
+    }
+    public withAppliedAt(appliedAt: Date): ResponseVpnGateway {
+        this['applied_at'] = appliedAt;
+        return this;
+    }
+    public set appliedAt(appliedAt: Date  | undefined) {
+        this['applied_at'] = appliedAt;
+    }
+    public get appliedAt(): Date | undefined {
+        return this['applied_at'];
     }
     public withUpdatedAt(updatedAt: Date): ResponseVpnGateway {
         this['updated_at'] = updatedAt;

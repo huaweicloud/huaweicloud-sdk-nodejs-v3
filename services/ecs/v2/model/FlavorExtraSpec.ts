@@ -41,6 +41,7 @@ export class FlavorExtraSpec {
     private 'security:enclave_supported'?: string;
     private 'info:gpus'?: string;
     private 'info:asic_accelerators'?: string;
+    private 'info:features'?: string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): FlavorExtraSpec {
@@ -442,5 +443,15 @@ export class FlavorExtraSpec {
     }
     public get infoAsicAccelerators(): string | undefined {
         return this['info:asic_accelerators'];
+    }
+    public withInfoFeatures(infoFeatures: string): FlavorExtraSpec {
+        this['info:features'] = infoFeatures;
+        return this;
+    }
+    public set infoFeatures(infoFeatures: string  | undefined) {
+        this['info:features'] = infoFeatures;
+    }
+    public get infoFeatures(): string | undefined {
+        return this['info:features'];
     }
 }
