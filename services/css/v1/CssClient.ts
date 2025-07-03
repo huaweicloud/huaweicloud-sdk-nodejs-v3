@@ -38,6 +38,7 @@ import { ClusterLogRecord } from './model/ClusterLogRecord';
 import { ClusterVolumeRsp } from './model/ClusterVolumeRsp';
 import { ConfigListRsp } from './model/ConfigListRsp';
 import { Confs } from './model/Confs';
+import { Confsetting } from './model/Confsetting';
 import { Connections } from './model/Connections';
 import { CreateAiOpsRequest } from './model/CreateAiOpsRequest';
 import { CreateAiOpsRequestBody } from './model/CreateAiOpsRequestBody';
@@ -248,7 +249,6 @@ import { StopSnapshotRequest } from './model/StopSnapshotRequest';
 import { StopSnapshotResponse } from './model/StopSnapshotResponse';
 import { StopVpecpRequest } from './model/StopVpecpRequest';
 import { StopVpecpResponse } from './model/StopVpecpResponse';
-import { SysTags } from './model/SysTags';
 import { SystemTemplates } from './model/SystemTemplates';
 import { Tag } from './model/Tag';
 import { TagReq } from './model/TagReq';
@@ -842,6 +842,8 @@ export class CssClient {
      * @summary 获取目标镜像ID
      * @param {string} clusterId 待升级的集群的ID。
      * @param {string} upgradeType 升级目标版本类型： - same：相同版本。 - cross： 跨版本。
+     * @param {string} [start] 指定查询起始值，默认值为0。
+     * @param {string} [limit] 指定查询个数，默认值为10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2054,6 +2056,8 @@ export class CssClient {
      *
      * @summary 查询操作记录
      * @param {string} clusterId 指定查询集群ID。
+     * @param {string} [start] 指定查询起始值，默认值为0。
+     * @param {string} [limit] 指定查询个数，默认值为10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2095,6 +2099,8 @@ export class CssClient {
      *
      * @summary 查询配置文件列表
      * @param {string} clusterId 指定查询集群ID。
+     * @param {string} [start] 指定查询起始值，默认值为1。
+     * @param {string} [limit] 指定查询个数，默认值为10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2114,6 +2120,8 @@ export class CssClient {
      *
      * @summary 查询pipeline列表
      * @param {string} clusterId 指定查询集群ID。
+     * @param {string} [start] 指定查询起始值，默认值为0。
+     * @param {string} [limit] 指定查询个数，默认值为10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3346,19 +3354,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
             
             let upgradeType;
+            
+            let start;
+            
+            let limit;
 
             if (listImagesRequest !== null && listImagesRequest !== undefined) {
                 if (listImagesRequest instanceof ListImagesRequest) {
                     clusterId = listImagesRequest.clusterId;
                     upgradeType = listImagesRequest.upgradeType;
+                    start = listImagesRequest.start;
+                    limit = listImagesRequest.limit;
                 } else {
                     clusterId = listImagesRequest['cluster_id'];
                     upgradeType = listImagesRequest['upgrade_type'];
+                    start = listImagesRequest['start'];
+                    limit = listImagesRequest['limit'];
                 }
             }
 
@@ -3369,7 +3385,14 @@ export const ParamCreater = function () {
             if (upgradeType === null || upgradeType === undefined) {
             throw new RequiredError('upgradeType','Required parameter upgradeType was null or undefined when calling listImages.');
             }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'upgrade_type': upgradeType, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -6052,15 +6075,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
+            
+            let start;
+            
+            let limit;
 
             if (listActionsRequest !== null && listActionsRequest !== undefined) {
                 if (listActionsRequest instanceof ListActionsRequest) {
                     clusterId = listActionsRequest.clusterId;
+                    start = listActionsRequest.start;
+                    limit = listActionsRequest.limit;
                 } else {
                     clusterId = listActionsRequest['cluster_id'];
+                    start = listActionsRequest['start'];
+                    limit = listActionsRequest['limit'];
                 }
             }
 
@@ -6068,7 +6099,14 @@ export const ParamCreater = function () {
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listActions.');
             }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -6148,15 +6186,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
+            
+            let start;
+            
+            let limit;
 
             if (listConfsRequest !== null && listConfsRequest !== undefined) {
                 if (listConfsRequest instanceof ListConfsRequest) {
                     clusterId = listConfsRequest.clusterId;
+                    start = listConfsRequest.start;
+                    limit = listConfsRequest.limit;
                 } else {
                     clusterId = listConfsRequest['cluster_id'];
+                    start = listConfsRequest['start'];
+                    limit = listConfsRequest['limit'];
                 }
             }
 
@@ -6164,7 +6210,14 @@ export const ParamCreater = function () {
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listConfs.');
             }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -6185,15 +6238,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
+            
+            let start;
+            
+            let limit;
 
             if (listPipelinesRequest !== null && listPipelinesRequest !== undefined) {
                 if (listPipelinesRequest instanceof ListPipelinesRequest) {
                     clusterId = listPipelinesRequest.clusterId;
+                    start = listPipelinesRequest.start;
+                    limit = listPipelinesRequest.limit;
                 } else {
                     clusterId = listPipelinesRequest['cluster_id'];
+                    start = listPipelinesRequest['start'];
+                    limit = listPipelinesRequest['limit'];
                 }
             }
 
@@ -6201,7 +6262,14 @@ export const ParamCreater = function () {
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listPipelines.');
             }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;

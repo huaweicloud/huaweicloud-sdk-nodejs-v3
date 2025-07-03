@@ -125,6 +125,7 @@ import { MemberResp } from './model/MemberResp';
 import { MembersInStatusResp } from './model/MembersInStatusResp';
 import { PoolResp } from './model/PoolResp';
 import { PoolsInStatusResp } from './model/PoolsInStatusResp';
+import { PrepaidCreateOption } from './model/PrepaidCreateOption';
 import { PublicIpInfo } from './model/PublicIpInfo';
 import { ResourceList } from './model/ResourceList';
 import { ResourceTag } from './model/ResourceTag';

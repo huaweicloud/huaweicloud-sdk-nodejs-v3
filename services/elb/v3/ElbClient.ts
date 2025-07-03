@@ -246,6 +246,7 @@ import { LoadBalancerStatusPolicy } from './model/LoadBalancerStatusPolicy';
 import { LoadBalancerStatusPool } from './model/LoadBalancerStatusPool';
 import { LoadBalancerStatusResult } from './model/LoadBalancerStatusResult';
 import { LoadbalancerFeature } from './model/LoadbalancerFeature';
+import { LocalPort } from './model/LocalPort';
 import { Logtank } from './model/Logtank';
 import { MainJob } from './model/MainJob';
 import { MasterSlaveHealthMonitor } from './model/MasterSlaveHealthMonitor';
@@ -314,6 +315,8 @@ import { ShowL7RuleRequest } from './model/ShowL7RuleRequest';
 import { ShowL7RuleResponse } from './model/ShowL7RuleResponse';
 import { ShowListenerRequest } from './model/ShowListenerRequest';
 import { ShowListenerResponse } from './model/ShowListenerResponse';
+import { ShowLoadBalancerPortsRequest } from './model/ShowLoadBalancerPortsRequest';
+import { ShowLoadBalancerPortsResponse } from './model/ShowLoadBalancerPortsResponse';
 import { ShowLoadBalancerRequest } from './model/ShowLoadBalancerRequest';
 import { ShowLoadBalancerResponse } from './model/ShowLoadBalancerResponse';
 import { ShowLoadBalancerStatusRequest } from './model/ShowLoadBalancerStatusRequest';
@@ -416,7 +419,6 @@ import { UpdateSecurityPolicyResponse } from './model/UpdateSecurityPolicyRespon
 import { UpdateTrafficLimitConfig } from './model/UpdateTrafficLimitConfig';
 import { UpgradeLoadbalancerRequest } from './model/UpgradeLoadbalancerRequest';
 import { UpgradeLoadbalancerResponse } from './model/UpgradeLoadbalancerResponse';
-import { UpgradePrepaidOption } from './model/UpgradePrepaidOption';
 import { UpgradeV3RequestBody } from './model/UpgradeV3RequestBody';
 
 export class ElbClient {
@@ -1223,7 +1225,7 @@ export class ElbClient {
      * @param {Array<string>} [address] 后端服务器的对应的IP地址，这个IP必须在subnet_cidr_id字段的子网网段中。 例如：192.168.3.11。  支持多值查询，查询条件格式：*address&#x3D;xxx&amp;address&#x3D;xxx*。
      * @param {Array<number>} [protocolPort] 后端服务器端口号。  支持多值查询，查询条件格式：*protocol_port&#x3D;xxx&amp;protocol_port&#x3D;xxx*。
      * @param {Array<string>} [id] 后端服务器ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
-     * @param {Array<string>} [operatingStatus] 后端服务器的健康状态。  取值： - ONLINE，后端服务器正常运行。 - NO_MONITOR，后端服务器无健康检查。 - OFFLINE，已下线。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;*。
+     * @param {Array<string>} [operatingStatus] 后端服务器的健康状态。  取值： - INITIAL：初始化中，表示负载均衡实例配置了健康检查，但查不到数据。 - ONLINE，后端服务器正常运行。 - NO_MONITOR，后端服务器无健康检查。 - OFFLINE，已下线。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;*。
      * @param {Array<string>} [enterpriseProjectId] 参数解释：所属的企业项目ID。 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:members:list权限。 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
      * @param {Array<string>} [ipVersion] IP版本，取值v4、v6。  支持多值查询，查询条件格式：*ip_version&#x3D;xxx&amp;ip_version&#x3D;xxx*。
      * @param {Array<string>} [poolId] member所属的服务器组ID  支持多值查询，查询条件格式：*pool_id&#x3D;xxx&amp;pool_id&#x3D;xxx*。
@@ -1291,6 +1293,7 @@ export class ElbClient {
      * @param {Array<string>} [source] 证书来源。  支持多值查询，查询条件格式：source&#x3D;xxx&amp;source&#x3D;xxx。
      * @param {Array<string>} [protectionStatus] 修改保护状态。  支持多值查询，查询条件格式：protection_status&#x3D;xxx&amp;protection_status&#x3D;xxx。
      * @param {Array<string>} [protectionReason] 设置修改保护的原因。  支持多值查询，查询条件格式：protection_reason&#x3D;xxx&amp;protection_reason&#x3D;xxx。
+     * @param {Array<string>} [enterpriseProjectId] 参数解释：所属的企业项目ID。 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:certificates:list权限。 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1682,7 +1685,7 @@ export class ElbClient {
      * @param {Array<string>} [address] 后端服务器对应的IPv4或IPv6地址。  支持多值查询，查询条件格式：*address&#x3D;xxx&amp;address&#x3D;xxx*。  [不支持IPv6，请勿设置为IPv6地址。](tag:dt)
      * @param {Array<number>} [protocolPort] 后端服务器业务端口号。  支持多值查询，查询条件格式：*protocol_port&#x3D;xxx&amp;protocol_port&#x3D;xxx*。
      * @param {Array<string>} [id] 后端服务器ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
-     * @param {Array<string>} [operatingStatus] 后端服务器的健康状态。  取值： - ONLINE：后端服务器正常。 - NO_MONITOR：后端服务器所在的服务器组没有健康检查器。 - OFFLINE：后端服务器关联的ECS服务器不存在或已关机。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;xxx*。
+     * @param {Array<string>} [operatingStatus] 后端服务器的健康状态。  取值： - INITIAL：初始化中，表示负载均衡实例配置了健康检查，但查不到数据。 - ONLINE：后端服务器正常。 - NO_MONITOR：后端服务器所在的服务器组没有健康检查器。 - OFFLINE：后端服务器关联的ECS服务器不存在或已关机。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;xxx*。
      * @param {Array<string>} [enterpriseProjectId] 参数解释：所属的企业项目ID。 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:members:list权限。 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
      * @param {Array<string>} [ipVersion] 当前后端服务器的IP地址版本。取值：v4、v6。
      * @param {Array<string>} [memberType] 后端服务器的类型。  取值： - ip：跨VPC的member。 - instance：关联到ECS的member。  支持多值查询，查询条件格式：*member_type&#x3D;xxx&amp;member_type&#x3D;xxx*。
@@ -2045,6 +2048,30 @@ export class ElbClient {
      */
     public showLoadBalancer(showLoadBalancerRequest?: ShowLoadBalancerRequest): Promise<ShowLoadBalancerResponse> {
         const options = ParamCreater().showLoadBalancer(showLoadBalancerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询负载均衡器内部转发占用的port列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询负载均衡器占用的port列表
+     * @param {string} loadbalancerId 负载均衡器ID。
+     * @param {Array<string>} [portId] port id。  支持多值查询，查询条件格式：*port_id&#x3D;xxx&amp;port_id&#x3D;xxx*。
+     * @param {Array<string>} [ipAddress] ipv4 地址。  支持多值查询，查询条件格式：*ip_address&#x3D;xxx&amp;ip_address&#x3D;xxx*。
+     * @param {Array<string>} [ipv6Address] ipv6 地址。  支持多值查询，查询条件格式：*ipv6_address&#x3D;xxx&amp;ipv6_address&#x3D;xxx*。
+     * @param {Array<string>} [type] port类型。  支持多值查询，查询条件格式：*type&#x3D;xxx&amp;type&#x3D;xxx*。
+     * @param {Array<string>} [virsubnetId] 虚拟网络id。  支持多值查询，查询条件格式：*virsubnet_id&#x3D;xxx&amp;virsubnet_id&#x3D;xxx*。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLoadBalancerPorts(showLoadBalancerPortsRequest?: ShowLoadBalancerPortsRequest): Promise<ShowLoadBalancerPortsResponse> {
+        const options = ParamCreater().showLoadBalancerPorts(showLoadBalancerPortsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4517,6 +4544,8 @@ export const ParamCreater = function () {
             let protectionStatus;
             
             let protectionReason;
+            
+            let enterpriseProjectId;
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
                 if (listCertificatesRequest instanceof ListCertificatesRequest) {
@@ -4535,6 +4564,7 @@ export const ParamCreater = function () {
                     source = listCertificatesRequest.source;
                     protectionStatus = listCertificatesRequest.protectionStatus;
                     protectionReason = listCertificatesRequest.protectionReason;
+                    enterpriseProjectId = listCertificatesRequest.enterpriseProjectId;
                 } else {
                     marker = listCertificatesRequest['marker'];
                     limit = listCertificatesRequest['limit'];
@@ -4551,6 +4581,7 @@ export const ParamCreater = function () {
                     source = listCertificatesRequest['source'];
                     protectionStatus = listCertificatesRequest['protection_status'];
                     protectionReason = listCertificatesRequest['protection_reason'];
+                    enterpriseProjectId = listCertificatesRequest['enterprise_project_id'];
                 }
             }
 
@@ -4599,6 +4630,9 @@ export const ParamCreater = function () {
             }
             if (protectionReason !== null && protectionReason !== undefined) {
                 localVarQueryParameter['protection_reason'] = protectionReason;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -7224,6 +7258,79 @@ export const ParamCreater = function () {
             throw new RequiredError('loadbalancerId','Required parameter loadbalancerId was null or undefined when calling showLoadBalancer.');
             }
 
+            options.pathParams = { 'loadbalancer_id': loadbalancerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询负载均衡器内部转发占用的port列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLoadBalancerPorts(showLoadBalancerPortsRequest?: ShowLoadBalancerPortsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/elb/loadbalancers/{loadbalancer_id}/local-ports",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let loadbalancerId;
+            
+            let portId;
+            
+            let ipAddress;
+            
+            let ipv6Address;
+            
+            let type;
+            
+            let virsubnetId;
+
+            if (showLoadBalancerPortsRequest !== null && showLoadBalancerPortsRequest !== undefined) {
+                if (showLoadBalancerPortsRequest instanceof ShowLoadBalancerPortsRequest) {
+                    loadbalancerId = showLoadBalancerPortsRequest.loadbalancerId;
+                    portId = showLoadBalancerPortsRequest.portId;
+                    ipAddress = showLoadBalancerPortsRequest.ipAddress;
+                    ipv6Address = showLoadBalancerPortsRequest.ipv6Address;
+                    type = showLoadBalancerPortsRequest.type;
+                    virsubnetId = showLoadBalancerPortsRequest.virsubnetId;
+                } else {
+                    loadbalancerId = showLoadBalancerPortsRequest['loadbalancer_id'];
+                    portId = showLoadBalancerPortsRequest['port_id'];
+                    ipAddress = showLoadBalancerPortsRequest['ip_address'];
+                    ipv6Address = showLoadBalancerPortsRequest['ipv6_address'];
+                    type = showLoadBalancerPortsRequest['type'];
+                    virsubnetId = showLoadBalancerPortsRequest['virsubnet_id'];
+                }
+            }
+
+        
+            if (loadbalancerId === null || loadbalancerId === undefined) {
+            throw new RequiredError('loadbalancerId','Required parameter loadbalancerId was null or undefined when calling showLoadBalancerPorts.');
+            }
+            if (portId !== null && portId !== undefined) {
+                localVarQueryParameter['port_id'] = portId;
+            }
+            if (ipAddress !== null && ipAddress !== undefined) {
+                localVarQueryParameter['ip_address'] = ipAddress;
+            }
+            if (ipv6Address !== null && ipv6Address !== undefined) {
+                localVarQueryParameter['ipv6_address'] = ipv6Address;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (virsubnetId !== null && virsubnetId !== undefined) {
+                localVarQueryParameter['virsubnet_id'] = virsubnetId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'loadbalancer_id': loadbalancerId, };
             options.headers = localVarHeaderParameter;
             return options;

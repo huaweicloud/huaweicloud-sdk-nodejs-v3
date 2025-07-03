@@ -3,9 +3,7 @@
 export class SyncResourceReq {
     public provider?: string;
     public type?: string;
-    public constructor(provider?: string, type?: string) { 
-        this['provider'] = provider;
-        this['type'] = type;
+    public constructor() { 
     }
     public withProvider(provider: string): SyncResourceReq {
         this['provider'] = provider;

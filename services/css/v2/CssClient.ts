@@ -247,7 +247,7 @@ export const ParamCreater = function () {
         rollingRestart(rollingRestartRequest?: RollingRestartRequest) {
             const options = {
                 method: "POST",
-                url: "/v2.0/{project_id}/clusters/{cluster_id}/rolling_restart",
+                url: "/v2.0/{project_id}/clusters/{cluster_id}/rolling-restart",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

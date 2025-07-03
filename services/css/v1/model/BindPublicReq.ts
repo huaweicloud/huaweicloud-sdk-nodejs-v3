@@ -3,7 +3,7 @@ import { BindPublicReqEip } from './BindPublicReqEip';
 
 export class BindPublicReq {
     public eip?: BindPublicReqEip;
-    public isAutoPay?: number;
+    private 'is_auto_pay'?: number;
     public constructor(eip?: BindPublicReqEip) { 
         this['eip'] = eip;
     }
@@ -12,7 +12,13 @@ export class BindPublicReq {
         return this;
     }
     public withIsAutoPay(isAutoPay: number): BindPublicReq {
-        this['isAutoPay'] = isAutoPay;
+        this['is_auto_pay'] = isAutoPay;
         return this;
+    }
+    public set isAutoPay(isAutoPay: number  | undefined) {
+        this['is_auto_pay'] = isAutoPay;
+    }
+    public get isAutoPay(): number | undefined {
+        return this['is_auto_pay'];
     }
 }

@@ -2,16 +2,28 @@ import { StartKibanaPublicReqElbWhitelist } from './StartKibanaPublicReqElbWhite
 
 
 export class CloseKibanaPublicReq {
-    public eipSize?: number;
-    public elbWhiteList?: StartKibanaPublicReqElbWhitelist;
+    private 'eip_size'?: number;
+    private 'elb_white_list'?: StartKibanaPublicReqElbWhitelist;
     public constructor() { 
     }
     public withEipSize(eipSize: number): CloseKibanaPublicReq {
-        this['eipSize'] = eipSize;
+        this['eip_size'] = eipSize;
         return this;
     }
+    public set eipSize(eipSize: number  | undefined) {
+        this['eip_size'] = eipSize;
+    }
+    public get eipSize(): number | undefined {
+        return this['eip_size'];
+    }
     public withElbWhiteList(elbWhiteList: StartKibanaPublicReqElbWhitelist): CloseKibanaPublicReq {
-        this['elbWhiteList'] = elbWhiteList;
+        this['elb_white_list'] = elbWhiteList;
         return this;
+    }
+    public set elbWhiteList(elbWhiteList: StartKibanaPublicReqElbWhitelist  | undefined) {
+        this['elb_white_list'] = elbWhiteList;
+    }
+    public get elbWhiteList(): StartKibanaPublicReqElbWhitelist | undefined {
+        return this['elb_white_list'];
     }
 }

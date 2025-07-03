@@ -3,6 +3,8 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ASICAcceleratorInfo } from './model/ASICAcceleratorInfo';
+import { AcceptScheduledEventRequest } from './model/AcceptScheduledEventRequest';
+import { AcceptScheduledEventResponse } from './model/AcceptScheduledEventResponse';
 import { AddServerGroupMemberRequest } from './model/AddServerGroupMemberRequest';
 import { AddServerGroupMemberRequestBody } from './model/AddServerGroupMemberRequestBody';
 import { AddServerGroupMemberResponse } from './model/AddServerGroupMemberResponse';
@@ -88,6 +90,8 @@ import { CreateServerNicAllowedAddressPairs } from './model/CreateServerNicAllow
 import { CreateServersRequest } from './model/CreateServersRequest';
 import { CreateServersRequestBody } from './model/CreateServersRequestBody';
 import { CreateServersResponse } from './model/CreateServersResponse';
+import { DeleteLaunchTemplatesRequest } from './model/DeleteLaunchTemplatesRequest';
+import { DeleteLaunchTemplatesResponse } from './model/DeleteLaunchTemplatesResponse';
 import { DeleteRecycleBinServerRequest } from './model/DeleteRecycleBinServerRequest';
 import { DeleteRecycleBinServerResponse } from './model/DeleteRecycleBinServerResponse';
 import { DeleteServerGroupMemberRequest } from './model/DeleteServerGroupMemberRequest';
@@ -125,6 +129,7 @@ import { InterfaceAttachableQuantity } from './model/InterfaceAttachableQuantity
 import { InterfaceAttachment } from './model/InterfaceAttachment';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobEntities } from './model/JobEntities';
+import { LaunchTemplate } from './model/LaunchTemplate';
 import { Link } from './model/Link';
 import { ListCloudServersRequest } from './model/ListCloudServersRequest';
 import { ListCloudServersResponse } from './model/ListCloudServersResponse';
@@ -134,6 +139,8 @@ import { ListFlavorSellPoliciesResponse } from './model/ListFlavorSellPoliciesRe
 import { ListFlavorSellPoliciesResult } from './model/ListFlavorSellPoliciesResult';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
+import { ListLaunchTemplateVersionsRequest } from './model/ListLaunchTemplateVersionsRequest';
+import { ListLaunchTemplateVersionsResponse } from './model/ListLaunchTemplateVersionsResponse';
 import { ListRecycleBinServersRequest } from './model/ListRecycleBinServersRequest';
 import { ListRecycleBinServersResponse } from './model/ListRecycleBinServersResponse';
 import { ListResizeFlavorsRequest } from './model/ListResizeFlavorsRequest';
@@ -161,6 +168,8 @@ import { ListServersByTagRequestBody } from './model/ListServersByTagRequestBody
 import { ListServersByTagResponse } from './model/ListServersByTagResponse';
 import { ListServersDetailsRequest } from './model/ListServersDetailsRequest';
 import { ListServersDetailsResponse } from './model/ListServersDetailsResponse';
+import { ListTemplatesRequest } from './model/ListTemplatesRequest';
+import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { MarketModel } from './model/MarketModel';
 import { MarketModelPrepaidInfo } from './model/MarketModelPrepaidInfo';
 import { MigrateServerOption } from './model/MigrateServerOption';
@@ -208,6 +217,8 @@ import { NovaListServerSecurityGroupsRequest } from './model/NovaListServerSecur
 import { NovaListServerSecurityGroupsResponse } from './model/NovaListServerSecurityGroupsResponse';
 import { NovaListServersDetailsRequest } from './model/NovaListServersDetailsRequest';
 import { NovaListServersDetailsResponse } from './model/NovaListServersDetailsResponse';
+import { NovaListServersRequest } from './model/NovaListServersRequest';
+import { NovaListServersResponse } from './model/NovaListServersResponse';
 import { NovaListVersionsRequest } from './model/NovaListVersionsRequest';
 import { NovaListVersionsResponse } from './model/NovaListVersionsResponse';
 import { NovaNetwork } from './model/NovaNetwork';
@@ -238,6 +249,7 @@ import { NovaShowServerResponse } from './model/NovaShowServerResponse';
 import { NovaShowVersionRequest } from './model/NovaShowVersionRequest';
 import { NovaShowVersionResponse } from './model/NovaShowVersionResponse';
 import { NovaSimpleKeypair } from './model/NovaSimpleKeypair';
+import { NovaSimpleServer } from './model/NovaSimpleServer';
 import { NovaVersion } from './model/NovaVersion';
 import { NovaVersionDetail } from './model/NovaVersionDetail';
 import { NovaVersionMediaType } from './model/NovaVersionMediaType';
@@ -307,8 +319,11 @@ import { ResizeServerRequest } from './model/ResizeServerRequest';
 import { ResizeServerRequestBody } from './model/ResizeServerRequestBody';
 import { ResizeServerResponse } from './model/ResizeServerResponse';
 import { ResourceTag } from './model/ResourceTag';
+import { ResponsePageInfoV3 } from './model/ResponsePageInfoV3';
 import { RevertRecycleBinServerRequest } from './model/RevertRecycleBinServerRequest';
 import { RevertRecycleBinServerResponse } from './model/RevertRecycleBinServerResponse';
+import { ScheduledEventAcceptBody } from './model/ScheduledEventAcceptBody';
+import { ScheduledEventUpdateBody } from './model/ScheduledEventUpdateBody';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityOptions } from './model/SecurityOptions';
 import { SerialConsoleOptions } from './model/SerialConsoleOptions';
@@ -335,6 +350,8 @@ import { ServerTags } from './model/ServerTags';
 import { ServerVolumeAttachment } from './model/ServerVolumeAttachment';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
+import { ShowMetadataOptionsRequest } from './model/ShowMetadataOptionsRequest';
+import { ShowMetadataOptionsResponse } from './model/ShowMetadataOptionsResponse';
 import { ShowRecycleBinRequest } from './model/ShowRecycleBinRequest';
 import { ShowRecycleBinResponse } from './model/ShowRecycleBinResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
@@ -346,8 +363,6 @@ import { ShowServerGroupResponse } from './model/ShowServerGroupResponse';
 import { ShowServerGroupResult } from './model/ShowServerGroupResult';
 import { ShowServerLimitsRequest } from './model/ShowServerLimitsRequest';
 import { ShowServerLimitsResponse } from './model/ShowServerLimitsResponse';
-import { ShowServerMetadataOptionsRequest } from './model/ShowServerMetadataOptionsRequest';
-import { ShowServerMetadataOptionsResponse } from './model/ShowServerMetadataOptionsResponse';
 import { ShowServerPasswordRequest } from './model/ShowServerPasswordRequest';
 import { ShowServerPasswordResponse } from './model/ShowServerPasswordResponse';
 import { ShowServerRemoteConsoleRequest } from './model/ShowServerRemoteConsoleRequest';
@@ -360,6 +375,22 @@ import { ShowServerTagsResponse } from './model/ShowServerTagsResponse';
 import { SimpleFlavor } from './model/SimpleFlavor';
 import { SubJob } from './model/SubJob';
 import { SubJobEntities } from './model/SubJobEntities';
+import { TemplateBandwidthOption } from './model/TemplateBandwidthOption';
+import { TemplateBlockDeviceMappingAttachmentOption } from './model/TemplateBlockDeviceMappingAttachmentOption';
+import { TemplateBlockDeviceMappingOption } from './model/TemplateBlockDeviceMappingOption';
+import { TemplateData } from './model/TemplateData';
+import { TemplateInternetAccessOption } from './model/TemplateInternetAccessOption';
+import { TemplateMarketOptions } from './model/TemplateMarketOptions';
+import { TemplateNetworkInterfaceAttachmentOption } from './model/TemplateNetworkInterfaceAttachmentOption';
+import { TemplateNetworkInterfaceOption } from './model/TemplateNetworkInterfaceOption';
+import { TemplateOsProfile } from './model/TemplateOsProfile';
+import { TemplatePublicIpOption } from './model/TemplatePublicIpOption';
+import { TemplateSpotOptions } from './model/TemplateSpotOptions';
+import { TemplateTag } from './model/TemplateTag';
+import { TemplateTagOptions } from './model/TemplateTagOptions';
+import { TemplateVersion } from './model/TemplateVersion';
+import { UpdateMetadataOptionsRequest } from './model/UpdateMetadataOptionsRequest';
+import { UpdateMetadataOptionsResponse } from './model/UpdateMetadataOptionsResponse';
 import { UpdateNicInfoRequestBody } from './model/UpdateNicInfoRequestBody';
 import { UpdateRecycleBinOption } from './model/UpdateRecycleBinOption';
 import { UpdateRecycleBinPolicyOption } from './model/UpdateRecycleBinPolicyOption';
@@ -369,6 +400,8 @@ import { UpdateRecycleBinPolicyResponse } from './model/UpdateRecycleBinPolicyRe
 import { UpdateRecycleBinReq } from './model/UpdateRecycleBinReq';
 import { UpdateRecycleBinRequest } from './model/UpdateRecycleBinRequest';
 import { UpdateRecycleBinResponse } from './model/UpdateRecycleBinResponse';
+import { UpdateScheduledEventRequest } from './model/UpdateScheduledEventRequest';
+import { UpdateScheduledEventResponse } from './model/UpdateScheduledEventResponse';
 import { UpdateServerAddress } from './model/UpdateServerAddress';
 import { UpdateServerAutoTerminateTimeRequest } from './model/UpdateServerAutoTerminateTimeRequest';
 import { UpdateServerAutoTerminateTimeRequestBody } from './model/UpdateServerAutoTerminateTimeRequestBody';
@@ -379,9 +412,7 @@ import { UpdateServerBlockDeviceRequest } from './model/UpdateServerBlockDeviceR
 import { UpdateServerBlockDeviceResponse } from './model/UpdateServerBlockDeviceResponse';
 import { UpdateServerInterfaceRequest } from './model/UpdateServerInterfaceRequest';
 import { UpdateServerInterfaceResponse } from './model/UpdateServerInterfaceResponse';
-import { UpdateServerMetadataOptionsRequest } from './model/UpdateServerMetadataOptionsRequest';
 import { UpdateServerMetadataOptionsRequestBody } from './model/UpdateServerMetadataOptionsRequestBody';
-import { UpdateServerMetadataOptionsResponse } from './model/UpdateServerMetadataOptionsResponse';
 import { UpdateServerMetadataRequest } from './model/UpdateServerMetadataRequest';
 import { UpdateServerMetadataRequestBody } from './model/UpdateServerMetadataRequestBody';
 import { UpdateServerMetadataResponse } from './model/UpdateServerMetadataResponse';
@@ -407,6 +438,25 @@ export class EcsClient {
         return __dirname;
     }
 
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 接受并授权执行计划事件操作
+     * @param {string} id resource id
+     * @param {ScheduledEventAcceptBody} scheduledEventAcceptBody 修改计划事件计划执行开始时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public acceptScheduledEvent(acceptScheduledEventRequest?: AcceptScheduledEventRequest): Promise<AcceptScheduledEventResponse> {
+        const options = ParamCreater().acceptScheduledEvent(acceptScheduledEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 将云服务器加入云服务器组。添加成功后，如果该云服务器组是反亲和性策略的，则该云服务器与云服务器组中的其他成员尽量分散地创建在不同主机上。如果该云服务器时故障域类型的，则该云服务器会拥有故障域属性。
@@ -875,6 +925,25 @@ export class EcsClient {
     }
 
     /**
+     * 删除启动模板。删除一个启动模板。并同时删除模板下所有的版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除模板
+     * @param {string} launchTemplateId 模板ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLaunchTemplates(deleteLaunchTemplatesRequest?: DeleteLaunchTemplatesRequest): Promise<DeleteLaunchTemplatesResponse> {
+        const options = ParamCreater().deleteLaunchTemplates(deleteLaunchTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1119,6 +1188,30 @@ export class EcsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据用户请求条件从数据库筛选、查询启动模板的版本相关信息，支持按照image_id和flavor_id进行过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模板版本列表
+     * @param {number} [limit] max number of resources to return
+     * @param {string} [marker] next page resource index id
+     * @param {string} [launchTemplateId] 模板id
+     * @param {string} [imageId] 镜像id
+     * @param {string} [flavorId] 规格id
+     * @param {Array<number>} [version] 版本
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLaunchTemplateVersions(listLaunchTemplateVersionsRequest?: ListLaunchTemplateVersionsRequest): Promise<ListLaunchTemplateVersionsResponse> {
+        const options = ParamCreater().listLaunchTemplateVersions(listLaunchTemplateVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1372,6 +1465,28 @@ export class EcsClient {
     }
 
     /**
+     * 根据用户请求条件从数据库筛选、查询启动模板相关信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模板列表
+     * @param {number} [limit] max number of resources to return
+     * @param {string} [marker] next page resource index id
+     * @param {Array<string>} [launchTemplateId] 模板ID
+     * @param {Array<string>} [name] 模板名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTemplates(listTemplatesRequest?: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+        const options = ParamCreater().listTemplates(listTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 将部署在专属主机上的弹性云服务器迁移至其他专属主机。
      * - 将部署在专属主机上的弹性云服务器迁移至公共资源池，即不再部署在专属主机上。
      * - 将公共资源池的弹性云服务器迁移至专属主机上，成为专属主机上部署的弹性云服务器。
@@ -1590,6 +1705,38 @@ export class EcsClient {
      */
     public novaListServerSecurityGroups(novaListServerSecurityGroupsRequest?: NovaListServerSecurityGroupsRequest): Promise<NovaListServerSecurityGroupsResponse> {
         const options = ParamCreater().novaListServerSecurityGroups(novaListServerSecurityGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云服务器信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云服务器列表
+     * @param {string} [changesSince] 云服务器上次更新状态的时间戳信息。格式符合ISO 8601，例如：  CCYY-MM-DDThh:mm:ss+/-hh:mm  &gt; 说明： &gt;  &gt; 可以查询到“deleted”状态的弹性云服务器。
+     * @param {string} [flavor] 云服务器类型ID。
+     * @param {string} [host] 主机节点名称。
+     * @param {string} [image] 镜像ID。  在使用image作为条件过滤时，不能同时支持其他过滤条件和分页条件。如果同时指定image及其他条件，则以image条件为准；当条件不含image时，接口功能不受限制。
+     * @param {string} [ip] IPv4地址过滤结果，匹配规则为模糊匹配。
+     * @param {number} [limit] 查询返回云服务器数量限制。
+     * @param {string} [marker] 从marker指定的云服务器ID的下一条数据开始查询。
+     * @param {string} [name] 云服务器名称。
+     * @param {string} [notTags] 查询tag字段中不包含该值的云服务器，值为标签的Key。  &gt; 说明： &gt;  &gt; 系统近期对标签功能进行了升级。如果之前添加的Tag为“Key.Value”的形式，则查询的时候需要使用“Key”来查询。 &gt;  &gt; 例如：之前添加的tag为“a.b”,则升级后，查询时需使用“not-tags&#x3D;a”。
+     * @param {string} [reservationId] 批量创建弹性云服务器时，指定返回的ID，用于查询本次批量创建的弹性云服务器。
+     * @param {'created_at' | 'availability_zone' | 'display_name' | 'host' | 'instance_type_id' | 'key_name' | 'project_id' | 'user_id' | 'updated_at' | 'uuid' | 'vm_state'} [sortKey] 查询结果按弹性云服务器属性排序，默认排序顺序为created_at逆序。
+     * @param {'ACTIVE' | 'BUILD' | 'DELETED' | 'ERROR' | 'HARD_REBOOT' | 'MIGRATING' | 'REBOOT' | 'RESIZE' | 'REVERT_RESIZE' | 'SHELVED' | 'SHELVED_OFFLOADED' | 'SHUTOFF' | 'UNKNOWN' | 'VERIFY_RESIZE'} [status] 云服务器状态。  取值范围： ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE 其中DELETED 状态虚拟机只有管理员有权限查 直到2.37微版本，非上面范围的status字段将返回空列表，2.38之后的微版本，将返回400错误。  云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)。
+     * @param {string} [tags] 云服务器标签。
+     * @param {string} [openStackAPIVersion] 微版本头
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public novaListServers(novaListServersRequest?: NovaListServersRequest): Promise<NovaListServersResponse> {
+        const options = ParamCreater().novaListServers(novaListServersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1865,6 +2012,25 @@ export class EcsClient {
     }
 
     /**
+     * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云服务器元数据配置
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMetadataOptions(showMetadataOptionsRequest?: ShowMetadataOptionsRequest): Promise<ShowMetadataOptionsResponse> {
+        const options = ParamCreater().showMetadataOptions(showMetadataOptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询回收站配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1982,25 +2148,6 @@ export class EcsClient {
     }
 
     /**
-     * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询云服务器元数据配置
-     * @param {string} serverId 云服务器ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showServerMetadataOptions(showServerMetadataOptionsRequest?: ShowServerMetadataOptionsRequest): Promise<ShowServerMetadataOptionsResponse> {
-        const options = ParamCreater().showServerMetadataOptions(showServerMetadataOptionsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2061,6 +2208,26 @@ export class EcsClient {
     }
 
     /**
+     * 更新云服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新云服务器元数据配置
+     * @param {string} serverId 云服务器ID。
+     * @param {UpdateServerMetadataOptionsRequestBody} updateServerMetadataOptionsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMetadataOptions(updateMetadataOptionsRequest?: UpdateMetadataOptionsRequest): Promise<UpdateMetadataOptionsResponse> {
+        const options = ParamCreater().updateMetadataOptions(updateMetadataOptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新回收站属性信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2094,6 +2261,25 @@ export class EcsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新计划事件
+     * @param {string} id resource id
+     * @param {ScheduledEventUpdateBody} scheduledEventUpdateBody 修改计划事件计划执行开始时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateScheduledEvent(updateScheduledEventRequest?: UpdateScheduledEventRequest): Promise<UpdateScheduledEventResponse> {
+        const options = ParamCreater().updateScheduledEvent(updateScheduledEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2209,26 +2395,6 @@ export class EcsClient {
     }
 
     /**
-     * 更新云服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新云服务器元数据配置
-     * @param {string} serverId 云服务器ID。
-     * @param {UpdateServerMetadataOptionsRequestBody} updateServerMetadataOptionsRequestBody This is a auto create Body Object
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateServerMetadataOptions(updateServerMetadataOptionsRequest?: UpdateServerMetadataOptionsRequest): Promise<UpdateServerMetadataOptionsResponse> {
-        const options = ParamCreater().updateServerMetadataOptions(updateServerMetadataOptionsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 返回Nova当前所有可用的版本。
      * 
      * 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
@@ -2298,6 +2464,51 @@ export class EcsClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        acceptScheduledEvent(acceptScheduledEventRequest?: AcceptScheduledEventRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instance-scheduled-events/{id}/actions/accept",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (acceptScheduledEventRequest !== null && acceptScheduledEventRequest !== undefined) {
+                if (acceptScheduledEventRequest instanceof AcceptScheduledEventRequest) {
+                    id = acceptScheduledEventRequest.id;
+                    body = acceptScheduledEventRequest.body
+                } else {
+                    id = acceptScheduledEventRequest['id'];
+                    body = acceptScheduledEventRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling acceptScheduledEvent.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 将云服务器加入云服务器组。添加成功后，如果该云服务器组是反亲和性策略的，则该云服务器与云服务器组中的其他成员尽量分散地创建在不同主机上。如果该云服务器时故障域类型的，则该云服务器会拥有故障域属性。
@@ -3267,6 +3478,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除启动模板。删除一个启动模板。并同时删除模板下所有的版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLaunchTemplates(deleteLaunchTemplatesRequest?: DeleteLaunchTemplatesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/launch-templates/{launch_template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let launchTemplateId;
+
+            if (deleteLaunchTemplatesRequest !== null && deleteLaunchTemplatesRequest !== undefined) {
+                if (deleteLaunchTemplatesRequest instanceof DeleteLaunchTemplatesRequest) {
+                    launchTemplateId = deleteLaunchTemplatesRequest.launchTemplateId;
+                } else {
+                    launchTemplateId = deleteLaunchTemplatesRequest['launch_template_id'];
+                }
+            }
+
+        
+            if (launchTemplateId === null || launchTemplateId === undefined) {
+            throw new RequiredError('launchTemplateId','Required parameter launchTemplateId was null or undefined when calling deleteLaunchTemplates.');
+            }
+
+            options.pathParams = { 'launch_template_id': launchTemplateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3930,6 +4178,78 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据用户请求条件从数据库筛选、查询启动模板的版本相关信息，支持按照image_id和flavor_id进行过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLaunchTemplateVersions(listLaunchTemplateVersionsRequest?: ListLaunchTemplateVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/launch-template-versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let launchTemplateId;
+            
+            let imageId;
+            
+            let flavorId;
+            
+            let version;
+
+            if (listLaunchTemplateVersionsRequest !== null && listLaunchTemplateVersionsRequest !== undefined) {
+                if (listLaunchTemplateVersionsRequest instanceof ListLaunchTemplateVersionsRequest) {
+                    limit = listLaunchTemplateVersionsRequest.limit;
+                    marker = listLaunchTemplateVersionsRequest.marker;
+                    launchTemplateId = listLaunchTemplateVersionsRequest.launchTemplateId;
+                    imageId = listLaunchTemplateVersionsRequest.imageId;
+                    flavorId = listLaunchTemplateVersionsRequest.flavorId;
+                    version = listLaunchTemplateVersionsRequest.version;
+                } else {
+                    limit = listLaunchTemplateVersionsRequest['limit'];
+                    marker = listLaunchTemplateVersionsRequest['marker'];
+                    launchTemplateId = listLaunchTemplateVersionsRequest['launch_template_id'];
+                    imageId = listLaunchTemplateVersionsRequest['image_id'];
+                    flavorId = listLaunchTemplateVersionsRequest['flavor_id'];
+                    version = listLaunchTemplateVersionsRequest['version'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (launchTemplateId !== null && launchTemplateId !== undefined) {
+                localVarQueryParameter['launch_template_id'] = launchTemplateId;
+            }
+            if (imageId !== null && imageId !== undefined) {
+                localVarQueryParameter['image_id'] = imageId;
+            }
+            if (flavorId !== null && flavorId !== undefined) {
+                localVarQueryParameter['flavor_id'] = flavorId;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4557,6 +4877,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据用户请求条件从数据库筛选、查询启动模板相关信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTemplates(listTemplatesRequest?: ListTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/launch-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let launchTemplateId;
+            
+            let name;
+
+            if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
+                if (listTemplatesRequest instanceof ListTemplatesRequest) {
+                    limit = listTemplatesRequest.limit;
+                    marker = listTemplatesRequest.marker;
+                    launchTemplateId = listTemplatesRequest.launchTemplateId;
+                    name = listTemplatesRequest.name;
+                } else {
+                    limit = listTemplatesRequest['limit'];
+                    marker = listTemplatesRequest['marker'];
+                    launchTemplateId = listTemplatesRequest['launch_template_id'];
+                    name = listTemplatesRequest['name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (launchTemplateId !== null && launchTemplateId !== undefined) {
+                localVarQueryParameter['launch_template_id'] = launchTemplateId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 将部署在专属主机上的弹性云服务器迁移至其他专属主机。
          * - 将部署在专属主机上的弹性云服务器迁移至公共资源池，即不再部署在专属主机上。
          * - 将公共资源池的弹性云服务器迁移至专属主机上，成为专属主机上部署的弹性云服务器。
@@ -5019,6 +5397,134 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云服务器信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        novaListServers(novaListServersRequest?: NovaListServersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/{project_id}/servers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let changesSince;
+            
+            let flavor;
+            
+            let host;
+            
+            let image;
+            
+            let ip;
+            
+            let limit;
+            
+            let marker;
+            
+            let name;
+            
+            let notTags;
+            
+            let reservationId;
+            
+            let sortKey;
+            
+            let status;
+            
+            let tags;
+            
+            let openStackAPIVersion;
+
+            if (novaListServersRequest !== null && novaListServersRequest !== undefined) {
+                if (novaListServersRequest instanceof NovaListServersRequest) {
+                    changesSince = novaListServersRequest.changesSince;
+                    flavor = novaListServersRequest.flavor;
+                    host = novaListServersRequest.host;
+                    image = novaListServersRequest.image;
+                    ip = novaListServersRequest.ip;
+                    limit = novaListServersRequest.limit;
+                    marker = novaListServersRequest.marker;
+                    name = novaListServersRequest.name;
+                    notTags = novaListServersRequest.notTags;
+                    reservationId = novaListServersRequest.reservationId;
+                    sortKey = novaListServersRequest.sortKey;
+                    status = novaListServersRequest.status;
+                    tags = novaListServersRequest.tags;
+                    openStackAPIVersion = novaListServersRequest.openStackAPIVersion;
+                } else {
+                    changesSince = novaListServersRequest['changes-since'];
+                    flavor = novaListServersRequest['flavor'];
+                    host = novaListServersRequest['host'];
+                    image = novaListServersRequest['image'];
+                    ip = novaListServersRequest['ip'];
+                    limit = novaListServersRequest['limit'];
+                    marker = novaListServersRequest['marker'];
+                    name = novaListServersRequest['name'];
+                    notTags = novaListServersRequest['not-tags'];
+                    reservationId = novaListServersRequest['reservation_id'];
+                    sortKey = novaListServersRequest['sort_key'];
+                    status = novaListServersRequest['status'];
+                    tags = novaListServersRequest['tags'];
+                    openStackAPIVersion = novaListServersRequest['OpenStack-API-Version'];
+                }
+            }
+
+        
+            if (changesSince !== null && changesSince !== undefined) {
+                localVarQueryParameter['changes-since'] = changesSince;
+            }
+            if (flavor !== null && flavor !== undefined) {
+                localVarQueryParameter['flavor'] = flavor;
+            }
+            if (host !== null && host !== undefined) {
+                localVarQueryParameter['host'] = host;
+            }
+            if (image !== null && image !== undefined) {
+                localVarQueryParameter['image'] = image;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (notTags !== null && notTags !== undefined) {
+                localVarQueryParameter['not-tags'] = notTags;
+            }
+            if (reservationId !== null && reservationId !== undefined) {
+                localVarQueryParameter['reservation_id'] = reservationId;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (openStackAPIVersion !== undefined && openStackAPIVersion !== null) {
+                localVarHeaderParameter['OpenStack-API-Version'] = String(openStackAPIVersion);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5645,6 +6151,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMetadataOptions(showMetadataOptionsRequest?: ShowMetadataOptionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/metadata-options",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showMetadataOptionsRequest !== null && showMetadataOptionsRequest !== undefined) {
+                if (showMetadataOptionsRequest instanceof ShowMetadataOptionsRequest) {
+                    serverId = showMetadataOptionsRequest.serverId;
+                } else {
+                    serverId = showMetadataOptionsRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showMetadataOptions.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询回收站配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5846,43 +6389,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showServerMetadataOptions(showServerMetadataOptionsRequest?: ShowServerMetadataOptionsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/cloudservers/{server_id}/metadata-options",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let serverId;
-
-            if (showServerMetadataOptionsRequest !== null && showServerMetadataOptionsRequest !== undefined) {
-                if (showServerMetadataOptionsRequest instanceof ShowServerMetadataOptionsRequest) {
-                    serverId = showServerMetadataOptionsRequest.serverId;
-                } else {
-                    serverId = showServerMetadataOptionsRequest['server_id'];
-                }
-            }
-
-        
-            if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerMetadataOptions.');
-            }
-
-            options.pathParams = { 'server_id': serverId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6005,6 +6511,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新云服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMetadataOptions(updateMetadataOptionsRequest?: UpdateMetadataOptionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/{server_id}/metadata-options",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+
+            if (updateMetadataOptionsRequest !== null && updateMetadataOptionsRequest !== undefined) {
+                if (updateMetadataOptionsRequest instanceof UpdateMetadataOptionsRequest) {
+                    serverId = updateMetadataOptionsRequest.serverId;
+                    body = updateMetadataOptionsRequest.body
+                } else {
+                    serverId = updateMetadataOptionsRequest['server_id'];
+                    body = updateMetadataOptionsRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateMetadataOptions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新回收站属性信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6076,6 +6628,51 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateScheduledEvent(updateScheduledEventRequest?: UpdateScheduledEventRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instance-scheduled-events/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateScheduledEventRequest !== null && updateScheduledEventRequest !== undefined) {
+                if (updateScheduledEventRequest instanceof UpdateScheduledEventRequest) {
+                    id = updateScheduledEventRequest.id;
+                    body = updateScheduledEventRequest.body
+                } else {
+                    id = updateScheduledEventRequest['id'];
+                    body = updateScheduledEventRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateScheduledEvent.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6320,52 +6917,6 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerMetadata.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'server_id': serverId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新云服务器元数据配置，通过本接口，您可以选择启用或关闭IMDS服务，也可以选择IMDS服务的版本。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateServerMetadataOptions(updateServerMetadataOptionsRequest?: UpdateServerMetadataOptionsRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/cloudservers/{server_id}/metadata-options",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let serverId;
-
-            if (updateServerMetadataOptionsRequest !== null && updateServerMetadataOptionsRequest !== undefined) {
-                if (updateServerMetadataOptionsRequest instanceof UpdateServerMetadataOptionsRequest) {
-                    serverId = updateServerMetadataOptionsRequest.serverId;
-                    body = updateServerMetadataOptionsRequest.body
-                } else {
-                    serverId = updateServerMetadataOptionsRequest['server_id'];
-                    body = updateServerMetadataOptionsRequest['body'];
-                }
-            }
-
-        
-            if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerMetadataOptions.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

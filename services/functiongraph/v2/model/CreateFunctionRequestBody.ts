@@ -42,6 +42,8 @@ export class CreateFunctionRequestBody {
     private 'lts_custom_tag'?: { [key: string]: string; };
     private 'user_data_encrypt_kms_key_id'?: string;
     private 'code_encrypt_kms_key_id'?: string;
+    private 'domain_names'?: string;
+    public tags?: string;
     public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['package'] = _package;
@@ -363,6 +365,20 @@ export class CreateFunctionRequestBody {
     }
     public get codeEncryptKmsKeyId(): string | undefined {
         return this['code_encrypt_kms_key_id'];
+    }
+    public withDomainNames(domainNames: string): CreateFunctionRequestBody {
+        this['domain_names'] = domainNames;
+        return this;
+    }
+    public set domainNames(domainNames: string  | undefined) {
+        this['domain_names'] = domainNames;
+    }
+    public get domainNames(): string | undefined {
+        return this['domain_names'];
+    }
+    public withTags(tags: string): CreateFunctionRequestBody {
+        this['tags'] = tags;
+        return this;
     }
 }
 

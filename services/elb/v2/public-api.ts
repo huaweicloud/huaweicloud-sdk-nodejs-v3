@@ -123,6 +123,7 @@ export * from './model/MemberResp';
 export * from './model/MembersInStatusResp';
 export * from './model/PoolResp';
 export * from './model/PoolsInStatusResp';
+export * from './model/PrepaidCreateOption';
 export * from './model/PublicIpInfo';
 export * from './model/ResourceList';
 export * from './model/ResourceTag';

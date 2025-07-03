@@ -2,6 +2,8 @@
 
 export class ListActionsRequest {
     private 'cluster_id'?: string;
+    public start?: string;
+    public limit?: string;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
@@ -14,5 +16,13 @@ export class ListActionsRequest {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withStart(start: string): ListActionsRequest {
+        this['start'] = start;
+        return this;
+    }
+    public withLimit(limit: string): ListActionsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

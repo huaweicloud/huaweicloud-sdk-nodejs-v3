@@ -1,3 +1,4 @@
+import { PrepaidCreateOption } from './PrepaidCreateOption';
 
 
 export class CreateLoadbalancerReq {
@@ -11,6 +12,7 @@ export class CreateLoadbalancerReq {
     private 'enterprise_project_id'?: string;
     private 'protection_status'?: CreateLoadbalancerReqProtectionStatusEnum | string;
     private 'protection_reason'?: string;
+    private 'prepaid_options'?: PrepaidCreateOption;
     public constructor(vipSubnetId?: string) { 
         this['vip_subnet_id'] = vipSubnetId;
     }
@@ -95,6 +97,16 @@ export class CreateLoadbalancerReq {
     }
     public get protectionReason(): string | undefined {
         return this['protection_reason'];
+    }
+    public withPrepaidOptions(prepaidOptions: PrepaidCreateOption): CreateLoadbalancerReq {
+        this['prepaid_options'] = prepaidOptions;
+        return this;
+    }
+    public set prepaidOptions(prepaidOptions: PrepaidCreateOption  | undefined) {
+        this['prepaid_options'] = prepaidOptions;
+    }
+    public get prepaidOptions(): PrepaidCreateOption | undefined {
+        return this['prepaid_options'];
     }
 }
 

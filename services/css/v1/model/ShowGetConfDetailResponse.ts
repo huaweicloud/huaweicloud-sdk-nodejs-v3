@@ -1,4 +1,4 @@
-import { Setting } from './Setting';
+import { Confsetting } from './Confsetting';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ShowGetConfDetailResponse extends SdkResponse {
     public name?: string;
     public status?: string;
     public confContent?: string;
-    public setting?: Setting;
+    public setting?: Confsetting;
     public updateAt?: string;
     public constructor() { 
         super();
@@ -23,7 +23,7 @@ export class ShowGetConfDetailResponse extends SdkResponse {
         this['confContent'] = confContent;
         return this;
     }
-    public withSetting(setting: Setting): ShowGetConfDetailResponse {
+    public withSetting(setting: Confsetting): ShowGetConfDetailResponse {
         this['setting'] = setting;
         return this;
     }

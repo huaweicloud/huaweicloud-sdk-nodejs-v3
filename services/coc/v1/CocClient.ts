@@ -1,13 +1,11 @@
 import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+import FormData from 'form-data';
 
 import { AcceptScriptRequest } from './model/AcceptScriptRequest';
 import { AcceptScriptResponse } from './model/AcceptScriptResponse';
 import { AddScriptModel } from './model/AddScriptModel';
-import { ApplicationInfo } from './model/ApplicationInfo';
-import { ApplicationModelQueryResponseData } from './model/ApplicationModelQueryResponseData';
-import { ApplicationQueryResponseData } from './model/ApplicationQueryResponseData';
 import { ApprovalJobScriptModel } from './model/ApprovalJobScriptModel';
 import { AtomicInputModel } from './model/AtomicInputModel';
 import { AtomicModel } from './model/AtomicModel';
@@ -26,7 +24,6 @@ import { BatchCreateApplicationViewRequestBodyGroupList } from './model/BatchCre
 import { BatchCreateApplicationViewRequestBodySyncRules } from './model/BatchCreateApplicationViewRequestBodySyncRules';
 import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicationViewResponse';
 import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateApplicationViewResponseBody';
-import { BatchListMultiCloudResourceResponseData } from './model/BatchListMultiCloudResourceResponseData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
 import { CancelDiagnosisTaskRequest } from './model/CancelDiagnosisTaskRequest';
 import { CancelDiagnosisTaskResponse } from './model/CancelDiagnosisTaskResponse';
@@ -34,22 +31,35 @@ import { CheckScriptRiskRequest } from './model/CheckScriptRiskRequest';
 import { CheckScriptRiskResData } from './model/CheckScriptRiskResData';
 import { CheckScriptRiskResDataBlacklistCommands } from './model/CheckScriptRiskResDataBlacklistCommands';
 import { CheckScriptRiskResponse } from './model/CheckScriptRiskResponse';
+import { CocIncidentDataV2 } from './model/CocIncidentDataV2';
 import { CocIssuesTicketDetailInfoResponseData } from './model/CocIssuesTicketDetailInfoResponseData';
+import { CocListHistoryResponseDataV2 } from './model/CocListHistoryResponseDataV2';
+import { CocTaskDetailV2 } from './model/CocTaskDetailV2';
+import { CocTaskOperationDetailV2 } from './model/CocTaskOperationDetailV2';
+import { CocTicketEnumDataV2 } from './model/CocTicketEnumDataV2';
+import { CocTicketHistoryBaseInfoV2 } from './model/CocTicketHistoryBaseInfoV2';
+import { CocTicketInfoEnumDataV2 } from './model/CocTicketInfoEnumDataV2';
 import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
-import { ComponentInfo } from './model/ComponentInfo';
 import { CountMultiResourcesRequest } from './model/CountMultiResourcesRequest';
 import { CountMultiResourcesResponse } from './model/CountMultiResourcesResponse';
+import { CreateAttachmentRequest } from './model/CreateAttachmentRequest';
+import { CreateAttachmentRequestBody } from './model/CreateAttachmentRequestBody';
+import { CreateAttachmentResponse } from './model/CreateAttachmentResponse';
 import { CreateCocIncidentRequest } from './model/CreateCocIncidentRequest';
 import { CreateCocIncidentResponse } from './model/CreateCocIncidentResponse';
 import { CreateCocIssuesRequest } from './model/CreateCocIssuesRequest';
 import { CreateCocIssuesResponse } from './model/CreateCocIssuesResponse';
+import { CreateCocTicketRequestBody } from './model/CreateCocTicketRequestBody';
 import { CreateDiagnosisTaskRequest } from './model/CreateDiagnosisTaskRequest';
 import { CreateDiagnosisTaskResponse } from './model/CreateDiagnosisTaskResponse';
 import { CreateDocumentRequest } from './model/CreateDocumentRequest';
 import { CreateDocumentRequestBody } from './model/CreateDocumentRequestBody';
 import { CreateDocumentRequestBodyTags } from './model/CreateDocumentRequestBodyTags';
 import { CreateDocumentResponse } from './model/CreateDocumentResponse';
+import { CreateExternalCocAttachmentRequest } from './model/CreateExternalCocAttachmentRequest';
+import { CreateExternalCocAttachmentRequestBody } from './model/CreateExternalCocAttachmentRequestBody';
+import { CreateExternalCocAttachmentResponse } from './model/CreateExternalCocAttachmentResponse';
 import { CreateExternalIncidentRequest } from './model/CreateExternalIncidentRequest';
 import { CreateExternalIncidentResponseData } from './model/CreateExternalIncidentResponseData';
 import { CreateExternalIssuesRequest } from './model/CreateExternalIssuesRequest';
@@ -62,6 +72,8 @@ import { CreateScheduledTaskRequest } from './model/CreateScheduledTaskRequest';
 import { CreateScheduledTaskResponse } from './model/CreateScheduledTaskResponse';
 import { CreateScriptRequest } from './model/CreateScriptRequest';
 import { CreateScriptResponse } from './model/CreateScriptResponse';
+import { CreateTicketRequest } from './model/CreateTicketRequest';
+import { CreateTicketResponse } from './model/CreateTicketResponse';
 import { CreateWarRoomRequest } from './model/CreateWarRoomRequest';
 import { CreateWarRoomRequestBody } from './model/CreateWarRoomRequestBody';
 import { CreateWarRoomResponse } from './model/CreateWarRoomResponse';
@@ -91,6 +103,7 @@ import { ExcutionStep } from './model/ExcutionStep';
 import { ExcutionStepInputs } from './model/ExcutionStepInputs';
 import { ExectionInstanceModel } from './model/ExectionInstanceModel';
 import { ExectuionStatistic } from './model/ExectuionStatistic';
+import { ExecuteActionParamsV2 } from './model/ExecuteActionParamsV2';
 import { ExecuteDocumentRequest } from './model/ExecuteDocumentRequest';
 import { ExecuteDocumentRequsetBody } from './model/ExecuteDocumentRequsetBody';
 import { ExecuteDocumentRequsetBodyParameters } from './model/ExecuteDocumentRequsetBodyParameters';
@@ -104,6 +117,7 @@ import { ExecuteResourceInstance } from './model/ExecuteResourceInstance';
 import { ExecuteScriptRequest } from './model/ExecuteScriptRequest';
 import { ExecuteScriptResponse } from './model/ExecuteScriptResponse';
 import { ExecutionSummary } from './model/ExecutionSummary';
+import { ExternalAttachment } from './model/ExternalAttachment';
 import { ExtraFieldInfo } from './model/ExtraFieldInfo';
 import { GetDocumentAtomicInfoRequest } from './model/GetDocumentAtomicInfoRequest';
 import { GetDocumentAtomicInfoResponse } from './model/GetDocumentAtomicInfoResponse';
@@ -121,11 +135,13 @@ import { GetScriptJobStatisticsRequest } from './model/GetScriptJobStatisticsReq
 import { GetScriptJobStatisticsResponse } from './model/GetScriptJobStatisticsResponse';
 import { GetScriptRequest } from './model/GetScriptRequest';
 import { GetScriptResponse } from './model/GetScriptResponse';
-import { GroupInfo } from './model/GroupInfo';
 import { HandleCocIncidentRequest } from './model/HandleCocIncidentRequest';
 import { HandleCocIncidentResponse } from './model/HandleCocIncidentResponse';
 import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentRequest';
 import { HandleExternalIncidentResponseData } from './model/HandleExternalIncidentResponseData';
+import { HandleIncidentRequest } from './model/HandleIncidentRequest';
+import { HandleIncidentResponse } from './model/HandleIncidentResponse';
+import { IncidentSimpleTicketInfo } from './model/IncidentSimpleTicketInfo';
 import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoResponseData';
 import { InstanceCompliant } from './model/InstanceCompliant';
 import { InstancesBatchResultMode } from './model/InstancesBatchResultMode';
@@ -140,10 +156,6 @@ import { JobScriptOrderListPage } from './model/JobScriptOrderListPage';
 import { JobScriptOrderListProp } from './model/JobScriptOrderListProp';
 import { JobScriptOrderOperationBody } from './model/JobScriptOrderOperationBody';
 import { JobScriptOrderStatisticsModel } from './model/JobScriptOrderStatisticsModel';
-import { ListApplicationModelRequest } from './model/ListApplicationModelRequest';
-import { ListApplicationModelResponse } from './model/ListApplicationModelResponse';
-import { ListApplicationsRequest } from './model/ListApplicationsRequest';
-import { ListApplicationsResponse } from './model/ListApplicationsResponse';
 import { ListAuthorizableTicketsExternalRequest } from './model/ListAuthorizableTicketsExternalRequest';
 import { ListAuthorizableTicketsExternalResponse } from './model/ListAuthorizableTicketsExternalResponse';
 import { ListAuthorizableTicketsReq } from './model/ListAuthorizableTicketsReq';
@@ -165,12 +177,16 @@ import { ListExecutionStepsRequest } from './model/ListExecutionStepsRequest';
 import { ListExecutionStepsResponse } from './model/ListExecutionStepsResponse';
 import { ListExecutionsRequest } from './model/ListExecutionsRequest';
 import { ListExecutionsResponse } from './model/ListExecutionsResponse';
+import { ListIncidentSimpleTicketsRequest } from './model/ListIncidentSimpleTicketsRequest';
+import { ListIncidentSimpleTicketsResponse } from './model/ListIncidentSimpleTicketsResponse';
+import { ListIncidentsHistoriesRequest } from './model/ListIncidentsHistoriesRequest';
+import { ListIncidentsHistoriesResponse } from './model/ListIncidentsHistoriesResponse';
+import { ListIncidentsRequest } from './model/ListIncidentsRequest';
+import { ListIncidentsResponse } from './model/ListIncidentsResponse';
 import { ListInstanceCompliantRequest } from './model/ListInstanceCompliantRequest';
 import { ListInstanceCompliantResponse } from './model/ListInstanceCompliantResponse';
 import { ListInstancesBatchRequest } from './model/ListInstancesBatchRequest';
 import { ListInstancesBatchResponse } from './model/ListInstancesBatchResponse';
-import { ListMultiCloudResourcesRequest } from './model/ListMultiCloudResourcesRequest';
-import { ListMultiCloudResourcesResponse } from './model/ListMultiCloudResourcesResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
 import { ListResourceRequest } from './model/ListResourceRequest';
@@ -189,11 +205,15 @@ import { ListScriptsRequest } from './model/ListScriptsRequest';
 import { ListScriptsResponse } from './model/ListScriptsResponse';
 import { ListTenantWarRoomRequestBody } from './model/ListTenantWarRoomRequestBody';
 import { ListTicketParams } from './model/ListTicketParams';
+import { ListTicketParamsV2 } from './model/ListTicketParamsV2';
+import { ListTicketParamsV2CountFilters } from './model/ListTicketParamsV2CountFilters';
+import { ListTicketParamsWithPageV2 } from './model/ListTicketParamsWithPageV2';
 import { ListWarRoomsRequest } from './model/ListWarRoomsRequest';
 import { ListWarRoomsResponse } from './model/ListWarRoomsResponse';
 import { MessageNotification } from './model/MessageNotification';
 import { NonCompliantSummary } from './model/NonCompliantSummary';
 import { ObjectFilter } from './model/ObjectFilter';
+import { ObjectFilterV2 } from './model/ObjectFilterV2';
 import { OperateExecutionRequest } from './model/OperateExecutionRequest';
 import { OperateExecutionRequestBody } from './model/OperateExecutionRequestBody';
 import { OperateExecutionResponse } from './model/OperateExecutionResponse';
@@ -212,6 +232,7 @@ import { ResourceInstanceProp } from './model/ResourceInstanceProp';
 import { ResourceMultiCountResponseData } from './model/ResourceMultiCountResponseData';
 import { ResourceQuery } from './model/ResourceQuery';
 import { ResourceTag } from './model/ResourceTag';
+import { ResponseBodyTemplate } from './model/ResponseBodyTemplate';
 import { RetryDiagnosisTaskRequest } from './model/RetryDiagnosisTaskRequest';
 import { RetryDiagnosisTaskRequestBody } from './model/RetryDiagnosisTaskRequestBody';
 import { RetryDiagnosisTaskResponse } from './model/RetryDiagnosisTaskResponse';
@@ -242,6 +263,8 @@ import { ShowDiagnosisSummaryRequest } from './model/ShowDiagnosisSummaryRequest
 import { ShowDiagnosisSummaryResponse } from './model/ShowDiagnosisSummaryResponse';
 import { ShowDiagnosisTaskRequest } from './model/ShowDiagnosisTaskRequest';
 import { ShowDiagnosisTaskResponse } from './model/ShowDiagnosisTaskResponse';
+import { ShowIncidentTaskRequest } from './model/ShowIncidentTaskRequest';
+import { ShowIncidentTaskResponse } from './model/ShowIncidentTaskResponse';
 import { ShowInstancePatchItemsRequest } from './model/ShowInstancePatchItemsRequest';
 import { ShowInstancePatchItemsResponse } from './model/ShowInstancePatchItemsResponse';
 import { ShowScheduledTaskRequest } from './model/ShowScheduledTaskRequest';
@@ -252,6 +275,7 @@ import { SyncResourceResponse } from './model/SyncResourceResponse';
 import { Tag } from './model/Tag';
 import { Target } from './model/Target';
 import { TargetResource } from './model/TargetResource';
+import { TicketCreateSubTicketInfo } from './model/TicketCreateSubTicketInfo';
 import { TicketHistoryInfo } from './model/TicketHistoryInfo';
 import { TicketInfo } from './model/TicketInfo';
 import { TicketInfoEnumData } from './model/TicketInfoEnumData';
@@ -268,6 +292,7 @@ import { UpdateScheduledTaskResponse } from './model/UpdateScheduledTaskResponse
 import { UpdateScriptRequest } from './model/UpdateScriptRequest';
 import { UpdateScriptResponse } from './model/UpdateScriptResponse';
 import { UpdateTicketHistoryInfo } from './model/UpdateTicketHistoryInfo';
+import { UploadFileResponse } from './model/UploadFileResponse';
 import { WarRoomEnumeration } from './model/WarRoomEnumeration';
 import { WarRoomIncident } from './model/WarRoomIncident';
 import { WarRoomTenantInfo } from './model/WarRoomTenantInfo';
@@ -291,53 +316,6 @@ export class CocClient {
 
 
     /**
-     * 查询应用
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询应用
-     * @param {number} limit 最大的返回数量
-     * @param {Array<string>} [idList] id列表
-     * @param {string} [parentId] parent id
-     * @param {string} [nameLike] 应用名称模糊匹配
-     * @param {string} [code] 应用code
-     * @param {string} [marker] 分页参数，上一页请求最后一个id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listApplications(listApplicationsRequest?: ListApplicationsRequest): Promise<ListApplicationsResponse> {
-        const options = ParamCreater().listApplications(listApplicationsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询下一级的子应用、组件、分组
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询下一级的子应用、组件、分组
-     * @param {string} [applicationId] 应用id
-     * @param {string} [componentId] 组件id
-     * @param {number} [limit] 最大的返回数量
-     * @param {string} [marker] 分页参数，上一页请求最后一个id
-     * @param {number} [pageNo] 分页页码
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listApplicationModel(listApplicationModelRequest?: ListApplicationModelRequest): Promise<ListApplicationModelResponse> {
-        const options = ParamCreater().listApplicationModel(listApplicationModelRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 批量创建应用视图
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -349,6 +327,84 @@ export class CocClient {
      */
     public batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest): Promise<BatchCreateApplicationViewResponse> {
         const options = ParamCreater().batchCreateApplicationView(batchCreateApplicationViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * HandleIncident 处理事件单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary HandleIncident 处理事件单
+     * @param {string} incidentId 事件单ID
+     * @param {ExecuteActionParamsV2} handleIncidentRequestBody request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public handleIncident(handleIncidentRequest?: HandleIncidentRequest): Promise<HandleIncidentResponse> {
+        const options = ParamCreater().handleIncident(handleIncidentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ListIncidents 查询事件单列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary ListIncidents 查询事件单列表
+     * @param {ListTicketParamsWithPageV2} [listIncidentsRequestBody] 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIncidents(listIncidentsRequest?: ListIncidentsRequest): Promise<ListIncidentsResponse> {
+        const options = ParamCreater().listIncidents(listIncidentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ListIncidentsHistories  获取事件单历史
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary ListIncidentsHistories 获取事件单历史
+     * @param {string} incidentId 事件单ID
+     * @param {ListTicketParamsV2} [listIncidentsHistoriesRequestBody] request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIncidentsHistories(listIncidentsHistoriesRequest?: ListIncidentsHistoriesRequest): Promise<ListIncidentsHistoriesResponse> {
+        const options = ParamCreater().listIncidentsHistories(listIncidentsHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ShowIncidentTask 获取事件任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary ShowIncidentTask 获取事件任务
+     * @param {string} incidentId 事件单ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIncidentTask(showIncidentTaskRequest?: ShowIncidentTaskRequest): Promise<ShowIncidentTaskResponse> {
+        const options = ParamCreater().showIncidentTask(showIncidentTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -893,6 +949,25 @@ export class CocClient {
     }
 
     /**
+     * 上传附件，创建事件单的场景下，如需上传附件，需要先调用该接口将文件上传到obs。上传成功时，该接口将返回文档唯一id。支持文件类型：.jpg,.png,.docx,.txt,.pdf，且文本大小不超10M
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传附件
+     * @param {any} file 需要上传的文件，以表单的形式上传，内容为二进制binary文本。支持文件类型：.jpg,.png,.docx,.txt,.pdf，且文本大小不超10M。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createExternalCocAttachment(createExternalCocAttachmentRequest?: CreateExternalCocAttachmentRequest): Promise<CreateExternalCocAttachmentResponse> {
+        const options = ParamCreater().createExternalCocAttachment(createExternalCocAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * HandleCocIncident 处理事件单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -917,13 +992,33 @@ export class CocClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary GetCocTicketOperationHistories 获取事件单历史
-     * @param {'incident' | 'issues_mgmt'} ticketType 工单类型:incident,issues_mgmt
+     * @param {'incident' | 'issues_mgmt'} ticketType 需要查询的工单类型，事件单传值为incident，问题单传值为issues_mgmt。
      * @param {ListTicketParams} listCocTicketOperationHistoriesRequestBody 查询参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listCocTicketOperationHistories(listCocTicketOperationHistoriesRequest?: ListCocTicketOperationHistoriesRequest): Promise<ListCocTicketOperationHistoriesResponse> {
         const options = ParamCreater().listCocTicketOperationHistories(listCocTicketOperationHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可分页查询到事件单列表信息，分页参数为limit与offset。该接口不支持对事件单进行除分页参数外的条件过滤，且返回的列表字段相对简单，只有事件单标题、事件单单号、描述信息、工单状态、事件级别、企业项目ID、事件单来源、创建人及责任人。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询简易版事件单列表
+     * @param {number} [offset] 列表查询接口分页参数，表示当前查询第几页，1表示查询第一页。
+     * @param {number} [limit] 列表查询接口分页参数，表示一页查询多少条数据，该值需大于等于1且为整数，表示分页查询时每一页最多查到的数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIncidentSimpleTickets(listIncidentSimpleTicketsRequest?: ListIncidentSimpleTicketsRequest): Promise<ListIncidentSimpleTicketsResponse> {
+        const options = ParamCreater().listIncidentSimpleTickets(listIncidentSimpleTicketsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -989,6 +1084,46 @@ export class CocClient {
     }
 
     /**
+     * 上传附件，创建工单（事件单、变更单、问题单）的场景下，如需上传附件，需要先调用该接口将文件上传到obs。上传成功时，该接口将返回文档唯一id。支持文件类型：.jpg,.png,.docx,.txt,.pdf，且文本大小不超10M。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传附件
+     * @param {string} ticketType **参数解释：** 需要创建的工单类型，此处为固定值incident。此处的ticket_type传递的值为固定值incident，但是创建变更单或者问题单时，如需上传附件使用的依然是此接口。 **约束限制：** 不涉及 **取值范围：** 固定值incident **默认取值：** 不涉及
+     * @param {any} file **参数解释：** 需要上传的文件，以表单的形式上传。 **约束限制：** 内容为二进制binary文本。支持文件类型：.jpg,.png,.docx,.txt,.pdf，且文本大小不超10M。 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAttachment(createAttachmentRequest?: CreateAttachmentRequest): Promise<CreateAttachmentResponse> {
+        const options = ParamCreater().createAttachment(createAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建变更单或问题单的接口，通过路径参数ticket_type区分需要创建的工单类型。ticket_type为change表示要创建变更单，ticket_type为issues_mgmt为创建问题单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建工单
+     * @param {'change' | 'issues_mgmt'} ticketType **参数解释：** 需要创建的工单类型，如需创建变更单传值change，如需创建问题单传值issues_mgmt。 **约束限制：** 不涉及 **取值范围：** 枚举值：change/issues_mgmt 当前支持的工单类型：变更单传值change，问题单传值issues_mgmt **默认取值：** incident
+     * @param {CreateCocTicketRequestBody} createTicketRequestBody TicketInfo object that needs to be created
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTicket(createTicketRequest?: CreateTicketRequest): Promise<CreateTicketResponse> {
+        const options = ParamCreater().createTicket(createTicketRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询COC可授权单列表（变更单号、事件单号、warroom和告警）
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1000,31 +1135,6 @@ export class CocClient {
      */
     public listAuthorizableTicketsExternal(listAuthorizableTicketsExternalRequest?: ListAuthorizableTicketsExternalRequest): Promise<ListAuthorizableTicketsExternalResponse> {
         const options = ParamCreater().listAuthorizableTicketsExternal(listAuthorizableTicketsExternalRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询用户在云厂商中的资源
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询用户在云厂商中的资源
-     * @param {string} vendor 云厂商
-     * @param {number} limit 最大的返回数量
-     * @param {string} [type] 资源类型
-     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
-     * @param {Array<string>} [resourceIdList] 资源id列表
-     * @param {Array<string>} [nameList] 资源名称
-     * @param {Array<string>} [regionIdList] region id列表
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listMultiCloudResources(listMultiCloudResourcesRequest?: ListMultiCloudResourcesRequest): Promise<ListMultiCloudResourcesResponse> {
-        const options = ParamCreater().listMultiCloudResources(listMultiCloudResourcesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1857,146 +1967,6 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 查询应用
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listApplications(listApplicationsRequest?: ListApplicationsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/applications",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let limit;
-            
-            let idList;
-            
-            let parentId;
-            
-            let nameLike;
-            
-            let code;
-            
-            let marker;
-
-            if (listApplicationsRequest !== null && listApplicationsRequest !== undefined) {
-                if (listApplicationsRequest instanceof ListApplicationsRequest) {
-                    limit = listApplicationsRequest.limit;
-                    idList = listApplicationsRequest.idList;
-                    parentId = listApplicationsRequest.parentId;
-                    nameLike = listApplicationsRequest.nameLike;
-                    code = listApplicationsRequest.code;
-                    marker = listApplicationsRequest.marker;
-                } else {
-                    limit = listApplicationsRequest['limit'];
-                    idList = listApplicationsRequest['id_list'];
-                    parentId = listApplicationsRequest['parent_id'];
-                    nameLike = listApplicationsRequest['name_like'];
-                    code = listApplicationsRequest['code'];
-                    marker = listApplicationsRequest['marker'];
-                }
-            }
-
-        
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listApplications.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (idList !== null && idList !== undefined) {
-                localVarQueryParameter['id_list'] = idList;
-            }
-            if (parentId !== null && parentId !== undefined) {
-                localVarQueryParameter['parent_id'] = parentId;
-            }
-            if (nameLike !== null && nameLike !== undefined) {
-                localVarQueryParameter['name_like'] = nameLike;
-            }
-            if (code !== null && code !== undefined) {
-                localVarQueryParameter['code'] = code;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询下一级的子应用、组件、分组
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listApplicationModel(listApplicationModelRequest?: ListApplicationModelRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/application-model/next",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let applicationId;
-            
-            let componentId;
-            
-            let limit;
-            
-            let marker;
-            
-            let pageNo;
-
-            if (listApplicationModelRequest !== null && listApplicationModelRequest !== undefined) {
-                if (listApplicationModelRequest instanceof ListApplicationModelRequest) {
-                    applicationId = listApplicationModelRequest.applicationId;
-                    componentId = listApplicationModelRequest.componentId;
-                    limit = listApplicationModelRequest.limit;
-                    marker = listApplicationModelRequest.marker;
-                    pageNo = listApplicationModelRequest.pageNo;
-                } else {
-                    applicationId = listApplicationModelRequest['application_id'];
-                    componentId = listApplicationModelRequest['component_id'];
-                    limit = listApplicationModelRequest['limit'];
-                    marker = listApplicationModelRequest['marker'];
-                    pageNo = listApplicationModelRequest['page_no'];
-                }
-            }
-
-        
-            if (applicationId !== null && applicationId !== undefined) {
-                localVarQueryParameter['application_id'] = applicationId;
-            }
-            if (componentId !== null && componentId !== undefined) {
-                localVarQueryParameter['component_id'] = componentId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (pageNo !== null && pageNo !== undefined) {
-                localVarQueryParameter['page_no'] = pageNo;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 批量创建应用视图
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2027,6 +1997,167 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * HandleIncident 处理事件单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        handleIncident(handleIncidentRequest?: HandleIncidentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/incidents/{incident_id}/actions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let incidentId;
+
+            if (handleIncidentRequest !== null && handleIncidentRequest !== undefined) {
+                if (handleIncidentRequest instanceof HandleIncidentRequest) {
+                    incidentId = handleIncidentRequest.incidentId;
+                    body = handleIncidentRequest.body
+                } else {
+                    incidentId = handleIncidentRequest['incident_id'];
+                    body = handleIncidentRequest['body'];
+                }
+            }
+
+        
+            if (incidentId === null || incidentId === undefined) {
+            throw new RequiredError('incidentId','Required parameter incidentId was null or undefined when calling handleIncident.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'incident_id': incidentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ListIncidents 查询事件单列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIncidents(listIncidentsRequest?: ListIncidentsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/incidents/list",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listIncidentsRequest !== null && listIncidentsRequest !== undefined) {
+                if (listIncidentsRequest instanceof ListIncidentsRequest) {
+                    body = listIncidentsRequest.body
+                } else {
+                    body = listIncidentsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ListIncidentsHistories  获取事件单历史
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIncidentsHistories(listIncidentsHistoriesRequest?: ListIncidentsHistoriesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/incidents/{incident_id}/histories",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let incidentId;
+
+            if (listIncidentsHistoriesRequest !== null && listIncidentsHistoriesRequest !== undefined) {
+                if (listIncidentsHistoriesRequest instanceof ListIncidentsHistoriesRequest) {
+                    incidentId = listIncidentsHistoriesRequest.incidentId;
+                    body = listIncidentsHistoriesRequest.body
+                } else {
+                    incidentId = listIncidentsHistoriesRequest['incident_id'];
+                    body = listIncidentsHistoriesRequest['body'];
+                }
+            }
+
+        
+            if (incidentId === null || incidentId === undefined) {
+            throw new RequiredError('incidentId','Required parameter incidentId was null or undefined when calling listIncidentsHistories.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'incident_id': incidentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ShowIncidentTask 获取事件任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIncidentTask(showIncidentTaskRequest?: ShowIncidentTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/incidents/{incident_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let incidentId;
+
+            if (showIncidentTaskRequest !== null && showIncidentTaskRequest !== undefined) {
+                if (showIncidentTaskRequest instanceof ShowIncidentTaskRequest) {
+                    incidentId = showIncidentTaskRequest.incidentId;
+                } else {
+                    incidentId = showIncidentTaskRequest['incident_id'];
+                }
+            }
+
+        
+            if (incidentId === null || incidentId === undefined) {
+            throw new RequiredError('incidentId','Required parameter incidentId was null or undefined when calling showIncidentTask.');
+            }
+
+            options.pathParams = { 'incident_id': incidentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3406,6 +3537,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 上传附件，创建事件单的场景下，如需上传附件，需要先调用该接口将文件上传到obs。上传成功时，该接口将返回文档唯一id。支持文件类型：.jpg,.png,.docx,.txt,.pdf，且文本大小不超10M
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createExternalCocAttachment(createExternalCocAttachmentRequest?: CreateExternalCocAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/external/incident/attachments",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            let file;
+            
+
+            if (createExternalCocAttachmentRequest !== null && createExternalCocAttachmentRequest !== undefined) {
+                if (createExternalCocAttachmentRequest instanceof CreateExternalCocAttachmentRequest) {
+                    file = createExternalCocAttachmentRequest.body?.file;
+                } else {
+                    file = createExternalCocAttachmentRequest['body']['file'];
+                }
+            }
+
+        
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling createExternalCocAttachment.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * HandleCocIncident 处理事件单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3485,6 +3659,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'ticket_type': ticketType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可分页查询到事件单列表信息，分页参数为limit与offset。该接口不支持对事件单进行除分页参数外的条件过滤，且返回的列表字段相对简单，只有事件单标题、事件单单号、描述信息、工单状态、事件级别、企业项目ID、事件单来源、创建人及责任人。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIncidentSimpleTickets(listIncidentSimpleTicketsRequest?: ListIncidentSimpleTicketsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/incident-tickets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listIncidentSimpleTicketsRequest !== null && listIncidentSimpleTicketsRequest !== undefined) {
+                if (listIncidentSimpleTicketsRequest instanceof ListIncidentSimpleTicketsRequest) {
+                    offset = listIncidentSimpleTicketsRequest.offset;
+                    limit = listIncidentSimpleTicketsRequest.limit;
+                } else {
+                    offset = listIncidentSimpleTicketsRequest['offset'];
+                    limit = listIncidentSimpleTicketsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3602,6 +3820,103 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 上传附件，创建工单（事件单、变更单、问题单）的场景下，如需上传附件，需要先调用该接口将文件上传到obs。上传成功时，该接口将返回文档唯一id。支持文件类型：.jpg,.png,.docx,.txt,.pdf，且文本大小不超10M。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAttachment(createAttachmentRequest?: CreateAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{ticket_type}/attachments",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let ticketType;
+            let file;
+            
+
+            if (createAttachmentRequest !== null && createAttachmentRequest !== undefined) {
+                if (createAttachmentRequest instanceof CreateAttachmentRequest) {
+                    ticketType = createAttachmentRequest.ticketType;
+                    file = createAttachmentRequest.body?.file;
+                } else {
+                    ticketType = createAttachmentRequest['ticket_type'];
+                    file = createAttachmentRequest['body']['file'];
+                }
+            }
+
+        
+            if (ticketType === null || ticketType === undefined) {
+            throw new RequiredError('ticketType','Required parameter ticketType was null or undefined when calling createAttachment.');
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling createAttachment.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'ticket_type': ticketType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建变更单或问题单的接口，通过路径参数ticket_type区分需要创建的工单类型。ticket_type为change表示要创建变更单，ticket_type为issues_mgmt为创建问题单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTicket(createTicketRequest?: CreateTicketRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{ticket_type}/tickets",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ticketType;
+
+            if (createTicketRequest !== null && createTicketRequest !== undefined) {
+                if (createTicketRequest instanceof CreateTicketRequest) {
+                    ticketType = createTicketRequest.ticketType;
+                    body = createTicketRequest.body
+                } else {
+                    ticketType = createTicketRequest['ticket_type'];
+                    body = createTicketRequest['body'];
+                }
+            }
+
+        
+            if (ticketType === null || ticketType === undefined) {
+            throw new RequiredError('ticketType','Required parameter ticketType was null or undefined when calling createTicket.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ticket_type': ticketType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询COC可授权单列表（变更单号、事件单号、warroom和告警）
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3635,91 +3950,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询用户在云厂商中的资源
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listMultiCloudResources(listMultiCloudResourcesRequest?: ListMultiCloudResourcesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/multicloud-resources",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let vendor;
-            
-            let limit;
-            
-            let type;
-            
-            let marker;
-            
-            let resourceIdList;
-            
-            let nameList;
-            
-            let regionIdList;
-
-            if (listMultiCloudResourcesRequest !== null && listMultiCloudResourcesRequest !== undefined) {
-                if (listMultiCloudResourcesRequest instanceof ListMultiCloudResourcesRequest) {
-                    vendor = listMultiCloudResourcesRequest.vendor;
-                    limit = listMultiCloudResourcesRequest.limit;
-                    type = listMultiCloudResourcesRequest.type;
-                    marker = listMultiCloudResourcesRequest.marker;
-                    resourceIdList = listMultiCloudResourcesRequest.resourceIdList;
-                    nameList = listMultiCloudResourcesRequest.nameList;
-                    regionIdList = listMultiCloudResourcesRequest.regionIdList;
-                } else {
-                    vendor = listMultiCloudResourcesRequest['vendor'];
-                    limit = listMultiCloudResourcesRequest['limit'];
-                    type = listMultiCloudResourcesRequest['type'];
-                    marker = listMultiCloudResourcesRequest['marker'];
-                    resourceIdList = listMultiCloudResourcesRequest['resource_id_list'];
-                    nameList = listMultiCloudResourcesRequest['name_list'];
-                    regionIdList = listMultiCloudResourcesRequest['region_id_list'];
-                }
-            }
-
-        
-            if (vendor === null || vendor === undefined) {
-                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling listMultiCloudResources.');
-            }
-            if (vendor !== null && vendor !== undefined) {
-                localVarQueryParameter['vendor'] = vendor;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listMultiCloudResources.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (resourceIdList !== null && resourceIdList !== undefined) {
-                localVarQueryParameter['resource_id_list'] = resourceIdList;
-            }
-            if (nameList !== null && nameList !== undefined) {
-                localVarQueryParameter['name_list'] = nameList;
-            }
-            if (regionIdList !== null && regionIdList !== undefined) {
-                localVarQueryParameter['region_id_list'] = regionIdList;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

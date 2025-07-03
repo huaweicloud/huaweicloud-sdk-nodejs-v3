@@ -1,24 +1,36 @@
 
 
 export class GetLogBackupReq {
-    public instanceName?: string;
+    private 'instance_name'?: string;
     public level?: string;
-    public logType?: string;
+    private 'log_type'?: string;
     public constructor(instanceName?: string, level?: string, logType?: string) { 
-        this['instanceName'] = instanceName;
+        this['instance_name'] = instanceName;
         this['level'] = level;
-        this['logType'] = logType;
+        this['log_type'] = logType;
     }
     public withInstanceName(instanceName: string): GetLogBackupReq {
-        this['instanceName'] = instanceName;
+        this['instance_name'] = instanceName;
         return this;
+    }
+    public set instanceName(instanceName: string  | undefined) {
+        this['instance_name'] = instanceName;
+    }
+    public get instanceName(): string | undefined {
+        return this['instance_name'];
     }
     public withLevel(level: string): GetLogBackupReq {
         this['level'] = level;
         return this;
     }
     public withLogType(logType: string): GetLogBackupReq {
-        this['logType'] = logType;
+        this['log_type'] = logType;
         return this;
+    }
+    public set logType(logType: string  | undefined) {
+        this['log_type'] = logType;
+    }
+    public get logType(): string | undefined {
+        return this['log_type'];
     }
 }

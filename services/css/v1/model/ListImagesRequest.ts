@@ -3,6 +3,8 @@
 export class ListImagesRequest {
     private 'cluster_id'?: string;
     private 'upgrade_type'?: string;
+    public start?: string;
+    public limit?: string;
     public constructor(clusterId?: string, upgradeType?: string) { 
         this['cluster_id'] = clusterId;
         this['upgrade_type'] = upgradeType;
@@ -26,5 +28,13 @@ export class ListImagesRequest {
     }
     public get upgradeType(): string | undefined {
         return this['upgrade_type'];
+    }
+    public withStart(start: string): ListImagesRequest {
+        this['start'] = start;
+        return this;
+    }
+    public withLimit(limit: string): ListImagesRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

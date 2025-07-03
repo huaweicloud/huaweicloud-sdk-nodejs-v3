@@ -3,12 +3,12 @@ import { Setting } from './Setting';
 
 export class CreateCnfReq {
     public name?: string;
-    public confContent?: string;
+    private 'conf_content'?: string;
     public setting?: Setting;
     private 'sensitive_words'?: Array<string>;
     public constructor(name?: string, confContent?: string, setting?: Setting) { 
         this['name'] = name;
-        this['confContent'] = confContent;
+        this['conf_content'] = confContent;
         this['setting'] = setting;
     }
     public withName(name: string): CreateCnfReq {
@@ -16,8 +16,14 @@ export class CreateCnfReq {
         return this;
     }
     public withConfContent(confContent: string): CreateCnfReq {
-        this['confContent'] = confContent;
+        this['conf_content'] = confContent;
         return this;
+    }
+    public set confContent(confContent: string  | undefined) {
+        this['conf_content'] = confContent;
+    }
+    public get confContent(): string | undefined {
+        return this['conf_content'];
     }
     public withSetting(setting: Setting): CreateCnfReq {
         this['setting'] = setting;

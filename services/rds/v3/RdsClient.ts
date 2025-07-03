@@ -64,6 +64,8 @@ import { ChangeTheDelayThresholdResponse } from './model/ChangeTheDelayThreshold
 import { ChangingTheDelayThresholdRequestBody } from './model/ChangingTheDelayThresholdRequestBody';
 import { ChargeInfo } from './model/ChargeInfo';
 import { ChargeInfoResponse } from './model/ChargeInfoResponse';
+import { CheckInstanceForUpgradeRequest } from './model/CheckInstanceForUpgradeRequest';
+import { CheckInstanceForUpgradeResponse } from './model/CheckInstanceForUpgradeResponse';
 import { ComputeFlavor } from './model/ComputeFlavor';
 import { ComputeFlavorGroup } from './model/ComputeFlavorGroup';
 import { Computes } from './model/Computes';
@@ -124,7 +126,10 @@ import { CustomerModifyAutoEnlargePolicyReq } from './model/CustomerModifyAutoEn
 import { CustomerModifyAutoUpgradePolicyReq } from './model/CustomerModifyAutoUpgradePolicyReq';
 import { CustomerUpgradeDatabaseVersionReq } from './model/CustomerUpgradeDatabaseVersionReq';
 import { CustomerUpgradeDatabaseVersionReqNew } from './model/CustomerUpgradeDatabaseVersionReqNew';
+import { CustomerUpgradeMajorVersionReq } from './model/CustomerUpgradeMajorVersionReq';
+import { DBCheckDetail } from './model/DBCheckDetail';
 import { DBSInstanceHostInfoResult } from './model/DBSInstanceHostInfoResult';
+import { DBUpgradePrecheck } from './model/DBUpgradePrecheck';
 import { DataIpRequest } from './model/DataIpRequest';
 import { DatabaseBackupInfo } from './model/DatabaseBackupInfo';
 import { DatabaseForCreation } from './model/DatabaseForCreation';
@@ -179,6 +184,7 @@ import { DeleteSqlserverDatabaseRequest } from './model/DeleteSqlserverDatabaseR
 import { DeleteSqlserverDatabaseResponse } from './model/DeleteSqlserverDatabaseResponse';
 import { DeleteSqlserverDbUserRequest } from './model/DeleteSqlserverDbUserRequest';
 import { DeleteSqlserverDbUserResponse } from './model/DeleteSqlserverDbUserResponse';
+import { DetectedProblem } from './model/DetectedProblem';
 import { DiagnosisInstancesInfoResult } from './model/DiagnosisInstancesInfoResult';
 import { DiagnosisItemResult } from './model/DiagnosisItemResult';
 import { DownloadErrorlogRequest } from './model/DownloadErrorlogRequest';
@@ -438,6 +444,7 @@ import { PwdResetRequest } from './model/PwdResetRequest';
 import { QueryDRInfoRequest } from './model/QueryDRInfoRequest';
 import { QueryProxyResponseV3 } from './model/QueryProxyResponseV3';
 import { Quotas } from './model/Quotas';
+import { RdsUpgradePrecheckV3Req } from './model/RdsUpgradePrecheckV3Req';
 import { ReadonlyInstances } from './model/ReadonlyInstances';
 import { RecycleInstsanceV3 } from './model/RecycleInstsanceV3';
 import { RecyclePolicy } from './model/RecyclePolicy';
@@ -576,6 +583,8 @@ import { ShowOffSiteBackupPolicyRequest } from './model/ShowOffSiteBackupPolicyR
 import { ShowOffSiteBackupPolicyResponse } from './model/ShowOffSiteBackupPolicyResponse';
 import { ShowPostgresqlParamValueRequest } from './model/ShowPostgresqlParamValueRequest';
 import { ShowPostgresqlParamValueResponse } from './model/ShowPostgresqlParamValueResponse';
+import { ShowPrecheckResultRequest } from './model/ShowPrecheckResultRequest';
+import { ShowPrecheckResultResponse } from './model/ShowPrecheckResultResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRecoveryTimeWindowRequest } from './model/ShowRecoveryTimeWindowRequest';
@@ -722,6 +731,8 @@ import { UpgradeDbVersionNewRequest } from './model/UpgradeDbVersionNewRequest';
 import { UpgradeDbVersionNewResponse } from './model/UpgradeDbVersionNewResponse';
 import { UpgradeDbVersionRequest } from './model/UpgradeDbVersionRequest';
 import { UpgradeDbVersionResponse } from './model/UpgradeDbVersionResponse';
+import { UpgradeLargeVersionRequest } from './model/UpgradeLargeVersionRequest';
+import { UpgradeLargeVersionResponse } from './model/UpgradeLargeVersionResponse';
 import { UpgradePgMajorVersion } from './model/UpgradePgMajorVersion';
 import { UpgradeReports } from './model/UpgradeReports';
 import { UserForCreation } from './model/UserForCreation';
@@ -986,6 +997,27 @@ export class RdsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供mysql5.7升级mysql8.0预检查接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 大版本升级预检查
+     * @param {string} instanceId 实例id
+     * @param {string} [xLanguage] 语言
+     * @param {RdsUpgradePrecheckV3Req} [checkInstanceForUpgradeRequestBody] 大版本升级预检查请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkInstanceForUpgrade(checkInstanceForUpgradeRequest?: CheckInstanceForUpgradeRequest): Promise<CheckInstanceForUpgradeResponse> {
+        const options = ParamCreater().checkInstanceForUpgrade(checkInstanceForUpgradeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3306,6 +3338,26 @@ export class RdsClient {
     }
 
     /**
+     * 获取mysql5.7升级mysql8.0预检查结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取mysql5.7升级mysql8.0预检查结果
+     * @param {string} instanceId 实例id
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrecheckResult(showPrecheckResultRequest?: ShowPrecheckResultRequest): Promise<ShowPrecheckResultResponse> {
+        const options = ParamCreater().showPrecheckResult(showPrecheckResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询当前项目下资源配额情况。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4035,6 +4087,27 @@ export class RdsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供mysql5.7升级mysql8.0的下发接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary MySQL大版本升级
+     * @param {string} instanceId 实例id
+     * @param {CustomerUpgradeMajorVersionReq} upgradeLargeVersionRequestBody 大版本升级请求体
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeLargeVersion(upgradeLargeVersionRequest?: UpgradeLargeVersionRequest): Promise<UpgradeLargeVersionResponse> {
+        const options = ParamCreater().upgradeLargeVersion(upgradeLargeVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -6116,6 +6189,56 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供mysql5.7升级mysql8.0预检查接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkInstanceForUpgrade(checkInstanceForUpgradeRequest?: CheckInstanceForUpgradeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/upgrade-version/precheck",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (checkInstanceForUpgradeRequest !== null && checkInstanceForUpgradeRequest !== undefined) {
+                if (checkInstanceForUpgradeRequest instanceof CheckInstanceForUpgradeRequest) {
+                    instanceId = checkInstanceForUpgradeRequest.instanceId;
+                    xLanguage = checkInstanceForUpgradeRequest.xLanguage;
+                    body = checkInstanceForUpgradeRequest.body
+                } else {
+                    instanceId = checkInstanceForUpgradeRequest['instance_id'];
+                    xLanguage = checkInstanceForUpgradeRequest['X-Language'];
+                    body = checkInstanceForUpgradeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkInstanceForUpgrade.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -12087,6 +12210,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取mysql5.7升级mysql8.0预检查结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrecheckResult(showPrecheckResultRequest?: ShowPrecheckResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/upgrade-version/precheck-result",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showPrecheckResultRequest !== null && showPrecheckResultRequest !== undefined) {
+                if (showPrecheckResultRequest instanceof ShowPrecheckResultRequest) {
+                    instanceId = showPrecheckResultRequest.instanceId;
+                    xLanguage = showPrecheckResultRequest.xLanguage;
+                } else {
+                    instanceId = showPrecheckResultRequest['instance_id'];
+                    xLanguage = showPrecheckResultRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showPrecheckResult.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询当前项目下资源配额情况。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13818,6 +13985,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbVersionNew.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供mysql5.7升级mysql8.0的下发接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeLargeVersion(upgradeLargeVersionRequest?: UpgradeLargeVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/major-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (upgradeLargeVersionRequest !== null && upgradeLargeVersionRequest !== undefined) {
+                if (upgradeLargeVersionRequest instanceof UpgradeLargeVersionRequest) {
+                    instanceId = upgradeLargeVersionRequest.instanceId;
+                    body = upgradeLargeVersionRequest.body
+                    xLanguage = upgradeLargeVersionRequest.xLanguage;
+                } else {
+                    instanceId = upgradeLargeVersionRequest['instance_id'];
+                    body = upgradeLargeVersionRequest['body'];
+                    xLanguage = upgradeLargeVersionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeLargeVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

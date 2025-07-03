@@ -15,6 +15,9 @@ import { CreateDomainMappingRequest } from './model/CreateDomainMappingRequest';
 import { CreateDomainMappingResponse } from './model/CreateDomainMappingResponse';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
 import { CreateDomainResponse } from './model/CreateDomainResponse';
+import { CreateFlowsRequest } from './model/CreateFlowsRequest';
+import { CreateFlowsRequestBody } from './model/CreateFlowsRequestBody';
+import { CreateFlowsResponse } from './model/CreateFlowsResponse';
 import { CreateHarvestTaskInfoReq } from './model/CreateHarvestTaskInfoReq';
 import { CreateHarvestTaskRequest } from './model/CreateHarvestTaskRequest';
 import { CreateHarvestTaskResponse } from './model/CreateHarvestTaskResponse';
@@ -51,6 +54,8 @@ import { DeleteDomainMappingRequest } from './model/DeleteDomainMappingRequest';
 import { DeleteDomainMappingResponse } from './model/DeleteDomainMappingResponse';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteFlowRequest } from './model/DeleteFlowRequest';
+import { DeleteFlowResponse } from './model/DeleteFlowResponse';
 import { DeleteHarvestTaskRequest } from './model/DeleteHarvestTaskRequest';
 import { DeleteHarvestTaskResponse } from './model/DeleteHarvestTaskResponse';
 import { DeleteOttChannelInfoRequest } from './model/DeleteOttChannelInfoRequest';
@@ -80,6 +85,10 @@ import { Encryption } from './model/Encryption';
 import { EndpointItem } from './model/EndpointItem';
 import { FLVRecordConfig } from './model/FLVRecordConfig';
 import { FailoverConditions } from './model/FailoverConditions';
+import { FlowDetailRespBody } from './model/FlowDetailRespBody';
+import { FlowOutput } from './model/FlowOutput';
+import { FlowSource } from './model/FlowSource';
+import { FlowSourceDecryption } from './model/FlowSourceDecryption';
 import { GeoBlockingConfigInfo } from './model/GeoBlockingConfigInfo';
 import { GmCertificateInfo } from './model/GmCertificateInfo';
 import { HLSRecordConfig } from './model/HLSRecordConfig';
@@ -92,6 +101,9 @@ import { InputStreamInfo } from './model/InputStreamInfo';
 import { KeyChainInfo } from './model/KeyChainInfo';
 import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';
 import { ListDelayConfigResponse } from './model/ListDelayConfigResponse';
+import { ListFlowRespItem } from './model/ListFlowRespItem';
+import { ListFlowsRequest } from './model/ListFlowsRequest';
+import { ListFlowsResponse } from './model/ListFlowsResponse';
 import { ListGeoBlockingConfigRequest } from './model/ListGeoBlockingConfigRequest';
 import { ListGeoBlockingConfigResponse } from './model/ListGeoBlockingConfigResponse';
 import { ListHarvestTaskRequest } from './model/ListHarvestTaskRequest';
@@ -127,6 +139,13 @@ import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyFlowSourcesRequest } from './model/ModifyFlowSourcesRequest';
+import { ModifyFlowSourcesRequestBody } from './model/ModifyFlowSourcesRequestBody';
+import { ModifyFlowSourcesResponse } from './model/ModifyFlowSourcesResponse';
+import { ModifyFlowStartRequest } from './model/ModifyFlowStartRequest';
+import { ModifyFlowStartResponse } from './model/ModifyFlowStartResponse';
+import { ModifyFlowStopRequest } from './model/ModifyFlowStopRequest';
+import { ModifyFlowStopResponse } from './model/ModifyFlowStopResponse';
 import { ModifyHarvestTaskRequest } from './model/ModifyHarvestTaskRequest';
 import { ModifyHarvestTaskRequestBody } from './model/ModifyHarvestTaskRequestBody';
 import { ModifyHarvestTaskResponse } from './model/ModifyHarvestTaskResponse';
@@ -188,6 +207,8 @@ import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
 import { ShowDomainKeyChainResponse } from './model/ShowDomainKeyChainResponse';
 import { ShowDomainRequest } from './model/ShowDomainRequest';
 import { ShowDomainResponse } from './model/ShowDomainResponse';
+import { ShowFlowDetailRequest } from './model/ShowFlowDetailRequest';
+import { ShowFlowDetailResponse } from './model/ShowFlowDetailResponse';
 import { ShowPullSourcesConfigRequest } from './model/ShowPullSourcesConfigRequest';
 import { ShowPullSourcesConfigResponse } from './model/ShowPullSourcesConfigResponse';
 import { ShowRecordCallbackConfigRequest } from './model/ShowRecordCallbackConfigRequest';
@@ -312,6 +333,25 @@ export class LiveClient {
      */
     public createDomainMapping(createDomainMappingRequest?: CreateDomainMappingRequest): Promise<CreateDomainMappingResponse> {
         const options = ParamCreater().createDomainMapping(createDomainMappingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建流
+     * @param {CreateFlowsRequestBody} createFlowsRequestBody 创建流请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFlows(createFlowsRequest?: CreateFlowsRequest): Promise<CreateFlowsResponse> {
+        const options = ParamCreater().createFlows(createFlowsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -530,6 +570,25 @@ export class LiveClient {
     }
 
     /**
+     * 删除流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除流
+     * @param {string} flowId 流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFlow(deleteFlowRequest?: DeleteFlowRequest): Promise<DeleteFlowResponse> {
+        const options = ParamCreater().deleteFlow(deleteFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除直播推流通知配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -697,6 +756,26 @@ export class LiveClient {
      */
     public listDelayConfig(listDelayConfigRequest?: ListDelayConfigRequest): Promise<ListDelayConfigResponse> {
         const options = ParamCreater().listDelayConfig(listDelayConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取流列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取流列表
+     * @param {number} [limit] 每页记录数  取值范围[1,100]  默认值：10
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFlows(listFlowsRequest?: ListFlowsRequest): Promise<ListFlowsResponse> {
+        const options = ParamCreater().listFlows(listFlowsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -971,6 +1050,65 @@ export class LiveClient {
     }
 
     /**
+     * 修改流来源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改流来源
+     * @param {string} flowId 流id
+     * @param {string} sourceName 流源名称
+     * @param {ModifyFlowSourcesRequestBody} modifyFlowSourcesRequestBody 修改流来源信息请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyFlowSources(modifyFlowSourcesRequest?: ModifyFlowSourcesRequest): Promise<ModifyFlowSourcesResponse> {
+        const options = ParamCreater().modifyFlowSources(modifyFlowSourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启动流任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动流任务
+     * @param {string} flowId 流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyFlowStart(modifyFlowStartRequest?: ModifyFlowStartRequest): Promise<ModifyFlowStartResponse> {
+        const options = ParamCreater().modifyFlowStart(modifyFlowStartRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止流任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止流任务
+     * @param {string} flowId 流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyFlowStop(modifyFlowStopRequest?: ModifyFlowStopRequest): Promise<ModifyFlowStopResponse> {
+        const options = ParamCreater().modifyFlowStop(modifyFlowStopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 对单条流的实时录制控制接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1041,6 +1179,25 @@ export class LiveClient {
      */
     public showDomainKeyChain(showDomainKeyChainRequest?: ShowDomainKeyChainRequest): Promise<ShowDomainKeyChainResponse> {
         const options = ParamCreater().showDomainKeyChain(showDomainKeyChainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取流详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取流详情
+     * @param {string} flowId 流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFlowDetail(showFlowDetailRequest?: ShowFlowDetailRequest): Promise<ShowFlowDetailResponse> {
+        const options = ParamCreater().showFlowDetail(showFlowDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1949,6 +2106,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFlows(createFlowsRequest?: CreateFlowsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/flows",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createFlowsRequest !== null && createFlowsRequest !== undefined) {
+                if (createFlowsRequest instanceof CreateFlowsRequest) {
+                    body = createFlowsRequest.body
+                } else {
+                    body = createFlowsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建录制回调配置接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2383,6 +2578,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFlow(deleteFlowRequest?: DeleteFlowRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/flows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flowId;
+
+            if (deleteFlowRequest !== null && deleteFlowRequest !== undefined) {
+                if (deleteFlowRequest instanceof DeleteFlowRequest) {
+                    flowId = deleteFlowRequest.flowId;
+                } else {
+                    flowId = deleteFlowRequest['flow_id'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling deleteFlow.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除直播推流通知配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2769,6 +3004,50 @@ export const ParamCreater = function () {
             }
             if (playDomain !== null && playDomain !== undefined) {
                 localVarQueryParameter['play_domain'] = playDomain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取流列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFlows(listFlowsRequest?: ListFlowsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/flows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listFlowsRequest !== null && listFlowsRequest !== undefined) {
+                if (listFlowsRequest instanceof ListFlowsRequest) {
+                    limit = listFlowsRequest.limit;
+                    offset = listFlowsRequest.offset;
+                } else {
+                    limit = listFlowsRequest['limit'];
+                    offset = listFlowsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3505,6 +3784,145 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改流来源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyFlowSources(modifyFlowSourcesRequest?: ModifyFlowSourcesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/flows/sources",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let flowId;
+            
+            let sourceName;
+
+            if (modifyFlowSourcesRequest !== null && modifyFlowSourcesRequest !== undefined) {
+                if (modifyFlowSourcesRequest instanceof ModifyFlowSourcesRequest) {
+                    flowId = modifyFlowSourcesRequest.flowId;
+                    sourceName = modifyFlowSourcesRequest.sourceName;
+                    body = modifyFlowSourcesRequest.body
+                } else {
+                    flowId = modifyFlowSourcesRequest['flow_id'];
+                    sourceName = modifyFlowSourcesRequest['source_name'];
+                    body = modifyFlowSourcesRequest['body'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling modifyFlowSources.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+            if (sourceName === null || sourceName === undefined) {
+                throw new RequiredError('sourceName','Required parameter sourceName was null or undefined when calling modifyFlowSources.');
+            }
+            if (sourceName !== null && sourceName !== undefined) {
+                localVarQueryParameter['source_name'] = sourceName;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启动流任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyFlowStart(modifyFlowStartRequest?: ModifyFlowStartRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/flows/start",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flowId;
+
+            if (modifyFlowStartRequest !== null && modifyFlowStartRequest !== undefined) {
+                if (modifyFlowStartRequest instanceof ModifyFlowStartRequest) {
+                    flowId = modifyFlowStartRequest.flowId;
+                } else {
+                    flowId = modifyFlowStartRequest['flow_id'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling modifyFlowStart.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止流任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyFlowStop(modifyFlowStopRequest?: ModifyFlowStopRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/flows/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flowId;
+
+            if (modifyFlowStopRequest !== null && modifyFlowStopRequest !== undefined) {
+                if (modifyFlowStopRequest instanceof ModifyFlowStopRequest) {
+                    flowId = modifyFlowStopRequest.flowId;
+                } else {
+                    flowId = modifyFlowStopRequest['flow_id'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling modifyFlowStop.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 对单条流的实时录制控制接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3668,6 +4086,46 @@ export const ParamCreater = function () {
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取流详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFlowDetail(showFlowDetailRequest?: ShowFlowDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/flows/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flowId;
+
+            if (showFlowDetailRequest !== null && showFlowDetailRequest !== undefined) {
+                if (showFlowDetailRequest instanceof ShowFlowDetailRequest) {
+                    flowId = showFlowDetailRequest.flowId;
+                } else {
+                    flowId = showFlowDetailRequest['flow_id'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling showFlowDetail.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
             }
 
             options.queryParams = localVarQueryParameter;

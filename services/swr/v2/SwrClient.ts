@@ -240,10 +240,14 @@ import { ListNamespacesRequest } from './model/ListNamespacesRequest';
 import { ListNamespacesResponse } from './model/ListNamespacesResponse';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
+import { ListRepoDetailsRequest } from './model/ListRepoDetailsRequest';
+import { ListRepoDetailsResponse } from './model/ListRepoDetailsResponse';
 import { ListRepoDomainsRequest } from './model/ListRepoDomainsRequest';
 import { ListRepoDomainsResponse } from './model/ListRepoDomainsResponse';
 import { ListReposDetailsRequest } from './model/ListReposDetailsRequest';
 import { ListReposDetailsResponse } from './model/ListReposDetailsResponse';
+import { ListRepositoryTagRequest } from './model/ListRepositoryTagRequest';
+import { ListRepositoryTagResponse } from './model/ListRepositoryTagResponse';
 import { ListRepositoryTagsRequest } from './model/ListRepositoryTagsRequest';
 import { ListRepositoryTagsResponse } from './model/ListRepositoryTagsResponse';
 import { ListResourceInstancesRequestBody } from './model/ListResourceInstancesRequestBody';
@@ -251,6 +255,8 @@ import { ListRetentionHistoriesRequest } from './model/ListRetentionHistoriesReq
 import { ListRetentionHistoriesResponse } from './model/ListRetentionHistoriesResponse';
 import { ListRetentionsRequest } from './model/ListRetentionsRequest';
 import { ListRetentionsResponse } from './model/ListRetentionsResponse';
+import { ListSharedRepoDetailsRequest } from './model/ListSharedRepoDetailsRequest';
+import { ListSharedRepoDetailsResponse } from './model/ListSharedRepoDetailsResponse';
 import { ListSharedReposDetailsRequest } from './model/ListSharedReposDetailsRequest';
 import { ListSharedReposDetailsResponse } from './model/ListSharedReposDetailsResponse';
 import { ListSubResourceInstancesRequest } from './model/ListSubResourceInstancesRequest';
@@ -324,8 +330,12 @@ import { ShowNamespaceRequest } from './model/ShowNamespaceRequest';
 import { ShowNamespaceResponse } from './model/ShowNamespaceResponse';
 import { ShowQuota } from './model/ShowQuota';
 import { ShowRepoDomainsResponse } from './model/ShowRepoDomainsResponse';
+import { ShowRepoTagRequest } from './model/ShowRepoTagRequest';
+import { ShowRepoTagResponse } from './model/ShowRepoTagResponse';
 import { ShowReposResp } from './model/ShowReposResp';
+import { ShowReposRespV3 } from './model/ShowReposRespV3';
 import { ShowReposTagResp } from './model/ShowReposTagResp';
+import { ShowReposTagRespV3 } from './model/ShowReposTagRespV3';
 import { ShowRepositoryRequest } from './model/ShowRepositoryRequest';
 import { ShowRepositoryResponse } from './model/ShowRepositoryResponse';
 import { ShowRetentionRequest } from './model/ShowRetentionRequest';
@@ -943,6 +953,31 @@ export class SwrClient {
     }
 
     /**
+     * 查询镜像仓库列表详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询镜像仓库列表详情
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} [name] 镜像仓库名称。
+     * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。
+     * @param {number} [limit] 返回条数，默认返回100条记录，最多返回1000条记录。
+     * @param {string} [marker] 分页查询下一次查询起始标记，接口的返回值nextMarker为下一次查询的起始标记。
+     * @param {boolean} [isPublic] 是否公开私有，true为公开，false为私有。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepoDetails(listRepoDetailsRequest?: ListRepoDetailsRequest): Promise<ListRepoDetailsResponse> {
+        const options = ParamCreater().listRepoDetails(listRepoDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取共享帐号列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -973,7 +1008,7 @@ export class SwrClient {
      * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。注意：和filter最好分开使用，如果同时使用，此过滤参数将失效，以filter为准。
      * @param {string} [name] 镜像仓库名称。注意：和filter最好分开使用，如果同时使用，此过滤参数将失效，以filter为准。
      * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。注意：和filter最好分开使用，如果同时使用，此过滤参数将失效，以filter为准。
-     * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
+     * @param {string} [limit] 返回条数，默认情况下返回100条记录，最多返回1000条记录。注意：offset和limit参数需要配套使用。
      * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
      * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
      * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
@@ -991,6 +1026,31 @@ export class SwrClient {
     }
 
     /**
+     * 查询镜像tag列表详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询镜像tag列表详情
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} repository 镜像仓库名称
+     * @param {number} [limit] 返回条数,默认返回100条，最多返回1000条数据。
+     * @param {string} [marker] Start position of the cursor for querying the next page in pagination query.
+     * @param {string} [tag] 镜像版本名。
+     * @param {boolean} [withManifest] 是否返回镜像的manifest信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepositoryTag(listRepositoryTagRequest?: ListRepositoryTagRequest): Promise<ListRepositoryTagResponse> {
+        const options = ParamCreater().listRepositoryTag(listRepositoryTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询镜像tag列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -999,7 +1059,7 @@ export class SwrClient {
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
+     * @param {string} [limit] 返回条数,默认返回100条，最多返回1000条数据。注意：offset和limit参数需要配套使用。
      * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
      * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
      * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
@@ -1053,6 +1113,31 @@ export class SwrClient {
      */
     public listRetentions(listRetentionsRequest?: ListRetentionsRequest): Promise<ListRetentionsResponse> {
         const options = ParamCreater().listRetentions(listRetentionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询共享镜像列表详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询共享镜像列表详情
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {'self' | 'thirdparty'} sharedBy self: 我共享的镜像。thirdparty: 他人共享给我的镜像
+     * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} [name] 镜像仓库名称
+     * @param {number} [limit] 返回条数,默认返回100条记录，最多返回1000条。
+     * @param {number} [marker] 分页查询时下一次查询的起始地址。
+     * @param {boolean} [status] 查询他人共享给我的镜像是否已过期 false：共享已过期。true：正常
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSharedRepoDetails(listSharedRepoDetailsRequest?: ListSharedRepoDetailsRequest): Promise<ListSharedRepoDetailsResponse> {
+        const options = ParamCreater().listSharedRepoDetails(listSharedRepoDetailsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1203,6 +1288,28 @@ export class SwrClient {
      */
     public showNamespaceAuth(showNamespaceAuthRequest?: ShowNamespaceAuthRequest): Promise<ShowNamespaceAuthResponse> {
         const options = ParamCreater().showNamespaceAuth(showNamespaceAuthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询镜像仓库中指定tag的镜像
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定tag的镜像详情
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} repository 镜像仓库名称
+     * @param {string} tag 镜像版本名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepoTag(showRepoTagRequest?: ShowRepoTagRequest): Promise<ShowRepoTagResponse> {
+        const options = ParamCreater().showRepoTag(showRepoTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4961,6 +5068,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询镜像仓库列表详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepoDetails(listRepoDetailsRequest?: ListRepoDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/manage/repos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let namespace;
+            
+            let name;
+            
+            let category;
+            
+            let limit;
+            
+            let marker;
+            
+            let isPublic;
+
+            if (listRepoDetailsRequest !== null && listRepoDetailsRequest !== undefined) {
+                if (listRepoDetailsRequest instanceof ListRepoDetailsRequest) {
+                    contentType = listRepoDetailsRequest.contentType;
+                    namespace = listRepoDetailsRequest.namespace;
+                    name = listRepoDetailsRequest.name;
+                    category = listRepoDetailsRequest.category;
+                    limit = listRepoDetailsRequest.limit;
+                    marker = listRepoDetailsRequest.marker;
+                    isPublic = listRepoDetailsRequest.isPublic;
+                } else {
+                    contentType = listRepoDetailsRequest['Content-Type'];
+                    namespace = listRepoDetailsRequest['namespace'];
+                    name = listRepoDetailsRequest['name'];
+                    category = listRepoDetailsRequest['category'];
+                    limit = listRepoDetailsRequest['limit'];
+                    marker = listRepoDetailsRequest['marker'];
+                    isPublic = listRepoDetailsRequest['is_public'];
+                }
+            }
+
+        
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (isPublic !== null && isPublic !== undefined) {
+                localVarQueryParameter['is_public'] = isPublic;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取共享帐号列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5100,6 +5286,86 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询镜像tag列表详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepositoryTag(listRepositoryTagRequest?: ListRepositoryTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/manage/namespaces/{namespace}/repos/{repository}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let namespace;
+            
+            let repository;
+            
+            let limit;
+            
+            let marker;
+            
+            let tag;
+            
+            let withManifest;
+
+            if (listRepositoryTagRequest !== null && listRepositoryTagRequest !== undefined) {
+                if (listRepositoryTagRequest instanceof ListRepositoryTagRequest) {
+                    contentType = listRepositoryTagRequest.contentType;
+                    namespace = listRepositoryTagRequest.namespace;
+                    repository = listRepositoryTagRequest.repository;
+                    limit = listRepositoryTagRequest.limit;
+                    marker = listRepositoryTagRequest.marker;
+                    tag = listRepositoryTagRequest.tag;
+                    withManifest = listRepositoryTagRequest.withManifest;
+                } else {
+                    contentType = listRepositoryTagRequest['Content-Type'];
+                    namespace = listRepositoryTagRequest['namespace'];
+                    repository = listRepositoryTagRequest['repository'];
+                    limit = listRepositoryTagRequest['limit'];
+                    marker = listRepositoryTagRequest['marker'];
+                    tag = listRepositoryTagRequest['tag'];
+                    withManifest = listRepositoryTagRequest['with_manifest'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listRepositoryTag.');
+            }
+            if (repository === null || repository === undefined) {
+            throw new RequiredError('repository','Required parameter repository was null or undefined when calling listRepositoryTag.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (withManifest !== null && withManifest !== undefined) {
+                localVarQueryParameter['with_manifest'] = withManifest;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'namespace': namespace,'repository': repository, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5304,6 +5570,88 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'namespace': namespace,'repository': repository, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询共享镜像列表详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSharedRepoDetails(listSharedRepoDetailsRequest?: ListSharedRepoDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/manage/shared-repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let sharedBy;
+            
+            let namespace;
+            
+            let name;
+            
+            let limit;
+            
+            let marker;
+            
+            let status;
+
+            if (listSharedRepoDetailsRequest !== null && listSharedRepoDetailsRequest !== undefined) {
+                if (listSharedRepoDetailsRequest instanceof ListSharedRepoDetailsRequest) {
+                    contentType = listSharedRepoDetailsRequest.contentType;
+                    sharedBy = listSharedRepoDetailsRequest.sharedBy;
+                    namespace = listSharedRepoDetailsRequest.namespace;
+                    name = listSharedRepoDetailsRequest.name;
+                    limit = listSharedRepoDetailsRequest.limit;
+                    marker = listSharedRepoDetailsRequest.marker;
+                    status = listSharedRepoDetailsRequest.status;
+                } else {
+                    contentType = listSharedRepoDetailsRequest['Content-Type'];
+                    sharedBy = listSharedRepoDetailsRequest['shared_by'];
+                    namespace = listSharedRepoDetailsRequest['namespace'];
+                    name = listSharedRepoDetailsRequest['name'];
+                    limit = listSharedRepoDetailsRequest['limit'];
+                    marker = listSharedRepoDetailsRequest['marker'];
+                    status = listSharedRepoDetailsRequest['status'];
+                }
+            }
+
+        
+            if (sharedBy === null || sharedBy === undefined) {
+                throw new RequiredError('sharedBy','Required parameter sharedBy was null or undefined when calling listSharedRepoDetails.');
+            }
+            if (sharedBy !== null && sharedBy !== undefined) {
+                localVarQueryParameter['shared_by'] = sharedBy;
+            }
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5684,6 +6032,64 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'namespace': namespace, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询镜像仓库中指定tag的镜像
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepoTag(showRepoTagRequest?: ShowRepoTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/namespaces/{namespace}/repos/{repository}/tags/{tag}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let namespace;
+            
+            let repository;
+            
+            let tag;
+
+            if (showRepoTagRequest !== null && showRepoTagRequest !== undefined) {
+                if (showRepoTagRequest instanceof ShowRepoTagRequest) {
+                    contentType = showRepoTagRequest.contentType;
+                    namespace = showRepoTagRequest.namespace;
+                    repository = showRepoTagRequest.repository;
+                    tag = showRepoTagRequest.tag;
+                } else {
+                    contentType = showRepoTagRequest['Content-Type'];
+                    namespace = showRepoTagRequest['namespace'];
+                    repository = showRepoTagRequest['repository'];
+                    tag = showRepoTagRequest['tag'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling showRepoTag.');
+            }
+            if (repository === null || repository === undefined) {
+            throw new RequiredError('repository','Required parameter repository was null or undefined when calling showRepoTag.');
+            }
+            if (tag === null || tag === undefined) {
+            throw new RequiredError('tag','Required parameter tag was null or undefined when calling showRepoTag.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'namespace': namespace,'repository': repository,'tag': tag, };
             options.headers = localVarHeaderParameter;
             return options;
         },

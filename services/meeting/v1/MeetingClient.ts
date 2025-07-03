@@ -35,6 +35,8 @@ import { AddUserRequestBody } from './model/AddUserRequestBody';
 import { AddUserResponse } from './model/AddUserResponse';
 import { AdminDTO } from './model/AdminDTO';
 import { AdminResetPwdReqDTO } from './model/AdminResetPwdReqDTO';
+import { AllowAudienceJoinRequest } from './model/AllowAudienceJoinRequest';
+import { AllowAudienceJoinResponse } from './model/AllowAudienceJoinResponse';
 import { AllowClientRecordRequest } from './model/AllowClientRecordRequest';
 import { AllowClientRecordResponse } from './model/AllowClientRecordResponse';
 import { AllowGuestUnmuteRequest } from './model/AllowGuestUnmuteRequest';
@@ -61,6 +63,8 @@ import { BatchDeleteUsersRequest } from './model/BatchDeleteUsersRequest';
 import { BatchDeleteUsersResponse } from './model/BatchDeleteUsersResponse';
 import { BatchHandRequest } from './model/BatchHandRequest';
 import { BatchHandResponse } from './model/BatchHandResponse';
+import { BatchMoveToWaitingRoomRequest } from './model/BatchMoveToWaitingRoomRequest';
+import { BatchMoveToWaitingRoomResponse } from './model/BatchMoveToWaitingRoomResponse';
 import { BatchSearchAppIdRequest } from './model/BatchSearchAppIdRequest';
 import { BatchSearchAppIdResponse } from './model/BatchSearchAppIdResponse';
 import { BatchShowUserDetailsRequest } from './model/BatchShowUserDetailsRequest';
@@ -232,6 +236,9 @@ import { Pages } from './model/Pages';
 import { PartAttendee } from './model/PartAttendee';
 import { ParticipantInfo } from './model/ParticipantInfo';
 import { PasswordEntry } from './model/PasswordEntry';
+import { PauseConferenceReq } from './model/PauseConferenceReq';
+import { PauseConferenceRequest } from './model/PauseConferenceRequest';
+import { PauseConferenceResponse } from './model/PauseConferenceResponse';
 import { PicInfoNotify } from './model/PicInfoNotify';
 import { PicLayoutInfo } from './model/PicLayoutInfo';
 import { ProgramItemRequestBase } from './model/ProgramItemRequestBase';
@@ -294,11 +301,13 @@ import { ResetPwdResponse } from './model/ResetPwdResponse';
 import { ResetVisionActiveCodeRequest } from './model/ResetVisionActiveCodeRequest';
 import { ResetVisionActiveCodeResponse } from './model/ResetVisionActiveCodeResponse';
 import { ResourceDTO } from './model/ResourceDTO';
+import { RestAllowAudienceReqBody } from './model/RestAllowAudienceReqBody';
 import { RestAllowClientRecordReqBody } from './model/RestAllowClientRecordReqBody';
 import { RestAllowUnMuteReqBody } from './model/RestAllowUnMuteReqBody';
 import { RestAllowWaitingParticipantReqBody } from './model/RestAllowWaitingParticipantReqBody';
 import { RestAttendeeDTO } from './model/RestAttendeeDTO';
 import { RestBatchHandsUpReqBody } from './model/RestBatchHandsUpReqBody';
+import { RestBatchMoveToWaitingRoomReqBody } from './model/RestBatchMoveToWaitingRoomReqBody';
 import { RestBulkDelAttendReqBody } from './model/RestBulkDelAttendReqBody';
 import { RestBulkHangUpReqBody } from './model/RestBulkHangUpReqBody';
 import { RestCancelSingleRecordCycleConfListReqBody } from './model/RestCancelSingleRecordCycleConfListReqBody';
@@ -328,6 +337,8 @@ import { RestSetAttendeeLanChannelBody } from './model/RestSetAttendeeLanChannel
 import { RestSetCohostBody } from './model/RestSetCohostBody';
 import { RestSetInterpreterGroupBody } from './model/RestSetInterpreterGroupBody';
 import { RestSetLiveReqBody } from './model/RestSetLiveReqBody';
+import { RestSetMmrLiveReqBody } from './model/RestSetMmrLiveReqBody';
+import { RestSetMmrRecordReqBody } from './model/RestSetMmrRecordReqBody';
 import { RestSetRecordReqBody } from './model/RestSetRecordReqBody';
 import { RestSimultaneousInterpretationBody } from './model/RestSimultaneousInterpretationBody';
 import { RestSubscriberInPic } from './model/RestSubscriberInPic';
@@ -421,6 +432,10 @@ import { SetHostViewRequest } from './model/SetHostViewRequest';
 import { SetHostViewResponse } from './model/SetHostViewResponse';
 import { SetInterpreterGroupRequest } from './model/SetInterpreterGroupRequest';
 import { SetInterpreterGroupResponse } from './model/SetInterpreterGroupResponse';
+import { SetMmrLiveRequest } from './model/SetMmrLiveRequest';
+import { SetMmrLiveResponse } from './model/SetMmrLiveResponse';
+import { SetMmrRecordRequest } from './model/SetMmrRecordRequest';
+import { SetMmrRecordResponse } from './model/SetMmrRecordResponse';
 import { SetMultiPictureRequest } from './model/SetMultiPictureRequest';
 import { SetMultiPictureResponse } from './model/SetMultiPictureResponse';
 import { SetPacketThresholdData } from './model/SetPacketThresholdData';
@@ -473,6 +488,8 @@ import { ShowMeetingFileListRequest } from './model/ShowMeetingFileListRequest';
 import { ShowMeetingFileListResponse } from './model/ShowMeetingFileListResponse';
 import { ShowMeetingFileRequest } from './model/ShowMeetingFileRequest';
 import { ShowMeetingFileResponse } from './model/ShowMeetingFileResponse';
+import { ShowMgmtSiteStatusRequest } from './model/ShowMgmtSiteStatusRequest';
+import { ShowMgmtSiteStatusResponse } from './model/ShowMgmtSiteStatusResponse';
 import { ShowMyInfoRequest } from './model/ShowMyInfoRequest';
 import { ShowMyInfoResponse } from './model/ShowMyInfoResponse';
 import { ShowOnlineMeetingDetailRequest } from './model/ShowOnlineMeetingDetailRequest';
@@ -844,6 +861,27 @@ export class MeetingClient {
     }
 
     /**
+     * 主持人通过接口控制是否允许观众入会。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 主持人允许观众入会
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestAllowAudienceReqBody} restAllowAudienceReqBody 消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public allowAudienceJoin(allowAudienceJoinRequest?: AllowAudienceJoinRequest): Promise<AllowAudienceJoinResponse> {
+        const options = ParamCreater().allowAudienceJoin(allowAudienceJoinRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于设置允许/禁止与会者客户端本地录制（非云端录制）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1073,6 +1111,27 @@ export class MeetingClient {
      */
     public batchHand(batchHandRequest?: BatchHandRequest): Promise<BatchHandResponse> {
         const options = ParamCreater().batchHand(batchHandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 主持人通过该接口批量移动用户到等候室。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量移入等候室
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestBatchMoveToWaitingRoomReqBody} restBatchMoveToWaitingRoomReqBody 消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchMoveToWaitingRoom(batchMoveToWaitingRoomRequest?: BatchMoveToWaitingRoomRequest): Promise<BatchMoveToWaitingRoomResponse> {
+        const options = ParamCreater().batchMoveToWaitingRoom(batchMoveToWaitingRoomRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2249,6 +2308,27 @@ export class MeetingClient {
     }
 
     /**
+     * 主持人通过接口控制暂停/取消暂停。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 主持人暂停/取消暂停会议
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {PauseConferenceReq} restPauseReqBody 消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public pauseConference(pauseConferenceRequest?: PauseConferenceRequest): Promise<PauseConferenceResponse> {
+        const options = ParamCreater().pauseConference(pauseConferenceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于延长会议时间。默认会议自动延长。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3246,6 +3326,48 @@ export class MeetingClient {
     }
 
     /**
+     * 使用场景：会议主持人可以通过该接口启动/停止Mmr会议直播 功能描述：提供启动/停止会议Mmr直播的能力
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动/停止Mmr会议直播
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestSetMmrLiveReqBody} restSetMmrRecordReqBody 消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setMmrLive(setMmrLiveRequest?: SetMmrLiveRequest): Promise<SetMmrLiveResponse> {
+        const options = ParamCreater().setMmrLive(setMmrLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用场景：管理员或UC账号主席可以通过该接口启动/停止mmr会议录制 功能描述：提供启动/暂停/停止MMR会议录制的能力
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动/暂停/停止mmr会议录制
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestSetMmrRecordReqBody} restSetMmrRecordReqBody 消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setMmrRecord(setMmrRecordRequest?: SetMmrRecordRequest): Promise<SetMmrRecordResponse> {
+        const options = ParamCreater().setMmrRecord(setMmrRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置会议多画面。该接口废弃不用，请使用“[[设置自定义多画面](https://support.huaweicloud.com/api-meeting/meeting_21_0418.html)](tag:hws)[[设置自定义多画面](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0418.html)](tag:hk)”接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3710,6 +3832,25 @@ export class MeetingClient {
      */
     public showMeetingFileList(showMeetingFileListRequest?: ShowMeetingFileListRequest): Promise<ShowMeetingFileListResponse> {
         const options = ParamCreater().showMeetingFileList(showMeetingFileListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 终端通过会控查询会管状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询会管状态
+     * @param {string} [xSchemaType] 模版类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMgmtSiteStatus(showMgmtSiteStatusRequest?: ShowMgmtSiteStatusRequest): Promise<ShowMgmtSiteStatusResponse> {
+        const options = ParamCreater().showMgmtSiteStatus(showMgmtSiteStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5470,6 +5611,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 主持人通过接口控制是否允许观众入会。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        allowAudienceJoin(allowAudienceJoinRequest?: AllowAudienceJoinRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/allowAudience",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (allowAudienceJoinRequest !== null && allowAudienceJoinRequest !== undefined) {
+                if (allowAudienceJoinRequest instanceof AllowAudienceJoinRequest) {
+                    conferenceID = allowAudienceJoinRequest.conferenceID;
+                    xConferenceAuthorization = allowAudienceJoinRequest.xConferenceAuthorization;
+                    body = allowAudienceJoinRequest.body
+                } else {
+                    conferenceID = allowAudienceJoinRequest['conferenceID'];
+                    xConferenceAuthorization = allowAudienceJoinRequest['X-Conference-Authorization'];
+                    body = allowAudienceJoinRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling allowAudienceJoin.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于设置允许/禁止与会者客户端本地录制（非云端录制）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6082,6 +6279,62 @@ export const ParamCreater = function () {
         
             if (conferenceID === null || conferenceID === undefined) {
                 throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling batchHand.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 主持人通过该接口批量移动用户到等候室。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchMoveToWaitingRoom(batchMoveToWaitingRoomRequest?: BatchMoveToWaitingRoomRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/batchMoveToWaitingRoom",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (batchMoveToWaitingRoomRequest !== null && batchMoveToWaitingRoomRequest !== undefined) {
+                if (batchMoveToWaitingRoomRequest instanceof BatchMoveToWaitingRoomRequest) {
+                    conferenceID = batchMoveToWaitingRoomRequest.conferenceID;
+                    xConferenceAuthorization = batchMoveToWaitingRoomRequest.xConferenceAuthorization;
+                    body = batchMoveToWaitingRoomRequest.body
+                } else {
+                    conferenceID = batchMoveToWaitingRoomRequest['conferenceID'];
+                    xConferenceAuthorization = batchMoveToWaitingRoomRequest['X-Conference-Authorization'];
+                    body = batchMoveToWaitingRoomRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling batchMoveToWaitingRoom.');
             }
             if (conferenceID !== null && conferenceID !== undefined) {
                 localVarQueryParameter['conferenceID'] = conferenceID;
@@ -9218,6 +9471,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 主持人通过接口控制暂停/取消暂停。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        pauseConference(pauseConferenceRequest?: PauseConferenceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/pause",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (pauseConferenceRequest !== null && pauseConferenceRequest !== undefined) {
+                if (pauseConferenceRequest instanceof PauseConferenceRequest) {
+                    conferenceID = pauseConferenceRequest.conferenceID;
+                    xConferenceAuthorization = pauseConferenceRequest.xConferenceAuthorization;
+                    body = pauseConferenceRequest.body
+                } else {
+                    conferenceID = pauseConferenceRequest['conferenceID'];
+                    xConferenceAuthorization = pauseConferenceRequest['X-Conference-Authorization'];
+                    body = pauseConferenceRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling pauseConference.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于延长会议时间。默认会议自动延长。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12217,6 +12526,118 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 使用场景：会议主持人可以通过该接口启动/停止Mmr会议直播 功能描述：提供启动/停止会议Mmr直播的能力
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setMmrLive(setMmrLiveRequest?: SetMmrLiveRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/mmrLive",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (setMmrLiveRequest !== null && setMmrLiveRequest !== undefined) {
+                if (setMmrLiveRequest instanceof SetMmrLiveRequest) {
+                    conferenceID = setMmrLiveRequest.conferenceID;
+                    xConferenceAuthorization = setMmrLiveRequest.xConferenceAuthorization;
+                    body = setMmrLiveRequest.body
+                } else {
+                    conferenceID = setMmrLiveRequest['conferenceID'];
+                    xConferenceAuthorization = setMmrLiveRequest['X-Conference-Authorization'];
+                    body = setMmrLiveRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling setMmrLive.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用场景：管理员或UC账号主席可以通过该接口启动/停止mmr会议录制 功能描述：提供启动/暂停/停止MMR会议录制的能力
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setMmrRecord(setMmrRecordRequest?: SetMmrRecordRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/mmrRecord",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (setMmrRecordRequest !== null && setMmrRecordRequest !== undefined) {
+                if (setMmrRecordRequest instanceof SetMmrRecordRequest) {
+                    conferenceID = setMmrRecordRequest.conferenceID;
+                    xConferenceAuthorization = setMmrRecordRequest.xConferenceAuthorization;
+                    body = setMmrRecordRequest.body
+                } else {
+                    conferenceID = setMmrRecordRequest['conferenceID'];
+                    xConferenceAuthorization = setMmrRecordRequest['X-Conference-Authorization'];
+                    body = setMmrRecordRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling setMmrRecord.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置会议多画面。该接口废弃不用，请使用“[[设置自定义多画面](https://support.huaweicloud.com/api-meeting/meeting_21_0418.html)](tag:hws)[[设置自定义多画面](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0418.html)](tag:hk)”接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13428,6 +13849,42 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 终端通过会控查询会管状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMgmtSiteStatus(showMgmtSiteStatusRequest?: ShowMgmtSiteStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/mmc/control/confmaintain/queryMgmtSiteStatus",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xSchemaType;
+
+            if (showMgmtSiteStatusRequest !== null && showMgmtSiteStatusRequest !== undefined) {
+                if (showMgmtSiteStatusRequest instanceof ShowMgmtSiteStatusRequest) {
+                    xSchemaType = showMgmtSiteStatusRequest.xSchemaType;
+                } else {
+                    xSchemaType = showMgmtSiteStatusRequest['X-Schema-Type'];
+                }
+            }
+
+        
+            if (xSchemaType !== undefined && xSchemaType !== null) {
+                localVarHeaderParameter['X-Schema-Type'] = String(xSchemaType);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },

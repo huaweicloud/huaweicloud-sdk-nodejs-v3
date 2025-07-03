@@ -2,23 +2,41 @@ import { StartKibanaPublicReqElbWhitelist } from './StartKibanaPublicReqElbWhite
 
 
 export class StartKibanaPublicReq {
-    public eipSize?: number;
-    public elbWhiteList?: StartKibanaPublicReqElbWhitelist;
-    public isAutoPay?: number;
+    private 'eip_size'?: number;
+    private 'elb_white_list'?: StartKibanaPublicReqElbWhitelist;
+    private 'is_auto_pay'?: number;
     public constructor(eipSize?: number, elbWhiteList?: StartKibanaPublicReqElbWhitelist) { 
-        this['eipSize'] = eipSize;
-        this['elbWhiteList'] = elbWhiteList;
+        this['eip_size'] = eipSize;
+        this['elb_white_list'] = elbWhiteList;
     }
     public withEipSize(eipSize: number): StartKibanaPublicReq {
-        this['eipSize'] = eipSize;
+        this['eip_size'] = eipSize;
         return this;
+    }
+    public set eipSize(eipSize: number  | undefined) {
+        this['eip_size'] = eipSize;
+    }
+    public get eipSize(): number | undefined {
+        return this['eip_size'];
     }
     public withElbWhiteList(elbWhiteList: StartKibanaPublicReqElbWhitelist): StartKibanaPublicReq {
-        this['elbWhiteList'] = elbWhiteList;
+        this['elb_white_list'] = elbWhiteList;
         return this;
     }
+    public set elbWhiteList(elbWhiteList: StartKibanaPublicReqElbWhitelist  | undefined) {
+        this['elb_white_list'] = elbWhiteList;
+    }
+    public get elbWhiteList(): StartKibanaPublicReqElbWhitelist | undefined {
+        return this['elb_white_list'];
+    }
     public withIsAutoPay(isAutoPay: number): StartKibanaPublicReq {
-        this['isAutoPay'] = isAutoPay;
+        this['is_auto_pay'] = isAutoPay;
         return this;
+    }
+    public set isAutoPay(isAutoPay: number  | undefined) {
+        this['is_auto_pay'] = isAutoPay;
+    }
+    public get isAutoPay(): number | undefined {
+        return this['is_auto_pay'];
     }
 }

@@ -16,6 +16,7 @@ export class ListCertificatesRequest {
     public source?: Array<string>;
     private 'protection_status'?: Array<string>;
     private 'protection_reason'?: Array<string>;
+    private 'enterprise_project_id'?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListCertificatesRequest {
@@ -113,5 +114,15 @@ export class ListCertificatesRequest {
     }
     public get protectionReason(): Array<string> | undefined {
         return this['protection_reason'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: Array<string>): ListCertificatesRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: Array<string>  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): Array<string> | undefined {
+        return this['enterprise_project_id'];
     }
 }

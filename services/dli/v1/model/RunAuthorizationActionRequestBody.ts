@@ -4,7 +4,6 @@ import { Privilege } from './Privilege';
 export class RunAuthorizationActionRequestBody {
     private 'user_name'?: string;
     public projectId?: string;
-    private 'grant_project_id'?: string;
     public action?: RunAuthorizationActionRequestBodyActionEnum | string;
     public privileges?: Array<Privilege>;
     public constructor(action?: string, privileges?: Array<Privilege>) { 
@@ -24,16 +23,6 @@ export class RunAuthorizationActionRequestBody {
     public withProjectId(projectId: string): RunAuthorizationActionRequestBody {
         this['projectId'] = projectId;
         return this;
-    }
-    public withGrantProjectId(grantProjectId: string): RunAuthorizationActionRequestBody {
-        this['grant_project_id'] = grantProjectId;
-        return this;
-    }
-    public set grantProjectId(grantProjectId: string  | undefined) {
-        this['grant_project_id'] = grantProjectId;
-    }
-    public get grantProjectId(): string | undefined {
-        return this['grant_project_id'];
     }
     public withAction(action: RunAuthorizationActionRequestBodyActionEnum | string): RunAuthorizationActionRequestBody {
         this['action'] = action;

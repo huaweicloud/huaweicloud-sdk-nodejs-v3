@@ -1,4 +1,3 @@
-import { UpgradePrepaidOption } from './UpgradePrepaidOption';
 
 
 export class UpgradeV3RequestBody {
@@ -9,7 +8,6 @@ export class UpgradeV3RequestBody {
     private 'ipv6_vip_virsubnet_id'?: string;
     private 'ipv6_vip_address'?: string;
     private 'elb_virsubnet_ids'?: Array<string>;
-    private 'prepaid_options'?: UpgradePrepaidOption;
     public constructor(action?: string) { 
         this['action'] = action;
     }
@@ -76,16 +74,6 @@ export class UpgradeV3RequestBody {
     }
     public get elbVirsubnetIds(): Array<string> | undefined {
         return this['elb_virsubnet_ids'];
-    }
-    public withPrepaidOptions(prepaidOptions: UpgradePrepaidOption): UpgradeV3RequestBody {
-        this['prepaid_options'] = prepaidOptions;
-        return this;
-    }
-    public set prepaidOptions(prepaidOptions: UpgradePrepaidOption  | undefined) {
-        this['prepaid_options'] = prepaidOptions;
-    }
-    public get prepaidOptions(): UpgradePrepaidOption | undefined {
-        return this['prepaid_options'];
     }
 }
 

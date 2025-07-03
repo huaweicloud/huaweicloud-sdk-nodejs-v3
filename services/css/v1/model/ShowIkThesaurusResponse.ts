@@ -7,7 +7,6 @@ export class ShowIkThesaurusResponse extends SdkResponse {
     public mainObj?: string;
     public stopObj?: string;
     public synonymObj?: string;
-    public updateTime?: string;
     public updateDetails?: string;
     public clusterId?: string;
     public operateStatus?: string;
@@ -33,10 +32,6 @@ export class ShowIkThesaurusResponse extends SdkResponse {
     }
     public withSynonymObj(synonymObj: string): ShowIkThesaurusResponse {
         this['synonymObj'] = synonymObj;
-        return this;
-    }
-    public withUpdateTime(updateTime: string): ShowIkThesaurusResponse {
-        this['updateTime'] = updateTime;
         return this;
     }
     public withUpdateDetails(updateDetails: string): ShowIkThesaurusResponse {

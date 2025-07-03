@@ -4,6 +4,7 @@ export class PolicyStatement {
     private 'Effect'?: PolicyStatementEffectEnum | string;
     private 'Action'?: Array<string>;
     private 'Resource'?: Array<string>;
+    private 'Condition'?: object;
     public constructor(effect?: string, action?: Array<string>, resource?: Array<string>) { 
         this['Effect'] = effect;
         this['Action'] = action;
@@ -38,6 +39,16 @@ export class PolicyStatement {
     }
     public get resource(): Array<string> | undefined {
         return this['Resource'];
+    }
+    public withCondition(condition: object): PolicyStatement {
+        this['Condition'] = condition;
+        return this;
+    }
+    public set condition(condition: object  | undefined) {
+        this['Condition'] = condition;
+    }
+    public get condition(): object | undefined {
+        return this['Condition'];
     }
 }
 

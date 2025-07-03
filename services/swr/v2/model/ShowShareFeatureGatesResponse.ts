@@ -10,6 +10,7 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     private 'enable_cci_service'?: boolean;
     private 'enable_image_label'?: boolean;
     private 'enable_pipeline'?: boolean;
+    private 'enable_list_v3'?: boolean;
     public constructor() { 
         super();
     }
@@ -92,5 +93,15 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     }
     public get enablePipeline(): boolean | undefined {
         return this['enable_pipeline'];
+    }
+    public withEnableListV3(enableListV3: boolean): ShowShareFeatureGatesResponse {
+        this['enable_list_v3'] = enableListV3;
+        return this;
+    }
+    public set enableListV3(enableListV3: boolean  | undefined) {
+        this['enable_list_v3'] = enableListV3;
+    }
+    public get enableListV3(): boolean | undefined {
+        return this['enable_list_v3'];
     }
 }
