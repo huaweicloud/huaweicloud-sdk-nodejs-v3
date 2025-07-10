@@ -2,11 +2,9 @@
 
 export class ApplyDesktopsInternetReq {
     private 'desktop_ids'?: Array<string>;
-    private 'inst_info_ids'?: Array<string>;
     private 'eip_type'?: string;
     private 'eip_charge_mode'?: ApplyDesktopsInternetReqEipChargeModeEnum | string;
     private 'bandwidth_size'?: number;
-    private 'order_id'?: string;
     private 'enterprise_project_id'?: string;
     public count?: number;
     public constructor(eipType?: string, eipChargeMode?: string, bandwidthSize?: number) { 
@@ -23,16 +21,6 @@ export class ApplyDesktopsInternetReq {
     }
     public get desktopIds(): Array<string> | undefined {
         return this['desktop_ids'];
-    }
-    public withInstInfoIds(instInfoIds: Array<string>): ApplyDesktopsInternetReq {
-        this['inst_info_ids'] = instInfoIds;
-        return this;
-    }
-    public set instInfoIds(instInfoIds: Array<string>  | undefined) {
-        this['inst_info_ids'] = instInfoIds;
-    }
-    public get instInfoIds(): Array<string> | undefined {
-        return this['inst_info_ids'];
     }
     public withEipType(eipType: string): ApplyDesktopsInternetReq {
         this['eip_type'] = eipType;
@@ -63,16 +51,6 @@ export class ApplyDesktopsInternetReq {
     }
     public get bandwidthSize(): number | undefined {
         return this['bandwidth_size'];
-    }
-    public withOrderId(orderId: string): ApplyDesktopsInternetReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ApplyDesktopsInternetReq {
         this['enterprise_project_id'] = enterpriseProjectId;

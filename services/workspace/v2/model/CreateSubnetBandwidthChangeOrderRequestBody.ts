@@ -4,7 +4,6 @@ import { OrderExtendParam } from './OrderExtendParam';
 export class CreateSubnetBandwidthChangeOrderRequestBody {
     private 'bandwidth_name'?: string;
     private 'bandwidth_size'?: string;
-    private 'cloud_service_console_url'?: string;
     private 'enterprise_project_id'?: string;
     private 'extend_param'?: OrderExtendParam;
     public constructor(bandwidthSize?: string) { 
@@ -29,16 +28,6 @@ export class CreateSubnetBandwidthChangeOrderRequestBody {
     }
     public get bandwidthSize(): string | undefined {
         return this['bandwidth_size'];
-    }
-    public withCloudServiceConsoleUrl(cloudServiceConsoleUrl: string): CreateSubnetBandwidthChangeOrderRequestBody {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-        return this;
-    }
-    public set cloudServiceConsoleUrl(cloudServiceConsoleUrl: string  | undefined) {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-    }
-    public get cloudServiceConsoleUrl(): string | undefined {
-        return this['cloud_service_console_url'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateSubnetBandwidthChangeOrderRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;

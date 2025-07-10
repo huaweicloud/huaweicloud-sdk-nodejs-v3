@@ -8,14 +8,11 @@ export class ListDesktopsDetailRequest {
     private 'sort_type'?: ListDesktopsDetailRequestSortTypeEnum | string;
     private 'computer_name'?: string;
     private 'desktop_ip'?: string;
-    public sids?: string;
     public offset?: number;
     public limit?: number;
     private 'desktop_id'?: Array<string>;
     private 'desktop_type'?: string;
-    private 'login_status'?: string;
     public tag?: string;
-    private 'fuzzy_query'?: boolean;
     private 'pool_id'?: string;
     private 'user_attached'?: boolean;
     private 'enterprise_project_id'?: string;
@@ -92,10 +89,6 @@ export class ListDesktopsDetailRequest {
     public get desktopIp(): string | undefined {
         return this['desktop_ip'];
     }
-    public withSids(sids: string): ListDesktopsDetailRequest {
-        this['sids'] = sids;
-        return this;
-    }
     public withOffset(offset: number): ListDesktopsDetailRequest {
         this['offset'] = offset;
         return this;
@@ -124,29 +117,9 @@ export class ListDesktopsDetailRequest {
     public get desktopType(): string | undefined {
         return this['desktop_type'];
     }
-    public withLoginStatus(loginStatus: string): ListDesktopsDetailRequest {
-        this['login_status'] = loginStatus;
-        return this;
-    }
-    public set loginStatus(loginStatus: string  | undefined) {
-        this['login_status'] = loginStatus;
-    }
-    public get loginStatus(): string | undefined {
-        return this['login_status'];
-    }
     public withTag(tag: string): ListDesktopsDetailRequest {
         this['tag'] = tag;
         return this;
-    }
-    public withFuzzyQuery(fuzzyQuery: boolean): ListDesktopsDetailRequest {
-        this['fuzzy_query'] = fuzzyQuery;
-        return this;
-    }
-    public set fuzzyQuery(fuzzyQuery: boolean  | undefined) {
-        this['fuzzy_query'] = fuzzyQuery;
-    }
-    public get fuzzyQuery(): boolean | undefined {
-        return this['fuzzy_query'];
     }
     public withPoolId(poolId: string): ListDesktopsDetailRequest {
         this['pool_id'] = poolId;

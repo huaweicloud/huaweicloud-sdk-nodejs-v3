@@ -18,7 +18,6 @@ export class ListAssetsRequest {
     private 'asset_state'?: string;
     private 'style_id'?: string;
     private 'accurate_query_field'?: Array<string>;
-    private 'render_engine'?: string;
     private 'asset_id'?: Array<string>;
     public sex?: string;
     public language?: string;
@@ -182,16 +181,6 @@ export class ListAssetsRequest {
     }
     public get accurateQueryField(): Array<string> | undefined {
         return this['accurate_query_field'];
-    }
-    public withRenderEngine(renderEngine: string): ListAssetsRequest {
-        this['render_engine'] = renderEngine;
-        return this;
-    }
-    public set renderEngine(renderEngine: string  | undefined) {
-        this['render_engine'] = renderEngine;
-    }
-    public get renderEngine(): string | undefined {
-        return this['render_engine'];
     }
     public withAssetId(assetId: Array<string>): ListAssetsRequest {
         this['asset_id'] = assetId;

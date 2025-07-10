@@ -1,34 +1,12 @@
 
 
 export class ResizeExclusiveLitesReq {
-    private 'host_id'?: string;
-    private 'order_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'product_id'?: string;
     private 'new_quantity'?: number;
     public constructor(productId?: string, newQuantity?: number) { 
         this['product_id'] = productId;
         this['new_quantity'] = newQuantity;
-    }
-    public withHostId(hostId: string): ResizeExclusiveLitesReq {
-        this['host_id'] = hostId;
-        return this;
-    }
-    public set hostId(hostId: string  | undefined) {
-        this['host_id'] = hostId;
-    }
-    public get hostId(): string | undefined {
-        return this['host_id'];
-    }
-    public withOrderId(orderId: string): ResizeExclusiveLitesReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ResizeExclusiveLitesReq {
         this['enterprise_project_id'] = enterpriseProjectId;

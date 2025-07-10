@@ -1,21 +1,10 @@
 
 
 export class ApplyDedicatedStandbyNetworkParam {
-    private 'site_id'?: string;
     public address?: string;
     public port?: number;
     private 'availability_zone'?: Array<string>;
     public constructor() { 
-    }
-    public withSiteId(siteId: string): ApplyDedicatedStandbyNetworkParam {
-        this['site_id'] = siteId;
-        return this;
-    }
-    public set siteId(siteId: string  | undefined) {
-        this['site_id'] = siteId;
-    }
-    public get siteId(): string | undefined {
-        return this['site_id'];
     }
     public withAddress(address: string): ApplyDedicatedStandbyNetworkParam {
         this['address'] = address;

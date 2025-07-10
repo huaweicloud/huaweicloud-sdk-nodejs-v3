@@ -23,6 +23,7 @@ export class CreateAsyncTtsJobRequestBody {
     private 'action_output_external_url'?: string;
     private 'is_vocabulary_config_enable'?: boolean;
     private 'is_concurrent_resource'?: boolean;
+    public priority?: number;
     public constructor(text?: string, voiceAssetId?: string) { 
         this['text'] = text;
         this['voice_asset_id'] = voiceAssetId;
@@ -206,6 +207,10 @@ export class CreateAsyncTtsJobRequestBody {
     }
     public get isConcurrentResource(): boolean | undefined {
         return this['is_concurrent_resource'];
+    }
+    public withPriority(priority: number): CreateAsyncTtsJobRequestBody {
+        this['priority'] = priority;
+        return this;
     }
 }
 

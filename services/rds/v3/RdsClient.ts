@@ -31,6 +31,7 @@ import { BackupInfo } from './model/BackupInfo';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupStrategy } from './model/BackupStrategy';
 import { BackupStrategyForResponse } from './model/BackupStrategyForResponse';
+import { BackupTransferInfo } from './model/BackupTransferInfo';
 import { BatchAddMsdtcsRequest } from './model/BatchAddMsdtcsRequest';
 import { BatchAddMsdtcsResponse } from './model/BatchAddMsdtcsResponse';
 import { BatchDeleteBackupRequestBody } from './model/BatchDeleteBackupRequestBody';
@@ -219,6 +220,10 @@ import { FollowerMigrateRequest } from './model/FollowerMigrateRequest';
 import { GenerateAuditlogDownloadLinkRequest } from './model/GenerateAuditlogDownloadLinkRequest';
 import { GetBackupDownloadLinkFiles } from './model/GetBackupDownloadLinkFiles';
 import { GetJobInfoResponseBodyJob } from './model/GetJobInfoResponseBodyJob';
+import { GetJobInfoResponseBodyJobEntities } from './model/GetJobInfoResponseBodyJobEntities';
+import { GetJobInfoResponseBodyJobEntitiesInstance } from './model/GetJobInfoResponseBodyJobEntitiesInstance';
+import { GetJobInfoResponseBodyJobEntitiesInstanceDatastore } from './model/GetJobInfoResponseBodyJobEntitiesInstanceDatastore';
+import { GetJobInfoResponseBodyJobEntitiesVolume } from './model/GetJobInfoResponseBodyJobEntitiesVolume';
 import { GetOffSiteBackupPolicy } from './model/GetOffSiteBackupPolicy';
 import { GetRestoreTimeResponseRestoreTime } from './model/GetRestoreTimeResponseRestoreTime';
 import { GetTaskDetailListRspJobs } from './model/GetTaskDetailListRspJobs';
@@ -253,6 +258,8 @@ import { ListAuthorizedDbUsersRequest } from './model/ListAuthorizedDbUsersReque
 import { ListAuthorizedDbUsersResponse } from './model/ListAuthorizedDbUsersResponse';
 import { ListAuthorizedSqlserverDbUsersRequest } from './model/ListAuthorizedSqlserverDbUsersRequest';
 import { ListAuthorizedSqlserverDbUsersResponse } from './model/ListAuthorizedSqlserverDbUsersResponse';
+import { ListBackupTransfersRequest } from './model/ListBackupTransfersRequest';
+import { ListBackupTransfersResponse } from './model/ListBackupTransfersResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
 import { ListCollationsRequest } from './model/ListCollationsRequest';
@@ -543,6 +550,9 @@ import { SetSecurityGroupRequest } from './model/SetSecurityGroupRequest';
 import { SetSecurityGroupResponse } from './model/SetSecurityGroupResponse';
 import { SetSensitiveSlowLogRequest } from './model/SetSensitiveSlowLogRequest';
 import { SetSensitiveSlowLogResponse } from './model/SetSensitiveSlowLogResponse';
+import { SetTransferPolicyRequest } from './model/SetTransferPolicyRequest';
+import { SetTransferPolicyRequestBody } from './model/SetTransferPolicyRequestBody';
+import { SetTransferPolicyResponse } from './model/SetTransferPolicyResponse';
 import { ShareBackups } from './model/ShareBackups';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
@@ -601,6 +611,8 @@ import { ShowStorageUsedSpaceRequest } from './model/ShowStorageUsedSpaceRequest
 import { ShowStorageUsedSpaceResponse } from './model/ShowStorageUsedSpaceResponse';
 import { ShowTdeStatusRequest } from './model/ShowTdeStatusRequest';
 import { ShowTdeStatusResponse } from './model/ShowTdeStatusResponse';
+import { ShowTransferPolicyRequest } from './model/ShowTransferPolicyRequest';
+import { ShowTransferPolicyResponse } from './model/ShowTransferPolicyResponse';
 import { ShowUpgradeDbMajorVersionStatusRequest } from './model/ShowUpgradeDbMajorVersionStatusRequest';
 import { ShowUpgradeDbMajorVersionStatusResponse } from './model/ShowUpgradeDbMajorVersionStatusResponse';
 import { ShutdownInstanceRecord } from './model/ShutdownInstanceRecord';
@@ -664,6 +676,12 @@ import { TagResponse } from './model/TagResponse';
 import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { TargetInstanceRequest } from './model/TargetInstanceRequest';
 import { ToPeriodReq } from './model/ToPeriodReq';
+import { TransferBackupRequest } from './model/TransferBackupRequest';
+import { TransferBackupRequestBody } from './model/TransferBackupRequestBody';
+import { TransferBackupResponse } from './model/TransferBackupResponse';
+import { TransferBackupResponseBodyResults } from './model/TransferBackupResponseBodyResults';
+import { TransferPolicy } from './model/TransferPolicy';
+import { TransferPolicyParam } from './model/TransferPolicyParam';
 import { UnchangeableParam } from './model/UnchangeableParam';
 import { UnlockNodeReadonlyStatusRequest } from './model/UnlockNodeReadonlyStatusRequest';
 import { UnlockNodeReadonlyStatusRequestBody } from './model/UnlockNodeReadonlyStatusRequestBody';
@@ -1488,6 +1506,34 @@ export class RdsClient {
      */
     public listAuditlogs(listAuditlogsRequest?: ListAuditlogsRequest): Promise<ListAuditlogsResponse> {
         const options = ParamCreater().listAuditlogs(listAuditlogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询转储任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询转储任务列表
+     * @param {number} [limit] 查询记录数
+     * @param {string} [orderField] 排序字段
+     * @param {string} [orderRule] 排序规则
+     * @param {string} [filterField] 筛选字段
+     * @param {string} [filterContent] 筛选关键字
+     * @param {number} [beginTime] 开始时间戳
+     * @param {number} [endTime] 结束时间戳
+     * @param {string} [xLanguage] 语言
+     * @param {'manual' | 'auto'} [transferType] 转储任务类型，默认为manual manual:手动转储任务 auto:自动转储任务
+     * @param {number} [offset] 分页页码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBackupTransfers(listBackupTransfersRequest?: ListBackupTransfersRequest): Promise<ListBackupTransfersResponse> {
+        const options = ParamCreater().listBackupTransfers(listBackupTransfersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3017,6 +3063,26 @@ export class RdsClient {
     }
 
     /**
+     * 设置自动转储策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置自动转储策略
+     * @param {string} instanceId 实例id
+     * @param {SetTransferPolicyRequestBody} [setTransferPolicyRequestBody] 设置转储策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setTransferPolicy(setTransferPolicyRequest?: SetTransferPolicyRequest): Promise<SetTransferPolicyResponse> {
+        const options = ParamCreater().setTransferPolicy(setTransferPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 生成审计日志下载链接。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3474,6 +3540,25 @@ export class RdsClient {
     }
 
     /**
+     * 查询自动转储策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自动转储策略
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTransferPolicy(showTransferPolicyRequest?: ShowTransferPolicyRequest): Promise<ShowTransferPolicyResponse> {
+        const options = ParamCreater().showTransferPolicy(showTransferPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询大版本检查状态或升级状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3733,6 +3818,27 @@ export class RdsClient {
      */
     public switchSsl(switchSslRequest?: SwitchSslRequest): Promise<SwitchSslResponse> {
         const options = ParamCreater().switchSsl(switchSslRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 手动转储备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 手动转储备份
+     * @param {string} instanceId 实例id
+     * @param {TransferBackupRequestBody} transferBackupRequestBody 转储任务请求体。
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public transferBackup(transferBackupRequest?: TransferBackupRequest): Promise<TransferBackupResponse> {
+        const options = ParamCreater().transferBackup(transferBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7400,6 +7506,106 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询转储任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBackupTransfers(listBackupTransfersRequest?: ListBackupTransfersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transfer-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let orderField;
+            
+            let orderRule;
+            
+            let filterField;
+            
+            let filterContent;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let xLanguage;
+            
+            let transferType;
+            
+            let offset;
+
+            if (listBackupTransfersRequest !== null && listBackupTransfersRequest !== undefined) {
+                if (listBackupTransfersRequest instanceof ListBackupTransfersRequest) {
+                    limit = listBackupTransfersRequest.limit;
+                    orderField = listBackupTransfersRequest.orderField;
+                    orderRule = listBackupTransfersRequest.orderRule;
+                    filterField = listBackupTransfersRequest.filterField;
+                    filterContent = listBackupTransfersRequest.filterContent;
+                    beginTime = listBackupTransfersRequest.beginTime;
+                    endTime = listBackupTransfersRequest.endTime;
+                    xLanguage = listBackupTransfersRequest.xLanguage;
+                    transferType = listBackupTransfersRequest.transferType;
+                    offset = listBackupTransfersRequest.offset;
+                } else {
+                    limit = listBackupTransfersRequest['limit'];
+                    orderField = listBackupTransfersRequest['order_field'];
+                    orderRule = listBackupTransfersRequest['order_rule'];
+                    filterField = listBackupTransfersRequest['filter_field'];
+                    filterContent = listBackupTransfersRequest['filter_content'];
+                    beginTime = listBackupTransfersRequest['begin_time'];
+                    endTime = listBackupTransfersRequest['end_time'];
+                    xLanguage = listBackupTransfersRequest['X-Language'];
+                    transferType = listBackupTransfersRequest['transfer_type'];
+                    offset = listBackupTransfersRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderField !== null && orderField !== undefined) {
+                localVarQueryParameter['order_field'] = orderField;
+            }
+            if (orderRule !== null && orderRule !== undefined) {
+                localVarQueryParameter['order_rule'] = orderRule;
+            }
+            if (filterField !== null && filterField !== undefined) {
+                localVarQueryParameter['filter_field'] = filterField;
+            }
+            if (filterContent !== null && filterContent !== undefined) {
+                localVarQueryParameter['filter_content'] = filterContent;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (transferType !== null && transferType !== undefined) {
+                localVarQueryParameter['transfer_type'] = transferType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11468,6 +11674,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置自动转储策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setTransferPolicy(setTransferPolicyRequest?: SetTransferPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/transfer/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setTransferPolicyRequest !== null && setTransferPolicyRequest !== undefined) {
+                if (setTransferPolicyRequest instanceof SetTransferPolicyRequest) {
+                    instanceId = setTransferPolicyRequest.instanceId;
+                    body = setTransferPolicyRequest.body
+                } else {
+                    instanceId = setTransferPolicyRequest['instance_id'];
+                    body = setTransferPolicyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setTransferPolicy.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 生成审计日志下载链接。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12488,6 +12737,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询自动转储策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTransferPolicy(showTransferPolicyRequest?: ShowTransferPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/transfer/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showTransferPolicyRequest !== null && showTransferPolicyRequest !== undefined) {
+                if (showTransferPolicyRequest instanceof ShowTransferPolicyRequest) {
+                    instanceId = showTransferPolicyRequest.instanceId;
+                } else {
+                    instanceId = showTransferPolicyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showTransferPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询大版本检查状态或升级状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13118,6 +13404,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchSsl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 手动转储备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        transferBackup(transferBackupRequest?: TransferBackupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/transfer",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (transferBackupRequest !== null && transferBackupRequest !== undefined) {
+                if (transferBackupRequest instanceof TransferBackupRequest) {
+                    instanceId = transferBackupRequest.instanceId;
+                    body = transferBackupRequest.body
+                    xLanguage = transferBackupRequest.xLanguage;
+                } else {
+                    instanceId = transferBackupRequest['instance_id'];
+                    body = transferBackupRequest['body'];
+                    xLanguage = transferBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling transferBackup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

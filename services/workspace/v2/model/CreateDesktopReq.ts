@@ -1,4 +1,3 @@
-import { Adn } from './Adn';
 import { ApplySharedVpcDedicatedParam } from './ApplySharedVpcDedicatedParam';
 import { Desktop } from './Desktop';
 import { Eip } from './Eip';
@@ -6,15 +5,12 @@ import { Nic } from './Nic';
 import { SecurityGroup } from './SecurityGroup';
 import { Tag } from './Tag';
 import { Volume } from './Volume';
-import { WdhParam } from './WdhParam';
 
 
 export class CreateDesktopReq {
     private 'desktop_type'?: CreateDesktopReqDesktopTypeEnum | string;
     private 'availability_zone'?: string;
     private 'product_id'?: string;
-    private 'flavor_id'?: string;
-    private 'share_resource_sku'?: string;
     private 'image_type'?: string;
     private 'image_id'?: string;
     private 'root_volume'?: Volume;
@@ -26,26 +22,13 @@ export class CreateDesktopReq {
     private 'desktop_ips'?: Array<string>;
     public size?: number;
     private 'email_notification'?: boolean;
-    private 'enterprise_id'?: string;
     private 'enterprise_project_id'?: string;
-    private 'order_id'?: string;
-    private 'ou_name'?: string;
-    private 'vpc_id'?: string;
-    private 'subnet_ids'?: Array<string>;
     public tags?: Array<Tag>;
-    private 'scheduler_hints'?: WdhParam;
-    private 'desktop_isv'?: CreateDesktopReqDesktopIsvEnum | string;
-    private 'access_mode'?: CreateDesktopReqAccessModeEnum | string;
     private 'apply_shared_vpc_dedicated_param'?: ApplySharedVpcDedicatedParam;
-    private 'dedicated_subnets'?: string;
     public eip?: Eip;
-    public adn?: Adn;
-    private 'exclusive_host_id'?: string;
     private 'desktop_name_policy_id'?: string;
     private 'hour_package_product_id'?: string;
     private 'hour_package_offering_id'?: string;
-    private 'root_resource_ids'?: Array<string>;
-    private 'inst_info_ids'?: Array<string>;
     public constructor(desktopType?: string, productId?: string, imageType?: string, imageId?: string, rootVolume?: Volume) { 
         this['desktop_type'] = desktopType;
         this['product_id'] = productId;
@@ -82,26 +65,6 @@ export class CreateDesktopReq {
     }
     public get productId(): string | undefined {
         return this['product_id'];
-    }
-    public withFlavorId(flavorId: string): CreateDesktopReq {
-        this['flavor_id'] = flavorId;
-        return this;
-    }
-    public set flavorId(flavorId: string  | undefined) {
-        this['flavor_id'] = flavorId;
-    }
-    public get flavorId(): string | undefined {
-        return this['flavor_id'];
-    }
-    public withShareResourceSku(shareResourceSku: string): CreateDesktopReq {
-        this['share_resource_sku'] = shareResourceSku;
-        return this;
-    }
-    public set shareResourceSku(shareResourceSku: string  | undefined) {
-        this['share_resource_sku'] = shareResourceSku;
-    }
-    public get shareResourceSku(): string | undefined {
-        return this['share_resource_sku'];
     }
     public withImageType(imageType: string): CreateDesktopReq {
         this['image_type'] = imageType;
@@ -195,16 +158,6 @@ export class CreateDesktopReq {
     public get emailNotification(): boolean | undefined {
         return this['email_notification'];
     }
-    public withEnterpriseId(enterpriseId: string): CreateDesktopReq {
-        this['enterprise_id'] = enterpriseId;
-        return this;
-    }
-    public set enterpriseId(enterpriseId: string  | undefined) {
-        this['enterprise_id'] = enterpriseId;
-    }
-    public get enterpriseId(): string | undefined {
-        return this['enterprise_id'];
-    }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateDesktopReq {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -215,79 +168,9 @@ export class CreateDesktopReq {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withOrderId(orderId: string): CreateDesktopReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
-    }
-    public withOuName(ouName: string): CreateDesktopReq {
-        this['ou_name'] = ouName;
-        return this;
-    }
-    public set ouName(ouName: string  | undefined) {
-        this['ou_name'] = ouName;
-    }
-    public get ouName(): string | undefined {
-        return this['ou_name'];
-    }
-    public withVpcId(vpcId: string): CreateDesktopReq {
-        this['vpc_id'] = vpcId;
-        return this;
-    }
-    public set vpcId(vpcId: string  | undefined) {
-        this['vpc_id'] = vpcId;
-    }
-    public get vpcId(): string | undefined {
-        return this['vpc_id'];
-    }
-    public withSubnetIds(subnetIds: Array<string>): CreateDesktopReq {
-        this['subnet_ids'] = subnetIds;
-        return this;
-    }
-    public set subnetIds(subnetIds: Array<string>  | undefined) {
-        this['subnet_ids'] = subnetIds;
-    }
-    public get subnetIds(): Array<string> | undefined {
-        return this['subnet_ids'];
-    }
     public withTags(tags: Array<Tag>): CreateDesktopReq {
         this['tags'] = tags;
         return this;
-    }
-    public withSchedulerHints(schedulerHints: WdhParam): CreateDesktopReq {
-        this['scheduler_hints'] = schedulerHints;
-        return this;
-    }
-    public set schedulerHints(schedulerHints: WdhParam  | undefined) {
-        this['scheduler_hints'] = schedulerHints;
-    }
-    public get schedulerHints(): WdhParam | undefined {
-        return this['scheduler_hints'];
-    }
-    public withDesktopIsv(desktopIsv: CreateDesktopReqDesktopIsvEnum | string): CreateDesktopReq {
-        this['desktop_isv'] = desktopIsv;
-        return this;
-    }
-    public set desktopIsv(desktopIsv: CreateDesktopReqDesktopIsvEnum | string  | undefined) {
-        this['desktop_isv'] = desktopIsv;
-    }
-    public get desktopIsv(): CreateDesktopReqDesktopIsvEnum | string | undefined {
-        return this['desktop_isv'];
-    }
-    public withAccessMode(accessMode: CreateDesktopReqAccessModeEnum | string): CreateDesktopReq {
-        this['access_mode'] = accessMode;
-        return this;
-    }
-    public set accessMode(accessMode: CreateDesktopReqAccessModeEnum | string  | undefined) {
-        this['access_mode'] = accessMode;
-    }
-    public get accessMode(): CreateDesktopReqAccessModeEnum | string | undefined {
-        return this['access_mode'];
     }
     public withApplySharedVpcDedicatedParam(applySharedVpcDedicatedParam: ApplySharedVpcDedicatedParam): CreateDesktopReq {
         this['apply_shared_vpc_dedicated_param'] = applySharedVpcDedicatedParam;
@@ -299,33 +182,9 @@ export class CreateDesktopReq {
     public get applySharedVpcDedicatedParam(): ApplySharedVpcDedicatedParam | undefined {
         return this['apply_shared_vpc_dedicated_param'];
     }
-    public withDedicatedSubnets(dedicatedSubnets: string): CreateDesktopReq {
-        this['dedicated_subnets'] = dedicatedSubnets;
-        return this;
-    }
-    public set dedicatedSubnets(dedicatedSubnets: string  | undefined) {
-        this['dedicated_subnets'] = dedicatedSubnets;
-    }
-    public get dedicatedSubnets(): string | undefined {
-        return this['dedicated_subnets'];
-    }
     public withEip(eip: Eip): CreateDesktopReq {
         this['eip'] = eip;
         return this;
-    }
-    public withAdn(adn: Adn): CreateDesktopReq {
-        this['adn'] = adn;
-        return this;
-    }
-    public withExclusiveHostId(exclusiveHostId: string): CreateDesktopReq {
-        this['exclusive_host_id'] = exclusiveHostId;
-        return this;
-    }
-    public set exclusiveHostId(exclusiveHostId: string  | undefined) {
-        this['exclusive_host_id'] = exclusiveHostId;
-    }
-    public get exclusiveHostId(): string | undefined {
-        return this['exclusive_host_id'];
     }
     public withDesktopNamePolicyId(desktopNamePolicyId: string): CreateDesktopReq {
         this['desktop_name_policy_id'] = desktopNamePolicyId;
@@ -357,26 +216,6 @@ export class CreateDesktopReq {
     public get hourPackageOfferingId(): string | undefined {
         return this['hour_package_offering_id'];
     }
-    public withRootResourceIds(rootResourceIds: Array<string>): CreateDesktopReq {
-        this['root_resource_ids'] = rootResourceIds;
-        return this;
-    }
-    public set rootResourceIds(rootResourceIds: Array<string>  | undefined) {
-        this['root_resource_ids'] = rootResourceIds;
-    }
-    public get rootResourceIds(): Array<string> | undefined {
-        return this['root_resource_ids'];
-    }
-    public withInstInfoIds(instInfoIds: Array<string>): CreateDesktopReq {
-        this['inst_info_ids'] = instInfoIds;
-        return this;
-    }
-    public set instInfoIds(instInfoIds: Array<string>  | undefined) {
-        this['inst_info_ids'] = instInfoIds;
-    }
-    public get instInfoIds(): Array<string> | undefined {
-        return this['inst_info_ids'];
-    }
 }
 
 /**
@@ -386,21 +225,4 @@ export class CreateDesktopReq {
 export enum CreateDesktopReqDesktopTypeEnum {
     DEDICATED = 'DEDICATED',
     SHARED = 'SHARED'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateDesktopReqDesktopIsvEnum {
-    DEFAULT = 'DEFAULT',
-    ONEMOBILE = 'ONEMOBILE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateDesktopReqAccessModeEnum {
-    INTERNET = 'INTERNET',
-    DEDICATED = 'DEDICATED',
-    BOTH = 'BOTH'
 }

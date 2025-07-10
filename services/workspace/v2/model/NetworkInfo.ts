@@ -1,7 +1,7 @@
 import { DesktopSubnet } from './DesktopSubnet';
 import { Port } from './Port';
 import { PublicIp } from './PublicIp';
-import { SecurityGroup } from './SecurityGroup';
+import { SecurityGroupInfo } from './SecurityGroupInfo';
 import { Vpc } from './Vpc';
 
 
@@ -10,7 +10,7 @@ export class NetworkInfo {
     private 'subnet_info'?: DesktopSubnet;
     private 'port_info'?: Port;
     private 'public_ip_info'?: PublicIp;
-    private 'security_groups'?: Array<SecurityGroup>;
+    private 'security_groups'?: Array<SecurityGroupInfo>;
     public constructor() { 
     }
     public withVpcInfo(vpcInfo: Vpc): NetworkInfo {
@@ -53,14 +53,14 @@ export class NetworkInfo {
     public get publicIpInfo(): PublicIp | undefined {
         return this['public_ip_info'];
     }
-    public withSecurityGroups(securityGroups: Array<SecurityGroup>): NetworkInfo {
+    public withSecurityGroups(securityGroups: Array<SecurityGroupInfo>): NetworkInfo {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SecurityGroup>  | undefined) {
+    public set securityGroups(securityGroups: Array<SecurityGroupInfo>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): Array<SecurityGroup> | undefined {
+    public get securityGroups(): Array<SecurityGroupInfo> | undefined {
         return this['security_groups'];
     }
 }

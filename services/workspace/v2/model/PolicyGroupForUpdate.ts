@@ -5,7 +5,6 @@ import { Target } from './Target';
 export class PolicyGroupForUpdate {
     private 'policy_group_name'?: string;
     public description?: string;
-    private 'scope_flag'?: number;
     public priority?: number;
     public targets?: Array<Target>;
     public policies?: Policies;
@@ -24,16 +23,6 @@ export class PolicyGroupForUpdate {
     public withDescription(description: string): PolicyGroupForUpdate {
         this['description'] = description;
         return this;
-    }
-    public withScopeFlag(scopeFlag: number): PolicyGroupForUpdate {
-        this['scope_flag'] = scopeFlag;
-        return this;
-    }
-    public set scopeFlag(scopeFlag: number  | undefined) {
-        this['scope_flag'] = scopeFlag;
-    }
-    public get scopeFlag(): number | undefined {
-        return this['scope_flag'];
     }
     public withPriority(priority: number): PolicyGroupForUpdate {
         this['priority'] = priority;

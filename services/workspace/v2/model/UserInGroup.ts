@@ -6,6 +6,7 @@ export class UserInGroup {
     private 'user_email'?: string;
     private 'user_phone'?: string;
     private 'total_desktops'?: number;
+    private 'enterprise_project_id'?: string;
     public description?: string;
     public constructor() { 
     }
@@ -52,6 +53,16 @@ export class UserInGroup {
     }
     public get totalDesktops(): number | undefined {
         return this['total_desktops'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): UserInGroup {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withDescription(description: string): UserInGroup {
         this['description'] = description;

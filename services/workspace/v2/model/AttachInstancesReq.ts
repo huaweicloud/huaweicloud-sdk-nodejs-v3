@@ -5,9 +5,6 @@ export class AttachInstancesReq {
     public desktops?: Array<AttachInstancesDesktopInfo>;
     private 'image_type'?: string;
     private 'image_id'?: string;
-    private 'os_type'?: string;
-    private 'order_id'?: string;
-    private 'enterprise_project_id'?: string;
     private 'desktop_name_policy_id'?: string;
     public constructor() { 
     }
@@ -34,36 +31,6 @@ export class AttachInstancesReq {
     }
     public get imageId(): string | undefined {
         return this['image_id'];
-    }
-    public withOsType(osType: string): AttachInstancesReq {
-        this['os_type'] = osType;
-        return this;
-    }
-    public set osType(osType: string  | undefined) {
-        this['os_type'] = osType;
-    }
-    public get osType(): string | undefined {
-        return this['os_type'];
-    }
-    public withOrderId(orderId: string): AttachInstancesReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
-    }
-    public withEnterpriseProjectId(enterpriseProjectId: string): AttachInstancesReq {
-        this['enterprise_project_id'] = enterpriseProjectId;
-        return this;
-    }
-    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
-        this['enterprise_project_id'] = enterpriseProjectId;
-    }
-    public get enterpriseProjectId(): string | undefined {
-        return this['enterprise_project_id'];
     }
     public withDesktopNamePolicyId(desktopNamePolicyId: string): AttachInstancesReq {
         this['desktop_name_policy_id'] = desktopNamePolicyId;

@@ -13,7 +13,6 @@ export class JobDetailInfo {
     public host?: string;
     private 'project_id'?: string;
     private 'job_id'?: string;
-    private 'success_result'?: string;
     public process?: number;
     private 'attach_user'?: string;
     public entity?: string;
@@ -105,16 +104,6 @@ export class JobDetailInfo {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
-    }
-    public withSuccessResult(successResult: string): JobDetailInfo {
-        this['success_result'] = successResult;
-        return this;
-    }
-    public set successResult(successResult: string  | undefined) {
-        this['success_result'] = successResult;
-    }
-    public get successResult(): string | undefined {
-        return this['success_result'];
     }
     public withProcess(process: number): JobDetailInfo {
         this['process'] = process;

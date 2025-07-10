@@ -14,8 +14,6 @@ export class ShowScriptRecordDetailResponse extends SdkResponse {
     private 'end_time'?: Date;
     public status?: string;
     private 'execute_order'?: number;
-    private 'command_content'?: string;
-    private 'command_type'?: string;
     private 'result_code'?: string;
     public reason?: string;
     public output?: string;
@@ -119,26 +117,6 @@ export class ShowScriptRecordDetailResponse extends SdkResponse {
     }
     public get executeOrder(): number | undefined {
         return this['execute_order'];
-    }
-    public withCommandContent(commandContent: string): ShowScriptRecordDetailResponse {
-        this['command_content'] = commandContent;
-        return this;
-    }
-    public set commandContent(commandContent: string  | undefined) {
-        this['command_content'] = commandContent;
-    }
-    public get commandContent(): string | undefined {
-        return this['command_content'];
-    }
-    public withCommandType(commandType: string): ShowScriptRecordDetailResponse {
-        this['command_type'] = commandType;
-        return this;
-    }
-    public set commandType(commandType: string  | undefined) {
-        this['command_type'] = commandType;
-    }
-    public get commandType(): string | undefined {
-        return this['command_type'];
     }
     public withResultCode(resultCode: string): ShowScriptRecordDetailResponse {
         this['result_code'] = resultCode;

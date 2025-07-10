@@ -3,7 +3,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListLoginStateResponse extends SdkResponse {
     private 'in_use_num'?: number;
-    private 'stop_num'?: number;
     private 'unregistered_num'?: number;
     private 'unable_to_connect_num'?: number;
     private 'ready_num'?: number;
@@ -20,16 +19,6 @@ export class ListLoginStateResponse extends SdkResponse {
     }
     public get inUseNum(): number | undefined {
         return this['in_use_num'];
-    }
-    public withStopNum(stopNum: number): ListLoginStateResponse {
-        this['stop_num'] = stopNum;
-        return this;
-    }
-    public set stopNum(stopNum: number  | undefined) {
-        this['stop_num'] = stopNum;
-    }
-    public get stopNum(): number | undefined {
-        return this['stop_num'];
     }
     public withUnregisteredNum(unregisteredNum: number): ListLoginStateResponse {
         this['unregistered_num'] = unregisteredNum;

@@ -5,6 +5,8 @@ export class ShowAsyncTtsJobResponse extends SdkResponse {
     public state?: string;
     private 'audio_file_url'?: string;
     private 'audio_info_file_url'?: string;
+    private 'audio_srt_file_url'?: string;
+    private 'audio_action_file_url'?: string;
     public constructor() { 
         super();
     }
@@ -31,5 +33,25 @@ export class ShowAsyncTtsJobResponse extends SdkResponse {
     }
     public get audioInfoFileUrl(): string | undefined {
         return this['audio_info_file_url'];
+    }
+    public withAudioSrtFileUrl(audioSrtFileUrl: string): ShowAsyncTtsJobResponse {
+        this['audio_srt_file_url'] = audioSrtFileUrl;
+        return this;
+    }
+    public set audioSrtFileUrl(audioSrtFileUrl: string  | undefined) {
+        this['audio_srt_file_url'] = audioSrtFileUrl;
+    }
+    public get audioSrtFileUrl(): string | undefined {
+        return this['audio_srt_file_url'];
+    }
+    public withAudioActionFileUrl(audioActionFileUrl: string): ShowAsyncTtsJobResponse {
+        this['audio_action_file_url'] = audioActionFileUrl;
+        return this;
+    }
+    public set audioActionFileUrl(audioActionFileUrl: string  | undefined) {
+        this['audio_action_file_url'] = audioActionFileUrl;
+    }
+    public get audioActionFileUrl(): string | undefined {
+        return this['audio_action_file_url'];
     }
 }

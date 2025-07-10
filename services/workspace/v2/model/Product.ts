@@ -23,12 +23,8 @@ export class Product {
     private 'volume_product_type'?: string;
     private 'domain_ids'?: Array<string>;
     public status?: string;
-    private 'sub_product_list'?: Array<string>;
     private 'package_type'?: string;
-    private 'series_type'?: string;
     public name?: { [key: string]: string; };
-    private 'default_desktop_num'?: number;
-    private 'max_apply_desktop_num'?: number;
     private 'share_space_size'?: number;
     public constructor() { 
     }
@@ -216,16 +212,6 @@ export class Product {
         this['status'] = status;
         return this;
     }
-    public withSubProductList(subProductList: Array<string>): Product {
-        this['sub_product_list'] = subProductList;
-        return this;
-    }
-    public set subProductList(subProductList: Array<string>  | undefined) {
-        this['sub_product_list'] = subProductList;
-    }
-    public get subProductList(): Array<string> | undefined {
-        return this['sub_product_list'];
-    }
     public withPackageType(packageType: string): Product {
         this['package_type'] = packageType;
         return this;
@@ -236,39 +222,9 @@ export class Product {
     public get packageType(): string | undefined {
         return this['package_type'];
     }
-    public withSeriesType(seriesType: string): Product {
-        this['series_type'] = seriesType;
-        return this;
-    }
-    public set seriesType(seriesType: string  | undefined) {
-        this['series_type'] = seriesType;
-    }
-    public get seriesType(): string | undefined {
-        return this['series_type'];
-    }
     public withName(name: { [key: string]: string; }): Product {
         this['name'] = name;
         return this;
-    }
-    public withDefaultDesktopNum(defaultDesktopNum: number): Product {
-        this['default_desktop_num'] = defaultDesktopNum;
-        return this;
-    }
-    public set defaultDesktopNum(defaultDesktopNum: number  | undefined) {
-        this['default_desktop_num'] = defaultDesktopNum;
-    }
-    public get defaultDesktopNum(): number | undefined {
-        return this['default_desktop_num'];
-    }
-    public withMaxApplyDesktopNum(maxApplyDesktopNum: number): Product {
-        this['max_apply_desktop_num'] = maxApplyDesktopNum;
-        return this;
-    }
-    public set maxApplyDesktopNum(maxApplyDesktopNum: number  | undefined) {
-        this['max_apply_desktop_num'] = maxApplyDesktopNum;
-    }
-    public get maxApplyDesktopNum(): number | undefined {
-        return this['max_apply_desktop_num'];
     }
     public withShareSpaceSize(shareSpaceSize: number): Product {
         this['share_space_size'] = shareSpaceSize;

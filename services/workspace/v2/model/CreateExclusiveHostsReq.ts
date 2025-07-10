@@ -7,7 +7,6 @@ export class CreateExclusiveHostsReq {
     public name?: string;
     private 'apply_desktop_quantity'?: number;
     public quantity?: number;
-    private 'order_id'?: string;
     private 'product_id'?: string;
     private 'image_volumes'?: Array<Volume>;
     private 'enterprise_project_id'?: string;
@@ -51,16 +50,6 @@ export class CreateExclusiveHostsReq {
     public withQuantity(quantity: number): CreateExclusiveHostsReq {
         this['quantity'] = quantity;
         return this;
-    }
-    public withOrderId(orderId: string): CreateExclusiveHostsReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
     public withProductId(productId: string): CreateExclusiveHostsReq {
         this['product_id'] = productId;

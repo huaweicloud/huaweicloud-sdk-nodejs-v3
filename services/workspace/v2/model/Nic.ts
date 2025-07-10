@@ -2,7 +2,6 @@
 
 export class Nic {
     private 'subnet_id'?: string;
-    private 'ip_address'?: string;
     public constructor(subnetId?: string) { 
         this['subnet_id'] = subnetId;
     }
@@ -15,15 +14,5 @@ export class Nic {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
-    }
-    public withIpAddress(ipAddress: string): Nic {
-        this['ip_address'] = ipAddress;
-        return this;
-    }
-    public set ipAddress(ipAddress: string  | undefined) {
-        this['ip_address'] = ipAddress;
-    }
-    public get ipAddress(): string | undefined {
-        return this['ip_address'];
     }
 }

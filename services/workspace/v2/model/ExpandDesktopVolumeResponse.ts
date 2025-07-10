@@ -3,7 +3,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ExpandDesktopVolumeResponse extends SdkResponse {
     private 'job_id'?: string;
-    public bssJobId?: string;
     public getJobEndpoint?: string;
     public maxProvisionTime?: number;
     public minProvisionTime?: number;
@@ -20,10 +19,6 @@ export class ExpandDesktopVolumeResponse extends SdkResponse {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
-    }
-    public withBssJobId(bssJobId: string): ExpandDesktopVolumeResponse {
-        this['bssJobId'] = bssJobId;
-        return this;
     }
     public withGetJobEndpoint(getJobEndpoint: string): ExpandDesktopVolumeResponse {
         this['getJobEndpoint'] = getJobEndpoint;

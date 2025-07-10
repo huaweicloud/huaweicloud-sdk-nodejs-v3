@@ -3,6 +3,8 @@ import { Tag } from './Tag';
 
 
 export class SimpleDesktopInfo {
+    private 'domain_id'?: string;
+    private 'project_id'?: string;
     private 'desktop_id'?: string;
     private 'computer_name'?: string;
     private 'os_host_name'?: string;
@@ -23,6 +25,26 @@ export class SimpleDesktopInfo {
     public status?: string;
     private 'task_status'?: string;
     public constructor() { 
+    }
+    public withDomainId(domainId: string): SimpleDesktopInfo {
+        this['domain_id'] = domainId;
+        return this;
+    }
+    public set domainId(domainId: string  | undefined) {
+        this['domain_id'] = domainId;
+    }
+    public get domainId(): string | undefined {
+        return this['domain_id'];
+    }
+    public withProjectId(projectId: string): SimpleDesktopInfo {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withDesktopId(desktopId: string): SimpleDesktopInfo {
         this['desktop_id'] = desktopId;

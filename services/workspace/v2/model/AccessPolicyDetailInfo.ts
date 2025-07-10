@@ -7,6 +7,8 @@ export class AccessPolicyDetailInfo {
     private 'blacklist_type'?: AccessPolicyDetailInfoBlacklistTypeEnum | string;
     private 'access_control_type'?: AccessPolicyDetailInfoAccessControlTypeEnum | string;
     private 'ip_list'?: Array<IpInfo>;
+    private 'is_enable'?: boolean;
+    private 'is_block_all'?: boolean;
     private 'ip_total_count'?: number;
     private 'policy_id'?: string;
     private 'create_time'?: string;
@@ -51,6 +53,26 @@ export class AccessPolicyDetailInfo {
     }
     public get ipList(): Array<IpInfo> | undefined {
         return this['ip_list'];
+    }
+    public withIsEnable(isEnable: boolean): AccessPolicyDetailInfo {
+        this['is_enable'] = isEnable;
+        return this;
+    }
+    public set isEnable(isEnable: boolean  | undefined) {
+        this['is_enable'] = isEnable;
+    }
+    public get isEnable(): boolean | undefined {
+        return this['is_enable'];
+    }
+    public withIsBlockAll(isBlockAll: boolean): AccessPolicyDetailInfo {
+        this['is_block_all'] = isBlockAll;
+        return this;
+    }
+    public set isBlockAll(isBlockAll: boolean  | undefined) {
+        this['is_block_all'] = isBlockAll;
+    }
+    public get isBlockAll(): boolean | undefined {
+        return this['is_block_all'];
     }
     public withIpTotalCount(ipTotalCount: number): AccessPolicyDetailInfo {
         this['ip_total_count'] = ipTotalCount;

@@ -5,7 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AccessConfig } from './model/AccessConfig';
 import { AccessConfigInfo } from './model/AccessConfigInfo';
 import { AccessConfigReq } from './model/AccessConfigReq';
-import { AccessControl } from './model/AccessControl';
 import { AccessPolicyDetailInfo } from './model/AccessPolicyDetailInfo';
 import { AccessPolicyInfo } from './model/AccessPolicyInfo';
 import { AccessPolicyObject } from './model/AccessPolicyObject';
@@ -45,7 +44,6 @@ import { AddVolumesRequest } from './model/AddVolumesRequest';
 import { AddVolumesResponse } from './model/AddVolumesResponse';
 import { AdditionalInfo } from './model/AdditionalInfo';
 import { AddressInfo } from './model/AddressInfo';
-import { Adn } from './model/Adn';
 import { AgenciesInfo } from './model/AgenciesInfo';
 import { AgenciesPermissionInfo } from './model/AgenciesPermissionInfo';
 import { AgentInfo } from './model/AgentInfo';
@@ -81,7 +79,6 @@ import { ApplyWorkspaceResponse } from './model/ApplyWorkspaceResponse';
 import { AssignAppAuthorizationsReq } from './model/AssignAppAuthorizationsReq';
 import { AssignModelInfo } from './model/AssignModelInfo';
 import { AssignType } from './model/AssignType';
-import { AssistAuthConfigInfo } from './model/AssistAuthConfigInfo';
 import { AssistAuthMethodConfigRequest } from './model/AssistAuthMethodConfigRequest';
 import { AssociateDesktopsEipReq } from './model/AssociateDesktopsEipReq';
 import { AssociateDesktopsEipRequest } from './model/AssociateDesktopsEipRequest';
@@ -105,7 +102,6 @@ import { AutoscalePolicy } from './model/AutoscalePolicy';
 import { AvailabilityZone } from './model/AvailabilityZone';
 import { AzInfo } from './model/AzInfo';
 import { BackupInfo } from './model/BackupInfo';
-import { Bandwidth } from './model/Bandwidth';
 import { BaseError } from './model/BaseError';
 import { BaseResponse } from './model/BaseResponse';
 import { BatchActionDesktopsReq } from './model/BatchActionDesktopsReq';
@@ -204,8 +200,6 @@ import { BatchUpdateTargetOfPolicyGroupRequest } from './model/BatchUpdateTarget
 import { BatchUpdateTargetOfPolicyGroupResponse } from './model/BatchUpdateTargetOfPolicyGroupResponse';
 import { BillingResult } from './model/BillingResult';
 import { BucketStore } from './model/BucketStore';
-import { CameraBandwidthControlOptions } from './model/CameraBandwidthControlOptions';
-import { CameraBandwidthPercentageOptions } from './model/CameraBandwidthPercentageOptions';
 import { CancelRemoteAssistanceRequest } from './model/CancelRemoteAssistanceRequest';
 import { CancelRemoteAssistanceResponse } from './model/CancelRemoteAssistanceResponse';
 import { CancelWorkspaceRequest } from './model/CancelWorkspaceRequest';
@@ -224,11 +218,7 @@ import { ChangeUserPrivilegeGroupResponse } from './model/ChangeUserPrivilegeGro
 import { ChangeUserPrivilegeGroupUserInfo } from './model/ChangeUserPrivilegeGroupUserInfo';
 import { ChangeUserStatusRequest } from './model/ChangeUserStatusRequest';
 import { ChangeUserStatusResponse } from './model/ChangeUserStatusResponse';
-import { ClipboardBandwidthControlOptions } from './model/ClipboardBandwidthControlOptions';
-import { ClipboardBandwidthPercentageOptions } from './model/ClipboardBandwidthPercentageOptions';
 import { CloudServiceRatingResult } from './model/CloudServiceRatingResult';
-import { ComBandwidthControlOptions } from './model/ComBandwidthControlOptions';
-import { ComBandwidthPercentageOptions } from './model/ComBandwidthPercentageOptions';
 import { ConnectDesktopsInfo } from './model/ConnectDesktopsInfo';
 import { ControlItem } from './model/ControlItem';
 import { CouponUnsubscribeResult } from './model/CouponUnsubscribeResult';
@@ -355,7 +345,6 @@ import { DeleteUserResponse } from './model/DeleteUserResponse';
 import { DeleteVolumesReq } from './model/DeleteVolumesReq';
 import { Desktop } from './model/Desktop';
 import { DesktopAction } from './model/DesktopAction';
-import { DesktopDetachInfo } from './model/DesktopDetachInfo';
 import { DesktopDetailInfo } from './model/DesktopDetailInfo';
 import { DesktopDimensionAttachInfo } from './model/DesktopDimensionAttachInfo';
 import { DesktopLoginStatisticsRsp } from './model/DesktopLoginStatisticsRsp';
@@ -380,8 +369,6 @@ import { DisableRuleRestrictionRequest } from './model/DisableRuleRestrictionReq
 import { DisableRuleRestrictionResponse } from './model/DisableRuleRestrictionResponse';
 import { DisconnectLogoutOptions } from './model/DisconnectLogoutOptions';
 import { DiskSnapshotInfo } from './model/DiskSnapshotInfo';
-import { DisplayBandwidthControlOptions } from './model/DisplayBandwidthControlOptions';
-import { DisplayBandwidthPercentageOptions } from './model/DisplayBandwidthPercentageOptions';
 import { DownloadAddressForList } from './model/DownloadAddressForList';
 import { EditUserGroupRequest } from './model/EditUserGroupRequest';
 import { EditUserReq } from './model/EditUserReq';
@@ -430,15 +417,12 @@ import { ExpandVolumesRequest } from './model/ExpandVolumesRequest';
 import { ExpandVolumesResponse } from './model/ExpandVolumesResponse';
 import { ExportUserLoginInfoNewRequest } from './model/ExportUserLoginInfoNewRequest';
 import { ExportUserLoginInfoNewResponse } from './model/ExportUserLoginInfoNewResponse';
-import { FileRedirectionBandwidthControlOptions } from './model/FileRedirectionBandwidthControlOptions';
-import { FileRedirectionBandwidthPercentageOptions } from './model/FileRedirectionBandwidthPercentageOptions';
 import { FileStoreLink } from './model/FileStoreLink';
 import { FileStoreTypeEnum } from './model/FileStoreTypeEnum';
 import { FixedIp } from './model/FixedIp';
 import { FlavorInfo } from './model/FlavorInfo';
 import { FlavorLinkInfo } from './model/FlavorLinkInfo';
 import { FunctionConfig } from './model/FunctionConfig';
-import { Hosts } from './model/Hosts';
 import { HourPackage } from './model/HourPackage';
 import { HourPackageInfo } from './model/HourPackageInfo';
 import { HourPackageResource } from './model/HourPackageResource';
@@ -495,8 +479,6 @@ import { ListDesktopActionsRequest } from './model/ListDesktopActionsRequest';
 import { ListDesktopActionsResponse } from './model/ListDesktopActionsResponse';
 import { ListDesktopByTagsRequest } from './model/ListDesktopByTagsRequest';
 import { ListDesktopByTagsResponse } from './model/ListDesktopByTagsResponse';
-import { ListDesktopDetachInfoRequest } from './model/ListDesktopDetachInfoRequest';
-import { ListDesktopDetachInfoResponse } from './model/ListDesktopDetachInfoResponse';
 import { ListDesktopNamePolicyRequest } from './model/ListDesktopNamePolicyRequest';
 import { ListDesktopNamePolicyResponse } from './model/ListDesktopNamePolicyResponse';
 import { ListDesktopOperationsRequest } from './model/ListDesktopOperationsRequest';
@@ -519,8 +501,6 @@ import { ListDesktopsRequest } from './model/ListDesktopsRequest';
 import { ListDesktopsResponse } from './model/ListDesktopsResponse';
 import { ListDesktopsStatisticsRequest } from './model/ListDesktopsStatisticsRequest';
 import { ListDesktopsStatisticsResponse } from './model/ListDesktopsStatisticsResponse';
-import { ListDesktopsStatusRequest } from './model/ListDesktopsStatusRequest';
-import { ListDesktopsStatusResponse } from './model/ListDesktopsStatusResponse';
 import { ListDownloadAddressRequest } from './model/ListDownloadAddressRequest';
 import { ListDownloadAddressRequestBody } from './model/ListDownloadAddressRequestBody';
 import { ListDownloadAddressResponse } from './model/ListDownloadAddressResponse';
@@ -529,8 +509,6 @@ import { ListFutureExecutionsRequest } from './model/ListFutureExecutionsRequest
 import { ListFutureExecutionsResponse } from './model/ListFutureExecutionsResponse';
 import { ListHistoryOnlineInfoNewRequest } from './model/ListHistoryOnlineInfoNewRequest';
 import { ListHistoryOnlineInfoNewResponse } from './model/ListHistoryOnlineInfoNewResponse';
-import { ListHistoryOnlineInfoRequest } from './model/ListHistoryOnlineInfoRequest';
-import { ListHistoryOnlineInfoResponse } from './model/ListHistoryOnlineInfoResponse';
 import { ListHourPackagesTypeRequest } from './model/ListHourPackagesTypeRequest';
 import { ListHourPackagesTypeResponse } from './model/ListHourPackagesTypeResponse';
 import { ListImagesRequest } from './model/ListImagesRequest';
@@ -626,6 +604,8 @@ import { ListUsedDesktopInfoRequest } from './model/ListUsedDesktopInfoRequest';
 import { ListUsedDesktopInfoResponse } from './model/ListUsedDesktopInfoResponse';
 import { ListUserDetailRequest } from './model/ListUserDetailRequest';
 import { ListUserDetailResponse } from './model/ListUserDetailResponse';
+import { ListUserEventsLtsConfigurationsRequest } from './model/ListUserEventsLtsConfigurationsRequest';
+import { ListUserEventsLtsConfigurationsResponse } from './model/ListUserEventsLtsConfigurationsResponse';
 import { ListUserEventsRequest } from './model/ListUserEventsRequest';
 import { ListUserEventsResponse } from './model/ListUserEventsResponse';
 import { ListUserGroupsRequest } from './model/ListUserGroupsRequest';
@@ -657,8 +637,6 @@ import { ModifyPolicyRequest } from './model/ModifyPolicyRequest';
 import { ModifyPolicyTargetReq } from './model/ModifyPolicyTargetReq';
 import { ModifyWorkspaceAttributesReq } from './model/ModifyWorkspaceAttributesReq';
 import { MonitorUserOnlineInfo } from './model/MonitorUserOnlineInfo';
-import { MultimediaBandwidthControlOptions } from './model/MultimediaBandwidthControlOptions';
-import { MultimediaBandwidthPercentageOptions } from './model/MultimediaBandwidthPercentageOptions';
 import { NatGateway } from './model/NatGateway';
 import { NatMappingConfig } from './model/NatMappingConfig';
 import { NetworkConfig } from './model/NetworkConfig';
@@ -681,8 +659,6 @@ import { OtpDevice } from './model/OtpDevice';
 import { OuNameInfo } from './model/OuNameInfo';
 import { PageResp } from './model/PageResp';
 import { PathRule } from './model/PathRule';
-import { PcscBandwidthControlOptions } from './model/PcscBandwidthControlOptions';
-import { PcscBandwidthPercentageOptions } from './model/PcscBandwidthPercentageOptions';
 import { PeriodBatchUpChangeResourceRsp } from './model/PeriodBatchUpChangeResourceRsp';
 import { PlatformTypeEnum } from './model/PlatformTypeEnum';
 import { Policies } from './model/Policies';
@@ -742,21 +718,15 @@ import { PolicyGroupForUpdate } from './model/PolicyGroupForUpdate';
 import { PoolDesktopsDetailInfo } from './model/PoolDesktopsDetailInfo';
 import { Port } from './model/Port';
 import { PreBatchAttachInstancesReq } from './model/PreBatchAttachInstancesReq';
-import { PrinterBandwidthControlOptions } from './model/PrinterBandwidthControlOptions';
-import { PrinterBandwidthPercentageOptions } from './model/PrinterBandwidthPercentageOptions';
 import { Product } from './model/Product';
 import { ProductInfo } from './model/ProductInfo';
 import { ProductResult } from './model/ProductResult';
 import { ProductRule } from './model/ProductRule';
 import { PublicIp } from './model/PublicIp';
 import { QueryDesktopByTagReq } from './model/QueryDesktopByTagReq';
-import { QueryScreenRecordDetailRsp } from './model/QueryScreenRecordDetailRsp';
 import { QuotaNoLimit } from './model/QuotaNoLimit';
-import { RadiusAuthConfig } from './model/RadiusAuthConfig';
-import { RadiusConfigInfo } from './model/RadiusConfigInfo';
 import { RadiusGatewayConfig } from './model/RadiusGatewayConfig';
 import { RadiusGatewayConfigInfo } from './model/RadiusGatewayConfigInfo';
-import { RadiusHost } from './model/RadiusHost';
 import { RebuildDesktopPoolReq } from './model/RebuildDesktopPoolReq';
 import { RebuildDesktopPoolRequest } from './model/RebuildDesktopPoolRequest';
 import { RebuildDesktopPoolResponse } from './model/RebuildDesktopPoolResponse';
@@ -770,7 +740,6 @@ import { ResendEmailReq } from './model/ResendEmailReq';
 import { ResetRandomPasswordRequest } from './model/ResetRandomPasswordRequest';
 import { ResetRandomPasswordResponse } from './model/ResetRandomPasswordResponse';
 import { ResizeDesktopData } from './model/ResizeDesktopData';
-import { ResizeDesktopExtendParam } from './model/ResizeDesktopExtendParam';
 import { ResizeDesktopJobResponse } from './model/ResizeDesktopJobResponse';
 import { ResizeDesktopPoolJobResponse } from './model/ResizeDesktopPoolJobResponse';
 import { ResizeDesktopPoolReq } from './model/ResizeDesktopPoolReq';
@@ -798,15 +767,15 @@ import { ScheduledTask } from './model/ScheduledTask';
 import { ScheduledTaskConfig } from './model/ScheduledTaskConfig';
 import { ScheduledTasksRecords } from './model/ScheduledTasksRecords';
 import { ScheduledTasksRecordsDetails } from './model/ScheduledTasksRecordsDetails';
+import { ScreenRecordDetail } from './model/ScreenRecordDetail';
 import { Script } from './model/Script';
 import { ScriptExecutionTask } from './model/ScriptExecutionTask';
 import { ScriptRecordSimpleInfo } from './model/ScriptRecordSimpleInfo';
 import { ScriptSimpleInfo } from './model/ScriptSimpleInfo';
 import { ScriptTaskInfo } from './model/ScriptTaskInfo';
 import { ScriptTaskInfoTaskScripts } from './model/ScriptTaskInfoTaskScripts';
-import { SecureChannelBandwidthControlOptions } from './model/SecureChannelBandwidthControlOptions';
-import { SecureChannelBandwidthPercentageOptions } from './model/SecureChannelBandwidthPercentageOptions';
 import { SecurityGroup } from './model/SecurityGroup';
+import { SecurityGroupInfo } from './model/SecurityGroupInfo';
 import { SendDesktopPoolNotificationsReq } from './model/SendDesktopPoolNotificationsReq';
 import { SendDesktopPoolNotificationsRequest } from './model/SendDesktopPoolNotificationsRequest';
 import { SendDesktopPoolNotificationsResponse } from './model/SendDesktopPoolNotificationsResponse';
@@ -818,6 +787,12 @@ import { SendNotificationsResponse } from './model/SendNotificationsResponse';
 import { Session } from './model/Session';
 import { SetMaintenanceModeRequest } from './model/SetMaintenanceModeRequest';
 import { SetMaintenanceModeResponse } from './model/SetMaintenanceModeResponse';
+import { SetRuleRestrictionReq } from './model/SetRuleRestrictionReq';
+import { SetRuleRestrictionRequest } from './model/SetRuleRestrictionRequest';
+import { SetRuleRestrictionResponse } from './model/SetRuleRestrictionResponse';
+import { SetUserEventsLtsConfigurationsRequest } from './model/SetUserEventsLtsConfigurationsRequest';
+import { SetUserEventsLtsConfigurationsRequestBody } from './model/SetUserEventsLtsConfigurationsRequestBody';
+import { SetUserEventsLtsConfigurationsResponse } from './model/SetUserEventsLtsConfigurationsResponse';
 import { SharerProductInfo } from './model/SharerProductInfo';
 import { ShowAssistAuthConfigRequest } from './model/ShowAssistAuthConfigRequest';
 import { ShowAssistAuthConfigResponse } from './model/ShowAssistAuthConfigResponse';
@@ -851,6 +826,8 @@ import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRemoteConsoleAddressRequest } from './model/ShowRemoteConsoleAddressRequest';
 import { ShowRemoteConsoleAddressResponse } from './model/ShowRemoteConsoleAddressResponse';
+import { ShowRuleRestrictionRequest } from './model/ShowRuleRestrictionRequest';
+import { ShowRuleRestrictionResponse } from './model/ShowRuleRestrictionResponse';
 import { ShowScheduledTasksRequest } from './model/ShowScheduledTasksRequest';
 import { ShowScheduledTasksResponse } from './model/ShowScheduledTasksResponse';
 import { ShowScreenRecordRequest } from './model/ShowScreenRecordRequest';
@@ -874,7 +851,6 @@ import { ShowUsingSubnetsResponse } from './model/ShowUsingSubnetsResponse';
 import { ShowWorkspaceLockRequest } from './model/ShowWorkspaceLockRequest';
 import { ShowWorkspaceLockResponse } from './model/ShowWorkspaceLockResponse';
 import { SimpleDesktopInfo } from './model/SimpleDesktopInfo';
-import { SimpleDesktopInfoDetail } from './model/SimpleDesktopInfoDetail';
 import { SimpleDesktopPoolInfo } from './model/SimpleDesktopPoolInfo';
 import { SimpleProduct } from './model/SimpleProduct';
 import { SimpleResource } from './model/SimpleResource';
@@ -901,14 +877,9 @@ import { TagsReq } from './model/TagsReq';
 import { Target } from './model/Target';
 import { TerminalsBindingDesktopsConfig } from './model/TerminalsBindingDesktopsConfig';
 import { TerminalsBindingDesktopsInfo } from './model/TerminalsBindingDesktopsInfo';
-import { ThirdGatewayConfigInfo } from './model/ThirdGatewayConfigInfo';
-import { ThirdGatewayInfo } from './model/ThirdGatewayInfo';
 import { ThirdPartyAuthConfig } from './model/ThirdPartyAuthConfig';
 import { Timezones } from './model/Timezones';
 import { TlsConfig } from './model/TlsConfig';
-import { TotalBandwidthControlOptions } from './model/TotalBandwidthControlOptions';
-import { TwainBandwidthControlOptions } from './model/TwainBandwidthControlOptions';
-import { TwainBandwidthPercentageOptions } from './model/TwainBandwidthPercentageOptions';
 import { UnlockWorkspaceRequest } from './model/UnlockWorkspaceRequest';
 import { UnlockWorkspaceRequestBody } from './model/UnlockWorkspaceRequestBody';
 import { UnlockWorkspaceResponse } from './model/UnlockWorkspaceResponse';
@@ -1003,8 +974,6 @@ import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
 import { UploadAppReq } from './model/UploadAppReq';
 import { UploadAppRequest } from './model/UploadAppRequest';
 import { UploadAppResponse } from './model/UploadAppResponse';
-import { UsbBandwidthControlOptions } from './model/UsbBandwidthControlOptions';
-import { UsbBandwidthPercentageOptions } from './model/UsbBandwidthPercentageOptions';
 import { User } from './model/User';
 import { UserAccessStage } from './model/UserAccessStage';
 import { UserDetail } from './model/UserDetail';
@@ -1013,13 +982,10 @@ import { UserEventRsp } from './model/UserEventRsp';
 import { UserGroupInfo } from './model/UserGroupInfo';
 import { UserInGroup } from './model/UserInGroup';
 import { UserMetric } from './model/UserMetric';
-import { Vag } from './model/Vag';
 import { Vdi } from './model/Vdi';
 import { VdiDisconnectHibernateOptions } from './model/VdiDisconnectHibernateOptions';
 import { VdiNoOperationHibernateOptions } from './model/VdiNoOperationHibernateOptions';
 import { VirtualChannel } from './model/VirtualChannel';
-import { VirtualChannelBandwidthControlOptions } from './model/VirtualChannelBandwidthControlOptions';
-import { VirtualChannelBandwidthPercentageOptions } from './model/VirtualChannelBandwidthPercentageOptions';
 import { VirtualChannelOptions } from './model/VirtualChannelOptions';
 import { VmOperateResult } from './model/VmOperateResult';
 import { Volume } from './model/Volume';
@@ -1031,7 +997,6 @@ import { Vpc } from './model/Vpc';
 import { VpcConfigInfo } from './model/VpcConfigInfo';
 import { Watermark } from './model/Watermark';
 import { WatermarkOptions } from './model/WatermarkOptions';
-import { WdhParam } from './model/WdhParam';
 import { WksEdgeSiteDetail } from './model/WksEdgeSiteDetail';
 
 export class WorkspaceClient {
@@ -1213,7 +1178,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开通委托功能
-     * @param {CreateAgenciesReq} [createAgenciesRequestBody] 请求参数
+     * @param {CreateAgenciesReq} [createAgenciesRequestBody] 请求参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1232,7 +1197,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询委托功能
-     * @param {'WORKSPACE' | 'CLOUD_GAME' | 'SCREEN_RECORD'} [scene] 委托场景。 - WORKSPACE：云桌面。 - CLOUD_GAME：云游戏。 - SCREEN_RECORD：录屏审计。
+     * @param {'WORKSPACE' | 'CLOUD_GAME' | 'CLOUD_STORAGE' | 'SCREEN_RECORD'} [scene] 委托场景。 - WORKSPACE：云桌面。 - CLOUD_GAME：云游戏。 - CLOUD_STORAGE 云存储。 - SCREEN_RECORD：录屏审计。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1246,7 +1211,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 返回各级别告警数
+     * 返回各级别告警数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1264,14 +1229,14 @@ export class WorkspaceClient {
     }
 
     /**
-     * 从ces查询告警列表
+     * 从ces查询告警列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警列表
-     * @param {number} [level] 告警级别 | 1 - 紧急 2 - 重要 3 - 次要 4 - 提示
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {number} [level] 告警级别 | 1 - 紧急 2 - 重要 3 - 次要 4 - 提示。
+     * @param {number} [offset] 分页偏移量。
+     * @param {number} [limit] 分页大小，默认100。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1436,7 +1401,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 删除应用
+     * 删除应用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1482,8 +1447,8 @@ export class WorkspaceClient {
      *
      * @summary 查询应用授权信息
      * @param {string} appId 应用ID。
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
      * @param {string} [name] 用户名/用户组名。
      * @param {string} [targetType] 类型： * &#x60;SIMPLE&#x60; - 普通用户 * &#x60;USER_GROUP&#x60; - 用户组
      * @param {*} [options] Override http request option.
@@ -1522,8 +1487,8 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按照名称分页查询应用
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
      * @param {string} [name] 应用名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1543,11 +1508,11 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用安装job信息
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {string} [instanceId] 实例ID
-     * @param {string} [appId] 应用ID
-     * @param {string} [target] 安装实例的用户
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {string} [instanceId] 实例ID。
+     * @param {string} [appId] 应用ID。
+     * @param {string} [target] 安装实例的用户。
      * @param {string} [jobStatus] 任务状态： * &#x60;INIT&#x60; - 初始化中 * &#x60;WAITING&#x60; - 等待安装结束 * &#x60;SUCCESS&#x60; - 成功 * &#x60;FAIL&#x60; - 失败任务状态
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1567,7 +1532,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重试失败job
-     * @param {BatchOperateJobsReq} retryJobsRequestBody 失败job重试
+     * @param {BatchOperateJobsReq} retryJobsRequestBody 失败job重试。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1645,7 +1610,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增加管控规则
-     * @param {BatchOperateAppRulesReq} addRestrictedRuleRequestBody 增加管控规则请求结构体
+     * @param {BatchOperateAppRulesReq} addRestrictedRuleRequestBody 增加管控规则请求结构体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1664,7 +1629,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除规则
-     * @param {BatchOperateAppRulesReq} batchDeleteAppRulesRequestBody 批量操作Rule的请求内容
+     * @param {BatchOperateAppRulesReq} batchDeleteAppRulesRequestBody 批量操作Rule的请求内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1716,12 +1681,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量删除管控规则列表。
+     * 批量删除管控规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除管控规则列表
-     * @param {BatchOperateAppRulesReq} deleteRestrictedRuleRequestBody 删除管控规则
+     * @summary 批量删除管控规则
+     * @param {BatchOperateAppRulesReq} deleteRestrictedRuleRequestBody 删除管控规则。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1771,14 +1736,14 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询应用规则
+     * 查询应用规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用规则
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {string} [name] 应用规则名称
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {string} [name] 应用规则名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1797,14 +1762,51 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询管控规则列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {string} [name] 应用规则名称
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {string} [name] 应用规则名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listRestrictedRule(listRestrictedRuleRequest?: ListRestrictedRuleRequest): Promise<ListRestrictedRuleResponse> {
         const options = ParamCreater().listRestrictedRule(listRestrictedRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置管控规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置管控规则
+     * @param {SetRuleRestrictionReq} setRuleRestrictionRequestBody 设置管控规则请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setRuleRestriction(setRuleRestrictionRequest?: SetRuleRestrictionRequest): Promise<SetRuleRestrictionResponse> {
+        const options = ParamCreater().setRuleRestriction(setRuleRestrictionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询管控规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询管控规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRuleRestriction(showRuleRestrictionRequest?: ShowRuleRestrictionRequest): Promise<ShowRuleRestrictionResponse> {
+        const options = ParamCreater().showRuleRestriction();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1819,7 +1821,7 @@ export class WorkspaceClient {
      *
      * @summary 修改应用规则
      * @param {string} ruleId 规则ID。
-     * @param {UpdateAppRuleReq} updateAppRuleRequestBody 更新Rule的请求内容
+     * @param {UpdateAppRuleReq} updateAppRuleRequestBody 更新Rule的请求内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1833,7 +1835,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询辅助认证的配置信息
+     * 查询辅助认证的配置信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1856,7 +1858,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询认证登录方式
-     * @param {string} [authType] 认证类型
+     * @param {string} [authType] 认证类型。LOCAL_PASSWORD：本地密码认证模式，KERBEROS：Windows AD认证模式，LDAP：第三方LDAP模式，CLIENT_TOKEN：金审UKEY客户端Token认证模式，OAUTH2：第三方单点登录模式。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1870,12 +1872,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 更新辅助认证策略配置
+     * 更新辅助认证策略配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新辅助认证策略配置
-     * @param {AssistAuthMethodConfigRequest} updateAssistAuthMethodConfigRequestBody 更新认证策略配置请求
+     * @param {AssistAuthMethodConfigRequest} updateAssistAuthMethodConfigRequestBody 更新认证策略配置请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1894,7 +1896,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新认证策略配置
-     * @param {AuthMethodConfigRequest} updateAuthMethodConfigRequestBody 更新认证策略配置请求
+     * @param {AuthMethodConfigRequest} updateAuthMethodConfigRequestBody 更新认证策略配置请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1926,7 +1928,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 该接口用于查询云桌面支持的可用分区列表
+     * 该接口用于查询云桌面支持的可用分区列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1987,46 +1989,6 @@ export class WorkspaceClient {
     }
 
     /**
-     * 该接口用于查询桌面登录状态
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询桌面登录状态
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDesktopsStatus(listDesktopsStatusRequest?: ListDesktopsStatusRequest): Promise<ListDesktopsStatusResponse> {
-        const options = ParamCreater().listDesktopsStatus();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询登录人数
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询登录人数
-     * @param {string} [startTime] 查询的起始时间。指定该参数后，返回的结果为此时间之后的所有登录记录。时间格式如：“2016-08-20T21:11Z”。终止时间不为空时，起始时间为必填参数
-     * @param {string} [endTime] 查询的终止时间。指定该参数后，返回的结果为此时间之前的所有登录记录。时间格式如：“2016-08-20T21:11Z”。起始时间不为空时，终止时间为必填参数
-     * @param {string} [queryType] 查询类型，合法取值有三个:MONTH按月查询 WEEK：按周查询DAY：按天查询
-     * @param {number} [clientHour] 客户端所在操作系统时间的小时数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listHistoryOnlineInfo(listHistoryOnlineInfoRequest?: ListHistoryOnlineInfoRequest): Promise<ListHistoryOnlineInfoResponse> {
-        const options = ParamCreater().listHistoryOnlineInfo(listHistoryOnlineInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口用于查询登录人数，注意查询参数不可全空。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2035,7 +1997,6 @@ export class WorkspaceClient {
      * @param {string} [startTime] 查询的起始时间。指定该参数后，返回的结果为此时间之后的所有登录记录。时间格式如：“2016-08-20T21:11Z”。终止时间不为空时，起始时间为必填参数。类型查询优先于时间查询。类型查询和时间查询必须有一个存在。
      * @param {string} [endTime] 查询的结束时间。指定该参数后，返回的结果为此时间之前的所有登录记录。时间格式如：“2016-08-20T21:11Z”。起始时间不为空时，终止时间为必填参数。类型查询优先于时间查询。类型查询和时间查询必须有一个存在。
      * @param {string} [queryType] 查询类型，类型查询优先于时间查询。类型查询和时间查询必须有一个存在。 -MONTH：按月查询。 -WEEK：按周查询。 -DAY：按天查询。
-     * @param {number} [clientHour] 客户端所在操作系统时间的小时数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2077,10 +2038,10 @@ export class WorkspaceClient {
      * @param {string} [userName] 登录桌面的用户名。
      * @param {string} [computerName] 计算机名（操作系统信息中可见）。
      * @param {string} [terminalType] 登录桌面的终端系统类型，当前支持：WI（云桌面客户端）。
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {number} [limit] 用于分页查询，返回登录记录数量限制,取值范围0-1000。如果不指定，默认为20。
-     * @param {number} [minNetworkRtt] 查询端到端时延的最小值
-     * @param {number} [maxNetworkRtt] 查询端到端时延的最大值
+     * @param {number} [minNetworkRtt] 查询端到端时延的最小值。
+     * @param {number} [maxNetworkRtt] 查询端到端时延的最大值。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2094,13 +2055,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 将桌面分配给用户
+     * 将桌面分配给用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 分配用户
-     * @param {AttachInstancesReq} attachInstancesRequestBody 分配用户的请求
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {AttachInstancesReq} attachInstancesRequestBody 分配用户的请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2152,12 +2112,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量切换桌面vpc、子网、ip、安全组
+     * 批量切换桌面vpc、子网、ip、安全组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量切换桌面网络
-     * @param {BatchChangeDesktopNetworkReq} batchChangeDesktopNetworkRequestBody 切换桌面网络请求体
+     * @param {BatchChangeDesktopNetworkReq} batchChangeDesktopNetworkRequestBody 切换桌面网络请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2176,7 +2136,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除桌面
-     * @param {DeleteDesktopsReq} batchDeleteDesktopsRequestBody 批量删除计算机请求
+     * @param {DeleteDesktopsReq} batchDeleteDesktopsRequestBody 批量删除计算机请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2190,12 +2150,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量将桌面和用户解绑
+     * 批量将桌面和用户解绑。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量解绑用户
-     * @param {BatchDetachInstancesReq} batchDetachInstancesRequestBody 解绑用户的请求
+     * @param {BatchDetachInstancesReq} batchDetachInstancesRequestBody 解绑用户的请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2209,11 +2169,11 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量为桌面安装agent
+     * 批量为桌面安装agent。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 安装ces-agent
+     * @summary 安装agent
      * @param {BatchInstallAgentReq} batchInstallAgentRequestBody 桌面云批量操作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2234,7 +2194,6 @@ export class WorkspaceClient {
      *
      * @summary 批量注销桌面
      * @param {LogoffDesktopsReq} batchLogoffDesktopsRequestBody 批量注销计算机请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2253,8 +2212,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重建桌面
-     * @param {RebuildDesktopsReq} batchRebuildDesktopsSystemDiskRequestBody 重建系统盘的请求
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {RebuildDesktopsReq} batchRebuildDesktopsSystemDiskRequestBody 重建系统盘的请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2268,7 +2226,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量操作桌面，用于批量开机、关机和重启。
+     * 批量操作桌面，用于批量开机、关机、休眠和重启。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2306,13 +2264,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 切换桌面vpc、子网、ip、安全组
+     * 切换桌面vpc、子网、ip、安全组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换桌面网络
      * @param {string} desktopId 桌面ID。
-     * @param {ChangeDesktopNetworkReq} changeDesktopNetworkRequestBody 切换桌面网络请求体
+     * @param {ChangeDesktopNetworkReq} changeDesktopNetworkRequestBody 切换桌面网络请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2326,12 +2284,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 桌面转镜像
+     * 桌面转镜像。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 桌面转镜像
-     * @param {DesktopToImageReq} changeDesktopToImageRequestBody 桌面转镜像请求
+     * @param {DesktopToImageReq} changeDesktopToImageRequestBody 桌面转镜像请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2350,7 +2308,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改用户权限组
-     * @param {ChangeUserPrivilegeGroupReq} changeUserPrivilegeGroupRequestBody 批量修改用户权限组的请求
+     * @param {ChangeUserPrivilegeGroupReq} changeUserPrivilegeGroupRequestBody 批量修改用户权限组的请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2370,7 +2328,6 @@ export class WorkspaceClient {
      *
      * @summary 创建桌面
      * @param {CreateDesktopReq} createDesktopRequestBody 创建云桌面请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2411,7 +2368,7 @@ export class WorkspaceClient {
      * @param {string} desktopId 桌面ID。
      * @param {boolean} [deleteUsers] 删除桌面后，如果当前用户没有其它桌面，可以删除桌面用户。true：删除用户，false：不删除用户，默认为false。
      * @param {boolean} [emailNotification] 删除桌面后，是否给桌面用户发送系统通知邮件。true：发送，false：不发送。默认为true。
-     * @param {boolean} [isForceDelete] 是否强制删除
+     * @param {boolean} [isForceDelete] 是否强制删除。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2425,12 +2382,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 将桌面和用户解绑
+     * 将桌面和用户解绑。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解绑用户
-     * @param {DetachInstancesReq} detachInstancesRequestBody 解绑用户的请求
+     * @param {DetachInstancesReq} detachInstancesRequestBody 解绑用户的请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2449,13 +2406,13 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询桌面安装agent详情
-     * @param {string} [enterpriseProjectId] 企业项目ID
-     * @param {string} [desktopId] 桌面ID
-     * @param {string} [desktopName] 桌面名称
-     * @param {string} [status] 桌面状态
-     * @param {string} [ipAddress] ip地址
-     * @param {boolean} [isInstalled] 插件是否已安装
-     * @param {string} [desktopPoolId] 桌面池id
+     * @param {string} [enterpriseProjectId] 企业项目ID。
+     * @param {string} [desktopId] 桌面ID。
+     * @param {string} [desktopName] 桌面名称。
+     * @param {string} [status] 桌面状态。
+     * @param {string} [ipAddress] ip地址。
+     * @param {boolean} [isInstalled] 插件是否已安装。
+     * @param {string} [desktopPoolId] 桌面池id。
      * @param {number} [limit] 每页显示的数量。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
@@ -2477,32 +2434,13 @@ export class WorkspaceClient {
      *
      * @summary 查询桌面开关机信息
      * @param {string} desktopId 桌面ID。
-     * @param {number} [offset] 每页限制数
-     * @param {number} [limit] 起始位置
+     * @param {number} [offset] 每页限制数。
+     * @param {number} [limit] 起始位置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listDesktopActions(listDesktopActionsRequest?: ListDesktopActionsRequest): Promise<ListDesktopActionsResponse> {
         const options = ParamCreater().listDesktopActions(listDesktopActionsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询桌面解绑信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询桌面解绑信息
-     * @param {string} desktopId 桌面ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDesktopDetachInfo(listDesktopDetachInfoRequest?: ListDesktopDetachInfoRequest): Promise<ListDesktopDetachInfoResponse> {
-        const options = ParamCreater().listDesktopDetachInfo(listDesktopDetachInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2519,14 +2457,12 @@ export class WorkspaceClient {
      * @param {Array<string>} [userName] 桌面所属用户。
      * @param {string} [computerName] 桌面名。
      * @param {string} [desktopIp] 桌面IP地址。
-     * @param {Array<string>} [sids] 桌面的sid列表，一次只能查询20个sid。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {number} [limit] 用于分页查询，取值范围0-1000，默认值1000。
-     * @param {string} [siteId] 用于筛选指定站点下的桌面列表
      * @param {string} [poolId] 桌面池ID,多个桌面池ID用逗号隔开。
-     * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [desktopType] 桌面类型，为空时查所有桌面。查询多个类型时用,隔开。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等。 - SHARED: 多用户共享桌面。
-     * @param {boolean} [isShareDesktop] 是否为协同桌面
+     * @param {boolean} [isShareDesktop] 是否为协同桌面。
      * @param {string} [subnetId] 桌面的子网ID。
      * @param {string} [status] 桌面的运行状态。
      * @param {Array<string>} [desktopId] 桌面id，当前最多支持100个桌面id进行查询。
@@ -2578,24 +2514,21 @@ export class WorkspaceClient {
      * @param {'ASC' | 'DESC'} [sortType] 排序类型，默认升序，需要结合sort_field字段一起使用。 - ASC 升序。 - DESC 降序。
      * @param {string} [computerName] 桌面名。
      * @param {string} [desktopIp] 桌面IP地址。
-     * @param {string} [sids] 桌面的sid列表。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {number} [limit] 用于分页查询，取值范围0-500，默认值500。
      * @param {Array<string>} [desktopId] 桌面ID。
      * @param {string} [desktopType] 桌面类型，为空时查所有桌面。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等 - POOLED：池桌面，即桌面池里的桌面
-     * @param {string} [loginStatus] 桌面的登录状态。  - UNREGISTER：表示桌面未注册时的状态（桌面启动后，会自动注册）。关机后也会出现未注册的状态。 - REGISTERED：表示桌面注册以后，等待用户连接的状态。 - CONNECTED：表示用户已经成功登录，正在使用桌面。 - DISCONNECTED：表示桌面与客户端断开会话后显示的状态，可能为关闭客户端窗口，或客户端与桌面网络断开引起。
      * @param {string} [tag] 桌面的标签。样例：  - key1&#x3D;value1。 - key1&#x3D;value1，key2&#x3D;value2。
-     * @param {boolean} [fuzzyQuery] 是不是模糊用户查询。
      * @param {string} [poolId] 桌面池ID,多个桌面池ID用逗号隔开。
      * @param {boolean} [userAttached] 是否分配了用户。
-     * @param {string} [enterpriseProjectId] 企业项目ID
-     * @param {string} [imageId] 镜像ID
+     * @param {string} [enterpriseProjectId] 企业项目ID。
+     * @param {string} [imageId] 镜像ID。
      * @param {string} [chargeMode] 计费模式，0：包周期，1：按需。
-     * @param {boolean} [inMaintenanceMode] 按照维护模式过滤
-     * @param {boolean} [isShareDesktop] 是否为协同桌面
+     * @param {boolean} [inMaintenanceMode] 按照维护模式过滤。
+     * @param {boolean} [isShareDesktop] 是否为协同桌面。
      * @param {string} [subnetId] 桌面的子网ID。
      * @param {boolean} [isSupportInternet] 是否支持上网。
-     * @param {string} [availabilityZone] 查询可用区
+     * @param {string} [availabilityZone] 查询可用区。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2634,7 +2567,6 @@ export class WorkspaceClient {
      *
      * @summary 变更规格
      * @param {ResizeDesktopReq} resizeDesktopRequestBody 变更规格请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2648,7 +2580,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于管理员向桌面发送消息通知
+     * 用于管理员向桌面发送消息通知。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2667,12 +2599,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量设置桌面管理员维护模式
+     * 批量设置桌面管理员维护模式。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量设置桌面维护模式
-     * @param {BatchSetMaintenanceModeReq} [setMaintenanceModeRequestBody] 批量设置维护模式请求
+     * @param {BatchSetMaintenanceModeReq} [setMaintenanceModeRequestBody] 批量设置维护模式请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2713,7 +2645,7 @@ export class WorkspaceClient {
      * @param {string} desktopId 桌面ID。
      * @param {string} startTime 监控开始时间：由日期加时间组成，UTC格式，例如“2021-05-11T11:45:42Z”。
      * @param {string} endTime 监控结束时间：由日期加时间组成，UTC格式，例如“2021-05-11T11:45:42Z”。
-     * @param {string} [metricName] 监控查询指标：例如 \&quot;cpu_util\&quot;，详情见下表；当metric_name为空时，为批量查询| 指标                                  | 指标名称          | 测量对象     | 监控周期 || ------------------------------------- | ----------------- | ------------ | -------- || cpu_util                              | CPU使用率         | 弹性云服务器 | 5分钟    || mem_util                              | 内存使用率        | 弹性云服务器 | 5分钟    || disk_util_inband                      | 磁盘使用率        | 弹性云服务器 | 5分钟    || disk_read_bytes_rate                  | 磁盘读带宽        | 弹性云服务器 | 5分钟    || disk_write_bytes_rate                 | 磁盘写带宽        | 弹性云服务器 | 5分钟    || disk_read_requests_rate               | 磁盘读IOPS        | 弹性云服务器 | 5分钟    || disk_write_requests_rate              | 磁盘写IOPS        | 弹性云服务器 | 5分钟    || network_incoming_bytes_rate_inband    | 带内网络流入速率  | 弹性云服务器 | 5分钟    || network_outgoing_bytes_rate_inband    | 带内网络流出速率  | 弹性云服务器 | 5分钟    || network_incoming_bytes_aggregate_rate | 带外网络流入速率  | 弹性云服务器 | 5分钟    || network_outgoing_bytes_aggregate_rate | 带外网络流出速率  | 弹性云服务器 | 5分钟    || network_vm_connections                | 网络连接数        | 弹性云服务器 | 5分钟    || cpu_credit_usage                      | CPU积分使用量     | 弹性云服务器 | 5分钟    || cpu_credit_balance                    | CPU积分累积量     | 弹性云服务器 | 5分钟    || cpu_surplus_credit_balance            | CPU超额积分累积量 | 弹性云服务器 | 5分钟    || cpu_surplus_credit_charged            | CPU超额积分收费量 | 弹性云服务器 | 5分钟    || user_online_info                      | 用户在线信息      | 弹性云服务器 | -        |
+     * @param {string} [metricName] 监控查询指标：例如 \&quot;cpu_util\&quot;，详情见下表；当metric_name为空时，为批量查询| 指标                                  | 指标名称          | 测量对象     | 监控周期 || ------------------------------------- | ----------------- | ------------ | -------- || cpu_util                              | CPU使用率         |    云桌面    | 5分钟    || mem_util                              | 内存使用率        |    云桌面    | 5分钟    || disk_util_inband                      | 磁盘使用率        |    云桌面    | 5分钟    || disk_read_bytes_rate                  | 磁盘读带宽        |    云桌面    | 5分钟    || disk_write_bytes_rate                 | 磁盘写带宽        |    云桌面    | 5分钟    || disk_read_requests_rate               | 磁盘读IOPS        |    云桌面    | 5分钟    || disk_write_requests_rate              | 磁盘写IOPS        |    云桌面    | 5分钟    || network_incoming_bytes_rate_inband    | 带内网络流入速率  |    云桌面    | 5分钟    || network_outgoing_bytes_rate_inband    | 带内网络流出速率  |    云桌面    | 5分钟    || network_incoming_bytes_aggregate_rate | 带外网络流入速率  |    云桌面    | 5分钟    || network_outgoing_bytes_aggregate_rate | 带外网络流出速率  |    云桌面    | 5分钟    || network_vm_connections                | 网络连接数        |    云桌面    | 5分钟    || cpu_credit_usage                      | CPU积分使用量     |    云桌面    | 5分钟    || cpu_credit_balance                    | CPU积分累积量     |    云桌面    | 5分钟    || cpu_surplus_credit_balance            | CPU超额积分累积量 |    云桌面    | 5分钟    || cpu_surplus_credit_charged            | CPU超额积分收费量 |    云桌面    | 5分钟    || user_online_info                      | 用户在线信息      |    云桌面    | -        |
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2727,7 +2659,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询桌面vpc、子网、privateIp、EIP、安全组
+     * 查询桌面vpc、子网、privateIp、EIP、安全组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2746,7 +2678,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询桌面vpc、子网、privateIp、EIP、安全组
+     * 查询桌面vpc、子网、privateIp、EIP、安全组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2828,7 +2760,7 @@ export class WorkspaceClient {
      *
      * @summary 修改桌面属性
      * @param {string} desktopId 桌面ID。
-     * @param {ModifyDesktopAttributesReq} updateDesktopRequestBody 修改桌面属性请求
+     * @param {ModifyDesktopAttributesReq} updateDesktopRequestBody 修改桌面属性请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2847,7 +2779,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新桌面SID
-     * @param {UpdateDesktopSidReq} updateDesktopSidsRequestBody 更新桌面sid请求
+     * @param {UpdateDesktopSidReq} updateDesktopSidsRequestBody 更新桌面sid请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2968,7 +2900,6 @@ export class WorkspaceClient {
      * @summary 桌面池批量添加磁盘
      * @param {string} poolId 桌面池ID。
      * @param {AddDesktopPoolVolumesReq} addDesktopPoolVolumesRequestBody 桌面池批量添加磁盘。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2989,7 +2920,6 @@ export class WorkspaceClient {
      *
      * @summary 创建桌面池
      * @param {CreateDesktopPoolReq} createDesktopPoolRequestBody 创建桌面池请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3109,7 +3039,6 @@ export class WorkspaceClient {
      * @summary 扩容桌面池
      * @param {string} poolId 桌面池ID。
      * @param {ExpandDesktopPoolReq} expandDesktopPoolRequestBody 扩容桌面池。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3130,7 +3059,6 @@ export class WorkspaceClient {
      * @summary 桌面池批量扩容磁盘
      * @param {string} poolId 桌面池ID。
      * @param {ExpandDesktopPoolVolumesReq} expandDesktopPoolVolumesRequestBody 桌面池批量扩容磁盘。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3150,8 +3078,8 @@ export class WorkspaceClient {
      *
      * @summary 查询桌面池授权的用户、用户组
      * @param {string} poolId 桌面池ID。
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
-     * @param {number} [limit] 用于分页查询，返回桌面数量限制。取值范围0-100，默认值是10
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
+     * @param {number} [limit] 用于分页查询，返回桌面数量限制。取值范围0-100，默认值是10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3172,10 +3100,10 @@ export class WorkspaceClient {
      * @summary 查询桌面池列表
      * @param {string} [name] 桌面池名称。
      * @param {string} [type] 桌面池类型，DYNAMIC：动态池，STATIC：静态池。
-     * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {number} [limit] 用于分页查询，取值范围0-1000，默认值1000。
-     * @param {boolean} [inMaintenanceMode] 按照维护状态过滤
+     * @param {boolean} [inMaintenanceMode] 按照维护状态过滤。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3196,8 +3124,8 @@ export class WorkspaceClient {
      * @summary 查询桌面池下的桌面信息
      * @param {string} poolId 桌面池ID。
      * @param {string} [inconsistentType] 通过该类型过滤出与桌面池规格类型不一致的桌面 - PRODUCT: 查找productID与桌面池套餐ID不一致的桌面 - IMAGE: 查找imageID与桌面池镜像ID不一致的桌面
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
-     * @param {number} [limit] 用于分页查询，返回桌面数量限制。取值范围0-100，默认值是10
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
+     * @param {number} [limit] 用于分页查询，返回桌面数量限制。取值范围0-100，默认值是10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3217,8 +3145,7 @@ export class WorkspaceClient {
      *
      * @summary 桌面池重建系统盘
      * @param {string} poolId 桌面池ID。
-     * @param {RebuildDesktopPoolReq} rebuildDesktopPoolRequestBody 桌面池重建系统盘
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {RebuildDesktopPoolReq} rebuildDesktopPoolRequestBody 桌面池重建系统盘。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3232,14 +3159,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 桌面池变更规格
+     * 桌面池变更规格。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 桌面池变更规格
      * @param {string} poolId 桌面池ID。
-     * @param {ResizeDesktopPoolReq} resizeDesktopPoolRequestBody 桌面池变更规格
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {ResizeDesktopPoolReq} resizeDesktopPoolRequestBody 桌面池变更规格。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3253,7 +3179,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于管理员向桌面发送消息通知
+     * 用于管理员向桌面发送消息通知。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3326,7 +3252,7 @@ export class WorkspaceClient {
      *
      * @summary 修改桌面池属性
      * @param {string} poolId 桌面池ID。
-     * @param {UpdateDesktopPoolAttributesReq} updateDesktopPoolRequestBody 修改桌面池属性请求
+     * @param {UpdateDesktopPoolAttributesReq} updateDesktopPoolRequestBody 修改桌面池属性请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3340,12 +3266,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 同时对多个桌面批量添加标签，如果创建的标签已经存在（key相同）则覆，最大支持100个桌面，每个桌面最大20个标签
+     * 同时对多个桌面批量添加标签，如果创建的标签已经存在（key相同）则覆，最大支持100个桌面，每个桌面最大20个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加多个桌面标签
-     * @param {BatchAddDesktopsTagsReq} batchAddDesktopsTagsRequestBody 批量桌面添加标签
+     * @param {BatchAddDesktopsTagsReq} batchAddDesktopsTagsRequestBody 批量桌面添加标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3359,13 +3285,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 为指定桌面批量添加或删除标签。创建时，如果创建的标签已经存在（key相同），则覆盖。删除时，如果删除的标签不存在，默认处理成功
+     * 为指定桌面批量添加或删除标签。创建时，如果创建的标签已经存在（key相同），则覆盖。删除时，如果删除的标签不存在，默认处理成功。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加删除标签
      * @param {string} desktopId 桌面id。
-     * @param {TagsReq} batchChangeTagsRequestBody 批量添加删除标签
+     * @param {TagsReq} batchChangeTagsRequestBody 批量添加删除标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3379,12 +3305,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 同时对多个桌面批量添加标签，删除时，如果删除的标签不存在默认处理成功，最大支持100个桌面，每个桌面最大20个标签
+     * 同时对多个桌面批量添加标签，删除时，如果删除的标签不存在默认处理成功，最大支持100个桌面，每个桌面最大20个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除多个桌面标签
-     * @param {BatchDeleteDesktopsTagsReq} batchDeleteDesktopsTagsRequestBody 批量添加删除标签
+     * @param {BatchDeleteDesktopsTagsReq} batchDeleteDesktopsTagsRequestBody 批量添加删除标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3404,7 +3330,7 @@ export class WorkspaceClient {
      *
      * @summary 创建桌面标签
      * @param {string} desktopId 桌面id。
-     * @param {CreateTagReq} createTagRequestBody 创建桌面标签请求
+     * @param {CreateTagReq} createTagRequestBody 创建桌面标签请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3438,12 +3364,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 使用标签过滤桌面
+     * 使用标签过滤桌面。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 使用标签过滤桌面
-     * @param {QueryDesktopByTagReq} listDesktopByTagsRequestBody 开通云桌面服务请求
+     * @param {QueryDesktopByTagReq} listDesktopByTagsRequestBody 开通云桌面服务请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3457,7 +3383,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询租户的所有标签集合
+     * 查询租户的所有标签集合。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3478,7 +3404,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询指定桌面的标签信息
+     * 查询指定桌面的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3584,6 +3510,7 @@ export class WorkspaceClient {
      * @param {string} [userName] 用户名支持模糊查询。
      * @param {string} [description] 用户描述支持模糊查询。
      * @param {'USER_ACTIVATE' | 'ADMIN_ACTIVATE'} [activeType] 激活类型。 - USER_ACTIVATE：用户激活 - ADMIN_ACTIVATE：管理员激活
+     * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [limit] 用于分页查询，返回桌面数量限制。如果不指定或为0，默认2000，最大2000。
      * @param {string} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
@@ -3648,8 +3575,8 @@ export class WorkspaceClient {
      * @param {string} [imageType] 镜像类型。 -gold  公共镜像 -private  私有镜像
      * @param {string} [platform] 镜像系统类型,如Windows。
      * @param {string} [architecture] 镜像架构：x86。
-     * @param {string} [packageType] 套餐系列
-     * @param {string} [imageId] 镜像Id
+     * @param {string} [packageType] 套餐系列。
+     * @param {string} [imageId] 镜像Id。
      * @param {number} [limit] 每页数量，范围0-100，默认100。
      * @param {number} [offset] 偏移量,默认0。
      * @param {string} [sortField] 用于排序，表示按照哪个字段排序。取值为镜像属性name、created_at字段，默认为name。
@@ -3686,12 +3613,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面增配变更批量询价
+     * 包周期桌面增配变更批量询价。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面增配变更批量询价
-     * @param {EstimateAddSubResourcesRequestBody} estimateAddResourcesRequestBody 包周期桌面池批量询价请求体
+     * @param {EstimateAddSubResourcesRequestBody} estimateAddResourcesRequestBody 包周期桌面池批量询价请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3710,7 +3637,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量包周期桌面切换镜像询价
-     * @param {EstimateChangeImageRequestBody} estimateChangeImagesRequestBody 包周期桌面池批量询价请求体
+     * @param {EstimateChangeImageRequestBody} estimateChangeImagesRequestBody 包周期桌面池批量询价请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3724,12 +3651,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面池添加单个磁盘批量询价
+     * 包周期桌面池添加单个磁盘批量询价。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面池添加单个磁盘批量询价
-     * @param {EstimateAddVolumeRequestBody} estimateDesktopPoolAddVolumeRequestBody 包周期桌面池批量询价请求体
+     * @param {EstimateAddVolumeRequestBody} estimateDesktopPoolAddVolumeRequestBody 包周期桌面池批量询价请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3743,12 +3670,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面池切换镜像(由不收费镜像变更至收费镜像)批量询价
+     * 包周期桌面池切换镜像(由不收费镜像变更至收费镜像)批量询价。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面池切换镜像批量询价
-     * @param {EstimateChangeImageRequestBody} estimateDesktopPoolChangeImageRequestBody 包周期桌面池批量询价请求体
+     * @param {EstimateChangeImageRequestBody} estimateDesktopPoolChangeImageRequestBody 包周期桌面池批量询价请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3762,12 +3689,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面池扩容磁盘批量询价
+     * 包周期桌面池扩容磁盘批量询价。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面池扩容磁盘批量询价
-     * @param {EstimateExtendVolumeRequestBody} estimateDesktopPoolExtendVolumeRequestBody 包周期桌面池批量询价请求体
+     * @param {EstimateExtendVolumeRequestBody} estimateDesktopPoolExtendVolumeRequestBody 包周期桌面池批量询价请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3781,12 +3708,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面池变更规格批量询价
+     * 包周期桌面池变更规格批量询价。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面池变更规格批量询价
-     * @param {EstimateResizeRequestBody} estimateDesktopPoolResizeRequestBody 包周期桌面池批量询价请求体
+     * @param {EstimateResizeRequestBody} estimateDesktopPoolResizeRequestBody 包周期桌面池批量询价请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3806,7 +3733,7 @@ export class WorkspaceClient {
      *
      * @summary 重试任务
      * @param {string} jobId 任务ID。
-     * @param {JobActionsReq} runActionsOnWorkspaceJobRequestBody 桌面云任务操作，包括重试、取消、中止请求
+     * @param {JobActionsReq} runActionsOnWorkspaceJobRequestBody 桌面云任务操作，包括重试、取消、中止请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3845,8 +3772,8 @@ export class WorkspaceClient {
      *
      * @summary 子任务查询
      * @param {string} [status] 任务状态 - SUCCESS：成功。 - RUNNING：运行中。 - FAILED：失败。 - WAITING：等待。
-     * @param {string} [jobId] 任务ID。
-     * @param {string} [jobType] 任务类型  - createDesktops：创建桌面任务。  - applyWorkspace：开通云桌面服务。  - cancelWorkspace：注销云桌面服务。  - expandVolumes:  扩容磁盘。  - addVolumes: 添加磁盘。
+     * @param {string} [jobId] 任务ID。 “job_type”与“job_id”建议至少填写一个
+     * @param {string} [jobType] 任务类型。 “job_type”与“job_id”建议至少填写一个  - createDesktops：创建桌面任务。  - applyWorkspace：开通云桌面服务。  - cancelWorkspace：注销云桌面服务。  - expandVolumes: 扩容磁盘。  - addVolumes: 添加磁盘。  - rebuildDesktops：重建桌面系统盘。  - createSnapshot：创建磁盘快照。  - deleteSnapshot：删除磁盘快照。  - deleteDesktops：删除桌面。  - desktopRejoinDomain：桌面重新加域。  - operateDesktops：操作桌面。  - restoreDesktopBySnapshot：使用快照恢复桌面。  - desktopToImage：桌面转镜像。  - attachDesktops：分配桌面。  - deleteVolumes：删除桌面磁盘（数据盘）。  - createWksSnapshot：创建快照。  - deleteWksSnapshot：删除快照。    - createDesktopPool：创建桌面池。  - expandDesktopPool：扩容桌面池。   - deleteDesktopPoolVolumes：桌面池删除桌面磁盘（数据盘）。  - rebuildDesktopPool：桌面池重建系统盘。  - addDesktopPoolVolumes：桌面池添加磁盘。  - detachDesktops：解绑桌面池桌面。  - attachDesktopPool：分配桌面池桌面。  - batchDetachDesktops：批量解绑桌面用户。  - executeDesktopsAction：桌面操作。  - changeDesktopNetwork：桌面切换网络。  - batchChangeDesktopNetwork：桌面切换网络。
      * @param {string} [desktopPoolId] 桌面池ID。
      * @param {number} [limit] 用于分页查询，取值范围0~1000，默认1000。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
@@ -3887,7 +3814,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户的NAT映射配置项
-     * @param {string} [siteId] 站点ID
+     * @param {string} [siteId] 站点ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3926,7 +3853,6 @@ export class WorkspaceClient {
      *
      * @summary 开通桌面上网功能
      * @param {ApplyDesktopsInternetReq} applyDesktopsInternetRequestBody 请求参数。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3945,7 +3871,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开通上网功能
-     * @param {ApplyInternetReq} applyInternetRequestBody 请求参数
+     * @param {ApplyInternetReq} applyInternetRequestBody 请求参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3965,7 +3891,6 @@ export class WorkspaceClient {
      *
      * @summary 创建云办公带宽
      * @param {ApplySubnetBandwidthReq} applySubnetBandwidthRequestBody 请求参数。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4036,11 +3961,11 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询已绑定桌面和未绑定的Eip。
+     * 查询已绑定桌面和未绑定的EIP。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询已绑定桌面和未绑定的Eip
+     * @summary 查询已绑定桌面和未绑定的EIP
      * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [desktopId] 桌面ID。
      * @param {string} [desktopName] 桌面名称。
@@ -4067,9 +3992,9 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询上网功能
-     * @param {string} [enterpriseProjectId] 企业项目ID
-     * @param {string} [natName] NAT网关名称
-     * @param {string} [eip] EIP地址
+     * @param {string} [enterpriseProjectId] 企业项目ID。
+     * @param {string} [natName] NAT网关名称。
+     * @param {string} [eip] EIP地址。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4087,16 +4012,16 @@ export class WorkspaceClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Nat网关列表
+     * @summary 查询NAT网关列表
      * @param {string} [id] 公网NAT网关实例的ID。
      * @param {string} [enterpriseProjectId] 企业项目ID。创建公网NAT网关实例时，关联的企业项目ID。
      * @param {string} [description] 公网NAT网关实例的描述，长度限制为255。
      * @param {string} [createdAt] 公网NAT网关实例的创建时间，遵循UTC时间，格式是yyyy-mm-ddThh:mm:ssZ。
-     * @param {string} [name] 公网NAT网关实例的名字，长度限制为64。公网NAT网关实例的名字仅支持数字、字母、_（下划线）、-（中划线）、中文
-     * @param {Array<string>} [status] 公网NAT网关实例的状态。 枚举值：  ACTIVE PENDING_CREATE PENDING_UPDATE PENDING_DELETE INACTIVE
-     * @param {Array<string>} [spec] 公网NAT网关实例的规格。取值为： \&quot;1\&quot;：小型，SNAT最大连接数10000；\&quot;2\&quot;：中型，SNAT最大连接数50000；\&quot;3\&quot;：大型，SNAT最大连接数200000；\&quot;4\&quot;：超大型，SNAT最大连接数1000000
+     * @param {string} [name] 公网NAT网关实例的名字，长度限制为64。公网NAT网关实例的名字仅支持数字、字母、_（下划线）、-（中划线）、中文。
+     * @param {Array<'ACTIVE' | 'INACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE'>} [status] 公网NAT网关实例的状态。 枚举值：  ACTIVE PENDING_CREATE PENDING_UPDATE PENDING_DELETE INACTIVE
+     * @param {Array<string>} [spec] 公网NAT网关实例的规格。取值为： \&quot;1\&quot;：小型，SNAT最大连接数10000；\&quot;2\&quot;：中型，SNAT最大连接数50000；\&quot;3\&quot;：大型，SNAT最大连接数200000；\&quot;4\&quot;：超大型，SNAT最大连接数1000000。
      * @param {string} [routerId] VPC的id。
-     * @param {number} [limit] 功能说明：每页返回的个数。取值范围：0~2000。默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。取值范围：1~2000。默认值：2000。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4116,7 +4041,7 @@ export class WorkspaceClient {
      *
      * @summary 查询端口列表
      * @param {string} [marker] 分页查询的起始资源ID。
-     * @param {number} [limit] 分页查询每页返回的记录个数。
+     * @param {number} [limit] 功能说明：每页返回的个数。取值范围：1~2000。默认值：2000。
      * @param {string} [ipAddress] ip地址。
      * @param {string} [subnetId] 子网ID。
      * @param {boolean} [isUsed] 是否被使用。
@@ -4202,14 +4127,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 修改云办公带宽
+     * 修改云办公带宽。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改云办公带宽
      * @param {string} bandwidthId 云办公带宽id。
      * @param {UpdateSubnetBandwidthReq} updateSubnetBandwidthRequestBody 修改云办公带宽请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4223,7 +4147,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 修改云办公带宽的控制配置
+     * 修改云办公带宽的控制配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4243,13 +4167,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 变更规格、扩容磁盘[、按需转包周期生成订单](tag:inner)
+     * 变更规格、扩容磁盘。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建变更订单
      * @param {string} desktopId 桌面id。
-     * @param {CreateChangeOrderReq} createChangeOrderRequestBody 创建变更请求体
+     * @param {CreateChangeOrderReq} createChangeOrderRequestBody 创建变更请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4263,12 +4187,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面批量变更下单
+     * 包周期桌面批量变更下单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面批量变更下单
-     * @param {CreateBatchChangeOrderRequestBody} createDesktopBatchOrderRequestBody 包周期桌面批量下单请求体
+     * @param {CreateBatchChangeOrderRequestBody} createDesktopBatchOrderRequestBody 包周期桌面批量下单请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4301,12 +4225,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期桌面池批量变更下单
+     * 包周期桌面池批量变更下单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期桌面池批量变更下单
-     * @param {CreateBatchChangeOrderRequestBody} createDesktopPoolChangeOrderRequestBody 包周期桌面池批量变更下单请求体
+     * @param {CreateBatchChangeOrderRequestBody} createDesktopPoolChangeOrderRequestBody 包周期桌面池批量变更下单请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4320,12 +4244,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 包周期资源（桌面、磁盘[、云办公主机](tag:ZQ)）下订单。
+     * 包周期资源（桌面、磁盘）下订单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 包周期下单
-     * @param {CreateOrderReq} createOrderRequestBody 创建订单请求体
+     * @param {CreateOrderReq} createOrderRequestBody 创建订单请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4364,7 +4288,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增OU信息
-     * @param {AddOuNameInfoV2Req} addOuRequestBody 创建OU信息请求
+     * @param {AddOuNameInfoV2Req} addOuRequestBody 创建OU信息请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4397,16 +4321,16 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询OU下用户信息
+     * 查询OU下用户信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询OU下用户信息
-     * @param {string} ouDn OU的域名地址
-     * @param {string} [userName] 用户名，支持模糊查询
-     * @param {boolean} [hasExisted] 用户是否已存在
-     * @param {number} [limit] 用于分页查询，返回桌面数量限制。如果不指定，则返回所有符合条件的桌面
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
+     * @param {string} ouDn OU的域名地址。
+     * @param {string} [userName] 用户名，支持模糊查询。
+     * @param {boolean} [hasExisted] 用户是否已存在。
+     * @param {number} [limit] 用于分页查询，返回桌面数量限制。如果不指定，则返回所有符合条件的桌面。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4420,13 +4344,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询OU信息
+     * 查询AD里的OU列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询OU信息
-     * @param {number} [limit] 用于分页查询，返回桌面数量限制。如果不指定，则返回所有符合条件的桌面
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
+     * @summary 查询AD里的OU列表
+     * @param {number} [limit] 用于分页查询，返回桌面数量限制。如果不指定，则返回所有符合条件的桌面。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4440,14 +4364,14 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询OU信息
+     * 查询OU列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询OU信息
+     * @summary 查询OU列表
      * @param {string} [ouName] OU名称。
-     * @param {number} [limit] 用于分页查询，返回桌面数量限制。如果不指定，则返回所有符合条件的桌面
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
+     * @param {number} [limit] 用于分页查询，返回桌面数量限制。如果不指定，则返回所有符合条件的桌面。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4461,13 +4385,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 更新OU信息
+     * 更新OU信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新OU信息
      * @param {string} ouId OU的id。
-     * @param {ModifyOuNameInfoV2Req} updateOuInfoRequestBody 更新OU信息请求
+     * @param {ModifyOuNameInfoV2Req} updateOuInfoRequestBody 更新OU信息请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4487,7 +4411,7 @@ export class WorkspaceClient {
      *
      * @summary 修改策略组应用对象
      * @param {string} policyGroupId 策略组id。
-     * @param {ModifyPolicyTargetReq} batchUpdateTargetOfPolicyGroupRequestBody 修改策略组应用请求对象
+     * @param {ModifyPolicyTargetReq} batchUpdateTargetOfPolicyGroupRequestBody 修改策略组应用请求对象。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4501,12 +4425,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 新增策略组
+     * 新增策略组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增策略组
-     * @param {CreatePolicyGroupReq} [createPolicyGroupRequestBody] 请求体
+     * @param {CreatePolicyGroupReq} [createPolicyGroupRequestBody] 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4520,7 +4444,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 删除指定策略组，包含策略组对应的策略信息以及应用对象信息
+     * 删除指定策略组，包含策略组对应的策略信息以及应用对象信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4539,7 +4463,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询初始策略项
+     * 查询初始策略项。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4563,7 +4487,7 @@ export class WorkspaceClient {
      *
      * @summary 查询策略组中的策略项
      * @param {string} policyGroupId 策略组id。
-     * @param {string} [policyType] 根据策略类型过滤结果，不传则查询所有策略。 可选类型: - 外设：Peripherals; - 音频：Audio; - 客户端：Client; - 显示：Display; - 文件与剪切板：FileAndClip; - 接入控制：ClientAccessControl; - 会话：SessionAutoDisconnect; - 虚拟通道：VirtualChannel - 水印：Watermark; - 键盘鼠标：KeyboardAndMouse; - 通用音视频旁路：Seamless。
+     * @param {string} [policyType] 根据策略类型过滤结果，不传则查询所有策略。 可选类型: - 外设：Peripherals; - 音频：Audio; - 客户端：Client; - 显示：Display; - 文件与剪切板：FileAndClip; - 接入控制：ClientAccessControl; - 会话：SessionAutoDisconnect; - 虚拟通道：VirtualChannel - 水印：Watermark; - 键盘鼠标：KeyboardAndMouse; - 通用音视频旁路：Seamless。 - 录屏审计：RecordAudit。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4577,7 +4501,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 根据策略组ID查询策略组详细信息，包含策略信息以及应用对象信息
+     * 根据策略组ID查询策略组详细信息，包含策略信息以及应用对象信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4602,13 +4526,12 @@ export class WorkspaceClient {
      *
      * @summary 查询策略组列表
      * @param {number} [limit] 用于分页查询，返回策略组数量的限制。如果不指定，则返回所有符合条件的策略组。范围0~100。
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，范围0~1000。
      * @param {string} [policyGroupId] 根据策略组ID过滤结果。
      * @param {string} [policyGroupName] 根据策略组名字过滤结果。
-     * @param {number} [priority] 根据优先级过滤结果。所带的值需要满足现有策略组已有最大优先级值
-     * @param {string} [updateTime] 根据更新时间过滤结果。时间格式满足：yyyy-MM-dd HH:mm:ss
-     * @param {string} [description] 策略组描述
-     * @param {number} [scopeFlag] 策略来源，取值范围0或者1
+     * @param {number} [priority] 根据优先级过滤结果。所带的值需要满足现有策略组已有最大优先级值。
+     * @param {string} [updateTime] 根据更新时间过滤结果。时间格式满足：yyyy-MM-dd HH:mm:ss。
+     * @param {string} [description] 策略组描述。
      * @param {boolean} [isGroupNameAccurate] 策略组名字精确查询。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4628,14 +4551,13 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询策略组详情列表
-     * @param {number} [limit] 用于分页查询。范围0-100
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
+     * @param {number} [limit] 用于分页查询。范围0-100。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，范围0-10000。
      * @param {string} [policyGroupId] 根据策略组ID过滤结果。
      * @param {string} [policyGroupName] 根据策略组名字过滤结果。
      * @param {number} [priority] 根据优先级过滤结果。所带的值需要满足现有策略组已有最大优先级值。
      * @param {string} [updateTime] 根据更新时间过滤结果。时间格式满足：yyyy-MM-dd HH:mm:ss。
-     * @param {string} [description] 策略组描述
-     * @param {number} [scopeFlag] 策略来源，取值范围0或者1
+     * @param {string} [description] 策略组描述。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4657,7 +4579,7 @@ export class WorkspaceClient {
      * @param {string} policyGroupId 策略组id。
      * @param {string} [targetType] 应用对象的类型。 - INSTANCE：表示桌面。 - USER：表示用户。 - OU：表示组织单元。 - CLIENTIP：终端IP地址。
      * @param {string} [targetName] 对象名称，支持模糊查询。
-     * @param {number} [limit] 每页数量。范围0-1000
+     * @param {number} [limit] 每页数量。范围0-1000。
      * @param {string} [offset] 偏移量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4692,13 +4614,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 修改指定策略组的信息
+     * 修改指定策略组的信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改策略组
      * @param {string} policyGroupId 策略组id。
-     * @param {ModifyPolicyGroupRequest} updatePolicyGroupRequestBody 修改指定策略组请求体
+     * @param {ModifyPolicyGroupRequest} updatePolicyGroupRequestBody 修改指定策略组请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4738,15 +4660,11 @@ export class WorkspaceClient {
      *
      * @summary 查询产品套餐列表
      * @param {string} [productId] 产品ID。
-     * @param {string} [flavorId] 产品flavor_id。
      * @param {string} [availabilityZone] 可用分区。
      * @param {string} [osType] 产品套餐的操作系统类型，当前支持：Windows、Linux。
      * @param {string} [chargeMode] 周期套餐标识。0表示包周期，1表示按需。
      * @param {string} [architecture] 架构类型，当前支持：arm、x86。
-     * @param {string} [dehProductId] wdh套餐id。
-     * @param {boolean} [isDeh] 是否为wdh产品。
      * @param {string} [packageType] 套餐系列。
-     * @param {string} [productsRange] 查询套餐的范围(all：查询所有套餐，包括培训版；若为null则不包含培训版套餐）
      * @param {number} [limit] 每页数量，范围0-100，默认100。
      * @param {number} [offset] 偏移量，默认0。
      * @param {*} [options] Override http request option.
@@ -4770,8 +4688,8 @@ export class WorkspaceClient {
      * @param {string} [productId] 产品ID。
      * @param {string} [shareSpaceSize] 协同方数。该套餐支持的最大协同人数。
      * @param {string} [chargeMode] 周期套餐标识。0表示包周期，1表示按需, 6表示一次性计费。
-     * @param {number} [isGpu] 是否是GPU套餐。1表示GPU套餐，0表示非GPU套餐，默认null查询所有类型
-     * @param {string} [packageType] 套餐系列。user_sharer表示用户协同套餐，desktop_sharer表示桌面协同套餐
+     * @param {number} [isGpu] 是否是GPU套餐。1表示GPU套餐，0表示非GPU套餐，默认null查询所有类型。
+     * @param {string} [packageType] 套餐系列。user_sharer表示用户协同套餐，desktop_sharer表示桌面协同套餐。
      * @param {number} [limit] 每页数量，范围0-100，默认100。
      * @param {number} [offset] 偏移量，默认0。
      * @param {*} [options] Override http request option.
@@ -4810,7 +4728,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启禁用租户功能
-     * @param {{ [key: string]: boolean; }} updateTenantProfileRequestBody 启禁用租户功能
+     * @param {{ [key: string]: boolean; }} updateTenantProfileRequestBody 启禁用租户功能。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4824,13 +4742,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询租户单个站点配额详情
+     * 查询租户单个站点配额详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户单个站点配额详情
-     * @param {string} [siteId] 站点ID
-     * @param {string} [azCode] 可用分区code
+     * @param {string} [siteId] 站点ID。
+     * @param {string} [azCode] 可用分区code。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4849,12 +4767,11 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户配额
-     * @param {string} [type] 要查询的配额类型，只支持user。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
-        const options = ParamCreater().showQuotas(showQuotasRequest);
+        const options = ParamCreater().showQuotas();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4926,7 +4843,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 未来执行的具体时间列表
-     * @param {ListFutureExecutionsReq} listFutureExecutionsRequestBody 请求参数
+     * @param {ListFutureExecutionsReq} listFutureExecutionsRequestBody 请求参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5008,12 +4925,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 获取时区配置
+     * 获取时区配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取时区配置
-     * @param {string} [timeZoneName] 按照时区name过滤
+     * @param {string} [timeZoneName] 按照时区name过滤。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5071,7 +4988,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除录屏记录
-     * @param {BatchDeleteScreenRecordsRequestBody} [batchDeleteScreenRecordsRequestBody] 请求体
+     * @param {BatchDeleteScreenRecordsRequestBody} [batchDeleteScreenRecordsRequestBody] 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5092,7 +5009,7 @@ export class WorkspaceClient {
      * @summary 查询桌面关键事件列表
      * @param {string} recordId 录屏记录UUID。
      * @param {string} [eventType] 事件类型。 - APP：应用监控。 - FILE：文件监控。 - REG：注册表监控。 - HDP：协议行为监控。
-     * @param {string} [eventId] 事件ID。 - APP_START：应用程序启动 - APP_STOP：应用程序结束 - APP_CRASH：应用程序异常退出 - APP_HANG：应用程序无响应 - APP_INSTALL：应用安装 - APP_UNINSTALL：应用卸裁 - FILE_CREATE：文件创建 - FILE_DELETE：文件删除 - FILE_RENAME：文件改名 - REG_CREATE：注册表创建 - REG_CHANGE：注册表修改 - REG_DELETE：注册表删除 - REG_RENAME：注册表改名 - REG_SETVALUE：注册表设置值 - HDP_USB：USB重定向事件 - HDP_CLIPBOARD：剪切板操作 - HDP_INPUTIDLE：空闲无操作 - HDP_PRINT：文件打印
+     * @param {string} [eventId] 事件ID。 - APP_START：应用程序启动 - APP_STOP：应用程序结束 - APP_CRASH：应用程序异常退出 - APP_HANG：应用程序无响应 - APP_INSTALL：应用安装 - APP_UNINSTALL：应用卸裁 - FILE_CREATE：文件创建 - FILE_DELETE：文件删除 - FILE_RENAME：文件改名 - HDP_FILE：文件重定向 - HDP_USB：USB插拔事件 - HDP_CLIPBOARD：剪切板操作 - HDP_INPUTIDLE：空闲无操作 - HDP_PRINT：文件打印
      * @param {string} [eventLevel] 事件级别。 - INFO：提示。 - ALARM：告警。 - ERROR：异常。
      * @param {string} [eventData] 事件内容。
      * @param {number} [limit] 用于分页查询，返回录屏记录数量的限制。默认100。范围0~1000。
@@ -5115,7 +5032,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询下载地址列表
-     * @param {ListDownloadAddressRequestBody} [listDownloadAddressRequestBody] 请求体
+     * @param {ListDownloadAddressRequestBody} [listDownloadAddressRequestBody] 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5139,11 +5056,11 @@ export class WorkspaceClient {
      * @param {string} [desktopId] 根据桌面ID过滤结果。
      * @param {string} [username] 根据用户名称过滤结果。
      * @param {string} [status] 录屏状态。 - RECORDING：录制中。 - REC_COMPLETED：录制完成。 - UPLOADING：上传中。 - UPLOAD_COMPLETED：上传完成。
-     * @param {string} [type] 录屏类型。 - FULL：全程录屏。 - INTERVAL：间隔录屏。 - USER_OPERATION：用户操作录屏。 - SESSION：监听会话生命周期录屏。
+     * @param {string} [type] 录屏类型。 - FULL：全程录屏。 - INTERVAL：间隔录屏。 - OPERATION：用户操作录屏。 - SESSION：监听会话生命周期录屏。
      * @param {string} [startTime] 开始时间，格式为yyyy-MM-dd HH:mm:ss（UTC时间，不传查默认最近15天）。
      * @param {string} [endTime] 结束时间，格式为yyyy-MM-dd HH:mm:ss（UTC时间，不传查默认最近15天）。
-     * @param {string} [sortField] 用于排序，表示按照哪个字段排序。取值为录屏属性start_time、szie字段，默认为start_time。
-     * @param {string} [sortType] 用于排序，表示升序还是降序，取值为asc和desc。与sort_field一起组合使用，默认为降序desc。
+     * @param {string} [sortField] 用于排序，表示按照哪个字段排序。取值为录屏属性start_time字段。
+     * @param {string} [sortType] 用于排序，表示升序还是降序，取值为asc和desc。与sort_field一起组合使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5157,7 +5074,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询录屏详情
+     * 查询录屏详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5238,8 +5155,8 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询脚本执行记录列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
      * @param {Array<string>} [resourceId] 执行脚本的资源ID列表。
      * @param {Array<string>} [resourceGroupId] 执行脚本的资源组ID。
      * @param {Array<string>} [scriptId] 执行的脚本ID。
@@ -5269,10 +5186,10 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询脚本任务列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
      * @param {Array<string>} [resourceGroupId] 执行脚本的资源组ID。
-     * @param {string} [scriptId] 脚本ID
+     * @param {string} [scriptId] 脚本ID。
      * @param {string} [scriptName] 脚本名。
      * @param {string} [status] 执行情况。
      * @param {string} [resourceGroupType] 资源组类型。
@@ -5298,9 +5215,9 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询脚本列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {string} [id] 脚本ID
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {string} [id] 脚本ID。
      * @param {string} [name] 脚本名称。
      * @param {string} [type] 脚本类型。
      * @param {*} [options] Override http request option.
@@ -5341,7 +5258,7 @@ export class WorkspaceClient {
      *
      * @summary 查询脚本详情
      * @param {string} scriptId 脚本ID。
-     * @param {string} [scriptTaskId] 执行脚本的任务ID
+     * @param {string} [scriptTaskId] 执行脚本的任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5413,13 +5330,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 存量桌面购买附属资源
+     * 存量桌面购买附属资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 桌面购买附属资源
      * @param {AddDesktopSubResourcesReq} addDesktopSubResourcesRequestBody 桌面购买附属资源请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5433,13 +5349,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 桌面删除附属资源
+     * 桌面删除附属资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 桌面删除附属资源
      * @param {DeleteDesktopSubResourcesReq} deleteDesktopSubResourcesRequestBody 桌面删除协同资源请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5453,12 +5368,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询协同桌面默认用户配置（当前功能公测中,需要使用请联系管理员申请使用）
+     * 查询协同桌面默认用户配置（当前功能公测中,需要使用请联系管理员申请使用）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询协同桌面默认用户配置
-     * @param {string} name 查询协同桌面默认用户配置, share-space-user-conf
+     * @param {string} name 查询协同桌面默认用户配置, share-space-user-conf。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5472,12 +5387,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 设置协同桌面默认用户配置（当前功能公测中，需要使用请联系管理员申请使用）
+     * 设置协同桌面默认用户配置（当前功能公测中，需要使用请联系管理员申请使用）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置协同桌面默认用户配置
-     * @param {UpdateShareSpaceConfigReq} updateShareSpaceConfigRequestBody 请求参数
+     * @param {UpdateShareSpaceConfigReq} updateShareSpaceConfigRequestBody 请求参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5491,7 +5406,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于查询站点信息的接口
+     * 用于查询站点信息的接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5510,7 +5425,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于删除站点的接口
+     * 用于删除站点的接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5529,12 +5444,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于查询站点信息的接口
+     * 用于查询站点信息的接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询站点信息
-     * @param {string} [availabilityZoneId] 可用区
+     * @param {string} [availabilityZoneId] 可用区。
      * @param {string} [siteType] 站点类型，支持CENTER、IES。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5570,13 +5485,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于修改站点接入方式
+     * 用于修改站点接入方式。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改站点接入方式
      * @param {string} siteId 站点ID。
-     * @param {UpdateAccessModeReq} updateAccessModeRequestBody 修改站点接入方式
+     * @param {UpdateAccessModeReq} updateAccessModeRequestBody 修改站点接入方式。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5590,13 +5505,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 用于修改站点业务子网
+     * 用于修改站点业务子网。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改站点业务子网
      * @param {string} siteId 站点ID。
-     * @param {UpdateSubnetIdsRequestBody} updateSubnetIdsRequestBody 修改站点业务子网
+     * @param {UpdateSubnetIdsRequestBody} updateSubnetIdsRequestBody 修改站点业务子网。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5610,12 +5525,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量创建快照
+     * 批量创建快照。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建快照
-     * @param {BatchCreateDesktopSnapshotReq} batchCreateDesktopSnapshotRequestBody 批量创建快照请求
+     * @param {BatchCreateDesktopSnapshotReq} batchCreateDesktopSnapshotRequestBody 批量创建快照请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5629,12 +5544,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量删除快照
+     * 批量删除快照。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除快照
-     * @param {BatchDeleteDesktopSnapshotReq} batchDeleteDesktopSnapshotRequestBody 批量删除快照请求
+     * @param {BatchDeleteDesktopSnapshotReq} batchDeleteDesktopSnapshotRequestBody 批量删除快照请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5648,12 +5563,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 批量恢快照
+     * 批量恢快照。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量恢复快照
-     * @param {BatchRestoreSnapshotReq} batchRestoreDesktopSnapshotRequestBody 批量恢复快照请求
+     * @param {BatchRestoreSnapshotReq} batchRestoreDesktopSnapshotRequestBody 批量恢复快照请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5667,7 +5582,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询快照列表
+     * 查询快照列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5704,7 +5619,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增通知规则
-     * @param {AddMetricNotifyRuleReq} addMetricNotifyRuleRequestBody 设置通知规则
+     * @param {AddMetricNotifyRuleReq} addMetricNotifyRuleRequestBody 设置通知规则。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5723,7 +5638,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除通知规则
-     * @param {string} ruleId 通知规则ID
+     * @param {string} ruleId 通知规则ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5737,19 +5652,18 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询云应用接入统计数据;
-     * 最多查询30天内的数据;
+     * 查询云应用接入统计数据，一次最多查询30天，支持最近30天的数据查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云应用接入统计数据
-     * @param {string} startTime 查询起始时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z\&quot;
-     * @param {string} endTime 查询截至时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z\&quot;
-     * @param {string} [username] 用户名(模糊匹配)
+     * @param {string} startTime 查询起始时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z。\&quot;
+     * @param {string} endTime 查询截至时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z。\&quot;
+     * @param {string} [username] 用户名(模糊匹配)。
      * @param {string} [sortField] 按照指标进行排序 * &#x60;access_failed_count&#x60; -  按照接入失败数排序 * &#x60;last_access_failed_time&#x60; -  按照最近接入失败时间排序
      * @param {string} [sortType] 按照指标进行排序的方向;需配合sort_field一起使用 * &#x60;DESC&#x60; - 降序返回数据 * &#x60;ASC&#x60; -  升序返回数据
-     * @param {number} [offset] 查询的偏移量,默认值0
-     * @param {number} [limit] limit范围[1-100],默认值10
+     * @param {number} [offset] 查询的偏移量,默认值0。
+     * @param {number} [limit] limit范围[1-100],默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5774,16 +5688,16 @@ export class WorkspaceClient {
      *
      * @summary 查询桌面使用情况统计数据
      * @param {string} startTime 查询起始时间(0时区) 云服务每天凌晨02:00进行聚合运算前一天00:00:00~23:59:59的使用时长,并将周期范围内的数据聚合到周期边界上 跨天的记录会按照统计周期进行计算 假设一天内桌面登录多次，09:00~12:00,13:00~21:00,22:00~01:00(次日): 则当天的累计使用时长数据会被汇聚到23:59:59这个点;总使用时长为 3hours(09:00~12:00)+8hours(13:00~21:00)+2hours(22:00~00:00) 如果查询的from-to不足一个周期内，可能造成查询到数据为空；
-     * @param {string} endTime 查询截至时间(0时区)
-     * @param {string} [resourceName] 资源名称(模糊匹配)
-     * @param {number} [minIdleDays] 最小空闲天数
+     * @param {string} endTime 查询截至时间(0时区)。
+     * @param {string} [resourceName] 资源名称(模糊匹配)。
+     * @param {number} [minIdleDays] 最小空闲天数。
      * @param {number} [maxIdleDays] 最大空闲天数 min_idle_days、max_idle_days都非空时,max_idle_days必须大于等于min_idle_days否则可能查询不到数据
-     * @param {number} [usageMinHours] 使用时长(hour)最小值
-     * @param {number} [usageMaxHours] 使用时长(hour)最大值(必须大于等于usage_min_hours)
+     * @param {number} [usageMinHours] 使用时长(hour)最小值。
+     * @param {number} [usageMaxHours] 使用时长(hour)最大值(必须大于等于usage_min_hours)。
      * @param {string} [sortField] 按照指标进行排序 * &#x60;desktop_usage&#x60; -  按照桌面使用时长排序 * &#x60;desktop_idle_duration&#x60; -  按照桌面空闲周期排序
      * @param {string} [sortType] 按照指标进行排序的方向;需配合sort_field一起使用 * &#x60;DESC&#x60; - 降序返回数据 * &#x60;ASC&#x60; -  升序返回数据
-     * @param {number} [offset] 查询的偏移量,默认值0
-     * @param {number} [limit] limit范围[1-100],默认值0
+     * @param {number} [offset] 查询的偏移量,默认值0。
+     * @param {number} [limit] limit范围[1-100],默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5797,13 +5711,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 统计租户下的普通桌面、桌面池状态，默认仅统计总数
+     * 统计租户下的普通桌面、桌面池状态，默认仅统计总数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 桌面统计
-     * @param {Array<string>} [desktopType] 桌面类型
-     * @param {Array<'attach-state' | 'login-state' | 'run-state'>} [statisticsType] 统计类型，为空时仅统计桌面总数 |- - attach-state 按照分配状态统计 - login-state 按照登录状态统计 - run-state 按照运行状态统计
+     * @param {Array<string>} [desktopType] 桌面类型，为空时查所有桌面。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等 - POOLED：池桌面，即桌面池里的桌面
+     * @param {Array<'attach-state' | 'login-state' | 'run-state'>} [statisticsType] 统计类型，为空时仅统计桌面总数 |- - attach-state 按照分配状态统计 - login-state 按照登录状态统计 - run-state 按照运行状态统计。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5843,8 +5757,8 @@ export class WorkspaceClient {
      * @summary 查询对应指标维度是否存在满足通知规则的记录
      * @param {string} [metricName] 指标名称(精确匹配) (metric_name和rule_id不允许同时为空)
      * @param {string} [ruleId] 通知规则ID (metric_name和rule_id不允许同时为空)
-     * @param {number} [offset] 查询的偏移量,默认值0
-     * @param {number} [limit] 单次查询的大小[1-100],默认值10
+     * @param {number} [offset] 查询的偏移量,默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100],默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5858,15 +5772,15 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询对应指标的通知规则;
+     * 查询对应指标的通知规则;。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询通知规则
-     * @param {string} [metricName] 指标名称(精确匹配)
-     * @param {string} [ruleId] 通知规则ID
-     * @param {number} [offset] 查询的偏移量,默认值0
-     * @param {number} [limit] 单次查询的大小[1-100],默认值10
+     * @param {string} [metricName] 指标名称(精确匹配)。
+     * @param {string} [ruleId] 通知规则ID。
+     * @param {number} [offset] 查询的偏移量,默认值0。
+     * @param {number} [limit] 单次查询的大小[1-100],默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5880,16 +5794,16 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询指标
+     * 查询指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指标
-     * @param {string} startTime 开始时间, UTC时间
-     * @param {string} endTime 结束时间,UTC时间
-     * @param {Array<string>} metricNames 指标名称列表
-     * @param {string} [dim] 指标维度 | 目前最大支持3个维度，必须从0开始；维度格式为dim.{i}&#x3D;key,value，key的最大长度32，value的最大长度为256。 单维度：dim.0&#x3D;instance_id,6f3c6f91-4b24-4e1b-b7d1-a94ac1cb011d 多维度：dim.0&#x3D;key,value&amp;dim.1&#x3D;key,value
-     * @param {'DAY' | 'HOUR'} [period] 数据周期 | DAY - 天级数据 HOUR - 小时级数据
+     * @param {string} startTime 开始时间, UTC时间。
+     * @param {string} endTime 结束时间,UTC时间。
+     * @param {Array<string>} metricNames 指标名称列表。
+     * @param {string} [dim] 指标维度 | 目前最大支持3个维度，必须从0开始；维度格式为dim.{i}&#x3D;key,value，key的最大长度32，value的最大长度为256。 单维度：dim.0&#x3D;instance_id,6f3c6f91-4b24-4e1b-b7d1-a94ac1cb011d 多维度：dim.0&#x3D;key,value&amp;dim.1&#x3D;key,value。
+     * @param {'DAY' | 'HOUR'} [period] 数据周期 | DAY - 天级数据 HOUR - 小时级数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5903,16 +5817,16 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询指标趋势
+     * 查询指标趋势。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指标趋势
-     * @param {string} startTime 开始时间
-     * @param {string} endTime 结束时间
-     * @param {Array<string>} metricNames 指标名称列表
-     * @param {string} [dim] 指标维度 | 目前最大支持3个维度，必须从0开始；维度格式为dim.{i}&#x3D;key,value，key的最大长度32，value的最大长度为256。 单维度：dim.0&#x3D;instance_id,6f3c6f91-4b24-4e1b-b7d1-a94ac1cb011d 多维度：dim.0&#x3D;key,value&amp;dim.1&#x3D;key,value
-     * @param {'MIN' | '5MIN' | 'DAY' | 'HOUR'} [period] 数据周期 | MIN - 分钟级 5MIN - 5分钟级 DAY - 天级数据 HOUR - 小时级数据
+     * @param {string} startTime 开始时间。
+     * @param {string} endTime 结束时间。
+     * @param {Array<string>} metricNames 指标名称列表。
+     * @param {string} [dim] 指标维度 | 目前最大支持3个维度，必须从0开始；维度格式为dim.{i}&#x3D;key,value，key的最大长度32，value的最大长度为256。 单维度：dim.0&#x3D;instance_id,6f3c6f91-4b24-4e1b-b7d1-a94ac1cb011d 多维度：dim.0&#x3D;key,value&amp;dim.1&#x3D;key,value。
+     * @param {'MIN' | '5MIN' | 'DAY' | 'HOUR'} [period] 数据周期 | MIN - 分钟级 5MIN - 5分钟级 DAY - 天级数据 HOUR - 小时级数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5991,15 +5905,15 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户使用统计数据
-     * @param {string} startTime 查询起始时间(0时区)
-     * @param {string} endTime 查询截至时间(0时区)
-     * @param {string} [username] 用户名(模糊匹配)
-     * @param {number} [usageMinHours] 使用时长最小值
+     * @param {string} startTime 查询起始时间(0时区)。
+     * @param {string} endTime 查询截至时间(0时区)。
+     * @param {string} [username] 用户名(模糊匹配)。
+     * @param {number} [usageMinHours] 使用时长最小值。
      * @param {number} [usageMaxHours] 使用时长最大值 usage_min_hours和usage_max_hours同时存在时,usage_max_hours必须大于等于usage_min_hours
      * @param {string} [sortField] 按照指标进行排序 * &#x60;user_usage&#x60; -  按照用户使用时长排序
      * @param {string} [sortType] 按照指标进行排序的方向;需配合sort_field一起使用 * &#x60;DESC&#x60; - 降序返回数据 * &#x60;ASC&#x60; -  升序返回数据
-     * @param {number} [offset] 查询的偏移量,默认值0
-     * @param {number} [limit] limit范围[1-100],默认值0
+     * @param {number} [offset] 查询的偏移量,默认值0。
+     * @param {number} [limit] limit范围[1-100],默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6013,14 +5927,14 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询指标环比值
+     * 查询指标环比值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指标环比值
-     * @param {string} metricName 指标名称
-     * @param {'DAY' | 'MONTH'} [growPeriod] 环比周期 | DAY - 天 MONTH - 月
-     * @param {string} [dim] 指标维度 | 目前最大支持3个维度，必须从0开始；维度格式为dim.{i}&#x3D;key,value，key的最大长度32，value的最大长度为256。 单维度：dim.0&#x3D;instance_id,6f3c6f91-4b24-4e1b-b7d1-a94ac1cb011d 多维度：dim.0&#x3D;key,value&amp;dim.1&#x3D;key,value
+     * @param {string} metricName 指标名称。
+     * @param {'DAY' | 'MONTH'} [growPeriod] 环比周期 | DAY - 天 MONTH - 月。
+     * @param {string} [dim] 指标维度 | 目前最大支持3个维度，必须从0开始；维度格式为dim.{i}&#x3D;key,value，key的最大长度32，value的最大长度为256。 单维度：dim.0&#x3D;instance_id,6f3c6f91-4b24-4e1b-b7d1-a94ac1cb011d 多维度：dim.0&#x3D;key,value&amp;dim.1&#x3D;key,value。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6034,12 +5948,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询接入云桌面或云应用各阶段时长数据
+     * 查询接入云桌面或云应用各阶段时长数据。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询接入云桌面或云应用各阶段时长数据
-     * @param {string} transactionId 事务id
+     * @param {string} transactionId 事务id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6053,13 +5967,13 @@ export class WorkspaceClient {
     }
 
     /**
-     * 更新对应指标的通知规则;对应指标满足相应的规则条件时发送通知
+     * 更新对应指标的通知规则;对应指标满足相应的规则条件时发送通知。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新通知规则
-     * @param {string} ruleId 通知规则ID
-     * @param {UpdateMetricNotifyRuleReq} updateMetricNotifyRuleRequestBody 设置通知规则
+     * @param {string} ruleId 通知规则ID。
+     * @param {UpdateMetricNotifyRuleReq} updateMetricNotifyRuleRequestBody 设置通知规则。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6092,7 +6006,7 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询租户个性配置列表
+     * 查询租户个性配置列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6135,7 +6049,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增加终端与桌面绑定配置
-     * @param {CreateTerminalsBindingDesktopsRequestBody} createTerminalsBindingDesktopsRequestBody 增加TC绑定Vm信息请求
+     * @param {CreateTerminalsBindingDesktopsRequestBody} createTerminalsBindingDesktopsRequestBody 增加TC绑定Vm信息请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6154,7 +6068,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端与桌面绑定配置
-     * @param {DeleteTerminalsBindingDesktopsRequestBody} deleteTerminalsBindingDesktopsRequestBody 删除终端与桌面绑定配置
+     * @param {DeleteTerminalsBindingDesktopsRequestBody} deleteTerminalsBindingDesktopsRequestBody 删除终端与桌面绑定配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6177,7 +6091,7 @@ export class WorkspaceClient {
      * @param {number} limit 数量。
      * @param {string} [computerName] 桌面名。
      * @param {string} [mac] mac地址。
-     * @param {boolean} [countOnly] 是否只查询结果总条数
+     * @param {boolean} [countOnly] 是否只查询结果总条数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6233,7 +6147,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置终端与桌面绑定的开关配置
-     * @param {TerminalsBindingDesktopsConfig} updateTerminalsBindingDesktopsConfigRequestBody 设置终端与桌面绑定的开关配置请求
+     * @param {TerminalsBindingDesktopsConfig} updateTerminalsBindingDesktopsConfigRequestBody 设置终端与桌面绑定的开关配置请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6407,15 +6321,15 @@ export class WorkspaceClient {
      *
      * @summary 查询用户列表
      * @param {string} [userName] 桌面用户名，长度范围为1-20，不能包含特殊字符，不能以数字开头。
-     * @param {string} [userEmail] 用户邮箱。
      * @param {string} [limit] 用于分页查询，返回用户数量限制。如果不指定，则返回所有符合条件的用户。
      * @param {string} [offset] 分页查询起始条数。
      * @param {string} [description] 用户描述查询，模糊匹配。
      * @param {string} [activeType] 激活类型，默认为用户激活。 * USER_ACTIVATE： 用户激活 * ADMIN_ACTIVATE： 管理员激活
      * @param {string} [groupName] 桌面用户组名，精确匹配。
-     * @param {boolean} [shareSpaceSubscription] 用户是否已订阅协同，true/false
-     * @param {boolean} [shareSpaceDesktops] 用户是否已绑定协同桌面,true/false
-     * @param {boolean} [isQueryTotalDesktops] 是否查询用户绑定的桌面数,true/false,默认true
+     * @param {boolean} [shareSpaceSubscription] 用户是否已订阅协同，true/false。
+     * @param {boolean} [shareSpaceDesktops] 用户是否已绑定协同桌面,true/false。
+     * @param {boolean} [isQueryTotalDesktops] 是否查询用户绑定的桌面数,true/false,默认true。
+     * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6489,17 +6403,18 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询用户事件
+     * 查询用户事件，一次最多查询30天，支持最近30天的数据查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户事件
-     * @param {string} [startTime] 查询起始时间(0时区)
-     * @param {string} [endTime] 查询结束时间(0时区)
-     * @param {string} [username] 用户名（精确搜索）
-     * @param {string} [eventType] 事件类型
-     * @param {string} [eventTraceId] 事件之间的关联id
-     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始
+     * @param {string} startTime 查询起始时间，格式为：UTC时间，例如\&quot;1970-01-01T00:00:00Z\&quot;。
+     * @param {string} endTime 查询结束时间，格式为：UTC时间，例如\&quot;1970-01-01T00:00:00Z\&quot;。
+     * @param {string} [username] 用户名（精确搜索）。
+     * @param {string} [eventType] 事件类型，英文逗号隔开。
+     * @param {string} [resourceId] 操作资源ID。
+     * @param {string} [resourceName] 操作资源名称。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {number} [limit] 用于分页查询，返回用户事件数量限制，取值范围0-1000。如果不指定，默认为100。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6514,14 +6429,50 @@ export class WorkspaceClient {
     }
 
     /**
+     * 查询用户事件LTS配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户事件LTS配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUserEventsLtsConfigurations(listUserEventsLtsConfigurationsRequest?: ListUserEventsLtsConfigurationsRequest): Promise<ListUserEventsLtsConfigurationsResponse> {
+        const options = ParamCreater().listUserEventsLtsConfigurations();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 配置用户事件LTS。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 配置用户事件LTS
+     * @param {SetUserEventsLtsConfigurationsRequestBody} setUserEventsLtsConfigurationsRequestBody 创建应用使用记录导出任务
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setUserEventsLtsConfigurations(setUserEventsLtsConfigurationsRequest?: SetUserEventsLtsConfigurationsRequest): Promise<SetUserEventsLtsConfigurationsResponse> {
+        const options = ParamCreater().setUserEventsLtsConfigurations(setUserEventsLtsConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 给单个桌面增加磁盘。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增加桌面磁盘
      * @param {string} desktopId 桌面ID。
-     * @param {AddVolumesReq} addDesktopVolumesRequestBody 增加桌面磁盘请求
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {AddVolumesReq} addDesktopVolumesRequestBody 增加桌面磁盘请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6535,13 +6486,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 增加桌面磁盘。
+     * 批量增加桌面磁盘。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 增加桌面磁盘
+     * @summary 批量增加桌面磁盘
      * @param {AddDesktopsVolumesReq} addVolumesRequestBody 添加磁盘请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6561,8 +6511,7 @@ export class WorkspaceClient {
      *
      * @summary 删除桌面数据盘
      * @param {string} desktopId 桌面ID。
-     * @param {DeleteVolumesReq} deleteDesktopVolumesRequestBody 删除桌面数据盘请求
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {DeleteVolumesReq} deleteDesktopVolumesRequestBody 删除桌面数据盘请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6576,15 +6525,14 @@ export class WorkspaceClient {
     }
 
     /**
-     * 扩容磁盘
+     * 扩容磁盘。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 扩容磁盘
      * @param {string} desktopId 桌面ID。
      * @param {string} volumeId 磁盘ID。
-     * @param {ExpandVolumeReq} expandDesktopVolumeRequestBody 扩容磁盘请求
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
+     * @param {ExpandVolumeReq} expandDesktopVolumeRequestBody 扩容磁盘请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6604,7 +6552,6 @@ export class WorkspaceClient {
      *
      * @summary 扩容桌面磁盘
      * @param {ExpandDesktopsVolumesReq} expandVolumesRequestBody 扩容磁盘请求。
-     * @param {string} [serviceTransactionId] CBC接口回调时，请求头里带上的业务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6618,12 +6565,12 @@ export class WorkspaceClient {
     }
 
     /**
-     * 查询磁盘产品信息
+     * 查询磁盘产品信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询磁盘产品信息
-     * @param {string} [availabilityZone] 可用分区
+     * @param {string} [availabilityZone] 可用分区。
      * @param {string} [volumeType] 磁盘类型（多个磁盘类型用逗号隔开）： - SATA: 普通IO磁盘 - SAS：高IO磁盘 - SSD：超高IO磁盘
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6737,7 +6684,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改企业ID
-     * @param {ModifyEnterpriseIdReq} updateEnterpriseIdRequestBody 修改企业ID请求
+     * @param {ModifyEnterpriseIdReq} updateEnterpriseIdRequestBody 修改企业ID请求。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7170,7 +7117,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 返回各级别告警数
+         * 返回各级别告警数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7191,7 +7138,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 从ces查询告警列表
+         * 从ces查询告警列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7529,7 +7476,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除应用
+         * 删除应用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8149,7 +8096,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除管控规则列表。
+         * 批量删除管控规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8229,7 +8176,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询应用规则
+         * 查询应用规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8331,6 +8278,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置管控规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setRuleRestriction(setRuleRestrictionRequest?: SetRuleRestrictionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/app-center/app-rules/actions/set-rule-restriction",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setRuleRestrictionRequest !== null && setRuleRestrictionRequest !== undefined) {
+                if (setRuleRestrictionRequest instanceof SetRuleRestrictionRequest) {
+                    body = setRuleRestrictionRequest.body
+                } else {
+                    body = setRuleRestrictionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询管控规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRuleRestriction() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/app-center/app-rules/actions/get-rule-restriction",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改应用规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8377,7 +8383,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询辅助认证的配置信息
+         * 查询辅助认证的配置信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8435,7 +8441,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新辅助认证策略配置
+         * 更新辅助认证策略配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8532,7 +8538,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询云桌面支持的可用分区列表
+         * 该接口用于查询云桌面支持的可用分区列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8665,85 +8671,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询桌面登录状态
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDesktopsStatus() {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/desktops/status",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询登录人数
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listHistoryOnlineInfo(listHistoryOnlineInfoRequest?: ListHistoryOnlineInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/desktops/online-users",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let startTime;
-            
-            let endTime;
-            
-            let queryType;
-            
-            let clientHour;
-
-            if (listHistoryOnlineInfoRequest !== null && listHistoryOnlineInfoRequest !== undefined) {
-                if (listHistoryOnlineInfoRequest instanceof ListHistoryOnlineInfoRequest) {
-                    startTime = listHistoryOnlineInfoRequest.startTime;
-                    endTime = listHistoryOnlineInfoRequest.endTime;
-                    queryType = listHistoryOnlineInfoRequest.queryType;
-                    clientHour = listHistoryOnlineInfoRequest.clientHour;
-                } else {
-                    startTime = listHistoryOnlineInfoRequest['start_time'];
-                    endTime = listHistoryOnlineInfoRequest['end_time'];
-                    queryType = listHistoryOnlineInfoRequest['query_type'];
-                    clientHour = listHistoryOnlineInfoRequest['client_hour'];
-                }
-            }
-
-        
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-            if (queryType !== null && queryType !== undefined) {
-                localVarQueryParameter['query_type'] = queryType;
-            }
-            if (clientHour !== null && clientHour !== undefined) {
-                localVarQueryParameter['client_hour'] = clientHour;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口用于查询登录人数，注意查询参数不可全空。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8765,20 +8692,16 @@ export const ParamCreater = function () {
             let endTime;
             
             let queryType;
-            
-            let clientHour;
 
             if (listHistoryOnlineInfoNewRequest !== null && listHistoryOnlineInfoNewRequest !== undefined) {
                 if (listHistoryOnlineInfoNewRequest instanceof ListHistoryOnlineInfoNewRequest) {
                     startTime = listHistoryOnlineInfoNewRequest.startTime;
                     endTime = listHistoryOnlineInfoNewRequest.endTime;
                     queryType = listHistoryOnlineInfoNewRequest.queryType;
-                    clientHour = listHistoryOnlineInfoNewRequest.clientHour;
                 } else {
                     startTime = listHistoryOnlineInfoNewRequest['start_time'];
                     endTime = listHistoryOnlineInfoNewRequest['end_time'];
                     queryType = listHistoryOnlineInfoNewRequest['query_type'];
-                    clientHour = listHistoryOnlineInfoNewRequest['client_hour'];
                 }
             }
 
@@ -8791,9 +8714,6 @@ export const ParamCreater = function () {
             }
             if (queryType !== null && queryType !== undefined) {
                 localVarQueryParameter['query_type'] = queryType;
-            }
-            if (clientHour !== null && clientHour !== undefined) {
-                localVarQueryParameter['client_hour'] = clientHour;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -8916,7 +8836,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将桌面分配给用户
+         * 将桌面分配给用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8933,25 +8853,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (attachInstancesRequest !== null && attachInstancesRequest !== undefined) {
                 if (attachInstancesRequest instanceof AttachInstancesRequest) {
                     body = attachInstancesRequest.body
-                    serviceTransactionId = attachInstancesRequest.serviceTransactionId;
                 } else {
                     body = attachInstancesRequest['body'];
-                    serviceTransactionId = attachInstancesRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9037,7 +8950,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量切换桌面vpc、子网、ip、安全组
+         * 批量切换桌面vpc、子网、ip、安全组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9113,7 +9026,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量将桌面和用户解绑
+         * 批量将桌面和用户解绑。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9151,7 +9064,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量为桌面安装agent
+         * 批量为桌面安装agent。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9206,25 +9119,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (batchLogoffDesktopsRequest !== null && batchLogoffDesktopsRequest !== undefined) {
                 if (batchLogoffDesktopsRequest instanceof BatchLogoffDesktopsRequest) {
                     body = batchLogoffDesktopsRequest.body
-                    serviceTransactionId = batchLogoffDesktopsRequest.serviceTransactionId;
                 } else {
                     body = batchLogoffDesktopsRequest['body'];
-                    serviceTransactionId = batchLogoffDesktopsRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9251,25 +9157,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (batchRebuildDesktopsSystemDiskRequest !== null && batchRebuildDesktopsSystemDiskRequest !== undefined) {
                 if (batchRebuildDesktopsSystemDiskRequest instanceof BatchRebuildDesktopsSystemDiskRequest) {
                     body = batchRebuildDesktopsSystemDiskRequest.body
-                    serviceTransactionId = batchRebuildDesktopsSystemDiskRequest.serviceTransactionId;
                 } else {
                     body = batchRebuildDesktopsSystemDiskRequest['body'];
-                    serviceTransactionId = batchRebuildDesktopsSystemDiskRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9279,7 +9178,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量操作桌面，用于批量开机、关机和重启。
+         * 批量操作桌面，用于批量开机、关机、休眠和重启。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9354,7 +9253,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 切换桌面vpc、子网、ip、安全组
+         * 切换桌面vpc、子网、ip、安全组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9400,7 +9299,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 桌面转镜像
+         * 桌面转镜像。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9493,25 +9392,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (createDesktopRequest !== null && createDesktopRequest !== undefined) {
                 if (createDesktopRequest instanceof CreateDesktopRequest) {
                     body = createDesktopRequest.body
-                    serviceTransactionId = createDesktopRequest.serviceTransactionId;
                 } else {
                     body = createDesktopRequest['body'];
-                    serviceTransactionId = createDesktopRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9617,7 +9509,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将桌面和用户解绑
+         * 将桌面和用户解绑。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9800,43 +9692,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询桌面解绑信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDesktopDetachInfo(listDesktopDetachInfoRequest?: ListDesktopDetachInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/desktops/{desktop_id}/detach-info",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let desktopId;
-
-            if (listDesktopDetachInfoRequest !== null && listDesktopDetachInfoRequest !== undefined) {
-                if (listDesktopDetachInfoRequest instanceof ListDesktopDetachInfoRequest) {
-                    desktopId = listDesktopDetachInfoRequest.desktopId;
-                } else {
-                    desktopId = listDesktopDetachInfoRequest['desktop_id'];
-                }
-            }
-
-        
-            if (desktopId === null || desktopId === undefined) {
-            throw new RequiredError('desktopId','Required parameter desktopId was null or undefined when calling listDesktopDetachInfo.');
-            }
-
-            options.pathParams = { 'desktop_id': desktopId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口用于查询桌面虚拟机列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9859,13 +9714,9 @@ export const ParamCreater = function () {
             
             let desktopIp;
             
-            let sids;
-            
             let offset;
             
             let limit;
-            
-            let siteId;
             
             let poolId;
             
@@ -9888,10 +9739,8 @@ export const ParamCreater = function () {
                     userName = listDesktopsRequest.userName;
                     computerName = listDesktopsRequest.computerName;
                     desktopIp = listDesktopsRequest.desktopIp;
-                    sids = listDesktopsRequest.sids;
                     offset = listDesktopsRequest.offset;
                     limit = listDesktopsRequest.limit;
-                    siteId = listDesktopsRequest.siteId;
                     poolId = listDesktopsRequest.poolId;
                     enterpriseProjectId = listDesktopsRequest.enterpriseProjectId;
                     desktopType = listDesktopsRequest.desktopType;
@@ -9904,10 +9753,8 @@ export const ParamCreater = function () {
                     userName = listDesktopsRequest['user_name'];
                     computerName = listDesktopsRequest['computer_name'];
                     desktopIp = listDesktopsRequest['desktop_ip'];
-                    sids = listDesktopsRequest['sids'];
                     offset = listDesktopsRequest['offset'];
                     limit = listDesktopsRequest['limit'];
-                    siteId = listDesktopsRequest['site_id'];
                     poolId = listDesktopsRequest['pool_id'];
                     enterpriseProjectId = listDesktopsRequest['enterprise_project_id'];
                     desktopType = listDesktopsRequest['desktop_type'];
@@ -9929,17 +9776,11 @@ export const ParamCreater = function () {
             if (desktopIp !== null && desktopIp !== undefined) {
                 localVarQueryParameter['desktop_ip'] = desktopIp;
             }
-            if (sids !== null && sids !== undefined) {
-                localVarQueryParameter['sids'] = sids;
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-            if (siteId !== null && siteId !== undefined) {
-                localVarQueryParameter['site_id'] = siteId;
             }
             if (poolId !== null && poolId !== undefined) {
                 localVarQueryParameter['pool_id'] = poolId;
@@ -10060,8 +9901,6 @@ export const ParamCreater = function () {
             
             let desktopIp;
             
-            let sids;
-            
             let offset;
             
             let limit;
@@ -10070,11 +9909,7 @@ export const ParamCreater = function () {
             
             let desktopType;
             
-            let loginStatus;
-            
             let tag;
-            
-            let fuzzyQuery;
             
             let poolId;
             
@@ -10105,14 +9940,11 @@ export const ParamCreater = function () {
                     sortType = listDesktopsDetailRequest.sortType;
                     computerName = listDesktopsDetailRequest.computerName;
                     desktopIp = listDesktopsDetailRequest.desktopIp;
-                    sids = listDesktopsDetailRequest.sids;
                     offset = listDesktopsDetailRequest.offset;
                     limit = listDesktopsDetailRequest.limit;
                     desktopId = listDesktopsDetailRequest.desktopId;
                     desktopType = listDesktopsDetailRequest.desktopType;
-                    loginStatus = listDesktopsDetailRequest.loginStatus;
                     tag = listDesktopsDetailRequest.tag;
-                    fuzzyQuery = listDesktopsDetailRequest.fuzzyQuery;
                     poolId = listDesktopsDetailRequest.poolId;
                     userAttached = listDesktopsDetailRequest.userAttached;
                     enterpriseProjectId = listDesktopsDetailRequest.enterpriseProjectId;
@@ -10131,14 +9963,11 @@ export const ParamCreater = function () {
                     sortType = listDesktopsDetailRequest['sort_type'];
                     computerName = listDesktopsDetailRequest['computer_name'];
                     desktopIp = listDesktopsDetailRequest['desktop_ip'];
-                    sids = listDesktopsDetailRequest['sids'];
                     offset = listDesktopsDetailRequest['offset'];
                     limit = listDesktopsDetailRequest['limit'];
                     desktopId = listDesktopsDetailRequest['desktop_id'];
                     desktopType = listDesktopsDetailRequest['desktop_type'];
-                    loginStatus = listDesktopsDetailRequest['login_status'];
                     tag = listDesktopsDetailRequest['tag'];
-                    fuzzyQuery = listDesktopsDetailRequest['fuzzy_query'];
                     poolId = listDesktopsDetailRequest['pool_id'];
                     userAttached = listDesktopsDetailRequest['user_attached'];
                     enterpriseProjectId = listDesktopsDetailRequest['enterprise_project_id'];
@@ -10174,9 +10003,6 @@ export const ParamCreater = function () {
             if (desktopIp !== null && desktopIp !== undefined) {
                 localVarQueryParameter['desktop_ip'] = desktopIp;
             }
-            if (sids !== null && sids !== undefined) {
-                localVarQueryParameter['sids'] = sids;
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
@@ -10189,14 +10015,8 @@ export const ParamCreater = function () {
             if (desktopType !== null && desktopType !== undefined) {
                 localVarQueryParameter['desktop_type'] = desktopType;
             }
-            if (loginStatus !== null && loginStatus !== undefined) {
-                localVarQueryParameter['login_status'] = loginStatus;
-            }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
-            }
-            if (fuzzyQuery !== null && fuzzyQuery !== undefined) {
-                localVarQueryParameter['fuzzy_query'] = fuzzyQuery;
             }
             if (poolId !== null && poolId !== undefined) {
                 localVarQueryParameter['pool_id'] = poolId;
@@ -10289,25 +10109,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (resizeDesktopRequest !== null && resizeDesktopRequest !== undefined) {
                 if (resizeDesktopRequest instanceof ResizeDesktopRequest) {
                     body = resizeDesktopRequest.body
-                    serviceTransactionId = resizeDesktopRequest.serviceTransactionId;
                 } else {
                     body = resizeDesktopRequest['body'];
-                    serviceTransactionId = resizeDesktopRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -10317,7 +10130,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于管理员向桌面发送消息通知
+         * 用于管理员向桌面发送消息通知。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10355,7 +10168,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量设置桌面管理员维护模式
+         * 批量设置桌面管理员维护模式。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10492,7 +10305,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询桌面vpc、子网、privateIp、EIP、安全组
+         * 查询桌面vpc、子网、privateIp、EIP、安全组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10529,7 +10342,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询桌面vpc、子网、privateIp、EIP、安全组
+         * 查询桌面vpc、子网、privateIp、EIP、安全组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11005,18 +10818,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let poolId;
-            
-            let serviceTransactionId;
 
             if (addDesktopPoolVolumesRequest !== null && addDesktopPoolVolumesRequest !== undefined) {
                 if (addDesktopPoolVolumesRequest instanceof AddDesktopPoolVolumesRequest) {
                     poolId = addDesktopPoolVolumesRequest.poolId;
                     body = addDesktopPoolVolumesRequest.body
-                    serviceTransactionId = addDesktopPoolVolumesRequest.serviceTransactionId;
                 } else {
                     poolId = addDesktopPoolVolumesRequest['pool_id'];
                     body = addDesktopPoolVolumesRequest['body'];
-                    serviceTransactionId = addDesktopPoolVolumesRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -11026,9 +10835,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -11057,25 +10863,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (createDesktopPoolRequest !== null && createDesktopPoolRequest !== undefined) {
                 if (createDesktopPoolRequest instanceof CreateDesktopPoolRequest) {
                     body = createDesktopPoolRequest.body
-                    serviceTransactionId = createDesktopPoolRequest.serviceTransactionId;
                 } else {
                     body = createDesktopPoolRequest['body'];
-                    serviceTransactionId = createDesktopPoolRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -11325,18 +11124,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let poolId;
-            
-            let serviceTransactionId;
 
             if (expandDesktopPoolRequest !== null && expandDesktopPoolRequest !== undefined) {
                 if (expandDesktopPoolRequest instanceof ExpandDesktopPoolRequest) {
                     poolId = expandDesktopPoolRequest.poolId;
                     body = expandDesktopPoolRequest.body
-                    serviceTransactionId = expandDesktopPoolRequest.serviceTransactionId;
                 } else {
                     poolId = expandDesktopPoolRequest['pool_id'];
                     body = expandDesktopPoolRequest['body'];
-                    serviceTransactionId = expandDesktopPoolRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -11346,9 +11141,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -11378,18 +11170,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let poolId;
-            
-            let serviceTransactionId;
 
             if (expandDesktopPoolVolumesRequest !== null && expandDesktopPoolVolumesRequest !== undefined) {
                 if (expandDesktopPoolVolumesRequest instanceof ExpandDesktopPoolVolumesRequest) {
                     poolId = expandDesktopPoolVolumesRequest.poolId;
                     body = expandDesktopPoolVolumesRequest.body
-                    serviceTransactionId = expandDesktopPoolVolumesRequest.serviceTransactionId;
                 } else {
                     poolId = expandDesktopPoolVolumesRequest['pool_id'];
                     body = expandDesktopPoolVolumesRequest['body'];
-                    serviceTransactionId = expandDesktopPoolVolumesRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -11399,9 +11187,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -11614,18 +11399,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let poolId;
-            
-            let serviceTransactionId;
 
             if (rebuildDesktopPoolRequest !== null && rebuildDesktopPoolRequest !== undefined) {
                 if (rebuildDesktopPoolRequest instanceof RebuildDesktopPoolRequest) {
                     poolId = rebuildDesktopPoolRequest.poolId;
                     body = rebuildDesktopPoolRequest.body
-                    serviceTransactionId = rebuildDesktopPoolRequest.serviceTransactionId;
                 } else {
                     poolId = rebuildDesktopPoolRequest['pool_id'];
                     body = rebuildDesktopPoolRequest['body'];
-                    serviceTransactionId = rebuildDesktopPoolRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -11636,9 +11417,6 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -11648,7 +11426,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 桌面池变更规格
+         * 桌面池变更规格。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11667,18 +11445,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let poolId;
-            
-            let serviceTransactionId;
 
             if (resizeDesktopPoolRequest !== null && resizeDesktopPoolRequest !== undefined) {
                 if (resizeDesktopPoolRequest instanceof ResizeDesktopPoolRequest) {
                     poolId = resizeDesktopPoolRequest.poolId;
                     body = resizeDesktopPoolRequest.body
-                    serviceTransactionId = resizeDesktopPoolRequest.serviceTransactionId;
                 } else {
                     poolId = resizeDesktopPoolRequest['pool_id'];
                     body = resizeDesktopPoolRequest['body'];
-                    serviceTransactionId = resizeDesktopPoolRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -11689,9 +11463,6 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -11701,7 +11472,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于管理员向桌面发送消息通知
+         * 用于管理员向桌面发送消息通知。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11930,7 +11701,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 同时对多个桌面批量添加标签，如果创建的标签已经存在（key相同）则覆，最大支持100个桌面，每个桌面最大20个标签
+         * 同时对多个桌面批量添加标签，如果创建的标签已经存在（key相同）则覆，最大支持100个桌面，每个桌面最大20个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11968,7 +11739,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 为指定桌面批量添加或删除标签。创建时，如果创建的标签已经存在（key相同），则覆盖。删除时，如果删除的标签不存在，默认处理成功
+         * 为指定桌面批量添加或删除标签。创建时，如果创建的标签已经存在（key相同），则覆盖。删除时，如果删除的标签不存在，默认处理成功。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12014,7 +11785,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 同时对多个桌面批量添加标签，删除时，如果删除的标签不存在默认处理成功，最大支持100个桌面，每个桌面最大20个标签
+         * 同时对多个桌面批量添加标签，删除时，如果删除的标签不存在默认处理成功，最大支持100个桌面，每个桌面最大20个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12142,7 +11913,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用标签过滤桌面
+         * 使用标签过滤桌面。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12180,7 +11951,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户的所有标签集合
+         * 查询租户的所有标签集合。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12231,7 +12002,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定桌面的标签信息
+         * 查询指定桌面的标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12456,6 +12227,8 @@ export const ParamCreater = function () {
             
             let activeType;
             
+            let enterpriseProjectId;
+            
             let limit;
             
             let offset;
@@ -12466,6 +12239,7 @@ export const ParamCreater = function () {
                     userName = listUsersOfGroupRequest.userName;
                     description = listUsersOfGroupRequest.description;
                     activeType = listUsersOfGroupRequest.activeType;
+                    enterpriseProjectId = listUsersOfGroupRequest.enterpriseProjectId;
                     limit = listUsersOfGroupRequest.limit;
                     offset = listUsersOfGroupRequest.offset;
                 } else {
@@ -12473,6 +12247,7 @@ export const ParamCreater = function () {
                     userName = listUsersOfGroupRequest['user_name'];
                     description = listUsersOfGroupRequest['description'];
                     activeType = listUsersOfGroupRequest['active_type'];
+                    enterpriseProjectId = listUsersOfGroupRequest['enterprise_project_id'];
                     limit = listUsersOfGroupRequest['limit'];
                     offset = listUsersOfGroupRequest['offset'];
                 }
@@ -12490,6 +12265,9 @@ export const ParamCreater = function () {
             }
             if (activeType !== null && activeType !== undefined) {
                 localVarQueryParameter['active_type'] = activeType;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -12737,7 +12515,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面增配变更批量询价
+         * 包周期桌面增配变更批量询价。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12813,7 +12591,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面池添加单个磁盘批量询价
+         * 包周期桌面池添加单个磁盘批量询价。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12851,7 +12629,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面池切换镜像(由不收费镜像变更至收费镜像)批量询价
+         * 包周期桌面池切换镜像(由不收费镜像变更至收费镜像)批量询价。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12889,7 +12667,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面池扩容磁盘批量询价
+         * 包周期桌面池扩容磁盘批量询价。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12927,7 +12705,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面池变更规格批量询价
+         * 包周期桌面池变更规格批量询价。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13250,25 +13028,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (applyDesktopsInternetRequest !== null && applyDesktopsInternetRequest !== undefined) {
                 if (applyDesktopsInternetRequest instanceof ApplyDesktopsInternetRequest) {
                     body = applyDesktopsInternetRequest.body
-                    serviceTransactionId = applyDesktopsInternetRequest.serviceTransactionId;
                 } else {
                     body = applyDesktopsInternetRequest['body'];
-                    serviceTransactionId = applyDesktopsInternetRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -13333,25 +13104,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (applySubnetBandwidthRequest !== null && applySubnetBandwidthRequest !== undefined) {
                 if (applySubnetBandwidthRequest instanceof ApplySubnetBandwidthRequest) {
                     body = applySubnetBandwidthRequest.body
-                    serviceTransactionId = applySubnetBandwidthRequest.serviceTransactionId;
                 } else {
                     body = applySubnetBandwidthRequest['body'];
-                    serviceTransactionId = applySubnetBandwidthRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -13474,7 +13238,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询已绑定桌面和未绑定的Eip。
+         * 查询已绑定桌面和未绑定的EIP。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13965,7 +13729,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改云办公带宽
+         * 修改云办公带宽。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13984,18 +13748,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let bandwidthId;
-            
-            let serviceTransactionId;
 
             if (updateSubnetBandwidthRequest !== null && updateSubnetBandwidthRequest !== undefined) {
                 if (updateSubnetBandwidthRequest instanceof UpdateSubnetBandwidthRequest) {
                     bandwidthId = updateSubnetBandwidthRequest.bandwidthId;
                     body = updateSubnetBandwidthRequest.body
-                    serviceTransactionId = updateSubnetBandwidthRequest.serviceTransactionId;
                 } else {
                     bandwidthId = updateSubnetBandwidthRequest['bandwidth_id'];
                     body = updateSubnetBandwidthRequest['body'];
-                    serviceTransactionId = updateSubnetBandwidthRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -14006,9 +13766,6 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -14018,7 +13775,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改云办公带宽的控制配置
+         * 修改云办公带宽的控制配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14064,7 +13821,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 变更规格、扩容磁盘[、按需转包周期生成订单](tag:inner)
+         * 变更规格、扩容磁盘。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14110,7 +13867,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面批量变更下单
+         * 包周期桌面批量变更下单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14186,7 +13943,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期桌面池批量变更下单
+         * 包周期桌面池批量变更下单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14224,7 +13981,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 包周期资源（桌面、磁盘[、云办公主机](tag:ZQ)）下订单。
+         * 包周期资源（桌面、磁盘）下订单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14383,7 +14140,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询OU下用户信息
+         * 查询OU下用户信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14451,7 +14208,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询OU信息
+         * 查询AD里的OU列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14495,7 +14252,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询OU信息
+         * 查询OU列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14546,7 +14303,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新OU信息
+         * 更新OU信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14638,7 +14395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 新增策略组
+         * 新增策略组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14673,7 +14430,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除指定策略组，包含策略组对应的策略信息以及应用对象信息
+         * 删除指定策略组，包含策略组对应的策略信息以及应用对象信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14710,7 +14467,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询初始策略项
+         * 查询初始策略项。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14776,7 +14533,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据策略组ID查询策略组详细信息，包含策略信息以及应用对象信息
+         * 根据策略组ID查询策略组详细信息，包含策略信息以及应用对象信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14843,8 +14600,6 @@ export const ParamCreater = function () {
             
             let description;
             
-            let scopeFlag;
-            
             let isGroupNameAccurate;
 
             if (listPolicyGroupRequest !== null && listPolicyGroupRequest !== undefined) {
@@ -14856,7 +14611,6 @@ export const ParamCreater = function () {
                     priority = listPolicyGroupRequest.priority;
                     updateTime = listPolicyGroupRequest.updateTime;
                     description = listPolicyGroupRequest.description;
-                    scopeFlag = listPolicyGroupRequest.scopeFlag;
                     isGroupNameAccurate = listPolicyGroupRequest.isGroupNameAccurate;
                 } else {
                     limit = listPolicyGroupRequest['limit'];
@@ -14866,7 +14620,6 @@ export const ParamCreater = function () {
                     priority = listPolicyGroupRequest['priority'];
                     updateTime = listPolicyGroupRequest['update_time'];
                     description = listPolicyGroupRequest['description'];
-                    scopeFlag = listPolicyGroupRequest['scope_flag'];
                     isGroupNameAccurate = listPolicyGroupRequest['is_group_name_accurate'];
                 }
             }
@@ -14892,9 +14645,6 @@ export const ParamCreater = function () {
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
-            }
-            if (scopeFlag !== null && scopeFlag !== undefined) {
-                localVarQueryParameter['scope_flag'] = scopeFlag;
             }
             if (isGroupNameAccurate !== null && isGroupNameAccurate !== undefined) {
                 localVarQueryParameter['is_group_name_accurate'] = isGroupNameAccurate;
@@ -14935,8 +14685,6 @@ export const ParamCreater = function () {
             let updateTime;
             
             let description;
-            
-            let scopeFlag;
 
             if (listPolicyGroupInfoRequest !== null && listPolicyGroupInfoRequest !== undefined) {
                 if (listPolicyGroupInfoRequest instanceof ListPolicyGroupInfoRequest) {
@@ -14947,7 +14695,6 @@ export const ParamCreater = function () {
                     priority = listPolicyGroupInfoRequest.priority;
                     updateTime = listPolicyGroupInfoRequest.updateTime;
                     description = listPolicyGroupInfoRequest.description;
-                    scopeFlag = listPolicyGroupInfoRequest.scopeFlag;
                 } else {
                     limit = listPolicyGroupInfoRequest['limit'];
                     offset = listPolicyGroupInfoRequest['offset'];
@@ -14956,7 +14703,6 @@ export const ParamCreater = function () {
                     priority = listPolicyGroupInfoRequest['priority'];
                     updateTime = listPolicyGroupInfoRequest['update_time'];
                     description = listPolicyGroupInfoRequest['description'];
-                    scopeFlag = listPolicyGroupInfoRequest['scope_flag'];
                 }
             }
 
@@ -14981,9 +14727,6 @@ export const ParamCreater = function () {
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
-            }
-            if (scopeFlag !== null && scopeFlag !== undefined) {
-                localVarQueryParameter['scope_flag'] = scopeFlag;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15104,7 +14847,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改指定策略组的信息
+         * 修改指定策略组的信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15212,8 +14955,6 @@ export const ParamCreater = function () {
             
             let productId;
             
-            let flavorId;
-            
             let availabilityZone;
             
             let osType;
@@ -15222,13 +14963,7 @@ export const ParamCreater = function () {
             
             let architecture;
             
-            let dehProductId;
-            
-            let isDeh;
-            
             let packageType;
-            
-            let productsRange;
             
             let limit;
             
@@ -15237,28 +14972,20 @@ export const ParamCreater = function () {
             if (listProductsRequest !== null && listProductsRequest !== undefined) {
                 if (listProductsRequest instanceof ListProductsRequest) {
                     productId = listProductsRequest.productId;
-                    flavorId = listProductsRequest.flavorId;
                     availabilityZone = listProductsRequest.availabilityZone;
                     osType = listProductsRequest.osType;
                     chargeMode = listProductsRequest.chargeMode;
                     architecture = listProductsRequest.architecture;
-                    dehProductId = listProductsRequest.dehProductId;
-                    isDeh = listProductsRequest.isDeh;
                     packageType = listProductsRequest.packageType;
-                    productsRange = listProductsRequest.productsRange;
                     limit = listProductsRequest.limit;
                     offset = listProductsRequest.offset;
                 } else {
                     productId = listProductsRequest['product_id'];
-                    flavorId = listProductsRequest['flavor_id'];
                     availabilityZone = listProductsRequest['availability_zone'];
                     osType = listProductsRequest['os_type'];
                     chargeMode = listProductsRequest['charge_mode'];
                     architecture = listProductsRequest['architecture'];
-                    dehProductId = listProductsRequest['deh_product_id'];
-                    isDeh = listProductsRequest['is_deh'];
                     packageType = listProductsRequest['package_type'];
-                    productsRange = listProductsRequest['products_range'];
                     limit = listProductsRequest['limit'];
                     offset = listProductsRequest['offset'];
                 }
@@ -15267,9 +14994,6 @@ export const ParamCreater = function () {
         
             if (productId !== null && productId !== undefined) {
                 localVarQueryParameter['product_id'] = productId;
-            }
-            if (flavorId !== null && flavorId !== undefined) {
-                localVarQueryParameter['flavor_id'] = flavorId;
             }
             if (availabilityZone !== null && availabilityZone !== undefined) {
                 localVarQueryParameter['availability_zone'] = availabilityZone;
@@ -15283,17 +15007,8 @@ export const ParamCreater = function () {
             if (architecture !== null && architecture !== undefined) {
                 localVarQueryParameter['architecture'] = architecture;
             }
-            if (dehProductId !== null && dehProductId !== undefined) {
-                localVarQueryParameter['deh_product_id'] = dehProductId;
-            }
-            if (isDeh !== null && isDeh !== undefined) {
-                localVarQueryParameter['is_deh'] = isDeh;
-            }
             if (packageType !== null && packageType !== undefined) {
                 localVarQueryParameter['package_type'] = packageType;
-            }
-            if (productsRange !== null && productsRange !== undefined) {
-                localVarQueryParameter['products_range'] = productsRange;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -15446,7 +15161,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户单个站点配额详情
+         * 查询租户单个站点配额详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15494,7 +15209,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showQuotas(showQuotasRequest?: ShowQuotasRequest) {
+        showQuotas() {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/quotas",
@@ -15504,24 +15219,8 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
 
-            if (showQuotasRequest !== null && showQuotasRequest !== undefined) {
-                if (showQuotasRequest instanceof ShowQuotasRequest) {
-                    type = showQuotasRequest.type;
-                } else {
-                    type = showQuotasRequest['type'];
-                }
-            }
 
-        
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -15878,7 +15577,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取时区配置
+         * 获取时区配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16248,7 +15947,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询录屏详情
+         * 查询录屏详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16895,7 +16594,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 存量桌面购买附属资源
+         * 存量桌面购买附属资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16912,25 +16611,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (addDesktopSubResourcesRequest !== null && addDesktopSubResourcesRequest !== undefined) {
                 if (addDesktopSubResourcesRequest instanceof AddDesktopSubResourcesRequest) {
                     body = addDesktopSubResourcesRequest.body
-                    serviceTransactionId = addDesktopSubResourcesRequest.serviceTransactionId;
                 } else {
                     body = addDesktopSubResourcesRequest['body'];
-                    serviceTransactionId = addDesktopSubResourcesRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -16940,7 +16632,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 桌面删除附属资源
+         * 桌面删除附属资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16957,25 +16649,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (deleteDesktopSubResourcesRequest !== null && deleteDesktopSubResourcesRequest !== undefined) {
                 if (deleteDesktopSubResourcesRequest instanceof DeleteDesktopSubResourcesRequest) {
                     body = deleteDesktopSubResourcesRequest.body
-                    serviceTransactionId = deleteDesktopSubResourcesRequest.serviceTransactionId;
                 } else {
                     body = deleteDesktopSubResourcesRequest['body'];
-                    serviceTransactionId = deleteDesktopSubResourcesRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -16985,7 +16670,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询协同桌面默认用户配置（当前功能公测中,需要使用请联系管理员申请使用）
+         * 查询协同桌面默认用户配置（当前功能公测中,需要使用请联系管理员申请使用）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17025,7 +16710,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置协同桌面默认用户配置（当前功能公测中，需要使用请联系管理员申请使用）
+         * 设置协同桌面默认用户配置（当前功能公测中，需要使用请联系管理员申请使用）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17063,7 +16748,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于查询站点信息的接口
+         * 用于查询站点信息的接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17101,7 +16786,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于删除站点的接口
+         * 用于删除站点的接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17138,7 +16823,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于查询站点信息的接口
+         * 用于查询站点信息的接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17233,7 +16918,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于修改站点接入方式
+         * 用于修改站点接入方式。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17279,7 +16964,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于修改站点业务子网
+         * 用于修改站点业务子网。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17325,7 +17010,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量创建快照
+         * 批量创建快照。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17363,7 +17048,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除快照
+         * 批量删除快照。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17401,7 +17086,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量恢快照
+         * 批量恢快照。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17439,7 +17124,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询快照列表
+         * 查询快照列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17618,8 +17303,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云应用接入统计数据;
-         * 最多查询30天内的数据;
+         * 查询云应用接入统计数据，一次最多查询30天，支持最近30天的数据查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17822,7 +17506,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 统计租户下的普通桌面、桌面池状态，默认仅统计总数
+         * 统计租户下的普通桌面、桌面池状态，默认仅统计总数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17946,7 +17630,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询对应指标的通知规则;
+         * 查询对应指标的通知规则;。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18004,7 +17688,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指标
+         * 查询指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18078,7 +17762,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指标趋势
+         * 查询指标趋势。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18366,7 +18050,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指标环比值
+         * 查询指标环比值。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18420,7 +18104,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询接入云桌面或云应用各阶段时长数据
+         * 查询接入云桌面或云应用各阶段时长数据。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18460,7 +18144,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新对应指标的通知规则;对应指标满足相应的规则条件时发送通知
+         * 更新对应指标的通知规则;对应指标满足相应的规则条件时发送通知。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18543,7 +18227,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户个性配置列表
+         * 查询租户个性配置列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19197,8 +18881,6 @@ export const ParamCreater = function () {
             
             let userName;
             
-            let userEmail;
-            
             let limit;
             
             let offset;
@@ -19214,11 +18896,12 @@ export const ParamCreater = function () {
             let shareSpaceDesktops;
             
             let isQueryTotalDesktops;
+            
+            let enterpriseProjectId;
 
             if (listUsersRequest !== null && listUsersRequest !== undefined) {
                 if (listUsersRequest instanceof ListUsersRequest) {
                     userName = listUsersRequest.userName;
-                    userEmail = listUsersRequest.userEmail;
                     limit = listUsersRequest.limit;
                     offset = listUsersRequest.offset;
                     description = listUsersRequest.description;
@@ -19227,9 +18910,9 @@ export const ParamCreater = function () {
                     shareSpaceSubscription = listUsersRequest.shareSpaceSubscription;
                     shareSpaceDesktops = listUsersRequest.shareSpaceDesktops;
                     isQueryTotalDesktops = listUsersRequest.isQueryTotalDesktops;
+                    enterpriseProjectId = listUsersRequest.enterpriseProjectId;
                 } else {
                     userName = listUsersRequest['user_name'];
-                    userEmail = listUsersRequest['user_email'];
                     limit = listUsersRequest['limit'];
                     offset = listUsersRequest['offset'];
                     description = listUsersRequest['description'];
@@ -19238,15 +18921,13 @@ export const ParamCreater = function () {
                     shareSpaceSubscription = listUsersRequest['share_space_subscription'];
                     shareSpaceDesktops = listUsersRequest['share_space_desktops'];
                     isQueryTotalDesktops = listUsersRequest['is_query_total_desktops'];
+                    enterpriseProjectId = listUsersRequest['enterprise_project_id'];
                 }
             }
 
         
             if (userName !== null && userName !== undefined) {
                 localVarQueryParameter['user_name'] = userName;
-            }
-            if (userEmail !== null && userEmail !== undefined) {
-                localVarQueryParameter['user_email'] = userEmail;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -19271,6 +18952,9 @@ export const ParamCreater = function () {
             }
             if (isQueryTotalDesktops !== null && isQueryTotalDesktops !== undefined) {
                 localVarQueryParameter['is_query_total_desktops'] = isQueryTotalDesktops;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -19413,7 +19097,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户事件
+         * 查询用户事件，一次最多查询30天，支持最近30天的数据查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19437,7 +19121,9 @@ export const ParamCreater = function () {
             
             let eventType;
             
-            let eventTraceId;
+            let resourceId;
+            
+            let resourceName;
             
             let offset;
             
@@ -19449,7 +19135,8 @@ export const ParamCreater = function () {
                     endTime = listUserEventsRequest.endTime;
                     username = listUserEventsRequest.username;
                     eventType = listUserEventsRequest.eventType;
-                    eventTraceId = listUserEventsRequest.eventTraceId;
+                    resourceId = listUserEventsRequest.resourceId;
+                    resourceName = listUserEventsRequest.resourceName;
                     offset = listUserEventsRequest.offset;
                     limit = listUserEventsRequest.limit;
                 } else {
@@ -19457,15 +19144,22 @@ export const ParamCreater = function () {
                     endTime = listUserEventsRequest['end_time'];
                     username = listUserEventsRequest['username'];
                     eventType = listUserEventsRequest['event_type'];
-                    eventTraceId = listUserEventsRequest['event_trace_id'];
+                    resourceId = listUserEventsRequest['resource_id'];
+                    resourceName = listUserEventsRequest['resource_name'];
                     offset = listUserEventsRequest['offset'];
                     limit = listUserEventsRequest['limit'];
                 }
             }
 
         
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listUserEvents.');
+            }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listUserEvents.');
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
@@ -19476,8 +19170,11 @@ export const ParamCreater = function () {
             if (eventType !== null && eventType !== undefined) {
                 localVarQueryParameter['event_type'] = eventType;
             }
-            if (eventTraceId !== null && eventTraceId !== undefined) {
-                localVarQueryParameter['event_trace_id'] = eventTraceId;
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -19487,6 +19184,65 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户事件LTS配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUserEventsLtsConfigurations() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/user-events/lts-configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 配置用户事件LTS。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setUserEventsLtsConfigurations(setUserEventsLtsConfigurationsRequest?: SetUserEventsLtsConfigurationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/user-events/lts-configurations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setUserEventsLtsConfigurationsRequest !== null && setUserEventsLtsConfigurationsRequest !== undefined) {
+                if (setUserEventsLtsConfigurationsRequest instanceof SetUserEventsLtsConfigurationsRequest) {
+                    body = setUserEventsLtsConfigurationsRequest.body
+                } else {
+                    body = setUserEventsLtsConfigurationsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -19511,18 +19267,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let desktopId;
-            
-            let serviceTransactionId;
 
             if (addDesktopVolumesRequest !== null && addDesktopVolumesRequest !== undefined) {
                 if (addDesktopVolumesRequest instanceof AddDesktopVolumesRequest) {
                     desktopId = addDesktopVolumesRequest.desktopId;
                     body = addDesktopVolumesRequest.body
-                    serviceTransactionId = addDesktopVolumesRequest.serviceTransactionId;
                 } else {
                     desktopId = addDesktopVolumesRequest['desktop_id'];
                     body = addDesktopVolumesRequest['body'];
-                    serviceTransactionId = addDesktopVolumesRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -19533,9 +19285,6 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -19545,7 +19294,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 增加桌面磁盘。
+         * 批量增加桌面磁盘。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19562,25 +19311,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (addVolumesRequest !== null && addVolumesRequest !== undefined) {
                 if (addVolumesRequest instanceof AddVolumesRequest) {
                     body = addVolumesRequest.body
-                    serviceTransactionId = addVolumesRequest.serviceTransactionId;
                 } else {
                     body = addVolumesRequest['body'];
-                    serviceTransactionId = addVolumesRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -19609,18 +19351,14 @@ export const ParamCreater = function () {
             let body: any;
             
             let desktopId;
-            
-            let serviceTransactionId;
 
             if (deleteDesktopVolumesRequest !== null && deleteDesktopVolumesRequest !== undefined) {
                 if (deleteDesktopVolumesRequest instanceof DeleteDesktopVolumesRequest) {
                     desktopId = deleteDesktopVolumesRequest.desktopId;
                     body = deleteDesktopVolumesRequest.body
-                    serviceTransactionId = deleteDesktopVolumesRequest.serviceTransactionId;
                 } else {
                     desktopId = deleteDesktopVolumesRequest['desktop_id'];
                     body = deleteDesktopVolumesRequest['body'];
-                    serviceTransactionId = deleteDesktopVolumesRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -19631,9 +19369,6 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -19643,7 +19378,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 扩容磁盘
+         * 扩容磁盘。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19664,20 +19399,16 @@ export const ParamCreater = function () {
             let desktopId;
             
             let volumeId;
-            
-            let serviceTransactionId;
 
             if (expandDesktopVolumeRequest !== null && expandDesktopVolumeRequest !== undefined) {
                 if (expandDesktopVolumeRequest instanceof ExpandDesktopVolumeRequest) {
                     desktopId = expandDesktopVolumeRequest.desktopId;
                     volumeId = expandDesktopVolumeRequest.volumeId;
                     body = expandDesktopVolumeRequest.body
-                    serviceTransactionId = expandDesktopVolumeRequest.serviceTransactionId;
                 } else {
                     desktopId = expandDesktopVolumeRequest['desktop_id'];
                     volumeId = expandDesktopVolumeRequest['volume_id'];
                     body = expandDesktopVolumeRequest['body'];
-                    serviceTransactionId = expandDesktopVolumeRequest['Service-Transaction-Id'];
                 }
             }
 
@@ -19690,9 +19421,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -19720,25 +19448,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let serviceTransactionId;
 
             if (expandVolumesRequest !== null && expandVolumesRequest !== undefined) {
                 if (expandVolumesRequest instanceof ExpandVolumesRequest) {
                     body = expandVolumesRequest.body
-                    serviceTransactionId = expandVolumesRequest.serviceTransactionId;
                 } else {
                     body = expandVolumesRequest['body'];
-                    serviceTransactionId = expandVolumesRequest['Service-Transaction-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (serviceTransactionId !== undefined && serviceTransactionId !== null) {
-                localVarHeaderParameter['Service-Transaction-Id'] = String(serviceTransactionId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -19748,7 +19469,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询磁盘产品信息
+         * 查询磁盘产品信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

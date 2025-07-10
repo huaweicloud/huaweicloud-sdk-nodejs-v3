@@ -20,6 +20,8 @@ export class User {
     private 'share_space_subscription'?: boolean;
     private 'share_space_desktops'?: number;
     private 'group_names'?: Array<string>;
+    private 'enterprise_project_id'?: string;
+    private 'user_info_map'?: string;
     public constructor() { 
     }
     public withId(id: string): User {
@@ -181,6 +183,26 @@ export class User {
     }
     public get groupNames(): Array<string> | undefined {
         return this['group_names'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): User {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withUserInfoMap(userInfoMap: string): User {
+        this['user_info_map'] = userInfoMap;
+        return this;
+    }
+    public set userInfoMap(userInfoMap: string  | undefined) {
+        this['user_info_map'] = userInfoMap;
+    }
+    public get userInfoMap(): string | undefined {
+        return this['user_info_map'];
     }
 }
 

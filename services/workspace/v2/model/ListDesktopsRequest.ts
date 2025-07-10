@@ -4,10 +4,8 @@ export class ListDesktopsRequest {
     private 'user_name'?: Array<string>;
     private 'computer_name'?: string;
     private 'desktop_ip'?: string;
-    public sids?: Array<string>;
     public offset?: number;
     public limit?: number;
-    private 'site_id'?: string;
     private 'pool_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'desktop_type'?: string;
@@ -48,10 +46,6 @@ export class ListDesktopsRequest {
     public get desktopIp(): string | undefined {
         return this['desktop_ip'];
     }
-    public withSids(sids: Array<string>): ListDesktopsRequest {
-        this['sids'] = sids;
-        return this;
-    }
     public withOffset(offset: number): ListDesktopsRequest {
         this['offset'] = offset;
         return this;
@@ -59,16 +53,6 @@ export class ListDesktopsRequest {
     public withLimit(limit: number): ListDesktopsRequest {
         this['limit'] = limit;
         return this;
-    }
-    public withSiteId(siteId: string): ListDesktopsRequest {
-        this['site_id'] = siteId;
-        return this;
-    }
-    public set siteId(siteId: string  | undefined) {
-        this['site_id'] = siteId;
-    }
-    public get siteId(): string | undefined {
-        return this['site_id'];
     }
     public withPoolId(poolId: string): ListDesktopsRequest {
         this['pool_id'] = poolId;

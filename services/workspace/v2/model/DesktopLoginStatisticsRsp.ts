@@ -2,14 +2,12 @@
 
 export class DesktopLoginStatisticsRsp {
     private 'in_use_num'?: number;
-    private 'stop_num'?: number;
     private 'unregistered_num'?: number;
     private 'unable_to_connect_num'?: number;
     private 'ready_num'?: number;
     private 'disconnected_num'?: number;
-    public constructor(inUseNum?: number, stopNum?: number, unregisteredNum?: number, readyNum?: number, disconnectedNum?: number) { 
+    public constructor(inUseNum?: number, unregisteredNum?: number, readyNum?: number, disconnectedNum?: number) { 
         this['in_use_num'] = inUseNum;
-        this['stop_num'] = stopNum;
         this['unregistered_num'] = unregisteredNum;
         this['ready_num'] = readyNum;
         this['disconnected_num'] = disconnectedNum;
@@ -23,16 +21,6 @@ export class DesktopLoginStatisticsRsp {
     }
     public get inUseNum(): number | undefined {
         return this['in_use_num'];
-    }
-    public withStopNum(stopNum: number): DesktopLoginStatisticsRsp {
-        this['stop_num'] = stopNum;
-        return this;
-    }
-    public set stopNum(stopNum: number  | undefined) {
-        this['stop_num'] = stopNum;
-    }
-    public get stopNum(): number | undefined {
-        return this['stop_num'];
     }
     public withUnregisteredNum(unregisteredNum: number): DesktopLoginStatisticsRsp {
         this['unregistered_num'] = unregisteredNum;

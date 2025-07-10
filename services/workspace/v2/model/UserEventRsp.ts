@@ -13,10 +13,12 @@ export class UserEventRsp {
     private 'client_type'?: string;
     private 'client_ip'?: string;
     private 'client_mac'?: string;
+    private 'client_version'?: string;
     private 'source_ip'?: string;
     private 'is_success'?: boolean;
     private 'error_code'?: string;
     private 'error_msg'?: string;
+    private 'action_type'?: string;
     public constructor() { 
     }
     public withProjectId(projectId: string): UserEventRsp {
@@ -133,6 +135,16 @@ export class UserEventRsp {
     public get clientMac(): string | undefined {
         return this['client_mac'];
     }
+    public withClientVersion(clientVersion: string): UserEventRsp {
+        this['client_version'] = clientVersion;
+        return this;
+    }
+    public set clientVersion(clientVersion: string  | undefined) {
+        this['client_version'] = clientVersion;
+    }
+    public get clientVersion(): string | undefined {
+        return this['client_version'];
+    }
     public withSourceIp(sourceIp: string): UserEventRsp {
         this['source_ip'] = sourceIp;
         return this;
@@ -172,5 +184,15 @@ export class UserEventRsp {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withActionType(actionType: string): UserEventRsp {
+        this['action_type'] = actionType;
+        return this;
+    }
+    public set actionType(actionType: string  | undefined) {
+        this['action_type'] = actionType;
+    }
+    public get actionType(): string | undefined {
+        return this['action_type'];
     }
 }

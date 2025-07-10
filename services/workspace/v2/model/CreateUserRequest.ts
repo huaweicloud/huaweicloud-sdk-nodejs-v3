@@ -12,6 +12,8 @@ export class CreateUserRequest {
     private 'group_ids'?: Array<string>;
     public description?: string;
     private 'alias_name'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'user_info_map'?: string;
     public constructor(userName?: string) { 
         this['user_name'] = userName;
     }
@@ -112,6 +114,26 @@ export class CreateUserRequest {
     }
     public get aliasName(): string | undefined {
         return this['alias_name'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): CreateUserRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withUserInfoMap(userInfoMap: string): CreateUserRequest {
+        this['user_info_map'] = userInfoMap;
+        return this;
+    }
+    public set userInfoMap(userInfoMap: string  | undefined) {
+        this['user_info_map'] = userInfoMap;
+    }
+    public get userInfoMap(): string | undefined {
+        return this['user_info_map'];
     }
 }
 

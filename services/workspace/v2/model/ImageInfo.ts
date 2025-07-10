@@ -3,7 +3,6 @@
 export class ImageInfo {
     public id?: string;
     private 'image_type'?: string;
-    private 'os_platform'?: string;
     private 'os_type'?: string;
     public architecture?: string;
     private 'os_version'?: string;
@@ -28,16 +27,6 @@ export class ImageInfo {
     }
     public get imageType(): string | undefined {
         return this['image_type'];
-    }
-    public withOsPlatform(osPlatform: string): ImageInfo {
-        this['os_platform'] = osPlatform;
-        return this;
-    }
-    public set osPlatform(osPlatform: string  | undefined) {
-        this['os_platform'] = osPlatform;
-    }
-    public get osPlatform(): string | undefined {
-        return this['os_platform'];
     }
     public withOsType(osType: string): ImageInfo {
         this['os_type'] = osType;

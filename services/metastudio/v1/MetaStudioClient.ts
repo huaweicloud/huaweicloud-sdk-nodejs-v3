@@ -10,7 +10,6 @@ import { ActionMarkItem } from './model/ActionMarkItem';
 import { ActionSampleInfo } from './model/ActionSampleInfo';
 import { ActionTagInfo } from './model/ActionTagInfo';
 import { ActiveCodeInfo } from './model/ActiveCodeInfo';
-import { AnimationAssetMeta } from './model/AnimationAssetMeta';
 import { AnimationItem } from './model/AnimationItem';
 import { AsrTypeEnum } from './model/AsrTypeEnum';
 import { AssetActionResult } from './model/AssetActionResult';
@@ -55,7 +54,6 @@ import { CommentLogInfo } from './model/CommentLogInfo';
 import { CommitJobReq } from './model/CommitJobReq';
 import { CommitVoiceTrainingJobRequest } from './model/CommitVoiceTrainingJobRequest';
 import { CommitVoiceTrainingJobResponse } from './model/CommitVoiceTrainingJobResponse';
-import { ComponentInfo } from './model/ComponentInfo';
 import { ConfirmFileUploadRequest } from './model/ConfirmFileUploadRequest';
 import { ConfirmFileUploadRequestBody } from './model/ConfirmFileUploadRequestBody';
 import { ConfirmFileUploadResponse } from './model/ConfirmFileUploadResponse';
@@ -135,6 +133,7 @@ import { CreateLivePlatformResponse } from './model/CreateLivePlatformResponse';
 import { CreateMetaStudioOrdersReq } from './model/CreateMetaStudioOrdersReq';
 import { CreateMetaStudioOrdersRequest } from './model/CreateMetaStudioOrdersRequest';
 import { CreateMetaStudioOrdersResponse } from './model/CreateMetaStudioOrdersResponse';
+import { CreateMobvoiHotWords } from './model/CreateMobvoiHotWords';
 import { CreateOnceCodeRequest } from './model/CreateOnceCodeRequest';
 import { CreateOnceCodeResponse } from './model/CreateOnceCodeResponse';
 import { CreatePacifyWordsReq } from './model/CreatePacifyWordsReq';
@@ -268,8 +267,6 @@ import { HotWordsInfo } from './model/HotWordsInfo';
 import { HotWordsTypeEnum } from './model/HotWordsTypeEnum';
 import { HuaweiEiCbs } from './model/HuaweiEiCbs';
 import { HumanModel2DAssetMeta } from './model/HumanModel2DAssetMeta';
-import { HumanModelAssetMeta } from './model/HumanModelAssetMeta';
-import { HumanModelMetaProperties } from './model/HumanModelMetaProperties';
 import { IflytekAiuiConfig } from './model/IflytekAiuiConfig';
 import { IflytekSpark } from './model/IflytekSpark';
 import { ImageAssetMeta } from './model/ImageAssetMeta';
@@ -337,6 +334,8 @@ import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListRobotRequest } from './model/ListRobotRequest';
 import { ListRobotResponse } from './model/ListRobotResponse';
+import { ListSmartChatJobRequest } from './model/ListSmartChatJobRequest';
+import { ListSmartChatJobResponse } from './model/ListSmartChatJobResponse';
 import { ListSmartChatRoomsRequest } from './model/ListSmartChatRoomsRequest';
 import { ListSmartChatRoomsResponse } from './model/ListSmartChatRoomsResponse';
 import { ListSmartLiveJobsRequest } from './model/ListSmartLiveJobsRequest';
@@ -442,8 +441,6 @@ import { RuleCommand } from './model/RuleCommand';
 import { SaveTtscVocabularyConfigsRequest } from './model/SaveTtscVocabularyConfigsRequest';
 import { SaveTtscVocabularyConfigsRequestBody } from './model/SaveTtscVocabularyConfigsRequestBody';
 import { SaveTtscVocabularyConfigsResponse } from './model/SaveTtscVocabularyConfigsResponse';
-import { SceneAssetMeta } from './model/SceneAssetMeta';
-import { SceneComponentInfo } from './model/SceneComponentInfo';
 import { ScriptCommand } from './model/ScriptCommand';
 import { SetJobBatchNameReq } from './model/SetJobBatchNameReq';
 import { SetJobBatchNameRequest } from './model/SetJobBatchNameRequest';
@@ -544,6 +541,7 @@ import { ShowWelcomeSpeechRequest } from './model/ShowWelcomeSpeechRequest';
 import { ShowWelcomeSpeechResponse } from './model/ShowWelcomeSpeechResponse';
 import { ShowWelcomeSpeechSwitchRequest } from './model/ShowWelcomeSpeechSwitchRequest';
 import { ShowWelcomeSpeechSwitchResponse } from './model/ShowWelcomeSpeechSwitchResponse';
+import { SmartChatJobBaseInfo } from './model/SmartChatJobBaseInfo';
 import { SmartChatJobsReq } from './model/SmartChatJobsReq';
 import { SmartChatRoomBaseInfo } from './model/SmartChatRoomBaseInfo';
 import { SmartChatSubtitleConfig } from './model/SmartChatSubtitleConfig';
@@ -627,6 +625,7 @@ import { UpdateKnowledgeSkillResponse } from './model/UpdateKnowledgeSkillRespon
 import { UpdateLivePlatformReq } from './model/UpdateLivePlatformReq';
 import { UpdateLivePlatformRequest } from './model/UpdateLivePlatformRequest';
 import { UpdateLivePlatformResponse } from './model/UpdateLivePlatformResponse';
+import { UpdateMobvoiHotWords } from './model/UpdateMobvoiHotWords';
 import { UpdatePacifyWordsReq } from './model/UpdatePacifyWordsReq';
 import { UpdatePacifyWordsRequest } from './model/UpdatePacifyWordsRequest';
 import { UpdatePacifyWordsResponse } from './model/UpdatePacifyWordsResponse';
@@ -911,6 +910,32 @@ export class MetaStudioClient {
      */
     public createDialogUrl(createDialogUrlRequest?: CreateDialogUrlRequest): Promise<CreateDialogUrlResponse> {
         const options = ParamCreater().createDialogUrl(createDialogUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询数字人智能交互任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数字人智能交互任务列表
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[创建智能交互对话直播间](CreateSmartChatRoom.xml)。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmartChatJob(listSmartChatJobRequest?: ListSmartChatJobRequest): Promise<ListSmartChatJobResponse> {
+        const options = ParamCreater().listSmartChatJob(listSmartChatJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1213,18 +1238,17 @@ export class MetaStudioClient {
      * @param {'INTERSECTION' | 'UNION_SET'} [tagCombinationType] 标签查询组合方式 INTERSECTION：交集 UNION_SET：并集
      * @param {string} [startTime] 起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
      * @param {string} [endTime] 结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
-     * @param {string} [assetType] 资产类型。多个类型使用英文逗号分隔。 * HUMAN_MODEL：数字人模型 * VOICE_MODEL：音色模型（仅系统管理员可上传） * SCENE：场景模型 * ANIMATION：动作动画 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
+     * @param {string} [assetType] 资产类型。多个类型使用英文逗号分隔。 * VOICE_MODEL：音色模型（仅系统管理员可上传） * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
      * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {'SYSTEM' | 'CUSTOMIZATION' | 'GROUP_CUSTOMIZATION' | 'ALL'} [assetSource] 资产来源。 * SYSTEM：系统资产 * CUSTOMIZATION：租户资产 * GROUP_CUSTOMIZATION：租户组资产 * ALL：所有资产  默认查询租户资产。
      * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分隔。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 * WAITING_DELETE：资产将被下线 默认查询所有状态的资产。
      * @param {string} [styleId] 基于风格化ID查询关联资产。 * system_male_001：男性风格01 * system_female_001：女性风格01 * system_male_002：男性风格02  * system_female_002：女性风格02
      * @param {Array<string>} [accurateQueryField] 使用精确查询的字段
-     * @param {string} [renderEngine] 可用引擎。 * UE：UE引擎 * MetaEngine：MetaEngine引擎 &gt; 该字段当前只对MetaEngine白名单用户生效
      * @param {Array<string>} [assetId] 资产id
      * @param {string} [sex] 性别。多选使用英文逗号分隔。
      * @param {string} [language] 语言。多选使用英文逗号分隔。
-     * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes * TO_BE_TRANSLATED_VIDEO: 视频翻译的源视频。可取值Yes  3D数字人资产属性： * STYLE_ID：风格Id * RENDER_ENGINE：引擎类型，可取值UE或MetaEngine * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）  租户组资产验签属性： * SIG：加签秘钥。取值方式SIG&#x3D;HexEncode(HMAC-SHA256(group_id:EXP_TIME:NONCE,key)) * EXP_TIME：过期时间，当前时间增加增加10分钟。取值示例1627768613 * NONCE：随机字符串。取值示例：EycLQsHwxhzK9OW8UEKWNfH2I3CGR2nINuU1EBpv162d42d92s
+     * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes  数字人资产属性： * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）  租户组资产验签属性： * SIG：加签秘钥。取值方式SIG&#x3D;HexEncode(HMAC-SHA256(group_id:EXP_TIME:NONCE,key)) * EXP_TIME：过期时间，当前时间增加增加10分钟。取值示例1627768613 * NONCE：随机字符串。取值示例：EycLQsHwxhzK9OW8UEKWNfH2I3CGR2nINuU1EBpv162d42d92s
      * @param {boolean} [actionEditable] 动作是否可编辑。仅在分身数字人模型查询时有效。
      * @param {boolean} [isWithActionLibrary] 分身数字人是否带原子动作库。 &gt; * 带原子动作库的分身数字人可做动作编排。
      * @param {boolean} [isMovable] 分身数字人是否支持走动。仅在分身数字人模型查询时有效。
@@ -1951,7 +1975,8 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [region] sis服务所在区域
-     * @param {'zh_CN' | 'en_US' | 'CN' | 'EN'} [language] 智能交互语言  * zh_CN：简体中文（已下线，请使用CN）  * en_US：英语（已下线，请使用EN）  * CN: 中文  * EN: 英文
+     * @param {'zh_CN' | 'en_US' | 'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言 * zh_CN：简体中文（已下线，请使用CN） * en_US：英语（已下线，请使用EN） * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
+     * @param {'SIS' | 'MOBVOI'} [hotWordsType] * SIS:SIS热词 * MOBVOI:奇妙问ASR热词
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4716,7 +4741,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于对外生成音频文件。每个预制音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
+     * 该接口用于对外生成音频文件。每个预置音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
      * 
      * &gt; 使用本接口前，需要在MetaStudio控制台服务概览页面，开通“声音合成”的按需计费。
      * &gt; 详细操作为：单击“声音合成”卡片中的“去开通”，在弹出的“开通按需计费服务提示”对话框中，勾选同意协议。单击“确定”，开通按需计费。
@@ -5982,6 +6007,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于查询数字人智能交互任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmartChatJob(listSmartChatJobRequest?: ListSmartChatJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/smart-chat-rooms/{room_id}/smart-chat-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let state;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSmartChatJobRequest !== null && listSmartChatJobRequest !== undefined) {
+                if (listSmartChatJobRequest instanceof ListSmartChatJobRequest) {
+                    roomId = listSmartChatJobRequest.roomId;
+                    authorization = listSmartChatJobRequest.authorization;
+                    xSdkDate = listSmartChatJobRequest.xSdkDate;
+                    xProjectId = listSmartChatJobRequest.xProjectId;
+                    xAppUserId = listSmartChatJobRequest.xAppUserId;
+                    state = listSmartChatJobRequest.state;
+                    offset = listSmartChatJobRequest.offset;
+                    limit = listSmartChatJobRequest.limit;
+                } else {
+                    roomId = listSmartChatJobRequest['room_id'];
+                    authorization = listSmartChatJobRequest['Authorization'];
+                    xSdkDate = listSmartChatJobRequest['X-Sdk-Date'];
+                    xProjectId = listSmartChatJobRequest['X-Project-Id'];
+                    xAppUserId = listSmartChatJobRequest['X-App-UserId'];
+                    state = listSmartChatJobRequest['state'];
+                    offset = listSmartChatJobRequest['offset'];
+                    limit = listSmartChatJobRequest['limit'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling listSmartChatJob.');
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'room_id': roomId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询数字人智能交互任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6814,8 +6926,6 @@ export const ParamCreater = function () {
             
             let accurateQueryField;
             
-            let renderEngine;
-            
             let assetId;
             
             let sex;
@@ -6867,7 +6977,6 @@ export const ParamCreater = function () {
                     assetState = listAssetsRequest.assetState;
                     styleId = listAssetsRequest.styleId;
                     accurateQueryField = listAssetsRequest.accurateQueryField;
-                    renderEngine = listAssetsRequest.renderEngine;
                     assetId = listAssetsRequest.assetId;
                     sex = listAssetsRequest.sex;
                     language = listAssetsRequest.language;
@@ -6902,7 +7011,6 @@ export const ParamCreater = function () {
                     assetState = listAssetsRequest['asset_state'];
                     styleId = listAssetsRequest['style_id'];
                     accurateQueryField = listAssetsRequest['accurate_query_field'];
-                    renderEngine = listAssetsRequest['render_engine'];
                     assetId = listAssetsRequest['asset_id'];
                     sex = listAssetsRequest['sex'];
                     language = listAssetsRequest['language'];
@@ -6964,9 +7072,6 @@ export const ParamCreater = function () {
             }
             if (accurateQueryField !== null && accurateQueryField !== undefined) {
                 localVarQueryParameter['accurate_query_field'] = accurateQueryField;
-            }
-            if (renderEngine !== null && renderEngine !== undefined) {
-                localVarQueryParameter['render_engine'] = renderEngine;
             }
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
@@ -9113,6 +9218,8 @@ export const ParamCreater = function () {
             let region;
             
             let language;
+            
+            let hotWordsType;
 
             if (listHotWordsRequest !== null && listHotWordsRequest !== undefined) {
                 if (listHotWordsRequest instanceof ListHotWordsRequest) {
@@ -9125,6 +9232,7 @@ export const ParamCreater = function () {
                     limit = listHotWordsRequest.limit;
                     region = listHotWordsRequest.region;
                     language = listHotWordsRequest.language;
+                    hotWordsType = listHotWordsRequest.hotWordsType;
                 } else {
                     robotId = listHotWordsRequest['robot_id'];
                     authorization = listHotWordsRequest['Authorization'];
@@ -9135,6 +9243,7 @@ export const ParamCreater = function () {
                     limit = listHotWordsRequest['limit'];
                     region = listHotWordsRequest['region'];
                     language = listHotWordsRequest['language'];
+                    hotWordsType = listHotWordsRequest['hot_words_type'];
                 }
             }
 
@@ -9156,6 +9265,9 @@ export const ParamCreater = function () {
             }
             if (language !== null && language !== undefined) {
                 localVarQueryParameter['language'] = language;
+            }
+            if (hotWordsType !== null && hotWordsType !== undefined) {
+                localVarQueryParameter['hot_words_type'] = hotWordsType;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -17460,7 +17572,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于对外生成音频文件。每个预制音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
+         * 该接口用于对外生成音频文件。每个预置音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
          * 
          * &gt; 使用本接口前，需要在MetaStudio控制台服务概览页面，开通“声音合成”的按需计费。
          * &gt; 详细操作为：单击“声音合成”卡片中的“去开通”，在弹出的“开通按需计费服务提示”对话框中，勾选同意协议。单击“确定”，开通按需计费。

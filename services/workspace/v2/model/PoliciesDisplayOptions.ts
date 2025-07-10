@@ -9,16 +9,16 @@ export class PoliciesDisplayOptions {
     private 'video_frame_rate'?: number;
     private 'min_image_cache'?: number;
     private 'smoothing_factor'?: number;
-    private 'lossless_compression_mode'?: PoliciesDisplayOptionsLosslessCompressionModeEnum | string;
+    private 'lossless_compression_mode'?: string;
     private 'deep_compression_options'?: PoliciesDisplayOptionsDeepCompressionOptions;
     private 'lossy_compression_quality'?: number;
     private 'color_enhancement_enable'?: boolean;
-    private 'quality_bandwidth_first'?: PoliciesDisplayOptionsQualityBandwidthFirstEnum | string;
+    private 'quality_bandwidth_first'?: string;
     private 'video_bit_rate_options'?: PoliciesDisplayOptionsVideoBitRateOptions;
     private 'peak_video_bit_rate'?: number;
     private 'video_quality_options'?: PoliciesDisplayOptionsVideoQualityOptions;
     private 'gop_size'?: number;
-    private 'encoding_preset'?: PoliciesDisplayOptionsEncodingPresetEnum | string;
+    private 'encoding_preset'?: string;
     public constructor() { 
     }
     public withDisplayBandwidth(displayBandwidth: number): PoliciesDisplayOptions {
@@ -71,14 +71,14 @@ export class PoliciesDisplayOptions {
     public get smoothingFactor(): number | undefined {
         return this['smoothing_factor'];
     }
-    public withLosslessCompressionMode(losslessCompressionMode: PoliciesDisplayOptionsLosslessCompressionModeEnum | string): PoliciesDisplayOptions {
+    public withLosslessCompressionMode(losslessCompressionMode: string): PoliciesDisplayOptions {
         this['lossless_compression_mode'] = losslessCompressionMode;
         return this;
     }
-    public set losslessCompressionMode(losslessCompressionMode: PoliciesDisplayOptionsLosslessCompressionModeEnum | string  | undefined) {
+    public set losslessCompressionMode(losslessCompressionMode: string  | undefined) {
         this['lossless_compression_mode'] = losslessCompressionMode;
     }
-    public get losslessCompressionMode(): PoliciesDisplayOptionsLosslessCompressionModeEnum | string | undefined {
+    public get losslessCompressionMode(): string | undefined {
         return this['lossless_compression_mode'];
     }
     public withDeepCompressionOptions(deepCompressionOptions: PoliciesDisplayOptionsDeepCompressionOptions): PoliciesDisplayOptions {
@@ -111,14 +111,14 @@ export class PoliciesDisplayOptions {
     public get colorEnhancementEnable(): boolean | undefined {
         return this['color_enhancement_enable'];
     }
-    public withQualityBandwidthFirst(qualityBandwidthFirst: PoliciesDisplayOptionsQualityBandwidthFirstEnum | string): PoliciesDisplayOptions {
+    public withQualityBandwidthFirst(qualityBandwidthFirst: string): PoliciesDisplayOptions {
         this['quality_bandwidth_first'] = qualityBandwidthFirst;
         return this;
     }
-    public set qualityBandwidthFirst(qualityBandwidthFirst: PoliciesDisplayOptionsQualityBandwidthFirstEnum | string  | undefined) {
+    public set qualityBandwidthFirst(qualityBandwidthFirst: string  | undefined) {
         this['quality_bandwidth_first'] = qualityBandwidthFirst;
     }
-    public get qualityBandwidthFirst(): PoliciesDisplayOptionsQualityBandwidthFirstEnum | string | undefined {
+    public get qualityBandwidthFirst(): string | undefined {
         return this['quality_bandwidth_first'];
     }
     public withVideoBitRateOptions(videoBitRateOptions: PoliciesDisplayOptionsVideoBitRateOptions): PoliciesDisplayOptions {
@@ -161,44 +161,14 @@ export class PoliciesDisplayOptions {
     public get gopSize(): number | undefined {
         return this['gop_size'];
     }
-    public withEncodingPreset(encodingPreset: PoliciesDisplayOptionsEncodingPresetEnum | string): PoliciesDisplayOptions {
+    public withEncodingPreset(encodingPreset: string): PoliciesDisplayOptions {
         this['encoding_preset'] = encodingPreset;
         return this;
     }
-    public set encodingPreset(encodingPreset: PoliciesDisplayOptionsEncodingPresetEnum | string  | undefined) {
+    public set encodingPreset(encodingPreset: string  | undefined) {
         this['encoding_preset'] = encodingPreset;
     }
-    public get encodingPreset(): PoliciesDisplayOptionsEncodingPresetEnum | string | undefined {
+    public get encodingPreset(): string | undefined {
         return this['encoding_preset'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesDisplayOptionsLosslessCompressionModeEnum {
-    BASIC_COMPRESSION = 'Basic Compression',
-    DEEP_COMPRESSION = 'Deep Compression'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesDisplayOptionsQualityBandwidthFirstEnum {
-    QUALITY_FIRST = 'Quality First',
-    BANDWIDTH_FIRST = 'Bandwidth First'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesDisplayOptionsEncodingPresetEnum {
-    PRESET_1 = 'Preset 1',
-    PRESET_2 = 'Preset 2',
-    PRESET_3 = 'Preset 3',
-    PRESET_4 = 'Preset 4',
-    PRESET_5 = 'Preset 5',
-    PRESET_6 = 'Preset 6',
-    PRESET_7 = 'Preset 7'
 }

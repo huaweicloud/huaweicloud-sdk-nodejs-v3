@@ -1,4 +1,5 @@
 import { CpuOptions } from './CpuOptions';
+import { EnclaveOptions } from './EnclaveOptions';
 import { PrePaidServerDataVolume } from './PrePaidServerDataVolume';
 import { PrePaidServerExtendParam } from './PrePaidServerExtendParam';
 import { PrePaidServerNic } from './PrePaidServerNic';
@@ -40,6 +41,7 @@ export class PrePaidServer {
     private 'security_options'?: SecurityOptions;
     private 'serial_console_options'?: SerialConsoleOptions;
     private 'metadata_options'?: UpdateServerMetadataOptionsRequestBody;
+    private 'enclave_options'?: EnclaveOptions;
     public constructor(imageRef?: string, flavorRef?: string, name?: string, vpcid?: string, nics?: Array<PrePaidServerNic>, rootVolume?: PrePaidServerRootVolume) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
@@ -239,5 +241,15 @@ export class PrePaidServer {
     }
     public get metadataOptions(): UpdateServerMetadataOptionsRequestBody | undefined {
         return this['metadata_options'];
+    }
+    public withEnclaveOptions(enclaveOptions: EnclaveOptions): PrePaidServer {
+        this['enclave_options'] = enclaveOptions;
+        return this;
+    }
+    public set enclaveOptions(enclaveOptions: EnclaveOptions  | undefined) {
+        this['enclave_options'] = enclaveOptions;
+    }
+    public get enclaveOptions(): EnclaveOptions | undefined {
+        return this['enclave_options'];
     }
 }

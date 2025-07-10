@@ -1,4 +1,3 @@
-import { Vag } from './Vag';
 
 
 export class SiteInfo {
@@ -8,7 +7,6 @@ export class SiteInfo {
     private 'project_id'?: string;
     public status?: string;
     private 'create_time'?: string;
-    private 'agent_info'?: Array<Vag>;
     public constructor() { 
     }
     public withSiteId(siteId: string): SiteInfo {
@@ -64,16 +62,6 @@ export class SiteInfo {
     }
     public get createTime(): string | undefined {
         return this['create_time'];
-    }
-    public withAgentInfo(agentInfo: Array<Vag>): SiteInfo {
-        this['agent_info'] = agentInfo;
-        return this;
-    }
-    public set agentInfo(agentInfo: Array<Vag>  | undefined) {
-        this['agent_info'] = agentInfo;
-    }
-    public get agentInfo(): Array<Vag> | undefined {
-        return this['agent_info'];
     }
 }
 

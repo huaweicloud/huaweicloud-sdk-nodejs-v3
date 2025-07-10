@@ -1,3 +1,4 @@
+import { CreateMobvoiHotWords } from './CreateMobvoiHotWords';
 import { CreateSisHotWords } from './CreateSisHotWords';
 import { HotWordsTypeEnum } from './HotWordsTypeEnum';
 
@@ -6,10 +7,10 @@ export class CreateHotWordsReq {
     private 'hot_words_type'?: HotWordsTypeEnum;
     private 'robot_id'?: string;
     private 'sis_hot_words'?: CreateSisHotWords;
-    public constructor(hotWordsType?: HotWordsTypeEnum, robotId?: string, sisHotWords?: CreateSisHotWords) { 
+    private 'mobvoi_hot_words'?: CreateMobvoiHotWords;
+    public constructor(hotWordsType?: HotWordsTypeEnum, robotId?: string) { 
         this['hot_words_type'] = hotWordsType;
         this['robot_id'] = robotId;
-        this['sis_hot_words'] = sisHotWords;
     }
     public withHotWordsType(hotWordsType: HotWordsTypeEnum): CreateHotWordsReq {
         this['hot_words_type'] = hotWordsType;
@@ -40,5 +41,15 @@ export class CreateHotWordsReq {
     }
     public get sisHotWords(): CreateSisHotWords | undefined {
         return this['sis_hot_words'];
+    }
+    public withMobvoiHotWords(mobvoiHotWords: CreateMobvoiHotWords): CreateHotWordsReq {
+        this['mobvoi_hot_words'] = mobvoiHotWords;
+        return this;
+    }
+    public set mobvoiHotWords(mobvoiHotWords: CreateMobvoiHotWords  | undefined) {
+        this['mobvoi_hot_words'] = mobvoiHotWords;
+    }
+    public get mobvoiHotWords(): CreateMobvoiHotWords | undefined {
+        return this['mobvoi_hot_words'];
     }
 }

@@ -4,7 +4,7 @@ import { DesktopDetailInfo } from './DesktopDetailInfo';
 import { FlavorInfo } from './FlavorInfo';
 import { HourPackageInfo } from './HourPackageInfo';
 import { ProductInfo } from './ProductInfo';
-import { SecurityGroup } from './SecurityGroup';
+import { SecurityGroupInfo } from './SecurityGroupInfo';
 import { Tag } from './Tag';
 import { VolumeDetail } from './VolumeDetail';
 
@@ -27,7 +27,7 @@ export class PoolDesktopsDetailInfo {
     private 'task_status'?: string;
     private 'in_maintenance_mode'?: boolean;
     public created?: string;
-    private 'security_groups'?: Array<SecurityGroup>;
+    private 'security_groups'?: Array<SecurityGroupInfo>;
     private 'login_status'?: string;
     private 'user_name'?: string;
     private 'attach_user_infos'?: Array<AttachInstancesUserInfo>;
@@ -43,18 +43,12 @@ export class PoolDesktopsDetailInfo {
     private 'ou_name'?: string;
     private 'os_version'?: string;
     public sid?: string;
-    private 'join_domain'?: string;
     private 'order_id'?: string;
     public tags?: Array<Tag>;
-    private 'deh_id'?: string;
-    private 'platform_kind'?: number;
     private 'is_support_internet'?: boolean;
     private 'internet_mode'?: PoolDesktopsDetailInfoInternetModeEnum | string;
     private 'internet_mode_list'?: Array<string>;
-    private 'need_apply_adn'?: boolean;
     private 'is_attaching_eip'?: boolean;
-    private 'desktop_isv'?: PoolDesktopsDetailInfoDesktopIsvEnum | string;
-    private 'creation_type'?: string;
     private 'attach_state'?: PoolDesktopsDetailInfoAttachStateEnum | string;
     private 'enterprise_project_id'?: string;
     private 'subnet_id'?: string;
@@ -193,14 +187,14 @@ export class PoolDesktopsDetailInfo {
         this['created'] = created;
         return this;
     }
-    public withSecurityGroups(securityGroups: Array<SecurityGroup>): PoolDesktopsDetailInfo {
+    public withSecurityGroups(securityGroups: Array<SecurityGroupInfo>): PoolDesktopsDetailInfo {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SecurityGroup>  | undefined) {
+    public set securityGroups(securityGroups: Array<SecurityGroupInfo>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): Array<SecurityGroup> | undefined {
+    public get securityGroups(): Array<SecurityGroupInfo> | undefined {
         return this['security_groups'];
     }
     public withLoginStatus(loginStatus: string): PoolDesktopsDetailInfo {
@@ -341,16 +335,6 @@ export class PoolDesktopsDetailInfo {
         this['sid'] = sid;
         return this;
     }
-    public withJoinDomain(joinDomain: string): PoolDesktopsDetailInfo {
-        this['join_domain'] = joinDomain;
-        return this;
-    }
-    public set joinDomain(joinDomain: string  | undefined) {
-        this['join_domain'] = joinDomain;
-    }
-    public get joinDomain(): string | undefined {
-        return this['join_domain'];
-    }
     public withOrderId(orderId: string): PoolDesktopsDetailInfo {
         this['order_id'] = orderId;
         return this;
@@ -364,26 +348,6 @@ export class PoolDesktopsDetailInfo {
     public withTags(tags: Array<Tag>): PoolDesktopsDetailInfo {
         this['tags'] = tags;
         return this;
-    }
-    public withDehId(dehId: string): PoolDesktopsDetailInfo {
-        this['deh_id'] = dehId;
-        return this;
-    }
-    public set dehId(dehId: string  | undefined) {
-        this['deh_id'] = dehId;
-    }
-    public get dehId(): string | undefined {
-        return this['deh_id'];
-    }
-    public withPlatformKind(platformKind: number): PoolDesktopsDetailInfo {
-        this['platform_kind'] = platformKind;
-        return this;
-    }
-    public set platformKind(platformKind: number  | undefined) {
-        this['platform_kind'] = platformKind;
-    }
-    public get platformKind(): number | undefined {
-        return this['platform_kind'];
     }
     public withIsSupportInternet(isSupportInternet: boolean): PoolDesktopsDetailInfo {
         this['is_support_internet'] = isSupportInternet;
@@ -415,16 +379,6 @@ export class PoolDesktopsDetailInfo {
     public get internetModeList(): Array<string> | undefined {
         return this['internet_mode_list'];
     }
-    public withNeedApplyAdn(needApplyAdn: boolean): PoolDesktopsDetailInfo {
-        this['need_apply_adn'] = needApplyAdn;
-        return this;
-    }
-    public set needApplyAdn(needApplyAdn: boolean  | undefined) {
-        this['need_apply_adn'] = needApplyAdn;
-    }
-    public get needApplyAdn(): boolean | undefined {
-        return this['need_apply_adn'];
-    }
     public withIsAttachingEip(isAttachingEip: boolean): PoolDesktopsDetailInfo {
         this['is_attaching_eip'] = isAttachingEip;
         return this;
@@ -434,26 +388,6 @@ export class PoolDesktopsDetailInfo {
     }
     public get isAttachingEip(): boolean | undefined {
         return this['is_attaching_eip'];
-    }
-    public withDesktopIsv(desktopIsv: PoolDesktopsDetailInfoDesktopIsvEnum | string): PoolDesktopsDetailInfo {
-        this['desktop_isv'] = desktopIsv;
-        return this;
-    }
-    public set desktopIsv(desktopIsv: PoolDesktopsDetailInfoDesktopIsvEnum | string  | undefined) {
-        this['desktop_isv'] = desktopIsv;
-    }
-    public get desktopIsv(): PoolDesktopsDetailInfoDesktopIsvEnum | string | undefined {
-        return this['desktop_isv'];
-    }
-    public withCreationType(creationType: string): PoolDesktopsDetailInfo {
-        this['creation_type'] = creationType;
-        return this;
-    }
-    public set creationType(creationType: string  | undefined) {
-        this['creation_type'] = creationType;
-    }
-    public get creationType(): string | undefined {
-        return this['creation_type'];
     }
     public withAttachState(attachState: PoolDesktopsDetailInfoAttachStateEnum | string): PoolDesktopsDetailInfo {
         this['attach_state'] = attachState;
@@ -539,14 +473,6 @@ export enum PoolDesktopsDetailInfoInternetModeEnum {
     NAT = 'NAT',
     EIP = 'EIP',
     BOTH = 'BOTH'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoolDesktopsDetailInfoDesktopIsvEnum {
-    DEFAULT = 'DEFAULT',
-    ONEMOBILE = 'ONEMOBILE'
 }
 /**
     * @export

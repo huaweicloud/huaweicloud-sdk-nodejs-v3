@@ -6,7 +6,6 @@ export class HourPackageResource {
     private 'period_num'?: number;
     private 'is_auto_renew'?: number;
     private 'used_up_policy'?: HourPackageResourceUsedUpPolicyEnum | string;
-    private 'cloud_service_console_url'?: string;
     private 'create_desktops'?: CreateDesktopReq;
     public constructor() { 
     }
@@ -49,16 +48,6 @@ export class HourPackageResource {
     }
     public get usedUpPolicy(): HourPackageResourceUsedUpPolicyEnum | string | undefined {
         return this['used_up_policy'];
-    }
-    public withCloudServiceConsoleUrl(cloudServiceConsoleUrl: string): HourPackageResource {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-        return this;
-    }
-    public set cloudServiceConsoleUrl(cloudServiceConsoleUrl: string  | undefined) {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-    }
-    public get cloudServiceConsoleUrl(): string | undefined {
-        return this['cloud_service_console_url'];
     }
     public withCreateDesktops(createDesktops: CreateDesktopReq): HourPackageResource {
         this['create_desktops'] = createDesktops;

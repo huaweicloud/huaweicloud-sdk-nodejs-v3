@@ -1,6 +1,6 @@
 import { AutoscalePolicy } from './AutoscalePolicy';
 import { ProductInfo } from './ProductInfo';
-import { SecurityGroup } from './SecurityGroup';
+import { SecurityGroupInfo } from './SecurityGroupInfo';
 import { VolumeInfo } from './VolumeInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -14,7 +14,6 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     private 'charging_mode'?: string;
     private 'desktop_count'?: number;
     private 'desktop_used'?: number;
-    private 'on_demand_desktop_num'?: number;
     private 'availability_zone'?: string;
     private 'subnet_id'?: string;
     public product?: ProductInfo;
@@ -26,7 +25,7 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     private 'image_product_code'?: string;
     private 'root_volume'?: VolumeInfo;
     private 'data_volumes'?: Array<VolumeInfo>;
-    private 'security_groups'?: Array<SecurityGroup>;
+    private 'security_groups'?: Array<SecurityGroupInfo>;
     private 'disconnected_retention_period'?: number;
     private 'enable_autoscale'?: boolean;
     private 'autoscale_policy'?: AutoscalePolicy;
@@ -92,16 +91,6 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     }
     public get desktopUsed(): number | undefined {
         return this['desktop_used'];
-    }
-    public withOnDemandDesktopNum(onDemandDesktopNum: number): ShowDesktopPoolDetailResponse {
-        this['on_demand_desktop_num'] = onDemandDesktopNum;
-        return this;
-    }
-    public set onDemandDesktopNum(onDemandDesktopNum: number  | undefined) {
-        this['on_demand_desktop_num'] = onDemandDesktopNum;
-    }
-    public get onDemandDesktopNum(): number | undefined {
-        return this['on_demand_desktop_num'];
     }
     public withAvailabilityZone(availabilityZone: string): ShowDesktopPoolDetailResponse {
         this['availability_zone'] = availabilityZone;
@@ -207,14 +196,14 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     public get dataVolumes(): Array<VolumeInfo> | undefined {
         return this['data_volumes'];
     }
-    public withSecurityGroups(securityGroups: Array<SecurityGroup>): ShowDesktopPoolDetailResponse {
+    public withSecurityGroups(securityGroups: Array<SecurityGroupInfo>): ShowDesktopPoolDetailResponse {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SecurityGroup>  | undefined) {
+    public set securityGroups(securityGroups: Array<SecurityGroupInfo>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): Array<SecurityGroup> | undefined {
+    public get securityGroups(): Array<SecurityGroupInfo> | undefined {
         return this['security_groups'];
     }
     public withDisconnectedRetentionPeriod(disconnectedRetentionPeriod: number): ShowDesktopPoolDetailResponse {

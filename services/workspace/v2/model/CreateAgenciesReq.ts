@@ -16,5 +16,7 @@ export class CreateAgenciesReq {
     */
 export enum CreateAgenciesReqSceneEnum {
     WORKSPACE = 'WORKSPACE',
-    CLOUD_GAME = 'CLOUD_GAME'
+    CLOUD_GAME = 'CLOUD_GAME',
+    CLOUD_STORAGE = 'CLOUD_STORAGE',
+    SCREEN_RECORD = 'SCREEN_RECORD'
 }

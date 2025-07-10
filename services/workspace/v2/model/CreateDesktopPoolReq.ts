@@ -12,6 +12,7 @@ export class CreateDesktopPoolReq {
     public description?: string;
     private 'availability_zone'?: string;
     private 'product_id'?: string;
+    private 'flavor_id'?: string;
     private 'image_type'?: string;
     private 'image_id'?: string;
     private 'root_volume'?: VolumeInfo;
@@ -20,7 +21,6 @@ export class CreateDesktopPoolReq {
     private 'subnet_ids'?: Array<string>;
     private 'security_groups'?: Array<SecurityGroup>;
     private 'authorized_objects'?: Array<AuthorizedObjects>;
-    private 'order_id'?: string;
     private 'ou_name'?: string;
     public tags?: Array<Tag>;
     private 'enterprise_project_id'?: string;
@@ -73,6 +73,16 @@ export class CreateDesktopPoolReq {
     }
     public get productId(): string | undefined {
         return this['product_id'];
+    }
+    public withFlavorId(flavorId: string): CreateDesktopPoolReq {
+        this['flavor_id'] = flavorId;
+        return this;
+    }
+    public set flavorId(flavorId: string  | undefined) {
+        this['flavor_id'] = flavorId;
+    }
+    public get flavorId(): string | undefined {
+        return this['flavor_id'];
     }
     public withImageType(imageType: string): CreateDesktopPoolReq {
         this['image_type'] = imageType;
@@ -153,16 +163,6 @@ export class CreateDesktopPoolReq {
     }
     public get authorizedObjects(): Array<AuthorizedObjects> | undefined {
         return this['authorized_objects'];
-    }
-    public withOrderId(orderId: string): CreateDesktopPoolReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
     public withOuName(ouName: string): CreateDesktopPoolReq {
         this['ou_name'] = ouName;

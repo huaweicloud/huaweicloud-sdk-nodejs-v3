@@ -2,18 +2,18 @@ import { PoliciesPeripheralsUsbDeviceCommonCommonOptions } from './PoliciesPerip
 
 
 export class PoliciesPeripheralsUsbDeviceCommon {
-    private 'pcsc_smart_card_enable'?: PoliciesPeripheralsUsbDeviceCommonPcscSmartCardEnableEnum | string;
+    private 'pcsc_smart_card_enable'?: string;
     private 'common_options'?: PoliciesPeripheralsUsbDeviceCommonCommonOptions;
     public constructor() { 
     }
-    public withPcscSmartCardEnable(pcscSmartCardEnable: PoliciesPeripheralsUsbDeviceCommonPcscSmartCardEnableEnum | string): PoliciesPeripheralsUsbDeviceCommon {
+    public withPcscSmartCardEnable(pcscSmartCardEnable: string): PoliciesPeripheralsUsbDeviceCommon {
         this['pcsc_smart_card_enable'] = pcscSmartCardEnable;
         return this;
     }
-    public set pcscSmartCardEnable(pcscSmartCardEnable: PoliciesPeripheralsUsbDeviceCommonPcscSmartCardEnableEnum | string  | undefined) {
+    public set pcscSmartCardEnable(pcscSmartCardEnable: string  | undefined) {
         this['pcsc_smart_card_enable'] = pcscSmartCardEnable;
     }
-    public get pcscSmartCardEnable(): PoliciesPeripheralsUsbDeviceCommonPcscSmartCardEnableEnum | string | undefined {
+    public get pcscSmartCardEnable(): string | undefined {
         return this['pcsc_smart_card_enable'];
     }
     public withCommonOptions(commonOptions: PoliciesPeripheralsUsbDeviceCommonCommonOptions): PoliciesPeripheralsUsbDeviceCommon {
@@ -26,14 +26,4 @@ export class PoliciesPeripheralsUsbDeviceCommon {
     public get commonOptions(): PoliciesPeripheralsUsbDeviceCommonCommonOptions | undefined {
         return this['common_options'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesPeripheralsUsbDeviceCommonPcscSmartCardEnableEnum {
-    ENABLE = 'Enable',
-    CLOSED = 'Closed',
-    DISABLE = 'Disable'
 }

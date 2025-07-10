@@ -2,21 +2,15 @@ import { AdDomain } from './AdDomain';
 import { AdDomainInfo } from './AdDomainInfo';
 import { ApplyDedicatedStandbyNetworkParam } from './ApplyDedicatedStandbyNetworkParam';
 import { ApplySharedVpcDedicatedParam } from './ApplySharedVpcDedicatedParam';
-import { ThirdGatewayConfigInfo } from './ThirdGatewayConfigInfo';
-import { VpcConfigInfo } from './VpcConfigInfo';
 
 
 export class ModifyWorkspaceAttributesReq {
-    private 'operate_type'?: ModifyWorkspaceAttributesReqOperateTypeEnum | string;
-    private 'auth_type'?: ModifyWorkspaceAttributesReqAuthTypeEnum | string;
     private 'ad_info'?: AdDomainInfo;
-    private 'third_gateway_info'?: ThirdGatewayConfigInfo;
     private 'ad_domains'?: AdDomain;
     private 'access_mode'?: ModifyWorkspaceAttributesReqAccessModeEnum | string;
     private 'dedicated_subnets'?: string;
     private 'adn_conflict_network'?: string;
     private 'subnet_ids'?: Array<string>;
-    private 'vpc_config_infos'?: Array<VpcConfigInfo>;
     private 'internet_access_port'?: string;
     private 'enterprise_id'?: string;
     private 'is_send_email'?: boolean;
@@ -27,28 +21,7 @@ export class ModifyWorkspaceAttributesReq {
     private 'apply_dedicated_standby_network_param'?: ApplyDedicatedStandbyNetworkParam;
     private 'is_authorized_install_agent'?: boolean;
     private 'enable_user_create_snapshot'?: boolean;
-    private 'is_support_ipv6'?: boolean;
     public constructor() { 
-    }
-    public withOperateType(operateType: ModifyWorkspaceAttributesReqOperateTypeEnum | string): ModifyWorkspaceAttributesReq {
-        this['operate_type'] = operateType;
-        return this;
-    }
-    public set operateType(operateType: ModifyWorkspaceAttributesReqOperateTypeEnum | string  | undefined) {
-        this['operate_type'] = operateType;
-    }
-    public get operateType(): ModifyWorkspaceAttributesReqOperateTypeEnum | string | undefined {
-        return this['operate_type'];
-    }
-    public withAuthType(authType: ModifyWorkspaceAttributesReqAuthTypeEnum | string): ModifyWorkspaceAttributesReq {
-        this['auth_type'] = authType;
-        return this;
-    }
-    public set authType(authType: ModifyWorkspaceAttributesReqAuthTypeEnum | string  | undefined) {
-        this['auth_type'] = authType;
-    }
-    public get authType(): ModifyWorkspaceAttributesReqAuthTypeEnum | string | undefined {
-        return this['auth_type'];
     }
     public withAdInfo(adInfo: AdDomainInfo): ModifyWorkspaceAttributesReq {
         this['ad_info'] = adInfo;
@@ -59,16 +32,6 @@ export class ModifyWorkspaceAttributesReq {
     }
     public get adInfo(): AdDomainInfo | undefined {
         return this['ad_info'];
-    }
-    public withThirdGatewayInfo(thirdGatewayInfo: ThirdGatewayConfigInfo): ModifyWorkspaceAttributesReq {
-        this['third_gateway_info'] = thirdGatewayInfo;
-        return this;
-    }
-    public set thirdGatewayInfo(thirdGatewayInfo: ThirdGatewayConfigInfo  | undefined) {
-        this['third_gateway_info'] = thirdGatewayInfo;
-    }
-    public get thirdGatewayInfo(): ThirdGatewayConfigInfo | undefined {
-        return this['third_gateway_info'];
     }
     public withAdDomains(adDomains: AdDomain): ModifyWorkspaceAttributesReq {
         this['ad_domains'] = adDomains;
@@ -119,16 +82,6 @@ export class ModifyWorkspaceAttributesReq {
     }
     public get subnetIds(): Array<string> | undefined {
         return this['subnet_ids'];
-    }
-    public withVpcConfigInfos(vpcConfigInfos: Array<VpcConfigInfo>): ModifyWorkspaceAttributesReq {
-        this['vpc_config_infos'] = vpcConfigInfos;
-        return this;
-    }
-    public set vpcConfigInfos(vpcConfigInfos: Array<VpcConfigInfo>  | undefined) {
-        this['vpc_config_infos'] = vpcConfigInfos;
-    }
-    public get vpcConfigInfos(): Array<VpcConfigInfo> | undefined {
-        return this['vpc_config_infos'];
     }
     public withInternetAccessPort(internetAccessPort: string): ModifyWorkspaceAttributesReq {
         this['internet_access_port'] = internetAccessPort;
@@ -230,34 +183,8 @@ export class ModifyWorkspaceAttributesReq {
     public get enableUserCreateSnapshot(): boolean | undefined {
         return this['enable_user_create_snapshot'];
     }
-    public withIsSupportIpv6(isSupportIpv6: boolean): ModifyWorkspaceAttributesReq {
-        this['is_support_ipv6'] = isSupportIpv6;
-        return this;
-    }
-    public set isSupportIpv6(isSupportIpv6: boolean  | undefined) {
-        this['is_support_ipv6'] = isSupportIpv6;
-    }
-    public get isSupportIpv6(): boolean | undefined {
-        return this['is_support_ipv6'];
-    }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ModifyWorkspaceAttributesReqOperateTypeEnum {
-    APPLYDEDICATEDSTANDBYNETWORK = 'applyDedicatedStandbyNetwork',
-    CANCELDEDICATEDSTANDBYNETWORK = 'cancelDedicatedStandbyNetwork'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ModifyWorkspaceAttributesReqAuthTypeEnum {
-    KERBEROS = 'KERBEROS',
-    KERBEROS_THIRD_SSO = 'KERBEROS_THIRD_SSO'
-}
 /**
     * @export
     * @enum {string}

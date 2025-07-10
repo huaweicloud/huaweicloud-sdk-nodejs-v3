@@ -2,17 +2,20 @@
 
 export class CreateScriptReq {
     public name?: string;
-    public type?: string;
+    public type?: CreateScriptReqTypeEnum | string;
     public description?: string;
     public content?: string;
     public version?: string;
-    public constructor() { 
+    public constructor(name?: string, type?: string, content?: string) { 
+        this['name'] = name;
+        this['type'] = type;
+        this['content'] = content;
     }
     public withName(name: string): CreateScriptReq {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): CreateScriptReq {
+    public withType(type: CreateScriptReqTypeEnum | string): CreateScriptReq {
         this['type'] = type;
         return this;
     }
@@ -28,4 +31,14 @@ export class CreateScriptReq {
         this['version'] = version;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateScriptReqTypeEnum {
+    POWERSHELL = 'POWERSHELL',
+    BAT = 'BAT',
+    SHELL = 'SHELL'
 }

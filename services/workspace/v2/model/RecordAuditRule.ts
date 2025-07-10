@@ -12,6 +12,9 @@ export class RecordAuditRule {
     private 'event_enable'?: boolean;
     private 'file_suffix'?: string;
     private 'regit_paths'?: string;
+    private 'app_filter_type'?: string;
+    private 'app_white_list'?: string;
+    private 'app_black_list'?: string;
     public constructor() { 
     }
     public withRecordType(recordType: string): RecordAuditRule {
@@ -105,5 +108,35 @@ export class RecordAuditRule {
     }
     public get regitPaths(): string | undefined {
         return this['regit_paths'];
+    }
+    public withAppFilterType(appFilterType: string): RecordAuditRule {
+        this['app_filter_type'] = appFilterType;
+        return this;
+    }
+    public set appFilterType(appFilterType: string  | undefined) {
+        this['app_filter_type'] = appFilterType;
+    }
+    public get appFilterType(): string | undefined {
+        return this['app_filter_type'];
+    }
+    public withAppWhiteList(appWhiteList: string): RecordAuditRule {
+        this['app_white_list'] = appWhiteList;
+        return this;
+    }
+    public set appWhiteList(appWhiteList: string  | undefined) {
+        this['app_white_list'] = appWhiteList;
+    }
+    public get appWhiteList(): string | undefined {
+        return this['app_white_list'];
+    }
+    public withAppBlackList(appBlackList: string): RecordAuditRule {
+        this['app_black_list'] = appBlackList;
+        return this;
+    }
+    public set appBlackList(appBlackList: string  | undefined) {
+        this['app_black_list'] = appBlackList;
+    }
+    public get appBlackList(): string | undefined {
+        return this['app_black_list'];
     }
 }

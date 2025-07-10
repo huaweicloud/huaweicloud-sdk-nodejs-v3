@@ -10,18 +10,15 @@ export class ProductInfo {
     public descriptions?: string;
     private 'charge_mode'?: string;
     public architecture?: string;
-    private 'cpu_desc'?: string;
     private 'is_gpu'?: boolean;
     private 'package_type'?: string;
     private 'system_disk_type'?: string;
     private 'system_disk_size'?: string;
-    private 'gpu_desc'?: string;
     private 'contain_data_disk'?: boolean;
     private 'resource_type'?: string;
     private 'cloud_service_type'?: string;
     private 'volume_product_type'?: string;
     public status?: string;
-    private 'sub_product_list'?: Array<string>;
     public constructor() { 
     }
     public withProductId(productId: string): ProductInfo {
@@ -74,16 +71,6 @@ export class ProductInfo {
         this['architecture'] = architecture;
         return this;
     }
-    public withCpuDesc(cpuDesc: string): ProductInfo {
-        this['cpu_desc'] = cpuDesc;
-        return this;
-    }
-    public set cpuDesc(cpuDesc: string  | undefined) {
-        this['cpu_desc'] = cpuDesc;
-    }
-    public get cpuDesc(): string | undefined {
-        return this['cpu_desc'];
-    }
     public withIsGpu(isGpu: boolean): ProductInfo {
         this['is_gpu'] = isGpu;
         return this;
@@ -123,16 +110,6 @@ export class ProductInfo {
     }
     public get systemDiskSize(): string | undefined {
         return this['system_disk_size'];
-    }
-    public withGpuDesc(gpuDesc: string): ProductInfo {
-        this['gpu_desc'] = gpuDesc;
-        return this;
-    }
-    public set gpuDesc(gpuDesc: string  | undefined) {
-        this['gpu_desc'] = gpuDesc;
-    }
-    public get gpuDesc(): string | undefined {
-        return this['gpu_desc'];
     }
     public withContainDataDisk(containDataDisk: boolean): ProductInfo {
         this['contain_data_disk'] = containDataDisk;
@@ -177,15 +154,5 @@ export class ProductInfo {
     public withStatus(status: string): ProductInfo {
         this['status'] = status;
         return this;
-    }
-    public withSubProductList(subProductList: Array<string>): ProductInfo {
-        this['sub_product_list'] = subProductList;
-        return this;
-    }
-    public set subProductList(subProductList: Array<string>  | undefined) {
-        this['sub_product_list'] = subProductList;
-    }
-    public get subProductList(): Array<string> | undefined {
-        return this['sub_product_list'];
     }
 }

@@ -9,7 +9,7 @@ export class PoliciesPeripheralsDeviceRedirection {
     private 'session_printer'?: PoliciesPeripheralsDeviceRedirectionSessionPrinter;
     private 'camera_redirection'?: PoliciesPeripheralsDeviceRedirectionCameraRedirection;
     private 'twain_redirection_enable'?: boolean;
-    private 'image_compression_level'?: PoliciesPeripheralsDeviceRedirectionImageCompressionLevelEnum | string;
+    private 'image_compression_level'?: string;
     private 'hid_redirection'?: PoliciesPeripheralsDeviceRedirectionHidRedirection;
     public constructor() { 
     }
@@ -53,14 +53,14 @@ export class PoliciesPeripheralsDeviceRedirection {
     public get twainRedirectionEnable(): boolean | undefined {
         return this['twain_redirection_enable'];
     }
-    public withImageCompressionLevel(imageCompressionLevel: PoliciesPeripheralsDeviceRedirectionImageCompressionLevelEnum | string): PoliciesPeripheralsDeviceRedirection {
+    public withImageCompressionLevel(imageCompressionLevel: string): PoliciesPeripheralsDeviceRedirection {
         this['image_compression_level'] = imageCompressionLevel;
         return this;
     }
-    public set imageCompressionLevel(imageCompressionLevel: PoliciesPeripheralsDeviceRedirectionImageCompressionLevelEnum | string  | undefined) {
+    public set imageCompressionLevel(imageCompressionLevel: string  | undefined) {
         this['image_compression_level'] = imageCompressionLevel;
     }
-    public get imageCompressionLevel(): PoliciesPeripheralsDeviceRedirectionImageCompressionLevelEnum | string | undefined {
+    public get imageCompressionLevel(): string | undefined {
         return this['image_compression_level'];
     }
     public withHidRedirection(hidRedirection: PoliciesPeripheralsDeviceRedirectionHidRedirection): PoliciesPeripheralsDeviceRedirection {
@@ -73,19 +73,4 @@ export class PoliciesPeripheralsDeviceRedirection {
     public get hidRedirection(): PoliciesPeripheralsDeviceRedirectionHidRedirection | undefined {
         return this['hid_redirection'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesPeripheralsDeviceRedirectionImageCompressionLevelEnum {
-    NONE = 'none',
-    LOW = 'low',
-    MEDIUM = 'medium',
-    HIGH = 'high',
-    LOSSLESS = 'lossless',
-    LOW_LOSS = 'low-loss',
-    MEDIUM_LOSS = 'medium-loss',
-    HIGH_LOSS = 'high-loss'
 }

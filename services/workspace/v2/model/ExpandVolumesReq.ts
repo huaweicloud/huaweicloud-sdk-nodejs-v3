@@ -2,7 +2,6 @@
 
 export class ExpandVolumesReq {
     private 'desktop_id'?: string;
-    private 'order_id'?: string;
     private 'volume_id'?: string;
     private 'new_size'?: number;
     public constructor() { 
@@ -16,16 +15,6 @@ export class ExpandVolumesReq {
     }
     public get desktopId(): string | undefined {
         return this['desktop_id'];
-    }
-    public withOrderId(orderId: string): ExpandVolumesReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
     public withVolumeId(volumeId: string): ExpandVolumesReq {
         this['volume_id'] = volumeId;

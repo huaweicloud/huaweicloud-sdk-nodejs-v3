@@ -5,7 +5,6 @@ import { LdapConfig } from './LdapConfig';
 export class ThirdPartyAuthConfig {
     private 'update_type'?: string;
     public enable?: boolean;
-    private 'is_cooperate_password'?: boolean;
     private 'update_object'?: string;
     private 'auth_type'?: string;
     private 'client_interface_config'?: InterfacesConfig;
@@ -30,16 +29,6 @@ export class ThirdPartyAuthConfig {
     public withEnable(enable: boolean): ThirdPartyAuthConfig {
         this['enable'] = enable;
         return this;
-    }
-    public withIsCooperatePassword(isCooperatePassword: boolean): ThirdPartyAuthConfig {
-        this['is_cooperate_password'] = isCooperatePassword;
-        return this;
-    }
-    public set isCooperatePassword(isCooperatePassword: boolean  | undefined) {
-        this['is_cooperate_password'] = isCooperatePassword;
-    }
-    public get isCooperatePassword(): boolean | undefined {
-        return this['is_cooperate_password'];
     }
     public withUpdateObject(updateObject: string): ThirdPartyAuthConfig {
         this['update_object'] = updateObject;

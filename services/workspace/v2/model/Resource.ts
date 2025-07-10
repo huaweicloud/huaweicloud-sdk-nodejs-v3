@@ -6,7 +6,6 @@ import { CreateDesktopPoolReq } from './CreateDesktopPoolReq';
 import { CreateDesktopReq } from './CreateDesktopReq';
 import { CreateExclusiveHostsReq } from './CreateExclusiveHostsReq';
 import { ExpandDesktopPoolOrderReq } from './ExpandDesktopPoolOrderReq';
-import { Hosts } from './Hosts';
 import { RebuildDesktopsReq } from './RebuildDesktopsReq';
 import { ResizeExclusiveLitesReq } from './ResizeExclusiveLitesReq';
 import { SubscribeUserSharerReq } from './SubscribeUserSharerReq';
@@ -18,7 +17,6 @@ export class Resource {
     private 'is_auto_renew'?: number;
     private 'add_volumes'?: AddVolumes;
     private 'create_desktops'?: CreateDesktopReq;
-    private 'deh_hosts'?: Hosts;
     private 'rebuild_desktops'?: RebuildDesktopsReq;
     private 'attach_desktops'?: AttachInstancesReq;
     private 'create_exclusive_hosts'?: CreateExclusiveHostsReq;
@@ -28,7 +26,6 @@ export class Resource {
     private 'apply_desktops_internet'?: ApplyDesktopsInternet;
     private 'apply_subnet_bandwidth'?: ApplySubnetBandwidthReq;
     private 'subscribe_user_sharer'?: SubscribeUserSharerReq;
-    private 'cloud_service_console_url'?: string;
     public constructor() { 
     }
     public withPeriodType(periodType: number): Resource {
@@ -80,16 +77,6 @@ export class Resource {
     }
     public get createDesktops(): CreateDesktopReq | undefined {
         return this['create_desktops'];
-    }
-    public withDehHosts(dehHosts: Hosts): Resource {
-        this['deh_hosts'] = dehHosts;
-        return this;
-    }
-    public set dehHosts(dehHosts: Hosts  | undefined) {
-        this['deh_hosts'] = dehHosts;
-    }
-    public get dehHosts(): Hosts | undefined {
-        return this['deh_hosts'];
     }
     public withRebuildDesktops(rebuildDesktops: RebuildDesktopsReq): Resource {
         this['rebuild_desktops'] = rebuildDesktops;
@@ -180,15 +167,5 @@ export class Resource {
     }
     public get subscribeUserSharer(): SubscribeUserSharerReq | undefined {
         return this['subscribe_user_sharer'];
-    }
-    public withCloudServiceConsoleUrl(cloudServiceConsoleUrl: string): Resource {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-        return this;
-    }
-    public set cloudServiceConsoleUrl(cloudServiceConsoleUrl: string  | undefined) {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-    }
-    public get cloudServiceConsoleUrl(): string | undefined {
-        return this['cloud_service_console_url'];
     }
 }

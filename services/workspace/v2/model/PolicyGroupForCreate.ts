@@ -7,7 +7,6 @@ export class PolicyGroupForCreate {
     private 'policy_group_name'?: string;
     public priority?: number;
     public description?: string;
-    private 'scope_flag'?: number;
     private 'update_time'?: string;
     public targets?: Array<Target>;
     public policies?: Policies;
@@ -40,16 +39,6 @@ export class PolicyGroupForCreate {
     public withDescription(description: string): PolicyGroupForCreate {
         this['description'] = description;
         return this;
-    }
-    public withScopeFlag(scopeFlag: number): PolicyGroupForCreate {
-        this['scope_flag'] = scopeFlag;
-        return this;
-    }
-    public set scopeFlag(scopeFlag: number  | undefined) {
-        this['scope_flag'] = scopeFlag;
-    }
-    public get scopeFlag(): number | undefined {
-        return this['scope_flag'];
     }
     public withUpdateTime(updateTime: string): PolicyGroupForCreate {
         this['update_time'] = updateTime;

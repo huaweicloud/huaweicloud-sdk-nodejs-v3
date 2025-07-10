@@ -7,13 +7,7 @@ export class ExecuteScriptOrCommandReq {
     private 'gray_fail_threshold'?: number;
     private 'resource_ids'?: Array<string>;
     private 'script_ids'?: Array<string>;
-    public command?: string;
-    private 'command_type'?: string;
     private 'execution_timeout'?: number;
-    private 'pre_start'?: string;
-    private 'post_finish'?: string;
-    private 'resource_group_type'?: string;
-    private 'resource_group_id'?: string;
     public constructor() { 
     }
     public withGrayCount(grayCount: number): ExecuteScriptOrCommandReq {
@@ -76,20 +70,6 @@ export class ExecuteScriptOrCommandReq {
     public get scriptIds(): Array<string> | undefined {
         return this['script_ids'];
     }
-    public withCommand(command: string): ExecuteScriptOrCommandReq {
-        this['command'] = command;
-        return this;
-    }
-    public withCommandType(commandType: string): ExecuteScriptOrCommandReq {
-        this['command_type'] = commandType;
-        return this;
-    }
-    public set commandType(commandType: string  | undefined) {
-        this['command_type'] = commandType;
-    }
-    public get commandType(): string | undefined {
-        return this['command_type'];
-    }
     public withExecutionTimeout(executionTimeout: number): ExecuteScriptOrCommandReq {
         this['execution_timeout'] = executionTimeout;
         return this;
@@ -99,45 +79,5 @@ export class ExecuteScriptOrCommandReq {
     }
     public get executionTimeout(): number | undefined {
         return this['execution_timeout'];
-    }
-    public withPreStart(preStart: string): ExecuteScriptOrCommandReq {
-        this['pre_start'] = preStart;
-        return this;
-    }
-    public set preStart(preStart: string  | undefined) {
-        this['pre_start'] = preStart;
-    }
-    public get preStart(): string | undefined {
-        return this['pre_start'];
-    }
-    public withPostFinish(postFinish: string): ExecuteScriptOrCommandReq {
-        this['post_finish'] = postFinish;
-        return this;
-    }
-    public set postFinish(postFinish: string  | undefined) {
-        this['post_finish'] = postFinish;
-    }
-    public get postFinish(): string | undefined {
-        return this['post_finish'];
-    }
-    public withResourceGroupType(resourceGroupType: string): ExecuteScriptOrCommandReq {
-        this['resource_group_type'] = resourceGroupType;
-        return this;
-    }
-    public set resourceGroupType(resourceGroupType: string  | undefined) {
-        this['resource_group_type'] = resourceGroupType;
-    }
-    public get resourceGroupType(): string | undefined {
-        return this['resource_group_type'];
-    }
-    public withResourceGroupId(resourceGroupId: string): ExecuteScriptOrCommandReq {
-        this['resource_group_id'] = resourceGroupId;
-        return this;
-    }
-    public set resourceGroupId(resourceGroupId: string  | undefined) {
-        this['resource_group_id'] = resourceGroupId;
-    }
-    public get resourceGroupId(): string | undefined {
-        return this['resource_group_id'];
     }
 }

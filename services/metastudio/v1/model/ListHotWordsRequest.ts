@@ -10,6 +10,7 @@ export class ListHotWordsRequest {
     private 'robot_id'?: string;
     public region?: number;
     public language?: ListHotWordsRequestLanguageEnum | string;
+    private 'hot_words_type'?: ListHotWordsRequestHotWordsTypeEnum | string;
     public constructor(robotId?: string) { 
         this['robot_id'] = robotId;
     }
@@ -79,6 +80,16 @@ export class ListHotWordsRequest {
         this['language'] = language;
         return this;
     }
+    public withHotWordsType(hotWordsType: ListHotWordsRequestHotWordsTypeEnum | string): ListHotWordsRequest {
+        this['hot_words_type'] = hotWordsType;
+        return this;
+    }
+    public set hotWordsType(hotWordsType: ListHotWordsRequestHotWordsTypeEnum | string  | undefined) {
+        this['hot_words_type'] = hotWordsType;
+    }
+    public get hotWordsType(): ListHotWordsRequestHotWordsTypeEnum | string | undefined {
+        return this['hot_words_type'];
+    }
 }
 
 /**
@@ -89,5 +100,17 @@ export enum ListHotWordsRequestLanguageEnum {
     ZH_CN = 'zh_CN',
     EN_US = 'en_US',
     CN = 'CN',
-    EN = 'EN'
+    EN = 'EN',
+    ESP = 'ESP',
+    POR = 'por',
+    ARABIC = 'Arabic',
+    THAI = 'Thai'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListHotWordsRequestHotWordsTypeEnum {
+    SIS = 'SIS',
+    MOBVOI = 'MOBVOI'
 }

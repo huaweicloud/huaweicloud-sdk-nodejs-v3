@@ -14,6 +14,8 @@ export class CreateExternalIncidentRequest {
     private 'assignee_scene'?: string;
     private 'assignee_role'?: string;
     public creator?: string;
+    private 'incident_ownership'?: string;
+    private 'start_time'?: number;
     public constructor(incidentLevel?: string, isServiceInterrupt?: boolean, incidentType?: string, incidentTitle?: string, incidentSource?: string, creator?: string) { 
         this['incident_level'] = incidentLevel;
         this['is_service_interrupt'] = isServiceInterrupt;
@@ -139,5 +141,25 @@ export class CreateExternalIncidentRequest {
     public withCreator(creator: string): CreateExternalIncidentRequest {
         this['creator'] = creator;
         return this;
+    }
+    public withIncidentOwnership(incidentOwnership: string): CreateExternalIncidentRequest {
+        this['incident_ownership'] = incidentOwnership;
+        return this;
+    }
+    public set incidentOwnership(incidentOwnership: string  | undefined) {
+        this['incident_ownership'] = incidentOwnership;
+    }
+    public get incidentOwnership(): string | undefined {
+        return this['incident_ownership'];
+    }
+    public withStartTime(startTime: number): CreateExternalIncidentRequest {
+        this['start_time'] = startTime;
+        return this;
+    }
+    public set startTime(startTime: number  | undefined) {
+        this['start_time'] = startTime;
+    }
+    public get startTime(): number | undefined {
+        return this['start_time'];
     }
 }

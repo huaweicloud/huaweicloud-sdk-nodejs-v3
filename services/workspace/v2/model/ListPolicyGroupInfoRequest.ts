@@ -8,7 +8,6 @@ export class ListPolicyGroupInfoRequest {
     public priority?: number;
     private 'update_time'?: string;
     public description?: string;
-    private 'scope_flag'?: number;
     public constructor() { 
     }
     public withLimit(limit: number): ListPolicyGroupInfoRequest {
@@ -56,15 +55,5 @@ export class ListPolicyGroupInfoRequest {
     public withDescription(description: string): ListPolicyGroupInfoRequest {
         this['description'] = description;
         return this;
-    }
-    public withScopeFlag(scopeFlag: number): ListPolicyGroupInfoRequest {
-        this['scope_flag'] = scopeFlag;
-        return this;
-    }
-    public set scopeFlag(scopeFlag: number  | undefined) {
-        this['scope_flag'] = scopeFlag;
-    }
-    public get scopeFlag(): number | undefined {
-        return this['scope_flag'];
     }
 }

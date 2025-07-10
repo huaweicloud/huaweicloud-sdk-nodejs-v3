@@ -6,7 +6,7 @@ export class ListNatGatewaysRequest {
     public description?: string;
     private 'created_at'?: string;
     public name?: string;
-    public status?: Array<string>;
+    public status?: Array<ListNatGatewaysRequestStatusEnum> | Array<string>;
     public spec?: Array<string>;
     private 'router_id'?: string;
     public limit?: number;
@@ -44,7 +44,7 @@ export class ListNatGatewaysRequest {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: Array<string>): ListNatGatewaysRequest {
+    public withStatus(status: Array<ListNatGatewaysRequestStatusEnum> | Array<string>): ListNatGatewaysRequest {
         this['status'] = status;
         return this;
     }
@@ -66,4 +66,16 @@ export class ListNatGatewaysRequest {
         this['limit'] = limit;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListNatGatewaysRequestStatusEnum {
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE',
+    PENDING_CREATE = 'PENDING_CREATE',
+    PENDING_UPDATE = 'PENDING_UPDATE',
+    PENDING_DELETE = 'PENDING_DELETE'
 }

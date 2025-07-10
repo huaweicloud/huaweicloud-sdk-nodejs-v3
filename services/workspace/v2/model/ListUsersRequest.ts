@@ -2,7 +2,6 @@
 
 export class ListUsersRequest {
     private 'user_name'?: string;
-    private 'user_email'?: string;
     public limit?: string;
     public offset?: string;
     public description?: string;
@@ -11,6 +10,7 @@ export class ListUsersRequest {
     private 'share_space_subscription'?: boolean;
     private 'share_space_desktops'?: boolean;
     private 'is_query_total_desktops'?: boolean;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withUserName(userName: string): ListUsersRequest {
@@ -22,16 +22,6 @@ export class ListUsersRequest {
     }
     public get userName(): string | undefined {
         return this['user_name'];
-    }
-    public withUserEmail(userEmail: string): ListUsersRequest {
-        this['user_email'] = userEmail;
-        return this;
-    }
-    public set userEmail(userEmail: string  | undefined) {
-        this['user_email'] = userEmail;
-    }
-    public get userEmail(): string | undefined {
-        return this['user_email'];
     }
     public withLimit(limit: string): ListUsersRequest {
         this['limit'] = limit;
@@ -94,5 +84,15 @@ export class ListUsersRequest {
     }
     public get isQueryTotalDesktops(): boolean | undefined {
         return this['is_query_total_desktops'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListUsersRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

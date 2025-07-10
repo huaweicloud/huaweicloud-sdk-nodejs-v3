@@ -1,21 +1,21 @@
-import { QueryScreenRecordDetailRsp } from './QueryScreenRecordDetailRsp';
+import { ScreenRecordDetail } from './ScreenRecordDetail';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListScreenRecordsResponse extends SdkResponse {
-    private 'screen_records'?: Array<QueryScreenRecordDetailRsp>;
+    private 'screen_records'?: Array<ScreenRecordDetail>;
     private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withScreenRecords(screenRecords: Array<QueryScreenRecordDetailRsp>): ListScreenRecordsResponse {
+    public withScreenRecords(screenRecords: Array<ScreenRecordDetail>): ListScreenRecordsResponse {
         this['screen_records'] = screenRecords;
         return this;
     }
-    public set screenRecords(screenRecords: Array<QueryScreenRecordDetailRsp>  | undefined) {
+    public set screenRecords(screenRecords: Array<ScreenRecordDetail>  | undefined) {
         this['screen_records'] = screenRecords;
     }
-    public get screenRecords(): Array<QueryScreenRecordDetailRsp> | undefined {
+    public get screenRecords(): Array<ScreenRecordDetail> | undefined {
         return this['screen_records'];
     }
     public withTotalCount(totalCount: number): ListScreenRecordsResponse {

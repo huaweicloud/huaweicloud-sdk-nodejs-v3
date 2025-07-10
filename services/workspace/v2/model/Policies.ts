@@ -1,5 +1,3 @@
-import { AccessControl } from './AccessControl';
-import { Bandwidth } from './Bandwidth';
 import { PoliciesAudio } from './PoliciesAudio';
 import { PoliciesClient } from './PoliciesClient';
 import { PoliciesCustom } from './PoliciesCustom';
@@ -21,14 +19,12 @@ export class Policies {
     public client?: PoliciesClient;
     public display?: PoliciesDisplay;
     private 'file_and_clipboard'?: PoliciesFileAndClipboard;
-    private 'access_control'?: AccessControl;
     public session?: Session;
-    public bandwidth?: Bandwidth;
     private 'virtual_channel'?: VirtualChannel;
     public watermark?: Watermark;
     private 'keyboard_mouse'?: PoliciesKeyboardMouse;
     public seamless?: PoliciesSeamless;
-    public personalizedDataMgmt?: PoliciesPersonalizedDataMgmt;
+    private 'personalized_data_mgmt'?: PoliciesPersonalizedDataMgmt;
     public custom?: PoliciesCustom;
     private 'record_audit'?: PoliciesRecordAudit;
     public constructor() { 
@@ -59,22 +55,8 @@ export class Policies {
     public get fileAndClipboard(): PoliciesFileAndClipboard | undefined {
         return this['file_and_clipboard'];
     }
-    public withAccessControl(accessControl: AccessControl): Policies {
-        this['access_control'] = accessControl;
-        return this;
-    }
-    public set accessControl(accessControl: AccessControl  | undefined) {
-        this['access_control'] = accessControl;
-    }
-    public get accessControl(): AccessControl | undefined {
-        return this['access_control'];
-    }
     public withSession(session: Session): Policies {
         this['session'] = session;
-        return this;
-    }
-    public withBandwidth(bandwidth: Bandwidth): Policies {
-        this['bandwidth'] = bandwidth;
         return this;
     }
     public withVirtualChannel(virtualChannel: VirtualChannel): Policies {
@@ -106,8 +88,14 @@ export class Policies {
         return this;
     }
     public withPersonalizedDataMgmt(personalizedDataMgmt: PoliciesPersonalizedDataMgmt): Policies {
-        this['personalizedDataMgmt'] = personalizedDataMgmt;
+        this['personalized_data_mgmt'] = personalizedDataMgmt;
         return this;
+    }
+    public set personalizedDataMgmt(personalizedDataMgmt: PoliciesPersonalizedDataMgmt  | undefined) {
+        this['personalized_data_mgmt'] = personalizedDataMgmt;
+    }
+    public get personalizedDataMgmt(): PoliciesPersonalizedDataMgmt | undefined {
+        return this['personalized_data_mgmt'];
     }
     public withCustom(custom: PoliciesCustom): Policies {
         this['custom'] = custom;

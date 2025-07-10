@@ -1,3 +1,4 @@
+import { GetJobInfoResponseBodyJobEntities } from './GetJobInfoResponseBodyJobEntities';
 import { GetTaskDetailListRspJobsInstance } from './GetTaskDetailListRspJobsInstance';
 
 
@@ -9,7 +10,7 @@ export class GetJobInfoResponseBodyJob {
     public ended?: string;
     public process?: string;
     public instance?: GetTaskDetailListRspJobsInstance;
-    public entities?: object;
+    public entities?: GetJobInfoResponseBodyJobEntities;
     private 'fail_reason'?: string;
     public constructor(id?: string, name?: string, status?: string, created?: string, instance?: GetTaskDetailListRspJobsInstance) { 
         this['id'] = id;
@@ -46,7 +47,7 @@ export class GetJobInfoResponseBodyJob {
         this['instance'] = instance;
         return this;
     }
-    public withEntities(entities: object): GetJobInfoResponseBodyJob {
+    public withEntities(entities: GetJobInfoResponseBodyJobEntities): GetJobInfoResponseBodyJob {
         this['entities'] = entities;
         return this;
     }

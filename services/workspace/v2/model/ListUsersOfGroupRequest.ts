@@ -5,6 +5,7 @@ export class ListUsersOfGroupRequest {
     private 'group_id'?: string;
     public description?: string;
     private 'active_type'?: ListUsersOfGroupRequestActiveTypeEnum | string;
+    private 'enterprise_project_id'?: string;
     public limit?: string;
     public offset?: string;
     public constructor(groupId?: string) { 
@@ -43,6 +44,16 @@ export class ListUsersOfGroupRequest {
     }
     public get activeType(): ListUsersOfGroupRequestActiveTypeEnum | string | undefined {
         return this['active_type'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListUsersOfGroupRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withLimit(limit: string): ListUsersOfGroupRequest {
         this['limit'] = limit;

@@ -1,4 +1,3 @@
-import { Nic } from './Nic';
 
 
 export class Desktop {
@@ -8,8 +7,6 @@ export class Desktop {
     private 'user_group'?: string;
     private 'computer_name'?: string;
     private 'os_host_name'?: string;
-    public nics?: Array<Nic>;
-    private 'ou_name'?: string;
     private 'desktop_name_prefix'?: string;
     public constructor(userName?: string) { 
         this['user_name'] = userName;
@@ -73,20 +70,6 @@ export class Desktop {
     }
     public get osHostName(): string | undefined {
         return this['os_host_name'];
-    }
-    public withNics(nics: Array<Nic>): Desktop {
-        this['nics'] = nics;
-        return this;
-    }
-    public withOuName(ouName: string): Desktop {
-        this['ou_name'] = ouName;
-        return this;
-    }
-    public set ouName(ouName: string  | undefined) {
-        this['ou_name'] = ouName;
-    }
-    public get ouName(): string | undefined {
-        return this['ou_name'];
     }
     public withDesktopNamePrefix(desktopNamePrefix: string): Desktop {
         this['desktop_name_prefix'] = desktopNamePrefix;

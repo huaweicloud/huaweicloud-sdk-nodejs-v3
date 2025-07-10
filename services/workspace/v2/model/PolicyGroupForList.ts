@@ -8,8 +8,6 @@ export class PolicyGroupForList {
     public priority?: number;
     private 'update_time'?: string;
     public description?: string;
-    private 'scope_flag'?: number;
-    private 'tenant_id'?: string;
     public policies?: Policies;
     public targets?: Array<Target>;
     public constructor() { 
@@ -51,26 +49,6 @@ export class PolicyGroupForList {
     public withDescription(description: string): PolicyGroupForList {
         this['description'] = description;
         return this;
-    }
-    public withScopeFlag(scopeFlag: number): PolicyGroupForList {
-        this['scope_flag'] = scopeFlag;
-        return this;
-    }
-    public set scopeFlag(scopeFlag: number  | undefined) {
-        this['scope_flag'] = scopeFlag;
-    }
-    public get scopeFlag(): number | undefined {
-        return this['scope_flag'];
-    }
-    public withTenantId(tenantId: string): PolicyGroupForList {
-        this['tenant_id'] = tenantId;
-        return this;
-    }
-    public set tenantId(tenantId: string  | undefined) {
-        this['tenant_id'] = tenantId;
-    }
-    public get tenantId(): string | undefined {
-        return this['tenant_id'];
     }
     public withPolicies(policies: Policies): PolicyGroupForList {
         this['policies'] = policies;

@@ -1,4 +1,5 @@
 import { CpuOptions } from './CpuOptions';
+import { EnclaveOptions } from './EnclaveOptions';
 import { PostPaidServerDataVolume } from './PostPaidServerDataVolume';
 import { PostPaidServerExtendParam } from './PostPaidServerExtendParam';
 import { PostPaidServerNic } from './PostPaidServerNic';
@@ -40,6 +41,7 @@ export class PostPaidServer {
     private 'security_options'?: SecurityOptions;
     private 'serial_console_options'?: SerialConsoleOptions;
     private 'metadata_options'?: UpdateServerMetadataOptionsRequestBody;
+    private 'enclave_options'?: EnclaveOptions;
     public constructor(flavorRef?: string, imageRef?: string, name?: string, nics?: Array<PostPaidServerNic>, rootVolume?: PostPaidServerRootVolume, vpcid?: string) { 
         this['flavorRef'] = flavorRef;
         this['imageRef'] = imageRef;
@@ -239,5 +241,15 @@ export class PostPaidServer {
     }
     public get metadataOptions(): UpdateServerMetadataOptionsRequestBody | undefined {
         return this['metadata_options'];
+    }
+    public withEnclaveOptions(enclaveOptions: EnclaveOptions): PostPaidServer {
+        this['enclave_options'] = enclaveOptions;
+        return this;
+    }
+    public set enclaveOptions(enclaveOptions: EnclaveOptions  | undefined) {
+        this['enclave_options'] = enclaveOptions;
+    }
+    public get enclaveOptions(): EnclaveOptions | undefined {
+        return this['enclave_options'];
     }
 }

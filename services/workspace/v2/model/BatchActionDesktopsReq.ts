@@ -4,8 +4,6 @@ export class BatchActionDesktopsReq {
     private 'desktop_ids'?: Array<string>;
     private 'op_type'?: string;
     public type?: BatchActionDesktopsReqTypeEnum | string;
-    private 'host_id'?: string;
-    private 'project_id'?: string;
     public constructor(desktopIds?: Array<string>, opType?: string) { 
         this['desktop_ids'] = desktopIds;
         this['op_type'] = opType;
@@ -33,26 +31,6 @@ export class BatchActionDesktopsReq {
     public withType(type: BatchActionDesktopsReqTypeEnum | string): BatchActionDesktopsReq {
         this['type'] = type;
         return this;
-    }
-    public withHostId(hostId: string): BatchActionDesktopsReq {
-        this['host_id'] = hostId;
-        return this;
-    }
-    public set hostId(hostId: string  | undefined) {
-        this['host_id'] = hostId;
-    }
-    public get hostId(): string | undefined {
-        return this['host_id'];
-    }
-    public withProjectId(projectId: string): BatchActionDesktopsReq {
-        this['project_id'] = projectId;
-        return this;
-    }
-    public set projectId(projectId: string  | undefined) {
-        this['project_id'] = projectId;
-    }
-    public get projectId(): string | undefined {
-        return this['project_id'];
     }
 }
 

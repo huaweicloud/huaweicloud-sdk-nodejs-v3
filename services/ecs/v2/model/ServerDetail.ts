@@ -1,5 +1,6 @@
 import { CpuOptions } from './CpuOptions';
 import { Hypervisor } from './Hypervisor';
+import { NetworkInterfaces } from './NetworkInterfaces';
 import { SecurityOptions } from './SecurityOptions';
 import { ServerAddress } from './ServerAddress';
 import { ServerExtendVolumeAttachment } from './ServerExtendVolumeAttachment';
@@ -59,6 +60,7 @@ export class ServerDetail {
     private 'cpu_options'?: CpuOptions;
     private 'security_options'?: SecurityOptions;
     public hypervisor?: Hypervisor;
+    private 'network_interfaces'?: Array<NetworkInterfaces>;
     public constructor(status?: string, updated?: string, autoTerminateTime?: string, hostId?: string, oSEXTSRVATTRHost?: string, addresses?: { [key: string]: Array<ServerAddress>; }, keyName?: string, image?: ServerImage, oSEXTSTSTaskState?: string, oSEXTSTSVmState?: string, oSEXTSRVATTRInstanceName?: string, oSEXTSRVATTRHypervisorHostname?: string, flavor?: ServerFlavor, id?: string, securityGroups?: Array<ServerSecurityGroup>, oSEXTAZAvailabilityZone?: string, userId?: string, name?: string, created?: string, tenantId?: string, accessIPv4?: string, accessIPv6?: string, oSEXTSTSPowerState?: number, configDrive?: string, metadata?: { [key: string]: string; }, oSSRVUSGLaunchedAt?: string, oSSRVUSGTerminatedAt?: string, osExtendedVolumesVolumesAttached?: Array<ServerExtendVolumeAttachment>, hostStatus?: string, oSEXTSRVATTRHostname?: string, oSEXTSRVATTRLaunchIndex?: number, oSEXTSRVATTRKernelId?: string, oSEXTSRVATTRRamdiskId?: string, oSEXTSRVATTRRootDeviceName?: string, locked?: boolean) { 
         this['status'] = status;
         this['updated'] = updated;
@@ -467,5 +469,15 @@ export class ServerDetail {
     public withHypervisor(hypervisor: Hypervisor): ServerDetail {
         this['hypervisor'] = hypervisor;
         return this;
+    }
+    public withNetworkInterfaces(networkInterfaces: Array<NetworkInterfaces>): ServerDetail {
+        this['network_interfaces'] = networkInterfaces;
+        return this;
+    }
+    public set networkInterfaces(networkInterfaces: Array<NetworkInterfaces>  | undefined) {
+        this['network_interfaces'] = networkInterfaces;
+    }
+    public get networkInterfaces(): Array<NetworkInterfaces> | undefined {
+        return this['network_interfaces'];
     }
 }

@@ -1,5 +1,4 @@
 import { EstimateResizeRequestBody } from './EstimateResizeRequestBody';
-import { ResizeDesktopExtendParam } from './ResizeDesktopExtendParam';
 
 
 export class CreateResizeOrderRequestBody {
@@ -8,7 +7,6 @@ export class CreateResizeOrderRequestBody {
     private 'promotion_plan_id'?: string;
     private 'product_id'?: string;
     public mode?: string;
-    private 'extend_param'?: ResizeDesktopExtendParam;
     public constructor() { 
     }
     public withDesktopPoolId(desktopPoolId: string): CreateResizeOrderRequestBody {
@@ -54,15 +52,5 @@ export class CreateResizeOrderRequestBody {
     public withMode(mode: string): CreateResizeOrderRequestBody {
         this['mode'] = mode;
         return this;
-    }
-    public withExtendParam(extendParam: ResizeDesktopExtendParam): CreateResizeOrderRequestBody {
-        this['extend_param'] = extendParam;
-        return this;
-    }
-    public set extendParam(extendParam: ResizeDesktopExtendParam  | undefined) {
-        this['extend_param'] = extendParam;
-    }
-    public get extendParam(): ResizeDesktopExtendParam | undefined {
-        return this['extend_param'];
     }
 }

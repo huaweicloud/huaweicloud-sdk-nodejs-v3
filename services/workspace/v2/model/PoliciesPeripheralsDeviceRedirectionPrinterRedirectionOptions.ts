@@ -4,7 +4,7 @@ export class PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
     private 'mobile_printer_enable'?: boolean;
     private 'print_data_compression_mode'?: boolean;
     private 'sync_client_default_printer_enable'?: boolean;
-    private 'universal_printer_driver'?: PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptionsUniversalPrinterDriverEnum | string;
+    private 'universal_printer_driver'?: string;
     public constructor() { 
     }
     public withMobilePrinterEnable(mobilePrinterEnable: boolean): PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
@@ -37,26 +37,14 @@ export class PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
     public get syncClientDefaultPrinterEnable(): boolean | undefined {
         return this['sync_client_default_printer_enable'];
     }
-    public withUniversalPrinterDriver(universalPrinterDriver: PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptionsUniversalPrinterDriverEnum | string): PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
+    public withUniversalPrinterDriver(universalPrinterDriver: string): PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
         this['universal_printer_driver'] = universalPrinterDriver;
         return this;
     }
-    public set universalPrinterDriver(universalPrinterDriver: PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptionsUniversalPrinterDriverEnum | string  | undefined) {
+    public set universalPrinterDriver(universalPrinterDriver: string  | undefined) {
         this['universal_printer_driver'] = universalPrinterDriver;
     }
-    public get universalPrinterDriver(): PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptionsUniversalPrinterDriverEnum | string | undefined {
+    public get universalPrinterDriver(): string | undefined {
         return this['universal_printer_driver'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptionsUniversalPrinterDriverEnum {
-    DEFAULT = 'Default',
-    HDP_XPSDRV_DRIVER = 'HDP XPSDrv Driver',
-    UNIVERSAL_PRINTING_PCL_5 = 'Universal Printing PCL 5',
-    UNIVERSAL_PRINTING_PCL_6 = 'Universal Printing PCL 6',
-    UNIVERSAL_PRINTING_PS = 'Universal Printing PS'
 }

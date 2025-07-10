@@ -10,7 +10,7 @@ export class PoliciesPeripheralsUsbPortRedirectionOptions {
     private 'usb_smart_card_enable'?: boolean;
     private 'other_usb_devices_enable'?: boolean;
     private 'usb_redirection_customization_policy'?: string;
-    private 'usb_redirection_mode'?: PoliciesPeripheralsUsbPortRedirectionOptionsUsbRedirectionModeEnum | string;
+    private 'usb_redirection_mode'?: string;
     public constructor() { 
     }
     public withUsbImageEnable(usbImageEnable: boolean): PoliciesPeripheralsUsbPortRedirectionOptions {
@@ -103,23 +103,14 @@ export class PoliciesPeripheralsUsbPortRedirectionOptions {
     public get usbRedirectionCustomizationPolicy(): string | undefined {
         return this['usb_redirection_customization_policy'];
     }
-    public withUsbRedirectionMode(usbRedirectionMode: PoliciesPeripheralsUsbPortRedirectionOptionsUsbRedirectionModeEnum | string): PoliciesPeripheralsUsbPortRedirectionOptions {
+    public withUsbRedirectionMode(usbRedirectionMode: string): PoliciesPeripheralsUsbPortRedirectionOptions {
         this['usb_redirection_mode'] = usbRedirectionMode;
         return this;
     }
-    public set usbRedirectionMode(usbRedirectionMode: PoliciesPeripheralsUsbPortRedirectionOptionsUsbRedirectionModeEnum | string  | undefined) {
+    public set usbRedirectionMode(usbRedirectionMode: string  | undefined) {
         this['usb_redirection_mode'] = usbRedirectionMode;
     }
-    public get usbRedirectionMode(): PoliciesPeripheralsUsbPortRedirectionOptionsUsbRedirectionModeEnum | string | undefined {
+    public get usbRedirectionMode(): string | undefined {
         return this['usb_redirection_mode'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesPeripheralsUsbPortRedirectionOptionsUsbRedirectionModeEnum {
-    CLASSICAL_MODE = 'Classical mode',
-    COMMON_MODE = 'Common mode'
 }

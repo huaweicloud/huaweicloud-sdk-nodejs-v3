@@ -4,11 +4,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ExpandDesktopPoolResponse extends SdkResponse {
     private 'job_id'?: string;
-    public cbcJobId?: string;
-    public getJobEndpoint?: string;
-    public maxProvisionTime?: number;
-    public minProvisionTime?: number;
-    public periodicQueryTime?: number;
     public constructor() { 
         super();
     }
@@ -21,25 +16,5 @@ export class ExpandDesktopPoolResponse extends SdkResponse {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
-    }
-    public withCbcJobId(cbcJobId: string): ExpandDesktopPoolResponse {
-        this['cbcJobId'] = cbcJobId;
-        return this;
-    }
-    public withGetJobEndpoint(getJobEndpoint: string): ExpandDesktopPoolResponse {
-        this['getJobEndpoint'] = getJobEndpoint;
-        return this;
-    }
-    public withMaxProvisionTime(maxProvisionTime: number): ExpandDesktopPoolResponse {
-        this['maxProvisionTime'] = maxProvisionTime;
-        return this;
-    }
-    public withMinProvisionTime(minProvisionTime: number): ExpandDesktopPoolResponse {
-        this['minProvisionTime'] = minProvisionTime;
-        return this;
-    }
-    public withPeriodicQueryTime(periodicQueryTime: number): ExpandDesktopPoolResponse {
-        this['periodicQueryTime'] = periodicQueryTime;
-        return this;
     }
 }

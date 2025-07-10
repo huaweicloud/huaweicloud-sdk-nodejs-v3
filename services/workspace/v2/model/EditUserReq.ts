@@ -8,10 +8,9 @@ export class EditUserReq {
     private 'account_expires'?: string;
     private 'enable_change_password'?: boolean;
     private 'next_login_change_password'?: boolean;
-    private 'group_ids'?: Array<string>;
-    private 'alias_name'?: string;
     private 'password_never_expired'?: boolean;
     public disabled?: boolean;
+    private 'user_info_map'?: string;
     public constructor() { 
     }
     public withDescription(description: string): EditUserReq {
@@ -78,26 +77,6 @@ export class EditUserReq {
     public get nextLoginChangePassword(): boolean | undefined {
         return this['next_login_change_password'];
     }
-    public withGroupIds(groupIds: Array<string>): EditUserReq {
-        this['group_ids'] = groupIds;
-        return this;
-    }
-    public set groupIds(groupIds: Array<string>  | undefined) {
-        this['group_ids'] = groupIds;
-    }
-    public get groupIds(): Array<string> | undefined {
-        return this['group_ids'];
-    }
-    public withAliasName(aliasName: string): EditUserReq {
-        this['alias_name'] = aliasName;
-        return this;
-    }
-    public set aliasName(aliasName: string  | undefined) {
-        this['alias_name'] = aliasName;
-    }
-    public get aliasName(): string | undefined {
-        return this['alias_name'];
-    }
     public withPasswordNeverExpired(passwordNeverExpired: boolean): EditUserReq {
         this['password_never_expired'] = passwordNeverExpired;
         return this;
@@ -111,6 +90,16 @@ export class EditUserReq {
     public withDisabled(disabled: boolean): EditUserReq {
         this['disabled'] = disabled;
         return this;
+    }
+    public withUserInfoMap(userInfoMap: string): EditUserReq {
+        this['user_info_map'] = userInfoMap;
+        return this;
+    }
+    public set userInfoMap(userInfoMap: string  | undefined) {
+        this['user_info_map'] = userInfoMap;
+    }
+    public get userInfoMap(): string | undefined {
+        return this['user_info_map'];
     }
 }
 

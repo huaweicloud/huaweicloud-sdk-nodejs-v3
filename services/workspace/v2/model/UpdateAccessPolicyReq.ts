@@ -4,6 +4,8 @@ import { IpInfo } from './IpInfo';
 export class UpdateAccessPolicyReq {
     private 'operation_type'?: UpdateAccessPolicyReqOperationTypeEnum | string;
     private 'ip_white_list'?: Array<IpInfo>;
+    private 'is_enable'?: boolean;
+    private 'is_block_all'?: boolean;
     public constructor() { 
     }
     public withOperationType(operationType: UpdateAccessPolicyReqOperationTypeEnum | string): UpdateAccessPolicyReq {
@@ -25,6 +27,26 @@ export class UpdateAccessPolicyReq {
     }
     public get ipWhiteList(): Array<IpInfo> | undefined {
         return this['ip_white_list'];
+    }
+    public withIsEnable(isEnable: boolean): UpdateAccessPolicyReq {
+        this['is_enable'] = isEnable;
+        return this;
+    }
+    public set isEnable(isEnable: boolean  | undefined) {
+        this['is_enable'] = isEnable;
+    }
+    public get isEnable(): boolean | undefined {
+        return this['is_enable'];
+    }
+    public withIsBlockAll(isBlockAll: boolean): UpdateAccessPolicyReq {
+        this['is_block_all'] = isBlockAll;
+        return this;
+    }
+    public set isBlockAll(isBlockAll: boolean  | undefined) {
+        this['is_block_all'] = isBlockAll;
+    }
+    public get isBlockAll(): boolean | undefined {
+        return this['is_block_all'];
     }
 }
 

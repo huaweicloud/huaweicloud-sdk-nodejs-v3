@@ -10,8 +10,13 @@ export class ShowScreenRecordResponse extends SdkResponse {
     public size?: number;
     public type?: string;
     public status?: string;
+    private 'policy_id'?: string;
+    private 'obs_bucket'?: string;
+    private 'file_directory'?: string;
     private 'video_filename'?: string;
+    private 'video_file_sha256'?: string;
     private 'event_filename'?: string;
+    private 'event_file_sha256'?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'update_time'?: string;
@@ -69,6 +74,36 @@ export class ShowScreenRecordResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
+    public withPolicyId(policyId: string): ShowScreenRecordResponse {
+        this['policy_id'] = policyId;
+        return this;
+    }
+    public set policyId(policyId: string  | undefined) {
+        this['policy_id'] = policyId;
+    }
+    public get policyId(): string | undefined {
+        return this['policy_id'];
+    }
+    public withObsBucket(obsBucket: string): ShowScreenRecordResponse {
+        this['obs_bucket'] = obsBucket;
+        return this;
+    }
+    public set obsBucket(obsBucket: string  | undefined) {
+        this['obs_bucket'] = obsBucket;
+    }
+    public get obsBucket(): string | undefined {
+        return this['obs_bucket'];
+    }
+    public withFileDirectory(fileDirectory: string): ShowScreenRecordResponse {
+        this['file_directory'] = fileDirectory;
+        return this;
+    }
+    public set fileDirectory(fileDirectory: string  | undefined) {
+        this['file_directory'] = fileDirectory;
+    }
+    public get fileDirectory(): string | undefined {
+        return this['file_directory'];
+    }
     public withVideoFilename(videoFilename: string): ShowScreenRecordResponse {
         this['video_filename'] = videoFilename;
         return this;
@@ -79,6 +114,16 @@ export class ShowScreenRecordResponse extends SdkResponse {
     public get videoFilename(): string | undefined {
         return this['video_filename'];
     }
+    public withVideoFileSha256(videoFileSha256: string): ShowScreenRecordResponse {
+        this['video_file_sha256'] = videoFileSha256;
+        return this;
+    }
+    public set videoFileSha256(videoFileSha256: string  | undefined) {
+        this['video_file_sha256'] = videoFileSha256;
+    }
+    public get videoFileSha256(): string | undefined {
+        return this['video_file_sha256'];
+    }
     public withEventFilename(eventFilename: string): ShowScreenRecordResponse {
         this['event_filename'] = eventFilename;
         return this;
@@ -88,6 +133,16 @@ export class ShowScreenRecordResponse extends SdkResponse {
     }
     public get eventFilename(): string | undefined {
         return this['event_filename'];
+    }
+    public withEventFileSha256(eventFileSha256: string): ShowScreenRecordResponse {
+        this['event_file_sha256'] = eventFileSha256;
+        return this;
+    }
+    public set eventFileSha256(eventFileSha256: string  | undefined) {
+        this['event_file_sha256'] = eventFileSha256;
+    }
+    public get eventFileSha256(): string | undefined {
+        return this['event_file_sha256'];
     }
     public withStartTime(startTime: string): ShowScreenRecordResponse {
         this['start_time'] = startTime;

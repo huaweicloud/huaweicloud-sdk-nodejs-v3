@@ -5,6 +5,8 @@ export class Session {
     public vdi?: Vdi;
     private 'self_help_console'?: boolean;
     private 'disconnect_on_lock_flag'?: boolean;
+    private 'auto_lock_start_time'?: string;
+    private 'auto_lock_end_time'?: string;
     public constructor() { 
     }
     public withVdi(vdi: Vdi): Session {
@@ -30,5 +32,25 @@ export class Session {
     }
     public get disconnectOnLockFlag(): boolean | undefined {
         return this['disconnect_on_lock_flag'];
+    }
+    public withAutoLockStartTime(autoLockStartTime: string): Session {
+        this['auto_lock_start_time'] = autoLockStartTime;
+        return this;
+    }
+    public set autoLockStartTime(autoLockStartTime: string  | undefined) {
+        this['auto_lock_start_time'] = autoLockStartTime;
+    }
+    public get autoLockStartTime(): string | undefined {
+        return this['auto_lock_start_time'];
+    }
+    public withAutoLockEndTime(autoLockEndTime: string): Session {
+        this['auto_lock_end_time'] = autoLockEndTime;
+        return this;
+    }
+    public set autoLockEndTime(autoLockEndTime: string  | undefined) {
+        this['auto_lock_end_time'] = autoLockEndTime;
+    }
+    public get autoLockEndTime(): string | undefined {
+        return this['auto_lock_end_time'];
     }
 }

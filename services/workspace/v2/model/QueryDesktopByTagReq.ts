@@ -12,7 +12,8 @@ export class QueryDesktopByTagReq {
     private 'tags_any'?: Array<Tags>;
     private 'not_tags'?: Array<Tags>;
     private 'not_tags_any'?: Array<Tags>;
-    public constructor() { 
+    public constructor(action?: string) { 
+        this['action'] = action;
     }
     public withOffset(offset: string): QueryDesktopByTagReq {
         this['offset'] = offset;

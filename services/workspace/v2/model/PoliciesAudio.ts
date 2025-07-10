@@ -3,27 +3,27 @@
 export class PoliciesAudio {
     private 'audio_redirection_enable'?: boolean;
     private 'play_volume'?: string;
-    private 'play_volume_ratio'?: PoliciesAudioPlayVolumeRatioEnum | string;
+    private 'play_volume_ratio'?: string;
     private 'record_volume'?: string;
-    private 'record_volume_ratio'?: PoliciesAudioRecordVolumeRatioEnum | string;
-    private 'audio_transmission_mode'?: PoliciesAudioAudioTransmissionModeEnum | string;
+    private 'record_volume_ratio'?: string;
+    private 'audio_transmission_mode'?: string;
     private 'play_redirection_enable'?: boolean;
-    private 'play_classification'?: PoliciesAudioPlayClassificationEnum | string;
-    private 'play_quality'?: PoliciesAudioPlayQualityEnum | string;
+    private 'play_classification'?: string;
+    private 'play_quality'?: string;
     private 'play_denoising'?: string;
     private 'play_agc'?: string;
-    private 'play_crc'?: PoliciesAudioPlayCrcEnum | string;
-    private 'play_device_mode'?: PoliciesAudioPlayDeviceModeEnum | string;
+    private 'play_crc'?: string;
+    private 'play_device_mode'?: string;
     private 'play_delay_threshold'?: string;
     private 'play_amplitude_threshold'?: string;
     private 'play_prefill_data'?: string;
     private 'record_redirection_enable'?: boolean;
-    private 'record_classification'?: PoliciesAudioRecordClassificationEnum | string;
-    private 'record_quality'?: PoliciesAudioRecordQualityEnum | string;
+    private 'record_classification'?: string;
+    private 'record_quality'?: string;
     private 'record_denoising'?: string;
     private 'record_agc'?: string;
-    private 'record_crc'?: PoliciesAudioRecordCrcEnum | string;
-    private 'record_device_mode'?: PoliciesAudioRecordDeviceModeEnum | string;
+    private 'record_crc'?: string;
+    private 'record_device_mode'?: string;
     private 'record_delay_threshold'?: string;
     private 'record_amplitude_threshold'?: string;
     public constructor() { 
@@ -48,14 +48,14 @@ export class PoliciesAudio {
     public get playVolume(): string | undefined {
         return this['play_volume'];
     }
-    public withPlayVolumeRatio(playVolumeRatio: PoliciesAudioPlayVolumeRatioEnum | string): PoliciesAudio {
+    public withPlayVolumeRatio(playVolumeRatio: string): PoliciesAudio {
         this['play_volume_ratio'] = playVolumeRatio;
         return this;
     }
-    public set playVolumeRatio(playVolumeRatio: PoliciesAudioPlayVolumeRatioEnum | string  | undefined) {
+    public set playVolumeRatio(playVolumeRatio: string  | undefined) {
         this['play_volume_ratio'] = playVolumeRatio;
     }
-    public get playVolumeRatio(): PoliciesAudioPlayVolumeRatioEnum | string | undefined {
+    public get playVolumeRatio(): string | undefined {
         return this['play_volume_ratio'];
     }
     public withRecordVolume(recordVolume: string): PoliciesAudio {
@@ -68,24 +68,24 @@ export class PoliciesAudio {
     public get recordVolume(): string | undefined {
         return this['record_volume'];
     }
-    public withRecordVolumeRatio(recordVolumeRatio: PoliciesAudioRecordVolumeRatioEnum | string): PoliciesAudio {
+    public withRecordVolumeRatio(recordVolumeRatio: string): PoliciesAudio {
         this['record_volume_ratio'] = recordVolumeRatio;
         return this;
     }
-    public set recordVolumeRatio(recordVolumeRatio: PoliciesAudioRecordVolumeRatioEnum | string  | undefined) {
+    public set recordVolumeRatio(recordVolumeRatio: string  | undefined) {
         this['record_volume_ratio'] = recordVolumeRatio;
     }
-    public get recordVolumeRatio(): PoliciesAudioRecordVolumeRatioEnum | string | undefined {
+    public get recordVolumeRatio(): string | undefined {
         return this['record_volume_ratio'];
     }
-    public withAudioTransmissionMode(audioTransmissionMode: PoliciesAudioAudioTransmissionModeEnum | string): PoliciesAudio {
+    public withAudioTransmissionMode(audioTransmissionMode: string): PoliciesAudio {
         this['audio_transmission_mode'] = audioTransmissionMode;
         return this;
     }
-    public set audioTransmissionMode(audioTransmissionMode: PoliciesAudioAudioTransmissionModeEnum | string  | undefined) {
+    public set audioTransmissionMode(audioTransmissionMode: string  | undefined) {
         this['audio_transmission_mode'] = audioTransmissionMode;
     }
-    public get audioTransmissionMode(): PoliciesAudioAudioTransmissionModeEnum | string | undefined {
+    public get audioTransmissionMode(): string | undefined {
         return this['audio_transmission_mode'];
     }
     public withPlayRedirectionEnable(playRedirectionEnable: boolean): PoliciesAudio {
@@ -98,24 +98,24 @@ export class PoliciesAudio {
     public get playRedirectionEnable(): boolean | undefined {
         return this['play_redirection_enable'];
     }
-    public withPlayClassification(playClassification: PoliciesAudioPlayClassificationEnum | string): PoliciesAudio {
+    public withPlayClassification(playClassification: string): PoliciesAudio {
         this['play_classification'] = playClassification;
         return this;
     }
-    public set playClassification(playClassification: PoliciesAudioPlayClassificationEnum | string  | undefined) {
+    public set playClassification(playClassification: string  | undefined) {
         this['play_classification'] = playClassification;
     }
-    public get playClassification(): PoliciesAudioPlayClassificationEnum | string | undefined {
+    public get playClassification(): string | undefined {
         return this['play_classification'];
     }
-    public withPlayQuality(playQuality: PoliciesAudioPlayQualityEnum | string): PoliciesAudio {
+    public withPlayQuality(playQuality: string): PoliciesAudio {
         this['play_quality'] = playQuality;
         return this;
     }
-    public set playQuality(playQuality: PoliciesAudioPlayQualityEnum | string  | undefined) {
+    public set playQuality(playQuality: string  | undefined) {
         this['play_quality'] = playQuality;
     }
-    public get playQuality(): PoliciesAudioPlayQualityEnum | string | undefined {
+    public get playQuality(): string | undefined {
         return this['play_quality'];
     }
     public withPlayDenoising(playDenoising: string): PoliciesAudio {
@@ -138,24 +138,24 @@ export class PoliciesAudio {
     public get playAgc(): string | undefined {
         return this['play_agc'];
     }
-    public withPlayCrc(playCrc: PoliciesAudioPlayCrcEnum | string): PoliciesAudio {
+    public withPlayCrc(playCrc: string): PoliciesAudio {
         this['play_crc'] = playCrc;
         return this;
     }
-    public set playCrc(playCrc: PoliciesAudioPlayCrcEnum | string  | undefined) {
+    public set playCrc(playCrc: string  | undefined) {
         this['play_crc'] = playCrc;
     }
-    public get playCrc(): PoliciesAudioPlayCrcEnum | string | undefined {
+    public get playCrc(): string | undefined {
         return this['play_crc'];
     }
-    public withPlayDeviceMode(playDeviceMode: PoliciesAudioPlayDeviceModeEnum | string): PoliciesAudio {
+    public withPlayDeviceMode(playDeviceMode: string): PoliciesAudio {
         this['play_device_mode'] = playDeviceMode;
         return this;
     }
-    public set playDeviceMode(playDeviceMode: PoliciesAudioPlayDeviceModeEnum | string  | undefined) {
+    public set playDeviceMode(playDeviceMode: string  | undefined) {
         this['play_device_mode'] = playDeviceMode;
     }
-    public get playDeviceMode(): PoliciesAudioPlayDeviceModeEnum | string | undefined {
+    public get playDeviceMode(): string | undefined {
         return this['play_device_mode'];
     }
     public withPlayDelayThreshold(playDelayThreshold: string): PoliciesAudio {
@@ -198,24 +198,24 @@ export class PoliciesAudio {
     public get recordRedirectionEnable(): boolean | undefined {
         return this['record_redirection_enable'];
     }
-    public withRecordClassification(recordClassification: PoliciesAudioRecordClassificationEnum | string): PoliciesAudio {
+    public withRecordClassification(recordClassification: string): PoliciesAudio {
         this['record_classification'] = recordClassification;
         return this;
     }
-    public set recordClassification(recordClassification: PoliciesAudioRecordClassificationEnum | string  | undefined) {
+    public set recordClassification(recordClassification: string  | undefined) {
         this['record_classification'] = recordClassification;
     }
-    public get recordClassification(): PoliciesAudioRecordClassificationEnum | string | undefined {
+    public get recordClassification(): string | undefined {
         return this['record_classification'];
     }
-    public withRecordQuality(recordQuality: PoliciesAudioRecordQualityEnum | string): PoliciesAudio {
+    public withRecordQuality(recordQuality: string): PoliciesAudio {
         this['record_quality'] = recordQuality;
         return this;
     }
-    public set recordQuality(recordQuality: PoliciesAudioRecordQualityEnum | string  | undefined) {
+    public set recordQuality(recordQuality: string  | undefined) {
         this['record_quality'] = recordQuality;
     }
-    public get recordQuality(): PoliciesAudioRecordQualityEnum | string | undefined {
+    public get recordQuality(): string | undefined {
         return this['record_quality'];
     }
     public withRecordDenoising(recordDenoising: string): PoliciesAudio {
@@ -238,24 +238,24 @@ export class PoliciesAudio {
     public get recordAgc(): string | undefined {
         return this['record_agc'];
     }
-    public withRecordCrc(recordCrc: PoliciesAudioRecordCrcEnum | string): PoliciesAudio {
+    public withRecordCrc(recordCrc: string): PoliciesAudio {
         this['record_crc'] = recordCrc;
         return this;
     }
-    public set recordCrc(recordCrc: PoliciesAudioRecordCrcEnum | string  | undefined) {
+    public set recordCrc(recordCrc: string  | undefined) {
         this['record_crc'] = recordCrc;
     }
-    public get recordCrc(): PoliciesAudioRecordCrcEnum | string | undefined {
+    public get recordCrc(): string | undefined {
         return this['record_crc'];
     }
-    public withRecordDeviceMode(recordDeviceMode: PoliciesAudioRecordDeviceModeEnum | string): PoliciesAudio {
+    public withRecordDeviceMode(recordDeviceMode: string): PoliciesAudio {
         this['record_device_mode'] = recordDeviceMode;
         return this;
     }
-    public set recordDeviceMode(recordDeviceMode: PoliciesAudioRecordDeviceModeEnum | string  | undefined) {
+    public set recordDeviceMode(recordDeviceMode: string  | undefined) {
         this['record_device_mode'] = recordDeviceMode;
     }
-    public get recordDeviceMode(): PoliciesAudioRecordDeviceModeEnum | string | undefined {
+    public get recordDeviceMode(): string | undefined {
         return this['record_device_mode'];
     }
     public withRecordDelayThreshold(recordDelayThreshold: string): PoliciesAudio {
@@ -278,103 +278,4 @@ export class PoliciesAudio {
     public get recordAmplitudeThreshold(): string | undefined {
         return this['record_amplitude_threshold'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioPlayVolumeRatioEnum {
-    DO_NOT_SET_VOLUME_RATIO = 'Do Not Set Volume Ratio',
-    LOW = 'Low',
-    MIDDLE = 'Middle',
-    HIGH = 'High'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioRecordVolumeRatioEnum {
-    DO_NOT_SET_VOLUME_RATIO = 'Do Not Set Volume Ratio',
-    LOW = 'Low',
-    MIDDLE = 'Middle',
-    HIGH = 'High'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioAudioTransmissionModeEnum {
-    REAL_TIME_TRANSMISSION = 'Real Time Transmission',
-    RELIABLE_TRANSMISSION = 'Reliable Transmission'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioPlayClassificationEnum {
-    LOSSLESS = 'LossLess',
-    SPEECH_CALL = 'Speech Call',
-    MUSIC_PLAY = 'Music Play',
-    AUTOMATIC_IDENTIFICATION = 'Automatic Identification'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioPlayQualityEnum {
-    LOW = 'Low',
-    MIDDLE = 'Middle',
-    HIGH = 'High'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioPlayCrcEnum {
-    DISABLE_CRC = 'Disable CRC',
-    ENABLE_CRC = 'Enable CRC'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioPlayDeviceModeEnum {
-    PLAY_DEVICE_IN_SHARED_MODE = 'Play Device In Shared Mode',
-    PLAY_DEVICE_IN_EXCLUSIVE_MODE = 'Play Device In Exclusive Mode'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioRecordClassificationEnum {
-    LOSSLESS = 'LossLess',
-    SPEECH_CALL = 'Speech Call',
-    MUSIC_RECORD = 'Music Record',
-    AUTOMATIC_IDENTIFICATION = 'Automatic Identification'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioRecordQualityEnum {
-    LOW = 'Low',
-    MIDDLE = 'Middle',
-    HIGH = 'High'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioRecordCrcEnum {
-    DISABLE_CRC = 'Disable CRC',
-    ENABLE_CRC = 'Enable CRC'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesAudioRecordDeviceModeEnum {
-    RECORD_DEVICE_IN_SHARED_MODE = 'Record Device In Shared Mode',
-    RECORD_DEVICE_IN_EXCLUSIVE_MODE = 'Record Device In Exclusive Mode'
 }

@@ -1,27 +1,22 @@
 import { AdInfo } from './AdInfo';
-import { AssistAuthConfigInfo } from './AssistAuthConfigInfo';
 import { SecurityGroup } from './SecurityGroup';
 import { SiteConfigsResponse } from './SiteConfigsResponse';
 import { SubnetInfo } from './SubnetInfo';
-import { ThirdGatewayInfo } from './ThirdGatewayInfo';
 import { VpcConfigInfo } from './VpcConfigInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListWorkspacesResponse extends SdkResponse {
     public id?: string;
-    private 'auth_type'?: string;
+    private 'is_global'?: boolean;
     private 'ad_domains'?: AdInfo;
-    private 'third_gateway_info'?: ThirdGatewayInfo;
     private 'vpc_id'?: string;
     private 'vpc_name'?: string;
     private 'access_mode'?: string;
     private 'adn_conflict_network'?: string;
     private 'dedicated_subnets'?: string;
     private 'dedicated_access_address'?: string;
-    private 'dedicated_access_address_ipv6'?: string;
     private 'internet_access_address'?: string;
-    private 'internet_access_address_ipv6'?: string;
     private 'internet_access_port'?: string;
     public status?: ListWorkspacesResponseStatusEnum | string;
     private 'access_status'?: string;
@@ -38,16 +33,11 @@ export class ListWorkspacesResponse extends SdkResponse {
     private 'fail_reason'?: string;
     private 'enterprise_id'?: string;
     private 'enterprise_project_id'?: string;
-    private 'project_resource_type'?: string;
-    private 'assist_auth_config_info'?: AssistAuthConfigInfo;
     private 'is_send_email'?: boolean;
     private 'authorized_collect_log'?: boolean;
     private 'authorized_hda_upgrade'?: boolean;
     private 'site_configs'?: Array<SiteConfigsResponse>;
-    private 'is_multi_vpc'?: boolean;
-    private 'is_config_nat_mapping'?: boolean;
     private 'dc_vnc_ip'?: string;
-    private 'dc_vnc_vpcep_id'?: string;
     private 'is_authorized_install_agent'?: boolean;
     private 'is_support_ipv6'?: boolean;
     private 'enable_user_create_snapshot'?: boolean;
@@ -58,15 +48,15 @@ export class ListWorkspacesResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withAuthType(authType: string): ListWorkspacesResponse {
-        this['auth_type'] = authType;
+    public withIsGlobal(isGlobal: boolean): ListWorkspacesResponse {
+        this['is_global'] = isGlobal;
         return this;
     }
-    public set authType(authType: string  | undefined) {
-        this['auth_type'] = authType;
+    public set isGlobal(isGlobal: boolean  | undefined) {
+        this['is_global'] = isGlobal;
     }
-    public get authType(): string | undefined {
-        return this['auth_type'];
+    public get isGlobal(): boolean | undefined {
+        return this['is_global'];
     }
     public withAdDomains(adDomains: AdInfo): ListWorkspacesResponse {
         this['ad_domains'] = adDomains;
@@ -77,16 +67,6 @@ export class ListWorkspacesResponse extends SdkResponse {
     }
     public get adDomains(): AdInfo | undefined {
         return this['ad_domains'];
-    }
-    public withThirdGatewayInfo(thirdGatewayInfo: ThirdGatewayInfo): ListWorkspacesResponse {
-        this['third_gateway_info'] = thirdGatewayInfo;
-        return this;
-    }
-    public set thirdGatewayInfo(thirdGatewayInfo: ThirdGatewayInfo  | undefined) {
-        this['third_gateway_info'] = thirdGatewayInfo;
-    }
-    public get thirdGatewayInfo(): ThirdGatewayInfo | undefined {
-        return this['third_gateway_info'];
     }
     public withVpcId(vpcId: string): ListWorkspacesResponse {
         this['vpc_id'] = vpcId;
@@ -148,16 +128,6 @@ export class ListWorkspacesResponse extends SdkResponse {
     public get dedicatedAccessAddress(): string | undefined {
         return this['dedicated_access_address'];
     }
-    public withDedicatedAccessAddressIpv6(dedicatedAccessAddressIpv6: string): ListWorkspacesResponse {
-        this['dedicated_access_address_ipv6'] = dedicatedAccessAddressIpv6;
-        return this;
-    }
-    public set dedicatedAccessAddressIpv6(dedicatedAccessAddressIpv6: string  | undefined) {
-        this['dedicated_access_address_ipv6'] = dedicatedAccessAddressIpv6;
-    }
-    public get dedicatedAccessAddressIpv6(): string | undefined {
-        return this['dedicated_access_address_ipv6'];
-    }
     public withInternetAccessAddress(internetAccessAddress: string): ListWorkspacesResponse {
         this['internet_access_address'] = internetAccessAddress;
         return this;
@@ -167,16 +137,6 @@ export class ListWorkspacesResponse extends SdkResponse {
     }
     public get internetAccessAddress(): string | undefined {
         return this['internet_access_address'];
-    }
-    public withInternetAccessAddressIpv6(internetAccessAddressIpv6: string): ListWorkspacesResponse {
-        this['internet_access_address_ipv6'] = internetAccessAddressIpv6;
-        return this;
-    }
-    public set internetAccessAddressIpv6(internetAccessAddressIpv6: string  | undefined) {
-        this['internet_access_address_ipv6'] = internetAccessAddressIpv6;
-    }
-    public get internetAccessAddressIpv6(): string | undefined {
-        return this['internet_access_address_ipv6'];
     }
     public withInternetAccessPort(internetAccessPort: string): ListWorkspacesResponse {
         this['internet_access_port'] = internetAccessPort;
@@ -320,26 +280,6 @@ export class ListWorkspacesResponse extends SdkResponse {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withProjectResourceType(projectResourceType: string): ListWorkspacesResponse {
-        this['project_resource_type'] = projectResourceType;
-        return this;
-    }
-    public set projectResourceType(projectResourceType: string  | undefined) {
-        this['project_resource_type'] = projectResourceType;
-    }
-    public get projectResourceType(): string | undefined {
-        return this['project_resource_type'];
-    }
-    public withAssistAuthConfigInfo(assistAuthConfigInfo: AssistAuthConfigInfo): ListWorkspacesResponse {
-        this['assist_auth_config_info'] = assistAuthConfigInfo;
-        return this;
-    }
-    public set assistAuthConfigInfo(assistAuthConfigInfo: AssistAuthConfigInfo  | undefined) {
-        this['assist_auth_config_info'] = assistAuthConfigInfo;
-    }
-    public get assistAuthConfigInfo(): AssistAuthConfigInfo | undefined {
-        return this['assist_auth_config_info'];
-    }
     public withIsSendEmail(isSendEmail: boolean): ListWorkspacesResponse {
         this['is_send_email'] = isSendEmail;
         return this;
@@ -380,26 +320,6 @@ export class ListWorkspacesResponse extends SdkResponse {
     public get siteConfigs(): Array<SiteConfigsResponse> | undefined {
         return this['site_configs'];
     }
-    public withIsMultiVpc(isMultiVpc: boolean): ListWorkspacesResponse {
-        this['is_multi_vpc'] = isMultiVpc;
-        return this;
-    }
-    public set isMultiVpc(isMultiVpc: boolean  | undefined) {
-        this['is_multi_vpc'] = isMultiVpc;
-    }
-    public get isMultiVpc(): boolean | undefined {
-        return this['is_multi_vpc'];
-    }
-    public withIsConfigNatMapping(isConfigNatMapping: boolean): ListWorkspacesResponse {
-        this['is_config_nat_mapping'] = isConfigNatMapping;
-        return this;
-    }
-    public set isConfigNatMapping(isConfigNatMapping: boolean  | undefined) {
-        this['is_config_nat_mapping'] = isConfigNatMapping;
-    }
-    public get isConfigNatMapping(): boolean | undefined {
-        return this['is_config_nat_mapping'];
-    }
     public withDcVncIp(dcVncIp: string): ListWorkspacesResponse {
         this['dc_vnc_ip'] = dcVncIp;
         return this;
@@ -409,16 +329,6 @@ export class ListWorkspacesResponse extends SdkResponse {
     }
     public get dcVncIp(): string | undefined {
         return this['dc_vnc_ip'];
-    }
-    public withDcVncVpcepId(dcVncVpcepId: string): ListWorkspacesResponse {
-        this['dc_vnc_vpcep_id'] = dcVncVpcepId;
-        return this;
-    }
-    public set dcVncVpcepId(dcVncVpcepId: string  | undefined) {
-        this['dc_vnc_vpcep_id'] = dcVncVpcepId;
-    }
-    public get dcVncVpcepId(): string | undefined {
-        return this['dc_vnc_vpcep_id'];
     }
     public withIsAuthorizedInstallAgent(isAuthorizedInstallAgent: boolean): ListWorkspacesResponse {
         this['is_authorized_install_agent'] = isAuthorizedInstallAgent;

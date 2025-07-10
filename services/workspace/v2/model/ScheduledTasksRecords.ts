@@ -5,6 +5,7 @@ export class ScheduledTasksRecords {
     private 'start_time'?: string;
     private 'task_type'?: string;
     private 'scheduled_type'?: string;
+    private 'life_cycle_type'?: string;
     public status?: string;
     private 'success_num'?: number;
     private 'failed_num'?: number;
@@ -47,6 +48,16 @@ export class ScheduledTasksRecords {
     }
     public get scheduledType(): string | undefined {
         return this['scheduled_type'];
+    }
+    public withLifeCycleType(lifeCycleType: string): ScheduledTasksRecords {
+        this['life_cycle_type'] = lifeCycleType;
+        return this;
+    }
+    public set lifeCycleType(lifeCycleType: string  | undefined) {
+        this['life_cycle_type'] = lifeCycleType;
+    }
+    public get lifeCycleType(): string | undefined {
+        return this['life_cycle_type'];
     }
     public withStatus(status: string): ScheduledTasksRecords {
         this['status'] = status;

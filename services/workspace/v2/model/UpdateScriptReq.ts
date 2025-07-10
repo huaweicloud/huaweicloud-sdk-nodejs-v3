@@ -5,7 +5,9 @@ export class UpdateScriptReq {
     public description?: string;
     public content?: string;
     public version?: string;
-    public constructor() { 
+    public constructor(name?: string, content?: string) { 
+        this['name'] = name;
+        this['content'] = content;
     }
     public withName(name: string): UpdateScriptReq {
         this['name'] = name;

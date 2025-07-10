@@ -11,6 +11,7 @@ export class HumanModel2DAssetMeta {
     private 'is_with_action_library'?: boolean;
     private 'action_tag_map'?: Array<ActionTagInfo>;
     private 'is_flexus'?: boolean;
+    private 'voice_asset_id'?: string;
     public constructor() { 
     }
     public withIsActionEditable(isActionEditable: boolean): HumanModel2DAssetMeta {
@@ -102,6 +103,16 @@ export class HumanModel2DAssetMeta {
     }
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
+    }
+    public withVoiceAssetId(voiceAssetId: string): HumanModel2DAssetMeta {
+        this['voice_asset_id'] = voiceAssetId;
+        return this;
+    }
+    public set voiceAssetId(voiceAssetId: string  | undefined) {
+        this['voice_asset_id'] = voiceAssetId;
+    }
+    public get voiceAssetId(): string | undefined {
+        return this['voice_asset_id'];
     }
 }
 

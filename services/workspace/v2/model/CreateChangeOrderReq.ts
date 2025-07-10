@@ -3,16 +3,13 @@ import { OrderExtendParam } from './OrderExtendParam';
 
 export class CreateChangeOrderReq {
     public type?: string;
-    private 'is_subscribe'?: boolean;
     private 'period_type'?: number;
     private 'period_num'?: number;
     private 'resize_product_id'?: string;
-    private 'flavor_id'?: string;
     private 'expand_volume_id'?: string;
     private 'expand_new_size'?: number;
     private 'new_quantity'?: number;
     private 'exclusive_lites_product_id'?: string;
-    private 'cloud_service_console_url'?: string;
     private 'enterprise_project_id'?: string;
     private 'extend_param'?: OrderExtendParam;
     public constructor(type?: string) { 
@@ -21,16 +18,6 @@ export class CreateChangeOrderReq {
     public withType(type: string): CreateChangeOrderReq {
         this['type'] = type;
         return this;
-    }
-    public withIsSubscribe(isSubscribe: boolean): CreateChangeOrderReq {
-        this['is_subscribe'] = isSubscribe;
-        return this;
-    }
-    public set isSubscribe(isSubscribe: boolean  | undefined) {
-        this['is_subscribe'] = isSubscribe;
-    }
-    public get isSubscribe(): boolean | undefined {
-        return this['is_subscribe'];
     }
     public withPeriodType(periodType: number): CreateChangeOrderReq {
         this['period_type'] = periodType;
@@ -61,16 +48,6 @@ export class CreateChangeOrderReq {
     }
     public get resizeProductId(): string | undefined {
         return this['resize_product_id'];
-    }
-    public withFlavorId(flavorId: string): CreateChangeOrderReq {
-        this['flavor_id'] = flavorId;
-        return this;
-    }
-    public set flavorId(flavorId: string  | undefined) {
-        this['flavor_id'] = flavorId;
-    }
-    public get flavorId(): string | undefined {
-        return this['flavor_id'];
     }
     public withExpandVolumeId(expandVolumeId: string): CreateChangeOrderReq {
         this['expand_volume_id'] = expandVolumeId;
@@ -111,16 +88,6 @@ export class CreateChangeOrderReq {
     }
     public get exclusiveLitesProductId(): string | undefined {
         return this['exclusive_lites_product_id'];
-    }
-    public withCloudServiceConsoleUrl(cloudServiceConsoleUrl: string): CreateChangeOrderReq {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-        return this;
-    }
-    public set cloudServiceConsoleUrl(cloudServiceConsoleUrl: string  | undefined) {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-    }
-    public get cloudServiceConsoleUrl(): string | undefined {
-        return this['cloud_service_console_url'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateChangeOrderReq {
         this['enterprise_project_id'] = enterpriseProjectId;

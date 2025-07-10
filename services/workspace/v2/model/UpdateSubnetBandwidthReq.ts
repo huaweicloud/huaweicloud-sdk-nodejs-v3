@@ -4,7 +4,6 @@ export class UpdateSubnetBandwidthReq {
     private 'bandwidth_name'?: string;
     private 'bandwidth_size'?: number;
     private 'enterprise_project_id'?: string;
-    private 'order_id'?: string;
     private 'charge_mode'?: string;
     public constructor() { 
     }
@@ -37,16 +36,6 @@ export class UpdateSubnetBandwidthReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
-    }
-    public withOrderId(orderId: string): UpdateSubnetBandwidthReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
     public withChargeMode(chargeMode: string): UpdateSubnetBandwidthReq {
         this['charge_mode'] = chargeMode;

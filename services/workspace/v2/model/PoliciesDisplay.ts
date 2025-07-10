@@ -19,7 +19,7 @@ export class PoliciesDisplay {
     private 'application_recognition'?: string;
     private 'duplicate_display_enable'?: boolean;
     private 'default_mapping_order'?: string;
-    private 'duplicate_display_mode'?: PoliciesDisplayDuplicateDisplayModeEnum | string;
+    private 'duplicate_display_mode'?: string;
     public constructor() { 
     }
     public withDisplayLevel(displayLevel: PoliciesDisplayDisplayLevelEnum | string): PoliciesDisplay {
@@ -166,14 +166,14 @@ export class PoliciesDisplay {
     public get defaultMappingOrder(): string | undefined {
         return this['default_mapping_order'];
     }
-    public withDuplicateDisplayMode(duplicateDisplayMode: PoliciesDisplayDuplicateDisplayModeEnum | string): PoliciesDisplay {
+    public withDuplicateDisplayMode(duplicateDisplayMode: string): PoliciesDisplay {
         this['duplicate_display_mode'] = duplicateDisplayMode;
         return this;
     }
-    public set duplicateDisplayMode(duplicateDisplayMode: PoliciesDisplayDuplicateDisplayModeEnum | string  | undefined) {
+    public set duplicateDisplayMode(duplicateDisplayMode: string  | undefined) {
         this['duplicate_display_mode'] = duplicateDisplayMode;
     }
-    public get duplicateDisplayMode(): PoliciesDisplayDuplicateDisplayModeEnum | string | undefined {
+    public get duplicateDisplayMode(): string | undefined {
         return this['duplicate_display_mode'];
     }
 }
@@ -188,12 +188,4 @@ export enum PoliciesDisplayDisplayLevelEnum {
     LEVEL3 = 'LEVEL3',
     LEVEL4 = 'LEVEL4',
     LEVEL5 = 'LEVEL5'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PoliciesDisplayDuplicateDisplayModeEnum {
-    ONE_TO_ONE = 'One-to-One',
-    ONE_TO_MANY = 'One-to-Many'
 }

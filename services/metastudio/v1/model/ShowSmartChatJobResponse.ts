@@ -1,6 +1,7 @@
 import { ErrorResponse } from './ErrorResponse';
 import { LanguageEnum } from './LanguageEnum';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
+import { SmartChatJobBaseInfo } from './SmartChatJobBaseInfo';
 import { SmartChatSubtitleConfig } from './SmartChatSubtitleConfig';
 import { SmartChatVideoConfig } from './SmartChatVideoConfig';
 import { SmartChatVoiceConfig } from './SmartChatVoiceConfig';
@@ -16,18 +17,20 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     private 'error_info'?: ErrorResponse;
     private 'create_time'?: string;
     private 'lastupdate_time'?: string;
-    private 'rtc_room_info'?: RTCRoomInfoList;
     private 'chat_subtitle_config'?: SmartChatSubtitleConfig;
     private 'video_config'?: SmartChatVideoConfig;
     private 'voice_config_list'?: Array<SmartChatVoiceConfig>;
-    private 'chat_state'?: number;
-    public language?: LanguageEnum;
     private 'chat_video_type'?: ShowSmartChatJobResponseChatVideoTypeEnum | string;
-    private 'chat_access_address'?: string;
-    private 'chat_access_rest_address'?: string;
     private 'is_transparent'?: boolean;
     private 'default_language'?: ShowSmartChatJobResponseDefaultLanguageEnum | string;
     private 'client_id'?: string;
+    private 'is_pool_mode'?: boolean;
+    private 'job_finish_reason'?: ShowSmartChatJobResponseJobFinishReasonEnum | string;
+    private 'rtc_room_info'?: RTCRoomInfoList;
+    private 'chat_state'?: number;
+    public language?: LanguageEnum;
+    private 'chat_access_address'?: string;
+    private 'chat_access_rest_address'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -100,16 +103,6 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public get lastupdateTime(): string | undefined {
         return this['lastupdate_time'];
     }
-    public withRtcRoomInfo(rtcRoomInfo: RTCRoomInfoList): ShowSmartChatJobResponse {
-        this['rtc_room_info'] = rtcRoomInfo;
-        return this;
-    }
-    public set rtcRoomInfo(rtcRoomInfo: RTCRoomInfoList  | undefined) {
-        this['rtc_room_info'] = rtcRoomInfo;
-    }
-    public get rtcRoomInfo(): RTCRoomInfoList | undefined {
-        return this['rtc_room_info'];
-    }
     public withChatSubtitleConfig(chatSubtitleConfig: SmartChatSubtitleConfig): ShowSmartChatJobResponse {
         this['chat_subtitle_config'] = chatSubtitleConfig;
         return this;
@@ -140,20 +133,6 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public get voiceConfigList(): Array<SmartChatVoiceConfig> | undefined {
         return this['voice_config_list'];
     }
-    public withChatState(chatState: number): ShowSmartChatJobResponse {
-        this['chat_state'] = chatState;
-        return this;
-    }
-    public set chatState(chatState: number  | undefined) {
-        this['chat_state'] = chatState;
-    }
-    public get chatState(): number | undefined {
-        return this['chat_state'];
-    }
-    public withLanguage(language: LanguageEnum): ShowSmartChatJobResponse {
-        this['language'] = language;
-        return this;
-    }
     public withChatVideoType(chatVideoType: ShowSmartChatJobResponseChatVideoTypeEnum | string): ShowSmartChatJobResponse {
         this['chat_video_type'] = chatVideoType;
         return this;
@@ -163,26 +142,6 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     }
     public get chatVideoType(): ShowSmartChatJobResponseChatVideoTypeEnum | string | undefined {
         return this['chat_video_type'];
-    }
-    public withChatAccessAddress(chatAccessAddress: string): ShowSmartChatJobResponse {
-        this['chat_access_address'] = chatAccessAddress;
-        return this;
-    }
-    public set chatAccessAddress(chatAccessAddress: string  | undefined) {
-        this['chat_access_address'] = chatAccessAddress;
-    }
-    public get chatAccessAddress(): string | undefined {
-        return this['chat_access_address'];
-    }
-    public withChatAccessRestAddress(chatAccessRestAddress: string): ShowSmartChatJobResponse {
-        this['chat_access_rest_address'] = chatAccessRestAddress;
-        return this;
-    }
-    public set chatAccessRestAddress(chatAccessRestAddress: string  | undefined) {
-        this['chat_access_rest_address'] = chatAccessRestAddress;
-    }
-    public get chatAccessRestAddress(): string | undefined {
-        return this['chat_access_rest_address'];
     }
     public withIsTransparent(isTransparent: boolean): ShowSmartChatJobResponse {
         this['is_transparent'] = isTransparent;
@@ -213,6 +172,70 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     }
     public get clientId(): string | undefined {
         return this['client_id'];
+    }
+    public withIsPoolMode(isPoolMode: boolean): ShowSmartChatJobResponse {
+        this['is_pool_mode'] = isPoolMode;
+        return this;
+    }
+    public set isPoolMode(isPoolMode: boolean  | undefined) {
+        this['is_pool_mode'] = isPoolMode;
+    }
+    public get isPoolMode(): boolean | undefined {
+        return this['is_pool_mode'];
+    }
+    public withJobFinishReason(jobFinishReason: ShowSmartChatJobResponseJobFinishReasonEnum | string): ShowSmartChatJobResponse {
+        this['job_finish_reason'] = jobFinishReason;
+        return this;
+    }
+    public set jobFinishReason(jobFinishReason: ShowSmartChatJobResponseJobFinishReasonEnum | string  | undefined) {
+        this['job_finish_reason'] = jobFinishReason;
+    }
+    public get jobFinishReason(): ShowSmartChatJobResponseJobFinishReasonEnum | string | undefined {
+        return this['job_finish_reason'];
+    }
+    public withRtcRoomInfo(rtcRoomInfo: RTCRoomInfoList): ShowSmartChatJobResponse {
+        this['rtc_room_info'] = rtcRoomInfo;
+        return this;
+    }
+    public set rtcRoomInfo(rtcRoomInfo: RTCRoomInfoList  | undefined) {
+        this['rtc_room_info'] = rtcRoomInfo;
+    }
+    public get rtcRoomInfo(): RTCRoomInfoList | undefined {
+        return this['rtc_room_info'];
+    }
+    public withChatState(chatState: number): ShowSmartChatJobResponse {
+        this['chat_state'] = chatState;
+        return this;
+    }
+    public set chatState(chatState: number  | undefined) {
+        this['chat_state'] = chatState;
+    }
+    public get chatState(): number | undefined {
+        return this['chat_state'];
+    }
+    public withLanguage(language: LanguageEnum): ShowSmartChatJobResponse {
+        this['language'] = language;
+        return this;
+    }
+    public withChatAccessAddress(chatAccessAddress: string): ShowSmartChatJobResponse {
+        this['chat_access_address'] = chatAccessAddress;
+        return this;
+    }
+    public set chatAccessAddress(chatAccessAddress: string  | undefined) {
+        this['chat_access_address'] = chatAccessAddress;
+    }
+    public get chatAccessAddress(): string | undefined {
+        return this['chat_access_address'];
+    }
+    public withChatAccessRestAddress(chatAccessRestAddress: string): ShowSmartChatJobResponse {
+        this['chat_access_rest_address'] = chatAccessRestAddress;
+        return this;
+    }
+    public set chatAccessRestAddress(chatAccessRestAddress: string  | undefined) {
+        this['chat_access_rest_address'] = chatAccessRestAddress;
+    }
+    public get chatAccessRestAddress(): string | undefined {
+        return this['chat_access_rest_address'];
     }
     public withXRequestId(xRequestId: string): ShowSmartChatJobResponse {
         this['X-Request-Id'] = xRequestId;
@@ -260,4 +283,12 @@ export enum ShowSmartChatJobResponseDefaultLanguageEnum {
     POR = 'por',
     ARABIC = 'Arabic',
     THAI = 'Thai'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSmartChatJobResponseJobFinishReasonEnum {
+    NORMAL = 'NORMAL',
+    MUTE_TIMEOUT = 'MUTE_TIMEOUT'
 }

@@ -3,7 +3,9 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AccessAreaFilter } from './model/AccessAreaFilter';
+import { AccessControl } from './model/AccessControl';
 import { AccountConfigModifyRequest } from './model/AccountConfigModifyRequest';
+import { Actions } from './model/Actions';
 import { BackSources } from './model/BackSources';
 import { BatchCopyConfigs } from './model/BatchCopyConfigs';
 import { BatchCopyDRequestBody } from './model/BatchCopyDRequestBody';
@@ -14,9 +16,14 @@ import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
 import { BatchDeleteTagsRequest } from './model/BatchDeleteTagsRequest';
 import { BatchDeleteTagsResponse } from './model/BatchDeleteTagsResponse';
+import { BatchUpdateRuleStatusRequest } from './model/BatchUpdateRuleStatusRequest';
+import { BatchUpdateRuleStatusResponse } from './model/BatchUpdateRuleStatusResponse';
+import { BatchUpdateRulesRequest } from './model/BatchUpdateRulesRequest';
 import { BrowserCacheRules } from './model/BrowserCacheRules';
 import { BrowserCacheRulesCondition } from './model/BrowserCacheRulesCondition';
+import { BrowserCacheRulesEngine } from './model/BrowserCacheRulesEngine';
 import { CacheRules } from './model/CacheRules';
+import { CacheRulesEngine } from './model/CacheRulesEngine';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
 import { CacheUrlParameterFilterGetBody } from './model/CacheUrlParameterFilterGetBody';
 import { CdnIps } from './model/CdnIps';
@@ -25,6 +32,7 @@ import { CertificatesPutBody } from './model/CertificatesPutBody';
 import { ClientCert } from './model/ClientCert';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
+import { Conditions } from './model/Conditions';
 import { Configs } from './model/Configs';
 import { ConfigsGetBody } from './model/ConfigsGetBody';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
@@ -35,12 +43,23 @@ import { CreatePreheatingTasksRequest } from './model/CreatePreheatingTasksReque
 import { CreatePreheatingTasksResponse } from './model/CreatePreheatingTasksResponse';
 import { CreateRefreshTasksRequest } from './model/CreateRefreshTasksRequest';
 import { CreateRefreshTasksResponse } from './model/CreateRefreshTasksResponse';
+import { CreateRuleNewRequest } from './model/CreateRuleNewRequest';
+import { CreateRuleNewResponse } from './model/CreateRuleNewResponse';
+import { CreateRuleRequest } from './model/CreateRuleRequest';
+import { CreateShareCacheGroupsRequest } from './model/CreateShareCacheGroupsRequest';
+import { CreateShareCacheGroupsRequstBody } from './model/CreateShareCacheGroupsRequstBody';
+import { CreateShareCacheGroupsResponse } from './model/CreateShareCacheGroupsResponse';
 import { CreateTagsRequest } from './model/CreateTagsRequest';
 import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
 import { CreateTagsResponse } from './model/CreateTagsResponse';
+import { Criteria } from './model/Criteria';
 import { CustomArgs } from './model/CustomArgs';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteRuleNewRequest } from './model/DeleteRuleNewRequest';
+import { DeleteRuleNewResponse } from './model/DeleteRuleNewResponse';
+import { DeleteShareCacheGroupsRequest } from './model/DeleteShareCacheGroupsRequest';
+import { DeleteShareCacheGroupsResponse } from './model/DeleteShareCacheGroupsResponse';
 import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
 import { DisableDomainRequest } from './model/DisableDomainRequest';
 import { DisableDomainResponse } from './model/DisableDomainResponse';
@@ -59,10 +78,13 @@ import { EpResourceTag } from './model/EpResourceTag';
 import { ErrMsg } from './model/ErrMsg';
 import { ErrRsp } from './model/ErrRsp';
 import { ErrorCodeCache } from './model/ErrorCodeCache';
+import { ErrorCodeCacheEngine } from './model/ErrorCodeCacheEngine';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './model/FlexibleOrigins';
+import { FlexibleOriginsEngine } from './model/FlexibleOriginsEngine';
 import { ForceRedirect } from './model/ForceRedirect';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
+import { FullUpdateRulesRequest } from './model/FullUpdateRulesRequest';
 import { Hsts } from './model/Hsts';
 import { HstsQuery } from './model/HstsQuery';
 import { HttpGetBody } from './model/HttpGetBody';
@@ -78,12 +100,20 @@ import { ListCdnDomainTopRefersRequest } from './model/ListCdnDomainTopRefersReq
 import { ListCdnDomainTopRefersResponse } from './model/ListCdnDomainTopRefersResponse';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
+import { ListRuleDetailsRequest } from './model/ListRuleDetailsRequest';
+import { ListRuleDetailsResponse } from './model/ListRuleDetailsResponse';
+import { ListShareCacheGroupsConfig } from './model/ListShareCacheGroupsConfig';
+import { ListShareCacheGroupsRecord } from './model/ListShareCacheGroupsRecord';
+import { ListShareCacheGroupsRequest } from './model/ListShareCacheGroupsRequest';
+import { ListShareCacheGroupsResponse } from './model/ListShareCacheGroupsResponse';
 import { LogObject } from './model/LogObject';
+import { Match } from './model/Match';
 import { ModifyAccountInfoRequest } from './model/ModifyAccountInfoRequest';
 import { ModifyAccountInfoResponse } from './model/ModifyAccountInfoResponse';
 import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
 import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
+import { OriginRequestUrlRewriteEngine } from './model/OriginRequestUrlRewriteEngine';
 import { PreheatingTaskRequest } from './model/PreheatingTaskRequest';
 import { PreheatingTaskRequestBody } from './model/PreheatingTaskRequestBody';
 import { Quic } from './model/Quic';
@@ -93,10 +123,14 @@ import { RefreshTaskRequest } from './model/RefreshTaskRequest';
 import { RefreshTaskRequestBody } from './model/RefreshTaskRequestBody';
 import { RemoteAuthRule } from './model/RemoteAuthRule';
 import { RequestLimitRules } from './model/RequestLimitRules';
+import { RequestLimitRulesEngine } from './model/RequestLimitRulesEngine';
 import { RequestUrlRewrite } from './model/RequestUrlRewrite';
+import { RequestUrlRewriteEngine } from './model/RequestUrlRewriteEngine';
+import { RuleResponse } from './model/RuleResponse';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
+import { ShareCacheGroupsRecord } from './model/ShareCacheGroupsRecord';
 import { ShowBandwidthCalcRequest } from './model/ShowBandwidthCalcRequest';
 import { ShowBandwidthCalcResponse } from './model/ShowBandwidthCalcResponse';
 import { ShowCertificatesHttpsInfoRequest } from './model/ShowCertificatesHttpsInfoRequest';
@@ -150,9 +184,18 @@ import { UpdateDomainMultiCertificatesRequestBodyContent } from './model/UpdateD
 import { UpdateDomainMultiCertificatesResponse } from './model/UpdateDomainMultiCertificatesResponse';
 import { UpdateDomainMultiCertificatesResponseBodyContent } from './model/UpdateDomainMultiCertificatesResponseBodyContent';
 import { UpdateDomainMultiCertificatesResponseBodyResult } from './model/UpdateDomainMultiCertificatesResponseBodyResult';
+import { UpdateFullRuleRequest } from './model/UpdateFullRuleRequest';
+import { UpdateFullRuleResponse } from './model/UpdateFullRuleResponse';
 import { UpdatePrivateBucketAccessBody } from './model/UpdatePrivateBucketAccessBody';
 import { UpdatePrivateBucketAccessRequest } from './model/UpdatePrivateBucketAccessRequest';
 import { UpdatePrivateBucketAccessResponse } from './model/UpdatePrivateBucketAccessResponse';
+import { UpdateRuleNewRequest } from './model/UpdateRuleNewRequest';
+import { UpdateRuleNewResponse } from './model/UpdateRuleNewResponse';
+import { UpdateRuleRequest } from './model/UpdateRuleRequest';
+import { UpdateRuleStatusRequest } from './model/UpdateRuleStatusRequest';
+import { UpdateShareCacheGroupsRequest } from './model/UpdateShareCacheGroupsRequest';
+import { UpdateShareCacheGroupsRequstBody } from './model/UpdateShareCacheGroupsRequstBody';
+import { UpdateShareCacheGroupsResponse } from './model/UpdateShareCacheGroupsResponse';
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UrlObject } from './model/UrlObject';
@@ -221,6 +264,26 @@ export class CdnClient {
     }
 
     /**
+     * 批量更新规则状态及优先级。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新规则状态及优先级
+     * @param {string} domainName **参数解释：** 加速域名 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {BatchUpdateRulesRequest} batchUpdateRulesRequest **参数解释：** 批量更新规则状态和优先级 **约束限制：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateRuleStatus(batchUpdateRuleStatusRequest?: BatchUpdateRuleStatusRequest): Promise<BatchUpdateRuleStatusResponse> {
+        const options = ParamCreater().batchUpdateRuleStatus(batchUpdateRuleStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建加速域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -280,6 +343,49 @@ export class CdnClient {
     }
 
     /**
+     * 规则引擎功能通过图形化的方式实现各种规则配置，实现更加灵活、细粒度的规则配置。通过限制触发条件，控制当前配置生效的资源范围，满足多种场景的配置需求。
+     * - 请提交工单开通规则引擎功能后再使用当前接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建规则引擎规则
+     * @param {string} domainName **参数解释：** 加速域名 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {CreateRuleRequest} createRuleRequest **参数解释：** 规则配置内容 **约束限制：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRuleNew(createRuleNewRequest?: CreateRuleNewRequest): Promise<CreateRuleNewResponse> {
+        const options = ParamCreater().createRuleNew(createRuleNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 配置共享缓存组，将一个域名设置为主域名，组内其他域名共享该域名的缓存，提高缓存命中率。
+     * - 只有缓存规则中“URL参数”的配置为“忽略参数”或者“不忽略参数”的域名才能加入共享缓存组。
+     * - 每个账号最多配置500个共享缓存组。
+     * - 单租户调用频率：5次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建共享缓存组
+     * @param {CreateShareCacheGroupsRequstBody} [createShareCacheGroupsRequstBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createShareCacheGroups(createShareCacheGroupsRequest?: CreateShareCacheGroupsRequest): Promise<CreateShareCacheGroupsResponse> {
+        const options = ParamCreater().createShareCacheGroups(createShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用于创建资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -314,6 +420,47 @@ export class CdnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除规则引擎规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除规则引擎规则
+     * @param {string} domainName **参数解释：** 加速域名 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 规则ID，可以通过查询规则引擎列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRuleNew(deleteRuleNewRequest?: DeleteRuleNewRequest): Promise<DeleteRuleNewResponse> {
+        const options = ParamCreater().deleteRuleNew(deleteRuleNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除新共享缓存组。
+     * - 共享缓存组内不包含关联域名时才可以删除。
+     * - 单租户调用频率：5次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除共享缓存组
+     * @param {string} id **参数解释：** 共享缓存组ID，可通过查询共享缓存组列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteShareCacheGroups(deleteShareCacheGroupsRequest?: DeleteShareCacheGroupsRequest): Promise<DeleteShareCacheGroupsResponse> {
+        const options = ParamCreater().deleteShareCacheGroups(deleteShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -486,6 +633,46 @@ export class CdnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询规则引擎列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规则引擎列表
+     * @param {string} domainName **参数解释：** 加速域名 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRuleDetails(listRuleDetailsRequest?: ListRuleDetailsRequest): Promise<ListRuleDetailsResponse> {
+        const options = ParamCreater().listRuleDetails(listRuleDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询共享缓存组列表。
+     * - 单租户调用频率：5次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询共享缓存组列表
+     * @param {number} [limit] **参数解释：** 分页查询每页的数量 **约束限制：** 不涉及 **取值范围：** 1-1000 **默认取值：** 10
+     * @param {number} [offset] **参数解释：** 查询偏移量，表示跳过多少个数据开始查询 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listShareCacheGroups(listShareCacheGroupsRequest?: ListShareCacheGroupsRequest): Promise<ListShareCacheGroupsResponse> {
+        const options = ParamCreater().listShareCacheGroups(listShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1038,6 +1225,26 @@ export class CdnClient {
     }
 
     /**
+     * 全量更新规则引擎规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 全量更新规则引擎规则
+     * @param {string} domainName **参数解释：** 加速域名 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {FullUpdateRulesRequest} fullUpdateRulesRequest **参数解释：** 全量更新规则配置 **约束限制：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFullRule(updateFullRuleRequest?: UpdateFullRuleRequest): Promise<UpdateFullRuleResponse> {
+        const options = ParamCreater().updateFullRule(updateFullRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改私有桶开启关闭状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1054,6 +1261,48 @@ export class CdnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新规则引擎规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新规则引擎规则
+     * @param {string} domainName **参数解释：** 加速域名 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 规则ID，可以通过查询规则引擎列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {UpdateRuleRequest} updateRuleRequest **参数解释：** 规则配置内容 **约束限制：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRuleNew(updateRuleNewRequest?: UpdateRuleNewRequest): Promise<UpdateRuleNewResponse> {
+        const options = ParamCreater().updateRuleNew(updateRuleNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新共享缓存组。
+     * - 单租户调用频率：5次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新共享缓存组
+     * @param {string} id **参数解释：** 共享缓存组ID，可通过查询共享缓存组列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {UpdateShareCacheGroupsRequstBody} [updateShareCacheGroupsRequstBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateShareCacheGroups(updateShareCacheGroupsRequest?: UpdateShareCacheGroupsRequest): Promise<UpdateShareCacheGroupsResponse> {
+        const options = ParamCreater().updateShareCacheGroups(updateShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1152,6 +1401,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量更新规则状态及优先级。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateRuleStatus(batchUpdateRuleStatusRequest?: BatchUpdateRuleStatusRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/rules/batch-update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainName;
+
+            if (batchUpdateRuleStatusRequest !== null && batchUpdateRuleStatusRequest !== undefined) {
+                if (batchUpdateRuleStatusRequest instanceof BatchUpdateRuleStatusRequest) {
+                    domainName = batchUpdateRuleStatusRequest.domainName;
+                    body = batchUpdateRuleStatusRequest.body
+                } else {
+                    domainName = batchUpdateRuleStatusRequest['domain_name'];
+                    body = batchUpdateRuleStatusRequest['body'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling batchUpdateRuleStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_name': domainName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1284,6 +1579,91 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 规则引擎功能通过图形化的方式实现各种规则配置，实现更加灵活、细粒度的规则配置。通过限制触发条件，控制当前配置生效的资源范围，满足多种场景的配置需求。
+         * - 请提交工单开通规则引擎功能后再使用当前接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRuleNew(createRuleNewRequest?: CreateRuleNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainName;
+
+            if (createRuleNewRequest !== null && createRuleNewRequest !== undefined) {
+                if (createRuleNewRequest instanceof CreateRuleNewRequest) {
+                    domainName = createRuleNewRequest.domainName;
+                    body = createRuleNewRequest.body
+                } else {
+                    domainName = createRuleNewRequest['domain_name'];
+                    body = createRuleNewRequest['body'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling createRuleNew.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 配置共享缓存组，将一个域名设置为主域名，组内其他域名共享该域名的缓存，提高缓存命中率。
+         * - 只有缓存规则中“URL参数”的配置为“忽略参数”或者“不忽略参数”的域名才能加入共享缓存组。
+         * - 每个账号最多配置500个共享缓存组。
+         * - 单租户调用频率：5次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createShareCacheGroups(createShareCacheGroupsRequest?: CreateShareCacheGroupsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/share-cache-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createShareCacheGroupsRequest !== null && createShareCacheGroupsRequest !== undefined) {
+                if (createShareCacheGroupsRequest instanceof CreateShareCacheGroupsRequest) {
+                    body = createShareCacheGroupsRequest.body
+                } else {
+                    body = createShareCacheGroupsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 用于创建资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1359,6 +1739,89 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除规则引擎规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRuleNew(deleteRuleNewRequest?: DeleteRuleNewRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainName;
+            
+            let ruleId;
+
+            if (deleteRuleNewRequest !== null && deleteRuleNewRequest !== undefined) {
+                if (deleteRuleNewRequest instanceof DeleteRuleNewRequest) {
+                    domainName = deleteRuleNewRequest.domainName;
+                    ruleId = deleteRuleNewRequest.ruleId;
+                } else {
+                    domainName = deleteRuleNewRequest['domain_name'];
+                    ruleId = deleteRuleNewRequest['rule_id'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling deleteRuleNew.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deleteRuleNew.');
+            }
+
+            options.pathParams = { 'domain_name': domainName,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除新共享缓存组。
+         * - 共享缓存组内不包含关联域名时才可以删除。
+         * - 单租户调用频率：5次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteShareCacheGroups(deleteShareCacheGroupsRequest?: DeleteShareCacheGroupsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/cdn/configuration/share-cache-groups/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteShareCacheGroupsRequest !== null && deleteShareCacheGroupsRequest !== undefined) {
+                if (deleteShareCacheGroupsRequest instanceof DeleteShareCacheGroupsRequest) {
+                    id = deleteShareCacheGroupsRequest.id;
+                } else {
+                    id = deleteShareCacheGroupsRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteShareCacheGroups.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1866,6 +2329,88 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询规则引擎列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRuleDetails(listRuleDetailsRequest?: ListRuleDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainName;
+
+            if (listRuleDetailsRequest !== null && listRuleDetailsRequest !== undefined) {
+                if (listRuleDetailsRequest instanceof ListRuleDetailsRequest) {
+                    domainName = listRuleDetailsRequest.domainName;
+                } else {
+                    domainName = listRuleDetailsRequest['domain_name'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listRuleDetails.');
+            }
+
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询共享缓存组列表。
+         * - 单租户调用频率：5次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listShareCacheGroups(listShareCacheGroupsRequest?: ListShareCacheGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/share-cache-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listShareCacheGroupsRequest !== null && listShareCacheGroupsRequest !== undefined) {
+                if (listShareCacheGroupsRequest instanceof ListShareCacheGroupsRequest) {
+                    limit = listShareCacheGroupsRequest.limit;
+                    offset = listShareCacheGroupsRequest.offset;
+                } else {
+                    limit = listShareCacheGroupsRequest['limit'];
+                    offset = listShareCacheGroupsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3298,6 +3843,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 全量更新规则引擎规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFullRule(updateFullRuleRequest?: UpdateFullRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/rules/full-update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainName;
+
+            if (updateFullRuleRequest !== null && updateFullRuleRequest !== undefined) {
+                if (updateFullRuleRequest instanceof UpdateFullRuleRequest) {
+                    domainName = updateFullRuleRequest.domainName;
+                    body = updateFullRuleRequest.body
+                } else {
+                    domainName = updateFullRuleRequest['domain_name'];
+                    body = updateFullRuleRequest['body'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling updateFullRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改私有桶开启关闭状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3344,6 +3935,103 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新规则引擎规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRuleNew(updateRuleNewRequest?: UpdateRuleNewRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainName;
+            
+            let ruleId;
+
+            if (updateRuleNewRequest !== null && updateRuleNewRequest !== undefined) {
+                if (updateRuleNewRequest instanceof UpdateRuleNewRequest) {
+                    domainName = updateRuleNewRequest.domainName;
+                    ruleId = updateRuleNewRequest.ruleId;
+                    body = updateRuleNewRequest.body
+                } else {
+                    domainName = updateRuleNewRequest['domain_name'];
+                    ruleId = updateRuleNewRequest['rule_id'];
+                    body = updateRuleNewRequest['body'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling updateRuleNew.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateRuleNew.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_name': domainName,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新共享缓存组。
+         * - 单租户调用频率：5次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateShareCacheGroups(updateShareCacheGroupsRequest?: UpdateShareCacheGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/configuration/share-cache-groups/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateShareCacheGroupsRequest !== null && updateShareCacheGroupsRequest !== undefined) {
+                if (updateShareCacheGroupsRequest instanceof UpdateShareCacheGroupsRequest) {
+                    id = updateShareCacheGroupsRequest.id;
+                    body = updateShareCacheGroupsRequest.body
+                } else {
+                    id = updateShareCacheGroupsRequest['id'];
+                    body = updateShareCacheGroupsRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateShareCacheGroups.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },

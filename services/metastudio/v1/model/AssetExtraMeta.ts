@@ -1,37 +1,21 @@
-import { AnimationAssetMeta } from './AnimationAssetMeta';
 import { AudioAssetMeta } from './AudioAssetMeta';
 import { HumanModel2DAssetMeta } from './HumanModel2DAssetMeta';
-import { HumanModelAssetMeta } from './HumanModelAssetMeta';
 import { ImageAssetMeta } from './ImageAssetMeta';
 import { MaterialAssetMeta } from './MaterialAssetMeta';
 import { PPTAssetMeta } from './PPTAssetMeta';
-import { SceneAssetMeta } from './SceneAssetMeta';
 import { VideoAssetMeta } from './VideoAssetMeta';
 import { VoiceModelAssetMeta } from './VoiceModelAssetMeta';
 
 
 export class AssetExtraMeta {
-    private 'human_model_meta'?: HumanModelAssetMeta;
     private 'voice_model_meta'?: VoiceModelAssetMeta;
     private 'ppt_meta'?: PPTAssetMeta;
-    private 'animation_meta'?: AnimationAssetMeta;
-    private 'scene_meta'?: SceneAssetMeta;
     private 'material_meta'?: MaterialAssetMeta;
     private 'human_model_2d_meta'?: HumanModel2DAssetMeta;
     private 'image_meta'?: ImageAssetMeta;
     private 'video_meta'?: VideoAssetMeta;
     private 'audio_meta'?: AudioAssetMeta;
     public constructor() { 
-    }
-    public withHumanModelMeta(humanModelMeta: HumanModelAssetMeta): AssetExtraMeta {
-        this['human_model_meta'] = humanModelMeta;
-        return this;
-    }
-    public set humanModelMeta(humanModelMeta: HumanModelAssetMeta  | undefined) {
-        this['human_model_meta'] = humanModelMeta;
-    }
-    public get humanModelMeta(): HumanModelAssetMeta | undefined {
-        return this['human_model_meta'];
     }
     public withVoiceModelMeta(voiceModelMeta: VoiceModelAssetMeta): AssetExtraMeta {
         this['voice_model_meta'] = voiceModelMeta;
@@ -52,26 +36,6 @@ export class AssetExtraMeta {
     }
     public get pptMeta(): PPTAssetMeta | undefined {
         return this['ppt_meta'];
-    }
-    public withAnimationMeta(animationMeta: AnimationAssetMeta): AssetExtraMeta {
-        this['animation_meta'] = animationMeta;
-        return this;
-    }
-    public set animationMeta(animationMeta: AnimationAssetMeta  | undefined) {
-        this['animation_meta'] = animationMeta;
-    }
-    public get animationMeta(): AnimationAssetMeta | undefined {
-        return this['animation_meta'];
-    }
-    public withSceneMeta(sceneMeta: SceneAssetMeta): AssetExtraMeta {
-        this['scene_meta'] = sceneMeta;
-        return this;
-    }
-    public set sceneMeta(sceneMeta: SceneAssetMeta  | undefined) {
-        this['scene_meta'] = sceneMeta;
-    }
-    public get sceneMeta(): SceneAssetMeta | undefined {
-        return this['scene_meta'];
     }
     public withMaterialMeta(materialMeta: MaterialAssetMeta): AssetExtraMeta {
         this['material_meta'] = materialMeta;

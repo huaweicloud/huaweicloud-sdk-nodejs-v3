@@ -4,7 +4,6 @@ export class ListHistoryOnlineInfoNewRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'query_type'?: string;
-    private 'client_hour'?: number;
     public constructor() { 
     }
     public withStartTime(startTime: string): ListHistoryOnlineInfoNewRequest {
@@ -36,15 +35,5 @@ export class ListHistoryOnlineInfoNewRequest {
     }
     public get queryType(): string | undefined {
         return this['query_type'];
-    }
-    public withClientHour(clientHour: number): ListHistoryOnlineInfoNewRequest {
-        this['client_hour'] = clientHour;
-        return this;
-    }
-    public set clientHour(clientHour: number  | undefined) {
-        this['client_hour'] = clientHour;
-    }
-    public get clientHour(): number | undefined {
-        return this['client_hour'];
     }
 }

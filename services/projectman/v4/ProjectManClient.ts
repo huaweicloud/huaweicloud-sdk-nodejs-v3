@@ -86,14 +86,18 @@ import { DownloadAttachmentRequest } from './model/DownloadAttachmentRequest';
 import { DownloadAttachmentResponse } from './model/DownloadAttachmentResponse';
 import { DownloadImageFileRequest } from './model/DownloadImageFileRequest';
 import { DownloadImageFileResponse } from './model/DownloadImageFileResponse';
+import { FieldVO } from './model/FieldVO';
 import { GetProjectInfoV4ResultProject } from './model/GetProjectInfoV4ResultProject';
 import { GetProjectInfoV4ResultProjectCreator } from './model/GetProjectInfoV4ResultProjectCreator';
+import { IPDStatusVO } from './model/IPDStatusVO';
 import { IssueAccessory } from './model/IssueAccessory';
 import { IssueAttrHistoryRecord } from './model/IssueAttrHistoryRecord';
 import { IssueCommentV4 } from './model/IssueCommentV4';
 import { IssueCompletionRateResponseV4 } from './model/IssueCompletionRateResponseV4';
 import { IssueCompletionRateV4IssueCompletionRates } from './model/IssueCompletionRateV4IssueCompletionRates';
 import { IssueCompletionRateV4IssueStatus } from './model/IssueCompletionRateV4IssueStatus';
+import { IssueConfigFieldsResponseBodyResult } from './model/IssueConfigFieldsResponseBodyResult';
+import { IssueConfigFieldsResponseBodyResultConfigFields } from './model/IssueConfigFieldsResponseBodyResultConfigFields';
 import { IssueCustomField } from './model/IssueCustomField';
 import { IssueDetailCustomField } from './model/IssueDetailCustomField';
 import { IssueDetailResponseV4Env } from './model/IssueDetailResponseV4Env';
@@ -140,11 +144,15 @@ import { ListIssueCommentsV4Response } from './model/ListIssueCommentsV4Response
 import { ListIssueCustomFieldsRequest } from './model/ListIssueCustomFieldsRequest';
 import { ListIssueCustomFieldsRequestBody } from './model/ListIssueCustomFieldsRequestBody';
 import { ListIssueCustomFieldsResponse } from './model/ListIssueCustomFieldsResponse';
+import { ListIssueFieldsRequest } from './model/ListIssueFieldsRequest';
+import { ListIssueFieldsResponse } from './model/ListIssueFieldsResponse';
 import { ListIssueItemResponse } from './model/ListIssueItemResponse';
 import { ListIssueRecordsV4Request } from './model/ListIssueRecordsV4Request';
 import { ListIssueRecordsV4Response } from './model/ListIssueRecordsV4Response';
 import { ListIssueRequestV4 } from './model/ListIssueRequestV4';
 import { ListIssueRequestV4CustomFields } from './model/ListIssueRequestV4CustomFields';
+import { ListIssueStatuesRequest } from './model/ListIssueStatuesRequest';
+import { ListIssueStatuesResponse } from './model/ListIssueStatuesResponse';
 import { ListIssuesSfV4Request } from './model/ListIssuesSfV4Request';
 import { ListIssuesSfV4Response } from './model/ListIssuesSfV4Response';
 import { ListIssuesV4Request } from './model/ListIssuesV4Request';
@@ -200,6 +208,8 @@ import { MetricRequestV2Dividend } from './model/MetricRequestV2Dividend';
 import { MetricRequestV2DividendCustomFields } from './model/MetricRequestV2DividendCustomFields';
 import { ModuleOwner } from './model/ModuleOwner';
 import { NewCustomField } from './model/NewCustomField';
+import { OptionEntity } from './model/OptionEntity';
+import { PageVO } from './model/PageVO';
 import { ProjectChildModule } from './model/ProjectChildModule';
 import { ProjectModule } from './model/ProjectModule';
 import { RemoveProjectRequest } from './model/RemoveProjectRequest';
@@ -221,6 +231,10 @@ import { ShowCurUserRoleRequest } from './model/ShowCurUserRoleRequest';
 import { ShowCurUserRoleResponse } from './model/ShowCurUserRoleResponse';
 import { ShowIssueCompletionRateRequest } from './model/ShowIssueCompletionRateRequest';
 import { ShowIssueCompletionRateResponse } from './model/ShowIssueCompletionRateResponse';
+import { ShowIssueConfigFieldsRequest } from './model/ShowIssueConfigFieldsRequest';
+import { ShowIssueConfigFieldsResponse } from './model/ShowIssueConfigFieldsResponse';
+import { ShowIssueDetailRequest } from './model/ShowIssueDetailRequest';
+import { ShowIssueDetailResponse } from './model/ShowIssueDetailResponse';
 import { ShowIssueV4Request } from './model/ShowIssueV4Request';
 import { ShowIssueV4Response } from './model/ShowIssueV4Response';
 import { ShowIssuesWrokFlowConfigRequest } from './model/ShowIssuesWrokFlowConfigRequest';
@@ -237,6 +251,8 @@ import { ShowProjectWorkHoursResponse } from './model/ShowProjectWorkHoursRespon
 import { ShowProjectWorkHoursResponseBodyWorkHours } from './model/ShowProjectWorkHoursResponseBodyWorkHours';
 import { ShowWorkItemWrokflowConfigRequest } from './model/ShowWorkItemWrokflowConfigRequest';
 import { ShowWorkItemWrokflowConfigResponse } from './model/ShowWorkItemWrokflowConfigResponse';
+import { ShowWorkflowTemplateRequest } from './model/ShowWorkflowTemplateRequest';
+import { ShowWorkflowTemplateResponse } from './model/ShowWorkflowTemplateResponse';
 import { SimpleProject } from './model/SimpleProject';
 import { SimpleUser } from './model/SimpleUser';
 import { SimpleUserIn } from './model/SimpleUserIn';
@@ -244,6 +260,8 @@ import { StatusAttribute } from './model/StatusAttribute';
 import { StatusFlowDirectToVo } from './model/StatusFlowDirectToVo';
 import { StatusVo } from './model/StatusVo';
 import { TemplateListV4ResponseBodyTemplates } from './model/TemplateListV4ResponseBodyTemplates';
+import { TransferWorkItemFlowRequest } from './model/TransferWorkItemFlowRequest';
+import { TransferWorkItemFlowResponse } from './model/TransferWorkItemFlowResponse';
 import { UpdateChildUserNickNameRequestBody } from './model/UpdateChildUserNickNameRequestBody';
 import { UpdateIssueV4Request } from './model/UpdateIssueV4Request';
 import { UpdateIssueV4Response } from './model/UpdateIssueV4Response';
@@ -273,6 +291,7 @@ import { UploadIssueImgResponse } from './model/UploadIssueImgResponse';
 import { UserRequest } from './model/UserRequest';
 import { UserStatusStatistic } from './model/UserStatusStatistic';
 import { WorkHoursType } from './model/WorkHoursType';
+import { WorkItemFlowRequestBody } from './model/WorkItemFlowRequestBody';
 import { WorkItemStatusFlowVo } from './model/WorkItemStatusFlowVo';
 import { WorkTableIssuseListResponseBodyDomain } from './model/WorkTableIssuseListResponseBodyDomain';
 import { WorkTableIssuseListResponseBodyIssueList } from './model/WorkTableIssuseListResponseBodyIssueList';
@@ -284,6 +303,10 @@ import { WorkTableIssuseListResponseBodyProject } from './model/WorkTableIssuseL
 import { WorkTableIssuseListResponseBodySeverity } from './model/WorkTableIssuseListResponseBodySeverity';
 import { WorkTableIssuseListResponseBodyStatus } from './model/WorkTableIssuseListResponseBodyStatus';
 import { WorkTableIssuseListResponseBodyTracker } from './model/WorkTableIssuseListResponseBodyTracker';
+import { WorkflowTemplateConfigsVO } from './model/WorkflowTemplateConfigsVO';
+import { WorkflowTemplateFlowsVO } from './model/WorkflowTemplateFlowsVO';
+import { WorkflowTemplateNodesVO } from './model/WorkflowTemplateNodesVO';
+import { WorkflowTemplateVO } from './model/WorkflowTemplateVO';
 import { WorkitemCustomField } from './model/WorkitemCustomField';
 import { WorkitemStatus } from './model/WorkitemStatus';
 import { WorkitemStatusRecords } from './model/WorkitemStatusRecords';
@@ -862,6 +885,130 @@ export class ProjectManClient {
      */
     public updateProjectV4(updateProjectV4Request?: UpdateProjectV4Request): Promise<UpdateProjectV4Response> {
         const options = ParamCreater().updateProjectV4(updateProjectV4Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 工作项类型中查询字段模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询字段模板列表
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} categoryId 工作项类型5位id
+     * @param {number} page 页码
+     * @param {number} size 每页查询数据数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIssueFields(listIssueFieldsRequest?: ListIssueFieldsRequest): Promise<ListIssueFieldsResponse> {
+        const options = ParamCreater().listIssueFields(listIssueFieldsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据工作项查询工作项下的状态信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作项状态
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} categoryId 工作项类型5位id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIssueStatues(listIssueStatuesRequest?: ListIssueStatuesRequest): Promise<ListIssueStatuesResponse> {
+        const options = ParamCreater().listIssueStatues(listIssueStatuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工作流字段配置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作流字段配置信息
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} issueCategory 工作项类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIssueConfigFields(showIssueConfigFieldsRequest?: ShowIssueConfigFieldsRequest): Promise<ShowIssueConfigFieldsResponse> {
+        const options = ParamCreater().showIssueConfigFields(showIssueConfigFieldsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工作项详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作项详情
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} issueId 工作项唯一Id
+     * @param {string} issueType 工作项分类
+     * @param {string} [domainId] 项目所属domainId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIssueDetail(showIssueDetailRequest?: ShowIssueDetailRequest): Promise<ShowIssueDetailResponse> {
+        const options = ParamCreater().showIssueDetail(showIssueDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取工作流的详情及每条流转线的详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取工作流的详情及每条流转线的详情
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} issueCategory 工作项类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkflowTemplate(showWorkflowTemplateRequest?: ShowWorkflowTemplateRequest): Promise<ShowWorkflowTemplateResponse> {
+        const options = ParamCreater().showWorkflowTemplate(showWorkflowTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 工作项流程流转
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改工作项的状态
+     * @param {string} projectId devcloud项目的32位id
+     * @param {WorkItemFlowRequestBody} [workItemFlowVO] 工作项流程信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public transferWorkItemFlow(transferWorkItemFlowRequest?: TransferWorkItemFlowRequest): Promise<TransferWorkItemFlowResponse> {
+        const options = ParamCreater().transferWorkItemFlow(transferWorkItemFlowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3113,6 +3260,316 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 工作项类型中查询字段模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIssueFields(listIssueFieldsRequest?: ListIssueFieldsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/categories/{category_id}/field/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let categoryId;
+            
+            let page;
+            
+            let size;
+
+            if (listIssueFieldsRequest !== null && listIssueFieldsRequest !== undefined) {
+                if (listIssueFieldsRequest instanceof ListIssueFieldsRequest) {
+                    projectId = listIssueFieldsRequest.projectId;
+                    categoryId = listIssueFieldsRequest.categoryId;
+                    page = listIssueFieldsRequest.page;
+                    size = listIssueFieldsRequest.size;
+                } else {
+                    projectId = listIssueFieldsRequest['project_id'];
+                    categoryId = listIssueFieldsRequest['category_id'];
+                    page = listIssueFieldsRequest['page'];
+                    size = listIssueFieldsRequest['size'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIssueFields.');
+            }
+            if (categoryId === null || categoryId === undefined) {
+            throw new RequiredError('categoryId','Required parameter categoryId was null or undefined when calling listIssueFields.');
+            }
+            if (page === null || page === undefined) {
+                throw new RequiredError('page','Required parameter page was null or undefined when calling listIssueFields.');
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size === null || size === undefined) {
+                throw new RequiredError('size','Required parameter size was null or undefined when calling listIssueFields.');
+            }
+            if (size !== null && size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'category_id': categoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据工作项查询工作项下的状态信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIssueStatues(listIssueStatuesRequest?: ListIssueStatuesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/category/{category_id}/statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let categoryId;
+
+            if (listIssueStatuesRequest !== null && listIssueStatuesRequest !== undefined) {
+                if (listIssueStatuesRequest instanceof ListIssueStatuesRequest) {
+                    projectId = listIssueStatuesRequest.projectId;
+                    categoryId = listIssueStatuesRequest.categoryId;
+                } else {
+                    projectId = listIssueStatuesRequest['project_id'];
+                    categoryId = listIssueStatuesRequest['category_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIssueStatues.');
+            }
+            if (categoryId === null || categoryId === undefined) {
+            throw new RequiredError('categoryId','Required parameter categoryId was null or undefined when calling listIssueStatues.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'category_id': categoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工作流字段配置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIssueConfigFields(showIssueConfigFieldsRequest?: ShowIssueConfigFieldsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/workflow-template/issue/fields",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueCategory;
+
+            if (showIssueConfigFieldsRequest !== null && showIssueConfigFieldsRequest !== undefined) {
+                if (showIssueConfigFieldsRequest instanceof ShowIssueConfigFieldsRequest) {
+                    projectId = showIssueConfigFieldsRequest.projectId;
+                    issueCategory = showIssueConfigFieldsRequest.issueCategory;
+                } else {
+                    projectId = showIssueConfigFieldsRequest['project_id'];
+                    issueCategory = showIssueConfigFieldsRequest['issue_category'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showIssueConfigFields.');
+            }
+            if (issueCategory === null || issueCategory === undefined) {
+                throw new RequiredError('issueCategory','Required parameter issueCategory was null or undefined when calling showIssueConfigFields.');
+            }
+            if (issueCategory !== null && issueCategory !== undefined) {
+                localVarQueryParameter['issue_category'] = issueCategory;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工作项详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIssueDetail(showIssueDetailRequest?: ShowIssueDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/issues/{issue_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueId;
+            
+            let issueType;
+            
+            let domainId;
+
+            if (showIssueDetailRequest !== null && showIssueDetailRequest !== undefined) {
+                if (showIssueDetailRequest instanceof ShowIssueDetailRequest) {
+                    projectId = showIssueDetailRequest.projectId;
+                    issueId = showIssueDetailRequest.issueId;
+                    issueType = showIssueDetailRequest.issueType;
+                    domainId = showIssueDetailRequest.domainId;
+                } else {
+                    projectId = showIssueDetailRequest['project_id'];
+                    issueId = showIssueDetailRequest['issue_id'];
+                    issueType = showIssueDetailRequest['issue_type'];
+                    domainId = showIssueDetailRequest['domain_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showIssueDetail.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling showIssueDetail.');
+            }
+            if (issueType === null || issueType === undefined) {
+                throw new RequiredError('issueType','Required parameter issueType was null or undefined when calling showIssueDetail.');
+            }
+            if (issueType !== null && issueType !== undefined) {
+                localVarQueryParameter['issue_type'] = issueType;
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取工作流的详情及每条流转线的详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWorkflowTemplate(showWorkflowTemplateRequest?: ShowWorkflowTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/workflow-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueCategory;
+
+            if (showWorkflowTemplateRequest !== null && showWorkflowTemplateRequest !== undefined) {
+                if (showWorkflowTemplateRequest instanceof ShowWorkflowTemplateRequest) {
+                    projectId = showWorkflowTemplateRequest.projectId;
+                    issueCategory = showWorkflowTemplateRequest.issueCategory;
+                } else {
+                    projectId = showWorkflowTemplateRequest['project_id'];
+                    issueCategory = showWorkflowTemplateRequest['issue_category'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showWorkflowTemplate.');
+            }
+            if (issueCategory === null || issueCategory === undefined) {
+                throw new RequiredError('issueCategory','Required parameter issueCategory was null or undefined when calling showWorkflowTemplate.');
+            }
+            if (issueCategory !== null && issueCategory !== undefined) {
+                localVarQueryParameter['issue_category'] = issueCategory;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 工作项流程流转
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        transferWorkItemFlow(transferWorkItemFlowRequest?: TransferWorkItemFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/work-item/flow/transfer",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (transferWorkItemFlowRequest !== null && transferWorkItemFlowRequest !== undefined) {
+                if (transferWorkItemFlowRequest instanceof TransferWorkItemFlowRequest) {
+                    projectId = transferWorkItemFlowRequest.projectId;
+                    body = transferWorkItemFlowRequest.body
+                } else {
+                    projectId = transferWorkItemFlowRequest['project_id'];
+                    body = transferWorkItemFlowRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling transferWorkItemFlow.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

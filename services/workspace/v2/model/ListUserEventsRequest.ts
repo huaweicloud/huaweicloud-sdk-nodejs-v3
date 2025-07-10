@@ -5,10 +5,13 @@ export class ListUserEventsRequest {
     private 'end_time'?: string;
     public username?: string;
     private 'event_type'?: string;
-    private 'event_trace_id'?: string;
+    private 'resource_id'?: string;
+    private 'resource_name'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor() { 
+    public constructor(startTime?: string, endTime?: string) { 
+        this['start_time'] = startTime;
+        this['end_time'] = endTime;
     }
     public withStartTime(startTime: string): ListUserEventsRequest {
         this['start_time'] = startTime;
@@ -44,15 +47,25 @@ export class ListUserEventsRequest {
     public get eventType(): string | undefined {
         return this['event_type'];
     }
-    public withEventTraceId(eventTraceId: string): ListUserEventsRequest {
-        this['event_trace_id'] = eventTraceId;
+    public withResourceId(resourceId: string): ListUserEventsRequest {
+        this['resource_id'] = resourceId;
         return this;
     }
-    public set eventTraceId(eventTraceId: string  | undefined) {
-        this['event_trace_id'] = eventTraceId;
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
     }
-    public get eventTraceId(): string | undefined {
-        return this['event_trace_id'];
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
+    }
+    public withResourceName(resourceName: string): ListUserEventsRequest {
+        this['resource_name'] = resourceName;
+        return this;
+    }
+    public set resourceName(resourceName: string  | undefined) {
+        this['resource_name'] = resourceName;
+    }
+    public get resourceName(): string | undefined {
+        return this['resource_name'];
     }
     public withOffset(offset: number): ListUserEventsRequest {
         this['offset'] = offset;

@@ -12,6 +12,7 @@ import { AssociateServerVirtualIpOption } from './model/AssociateServerVirtualIp
 import { AssociateServerVirtualIpRequest } from './model/AssociateServerVirtualIpRequest';
 import { AssociateServerVirtualIpRequestBody } from './model/AssociateServerVirtualIpRequestBody';
 import { AssociateServerVirtualIpResponse } from './model/AssociateServerVirtualIpResponse';
+import { Association } from './model/Association';
 import { AttachServerVolumeOption } from './model/AttachServerVolumeOption';
 import { AttachServerVolumeRequest } from './model/AttachServerVolumeRequest';
 import { AttachServerVolumeRequestBody } from './model/AttachServerVolumeRequestBody';
@@ -112,6 +113,7 @@ import { DisassociateServerVirtualIpOption } from './model/DisassociateServerVir
 import { DisassociateServerVirtualIpRequest } from './model/DisassociateServerVirtualIpRequest';
 import { DisassociateServerVirtualIpRequestBody } from './model/DisassociateServerVirtualIpRequestBody';
 import { DisassociateServerVirtualIpResponse } from './model/DisassociateServerVirtualIpResponse';
+import { EnclaveOptions } from './model/EnclaveOptions';
 import { EventResponse } from './model/EventResponse';
 import { EventResponseExecuteOptions } from './model/EventResponseExecuteOptions';
 import { EventResponseSource } from './model/EventResponseSource';
@@ -177,6 +179,7 @@ import { MigrateServerRequest } from './model/MigrateServerRequest';
 import { MigrateServerRequestBody } from './model/MigrateServerRequestBody';
 import { MigrateServerResponse } from './model/MigrateServerResponse';
 import { NetworkAddresses } from './model/NetworkAddresses';
+import { NetworkInterfaces } from './model/NetworkInterfaces';
 import { NovaAddSecurityGroupOption } from './model/NovaAddSecurityGroupOption';
 import { NovaAssociateSecurityGroupRequest } from './model/NovaAssociateSecurityGroupRequest';
 import { NovaAssociateSecurityGroupRequestBody } from './model/NovaAssociateSecurityGroupRequestBody';
@@ -1180,6 +1183,8 @@ export class EcsClient {
      * @summary 查询规格详情和规格扩展信息列表
      * @param {string} [availabilityZone] 可用区，需要指定可用区（AZ）的名称或者ID或者code。  可通过接口 [查询可用区列表接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;ECS&amp;api&#x3D;NovaListAvailabilityZones) 获取，也可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取。
      * @param {string} [flavorId] 规格id
+     * @param {number} [limit] 
+     * @param {string} [marker] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4153,14 +4158,22 @@ export const ParamCreater = function () {
             let availabilityZone;
             
             let flavorId;
+            
+            let limit;
+            
+            let marker;
 
             if (listFlavorsRequest !== null && listFlavorsRequest !== undefined) {
                 if (listFlavorsRequest instanceof ListFlavorsRequest) {
                     availabilityZone = listFlavorsRequest.availabilityZone;
                     flavorId = listFlavorsRequest.flavorId;
+                    limit = listFlavorsRequest.limit;
+                    marker = listFlavorsRequest.marker;
                 } else {
                     availabilityZone = listFlavorsRequest['availability_zone'];
                     flavorId = listFlavorsRequest['flavor_id'];
+                    limit = listFlavorsRequest['limit'];
+                    marker = listFlavorsRequest['marker'];
                 }
             }
 
@@ -4170,6 +4183,12 @@ export const ParamCreater = function () {
             }
             if (flavorId !== null && flavorId !== undefined) {
                 localVarQueryParameter['flavor_id'] = flavorId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;

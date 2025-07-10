@@ -20,6 +20,8 @@ export class Record {
     private 'connection_failure_reason'?: string;
     private 'network_rtt'?: number;
     private 'e2e_rtt'?: number;
+    private 'source_ip'?: string;
+    private 'public_ip'?: string;
     public constructor() { 
     }
     public withTenantId(tenantId: string): Record {
@@ -199,5 +201,25 @@ export class Record {
     }
     public get e2eRtt(): number | undefined {
         return this['e2e_rtt'];
+    }
+    public withSourceIp(sourceIp: string): Record {
+        this['source_ip'] = sourceIp;
+        return this;
+    }
+    public set sourceIp(sourceIp: string  | undefined) {
+        this['source_ip'] = sourceIp;
+    }
+    public get sourceIp(): string | undefined {
+        return this['source_ip'];
+    }
+    public withPublicIp(publicIp: string): Record {
+        this['public_ip'] = publicIp;
+        return this;
+    }
+    public set publicIp(publicIp: string  | undefined) {
+        this['public_ip'] = publicIp;
+    }
+    public get publicIp(): string | undefined {
+        return this['public_ip'];
     }
 }

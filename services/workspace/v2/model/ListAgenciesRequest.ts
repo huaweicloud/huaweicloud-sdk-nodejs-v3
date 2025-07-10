@@ -17,5 +17,6 @@ export class ListAgenciesRequest {
 export enum ListAgenciesRequestSceneEnum {
     WORKSPACE = 'WORKSPACE',
     CLOUD_GAME = 'CLOUD_GAME',
+    CLOUD_STORAGE = 'CLOUD_STORAGE',
     SCREEN_RECORD = 'SCREEN_RECORD'
 }
