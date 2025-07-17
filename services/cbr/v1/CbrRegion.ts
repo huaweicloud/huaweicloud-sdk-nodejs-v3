@@ -37,6 +37,8 @@ export class CbrRegion {
     public static AE_AD_1 = new Region("ae-ad-1", ["https://cbr.ae-ad-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://cbr.eu-west-0.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://cbr.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://cbr.cn-north-12.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://cbr.cn-southwest-3.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://cbr.ru-moscow-1.myhuaweicloud.com"]);
     
 
@@ -72,6 +74,8 @@ export class CbrRegion {
         "ae-ad-1":CbrRegion.AE_AD_1,
         "eu-west-0":CbrRegion.EU_WEST_0,
         "my-kualalumpur-1":CbrRegion.MY_KUALALUMPUR_1,
+        "cn-north-12":CbrRegion.CN_NORTH_12,
+        "cn-southwest-3":CbrRegion.CN_SOUTHWEST_3,
         "ru-moscow-1":CbrRegion.RU_MOSCOW_1
     };
   

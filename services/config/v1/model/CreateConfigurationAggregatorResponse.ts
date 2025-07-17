@@ -1,4 +1,5 @@
 import { AccountAggregationSource } from './AccountAggregationSource';
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,6 +11,7 @@ export class CreateConfigurationAggregatorResponse extends SdkResponse {
     private 'account_aggregation_sources'?: AccountAggregationSource;
     private 'updated_at'?: string;
     private 'created_at'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
@@ -82,5 +84,9 @@ export class CreateConfigurationAggregatorResponse extends SdkResponse {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): CreateConfigurationAggregatorResponse {
+        this['tags'] = tags;
+        return this;
     }
 }

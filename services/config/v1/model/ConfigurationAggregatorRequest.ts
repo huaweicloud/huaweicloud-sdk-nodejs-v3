@@ -1,10 +1,12 @@
 import { AccountAggregationSource } from './AccountAggregationSource';
+import { ResourceTag } from './ResourceTag';
 
 
 export class ConfigurationAggregatorRequest {
     private 'aggregator_name'?: string;
     private 'aggregator_type'?: string;
     private 'account_aggregation_sources'?: AccountAggregationSource;
+    public tags?: Array<ResourceTag>;
     public constructor(aggregatorName?: string, aggregatorType?: string) { 
         this['aggregator_name'] = aggregatorName;
         this['aggregator_type'] = aggregatorType;
@@ -38,5 +40,9 @@ export class ConfigurationAggregatorRequest {
     }
     public get accountAggregationSources(): AccountAggregationSource | undefined {
         return this['account_aggregation_sources'];
+    }
+    public withTags(tags: Array<ResourceTag>): ConfigurationAggregatorRequest {
+        this['tags'] = tags;
+        return this;
     }
 }

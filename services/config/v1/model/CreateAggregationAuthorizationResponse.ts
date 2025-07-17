@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -5,6 +6,7 @@ export class CreateAggregationAuthorizationResponse extends SdkResponse {
     private 'aggregation_authorization_urn'?: string;
     private 'authorized_account_id'?: string;
     private 'created_at'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
@@ -37,5 +39,9 @@ export class CreateAggregationAuthorizationResponse extends SdkResponse {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): CreateAggregationAuthorizationResponse {
+        this['tags'] = tags;
+        return this;
     }
 }

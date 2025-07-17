@@ -1,9 +1,11 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class AggregationAuthorizationResp {
     private 'aggregation_authorization_urn'?: string;
     private 'authorized_account_id'?: string;
     private 'created_at'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withAggregationAuthorizationUrn(aggregationAuthorizationUrn: string): AggregationAuthorizationResp {
@@ -35,5 +37,9 @@ export class AggregationAuthorizationResp {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): AggregationAuthorizationResp {
+        this['tags'] = tags;
+        return this;
     }
 }

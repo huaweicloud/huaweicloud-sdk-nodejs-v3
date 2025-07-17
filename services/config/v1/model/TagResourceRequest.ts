@@ -40,5 +40,7 @@ export class TagResourceRequest {
     * @enum {string}
     */
 export enum TagResourceRequestResourceTypeEnum {
-    CONFIGPOLICYASSIGNMENTS = 'config:policyAssignments'
+    CONFIGPOLICYASSIGNMENTS = 'config:policyAssignments',
+    CONFIGAGGREGATORS = 'config:aggregators',
+    CONFIGAGGREGATIONAUTHORIZATIONS = 'config:aggregationAuthorizations'
 }

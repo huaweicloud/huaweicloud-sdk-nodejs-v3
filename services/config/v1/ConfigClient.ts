@@ -2248,7 +2248,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例数量
-     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {'config:policyAssignments' | 'config:aggregators' | 'config:aggregationAuthorizations'} resourceType 资源类型
      * @param {ResourceInstancesReq} resourceInstancesReq 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2268,7 +2268,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例列表
-     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {'config:policyAssignments' | 'config:aggregators' | 'config:aggregationAuthorizations'} resourceType 资源类型
      * @param {ResourceInstancesReq} resourceInstancesReq 
      * @param {number} [limit] 查询记录数（action为count时无此参数）如果action为filter默认为1000，limit最多为1000,不能为负数，最小值为1
      * @param {number} [offset] 索引位置，偏移量（action为count时无此参数）从第一条数据偏移offset条数据后开始查询，如果action为filter默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数
@@ -2290,7 +2290,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {'config:policyAssignments' | 'config:aggregators' | 'config:aggregationAuthorizations'} resourceType 资源类型
      * @param {string} resourceId 资源ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2310,7 +2310,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
-     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {'config:policyAssignments' | 'config:aggregators' | 'config:aggregationAuthorizations'} resourceType 资源类型
      * @param {number} [limit] 查询记录数默认为1000，limit最多为1000,不能为负数，最小值为1
      * @param {number} [offset] 索引位置，从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数
      * @param {*} [options] Override http request option.
@@ -2331,7 +2331,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加资源标签
-     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {'config:policyAssignments' | 'config:aggregators' | 'config:aggregationAuthorizations'} resourceType 资源类型
      * @param {string} resourceId 资源ID
      * @param {TagsReq} tagsReq 
      * @param {*} [options] Override http request option.
@@ -2352,7 +2352,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除资源标签
-     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {'config:policyAssignments' | 'config:aggregators' | 'config:aggregationAuthorizations'} resourceType 资源类型
      * @param {string} resourceId 资源ID
      * @param {UnTagsReq} unTagsReq 
      * @param {*} [options] Override http request option.

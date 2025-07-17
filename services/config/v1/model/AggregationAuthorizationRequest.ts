@@ -1,7 +1,9 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class AggregationAuthorizationRequest {
     private 'authorized_account_id'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor(authorizedAccountId?: string) { 
         this['authorized_account_id'] = authorizedAccountId;
     }
@@ -14,5 +16,9 @@ export class AggregationAuthorizationRequest {
     }
     public get authorizedAccountId(): string | undefined {
         return this['authorized_account_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): AggregationAuthorizationRequest {
+        this['tags'] = tags;
+        return this;
     }
 }

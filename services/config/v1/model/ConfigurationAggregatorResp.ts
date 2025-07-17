@@ -1,4 +1,5 @@
 import { AccountAggregationSource } from './AccountAggregationSource';
+import { ResourceTag } from './ResourceTag';
 
 
 export class ConfigurationAggregatorResp {
@@ -9,6 +10,7 @@ export class ConfigurationAggregatorResp {
     private 'account_aggregation_sources'?: AccountAggregationSource;
     private 'updated_at'?: string;
     private 'created_at'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withAggregatorName(aggregatorName: string): ConfigurationAggregatorResp {
@@ -80,5 +82,9 @@ export class ConfigurationAggregatorResp {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): ConfigurationAggregatorResp {
+        this['tags'] = tags;
+        return this;
     }
 }
