@@ -2,7 +2,8 @@
 
 export class RestSetMmrRecordReqBody {
     public recordType?: number;
-    public constructor() { 
+    public constructor(recordType?: number) { 
+        this['recordType'] = recordType;
     }
     public withRecordType(recordType: number): RestSetMmrRecordReqBody {
         this['recordType'] = recordType;

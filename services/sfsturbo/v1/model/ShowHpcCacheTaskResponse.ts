@@ -117,5 +117,6 @@ export class ShowHpcCacheTaskResponse extends SdkResponse {
 export enum ShowHpcCacheTaskResponseStatusEnum {
     SUCCESS = 'SUCCESS',
     DOING = 'DOING',
-    FAIL = 'FAIL'
+    FAIL = 'FAIL',
+    DELETING = 'DELETING'
 }

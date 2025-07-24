@@ -4,7 +4,10 @@ export class OnePermRuleRequestInfo {
     private 'ip_cidr'?: string;
     private 'rw_type'?: string;
     private 'user_type'?: string;
-    public constructor() { 
+    public constructor(ipCidr?: string, rwType?: string, userType?: string) { 
+        this['ip_cidr'] = ipCidr;
+        this['rw_type'] = rwType;
+        this['user_type'] = userType;
     }
     public withIpCidr(ipCidr: string): OnePermRuleRequestInfo {
         this['ip_cidr'] = ipCidr;

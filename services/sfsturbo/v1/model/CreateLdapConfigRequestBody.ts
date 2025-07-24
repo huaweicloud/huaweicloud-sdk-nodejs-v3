@@ -10,7 +10,6 @@ export class CreateLdapConfigRequestBody {
     private 'backup_url'?: string;
     public schema?: string;
     private 'search_timeout'?: number;
-    private 'allow_local_user'?: CreateLdapConfigRequestBodyAllowLocalUserEnum | string;
     public constructor(url?: string, baseDn?: string) { 
         this['url'] = url;
         this['base_dn'] = baseDn;
@@ -87,23 +86,4 @@ export class CreateLdapConfigRequestBody {
     public get searchTimeout(): number | undefined {
         return this['search_timeout'];
     }
-    public withAllowLocalUser(allowLocalUser: CreateLdapConfigRequestBodyAllowLocalUserEnum | string): CreateLdapConfigRequestBody {
-        this['allow_local_user'] = allowLocalUser;
-        return this;
-    }
-    public set allowLocalUser(allowLocalUser: CreateLdapConfigRequestBodyAllowLocalUserEnum | string  | undefined) {
-        this['allow_local_user'] = allowLocalUser;
-    }
-    public get allowLocalUser(): CreateLdapConfigRequestBodyAllowLocalUserEnum | string | undefined {
-        return this['allow_local_user'];
-    }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateLdapConfigRequestBodyAllowLocalUserEnum {
-    YES = 'Yes',
-    NO = 'No'
 }

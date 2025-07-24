@@ -126,6 +126,8 @@ import { DeleteDeviceAuthorizerRequest } from './model/DeleteDeviceAuthorizerReq
 import { DeleteDeviceAuthorizerResponse } from './model/DeleteDeviceAuthorizerResponse';
 import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
 import { DeleteDeviceGroupResponse } from './model/DeleteDeviceGroupResponse';
+import { DeleteDeviceMessageRequest } from './model/DeleteDeviceMessageRequest';
+import { DeleteDeviceMessageResponse } from './model/DeleteDeviceMessageResponse';
 import { DeleteDevicePolicyRequest } from './model/DeleteDevicePolicyRequest';
 import { DeleteDevicePolicyResponse } from './model/DeleteDevicePolicyResponse';
 import { DeleteDeviceProxyRequest } from './model/DeleteDeviceProxyRequest';
@@ -2269,6 +2271,27 @@ export class IoTDAClient {
      */
     public createMessage(createMessageRequest?: CreateMessageRequest): Promise<CreateMessageResponse> {
         const options = ParamCreater().createMessage(createMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口删除平台下发给设备的指定消息id的消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定消息id的消息
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} messageId **参数说明**：下发消息的消息ID，用于唯一标识一个消息，在消息下发时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDeviceMessage(deleteDeviceMessageRequest?: DeleteDeviceMessageRequest): Promise<DeleteDeviceMessageResponse> {
+        const options = ParamCreater().deleteDeviceMessage(deleteDeviceMessageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7775,6 +7798,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口删除平台下发给设备的指定消息id的消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDeviceMessage(deleteDeviceMessageRequest?: DeleteDeviceMessageRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/devices/{device_id}/messages/{message_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let deviceId;
+            
+            let messageId;
+            
+            let instanceId;
+
+            if (deleteDeviceMessageRequest !== null && deleteDeviceMessageRequest !== undefined) {
+                if (deleteDeviceMessageRequest instanceof DeleteDeviceMessageRequest) {
+                    deviceId = deleteDeviceMessageRequest.deviceId;
+                    messageId = deleteDeviceMessageRequest.messageId;
+                    instanceId = deleteDeviceMessageRequest.instanceId;
+                } else {
+                    deviceId = deleteDeviceMessageRequest['device_id'];
+                    messageId = deleteDeviceMessageRequest['message_id'];
+                    instanceId = deleteDeviceMessageRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling deleteDeviceMessage.');
+            }
+            if (messageId === null || messageId === undefined) {
+            throw new RequiredError('messageId','Required parameter messageId was null or undefined when calling deleteDeviceMessage.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'device_id': deviceId,'message_id': messageId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

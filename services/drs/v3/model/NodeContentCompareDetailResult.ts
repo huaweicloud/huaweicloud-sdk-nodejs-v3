@@ -12,6 +12,10 @@ export class NodeContentCompareDetailResult {
     private 'content_compare_result'?: boolean;
     public message?: string;
     private 'compare_line_config_filter'?: string;
+    public status?: number;
+    private 'complete_shard_count'?: number;
+    private 'total_shard_count'?: number;
+    public progress?: number;
     public constructor() { 
     }
     public withSourceDb(sourceDb: string): NodeContentCompareDetailResult {
@@ -117,5 +121,33 @@ export class NodeContentCompareDetailResult {
     }
     public get compareLineConfigFilter(): string | undefined {
         return this['compare_line_config_filter'];
+    }
+    public withStatus(status: number): NodeContentCompareDetailResult {
+        this['status'] = status;
+        return this;
+    }
+    public withCompleteShardCount(completeShardCount: number): NodeContentCompareDetailResult {
+        this['complete_shard_count'] = completeShardCount;
+        return this;
+    }
+    public set completeShardCount(completeShardCount: number  | undefined) {
+        this['complete_shard_count'] = completeShardCount;
+    }
+    public get completeShardCount(): number | undefined {
+        return this['complete_shard_count'];
+    }
+    public withTotalShardCount(totalShardCount: number): NodeContentCompareDetailResult {
+        this['total_shard_count'] = totalShardCount;
+        return this;
+    }
+    public set totalShardCount(totalShardCount: number  | undefined) {
+        this['total_shard_count'] = totalShardCount;
+    }
+    public get totalShardCount(): number | undefined {
+        return this['total_shard_count'];
+    }
+    public withProgress(progress: number): NodeContentCompareDetailResult {
+        this['progress'] = progress;
+        return this;
     }
 }

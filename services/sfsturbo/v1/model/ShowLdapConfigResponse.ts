@@ -6,10 +6,11 @@ export class ShowLdapConfigResponse extends SdkResponse {
     private 'base_dn'?: string;
     private 'user_dn'?: string;
     private 'filter_condition'?: string;
+    private 'vpc_id'?: string;
     private 'backup_url'?: string;
     public schema?: string;
     private 'search_timeout'?: number;
-    private 'allow_local_user'?: string;
+    private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
@@ -47,6 +48,16 @@ export class ShowLdapConfigResponse extends SdkResponse {
     public get filterCondition(): string | undefined {
         return this['filter_condition'];
     }
+    public withVpcId(vpcId: string): ShowLdapConfigResponse {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string  | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId(): string | undefined {
+        return this['vpc_id'];
+    }
     public withBackupUrl(backupUrl: string): ShowLdapConfigResponse {
         this['backup_url'] = backupUrl;
         return this;
@@ -71,14 +82,14 @@ export class ShowLdapConfigResponse extends SdkResponse {
     public get searchTimeout(): number | undefined {
         return this['search_timeout'];
     }
-    public withAllowLocalUser(allowLocalUser: string): ShowLdapConfigResponse {
-        this['allow_local_user'] = allowLocalUser;
+    public withXRequestId(xRequestId: string): ShowLdapConfigResponse {
+        this['X-request-id'] = xRequestId;
         return this;
     }
-    public set allowLocalUser(allowLocalUser: string  | undefined) {
-        this['allow_local_user'] = allowLocalUser;
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-request-id'] = xRequestId;
     }
-    public get allowLocalUser(): string | undefined {
-        return this['allow_local_user'];
+    public get xRequestId(): string | undefined {
+        return this['X-request-id'];
     }
 }

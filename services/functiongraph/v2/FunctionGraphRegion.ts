@@ -21,7 +21,7 @@ export class FunctionGraphRegion {
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://functiongraph.na-mexico-1.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://functiongraph.la-north-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://functiongraph.ap-southeast-4.myhuaweicloud.com"]);
-    public static EU_WEST_101 = new Region("eu-west-101", ["https://functiongraph.eu-west-101.myhuaweicloud.eu"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://functiongraph.eu-west-101.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://functiongraph.tr-west-1.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://functiongraph.cn-north-9.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://functiongraph.cn-north-11.myhuaweicloud.com"]);
@@ -31,6 +31,7 @@ export class FunctionGraphRegion {
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://functiongraph.ru-moscow-1.myhuaweicloud.com"]);
     public static CN_EAST_4 = new Region("cn-east-4", ["https://functiongraph.cn-east-4.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://functiongraph.ae-ad-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://functiongraph.ap-southeast-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -58,7 +59,8 @@ export class FunctionGraphRegion {
         "cn-south-4":FunctionGraphRegion.CN_SOUTH_4,
         "ru-moscow-1":FunctionGraphRegion.RU_MOSCOW_1,
         "cn-east-4":FunctionGraphRegion.CN_EAST_4,
-        "ae-ad-1":FunctionGraphRegion.AE_AD_1
+        "ae-ad-1":FunctionGraphRegion.AE_AD_1,
+        "ap-southeast-5":FunctionGraphRegion.AP_SOUTHEAST_5
     };
   
     public static valueOf(regionId: string) {

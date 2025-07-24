@@ -126,6 +126,8 @@ import { DeleteUserJdbcDriverResponse } from './model/DeleteUserJdbcDriverRespon
 import { DirtyData } from './model/DirtyData';
 import { DownloadBatchCreateTemplateRequest } from './model/DownloadBatchCreateTemplateRequest';
 import { DownloadBatchCreateTemplateResponse } from './model/DownloadBatchCreateTemplateResponse';
+import { DownloadCreateTemplateRequest } from './model/DownloadCreateTemplateRequest';
+import { DownloadCreateTemplateResponse } from './model/DownloadCreateTemplateResponse';
 import { DownloadDbObjectTemplateRequest } from './model/DownloadDbObjectTemplateRequest';
 import { DownloadDbObjectTemplateResponse } from './model/DownloadDbObjectTemplateResponse';
 import { DriverInfo } from './model/DriverInfo';
@@ -135,8 +137,13 @@ import { EnterpriseProject } from './model/EnterpriseProject';
 import { ErrorResp } from './model/ErrorResp';
 import { ExecuteJobActionRequest } from './model/ExecuteJobActionRequest';
 import { ExecuteJobActionResponse } from './model/ExecuteJobActionResponse';
+import { ExportCreationTemplateRequest } from './model/ExportCreationTemplateRequest';
+import { ExportCreationTemplateResponse } from './model/ExportCreationTemplateResponse';
+import { ExportFilesReq } from './model/ExportFilesReq';
+import { ExportJobsTemplateReq } from './model/ExportJobsTemplateReq';
 import { ExportOperationInfoRequest } from './model/ExportOperationInfoRequest';
 import { ExportOperationInfoResponse } from './model/ExportOperationInfoResponse';
+import { ExportReportObsFileRespExportReportObsFiles } from './model/ExportReportObsFileRespExportReportObsFiles';
 import { FailedToBindEipChildInfo } from './model/FailedToBindEipChildInfo';
 import { FlowCompareData } from './model/FlowCompareData';
 import { HealthCompareJob } from './model/HealthCompareJob';
@@ -191,6 +198,8 @@ import { ListReplicationJobsRequest } from './model/ListReplicationJobsRequest';
 import { ListReplicationJobsResponse } from './model/ListReplicationJobsResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListTemplatesRequest } from './model/ListTemplatesRequest';
+import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { ListUserJdbcDriversRequest } from './model/ListUserJdbcDriversRequest';
 import { ListUserJdbcDriversResponse } from './model/ListUserJdbcDriversResponse';
 import { ListsAgencyPermissionsRequest } from './model/ListsAgencyPermissionsRequest';
@@ -274,6 +283,8 @@ import { ShowDirtyDataRequest } from './model/ShowDirtyDataRequest';
 import { ShowDirtyDataResponse } from './model/ShowDirtyDataResponse';
 import { ShowEnterpriseProjectRequest } from './model/ShowEnterpriseProjectRequest';
 import { ShowEnterpriseProjectResponse } from './model/ShowEnterpriseProjectResponse';
+import { ShowExportProgressRequest } from './model/ShowExportProgressRequest';
+import { ShowExportProgressResponse } from './model/ShowExportProgressResponse';
 import { ShowHealthCompareJobDetailRequest } from './model/ShowHealthCompareJobDetailRequest';
 import { ShowHealthCompareJobDetailResponse } from './model/ShowHealthCompareJobDetailResponse';
 import { ShowHealthCompareJobListRequest } from './model/ShowHealthCompareJobListRequest';
@@ -917,11 +928,32 @@ export class DrsClient {
      *
      * @summary 下载批量导入任务模板
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [engineType] 数据库引擎。 - postgresql
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public downloadBatchCreateTemplate(downloadBatchCreateTemplateRequest?: DownloadBatchCreateTemplateRequest): Promise<DownloadBatchCreateTemplateResponse> {
         const options = ParamCreater().downloadBatchCreateTemplate(downloadBatchCreateTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载根据已有任务导出的创建模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载创建模板
+     * @param {ExportFilesReq} downloadCreateTemplateRequestBody 下载的文件名称列表。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadCreateTemplate(downloadCreateTemplateRequest?: DownloadCreateTemplateRequest): Promise<DownloadCreateTemplateResponse> {
+        const options = ParamCreater().downloadCreateTemplate(downloadCreateTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -972,6 +1004,26 @@ export class DrsClient {
     }
 
     /**
+     * 根据已有任务导出创建模板。（异步操作，需要调查询导出进度接口查询结果。）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出创建模板
+     * @param {ExportJobsTemplateReq} exportCreationTemplateRequestBody 导出任务创建模板ID列表。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportCreationTemplate(exportCreationTemplateRequest?: ExportCreationTemplateRequest): Promise<ExportCreationTemplateResponse> {
+        const options = ParamCreater().exportCreationTemplate(exportCreationTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 导出指定任务操作统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -999,6 +1051,7 @@ export class DrsClient {
      * @summary 批量导入任务
      * @param {any} file 待上传的模板文件。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [type] 任务类型，迁移，同步，灾备等。 - migration - sync - cloudDataGuard
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1381,6 +1434,27 @@ export class DrsClient {
     }
 
     /**
+     * 查询批量创建模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询创建模板列表
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。
+     * @param {number} [limit] 查询返回记录的数量限制。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTemplates(listTemplatesRequest?: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+        const options = ParamCreater().listTemplates(listTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询驱动文件列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1719,6 +1793,26 @@ export class DrsClient {
      */
     public showEnterpriseProject(showEnterpriseProjectRequest?: ShowEnterpriseProjectRequest): Promise<ShowEnterpriseProjectResponse> {
         const options = ParamCreater().showEnterpriseProject(showEnterpriseProjectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询导出批量创建模板进度。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询导出创建模板进度
+     * @param {string} asyncJobId 导出创建模板接口返回的异步ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showExportProgress(showExportProgressRequest?: ShowExportProgressRequest): Promise<ShowExportProgressResponse> {
+        const options = ParamCreater().showExportProgress(showExportProgressRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3692,23 +3786,76 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let xLanguage;
+            
+            let engineType;
 
             if (downloadBatchCreateTemplateRequest !== null && downloadBatchCreateTemplateRequest !== undefined) {
                 if (downloadBatchCreateTemplateRequest instanceof DownloadBatchCreateTemplateRequest) {
                     xLanguage = downloadBatchCreateTemplateRequest.xLanguage;
+                    engineType = downloadBatchCreateTemplateRequest.engineType;
                 } else {
                     xLanguage = downloadBatchCreateTemplateRequest['X-Language'];
+                    engineType = downloadBatchCreateTemplateRequest['engine_type'];
                 }
             }
 
         
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载根据已有任务导出的创建模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadCreateTemplate(downloadCreateTemplateRequest?: DownloadCreateTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/templates/download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (downloadCreateTemplateRequest !== null && downloadCreateTemplateRequest !== undefined) {
+                if (downloadCreateTemplateRequest instanceof DownloadCreateTemplateRequest) {
+                    body = downloadCreateTemplateRequest.body
+                    xLanguage = downloadCreateTemplateRequest.xLanguage;
+                } else {
+                    body = downloadCreateTemplateRequest['body'];
+                    xLanguage = downloadCreateTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3819,6 +3966,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据已有任务导出创建模板。（异步操作，需要调查询导出进度接口查询结果。）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportCreationTemplate(exportCreationTemplateRequest?: ExportCreationTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/jobs/export/template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (exportCreationTemplateRequest !== null && exportCreationTemplateRequest !== undefined) {
+                if (exportCreationTemplateRequest instanceof ExportCreationTemplateRequest) {
+                    body = exportCreationTemplateRequest.body
+                    xLanguage = exportCreationTemplateRequest.xLanguage;
+                } else {
+                    body = exportCreationTemplateRequest['body'];
+                    xLanguage = exportCreationTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 导出指定任务操作统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3884,20 +4076,27 @@ export const ParamCreater = function () {
             
             
             let xLanguage;
+            let type;
+            
 
             if (importBatchCreateJobsRequest !== null && importBatchCreateJobsRequest !== undefined) {
                 if (importBatchCreateJobsRequest instanceof ImportBatchCreateJobsRequest) {
                     file = importBatchCreateJobsRequest.body?.file;
                     xLanguage = importBatchCreateJobsRequest.xLanguage;
+                    type = importBatchCreateJobsRequest.body?.type;
                 } else {
                     file = importBatchCreateJobsRequest['body']['file'];
                     xLanguage = importBatchCreateJobsRequest['X-Language'];
+                    type = importBatchCreateJobsRequest['body']['type'];
                 }
             }
 
         
             if (file === null || file === undefined) {
             throw new RequiredError('file','Required parameter file was null or undefined when calling importBatchCreateJobs.');
+            }
+            if (type !== undefined) { 
+                localVarFormParams.append('type', type as any);
             }
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
@@ -5061,6 +5260,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询批量创建模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTemplates(listTemplatesRequest?: ListTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
+                if (listTemplatesRequest instanceof ListTemplatesRequest) {
+                    xLanguage = listTemplatesRequest.xLanguage;
+                    offset = listTemplatesRequest.offset;
+                    limit = listTemplatesRequest.limit;
+                } else {
+                    xLanguage = listTemplatesRequest['X-Language'];
+                    offset = listTemplatesRequest['offset'];
+                    limit = listTemplatesRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询驱动文件列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5977,6 +6227,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询导出批量创建模板进度。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showExportProgress(showExportProgressRequest?: ShowExportProgressRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{async_job_id}/export/progress",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let asyncJobId;
+            
+            let xLanguage;
+
+            if (showExportProgressRequest !== null && showExportProgressRequest !== undefined) {
+                if (showExportProgressRequest instanceof ShowExportProgressRequest) {
+                    asyncJobId = showExportProgressRequest.asyncJobId;
+                    xLanguage = showExportProgressRequest.xLanguage;
+                } else {
+                    asyncJobId = showExportProgressRequest['async_job_id'];
+                    xLanguage = showExportProgressRequest['X-Language'];
+                }
+            }
+
+        
+            if (asyncJobId === null || asyncJobId === undefined) {
+            throw new RequiredError('asyncJobId','Required parameter asyncJobId was null or undefined when calling showExportProgress.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'async_job_id': asyncJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -9,7 +9,8 @@ export class ListSharesByTagRequestBody {
     private 'without_any_tag'?: boolean;
     public tags?: Array<Tag>;
     public matches?: Array<ResourceTag>;
-    public constructor() { 
+    public constructor(action?: string) { 
+        this['action'] = action;
     }
     public withAction(action: ListSharesByTagRequestBodyActionEnum | string): ListSharesByTagRequestBody {
         this['action'] = action;

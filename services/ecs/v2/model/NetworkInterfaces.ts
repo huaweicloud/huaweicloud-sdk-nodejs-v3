@@ -6,6 +6,7 @@ export class NetworkInterfaces {
     public primary?: boolean;
     private 'ip_addresses'?: Array<string>;
     private 'ipv6_addresses'?: Array<string>;
+    private 'subnet_id'?: string;
     public association?: Association;
     public constructor() { 
     }
@@ -42,6 +43,16 @@ export class NetworkInterfaces {
     }
     public get ipv6Addresses(): Array<string> | undefined {
         return this['ipv6_addresses'];
+    }
+    public withSubnetId(subnetId: string): NetworkInterfaces {
+        this['subnet_id'] = subnetId;
+        return this;
+    }
+    public set subnetId(subnetId: string  | undefined) {
+        this['subnet_id'] = subnetId;
+    }
+    public get subnetId(): string | undefined {
+        return this['subnet_id'];
     }
     public withAssociation(association: Association): NetworkInterfaces {
         this['association'] = association;

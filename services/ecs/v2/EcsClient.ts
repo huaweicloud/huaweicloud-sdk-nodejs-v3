@@ -1183,8 +1183,8 @@ export class EcsClient {
      * @summary 查询规格详情和规格扩展信息列表
      * @param {string} [availabilityZone] 可用区，需要指定可用区（AZ）的名称或者ID或者code。  可通过接口 [查询可用区列表接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;ECS&amp;api&#x3D;NovaListAvailabilityZones) 获取，也可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取。
      * @param {string} [flavorId] 规格id
-     * @param {number} [limit] 
-     * @param {string} [marker] 
+     * @param {number} [limit] 查询返回云服务器规格列表当前页面的数量。默认为1000
+     * @param {string} [marker] 从marker指定的flavor_id的下一条数据开始查询
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1455,7 +1455,7 @@ export class EcsClient {
      * @param {string} [status] 云服务器状态。  取值范围：  ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  只有管理员可以使用“deleted”状态过滤查询已经删除的弹性云服务器。  弹性云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)
      * @param {string} [tags] 查询tag字段中包含该值的云服务器。
      * @param {string} [ipEq] IPv4地址过滤结果，匹配规则为精确匹配。
-     * @param {string} [serverId] 云服务器ID，格式为UUID，匹配规则为精确匹配  示例: server_id&#x3D;{id1},{id2}  说明： 在使用server_id作为过滤条件时，不能同时使用其他过滤条件。如果同时指定server_id及其他过滤条件，则以server_id条件为准，其他过滤条件会被忽略 当server_id中含有不存在的云服务器ID时，返回的响应参数中该云服务器ID对应的servers结构体中除了id和fault其它字段均为null 为了避免API的URI过长，建议一次查询的server_id个数不超过100个
+     * @param {string} [serverId] 云服务器ID，格式为UUID，匹配规则为精确匹配  示例: server_id&#x3D;id1,id2  说明： 在使用server_id作为过滤条件时，不能同时使用其他过滤条件。如果同时指定server_id及其他过滤条件，则以server_id条件为准，其他过滤条件会被忽略 当server_id中含有不存在的云服务器ID时，返回的响应参数中该云服务器ID对应的servers结构体中除了id和fault其它字段均为null 为了避免API的URI过长，建议一次查询的server_id个数不超过100个
      * @param {string} [marker] 以单页最后一条server的id作为分页标记。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

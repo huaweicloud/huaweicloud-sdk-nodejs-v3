@@ -1,10 +1,10 @@
-import { OnePermRuleRequestInfo } from './OnePermRuleRequestInfo';
+import { UpdateOnePermRuleRequestInfo } from './UpdateOnePermRuleRequestInfo';
 
 
 export class UpdatePermRuleRequest {
     private 'share_id'?: string;
     private 'rule_id'?: string;
-    public body?: OnePermRuleRequestInfo;
+    public body?: UpdateOnePermRuleRequestInfo;
     public constructor(shareId?: string, ruleId?: string) { 
         this['share_id'] = shareId;
         this['rule_id'] = ruleId;
@@ -29,7 +29,7 @@ export class UpdatePermRuleRequest {
     public get ruleId(): string | undefined {
         return this['rule_id'];
     }
-    public withBody(body: OnePermRuleRequestInfo): UpdatePermRuleRequest {
+    public withBody(body: UpdateOnePermRuleRequestInfo): UpdatePermRuleRequest {
         this['body'] = body;
         return this;
     }

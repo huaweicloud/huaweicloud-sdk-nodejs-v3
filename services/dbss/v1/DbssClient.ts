@@ -29,6 +29,7 @@ import { BatchAddResourceTagResponse } from './model/BatchAddResourceTagResponse
 import { BatchDeleteResourceTagRequest } from './model/BatchDeleteResourceTagRequest';
 import { BatchDeleteResourceTagResponse } from './model/BatchDeleteResourceTagResponse';
 import { BatchSwitchesRequest } from './model/BatchSwitchesRequest';
+import { ConfigAlarmTopicRequest } from './model/ConfigAlarmTopicRequest';
 import { CountResourceInstanceByTagRequest } from './model/CountResourceInstanceByTagRequest';
 import { CountResourceInstanceByTagResponse } from './model/CountResourceInstanceByTagResponse';
 import { CreateDatabaseRequest } from './model/CreateDatabaseRequest';
@@ -53,6 +54,8 @@ import { DownloadAuditAgentResponse } from './model/DownloadAuditAgentResponse';
 import { EcsSpecificationBean } from './model/EcsSpecificationBean';
 import { JobBean } from './model/JobBean';
 import { KeyValueBean } from './model/KeyValueBean';
+import { ListAlarmTopicConfigInfoRequest } from './model/ListAlarmTopicConfigInfoRequest';
+import { ListAlarmTopicConfigInfoResponse } from './model/ListAlarmTopicConfigInfoResponse';
 import { ListAuditAgentRequest } from './model/ListAuditAgentRequest';
 import { ListAuditAgentResponse } from './model/ListAuditAgentResponse';
 import { ListAuditAlarmLogRequest } from './model/ListAuditAlarmLogRequest';
@@ -113,6 +116,8 @@ import { RuleScopeInfo } from './model/RuleScopeInfo';
 import { SecurityGroupRequest } from './model/SecurityGroupRequest';
 import { SensitiveMaskResponseRules } from './model/SensitiveMaskResponseRules';
 import { ServerIdBean } from './model/ServerIdBean';
+import { SetAlarmTopicConfigInfoRequest } from './model/SetAlarmTopicConfigInfoRequest';
+import { SetAlarmTopicConfigInfoResponse } from './model/SetAlarmTopicConfigInfoResponse';
 import { ShowAuditQuotaRequest } from './model/ShowAuditQuotaRequest';
 import { ShowAuditQuotaResponse } from './model/ShowAuditQuotaResponse';
 import { ShowAuditRuleRiskRequest } from './model/ShowAuditRuleRiskRequest';
@@ -266,6 +271,25 @@ export class DbssClient {
      */
     public deleteInstances(deleteInstancesRequest?: DeleteInstancesRequest): Promise<DeleteInstancesResponse> {
         const options = ParamCreater().deleteInstances(deleteInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取实例告警配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例告警配置
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAlarmTopicConfigInfo(listAlarmTopicConfigInfoRequest?: ListAlarmTopicConfigInfoRequest): Promise<ListAlarmTopicConfigInfoResponse> {
+        const options = ParamCreater().listAlarmTopicConfigInfo(listAlarmTopicConfigInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -566,6 +590,26 @@ export class DbssClient {
      */
     public rebootAuditInstance(rebootAuditInstanceRequest?: RebootAuditInstanceRequest): Promise<RebootAuditInstanceResponse> {
         const options = ParamCreater().rebootAuditInstance(rebootAuditInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置实例告警配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例告警配置
+     * @param {string} instanceId 实例ID
+     * @param {ConfigAlarmTopicRequest} setAlarmTopicConfigInfoRequestBody body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setAlarmTopicConfigInfo(setAlarmTopicConfigInfoRequest?: SetAlarmTopicConfigInfoRequest): Promise<SetAlarmTopicConfigInfoResponse> {
+        const options = ParamCreater().setAlarmTopicConfigInfo(setAlarmTopicConfigInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1193,6 +1237,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取实例告警配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAlarmTopicConfigInfo(listAlarmTopicConfigInfoRequest?: ListAlarmTopicConfigInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/{instance_id}/audit/alarm/topic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listAlarmTopicConfigInfoRequest !== null && listAlarmTopicConfigInfoRequest !== undefined) {
+                if (listAlarmTopicConfigInfoRequest instanceof ListAlarmTopicConfigInfoRequest) {
+                    instanceId = listAlarmTopicConfigInfoRequest.instanceId;
+                } else {
+                    instanceId = listAlarmTopicConfigInfoRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAlarmTopicConfigInfo.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1851,6 +1932,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置实例告警配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setAlarmTopicConfigInfo(setAlarmTopicConfigInfoRequest?: SetAlarmTopicConfigInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/{instance_id}/audit/alarm/topic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setAlarmTopicConfigInfoRequest !== null && setAlarmTopicConfigInfoRequest !== undefined) {
+                if (setAlarmTopicConfigInfoRequest instanceof SetAlarmTopicConfigInfoRequest) {
+                    instanceId = setAlarmTopicConfigInfoRequest.instanceId;
+                    body = setAlarmTopicConfigInfoRequest.body
+                } else {
+                    instanceId = setAlarmTopicConfigInfoRequest['instance_id'];
+                    body = setAlarmTopicConfigInfoRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setAlarmTopicConfigInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

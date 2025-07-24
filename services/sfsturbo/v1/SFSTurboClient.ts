@@ -3,6 +3,9 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionProgress } from './model/ActionProgress';
+import { AddActiveDirectoryDomainRequest } from './model/AddActiveDirectoryDomainRequest';
+import { AddActiveDirectoryDomainRequestBody } from './model/AddActiveDirectoryDomainRequestBody';
+import { AddActiveDirectoryDomainResponse } from './model/AddActiveDirectoryDomainResponse';
 import { AutoExportPolicy } from './model/AutoExportPolicy';
 import { BatchAddSharedTagsRequest } from './model/BatchAddSharedTagsRequest';
 import { BatchAddSharedTagsRequestBody } from './model/BatchAddSharedTagsRequestBody';
@@ -13,9 +16,13 @@ import { ChangeSecurityGroup } from './model/ChangeSecurityGroup';
 import { ChangeSecurityGroupRequest } from './model/ChangeSecurityGroupRequest';
 import { ChangeSecurityGroupRequestBody } from './model/ChangeSecurityGroupRequestBody';
 import { ChangeSecurityGroupResponse } from './model/ChangeSecurityGroupResponse';
+import { ChangeShareChargeModeRequestBody } from './model/ChangeShareChargeModeRequestBody';
+import { ChangeShareChargeModeV2Request } from './model/ChangeShareChargeModeV2Request';
+import { ChangeShareChargeModeV2Response } from './model/ChangeShareChargeModeV2Response';
 import { ChangeShareNameReq } from './model/ChangeShareNameReq';
 import { ChangeShareNameRequest } from './model/ChangeShareNameRequest';
 import { ChangeShareNameResponse } from './model/ChangeShareNameResponse';
+import { ClientIpInfo } from './model/ClientIpInfo';
 import { ConfigNasTarget } from './model/ConfigNasTarget';
 import { CreateBackendTargetRequest } from './model/CreateBackendTargetRequest';
 import { CreateBackendTargetRequestBody } from './model/CreateBackendTargetRequestBody';
@@ -43,6 +50,9 @@ import { CreateShareResponse } from './model/CreateShareResponse';
 import { CreateSharedTagRequest } from './model/CreateSharedTagRequest';
 import { CreateSharedTagRequestBody } from './model/CreateSharedTagRequestBody';
 import { CreateSharedTagResponse } from './model/CreateSharedTagResponse';
+import { DeleteActiveDirectoryDomainRequest } from './model/DeleteActiveDirectoryDomainRequest';
+import { DeleteActiveDirectoryDomainRequestBody } from './model/DeleteActiveDirectoryDomainRequestBody';
+import { DeleteActiveDirectoryDomainResponse } from './model/DeleteActiveDirectoryDomainResponse';
 import { DeleteBackendTargetRequest } from './model/DeleteBackendTargetRequest';
 import { DeleteBackendTargetResponse } from './model/DeleteBackendTargetResponse';
 import { DeleteFsDirQuotaRequest } from './model/DeleteFsDirQuotaRequest';
@@ -81,6 +91,8 @@ import { ListHpcCacheTasksRequest } from './model/ListHpcCacheTasksRequest';
 import { ListHpcCacheTasksResponse } from './model/ListHpcCacheTasksResponse';
 import { ListPermRulesRequest } from './model/ListPermRulesRequest';
 import { ListPermRulesResponse } from './model/ListPermRulesResponse';
+import { ListShareTypesRequest } from './model/ListShareTypesRequest';
+import { ListShareTypesResponse } from './model/ListShareTypesResponse';
 import { ListSharedTagsRequest } from './model/ListSharedTagsRequest';
 import { ListSharedTagsResponse } from './model/ListSharedTagsResponse';
 import { ListSharesByTagRequest } from './model/ListSharesByTagRequest';
@@ -108,9 +120,25 @@ import { ShareInfo } from './model/ShareInfo';
 import { ShareInfoFeature } from './model/ShareInfoFeature';
 import { ShareInfoFeatures } from './model/ShareInfoFeatures';
 import { ShareName } from './model/ShareName';
+import { ShareTypeAvailableZone } from './model/ShareTypeAvailableZone';
+import { ShareTypeResponseBody } from './model/ShareTypeResponseBody';
+import { ShareTypeUsage } from './model/ShareTypeUsage';
+import { ShareTypeUsageBandwidth } from './model/ShareTypeUsageBandwidth';
+import { ShareTypeUsageCapacity } from './model/ShareTypeUsageCapacity';
+import { ShareTypeUsageQuantity } from './model/ShareTypeUsageQuantity';
+import { ShareTypesAttribution } from './model/ShareTypesAttribution';
+import { ShareTypesAttributionBandwidth } from './model/ShareTypesAttributionBandwidth';
+import { ShareTypesAttributionCapacity } from './model/ShareTypesAttributionCapacity';
+import { ShareTypesAttributionIops } from './model/ShareTypesAttributionIops';
+import { ShareTypesAttributionSingleChannel4KLatency } from './model/ShareTypesAttributionSingleChannel4KLatency';
+import { ShowActiveDirectoryDomainRequest } from './model/ShowActiveDirectoryDomainRequest';
+import { ShowActiveDirectoryDomainResponse } from './model/ShowActiveDirectoryDomainResponse';
 import { ShowBackendTargetInfoRequest } from './model/ShowBackendTargetInfoRequest';
 import { ShowBackendTargetInfoResponse } from './model/ShowBackendTargetInfoResponse';
 import { ShowBackendTargetInfoResponseBody } from './model/ShowBackendTargetInfoResponseBody';
+import { ShowClientIpInfoRequest } from './model/ShowClientIpInfoRequest';
+import { ShowClientIpInfoRequestBody } from './model/ShowClientIpInfoRequestBody';
+import { ShowClientIpInfoResponse } from './model/ShowClientIpInfoResponse';
 import { ShowFsDirQuotaRequest } from './model/ShowFsDirQuotaRequest';
 import { ShowFsDirQuotaResponse } from './model/ShowFsDirQuotaResponse';
 import { ShowFsDirRequest } from './model/ShowFsDirRequest';
@@ -132,6 +160,9 @@ import { ShowShareResponse } from './model/ShowShareResponse';
 import { ShowSharedTagsRequest } from './model/ShowSharedTagsRequest';
 import { ShowSharedTagsResponse } from './model/ShowSharedTagsResponse';
 import { Tag } from './model/Tag';
+import { UpdateActiveDirectoryDomainRequest } from './model/UpdateActiveDirectoryDomainRequest';
+import { UpdateActiveDirectoryDomainRequestBody } from './model/UpdateActiveDirectoryDomainRequestBody';
+import { UpdateActiveDirectoryDomainResponse } from './model/UpdateActiveDirectoryDomainResponse';
 import { UpdateFsDirQuotaRequest } from './model/UpdateFsDirQuotaRequest';
 import { UpdateFsDirQuotaRequestBody } from './model/UpdateFsDirQuotaRequestBody';
 import { UpdateFsDirQuotaResponse } from './model/UpdateFsDirQuotaResponse';
@@ -147,6 +178,7 @@ import { UpdateObsTargetAttributesResponse } from './model/UpdateObsTargetAttrib
 import { UpdateObsTargetPolicyRequest } from './model/UpdateObsTargetPolicyRequest';
 import { UpdateObsTargetPolicyRequestBody } from './model/UpdateObsTargetPolicyRequestBody';
 import { UpdateObsTargetPolicyResponse } from './model/UpdateObsTargetPolicyResponse';
+import { UpdateOnePermRuleRequestInfo } from './model/UpdateOnePermRuleRequestInfo';
 import { UpdatePermRuleRequest } from './model/UpdatePermRuleRequest';
 import { UpdatePermRuleResponse } from './model/UpdatePermRuleResponse';
 
@@ -165,6 +197,26 @@ export class SFSTurboClient {
         return __dirname;
     }
 
+
+    /**
+     * 加入AD域。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 加入AD域
+     * @param {string} shareId 文件系统ID
+     * @param {AddActiveDirectoryDomainRequestBody} addActiveDirectoryDomainRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addActiveDirectoryDomain(addActiveDirectoryDomainRequest?: AddActiveDirectoryDomainRequest): Promise<AddActiveDirectoryDomainResponse> {
+        const options = ParamCreater().addActiveDirectoryDomain(addActiveDirectoryDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 指定共享批量添加标签。
@@ -211,13 +263,33 @@ export class SFSTurboClient {
     }
 
     /**
+     * 修改文件系统计费模式由按需转为包周期。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改文件系统计费模式由按需转为包周期
+     * @param {string} shareId 文件系统ID
+     * @param {ChangeShareChargeModeRequestBody} changeShareChargeModeV2RequestBody 修改文件系统计费模式请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeShareChargeModeV2(changeShareChargeModeV2Request?: ChangeShareChargeModeV2Request): Promise<ChangeShareChargeModeV2Response> {
+        const options = ParamCreater().changeShareChargeModeV2(changeShareChargeModeV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改文件系统名称
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改文件系统名称
      * @param {string} shareId 文件系统ID
-     * @param {ChangeShareNameReq} changeName 修改文件系统名称请求体
+     * @param {ChangeShareNameReq} changeShareNameRequestBody 修改文件系统名称请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -256,7 +328,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建目录
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {CreateFsDirRequestBody} createFsDirRequestBody 文件系统目录
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -271,13 +343,13 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建目标文件夹quota。
+     * 创建目标文件夹配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建目标文件夹quota
-     * @param {string} shareId 文件系统id
-     * @param {CreateFsDirQuotaRequestBody} createFsDirQuotaRequestBody 目标文件夹quota信息
+     * @summary 创建目标文件夹配额
+     * @param {string} shareId 文件系统ID
+     * @param {CreateFsDirQuotaRequestBody} createFsDirQuotaRequestBody 目标文件夹配额信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -306,7 +378,7 @@ export class SFSTurboClient {
         const options = ParamCreater().createFsTask(createFsTaskRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -332,16 +404,12 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建并绑定ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-     * 1. RFC2307（Openldap通常选择此Schema）
-     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-     * 
-     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+     * 创建并绑定LDAP配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建并绑定ldap配置
-     * @param {string} shareId 文件系统id
+     * @summary 创建并绑定LDAP配置
+     * @param {string} shareId 文件系统ID
      * @param {CreateLdapConfigRequestBody} createLdapConfigRequestBody 请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -350,7 +418,7 @@ export class SFSTurboClient {
         const options = ParamCreater().createLdapConfig(createLdapConfigRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -361,7 +429,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建权限规则
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {CreatePermRulesRequestBody} createPermRuleRequestBody 请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -418,13 +486,33 @@ export class SFSTurboClient {
     }
 
     /**
+     * 退出AD域。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 退出AD域
+     * @param {string} shareId 文件系统ID
+     * @param {DeleteActiveDirectoryDomainRequestBody} deleteActiveDirectoryDomainRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteActiveDirectoryDomain(deleteActiveDirectoryDomainRequest?: DeleteActiveDirectoryDomainRequest): Promise<DeleteActiveDirectoryDomainResponse> {
+        const options = ParamCreater().deleteActiveDirectoryDomain(deleteActiveDirectoryDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除后端存储
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除后端存储
-     * @param {string} shareId 文件系统id
-     * @param {string} targetId 绑定关系id
+     * @param {string} shareId 文件系统ID
+     * @param {string} targetId 绑定关系ID
      * @param {boolean} [deleteDataInFileSystem] 删除后端存储时是否同时删除文件系统内的联动目录及其数据文件，默认为 false。数据删除后无法恢复，请谨慎操作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -444,7 +532,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除文件系统目录
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {DeleteFsDirRequestBody} deleteFsDirRequestBody 文件系统目录
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -459,12 +547,12 @@ export class SFSTurboClient {
     }
 
     /**
-     * 删除目标文件夹quota。
+     * 删除目标文件夹配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除目标文件夹quota
-     * @param {string} shareId 文件系统id
+     * @summary 删除目标文件夹配额
+     * @param {string} shareId 文件系统ID
      * @param {DeleteFsDirQuotaRequestBody} deleteFsDirQuotaRequestBody 删除目录quota请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -484,7 +572,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 取消/删除文件系统异步任务
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {string} feature 任务类型。例，DU任务取值为dir-usage
      * @param {string} taskId 任务ID
      * @param {*} [options] Override http request option.
@@ -494,7 +582,7 @@ export class SFSTurboClient {
         const options = ParamCreater().deleteFsTask(deleteFsTaskRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -520,16 +608,12 @@ export class SFSTurboClient {
     }
 
     /**
-     * 删除ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-     * 1. RFC2307（Openldap通常选择此Schema）
-     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-     * 
-     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+     * 删除LDAP配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除ldap配置
-     * @param {string} shareId 文件系统id
+     * @summary 删除LDAP配置
+     * @param {string} shareId 文件系统ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -537,7 +621,7 @@ export class SFSTurboClient {
         const options = ParamCreater().deleteLdapConfig(deleteLdapConfigRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -548,7 +632,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除权限规则
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {string} ruleId 权限规则id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -588,7 +672,7 @@ export class SFSTurboClient {
      *
      * @summary 删除共享标签
      * @param {string} shareId 共享ID
-     * @param {string} key 标签的键,最大长度128个字符。  key不能为空，不能包含非打印字符ASCII(0-31)，“&#x3D;”,“*”,“&lt;”,“&gt;”,“\\”,“,”,“|”,“/”。只能包含大写字母、小写字母、数字，特殊字符\&quot;-\&quot;和\&quot;_\&quot;。  说明：调用删除共享标签接口删除标签时，如果标签的键中存在不被URL直接解析的特殊字符，需要对标签的键进行URL转义处理。
+     * @param {string} key 标签的键,最大长度128个字符。  key不能为空，不能包含非打印字符ASCII(0-31)，“&#x3D;”,“*”,“&lt;”,“&gt;”,“\\”,“,”,“|”,“/”。只能包含大写字母、小写字母、数字，特殊字符\&quot;-\&quot;和\&quot;_\&quot;。  说明：调用删除共享标签接口删除标签时，如果标签的键中存在不被URL直接解析的特殊字符，需要对标签的键进行URL转义处理。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -627,7 +711,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询后端存储列表
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {number} [limit] 查询列表返回元素个数
      * @param {string} [marker] 查询列表偏移量
      * @param {*} [options] Override http request option.
@@ -650,7 +734,7 @@ export class SFSTurboClient {
      * @summary 获取文件系统异步任务列表
      * @param {string} shareId 文件系统id
      * @param {string} feature 任务类型。例，DU任务取值为dir-usage
-     * @param {string} [marker] marker，取值为task_id
+     * @param {string} [marker] marker填写为上一页返回的最后一条记录的task_id，作为下一次分页的起始值。比如，marker为d651ea2b-2b20-4c6d-8bbf-2adcec18dac9，limit为100，表示从d651ea2b-2b20-4c6d-8bbf-2adcec18dac9后返回最多100条满足查询条件的记录。
      * @param {number} [limit] limit, 取值为正整数. 默认为20，最大值为100
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -659,7 +743,7 @@ export class SFSTurboClient {
         const options = ParamCreater().listFsTasks(listFsTasksRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -674,7 +758,7 @@ export class SFSTurboClient {
      * @param {string} [type] 任务类型
      * @param {string} [status] 任务状态
      * @param {number} [offset] offset，默认值为 0
-     * @param {number} [limit] limit，默认值为 20
+     * @param {number} [limit] limit，默认值为 1000
      * @param {string} [startTime] start_time
      * @param {string} [endTime] end_time
      * @param {*} [options] Override http request option.
@@ -695,7 +779,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询文件系统的权限规则列表
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {number} [limit] 返回的权限规则个数
      * @param {number} [offset] 返回的权限规则的偏移量
      * @param {*} [options] Override http request option.
@@ -706,6 +790,26 @@ export class SFSTurboClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询文件系统类型和配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询文件系统类型和配额
+     * @param {number} [limit] 查询文件系统类型和配额返回的个数最大值
+     * @param {number} [offset] 查询文件系统类型和配额返回的偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listShareTypes(listShareTypesRequest?: ListShareTypesRequest): Promise<ListShareTypesResponse> {
+        const options = ParamCreater().listShareTypes(listShareTypesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -790,6 +894,25 @@ export class SFSTurboClient {
     }
 
     /**
+     * 查询AD域配置。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AD域配置
+     * @param {string} shareId 文件系统ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showActiveDirectoryDomain(showActiveDirectoryDomainRequest?: ShowActiveDirectoryDomainRequest): Promise<ShowActiveDirectoryDomainResponse> {
+        const options = ParamCreater().showActiveDirectoryDomain(showActiveDirectoryDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取后端存储详细信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -810,12 +933,32 @@ export class SFSTurboClient {
     }
 
     /**
+     * 获取已挂载的客户端ip信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取已挂载的客户端ip信息
+     * @param {string} shareId 文件系统ID
+     * @param {ShowClientIpInfoRequestBody} configParam 获取已挂载IP信息请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClientIpInfo(showClientIpInfoRequest?: ShowClientIpInfoRequest): Promise<ShowClientIpInfoResponse> {
+        const options = ParamCreater().showClientIpInfo(showClientIpInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询目录是否存在
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询目录是否存在
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {string} path 需要查询的目录的全路径
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -830,12 +973,12 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询目标文件夹quota。查询的used_capacity、used_inode数据可能有延迟。
+     * 查询目标文件夹配额。查询的used_capacity、used_inode数据可能有延迟。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询目标文件夹quota
-     * @param {string} shareId 文件系统id
+     * @summary 查询目标文件夹配额
+     * @param {string} shareId 文件系统ID
      * @param {string} path 合法的已存在的目录的全路径
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -855,7 +998,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询目录资源使用情况
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {string} path 文件系统内合法的目录全路径
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -885,7 +1028,7 @@ export class SFSTurboClient {
         const options = ParamCreater().showFsTask(showFsTaskRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -911,7 +1054,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。例如：可使用调用创建并绑定ldap配置接口时返回的jobId，通过该接口查询job的执行状态。
+     * 用于查询SFS Turbo异步API的执行状态。例如：可使用调用创建并绑定LDAP配置接口时返回的jobId，通过该接口查询job的执行状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -930,16 +1073,12 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询Ldap的配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-     * 1. RFC2307（Openldap通常选择此Schema）
-     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-     * 
-     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+     * 查询LDAP的配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Ldap的配置
-     * @param {string} shareId 文件系统id
+     * @summary 查询LDAP的配置
+     * @param {string} shareId 文件系统ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -947,7 +1086,7 @@ export class SFSTurboClient {
         const options = ParamCreater().showLdapConfig(showLdapConfigRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -958,7 +1097,7 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询文件系统的某一个权限规则
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {string} ruleId 权限规则id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1011,13 +1150,33 @@ export class SFSTurboClient {
     }
 
     /**
-     * 更新目标文件夹quota
+     * 修改AD域配置。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新目标文件夹quota
-     * @param {string} shareId 文件系统id
-     * @param {UpdateFsDirQuotaRequestBody} updateFsDirQuotaRequestBody 目标文件夹quota信息
+     * @summary 修改AD域配置
+     * @param {string} shareId 文件系统ID
+     * @param {UpdateActiveDirectoryDomainRequestBody} updateActiveDirectoryDomainRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateActiveDirectoryDomain(updateActiveDirectoryDomainRequest?: UpdateActiveDirectoryDomainRequest): Promise<UpdateActiveDirectoryDomainResponse> {
+        const options = ParamCreater().updateActiveDirectoryDomain(updateActiveDirectoryDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新目标文件夹配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新目标文件夹配额
+     * @param {string} shareId 文件系统ID
+     * @param {UpdateFsDirQuotaRequestBody} updateFsDirQuotaRequestBody 目标文件夹配额信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1051,16 +1210,12 @@ export class SFSTurboClient {
     }
 
     /**
-     * 修改ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-     * 1. RFC2307（Openldap通常选择此Schema）
-     * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-     * 
-     * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+     * 修改LDAP配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改ldap配置
-     * @param {string} shareId 文件系统id
+     * @summary 修改LDAP配置
+     * @param {string} shareId 文件系统ID
      * @param {UpdateLdapConfigRequestBody} updateLdapConfigRequestBody 请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1069,7 +1224,7 @@ export class SFSTurboClient {
         const options = ParamCreater().updateLdapConfig(updateLdapConfigRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1080,8 +1235,8 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新后端存储属性
-     * @param {string} shareId 文件系统id
-     * @param {string} targetId 绑定关系id
+     * @param {string} shareId 文件系统ID
+     * @param {string} targetId 绑定关系ID
      * @param {UpdateObsTargetAttributesRequestBody} updateObsTargetAttributesRequestBody 更新后端存储属性请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1101,8 +1256,8 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新后端存储自动同步策略
-     * @param {string} shareId 文件系统id
-     * @param {string} targetId 绑定关系id
+     * @param {string} shareId 文件系统ID
+     * @param {string} targetId 绑定关系ID
      * @param {UpdateObsTargetPolicyRequestBody} updateObsTargetPolicyRequestBody 更新后端存储自动同步策略请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1122,9 +1277,9 @@ export class SFSTurboClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改权限规则
-     * @param {string} shareId 文件系统id
+     * @param {string} shareId 文件系统ID
      * @param {string} ruleId 权限规则id
-     * @param {OnePermRuleRequestInfo} updatePermRuleRequestBody 请求体
+     * @param {UpdateOnePermRuleRequestInfo} updatePermRuleRequestBody 请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1140,6 +1295,52 @@ export class SFSTurboClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 加入AD域。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addActiveDirectoryDomain(addActiveDirectoryDomainRequest?: AddActiveDirectoryDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/active-directory-domain",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (addActiveDirectoryDomainRequest !== null && addActiveDirectoryDomainRequest !== undefined) {
+                if (addActiveDirectoryDomainRequest instanceof AddActiveDirectoryDomainRequest) {
+                    shareId = addActiveDirectoryDomainRequest.shareId;
+                    body = addActiveDirectoryDomainRequest.body
+                } else {
+                    shareId = addActiveDirectoryDomainRequest['share_id'];
+                    body = addActiveDirectoryDomainRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling addActiveDirectoryDomain.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 指定共享批量添加标签。
@@ -1225,6 +1426,52 @@ export const ParamCreater = function () {
         
             if (shareId === null || shareId === undefined) {
             throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling changeSecurityGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改文件系统计费模式由按需转为包周期。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeShareChargeModeV2(changeShareChargeModeV2Request?: ChangeShareChargeModeV2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/sfs-turbo/shares/{share_id}/change-charge-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (changeShareChargeModeV2Request !== null && changeShareChargeModeV2Request !== undefined) {
+                if (changeShareChargeModeV2Request instanceof ChangeShareChargeModeV2Request) {
+                    shareId = changeShareChargeModeV2Request.shareId;
+                    body = changeShareChargeModeV2Request.body
+                } else {
+                    shareId = changeShareChargeModeV2Request['share_id'];
+                    body = changeShareChargeModeV2Request['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling changeShareChargeModeV2.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1376,7 +1623,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建目标文件夹quota。
+         * 创建目标文件夹配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1518,11 +1765,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建并绑定ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-         * 1. RFC2307（Openldap通常选择此Schema）
-         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-         * 
-         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+         * 创建并绑定LDAP配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1701,6 +1944,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 退出AD域。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteActiveDirectoryDomain(deleteActiveDirectoryDomainRequest?: DeleteActiveDirectoryDomainRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/active-directory-domain",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (deleteActiveDirectoryDomainRequest !== null && deleteActiveDirectoryDomainRequest !== undefined) {
+                if (deleteActiveDirectoryDomainRequest instanceof DeleteActiveDirectoryDomainRequest) {
+                    shareId = deleteActiveDirectoryDomainRequest.shareId;
+                    body = deleteActiveDirectoryDomainRequest.body
+                } else {
+                    shareId = deleteActiveDirectoryDomainRequest['share_id'];
+                    body = deleteActiveDirectoryDomainRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling deleteActiveDirectoryDomain.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除后端存储
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1799,7 +2088,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除目标文件夹quota。
+         * 删除目标文件夹配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1940,11 +2229,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-         * 1. RFC2307（Openldap通常选择此Schema）
-         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-         * 
-         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+         * 删除LDAP配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2395,6 +2680,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询文件系统类型和配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listShareTypes(listShareTypesRequest?: ListShareTypesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sfs-turbo/share-types",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listShareTypesRequest !== null && listShareTypesRequest !== undefined) {
+                if (listShareTypesRequest instanceof ListShareTypesRequest) {
+                    limit = listShareTypesRequest.limit;
+                    offset = listShareTypesRequest.offset;
+                } else {
+                    limit = listShareTypesRequest['limit'];
+                    offset = listShareTypesRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户所有共享的标签集合。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2567,6 +2896,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询AD域配置。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showActiveDirectoryDomain(showActiveDirectoryDomainRequest?: ShowActiveDirectoryDomainRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/active-directory-domain",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let shareId;
+
+            if (showActiveDirectoryDomainRequest !== null && showActiveDirectoryDomainRequest !== undefined) {
+                if (showActiveDirectoryDomainRequest instanceof ShowActiveDirectoryDomainRequest) {
+                    shareId = showActiveDirectoryDomainRequest.shareId;
+                } else {
+                    shareId = showActiveDirectoryDomainRequest['share_id'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling showActiveDirectoryDomain.');
+            }
+
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取后端存储详细信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2606,6 +2972,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'share_id': shareId,'target_id': targetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取已挂载的客户端ip信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClientIpInfo(showClientIpInfoRequest?: ShowClientIpInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (showClientIpInfoRequest !== null && showClientIpInfoRequest !== undefined) {
+                if (showClientIpInfoRequest instanceof ShowClientIpInfoRequest) {
+                    shareId = showClientIpInfoRequest.shareId;
+                    body = showClientIpInfoRequest.body
+                } else {
+                    shareId = showClientIpInfoRequest['share_id'];
+                    body = showClientIpInfoRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling showClientIpInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2659,7 +3071,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询目标文件夹quota。查询的used_capacity、used_inode数据可能有延迟。
+         * 查询目标文件夹配额。查询的used_capacity、used_inode数据可能有延迟。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2850,7 +3262,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。例如：可使用调用创建并绑定ldap配置接口时返回的jobId，通过该接口查询job的执行状态。
+         * 用于查询SFS Turbo异步API的执行状态。例如：可使用调用创建并绑定LDAP配置接口时返回的jobId，通过该接口查询job的执行状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2887,11 +3299,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Ldap的配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-         * 1. RFC2307（Openldap通常选择此Schema）
-         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-         * 
-         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+         * 查询LDAP的配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3046,7 +3454,53 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新目标文件夹quota
+         * 修改AD域配置。Active Directory域（简称：AD域）提供统一的身份认证和授权管理。通过将SFS Turbo文件系统的挂载点接入AD域内，您可以在AD域中实现文件系统用户身份的认证管理和文件级别的访问权限控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateActiveDirectoryDomain(updateActiveDirectoryDomainRequest?: UpdateActiveDirectoryDomainRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/active-directory-domain",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (updateActiveDirectoryDomainRequest !== null && updateActiveDirectoryDomainRequest !== undefined) {
+                if (updateActiveDirectoryDomainRequest instanceof UpdateActiveDirectoryDomainRequest) {
+                    shareId = updateActiveDirectoryDomainRequest.shareId;
+                    body = updateActiveDirectoryDomainRequest.body
+                } else {
+                    shareId = updateActiveDirectoryDomainRequest['share_id'];
+                    body = updateActiveDirectoryDomainRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling updateActiveDirectoryDomain.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新目标文件夹配额
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3138,11 +3592,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改ldap配置。LDAP（Lightweight Directory Access Protocol），中文名称轻量级目录访问协议，是对目录服务器（Directory Server）进行访问、控制的一种标准协议。LDAP服务器可以集中式地管理用户和群组的归属关系，通过绑定LDAP服务器，当一个用户访问您的文件系统的文件时，SFS Turbo将会访问您的LDAP服务器以进行用户身份验证，并且获取用户和群组的归属关系，从而进行Linux标准的文件UGO权限的检查。要使用此功能，首先您需要搭建好LDAP服务器（当前SFS Turbo仅支持LDAP v3协议），常见提供LDAP协议访问的目录服务器实现有OpenLdap(Linux)，Active Directory(Windows)等，不同目录服务器的实现细节有所差别，绑定时需要指定对应的Schema（Schema配置错误将会导致SFS Turbo无法正确获取用户以及群组信息，可能导致无权限访问文件系统内文件），当前SFS Turbo支持的Schema有：
-         * 1. RFC2307（Openldap通常选择此Schema）
-         * 2. MS-AD-BIS（Active Directory通常选择此Schema，支持RFC2307bis，支持嵌套的群组）
-         * 
-         * SFS Turbo还支持配置主备LDAP服务器，当您的一台LDAP服务器故障无法访问后，SFS Turbo将会自动切换到备LDAP服务器访问，以免影响您的业务。同时，若您还选择将allow_local_user配置为Yes（默认为No），那么当您的LDAP服务器全部故障无法访问时，SFS Turbo将会使用您的本地用户以及群组信息，而非LDAP服务器中配置的信息进行身份验证和UGO权限检查，以最大程度减少故障影响面。
+         * 修改LDAP配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

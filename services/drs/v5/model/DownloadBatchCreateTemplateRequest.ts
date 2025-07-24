@@ -2,6 +2,7 @@
 
 export class DownloadBatchCreateTemplateRequest {
     private 'X-Language'?: DownloadBatchCreateTemplateRequestXLanguageEnum | string;
+    private 'engine_type'?: string;
     public constructor() { 
     }
     public withXLanguage(xLanguage: DownloadBatchCreateTemplateRequestXLanguageEnum | string): DownloadBatchCreateTemplateRequest {
@@ -13,6 +14,16 @@ export class DownloadBatchCreateTemplateRequest {
     }
     public get xLanguage(): DownloadBatchCreateTemplateRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
+    }
+    public withEngineType(engineType: string): DownloadBatchCreateTemplateRequest {
+        this['engine_type'] = engineType;
+        return this;
+    }
+    public set engineType(engineType: string  | undefined) {
+        this['engine_type'] = engineType;
+    }
+    public get engineType(): string | undefined {
+        return this['engine_type'];
     }
 }
 

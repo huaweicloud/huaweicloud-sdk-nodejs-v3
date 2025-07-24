@@ -51,8 +51,5 @@ export class DeleteBackendTargetResponse extends SdkResponse {
     */
 export enum DeleteBackendTargetResponseLifecycleEnum {
     DELETING = 'DELETING',
-    AVAILABLE = 'AVAILABLE',
-    MISCONFIGURED = 'MISCONFIGURED',
-    CREATING = 'CREATING',
     FAILED = 'FAILED'
 }

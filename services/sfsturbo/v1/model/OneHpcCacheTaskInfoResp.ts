@@ -114,5 +114,6 @@ export class OneHpcCacheTaskInfoResp {
 export enum OneHpcCacheTaskInfoRespStatusEnum {
     SUCCESS = 'SUCCESS',
     DOING = 'DOING',
-    FAIL = 'FAIL'
+    FAIL = 'FAIL',
+    DELETING = 'DELETING'
 }

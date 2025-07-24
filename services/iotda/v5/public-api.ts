@@ -124,6 +124,8 @@ export * from './model/DeleteDeviceAuthorizerRequest';
 export * from './model/DeleteDeviceAuthorizerResponse';
 export * from './model/DeleteDeviceGroupRequest';
 export * from './model/DeleteDeviceGroupResponse';
+export * from './model/DeleteDeviceMessageRequest';
+export * from './model/DeleteDeviceMessageResponse';
 export * from './model/DeleteDevicePolicyRequest';
 export * from './model/DeleteDevicePolicyResponse';
 export * from './model/DeleteDeviceProxyRequest';
