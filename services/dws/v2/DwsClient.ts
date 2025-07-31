@@ -79,7 +79,6 @@ import { ClusterNameReq } from './model/ClusterNameReq';
 import { ClusterNodeInfo } from './model/ClusterNodeInfo';
 import { ClusterRecoveryProgress } from './model/ClusterRecoveryProgress';
 import { ClusterRing } from './model/ClusterRing';
-import { ClusterRingVo } from './model/ClusterRingVo';
 import { ClusterShrinkReq } from './model/ClusterShrinkReq';
 import { ClusterSnapshots } from './model/ClusterSnapshots';
 import { ClusterTimezoneReq } from './model/ClusterTimezoneReq';
@@ -487,7 +486,6 @@ import { RestoreTableRequestBody } from './model/RestoreTableRequestBody';
 import { RestoreTableResponse } from './model/RestoreTableResponse';
 import { Revoke } from './model/Revoke';
 import { RingHost } from './model/RingHost';
-import { RingHostVo } from './model/RingHostVo';
 import { RoleAuthority } from './model/RoleAuthority';
 import { RotateKeyRequest } from './model/RotateKeyRequest';
 import { RotateKeyRequestBody } from './model/RotateKeyRequestBody';
@@ -4198,7 +4196,7 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群缩容，支持从弹性池缩容，或是从逻辑集群中缩容。
+     * 逻辑集群缩容，支持从弹性池缩容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -12921,7 +12919,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群缩容，支持从弹性池缩容，或是从逻辑集群中缩容。
+         * 逻辑集群缩容，支持从弹性池缩容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -2,7 +2,7 @@
 
 export class ExtendInfo {
     public filter?: ExtendInfoFilterEnum | string;
-    public period?: ExtendInfoPeriodEnum | number;
+    public period?: string;
     private 'display_time'?: ExtendInfoDisplayTimeEnum | number;
     private 'refresh_time'?: ExtendInfoRefreshTimeEnum | number;
     public from?: number;
@@ -18,7 +18,7 @@ export class ExtendInfo {
         this['filter'] = filter;
         return this;
     }
-    public withPeriod(period: ExtendInfoPeriodEnum | number): ExtendInfo {
+    public withPeriod(period: string): ExtendInfo {
         this['period'] = period;
         return this;
     }
@@ -111,19 +111,6 @@ export enum ExtendInfoFilterEnum {
     MIN = 'min',
     MAX = 'max',
     SUM = 'sum'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ExtendInfoPeriodEnum {
-    NUMBER_1 = 1,
-    NUMBER_60 = 60,
-    NUMBER_300 = 300,
-    NUMBER_1200 = 1200,
-    NUMBER_3600 = 3600,
-    NUMBER_14400 = 14400,
-    NUMBER_86400 = 86400
 }
 /**
     * @export

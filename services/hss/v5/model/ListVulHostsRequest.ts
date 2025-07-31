@@ -2,13 +2,13 @@
 
 export class ListVulHostsRequest {
     private 'enterprise_project_id'?: string;
-    private 'vul_id'?: string;
-    public type?: string;
-    private 'host_name'?: string;
-    private 'host_ip'?: string;
-    public status?: string;
     public limit?: number;
     public offset?: number;
+    private 'host_name'?: string;
+    private 'host_ip'?: string;
+    private 'vul_id'?: string;
+    public type?: string;
+    public status?: string;
     private 'asset_value'?: string;
     private 'group_name'?: string;
     private 'handle_status'?: string;
@@ -29,18 +29,12 @@ export class ListVulHostsRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withVulId(vulId: string): ListVulHostsRequest {
-        this['vul_id'] = vulId;
+    public withLimit(limit: number): ListVulHostsRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set vulId(vulId: string  | undefined) {
-        this['vul_id'] = vulId;
-    }
-    public get vulId(): string | undefined {
-        return this['vul_id'];
-    }
-    public withType(type: string): ListVulHostsRequest {
-        this['type'] = type;
+    public withOffset(offset: number): ListVulHostsRequest {
+        this['offset'] = offset;
         return this;
     }
     public withHostName(hostName: string): ListVulHostsRequest {
@@ -63,16 +57,22 @@ export class ListVulHostsRequest {
     public get hostIp(): string | undefined {
         return this['host_ip'];
     }
+    public withVulId(vulId: string): ListVulHostsRequest {
+        this['vul_id'] = vulId;
+        return this;
+    }
+    public set vulId(vulId: string  | undefined) {
+        this['vul_id'] = vulId;
+    }
+    public get vulId(): string | undefined {
+        return this['vul_id'];
+    }
+    public withType(type: string): ListVulHostsRequest {
+        this['type'] = type;
+        return this;
+    }
     public withStatus(status: string): ListVulHostsRequest {
         this['status'] = status;
-        return this;
-    }
-    public withLimit(limit: number): ListVulHostsRequest {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): ListVulHostsRequest {
-        this['offset'] = offset;
         return this;
     }
     public withAssetValue(assetValue: string): ListVulHostsRequest {

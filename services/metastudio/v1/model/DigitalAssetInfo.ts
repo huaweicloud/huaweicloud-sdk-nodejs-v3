@@ -1,5 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetFileInfo } from './AssetFileInfo';
+import { AutoOperationConfig } from './AutoOperationConfig';
 import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
 
@@ -15,6 +16,7 @@ export class DigitalAssetInfo {
     private 'asset_type'?: DigitalAssetInfoAssetTypeEnum | string;
     private 'asset_state'?: DigitalAssetInfoAssetStateEnum | string;
     private 'fail_type'?: DigitalAssetInfoFailTypeEnum | string;
+    private 'block_reason_code'?: string;
     public reason?: string;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
@@ -22,6 +24,7 @@ export class DigitalAssetInfo {
     public files?: Array<AssetFileInfo>;
     private 'asset_order'?: number;
     private 'supported_service'?: Array<SupportedServiceEnum>;
+    private 'auto_operation_config'?: Array<AutoOperationConfig>;
     public constructor() { 
     }
     public withProjectId(projectId: string): DigitalAssetInfo {
@@ -124,6 +127,16 @@ export class DigitalAssetInfo {
     public get failType(): DigitalAssetInfoFailTypeEnum | string | undefined {
         return this['fail_type'];
     }
+    public withBlockReasonCode(blockReasonCode: string): DigitalAssetInfo {
+        this['block_reason_code'] = blockReasonCode;
+        return this;
+    }
+    public set blockReasonCode(blockReasonCode: string  | undefined) {
+        this['block_reason_code'] = blockReasonCode;
+    }
+    public get blockReasonCode(): string | undefined {
+        return this['block_reason_code'];
+    }
     public withReason(reason: string): DigitalAssetInfo {
         this['reason'] = reason;
         return this;
@@ -175,6 +188,16 @@ export class DigitalAssetInfo {
     }
     public get supportedService(): Array<SupportedServiceEnum> | undefined {
         return this['supported_service'];
+    }
+    public withAutoOperationConfig(autoOperationConfig: Array<AutoOperationConfig>): DigitalAssetInfo {
+        this['auto_operation_config'] = autoOperationConfig;
+        return this;
+    }
+    public set autoOperationConfig(autoOperationConfig: Array<AutoOperationConfig>  | undefined) {
+        this['auto_operation_config'] = autoOperationConfig;
+    }
+    public get autoOperationConfig(): Array<AutoOperationConfig> | undefined {
+        return this['auto_operation_config'];
     }
 }
 

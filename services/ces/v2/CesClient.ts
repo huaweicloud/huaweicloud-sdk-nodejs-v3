@@ -7,10 +7,13 @@ import { AddAlarmRuleResourcesResponse } from './model/AddAlarmRuleResourcesResp
 import { AddResourcesReq } from './model/AddResourcesReq';
 import { AdditionalInfo } from './model/AdditionalInfo';
 import { AgentDimension } from './model/AgentDimension';
-import { AlarmCondition } from './model/AlarmCondition';
 import { AlarmDescription } from './model/AlarmDescription';
 import { AlarmEnabled } from './model/AlarmEnabled';
 import { AlarmHistoryItemV2 } from './model/AlarmHistoryItemV2';
+import { AlarmHistoryItemV2AlarmActions } from './model/AlarmHistoryItemV2AlarmActions';
+import { AlarmHistoryItemV2Condition } from './model/AlarmHistoryItemV2Condition';
+import { AlarmHistoryItemV2Metric } from './model/AlarmHistoryItemV2Metric';
+import { AlarmHistoryItemV2MetricDimensions } from './model/AlarmHistoryItemV2MetricDimensions';
 import { AlarmID } from './model/AlarmID';
 import { AlarmLevel } from './model/AlarmLevel';
 import { AlarmName } from './model/AlarmName';
@@ -19,6 +22,7 @@ import { AlarmTemplateID } from './model/AlarmTemplateID';
 import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
 import { AlarmType } from './model/AlarmType';
+import { AssociationAlarmTemplate } from './model/AssociationAlarmTemplate';
 import { AsyncAssociateRGAndTemplatesReq } from './model/AsyncAssociateRGAndTemplatesReq';
 import { BaseWidgetInfo } from './model/BaseWidgetInfo';
 import { BaseWidgetInfoProperties } from './model/BaseWidgetInfoProperties';
@@ -98,17 +102,17 @@ import { DimensionNames } from './model/DimensionNames';
 import { EffectiveTimezone } from './model/EffectiveTimezone';
 import { EnableOneClickAlarmRequestBody } from './model/EnableOneClickAlarmRequestBody';
 import { EnableOneClickAlarmRequestBodyOneClickUpdateAlarms } from './model/EnableOneClickAlarmRequestBodyOneClickUpdateAlarms';
-import { Enabled } from './model/Enabled';
 import { EndDate } from './model/EndDate';
 import { EndTime } from './model/EndTime';
 import { EnterpriseIdItem } from './model/EnterpriseIdItem';
 import { EnterpriseProjectID } from './model/EnterpriseProjectID';
 import { EnterpriseProjectIdAndTags } from './model/EnterpriseProjectIdAndTags';
+import { EpResourceStatistics } from './model/EpResourceStatistics';
 import { EventDimensionName } from './model/EventDimensionName';
 import { ExtendInfo } from './model/ExtendInfo';
 import { ExtendRelationId } from './model/ExtendRelationId';
 import { ExtraInfo } from './model/ExtraInfo';
-import { FilterWithoutTP } from './model/FilterWithoutTP';
+import { Filter } from './model/Filter';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
 import { GroupID } from './model/GroupID';
 import { HierarchicalValue } from './model/HierarchicalValue';
@@ -159,13 +163,13 @@ import { MaskName } from './model/MaskName';
 import { MaskResourceType } from './model/MaskResourceType';
 import { MaskStatus } from './model/MaskStatus';
 import { MaskType } from './model/MaskType';
-import { Metric } from './model/Metric';
 import { MetricDimension } from './model/MetricDimension';
 import { MetricDimensionName } from './model/MetricDimensionName';
 import { MetricExtraInfo } from './model/MetricExtraInfo';
 import { MetricName } from './model/MetricName';
 import { MultiMetricName } from './model/MultiMetricName';
 import { Namespace } from './model/Namespace';
+import { NamespaceAllowEmpty } from './model/NamespaceAllowEmpty';
 import { NamespaceAllowedEmpty } from './model/NamespaceAllowedEmpty';
 import { Notification } from './model/Notification';
 import { NotificationBeginTime } from './model/NotificationBeginTime';
@@ -175,9 +179,11 @@ import { NotificationMaskCreateTime } from './model/NotificationMaskCreateTime';
 import { NotificationMaskID } from './model/NotificationMaskID';
 import { NotificationMaskUpdateTime } from './model/NotificationMaskUpdateTime';
 import { OneClickAlarmDescription } from './model/OneClickAlarmDescription';
+import { OneClickAlarmEnabled } from './model/OneClickAlarmEnabled';
 import { OneClickAlarmID } from './model/OneClickAlarmID';
 import { OneClickAlarmPolicy } from './model/OneClickAlarmPolicy';
 import { OneResourceGroupResp } from './model/OneResourceGroupResp';
+import { OneResourceGroupRespResourceStatistics } from './model/OneResourceGroupRespResourceStatistics';
 import { Period } from './model/Period';
 import { Policies } from './model/Policies';
 import { PoliciesInListResp } from './model/PoliciesInListResp';
@@ -725,11 +731,11 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机监控维度指标信息
-     * @param {string} instanceId 资源ID，如：4270ff17-aba3-4138-89fa-820594c39755。
-     * @param {'mount_point' | 'disk' | 'proc' | 'gpu' | 'raid'} dimName 维度名称，枚举类型，类型有：   mount_point：挂载点,   disk：磁盘,   proc：进程,   gpu：显卡,   raid: RAID控制器,
-     * @param {string} [dimValue] 维度值，32位字符串，如：2e84018fc8b4484b94e89aae212fe615。
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {string} instanceId **参数描述**： 资源ID，如：4270ff17-aba3-4138-89fa-820594c39755。 **约束限制**： 不涉及。 **取值范围**： 字符串长度为36。 **默认取值**： 不涉及。 
+     * @param {'mount_point' | 'disk' | 'proc' | 'gpu' | 'raid'} dimName **参数描述**： 维度名称。 **约束限制**： 不涉及。 **取值范围**： 枚举类型，mount_point:挂载点，disk:磁盘，proc:进程，gpu:显卡，raid:RAID控制器。 **默认取值**： 不涉及。 
+     * @param {string} [dimValue] **参数描述**： 维度值。 **约束限制**： 不涉及。  **取值范围**： 32位字符串，如：2e84018fc8b4484b94e89aae212fe615。 **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数描述**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 最小值为0，最大值为2147483647。 **默认取值**： 0 
+     * @param {number} [limit] **参数描述**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： 最小值为1，最大值为1000。 **默认取值**： 1000 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -748,21 +754,21 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警记录列表
-     * @param {Array<string>} [alarmId] 告警ID,以al开头，后跟22位由字母或数字组成的字符串
-     * @param {string} [recordId] 告警记录ID,以ah开头，后跟22位由字母或数字组成的字符串
-     * @param {string} [name] 告警规则名称
-     * @param {Array<'ok' | 'alarm' | 'invalid'>} [status] 告警规则状态, ok为正常，alarm为告警，invalid为已失效
-     * @param {number} [level] 告警级别, 1为紧急，2为重要，3为次要，4为提示
-     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
-     * @param {string} [resourceId] 告警资源ID，多维度情况按字母升序排列并使用逗号分隔
-     * @param {string} [from] 查询告警记录的起始更新时间，例如：2022-02-10T10:05:46+08:00
-     * @param {string} [to] 查询告警记录的截止更新时间，例如：2022-02-10T10:05:47+08:00
-     * @param {'event' | 'metric'} [alarmType] 告警类型，event：查询事件类型告警，metric：查询指标类型告警
-     * @param {string} [createTimeFrom] 查询告警记录的起始创建时间，例如：2022-02-10T10:05:46+08:00
-     * @param {string} [createTimeTo] 查询告警记录的截止创建时间，例如：2022-02-10T10:05:47+08:00
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
-     * @param {'first_alarm_time' | 'update_time' | 'alarm_level' | 'record_id'} [orderBy] 按关键字排序, 默认为update_time, {first_alarm_time: 告警产生时间, update_time: 更新时间, alarm_level: 告警级别, record_id：表记录主键} 
+     * @param {Array<string>} [alarmId] **参数解释**： 告警ID列表。告警ID：以al开头，后跟22位由字母或数字组成的字符串。 **约束限制**： 列表最大长度为50。 
+     * @param {string} [recordId] **参数解释**： 告警记录ID。 **约束限制**： 不涉及。 **取值范围**： 以ah开头，后跟22位由字母或数字组成的字符串，字符串长度为24。 **默认取值**： 不涉及。 
+     * @param {string} [name] **参数解释**： 告警规则名称。 **约束限制**： 不涉及。 **取值范围**： 最大128字符长度。 **默认取值**： 不涉及。 
+     * @param {Array<'ok' | 'alarm' | 'invalid'>} [status] **参数解释**： 告警规则状态列表。告警规则状态：枚举值，ok为正常，alarm为告警，invalid为已失效。 **约束限制**： 列表长度最大为3。 
+     * @param {number} [level] **参数解释**： 告警级别。 **约束限制**： 不涉及。 **取值范围**： 枚举值，1为紧急，2为重要，3为次要，4为提示。 **默认取值**： 不涉及。 
+     * @param {string} [namespace] **参数解释**： 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”。 **约束限制**： 不涉及。 **取值范围**： 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度必须在 3 到 32个字符之间。 **默认取值**： 不涉及。 
+     * @param {string} [resourceId] **参数解释**： 告警资源ID。 **约束限制**： 不涉及。 **取值范围**： 多维度情况按字母升序排列并使用逗号分隔。最大字符长度为2048。 **默认取值**： 不涉及。 
+     * @param {string} [from] **参数解释**： 查询告警记录的起始更新时间，例如：2022-02-10T10:05:46+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
+     * @param {string} [to] **参数解释**： 查询告警记录的截止更新时间，例如：2022-02-10T10:05:47+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
+     * @param {'event' | 'metric'} [alarmType] **参数解释**： 告警类型。 **约束限制**： 不涉及。 **取值范围**： 枚举值。event:查询事件类型告警，metric:查询指标类型告警。 **默认取值**： 不涉及。 
+     * @param {string} [createTimeFrom] **参数解释**： 查询告警记录的起始创建时间，例如：2022-02-10T10:05:46+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
+     * @param {string} [createTimeTo] **参数解释**： 查询告警记录的截止创建时间，例如：2022-02-10T10:05:47+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 整数，最小值为0，最大值为1000000000。 **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 整数，最小值为1，最大值为100。 **默认取值**： 100 
+     * @param {'first_alarm_time' | 'update_time' | 'alarm_level' | 'record_id'} [orderBy] **参数解释**： 按关键字排序。 **约束限制**： 不涉及。 **取值范围**： 枚举值。first_alarm_time:告警产生时间, update_time:更新时间, alarm_level:告警级别，record_id表记录主键。 **默认取值**： update_time 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -1,3 +1,4 @@
+import { RemoteInstallHostInfo } from './RemoteInstallHostInfo';
 
 
 export class BatchCreateInvocationRequestBody {
@@ -8,6 +9,7 @@ export class BatchCreateInvocationRequestBody {
     private 'version_type'?: BatchCreateInvocationRequestBodyVersionTypeEnum | string;
     public origin?: BatchCreateInvocationRequestBodyOriginEnum | string;
     public version?: string;
+    private 'remote_install_meta'?: Array<RemoteInstallHostInfo>;
     public constructor(invocationType?: string) { 
         this['invocation_type'] = invocationType;
     }
@@ -69,6 +71,16 @@ export class BatchCreateInvocationRequestBody {
         this['version'] = version;
         return this;
     }
+    public withRemoteInstallMeta(remoteInstallMeta: Array<RemoteInstallHostInfo>): BatchCreateInvocationRequestBody {
+        this['remote_install_meta'] = remoteInstallMeta;
+        return this;
+    }
+    public set remoteInstallMeta(remoteInstallMeta: Array<RemoteInstallHostInfo>  | undefined) {
+        this['remote_install_meta'] = remoteInstallMeta;
+    }
+    public get remoteInstallMeta(): Array<RemoteInstallHostInfo> | undefined {
+        return this['remote_install_meta'];
+    }
 }
 
 /**
@@ -79,7 +91,9 @@ export enum BatchCreateInvocationRequestBodyInvocationTypeEnum {
     INSTALL = 'INSTALL',
     UPDATE = 'UPDATE',
     ROLLBACK = 'ROLLBACK',
-    RETRY = 'RETRY'
+    RETRY = 'RETRY',
+    SET_REMOTE_INSTALL_HOST = 'SET_REMOTE_INSTALL_HOST',
+    REMOTE_INSTALL = 'REMOTE_INSTALL'
 }
 /**
     * @export

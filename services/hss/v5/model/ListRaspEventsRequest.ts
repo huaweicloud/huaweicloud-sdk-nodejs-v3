@@ -11,8 +11,7 @@ export class ListRaspEventsRequest {
     public severity?: string;
     private 'attack_tag'?: string;
     private 'protect_status'?: ListRaspEventsRequestProtectStatusEnum | string;
-    public constructor(enterpriseProjectId?: string, hostId?: string, startTime?: number, endTime?: number, limit?: number, offset?: number) { 
-        this['enterprise_project_id'] = enterpriseProjectId;
+    public constructor(hostId?: string, startTime?: number, endTime?: number, limit?: number, offset?: number) { 
         this['host_id'] = hostId;
         this['start_time'] = startTime;
         this['end_time'] = endTime;

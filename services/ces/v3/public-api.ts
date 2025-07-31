@@ -12,4 +12,5 @@ export * from './model/ListAgentInvocationsResponse';
 export * from './model/ListAgentStatusRequest';
 export * from './model/ListAgentStatusRequestBody';
 export * from './model/ListAgentStatusResponse';
+export * from './model/RemoteInstallHostInfo';
 export * from './CesRegion';

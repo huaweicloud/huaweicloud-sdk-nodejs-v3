@@ -7,6 +7,8 @@ export class GlanceImageMembers {
     private 'image_id'?: string;
     private 'member_id'?: string;
     public schema?: string;
+    private 'member_type'?: string;
+    public urn?: string;
     public constructor(status?: string, createdAt?: string, updatedAt?: string, imageId?: string, memberId?: string, schema?: string) { 
         this['status'] = status;
         this['created_at'] = createdAt;
@@ -61,6 +63,20 @@ export class GlanceImageMembers {
     }
     public withSchema(schema: string): GlanceImageMembers {
         this['schema'] = schema;
+        return this;
+    }
+    public withMemberType(memberType: string): GlanceImageMembers {
+        this['member_type'] = memberType;
+        return this;
+    }
+    public set memberType(memberType: string  | undefined) {
+        this['member_type'] = memberType;
+    }
+    public get memberType(): string | undefined {
+        return this['member_type'];
+    }
+    public withUrn(urn: string): GlanceImageMembers {
+        this['urn'] = urn;
         return this;
     }
 }

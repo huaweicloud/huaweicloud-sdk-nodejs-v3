@@ -229,6 +229,9 @@ import { ProjectTag } from './model/ProjectTag';
 import { PublicIpConfig } from './model/PublicIpConfig';
 import { QueryColumnInfo } from './model/QueryColumnInfo';
 import { QueryColumnReq } from './model/QueryColumnReq';
+import { QueryCompareJobProgressRespFullInfo } from './model/QueryCompareJobProgressRespFullInfo';
+import { QueryCompareJobProgressRespGlobalInfo } from './model/QueryCompareJobProgressRespGlobalInfo';
+import { QueryCompareJobProgressRespIncreInfo } from './model/QueryCompareJobProgressRespIncreInfo';
 import { QueryDbPositionReq } from './model/QueryDbPositionReq';
 import { QueryDiagnosisResult } from './model/QueryDiagnosisResult';
 import { QueryDiagnosisResultDiagnosisResults } from './model/QueryDiagnosisResultDiagnosisResults';
@@ -265,6 +268,8 @@ import { ShowColumnInfoResultRequest } from './model/ShowColumnInfoResultRequest
 import { ShowColumnInfoResultResponse } from './model/ShowColumnInfoResultResponse';
 import { ShowComparePolicyRequest } from './model/ShowComparePolicyRequest';
 import { ShowComparePolicyResponse } from './model/ShowComparePolicyResponse';
+import { ShowCompareProgressRequest } from './model/ShowCompareProgressRequest';
+import { ShowCompareProgressResponse } from './model/ShowCompareProgressResponse';
 import { ShowDataFilteringResultRequest } from './model/ShowDataFilteringResultRequest';
 import { ShowDataFilteringResultResponse } from './model/ShowDataFilteringResultResponse';
 import { ShowDataProcessingRulesResultRequest } from './model/ShowDataProcessingRulesResultRequest';
@@ -1595,6 +1600,30 @@ export class DrsClient {
      */
     public showComparePolicy(showComparePolicyRequest?: ShowComparePolicyRequest): Promise<ShowComparePolicyResponse> {
         const options = ParamCreater().showComparePolicy(showComparePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询运行中对比任务的对比进度。
+     * 说明：
+     * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB主备、GaussDB分布式-&gt;GaussDB分布式、GaussDB主备-&gt;MySQL、GaussDBv1-&gt;GaussDB主备、GaussDB主备-&gt;GaussDBv1的同步任务与独立校验任务支持查看对比进度。
+     * - 运行中的行对比与内容对比支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询对比任务进度
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。 -en-us：英文 -zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCompareProgress(showCompareProgressRequest?: ShowCompareProgressRequest): Promise<ShowCompareProgressResponse> {
+        const options = ParamCreater().showCompareProgress(showCompareProgressRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5682,6 +5711,60 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询运行中对比任务的对比进度。
+         * 说明：
+         * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB主备、GaussDB分布式-&gt;GaussDB分布式、GaussDB主备-&gt;MySQL、GaussDBv1-&gt;GaussDB主备、GaussDB主备-&gt;GaussDBv1的同步任务与独立校验任务支持查看对比进度。
+         * - 运行中的行对比与内容对比支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCompareProgress(showCompareProgressRequest?: ShowCompareProgressRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/compare-progress/{compare_job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+
+            if (showCompareProgressRequest !== null && showCompareProgressRequest !== undefined) {
+                if (showCompareProgressRequest instanceof ShowCompareProgressRequest) {
+                    jobId = showCompareProgressRequest.jobId;
+                    compareJobId = showCompareProgressRequest.compareJobId;
+                    xLanguage = showCompareProgressRequest.xLanguage;
+                } else {
+                    jobId = showCompareProgressRequest['job_id'];
+                    compareJobId = showCompareProgressRequest['compare_job_id'];
+                    xLanguage = showCompareProgressRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showCompareProgress.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling showCompareProgress.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

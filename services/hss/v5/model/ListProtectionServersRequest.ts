@@ -9,8 +9,7 @@ export class ListProtectionServersRequest {
     private 'host_ip'?: string;
     private 'app_type'?: ListProtectionServersRequestAppTypeEnum | string;
     private 'app_status'?: ListProtectionServersRequestAppStatusEnum | string;
-    public constructor(enterpriseProjectId?: string, offset?: number, limit?: number, appStatus?: string) { 
-        this['enterprise_project_id'] = enterpriseProjectId;
+    public constructor(offset?: number, limit?: number, appStatus?: string) { 
         this['offset'] = offset;
         this['limit'] = limit;
         this['app_status'] = appStatus;

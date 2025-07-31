@@ -8,6 +8,7 @@ export class BatchUpdateNotificationMaskTimeRequestBody {
     private 'start_time'?: string;
     private 'end_date'?: string;
     private 'end_time'?: string;
+    private 'effective_timezone'?: string;
     public constructor(notificationMaskIds?: Array<string>, maskType?: MaskType) { 
         this['notification_mask_ids'] = notificationMaskIds;
         this['mask_type'] = maskType;
@@ -71,5 +72,15 @@ export class BatchUpdateNotificationMaskTimeRequestBody {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): BatchUpdateNotificationMaskTimeRequestBody {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
 }

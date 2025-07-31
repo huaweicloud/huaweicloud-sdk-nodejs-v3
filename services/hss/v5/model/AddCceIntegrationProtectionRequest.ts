@@ -5,8 +5,7 @@ export class AddCceIntegrationProtectionRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: CceIntegrationProtectionRequestBody;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): AddCceIntegrationProtectionRequest {
         this['region'] = region;

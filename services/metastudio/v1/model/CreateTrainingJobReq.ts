@@ -1,5 +1,6 @@
 import { CreateType } from './CreateType';
 import { JobTag } from './JobTag';
+import { SupportedServiceEnum } from './SupportedServiceEnum';
 
 
 export class CreateTrainingJobReq {
@@ -14,6 +15,8 @@ export class CreateTrainingJobReq {
     private 'batch_name'?: string;
     private 'output_language'?: string;
     private 'custom_text'?: string;
+    private 'is_ondemand_resource'?: boolean;
+    private 'supported_service'?: Array<SupportedServiceEnum>;
     public constructor(voiceName?: string) { 
         this['voice_name'] = voiceName;
     }
@@ -96,6 +99,26 @@ export class CreateTrainingJobReq {
     }
     public get customText(): string | undefined {
         return this['custom_text'];
+    }
+    public withIsOndemandResource(isOndemandResource: boolean): CreateTrainingJobReq {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
+    }
+    public withSupportedService(supportedService: Array<SupportedServiceEnum>): CreateTrainingJobReq {
+        this['supported_service'] = supportedService;
+        return this;
+    }
+    public set supportedService(supportedService: Array<SupportedServiceEnum>  | undefined) {
+        this['supported_service'] = supportedService;
+    }
+    public get supportedService(): Array<SupportedServiceEnum> | undefined {
+        return this['supported_service'];
     }
 }
 

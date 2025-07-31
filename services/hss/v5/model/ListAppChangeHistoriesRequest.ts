@@ -1,12 +1,12 @@
 
 
 export class ListAppChangeHistoriesRequest {
+    private 'enterprise_project_id'?: string;
     private 'host_id'?: string;
     private 'host_ip'?: string;
     private 'host_name'?: string;
     private 'app_name'?: string;
     private 'variation_type'?: string;
-    private 'enterprise_project_id'?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     public limit?: number;
@@ -14,6 +14,16 @@ export class ListAppChangeHistoriesRequest {
     private 'start_time'?: number;
     private 'end_time'?: number;
     public constructor() { 
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListAppChangeHistoriesRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withHostId(hostId: string): ListAppChangeHistoriesRequest {
         this['host_id'] = hostId;
@@ -64,16 +74,6 @@ export class ListAppChangeHistoriesRequest {
     }
     public get variationType(): string | undefined {
         return this['variation_type'];
-    }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ListAppChangeHistoriesRequest {
-        this['enterprise_project_id'] = enterpriseProjectId;
-        return this;
-    }
-    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
-        this['enterprise_project_id'] = enterpriseProjectId;
-    }
-    public get enterpriseProjectId(): string | undefined {
-        return this['enterprise_project_id'];
     }
     public withSortKey(sortKey: string): ListAppChangeHistoriesRequest {
         this['sort_key'] = sortKey;

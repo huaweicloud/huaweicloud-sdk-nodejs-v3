@@ -1,5 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetFileInfo } from './AssetFileInfo';
+import { AutoOperationConfig } from './AutoOperationConfig';
 import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
 
@@ -16,6 +17,7 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     private 'asset_type'?: UpdateDigitalAssetResponseAssetTypeEnum | string;
     private 'asset_state'?: UpdateDigitalAssetResponseAssetStateEnum | string;
     private 'fail_type'?: UpdateDigitalAssetResponseFailTypeEnum | string;
+    private 'block_reason_code'?: string;
     public reason?: string;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
@@ -23,6 +25,7 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     public files?: Array<AssetFileInfo>;
     private 'asset_order'?: number;
     private 'supported_service'?: Array<SupportedServiceEnum>;
+    private 'auto_operation_config'?: Array<AutoOperationConfig>;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -127,6 +130,16 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     public get failType(): UpdateDigitalAssetResponseFailTypeEnum | string | undefined {
         return this['fail_type'];
     }
+    public withBlockReasonCode(blockReasonCode: string): UpdateDigitalAssetResponse {
+        this['block_reason_code'] = blockReasonCode;
+        return this;
+    }
+    public set blockReasonCode(blockReasonCode: string  | undefined) {
+        this['block_reason_code'] = blockReasonCode;
+    }
+    public get blockReasonCode(): string | undefined {
+        return this['block_reason_code'];
+    }
     public withReason(reason: string): UpdateDigitalAssetResponse {
         this['reason'] = reason;
         return this;
@@ -178,6 +191,16 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     }
     public get supportedService(): Array<SupportedServiceEnum> | undefined {
         return this['supported_service'];
+    }
+    public withAutoOperationConfig(autoOperationConfig: Array<AutoOperationConfig>): UpdateDigitalAssetResponse {
+        this['auto_operation_config'] = autoOperationConfig;
+        return this;
+    }
+    public set autoOperationConfig(autoOperationConfig: Array<AutoOperationConfig>  | undefined) {
+        this['auto_operation_config'] = autoOperationConfig;
+    }
+    public get autoOperationConfig(): Array<AutoOperationConfig> | undefined {
+        return this['auto_operation_config'];
     }
     public withXRequestId(xRequestId: string): UpdateDigitalAssetResponse {
         this['X-Request-Id'] = xRequestId;

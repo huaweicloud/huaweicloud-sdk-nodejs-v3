@@ -5,8 +5,7 @@ export class ListCceClusterConfigRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: CCEClusterInfoListRequestBody;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): ListCceClusterConfigRequest {
         this['region'] = region;

@@ -14,6 +14,7 @@ export class InvocationInfo {
     private 'update_time'?: number;
     private 'current_version'?: string;
     private 'target_version'?: string;
+    private 'result_msg'?: string;
     public constructor() { 
     }
     public withInvocationId(invocationId: string): InvocationInfo {
@@ -145,6 +146,16 @@ export class InvocationInfo {
     }
     public get targetVersion(): string | undefined {
         return this['target_version'];
+    }
+    public withResultMsg(resultMsg: string): InvocationInfo {
+        this['result_msg'] = resultMsg;
+        return this;
+    }
+    public set resultMsg(resultMsg: string  | undefined) {
+        this['result_msg'] = resultMsg;
+    }
+    public get resultMsg(): string | undefined {
+        return this['result_msg'];
     }
 }
 

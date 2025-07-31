@@ -1,7 +1,7 @@
 import { AlarmType } from './AlarmType';
+import { Dimension } from './Dimension';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
-import { ResourcesInListResp } from './ResourcesInListResp';
 
 
 export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
@@ -10,7 +10,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
     public description?: string;
     public namespace?: string;
     public policies?: Array<Policy>;
-    public resources?: Array<ResourcesInListResp>;
+    public resources?: Array<Array<Dimension>>;
     public type?: AlarmType;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
@@ -48,7 +48,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
         this['policies'] = policies;
         return this;
     }
-    public withResources(resources: Array<ResourcesInListResp>): EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
+    public withResources(resources: Array<Array<Dimension>>): EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
         this['resources'] = resources;
         return this;
     }
@@ -137,5 +137,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
     * @enum {string}
     */
 export enum EnableOneClickAlarmRequestBodyOneClickUpdateAlarmsNotificationMannerEnum {
-    NOTIFICATION_POLICY = 'NOTIFICATION_POLICY'
+    NOTIFICATION_POLICY = 'NOTIFICATION_POLICY',
+    NOTIFICATION_GROUP = 'NOTIFICATION_GROUP',
+    TOPIC_SUBSCRIPTION = 'TOPIC_SUBSCRIPTION'
 }

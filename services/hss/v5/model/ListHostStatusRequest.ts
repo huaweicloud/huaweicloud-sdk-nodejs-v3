@@ -1,6 +1,7 @@
 
 
 export class ListHostStatusRequest {
+    public region?: string;
     private 'enterprise_project_id'?: string;
     public version?: string;
     private 'agent_status'?: string;
@@ -16,7 +17,6 @@ export class ListHostStatusRequest {
     private 'group_id'?: string;
     private 'group_name'?: string;
     private 'vpc_id'?: string;
-    public region?: string;
     private 'has_intrusion'?: boolean;
     private 'has_vul'?: boolean;
     private 'has_baseline'?: boolean;
@@ -39,9 +39,13 @@ export class ListHostStatusRequest {
     public incluster?: boolean;
     private 'protect_degradation'?: boolean;
     private 'cluster_id'?: string;
-    public limit?: number;
     public offset?: number;
+    public limit?: number;
     public constructor() { 
+    }
+    public withRegion(region: string): ListHostStatusRequest {
+        this['region'] = region;
+        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListHostStatusRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -186,10 +190,6 @@ export class ListHostStatusRequest {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
-    }
-    public withRegion(region: string): ListHostStatusRequest {
-        this['region'] = region;
-        return this;
     }
     public withHasIntrusion(hasIntrusion: boolean): ListHostStatusRequest {
         this['has_intrusion'] = hasIntrusion;
@@ -393,12 +393,12 @@ export class ListHostStatusRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withLimit(limit: number): ListHostStatusRequest {
-        this['limit'] = limit;
-        return this;
-    }
     public withOffset(offset: number): ListHostStatusRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListHostStatusRequest {
+        this['limit'] = limit;
         return this;
     }
 }

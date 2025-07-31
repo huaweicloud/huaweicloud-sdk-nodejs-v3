@@ -1,5 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { AssetSharedConfig } from './AssetSharedConfig';
+import { AutoOperationConfig } from './AutoOperationConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { SystemProperty } from './SystemProperty';
@@ -17,6 +18,7 @@ export class UpdateDigitalAssetRequestBody {
     private 'shared_config'?: AssetSharedConfig;
     private 'asset_order'?: number;
     private 'supported_service'?: Array<SupportedServiceEnum>;
+    private 'auto_operation_config'?: Array<AutoOperationConfig>;
     public constructor() { 
     }
     public withAssetName(assetName: string): UpdateDigitalAssetRequestBody {
@@ -122,6 +124,16 @@ export class UpdateDigitalAssetRequestBody {
     }
     public get supportedService(): Array<SupportedServiceEnum> | undefined {
         return this['supported_service'];
+    }
+    public withAutoOperationConfig(autoOperationConfig: Array<AutoOperationConfig>): UpdateDigitalAssetRequestBody {
+        this['auto_operation_config'] = autoOperationConfig;
+        return this;
+    }
+    public set autoOperationConfig(autoOperationConfig: Array<AutoOperationConfig>  | undefined) {
+        this['auto_operation_config'] = autoOperationConfig;
+    }
+    public get autoOperationConfig(): Array<AutoOperationConfig> | undefined {
+        return this['auto_operation_config'];
     }
 }
 

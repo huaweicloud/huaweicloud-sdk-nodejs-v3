@@ -7,6 +7,7 @@ export class UpdateOneClickAlarmNotificationsRequestBody {
     private 'ok_notifications'?: Array<Notification>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'effective_timezone'?: string;
     private 'notification_manner'?: UpdateOneClickAlarmNotificationsRequestBodyNotificationMannerEnum | string;
     private 'notification_policy_ids'?: Array<string>;
     public constructor(notificationEnabled?: boolean) { 
@@ -61,6 +62,16 @@ export class UpdateOneClickAlarmNotificationsRequestBody {
     }
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): UpdateOneClickAlarmNotificationsRequestBody {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
     public withNotificationManner(notificationManner: UpdateOneClickAlarmNotificationsRequestBodyNotificationMannerEnum | string): UpdateOneClickAlarmNotificationsRequestBody {
         this['notification_manner'] = notificationManner;

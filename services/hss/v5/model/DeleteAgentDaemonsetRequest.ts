@@ -5,8 +5,7 @@ export class DeleteAgentDaemonsetRequest {
     private 'enterprise_project_id'?: string;
     private 'cluster_id'?: string;
     private 'invoked_service'?: string;
-    public constructor(region?: string, clusterId?: string) { 
-        this['region'] = region;
+    public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
     public withRegion(region: string): DeleteAgentDaemonsetRequest {

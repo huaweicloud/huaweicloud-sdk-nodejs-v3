@@ -1,16 +1,12 @@
 
 
 export class ListProcessStatisticsRequest {
-    public path?: string;
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
     public category?: string;
+    public path?: string;
     public constructor() { 
-    }
-    public withPath(path: string): ListProcessStatisticsRequest {
-        this['path'] = path;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListProcessStatisticsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -32,6 +28,10 @@ export class ListProcessStatisticsRequest {
     }
     public withCategory(category: string): ListProcessStatisticsRequest {
         this['category'] = category;
+        return this;
+    }
+    public withPath(path: string): ListProcessStatisticsRequest {
+        this['path'] = path;
         return this;
     }
 }

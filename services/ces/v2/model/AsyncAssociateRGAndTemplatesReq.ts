@@ -8,6 +8,7 @@ export class AsyncAssociateRGAndTemplatesReq {
     private 'ok_notifications'?: Array<Notification>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'effective_timezone'?: string;
     private 'enterprise_project_id'?: string;
     private 'notification_manner'?: AsyncAssociateRGAndTemplatesReqNotificationMannerEnum | string;
     private 'notification_policy_ids'?: Array<string>;
@@ -74,6 +75,16 @@ export class AsyncAssociateRGAndTemplatesReq {
     }
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): AsyncAssociateRGAndTemplatesReq {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): AsyncAssociateRGAndTemplatesReq {
         this['enterprise_project_id'] = enterpriseProjectId;

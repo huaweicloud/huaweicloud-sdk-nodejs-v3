@@ -18,6 +18,7 @@ export class ListAlarmResponseAlarms {
     private 'ok_notifications'?: Array<Notification>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'effective_timezone'?: string;
     private 'enterprise_project_id'?: string;
     private 'alarm_template_id'?: string;
     private 'product_name'?: string;
@@ -111,6 +112,16 @@ export class ListAlarmResponseAlarms {
     }
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): ListAlarmResponseAlarms {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListAlarmResponseAlarms {
         this['enterprise_project_id'] = enterpriseProjectId;

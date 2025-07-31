@@ -15,6 +15,7 @@ export class EgRegion {
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://eg.cn-north-11.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://eg.cn-north-9.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://eg.na-mexico-1.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://eg.eu-west-101.myhuaweicloud.eu"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -26,7 +27,8 @@ export class EgRegion {
         "cn-south-1":EgRegion.CN_SOUTH_1,
         "cn-north-11":EgRegion.CN_NORTH_11,
         "cn-north-9":EgRegion.CN_NORTH_9,
-        "na-mexico-1":EgRegion.NA_MEXICO_1
+        "na-mexico-1":EgRegion.NA_MEXICO_1,
+        "eu-west-101":EgRegion.EU_WEST_101
     };
   
     public static valueOf(regionId: string) {

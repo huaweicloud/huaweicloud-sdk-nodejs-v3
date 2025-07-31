@@ -2,8 +2,7 @@
 
 export class ShowRaspProtectStatisticsRequest {
     private 'enterprise_project_id'?: string;
-    public constructor(enterpriseProjectId?: string) { 
-        this['enterprise_project_id'] = enterpriseProjectId;
+    public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowRaspProtectStatisticsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

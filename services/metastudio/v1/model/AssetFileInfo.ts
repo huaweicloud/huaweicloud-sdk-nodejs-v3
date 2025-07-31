@@ -10,6 +10,7 @@ export class AssetFileInfo {
     private 'asset_file_category'?: string;
     private 'download_url'?: string;
     public state?: AssetFileInfoStateEnum | string;
+    private 'block_reason_code'?: string;
     public reason?: string;
     private 'file_extra_meta'?: FileExtraMeta;
     public constructor() { 
@@ -87,6 +88,16 @@ export class AssetFileInfo {
     public withState(state: AssetFileInfoStateEnum | string): AssetFileInfo {
         this['state'] = state;
         return this;
+    }
+    public withBlockReasonCode(blockReasonCode: string): AssetFileInfo {
+        this['block_reason_code'] = blockReasonCode;
+        return this;
+    }
+    public set blockReasonCode(blockReasonCode: string  | undefined) {
+        this['block_reason_code'] = blockReasonCode;
+    }
+    public get blockReasonCode(): string | undefined {
+        return this['block_reason_code'];
     }
     public withReason(reason: string): AssetFileInfo {
         this['reason'] = reason;

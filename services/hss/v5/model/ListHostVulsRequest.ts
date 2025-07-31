@@ -2,11 +2,11 @@
 
 export class ListHostVulsRequest {
     private 'enterprise_project_id'?: string;
+    public limit?: number;
+    public offset?: number;
     private 'host_id'?: string;
     public type?: string;
     private 'vul_name'?: string;
-    public limit?: number;
-    public offset?: number;
     private 'handle_status'?: string;
     public status?: string;
     private 'repair_priority'?: string;
@@ -22,6 +22,14 @@ export class ListHostVulsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withLimit(limit: number): ListHostVulsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListHostVulsRequest {
+        this['offset'] = offset;
+        return this;
     }
     public withHostId(hostId: string): ListHostVulsRequest {
         this['host_id'] = hostId;
@@ -46,14 +54,6 @@ export class ListHostVulsRequest {
     }
     public get vulName(): string | undefined {
         return this['vul_name'];
-    }
-    public withLimit(limit: number): ListHostVulsRequest {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): ListHostVulsRequest {
-        this['offset'] = offset;
-        return this;
     }
     public withHandleStatus(handleStatus: string): ListHostVulsRequest {
         this['handle_status'] = handleStatus;

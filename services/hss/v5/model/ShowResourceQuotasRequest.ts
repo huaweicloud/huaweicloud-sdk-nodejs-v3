@@ -1,15 +1,10 @@
 
 
 export class ShowResourceQuotasRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
     public version?: string;
     private 'charging_mode'?: string;
     public constructor() { 
-    }
-    public withRegion(region: string): ShowResourceQuotasRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowResourceQuotasRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

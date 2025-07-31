@@ -8,6 +8,8 @@ export class GlanceShowImageMemberResponse extends SdkResponse {
     private 'image_id'?: string;
     private 'member_id'?: string;
     public schema?: string;
+    private 'member_type'?: string;
+    public urn?: string;
     public constructor() { 
         super();
     }
@@ -57,6 +59,20 @@ export class GlanceShowImageMemberResponse extends SdkResponse {
     }
     public withSchema(schema: string): GlanceShowImageMemberResponse {
         this['schema'] = schema;
+        return this;
+    }
+    public withMemberType(memberType: string): GlanceShowImageMemberResponse {
+        this['member_type'] = memberType;
+        return this;
+    }
+    public set memberType(memberType: string  | undefined) {
+        this['member_type'] = memberType;
+    }
+    public get memberType(): string | undefined {
+        return this['member_type'];
+    }
+    public withUrn(urn: string): GlanceShowImageMemberResponse {
+        this['urn'] = urn;
         return this;
     }
 }

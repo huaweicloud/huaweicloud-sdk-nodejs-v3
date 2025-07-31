@@ -1,5 +1,5 @@
-import { GeneralImageVulsResponseInfoCveList } from './GeneralImageVulsResponseInfoCveList';
 import { HostVulInfoAppList } from './HostVulInfoAppList';
+import { HostVulInfoCveList } from './HostVulInfoCveList';
 import { HostVulInfoDisabledOperateTypes } from './HostVulInfoDisabledOperateTypes';
 
 
@@ -18,7 +18,7 @@ export class HostVulInfo {
     private 'repair_cmd'?: string;
     public status?: string;
     private 'repair_success_num'?: number;
-    private 'cve_list'?: Array<GeneralImageVulsResponseInfoCveList>;
+    private 'cve_list'?: Array<HostVulInfoCveList>;
     private 'is_affect_business'?: boolean;
     private 'first_scan_time'?: number;
     private 'app_name'?: string;
@@ -146,14 +146,14 @@ export class HostVulInfo {
     public get repairSuccessNum(): number | undefined {
         return this['repair_success_num'];
     }
-    public withCveList(cveList: Array<GeneralImageVulsResponseInfoCveList>): HostVulInfo {
+    public withCveList(cveList: Array<HostVulInfoCveList>): HostVulInfo {
         this['cve_list'] = cveList;
         return this;
     }
-    public set cveList(cveList: Array<GeneralImageVulsResponseInfoCveList>  | undefined) {
+    public set cveList(cveList: Array<HostVulInfoCveList>  | undefined) {
         this['cve_list'] = cveList;
     }
-    public get cveList(): Array<GeneralImageVulsResponseInfoCveList> | undefined {
+    public get cveList(): Array<HostVulInfoCveList> | undefined {
         return this['cve_list'];
     }
     public withIsAffectBusiness(isAffectBusiness: boolean): HostVulInfo {

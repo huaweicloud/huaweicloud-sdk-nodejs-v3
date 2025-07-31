@@ -6,8 +6,7 @@ export class UpdateAgentDaemonsetRequest {
     private 'enterprise_project_id'?: string;
     private 'cluster_id'?: string;
     public body?: UpdateDaemonsetRequestBody;
-    public constructor(region?: string, clusterId?: string) { 
-        this['region'] = region;
+    public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
     public withRegion(region: string): UpdateAgentDaemonsetRequest {

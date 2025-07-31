@@ -24,13 +24,19 @@ import { BatchUpdateMembersResponse } from './model/BatchUpdateMembersResponse';
 import { CopyImageCrossRegionRequest } from './model/CopyImageCrossRegionRequest';
 import { CopyImageCrossRegionRequestBody } from './model/CopyImageCrossRegionRequestBody';
 import { CopyImageCrossRegionResponse } from './model/CopyImageCrossRegionResponse';
+import { CopyImageInRegionInSafeModeRequest } from './model/CopyImageInRegionInSafeModeRequest';
+import { CopyImageInRegionInSafeModeResponse } from './model/CopyImageInRegionInSafeModeResponse';
 import { CopyImageInRegionRequest } from './model/CopyImageInRegionRequest';
 import { CopyImageInRegionRequestBody } from './model/CopyImageInRegionRequestBody';
 import { CopyImageInRegionResponse } from './model/CopyImageInRegionResponse';
 import { CreateDataImage } from './model/CreateDataImage';
+import { CreateDataImageInSafeModeRequest } from './model/CreateDataImageInSafeModeRequest';
+import { CreateDataImageInSafeModeResponse } from './model/CreateDataImageInSafeModeResponse';
 import { CreateDataImageRequest } from './model/CreateDataImageRequest';
 import { CreateDataImageRequestBody } from './model/CreateDataImageRequestBody';
 import { CreateDataImageResponse } from './model/CreateDataImageResponse';
+import { CreateImageInSafeModeRequest } from './model/CreateImageInSafeModeRequest';
+import { CreateImageInSafeModeResponse } from './model/CreateImageInSafeModeResponse';
 import { CreateImageRequest } from './model/CreateImageRequest';
 import { CreateImageRequestBody } from './model/CreateImageRequestBody';
 import { CreateImageResponse } from './model/CreateImageResponse';
@@ -41,6 +47,8 @@ import { CreateWholeImageRequestBody } from './model/CreateWholeImageRequestBody
 import { CreateWholeImageResponse } from './model/CreateWholeImageResponse';
 import { DeleteImageTagRequest } from './model/DeleteImageTagRequest';
 import { DeleteImageTagResponse } from './model/DeleteImageTagResponse';
+import { ExportImageInSafeModeRequest } from './model/ExportImageInSafeModeRequest';
+import { ExportImageInSafeModeResponse } from './model/ExportImageInSafeModeResponse';
 import { ExportImageRequest } from './model/ExportImageRequest';
 import { ExportImageRequestBody } from './model/ExportImageRequestBody';
 import { ExportImageResponse } from './model/ExportImageResponse';
@@ -86,6 +94,8 @@ import { GlanceUpdateImageResponse } from './model/GlanceUpdateImageResponse';
 import { ImageInfo } from './model/ImageInfo';
 import { ImageMember } from './model/ImageMember';
 import { ImageTag } from './model/ImageTag';
+import { ImportImageQuickInSafeModeRequest } from './model/ImportImageQuickInSafeModeRequest';
+import { ImportImageQuickInSafeModeResponse } from './model/ImportImageQuickInSafeModeResponse';
 import { ImportImageQuickRequest } from './model/ImportImageQuickRequest';
 import { ImportImageQuickResponse } from './model/ImportImageQuickResponse';
 import { JobEntities } from './model/JobEntities';
@@ -319,6 +329,27 @@ export class ImsClient {
     }
 
     /**
+     * 该接口为扩展接口，主要用于用户将一个已有镜像复制为另一个镜像。复制镜像时，可以更改镜像的加密等属性，以满足不同的场景。
+     * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Region内复制镜像（新）
+     * @param {string} imageId 镜像ID
+     * @param {CopyImageInRegionRequestBody} bodyparam 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyImageInRegionInSafeMode(copyImageInRegionInSafeModeRequest?: CopyImageInRegionInSafeModeRequest): Promise<CopyImageInRegionInSafeModeResponse> {
+        const options = ParamCreater().copyImageInRegionInSafeMode(copyImageInRegionInSafeModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 使用上传至OBS桶中的外部数据卷镜像文件制作数据镜像。作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态。具体请参考异步任务查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -330,6 +361,25 @@ export class ImsClient {
      */
     public createDataImage(createDataImageRequest?: CreateDataImageRequest): Promise<CreateDataImageResponse> {
         const options = ParamCreater().createDataImage(createDataImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用上传至OBS桶中的外部数据卷镜像文件制作数据镜像。作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态。具体请参考异步任务查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 使用外部镜像文件制作数据镜像（新）
+     * @param {CreateDataImageRequestBody} bodyparam 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDataImageInSafeMode(createDataImageInSafeModeRequest?: CreateDataImageInSafeModeRequest): Promise<CreateDataImageInSafeModeResponse> {
+        const options = ParamCreater().createDataImageInSafeMode(createDataImageInSafeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -360,6 +410,36 @@ export class ImsClient {
      */
     public createImage(createImageRequest?: CreateImageRequest): Promise<CreateImageResponse> {
         const options = ParamCreater().createImage(createImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 本接口用于制作私有镜像，支持：
+     * - 使用云服务器制作私有镜像。
+     * - 使用上传至OBS桶中的外部镜像文件制作私有镜像。
+     * - 使用数据卷制作系统盘镜像。
+     * 
+     * 作为异步接口，调用成功，只是说明云平台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
+     * 
+     * 不同场景必选参数说明：
+     * 
+     * - 使用云服务器制作镜像时的请求的必选参数：name,instance_id。
+     * - 使用上传至OBS桶中的外部镜像文件时的请求必选参数：name,image_url,min_disk。
+     * - 使用数据卷制作系统盘镜像时的请求必选参数：name,volume_id,os_version
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 制作镜像（新）
+     * @param {CreateImageRequestBody} eCSbodyparam 使用云服务器制作镜像时的Request Body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createImageInSafeMode(createImageInSafeModeRequest?: CreateImageInSafeModeRequest): Promise<CreateImageInSafeModeResponse> {
+        const options = ParamCreater().createImageInSafeMode(createImageInSafeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -446,6 +526,26 @@ export class ImsClient {
     }
 
     /**
+     * 该接口为扩展接口，用于用户将自己的私有镜像导出到指定的OBS桶中。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出镜像（新）
+     * @param {string} imageId 镜像ID。
+     * @param {ExportImageRequestBody} bodyparam 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportImageInSafeMode(exportImageInSafeModeRequest?: ExportImageInSafeModeRequest): Promise<ExportImageInSafeModeResponse> {
+        const options = ParamCreater().exportImageInSafeMode(exportImageInSafeModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 使用上传至OBS桶中的超大外部镜像文件制作私有镜像，目前仅支持RAW或ZVHD2格式镜像文件。且要求镜像文件大小不能超过1TB。
      * 由于快速导入功能要求提前转换镜像文件格式为RAW或ZVHD2格式，因此镜像文件小于128GB时推荐您优先使用常规的创建私有镜像的方式。
      * 作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
@@ -459,6 +559,27 @@ export class ImsClient {
      */
     public importImageQuick(importImageQuickRequest?: ImportImageQuickRequest): Promise<ImportImageQuickResponse> {
         const options = ParamCreater().importImageQuick(importImageQuickRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用上传至OBS桶中的超大外部镜像文件制作私有镜像，目前仅支持RAW或ZVHD2格式镜像文件。且要求镜像文件大小不能超过1TB。
+     * 由于快速导入功能要求提前转换镜像文件格式为RAW或ZVHD2格式，因此镜像文件小于128GB时推荐您优先使用常规的创建私有镜像的方式。
+     * 作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 镜像文件快速导入（新）
+     * @param {QuickImportImageByFileRequestBody} fileCreateIms 快速通道创建镜像的Request Body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importImageQuickInSafeMode(importImageQuickInSafeModeRequest?: ImportImageQuickInSafeModeRequest): Promise<ImportImageQuickInSafeModeResponse> {
+        const options = ParamCreater().importImageQuickInSafeMode(importImageQuickInSafeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1507,6 +1628,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口为扩展接口，主要用于用户将一个已有镜像复制为另一个镜像。复制镜像时，可以更改镜像的加密等属性，以满足不同的场景。
+         * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyImageInRegionInSafeMode(copyImageInRegionInSafeModeRequest?: CopyImageInRegionInSafeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/cloudimages/{image_id}/copy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let imageId;
+
+            if (copyImageInRegionInSafeModeRequest !== null && copyImageInRegionInSafeModeRequest !== undefined) {
+                if (copyImageInRegionInSafeModeRequest instanceof CopyImageInRegionInSafeModeRequest) {
+                    imageId = copyImageInRegionInSafeModeRequest.imageId;
+                    body = copyImageInRegionInSafeModeRequest.body
+                } else {
+                    imageId = copyImageInRegionInSafeModeRequest['image_id'];
+                    body = copyImageInRegionInSafeModeRequest['body'];
+                }
+            }
+
+        
+            if (imageId === null || imageId === undefined) {
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling copyImageInRegionInSafeMode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'image_id': imageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 使用上传至OBS桶中的外部数据卷镜像文件制作数据镜像。作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态。具体请参考异步任务查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1530,6 +1698,44 @@ export const ParamCreater = function () {
                     body = createDataImageRequest.body
                 } else {
                     body = createDataImageRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用上传至OBS桶中的外部数据卷镜像文件制作数据镜像。作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态。具体请参考异步任务查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDataImageInSafeMode(createDataImageInSafeModeRequest?: CreateDataImageInSafeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/cloudimages/dataimages/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDataImageInSafeModeRequest !== null && createDataImageInSafeModeRequest !== undefined) {
+                if (createDataImageInSafeModeRequest instanceof CreateDataImageInSafeModeRequest) {
+                    body = createDataImageInSafeModeRequest.body
+                } else {
+                    body = createDataImageInSafeModeRequest['body'];
                 }
             }
 
@@ -1579,6 +1785,55 @@ export const ParamCreater = function () {
                     body = createImageRequest.body
                 } else {
                     body = createImageRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 本接口用于制作私有镜像，支持：
+         * - 使用云服务器制作私有镜像。
+         * - 使用上传至OBS桶中的外部镜像文件制作私有镜像。
+         * - 使用数据卷制作系统盘镜像。
+         * 
+         * 作为异步接口，调用成功，只是说明云平台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
+         * 
+         * 不同场景必选参数说明：
+         * 
+         * - 使用云服务器制作镜像时的请求的必选参数：name,instance_id。
+         * - 使用上传至OBS桶中的外部镜像文件时的请求必选参数：name,image_url,min_disk。
+         * - 使用数据卷制作系统盘镜像时的请求必选参数：name,volume_id,os_version
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createImageInSafeMode(createImageInSafeModeRequest?: CreateImageInSafeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/cloudimages/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createImageInSafeModeRequest !== null && createImageInSafeModeRequest !== undefined) {
+                if (createImageInSafeModeRequest instanceof CreateImageInSafeModeRequest) {
+                    body = createImageInSafeModeRequest.body
+                } else {
+                    body = createImageInSafeModeRequest['body'];
                 }
             }
 
@@ -1760,6 +2015,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口为扩展接口，用于用户将自己的私有镜像导出到指定的OBS桶中。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportImageInSafeMode(exportImageInSafeModeRequest?: ExportImageInSafeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/cloudimages/{image_id}/file",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let imageId;
+
+            if (exportImageInSafeModeRequest !== null && exportImageInSafeModeRequest !== undefined) {
+                if (exportImageInSafeModeRequest instanceof ExportImageInSafeModeRequest) {
+                    imageId = exportImageInSafeModeRequest.imageId;
+                    body = exportImageInSafeModeRequest.body
+                } else {
+                    imageId = exportImageInSafeModeRequest['image_id'];
+                    body = exportImageInSafeModeRequest['body'];
+                }
+            }
+
+        
+            if (imageId === null || imageId === undefined) {
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling exportImageInSafeMode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'image_id': imageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 使用上传至OBS桶中的超大外部镜像文件制作私有镜像，目前仅支持RAW或ZVHD2格式镜像文件。且要求镜像文件大小不能超过1TB。
          * 由于快速导入功能要求提前转换镜像文件格式为RAW或ZVHD2格式，因此镜像文件小于128GB时推荐您优先使用常规的创建私有镜像的方式。
          * 作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
@@ -1785,6 +2086,46 @@ export const ParamCreater = function () {
                     body = importImageQuickRequest.body
                 } else {
                     body = importImageQuickRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用上传至OBS桶中的超大外部镜像文件制作私有镜像，目前仅支持RAW或ZVHD2格式镜像文件。且要求镜像文件大小不能超过1TB。
+         * 由于快速导入功能要求提前转换镜像文件格式为RAW或ZVHD2格式，因此镜像文件小于128GB时推荐您优先使用常规的创建私有镜像的方式。
+         * 作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importImageQuickInSafeMode(importImageQuickInSafeModeRequest?: ImportImageQuickInSafeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/cloudimages/quickimport/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (importImageQuickInSafeModeRequest !== null && importImageQuickInSafeModeRequest !== undefined) {
+                if (importImageQuickInSafeModeRequest instanceof ImportImageQuickInSafeModeRequest) {
+                    body = importImageQuickInSafeModeRequest.body
+                } else {
+                    body = importImageQuickInSafeModeRequest['body'];
                 }
             }
 

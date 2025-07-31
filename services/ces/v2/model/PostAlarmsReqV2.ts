@@ -17,6 +17,7 @@ export class PostAlarmsReqV2 {
     private 'ok_notifications'?: Array<Notification>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'effective_timezone'?: string;
     private 'enterprise_project_id'?: string;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
@@ -105,6 +106,16 @@ export class PostAlarmsReqV2 {
     }
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): PostAlarmsReqV2 {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): PostAlarmsReqV2 {
         this['enterprise_project_id'] = enterpriseProjectId;

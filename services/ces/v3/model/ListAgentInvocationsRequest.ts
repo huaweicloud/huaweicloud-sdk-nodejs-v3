@@ -86,7 +86,9 @@ export enum ListAgentInvocationsRequestInvocationTypeEnum {
     INSTALL = 'INSTALL',
     UPDATE = 'UPDATE',
     ROLLBACK = 'ROLLBACK',
-    RETRY = 'RETRY'
+    RETRY = 'RETRY',
+    SET_REMOTE_INSTALLER = 'SET_REMOTE_INSTALLER',
+    REMOTE_INSTALL = 'REMOTE_INSTALL'
 }
 /**
     * @export

@@ -4,8 +4,7 @@ export class ShowAppRaspSwitchStatusRequest {
     private 'enterprise_project_id'?: string;
     private 'app_type'?: ShowAppRaspSwitchStatusRequestAppTypeEnum | string;
     private 'host_id'?: string;
-    public constructor(enterpriseProjectId?: string, hostId?: string) { 
-        this['enterprise_project_id'] = enterpriseProjectId;
+    public constructor(hostId?: string) { 
         this['host_id'] = hostId;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowAppRaspSwitchStatusRequest {

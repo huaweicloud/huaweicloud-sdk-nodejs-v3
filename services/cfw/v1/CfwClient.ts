@@ -2,6 +2,9 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccessTopMemberVO } from './model/AccessTopMemberVO';
+import { AccessTopStatisticsVO } from './model/AccessTopStatisticsVO';
+import { AccessTopVO } from './model/AccessTopVO';
 import { AddAclRuleRequest } from './model/AddAclRuleRequest';
 import { AddAclRuleResponse } from './model/AddAclRuleResponse';
 import { AddAddressItemRequest } from './model/AddAddressItemRequest';
@@ -49,6 +52,8 @@ import { AntiVirusRuleDto } from './model/AntiVirusRuleDto';
 import { AntiVirusRuleVO } from './model/AntiVirusRuleVO';
 import { AntiVirusSwitchDto } from './model/AntiVirusSwitchDto';
 import { AntiVirusVO } from './model/AntiVirusVO';
+import { AttackStatisticRespBody } from './model/AttackStatisticRespBody';
+import { AttackTrendRespBody } from './model/AttackTrendRespBody';
 import { BatchDeleteAclRulesRequest } from './model/BatchDeleteAclRulesRequest';
 import { BatchDeleteAclRulesResponse } from './model/BatchDeleteAclRulesResponse';
 import { BatchDeleteAclRulesResponseData } from './model/BatchDeleteAclRulesResponseData';
@@ -108,6 +113,8 @@ import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagResponse } from './model/CreateTagResponse';
 import { CreateTagsDto } from './model/CreateTagsDto';
 import { CustomerIpsListVO } from './model/CustomerIpsListVO';
+import { CustomerIpsSaveDto } from './model/CustomerIpsSaveDto';
+import { CustomerIpsVO } from './model/CustomerIpsVO';
 import { DeleteAclRuleHitCountRequest } from './model/DeleteAclRuleHitCountRequest';
 import { DeleteAclRuleHitCountResponse } from './model/DeleteAclRuleHitCountResponse';
 import { DeleteAclRuleRequest } from './model/DeleteAclRuleRequest';
@@ -187,6 +194,7 @@ import { IpBlacklistImportDto } from './model/IpBlacklistImportDto';
 import { IpBlacklistSwitchInfoVo } from './model/IpBlacklistSwitchInfoVo';
 import { IpBlacklistVO } from './model/IpBlacklistVO';
 import { IpRegionDto } from './model/IpRegionDto';
+import { IpsContent } from './model/IpsContent';
 import { IpsProtectDTO } from './model/IpsProtectDTO';
 import { IpsProtectModeObject } from './model/IpsProtectModeObject';
 import { IpsRuleChangeDto } from './model/IpsRuleChangeDto';
@@ -212,6 +220,8 @@ import { ListAlarmWhitelistRequest } from './model/ListAlarmWhitelistRequest';
 import { ListAlarmWhitelistResponse } from './model/ListAlarmWhitelistResponse';
 import { ListAttackLogsRequest } from './model/ListAttackLogsRequest';
 import { ListAttackLogsResponse } from './model/ListAttackLogsResponse';
+import { ListAttackStatisticRequest } from './model/ListAttackStatisticRequest';
+import { ListAttackStatisticResponse } from './model/ListAttackStatisticResponse';
 import { ListBlackWhiteListsRequest } from './model/ListBlackWhiteListsRequest';
 import { ListBlackWhiteListsResponse } from './model/ListBlackWhiteListsResponse';
 import { ListCaptureResultRequest } from './model/ListCaptureResultRequest';
@@ -285,6 +295,7 @@ import { OrderRuleId } from './model/OrderRuleId';
 import { PacketMessage } from './model/PacketMessage';
 import { PageDataIpBlacklistsVo } from './model/PageDataIpBlacklistsVo';
 import { PageInfo } from './model/PageInfo';
+import { Port } from './model/Port';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
 import { ResourceTag } from './model/ResourceTag';
@@ -315,20 +326,31 @@ import { ServiceSet } from './model/ServiceSet';
 import { ServiceSetDetailResponseDto } from './model/ServiceSetDetailResponseDto';
 import { ServiceSetId } from './model/ServiceSetId';
 import { ServiceSetRecords } from './model/ServiceSetRecords';
+import { ShowAccessTopRequest } from './model/ShowAccessTopRequest';
+import { ShowAccessTopResponse } from './model/ShowAccessTopResponse';
 import { ShowAlarmConfigRequest } from './model/ShowAlarmConfigRequest';
 import { ShowAlarmConfigResponse } from './model/ShowAlarmConfigResponse';
 import { ShowAntiVirusRuleRequest } from './model/ShowAntiVirusRuleRequest';
 import { ShowAntiVirusRuleResponse } from './model/ShowAntiVirusRuleResponse';
 import { ShowAntiVirusSwitchRequest } from './model/ShowAntiVirusSwitchRequest';
 import { ShowAntiVirusSwitchResponse } from './model/ShowAntiVirusSwitchResponse';
+import { ShowAttackTotalRequest } from './model/ShowAttackTotalRequest';
+import { ShowAttackTotalRespData } from './model/ShowAttackTotalRespData';
+import { ShowAttackTotalResponse } from './model/ShowAttackTotalResponse';
+import { ShowAttackTrendRequest } from './model/ShowAttackTrendRequest';
+import { ShowAttackTrendResponse } from './model/ShowAttackTrendResponse';
 import { ShowAutoProtectStatusRequest } from './model/ShowAutoProtectStatusRequest';
 import { ShowAutoProtectStatusResponse } from './model/ShowAutoProtectStatusResponse';
+import { ShowCustomerIpsInfoRequest } from './model/ShowCustomerIpsInfoRequest';
+import { ShowCustomerIpsInfoResponse } from './model/ShowCustomerIpsInfoResponse';
 import { ShowDomainSetDetailRequest } from './model/ShowDomainSetDetailRequest';
 import { ShowDomainSetDetailResponse } from './model/ShowDomainSetDetailResponse';
 import { ShowImportStatusRequest } from './model/ShowImportStatusRequest';
 import { ShowImportStatusResponse } from './model/ShowImportStatusResponse';
 import { ShowIpsUpdateTimeRequest } from './model/ShowIpsUpdateTimeRequest';
 import { ShowIpsUpdateTimeResponse } from './model/ShowIpsUpdateTimeResponse';
+import { ShowTrafficTrendRequest } from './model/ShowTrafficTrendRequest';
+import { ShowTrafficTrendResponse } from './model/ShowTrafficTrendResponse';
 import { SubnetInfo } from './model/SubnetInfo';
 import { SwitchAutoProtectStatusRequest } from './model/SwitchAutoProtectStatusRequest';
 import { SwitchAutoProtectStatusResponse } from './model/SwitchAutoProtectStatusResponse';
@@ -336,6 +358,8 @@ import { SwitchEipStatusDto } from './model/SwitchEipStatusDto';
 import { TagInfo } from './model/TagInfo';
 import { TagValue } from './model/TagValue';
 import { TagsVO } from './model/TagsVO';
+import { TopInfo } from './model/TopInfo';
+import { TrafficTrendVO } from './model/TrafficTrendVO';
 import { UpdateAclRuleOrderRequest } from './model/UpdateAclRuleOrderRequest';
 import { UpdateAclRuleOrderResponse } from './model/UpdateAclRuleOrderResponse';
 import { UpdateAclRuleRequest } from './model/UpdateAclRuleRequest';
@@ -356,6 +380,8 @@ import { UpdateAttackLogAlarmConfigDto } from './model/UpdateAttackLogAlarmConfi
 import { UpdateBlackWhiteListDto } from './model/UpdateBlackWhiteListDto';
 import { UpdateBlackWhiteListRequest } from './model/UpdateBlackWhiteListRequest';
 import { UpdateBlackWhiteListResponse } from './model/UpdateBlackWhiteListResponse';
+import { UpdateCustomerIpsRequest } from './model/UpdateCustomerIpsRequest';
+import { UpdateCustomerIpsResponse } from './model/UpdateCustomerIpsResponse';
 import { UpdateDnsServersRequest } from './model/UpdateDnsServersRequest';
 import { UpdateDnsServersRequestBody } from './model/UpdateDnsServersRequestBody';
 import { UpdateDnsServersRequestBodyDnsServer } from './model/UpdateDnsServersRequestBodyDnsServer';
@@ -1042,7 +1068,7 @@ export class CfwClient {
         const options = ParamCreater().exportIpBlacklist(exportIpBlacklistRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['Content-Disposition', 'Content-Length', 'Content-Type'];
+        options['responseHeaders'] = ['Content-Disposition', 'Content-Type'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1234,6 +1260,33 @@ export class CfwClient {
      */
     public listAttackLogs(listAttackLogsRequest?: ListAttackLogsRequest): Promise<ListAttackLogsResponse> {
         const options = ParamCreater().listAttackLogs(listAttackLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据防火墙攻击日志，查询攻击统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询攻击统计
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} fwInstanceId **参数解释**： 防火墙ID，用户创建防火墙实例后产生的唯一ID，配置后可区分不同防火墙，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {'internet' | 'nat' | 'vpc' | 'vgw'} logType **参数解释**： 日志类型 **约束限制**： 不涉及 **取值范围**： internet为南北向日志、nat为nat场景日志，vpc为东西向日志，vgw为vgw场景日志 **默认取值**： 不涉及 
+     * @param {'dst' | 'src'} item **参数解释**： 聚合类型 **约束限制**： 不涉及 **取值范围**： dst TOP攻击目的统计 src TOP攻击来源统计 **默认取值**： 不涉及
+     * @param {0 | 1 | 2} [range] **参数解释**： 时间范围  **约束限制**： 不涉及 **取值范围**： 0为近一时 1近一天 2近七天   **默认取值**： 不涉及 
+     * @param {'in2out' | 'out2in'} [direction] **参数解释**： 会话方向 **约束限制**： 不涉及 **取值范围**： in2out为出云方向 out2in为入云方向 **默认取值**： 不涉及 
+     * @param {number} [startTime] **参数解释**： 开始时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {number} [endTime] **参数解释**： 结束时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {Array<string>} [vgwId] **参数解释**： VGW ID **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAttackStatistic(listAttackStatisticRequest?: ListAttackStatisticRequest): Promise<ListAttackStatisticResponse> {
+        const options = ParamCreater().listAttackStatistic(listAttackStatisticRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1817,6 +1870,34 @@ export class CfwClient {
     }
 
     /**
+     * 获取访问日志的TOP统计信息，如TOP命中规则等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询访问日志统计信息
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} fwInstanceId **参数解释**： 防火墙ID，用户创建防火墙实例后产生的唯一ID，配置后可区分不同防火墙，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {'strategy_dashboard' | 'strategy_hit_info' | 'top_deny_rule' | 'src_ip' | 'dst_ip' | 'src_region' | 'dst_region' | 'dst_port'} item **参数解释**： 聚合类型 **约束限制**： 不涉及 **取值范围**： strategy_hit_info 策略的命中趋势 strategy_dashboard 策略命中概览 top_deny_rule TOP命中拦截策略 dst_ip TOP拦截目的IP src_ip TOP拦截源IP dst_port TOP拦截端口 dst_region TOP拦截目的地区 src_region TOP拦截源地区 **默认取值**： 不涉及
+     * @param {'in2out' | 'out2in'} [direction] **参数解释**： 会话方向 **约束限制**： 不涉及 **取值范围**： in2out为出云方向 out2in为入云方向 **默认取值**： 不涉及 
+     * @param {0 | 1 | 2} [range] **参数解释**： 时间范围  **约束限制**： 不涉及 **取值范围**： 0为近一时 1近一天 2近七天   **默认取值**： 不涉及 
+     * @param {number} [startTime] **参数解释**： 开始时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {number} [endTime] **参数解释**： 结束时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {Array<string>} [vgwId] **参数解释**： VGW ID **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {'internet' | 'nat' | 'vpc' | 'vgw'} [logType] **参数解释**： 日志类型 **约束限制**： 不涉及 **取值范围**： internet为南北向日志、nat为nat场景日志，vpc为东西向日志，vgw为vgw场景日志 **默认取值**： 不涉及
+     * @param {Array<string>} [ruleId] **参数解释**： 规则ID列表 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAccessTop(showAccessTopRequest?: ShowAccessTopRequest): Promise<ShowAccessTopResponse> {
+        const options = ParamCreater().showAccessTop(showAccessTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取告警配置信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1883,6 +1964,56 @@ export class CfwClient {
     }
 
     /**
+     * 查询攻击概览
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询攻击概览
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} fwInstanceId **参数解释**： 防火墙ID，用户创建防火墙实例后产生的唯一ID，配置后可区分不同防火墙，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {'internet' | 'nat' | 'vpc' | 'vgw'} logType **参数解释**： 日志类型 **约束限制**： 不涉及 **取值范围**： internet为南北向日志、nat为nat场景日志，vpc为东西向日志，vgw为vgw场景日志 **默认取值**： 不涉及 
+     * @param {0 | 1 | 2} [range] **参数解释**： 时间范围  **约束限制**： 不涉及 **取值范围**： 0为近一时 1近一天 2近七天   **默认取值**： 不涉及 
+     * @param {number} [startTime] **参数解释**： 开始时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {number} [endTime] **参数解释**： 结束时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {Array<string>} [vgwId] **参数解释**： VGW ID **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAttackTotal(showAttackTotalRequest?: ShowAttackTotalRequest): Promise<ShowAttackTotalResponse> {
+        const options = ParamCreater().showAttackTotal(showAttackTotalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询攻击趋势
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询攻击趋势
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} fwInstanceId **参数解释**： 防火墙ID，用户创建防火墙实例后产生的唯一ID，配置后可区分不同防火墙，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {'internet' | 'nat' | 'vpc' | 'vgw'} logType **参数解释**： 日志类型 **约束限制**： 不涉及 **取值范围**： internet为南北向日志、nat为nat场景日志，vpc为东西向日志，vgw为vgw场景日志 **默认取值**： 不涉及 
+     * @param {0 | 1 | 2} [range] **参数解释**： 时间范围  **约束限制**： 不涉及 **取值范围**： 0为近一时 1近一天 2近七天   **默认取值**： 不涉及 
+     * @param {number} [startTime] **参数解释**： 开始时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {number} [endTime] **参数解释**： 结束时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {Array<string>} [vgwId] **参数解释**： VGW ID **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAttackTrend(showAttackTrendRequest?: ShowAttackTrendRequest): Promise<ShowAttackTrendResponse> {
+        const options = ParamCreater().showAttackTrend(showAttackTrendRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看域名组详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1897,6 +2028,33 @@ export class CfwClient {
      */
     public showDomainSetDetail(showDomainSetDetailRequest?: ShowDomainSetDetailRequest): Promise<ShowDomainSetDetailResponse> {
         const options = ParamCreater().showDomainSetDetail(showDomainSetDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询流量趋势，包括南北向、EIP、东西向的流量趋势
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流量趋势
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} fwInstanceId **参数解释**： 防火墙ID，用户创建防火墙实例后产生的唯一ID，配置后可区分不同防火墙，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {'internet' | 'nat' | 'vpc' | 'vgw'} logType **参数解释**： 日志类型 **约束限制**： 不涉及 **取值范围**： internet为南北向日志、nat为nat场景日志，vpc为东西向日志，vgw为vgw场景日志 **默认取值**： 不涉及 
+     * @param {'avg' | 'max'} aggType **参数解释**： 聚合类型 **约束限制**： 不涉及 **取值范围**： avg为平均值 max为最大值 **默认取值**： 不涉及
+     * @param {0 | 1 | 2} [range] **参数解释**： 时间范围  **约束限制**： 不涉及 **取值范围**： 0为近一时 1近一天 2近七天   **默认取值**： 不涉及 
+     * @param {number} [startTime] **参数解释**： 开始时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {number} [endTime] **参数解释**： 结束时间 **约束限制**： 不涉及 **取值范围**： 毫秒级时间戳 **默认取值**： 不涉及 
+     * @param {Array<string>} [vgwId] **参数解释**： VGW ID **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及 
+     * @param {Array<string>} [ip] **参数解释**： IP地址列表，查看IP的流量趋势 **约束限制**： 不涉及 **取值范围**： IP地址 **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrafficTrend(showTrafficTrendRequest?: ShowTrafficTrendRequest): Promise<ShowTrafficTrendResponse> {
+        const options = ParamCreater().showTrafficTrend(showTrafficTrendRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2741,6 +2899,28 @@ export class CfwClient {
     }
 
     /**
+     * 功能说明：自定义IPS规则详情，特性:根据路径输入的IPS ID查看对应的自定义IPS详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义IPS规则详情
+     * @param {string} fwInstanceId **参数解释**： 防火墙ID，用户创建防火墙实例后产生的唯一ID，配置后可区分不同防火墙，可通过[防火墙ID获取方式](cfw_02_0028.xml)获取 **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} ipsCfwId **参数解释**： cfw侧自定义IPS规则id **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} objectId **参数解释**： 防护对象ID，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志ID，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得 **约束限制**： type为0时，object_id为互联网边界防护对象ID，type为1时，object_id为VPC边界防护对象ID，type可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCustomerIpsInfo(showCustomerIpsInfoRequest?: ShowCustomerIpsInfoRequest): Promise<ShowCustomerIpsInfoResponse> {
+        const options = ParamCreater().showCustomerIpsInfo(showCustomerIpsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取ips规则细节
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2776,6 +2956,27 @@ export class CfwClient {
      */
     public updateAdvancedIpsRule(updateAdvancedIpsRuleRequest?: UpdateAdvancedIpsRuleRequest): Promise<UpdateAdvancedIpsRuleResponse> {
         const options = ParamCreater().updateAdvancedIpsRule(updateAdvancedIpsRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新自定义IPS规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新自定义IPS规则
+     * @param {string} ipsCfwId **参数解释**： cfw侧自定义IPS规则id **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {string} projectId **参数解释**： 项目ID，用于明确项目归属，配置后可通过该ID查询项目下资产，可以从调API处获取，也可以从控制台获取。[项目ID获取方式](cfw_02_0015.xml) **约束限制**： 不涉及 **取值范围**： 32位UUID **默认取值**： 不涉及
+     * @param {CustomerIpsSaveDto} updateCustomerIpsRequestBody 更新自定义IPS规则请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomerIps(updateCustomerIpsRequest?: UpdateCustomerIpsRequest): Promise<UpdateCustomerIpsResponse> {
+        const options = ParamCreater().updateCustomerIps(updateCustomerIpsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5397,6 +5598,109 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据防火墙攻击日志，查询攻击统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAttackStatistic(listAttackStatisticRequest?: ListAttackStatisticRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cfw/logs/attack-statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let logType;
+            
+            let item;
+            
+            let range;
+            
+            let direction;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let vgwId;
+
+            if (listAttackStatisticRequest !== null && listAttackStatisticRequest !== undefined) {
+                if (listAttackStatisticRequest instanceof ListAttackStatisticRequest) {
+                    projectId = listAttackStatisticRequest.projectId;
+                    fwInstanceId = listAttackStatisticRequest.fwInstanceId;
+                    logType = listAttackStatisticRequest.logType;
+                    item = listAttackStatisticRequest.item;
+                    range = listAttackStatisticRequest.range;
+                    direction = listAttackStatisticRequest.direction;
+                    startTime = listAttackStatisticRequest.startTime;
+                    endTime = listAttackStatisticRequest.endTime;
+                    vgwId = listAttackStatisticRequest.vgwId;
+                } else {
+                    projectId = listAttackStatisticRequest['project_id'];
+                    fwInstanceId = listAttackStatisticRequest['fw_instance_id'];
+                    logType = listAttackStatisticRequest['log_type'];
+                    item = listAttackStatisticRequest['item'];
+                    range = listAttackStatisticRequest['range'];
+                    direction = listAttackStatisticRequest['direction'];
+                    startTime = listAttackStatisticRequest['start_time'];
+                    endTime = listAttackStatisticRequest['end_time'];
+                    vgwId = listAttackStatisticRequest['vgw_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listAttackStatistic.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listAttackStatistic.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (logType === null || logType === undefined) {
+                throw new RequiredError('logType','Required parameter logType was null or undefined when calling listAttackStatistic.');
+            }
+            if (logType !== null && logType !== undefined) {
+                localVarQueryParameter['log_type'] = logType;
+            }
+            if (item === null || item === undefined) {
+                throw new RequiredError('item','Required parameter item was null or undefined when calling listAttackStatistic.');
+            }
+            if (item !== null && item !== undefined) {
+                localVarQueryParameter['item'] = item;
+            }
+            if (range !== null && range !== undefined) {
+                localVarQueryParameter['range'] = range;
+            }
+            if (direction !== null && direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (vgwId !== null && vgwId !== undefined) {
+                localVarQueryParameter['vgw_id'] = vgwId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询黑白名单列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7274,6 +7578,113 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取访问日志的TOP统计信息，如TOP命中规则等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAccessTop(showAccessTopRequest?: ShowAccessTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cfw/logs/access-top",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let item;
+            
+            let direction;
+            
+            let range;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let vgwId;
+            
+            let logType;
+            
+            let ruleId;
+
+            if (showAccessTopRequest !== null && showAccessTopRequest !== undefined) {
+                if (showAccessTopRequest instanceof ShowAccessTopRequest) {
+                    projectId = showAccessTopRequest.projectId;
+                    fwInstanceId = showAccessTopRequest.fwInstanceId;
+                    item = showAccessTopRequest.item;
+                    direction = showAccessTopRequest.direction;
+                    range = showAccessTopRequest.range;
+                    startTime = showAccessTopRequest.startTime;
+                    endTime = showAccessTopRequest.endTime;
+                    vgwId = showAccessTopRequest.vgwId;
+                    logType = showAccessTopRequest.logType;
+                    ruleId = showAccessTopRequest.ruleId;
+                } else {
+                    projectId = showAccessTopRequest['project_id'];
+                    fwInstanceId = showAccessTopRequest['fw_instance_id'];
+                    item = showAccessTopRequest['item'];
+                    direction = showAccessTopRequest['direction'];
+                    range = showAccessTopRequest['range'];
+                    startTime = showAccessTopRequest['start_time'];
+                    endTime = showAccessTopRequest['end_time'];
+                    vgwId = showAccessTopRequest['vgw_id'];
+                    logType = showAccessTopRequest['log_type'];
+                    ruleId = showAccessTopRequest['rule_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showAccessTop.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling showAccessTop.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (item === null || item === undefined) {
+                throw new RequiredError('item','Required parameter item was null or undefined when calling showAccessTop.');
+            }
+            if (item !== null && item !== undefined) {
+                localVarQueryParameter['item'] = item;
+            }
+            if (direction !== null && direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+            if (range !== null && range !== undefined) {
+                localVarQueryParameter['range'] = range;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (vgwId !== null && vgwId !== undefined) {
+                localVarQueryParameter['vgw_id'] = vgwId;
+            }
+            if (logType !== null && logType !== undefined) {
+                localVarQueryParameter['log_type'] = logType;
+            }
+            if (ruleId !== null && ruleId !== undefined) {
+                localVarQueryParameter['rule_id'] = ruleId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取告警配置信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7469,6 +7880,178 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询攻击概览
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAttackTotal(showAttackTotalRequest?: ShowAttackTotalRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cfw/logs/total-attack",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let logType;
+            
+            let range;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let vgwId;
+
+            if (showAttackTotalRequest !== null && showAttackTotalRequest !== undefined) {
+                if (showAttackTotalRequest instanceof ShowAttackTotalRequest) {
+                    projectId = showAttackTotalRequest.projectId;
+                    fwInstanceId = showAttackTotalRequest.fwInstanceId;
+                    logType = showAttackTotalRequest.logType;
+                    range = showAttackTotalRequest.range;
+                    startTime = showAttackTotalRequest.startTime;
+                    endTime = showAttackTotalRequest.endTime;
+                    vgwId = showAttackTotalRequest.vgwId;
+                } else {
+                    projectId = showAttackTotalRequest['project_id'];
+                    fwInstanceId = showAttackTotalRequest['fw_instance_id'];
+                    logType = showAttackTotalRequest['log_type'];
+                    range = showAttackTotalRequest['range'];
+                    startTime = showAttackTotalRequest['start_time'];
+                    endTime = showAttackTotalRequest['end_time'];
+                    vgwId = showAttackTotalRequest['vgw_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showAttackTotal.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling showAttackTotal.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (logType === null || logType === undefined) {
+                throw new RequiredError('logType','Required parameter logType was null or undefined when calling showAttackTotal.');
+            }
+            if (logType !== null && logType !== undefined) {
+                localVarQueryParameter['log_type'] = logType;
+            }
+            if (range !== null && range !== undefined) {
+                localVarQueryParameter['range'] = range;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (vgwId !== null && vgwId !== undefined) {
+                localVarQueryParameter['vgw_id'] = vgwId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询攻击趋势
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAttackTrend(showAttackTrendRequest?: ShowAttackTrendRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cfw/logs/trend-attack",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let logType;
+            
+            let range;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let vgwId;
+
+            if (showAttackTrendRequest !== null && showAttackTrendRequest !== undefined) {
+                if (showAttackTrendRequest instanceof ShowAttackTrendRequest) {
+                    projectId = showAttackTrendRequest.projectId;
+                    fwInstanceId = showAttackTrendRequest.fwInstanceId;
+                    logType = showAttackTrendRequest.logType;
+                    range = showAttackTrendRequest.range;
+                    startTime = showAttackTrendRequest.startTime;
+                    endTime = showAttackTrendRequest.endTime;
+                    vgwId = showAttackTrendRequest.vgwId;
+                } else {
+                    projectId = showAttackTrendRequest['project_id'];
+                    fwInstanceId = showAttackTrendRequest['fw_instance_id'];
+                    logType = showAttackTrendRequest['log_type'];
+                    range = showAttackTrendRequest['range'];
+                    startTime = showAttackTrendRequest['start_time'];
+                    endTime = showAttackTrendRequest['end_time'];
+                    vgwId = showAttackTrendRequest['vgw_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showAttackTrend.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling showAttackTrend.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (logType === null || logType === undefined) {
+                throw new RequiredError('logType','Required parameter logType was null or undefined when calling showAttackTrend.');
+            }
+            if (logType !== null && logType !== undefined) {
+                localVarQueryParameter['log_type'] = logType;
+            }
+            if (range !== null && range !== undefined) {
+                localVarQueryParameter['range'] = range;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (vgwId !== null && vgwId !== undefined) {
+                localVarQueryParameter['vgw_id'] = vgwId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看域名组详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7526,6 +8109,109 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'domain_set_id': domainSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询流量趋势，包括南北向、EIP、东西向的流量趋势
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrafficTrend(showTrafficTrendRequest?: ShowTrafficTrendRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cfw/logs/traffic-trend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let logType;
+            
+            let aggType;
+            
+            let range;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let vgwId;
+            
+            let ip;
+
+            if (showTrafficTrendRequest !== null && showTrafficTrendRequest !== undefined) {
+                if (showTrafficTrendRequest instanceof ShowTrafficTrendRequest) {
+                    projectId = showTrafficTrendRequest.projectId;
+                    fwInstanceId = showTrafficTrendRequest.fwInstanceId;
+                    logType = showTrafficTrendRequest.logType;
+                    aggType = showTrafficTrendRequest.aggType;
+                    range = showTrafficTrendRequest.range;
+                    startTime = showTrafficTrendRequest.startTime;
+                    endTime = showTrafficTrendRequest.endTime;
+                    vgwId = showTrafficTrendRequest.vgwId;
+                    ip = showTrafficTrendRequest.ip;
+                } else {
+                    projectId = showTrafficTrendRequest['project_id'];
+                    fwInstanceId = showTrafficTrendRequest['fw_instance_id'];
+                    logType = showTrafficTrendRequest['log_type'];
+                    aggType = showTrafficTrendRequest['agg_type'];
+                    range = showTrafficTrendRequest['range'];
+                    startTime = showTrafficTrendRequest['start_time'];
+                    endTime = showTrafficTrendRequest['end_time'];
+                    vgwId = showTrafficTrendRequest['vgw_id'];
+                    ip = showTrafficTrendRequest['ip'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showTrafficTrend.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling showTrafficTrend.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (logType === null || logType === undefined) {
+                throw new RequiredError('logType','Required parameter logType was null or undefined when calling showTrafficTrend.');
+            }
+            if (logType !== null && logType !== undefined) {
+                localVarQueryParameter['log_type'] = logType;
+            }
+            if (aggType === null || aggType === undefined) {
+                throw new RequiredError('aggType','Required parameter aggType was null or undefined when calling showTrafficTrend.');
+            }
+            if (aggType !== null && aggType !== undefined) {
+                localVarQueryParameter['agg_type'] = aggType;
+            }
+            if (range !== null && range !== undefined) {
+                localVarQueryParameter['range'] = range;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (vgwId !== null && vgwId !== undefined) {
+                localVarQueryParameter['vgw_id'] = vgwId;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10084,6 +10770,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 功能说明：自定义IPS规则详情，特性:根据路径输入的IPS ID查看对应的自定义IPS详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCustomerIpsInfo(showCustomerIpsInfoRequest?: ShowCustomerIpsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ips/custom-rule/{ips_cfw_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let fwInstanceId;
+            
+            let ipsCfwId;
+            
+            let objectId;
+            
+            let projectId;
+
+            if (showCustomerIpsInfoRequest !== null && showCustomerIpsInfoRequest !== undefined) {
+                if (showCustomerIpsInfoRequest instanceof ShowCustomerIpsInfoRequest) {
+                    fwInstanceId = showCustomerIpsInfoRequest.fwInstanceId;
+                    ipsCfwId = showCustomerIpsInfoRequest.ipsCfwId;
+                    objectId = showCustomerIpsInfoRequest.objectId;
+                    projectId = showCustomerIpsInfoRequest.projectId;
+                } else {
+                    fwInstanceId = showCustomerIpsInfoRequest['fw_instance_id'];
+                    ipsCfwId = showCustomerIpsInfoRequest['ips_cfw_id'];
+                    objectId = showCustomerIpsInfoRequest['object_id'];
+                    projectId = showCustomerIpsInfoRequest['project_id'];
+                }
+            }
+
+        
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling showCustomerIpsInfo.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (ipsCfwId === null || ipsCfwId === undefined) {
+            throw new RequiredError('ipsCfwId','Required parameter ipsCfwId was null or undefined when calling showCustomerIpsInfo.');
+            }
+            if (objectId === null || objectId === undefined) {
+                throw new RequiredError('objectId','Required parameter objectId was null or undefined when calling showCustomerIpsInfo.');
+            }
+            if (objectId !== null && objectId !== undefined) {
+                localVarQueryParameter['object_id'] = objectId;
+            }
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showCustomerIpsInfo.');
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'ips_cfw_id': ipsCfwId,'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取ips规则细节
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10195,6 +10946,59 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新自定义IPS规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCustomerIps(updateCustomerIpsRequest?: UpdateCustomerIpsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ips/custom-rule/{ips_cfw_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ipsCfwId;
+            
+            let projectId;
+
+            if (updateCustomerIpsRequest !== null && updateCustomerIpsRequest !== undefined) {
+                if (updateCustomerIpsRequest instanceof UpdateCustomerIpsRequest) {
+                    ipsCfwId = updateCustomerIpsRequest.ipsCfwId;
+                    projectId = updateCustomerIpsRequest.projectId;
+                    body = updateCustomerIpsRequest.body
+                } else {
+                    ipsCfwId = updateCustomerIpsRequest['ips_cfw_id'];
+                    projectId = updateCustomerIpsRequest['project_id'];
+                    body = updateCustomerIpsRequest['body'];
+                }
+            }
+
+        
+            if (ipsCfwId === null || ipsCfwId === undefined) {
+            throw new RequiredError('ipsCfwId','Required parameter ipsCfwId was null or undefined when calling updateCustomerIps.');
+            }
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateCustomerIps.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ips_cfw_id': ipsCfwId,'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

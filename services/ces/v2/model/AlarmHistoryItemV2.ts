@@ -1,9 +1,8 @@
 import { AdditionalInfo } from './AdditionalInfo';
-import { AlarmCondition } from './AlarmCondition';
-import { AlarmType } from './AlarmType';
+import { AlarmHistoryItemV2AlarmActions } from './AlarmHistoryItemV2AlarmActions';
+import { AlarmHistoryItemV2Condition } from './AlarmHistoryItemV2Condition';
+import { AlarmHistoryItemV2Metric } from './AlarmHistoryItemV2Metric';
 import { DataPointInfo } from './DataPointInfo';
-import { Metric } from './Metric';
-import { Notification } from './Notification';
 
 
 export class AlarmHistoryItemV2 {
@@ -12,18 +11,18 @@ export class AlarmHistoryItemV2 {
     public name?: string;
     public status?: AlarmHistoryItemV2StatusEnum | string;
     public level?: AlarmHistoryItemV2LevelEnum | number;
-    public type?: AlarmType;
+    public type?: AlarmHistoryItemV2TypeEnum | string;
     private 'action_enabled'?: boolean;
     private 'begin_time'?: Date;
     private 'end_time'?: Date;
     private 'first_alarm_time'?: Date;
     private 'last_alarm_time'?: Date;
     private 'alarm_recovery_time'?: Date;
-    public metric?: Metric;
-    public condition?: AlarmCondition;
+    public metric?: AlarmHistoryItemV2Metric;
+    public condition?: AlarmHistoryItemV2Condition;
     private 'additional_info'?: AdditionalInfo;
-    private 'alarm_actions'?: Array<Notification>;
-    private 'ok_actions'?: Array<Notification>;
+    private 'alarm_actions'?: Array<AlarmHistoryItemV2AlarmActions>;
+    private 'ok_actions'?: Array<AlarmHistoryItemV2AlarmActions>;
     private 'data_points'?: Array<DataPointInfo>;
     public constructor() { 
     }
@@ -59,7 +58,7 @@ export class AlarmHistoryItemV2 {
         this['level'] = level;
         return this;
     }
-    public withType(type: AlarmType): AlarmHistoryItemV2 {
+    public withType(type: AlarmHistoryItemV2TypeEnum | string): AlarmHistoryItemV2 {
         this['type'] = type;
         return this;
     }
@@ -123,11 +122,11 @@ export class AlarmHistoryItemV2 {
     public get alarmRecoveryTime(): Date | undefined {
         return this['alarm_recovery_time'];
     }
-    public withMetric(metric: Metric): AlarmHistoryItemV2 {
+    public withMetric(metric: AlarmHistoryItemV2Metric): AlarmHistoryItemV2 {
         this['metric'] = metric;
         return this;
     }
-    public withCondition(condition: AlarmCondition): AlarmHistoryItemV2 {
+    public withCondition(condition: AlarmHistoryItemV2Condition): AlarmHistoryItemV2 {
         this['condition'] = condition;
         return this;
     }
@@ -141,24 +140,24 @@ export class AlarmHistoryItemV2 {
     public get additionalInfo(): AdditionalInfo | undefined {
         return this['additional_info'];
     }
-    public withAlarmActions(alarmActions: Array<Notification>): AlarmHistoryItemV2 {
+    public withAlarmActions(alarmActions: Array<AlarmHistoryItemV2AlarmActions>): AlarmHistoryItemV2 {
         this['alarm_actions'] = alarmActions;
         return this;
     }
-    public set alarmActions(alarmActions: Array<Notification>  | undefined) {
+    public set alarmActions(alarmActions: Array<AlarmHistoryItemV2AlarmActions>  | undefined) {
         this['alarm_actions'] = alarmActions;
     }
-    public get alarmActions(): Array<Notification> | undefined {
+    public get alarmActions(): Array<AlarmHistoryItemV2AlarmActions> | undefined {
         return this['alarm_actions'];
     }
-    public withOkActions(okActions: Array<Notification>): AlarmHistoryItemV2 {
+    public withOkActions(okActions: Array<AlarmHistoryItemV2AlarmActions>): AlarmHistoryItemV2 {
         this['ok_actions'] = okActions;
         return this;
     }
-    public set okActions(okActions: Array<Notification>  | undefined) {
+    public set okActions(okActions: Array<AlarmHistoryItemV2AlarmActions>  | undefined) {
         this['ok_actions'] = okActions;
     }
-    public get okActions(): Array<Notification> | undefined {
+    public get okActions(): Array<AlarmHistoryItemV2AlarmActions> | undefined {
         return this['ok_actions'];
     }
     public withDataPoints(dataPoints: Array<DataPointInfo>): AlarmHistoryItemV2 {
@@ -192,4 +191,16 @@ export enum AlarmHistoryItemV2LevelEnum {
     NUMBER_2 = 2,
     NUMBER_3 = 3,
     NUMBER_4 = 4
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AlarmHistoryItemV2TypeEnum {
+    EVENT_SYS = 'EVENT.SYS',
+    EVENT_CUSTOM = 'EVENT.CUSTOM',
+    DNSHEALTHCHECK = 'DNSHealthCheck',
+    RESOURCE_GROUP = 'RESOURCE_GROUP',
+    MULTI_INSTANCE = 'MULTI_INSTANCE',
+    ALL_INSTANCE = 'ALL_INSTANCE'
 }

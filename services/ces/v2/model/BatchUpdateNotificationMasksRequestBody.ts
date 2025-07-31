@@ -18,6 +18,7 @@ export class BatchUpdateNotificationMasksRequestBody {
     private 'start_time'?: string;
     private 'end_date'?: string;
     private 'end_time'?: string;
+    private 'effective_timezone'?: string;
     public constructor(relationType?: RelationType, relationIds?: Array<string>, maskType?: MaskType) { 
         this['relation_type'] = relationType;
         this['relation_ids'] = relationIds;
@@ -146,6 +147,16 @@ export class BatchUpdateNotificationMasksRequestBody {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withEffectiveTimezone(effectiveTimezone: string): BatchUpdateNotificationMasksRequestBody {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
     }
 }
 

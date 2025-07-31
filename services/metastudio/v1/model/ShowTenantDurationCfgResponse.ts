@@ -21,6 +21,8 @@ export class ShowTenantDurationCfgResponse extends SdkResponse {
     private 'ljzn_min'?: number;
     private 'ljzn_max'?: number;
     private 'ljzn_advice_value'?: number;
+    private 'short_assess_min'?: number;
+    private 'short_assess_max'?: number;
     public constructor() { 
         super();
     }
@@ -213,5 +215,25 @@ export class ShowTenantDurationCfgResponse extends SdkResponse {
     }
     public get ljznAdviceValue(): number | undefined {
         return this['ljzn_advice_value'];
+    }
+    public withShortAssessMin(shortAssessMin: number): ShowTenantDurationCfgResponse {
+        this['short_assess_min'] = shortAssessMin;
+        return this;
+    }
+    public set shortAssessMin(shortAssessMin: number  | undefined) {
+        this['short_assess_min'] = shortAssessMin;
+    }
+    public get shortAssessMin(): number | undefined {
+        return this['short_assess_min'];
+    }
+    public withShortAssessMax(shortAssessMax: number): ShowTenantDurationCfgResponse {
+        this['short_assess_max'] = shortAssessMax;
+        return this;
+    }
+    public set shortAssessMax(shortAssessMax: number  | undefined) {
+        this['short_assess_max'] = shortAssessMax;
+    }
+    public get shortAssessMax(): number | undefined {
+        return this['short_assess_max'];
     }
 }

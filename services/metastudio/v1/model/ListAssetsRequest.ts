@@ -33,7 +33,6 @@ export class ListAssetsRequest {
     private 'exclude_device_name'?: string;
     private 'supported_service'?: ListAssetsRequestSupportedServiceEnum | string;
     private 'app_user_id'?: string;
-    private 'project_group_id'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListAssetsRequest {
@@ -314,16 +313,6 @@ export class ListAssetsRequest {
     public get appUserId(): string | undefined {
         return this['app_user_id'];
     }
-    public withProjectGroupId(projectGroupId: string): ListAssetsRequest {
-        this['project_group_id'] = projectGroupId;
-        return this;
-    }
-    public set projectGroupId(projectGroupId: string  | undefined) {
-        this['project_group_id'] = projectGroupId;
-    }
-    public get projectGroupId(): string | undefined {
-        return this['project_group_id'];
-    }
 }
 
 /**
@@ -341,7 +330,6 @@ export enum ListAssetsRequestTagCombinationTypeEnum {
 export enum ListAssetsRequestAssetSourceEnum {
     SYSTEM = 'SYSTEM',
     CUSTOMIZATION = 'CUSTOMIZATION',
-    GROUP_CUSTOMIZATION = 'GROUP_CUSTOMIZATION',
     ALL = 'ALL'
 }
 /**

@@ -16,6 +16,7 @@ export class ListVoiceTrainingJobRequest {
     private 'batch_name'?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
+    private 'is_ondemand_resource'?: boolean;
     public constructor() { 
     }
     public withOffset(offset: number): ListVoiceTrainingJobRequest {
@@ -143,5 +144,15 @@ export class ListVoiceTrainingJobRequest {
     }
     public get sortDir(): string | undefined {
         return this['sort_dir'];
+    }
+    public withIsOndemandResource(isOndemandResource: boolean): ListVoiceTrainingJobRequest {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
     }
 }

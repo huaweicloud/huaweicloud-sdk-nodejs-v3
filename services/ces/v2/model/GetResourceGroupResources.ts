@@ -6,6 +6,8 @@ export class GetResourceGroupResources {
     public dimensions?: Array<ResourceDimension>;
     public tags?: string;
     private 'enterprise_project_id'?: string;
+    private 'event_status'?: GetResourceGroupResourcesEventStatusEnum | string;
+    private 'resource_name'?: string;
     public constructor(status?: string, dimensions?: Array<ResourceDimension>) { 
         this['status'] = status;
         this['dimensions'] = dimensions;
@@ -32,6 +34,26 @@ export class GetResourceGroupResources {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withEventStatus(eventStatus: GetResourceGroupResourcesEventStatusEnum | string): GetResourceGroupResources {
+        this['event_status'] = eventStatus;
+        return this;
+    }
+    public set eventStatus(eventStatus: GetResourceGroupResourcesEventStatusEnum | string  | undefined) {
+        this['event_status'] = eventStatus;
+    }
+    public get eventStatus(): GetResourceGroupResourcesEventStatusEnum | string | undefined {
+        return this['event_status'];
+    }
+    public withResourceName(resourceName: string): GetResourceGroupResources {
+        this['resource_name'] = resourceName;
+        return this;
+    }
+    public set resourceName(resourceName: string  | undefined) {
+        this['resource_name'] = resourceName;
+    }
+    public get resourceName(): string | undefined {
+        return this['resource_name'];
+    }
 }
 
 /**
@@ -39,6 +61,15 @@ export class GetResourceGroupResources {
     * @enum {string}
     */
 export enum GetResourceGroupResourcesStatusEnum {
+    HEALTH = 'health',
+    UNHEALTHY = 'unhealthy',
+    NO_ALARM_RULE = 'no_alarm_rule'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GetResourceGroupResourcesEventStatusEnum {
     HEALTH = 'health',
     UNHEALTHY = 'unhealthy',
     NO_ALARM_RULE = 'no_alarm_rule'

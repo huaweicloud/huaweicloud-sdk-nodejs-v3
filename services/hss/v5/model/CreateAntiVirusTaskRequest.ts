@@ -2,9 +2,14 @@ import { CreateAntiVirusTaskRequestInfo } from './CreateAntiVirusTaskRequestInfo
 
 
 export class CreateAntiVirusTaskRequest {
+    public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: CreateAntiVirusTaskRequestInfo;
     public constructor() { 
+    }
+    public withRegion(region: string): CreateAntiVirusTaskRequest {
+        this['region'] = region;
+        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateAntiVirusTaskRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

@@ -5,6 +5,7 @@ export class VocabularyConfig {
     public key?: string;
     public value?: string;
     public type?: string;
+    private 'group_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor() { 
@@ -24,6 +25,16 @@ export class VocabularyConfig {
     public withType(type: string): VocabularyConfig {
         this['type'] = type;
         return this;
+    }
+    public withGroupId(groupId: string): VocabularyConfig {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
     public withCreateTime(createTime: string): VocabularyConfig {
         this['create_time'] = createTime;

@@ -14,6 +14,7 @@ import { ListAgentInvocationsResponse } from './model/ListAgentInvocationsRespon
 import { ListAgentStatusRequest } from './model/ListAgentStatusRequest';
 import { ListAgentStatusRequestBody } from './model/ListAgentStatusRequestBody';
 import { ListAgentStatusResponse } from './model/ListAgentStatusResponse';
+import { RemoteInstallHostInfo } from './model/RemoteInstallHostInfo';
 
 export class CesClient {
     public static newBuilder(): ClientBuilder<CesClient> {
@@ -78,8 +79,8 @@ export class CesClient {
      * @param {string} [instanceId] 主机id
      * @param {'ECS' | 'BMS'} [instanceType] 主机类型，ECS弹性云服务器，BMS裸金属服务器
      * @param {string} [invocationId] 任务id
-     * @param {'INSTALL' | 'UPDATE' | 'ROLLBACK' | 'RETRY'} [invocationType] 任务类型，INSTALL 安装，UPDATE 升级，ROLLBACK 回退，RETRY 重试
-     * @param {'telescope'} [invocationTarget] 任务对象，目前仅支持telescope
+     * @param {'INSTALL' | 'UPDATE' | 'ROLLBACK' | 'RETRY' | 'SET_REMOTE_INSTALLER' | 'REMOTE_INSTALL'} [invocationType] 任务类型, INSTALL安装, UPDATE升级, ROLLBACK回退，RETRY重试，SET_REMOTE_INSTALLER设置远程安装主机，REMOTE_INSTALL执行远程安装
+     * @param {'telescope'} [invocationTarget] 任务对象, 支持 telescope监控
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
      * @param {*} [options] Override http request option.

@@ -1,3 +1,4 @@
+import { AssessResult } from './AssessResult';
 import { CreateType } from './CreateType';
 import { JobState } from './JobState';
 import { JobTag } from './JobTag';
@@ -29,6 +30,8 @@ export class TrainingJobInfo {
     private 'allocated_resource'?: VoiceTrainingAllocatedResource;
     private 'output_language'?: string;
     private 'is_remake'?: boolean;
+    private 'assess_result'?: AssessResult;
+    private 'is_ondemand_resource'?: boolean;
     public constructor() { 
     }
     public withJobType(jobType: JobType): TrainingJobInfo {
@@ -230,5 +233,25 @@ export class TrainingJobInfo {
     }
     public get isRemake(): boolean | undefined {
         return this['is_remake'];
+    }
+    public withAssessResult(assessResult: AssessResult): TrainingJobInfo {
+        this['assess_result'] = assessResult;
+        return this;
+    }
+    public set assessResult(assessResult: AssessResult  | undefined) {
+        this['assess_result'] = assessResult;
+    }
+    public get assessResult(): AssessResult | undefined {
+        return this['assess_result'];
+    }
+    public withIsOndemandResource(isOndemandResource: boolean): TrainingJobInfo {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
     }
 }

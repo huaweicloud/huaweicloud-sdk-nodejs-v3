@@ -5,9 +5,7 @@ export class ListBackupVaultsRequest {
     public limit?: number;
     private 'vault_name'?: string;
     private 'vault_id'?: string;
-    public constructor(offset?: number, limit?: number) { 
-        this['offset'] = offset;
-        this['limit'] = limit;
+    public constructor() { 
     }
     public withOffset(offset: number): ListBackupVaultsRequest {
         this['offset'] = offset;

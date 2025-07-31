@@ -35,6 +35,8 @@ import { CreateScheduleRecordTasksRequest } from './model/CreateScheduleRecordTa
 import { CreateScheduleRecordTasksResponse } from './model/CreateScheduleRecordTasksResponse';
 import { CreateSnapshotConfigRequest } from './model/CreateSnapshotConfigRequest';
 import { CreateSnapshotConfigResponse } from './model/CreateSnapshotConfigResponse';
+import { CreateStreamForbiddenOnceRequest } from './model/CreateStreamForbiddenOnceRequest';
+import { CreateStreamForbiddenOnceResponse } from './model/CreateStreamForbiddenOnceResponse';
 import { CreateStreamForbiddenRequest } from './model/CreateStreamForbiddenRequest';
 import { CreateStreamForbiddenResponse } from './model/CreateStreamForbiddenResponse';
 import { CreateTranscodingsTemplateRequest } from './model/CreateTranscodingsTemplateRequest';
@@ -222,6 +224,7 @@ import { ShowTranscodingsTemplateResponse } from './model/ShowTranscodingsTempla
 import { SourceRsp } from './model/SourceRsp';
 import { SourcesInfo } from './model/SourcesInfo';
 import { StreamForbiddenList } from './model/StreamForbiddenList';
+import { StreamForbiddenOnceSetting } from './model/StreamForbiddenOnceSetting';
 import { StreamForbiddenSetting } from './model/StreamForbiddenSetting';
 import { StreamSelectionItem } from './model/StreamSelectionItem';
 import { StreamTranscodingTemplate } from './model/StreamTranscodingTemplate';
@@ -466,6 +469,25 @@ export class LiveClient {
      */
     public createStreamForbidden(createStreamForbiddenRequest?: CreateStreamForbiddenRequest): Promise<CreateStreamForbiddenResponse> {
         const options = ParamCreater().createStreamForbidden(createStreamForbiddenRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 直播推流闪断接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁推闪断
+     * @param {StreamForbiddenOnceSetting} createStreamForbiddenOnceRequestBody 设置流禁播信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createStreamForbiddenOnce(createStreamForbiddenOnceRequest?: CreateStreamForbiddenOnceRequest): Promise<CreateStreamForbiddenOnceResponse> {
+        const options = ParamCreater().createStreamForbiddenOnce(createStreamForbiddenOnceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2357,6 +2379,44 @@ export const ParamCreater = function () {
                     body = createStreamForbiddenRequest.body
                 } else {
                     body = createStreamForbiddenRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 直播推流闪断接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createStreamForbiddenOnce(createStreamForbiddenOnceRequest?: CreateStreamForbiddenOnceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/stream/block-once",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createStreamForbiddenOnceRequest !== null && createStreamForbiddenOnceRequest !== undefined) {
+                if (createStreamForbiddenOnceRequest instanceof CreateStreamForbiddenOnceRequest) {
+                    body = createStreamForbiddenOnceRequest.body
+                } else {
+                    body = createStreamForbiddenOnceRequest['body'];
                 }
             }
 

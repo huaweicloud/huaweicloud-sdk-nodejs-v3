@@ -8,7 +8,12 @@ export class ConfigAlarmTopicRequest {
     private 'alarm_risk'?: Array<string>;
     private 'alarm_switch'?: string;
     private 'alarm_topic_urn'?: string;
-    public constructor() { 
+    public constructor(alarmCpu?: number, alarmDisk?: number, alarmMemory?: number, alarmNum?: number, alarmSwitch?: string) { 
+        this['alarm_cpu'] = alarmCpu;
+        this['alarm_disk'] = alarmDisk;
+        this['alarm_memory'] = alarmMemory;
+        this['alarm_num'] = alarmNum;
+        this['alarm_switch'] = alarmSwitch;
     }
     public withAlarmCpu(alarmCpu: number): ConfigAlarmTopicRequest {
         this['alarm_cpu'] = alarmCpu;

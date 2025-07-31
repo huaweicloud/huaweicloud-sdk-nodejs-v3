@@ -4,6 +4,7 @@ export class ClusterConfigResponseInfo {
     private 'cluster_id'?: string;
     private 'protect_node_num'?: number;
     private 'protect_interrupt_node_num'?: number;
+    private 'protect_degradation_node_num'?: number;
     private 'unprotect_node_num'?: number;
     private 'node_total_num'?: number;
     private 'cluster_name'?: string;
@@ -44,6 +45,16 @@ export class ClusterConfigResponseInfo {
     }
     public get protectInterruptNodeNum(): number | undefined {
         return this['protect_interrupt_node_num'];
+    }
+    public withProtectDegradationNodeNum(protectDegradationNodeNum: number): ClusterConfigResponseInfo {
+        this['protect_degradation_node_num'] = protectDegradationNodeNum;
+        return this;
+    }
+    public set protectDegradationNodeNum(protectDegradationNodeNum: number  | undefined) {
+        this['protect_degradation_node_num'] = protectDegradationNodeNum;
+    }
+    public get protectDegradationNodeNum(): number | undefined {
+        return this['protect_degradation_node_num'];
     }
     public withUnprotectNodeNum(unprotectNodeNum: number): ClusterConfigResponseInfo {
         this['unprotect_node_num'] = unprotectNodeNum;

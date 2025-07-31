@@ -26,7 +26,7 @@ import { BusinessLicenseResult } from './model/BusinessLicenseResult';
 import { CambodianIdCardRequestBody } from './model/CambodianIdCardRequestBody';
 import { CambodianIdCardResult } from './model/CambodianIdCardResult';
 import { CambodianIdCardScoreInformationResult } from './model/CambodianIdCardScoreInformationResult';
-import { CharListIem } from './model/CharListIem';
+import { CharListItem } from './model/CharListItem';
 import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
 import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
 import { ChileIdCardResult } from './model/ChileIdCardResult';
@@ -275,7 +275,7 @@ import { WebImageImageSize } from './model/WebImageImageSize';
 import { WebImageRequestBody } from './model/WebImageRequestBody';
 import { WebImageResult } from './model/WebImageResult';
 import { WebImageWordsBlockList } from './model/WebImageWordsBlockList';
-import { WordsListIem } from './model/WordsListIem';
+import { WordsListItem } from './model/WordsListItem';
 import { WordsRegionList } from './model/WordsRegionList';
 
 export class OcrClient {
@@ -629,7 +629,7 @@ export class OcrClient {
     }
 
     /**
-     * 识别文档中的手写文字信息，并将识别的结构化结果返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section4)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+     * 识别文档中的中英文手写文字、印刷文字信息，并将识别的结构化结果以JSON形式返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section4)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2132,7 +2132,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 识别文档中的手写文字信息，并将识别的结构化结果返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section4)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+         * 识别文档中的中英文手写文字、印刷文字信息，并将识别的结构化结果以JSON形式返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section4)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

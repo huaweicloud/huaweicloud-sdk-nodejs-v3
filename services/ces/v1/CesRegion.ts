@@ -24,7 +24,7 @@ export class CesRegion {
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://ces.cn-north-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://ces.ap-southeast-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://ces.tr-west-1.myhuaweicloud.com"]);
-    public static EU_WEST_101 = new Region("eu-west-101", ["https://ces.eu-west-101.myhuaweicloud.eu"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://ces.eu-west-101.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://ces.me-east-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://ces.cn-east-5.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://ces.eu-west-0.myhuaweicloud.com"]);

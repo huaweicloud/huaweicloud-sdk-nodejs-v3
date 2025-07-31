@@ -1,19 +1,15 @@
 
 
 export class ListContainerNodesRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
     private 'host_name'?: string;
+    public region?: string;
     private 'agent_status'?: string;
     private 'protect_status'?: string;
     private 'container_tags'?: string;
     public constructor() { 
-    }
-    public withRegion(region: string): ListContainerNodesRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListContainerNodesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -42,6 +38,10 @@ export class ListContainerNodesRequest {
     }
     public get hostName(): string | undefined {
         return this['host_name'];
+    }
+    public withRegion(region: string): ListContainerNodesRequest {
+        this['region'] = region;
+        return this;
     }
     public withAgentStatus(agentStatus: string): ListContainerNodesRequest {
         this['agent_status'] = agentStatus;

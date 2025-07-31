@@ -1,6 +1,7 @@
 
 
 export class ListAntivirusHandleHistoryRequest {
+    public region?: string;
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
@@ -19,6 +20,10 @@ export class ListAntivirusHandleHistoryRequest {
     public constructor(offset?: number, limit?: number) { 
         this['offset'] = offset;
         this['limit'] = limit;
+    }
+    public withRegion(region: string): ListAntivirusHandleHistoryRequest {
+        this['region'] = region;
+        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListAntivirusHandleHistoryRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

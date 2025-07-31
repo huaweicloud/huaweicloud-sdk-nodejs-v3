@@ -9,6 +9,8 @@ export class ListTtscVocabularyConfigsRequest {
     public type?: string;
     private 'tts_service_name'?: string;
     private 'is_vocabulary_config_enable'?: string;
+    private 'group_id'?: string;
+    private 'asset_id'?: string;
     public limit?: number;
     public offset?: number;
     private 'start_time'?: string;
@@ -89,6 +91,26 @@ export class ListTtscVocabularyConfigsRequest {
     }
     public get isVocabularyConfigEnable(): string | undefined {
         return this['is_vocabulary_config_enable'];
+    }
+    public withGroupId(groupId: string): ListTtscVocabularyConfigsRequest {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withAssetId(assetId: string): ListTtscVocabularyConfigsRequest {
+        this['asset_id'] = assetId;
+        return this;
+    }
+    public set assetId(assetId: string  | undefined) {
+        this['asset_id'] = assetId;
+    }
+    public get assetId(): string | undefined {
+        return this['asset_id'];
     }
     public withLimit(limit: number): ListTtscVocabularyConfigsRequest {
         this['limit'] = limit;

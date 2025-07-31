@@ -1,28 +1,28 @@
 
 
 export class ListUserChangeHistoriesRequest {
-    private 'user_name'?: string;
-    private 'host_id'?: string;
-    private 'root_permission'?: boolean;
     private 'host_name'?: string;
+    private 'host_id'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'user_name'?: string;
+    private 'root_permission'?: boolean;
     private 'private_ip'?: string;
     private 'change_type'?: string;
     public limit?: number;
     public offset?: number;
-    private 'enterprise_project_id'?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public constructor() { 
     }
-    public withUserName(userName: string): ListUserChangeHistoriesRequest {
-        this['user_name'] = userName;
+    public withHostName(hostName: string): ListUserChangeHistoriesRequest {
+        this['host_name'] = hostName;
         return this;
     }
-    public set userName(userName: string  | undefined) {
-        this['user_name'] = userName;
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
     }
-    public get userName(): string | undefined {
-        return this['user_name'];
+    public get hostName(): string | undefined {
+        return this['host_name'];
     }
     public withHostId(hostId: string): ListUserChangeHistoriesRequest {
         this['host_id'] = hostId;
@@ -34,6 +34,26 @@ export class ListUserChangeHistoriesRequest {
     public get hostId(): string | undefined {
         return this['host_id'];
     }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListUserChangeHistoriesRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withUserName(userName: string): ListUserChangeHistoriesRequest {
+        this['user_name'] = userName;
+        return this;
+    }
+    public set userName(userName: string  | undefined) {
+        this['user_name'] = userName;
+    }
+    public get userName(): string | undefined {
+        return this['user_name'];
+    }
     public withRootPermission(rootPermission: boolean): ListUserChangeHistoriesRequest {
         this['root_permission'] = rootPermission;
         return this;
@@ -43,16 +63,6 @@ export class ListUserChangeHistoriesRequest {
     }
     public get rootPermission(): boolean | undefined {
         return this['root_permission'];
-    }
-    public withHostName(hostName: string): ListUserChangeHistoriesRequest {
-        this['host_name'] = hostName;
-        return this;
-    }
-    public set hostName(hostName: string  | undefined) {
-        this['host_name'] = hostName;
-    }
-    public get hostName(): string | undefined {
-        return this['host_name'];
     }
     public withPrivateIp(privateIp: string): ListUserChangeHistoriesRequest {
         this['private_ip'] = privateIp;
@@ -81,16 +91,6 @@ export class ListUserChangeHistoriesRequest {
     public withOffset(offset: number): ListUserChangeHistoriesRequest {
         this['offset'] = offset;
         return this;
-    }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ListUserChangeHistoriesRequest {
-        this['enterprise_project_id'] = enterpriseProjectId;
-        return this;
-    }
-    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
-        this['enterprise_project_id'] = enterpriseProjectId;
-    }
-    public get enterpriseProjectId(): string | undefined {
-        return this['enterprise_project_id'];
     }
     public withStartTime(startTime: number): ListUserChangeHistoriesRequest {
         this['start_time'] = startTime;

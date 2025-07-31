@@ -1,18 +1,13 @@
 
 
 export class ListPolicyGroupRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
-    private 'group_name'?: string;
     public offset?: number;
     public limit?: number;
+    private 'group_name'?: string;
     private 'container_mode'?: boolean;
     private 'group_id'?: string;
     public constructor() { 
-    }
-    public withRegion(region: string): ListPolicyGroupRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPolicyGroupRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -24,6 +19,14 @@ export class ListPolicyGroupRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withOffset(offset: number): ListPolicyGroupRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListPolicyGroupRequest {
+        this['limit'] = limit;
+        return this;
+    }
     public withGroupName(groupName: string): ListPolicyGroupRequest {
         this['group_name'] = groupName;
         return this;
@@ -33,14 +36,6 @@ export class ListPolicyGroupRequest {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
-    }
-    public withOffset(offset: number): ListPolicyGroupRequest {
-        this['offset'] = offset;
-        return this;
-    }
-    public withLimit(limit: number): ListPolicyGroupRequest {
-        this['limit'] = limit;
-        return this;
     }
     public withContainerMode(containerMode: boolean): ListPolicyGroupRequest {
         this['container_mode'] = containerMode;

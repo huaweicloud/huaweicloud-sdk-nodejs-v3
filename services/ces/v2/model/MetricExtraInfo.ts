@@ -5,7 +5,8 @@ export class MetricExtraInfo {
     private 'metric_prefix'?: string;
     private 'custom_proc_name'?: string;
     private 'metric_type'?: string;
-    public constructor() { 
+    public constructor(originMetricName?: string) { 
+        this['origin_metric_name'] = originMetricName;
     }
     public withOriginMetricName(originMetricName: string): MetricExtraInfo {
         this['origin_metric_name'] = originMetricName;

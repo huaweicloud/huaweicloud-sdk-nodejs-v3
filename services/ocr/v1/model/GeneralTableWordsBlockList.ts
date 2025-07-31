@@ -1,11 +1,11 @@
-import { WordsListIem } from './WordsListIem';
+import { WordsListItem } from './WordsListItem';
 
 
 export class GeneralTableWordsBlockList {
     public words?: string;
     public confidence?: number;
     public location?: Array<Array<number>>;
-    private 'words_list'?: Array<WordsListIem>;
+    private 'words_list'?: Array<WordsListItem>;
     public rows?: Array<number>;
     public columns?: Array<number>;
     private 'cell_location'?: Array<Array<number>>;
@@ -23,14 +23,14 @@ export class GeneralTableWordsBlockList {
         this['location'] = location;
         return this;
     }
-    public withWordsList(wordsList: Array<WordsListIem>): GeneralTableWordsBlockList {
+    public withWordsList(wordsList: Array<WordsListItem>): GeneralTableWordsBlockList {
         this['words_list'] = wordsList;
         return this;
     }
-    public set wordsList(wordsList: Array<WordsListIem>  | undefined) {
+    public set wordsList(wordsList: Array<WordsListItem>  | undefined) {
         this['words_list'] = wordsList;
     }
-    public get wordsList(): Array<WordsListIem> | undefined {
+    public get wordsList(): Array<WordsListItem> | undefined {
         return this['words_list'];
     }
     public withRows(rows: Array<number>): GeneralTableWordsBlockList {

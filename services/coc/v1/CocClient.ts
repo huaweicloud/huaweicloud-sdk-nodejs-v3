@@ -5,6 +5,8 @@ import FormData from 'form-data';
 
 import { AcceptScriptRequest } from './model/AcceptScriptRequest';
 import { AcceptScriptResponse } from './model/AcceptScriptResponse';
+import { AccountBaseResponse } from './model/AccountBaseResponse';
+import { AccountChangePwdPlan } from './model/AccountChangePwdPlan';
 import { AddScriptModel } from './model/AddScriptModel';
 import { AlarmHandleHistory } from './model/AlarmHandleHistory';
 import { AlarmInfoDTO } from './model/AlarmInfoDTO';
@@ -82,6 +84,10 @@ import { CreateExternalIncidentRequest } from './model/CreateExternalIncidentReq
 import { CreateExternalIncidentResponseData } from './model/CreateExternalIncidentResponseData';
 import { CreateExternalIssuesRequest } from './model/CreateExternalIssuesRequest';
 import { CreateExternalIssuesResponseData } from './model/CreateExternalIssuesResponseData';
+import { CreatePasswordChangePlanRequest } from './model/CreatePasswordChangePlanRequest';
+import { CreatePasswordChangePlanRequestBody } from './model/CreatePasswordChangePlanRequestBody';
+import { CreatePasswordChangePlanResponse } from './model/CreatePasswordChangePlanResponse';
+import { CreatePasswordChangePlanResponseBodyData } from './model/CreatePasswordChangePlanResponseBodyData';
 import { CreateReportCustomEventRequest } from './model/CreateReportCustomEventRequest';
 import { CreateReportCustomEventResponse } from './model/CreateReportCustomEventResponse';
 import { CreateReportPrometheusEventRequest } from './model/CreateReportPrometheusEventRequest';
@@ -264,6 +270,9 @@ import { PublicScriptListModel } from './model/PublicScriptListModel';
 import { PublicScriptListPage } from './model/PublicScriptListPage';
 import { PublicScriptPropertiesModel } from './model/PublicScriptPropertiesModel';
 import { ReportCustomEventRequestBody } from './model/ReportCustomEventRequestBody';
+import { ResetAccountPasswordRequest } from './model/ResetAccountPasswordRequest';
+import { ResetAccountPasswordRequestBody } from './model/ResetAccountPasswordRequestBody';
+import { ResetAccountPasswordResponse } from './model/ResetAccountPasswordResponse';
 import { ResolvedRecordDTO } from './model/ResolvedRecordDTO';
 import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceInstanceProp } from './model/ResourceInstanceProp';
@@ -327,6 +336,10 @@ import { TicketInformation } from './model/TicketInformation';
 import { TransferAlarmToIncidentRequest } from './model/TransferAlarmToIncidentRequest';
 import { TransferAlarmToIncidentResponse } from './model/TransferAlarmToIncidentResponse';
 import { TriggerTime } from './model/TriggerTime';
+import { UpdateAccountPassword } from './model/UpdateAccountPassword';
+import { UpdateAccountPasswordRequest } from './model/UpdateAccountPasswordRequest';
+import { UpdateAccountPasswordRequestBody } from './model/UpdateAccountPasswordRequestBody';
+import { UpdateAccountPasswordResponse } from './model/UpdateAccountPasswordResponse';
 import { UpdateChangeRequest } from './model/UpdateChangeRequest';
 import { UpdateChangeResponse } from './model/UpdateChangeResponse';
 import { UpdateDocumentRequest } from './model/UpdateDocumentRequest';
@@ -364,6 +377,63 @@ export class CocClient {
         return __dirname;
     }
 
+
+    /**
+     * 创建改密计划
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建改密计划
+     * @param {CreatePasswordChangePlanRequestBody} createPasswordChangePlanRequestBody 获取创建改密计划请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPasswordChangePlan(createPasswordChangePlanRequest?: CreatePasswordChangePlanRequest): Promise<CreatePasswordChangePlanResponse> {
+        const options = ParamCreater().createPasswordChangePlan(createPasswordChangePlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 主机密码重置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 主机密码重置
+     * @param {ResetAccountPasswordRequestBody} resetAccountPasswordRequestBody 重置密码请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetAccountPassword(resetAccountPasswordRequest?: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
+        const options = ParamCreater().resetAccountPassword(resetAccountPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 回写改密结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 回写改密结果
+     * @param {UpdateAccountPasswordRequestBody} updateAccountPasswordRequestBody 回写改密结果请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAccountPassword(updateAccountPasswordRequest?: UpdateAccountPasswordRequest): Promise<UpdateAccountPasswordResponse> {
+        const options = ParamCreater().updateAccountPassword(updateAccountPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 清除告警
@@ -2297,6 +2367,120 @@ export class CocClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 创建改密计划
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPasswordChangePlan(createPasswordChangePlanRequest?: CreatePasswordChangePlanRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/account-mgmt/accounts/password-change-plan",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPasswordChangePlanRequest !== null && createPasswordChangePlanRequest !== undefined) {
+                if (createPasswordChangePlanRequest instanceof CreatePasswordChangePlanRequest) {
+                    body = createPasswordChangePlanRequest.body
+                } else {
+                    body = createPasswordChangePlanRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 主机密码重置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetAccountPassword(resetAccountPasswordRequest?: ResetAccountPasswordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/account-mgmt/accounts/password/reset",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (resetAccountPasswordRequest !== null && resetAccountPasswordRequest !== undefined) {
+                if (resetAccountPasswordRequest instanceof ResetAccountPasswordRequest) {
+                    body = resetAccountPasswordRequest.body
+                } else {
+                    body = resetAccountPasswordRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 回写改密结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAccountPassword(updateAccountPasswordRequest?: UpdateAccountPasswordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/account-mgmt/accounts/password/update",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateAccountPasswordRequest !== null && updateAccountPasswordRequest !== undefined) {
+                if (updateAccountPasswordRequest instanceof UpdateAccountPasswordRequest) {
+                    body = updateAccountPasswordRequest.body
+                } else {
+                    body = updateAccountPasswordRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 清除告警

@@ -15,6 +15,8 @@ import { AsrTypeEnum } from './model/AsrTypeEnum';
 import { AsrVocabularyAssociation } from './model/AsrVocabularyAssociation';
 import { AsrVocabularyInfo } from './model/AsrVocabularyInfo';
 import { AsrVocabularyTypeEnum } from './model/AsrVocabularyTypeEnum';
+import { AssessProperty } from './model/AssessProperty';
+import { AssessResult } from './model/AssessResult';
 import { AssetActionResult } from './model/AssetActionResult';
 import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
@@ -26,6 +28,7 @@ import { AuditResultAdminAuditResult } from './model/AuditResultAdminAuditResult
 import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResult';
 import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAuditResultErrors';
 import { AuditionFile } from './model/AuditionFile';
+import { AutoOperationConfig } from './model/AutoOperationConfig';
 import { BackgroundConfigInfo } from './model/BackgroundConfigInfo';
 import { BackgroundImageConfig } from './model/BackgroundImageConfig';
 import { BackgroundMusicConfig } from './model/BackgroundMusicConfig';
@@ -191,6 +194,8 @@ import { CreateTtsaRequest } from './model/CreateTtsaRequest';
 import { CreateTtsaResponse } from './model/CreateTtsaResponse';
 import { CreateTtscVocabularyConfigsRequest } from './model/CreateTtscVocabularyConfigsRequest';
 import { CreateTtscVocabularyConfigsResponse } from './model/CreateTtscVocabularyConfigsResponse';
+import { CreateTtscVocabularyGroupsRequest } from './model/CreateTtscVocabularyGroupsRequest';
+import { CreateTtscVocabularyGroupsResponse } from './model/CreateTtscVocabularyGroupsResponse';
 import { CreateType } from './model/CreateType';
 import { CreateVideoMotionCaptureJobRequest } from './model/CreateVideoMotionCaptureJobRequest';
 import { CreateVideoMotionCaptureJobResponse } from './model/CreateVideoMotionCaptureJobResponse';
@@ -244,6 +249,8 @@ import { DeleteSmartLiveRoomResponse } from './model/DeleteSmartLiveRoomResponse
 import { DeleteTtscVocabularyConfigsRequest } from './model/DeleteTtscVocabularyConfigsRequest';
 import { DeleteTtscVocabularyConfigsRequestBody } from './model/DeleteTtscVocabularyConfigsRequestBody';
 import { DeleteTtscVocabularyConfigsResponse } from './model/DeleteTtscVocabularyConfigsResponse';
+import { DeleteTtscVocabularyGroupsRequest } from './model/DeleteTtscVocabularyGroupsRequest';
+import { DeleteTtscVocabularyGroupsResponse } from './model/DeleteTtscVocabularyGroupsResponse';
 import { DeleteVideoScriptRequest } from './model/DeleteVideoScriptRequest';
 import { DeleteVideoScriptResponse } from './model/DeleteVideoScriptResponse';
 import { DeleteVoiceTrainingJobRequest } from './model/DeleteVoiceTrainingJobRequest';
@@ -368,6 +375,8 @@ import { ListTtsaJobsRequest } from './model/ListTtsaJobsRequest';
 import { ListTtsaJobsResponse } from './model/ListTtsaJobsResponse';
 import { ListTtscVocabularyConfigsRequest } from './model/ListTtscVocabularyConfigsRequest';
 import { ListTtscVocabularyConfigsResponse } from './model/ListTtscVocabularyConfigsResponse';
+import { ListTtscVocabularyGroupsRequest } from './model/ListTtscVocabularyGroupsRequest';
+import { ListTtscVocabularyGroupsResponse } from './model/ListTtscVocabularyGroupsResponse';
 import { ListVideoMotionCaptureJobsRequest } from './model/ListVideoMotionCaptureJobsRequest';
 import { ListVideoMotionCaptureJobsResponse } from './model/ListVideoMotionCaptureJobsResponse';
 import { ListVideoScriptsRequest } from './model/ListVideoScriptsRequest';
@@ -452,12 +461,16 @@ import { RuleCommand } from './model/RuleCommand';
 import { SaveTtscVocabularyConfigsRequest } from './model/SaveTtscVocabularyConfigsRequest';
 import { SaveTtscVocabularyConfigsRequestBody } from './model/SaveTtscVocabularyConfigsRequestBody';
 import { SaveTtscVocabularyConfigsResponse } from './model/SaveTtscVocabularyConfigsResponse';
+import { SaveTtscVocabularyGroupsRequestBody } from './model/SaveTtscVocabularyGroupsRequestBody';
 import { ScriptCommand } from './model/ScriptCommand';
 import { SetJobBatchNameReq } from './model/SetJobBatchNameReq';
 import { SetJobBatchNameRequest } from './model/SetJobBatchNameRequest';
 import { SetJobBatchNameResponse } from './model/SetJobBatchNameResponse';
 import { SetProductAssetRequest } from './model/SetProductAssetRequest';
 import { SetProductAssetResponse } from './model/SetProductAssetResponse';
+import { SetTtscGroupAssetsRequest } from './model/SetTtscGroupAssetsRequest';
+import { SetTtscGroupAssetsRequestBody } from './model/SetTtscGroupAssetsRequestBody';
+import { SetTtscGroupAssetsResponse } from './model/SetTtscGroupAssetsResponse';
 import { SharedConfig } from './model/SharedConfig';
 import { ShootScript } from './model/ShootScript';
 import { ShootScriptAudioFileItem } from './model/ShootScriptAudioFileItem';
@@ -599,6 +612,7 @@ import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TrainingVideoMarkInfo } from './model/TrainingVideoMarkInfo';
 import { TriggerProcess } from './model/TriggerProcess';
 import { TtsCallBackConfig } from './model/TtsCallBackConfig';
+import { TtscGroupAssetsConfig } from './model/TtscGroupAssetsConfig';
 import { Update2dModelTrainingJobReq } from './model/Update2dModelTrainingJobReq';
 import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
 import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJobResponse';
@@ -664,6 +678,8 @@ import { UpdateSmartChatRoomRequest } from './model/UpdateSmartChatRoomRequest';
 import { UpdateSmartChatRoomResponse } from './model/UpdateSmartChatRoomResponse';
 import { UpdateSmartLiveRoomRequest } from './model/UpdateSmartLiveRoomRequest';
 import { UpdateSmartLiveRoomResponse } from './model/UpdateSmartLiveRoomResponse';
+import { UpdateTtscVocabularyGroupsRequest } from './model/UpdateTtscVocabularyGroupsRequest';
+import { UpdateTtscVocabularyGroupsResponse } from './model/UpdateTtscVocabularyGroupsResponse';
 import { UpdateVideoScriptRequest } from './model/UpdateVideoScriptRequest';
 import { UpdateVideoScriptResponse } from './model/UpdateVideoScriptResponse';
 import { UpdateVideoScriptsReq } from './model/UpdateVideoScriptsReq';
@@ -1403,14 +1419,14 @@ export class MetaStudioClient {
      * @param {string} [assetType] 资产类型。多个类型使用英文逗号分隔。 * VOICE_MODEL：音色模型（仅系统管理员可上传） * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MATERIAL：风格化素材 * HUMAN_MODEL_2D: 2D数字人网络模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板 * MUSIC: 音乐 * AUDIO: 音频
      * @param {string} [sortKey] 排序字段，支持的排序方式有： - 按创建时间排序：create_time - 按更新时间排序：update_time - 按资产排序：asset_order
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
-     * @param {'SYSTEM' | 'CUSTOMIZATION' | 'GROUP_CUSTOMIZATION' | 'ALL'} [assetSource] 资产来源。 * SYSTEM：系统资产 * CUSTOMIZATION：租户资产 * GROUP_CUSTOMIZATION：租户组资产 * ALL：所有资产  默认查询租户资产。
+     * @param {'SYSTEM' | 'CUSTOMIZATION' | 'ALL'} [assetSource] 资产来源。 * SYSTEM：系统资产 * CUSTOMIZATION：租户资产 * ALL：所有资产  默认查询租户资产。
      * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分隔。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 * WAITING_DELETE：资产将被下线 默认查询所有状态的资产。
      * @param {string} [styleId] 基于风格化ID查询关联资产。 * system_male_001：男性风格01 * system_female_001：女性风格01 * system_male_002：男性风格02  * system_female_002：女性风格02
      * @param {Array<string>} [accurateQueryField] 使用精确查询的字段
      * @param {Array<string>} [assetId] 资产id
      * @param {string} [sex] 性别。多选使用英文逗号分隔。
      * @param {string} [language] 语言。多选使用英文逗号分隔。
-     * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes  数字人资产属性： * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）  租户组资产验签属性： * SIG：加签秘钥。取值方式SIG&#x3D;HexEncode(HMAC-SHA256(group_id:EXP_TIME:NONCE,key)) * EXP_TIME：过期时间，当前时间增加增加10分钟。取值示例1627768613 * NONCE：随机字符串。取值示例：EycLQsHwxhzK9OW8UEKWNfH2I3CGR2nINuU1EBpv162d42d92s
+     * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes  数字人资产属性： * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）
      * @param {boolean} [actionEditable] 动作是否可编辑。仅在分身数字人模型查询时有效。
      * @param {boolean} [isWithActionLibrary] 分身数字人是否带原子动作库。 &gt; * 带原子动作库的分身数字人可做动作编排。
      * @param {boolean} [isMovable] 分身数字人是否支持走动。仅在分身数字人模型查询时有效。
@@ -1422,7 +1438,6 @@ export class MetaStudioClient {
      * @param {string} [excludeDeviceName] 资产已执行的任务名称
      * @param {'VIDEO_2D' | 'LIVE_2D' | 'CHAT_2D'} [supportedService] 资产支持的业务类型。默认查询所有资产。 * VIDEO_2D：分身数字人视频制作 * LIVE_2D：分身数字人直播 * CHAT_2D：分身数字人智能交互
      * @param {string} [appUserId] 第三方用户ID。不允许输入中文。
-     * @param {string} [projectGroupId] 租户组id。只支持asset_souce是ALL 或者GROUP_CUSTOMIZATION 来源。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4509,6 +4524,7 @@ export class MetaStudioClient {
      * @param {string} [batchName] 批次名称。
      * @param {string} [sortKey] 排序字段，当前支持：ceate_time/update_time
      * @param {string} [sortDir] 排序规则：desc(降序)/asc(升序)
+     * @param {boolean} [isOndemandResource] 是否是按需任务
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4529,6 +4545,7 @@ export class MetaStudioClient {
      *
      * @summary 设置任务批次
      * @param {SetJobBatchNameReq} setJobBatchNameRequestBody 设置任务批次请求
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4982,6 +4999,30 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于设置TTS租户级词表分组配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置TTS租户级词表分组配置
+     * @param {SaveTtscVocabularyGroupsRequestBody} createTtscVocabularyGroupsRequestBody 设置TTS租户级词表扩展配置。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTtscVocabularyGroups(createTtscVocabularyGroupsRequest?: CreateTtscVocabularyGroupsRequest): Promise<CreateTtscVocabularyGroupsResponse> {
+        const options = ParamCreater().createTtscVocabularyGroups(createTtscVocabularyGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于删除TTS租户级自定义读法配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5008,6 +5049,32 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于删除TTS租户级词表分组配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除TTS租户级词表分组
+     * @param {string} groupId 分组id
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页
+     * @param {number} [limit] 查询数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTtscVocabularyGroups(deleteTtscVocabularyGroupsRequest?: DeleteTtscVocabularyGroupsRequest): Promise<DeleteTtscVocabularyGroupsResponse> {
+        const options = ParamCreater().deleteTtscVocabularyGroups(deleteTtscVocabularyGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于获取TTS租户级自定义读法配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5021,6 +5088,8 @@ export class MetaStudioClient {
      * @param {string} [type] 自定义读法类型 CHINESE_G2P：拼音
      * @param {string} [ttsServiceName] 声音模型名称
      * @param {string} [isVocabularyConfigEnable] 是否应用词表配置，从周边服务传递
+     * @param {string} [groupId] 分组id
+     * @param {string} [assetId] 资产id
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {string} [startTime] 起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
@@ -5031,6 +5100,29 @@ export class MetaStudioClient {
      */
     public listTtscVocabularyConfigs(listTtscVocabularyConfigsRequest?: ListTtscVocabularyConfigsRequest): Promise<ListTtscVocabularyConfigsResponse> {
         const options = ParamCreater().listTtscVocabularyConfigs(listTtscVocabularyConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS租户级词表分组列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TTS租户级词表分组列表
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTtscVocabularyGroups(listTtscVocabularyGroupsRequest?: ListTtscVocabularyGroupsRequest): Promise<ListTtscVocabularyGroupsResponse> {
+        const options = ParamCreater().listTtscVocabularyGroups(listTtscVocabularyGroupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5056,6 +5148,31 @@ export class MetaStudioClient {
      */
     public saveTtscVocabularyConfigs(saveTtscVocabularyConfigsRequest?: SaveTtscVocabularyConfigsRequest): Promise<SaveTtscVocabularyConfigsResponse> {
         const options = ParamCreater().saveTtscVocabularyConfigs(saveTtscVocabularyConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于设置TTS租户级词表分组的资产列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置TTS租户级词表分组的资产列表
+     * @param {string} groupId 分组id
+     * @param {SetTtscGroupAssetsRequestBody} setTtscGroupAssetsRequestBody 设置TTS租户级词表分组资产列表配置。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setTtscGroupAssets(setTtscGroupAssetsRequest?: SetTtscGroupAssetsRequest): Promise<SetTtscGroupAssetsResponse> {
+        const options = ParamCreater().setTtscGroupAssets(setTtscGroupAssetsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5129,6 +5246,31 @@ export class MetaStudioClient {
      */
     public showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest): Promise<ShowTtsPhoneticSymbolResponse> {
         const options = ParamCreater().showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于对TTS租户级词表分组重命名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary TTS租户级词表分组重命名
+     * @param {string} groupId 分组id
+     * @param {SaveTtscVocabularyGroupsRequestBody} updateTtscVocabularyGroupsRequestBody 修改TTS租户级词表分组配置。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTtscVocabularyGroups(updateTtscVocabularyGroupsRequest?: UpdateTtscVocabularyGroupsRequest): Promise<UpdateTtscVocabularyGroupsResponse> {
+        const options = ParamCreater().updateTtscVocabularyGroups(updateTtscVocabularyGroupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7553,8 +7695,6 @@ export const ParamCreater = function () {
             let supportedService;
             
             let appUserId;
-            
-            let projectGroupId;
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
@@ -7590,7 +7730,6 @@ export const ParamCreater = function () {
                     excludeDeviceName = listAssetsRequest.excludeDeviceName;
                     supportedService = listAssetsRequest.supportedService;
                     appUserId = listAssetsRequest.appUserId;
-                    projectGroupId = listAssetsRequest.projectGroupId;
                 } else {
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
@@ -7624,7 +7763,6 @@ export const ParamCreater = function () {
                     excludeDeviceName = listAssetsRequest['exclude_device_name'];
                     supportedService = listAssetsRequest['supported_service'];
                     appUserId = listAssetsRequest['app_user_id'];
-                    projectGroupId = listAssetsRequest['project_group_id'];
                 }
             }
 
@@ -7715,9 +7853,6 @@ export const ParamCreater = function () {
             }
             if (appUserId !== null && appUserId !== undefined) {
                 localVarQueryParameter['app_user_id'] = appUserId;
-            }
-            if (projectGroupId !== null && projectGroupId !== undefined) {
-                localVarQueryParameter['project_group_id'] = projectGroupId;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -17063,6 +17198,8 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let isOndemandResource;
 
             if (listVoiceTrainingJobRequest !== null && listVoiceTrainingJobRequest !== undefined) {
                 if (listVoiceTrainingJobRequest instanceof ListVoiceTrainingJobRequest) {
@@ -17081,6 +17218,7 @@ export const ParamCreater = function () {
                     batchName = listVoiceTrainingJobRequest.batchName;
                     sortKey = listVoiceTrainingJobRequest.sortKey;
                     sortDir = listVoiceTrainingJobRequest.sortDir;
+                    isOndemandResource = listVoiceTrainingJobRequest.isOndemandResource;
                 } else {
                     offset = listVoiceTrainingJobRequest['offset'];
                     limit = listVoiceTrainingJobRequest['limit'];
@@ -17097,6 +17235,7 @@ export const ParamCreater = function () {
                     batchName = listVoiceTrainingJobRequest['batch_name'];
                     sortKey = listVoiceTrainingJobRequest['sort_key'];
                     sortDir = listVoiceTrainingJobRequest['sort_dir'];
+                    isOndemandResource = listVoiceTrainingJobRequest['is_ondemand_resource'];
                 }
             }
 
@@ -17143,6 +17282,9 @@ export const ParamCreater = function () {
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
             }
+            if (isOndemandResource !== null && isOndemandResource !== undefined) {
+                localVarQueryParameter['is_ondemand_resource'] = isOndemandResource;
+            }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
@@ -17171,18 +17313,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xAppUserId;
 
             if (setJobBatchNameRequest !== null && setJobBatchNameRequest !== undefined) {
                 if (setJobBatchNameRequest instanceof SetJobBatchNameRequest) {
                     body = setJobBatchNameRequest.body
+                    xAppUserId = setJobBatchNameRequest.xAppUserId;
                 } else {
                     body = setJobBatchNameRequest['body'];
+                    xAppUserId = setJobBatchNameRequest['X-App-UserId'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -18390,6 +18539,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于设置TTS租户级词表分组配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTtscVocabularyGroups(createTtscVocabularyGroupsRequest?: CreateTtscVocabularyGroupsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ttsc/vocabulary-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createTtscVocabularyGroupsRequest !== null && createTtscVocabularyGroupsRequest !== undefined) {
+                if (createTtscVocabularyGroupsRequest instanceof CreateTtscVocabularyGroupsRequest) {
+                    body = createTtscVocabularyGroupsRequest.body
+                    xRequestId = createTtscVocabularyGroupsRequest.xRequestId;
+                    authorization = createTtscVocabularyGroupsRequest.authorization;
+                    xSdkDate = createTtscVocabularyGroupsRequest.xSdkDate;
+                    xProjectId = createTtscVocabularyGroupsRequest.xProjectId;
+                    xAppUserId = createTtscVocabularyGroupsRequest.xAppUserId;
+                } else {
+                    body = createTtscVocabularyGroupsRequest['body'];
+                    xRequestId = createTtscVocabularyGroupsRequest['X-Request-Id'];
+                    authorization = createTtscVocabularyGroupsRequest['Authorization'];
+                    xSdkDate = createTtscVocabularyGroupsRequest['X-Sdk-Date'];
+                    xProjectId = createTtscVocabularyGroupsRequest['X-Project-Id'];
+                    xAppUserId = createTtscVocabularyGroupsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于删除TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18478,6 +18700,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于删除TTS租户级词表分组配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTtscVocabularyGroups(deleteTtscVocabularyGroupsRequest?: DeleteTtscVocabularyGroupsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/ttsc/vocabulary-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (deleteTtscVocabularyGroupsRequest !== null && deleteTtscVocabularyGroupsRequest !== undefined) {
+                if (deleteTtscVocabularyGroupsRequest instanceof DeleteTtscVocabularyGroupsRequest) {
+                    groupId = deleteTtscVocabularyGroupsRequest.groupId;
+                    xRequestId = deleteTtscVocabularyGroupsRequest.xRequestId;
+                    authorization = deleteTtscVocabularyGroupsRequest.authorization;
+                    xSdkDate = deleteTtscVocabularyGroupsRequest.xSdkDate;
+                    xProjectId = deleteTtscVocabularyGroupsRequest.xProjectId;
+                    xAppUserId = deleteTtscVocabularyGroupsRequest.xAppUserId;
+                    offset = deleteTtscVocabularyGroupsRequest.offset;
+                    limit = deleteTtscVocabularyGroupsRequest.limit;
+                } else {
+                    groupId = deleteTtscVocabularyGroupsRequest['group_id'];
+                    xRequestId = deleteTtscVocabularyGroupsRequest['X-Request-Id'];
+                    authorization = deleteTtscVocabularyGroupsRequest['Authorization'];
+                    xSdkDate = deleteTtscVocabularyGroupsRequest['X-Sdk-Date'];
+                    xProjectId = deleteTtscVocabularyGroupsRequest['X-Project-Id'];
+                    xAppUserId = deleteTtscVocabularyGroupsRequest['X-App-UserId'];
+                    offset = deleteTtscVocabularyGroupsRequest['offset'];
+                    limit = deleteTtscVocabularyGroupsRequest['limit'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteTtscVocabularyGroups.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于获取TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18510,6 +18819,10 @@ export const ParamCreater = function () {
             
             let isVocabularyConfigEnable;
             
+            let groupId;
+            
+            let assetId;
+            
             let limit;
             
             let offset;
@@ -18530,6 +18843,8 @@ export const ParamCreater = function () {
                     type = listTtscVocabularyConfigsRequest.type;
                     ttsServiceName = listTtscVocabularyConfigsRequest.ttsServiceName;
                     isVocabularyConfigEnable = listTtscVocabularyConfigsRequest.isVocabularyConfigEnable;
+                    groupId = listTtscVocabularyConfigsRequest.groupId;
+                    assetId = listTtscVocabularyConfigsRequest.assetId;
                     limit = listTtscVocabularyConfigsRequest.limit;
                     offset = listTtscVocabularyConfigsRequest.offset;
                     startTime = listTtscVocabularyConfigsRequest.startTime;
@@ -18544,6 +18859,8 @@ export const ParamCreater = function () {
                     type = listTtscVocabularyConfigsRequest['type'];
                     ttsServiceName = listTtscVocabularyConfigsRequest['tts_service_name'];
                     isVocabularyConfigEnable = listTtscVocabularyConfigsRequest['is_vocabulary_config_enable'];
+                    groupId = listTtscVocabularyConfigsRequest['group_id'];
+                    assetId = listTtscVocabularyConfigsRequest['asset_id'];
                     limit = listTtscVocabularyConfigsRequest['limit'];
                     offset = listTtscVocabularyConfigsRequest['offset'];
                     startTime = listTtscVocabularyConfigsRequest['start_time'];
@@ -18561,6 +18878,12 @@ export const ParamCreater = function () {
             }
             if (isVocabularyConfigEnable !== null && isVocabularyConfigEnable !== undefined) {
                 localVarQueryParameter['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (assetId !== null && assetId !== undefined) {
+                localVarQueryParameter['asset_id'] = assetId;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -18594,6 +18917,70 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS租户级词表分组列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTtscVocabularyGroups(listTtscVocabularyGroupsRequest?: ListTtscVocabularyGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/vocabulary-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (listTtscVocabularyGroupsRequest !== null && listTtscVocabularyGroupsRequest !== undefined) {
+                if (listTtscVocabularyGroupsRequest instanceof ListTtscVocabularyGroupsRequest) {
+                    xRequestId = listTtscVocabularyGroupsRequest.xRequestId;
+                    authorization = listTtscVocabularyGroupsRequest.authorization;
+                    xSdkDate = listTtscVocabularyGroupsRequest.xSdkDate;
+                    xProjectId = listTtscVocabularyGroupsRequest.xProjectId;
+                    xAppUserId = listTtscVocabularyGroupsRequest.xAppUserId;
+                } else {
+                    xRequestId = listTtscVocabularyGroupsRequest['X-Request-Id'];
+                    authorization = listTtscVocabularyGroupsRequest['Authorization'];
+                    xSdkDate = listTtscVocabularyGroupsRequest['X-Sdk-Date'];
+                    xProjectId = listTtscVocabularyGroupsRequest['X-Project-Id'];
+                    xAppUserId = listTtscVocabularyGroupsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18675,6 +19062,87 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'vocabulary_id': vocabularyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于设置TTS租户级词表分组的资产列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setTtscGroupAssets(setTtscGroupAssetsRequest?: SetTtscGroupAssetsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ttsc/group-assets/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (setTtscGroupAssetsRequest !== null && setTtscGroupAssetsRequest !== undefined) {
+                if (setTtscGroupAssetsRequest instanceof SetTtscGroupAssetsRequest) {
+                    groupId = setTtscGroupAssetsRequest.groupId;
+                    body = setTtscGroupAssetsRequest.body
+                    xRequestId = setTtscGroupAssetsRequest.xRequestId;
+                    authorization = setTtscGroupAssetsRequest.authorization;
+                    xSdkDate = setTtscGroupAssetsRequest.xSdkDate;
+                    xProjectId = setTtscGroupAssetsRequest.xProjectId;
+                    xAppUserId = setTtscGroupAssetsRequest.xAppUserId;
+                } else {
+                    groupId = setTtscGroupAssetsRequest['group_id'];
+                    body = setTtscGroupAssetsRequest['body'];
+                    xRequestId = setTtscGroupAssetsRequest['X-Request-Id'];
+                    authorization = setTtscGroupAssetsRequest['Authorization'];
+                    xSdkDate = setTtscGroupAssetsRequest['X-Sdk-Date'];
+                    xProjectId = setTtscGroupAssetsRequest['X-Project-Id'];
+                    xAppUserId = setTtscGroupAssetsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling setTtscGroupAssets.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18901,6 +19369,87 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于对TTS租户级词表分组重命名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTtscVocabularyGroups(updateTtscVocabularyGroupsRequest?: UpdateTtscVocabularyGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ttsc/vocabulary-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateTtscVocabularyGroupsRequest !== null && updateTtscVocabularyGroupsRequest !== undefined) {
+                if (updateTtscVocabularyGroupsRequest instanceof UpdateTtscVocabularyGroupsRequest) {
+                    groupId = updateTtscVocabularyGroupsRequest.groupId;
+                    body = updateTtscVocabularyGroupsRequest.body
+                    xRequestId = updateTtscVocabularyGroupsRequest.xRequestId;
+                    authorization = updateTtscVocabularyGroupsRequest.authorization;
+                    xSdkDate = updateTtscVocabularyGroupsRequest.xSdkDate;
+                    xProjectId = updateTtscVocabularyGroupsRequest.xProjectId;
+                    xAppUserId = updateTtscVocabularyGroupsRequest.xAppUserId;
+                } else {
+                    groupId = updateTtscVocabularyGroupsRequest['group_id'];
+                    body = updateTtscVocabularyGroupsRequest['body'];
+                    xRequestId = updateTtscVocabularyGroupsRequest['X-Request-Id'];
+                    authorization = updateTtscVocabularyGroupsRequest['Authorization'];
+                    xSdkDate = updateTtscVocabularyGroupsRequest['X-Sdk-Date'];
+                    xProjectId = updateTtscVocabularyGroupsRequest['X-Project-Id'];
+                    xAppUserId = updateTtscVocabularyGroupsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateTtscVocabularyGroups.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

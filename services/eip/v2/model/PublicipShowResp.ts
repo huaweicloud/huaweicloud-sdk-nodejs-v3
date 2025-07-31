@@ -13,6 +13,7 @@ export class PublicipShowResp {
     private 'private_ip_address'?: string;
     public profile?: ProfileResp;
     private 'public_ip_address'?: string;
+    public tags?: Array<string>;
     public status?: PublicipShowRespStatusEnum | string;
     private 'tenant_id'?: string;
     public type?: string;
@@ -120,6 +121,10 @@ export class PublicipShowResp {
     }
     public get publicIpAddress(): string | undefined {
         return this['public_ip_address'];
+    }
+    public withTags(tags: Array<string>): PublicipShowResp {
+        this['tags'] = tags;
+        return this;
     }
     public withStatus(status: PublicipShowRespStatusEnum | string): PublicipShowResp {
         this['status'] = status;
