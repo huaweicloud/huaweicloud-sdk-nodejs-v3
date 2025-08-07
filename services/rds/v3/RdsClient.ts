@@ -9,6 +9,7 @@ import { AddLogConfigs } from './model/AddLogConfigs';
 import { AddMsdtcRequestBody } from './model/AddMsdtcRequestBody';
 import { AddPostgresqlHbaConfRequest } from './model/AddPostgresqlHbaConfRequest';
 import { AddPostgresqlHbaConfResponse } from './model/AddPostgresqlHbaConfResponse';
+import { Agreement } from './model/Agreement';
 import { AllowDbPrivilegeRequest } from './model/AllowDbPrivilegeRequest';
 import { AllowDbPrivilegeResponse } from './model/AllowDbPrivilegeResponse';
 import { AllowDbUserPrivilegeRequest } from './model/AllowDbUserPrivilegeRequest';
@@ -52,6 +53,7 @@ import { BatchTagDelActionRequest } from './model/BatchTagDelActionRequest';
 import { BatchTagDelActionResponse } from './model/BatchTagDelActionResponse';
 import { BindEipRequest } from './model/BindEipRequest';
 import { BinlogClearPolicyRequestBody } from './model/BinlogClearPolicyRequestBody';
+import { BusinessPartner } from './model/BusinessPartner';
 import { ChangeFailoverModeRequest } from './model/ChangeFailoverModeRequest';
 import { ChangeFailoverModeResponse } from './model/ChangeFailoverModeResponse';
 import { ChangeFailoverStrategyRequest } from './model/ChangeFailoverStrategyRequest';
@@ -262,6 +264,8 @@ import { ListBackupTransfersRequest } from './model/ListBackupTransfersRequest';
 import { ListBackupTransfersResponse } from './model/ListBackupTransfersResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
+import { ListBusinessPartnersRequest } from './model/ListBusinessPartnersRequest';
+import { ListBusinessPartnersResponse } from './model/ListBusinessPartnersResponse';
 import { ListCollationsRequest } from './model/ListCollationsRequest';
 import { ListCollationsResponse } from './model/ListCollationsResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
@@ -313,6 +317,8 @@ import { ListJobInfoRequest } from './model/ListJobInfoRequest';
 import { ListJobInfoResponse } from './model/ListJobInfoResponse';
 import { ListLogLtsConfigsRequest } from './model/ListLogLtsConfigsRequest';
 import { ListLogLtsConfigsResponse } from './model/ListLogLtsConfigsResponse';
+import { ListMarketplaceEngineProductsRequest } from './model/ListMarketplaceEngineProductsRequest';
+import { ListMarketplaceEngineProductsResponse } from './model/ListMarketplaceEngineProductsResponse';
 import { ListMsdtcHostsRequest } from './model/ListMsdtcHostsRequest';
 import { ListMsdtcHostsResponse } from './model/ListMsdtcHostsResponse';
 import { ListOffSiteBackupsRequest } from './model/ListOffSiteBackupsRequest';
@@ -349,6 +355,8 @@ import { ListRecycleInstancesRequest } from './model/ListRecycleInstancesRequest
 import { ListRecycleInstancesResponse } from './model/ListRecycleInstancesResponse';
 import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
 import { ListRestoreTimesResponse } from './model/ListRestoreTimesResponse';
+import { ListScheduleTasksRequest } from './model/ListScheduleTasksRequest';
+import { ListScheduleTasksResponse } from './model/ListScheduleTasksResponse';
 import { ListShareBackupsRequest } from './model/ListShareBackupsRequest';
 import { ListShareBackupsResponse } from './model/ListShareBackupsResponse';
 import { ListSimplifiedInstancesRequest } from './model/ListSimplifiedInstancesRequest';
@@ -367,6 +375,8 @@ import { ListSlowlogStatisticsRequest } from './model/ListSlowlogStatisticsReque
 import { ListSlowlogStatisticsResponse } from './model/ListSlowlogStatisticsResponse';
 import { ListSqlLimitRequest } from './model/ListSqlLimitRequest';
 import { ListSqlLimitResponse } from './model/ListSqlLimitResponse';
+import { ListSqlStatisticsRequest } from './model/ListSqlStatisticsRequest';
+import { ListSqlStatisticsResponse } from './model/ListSqlStatisticsResponse';
 import { ListSqlserverDatabasesRequest } from './model/ListSqlserverDatabasesRequest';
 import { ListSqlserverDatabasesResponse } from './model/ListSqlserverDatabasesResponse';
 import { ListSqlserverDbUsersRequest } from './model/ListSqlserverDbUsersRequest';
@@ -375,6 +385,8 @@ import { ListSslCertDownloadLinkRequest } from './model/ListSslCertDownloadLinkR
 import { ListSslCertDownloadLinkResponse } from './model/ListSslCertDownloadLinkResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
+import { ListTasksRequest } from './model/ListTasksRequest';
+import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListUpdateBackupEnhancePolicyRequest } from './model/ListUpdateBackupEnhancePolicyRequest';
 import { ListUpdateBackupEnhancePolicyResponse } from './model/ListUpdateBackupEnhancePolicyResponse';
 import { ListUpgradeHistoriesRequest } from './model/ListUpgradeHistoriesRequest';
@@ -385,6 +397,7 @@ import { ListXelLogResponseResult } from './model/ListXelLogResponseResult';
 import { ListXellogFilesRequest } from './model/ListXellogFilesRequest';
 import { ListXellogFilesResponse } from './model/ListXellogFilesResponse';
 import { LogReplayDatabaseReq } from './model/LogReplayDatabaseReq';
+import { MarketplaceEngineProduct } from './model/MarketplaceEngineProduct';
 import { MasterInstance } from './model/MasterInstance';
 import { MigrateFollowerRequest } from './model/MigrateFollowerRequest';
 import { MigrateFollowerResponse } from './model/MigrateFollowerResponse';
@@ -461,10 +474,13 @@ import { ReduceVolumeRequestBody } from './model/ReduceVolumeRequestBody';
 import { RelatedInstance } from './model/RelatedInstance';
 import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
+import { ResetViewSqlStatisticsRequest } from './model/ResetViewSqlStatisticsRequest';
+import { ResetViewSqlStatisticsResponse } from './model/ResetViewSqlStatisticsResponse';
 import { ResizeFlavorObject } from './model/ResizeFlavorObject';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
 import { ResourceTag } from './model/ResourceTag';
 import { Resources } from './model/Resources';
+import { RestartConfiguration } from './model/RestartConfiguration';
 import { RestoreDatabaseInfo } from './model/RestoreDatabaseInfo';
 import { RestoreDatabaseInstance } from './model/RestoreDatabaseInstance';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
@@ -503,6 +519,7 @@ import { RevokeSqlserverDbUserPrivilegeRequest } from './model/RevokeSqlserverDb
 import { RevokeSqlserverDbUserPrivilegeResponse } from './model/RevokeSqlserverDbUserPrivilegeResponse';
 import { ScaleFlavors } from './model/ScaleFlavors';
 import { ScaleProxyRequestBody } from './model/ScaleProxyRequestBody';
+import { ScheduleTaskInfo } from './model/ScheduleTaskInfo';
 import { SearchQueryScaleComputeFlavorsRequest } from './model/SearchQueryScaleComputeFlavorsRequest';
 import { SearchQueryScaleComputeFlavorsResponse } from './model/SearchQueryScaleComputeFlavorsResponse';
 import { SearchQueryScaleFlavorsRequest } from './model/SearchQueryScaleFlavorsRequest';
@@ -654,6 +671,7 @@ import { StartResizeFlavorActionRequest } from './model/StartResizeFlavorActionR
 import { StartResizeFlavorActionResponse } from './model/StartResizeFlavorActionResponse';
 import { StartupInstanceRequest } from './model/StartupInstanceRequest';
 import { StartupInstanceResponse } from './model/StartupInstanceResponse';
+import { Statistic } from './model/Statistic';
 import { StopBackupRequest } from './model/StopBackupRequest';
 import { StopBackupResponse } from './model/StopBackupResponse';
 import { StopDatabaseProxyRequest } from './model/StopDatabaseProxyRequest';
@@ -674,7 +692,9 @@ import { TagDelWithKeyValue } from './model/TagDelWithKeyValue';
 import { TagResp } from './model/TagResp';
 import { TagResponse } from './model/TagResponse';
 import { TagWithKeyValue } from './model/TagWithKeyValue';
+import { TargetConfig } from './model/TargetConfig';
 import { TargetInstanceRequest } from './model/TargetInstanceRequest';
+import { Task } from './model/Task';
 import { ToPeriodReq } from './model/ToPeriodReq';
 import { TransferBackupRequest } from './model/TransferBackupRequest';
 import { TransferBackupRequestBody } from './model/TransferBackupRequestBody';
@@ -2330,6 +2350,31 @@ export class RdsClient {
     }
 
     /**
+     * 查询定时任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询定时任务列表
+     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为50。
+     * @param {string} [instanceId] 实例id，按实例id过滤。
+     * @param {string} [instanceName] 实例名称，按实例名称过滤。
+     * @param {'Initing' | 'Pending' | 'Running' | 'Completed' | 'Failed' | 'Unauthorized' | 'Canceled'} [status] 任务状态，按任务状态过滤。 Initing:初始化中 Pending:挂起 Running:运行中 Completed:已完成 Failed:已失败 Unauthorized:未授权 Canceled:已取消
+     * @param {string} [startTime] 查询任务创建的开始时间，“start_time”有值时，“end_time”必选。格式为UTC时间戳。
+     * @param {string} [endTime] 查询任务创建的结束时间，“start_time”有值时，“end_time”必选。格式为UTC时间戳。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduleTasks(listScheduleTasksRequest?: ListScheduleTasksRequest): Promise<ListScheduleTasksResponse> {
+        const options = ParamCreater().listScheduleTasks(listScheduleTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询共享备份列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2567,6 +2612,33 @@ export class RdsClient {
      */
     public listStorageTypes(listStorageTypesRequest?: ListStorageTypesRequest): Promise<ListStorageTypesResponse> {
         const options = ParamCreater().listStorageTypes(listStorageTypesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询及时任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询及时任务列表
+     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为50。
+     * @param {string} [id] 任务ID，按任务ID过滤。
+     * @param {string} [instanceId] 实例ID，按实例ID过滤。
+     * @param {string} [orderId] 订单ID，按订单ID过滤。
+     * @param {string} [name] 任务名称，按任务名称称过滤。
+     * @param {'Running' | 'Completed' | 'Failed'} [status] 任务状态，按任务状态过滤。 Running:运行中 Completed:已完成 Failed:已失败
+     * @param {string} [startTime] 任务的创建时间，按时间范围进行过滤，“start_time”有值时，“end_time”必选。格式为UTC时间戳。
+     * @param {string} [endTime] 任务的结束时间，按时间范围进行过滤，“start_time”有值时，“end_time”必选。格式为UTC时间戳。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTasks(listTasksRequest?: ListTasksRequest): Promise<ListTasksResponse> {
+        const options = ParamCreater().listTasks(listTasksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5585,6 +5657,50 @@ export class RdsClient {
     }
 
     /**
+     * 查询云市场服务商列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云市场服务商列表
+     * @param {string} [xLanguage] 语言。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBusinessPartners(listBusinessPartnersRequest?: ListBusinessPartnersRequest): Promise<ListBusinessPartnersResponse> {
+        const options = ParamCreater().listBusinessPartners(listBusinessPartnersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云市场引擎商品列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云市场引擎商品列表
+     * @param {string} bpDomainId 服务商ID。
+     * @param {string} [xLanguage] 语言。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {string} [engineId] 按照引擎ID查询。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMarketplaceEngineProducts(listMarketplaceEngineProductsRequest?: ListMarketplaceEngineProductsRequest): Promise<ListMarketplaceEngineProductsResponse> {
+        const options = ParamCreater().listMarketplaceEngineProducts(listMarketplaceEngineProductsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询MSDTC的hosts信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5726,6 +5842,46 @@ export class RdsClient {
      */
     public setInstancesNewDbShrink(setInstancesNewDbShrinkRequest?: SetInstancesNewDbShrinkRequest): Promise<SetInstancesNewDbShrinkResponse> {
         const options = ParamCreater().setInstancesNewDbShrink(setInstancesNewDbShrinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询sql统计列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询sql统计列表
+     * @param {string} instanceId instanceId
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为1000，不能为负数，最小值为1，最大值为1000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlStatistics(listSqlStatisticsRequest?: ListSqlStatisticsRequest): Promise<ListSqlStatisticsResponse> {
+        const options = ParamCreater().listSqlStatistics(listSqlStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * sql统计视图重置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary sql统计视图重置
+     * @param {string} instanceId insatnceId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetViewSqlStatistics(resetViewSqlStatisticsRequest?: ResetViewSqlStatisticsRequest): Promise<ResetViewSqlStatisticsResponse> {
+        const options = ParamCreater().resetViewSqlStatistics(resetViewSqlStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9732,6 +9888,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询定时任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduleTasks(listScheduleTasksRequest?: ListScheduleTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/schedule-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let instanceId;
+            
+            let instanceName;
+            
+            let status;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listScheduleTasksRequest !== null && listScheduleTasksRequest !== undefined) {
+                if (listScheduleTasksRequest instanceof ListScheduleTasksRequest) {
+                    offset = listScheduleTasksRequest.offset;
+                    limit = listScheduleTasksRequest.limit;
+                    instanceId = listScheduleTasksRequest.instanceId;
+                    instanceName = listScheduleTasksRequest.instanceName;
+                    status = listScheduleTasksRequest.status;
+                    startTime = listScheduleTasksRequest.startTime;
+                    endTime = listScheduleTasksRequest.endTime;
+                } else {
+                    offset = listScheduleTasksRequest['offset'];
+                    limit = listScheduleTasksRequest['limit'];
+                    instanceId = listScheduleTasksRequest['instance_id'];
+                    instanceName = listScheduleTasksRequest['instance_name'];
+                    status = listScheduleTasksRequest['status'];
+                    startTime = listScheduleTasksRequest['start_time'];
+                    endTime = listScheduleTasksRequest['end_time'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询共享备份列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10445,6 +10680,99 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询及时任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTasks(listTasksRequest?: ListTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/tasklist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let id;
+            
+            let instanceId;
+            
+            let orderId;
+            
+            let name;
+            
+            let status;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listTasksRequest !== null && listTasksRequest !== undefined) {
+                if (listTasksRequest instanceof ListTasksRequest) {
+                    offset = listTasksRequest.offset;
+                    limit = listTasksRequest.limit;
+                    id = listTasksRequest.id;
+                    instanceId = listTasksRequest.instanceId;
+                    orderId = listTasksRequest.orderId;
+                    name = listTasksRequest.name;
+                    status = listTasksRequest.status;
+                    startTime = listTasksRequest.startTime;
+                    endTime = listTasksRequest.endTime;
+                } else {
+                    offset = listTasksRequest['offset'];
+                    limit = listTasksRequest['limit'];
+                    id = listTasksRequest['id'];
+                    instanceId = listTasksRequest['instance_id'];
+                    orderId = listTasksRequest['order_id'];
+                    name = listTasksRequest['name'];
+                    status = listTasksRequest['status'];
+                    startTime = listTasksRequest['start_time'];
+                    endTime = listTasksRequest['end_time'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (orderId !== null && orderId !== undefined) {
+                localVarQueryParameter['order_id'] = orderId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17804,6 +18132,123 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询云市场服务商列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBusinessPartners(listBusinessPartnersRequest?: ListBusinessPartnersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/business-partners",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listBusinessPartnersRequest !== null && listBusinessPartnersRequest !== undefined) {
+                if (listBusinessPartnersRequest instanceof ListBusinessPartnersRequest) {
+                    xLanguage = listBusinessPartnersRequest.xLanguage;
+                    offset = listBusinessPartnersRequest.offset;
+                    limit = listBusinessPartnersRequest.limit;
+                } else {
+                    xLanguage = listBusinessPartnersRequest['X-Language'];
+                    offset = listBusinessPartnersRequest['offset'];
+                    limit = listBusinessPartnersRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云市场引擎商品列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMarketplaceEngineProducts(listMarketplaceEngineProductsRequest?: ListMarketplaceEngineProductsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/business-partner/{bp_domain_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let bpDomainId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let engineId;
+
+            if (listMarketplaceEngineProductsRequest !== null && listMarketplaceEngineProductsRequest !== undefined) {
+                if (listMarketplaceEngineProductsRequest instanceof ListMarketplaceEngineProductsRequest) {
+                    bpDomainId = listMarketplaceEngineProductsRequest.bpDomainId;
+                    xLanguage = listMarketplaceEngineProductsRequest.xLanguage;
+                    offset = listMarketplaceEngineProductsRequest.offset;
+                    limit = listMarketplaceEngineProductsRequest.limit;
+                    engineId = listMarketplaceEngineProductsRequest.engineId;
+                } else {
+                    bpDomainId = listMarketplaceEngineProductsRequest['bp_domain_id'];
+                    xLanguage = listMarketplaceEngineProductsRequest['X-Language'];
+                    offset = listMarketplaceEngineProductsRequest['offset'];
+                    limit = listMarketplaceEngineProductsRequest['limit'];
+                    engineId = listMarketplaceEngineProductsRequest['engine_id'];
+                }
+            }
+
+        
+            if (bpDomainId === null || bpDomainId === undefined) {
+            throw new RequiredError('bpDomainId','Required parameter bpDomainId was null or undefined when calling listMarketplaceEngineProducts.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (engineId !== null && engineId !== undefined) {
+                localVarQueryParameter['engine_id'] = engineId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'bp_domain_id': bpDomainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询MSDTC的hosts信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18192,6 +18637,95 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询sql统计列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlStatistics(listSqlStatisticsRequest?: ListSqlStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSqlStatisticsRequest !== null && listSqlStatisticsRequest !== undefined) {
+                if (listSqlStatisticsRequest instanceof ListSqlStatisticsRequest) {
+                    instanceId = listSqlStatisticsRequest.instanceId;
+                    offset = listSqlStatisticsRequest.offset;
+                    limit = listSqlStatisticsRequest.limit;
+                } else {
+                    instanceId = listSqlStatisticsRequest['instance_id'];
+                    offset = listSqlStatisticsRequest['offset'];
+                    limit = listSqlStatisticsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSqlStatistics.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * sql统计视图重置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetViewSqlStatistics(resetViewSqlStatisticsRequest?: ResetViewSqlStatisticsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-statistics/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (resetViewSqlStatisticsRequest !== null && resetViewSqlStatisticsRequest !== undefined) {
+                if (resetViewSqlStatisticsRequest instanceof ResetViewSqlStatisticsRequest) {
+                    instanceId = resetViewSqlStatisticsRequest.instanceId;
+                } else {
+                    instanceId = resetViewSqlStatisticsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetViewSqlStatistics.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

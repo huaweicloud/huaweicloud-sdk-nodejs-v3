@@ -31,6 +31,7 @@ export class AomRegion {
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://aom.ru-moscow-1.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://aom.my-kualalumpur-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://aom.ap-southeast-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://aom.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -58,7 +59,8 @@ export class AomRegion {
         "ae-ad-1":AomRegion.AE_AD_1,
         "ru-moscow-1":AomRegion.RU_MOSCOW_1,
         "my-kualalumpur-1":AomRegion.MY_KUALALUMPUR_1,
-        "ap-southeast-5":AomRegion.AP_SOUTHEAST_5
+        "ap-southeast-5":AomRegion.AP_SOUTHEAST_5,
+        "af-north-1":AomRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

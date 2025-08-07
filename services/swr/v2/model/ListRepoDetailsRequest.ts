@@ -6,7 +6,7 @@ export class ListRepoDetailsRequest {
     public name?: string;
     public category?: string;
     public limit?: number;
-    public marker?: string;
+    public marker?: number;
     private 'is_public'?: boolean;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
@@ -37,7 +37,7 @@ export class ListRepoDetailsRequest {
         this['limit'] = limit;
         return this;
     }
-    public withMarker(marker: string): ListRepoDetailsRequest {
+    public withMarker(marker: number): ListRepoDetailsRequest {
         this['marker'] = marker;
         return this;
     }

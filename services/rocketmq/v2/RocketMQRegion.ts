@@ -36,6 +36,10 @@ export class RocketMQRegion {
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://dms.ap-southeast-5.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dms.ru-moscow-1.myhuaweicloud.com"]);
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://dms.sa-brazil-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://dms.cn-south-4.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://dms.cn-north-12.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://dms.cn-southwest-3.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://dms.cn-north-11.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -68,7 +72,11 @@ export class RocketMQRegion {
         "af-north-1":RocketMQRegion.AF_NORTH_1,
         "ap-southeast-5":RocketMQRegion.AP_SOUTHEAST_5,
         "ru-moscow-1":RocketMQRegion.RU_MOSCOW_1,
-        "sa-brazil-1":RocketMQRegion.SA_BRAZIL_1
+        "sa-brazil-1":RocketMQRegion.SA_BRAZIL_1,
+        "cn-south-4":RocketMQRegion.CN_SOUTH_4,
+        "cn-north-12":RocketMQRegion.CN_NORTH_12,
+        "cn-southwest-3":RocketMQRegion.CN_SOUTHWEST_3,
+        "cn-north-11":RocketMQRegion.CN_NORTH_11
     };
   
     public static valueOf(regionId: string) {

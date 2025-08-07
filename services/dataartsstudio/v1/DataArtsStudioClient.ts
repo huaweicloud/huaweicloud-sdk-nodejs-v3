@@ -5183,6 +5183,10 @@ export class DataArtsStudioClient {
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [submitUserName] 提交人。
      * @param {string} [itemName] 任务名称。
+     * @param {string} [updateType] 变更类型。
+     * @param {string} [taskType] 任务类型。
+     * @param {string} [startTime] 开始时间。
+     * @param {string} [endTime] 结束时间。
      * @param {number} [limit] 分页返回结果，指定每页最大记录数。范围[1,100] 默认值：10
      * @param {number} [offset] 分页列表的页数，默认值为0。取值范围大于等于0。
      * @param {*} [options] Override http request option.
@@ -20751,6 +20755,14 @@ export const ParamCreater = function () {
             
             let itemName;
             
+            let updateType;
+            
+            let taskType;
+            
+            let startTime;
+            
+            let endTime;
+            
             let limit;
             
             let offset;
@@ -20761,6 +20773,10 @@ export const ParamCreater = function () {
                     xProjectId = listFactoryPendingItemsRequest.xProjectId;
                     submitUserName = listFactoryPendingItemsRequest.submitUserName;
                     itemName = listFactoryPendingItemsRequest.itemName;
+                    updateType = listFactoryPendingItemsRequest.updateType;
+                    taskType = listFactoryPendingItemsRequest.taskType;
+                    startTime = listFactoryPendingItemsRequest.startTime;
+                    endTime = listFactoryPendingItemsRequest.endTime;
                     limit = listFactoryPendingItemsRequest.limit;
                     offset = listFactoryPendingItemsRequest.offset;
                 } else {
@@ -20768,6 +20784,10 @@ export const ParamCreater = function () {
                     xProjectId = listFactoryPendingItemsRequest['X-Project-Id'];
                     submitUserName = listFactoryPendingItemsRequest['submit_user_name'];
                     itemName = listFactoryPendingItemsRequest['item_name'];
+                    updateType = listFactoryPendingItemsRequest['update_type'];
+                    taskType = listFactoryPendingItemsRequest['task_type'];
+                    startTime = listFactoryPendingItemsRequest['start_time'];
+                    endTime = listFactoryPendingItemsRequest['end_time'];
                     limit = listFactoryPendingItemsRequest['limit'];
                     offset = listFactoryPendingItemsRequest['offset'];
                 }
@@ -20779,6 +20799,18 @@ export const ParamCreater = function () {
             }
             if (itemName !== null && itemName !== undefined) {
                 localVarQueryParameter['item_name'] = itemName;
+            }
+            if (updateType !== null && updateType !== undefined) {
+                localVarQueryParameter['update_type'] = updateType;
+            }
+            if (taskType !== null && taskType !== undefined) {
+                localVarQueryParameter['task_type'] = taskType;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;

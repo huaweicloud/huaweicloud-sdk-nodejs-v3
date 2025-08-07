@@ -1,4 +1,3 @@
-import { AlarmType } from './AlarmType';
 import { Dimension } from './Dimension';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
@@ -11,7 +10,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
     public namespace?: string;
     public policies?: Array<Policy>;
     public resources?: Array<Array<Dimension>>;
-    public type?: AlarmType;
+    public type?: string;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
     private 'alarm_notifications'?: Array<Notification>;
@@ -52,7 +51,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
         this['resources'] = resources;
         return this;
     }
-    public withType(type: AlarmType): EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
+    public withType(type: string): EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
         this['type'] = type;
         return this;
     }

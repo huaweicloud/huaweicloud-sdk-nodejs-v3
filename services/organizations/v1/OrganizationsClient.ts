@@ -16,6 +16,7 @@ import { CreateAccountReqBody } from './model/CreateAccountReqBody';
 import { CreateAccountRequest } from './model/CreateAccountRequest';
 import { CreateAccountResponse } from './model/CreateAccountResponse';
 import { CreateAccountStatusDto } from './model/CreateAccountStatusDto';
+import { CreateAccountStatusDtoFailureDetailMsg } from './model/CreateAccountStatusDtoFailureDetailMsg';
 import { CreateOrganizationRequest } from './model/CreateOrganizationRequest';
 import { CreateOrganizationResponse } from './model/CreateOrganizationResponse';
 import { CreateOrganizationalUnitReqBody } from './model/CreateOrganizationalUnitReqBody';
@@ -24,6 +25,9 @@ import { CreateOrganizationalUnitResponse } from './model/CreateOrganizationalUn
 import { CreatePolicyReqBody } from './model/CreatePolicyReqBody';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
+import { CreateResourceAccountReqBody } from './model/CreateResourceAccountReqBody';
+import { CreateResourceAccountRequest } from './model/CreateResourceAccountRequest';
+import { CreateResourceAccountResponse } from './model/CreateResourceAccountResponse';
 import { CreateTagResourceRequest } from './model/CreateTagResourceRequest';
 import { CreateTagResourceResponse } from './model/CreateTagResourceResponse';
 import { DeclineHandshakeRequest } from './model/DeclineHandshakeRequest';
@@ -206,6 +210,26 @@ export class OrganizationsClient {
      */
     public createAccount(createAccountRequest?: CreateAccountRequest): Promise<CreateAccountResponse> {
         const options = ParamCreater().createAccount(createAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建一个帐号，不携带手机号邮箱联系方式，生成的帐号将自动成为调用此接口的帐号所属组织的成员。此操作只能由组织的管理帐号调用。组织云服务将在新帐号中创建所需的服务关联委托和帐号访问委托。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建帐号
+     * @param {CreateResourceAccountReqBody} createResourceAccountReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createResourceAccount(createResourceAccountRequest?: CreateResourceAccountRequest): Promise<CreateResourceAccountResponse> {
+        const options = ParamCreater().createResourceAccount(createResourceAccountRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1451,6 +1475,51 @@ export const ParamCreater = function () {
                 } else {
                     body = createAccountRequest['body'];
                     xSecurityToken = createAccountRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建一个帐号，不携带手机号邮箱联系方式，生成的帐号将自动成为调用此接口的帐号所属组织的成员。此操作只能由组织的管理帐号调用。组织云服务将在新帐号中创建所需的服务关联委托和帐号访问委托。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createResourceAccount(createResourceAccountRequest?: CreateResourceAccountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/organizations/accounts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSecurityToken;
+
+            if (createResourceAccountRequest !== null && createResourceAccountRequest !== undefined) {
+                if (createResourceAccountRequest instanceof CreateResourceAccountRequest) {
+                    body = createResourceAccountRequest.body
+                    xSecurityToken = createResourceAccountRequest.xSecurityToken;
+                } else {
+                    body = createResourceAccountRequest['body'];
+                    xSecurityToken = createResourceAccountRequest['X-Security-Token'];
                 }
             }
 

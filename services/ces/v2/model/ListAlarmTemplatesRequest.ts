@@ -7,7 +7,6 @@ export class ListAlarmTemplatesRequest {
     private 'dim_name'?: string;
     private 'template_type'?: ListAlarmTemplatesRequestTemplateTypeEnum | string;
     private 'template_name'?: string;
-    private 'product_name'?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListAlarmTemplatesRequest {
@@ -51,16 +50,6 @@ export class ListAlarmTemplatesRequest {
     }
     public get templateName(): string | undefined {
         return this['template_name'];
-    }
-    public withProductName(productName: string): ListAlarmTemplatesRequest {
-        this['product_name'] = productName;
-        return this;
-    }
-    public set productName(productName: string  | undefined) {
-        this['product_name'] = productName;
-    }
-    public get productName(): string | undefined {
-        return this['product_name'];
     }
 }
 

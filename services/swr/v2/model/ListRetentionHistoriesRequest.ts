@@ -4,6 +4,8 @@ export class ListRetentionHistoriesRequest {
     private 'Content-Type'?: ListRetentionHistoriesRequestContentTypeEnum | string;
     public namespace?: string;
     public repository?: string;
+    public limit?: string;
+    public offset?: string;
     public filter?: string;
     public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
@@ -26,6 +28,14 @@ export class ListRetentionHistoriesRequest {
     }
     public withRepository(repository: string): ListRetentionHistoriesRequest {
         this['repository'] = repository;
+        return this;
+    }
+    public withLimit(limit: string): ListRetentionHistoriesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: string): ListRetentionHistoriesRequest {
+        this['offset'] = offset;
         return this;
     }
     public withFilter(filter: string): ListRetentionHistoriesRequest {

@@ -5,6 +5,10 @@ export class ListFactoryPendingItemsRequest {
     private 'X-Project-Id'?: string;
     private 'submit_user_name'?: string;
     private 'item_name'?: string;
+    private 'update_type'?: string;
+    private 'task_type'?: string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public limit?: number;
     public offset?: number;
     public constructor(workspace?: string) { 
@@ -43,6 +47,46 @@ export class ListFactoryPendingItemsRequest {
     }
     public get itemName(): string | undefined {
         return this['item_name'];
+    }
+    public withUpdateType(updateType: string): ListFactoryPendingItemsRequest {
+        this['update_type'] = updateType;
+        return this;
+    }
+    public set updateType(updateType: string  | undefined) {
+        this['update_type'] = updateType;
+    }
+    public get updateType(): string | undefined {
+        return this['update_type'];
+    }
+    public withTaskType(taskType: string): ListFactoryPendingItemsRequest {
+        this['task_type'] = taskType;
+        return this;
+    }
+    public set taskType(taskType: string  | undefined) {
+        this['task_type'] = taskType;
+    }
+    public get taskType(): string | undefined {
+        return this['task_type'];
+    }
+    public withStartTime(startTime: string): ListFactoryPendingItemsRequest {
+        this['start_time'] = startTime;
+        return this;
+    }
+    public set startTime(startTime: string  | undefined) {
+        this['start_time'] = startTime;
+    }
+    public get startTime(): string | undefined {
+        return this['start_time'];
+    }
+    public withEndTime(endTime: string): ListFactoryPendingItemsRequest {
+        this['end_time'] = endTime;
+        return this;
+    }
+    public set endTime(endTime: string  | undefined) {
+        this['end_time'] = endTime;
+    }
+    public get endTime(): string | undefined {
+        return this['end_time'];
     }
     public withLimit(limit: number): ListFactoryPendingItemsRequest {
         this['limit'] = limit;

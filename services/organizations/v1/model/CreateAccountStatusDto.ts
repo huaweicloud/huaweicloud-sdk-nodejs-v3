@@ -1,3 +1,4 @@
+import { CreateAccountStatusDtoFailureDetailMsg } from './CreateAccountStatusDtoFailureDetailMsg';
 
 
 export class CreateAccountStatusDto {
@@ -8,6 +9,7 @@ export class CreateAccountStatusDto {
     public id?: string;
     public state?: string;
     private 'failure_reason'?: string;
+    private 'failure_detail_msg'?: CreateAccountStatusDtoFailureDetailMsg;
     public constructor(accountId?: string, accountName?: string, completedAt?: Date, createdAt?: Date, id?: string, state?: string) { 
         this['account_id'] = accountId;
         this['account_name'] = accountName;
@@ -73,5 +75,15 @@ export class CreateAccountStatusDto {
     }
     public get failureReason(): string | undefined {
         return this['failure_reason'];
+    }
+    public withFailureDetailMsg(failureDetailMsg: CreateAccountStatusDtoFailureDetailMsg): CreateAccountStatusDto {
+        this['failure_detail_msg'] = failureDetailMsg;
+        return this;
+    }
+    public set failureDetailMsg(failureDetailMsg: CreateAccountStatusDtoFailureDetailMsg  | undefined) {
+        this['failure_detail_msg'] = failureDetailMsg;
+    }
+    public get failureDetailMsg(): CreateAccountStatusDtoFailureDetailMsg | undefined {
+        return this['failure_detail_msg'];
     }
 }

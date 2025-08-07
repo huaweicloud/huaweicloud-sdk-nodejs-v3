@@ -1,14 +1,11 @@
 export * from './AomClient';
 
 export * from './model/ApproveInfo';
-export * from './model/CreateFastExecuteScriptRequest';
-export * from './model/CreateFastExecuteScriptResponse';
 export * from './model/CreateWorkflowRequest';
 export * from './model/CreateWorkflowResponse';
 export * from './model/ExecuteWorkflowRequest';
 export * from './model/ExecuteWorkflowResponse';
 export * from './model/ExecutionResultList';
-export * from './model/HISFastScript';
 export * from './model/Job';
 export * from './model/ListAllJobByNameRequest';
 export * from './model/ListAllJobByNameResponse';

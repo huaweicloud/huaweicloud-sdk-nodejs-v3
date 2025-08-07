@@ -166,14 +166,14 @@ import { GetScriptJobStatisticsRequest } from './model/GetScriptJobStatisticsReq
 import { GetScriptJobStatisticsResponse } from './model/GetScriptJobStatisticsResponse';
 import { GetScriptRequest } from './model/GetScriptRequest';
 import { GetScriptResponse } from './model/GetScriptResponse';
+import { HandleAlarmRequest } from './model/HandleAlarmRequest';
+import { HandleAlarmResponse } from './model/HandleAlarmResponse';
 import { HandleCocIncidentRequest } from './model/HandleCocIncidentRequest';
 import { HandleCocIncidentResponse } from './model/HandleCocIncidentResponse';
 import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentRequest';
 import { HandleExternalIncidentResponseData } from './model/HandleExternalIncidentResponseData';
 import { HandleIncidentRequest } from './model/HandleIncidentRequest';
 import { HandleIncidentResponse } from './model/HandleIncidentResponse';
-import { HandlerAlarmRequest } from './model/HandlerAlarmRequest';
-import { HandlerAlarmResponse } from './model/HandlerAlarmResponse';
 import { IncidentSimpleTicketInfo } from './model/IncidentSimpleTicketInfo';
 import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoResponseData';
 import { InstanceCompliant } from './model/InstanceCompliant';
@@ -455,18 +455,18 @@ export class CocClient {
     }
 
     /**
-     * 自动处理设置脚本和runbook
+     * 自动处理告警
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 自动处理设置脚本和runbook
+     * @summary 自动处理告警
      * @param {string} alarmId 告警ID
      * @param {AutoHandlerAlarmRequestBody} handlerAlarmRequestBody 自动处理告警请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public handlerAlarm(handlerAlarmRequest?: HandlerAlarmRequest): Promise<HandlerAlarmResponse> {
-        const options = ParamCreater().handlerAlarm(handlerAlarmRequest);
+    public handleAlarm(handleAlarmRequest?: HandleAlarmRequest): Promise<HandleAlarmResponse> {
+        const options = ParamCreater().handleAlarm(handleAlarmRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2518,11 +2518,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 自动处理设置脚本和runbook
+         * 自动处理告警
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        handlerAlarm(handlerAlarmRequest?: HandlerAlarmRequest) {
+        handleAlarm(handleAlarmRequest?: HandleAlarmRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/alarm-mgmt/alarm/{alarm_id}/auto-process",
@@ -2538,19 +2538,19 @@ export const ParamCreater = function () {
             
             let alarmId;
 
-            if (handlerAlarmRequest !== null && handlerAlarmRequest !== undefined) {
-                if (handlerAlarmRequest instanceof HandlerAlarmRequest) {
-                    alarmId = handlerAlarmRequest.alarmId;
-                    body = handlerAlarmRequest.body
+            if (handleAlarmRequest !== null && handleAlarmRequest !== undefined) {
+                if (handleAlarmRequest instanceof HandleAlarmRequest) {
+                    alarmId = handleAlarmRequest.alarmId;
+                    body = handleAlarmRequest.body
                 } else {
-                    alarmId = handlerAlarmRequest['alarm_id'];
-                    body = handlerAlarmRequest['body'];
+                    alarmId = handleAlarmRequest['alarm_id'];
+                    body = handleAlarmRequest['body'];
                 }
             }
 
         
             if (alarmId === null || alarmId === undefined) {
-            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling handlerAlarm.');
+            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling handleAlarm.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

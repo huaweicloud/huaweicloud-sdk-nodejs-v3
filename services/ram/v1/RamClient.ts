@@ -26,6 +26,8 @@ import { DisassociateResourceSharePermissionRequest } from './model/Disassociate
 import { DisassociateResourceSharePermissionResponse } from './model/DisassociateResourceSharePermissionResponse';
 import { DisassociateResourceShareRequest } from './model/DisassociateResourceShareRequest';
 import { DisassociateResourceShareResponse } from './model/DisassociateResourceShareResponse';
+import { DistinctSharedPrincipal } from './model/DistinctSharedPrincipal';
+import { DistinctSharedResource } from './model/DistinctSharedResource';
 import { EnableOrganizationShareRequest } from './model/EnableOrganizationShareRequest';
 import { EnableOrganizationShareResponse } from './model/EnableOrganizationShareResponse';
 import { ListPermissionVersionsRequest } from './model/ListPermissionVersionsRequest';
@@ -58,6 +60,12 @@ import { ResourceShareAssociationReqBody } from './model/ResourceShareAssociatio
 import { ResourceShareInvitation } from './model/ResourceShareInvitation';
 import { ResourceSharesByTagsReqBody } from './model/ResourceSharesByTagsReqBody';
 import { ResourceTypesSummary } from './model/ResourceTypesSummary';
+import { SearchDistinctPrincipalsRequest } from './model/SearchDistinctPrincipalsRequest';
+import { SearchDistinctPrincipalsResponse } from './model/SearchDistinctPrincipalsResponse';
+import { SearchDistinctSharedPrincipalsReqBody } from './model/SearchDistinctSharedPrincipalsReqBody';
+import { SearchDistinctSharedResourcesReqBody } from './model/SearchDistinctSharedResourcesReqBody';
+import { SearchDistinctSharedResourcesRequest } from './model/SearchDistinctSharedResourcesRequest';
+import { SearchDistinctSharedResourcesResponse } from './model/SearchDistinctSharedResourcesResponse';
 import { SearchResourceShareAssociationsReqBody } from './model/SearchResourceShareAssociationsReqBody';
 import { SearchResourceShareAssociationsRequest } from './model/SearchResourceShareAssociationsRequest';
 import { SearchResourceShareAssociationsResponse } from './model/SearchResourceShareAssociationsResponse';
@@ -336,6 +344,26 @@ export class RamClient {
     }
 
     /**
+     * 检索您正在共享资源的不同使用者或被共享资源给您的不同使用者并去除其中的重复项。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检索资源使用者并去除其中的重复项
+     * @param {SearchDistinctSharedPrincipalsReqBody} searchDistinctSharedPrincipalsReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchDistinctPrincipals(searchDistinctPrincipalsRequest?: SearchDistinctPrincipalsRequest): Promise<SearchDistinctPrincipalsResponse> {
+        const options = ParamCreater().searchDistinctPrincipals(searchDistinctPrincipalsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 检索共享资源的使用者。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -348,6 +376,26 @@ export class RamClient {
      */
     public searchSharedPrincipals(searchSharedPrincipalsRequest?: SearchSharedPrincipalsRequest): Promise<SearchSharedPrincipalsResponse> {
         const options = ParamCreater().searchSharedPrincipals(searchSharedPrincipalsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检索您添加到资源共享或被共享给您的不同资源并去除其中的重复项。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检索共享的资源并去除其中的重复项
+     * @param {SearchDistinctSharedResourcesReqBody} searchDistinctSharedResourcesReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchDistinctSharedResources(searchDistinctSharedResourcesRequest?: SearchDistinctSharedResourcesRequest): Promise<SearchDistinctSharedResourcesResponse> {
+        const options = ParamCreater().searchDistinctSharedResources(searchDistinctSharedResourcesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1231,6 +1279,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 检索您正在共享资源的不同使用者或被共享资源给您的不同使用者并去除其中的重复项。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchDistinctPrincipals(searchDistinctPrincipalsRequest?: SearchDistinctPrincipalsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/shared-principals/search-distinct-principal",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSecurityToken;
+
+            if (searchDistinctPrincipalsRequest !== null && searchDistinctPrincipalsRequest !== undefined) {
+                if (searchDistinctPrincipalsRequest instanceof SearchDistinctPrincipalsRequest) {
+                    body = searchDistinctPrincipalsRequest.body
+                    xSecurityToken = searchDistinctPrincipalsRequest.xSecurityToken;
+                } else {
+                    body = searchDistinctPrincipalsRequest['body'];
+                    xSecurityToken = searchDistinctPrincipalsRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 检索共享资源的使用者。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1258,6 +1351,51 @@ export const ParamCreater = function () {
                 } else {
                     body = searchSharedPrincipalsRequest['body'];
                     xSecurityToken = searchSharedPrincipalsRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检索您添加到资源共享或被共享给您的不同资源并去除其中的重复项。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchDistinctSharedResources(searchDistinctSharedResourcesRequest?: SearchDistinctSharedResourcesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/shared-resources/search-distinct-resource",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSecurityToken;
+
+            if (searchDistinctSharedResourcesRequest !== null && searchDistinctSharedResourcesRequest !== undefined) {
+                if (searchDistinctSharedResourcesRequest instanceof SearchDistinctSharedResourcesRequest) {
+                    body = searchDistinctSharedResourcesRequest.body
+                    xSecurityToken = searchDistinctSharedResourcesRequest.xSecurityToken;
+                } else {
+                    body = searchDistinctSharedResourcesRequest['body'];
+                    xSecurityToken = searchDistinctSharedResourcesRequest['X-Security-Token'];
                 }
             }
 

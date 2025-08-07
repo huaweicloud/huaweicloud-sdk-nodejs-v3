@@ -2,8 +2,11 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AssociatedResourceListResponse } from './model/AssociatedResourceListResponse';
 import { CreateEnterpriseProjectRequest } from './model/CreateEnterpriseProjectRequest';
 import { CreateEnterpriseProjectResponse } from './model/CreateEnterpriseProjectResponse';
+import { DeleteEnterpriseProjectRequest } from './model/DeleteEnterpriseProjectRequest';
+import { DeleteEnterpriseProjectResponse } from './model/DeleteEnterpriseProjectResponse';
 import { DisableAction } from './model/DisableAction';
 import { DisableEnterpriseProjectRequest } from './model/DisableEnterpriseProjectRequest';
 import { DisableEnterpriseProjectResponse } from './model/DisableEnterpriseProjectResponse';
@@ -11,6 +14,7 @@ import { EnableAction } from './model/EnableAction';
 import { EnableEnterpriseProjectRequest } from './model/EnableEnterpriseProjectRequest';
 import { EnableEnterpriseProjectResponse } from './model/EnableEnterpriseProjectResponse';
 import { EnterpriseProject } from './model/EnterpriseProject';
+import { EnterpriseProjectConfig } from './model/EnterpriseProjectConfig';
 import { EpDetail } from './model/EpDetail';
 import { EpQuotas } from './model/EpQuotas';
 import { Errors } from './model/Errors';
@@ -19,23 +23,33 @@ import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
 import { ListEnterpriseProjectRequest } from './model/ListEnterpriseProjectRequest';
 import { ListEnterpriseProjectResponse } from './model/ListEnterpriseProjectResponse';
+import { ListMigrationRecordRequest } from './model/ListMigrationRecordRequest';
+import { ListMigrationRecordResponse } from './model/ListMigrationRecordResponse';
 import { ListProvidersRequest } from './model/ListProvidersRequest';
 import { ListProvidersResponse } from './model/ListProvidersResponse';
+import { ListResourceMappingRequest } from './model/ListResourceMappingRequest';
+import { ListResourceMappingResponse } from './model/ListResourceMappingResponse';
 import { Match } from './model/Match';
 import { MigrateResource } from './model/MigrateResource';
 import { MigrateResourceRequest } from './model/MigrateResourceRequest';
 import { MigrateResourceResponse } from './model/MigrateResourceResponse';
 import { ProviderResponseBody } from './model/ProviderResponseBody';
 import { QuotasDetail } from './model/QuotasDetail';
+import { ResourceErrorListResponse } from './model/ResourceErrorListResponse';
+import { ResourceMigrateRecord } from './model/ResourceMigrateRecord';
 import { ResourceTypeBody } from './model/ResourceTypeBody';
 import { Resources } from './model/Resources';
 import { ResqEpResouce } from './model/ResqEpResouce';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowAssociatedResourcesRequest } from './model/ShowAssociatedResourcesRequest';
+import { ShowAssociatedResourcesResponse } from './model/ShowAssociatedResourcesResponse';
 import { ShowEnterpriseProjectQuotaRequest } from './model/ShowEnterpriseProjectQuotaRequest';
 import { ShowEnterpriseProjectQuotaResponse } from './model/ShowEnterpriseProjectQuotaResponse';
 import { ShowEnterpriseProjectRequest } from './model/ShowEnterpriseProjectRequest';
 import { ShowEnterpriseProjectResponse } from './model/ShowEnterpriseProjectResponse';
+import { ShowEpConfigsRequest } from './model/ShowEpConfigsRequest';
+import { ShowEpConfigsResponse } from './model/ShowEpConfigsResponse';
 import { ShowResourceBindEnterpriseProjectRequest } from './model/ShowResourceBindEnterpriseProjectRequest';
 import { ShowResourceBindEnterpriseProjectResponse } from './model/ShowResourceBindEnterpriseProjectResponse';
 import { UpdateEnterpriseProjectRequest } from './model/UpdateEnterpriseProjectRequest';
@@ -70,6 +84,25 @@ export class EpsClient {
      */
     public createEnterpriseProject(createEnterpriseProjectRequest?: CreateEnterpriseProjectRequest): Promise<CreateEnterpriseProjectResponse> {
         const options = ParamCreater().createEnterpriseProject(createEnterpriseProjectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除企业项目
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除企业项目
+     * @param {string} enterpriseProjectId 企业项目ID，不能为0。 可以通过查询企业项目列表接口获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteEnterpriseProject(deleteEnterpriseProjectRequest?: DeleteEnterpriseProjectRequest): Promise<DeleteEnterpriseProjectResponse> {
+        const options = ParamCreater().deleteEnterpriseProject(deleteEnterpriseProjectRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -161,6 +194,29 @@ export class EpsClient {
     }
 
     /**
+     * 查询资源迁移记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源迁移记录
+     * @param {string} [startTime] 开始时间
+     * @param {string} [endTime] 结束时间
+     * @param {string} [offset] 索引位置，从offset指定的下一条数据开始查询
+     * @param {number} [limit] 查询记录数
+     * @param {string} [resourceId] 资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMigrationRecord(listMigrationRecordRequest?: ListMigrationRecordRequest): Promise<ListMigrationRecordResponse> {
+        const options = ParamCreater().listMigrationRecord(listMigrationRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询企业项目支持的服务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -175,6 +231,24 @@ export class EpsClient {
      */
     public listProviders(listProvidersRequest?: ListProvidersRequest): Promise<ListProvidersResponse> {
         const options = ParamCreater().listProviders(listProvidersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源类型映射
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源类型映射
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourceMapping(listResourceMappingRequest?: ListResourceMappingRequest): Promise<ListResourceMappingResponse> {
+        const options = ParamCreater().listResourceMapping();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -222,6 +296,28 @@ export class EpsClient {
     }
 
     /**
+     * 查询关联资源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询关联资源
+     * @param {string} projectId 项目ID
+     * @param {string} regionId 区域ID
+     * @param {string} resourceId 资源ID
+     * @param {string} resourceType 资源类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssociatedResources(showAssociatedResourcesRequest?: ShowAssociatedResourcesRequest): Promise<ShowAssociatedResourcesResponse> {
+        const options = ParamCreater().showAssociatedResources(showAssociatedResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询企业项目详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -251,6 +347,24 @@ export class EpsClient {
      */
     public showEnterpriseProjectQuota(showEnterpriseProjectQuotaRequest?: ShowEnterpriseProjectQuotaRequest): Promise<ShowEnterpriseProjectQuotaResponse> {
         const options = ParamCreater().showEnterpriseProjectQuota();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询服务配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showEpConfigs(showEpConfigsRequest?: ShowEpConfigsRequest): Promise<ShowEpConfigsResponse> {
+        const options = ParamCreater().showEpConfigs();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -336,6 +450,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除企业项目
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteEnterpriseProject(deleteEnterpriseProjectRequest?: DeleteEnterpriseProjectRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/enterprise-projects/{enterprise_project_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let enterpriseProjectId;
+
+            if (deleteEnterpriseProjectRequest !== null && deleteEnterpriseProjectRequest !== undefined) {
+                if (deleteEnterpriseProjectRequest instanceof DeleteEnterpriseProjectRequest) {
+                    enterpriseProjectId = deleteEnterpriseProjectRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = deleteEnterpriseProjectRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling deleteEnterpriseProject.');
+            }
+
+            options.pathParams = { 'enterprise_project_id': enterpriseProjectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -533,6 +684,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询资源迁移记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMigrationRecord(listMigrationRecordRequest?: ListMigrationRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/enterprise-projects/migrate-record/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+            
+            let resourceId;
+
+            if (listMigrationRecordRequest !== null && listMigrationRecordRequest !== undefined) {
+                if (listMigrationRecordRequest instanceof ListMigrationRecordRequest) {
+                    startTime = listMigrationRecordRequest.startTime;
+                    endTime = listMigrationRecordRequest.endTime;
+                    offset = listMigrationRecordRequest.offset;
+                    limit = listMigrationRecordRequest.limit;
+                    resourceId = listMigrationRecordRequest.resourceId;
+                } else {
+                    startTime = listMigrationRecordRequest['start_time'];
+                    endTime = listMigrationRecordRequest['end_time'];
+                    offset = listMigrationRecordRequest['offset'];
+                    limit = listMigrationRecordRequest['limit'];
+                    resourceId = listMigrationRecordRequest['resource_id'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询企业项目支持的服务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -586,6 +802,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源类型映射
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourceMapping() {
+            const options = {
+                method: "GET",
+                url: "/v1.0/enterprise-projects/resources-mapping",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -674,6 +911,74 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询关联资源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssociatedResources(showAssociatedResourcesRequest?: ShowAssociatedResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/associated-resources/{resource_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let regionId;
+            
+            let resourceId;
+            
+            let resourceType;
+
+            if (showAssociatedResourcesRequest !== null && showAssociatedResourcesRequest !== undefined) {
+                if (showAssociatedResourcesRequest instanceof ShowAssociatedResourcesRequest) {
+                    projectId = showAssociatedResourcesRequest.projectId;
+                    regionId = showAssociatedResourcesRequest.regionId;
+                    resourceId = showAssociatedResourcesRequest.resourceId;
+                    resourceType = showAssociatedResourcesRequest.resourceType;
+                } else {
+                    projectId = showAssociatedResourcesRequest['project_id'];
+                    regionId = showAssociatedResourcesRequest['region_id'];
+                    resourceId = showAssociatedResourcesRequest['resource_id'];
+                    resourceType = showAssociatedResourcesRequest['resource_type'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showAssociatedResources.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (regionId === null || regionId === undefined) {
+                throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling showAssociatedResources.');
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showAssociatedResources.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+                throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showAssociatedResources.');
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询企业项目详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -719,6 +1024,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/v1.0/enterprise-projects/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询服务配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEpConfigs() {
+            const options = {
+                method: "GET",
+                url: "/v1/enterprise-projects/configs",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

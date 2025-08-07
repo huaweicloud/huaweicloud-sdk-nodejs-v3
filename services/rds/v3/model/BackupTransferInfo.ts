@@ -14,6 +14,7 @@ export class BackupTransferInfo {
     private 'backup_end_time'?: number;
     private 'transfer_type'?: string;
     public prefix?: string;
+    public type?: string;
     public constructor() { 
     }
     public withId(id: string): BackupTransferInfo {
@@ -108,6 +109,10 @@ export class BackupTransferInfo {
     }
     public withPrefix(prefix: string): BackupTransferInfo {
         this['prefix'] = prefix;
+        return this;
+    }
+    public withType(type: string): BackupTransferInfo {
+        this['type'] = type;
         return this;
     }
 }

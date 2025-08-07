@@ -963,7 +963,7 @@ export class SwrClient {
      * @param {string} [name] 镜像仓库名称。
      * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。
      * @param {number} [limit] 返回条数，默认返回100条记录，最多返回1000条记录。
-     * @param {string} [marker] 分页查询下一次查询起始标记，接口的返回值nextMarker为下一次查询的起始标记。
+     * @param {number} [marker] 分页查询下一次查询起始标记，接口的返回值nextMarker为下一次查询的起始标记。
      * @param {boolean} [isPublic] 是否公开私有，true为公开，false为私有。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1086,6 +1086,8 @@ export class SwrClient {
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
+     * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
+     * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
      * @param {string} [filter] 应填写 limit::{limit}|offset::{offset}, 其中{limit}为返回条数,{offset}为起始索引, 注意：offset和limit参数需要配套使用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5487,6 +5489,10 @@ export const ParamCreater = function () {
             
             let repository;
             
+            let limit;
+            
+            let offset;
+            
             let filter;
 
             if (listRetentionHistoriesRequest !== null && listRetentionHistoriesRequest !== undefined) {
@@ -5494,11 +5500,15 @@ export const ParamCreater = function () {
                     contentType = listRetentionHistoriesRequest.contentType;
                     namespace = listRetentionHistoriesRequest.namespace;
                     repository = listRetentionHistoriesRequest.repository;
+                    limit = listRetentionHistoriesRequest.limit;
+                    offset = listRetentionHistoriesRequest.offset;
                     filter = listRetentionHistoriesRequest.filter;
                 } else {
                     contentType = listRetentionHistoriesRequest['Content-Type'];
                     namespace = listRetentionHistoriesRequest['namespace'];
                     repository = listRetentionHistoriesRequest['repository'];
+                    limit = listRetentionHistoriesRequest['limit'];
+                    offset = listRetentionHistoriesRequest['offset'];
                     filter = listRetentionHistoriesRequest['filter'];
                 }
             }
@@ -5509,6 +5519,12 @@ export const ParamCreater = function () {
             }
             if (repository === null || repository === undefined) {
             throw new RequiredError('repository','Required parameter repository was null or undefined when calling listRetentionHistories.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (filter !== null && filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;

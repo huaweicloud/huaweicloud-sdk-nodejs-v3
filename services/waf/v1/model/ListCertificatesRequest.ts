@@ -8,6 +8,7 @@ export class ListCertificatesRequest {
     public name?: string;
     public host?: boolean;
     private 'exp_status'?: number;
+    private 'query_scm'?: boolean;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
@@ -56,5 +57,15 @@ export class ListCertificatesRequest {
     }
     public get expStatus(): number | undefined {
         return this['exp_status'];
+    }
+    public withQueryScm(queryScm: boolean): ListCertificatesRequest {
+        this['query_scm'] = queryScm;
+        return this;
+    }
+    public set queryScm(queryScm: boolean  | undefined) {
+        this['query_scm'] = queryScm;
+    }
+    public get queryScm(): boolean | undefined {
+        return this['query_scm'];
     }
 }

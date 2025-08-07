@@ -16,6 +16,7 @@ export class ShowUserResult {
     private 'update_time'?: string;
     private 'create_time'?: string;
     private 'last_login_time'?: string;
+    private 'last_pwd_auth_time'?: string;
     private 'pwd_strength'?: string;
     private 'is_domain_owner'?: boolean;
     private 'access_mode'?: string;
@@ -129,6 +130,16 @@ export class ShowUserResult {
     }
     public get lastLoginTime(): string | undefined {
         return this['last_login_time'];
+    }
+    public withLastPwdAuthTime(lastPwdAuthTime: string): ShowUserResult {
+        this['last_pwd_auth_time'] = lastPwdAuthTime;
+        return this;
+    }
+    public set lastPwdAuthTime(lastPwdAuthTime: string  | undefined) {
+        this['last_pwd_auth_time'] = lastPwdAuthTime;
+    }
+    public get lastPwdAuthTime(): string | undefined {
+        return this['last_pwd_auth_time'];
     }
     public withPwdStrength(pwdStrength: string): ShowUserResult {
         this['pwd_strength'] = pwdStrength;

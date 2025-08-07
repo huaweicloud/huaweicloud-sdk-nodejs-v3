@@ -12,9 +12,9 @@ export class ShowReposRespV3 {
     private 'created_at'?: string;
     private 'updated_at'?: string;
     private 'domain_name'?: string;
-    public namespace?: string;
+    private 'namespace_name'?: string;
     public status?: boolean;
-    public constructor(id?: number, name?: string, category?: string, description?: string, size?: number, isPublic?: boolean, numImages?: number, numDownload?: number, createdAt?: string, updatedAt?: string, domainName?: string, namespace?: string) { 
+    public constructor(id?: number, name?: string, category?: string, description?: string, size?: number, isPublic?: boolean, numImages?: number, numDownload?: number, createdAt?: string, updatedAt?: string, domainName?: string, namespaceName?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['category'] = category;
@@ -26,7 +26,7 @@ export class ShowReposRespV3 {
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['domain_name'] = domainName;
-        this['namespace'] = namespace;
+        this['namespace_name'] = namespaceName;
     }
     public withId(id: number): ShowReposRespV3 {
         this['id'] = id;
@@ -108,9 +108,15 @@ export class ShowReposRespV3 {
     public get domainName(): string | undefined {
         return this['domain_name'];
     }
-    public withNamespace(namespace: string): ShowReposRespV3 {
-        this['namespace'] = namespace;
+    public withNamespaceName(namespaceName: string): ShowReposRespV3 {
+        this['namespace_name'] = namespaceName;
         return this;
+    }
+    public set namespaceName(namespaceName: string  | undefined) {
+        this['namespace_name'] = namespaceName;
+    }
+    public get namespaceName(): string | undefined {
+        return this['namespace_name'];
     }
     public withStatus(status: boolean): ShowReposRespV3 {
         this['status'] = status;

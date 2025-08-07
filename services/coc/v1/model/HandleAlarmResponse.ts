@@ -1,12 +1,12 @@
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class HandlerAlarmResponse extends SdkResponse {
+export class HandleAlarmResponse extends SdkResponse {
     public body?: object;
     public constructor() { 
         super();
     }
-    public withBody(body: object): HandlerAlarmResponse {
+    public withBody(body: object): HandleAlarmResponse {
         this['body'] = body;
         return this;
     }

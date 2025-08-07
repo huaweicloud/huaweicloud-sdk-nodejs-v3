@@ -880,10 +880,9 @@ export class CesClient {
      * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
      * @param {number} [limit] 查询结果条数的限制值，取值范围为[1,100]，默认值为100
      * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
-     * @param {string} [dimName] 资源维度，必须以字母开头，多维度用\&quot;,\&quot;分割，只能包含0-9/a-z/A-Z/_/-，每个维度的最大长度为32
+     * @param {string} [dimName] 资源维度，多维度用\&quot;,\&quot;分割，只能包含0-9、a-z、A-Z、_、-、#、/、(、），每个维度的最大长度为32。字符串总长度最小为1，最大为131。
      * @param {'system' | 'custom' | 'system_event' | 'custom_event' | 'system_custom_event'} [templateType] 模板类型(system代表默认指标模板，custom代表自定义指标模板，system_event代表默认事件模板，custom_event代表自定义事件模板，system_custom_event代表全部事件模板),不传返回全部指标模板
      * @param {string} [templateName] 告警模板的名称，以字母或汉字开头，可包含字母、数字、汉字、_、-，长度范围[1,128]，支持模糊匹配
-     * @param {string} [productName] 支持按照产品名称粒度进行查询告警模板，产品名称一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2725,8 +2724,6 @@ export const ParamCreater = function () {
             let templateType;
             
             let templateName;
-            
-            let productName;
 
             if (listAlarmTemplatesRequest !== null && listAlarmTemplatesRequest !== undefined) {
                 if (listAlarmTemplatesRequest instanceof ListAlarmTemplatesRequest) {
@@ -2736,7 +2733,6 @@ export const ParamCreater = function () {
                     dimName = listAlarmTemplatesRequest.dimName;
                     templateType = listAlarmTemplatesRequest.templateType;
                     templateName = listAlarmTemplatesRequest.templateName;
-                    productName = listAlarmTemplatesRequest.productName;
                 } else {
                     offset = listAlarmTemplatesRequest['offset'];
                     limit = listAlarmTemplatesRequest['limit'];
@@ -2744,7 +2740,6 @@ export const ParamCreater = function () {
                     dimName = listAlarmTemplatesRequest['dim_name'];
                     templateType = listAlarmTemplatesRequest['template_type'];
                     templateName = listAlarmTemplatesRequest['template_name'];
-                    productName = listAlarmTemplatesRequest['product_name'];
                 }
             }
 
@@ -2766,9 +2761,6 @@ export const ParamCreater = function () {
             }
             if (templateName !== null && templateName !== undefined) {
                 localVarQueryParameter['template_name'] = templateName;
-            }
-            if (productName !== null && productName !== undefined) {
-                localVarQueryParameter['product_name'] = productName;
             }
 
             options.queryParams = localVarQueryParameter;

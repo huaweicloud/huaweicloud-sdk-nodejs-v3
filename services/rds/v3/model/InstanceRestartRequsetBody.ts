@@ -1,11 +1,12 @@
+import { RestartConfiguration } from './RestartConfiguration';
 
 
 export class InstanceRestartRequsetBody {
-    public restart?: object;
-    public constructor(restart?: object) { 
+    public restart?: RestartConfiguration;
+    public constructor(restart?: RestartConfiguration) { 
         this['restart'] = restart;
     }
-    public withRestart(restart: object): InstanceRestartRequsetBody {
+    public withRestart(restart: RestartConfiguration): InstanceRestartRequsetBody {
         this['restart'] = restart;
         return this;
     }

@@ -3,14 +3,11 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ApproveInfo } from './model/ApproveInfo';
-import { CreateFastExecuteScriptRequest } from './model/CreateFastExecuteScriptRequest';
-import { CreateFastExecuteScriptResponse } from './model/CreateFastExecuteScriptResponse';
 import { CreateWorkflowRequest } from './model/CreateWorkflowRequest';
 import { CreateWorkflowResponse } from './model/CreateWorkflowResponse';
 import { ExecuteWorkflowRequest } from './model/ExecuteWorkflowRequest';
 import { ExecuteWorkflowResponse } from './model/ExecuteWorkflowResponse';
 import { ExecutionResultList } from './model/ExecutionResultList';
-import { HISFastScript } from './model/HISFastScript';
 import { Job } from './model/Job';
 import { ListAllJobByNameRequest } from './model/ListAllJobByNameRequest';
 import { ListAllJobByNameResponse } from './model/ListAllJobByNameResponse';
@@ -68,25 +65,6 @@ export class AomClient {
         return __dirname;
     }
 
-
-    /**
-     * 该接口用于创建快速执行脚本的任务，可以指定脚本类型，执行用户，脚本参数，执行机器，脚本内容，在用户指定的机器上执行脚本。（注：接口目前开放的region为：华东-苏州二零一）。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 快速创建并执行脚本
-     * @param {HISFastScript} createFastExecuteScriptRequestBody 创建快速执行脚本任务的实体类。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createFastExecuteScript(createFastExecuteScriptRequest?: CreateFastExecuteScriptRequest): Promise<CreateFastExecuteScriptResponse> {
-        const options = ParamCreater().createFastExecuteScript(createFastExecuteScriptRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 
     /**
      * 该接口用于创建工作流（任务），返回工作流详情。任务类型取决于模板名称和\&#39;input\&#39;参数。（注：接口目前开放的region为：华北-北京四,华东-上海一,华东-上海二,华南-广州）。
@@ -347,44 +325,6 @@ export class AomClient {
 
 export const ParamCreater = function () {
     return {
-    
-        /**
-         * 该接口用于创建快速执行脚本的任务，可以指定脚本类型，执行用户，脚本参数，执行机器，脚本内容，在用户指定的机器上执行脚本。（注：接口目前开放的region为：华东-苏州二零一）。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createFastExecuteScript(createFastExecuteScriptRequest?: CreateFastExecuteScriptRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/cms/fast-execute-script",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createFastExecuteScriptRequest !== null && createFastExecuteScriptRequest !== undefined) {
-                if (createFastExecuteScriptRequest instanceof CreateFastExecuteScriptRequest) {
-                    body = createFastExecuteScriptRequest.body
-                } else {
-                    body = createFastExecuteScriptRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
     
         /**
          * 该接口用于创建工作流（任务），返回工作流详情。任务类型取决于模板名称和\&#39;input\&#39;参数。（注：接口目前开放的region为：华北-北京四,华东-上海一,华东-上海二,华南-广州）。

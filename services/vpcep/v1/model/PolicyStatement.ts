@@ -5,6 +5,7 @@ export class PolicyStatement {
     private 'Action'?: Array<string>;
     private 'Resource'?: Array<string>;
     private 'Condition'?: object;
+    private 'Sid'?: string;
     public constructor(effect?: string, action?: Array<string>, resource?: Array<string>) { 
         this['Effect'] = effect;
         this['Action'] = action;
@@ -49,6 +50,16 @@ export class PolicyStatement {
     }
     public get condition(): object | undefined {
         return this['Condition'];
+    }
+    public withSid(sid: string): PolicyStatement {
+        this['Sid'] = sid;
+        return this;
+    }
+    public set sid(sid: string  | undefined) {
+        this['Sid'] = sid;
+    }
+    public get sid(): string | undefined {
+        return this['Sid'];
     }
 }
 
