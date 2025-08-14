@@ -6,6 +6,9 @@ export class ListTtscVocabularyGroupsRequest {
     private 'X-Sdk-Date'?: string;
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
+    public limit?: number;
+    public offset?: number;
+    private 'group_id'?: string;
     public constructor() { 
     }
     public withXRequestId(xRequestId: string): ListTtscVocabularyGroupsRequest {
@@ -57,5 +60,23 @@ export class ListTtscVocabularyGroupsRequest {
     }
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
+    }
+    public withLimit(limit: number): ListTtscVocabularyGroupsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListTtscVocabularyGroupsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withGroupId(groupId: string): ListTtscVocabularyGroupsRequest {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
 }

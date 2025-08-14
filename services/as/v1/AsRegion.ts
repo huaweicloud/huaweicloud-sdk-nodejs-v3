@@ -38,6 +38,7 @@ export class AsRegion {
     public static CN_NORTH_12 = new Region("cn-north-12", ["https://as.cn-north-12.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://as.cn-north-11.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://as.cn-east-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://as.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -72,7 +73,8 @@ export class AsRegion {
         "cn-south-4":AsRegion.CN_SOUTH_4,
         "cn-north-12":AsRegion.CN_NORTH_12,
         "cn-north-11":AsRegion.CN_NORTH_11,
-        "cn-east-5":AsRegion.CN_EAST_5
+        "cn-east-5":AsRegion.CN_EAST_5,
+        "af-north-1":AsRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

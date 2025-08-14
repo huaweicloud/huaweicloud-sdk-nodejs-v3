@@ -752,6 +752,8 @@ import { ListSecurityRoleActionsRequest } from './model/ListSecurityRoleActionsR
 import { ListSecurityRoleActionsResponse } from './model/ListSecurityRoleActionsResponse';
 import { ListSecuritySecrecyLevelsRequest } from './model/ListSecuritySecrecyLevelsRequest';
 import { ListSecuritySecrecyLevelsResponse } from './model/ListSecuritySecrecyLevelsResponse';
+import { ListSecuritySensitiveDataDetailsRequest } from './model/ListSecuritySensitiveDataDetailsRequest';
+import { ListSecuritySensitiveDataDetailsResponse } from './model/ListSecuritySensitiveDataDetailsResponse';
 import { ListSecuritySensitiveDataOverviewsRequest } from './model/ListSecuritySensitiveDataOverviewsRequest';
 import { ListSecuritySensitiveDataOverviewsResponse } from './model/ListSecuritySensitiveDataOverviewsResponse';
 import { ListSecurityTableApproversRequest } from './model/ListSecurityTableApproversRequest';
@@ -823,6 +825,7 @@ import { OpenEntitySearchRequest } from './model/OpenEntitySearchRequest';
 import { OpenEntityWithExtInfoEntity } from './model/OpenEntityWithExtInfoEntity';
 import { OpenTag } from './model/OpenTag';
 import { OrderReq } from './model/OrderReq';
+import { PageInfo } from './model/PageInfo';
 import { ParseUserBehaviorRequest } from './model/ParseUserBehaviorRequest';
 import { ParseUserBehaviorResponse } from './model/ParseUserBehaviorResponse';
 import { PayForDgcOneKeyRequest } from './model/PayForDgcOneKeyRequest';
@@ -961,6 +964,7 @@ import { SecurityListUserTableListProposer } from './model/SecurityListUserTable
 import { SecurityListUserTableListTableList } from './model/SecurityListUserTableListTableList';
 import { SelfDefinedFieldVO } from './model/SelfDefinedFieldVO';
 import { SensitiveDataCategoryOverviewQueryDTO } from './model/SensitiveDataCategoryOverviewQueryDTO';
+import { SensitiveDataDTO } from './model/SensitiveDataDTO';
 import { SensitiveDataSecrecyLevelOverviewQueryDTO } from './model/SensitiveDataSecrecyLevelOverviewQueryDTO';
 import { SetFactoryJobTagsRequest } from './model/SetFactoryJobTagsRequest';
 import { SetFactoryJobTagsResponse } from './model/SetFactoryJobTagsResponse';
@@ -6014,6 +6018,33 @@ export class DataArtsStudioClient {
      */
     public listSecuritySecrecyLevels(listSecuritySecrecyLevelsRequest?: ListSecuritySecrecyLevelsRequest): Promise<ListSecuritySecrecyLevelsResponse> {
         const options = ParamCreater().listSecuritySecrecyLevels(listSecuritySecrecyLevelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询敏感数据发现详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询敏感数据发现详情
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {string} [marker] 用于游标分页，表示查询ID大于该值的记录（不包含该ID），仅支持向前翻页，且不可与offset参数同时使用。
+     * @param {string} [databaseName] 数据库名称。
+     * @param {number} [findStartTime] 敏感数据发现开始时间。
+     * @param {number} [findEndTime] 敏感数据发现结束时间。
+     * @param {'FIND_TIME'} [orderBy] 排序字段，FIND_TIME（仅使用limit、offset分页时有效）。
+     * @param {boolean} [orderByAsc] 是否升序（仅指定排序参数，且使用limit、offset分页时有效）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecuritySensitiveDataDetails(listSecuritySensitiveDataDetailsRequest?: ListSecuritySensitiveDataDetailsRequest): Promise<ListSecuritySensitiveDataDetailsResponse> {
+        const options = ParamCreater().listSecuritySensitiveDataDetails(listSecuritySensitiveDataDetailsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -23420,6 +23451,99 @@ export const ParamCreater = function () {
             }
             if (desc !== null && desc !== undefined) {
                 localVarQueryParameter['desc'] = desc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询敏感数据发现详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecuritySensitiveDataDetails(listSecuritySensitiveDataDetailsRequest?: ListSecuritySensitiveDataDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/sensitive-data/result/details",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let databaseName;
+            
+            let findStartTime;
+            
+            let findEndTime;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecuritySensitiveDataDetailsRequest !== null && listSecuritySensitiveDataDetailsRequest !== undefined) {
+                if (listSecuritySensitiveDataDetailsRequest instanceof ListSecuritySensitiveDataDetailsRequest) {
+                    workspace = listSecuritySensitiveDataDetailsRequest.workspace;
+                    limit = listSecuritySensitiveDataDetailsRequest.limit;
+                    offset = listSecuritySensitiveDataDetailsRequest.offset;
+                    marker = listSecuritySensitiveDataDetailsRequest.marker;
+                    databaseName = listSecuritySensitiveDataDetailsRequest.databaseName;
+                    findStartTime = listSecuritySensitiveDataDetailsRequest.findStartTime;
+                    findEndTime = listSecuritySensitiveDataDetailsRequest.findEndTime;
+                    orderBy = listSecuritySensitiveDataDetailsRequest.orderBy;
+                    orderByAsc = listSecuritySensitiveDataDetailsRequest.orderByAsc;
+                } else {
+                    workspace = listSecuritySensitiveDataDetailsRequest['workspace'];
+                    limit = listSecuritySensitiveDataDetailsRequest['limit'];
+                    offset = listSecuritySensitiveDataDetailsRequest['offset'];
+                    marker = listSecuritySensitiveDataDetailsRequest['marker'];
+                    databaseName = listSecuritySensitiveDataDetailsRequest['database_name'];
+                    findStartTime = listSecuritySensitiveDataDetailsRequest['find_start_time'];
+                    findEndTime = listSecuritySensitiveDataDetailsRequest['find_end_time'];
+                    orderBy = listSecuritySensitiveDataDetailsRequest['order_by'];
+                    orderByAsc = listSecuritySensitiveDataDetailsRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (findStartTime !== null && findStartTime !== undefined) {
+                localVarQueryParameter['find_start_time'] = findStartTime;
+            }
+            if (findEndTime !== null && findEndTime !== undefined) {
+                localVarQueryParameter['find_end_time'] = findEndTime;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);

@@ -8,6 +8,7 @@ import { SystemProperty } from './SystemProperty';
 export class DigitalAssetInfo {
     private 'project_id'?: string;
     private 'asset_id'?: string;
+    private 'produce_id'?: string;
     private 'asset_name'?: string;
     private 'asset_description'?: string;
     private 'app_user_id'?: string;
@@ -46,6 +47,16 @@ export class DigitalAssetInfo {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withProduceId(produceId: string): DigitalAssetInfo {
+        this['produce_id'] = produceId;
+        return this;
+    }
+    public set produceId(produceId: string  | undefined) {
+        this['produce_id'] = produceId;
+    }
+    public get produceId(): string | undefined {
+        return this['produce_id'];
     }
     public withAssetName(assetName: string): DigitalAssetInfo {
         this['asset_name'] = assetName;

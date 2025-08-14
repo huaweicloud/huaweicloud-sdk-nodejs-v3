@@ -173,6 +173,7 @@ import { Params } from './model/Params';
 import { QueryCustomTemplatesResult } from './model/QueryCustomTemplatesResult';
 import { QueryJobNoticeItems } from './model/QueryJobNoticeItems';
 import { QueryTemplate } from './model/QueryTemplate';
+import { QueryTemplateVo } from './model/QueryTemplateVo';
 import { QueryTemplatesItems } from './model/QueryTemplatesItems';
 import { QueryTemplatesResult } from './model/QueryTemplatesResult';
 import { RealTimeLogResponseBodyResult } from './model/RealTimeLogResponseBodyResult';

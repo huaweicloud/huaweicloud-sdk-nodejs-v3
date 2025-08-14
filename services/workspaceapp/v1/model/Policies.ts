@@ -1,11 +1,13 @@
 import { Bandwidth } from './Bandwidth';
 import { PoliciesAudio } from './PoliciesAudio';
 import { PoliciesClient } from './PoliciesClient';
+import { PoliciesCloudStorage } from './PoliciesCloudStorage';
 import { PoliciesCustom } from './PoliciesCustom';
 import { PoliciesDisplay } from './PoliciesDisplay';
 import { PoliciesFileAndClipboard } from './PoliciesFileAndClipboard';
 import { PoliciesKeyboardMouse } from './PoliciesKeyboardMouse';
 import { PoliciesPeripherals } from './PoliciesPeripherals';
+import { PoliciesUserProfile } from './PoliciesUserProfile';
 import { Session } from './Session';
 import { VirtualChannel } from './VirtualChannel';
 
@@ -21,6 +23,8 @@ export class Policies {
     private 'keyboard_mouse'?: PoliciesKeyboardMouse;
     public bandwidth?: Bandwidth;
     public custom?: PoliciesCustom;
+    private 'cloud_storage'?: PoliciesCloudStorage;
+    private 'user_profile'?: PoliciesUserProfile;
     public constructor() { 
     }
     public withPeripherals(peripherals: PoliciesPeripherals): Policies {
@@ -80,5 +84,25 @@ export class Policies {
     public withCustom(custom: PoliciesCustom): Policies {
         this['custom'] = custom;
         return this;
+    }
+    public withCloudStorage(cloudStorage: PoliciesCloudStorage): Policies {
+        this['cloud_storage'] = cloudStorage;
+        return this;
+    }
+    public set cloudStorage(cloudStorage: PoliciesCloudStorage  | undefined) {
+        this['cloud_storage'] = cloudStorage;
+    }
+    public get cloudStorage(): PoliciesCloudStorage | undefined {
+        return this['cloud_storage'];
+    }
+    public withUserProfile(userProfile: PoliciesUserProfile): Policies {
+        this['user_profile'] = userProfile;
+        return this;
+    }
+    public set userProfile(userProfile: PoliciesUserProfile  | undefined) {
+        this['user_profile'] = userProfile;
+    }
+    public get userProfile(): PoliciesUserProfile | undefined {
+        return this['user_profile'];
     }
 }

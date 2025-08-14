@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListEventDetailResponse extends SdkResponse {
     private 'event_name'?: string;
     private 'event_type'?: ListEventDetailResponseEventTypeEnum | string;
+    private 'sub_event_type'?: ListEventDetailResponseSubEventTypeEnum | string;
     private 'event_users'?: Array<string>;
     private 'event_sources'?: Array<string>;
     private 'event_info'?: Array<EventInfoDetail>;
@@ -32,6 +33,16 @@ export class ListEventDetailResponse extends SdkResponse {
     }
     public get eventType(): ListEventDetailResponseEventTypeEnum | string | undefined {
         return this['event_type'];
+    }
+    public withSubEventType(subEventType: ListEventDetailResponseSubEventTypeEnum | string): ListEventDetailResponse {
+        this['sub_event_type'] = subEventType;
+        return this;
+    }
+    public set subEventType(subEventType: ListEventDetailResponseSubEventTypeEnum | string  | undefined) {
+        this['sub_event_type'] = subEventType;
+    }
+    public get subEventType(): ListEventDetailResponseSubEventTypeEnum | string | undefined {
+        return this['sub_event_type'];
     }
     public withEventUsers(eventUsers: Array<string>): ListEventDetailResponse {
         this['event_users'] = eventUsers;
@@ -82,4 +93,13 @@ export class ListEventDetailResponse extends SdkResponse {
 export enum ListEventDetailResponseEventTypeEnum {
     EVENT_SYS = 'EVENT.SYS',
     EVENT_CUSTOM = 'EVENT.CUSTOM'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEventDetailResponseSubEventTypeEnum {
+    SUB_EVENT_OPS = 'SUB_EVENT.OPS',
+    SUB_EVENT_PLAN = 'SUB_EVENT.PLAN',
+    SUB_EVENT_CUSTOM = 'SUB_EVENT.CUSTOM'
 }

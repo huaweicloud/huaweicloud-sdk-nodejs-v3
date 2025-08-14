@@ -364,6 +364,7 @@ export class CesClient {
      * @summary 查询某一事件监控详情
      * @param {string} eventName 事件名称。
      * @param {'EVENT.SYS' | 'EVENT.CUSTOM'} eventType 事件类型，值为EVENT.SYS或EVENT.CUSTOM，EVENT.SYS表示系统事件，EVENT.CUSTOM表示自定义事件。
+     * @param {'SUB_EVENT.OPS' | 'SUB_EVENT.PLAN' | 'SUB_EVENT.CUSTOM'} [subEventType] 事件子类。 枚举类型：SUB_EVENT.OPS为运维事件，SUB_EVENT.PLAN为计划事件，SUB_EVENT.CUSTOM为自定义事件。
      * @param {string} [eventSource] 事件名称，值为系统产生的事件名称，或用户自定义上报的事件名称。
      * @param {string} [eventLevel] 事件的级别，值为Critical，Major，Minor，Info；Critical为紧急，Major为重要，Minor为次要，Info为提示。
      * @param {string} [eventUser] 上报事件监控数据时用户的名称，也可为projectID。
@@ -391,6 +392,7 @@ export class CesClient {
      *
      * @summary 查询事件监控列表
      * @param {'EVENT.SYS' | 'EVENT.CUSTOM'} [eventType] 事件类型，值为EVENT.SYS或EVENT.CUSTOM，EVENT.SYS表示系统事件，EVENT.CUSTOM表示自定义事件。
+     * @param {'SUB_EVENT.OPS' | 'SUB_EVENT.PLAN' | 'SUB_EVENT.CUSTOM'} [subEventType] 事件子类, 枚举类型：SUB_EVENT.OPS 运维事件, SUB_EVENT.PLAN 计划事件，SUB_EVENT.CUSTOM 自定义事件
      * @param {string} [eventName] 事件名称，值为系统产生的事件名称，或用户自定义上报的事件名称。
      * @param {number} [from] 查询数据起始时间，UNIX时间戳，单位毫秒；例如：1605952700911。
      * @param {number} [to] 查询数据截止时间UNIX时间戳，单位毫秒。from必须小于to，例如：1606557500911。
@@ -1232,6 +1234,8 @@ export const ParamCreater = function () {
             
             let eventType;
             
+            let subEventType;
+            
             let eventSource;
             
             let eventLevel;
@@ -1252,6 +1256,7 @@ export const ParamCreater = function () {
                 if (listEventDetailRequest instanceof ListEventDetailRequest) {
                     eventName = listEventDetailRequest.eventName;
                     eventType = listEventDetailRequest.eventType;
+                    subEventType = listEventDetailRequest.subEventType;
                     eventSource = listEventDetailRequest.eventSource;
                     eventLevel = listEventDetailRequest.eventLevel;
                     eventUser = listEventDetailRequest.eventUser;
@@ -1263,6 +1268,7 @@ export const ParamCreater = function () {
                 } else {
                     eventName = listEventDetailRequest['event_name'];
                     eventType = listEventDetailRequest['event_type'];
+                    subEventType = listEventDetailRequest['sub_event_type'];
                     eventSource = listEventDetailRequest['event_source'];
                     eventLevel = listEventDetailRequest['event_level'];
                     eventUser = listEventDetailRequest['event_user'];
@@ -1283,6 +1289,9 @@ export const ParamCreater = function () {
             }
             if (eventType !== null && eventType !== undefined) {
                 localVarQueryParameter['event_type'] = eventType;
+            }
+            if (subEventType !== null && subEventType !== undefined) {
+                localVarQueryParameter['sub_event_type'] = subEventType;
             }
             if (eventSource !== null && eventSource !== undefined) {
                 localVarQueryParameter['event_source'] = eventSource;
@@ -1334,6 +1343,8 @@ export const ParamCreater = function () {
             
             let eventType;
             
+            let subEventType;
+            
             let eventName;
             
             let from;
@@ -1347,6 +1358,7 @@ export const ParamCreater = function () {
             if (listEventsRequest !== null && listEventsRequest !== undefined) {
                 if (listEventsRequest instanceof ListEventsRequest) {
                     eventType = listEventsRequest.eventType;
+                    subEventType = listEventsRequest.subEventType;
                     eventName = listEventsRequest.eventName;
                     from = listEventsRequest.from;
                     to = listEventsRequest.to;
@@ -1354,6 +1366,7 @@ export const ParamCreater = function () {
                     limit = listEventsRequest.limit;
                 } else {
                     eventType = listEventsRequest['event_type'];
+                    subEventType = listEventsRequest['sub_event_type'];
                     eventName = listEventsRequest['event_name'];
                     from = listEventsRequest['from'];
                     to = listEventsRequest['to'];
@@ -1365,6 +1378,9 @@ export const ParamCreater = function () {
         
             if (eventType !== null && eventType !== undefined) {
                 localVarQueryParameter['event_type'] = eventType;
+            }
+            if (subEventType !== null && subEventType !== undefined) {
+                localVarQueryParameter['sub_event_type'] = subEventType;
             }
             if (eventName !== null && eventName !== undefined) {
                 localVarQueryParameter['event_name'] = eventName;

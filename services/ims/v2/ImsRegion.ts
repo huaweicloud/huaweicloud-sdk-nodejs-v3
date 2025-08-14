@@ -36,6 +36,9 @@ export class ImsRegion {
     public static AF_NORTH_1 = new Region("af-north-1", ["https://ims.af-north-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://ims.ru-moscow-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://ims.ap-southeast-5.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://ims.cn-north-12.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://ims.cn-north-11.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://ims.cn-southwest-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -68,7 +71,10 @@ export class ImsRegion {
         "my-kualalumpur-1":ImsRegion.MY_KUALALUMPUR_1,
         "af-north-1":ImsRegion.AF_NORTH_1,
         "ru-moscow-1":ImsRegion.RU_MOSCOW_1,
-        "ap-southeast-5":ImsRegion.AP_SOUTHEAST_5
+        "ap-southeast-5":ImsRegion.AP_SOUTHEAST_5,
+        "cn-north-12":ImsRegion.CN_NORTH_12,
+        "cn-north-11":ImsRegion.CN_NORTH_11,
+        "cn-southwest-3":ImsRegion.CN_SOUTHWEST_3
     };
   
     public static valueOf(regionId: string) {

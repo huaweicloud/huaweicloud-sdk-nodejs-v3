@@ -246,6 +246,8 @@ import { DeleteSmartChatRoomRequest } from './model/DeleteSmartChatRoomRequest';
 import { DeleteSmartChatRoomResponse } from './model/DeleteSmartChatRoomResponse';
 import { DeleteSmartLiveRoomRequest } from './model/DeleteSmartLiveRoomRequest';
 import { DeleteSmartLiveRoomResponse } from './model/DeleteSmartLiveRoomResponse';
+import { DeleteTaskRequest } from './model/DeleteTaskRequest';
+import { DeleteTaskResponse } from './model/DeleteTaskResponse';
 import { DeleteTtscVocabularyConfigsRequest } from './model/DeleteTtscVocabularyConfigsRequest';
 import { DeleteTtscVocabularyConfigsRequestBody } from './model/DeleteTtscVocabularyConfigsRequestBody';
 import { DeleteTtscVocabularyConfigsResponse } from './model/DeleteTtscVocabularyConfigsResponse';
@@ -262,6 +264,10 @@ import { DigitalAssetSummary } from './model/DigitalAssetSummary';
 import { DigitalHumanBusinessCardJobInfo } from './model/DigitalHumanBusinessCardJobInfo';
 import { DigitalHumanModelingJobInfo } from './model/DigitalHumanModelingJobInfo';
 import { DigitalHumanVideo } from './model/DigitalHumanVideo';
+import { DownloadResultFileRequest } from './model/DownloadResultFileRequest';
+import { DownloadResultFileResponse } from './model/DownloadResultFileResponse';
+import { DownloadTemplateRequest } from './model/DownloadTemplateRequest';
+import { DownloadTemplateResponse } from './model/DownloadTemplateResponse';
 import { ErrorResponse } from './model/ErrorResponse';
 import { Execute2dModelTrainingCommandByUserReq } from './model/Execute2dModelTrainingCommandByUserReq';
 import { Execute2dModelTrainingCommandByUserRequest } from './model/Execute2dModelTrainingCommandByUserRequest';
@@ -272,6 +278,8 @@ import { ExecuteVideoMotionCaptureCommandRequest } from './model/ExecuteVideoMot
 import { ExecuteVideoMotionCaptureCommandResponse } from './model/ExecuteVideoMotionCaptureCommandResponse';
 import { ExportKnowledgeSkillRequest } from './model/ExportKnowledgeSkillRequest';
 import { ExportKnowledgeSkillResponse } from './model/ExportKnowledgeSkillResponse';
+import { ExportResourceRequest } from './model/ExportResourceRequest';
+import { ExportResourceResponse } from './model/ExportResourceResponse';
 import { ExternalVoiceAssetMeta } from './model/ExternalVoiceAssetMeta';
 import { FileExtraMeta } from './model/FileExtraMeta';
 import { FilesCreateReq } from './model/FilesCreateReq';
@@ -286,6 +294,9 @@ import { IflytekAiuiConfig } from './model/IflytekAiuiConfig';
 import { IflytekSpark } from './model/IflytekSpark';
 import { ImageAssetMeta } from './model/ImageAssetMeta';
 import { ImageLayerConfig } from './model/ImageLayerConfig';
+import { ImportResourceRequest } from './model/ImportResourceRequest';
+import { ImportResourceRequestBody } from './model/ImportResourceRequestBody';
+import { ImportResourceResponse } from './model/ImportResourceResponse';
 import { InferenceActionMarkInfo } from './model/InferenceActionMarkInfo';
 import { InferenceEyeCorrectionMarkInfo } from './model/InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './model/InferenceVideoMarkInfo';
@@ -438,6 +449,7 @@ import { ProductMediaDetailInfo } from './model/ProductMediaDetailInfo';
 import { ProductMediaInfo } from './model/ProductMediaInfo';
 import { ProductTextInfo } from './model/ProductTextInfo';
 import { PublicCloudServiceOrder } from './model/PublicCloudServiceOrder';
+import { QueryTaskResultDTO } from './model/QueryTaskResultDTO';
 import { RTCLiveEventCallBackConfig } from './model/RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
@@ -463,6 +475,8 @@ import { SaveTtscVocabularyConfigsRequestBody } from './model/SaveTtscVocabulary
 import { SaveTtscVocabularyConfigsResponse } from './model/SaveTtscVocabularyConfigsResponse';
 import { SaveTtscVocabularyGroupsRequestBody } from './model/SaveTtscVocabularyGroupsRequestBody';
 import { ScriptCommand } from './model/ScriptCommand';
+import { SearchTaskRequest } from './model/SearchTaskRequest';
+import { SearchTaskResponse } from './model/SearchTaskResponse';
 import { SetJobBatchNameReq } from './model/SetJobBatchNameReq';
 import { SetJobBatchNameRequest } from './model/SetJobBatchNameRequest';
 import { SetJobBatchNameResponse } from './model/SetJobBatchNameResponse';
@@ -551,6 +565,8 @@ import { ShowSmartLiveRoomRequest } from './model/ShowSmartLiveRoomRequest';
 import { ShowSmartLiveRoomResponse } from './model/ShowSmartLiveRoomResponse';
 import { ShowSubtitleFileRequest } from './model/ShowSubtitleFileRequest';
 import { ShowSubtitleFileResponse } from './model/ShowSubtitleFileResponse';
+import { ShowTaskRequest } from './model/ShowTaskRequest';
+import { ShowTaskResponse } from './model/ShowTaskResponse';
 import { ShowTenantDurationCfgRequest } from './model/ShowTenantDurationCfgRequest';
 import { ShowTenantDurationCfgResponse } from './model/ShowTenantDurationCfgResponse';
 import { ShowTrainingSegmentInfoRequest } from './model/ShowTrainingSegmentInfoRequest';
@@ -1068,6 +1084,166 @@ export class MetaStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除导入导出任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除导入导出任务
+     * @param {string} id 任务id
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTask(deleteTaskRequest?: DeleteTaskRequest): Promise<DeleteTaskResponse> {
+        const options = ParamCreater().deleteTask(deleteTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载导入或者导出结果文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载导入或导出的结果文件
+     * @param {string} id 任务id
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadResultFile(downloadResultFileRequest?: DownloadResultFileRequest): Promise<DownloadResultFileResponse> {
+        const options = ParamCreater().downloadResultFile(downloadResultFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载导入模板，返回导入模板文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载信息导入模板
+     * @param {string} resource 资源名称
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadTemplate(downloadTemplateRequest?: DownloadTemplateRequest): Promise<DownloadTemplateResponse> {
+        const options = ParamCreater().downloadTemplate(downloadTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导出文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出文件
+     * @param {string} resource 资源名称
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [businessId] 业务id,比如问答模板是传入skill_id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportResource(exportResourceRequest?: ExportResourceRequest): Promise<ExportResourceResponse> {
+        const options = ParamCreater().exportResource(exportResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导入文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入文件
+     * @param {string} resource 资源名称
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [businessId] 业务id,比如问答模板时传入skill_id
+     * @param {any} [file] 导入文件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importResource(importResourceRequest?: ImportResourceRequest): Promise<ImportResourceResponse> {
+        const options = ParamCreater().importResource(importResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询导入导出任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询导入导出任务列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {Array<string>} [resource] 资源类型
+     * @param {string} [businessId] 业务id,比如问答时传入skill_id
+     * @param {string} [beginTime] 开始时间戳
+     * @param {string} [endTime] 结束时间戳
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchTask(searchTaskRequest?: SearchTaskRequest): Promise<SearchTaskResponse> {
+        const options = ParamCreater().searchTask(searchTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询导入导出任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询导入导出任务详情
+     * @param {string} id 任务id
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTask(showTaskRequest?: ShowTaskRequest): Promise<ShowTaskResponse> {
+        const options = ParamCreater().showTask(showTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5118,6 +5294,9 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {string} [groupId] 分组id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6676,6 +6855,460 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'asr_vocabulary_id': asrVocabularyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除导入导出任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTask(deleteTaskRequest?: DeleteTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/ies/task/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (deleteTaskRequest !== null && deleteTaskRequest !== undefined) {
+                if (deleteTaskRequest instanceof DeleteTaskRequest) {
+                    id = deleteTaskRequest.id;
+                    authorization = deleteTaskRequest.authorization;
+                    xSdkDate = deleteTaskRequest.xSdkDate;
+                    xProjectId = deleteTaskRequest.xProjectId;
+                } else {
+                    id = deleteTaskRequest['id'];
+                    authorization = deleteTaskRequest['Authorization'];
+                    xSdkDate = deleteTaskRequest['X-Sdk-Date'];
+                    xProjectId = deleteTaskRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteTask.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载导入或者导出结果文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadResultFile(downloadResultFileRequest?: DownloadResultFileRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/ies/result/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (downloadResultFileRequest !== null && downloadResultFileRequest !== undefined) {
+                if (downloadResultFileRequest instanceof DownloadResultFileRequest) {
+                    id = downloadResultFileRequest.id;
+                    authorization = downloadResultFileRequest.authorization;
+                    xSdkDate = downloadResultFileRequest.xSdkDate;
+                    xProjectId = downloadResultFileRequest.xProjectId;
+                } else {
+                    id = downloadResultFileRequest['id'];
+                    authorization = downloadResultFileRequest['Authorization'];
+                    xSdkDate = downloadResultFileRequest['X-Sdk-Date'];
+                    xProjectId = downloadResultFileRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling downloadResultFile.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载导入模板，返回导入模板文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadTemplate(downloadTemplateRequest?: DownloadTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/ies/import/{resource}/template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resource;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (downloadTemplateRequest !== null && downloadTemplateRequest !== undefined) {
+                if (downloadTemplateRequest instanceof DownloadTemplateRequest) {
+                    resource = downloadTemplateRequest.resource;
+                    authorization = downloadTemplateRequest.authorization;
+                    xSdkDate = downloadTemplateRequest.xSdkDate;
+                    xProjectId = downloadTemplateRequest.xProjectId;
+                } else {
+                    resource = downloadTemplateRequest['resource'];
+                    authorization = downloadTemplateRequest['Authorization'];
+                    xSdkDate = downloadTemplateRequest['X-Sdk-Date'];
+                    xProjectId = downloadTemplateRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (resource === null || resource === undefined) {
+            throw new RequiredError('resource','Required parameter resource was null or undefined when calling downloadTemplate.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'resource': resource, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportResource(exportResourceRequest?: ExportResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ies/export/{resource}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resource;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let businessId;
+
+            if (exportResourceRequest !== null && exportResourceRequest !== undefined) {
+                if (exportResourceRequest instanceof ExportResourceRequest) {
+                    resource = exportResourceRequest.resource;
+                    authorization = exportResourceRequest.authorization;
+                    xSdkDate = exportResourceRequest.xSdkDate;
+                    xProjectId = exportResourceRequest.xProjectId;
+                    businessId = exportResourceRequest.businessId;
+                } else {
+                    resource = exportResourceRequest['resource'];
+                    authorization = exportResourceRequest['Authorization'];
+                    xSdkDate = exportResourceRequest['X-Sdk-Date'];
+                    xProjectId = exportResourceRequest['X-Project-Id'];
+                    businessId = exportResourceRequest['business_id'];
+                }
+            }
+
+        
+            if (resource === null || resource === undefined) {
+            throw new RequiredError('resource','Required parameter resource was null or undefined when calling exportResource.');
+            }
+            if (businessId !== null && businessId !== undefined) {
+                localVarQueryParameter['business_id'] = businessId;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource': resource, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importResource(importResourceRequest?: ImportResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ies/import/{resource}",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let resource;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let businessId;
+            let file;
+            
+
+            if (importResourceRequest !== null && importResourceRequest !== undefined) {
+                if (importResourceRequest instanceof ImportResourceRequest) {
+                    resource = importResourceRequest.resource;
+                    authorization = importResourceRequest.authorization;
+                    xSdkDate = importResourceRequest.xSdkDate;
+                    xProjectId = importResourceRequest.xProjectId;
+                    businessId = importResourceRequest.businessId;
+                    file = importResourceRequest.body?.file;
+                } else {
+                    resource = importResourceRequest['resource'];
+                    authorization = importResourceRequest['Authorization'];
+                    xSdkDate = importResourceRequest['X-Sdk-Date'];
+                    xProjectId = importResourceRequest['X-Project-Id'];
+                    businessId = importResourceRequest['business_id'];
+                    file = importResourceRequest['body']['file'];
+                }
+            }
+
+        
+            if (resource === null || resource === undefined) {
+            throw new RequiredError('resource','Required parameter resource was null or undefined when calling importResource.');
+            }
+            if (businessId !== null && businessId !== undefined) {
+                localVarQueryParameter['business_id'] = businessId;
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource': resource, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询导入导出任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchTask(searchTaskRequest?: SearchTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/ies/task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let resource;
+            
+            let businessId;
+            
+            let beginTime;
+            
+            let endTime;
+
+            if (searchTaskRequest !== null && searchTaskRequest !== undefined) {
+                if (searchTaskRequest instanceof SearchTaskRequest) {
+                    authorization = searchTaskRequest.authorization;
+                    xSdkDate = searchTaskRequest.xSdkDate;
+                    xProjectId = searchTaskRequest.xProjectId;
+                    resource = searchTaskRequest.resource;
+                    businessId = searchTaskRequest.businessId;
+                    beginTime = searchTaskRequest.beginTime;
+                    endTime = searchTaskRequest.endTime;
+                } else {
+                    authorization = searchTaskRequest['Authorization'];
+                    xSdkDate = searchTaskRequest['X-Sdk-Date'];
+                    xProjectId = searchTaskRequest['X-Project-Id'];
+                    resource = searchTaskRequest['resource'];
+                    businessId = searchTaskRequest['business_id'];
+                    beginTime = searchTaskRequest['begin_time'];
+                    endTime = searchTaskRequest['end_time'];
+                }
+            }
+
+        
+            if (resource !== null && resource !== undefined) {
+                localVarQueryParameter['resource'] = resource;
+            }
+            if (businessId !== null && businessId !== undefined) {
+                localVarQueryParameter['business_id'] = businessId;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询导入导出任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTask(showTaskRequest?: ShowTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/ies/task/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (showTaskRequest !== null && showTaskRequest !== undefined) {
+                if (showTaskRequest instanceof ShowTaskRequest) {
+                    id = showTaskRequest.id;
+                    authorization = showTaskRequest.authorization;
+                    xSdkDate = showTaskRequest.xSdkDate;
+                    xProjectId = showTaskRequest.xProjectId;
+                } else {
+                    id = showTaskRequest['id'];
+                    authorization = showTaskRequest['Authorization'];
+                    xSdkDate = showTaskRequest['X-Sdk-Date'];
+                    xProjectId = showTaskRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showTask.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18936,7 +19569,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let xRequestId;
             
@@ -18947,6 +19580,12 @@ export const ParamCreater = function () {
             let xProjectId;
             
             let xAppUserId;
+            
+            let limit;
+            
+            let offset;
+            
+            let groupId;
 
             if (listTtscVocabularyGroupsRequest !== null && listTtscVocabularyGroupsRequest !== undefined) {
                 if (listTtscVocabularyGroupsRequest instanceof ListTtscVocabularyGroupsRequest) {
@@ -18955,16 +19594,31 @@ export const ParamCreater = function () {
                     xSdkDate = listTtscVocabularyGroupsRequest.xSdkDate;
                     xProjectId = listTtscVocabularyGroupsRequest.xProjectId;
                     xAppUserId = listTtscVocabularyGroupsRequest.xAppUserId;
+                    limit = listTtscVocabularyGroupsRequest.limit;
+                    offset = listTtscVocabularyGroupsRequest.offset;
+                    groupId = listTtscVocabularyGroupsRequest.groupId;
                 } else {
                     xRequestId = listTtscVocabularyGroupsRequest['X-Request-Id'];
                     authorization = listTtscVocabularyGroupsRequest['Authorization'];
                     xSdkDate = listTtscVocabularyGroupsRequest['X-Sdk-Date'];
                     xProjectId = listTtscVocabularyGroupsRequest['X-Project-Id'];
                     xAppUserId = listTtscVocabularyGroupsRequest['X-App-UserId'];
+                    limit = listTtscVocabularyGroupsRequest['limit'];
+                    offset = listTtscVocabularyGroupsRequest['offset'];
+                    groupId = listTtscVocabularyGroupsRequest['group_id'];
                 }
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
             if (xRequestId !== undefined && xRequestId !== null) {
                 localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
             }
@@ -18981,6 +19635,7 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -2,10 +2,14 @@ import { AddProtectionPolicyInfoRequestInfo } from './AddProtectionPolicyInfoReq
 
 
 export class AddProtectionPolicyRequest {
-    private 'enterprise_project_id'?: string;
     public region?: string;
+    private 'enterprise_project_id'?: string;
     public body?: AddProtectionPolicyInfoRequestInfo;
     public constructor() { 
+    }
+    public withRegion(region: string): AddProtectionPolicyRequest {
+        this['region'] = region;
+        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): AddProtectionPolicyRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -16,10 +20,6 @@ export class AddProtectionPolicyRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
-    }
-    public withRegion(region: string): AddProtectionPolicyRequest {
-        this['region'] = region;
-        return this;
     }
     public withBody(body: AddProtectionPolicyInfoRequestInfo): AddProtectionPolicyRequest {
         this['body'] = body;

@@ -2,6 +2,7 @@
 
 export class ListEventsRequest {
     private 'event_type'?: ListEventsRequestEventTypeEnum | string;
+    private 'sub_event_type'?: ListEventsRequestSubEventTypeEnum | string;
     private 'event_name'?: string;
     public from?: number;
     public to?: number;
@@ -18,6 +19,16 @@ export class ListEventsRequest {
     }
     public get eventType(): ListEventsRequestEventTypeEnum | string | undefined {
         return this['event_type'];
+    }
+    public withSubEventType(subEventType: ListEventsRequestSubEventTypeEnum | string): ListEventsRequest {
+        this['sub_event_type'] = subEventType;
+        return this;
+    }
+    public set subEventType(subEventType: ListEventsRequestSubEventTypeEnum | string  | undefined) {
+        this['sub_event_type'] = subEventType;
+    }
+    public get subEventType(): ListEventsRequestSubEventTypeEnum | string | undefined {
+        return this['sub_event_type'];
     }
     public withEventName(eventName: string): ListEventsRequest {
         this['event_name'] = eventName;
@@ -54,4 +65,13 @@ export class ListEventsRequest {
 export enum ListEventsRequestEventTypeEnum {
     EVENT_SYS = 'EVENT.SYS',
     EVENT_CUSTOM = 'EVENT.CUSTOM'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEventsRequestSubEventTypeEnum {
+    SUB_EVENT_OPS = 'SUB_EVENT.OPS',
+    SUB_EVENT_PLAN = 'SUB_EVENT.PLAN',
+    SUB_EVENT_CUSTOM = 'SUB_EVENT.CUSTOM'
 }

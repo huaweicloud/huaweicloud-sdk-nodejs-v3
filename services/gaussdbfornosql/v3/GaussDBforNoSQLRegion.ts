@@ -19,6 +19,10 @@ export class GaussDBforNoSQLRegion {
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://gaussdb-nosql.ap-southeast-4.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://gaussdb-nosql.ap-southeast-5.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://gaussdb-nosql.me-east-1.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://gaussdb-nosql.cn-east-4.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://nosql-gemini.cn-south-4.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://gaussdb-nosql.cn-southwest-3.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://gaussdb-nosql.tr-west-1.myhuaweicloud.com"]);
     public static RU_NORTHWEST_2 = new Region("ru-northwest-2", ["https://gaussdb-nosql.ru-northwest-2.myhuaweicloud.com"]);
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://gaussdb-nosql.cn-south-2.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://gaussdb-nosql.cn-north-2.myhuaweicloud.com"]);
@@ -43,6 +47,10 @@ export class GaussDBforNoSQLRegion {
         "ap-southeast-4":GaussDBforNoSQLRegion.AP_SOUTHEAST_4,
         "ap-southeast-5":GaussDBforNoSQLRegion.AP_SOUTHEAST_5,
         "me-east-1":GaussDBforNoSQLRegion.ME_EAST_1,
+        "cn-east-4":GaussDBforNoSQLRegion.CN_EAST_4,
+        "cn-south-4":GaussDBforNoSQLRegion.CN_SOUTH_4,
+        "cn-southwest-3":GaussDBforNoSQLRegion.CN_SOUTHWEST_3,
+        "tr-west-1":GaussDBforNoSQLRegion.TR_WEST_1,
         "ru-northwest-2":GaussDBforNoSQLRegion.RU_NORTHWEST_2,
         "cn-south-2":GaussDBforNoSQLRegion.CN_SOUTH_2,
         "cn-north-2":GaussDBforNoSQLRegion.CN_NORTH_2,

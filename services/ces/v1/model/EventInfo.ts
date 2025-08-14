@@ -3,6 +3,7 @@
 export class EventInfo {
     private 'event_name'?: string;
     private 'event_type'?: string;
+    private 'sub_event_type'?: EventInfoSubEventTypeEnum | string;
     private 'event_count'?: number;
     private 'latest_occur_time'?: number;
     private 'latest_event_source'?: string;
@@ -27,6 +28,16 @@ export class EventInfo {
     }
     public get eventType(): string | undefined {
         return this['event_type'];
+    }
+    public withSubEventType(subEventType: EventInfoSubEventTypeEnum | string): EventInfo {
+        this['sub_event_type'] = subEventType;
+        return this;
+    }
+    public set subEventType(subEventType: EventInfoSubEventTypeEnum | string  | undefined) {
+        this['sub_event_type'] = subEventType;
+    }
+    public get subEventType(): EventInfoSubEventTypeEnum | string | undefined {
+        return this['sub_event_type'];
     }
     public withEventCount(eventCount: number): EventInfo {
         this['event_count'] = eventCount;
@@ -58,4 +69,14 @@ export class EventInfo {
     public get latestEventSource(): string | undefined {
         return this['latest_event_source'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EventInfoSubEventTypeEnum {
+    SUB_EVENT_OPS = 'SUB_EVENT.OPS',
+    SUB_EVENT_PLAN = 'SUB_EVENT.PLAN',
+    SUB_EVENT_CUSTOM = 'SUB_EVENT.CUSTOM'
 }

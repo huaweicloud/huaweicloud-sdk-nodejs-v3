@@ -1,4 +1,5 @@
 import { AppCategoryEnum } from './AppCategoryEnum';
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { OsTypeEnum } from './OsTypeEnum';
 
 
@@ -10,6 +11,7 @@ export class UpdateWarehouseAppReq {
     private 'app_description'?: string;
     private 'version_name'?: string;
     private 'app_icon'?: string;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor() { 
     }
     public withAppName(appName: string): UpdateWarehouseAppReq {
@@ -81,5 +83,15 @@ export class UpdateWarehouseAppReq {
     }
     public get appIcon(): string | undefined {
         return this['app_icon'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): UpdateWarehouseAppReq {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

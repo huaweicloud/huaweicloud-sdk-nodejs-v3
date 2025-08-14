@@ -28,8 +28,14 @@ import { CollectAllResourcesSummaryRequest } from './model/CollectAllResourcesSu
 import { CollectAllResourcesSummaryResponse } from './model/CollectAllResourcesSummaryResponse';
 import { CollectConformancePackComplianceSummaryRequest } from './model/CollectConformancePackComplianceSummaryRequest';
 import { CollectConformancePackComplianceSummaryResponse } from './model/CollectConformancePackComplianceSummaryResponse';
+import { CollectPolicyAssignmentsStatesSummaryRequest } from './model/CollectPolicyAssignmentsStatesSummaryRequest';
+import { CollectPolicyAssignmentsStatesSummaryResponse } from './model/CollectPolicyAssignmentsStatesSummaryResponse';
+import { CollectPolicyStatesSummaryRequest } from './model/CollectPolicyStatesSummaryRequest';
+import { CollectPolicyStatesSummaryResponse } from './model/CollectPolicyStatesSummaryResponse';
 import { CollectRemediationExecutionStatusesSummaryRequest } from './model/CollectRemediationExecutionStatusesSummaryRequest';
 import { CollectRemediationExecutionStatusesSummaryResponse } from './model/CollectRemediationExecutionStatusesSummaryResponse';
+import { CollectResourcesPolicyStatesSummaryRequest } from './model/CollectResourcesPolicyStatesSummaryRequest';
+import { CollectResourcesPolicyStatesSummaryResponse } from './model/CollectResourcesPolicyStatesSummaryResponse';
 import { CollectTrackedResourcesSummaryRequest } from './model/CollectTrackedResourcesSummaryRequest';
 import { CollectTrackedResourcesSummaryResponse } from './model/CollectTrackedResourcesSummaryResponse';
 import { Compliance } from './model/Compliance';
@@ -100,6 +106,8 @@ import { ListAggregateDiscoveredResourcesRequest } from './model/ListAggregateDi
 import { ListAggregateDiscoveredResourcesResponse } from './model/ListAggregateDiscoveredResourcesResponse';
 import { ListAggregationAuthorizationsRequest } from './model/ListAggregationAuthorizationsRequest';
 import { ListAggregationAuthorizationsResponse } from './model/ListAggregationAuthorizationsResponse';
+import { ListAllProvidersRequest } from './model/ListAllProvidersRequest';
+import { ListAllProvidersResponse } from './model/ListAllProvidersResponse';
 import { ListAllResourcesRequest } from './model/ListAllResourcesRequest';
 import { ListAllResourcesResponse } from './model/ListAllResourcesResponse';
 import { ListAllTagsRequest } from './model/ListAllTagsRequest';
@@ -171,7 +179,9 @@ import { OrganizationPolicyAssignmentStatusResponse } from './model/Organization
 import { PageInfo } from './model/PageInfo';
 import { PendingAggregationRequest } from './model/PendingAggregationRequest';
 import { PolicyAssignment } from './model/PolicyAssignment';
+import { PolicyAssignmentComplianceSummary } from './model/PolicyAssignmentComplianceSummary';
 import { PolicyAssignmentRequestBody } from './model/PolicyAssignmentRequestBody';
+import { PolicyComplianceSummaryResults } from './model/PolicyComplianceSummaryResults';
 import { PolicyComplianceSummaryUnit } from './model/PolicyComplianceSummaryUnit';
 import { PolicyDefinition } from './model/PolicyDefinition';
 import { PolicyDefinitionDefaultResourceTypes } from './model/PolicyDefinitionDefaultResourceTypes';
@@ -179,6 +189,7 @@ import { PolicyFilterDefinition } from './model/PolicyFilterDefinition';
 import { PolicyParameterDefinition } from './model/PolicyParameterDefinition';
 import { PolicyParameterValue } from './model/PolicyParameterValue';
 import { PolicyResource } from './model/PolicyResource';
+import { PolicyResourceComplianceSummary } from './model/PolicyResourceComplianceSummary';
 import { PolicyState } from './model/PolicyState';
 import { PolicyStateRequestBody } from './model/PolicyStateRequestBody';
 import { QueryInfo } from './model/QueryInfo';
@@ -1140,6 +1151,45 @@ export class ConfigClient {
     }
 
     /**
+     * 根据规则ID查询此规则的合规总结
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规则的合规总结
+     * @param {string} policyAssignmentId 规则ID
+     * @param {string} [resourceName] 资源名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectPolicyAssignmentsStatesSummary(collectPolicyAssignmentsStatesSummaryRequest?: CollectPolicyAssignmentsStatesSummaryRequest): Promise<CollectPolicyAssignmentsStatesSummaryResponse> {
+        const options = ParamCreater().collectPolicyAssignmentsStatesSummary(collectPolicyAssignmentsStatesSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户的合规总结
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户的合规总结
+     * @param {Array<string>} [tags] 标签列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectPolicyStatesSummary(collectPolicyStatesSummaryRequest?: CollectPolicyStatesSummaryRequest): Promise<CollectPolicyStatesSummaryResponse> {
+        const options = ParamCreater().collectPolicyStatesSummary(collectPolicyStatesSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 列举合规规则修正最新记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1154,6 +1204,28 @@ export class ConfigClient {
      */
     public collectRemediationExecutionStatusesSummary(collectRemediationExecutionStatusesSummaryRequest?: CollectRemediationExecutionStatusesSummaryRequest): Promise<CollectRemediationExecutionStatusesSummaryResponse> {
         const options = ParamCreater().collectRemediationExecutionStatusesSummary(collectRemediationExecutionStatusesSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户资源的合规总结
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户资源的合规总结
+     * @param {string} [resourceId] 资源ID
+     * @param {string} [resourceName] 资源名称
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectResourcesPolicyStatesSummary(collectResourcesPolicyStatesSummaryRequest?: CollectResourcesPolicyStatesSummaryRequest): Promise<CollectResourcesPolicyStatesSummaryResponse> {
+        const options = ParamCreater().collectResourcesPolicyStatesSummary(collectResourcesPolicyStatesSummaryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2033,6 +2105,27 @@ export class ConfigClient {
      */
     public countTrackedResources(countTrackedResourcesRequest?: CountTrackedResourcesRequest): Promise<CountTrackedResourcesResponse> {
         const options = ParamCreater().countTrackedResources(countTrackedResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有已对接Config的云服务、资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举所有已对接的云服务
+     * @param {number} [offset] 分页偏移
+     * @param {number} [limit] 最大的返回数量
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAllProviders(listAllProvidersRequest?: ListAllProvidersRequest): Promise<ListAllProvidersResponse> {
+        const options = ParamCreater().listAllProviders(listAllProvidersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4335,6 +4428,88 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据规则ID查询此规则的合规总结
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectPolicyAssignmentsStatesSummary(collectPolicyAssignmentsStatesSummaryRequest?: CollectPolicyAssignmentsStatesSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/policy-states/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyAssignmentId;
+            
+            let resourceName;
+
+            if (collectPolicyAssignmentsStatesSummaryRequest !== null && collectPolicyAssignmentsStatesSummaryRequest !== undefined) {
+                if (collectPolicyAssignmentsStatesSummaryRequest instanceof CollectPolicyAssignmentsStatesSummaryRequest) {
+                    policyAssignmentId = collectPolicyAssignmentsStatesSummaryRequest.policyAssignmentId;
+                    resourceName = collectPolicyAssignmentsStatesSummaryRequest.resourceName;
+                } else {
+                    policyAssignmentId = collectPolicyAssignmentsStatesSummaryRequest['policy_assignment_id'];
+                    resourceName = collectPolicyAssignmentsStatesSummaryRequest['resource_name'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling collectPolicyAssignmentsStatesSummary.');
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户的合规总结
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectPolicyStatesSummary(collectPolicyStatesSummaryRequest?: CollectPolicyStatesSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-states/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tags;
+
+            if (collectPolicyStatesSummaryRequest !== null && collectPolicyStatesSummaryRequest !== undefined) {
+                if (collectPolicyStatesSummaryRequest instanceof CollectPolicyStatesSummaryRequest) {
+                    tags = collectPolicyStatesSummaryRequest.tags;
+                } else {
+                    tags = collectPolicyStatesSummaryRequest['tags'];
+                }
+            }
+
+        
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 列举合规规则修正最新记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4388,6 +4563,64 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户资源的合规总结
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectResourcesPolicyStatesSummary(collectResourcesPolicyStatesSummaryRequest?: CollectResourcesPolicyStatesSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/resources/policy-states/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceId;
+            
+            let resourceName;
+            
+            let limit;
+            
+            let marker;
+
+            if (collectResourcesPolicyStatesSummaryRequest !== null && collectResourcesPolicyStatesSummaryRequest !== undefined) {
+                if (collectResourcesPolicyStatesSummaryRequest instanceof CollectResourcesPolicyStatesSummaryRequest) {
+                    resourceId = collectResourcesPolicyStatesSummaryRequest.resourceId;
+                    resourceName = collectResourcesPolicyStatesSummaryRequest.resourceName;
+                    limit = collectResourcesPolicyStatesSummaryRequest.limit;
+                    marker = collectResourcesPolicyStatesSummaryRequest.marker;
+                } else {
+                    resourceId = collectResourcesPolicyStatesSummaryRequest['resource_id'];
+                    resourceName = collectResourcesPolicyStatesSummaryRequest['resource_name'];
+                    limit = collectResourcesPolicyStatesSummaryRequest['limit'];
+                    marker = collectResourcesPolicyStatesSummaryRequest['marker'];
+                }
+            }
+
+        
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6519,6 +6752,57 @@ export const ParamCreater = function () {
             }
             if (resourceDeleted !== null && resourceDeleted !== undefined) {
                 localVarQueryParameter['resource_deleted'] = resourceDeleted;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有已对接Config的云服务、资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAllProviders(listAllProvidersRequest?: ListAllProvidersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/all-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (listAllProvidersRequest !== null && listAllProvidersRequest !== undefined) {
+                if (listAllProvidersRequest instanceof ListAllProvidersRequest) {
+                    offset = listAllProvidersRequest.offset;
+                    limit = listAllProvidersRequest.limit;
+                    xLanguage = listAllProvidersRequest.xLanguage;
+                } else {
+                    offset = listAllProvidersRequest['offset'];
+                    limit = listAllProvidersRequest['limit'];
+                    xLanguage = listAllProvidersRequest['X-Language'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.queryParams = localVarQueryParameter;

@@ -1,3 +1,4 @@
+import { AppExtendedInfo } from './AppExtendedInfo';
 
 
 export class PublishApp {
@@ -14,6 +15,7 @@ export class PublishApp {
     public publisher?: string;
     private 'source_image_ids'?: Array<string>;
     private 'sandbox_enable'?: boolean;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor(name?: string, executePath?: string, sourceType?: number) { 
         this['name'] = name;
         this['execute_path'] = executePath;
@@ -124,5 +126,15 @@ export class PublishApp {
     }
     public get sandboxEnable(): boolean | undefined {
         return this['sandbox_enable'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): PublishApp {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

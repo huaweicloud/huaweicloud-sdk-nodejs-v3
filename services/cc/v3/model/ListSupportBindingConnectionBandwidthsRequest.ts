@@ -7,7 +7,8 @@ export class ListSupportBindingConnectionBandwidthsRequest {
     private 'local_area'?: string;
     private 'remote_area'?: string;
     private 'binding_service'?: ListSupportBindingConnectionBandwidthsRequestBindingServiceEnum | string;
-    public constructor() { 
+    public constructor(bindingService?: string) { 
+        this['binding_service'] = bindingService;
     }
     public withLimit(limit: number): ListSupportBindingConnectionBandwidthsRequest {
         this['limit'] = limit;

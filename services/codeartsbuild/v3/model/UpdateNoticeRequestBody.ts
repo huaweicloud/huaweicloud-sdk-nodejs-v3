@@ -3,7 +3,9 @@
 export class UpdateNoticeRequestBody {
     private 'notice_type'?: string;
     private 'enabled_event_type_names'?: Array<string>;
+    private 'send_switch'?: string;
     private 'param_config'?: string;
+    private 'use_project_notice'?: string;
     public constructor(noticeType?: string, enabledEventTypeNames?: Array<string>) { 
         this['notice_type'] = noticeType;
         this['enabled_event_type_names'] = enabledEventTypeNames;
@@ -28,6 +30,16 @@ export class UpdateNoticeRequestBody {
     public get enabledEventTypeNames(): Array<string> | undefined {
         return this['enabled_event_type_names'];
     }
+    public withSendSwitch(sendSwitch: string): UpdateNoticeRequestBody {
+        this['send_switch'] = sendSwitch;
+        return this;
+    }
+    public set sendSwitch(sendSwitch: string  | undefined) {
+        this['send_switch'] = sendSwitch;
+    }
+    public get sendSwitch(): string | undefined {
+        return this['send_switch'];
+    }
     public withParamConfig(paramConfig: string): UpdateNoticeRequestBody {
         this['param_config'] = paramConfig;
         return this;
@@ -37,5 +49,15 @@ export class UpdateNoticeRequestBody {
     }
     public get paramConfig(): string | undefined {
         return this['param_config'];
+    }
+    public withUseProjectNotice(useProjectNotice: string): UpdateNoticeRequestBody {
+        this['use_project_notice'] = useProjectNotice;
+        return this;
+    }
+    public set useProjectNotice(useProjectNotice: string  | undefined) {
+        this['use_project_notice'] = useProjectNotice;
+    }
+    public get useProjectNotice(): string | undefined {
+        return this['use_project_notice'];
     }
 }

@@ -6,6 +6,8 @@ export class CreateDatakeyRequestBody {
     private 'datakey_length'?: string;
     private 'additional_authenticated_data'?: string;
     public sequence?: string;
+    public pin?: string;
+    private 'pin_type'?: CreateDatakeyRequestBodyPinTypeEnum | string;
     public constructor(keyId?: string) { 
         this['key_id'] = keyId;
     }
@@ -53,6 +55,20 @@ export class CreateDatakeyRequestBody {
         this['sequence'] = sequence;
         return this;
     }
+    public withPin(pin: string): CreateDatakeyRequestBody {
+        this['pin'] = pin;
+        return this;
+    }
+    public withPinType(pinType: CreateDatakeyRequestBodyPinTypeEnum | string): CreateDatakeyRequestBody {
+        this['pin_type'] = pinType;
+        return this;
+    }
+    public set pinType(pinType: CreateDatakeyRequestBodyPinTypeEnum | string  | undefined) {
+        this['pin_type'] = pinType;
+    }
+    public get pinType(): CreateDatakeyRequestBodyPinTypeEnum | string | undefined {
+        return this['pin_type'];
+    }
 }
 
 /**
@@ -61,5 +77,18 @@ export class CreateDatakeyRequestBody {
     */
 export enum CreateDatakeyRequestBodyKeySpecEnum {
     AES_256 = 'AES_256',
-    AES_128 = 'AES_128'
+    AES_128 = 'AES_128',
+    SM4 = 'SM4',
+    HMAC_256 = 'HMAC_256',
+    HMAC_384 = 'HMAC_384',
+    HMAC_512 = 'HMAC_512',
+    HMAC_SM3 = 'HMAC_SM3'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateDatakeyRequestBodyPinTypeEnum {
+    CIPHERTEXT = 'CipherText',
+    PLAINTEXT = 'PlainText'
 }

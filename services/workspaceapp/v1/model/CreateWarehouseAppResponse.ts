@@ -1,4 +1,5 @@
 import { AppCategoryEnum } from './AppCategoryEnum';
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { OsTypeEnum } from './OsTypeEnum';
 import { VerifyStatusEnum } from './VerifyStatusEnum';
 
@@ -23,6 +24,7 @@ export class CreateWarehouseAppResponse extends SdkResponse {
     private 'verify_status'?: VerifyStatusEnum;
     private 'verify_comment'?: string;
     private 'app_icon'?: string;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor() { 
         super();
     }
@@ -199,5 +201,15 @@ export class CreateWarehouseAppResponse extends SdkResponse {
     }
     public get appIcon(): string | undefined {
         return this['app_icon'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): CreateWarehouseAppResponse {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

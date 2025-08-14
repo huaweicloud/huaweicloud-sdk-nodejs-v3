@@ -9,6 +9,9 @@ export class AddCertificateResponse extends SdkResponse {
     private 'verify_code'?: string;
     private 'provision_enable'?: boolean;
     private 'template_id'?: string;
+    private 'ocsp_enable'?: boolean;
+    private 'ocsp_server_ca_id'?: string;
+    private 'ocsp_ssl_enable'?: boolean;
     private 'create_date'?: string;
     private 'effective_date'?: string;
     private 'expiry_date'?: string;
@@ -72,6 +75,36 @@ export class AddCertificateResponse extends SdkResponse {
     }
     public get templateId(): string | undefined {
         return this['template_id'];
+    }
+    public withOcspEnable(ocspEnable: boolean): AddCertificateResponse {
+        this['ocsp_enable'] = ocspEnable;
+        return this;
+    }
+    public set ocspEnable(ocspEnable: boolean  | undefined) {
+        this['ocsp_enable'] = ocspEnable;
+    }
+    public get ocspEnable(): boolean | undefined {
+        return this['ocsp_enable'];
+    }
+    public withOcspServerCaId(ocspServerCaId: string): AddCertificateResponse {
+        this['ocsp_server_ca_id'] = ocspServerCaId;
+        return this;
+    }
+    public set ocspServerCaId(ocspServerCaId: string  | undefined) {
+        this['ocsp_server_ca_id'] = ocspServerCaId;
+    }
+    public get ocspServerCaId(): string | undefined {
+        return this['ocsp_server_ca_id'];
+    }
+    public withOcspSslEnable(ocspSslEnable: boolean): AddCertificateResponse {
+        this['ocsp_ssl_enable'] = ocspSslEnable;
+        return this;
+    }
+    public set ocspSslEnable(ocspSslEnable: boolean  | undefined) {
+        this['ocsp_ssl_enable'] = ocspSslEnable;
+    }
+    public get ocspSslEnable(): boolean | undefined {
+        return this['ocsp_ssl_enable'];
     }
     public withCreateDate(createDate: string): AddCertificateResponse {
         this['create_date'] = createDate;

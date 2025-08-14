@@ -1,3 +1,4 @@
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { AppStateEnum } from './AppStateEnum';
 
 
@@ -20,6 +21,8 @@ export class App {
     private 'icon_url'?: string;
     public publishable?: boolean;
     private 'sandbox_enable'?: boolean;
+    private 'is_pre_boot'?: boolean;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor() { 
     }
     public withId(id: string): App {
@@ -159,5 +162,25 @@ export class App {
     }
     public get sandboxEnable(): boolean | undefined {
         return this['sandbox_enable'];
+    }
+    public withIsPreBoot(isPreBoot: boolean): App {
+        this['is_pre_boot'] = isPreBoot;
+        return this;
+    }
+    public set isPreBoot(isPreBoot: boolean  | undefined) {
+        this['is_pre_boot'] = isPreBoot;
+    }
+    public get isPreBoot(): boolean | undefined {
+        return this['is_pre_boot'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): App {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

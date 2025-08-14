@@ -11,6 +11,7 @@ import { AddVolumes } from './model/AddVolumes';
 import { App } from './model/App';
 import { AppCategoryEnum } from './model/AppCategoryEnum';
 import { AppConnectionInfo } from './model/AppConnectionInfo';
+import { AppExtendedInfo } from './model/AppExtendedInfo';
 import { AppGroup } from './model/AppGroup';
 import { AppGroupAuthorizeReq } from './model/AppGroupAuthorizeReq';
 import { AppServer } from './model/AppServer';
@@ -55,6 +56,9 @@ import { BatchDeleteAppGroupRequest } from './model/BatchDeleteAppGroupRequest';
 import { BatchDeleteAppGroupResponse } from './model/BatchDeleteAppGroupResponse';
 import { BatchDeleteAppSubJobsRequest } from './model/BatchDeleteAppSubJobsRequest';
 import { BatchDeleteAppSubJobsResponse } from './model/BatchDeleteAppSubJobsResponse';
+import { BatchDeleteCloudStorageReq } from './model/BatchDeleteCloudStorageReq';
+import { BatchDeleteCloudStorageRequest } from './model/BatchDeleteCloudStorageRequest';
+import { BatchDeleteCloudStorageResponse } from './model/BatchDeleteCloudStorageResponse';
 import { BatchDeleteImageServerReq } from './model/BatchDeleteImageServerReq';
 import { BatchDeleteImageServerRequest } from './model/BatchDeleteImageServerRequest';
 import { BatchDeleteImageServerResponse } from './model/BatchDeleteImageServerResponse';
@@ -102,6 +106,9 @@ import { BatchUpdateTsviResponse } from './model/BatchUpdateTsviResponse';
 import { BatchUpgradeHdaVersionReq } from './model/BatchUpgradeHdaVersionReq';
 import { BatchUpgradeHdaVersionRequest } from './model/BatchUpgradeHdaVersionRequest';
 import { BatchUpgradeHdaVersionResponse } from './model/BatchUpgradeHdaVersionResponse';
+import { BindAppWarehouseBucketRequest } from './model/BindAppWarehouseBucketRequest';
+import { BindAppWarehouseBucketResponse } from './model/BindAppWarehouseBucketResponse';
+import { BucketNameReq } from './model/BucketNameReq';
 import { CameraBandwidthControlOptions } from './model/CameraBandwidthControlOptions';
 import { CameraBandwidthPercentageOptions } from './model/CameraBandwidthPercentageOptions';
 import { CameraRedirectionOptions } from './model/CameraRedirectionOptions';
@@ -115,6 +122,10 @@ import { CheckQuotaResponse } from './model/CheckQuotaResponse';
 import { ClaimMode } from './model/ClaimMode';
 import { ClipboardBandwidthControlOptions } from './model/ClipboardBandwidthControlOptions';
 import { ClipboardBandwidthPercentageOptions } from './model/ClipboardBandwidthPercentageOptions';
+import { CloudStorage } from './model/CloudStorage';
+import { CloudStorageAssignment } from './model/CloudStorageAssignment';
+import { CloudStorageAssignmentCreateInfo } from './model/CloudStorageAssignmentCreateInfo';
+import { CloudStorageOptions } from './model/CloudStorageOptions';
 import { ComBandwidthControlOptions } from './model/ComBandwidthControlOptions';
 import { ComBandwidthPercentageOptions } from './model/ComBandwidthPercentageOptions';
 import { ConfigKeyStringSet } from './model/ConfigKeyStringSet';
@@ -129,6 +140,9 @@ import { CreateAppServersRequest } from './model/CreateAppServersRequest';
 import { CreateAppServersResponse } from './model/CreateAppServersResponse';
 import { CreateBucketOrAclRequest } from './model/CreateBucketOrAclRequest';
 import { CreateBucketOrAclResponse } from './model/CreateBucketOrAclResponse';
+import { CreateCloudStorageReq } from './model/CreateCloudStorageReq';
+import { CreateCloudStorageRequest } from './model/CreateCloudStorageRequest';
+import { CreateCloudStorageResponse } from './model/CreateCloudStorageResponse';
 import { CreateImageServerReq } from './model/CreateImageServerReq';
 import { CreateImageServerRequest } from './model/CreateImageServerRequest';
 import { CreateImageServerResponse } from './model/CreateImageServerResponse';
@@ -165,6 +179,10 @@ import { CreateServices } from './model/CreateServices';
 import { CreateShareFolderReq } from './model/CreateShareFolderReq';
 import { CreateShareFolderRequest } from './model/CreateShareFolderRequest';
 import { CreateShareFolderResponse } from './model/CreateShareFolderResponse';
+import { CreateUserAssignmentInfo } from './model/CreateUserAssignmentInfo';
+import { CreateUserFolderAssignmentRequest } from './model/CreateUserFolderAssignmentRequest';
+import { CreateUserFolderAssignmentResponse } from './model/CreateUserFolderAssignmentResponse';
+import { CreateUserFolderReq } from './model/CreateUserFolderReq';
 import { CreateWarehouseAppReq } from './model/CreateWarehouseAppReq';
 import { CreateWarehouseAppRequest } from './model/CreateWarehouseAppRequest';
 import { CreateWarehouseAppResponse } from './model/CreateWarehouseAppResponse';
@@ -175,6 +193,11 @@ import { DeleteAppGroupRequest } from './model/DeleteAppGroupRequest';
 import { DeleteAppGroupResponse } from './model/DeleteAppGroupResponse';
 import { DeleteAppIconRequest } from './model/DeleteAppIconRequest';
 import { DeleteAppIconResponse } from './model/DeleteAppIconResponse';
+import { DeleteCloudStorageAttachmentReq } from './model/DeleteCloudStorageAttachmentReq';
+import { DeleteCloudStorageAttachmentRequest } from './model/DeleteCloudStorageAttachmentRequest';
+import { DeleteCloudStorageAttachmentResponse } from './model/DeleteCloudStorageAttachmentResponse';
+import { DeleteCloudStorageRequest } from './model/DeleteCloudStorageRequest';
+import { DeleteCloudStorageResponse } from './model/DeleteCloudStorageResponse';
 import { DeletePersistentStorageRequest } from './model/DeletePersistentStorageRequest';
 import { DeletePersistentStorageResponse } from './model/DeletePersistentStorageResponse';
 import { DeletePolicyGroupRequest } from './model/DeletePolicyGroupRequest';
@@ -259,6 +282,10 @@ import { ListAvailabilityZoneRequest } from './model/ListAvailabilityZoneRequest
 import { ListAvailabilityZoneResponse } from './model/ListAvailabilityZoneResponse';
 import { ListAzRequest } from './model/ListAzRequest';
 import { ListAzResponse } from './model/ListAzResponse';
+import { ListCloudStorageAssignmentRequest } from './model/ListCloudStorageAssignmentRequest';
+import { ListCloudStorageAssignmentResponse } from './model/ListCloudStorageAssignmentResponse';
+import { ListCloudStorageRequest } from './model/ListCloudStorageRequest';
+import { ListCloudStorageResponse } from './model/ListCloudStorageResponse';
 import { ListConfigInfoReq } from './model/ListConfigInfoReq';
 import { ListCorpConfigInfoRequest } from './model/ListCorpConfigInfoRequest';
 import { ListCorpConfigInfoResponse } from './model/ListCorpConfigInfoResponse';
@@ -285,6 +312,8 @@ import { ListPolicyTemplateRequest } from './model/ListPolicyTemplateRequest';
 import { ListPolicyTemplateResponse } from './model/ListPolicyTemplateResponse';
 import { ListProductRequest } from './model/ListProductRequest';
 import { ListProductResponse } from './model/ListProductResponse';
+import { ListProjectConfigsRequest } from './model/ListProjectConfigsRequest';
+import { ListProjectConfigsResponse } from './model/ListProjectConfigsResponse';
 import { ListPublishedAppRequest } from './model/ListPublishedAppRequest';
 import { ListPublishedAppResponse } from './model/ListPublishedAppResponse';
 import { ListScheduleTasksRequest } from './model/ListScheduleTasksRequest';
@@ -351,6 +380,7 @@ import { PlatformTypeEnum } from './model/PlatformTypeEnum';
 import { Policies } from './model/Policies';
 import { PoliciesAudio } from './model/PoliciesAudio';
 import { PoliciesClient } from './model/PoliciesClient';
+import { PoliciesCloudStorage } from './model/PoliciesCloudStorage';
 import { PoliciesCustom } from './model/PoliciesCustom';
 import { PoliciesDisplay } from './model/PoliciesDisplay';
 import { PoliciesDisplayRenderingAccelerationOptions } from './model/PoliciesDisplayRenderingAccelerationOptions';
@@ -368,6 +398,7 @@ import { PoliciesPeripheralsSerialPortRedirection } from './model/PoliciesPeriph
 import { PoliciesPeripheralsUsbDeviceCommon } from './model/PoliciesPeripheralsUsbDeviceCommon';
 import { PoliciesPeripheralsUsbDeviceCommonCommonOptions } from './model/PoliciesPeripheralsUsbDeviceCommonCommonOptions';
 import { PoliciesPeripheralsUsbPortRedirection } from './model/PoliciesPeripheralsUsbPortRedirection';
+import { PoliciesUserProfile } from './model/PoliciesUserProfile';
 import { Policy } from './model/Policy';
 import { PolicyGroup } from './model/PolicyGroup';
 import { PolicyGroupForCreate } from './model/PolicyGroupForCreate';
@@ -378,6 +409,7 @@ import { PrinterBandwidthControlOptions } from './model/PrinterBandwidthControlO
 import { PrinterBandwidthPercentageOptions } from './model/PrinterBandwidthPercentageOptions';
 import { PrinterRedirectionOptions } from './model/PrinterRedirectionOptions';
 import { ProductInfo } from './model/ProductInfo';
+import { ProjectConfig } from './model/ProjectConfig';
 import { PublishApp } from './model/PublishApp';
 import { PublishAppReq } from './model/PublishAppReq';
 import { PublishAppRequest } from './model/PublishAppRequest';
@@ -386,6 +418,7 @@ import { PublishableApp } from './model/PublishableApp';
 import { QuerySessionTypesReq } from './model/QuerySessionTypesReq';
 import { QuotaRemainderData } from './model/QuotaRemainderData';
 import { QuotaResourceTypeEnum } from './model/QuotaResourceTypeEnum';
+import { RailTransparentConfig } from './model/RailTransparentConfig';
 import { RecreateServerImageRequest } from './model/RecreateServerImageRequest';
 import { RecreateServerImageResponse } from './model/RecreateServerImageResponse';
 import { ReinstallServerReq } from './model/ReinstallServerReq';
@@ -418,6 +451,7 @@ import { SendAuthorizedMailRequest } from './model/SendAuthorizedMailRequest';
 import { SendAuthorizedMailResponse } from './model/SendAuthorizedMailResponse';
 import { SerialPortRedirectionOptions } from './model/SerialPortRedirectionOptions';
 import { ServerAddress } from './model/ServerAddress';
+import { ServerAddressNetWork } from './model/ServerAddressNetWork';
 import { ServerDataPoints } from './model/ServerDataPoints';
 import { ServerGroup } from './model/ServerGroup';
 import { ServerGroupDto } from './model/ServerGroupDto';
@@ -445,6 +479,8 @@ import { ShowAppDetailRequest } from './model/ShowAppDetailRequest';
 import { ShowAppDetailResponse } from './model/ShowAppDetailResponse';
 import { ShowAppGroupDetailRequest } from './model/ShowAppGroupDetailRequest';
 import { ShowAppGroupDetailResponse } from './model/ShowAppGroupDetailResponse';
+import { ShowAppWarehouseBucketRequest } from './model/ShowAppWarehouseBucketRequest';
+import { ShowAppWarehouseBucketResponse } from './model/ShowAppWarehouseBucketResponse';
 import { ShowImageJobRequest } from './model/ShowImageJobRequest';
 import { ShowImageJobResponse } from './model/ShowImageJobResponse';
 import { ShowImageServerRequest } from './model/ShowImageServerRequest';
@@ -457,6 +493,8 @@ import { ShowOriginalPolicyInfoRequest } from './model/ShowOriginalPolicyInfoReq
 import { ShowOriginalPolicyInfoResponse } from './model/ShowOriginalPolicyInfoResponse';
 import { ShowPolicyGroupRequest } from './model/ShowPolicyGroupRequest';
 import { ShowPolicyGroupResponse } from './model/ShowPolicyGroupResponse';
+import { ShowProjectConfigRequest } from './model/ShowProjectConfigRequest';
+import { ShowProjectConfigResponse } from './model/ShowProjectConfigResponse';
 import { ShowPublishableAppRequest } from './model/ShowPublishableAppRequest';
 import { ShowPublishableAppResponse } from './model/ShowPublishableAppResponse';
 import { ShowScalingPolicyRequest } from './model/ShowScalingPolicyRequest';
@@ -502,6 +540,8 @@ import { UpdateAppGroupResponse } from './model/UpdateAppGroupResponse';
 import { UpdateAppReq } from './model/UpdateAppReq';
 import { UpdateAppRequest } from './model/UpdateAppRequest';
 import { UpdateAppResponse } from './model/UpdateAppResponse';
+import { UpdateCloudUserFolderAssignmentRequest } from './model/UpdateCloudUserFolderAssignmentRequest';
+import { UpdateCloudUserFolderAssignmentResponse } from './model/UpdateCloudUserFolderAssignmentResponse';
 import { UpdateImageServerReq } from './model/UpdateImageServerReq';
 import { UpdateImageServerRequest } from './model/UpdateImageServerRequest';
 import { UpdateImageServerResponse } from './model/UpdateImageServerResponse';
@@ -511,6 +551,9 @@ import { UpdatePolicyGroupResponse } from './model/UpdatePolicyGroupResponse';
 import { UpdatePolicyTemplateReq } from './model/UpdatePolicyTemplateReq';
 import { UpdatePolicyTemplateRequest } from './model/UpdatePolicyTemplateRequest';
 import { UpdatePolicyTemplateResponse } from './model/UpdatePolicyTemplateResponse';
+import { UpdatePreBootPolicyReq } from './model/UpdatePreBootPolicyReq';
+import { UpdatePreBootPolicyRequest } from './model/UpdatePreBootPolicyRequest';
+import { UpdatePreBootPolicyResponse } from './model/UpdatePreBootPolicyResponse';
 import { UpdateScheduleTaskReq } from './model/UpdateScheduleTaskReq';
 import { UpdateScheduleTaskRequest } from './model/UpdateScheduleTaskRequest';
 import { UpdateScheduleTaskResponse } from './model/UpdateScheduleTaskResponse';
@@ -524,8 +567,10 @@ import { UpdateShareFolderAssignmentRequest } from './model/UpdateShareFolderAss
 import { UpdateShareFolderAssignmentResponse } from './model/UpdateShareFolderAssignmentResponse';
 import { UpdateTsvi } from './model/UpdateTsvi';
 import { UpdateTsviReq } from './model/UpdateTsviReq';
+import { UpdateUserAssignmentInfo } from './model/UpdateUserAssignmentInfo';
 import { UpdateUserFolderAssignmentRequest } from './model/UpdateUserFolderAssignmentRequest';
 import { UpdateUserFolderAssignmentResponse } from './model/UpdateUserFolderAssignmentResponse';
+import { UpdateUserFolderReq } from './model/UpdateUserFolderReq';
 import { UpdateWarehouseAppReq } from './model/UpdateWarehouseAppReq';
 import { UpdateWarehouseAppRequest } from './model/UpdateWarehouseAppRequest';
 import { UpdateWarehouseAppResponse } from './model/UpdateWarehouseAppResponse';
@@ -535,6 +580,7 @@ import { UploadAppIconResponse } from './model/UploadAppIconResponse';
 import { UploadWarehouseAppIconRequest } from './model/UploadWarehouseAppIconRequest';
 import { UploadWarehouseAppIconRequestBody } from './model/UploadWarehouseAppIconRequestBody';
 import { UploadWarehouseAppIconResponse } from './model/UploadWarehouseAppIconResponse';
+import { UpmOptions } from './model/UpmOptions';
 import { UsbBandwidthControlOptions } from './model/UsbBandwidthControlOptions';
 import { UsbBandwidthPercentageOptions } from './model/UsbBandwidthPercentageOptions';
 import { UsbPortRedirectionOptions } from './model/UsbPortRedirectionOptions';
@@ -608,6 +654,25 @@ export class WorkspaceAppClient {
     }
 
     /**
+     * 添加用户应用仓库桶及桶授权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加用户应用仓库桶及桶授权
+     * @param {BucketNameReq} [bindAppWarehouseBucketRequestBody] 桶名称结构体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindAppWarehouseBucket(bindAppWarehouseBucketRequest?: BindAppWarehouseBucketRequest): Promise<BindAppWarehouseBucketResponse> {
+        const options = ParamCreater().bindAppWarehouseBucket(bindAppWarehouseBucketRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 添加桶或者桶授权。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -669,8 +734,8 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户应用仓库中的应用列表
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [verifyStatus] 审核状态。
      * @param {string} [appId] 应用仓库中的应用记录ID。
      * @param {string} [appName] 应用名称。
@@ -688,7 +753,25 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 修改应用仓库中的指定应用信息
+     * 查询用户应用仓库桶
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户应用仓库桶
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAppWarehouseBucket(showAppWarehouseBucketRequest?: ShowAppWarehouseBucketRequest): Promise<ShowAppWarehouseBucketResponse> {
+        const options = ParamCreater().showAppWarehouseBucket();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改应用仓库中的指定应用信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -733,7 +816,7 @@ export class WorkspaceAppClient {
      *
      * @summary 批量禁用应用
      * @param {string} appGroupId 应用组ID。
-     * @param {BatchUpdateAppReq} batchDisableAppRequestBody update published app request body
+     * @param {BatchUpdateAppReq} batchDisableAppRequestBody update published app request body。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -753,7 +836,7 @@ export class WorkspaceAppClient {
      *
      * @summary 批量启用应用
      * @param {string} appGroupId 应用组ID。
-     * @param {BatchUpdateAppReq} batchEnableAppRequestBody update published app request body
+     * @param {BatchUpdateAppReq} batchEnableAppRequestBody update published app request body。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -793,8 +876,8 @@ export class WorkspaceAppClient {
      *
      * @summary 查询已发布应用
      * @param {string} appGroupId 应用组ID。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [name] 应用名称。
      * @param {string} [state] 应用状态： * &#x60;NORMAL&#x60; - 正常状态。 * &#x60;FORBIDDEN&#x60; - 禁用状态。
      * @param {string} [appId] 应用ID。
@@ -877,7 +960,7 @@ export class WorkspaceAppClient {
      *
      * @summary 批量取消应用发布
      * @param {string} appGroupId 应用组ID。
-     * @param {UnpublishAppReq} unpublishAppRequestBody delete published app request
+     * @param {UnpublishAppReq} unpublishAppRequestBody delete published app request。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -904,6 +987,26 @@ export class WorkspaceAppClient {
      */
     public updateApp(updateAppRequest?: UpdateAppRequest): Promise<UpdateAppResponse> {
         const options = ParamCreater().updateApp(updateAppRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量设置应用预启动。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量设置应用预启动
+     * @param {string} appGroupId 应用组ID。
+     * @param {UpdatePreBootPolicyReq} updatePreBootPolicyRequestBody 批量设置应用预启动请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePreBootPolicy(updatePreBootPolicyRequest?: UpdatePreBootPolicyRequest): Promise<UpdatePreBootPolicyResponse> {
+        const options = ParamCreater().updatePreBootPolicy(updatePreBootPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1071,11 +1174,11 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用组
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [appServerGroupId] 应用服务器组ID。
      * @param {string} [appGroupId] 应用组ID。
-     * @param {string} [name] 应用组名称
+     * @param {string} [name] 应用组名称。
      * @param {string} [authorizationType] 授权类型： * &#x60;APP&#x60; - 应用 * &#x60;APP_GROUP&#x60; - 应用组
      * @param {string} [appType] 应用组类型： * &#x60;SESSION_DESKTOP_APP&#x60; - 会话桌面app * &#x60;COMMON_APP&#x60; - 普通app
      * @param {*} [options] Override http request option.
@@ -1192,11 +1295,11 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 该接口用于查询会话套餐列表
+     * 该接口用于查询会话套餐列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询会话套餐列表
+     * @summary 查询会话套餐列表（已废弃）
      * @param {QuerySessionTypesReq} showSessionTypesRequestBody 查询会话套餐请求结构体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1256,9 +1359,10 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用组授权记录
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [appGroupId] 应用组ID。
+     * @param {string} [accountId] 应用授权的用户(组)ID，精确查询。
      * @param {string} [account] 应用授权的用户(组)名称，精确查询。
      * @param {string} [accountType] 应用授权的用户(组)类型： * \&#39;USER\&#39; - 用户 * \&#39;USER_GROUP\&#39; - 用户组
      * @param {*} [options] Override http request option.
@@ -1296,12 +1400,217 @@ export class WorkspaceAppClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询可用分区列表
+     * @summary 查询可用分区列表（按站点分类）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listAz(listAzRequest?: ListAzRequest): Promise<ListAzResponse> {
         const options = ParamCreater().listAz();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除云存储。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除云存储
+     * @param {BatchDeleteCloudStorageReq} batchDeleteCloudStorageRequestBody 删除文件夹请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteCloudStorage(batchDeleteCloudStorageRequest?: BatchDeleteCloudStorageRequest): Promise<BatchDeleteCloudStorageResponse> {
+        const options = ParamCreater().batchDeleteCloudStorage(batchDeleteCloudStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建项目配置关联，目前仅支持关联项目配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建项目配置关联
+     * @param {CreateCloudStorageReq} createCloudStorageRequestBody WKS存储。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCloudStorage(createCloudStorageRequest?: CreateCloudStorageRequest): Promise<CreateCloudStorageResponse> {
+        const options = ParamCreater().createCloudStorage(createCloudStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建个人文件夹，已存在对应目录时，仅更新策略不会重复创建目录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建个人文件夹
+     * @param {string} storageId WKS存储ID。
+     * @param {CreateUserFolderReq} createUserFolderAssignmentRequestBody 创建并设置个人目录关联对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUserFolderAssignment(createUserFolderAssignmentRequest?: CreateUserFolderAssignmentRequest): Promise<CreateUserFolderAssignmentResponse> {
+        const options = ParamCreater().createUserFolderAssignment(createUserFolderAssignmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除共享存储，只会解除NAS与项目配置之间的关联关系。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除云存储
+     * @param {string} storageId WKS存储ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCloudStorage(deleteCloudStorageRequest?: DeleteCloudStorageRequest): Promise<DeleteCloudStorageResponse> {
+        const options = ParamCreater().deleteCloudStorage(deleteCloudStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除个人存储目录，个人目录中的数据也将永久删除且无法恢复。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除个人文件夹
+     * @param {string} storageId WKS存储ID。
+     * @param {DeleteCloudStorageAttachmentReq} deleteCloudStorageAttachmentRequestBody 删除个人存储。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCloudStorageAttachment(deleteCloudStorageAttachmentRequest?: DeleteCloudStorageAttachmentRequest): Promise<DeleteCloudStorageAttachmentResponse> {
+        const options = ParamCreater().deleteCloudStorageAttachment(deleteCloudStorageAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云存储。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云存储
+     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {string} [storageId] 云存储id。
+     * @param {string} [name] 查询名称，模糊匹配。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudStorage(listCloudStorageRequest?: ListCloudStorageRequest): Promise<ListCloudStorageResponse> {
+        const options = ParamCreater().listCloudStorage(listCloudStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询个人文件夹列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询个人文件夹列表
+     * @param {string} storageId WKS存储ID。
+     * @param {string} claimMode 存储声明的类型,目前只支持USER,后面可以拓展。 * &#x60;USER&#x60; -  个人文件夹 * &#x60;SHARE&#x60; -  共享文件夹
+     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {string} [attach] 被分配的个体或组的名称，当传attach_names时，本字段不生效。
+     * @param {Array<string>} [attachNames] 被分配的个体或组的名称。
+     * @param {string} [capacityFilter] 是否查询容量过滤： - true : 是。 - false: 否。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudStorageAssignment(listCloudStorageAssignmentRequest?: ListCloudStorageAssignmentRequest): Promise<ListCloudStorageAssignmentResponse> {
+        const options = ParamCreater().listCloudStorageAssignment(listCloudStorageAssignmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目配置列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目配置列表
+     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]。
+     * @param {string} [name] 查询名称,模糊匹配。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectConfigs(listProjectConfigsRequest?: ListProjectConfigsRequest): Promise<ListProjectConfigsResponse> {
+        const options = ParamCreater().listProjectConfigs(listProjectConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目配置信息
+     * @param {string} cloudStorageId 云存储ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectConfig(showProjectConfigRequest?: ShowProjectConfigRequest): Promise<ShowProjectConfigResponse> {
+        const options = ParamCreater().showProjectConfig(showProjectConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建个人文件夹。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改个人文件夹
+     * @param {string} storageId WKS存储ID。
+     * @param {string} cloudAssignmentId 文件夹id。
+     * @param {UpdateUserFolderReq} updateCloudUserFolderAssignmentRequestBody 修改个人文件夹。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCloudUserFolderAssignment(updateCloudUserFolderAssignmentRequest?: UpdateCloudUserFolderAssignmentRequest): Promise<UpdateCloudUserFolderAssignmentResponse> {
+        const options = ParamCreater().updateCloudUserFolderAssignment(updateCloudUserFolderAssignmentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1379,8 +1688,8 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像实例列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [serverName] 镜像实例名称，支持部分匹配。
      * @param {string} [serverId] 镜像实例唯一标识。
      * @param {string} [enterpriseProjectId] 企业项目ID(字段为空或者0表示使用默认default企业项目)。
@@ -1437,7 +1746,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 查询指定的镜像实例当前这个接口的查询数据和list查询的一致
+     * 查询指定的镜像实例当前这个接口的查询数据和list查询的一致。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1504,7 +1813,7 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除镜像子任务
-     * @param {BatchDeleteSubJobsReq} batchDeleteImageSubJobsRequestBody 批量删除子任务请求内容
+     * @param {BatchDeleteSubJobsReq} batchDeleteImageSubJobsRequestBody 批量删除子任务请求内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1539,15 +1848,15 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 该接口用于查询租户的异步任务执行情况
+     * 该接口用于查询租户的异步任务执行情况。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户的镜像任务列表
      * @param {string} jobType job类型： * &#x60;CREATE_SERVER&#x60; - 创建镜像实例 * &#x60;CREATE_SERVER_IMAGE&#x60; - 构建镜像 * &#x60;DELETE_SERVER&#x60; - 删除镜像实例
      * @param {string} [status] job状态： * &#x60;WAITING&#x60; - 等待 * &#x60;RUNNING&#x60; - 运行中 * &#x60;SUCCESS&#x60; - 完成 * &#x60;FAILED&#x60; - 失败
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1561,15 +1870,15 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 该接口用于查询异步子任务执行情况,sub_job_ids非空时offset和limit不会生效
+     * 该接口用于查询异步子任务执行情况,sub_job_ids非空时offset和limit不会生效。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 镜像子任务查询
      * @param {string} jobType job类型： * &#x60;CREATE_SERVER&#x60; - 创建镜像实例 * &#x60;CREATE_SERVER_IMAGE&#x60; - 构建镜像 * &#x60;DELETE_SERVER&#x60; - 删除镜像实例
      * @param {string} [status] job详情的状态： * &#x60;WAITING&#x60; - 等待 * &#x60;RUNNING&#x60; - 运行中 * &#x60;SUCCESS&#x60; - 成功 * &#x60;FAILED&#x60; - 失败 * &#x60;ABNORMAL&#x60; - 异常 * &#x60;ROLLBACK&#x60; - 回滚中 * &#x60;ABORTING&#x60; - 取消
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [jobId] 任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1591,8 +1900,8 @@ export class WorkspaceAppClient {
      * @summary 子任务查询
      * @param {string} jobType job类型 * &#x60;CREATE_SERVER&#x60; - 创建服务器 * &#x60;DELETE_SERVER&#x60; - 删除服务器 * &#x60;REJOIN_DOMAIN&#x60; - 服务器重新加域 * &#x60;CHANGE_SERVER_IMAGE&#x60; - 修改服务器镜像 * &#x60;REINSTALL_OS&#x60; - 服务器重装操作系统 * &#x60;MIGRATE_SERVER&#x60; - 迁移服务器 * &#x60;UPDATE_SERVER_TSVI&#x60; - 更新虚拟IP配置 * &#x60;UPGRADE_ACCESS_AGENT&#x60; - hda升级 * &#x60;SCHEDULED_TASK&#x60; - 定时任务 * &#x60;UPDATE_FREEZE_STATUS&#x60; - 更新服务器冻结状态
      * @param {string} [status] job详情的状态： * &#x60;WAITING&#x60; - 等待 * &#x60;RUNNING&#x60; - 运行中 * &#x60;SUCCESS&#x60; - 成功 * &#x60;FAILED&#x60; - 失败 * &#x60;ABNORMAL&#x60; - 异常 * &#x60;ROLLBACK&#x60; - 回滚中 * &#x60;ABORTING&#x60; - 取消
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [jobId] 任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1632,7 +1941,7 @@ export class WorkspaceAppClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询任务的执行状态
+     * @summary 查询任务的执行状态（已废弃）
      * @param {string} jobId 任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1653,7 +1962,7 @@ export class WorkspaceAppClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询任务的执行状态
+     * @summary 查询任务的执行状态详情
      * @param {string} jobId 任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1674,10 +1983,10 @@ export class WorkspaceAppClient {
      *
      * @summary 查询应用组授权邮件发送记录
      * @param {string} appGroupId 应用组ID。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [account] 用户(组)名称。
-     * @param {string} [mailSendType] 授权类型： - ADD_GROUP_AUTHORIZATION 添加组授权 - DEL_GROUP_AUTHORIZATION 删除组授权
+     * @param {string} [mailSendType] 授权类型： - ADD_GROUP_AUTHORIZATION 添加组授权 - DEL_GROUP_AUTHORIZATION 删除组授权。
      * @param {string} [mailSendResult] 邮件发送结果(SUCCESS|FAIL)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1732,12 +2041,12 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 删除WKS存储。
+     * 批量删除WKS存储。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除WKS存储
-     * @param {BatchDeletePersistentStorageReq} batchDeletePersistentStorageRequestBody 删除WKS存储请求体。
+     * @summary 批量删除WKS存储
+     * @param {BatchDeletePersistentStorageReq} batchDeletePersistentStorageRequestBody 批量删除WKS存储请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2020,12 +2329,12 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 新增策略组，通过策略组能灵活的控制客户端访问与接入策略，如：文件、剪切板、会话等。
+     * 新增策略组，通过策略组能灵活地控制客户端访问与接入策略，如：文件、剪切板、会话等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增策略组
-     * @param {CreatePolicyGroupReq} createPolicyGroupRequestBody 请求体
+     * @param {CreatePolicyGroupReq} createPolicyGroupRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2104,7 +2413,7 @@ export class WorkspaceAppClient {
      * @param {number} [offset] 查询的偏移量。
      * @param {number} [limit] 查询的数量，值区间[1-100]。
      * @param {string} [policyGroupName] 根据策略组名字过滤结果。
-     * @param {number} [policyGroupType] 根据策略组类型名字过滤结果。
+     * @param {number} [policyGroupType] 根据策略组类型名字过滤结果, 0:VM类, 4:策略模板。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2126,7 +2435,7 @@ export class WorkspaceAppClient {
      * @param {number} [offset] 查询的偏移量。
      * @param {number} [limit] 查询的数量，值区间[1-100]。
      * @param {string} [policyGroupName] 根据策略组名字过滤结果。
-     * @param {number} [policyGroupType] 根据策略组类型名字过滤结果。
+     * @param {number} [policyGroupType] 根据策略组类型名字过滤结果, 0:VM类, 4:策略模板。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2146,7 +2455,7 @@ export class WorkspaceAppClient {
      *
      * @summary 查询策略组中的策略项
      * @param {string} policyGroupId 策略组id。
-     * @param {string} [policyType] 根据策略类型过滤结果，不传则查询所有策略。 可选类型: - 外设：Peripherals; - 音频：Audio; - 客户端：Client; - 显示：Display; - 文件与剪切板：FileAndClip; - 接入控制：ClientAccessControl; - 会话：SessionAutoDisconnect; - 虚拟通道：VirtualChannel - 水印：Watermark; - 键盘鼠标：KeyboardAndMouse; - 通用音视频旁路：Seamless。
+     * @param {string} [policyType] 根据策略类型过滤结果，不传则查询所有策略。 可选类型: - 外设：Peripherals; - 音频：Audio; - 客户端：Client; - 显示：Display; - 文件与剪切板：FileAndClip; - 接入控制：ClientAccessControl; - 会话：SessionAutoDisconnect; - 虚拟通道：VirtualChannel - 键盘鼠标：KeyboardAndMouse; - 通用音视频旁路：Seamless。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2366,7 +2675,7 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除定时任务
-     * @param {BatchDeleteScheduleTaskReq} batchDeleteScheduleTaskRequestBody 批量删除服务器组请求内容
+     * @param {BatchDeleteScheduleTaskReq} batchDeleteScheduleTaskRequestBody 批量删除服务器组请求内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2442,9 +2751,9 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询定时任务列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
-     * @param {string} [taskName] 定时任务名称
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
+     * @param {string} [taskName] 定时任务名称。
      * @param {string} [taskType] 任务类型： * &#x60;RESTART_SERVER&#x60; - 定时重启服务器 * &#x60;START_SERVER&#x60; - 定时开机 * &#x60;STOP_SERVER&#x60; - 定时关机 * &#x60;REINSTALL_OS&#x60; - 定时重装操作系统
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2465,8 +2774,8 @@ export class WorkspaceAppClient {
      *
      * @summary 查询定时任务执行子任务列表
      * @param {string} executeHistoryId 定时任务唯一标识。
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2486,8 +2795,8 @@ export class WorkspaceAppClient {
      *
      * @summary 查询定时任务执行列表
      * @param {string} taskId 定时任务唯一标识。
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2565,7 +2874,7 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 标记服务器维护状态
-     * @param {BatchChangeMaintainServerReq} batchChangeServerMaintainModeRequestBody 标记指定的服务器维护状态的请求内容
+     * @param {BatchChangeMaintainServerReq} batchChangeServerMaintainModeRequestBody 标记指定的服务器维护状态的请求内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2834,8 +3143,8 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务器的HDA相关信息
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [serverGroupId] 服务器组id。
      * @param {string} [serverName] 服务器名称。
      * @param {*} [options] Override http request option.
@@ -2856,8 +3165,8 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务器的HDA升级跟踪记录
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2901,8 +3210,8 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务器列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [serverGroupId] 服务器组唯一标识。
      * @param {string} [serverName] 服务器名称，支持部分匹配。
      * @param {string} [machineName] 机器名称，支持部分匹配。
@@ -3088,13 +3397,13 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务器组列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [serverGroupName] 服务器组名称。
      * @param {string} [serverGroupId] 服务器组唯一标识。
      * @param {string} [appType] 应用组类型： * &#x60;SESSION_DESKTOP_APP&#x60; - 会话桌面app * &#x60;COMMON_APP&#x60; - 普通app
      * @param {string} [tags] 查询tag字段中包含该值的服务器组。
-     * @param {string} [enterpriseProjectId] 企业项目ID(字段为空或者0表示使用默认default企业项目)
+     * @param {string} [enterpriseProjectId] 企业项目ID(字段为空或者0表示使用默认default企业项目)。
      * @param {string} [isSecondaryServerGroup] 是否为备服务器组，不传默认查所有： true : 是备服务器组。 false: 主服务器组，默认。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3114,8 +3423,8 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户服务器组基础信息列表
-     * @param {number} [offset] 查询的偏移量。
-     * @param {number} [limit] 查询的数量，值区间[1-100]。
+     * @param {number} [offset] 查询的偏移量，默认值0。
+     * @param {number} [limit] 查询的数量，值区间[1-100]，默认值10。
      * @param {string} [severGroupName] 服务器组名称。
      * @param {string} [appType] 应用组类型： * &#x60;SESSION_DESKTOP_APP&#x60; - 会话桌面app * &#x60;COMMON_APP&#x60; - 普通app
      * @param {string} [isSecondaryServerGroup] 是否为备服务器组，不传默认查所有： true : 是备服务器组。 false: 主服务器组，默认。
@@ -3215,8 +3524,8 @@ export class WorkspaceAppClient {
      *
      * @summary 查询应用使用记录
      * @param {ListAppConnectionReq} listAppConnectionRequestBody list app connection.
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3256,8 +3565,8 @@ export class WorkspaceAppClient {
      * @summary 查询用户会话列表
      * @param {string} queryBeginTime 搜索开始时间，以会话开始时间为条件查询，格式2024-02-27T03:47:51.182Z。
      * @param {string} queryEndTime 搜索结束时间，以会话开始时间为条件查询，格式2024-02-27T03:47:51.182Z。
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [userName] 用户名。
      * @param {string} [appServerGroupId] AppServer组ID。
      * @param {string} [vmIp] 服务器IP。
@@ -3284,8 +3593,8 @@ export class WorkspaceAppClient {
      *
      * @summary 查询用户登录记录
      * @param {ListUserConnectionReq} listUserConnectionRequestBody list user connection.
-     * @param {number} [limit] 单次查询的大小[1-100]。
-     * @param {number} [offset] 查询的偏移量。
+     * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
+     * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3326,7 +3635,7 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加服务器组标签
-     * @param {BatchCreateServerGroupTagsReq} batchCreateServerGroupTagsRequestBody 批量创建标签
+     * @param {BatchCreateServerGroupTagsReq} batchCreateServerGroupTagsRequestBody 批量创建标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3348,7 +3657,7 @@ export class WorkspaceAppClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除服务器组标签
-     * @param {BatchDeleteServerGroupTagsReq} batchDeleteServerGroupTagsRequestBody 批量删除标签
+     * @param {BatchDeleteServerGroupTagsReq} batchDeleteServerGroupTagsRequestBody 批量删除标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3371,7 +3680,7 @@ export class WorkspaceAppClient {
      *
      * @summary 添加服务器组标签
      * @param {string} serverGroupId 服务器组唯一标识。
-     * @param {CreateResourceTagReq} createServerGroupTagsRequestBody 创建资源标签
+     * @param {CreateResourceTagReq} createServerGroupTagsRequestBody 创建资源标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3394,7 +3703,7 @@ export class WorkspaceAppClient {
      *
      * @summary 删除服务器组标签
      * @param {string} serverGroupId 服务器组唯一标识。
-     * @param {DeleteResourceTagReq} deleteServerGroupTagsRequestBody 删除资源标签
+     * @param {DeleteResourceTagReq} deleteServerGroupTagsRequestBody 删除资源标签。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3408,7 +3717,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 查询租户在所有服务器组上的资源标签集合
+     * 查询租户在所有服务器组上的资源标签集合。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3426,7 +3735,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 查询指定服务器组的标签信息
+     * 查询指定服务器组的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3535,6 +3844,41 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加用户应用仓库桶及桶授权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindAppWarehouseBucket(bindAppWarehouseBucketRequest?: BindAppWarehouseBucketRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/app-warehouse/bucket",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (bindAppWarehouseBucketRequest !== null && bindAppWarehouseBucketRequest !== undefined) {
+                if (bindAppWarehouseBucketRequest instanceof BindAppWarehouseBucketRequest) {
+                    body = bindAppWarehouseBucketRequest.body
+                } else {
+                    body = bindAppWarehouseBucketRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -3711,7 +4055,28 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改应用仓库中的指定应用信息
+         * 查询用户应用仓库桶
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAppWarehouseBucket() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/app-warehouse/bucket",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改应用仓库中的指定应用信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4228,6 +4593,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'app_group_id': appGroupId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量设置应用预启动。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePreBootPolicy(updatePreBootPolicyRequest?: UpdatePreBootPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/app-groups/{app_group_id}/apps/pre-boot-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let appGroupId;
+
+            if (updatePreBootPolicyRequest !== null && updatePreBootPolicyRequest !== undefined) {
+                if (updatePreBootPolicyRequest instanceof UpdatePreBootPolicyRequest) {
+                    appGroupId = updatePreBootPolicyRequest.appGroupId;
+                    body = updatePreBootPolicyRequest.body
+                } else {
+                    appGroupId = updatePreBootPolicyRequest['app_group_id'];
+                    body = updatePreBootPolicyRequest['body'];
+                }
+            }
+
+        
+            if (appGroupId === null || appGroupId === undefined) {
+            throw new RequiredError('appGroupId','Required parameter appGroupId was null or undefined when calling updatePreBootPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'app_group_id': appGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4842,7 +5253,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询会话套餐列表
+         * 该接口用于查询会话套餐列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4992,6 +5403,8 @@ export const ParamCreater = function () {
             
             let appGroupId;
             
+            let accountId;
+            
             let account;
             
             let accountType;
@@ -5001,12 +5414,14 @@ export const ParamCreater = function () {
                     limit = listAppGroupAuthorizationRequest.limit;
                     offset = listAppGroupAuthorizationRequest.offset;
                     appGroupId = listAppGroupAuthorizationRequest.appGroupId;
+                    accountId = listAppGroupAuthorizationRequest.accountId;
                     account = listAppGroupAuthorizationRequest.account;
                     accountType = listAppGroupAuthorizationRequest.accountType;
                 } else {
                     limit = listAppGroupAuthorizationRequest['limit'];
                     offset = listAppGroupAuthorizationRequest['offset'];
                     appGroupId = listAppGroupAuthorizationRequest['app_group_id'];
+                    accountId = listAppGroupAuthorizationRequest['account_id'];
                     account = listAppGroupAuthorizationRequest['account'];
                     accountType = listAppGroupAuthorizationRequest['account_type'];
                 }
@@ -5021,6 +5436,9 @@ export const ParamCreater = function () {
             }
             if (appGroupId !== null && appGroupId !== undefined) {
                 localVarQueryParameter['app_group_id'] = appGroupId;
+            }
+            if (accountId !== null && accountId !== undefined) {
+                localVarQueryParameter['account_id'] = accountId;
             }
             if (account !== null && account !== undefined) {
                 localVarQueryParameter['account'] = account;
@@ -5072,6 +5490,495 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除云存储。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteCloudStorage(batchDeleteCloudStorageRequest?: BatchDeleteCloudStorageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloud-storages/actions/batch-delete-cloud-storages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteCloudStorageRequest !== null && batchDeleteCloudStorageRequest !== undefined) {
+                if (batchDeleteCloudStorageRequest instanceof BatchDeleteCloudStorageRequest) {
+                    body = batchDeleteCloudStorageRequest.body
+                } else {
+                    body = batchDeleteCloudStorageRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建项目配置关联，目前仅支持关联项目配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCloudStorage(createCloudStorageRequest?: CreateCloudStorageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloud-storages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createCloudStorageRequest !== null && createCloudStorageRequest !== undefined) {
+                if (createCloudStorageRequest instanceof CreateCloudStorageRequest) {
+                    body = createCloudStorageRequest.body
+                } else {
+                    body = createCloudStorageRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建个人文件夹，已存在对应目录时，仅更新策略不会重复创建目录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUserFolderAssignment(createUserFolderAssignmentRequest?: CreateUserFolderAssignmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloud-storages/{storage_id}/actions/create-folder",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let storageId;
+
+            if (createUserFolderAssignmentRequest !== null && createUserFolderAssignmentRequest !== undefined) {
+                if (createUserFolderAssignmentRequest instanceof CreateUserFolderAssignmentRequest) {
+                    storageId = createUserFolderAssignmentRequest.storageId;
+                    body = createUserFolderAssignmentRequest.body
+                } else {
+                    storageId = createUserFolderAssignmentRequest['storage_id'];
+                    body = createUserFolderAssignmentRequest['body'];
+                }
+            }
+
+        
+            if (storageId === null || storageId === undefined) {
+            throw new RequiredError('storageId','Required parameter storageId was null or undefined when calling createUserFolderAssignment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'storage_id': storageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除共享存储，只会解除NAS与项目配置之间的关联关系。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCloudStorage(deleteCloudStorageRequest?: DeleteCloudStorageRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/cloud-storages/{storage_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let storageId;
+
+            if (deleteCloudStorageRequest !== null && deleteCloudStorageRequest !== undefined) {
+                if (deleteCloudStorageRequest instanceof DeleteCloudStorageRequest) {
+                    storageId = deleteCloudStorageRequest.storageId;
+                } else {
+                    storageId = deleteCloudStorageRequest['storage_id'];
+                }
+            }
+
+        
+            if (storageId === null || storageId === undefined) {
+            throw new RequiredError('storageId','Required parameter storageId was null or undefined when calling deleteCloudStorage.');
+            }
+
+            options.pathParams = { 'storage_id': storageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除个人存储目录，个人目录中的数据也将永久删除且无法恢复。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCloudStorageAttachment(deleteCloudStorageAttachmentRequest?: DeleteCloudStorageAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloud-storages/{storage_id}/actions/delete-folder",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let storageId;
+
+            if (deleteCloudStorageAttachmentRequest !== null && deleteCloudStorageAttachmentRequest !== undefined) {
+                if (deleteCloudStorageAttachmentRequest instanceof DeleteCloudStorageAttachmentRequest) {
+                    storageId = deleteCloudStorageAttachmentRequest.storageId;
+                    body = deleteCloudStorageAttachmentRequest.body
+                } else {
+                    storageId = deleteCloudStorageAttachmentRequest['storage_id'];
+                    body = deleteCloudStorageAttachmentRequest['body'];
+                }
+            }
+
+        
+            if (storageId === null || storageId === undefined) {
+            throw new RequiredError('storageId','Required parameter storageId was null or undefined when calling deleteCloudStorageAttachment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'storage_id': storageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云存储。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudStorage(listCloudStorageRequest?: ListCloudStorageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloud-storages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let storageId;
+            
+            let name;
+
+            if (listCloudStorageRequest !== null && listCloudStorageRequest !== undefined) {
+                if (listCloudStorageRequest instanceof ListCloudStorageRequest) {
+                    offset = listCloudStorageRequest.offset;
+                    limit = listCloudStorageRequest.limit;
+                    storageId = listCloudStorageRequest.storageId;
+                    name = listCloudStorageRequest.name;
+                } else {
+                    offset = listCloudStorageRequest['offset'];
+                    limit = listCloudStorageRequest['limit'];
+                    storageId = listCloudStorageRequest['storage_id'];
+                    name = listCloudStorageRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (storageId !== null && storageId !== undefined) {
+                localVarQueryParameter['storage_id'] = storageId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询个人文件夹列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudStorageAssignment(listCloudStorageAssignmentRequest?: ListCloudStorageAssignmentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloud-storages/actions/list-folders",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let storageId;
+            
+            let claimMode;
+            
+            let offset;
+            
+            let limit;
+            
+            let attach;
+            
+            let attachNames;
+            
+            let capacityFilter;
+
+            if (listCloudStorageAssignmentRequest !== null && listCloudStorageAssignmentRequest !== undefined) {
+                if (listCloudStorageAssignmentRequest instanceof ListCloudStorageAssignmentRequest) {
+                    storageId = listCloudStorageAssignmentRequest.storageId;
+                    claimMode = listCloudStorageAssignmentRequest.claimMode;
+                    offset = listCloudStorageAssignmentRequest.offset;
+                    limit = listCloudStorageAssignmentRequest.limit;
+                    attach = listCloudStorageAssignmentRequest.attach;
+                    attachNames = listCloudStorageAssignmentRequest.attachNames;
+                    capacityFilter = listCloudStorageAssignmentRequest.capacityFilter;
+                } else {
+                    storageId = listCloudStorageAssignmentRequest['storage_id'];
+                    claimMode = listCloudStorageAssignmentRequest['claim_mode'];
+                    offset = listCloudStorageAssignmentRequest['offset'];
+                    limit = listCloudStorageAssignmentRequest['limit'];
+                    attach = listCloudStorageAssignmentRequest['attach'];
+                    attachNames = listCloudStorageAssignmentRequest['attach_names'];
+                    capacityFilter = listCloudStorageAssignmentRequest['capacity_filter'];
+                }
+            }
+
+        
+            if (storageId === null || storageId === undefined) {
+                throw new RequiredError('storageId','Required parameter storageId was null or undefined when calling listCloudStorageAssignment.');
+            }
+            if (storageId !== null && storageId !== undefined) {
+                localVarQueryParameter['storage_id'] = storageId;
+            }
+            if (claimMode === null || claimMode === undefined) {
+                throw new RequiredError('claimMode','Required parameter claimMode was null or undefined when calling listCloudStorageAssignment.');
+            }
+            if (claimMode !== null && claimMode !== undefined) {
+                localVarQueryParameter['claim_mode'] = claimMode;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (attach !== null && attach !== undefined) {
+                localVarQueryParameter['attach'] = attach;
+            }
+            if (attachNames !== null && attachNames !== undefined) {
+                localVarQueryParameter['attach_names'] = attachNames;
+            }
+            if (capacityFilter !== null && capacityFilter !== undefined) {
+                localVarQueryParameter['capacity_filter'] = capacityFilter;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目配置列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectConfigs(listProjectConfigsRequest?: ListProjectConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloud-storages/actions/list-project-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listProjectConfigsRequest !== null && listProjectConfigsRequest !== undefined) {
+                if (listProjectConfigsRequest instanceof ListProjectConfigsRequest) {
+                    offset = listProjectConfigsRequest.offset;
+                    limit = listProjectConfigsRequest.limit;
+                    name = listProjectConfigsRequest.name;
+                } else {
+                    offset = listProjectConfigsRequest['offset'];
+                    limit = listProjectConfigsRequest['limit'];
+                    name = listProjectConfigsRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectConfig(showProjectConfigRequest?: ShowProjectConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloud-storages/actions/project-config/{cloud_storage_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let cloudStorageId;
+
+            if (showProjectConfigRequest !== null && showProjectConfigRequest !== undefined) {
+                if (showProjectConfigRequest instanceof ShowProjectConfigRequest) {
+                    cloudStorageId = showProjectConfigRequest.cloudStorageId;
+                } else {
+                    cloudStorageId = showProjectConfigRequest['cloud_storage_id'];
+                }
+            }
+
+        
+            if (cloudStorageId === null || cloudStorageId === undefined) {
+            throw new RequiredError('cloudStorageId','Required parameter cloudStorageId was null or undefined when calling showProjectConfig.');
+            }
+
+            options.pathParams = { 'cloud_storage_id': cloudStorageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建个人文件夹。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCloudUserFolderAssignment(updateCloudUserFolderAssignmentRequest?: UpdateCloudUserFolderAssignmentRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/{project_id}/cloud-storages/{storage_id}/actions/update-folder/{cloud_assignment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let storageId;
+            
+            let cloudAssignmentId;
+
+            if (updateCloudUserFolderAssignmentRequest !== null && updateCloudUserFolderAssignmentRequest !== undefined) {
+                if (updateCloudUserFolderAssignmentRequest instanceof UpdateCloudUserFolderAssignmentRequest) {
+                    storageId = updateCloudUserFolderAssignmentRequest.storageId;
+                    cloudAssignmentId = updateCloudUserFolderAssignmentRequest.cloudAssignmentId;
+                    body = updateCloudUserFolderAssignmentRequest.body
+                } else {
+                    storageId = updateCloudUserFolderAssignmentRequest['storage_id'];
+                    cloudAssignmentId = updateCloudUserFolderAssignmentRequest['cloud_assignment_id'];
+                    body = updateCloudUserFolderAssignmentRequest['body'];
+                }
+            }
+
+        
+            if (storageId === null || storageId === undefined) {
+            throw new RequiredError('storageId','Required parameter storageId was null or undefined when calling updateCloudUserFolderAssignment.');
+            }
+            if (cloudAssignmentId === null || cloudAssignmentId === undefined) {
+            throw new RequiredError('cloudAssignmentId','Required parameter cloudAssignmentId was null or undefined when calling updateCloudUserFolderAssignment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'storage_id': storageId,'cloud_assignment_id': cloudAssignmentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5360,7 +6267,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定的镜像实例当前这个接口的查询数据和list查询的一致
+         * 查询指定的镜像实例当前这个接口的查询数据和list查询的一致。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5574,7 +6481,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询租户的异步任务执行情况
+         * 该接口用于查询租户的异步任务执行情况。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5635,7 +6542,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询异步子任务执行情况,sub_job_ids非空时offset和limit不会生效
+         * 该接口用于查询异步子任务执行情况,sub_job_ids非空时offset和limit不会生效。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6051,7 +6958,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除WKS存储。
+         * 批量删除WKS存储。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6739,7 +7646,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 新增策略组，通过策略组能灵活的控制客户端访问与接入策略，如：文件、剪切板、会话等。
+         * 新增策略组，通过策略组能灵活地控制客户端访问与接入策略，如：文件、剪切板、会话等。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9866,7 +10773,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户在所有服务器组上的资源标签集合
+         * 查询租户在所有服务器组上的资源标签集合。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9887,7 +10794,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定服务器组的标签信息
+         * 查询指定服务器组的标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

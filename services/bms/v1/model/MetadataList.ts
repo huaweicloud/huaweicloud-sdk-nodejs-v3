@@ -1,6 +1,7 @@
 
 
 export class MetadataList {
+    private 'EcmResStatus'?: string;
     public chargingMode?: MetadataListChargingModeEnum | string;
     private 'metering.order_id'?: string;
     private 'metering.product_id'?: string;
@@ -16,6 +17,16 @@ export class MetadataList {
     private '__bms_support_evs'?: string;
     private 'os_bit'?: MetadataListOsBitEnum | string;
     public constructor() { 
+    }
+    public withEcmResStatus(ecmResStatus: string): MetadataList {
+        this['EcmResStatus'] = ecmResStatus;
+        return this;
+    }
+    public set ecmResStatus(ecmResStatus: string  | undefined) {
+        this['EcmResStatus'] = ecmResStatus;
+    }
+    public get ecmResStatus(): string | undefined {
+        return this['EcmResStatus'];
     }
     public withChargingMode(chargingMode: MetadataListChargingModeEnum | string): MetadataList {
         this['chargingMode'] = chargingMode;

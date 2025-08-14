@@ -9,6 +9,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowAssetResponse extends SdkResponse {
     private 'project_id'?: string;
     private 'asset_id'?: string;
+    private 'produce_id'?: string;
     private 'asset_name'?: string;
     private 'asset_description'?: string;
     private 'app_user_id'?: string;
@@ -49,6 +50,16 @@ export class ShowAssetResponse extends SdkResponse {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withProduceId(produceId: string): ShowAssetResponse {
+        this['produce_id'] = produceId;
+        return this;
+    }
+    public set produceId(produceId: string  | undefined) {
+        this['produce_id'] = produceId;
+    }
+    public get produceId(): string | undefined {
+        return this['produce_id'];
     }
     public withAssetName(assetName: string): ShowAssetResponse {
         this['asset_name'] = assetName;

@@ -46,6 +46,7 @@ export class ShowTaskResponse extends SdkResponse {
     private 'total_disk_io'?: number;
     private 'agent_disk_io'?: number;
     private 'need_migration_test'?: boolean;
+    private 'subtask_info'?: string;
     public constructor() { 
         super();
     }
@@ -402,6 +403,16 @@ export class ShowTaskResponse extends SdkResponse {
     }
     public get needMigrationTest(): boolean | undefined {
         return this['need_migration_test'];
+    }
+    public withSubtaskInfo(subtaskInfo: string): ShowTaskResponse {
+        this['subtask_info'] = subtaskInfo;
+        return this;
+    }
+    public set subtaskInfo(subtaskInfo: string  | undefined) {
+        this['subtask_info'] = subtaskInfo;
+    }
+    public get subtaskInfo(): string | undefined {
+        return this['subtask_info'];
     }
 }
 

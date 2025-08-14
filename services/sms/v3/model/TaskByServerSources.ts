@@ -27,6 +27,7 @@ export class TaskByServerSources {
     private 'log_expire'?: number;
     private 'log_upload_time'?: number;
     private 'log_share_url'?: string;
+    private 'subtask_info'?: string;
     public constructor() { 
     }
     public withId(id: string): TaskByServerSources {
@@ -244,5 +245,15 @@ export class TaskByServerSources {
     }
     public get logShareUrl(): string | undefined {
         return this['log_share_url'];
+    }
+    public withSubtaskInfo(subtaskInfo: string): TaskByServerSources {
+        this['subtask_info'] = subtaskInfo;
+        return this;
+    }
+    public set subtaskInfo(subtaskInfo: string  | undefined) {
+        this['subtask_info'] = subtaskInfo;
+    }
+    public get subtaskInfo(): string | undefined {
+        return this['subtask_info'];
     }
 }

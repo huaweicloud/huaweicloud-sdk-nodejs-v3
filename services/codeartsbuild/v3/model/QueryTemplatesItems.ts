@@ -1,5 +1,5 @@
 import { CreateBuildJobParameter } from './CreateBuildJobParameter';
-import { QueryTemplate } from './QueryTemplate';
+import { QueryTemplateVo } from './QueryTemplateVo';
 
 
 export class QueryTemplatesItems {
@@ -7,7 +7,7 @@ export class QueryTemplatesItems {
     private 'nick_name'?: string;
     public id?: string;
     public uuid?: string;
-    public template?: QueryTemplate;
+    public template?: QueryTemplateVo;
     public type?: string;
     private 'public'?: boolean;
     public name?: string;
@@ -47,7 +47,7 @@ export class QueryTemplatesItems {
         this['uuid'] = uuid;
         return this;
     }
-    public withTemplate(template: QueryTemplate): QueryTemplatesItems {
+    public withTemplate(template: QueryTemplateVo): QueryTemplatesItems {
         this['template'] = template;
         return this;
     }

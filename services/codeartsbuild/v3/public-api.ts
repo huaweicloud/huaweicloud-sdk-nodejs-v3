@@ -170,6 +170,7 @@ export * from './model/Params';
 export * from './model/QueryCustomTemplatesResult';
 export * from './model/QueryJobNoticeItems';
 export * from './model/QueryTemplate';
+export * from './model/QueryTemplateVo';
 export * from './model/QueryTemplatesItems';
 export * from './model/QueryTemplatesResult';
 export * from './model/RealTimeLogResponseBodyResult';

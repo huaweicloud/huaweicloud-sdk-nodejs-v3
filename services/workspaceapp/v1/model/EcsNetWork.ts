@@ -1,4 +1,4 @@
-import { ServerAddress } from './ServerAddress';
+import { ServerAddressNetWork } from './ServerAddressNetWork';
 
 
 export class EcsNetWork {

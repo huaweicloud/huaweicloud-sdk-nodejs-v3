@@ -6,6 +6,8 @@ export class CreateEcDatakeyPairRequestBody {
     private 'with_plain_text'?: boolean;
     private 'additional_authenticated_data'?: string;
     public sequence?: string;
+    public pin?: string;
+    private 'pin_type'?: string;
     public constructor(keyId?: string, keySpec?: string) { 
         this['key_id'] = keyId;
         this['key_spec'] = keySpec;
@@ -53,6 +55,20 @@ export class CreateEcDatakeyPairRequestBody {
     public withSequence(sequence: string): CreateEcDatakeyPairRequestBody {
         this['sequence'] = sequence;
         return this;
+    }
+    public withPin(pin: string): CreateEcDatakeyPairRequestBody {
+        this['pin'] = pin;
+        return this;
+    }
+    public withPinType(pinType: string): CreateEcDatakeyPairRequestBody {
+        this['pin_type'] = pinType;
+        return this;
+    }
+    public set pinType(pinType: string  | undefined) {
+        this['pin_type'] = pinType;
+    }
+    public get pinType(): string | undefined {
+        return this['pin_type'];
     }
 }
 

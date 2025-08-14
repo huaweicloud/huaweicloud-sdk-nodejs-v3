@@ -1,4 +1,5 @@
 import { AppCategoryEnum } from './AppCategoryEnum';
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { OsTypeEnum } from './OsTypeEnum';
 
 
@@ -12,6 +13,7 @@ export class CreateWarehouseAppReq {
     private 'appfile_store_path'?: string;
     private 'app_icon'?: string;
     private 'app_file_size'?: number;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor(appName?: string, appCategory?: AppCategoryEnum, osType?: OsTypeEnum, versionId?: string, versionName?: string, appfileStorePath?: string) { 
         this['app_name'] = appName;
         this['app_category'] = appCategory;
@@ -109,5 +111,15 @@ export class CreateWarehouseAppReq {
     }
     public get appFileSize(): number | undefined {
         return this['app_file_size'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): CreateWarehouseAppReq {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

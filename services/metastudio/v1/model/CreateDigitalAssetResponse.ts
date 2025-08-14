@@ -3,6 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateDigitalAssetResponse extends SdkResponse {
     private 'asset_id'?: string;
+    private 'produce_id'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -16,6 +17,16 @@ export class CreateDigitalAssetResponse extends SdkResponse {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withProduceId(produceId: string): CreateDigitalAssetResponse {
+        this['produce_id'] = produceId;
+        return this;
+    }
+    public set produceId(produceId: string  | undefined) {
+        this['produce_id'] = produceId;
+    }
+    public get produceId(): string | undefined {
+        return this['produce_id'];
     }
     public withXRequestId(xRequestId: string): CreateDigitalAssetResponse {
         this['X-Request-Id'] = xRequestId;

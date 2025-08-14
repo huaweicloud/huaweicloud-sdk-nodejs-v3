@@ -14,7 +14,7 @@ export class AopWorkflowInfo {
     private 'workspace_id'?: string;
     private 'version_id'?: string;
     private 'current_approval_version_id'?: string;
-    private 'current_rejected_versoin_id'?: string;
+    private 'current_rejected_version_id'?: string;
     private 'aop_type'?: string;
     private 'engine_type'?: string;
     private 'dataclass_id'?: string;
@@ -126,15 +126,15 @@ export class AopWorkflowInfo {
     public get currentApprovalVersionId(): string | undefined {
         return this['current_approval_version_id'];
     }
-    public withCurrentRejectedVersoinId(currentRejectedVersoinId: string): AopWorkflowInfo {
-        this['current_rejected_versoin_id'] = currentRejectedVersoinId;
+    public withCurrentRejectedVersionId(currentRejectedVersionId: string): AopWorkflowInfo {
+        this['current_rejected_version_id'] = currentRejectedVersionId;
         return this;
     }
-    public set currentRejectedVersoinId(currentRejectedVersoinId: string  | undefined) {
-        this['current_rejected_versoin_id'] = currentRejectedVersoinId;
+    public set currentRejectedVersionId(currentRejectedVersionId: string  | undefined) {
+        this['current_rejected_version_id'] = currentRejectedVersionId;
     }
-    public get currentRejectedVersoinId(): string | undefined {
-        return this['current_rejected_versoin_id'];
+    public get currentRejectedVersionId(): string | undefined {
+        return this['current_rejected_version_id'];
     }
     public withAopType(aopType: string): AopWorkflowInfo {
         this['aop_type'] = aopType;

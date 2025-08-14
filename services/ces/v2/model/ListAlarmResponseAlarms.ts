@@ -1,6 +1,7 @@
 import { AlarmType } from './AlarmType';
 import { Notification } from './Notification';
 import { Policy } from './Policy';
+import { ResourceTag } from './ResourceTag';
 import { ResourcesInListResp } from './ResourcesInListResp';
 
 
@@ -23,6 +24,7 @@ export class ListAlarmResponseAlarms {
     private 'alarm_template_id'?: string;
     private 'product_name'?: string;
     private 'resource_level'?: ListAlarmResponseAlarmsResourceLevelEnum | string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withAlarmId(alarmId: string): ListAlarmResponseAlarms {
@@ -162,6 +164,10 @@ export class ListAlarmResponseAlarms {
     }
     public get resourceLevel(): ListAlarmResponseAlarmsResourceLevelEnum | string | undefined {
         return this['resource_level'];
+    }
+    public withTags(tags: Array<ResourceTag>): ListAlarmResponseAlarms {
+        this['tags'] = tags;
+        return this;
     }
 }
 

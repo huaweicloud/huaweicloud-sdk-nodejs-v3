@@ -1,4 +1,5 @@
 import { AppCategoryEnum } from './AppCategoryEnum';
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { OsTypeEnum } from './OsTypeEnum';
 import { VerifyStatusEnum } from './VerifyStatusEnum';
 
@@ -22,6 +23,7 @@ export class WarehouseApp {
     private 'verify_status'?: VerifyStatusEnum;
     private 'verify_comment'?: string;
     private 'app_icon'?: string;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor() { 
     }
     public withId(id: string): WarehouseApp {
@@ -197,5 +199,15 @@ export class WarehouseApp {
     }
     public get appIcon(): string | undefined {
         return this['app_icon'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): WarehouseApp {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

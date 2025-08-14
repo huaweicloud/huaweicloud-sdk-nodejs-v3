@@ -13,6 +13,8 @@ export class ProtectionServerInfo {
     private 'os_name'?: string;
     private 'host_status'?: string;
     private 'ransom_protection_status'?: string;
+    private 'ransom_protection_fail_reason'?: string;
+    private 'failed_decoy_dir'?: string;
     private 'agent_version'?: string;
     private 'protect_status'?: string;
     private 'group_id'?: string;
@@ -148,6 +150,26 @@ export class ProtectionServerInfo {
     }
     public get ransomProtectionStatus(): string | undefined {
         return this['ransom_protection_status'];
+    }
+    public withRansomProtectionFailReason(ransomProtectionFailReason: string): ProtectionServerInfo {
+        this['ransom_protection_fail_reason'] = ransomProtectionFailReason;
+        return this;
+    }
+    public set ransomProtectionFailReason(ransomProtectionFailReason: string  | undefined) {
+        this['ransom_protection_fail_reason'] = ransomProtectionFailReason;
+    }
+    public get ransomProtectionFailReason(): string | undefined {
+        return this['ransom_protection_fail_reason'];
+    }
+    public withFailedDecoyDir(failedDecoyDir: string): ProtectionServerInfo {
+        this['failed_decoy_dir'] = failedDecoyDir;
+        return this;
+    }
+    public set failedDecoyDir(failedDecoyDir: string  | undefined) {
+        this['failed_decoy_dir'] = failedDecoyDir;
+    }
+    public get failedDecoyDir(): string | undefined {
+        return this['failed_decoy_dir'];
     }
     public withAgentVersion(agentVersion: string): ProtectionServerInfo {
         this['agent_version'] = agentVersion;

@@ -1,3 +1,4 @@
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { AppStateEnum } from './AppStateEnum';
 
 
@@ -10,6 +11,7 @@ export class UpdateAppReq {
     private 'command_param'?: string;
     public state?: AppStateEnum;
     private 'sandbox_enable'?: boolean;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor() { 
     }
     public withName(name: string): UpdateAppReq {
@@ -67,5 +69,15 @@ export class UpdateAppReq {
     }
     public get sandboxEnable(): boolean | undefined {
         return this['sandbox_enable'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): UpdateAppReq {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

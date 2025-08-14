@@ -21,6 +21,8 @@ export class IdentityCenterStoreRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://identitystore.sa-brazil-1.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://identitystore.cn-south-1.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://identitystore.cn-southwest-2.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://identitystore.af-north-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://identitystore.ap-southeast-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -38,7 +40,9 @@ export class IdentityCenterStoreRegion {
         "la-north-2":IdentityCenterStoreRegion.LA_NORTH_2,
         "sa-brazil-1":IdentityCenterStoreRegion.SA_BRAZIL_1,
         "cn-south-1":IdentityCenterStoreRegion.CN_SOUTH_1,
-        "cn-southwest-2":IdentityCenterStoreRegion.CN_SOUTHWEST_2
+        "cn-southwest-2":IdentityCenterStoreRegion.CN_SOUTHWEST_2,
+        "af-north-1":IdentityCenterStoreRegion.AF_NORTH_1,
+        "ap-southeast-5":IdentityCenterStoreRegion.AP_SOUTHEAST_5
     };
   
     public static valueOf(regionId: string) {

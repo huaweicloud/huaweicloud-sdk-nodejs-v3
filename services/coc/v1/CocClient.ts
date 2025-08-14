@@ -20,6 +20,8 @@ import { AuthorizableTicketBody } from './model/AuthorizableTicketBody';
 import { AuthorizeTicketCommonInfo } from './model/AuthorizeTicketCommonInfo';
 import { AuthorizeTicketInfo } from './model/AuthorizeTicketInfo';
 import { AutoHandlerAlarmRequestBody } from './model/AutoHandlerAlarmRequestBody';
+import { BaseIdResponseData } from './model/BaseIdResponseData';
+import { BaseQueryAssessTaskListResponseData } from './model/BaseQueryAssessTaskListResponseData';
 import { BaseResponse } from './model/BaseResponse';
 import { BasicDTO } from './model/BasicDTO';
 import { BasicResponse } from './model/BasicResponse';
@@ -63,6 +65,9 @@ import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
 import { CountMultiResourcesRequest } from './model/CountMultiResourcesRequest';
 import { CountMultiResourcesResponse } from './model/CountMultiResourcesResponse';
+import { CreateAssessTaskRequest } from './model/CreateAssessTaskRequest';
+import { CreateAssessTaskRequestBody } from './model/CreateAssessTaskRequestBody';
+import { CreateAssessTaskResponse } from './model/CreateAssessTaskResponse';
 import { CreateAttachmentRequest } from './model/CreateAttachmentRequest';
 import { CreateAttachmentRequestBody } from './model/CreateAttachmentRequestBody';
 import { CreateAttachmentResponse } from './model/CreateAttachmentResponse';
@@ -192,6 +197,8 @@ import { JobScriptOrderOperationBody } from './model/JobScriptOrderOperationBody
 import { JobScriptOrderStatisticsModel } from './model/JobScriptOrderStatisticsModel';
 import { ListAlarmHandleHistoriesRequest } from './model/ListAlarmHandleHistoriesRequest';
 import { ListAlarmHandleHistoriesResponse } from './model/ListAlarmHandleHistoriesResponse';
+import { ListAssessTaskRequest } from './model/ListAssessTaskRequest';
+import { ListAssessTaskResponse } from './model/ListAssessTaskResponse';
 import { ListAuthorizableTicketsExternalRequest } from './model/ListAuthorizableTicketsExternalRequest';
 import { ListAuthorizableTicketsExternalResponse } from './model/ListAuthorizableTicketsExternalResponse';
 import { ListAuthorizableTicketsReq } from './model/ListAuthorizableTicketsReq';
@@ -269,6 +276,7 @@ import { PublicScriptDetailModel } from './model/PublicScriptDetailModel';
 import { PublicScriptListModel } from './model/PublicScriptListModel';
 import { PublicScriptListPage } from './model/PublicScriptListPage';
 import { PublicScriptPropertiesModel } from './model/PublicScriptPropertiesModel';
+import { QueryAssessTaskResponse } from './model/QueryAssessTaskResponse';
 import { ReportCustomEventRequestBody } from './model/ReportCustomEventRequestBody';
 import { ResetAccountPasswordRequest } from './model/ResetAccountPasswordRequest';
 import { ResetAccountPasswordRequestBody } from './model/ResetAccountPasswordRequestBody';
@@ -545,6 +553,47 @@ export class CocClient {
      */
     public batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest): Promise<BatchCreateApplicationViewResponse> {
         const options = ParamCreater().batchCreateApplicationView(batchCreateApplicationViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建应用评估任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建应用评估任务
+     * @param {CreateAssessTaskRequestBody} createAssessTaskRequestBody 创建应用评估任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAssessTask(createAssessTaskRequest?: CreateAssessTaskRequest): Promise<CreateAssessTaskResponse> {
+        const options = ParamCreater().createAssessTask(createAssessTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询评估任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询评估任务列表
+     * @param {number} offset 分页参数
+     * @param {number} limit 每页显示的条目数量
+     * @param {string} [applicationId] 应用id
+     * @param {Array<string>} [assessStatusList] 评估任务状态
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssessTask(listAssessTaskRequest?: ListAssessTaskRequest): Promise<ListAssessTaskResponse> {
+        const options = ParamCreater().listAssessTask(listAssessTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2724,6 +2773,108 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建应用评估任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAssessTask(createAssessTaskRequest?: CreateAssessTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/assess-tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAssessTaskRequest !== null && createAssessTaskRequest !== undefined) {
+                if (createAssessTaskRequest instanceof CreateAssessTaskRequest) {
+                    body = createAssessTaskRequest.body
+                } else {
+                    body = createAssessTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询评估任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssessTask(listAssessTaskRequest?: ListAssessTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/assess-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let applicationId;
+            
+            let assessStatusList;
+
+            if (listAssessTaskRequest !== null && listAssessTaskRequest !== undefined) {
+                if (listAssessTaskRequest instanceof ListAssessTaskRequest) {
+                    offset = listAssessTaskRequest.offset;
+                    limit = listAssessTaskRequest.limit;
+                    applicationId = listAssessTaskRequest.applicationId;
+                    assessStatusList = listAssessTaskRequest.assessStatusList;
+                } else {
+                    offset = listAssessTaskRequest['offset'];
+                    limit = listAssessTaskRequest['limit'];
+                    applicationId = listAssessTaskRequest['application_id'];
+                    assessStatusList = listAssessTaskRequest['assess_status_list'];
+                }
+            }
+
+        
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAssessTask.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAssessTask.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (assessStatusList !== null && assessStatusList !== undefined) {
+                localVarQueryParameter['assess_status_list'] = assessStatusList;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -20,6 +20,7 @@ export class TaskByServerSource {
     private 'exist_server'?: boolean;
     private 'use_public_ip'?: boolean;
     private 'clone_server'?: CloneServer;
+    private 'subtask_info'?: string;
     public constructor() { 
     }
     public withId(id: string): TaskByServerSource {
@@ -167,5 +168,15 @@ export class TaskByServerSource {
     }
     public get cloneServer(): CloneServer | undefined {
         return this['clone_server'];
+    }
+    public withSubtaskInfo(subtaskInfo: string): TaskByServerSource {
+        this['subtask_info'] = subtaskInfo;
+        return this;
+    }
+    public set subtaskInfo(subtaskInfo: string  | undefined) {
+        this['subtask_info'] = subtaskInfo;
+    }
+    public get subtaskInfo(): string | undefined {
+        return this['subtask_info'];
     }
 }

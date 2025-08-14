@@ -43,6 +43,9 @@ import { CreateKmsTagRequestBody } from './model/CreateKmsTagRequestBody';
 import { CreateKmsTagResponse } from './model/CreateKmsTagResponse';
 import { CreateParametersForImportRequest } from './model/CreateParametersForImportRequest';
 import { CreateParametersForImportResponse } from './model/CreateParametersForImportResponse';
+import { CreatePinRequest } from './model/CreatePinRequest';
+import { CreatePinRequestBody } from './model/CreatePinRequestBody';
+import { CreatePinResponse } from './model/CreatePinResponse';
 import { CreateRandomRequest } from './model/CreateRandomRequest';
 import { CreateRandomResponse } from './model/CreateRandomResponse';
 import { CreateRsaDatakeyPairRequest } from './model/CreateRsaDatakeyPairRequest';
@@ -462,6 +465,25 @@ export class KmsClient {
      */
     public createParametersForImport(createParametersForImportRequest?: CreateParametersForImportRequest): Promise<CreateParametersForImportResponse> {
         const options = ParamCreater().createParametersForImport(createParametersForImportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 功能介绍：创建pin码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建PIN码
+     * @param {CreatePinRequestBody} createPinRequestBody create_datakey
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPin(createPinRequest?: CreatePinRequest): Promise<CreatePinResponse> {
+        const options = ParamCreater().createPin(createPinRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1872,6 +1894,44 @@ export const ParamCreater = function () {
                     body = createParametersForImportRequest.body
                 } else {
                     body = createParametersForImportRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 功能介绍：创建pin码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPin(createPinRequest?: CreatePinRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/create-pin",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPinRequest !== null && createPinRequest !== undefined) {
+                if (createPinRequest instanceof CreatePinRequest) {
+                    body = createPinRequest.body
+                } else {
+                    body = createPinRequest['body'];
                 }
             }
 

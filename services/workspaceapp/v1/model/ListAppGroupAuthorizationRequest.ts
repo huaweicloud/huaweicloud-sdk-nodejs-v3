@@ -4,6 +4,7 @@ export class ListAppGroupAuthorizationRequest {
     public limit?: number;
     public offset?: number;
     private 'app_group_id'?: string;
+    private 'account_id'?: string;
     public account?: string;
     private 'account_type'?: string;
     public constructor() { 
@@ -25,6 +26,16 @@ export class ListAppGroupAuthorizationRequest {
     }
     public get appGroupId(): string | undefined {
         return this['app_group_id'];
+    }
+    public withAccountId(accountId: string): ListAppGroupAuthorizationRequest {
+        this['account_id'] = accountId;
+        return this;
+    }
+    public set accountId(accountId: string  | undefined) {
+        this['account_id'] = accountId;
+    }
+    public get accountId(): string | undefined {
+        return this['account_id'];
     }
     public withAccount(account: string): ListAppGroupAuthorizationRequest {
         this['account'] = account;

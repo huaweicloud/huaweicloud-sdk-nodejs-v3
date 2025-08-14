@@ -38,6 +38,7 @@ export class TasksResponseBody {
     private 'total_disk_io'?: number;
     private 'agent_disk_io'?: number;
     private 'need_migration_test'?: boolean;
+    private 'subtask_info'?: string;
     public constructor() { 
     }
     public withId(id: string): TasksResponseBody {
@@ -313,6 +314,16 @@ export class TasksResponseBody {
     }
     public get needMigrationTest(): boolean | undefined {
         return this['need_migration_test'];
+    }
+    public withSubtaskInfo(subtaskInfo: string): TasksResponseBody {
+        this['subtask_info'] = subtaskInfo;
+        return this;
+    }
+    public set subtaskInfo(subtaskInfo: string  | undefined) {
+        this['subtask_info'] = subtaskInfo;
+    }
+    public get subtaskInfo(): string | undefined {
+        return this['subtask_info'];
     }
 }
 

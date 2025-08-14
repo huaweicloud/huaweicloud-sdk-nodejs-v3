@@ -9,6 +9,7 @@ export class CreateKeyRequestBody {
     private 'enterprise_project_id'?: string;
     public sequence?: string;
     private 'keystore_id'?: string;
+    private 'vm_id'?: string;
     public constructor(keyAlias?: string) { 
         this['key_alias'] = keyAlias;
     }
@@ -79,6 +80,16 @@ export class CreateKeyRequestBody {
     }
     public get keystoreId(): string | undefined {
         return this['keystore_id'];
+    }
+    public withVmId(vmId: string): CreateKeyRequestBody {
+        this['vm_id'] = vmId;
+        return this;
+    }
+    public set vmId(vmId: string  | undefined) {
+        this['vm_id'] = vmId;
+    }
+    public get vmId(): string | undefined {
+        return this['vm_id'];
     }
 }
 

@@ -2,13 +2,23 @@ import { ResourceDetachManagedPolicyFromPermissionSetReqBody } from './ResourceD
 
 
 export class DetachManagedRoleFromPermissionSetRequest {
+    private 'X-Security-Token'?: string;
     private 'instance_id'?: string;
     private 'permission_set_id'?: string;
-    private 'X-Security-Token'?: string;
     public body?: ResourceDetachManagedPolicyFromPermissionSetReqBody;
     public constructor(instanceId?: string, permissionSetId?: string) { 
         this['instance_id'] = instanceId;
         this['permission_set_id'] = permissionSetId;
+    }
+    public withXSecurityToken(xSecurityToken: string): DetachManagedRoleFromPermissionSetRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
     }
     public withInstanceId(instanceId: string): DetachManagedRoleFromPermissionSetRequest {
         this['instance_id'] = instanceId;
@@ -29,16 +39,6 @@ export class DetachManagedRoleFromPermissionSetRequest {
     }
     public get permissionSetId(): string | undefined {
         return this['permission_set_id'];
-    }
-    public withXSecurityToken(xSecurityToken: string): DetachManagedRoleFromPermissionSetRequest {
-        this['X-Security-Token'] = xSecurityToken;
-        return this;
-    }
-    public set xSecurityToken(xSecurityToken: string  | undefined) {
-        this['X-Security-Token'] = xSecurityToken;
-    }
-    public get xSecurityToken(): string | undefined {
-        return this['X-Security-Token'];
     }
     public withBody(body: ResourceDetachManagedPolicyFromPermissionSetReqBody): DetachManagedRoleFromPermissionSetRequest {
         this['body'] = body;

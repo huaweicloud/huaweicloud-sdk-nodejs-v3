@@ -1,3 +1,4 @@
+import { AppExtendedInfo } from './AppExtendedInfo';
 import { AppStateEnum } from './AppStateEnum';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -21,6 +22,8 @@ export class ShowAppDetailResponse extends SdkResponse {
     private 'icon_url'?: string;
     public publishable?: boolean;
     private 'sandbox_enable'?: boolean;
+    private 'is_pre_boot'?: boolean;
+    private 'app_extended_info'?: AppExtendedInfo;
     public constructor() { 
         super();
     }
@@ -161,5 +164,25 @@ export class ShowAppDetailResponse extends SdkResponse {
     }
     public get sandboxEnable(): boolean | undefined {
         return this['sandbox_enable'];
+    }
+    public withIsPreBoot(isPreBoot: boolean): ShowAppDetailResponse {
+        this['is_pre_boot'] = isPreBoot;
+        return this;
+    }
+    public set isPreBoot(isPreBoot: boolean  | undefined) {
+        this['is_pre_boot'] = isPreBoot;
+    }
+    public get isPreBoot(): boolean | undefined {
+        return this['is_pre_boot'];
+    }
+    public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): ShowAppDetailResponse {
+        this['app_extended_info'] = appExtendedInfo;
+        return this;
+    }
+    public set appExtendedInfo(appExtendedInfo: AppExtendedInfo  | undefined) {
+        this['app_extended_info'] = appExtendedInfo;
+    }
+    public get appExtendedInfo(): AppExtendedInfo | undefined {
+        return this['app_extended_info'];
     }
 }

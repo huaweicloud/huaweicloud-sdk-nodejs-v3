@@ -1,7 +1,9 @@
+import { RailTransparentConfig } from './RailTransparentConfig';
 
 
 export class CustomOptions {
     private 'custom_configuration1_rule'?: string;
+    private 'rail_transparent_config'?: RailTransparentConfig;
     public constructor() { 
     }
     public withCustomConfiguration1Rule(customConfiguration1Rule: string): CustomOptions {
@@ -13,5 +15,15 @@ export class CustomOptions {
     }
     public get customConfiguration1Rule(): string | undefined {
         return this['custom_configuration1_rule'];
+    }
+    public withRailTransparentConfig(railTransparentConfig: RailTransparentConfig): CustomOptions {
+        this['rail_transparent_config'] = railTransparentConfig;
+        return this;
+    }
+    public set railTransparentConfig(railTransparentConfig: RailTransparentConfig  | undefined) {
+        this['rail_transparent_config'] = railTransparentConfig;
+    }
+    public get railTransparentConfig(): RailTransparentConfig | undefined {
+        return this['rail_transparent_config'];
     }
 }

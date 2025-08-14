@@ -6,6 +6,7 @@ export class KeystoreDetails {
     private 'keystore_alias'?: string;
     private 'keystore_type'?: string;
     private 'hsm_cluster_id'?: string;
+    private 'cluster_id'?: string;
     private 'create_time'?: string;
     public constructor() { 
     }
@@ -58,6 +59,16 @@ export class KeystoreDetails {
     }
     public get hsmClusterId(): string | undefined {
         return this['hsm_cluster_id'];
+    }
+    public withClusterId(clusterId: string): KeystoreDetails {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
     }
     public withCreateTime(createTime: string): KeystoreDetails {
         this['create_time'] = createTime;

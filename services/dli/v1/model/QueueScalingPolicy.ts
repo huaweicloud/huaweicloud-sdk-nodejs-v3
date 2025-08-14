@@ -6,6 +6,7 @@ export class QueueScalingPolicy {
     private 'impact_stop_time'?: string;
     private 'min_cu'?: number;
     private 'max_cu'?: number;
+    private 'inherit_elastic_resource_pool_max_cu'?: boolean;
     public constructor(priority?: number, impactStartTime?: string, impactStopTime?: string, minCu?: number, maxCu?: number) { 
         this['priority'] = priority;
         this['impact_start_time'] = impactStartTime;
@@ -56,5 +57,15 @@ export class QueueScalingPolicy {
     }
     public get maxCu(): number | undefined {
         return this['max_cu'];
+    }
+    public withInheritElasticResourcePoolMaxCu(inheritElasticResourcePoolMaxCu: boolean): QueueScalingPolicy {
+        this['inherit_elastic_resource_pool_max_cu'] = inheritElasticResourcePoolMaxCu;
+        return this;
+    }
+    public set inheritElasticResourcePoolMaxCu(inheritElasticResourcePoolMaxCu: boolean  | undefined) {
+        this['inherit_elastic_resource_pool_max_cu'] = inheritElasticResourcePoolMaxCu;
+    }
+    public get inheritElasticResourcePoolMaxCu(): boolean | undefined {
+        return this['inherit_elastic_resource_pool_max_cu'];
     }
 }
