@@ -6,6 +6,10 @@ import { AccessAreaFilter } from './model/AccessAreaFilter';
 import { AccessControl } from './model/AccessControl';
 import { AccountConfigModifyRequest } from './model/AccountConfigModifyRequest';
 import { Actions } from './model/Actions';
+import { ApplyDomainTemplateRequest } from './model/ApplyDomainTemplateRequest';
+import { ApplyDomainTemplateResponse } from './model/ApplyDomainTemplateResponse';
+import { ApplyRecord } from './model/ApplyRecord';
+import { ApplyTmlDetail } from './model/ApplyTmlDetail';
 import { BackSources } from './model/BackSources';
 import { BatchCopyConfigs } from './model/BatchCopyConfigs';
 import { BatchCopyDRequestBody } from './model/BatchCopyDRequestBody';
@@ -39,6 +43,8 @@ import { CreateDomainRequest } from './model/CreateDomainRequest';
 import { CreateDomainRequestBody } from './model/CreateDomainRequestBody';
 import { CreateDomainResponse } from './model/CreateDomainResponse';
 import { CreateDomainResponseBodyContent } from './model/CreateDomainResponseBodyContent';
+import { CreateDomainTemplateRequest } from './model/CreateDomainTemplateRequest';
+import { CreateDomainTemplateResponse } from './model/CreateDomainTemplateResponse';
 import { CreatePreheatingTasksRequest } from './model/CreatePreheatingTasksRequest';
 import { CreatePreheatingTasksResponse } from './model/CreatePreheatingTasksResponse';
 import { CreateRefreshTasksRequest } from './model/CreateRefreshTasksRequest';
@@ -52,10 +58,13 @@ import { CreateShareCacheGroupsResponse } from './model/CreateShareCacheGroupsRe
 import { CreateTagsRequest } from './model/CreateTagsRequest';
 import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
 import { CreateTagsResponse } from './model/CreateTagsResponse';
+import { CreateTemplateRequestBody } from './model/CreateTemplateRequestBody';
 import { Criteria } from './model/Criteria';
 import { CustomArgs } from './model/CustomArgs';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteDomainTemplateRequest } from './model/DeleteDomainTemplateRequest';
+import { DeleteDomainTemplateResponse } from './model/DeleteDomainTemplateResponse';
 import { DeleteRuleNewRequest } from './model/DeleteRuleNewRequest';
 import { DeleteRuleNewResponse } from './model/DeleteRuleNewResponse';
 import { DeleteShareCacheGroupsRequest } from './model/DeleteShareCacheGroupsRequest';
@@ -82,6 +91,7 @@ import { ErrorCodeCacheEngine } from './model/ErrorCodeCacheEngine';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './model/FlexibleOrigins';
 import { FlexibleOriginsEngine } from './model/FlexibleOriginsEngine';
+import { FlowLimitStrategy } from './model/FlowLimitStrategy';
 import { ForceRedirect } from './model/ForceRedirect';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
 import { FullUpdateRulesRequest } from './model/FullUpdateRulesRequest';
@@ -126,11 +136,14 @@ import { RequestLimitRules } from './model/RequestLimitRules';
 import { RequestLimitRulesEngine } from './model/RequestLimitRulesEngine';
 import { RequestUrlRewrite } from './model/RequestUrlRewrite';
 import { RequestUrlRewriteEngine } from './model/RequestUrlRewriteEngine';
+import { Resource } from './model/Resource';
 import { RuleResponse } from './model/RuleResponse';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
 import { ShareCacheGroupsRecord } from './model/ShareCacheGroupsRecord';
+import { ShowAppliedTemplateRecordRequest } from './model/ShowAppliedTemplateRecordRequest';
+import { ShowAppliedTemplateRecordResponse } from './model/ShowAppliedTemplateRecordResponse';
 import { ShowBandwidthCalcRequest } from './model/ShowBandwidthCalcRequest';
 import { ShowBandwidthCalcResponse } from './model/ShowBandwidthCalcResponse';
 import { ShowCertificatesHttpsInfoRequest } from './model/ShowCertificatesHttpsInfoRequest';
@@ -145,6 +158,8 @@ import { ShowDomainLocationStatsRequest } from './model/ShowDomainLocationStatsR
 import { ShowDomainLocationStatsResponse } from './model/ShowDomainLocationStatsResponse';
 import { ShowDomainStatsRequest } from './model/ShowDomainStatsRequest';
 import { ShowDomainStatsResponse } from './model/ShowDomainStatsResponse';
+import { ShowDomainTemplateRequest } from './model/ShowDomainTemplateRequest';
+import { ShowDomainTemplateResponse } from './model/ShowDomainTemplateResponse';
 import { ShowHistoryTaskDetailsRequest } from './model/ShowHistoryTaskDetailsRequest';
 import { ShowHistoryTaskDetailsResponse } from './model/ShowHistoryTaskDetailsResponse';
 import { ShowHistoryTasksRequest } from './model/ShowHistoryTasksRequest';
@@ -174,6 +189,9 @@ import { SourcesDomainConfig } from './model/SourcesDomainConfig';
 import { SourcesRequestBody } from './model/SourcesRequestBody';
 import { TagMap } from './model/TagMap';
 import { TasksObject } from './model/TasksObject';
+import { TemplateApplyRequestBody } from './model/TemplateApplyRequestBody';
+import { TemplateConfigs } from './model/TemplateConfigs';
+import { TemplateItem } from './model/TemplateItem';
 import { TopReferSummary } from './model/TopReferSummary';
 import { TopUrlSummary } from './model/TopUrlSummary';
 import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
@@ -184,6 +202,8 @@ import { UpdateDomainMultiCertificatesRequestBodyContent } from './model/UpdateD
 import { UpdateDomainMultiCertificatesResponse } from './model/UpdateDomainMultiCertificatesResponse';
 import { UpdateDomainMultiCertificatesResponseBodyContent } from './model/UpdateDomainMultiCertificatesResponseBodyContent';
 import { UpdateDomainMultiCertificatesResponseBodyResult } from './model/UpdateDomainMultiCertificatesResponseBodyResult';
+import { UpdateDomainTemplateRequest } from './model/UpdateDomainTemplateRequest';
+import { UpdateDomainTemplateResponse } from './model/UpdateDomainTemplateResponse';
 import { UpdateFullRuleRequest } from './model/UpdateFullRuleRequest';
 import { UpdateFullRuleResponse } from './model/UpdateFullRuleResponse';
 import { UpdatePrivateBucketAccessBody } from './model/UpdatePrivateBucketAccessBody';
@@ -223,6 +243,26 @@ export class CdnClient {
         return __dirname;
     }
 
+
+    /**
+     * 应用域名模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 应用域名模板。
+     * @param {string} tmlId **参数解释：** 域名模板ID，可以通过查询域名模板列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {TemplateApplyRequestBody} [templateApplyRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public applyDomainTemplate(applyDomainTemplateRequest?: ApplyDomainTemplateRequest): Promise<ApplyDomainTemplateResponse> {
+        const options = ParamCreater().applyDomainTemplate(applyDomainTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 批量域名复制接口。
@@ -298,6 +338,25 @@ export class CdnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建域名模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建域名模板。
+     * @param {CreateTemplateRequestBody} createTemplateRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDomainTemplate(createDomainTemplateRequest?: CreateDomainTemplateRequest): Promise<CreateDomainTemplateResponse> {
+        const options = ParamCreater().createDomainTemplate(createDomainTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -420,6 +479,25 @@ export class CdnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除域名模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除域名模板。
+     * @param {string} tmlId **参数解释：** 域名模板ID，可以通过查询域名模板列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDomainTemplate(deleteDomainTemplateRequest?: DeleteDomainTemplateRequest): Promise<DeleteDomainTemplateResponse> {
+        const options = ParamCreater().deleteDomainTemplate(deleteDomainTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -724,6 +802,29 @@ export class CdnClient {
     }
 
     /**
+     * 查询域名模板应用记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名模板应用记录。
+     * @param {string} [tmlId] **参数解释：** 域名模板ID，可以通过查询域名模板列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [tmlName] **参数解释：** 域名模板名称 **约束限制：** 不涉及 **取值范围：** - 1-100个字符 - 仅支持字母、数字、中文、下划线（_）、中横线（-） **默认取值：** 不涉及
+     * @param {string} [operatorId] **参数解释：** 域名模板操作ID，可以通过本接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [offset] **参数解释：** 查询的页码 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
+     * @param {number} [limit] **参数解释：** 每页应用记录的数量 **约束限制：** 不涉及 **取值范围：** 1-10000 **默认取值：** 30
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAppliedTemplateRecord(showAppliedTemplateRecordRequest?: ShowAppliedTemplateRecordRequest): Promise<ShowAppliedTemplateRecordResponse> {
+        const options = ParamCreater().showAppliedTemplateRecord(showAppliedTemplateRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 查询域名带宽峰值类数据。
      * 
      * - 支持查询90天内的数据。
@@ -925,6 +1026,29 @@ export class CdnClient {
      */
     public showDomainStats(showDomainStatsRequest?: ShowDomainStatsRequest): Promise<ShowDomainStatsResponse> {
         const options = ParamCreater().showDomainStats(showDomainStatsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询域名模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名模板列表
+     * @param {string} [tmlName] **参数解释：** 域名模板名称 **约束限制：** 不涉及 **取值范围：** - 1-100个字符 - 仅支持字母、数字、中文、下划线（_）、中横线（-） **默认取值：** 不涉及
+     * @param {string} [tmlId] **参数解释：** 域名模板ID，可以通过本接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [tmlType] **参数解释：** 域名模板类型 **约束限制：** 不涉及 **取值范围：** - 1: 系统预置模板 - 2: 租户自定义模板 **默认取值：** 不涉及
+     * @param {string} [limit] **参数解释：** 分页大小 **约束限制：** 不涉及 **取值范围：** 1-10000 **默认取值：** 30
+     * @param {string} [offset] **参数解释：** 查询的页码 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainTemplate(showDomainTemplateRequest?: ShowDomainTemplateRequest): Promise<ShowDomainTemplateResponse> {
+        const options = ParamCreater().showDomainTemplate(showDomainTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1225,6 +1349,26 @@ export class CdnClient {
     }
 
     /**
+     * 修改域名模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改域名模板。
+     * @param {string} tmlId **参数解释：** 域名模板ID，可以通过查询域名模板列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {CreateTemplateRequestBody} [createTemplateRequestBody] 模板配置。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDomainTemplate(updateDomainTemplateRequest?: UpdateDomainTemplateRequest): Promise<UpdateDomainTemplateResponse> {
+        const options = ParamCreater().updateDomainTemplate(updateDomainTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 全量更新规则引擎规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1330,6 +1474,49 @@ export class CdnClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 应用域名模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        applyDomainTemplate(applyDomainTemplateRequest?: ApplyDomainTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/templates/{tml_id}/apply",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let tmlId;
+
+            if (applyDomainTemplateRequest !== null && applyDomainTemplateRequest !== undefined) {
+                if (applyDomainTemplateRequest instanceof ApplyDomainTemplateRequest) {
+                    tmlId = applyDomainTemplateRequest.tmlId;
+                    body = applyDomainTemplateRequest.body
+                } else {
+                    tmlId = applyDomainTemplateRequest['tml_id'];
+                    body = applyDomainTemplateRequest['body'];
+                }
+            }
+
+        
+            if (tmlId === null || tmlId === undefined) {
+            throw new RequiredError('tmlId','Required parameter tmlId was null or undefined when calling applyDomainTemplate.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'tml_id': tmlId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 批量域名复制接口。
@@ -1479,6 +1666,44 @@ export const ParamCreater = function () {
             }
 
         
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建域名模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDomainTemplate(createDomainTemplateRequest?: CreateDomainTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDomainTemplateRequest !== null && createDomainTemplateRequest !== undefined) {
+                if (createDomainTemplateRequest instanceof CreateDomainTemplateRequest) {
+                    body = createDomainTemplateRequest.body
+                } else {
+                    body = createDomainTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -1739,6 +1964,43 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除域名模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDomainTemplate(deleteDomainTemplateRequest?: DeleteDomainTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/cdn/configuration/templates/{tml_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tmlId;
+
+            if (deleteDomainTemplateRequest !== null && deleteDomainTemplateRequest !== undefined) {
+                if (deleteDomainTemplateRequest instanceof DeleteDomainTemplateRequest) {
+                    tmlId = deleteDomainTemplateRequest.tmlId;
+                } else {
+                    tmlId = deleteDomainTemplateRequest['tml_id'];
+                }
+            }
+
+        
+            if (tmlId === null || tmlId === undefined) {
+            throw new RequiredError('tmlId','Required parameter tmlId was null or undefined when calling deleteDomainTemplate.');
+            }
+
+            options.pathParams = { 'tml_id': tmlId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2500,6 +2762,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询域名模板应用记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAppliedTemplateRecord(showAppliedTemplateRecordRequest?: ShowAppliedTemplateRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/tml-apply-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tmlId;
+            
+            let tmlName;
+            
+            let operatorId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showAppliedTemplateRecordRequest !== null && showAppliedTemplateRecordRequest !== undefined) {
+                if (showAppliedTemplateRecordRequest instanceof ShowAppliedTemplateRecordRequest) {
+                    tmlId = showAppliedTemplateRecordRequest.tmlId;
+                    tmlName = showAppliedTemplateRecordRequest.tmlName;
+                    operatorId = showAppliedTemplateRecordRequest.operatorId;
+                    offset = showAppliedTemplateRecordRequest.offset;
+                    limit = showAppliedTemplateRecordRequest.limit;
+                } else {
+                    tmlId = showAppliedTemplateRecordRequest['tml_id'];
+                    tmlName = showAppliedTemplateRecordRequest['tml_name'];
+                    operatorId = showAppliedTemplateRecordRequest['operator_id'];
+                    offset = showAppliedTemplateRecordRequest['offset'];
+                    limit = showAppliedTemplateRecordRequest['limit'];
+                }
+            }
+
+        
+            if (tmlId !== null && tmlId !== undefined) {
+                localVarQueryParameter['tml_id'] = tmlId;
+            }
+            if (tmlName !== null && tmlName !== undefined) {
+                localVarQueryParameter['tml_name'] = tmlName;
+            }
+            if (operatorId !== null && operatorId !== undefined) {
+                localVarQueryParameter['operator_id'] = operatorId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 查询域名带宽峰值类数据。
          * 
          * - 支持查询90天内的数据。
@@ -3066,6 +3393,71 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询域名模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainTemplate(showDomainTemplateRequest?: ShowDomainTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tmlName;
+            
+            let tmlId;
+            
+            let tmlType;
+            
+            let limit;
+            
+            let offset;
+
+            if (showDomainTemplateRequest !== null && showDomainTemplateRequest !== undefined) {
+                if (showDomainTemplateRequest instanceof ShowDomainTemplateRequest) {
+                    tmlName = showDomainTemplateRequest.tmlName;
+                    tmlId = showDomainTemplateRequest.tmlId;
+                    tmlType = showDomainTemplateRequest.tmlType;
+                    limit = showDomainTemplateRequest.limit;
+                    offset = showDomainTemplateRequest.offset;
+                } else {
+                    tmlName = showDomainTemplateRequest['tml_name'];
+                    tmlId = showDomainTemplateRequest['tml_id'];
+                    tmlType = showDomainTemplateRequest['tml_type'];
+                    limit = showDomainTemplateRequest['limit'];
+                    offset = showDomainTemplateRequest['offset'];
+                }
+            }
+
+        
+            if (tmlName !== null && tmlName !== undefined) {
+                localVarQueryParameter['tml_name'] = tmlName;
+            }
+            if (tmlId !== null && tmlId !== undefined) {
+                localVarQueryParameter['tml_id'] = tmlId;
+            }
+            if (tmlType !== null && tmlType !== undefined) {
+                localVarQueryParameter['tml_type'] = tmlType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3838,6 +4230,49 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改域名模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDomainTemplate(updateDomainTemplateRequest?: UpdateDomainTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/configuration/templates/{tml_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let tmlId;
+
+            if (updateDomainTemplateRequest !== null && updateDomainTemplateRequest !== undefined) {
+                if (updateDomainTemplateRequest instanceof UpdateDomainTemplateRequest) {
+                    tmlId = updateDomainTemplateRequest.tmlId;
+                    body = updateDomainTemplateRequest.body
+                } else {
+                    tmlId = updateDomainTemplateRequest['tml_id'];
+                    body = updateDomainTemplateRequest['body'];
+                }
+            }
+
+        
+            if (tmlId === null || tmlId === undefined) {
+            throw new RequiredError('tmlId','Required parameter tmlId was null or undefined when calling updateDomainTemplate.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'tml_id': tmlId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

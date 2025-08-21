@@ -291,7 +291,6 @@ export * from './model/PrePaidServerSecurityGroup';
 export * from './model/PrePaidServerTag';
 export * from './model/ProjectFlavorLimit';
 export * from './model/ProjectTag';
-export * from './model/RecycleBin';
 export * from './model/RecycleBinPolicys';
 export * from './model/RegisterServerMonitorRequest';
 export * from './model/RegisterServerMonitorRequestBody';

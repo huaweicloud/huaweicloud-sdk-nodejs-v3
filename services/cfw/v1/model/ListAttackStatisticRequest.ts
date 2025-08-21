@@ -10,6 +10,7 @@ export class ListAttackStatisticRequest {
     private 'end_time'?: number;
     private 'vgw_id'?: Array<string>;
     public item?: ListAttackStatisticRequestItemEnum | string;
+    public size?: number;
     public constructor(projectId?: string, fwInstanceId?: string, logType?: string, item?: string) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -86,6 +87,10 @@ export class ListAttackStatisticRequest {
     }
     public withItem(item: ListAttackStatisticRequestItemEnum | string): ListAttackStatisticRequest {
         this['item'] = item;
+        return this;
+    }
+    public withSize(size: number): ListAttackStatisticRequest {
+        this['size'] = size;
         return this;
     }
 }

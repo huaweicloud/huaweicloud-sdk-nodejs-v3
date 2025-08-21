@@ -8,8 +8,8 @@ export class EngineReference {
     public subnetCidrV6?: string;
     public subnetGateway?: string;
     public publicIpId?: string;
-    public serviceLimit?: number;
-    public instanceLimit?: number;
+    public serviceLimit?: string;
+    public instanceLimit?: string;
     public inputs?: { [key: string]: string; };
     public constructor() { 
     }
@@ -41,11 +41,11 @@ export class EngineReference {
         this['publicIpId'] = publicIpId;
         return this;
     }
-    public withServiceLimit(serviceLimit: number): EngineReference {
+    public withServiceLimit(serviceLimit: string): EngineReference {
         this['serviceLimit'] = serviceLimit;
         return this;
     }
-    public withInstanceLimit(instanceLimit: number): EngineReference {
+    public withInstanceLimit(instanceLimit: string): EngineReference {
         this['instanceLimit'] = instanceLimit;
         return this;
     }

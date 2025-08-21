@@ -4,16 +4,16 @@ export class TrustedIpAddressDto {
     public id?: string;
     private 'repository_id'?: number;
     private 'ip_range'?: string;
-    private 'ip_type'?: number;
+    private 'ip_type'?: TrustedIpAddressDtoIpTypeEnum | number;
     private 'ip_start'?: string;
     private 'ip_end'?: string;
-    private 'view_flag'?: number;
-    private 'download_flag'?: number;
-    private 'upload_flag'?: number;
+    private 'view_flag'?: TrustedIpAddressDtoViewFlagEnum | number;
+    private 'download_flag'?: TrustedIpAddressDtoDownloadFlagEnum | number;
+    private 'upload_flag'?: TrustedIpAddressDtoUploadFlagEnum | number;
     public remark?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
-    private 'order_flag'?: number;
+    private 'order_flag'?: TrustedIpAddressDtoOrderFlagEnum | number;
     public constructor() { 
     }
     public withId(id: string): TrustedIpAddressDto {
@@ -40,14 +40,14 @@ export class TrustedIpAddressDto {
     public get ipRange(): string | undefined {
         return this['ip_range'];
     }
-    public withIpType(ipType: number): TrustedIpAddressDto {
+    public withIpType(ipType: TrustedIpAddressDtoIpTypeEnum | number): TrustedIpAddressDto {
         this['ip_type'] = ipType;
         return this;
     }
-    public set ipType(ipType: number  | undefined) {
+    public set ipType(ipType: TrustedIpAddressDtoIpTypeEnum | number  | undefined) {
         this['ip_type'] = ipType;
     }
-    public get ipType(): number | undefined {
+    public get ipType(): TrustedIpAddressDtoIpTypeEnum | number | undefined {
         return this['ip_type'];
     }
     public withIpStart(ipStart: string): TrustedIpAddressDto {
@@ -70,34 +70,34 @@ export class TrustedIpAddressDto {
     public get ipEnd(): string | undefined {
         return this['ip_end'];
     }
-    public withViewFlag(viewFlag: number): TrustedIpAddressDto {
+    public withViewFlag(viewFlag: TrustedIpAddressDtoViewFlagEnum | number): TrustedIpAddressDto {
         this['view_flag'] = viewFlag;
         return this;
     }
-    public set viewFlag(viewFlag: number  | undefined) {
+    public set viewFlag(viewFlag: TrustedIpAddressDtoViewFlagEnum | number  | undefined) {
         this['view_flag'] = viewFlag;
     }
-    public get viewFlag(): number | undefined {
+    public get viewFlag(): TrustedIpAddressDtoViewFlagEnum | number | undefined {
         return this['view_flag'];
     }
-    public withDownloadFlag(downloadFlag: number): TrustedIpAddressDto {
+    public withDownloadFlag(downloadFlag: TrustedIpAddressDtoDownloadFlagEnum | number): TrustedIpAddressDto {
         this['download_flag'] = downloadFlag;
         return this;
     }
-    public set downloadFlag(downloadFlag: number  | undefined) {
+    public set downloadFlag(downloadFlag: TrustedIpAddressDtoDownloadFlagEnum | number  | undefined) {
         this['download_flag'] = downloadFlag;
     }
-    public get downloadFlag(): number | undefined {
+    public get downloadFlag(): TrustedIpAddressDtoDownloadFlagEnum | number | undefined {
         return this['download_flag'];
     }
-    public withUploadFlag(uploadFlag: number): TrustedIpAddressDto {
+    public withUploadFlag(uploadFlag: TrustedIpAddressDtoUploadFlagEnum | number): TrustedIpAddressDto {
         this['upload_flag'] = uploadFlag;
         return this;
     }
-    public set uploadFlag(uploadFlag: number  | undefined) {
+    public set uploadFlag(uploadFlag: TrustedIpAddressDtoUploadFlagEnum | number  | undefined) {
         this['upload_flag'] = uploadFlag;
     }
-    public get uploadFlag(): number | undefined {
+    public get uploadFlag(): TrustedIpAddressDtoUploadFlagEnum | number | undefined {
         return this['upload_flag'];
     }
     public withRemark(remark: string): TrustedIpAddressDto {
@@ -124,14 +124,56 @@ export class TrustedIpAddressDto {
     public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
-    public withOrderFlag(orderFlag: number): TrustedIpAddressDto {
+    public withOrderFlag(orderFlag: TrustedIpAddressDtoOrderFlagEnum | number): TrustedIpAddressDto {
         this['order_flag'] = orderFlag;
         return this;
     }
-    public set orderFlag(orderFlag: number  | undefined) {
+    public set orderFlag(orderFlag: TrustedIpAddressDtoOrderFlagEnum | number  | undefined) {
         this['order_flag'] = orderFlag;
     }
-    public get orderFlag(): number | undefined {
+    public get orderFlag(): TrustedIpAddressDtoOrderFlagEnum | number | undefined {
         return this['order_flag'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TrustedIpAddressDtoIpTypeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TrustedIpAddressDtoViewFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TrustedIpAddressDtoDownloadFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TrustedIpAddressDtoUploadFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TrustedIpAddressDtoOrderFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

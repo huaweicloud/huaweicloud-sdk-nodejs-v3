@@ -10,13 +10,13 @@ export class CustomerIpsSaveDto {
     public direction?: number;
     private 'dst_port'?: Port;
     private 'fw_instance_id'?: string;
-    private 'ips_name'?: string;
     private 'object_id'?: string;
+    private 'ips_name'?: string;
     public protocol?: number;
     public severity?: number;
     public software?: number;
     private 'src_port'?: Port;
-    public constructor(actionType?: number, affectedOs?: number, attackType?: number, contents?: Array<IpsContent>, direction?: number, dstPort?: Port, fwInstanceId?: string, ipsName?: string, objectId?: string, protocol?: number, severity?: number, software?: number, srcPort?: Port) { 
+    public constructor(actionType?: number, affectedOs?: number, attackType?: number, contents?: Array<IpsContent>, direction?: number, dstPort?: Port, fwInstanceId?: string, ipsName?: string, protocol?: number, severity?: number, software?: number, srcPort?: Port) { 
         this['action_type'] = actionType;
         this['affected_os'] = affectedOs;
         this['attack_type'] = attackType;
@@ -25,7 +25,6 @@ export class CustomerIpsSaveDto {
         this['dst_port'] = dstPort;
         this['fw_instance_id'] = fwInstanceId;
         this['ips_name'] = ipsName;
-        this['object_id'] = objectId;
         this['protocol'] = protocol;
         this['severity'] = severity;
         this['software'] = software;
@@ -89,16 +88,6 @@ export class CustomerIpsSaveDto {
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
-    public withIpsName(ipsName: string): CustomerIpsSaveDto {
-        this['ips_name'] = ipsName;
-        return this;
-    }
-    public set ipsName(ipsName: string  | undefined) {
-        this['ips_name'] = ipsName;
-    }
-    public get ipsName(): string | undefined {
-        return this['ips_name'];
-    }
     public withObjectId(objectId: string): CustomerIpsSaveDto {
         this['object_id'] = objectId;
         return this;
@@ -108,6 +97,16 @@ export class CustomerIpsSaveDto {
     }
     public get objectId(): string | undefined {
         return this['object_id'];
+    }
+    public withIpsName(ipsName: string): CustomerIpsSaveDto {
+        this['ips_name'] = ipsName;
+        return this;
+    }
+    public set ipsName(ipsName: string  | undefined) {
+        this['ips_name'] = ipsName;
+    }
+    public get ipsName(): string | undefined {
+        return this['ips_name'];
     }
     public withProtocol(protocol: number): CustomerIpsSaveDto {
         this['protocol'] = protocol;

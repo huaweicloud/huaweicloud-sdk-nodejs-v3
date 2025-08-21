@@ -6,16 +6,16 @@ export class AddTenantTrustedIpAddressResponse extends SdkResponse {
     private 'user_id'?: number;
     private 'domain_id'?: string;
     private 'ip_range'?: string;
-    private 'ip_type'?: number;
+    private 'ip_type'?: AddTenantTrustedIpAddressResponseIpTypeEnum | number;
     private 'ip_start'?: string;
     private 'ip_end'?: string;
-    private 'view_flag'?: number;
-    private 'download_flag'?: number;
-    private 'upload_flag'?: number;
+    private 'view_flag'?: AddTenantTrustedIpAddressResponseViewFlagEnum | number;
+    private 'download_flag'?: AddTenantTrustedIpAddressResponseDownloadFlagEnum | number;
+    private 'upload_flag'?: AddTenantTrustedIpAddressResponseUploadFlagEnum | number;
     public remark?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
-    private 'order_flag'?: number;
+    private 'order_flag'?: AddTenantTrustedIpAddressResponseOrderFlagEnum | number;
     public constructor() { 
         super();
     }
@@ -53,14 +53,14 @@ export class AddTenantTrustedIpAddressResponse extends SdkResponse {
     public get ipRange(): string | undefined {
         return this['ip_range'];
     }
-    public withIpType(ipType: number): AddTenantTrustedIpAddressResponse {
+    public withIpType(ipType: AddTenantTrustedIpAddressResponseIpTypeEnum | number): AddTenantTrustedIpAddressResponse {
         this['ip_type'] = ipType;
         return this;
     }
-    public set ipType(ipType: number  | undefined) {
+    public set ipType(ipType: AddTenantTrustedIpAddressResponseIpTypeEnum | number  | undefined) {
         this['ip_type'] = ipType;
     }
-    public get ipType(): number | undefined {
+    public get ipType(): AddTenantTrustedIpAddressResponseIpTypeEnum | number | undefined {
         return this['ip_type'];
     }
     public withIpStart(ipStart: string): AddTenantTrustedIpAddressResponse {
@@ -83,34 +83,34 @@ export class AddTenantTrustedIpAddressResponse extends SdkResponse {
     public get ipEnd(): string | undefined {
         return this['ip_end'];
     }
-    public withViewFlag(viewFlag: number): AddTenantTrustedIpAddressResponse {
+    public withViewFlag(viewFlag: AddTenantTrustedIpAddressResponseViewFlagEnum | number): AddTenantTrustedIpAddressResponse {
         this['view_flag'] = viewFlag;
         return this;
     }
-    public set viewFlag(viewFlag: number  | undefined) {
+    public set viewFlag(viewFlag: AddTenantTrustedIpAddressResponseViewFlagEnum | number  | undefined) {
         this['view_flag'] = viewFlag;
     }
-    public get viewFlag(): number | undefined {
+    public get viewFlag(): AddTenantTrustedIpAddressResponseViewFlagEnum | number | undefined {
         return this['view_flag'];
     }
-    public withDownloadFlag(downloadFlag: number): AddTenantTrustedIpAddressResponse {
+    public withDownloadFlag(downloadFlag: AddTenantTrustedIpAddressResponseDownloadFlagEnum | number): AddTenantTrustedIpAddressResponse {
         this['download_flag'] = downloadFlag;
         return this;
     }
-    public set downloadFlag(downloadFlag: number  | undefined) {
+    public set downloadFlag(downloadFlag: AddTenantTrustedIpAddressResponseDownloadFlagEnum | number  | undefined) {
         this['download_flag'] = downloadFlag;
     }
-    public get downloadFlag(): number | undefined {
+    public get downloadFlag(): AddTenantTrustedIpAddressResponseDownloadFlagEnum | number | undefined {
         return this['download_flag'];
     }
-    public withUploadFlag(uploadFlag: number): AddTenantTrustedIpAddressResponse {
+    public withUploadFlag(uploadFlag: AddTenantTrustedIpAddressResponseUploadFlagEnum | number): AddTenantTrustedIpAddressResponse {
         this['upload_flag'] = uploadFlag;
         return this;
     }
-    public set uploadFlag(uploadFlag: number  | undefined) {
+    public set uploadFlag(uploadFlag: AddTenantTrustedIpAddressResponseUploadFlagEnum | number  | undefined) {
         this['upload_flag'] = uploadFlag;
     }
-    public get uploadFlag(): number | undefined {
+    public get uploadFlag(): AddTenantTrustedIpAddressResponseUploadFlagEnum | number | undefined {
         return this['upload_flag'];
     }
     public withRemark(remark: string): AddTenantTrustedIpAddressResponse {
@@ -137,14 +137,56 @@ export class AddTenantTrustedIpAddressResponse extends SdkResponse {
     public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
-    public withOrderFlag(orderFlag: number): AddTenantTrustedIpAddressResponse {
+    public withOrderFlag(orderFlag: AddTenantTrustedIpAddressResponseOrderFlagEnum | number): AddTenantTrustedIpAddressResponse {
         this['order_flag'] = orderFlag;
         return this;
     }
-    public set orderFlag(orderFlag: number  | undefined) {
+    public set orderFlag(orderFlag: AddTenantTrustedIpAddressResponseOrderFlagEnum | number  | undefined) {
         this['order_flag'] = orderFlag;
     }
-    public get orderFlag(): number | undefined {
+    public get orderFlag(): AddTenantTrustedIpAddressResponseOrderFlagEnum | number | undefined {
         return this['order_flag'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AddTenantTrustedIpAddressResponseIpTypeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AddTenantTrustedIpAddressResponseViewFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AddTenantTrustedIpAddressResponseDownloadFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AddTenantTrustedIpAddressResponseUploadFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AddTenantTrustedIpAddressResponseOrderFlagEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

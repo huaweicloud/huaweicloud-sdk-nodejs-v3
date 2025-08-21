@@ -4,6 +4,8 @@ export class UpdateSnapshotSettingReq {
     public bucket?: string;
     public agency?: string;
     private 'base_path'?: string;
+    public maxSnapshotBytesPerSeconds?: string;
+    public maxRestoreBytesPerSeconds?: string;
     public constructor(bucket?: string, agency?: string, basePath?: string) { 
         this['bucket'] = bucket;
         this['agency'] = agency;
@@ -26,5 +28,13 @@ export class UpdateSnapshotSettingReq {
     }
     public get basePath(): string | undefined {
         return this['base_path'];
+    }
+    public withMaxSnapshotBytesPerSeconds(maxSnapshotBytesPerSeconds: string): UpdateSnapshotSettingReq {
+        this['maxSnapshotBytesPerSeconds'] = maxSnapshotBytesPerSeconds;
+        return this;
+    }
+    public withMaxRestoreBytesPerSeconds(maxRestoreBytesPerSeconds: string): UpdateSnapshotSettingReq {
+        this['maxRestoreBytesPerSeconds'] = maxRestoreBytesPerSeconds;
+        return this;
     }
 }

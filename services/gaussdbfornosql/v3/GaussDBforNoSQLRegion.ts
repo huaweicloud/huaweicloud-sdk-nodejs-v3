@@ -20,7 +20,7 @@ export class GaussDBforNoSQLRegion {
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://gaussdb-nosql.ap-southeast-5.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://gaussdb-nosql.me-east-1.myhuaweicloud.com"]);
     public static CN_EAST_4 = new Region("cn-east-4", ["https://gaussdb-nosql.cn-east-4.myhuaweicloud.com"]);
-    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://nosql-gemini.cn-south-4.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://gaussdb-nosql.cn-south-4.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://gaussdb-nosql.cn-southwest-3.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://gaussdb-nosql.tr-west-1.myhuaweicloud.com"]);
     public static RU_NORTHWEST_2 = new Region("ru-northwest-2", ["https://gaussdb-nosql.ru-northwest-2.myhuaweicloud.com"]);

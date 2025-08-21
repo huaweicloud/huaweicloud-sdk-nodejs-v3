@@ -293,7 +293,6 @@ import { PrePaidServerSecurityGroup } from './model/PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './model/PrePaidServerTag';
 import { ProjectFlavorLimit } from './model/ProjectFlavorLimit';
 import { ProjectTag } from './model/ProjectTag';
-import { RecycleBin } from './model/RecycleBin';
 import { RecycleBinPolicys } from './model/RecycleBinPolicys';
 import { RegisterServerMonitorRequest } from './model/RegisterServerMonitorRequest';
 import { RegisterServerMonitorRequestBody } from './model/RegisterServerMonitorRequestBody';

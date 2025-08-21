@@ -15,7 +15,6 @@ import { CommonConfiguration } from './model/CommonConfiguration';
 import { ConfigRuleCompliance } from './model/ConfigRuleCompliance';
 import { Content } from './model/Content';
 import { Control } from './model/Control';
-import { ControlOperateReqBody } from './model/ControlOperateReqBody';
 import { ControlOperation } from './model/ControlOperation';
 import { ControlViolation } from './model/ControlViolation';
 import { CreateAccountRequest } from './model/CreateAccountRequest';
@@ -38,9 +37,11 @@ import { DeleteTemplateRequest } from './model/DeleteTemplateRequest';
 import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
 import { DeregisterOrganizationalUnitRequest } from './model/DeregisterOrganizationalUnitRequest';
 import { DeregisterOrganizationalUnitResponse } from './model/DeregisterOrganizationalUnitResponse';
+import { DisableControlOperateReqBody } from './model/DisableControlOperateReqBody';
 import { DisableControlRequest } from './model/DisableControlRequest';
 import { DisableControlResponse } from './model/DisableControlResponse';
 import { DriftDetail } from './model/DriftDetail';
+import { EnableControlOperateReqBody } from './model/EnableControlOperateReqBody';
 import { EnableControlParameters } from './model/EnableControlParameters';
 import { EnableControlRequest } from './model/EnableControlRequest';
 import { EnableControlResponse } from './model/EnableControlResponse';
@@ -101,6 +102,8 @@ import { SetupLandingZoneRequest } from './model/SetupLandingZoneRequest';
 import { SetupLandingZoneResponse } from './model/SetupLandingZoneResponse';
 import { ShowAvailableUpdatesRequest } from './model/ShowAvailableUpdatesRequest';
 import { ShowAvailableUpdatesResponse } from './model/ShowAvailableUpdatesResponse';
+import { ShowBestPracticeAccountInfoRequest } from './model/ShowBestPracticeAccountInfoRequest';
+import { ShowBestPracticeAccountInfoResponse } from './model/ShowBestPracticeAccountInfoResponse';
 import { ShowBestPracticeDetailsRequest } from './model/ShowBestPracticeDetailsRequest';
 import { ShowBestPracticeDetailsResponse } from './model/ShowBestPracticeDetailsResponse';
 import { ShowBestPracticeOverviewRequest } from './model/ShowBestPracticeOverviewRequest';
@@ -183,6 +186,24 @@ export class RgcClient {
     }
 
     /**
+     * 查询治理成熟度的账号详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询治理成熟度的账号详情
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBestPracticeAccountInfo(showBestPracticeAccountInfoRequest?: ShowBestPracticeAccountInfoRequest): Promise<ShowBestPracticeAccountInfoResponse> {
+        const options = ParamCreater().showBestPracticeAccountInfo();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询最近一次成功的治理成熟度检测的详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -242,7 +263,7 @@ export class RgcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭控制策略
-     * @param {ControlOperateReqBody} controlOperateReqBody 
+     * @param {DisableControlOperateReqBody} disableControlOperateReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -261,7 +282,7 @@ export class RgcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启控制策略
-     * @param {ControlOperateReqBody} controlOperateReqBody 
+     * @param {EnableControlOperateReqBody} enableControlOperateReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -299,7 +320,7 @@ export class RgcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出不合规信息
-     * @param {string} [accountId] 账户ID。
+     * @param {string} [accountId] 纳管账号ID。
      * @param {string} [organizationalUnitId] 注册OU ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -439,7 +460,7 @@ export class RgcClient {
      *
      * @summary 查询纳管账号的合规状态
      * @param {string} managedAccountId 纳管账号ID。
-     * @param {string} [controlId] 启用的控制策略信息。
+     * @param {string} [controlId] 控制策略ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -459,7 +480,7 @@ export class RgcClient {
      *
      * @summary 查询注册OU的合规状态
      * @param {string} managedOrganizationalUnitId 注册OU ID。
-     * @param {string} [controlId] 启用的控制策略信息。
+     * @param {string} [controlId] 控制策略ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -511,11 +532,11 @@ export class RgcClient {
     }
 
     /**
-     * 查询组织里某个注册账号下开启的某个控制策略的详细信息。
+     * 查询组织里某个纳管账号下开启的某个控制策略的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询注册账号开启的控制策略
+     * @summary 查询纳管账号开启的控制策略
      * @param {string} managedAccountId 纳管账号ID。
      * @param {string} controlId 控制策略ID。
      * @param {*} [options] Override http request option.
@@ -797,7 +818,7 @@ export class RgcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列举控制策略生效的纳管账号信息
-     * @param {string} [controlId] 启用的控制策略信息。
+     * @param {string} [controlId] 控制策略ID。
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
      * @param {*} [options] Override http request option.
@@ -839,7 +860,7 @@ export class RgcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列举控制策略生效的注册OU信息
-     * @param {string} [controlId] 启用的控制策略信息。
+     * @param {string} [controlId] 控制策略ID。
      * @param {number} [limit] 分页页面的最大值。
      * @param {string} [marker] 页面标记。
      * @param {*} [options] Override http request option.
@@ -860,7 +881,7 @@ export class RgcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已注册OU和纳管账号操作过程信息列表
-     * @param {string} [accountId] 账户ID。
+     * @param {string} [accountId] 纳管账号ID。
      * @param {string} [organizationalUnitId] 注册OU ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1135,6 +1156,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/best-practice/detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询治理成熟度的账号详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBestPracticeAccountInfo() {
+            const options = {
+                method: "GET",
+                url: "/v1/best-practice/account-info",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1782,7 +1824,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询组织里某个注册账号下开启的某个控制策略的详细信息。
+         * 查询组织里某个纳管账号下开启的某个控制策略的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

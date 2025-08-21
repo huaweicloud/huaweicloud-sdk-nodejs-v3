@@ -32,7 +32,6 @@ import { BatchCreateApplicationViewRequestBodyComponentList } from './model/Batc
 import { BatchCreateApplicationViewRequestBodyGroupList } from './model/BatchCreateApplicationViewRequestBodyGroupList';
 import { BatchCreateApplicationViewRequestBodySyncRules } from './model/BatchCreateApplicationViewRequestBodySyncRules';
 import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicationViewResponse';
-import { BatchCreateApplicationViewResponseBody } from './model/BatchCreateApplicationViewResponseBody';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
 import { CancelDiagnosisTaskRequest } from './model/CancelDiagnosisTaskRequest';
 import { CancelDiagnosisTaskResponse } from './model/CancelDiagnosisTaskResponse';
@@ -63,6 +62,8 @@ import { CocUpdateChangeRequestBodyV2SubTickets } from './model/CocUpdateChangeR
 import { CocUpdateChangeRequestBodyV2TicketInfo } from './model/CocUpdateChangeRequestBodyV2TicketInfo';
 import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
+import { CountMultiCloudResourcesRequest } from './model/CountMultiCloudResourcesRequest';
+import { CountMultiCloudResourcesResponse } from './model/CountMultiCloudResourcesResponse';
 import { CountMultiResourcesRequest } from './model/CountMultiResourcesRequest';
 import { CountMultiResourcesResponse } from './model/CountMultiResourcesResponse';
 import { CreateAssessTaskRequest } from './model/CreateAssessTaskRequest';
@@ -171,6 +172,7 @@ import { GetScriptJobStatisticsRequest } from './model/GetScriptJobStatisticsReq
 import { GetScriptJobStatisticsResponse } from './model/GetScriptJobStatisticsResponse';
 import { GetScriptRequest } from './model/GetScriptRequest';
 import { GetScriptResponse } from './model/GetScriptResponse';
+import { GroupRelationConfiguration } from './model/GroupRelationConfiguration';
 import { HandleAlarmRequest } from './model/HandleAlarmRequest';
 import { HandleAlarmResponse } from './model/HandleAlarmResponse';
 import { HandleCocIncidentRequest } from './model/HandleCocIncidentRequest';
@@ -232,8 +234,8 @@ import { ListInstancesBatchRequest } from './model/ListInstancesBatchRequest';
 import { ListInstancesBatchResponse } from './model/ListInstancesBatchResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
-import { ListResourceRequest } from './model/ListResourceRequest';
-import { ListResourceResponse } from './model/ListResourceResponse';
+import { ListResourcesRequest } from './model/ListResourcesRequest';
+import { ListResourcesResponse } from './model/ListResourcesResponse';
 import { ListScheduledTaskHistoryRequest } from './model/ListScheduledTaskHistoryRequest';
 import { ListScheduledTaskHistoryResponse } from './model/ListScheduledTaskHistoryResponse';
 import { ListScheduledTaskRequest } from './model/ListScheduledTaskRequest';
@@ -330,10 +332,12 @@ import { ShowTicketInfoRequest } from './model/ShowTicketInfoRequest';
 import { ShowTicketInfoResponse } from './model/ShowTicketInfoResponse';
 import { SubTaskInfoDTO } from './model/SubTaskInfoDTO';
 import { SubTicketListInfo } from './model/SubTicketListInfo';
+import { SyncMultiCloudResourceRequest } from './model/SyncMultiCloudResourceRequest';
+import { SyncMultiCloudResourceRequestBody } from './model/SyncMultiCloudResourceRequestBody';
+import { SyncMultiCloudResourceResponse } from './model/SyncMultiCloudResourceResponse';
 import { SyncResourceReq } from './model/SyncResourceReq';
 import { SyncResourceRequest } from './model/SyncResourceRequest';
 import { SyncResourceResponse } from './model/SyncResourceResponse';
-import { Tag } from './model/Tag';
 import { Target } from './model/Target';
 import { TargetResource } from './model/TargetResource';
 import { TicketCreateSubTicketInfo } from './model/TicketCreateSubTicketInfo';
@@ -542,12 +546,12 @@ export class CocClient {
     }
 
     /**
-     * 批量创建应用视图
+     * 批量创建应用，分组，组件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量创建应用视图
-     * @param {BatchCreateApplicationViewRequestBody} [batchCreateApplicationViewRequestBody] 
+     * @summary 批量创建应用，分组，组件
+     * @param {BatchCreateApplicationViewRequestBody} [batchCreateApplicationViewRequestBody] 批量创建应用，分组，组件请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1594,6 +1598,48 @@ export class CocClient {
     }
 
     /**
+     * 查询用户在云厂商（阿里云、AWS、Azure和HCS）的资源总数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户在云厂商的资源总数
+     * @param {string} vendor **参数解释：** 云厂商类型。 **约束限制：** 不涉及。 **取值范围：** - AWS：亚马逊。 - AZURE：微软。 - ALI：阿里云。 - HCS：Huawei Cloud Stack。 **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 资源类型。 **约束限制：** 不涉及。 **取值范围：** 资源类型较多，根据实际业务选择资源类型、常用资源类型如下： - cloudservers：弹性云服务器。 - servers：裸金属服务器。 - clusters：云容器引擎。 - instances：云数据库。 **默认取值：** 不涉及。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 用户选择的资源id组成的列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<string>} [nameList] **参数解释：** 资源名称。 **约束限制：** 不涉及。 **取值范围：** 列表，可参考：裸金属服务器BMS。 **默认取值：** 不涉及。
+     * @param {Array<string>} [regionIdList] **参数解释：** 关联的区域region的id组成的列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countMultiCloudResources(countMultiCloudResourcesRequest?: CountMultiCloudResourcesRequest): Promise<CountMultiCloudResourcesResponse> {
+        const options = ParamCreater().countMultiCloudResources(countMultiCloudResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 手动从云厂商同步用户资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 手动从云厂商同步用户资源
+     * @param {SyncMultiCloudResourceRequestBody} [syncMultiCloudResourceRequestBody] 手动从云厂商同步用户资源请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncMultiCloudResource(syncMultiCloudResourceRequest?: SyncMultiCloudResourceRequest): Promise<SyncMultiCloudResourceResponse> {
+        const options = ParamCreater().syncMultiCloudResource(syncMultiCloudResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户各种资源总数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1616,39 +1662,54 @@ export class CocClient {
     }
 
     /**
-     * 查询用户所有资源
+     * 查询租户所有资源：
+     *  - 查询租户所有资源等相关信息，便于租户详细了解资源总体情况。
+     *  - 请求参数provider（云服务名称），type（云资源类型），limit（查询条数）必填，单次最大查询条数：500。
+     *  - 返回信息包括：资源ID，资源名称，云服务名称，资源类型，项目ID，租户ID，区域ID，企业项目ID，资源标签，资源详细属性，资源ingest属性，uniagentID，uniagent状态，是否托管，是否可运维。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户所有资源
-     * @param {string} provider 云服务名称
-     * @param {string} type 资源类型名称
-     * @param {number} limit 最大的返回数量
-     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
-     * @param {Array<string>} [resourceIdList] 资源id列表
-     * @param {string} [name] 名称
-     * @param {string} [regionId] region id
-     * @param {string} [azId] az id
-     * @param {string} [ipType] ip类型，fixed：内网IP，floating：弹性公网IP
-     * @param {string} [ip] ip
-     * @param {string} [status] 资源状态
-     * @param {string} [agentState] agent状态
-     * @param {string} [imageName] 镜像名称，模糊匹配
-     * @param {string} [osType] 系统类型
-     * @param {string} [tag] 标签的值
-     * @param {string} [tagKey] 标签的key
-     * @param {string} [groupId] 分组id
-     * @param {string} [componentId] 组件id
-     * @param {string} [applicationId] 应用id
-     * @param {string} [cceClusterId] cce集群id
-     * @param {string} [vpcId] vpc id
-     * @param {string} [epId] 企业项目id
-     * @param {boolean} [isDelegated] 资源是否已托管
+     * @param {string} provider **参数解释：** 云服务名称。 **约束限制：** - 创建的云资源数量（count字段对应的值）大于1时，可以使用“自动排序”和“正则排序”设置有序的云资源名称。 - 创建的云资源数量（count字段对应的值）大于1时，为区分不同云资源，创建过程中系统会自动在名称后加“-0000”的类似标记。若用户在名称后已指定“-0000”的类似标记，系统将从该标记后继续顺序递增编号。故此时名称的长度为[1-59]个字符。 **取值范围：** - 只能由中文字符、英文字母、数字及“_”、“-”、“.”组成，且长度为[1-128]个英文字符或[1-64]个中文字符。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 资源类型。 **约束限制：** 不涉及。 **取值范围：** 资源类型较多，根据实际业务选择资源类型、常用资源类型如下： - cloudservers：弹性云服务器。 - servers：裸金属服务器。 - clusters：云容器引擎。 - instances：云数据库。 **默认取值：** 不涉及。
+     * @param {number} limit **参数解释：** 分页查询每页显示的条目数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} [marker] **参数解释：** 用于分页查询。 **约束限制：** 不涉及。 **取值范围：** 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页。 **默认取值：** 不涉及。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 资源id列表。 **约束限制：** 不涉及。 **取值范围：** 资源id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {Array<string>} [ipList] **参数解释：** ip列表。 **约束限制：** 不涉及。 **取值范围：** 列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 云资源名称。 **约束限制：** 不涉及。 **取值范围：** 字符串，可参考：裸金属服务器BMS。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id。 **约束限制：** 不涉及。 **取值范围：** 关联的区域region的id。 **默认取值：** 不涉及。
+     * @param {string} [azId] **参数解释：** 可用区id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ipType] **参数解释：** ip类型。 **约束限制：** 不涉及。 **取值范围：** - fixed：内网IP。 - floating：弹性公网IP。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 云资源IP。 **约束限制：** 不涉及。 **取值范围：** IPv4地址过滤结果，匹配规则为模糊匹配。 **默认取值：** 不涉及。
+     * @param {string} [status] **参数解释：** 云资源状态。 **约束限制：** 不涉及。 **取值范围：** 请选择[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws)[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws_hk)中存在的云服务器状态。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - ONLINE：运行中。 - OFFLINE：异常。 - INSTALLING：安装中。 - FAILED：安装失败。 - UNINSTALLED：已卸载。 - null：未安装。 **默认取值：** 不涉及。
+     * @param {string} [imageName] **参数解释：** 镜像名称，模糊匹配。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 系统类型。 **约束限制：** 不涉及。 **取值范围：** - windows：windows操作系统类型。 - linux：linux操作系统类型。 **默认取值：** 不涉及。
+     * @param {string} [tag] **参数解释：** 云资源的标签。 **约束限制：** 标签的格式为“key.value”。其中，key的长度不超过36个字符，value的长度不超过43个字符。 **取值范围：** 标签命名时，需满足如下要求：标签的key值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）以及中文字符。 标签的value值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）、小数点（.）以及中文字符。 **默认取值：** 不涉及。
+     * @param {string} [tagKey] **参数解释：** 云资源的标签key。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [groupId] **参数解释：** 云资源下的分组ID。 **约束限制：** 传分组id，就查询分组下的资源数量。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [componentId] **参数解释：** 云资源下组件ID。 **约束限制：** 传组件id，就查询组件下的资源数量。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [applicationId] **参数解释：** 云资源下应用ID。 **约束限制：** 传应用id，就查询应用下的资源数量。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [cceClusterId] **参数解释：** cce集群ID。 **约束限制：** 不涉及。 **取值范围：** 资源属于的cce的ID。 **默认取值：** 不涉及。
+     * @param {string} [vpcId] **参数解释：** 待创建云资源所属虚拟私有云（简称VPC），需要指定已创建VPC的ID，UUID格式。。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [epId] **参数解释：** 企业项目id。 **约束限制：** 不涉及。 **取值范围：** 请选择[[企业管理](https://support.huaweicloud.com/usermanual-em/em_eps_qs_0400.html)](tag:hws)[[企业管理](https://support.huaweicloud.com/intl/zh-cn/usermanual-em/em_eps_qs_0400.html)](tag:hws_hk)中存在的项目ID。 **默认取值：** 不涉及。
+     * @param {boolean} [isDelegated] **参数解释：** 是否已托管。 **约束限制：** 不涉及。 **取值范围：** - true：已经托管。 - false：未托管。 **默认取值：** 不涉及。
+     * @param {boolean} [isCollected] **参数解释：** 是否已收藏。 **约束限制：** 不涉及。 **取值范围：** - true：已收藏的企业项目。 - false：未收藏的企业项目。 **默认取值：** 不涉及。
+     * @param {string} [flavorName] **参数解释：** 云资源规格名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [chargingMode] **参数解释：** 云服务器的计费类型。 **约束限制：** 不涉及。 **取值范围：** 计费模式： - 0：按需计费。 - 1：包年包月。 - 2：竞价计费。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 分页查询偏移量，表示从此偏移量开始查询。 **约束限制：** 不涉及。 **取值范围：** 0-2147483647。 **默认取值：** 0。
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [orderField] **参数解释：** 根据排序字段对资源进行排序显示。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [direction] **参数解释：** 排序。 **约束限制：** 不涉及。 **取值范围：** - DESC:倒序。 - ASC:正序。 **默认取值：** 不涉及。
+     * @param {string} [showAssociatedGroups] **参数解释：** 显示关联应用。 **约束限制：** 不涉及。 **取值范围：** - true：显示关联应用信息。 - false：不显示关联应用信息。 **默认取值：** 不涉及。
+     * @param {string} [operable] **参数解释：** 用户定义资源是否可运维实例。 **约束限制：** 不涉及。 **取值范围：** - ENABLE：可运维实例。 - DISABLE：不可运维实例operable字段不存在。 **默认取值：** 不涉及。
+     * @param {string} [createSince] **参数解释：** 创建时间中的开始日期，参考ISO8601标准格式。 **约束限制：** 开始日期和结束日期，至少有一个日期存在。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [createUntil] **参数解释：** 创建时间中的结束日期，参考ISO8601标准格式。 **约束限制：** 开始日期和结束日期，至少有一个日期存在。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listResource(listResourceRequest?: ListResourceRequest): Promise<ListResourceResponse> {
-        const options = ParamCreater().listResource(listResourceRequest);
+    public listResources(listResourcesRequest?: ListResourcesRequest): Promise<ListResourcesResponse> {
+        const options = ParamCreater().listResources(listResourcesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
@@ -2743,7 +2804,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量创建应用视图
+         * 批量创建应用，分组，组件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5271,6 +5332,109 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询用户在云厂商（阿里云、AWS、Azure和HCS）的资源总数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countMultiCloudResources(countMultiCloudResourcesRequest?: CountMultiCloudResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/multicloud-resources/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vendor;
+            
+            let type;
+            
+            let resourceIdList;
+            
+            let nameList;
+            
+            let regionIdList;
+
+            if (countMultiCloudResourcesRequest !== null && countMultiCloudResourcesRequest !== undefined) {
+                if (countMultiCloudResourcesRequest instanceof CountMultiCloudResourcesRequest) {
+                    vendor = countMultiCloudResourcesRequest.vendor;
+                    type = countMultiCloudResourcesRequest.type;
+                    resourceIdList = countMultiCloudResourcesRequest.resourceIdList;
+                    nameList = countMultiCloudResourcesRequest.nameList;
+                    regionIdList = countMultiCloudResourcesRequest.regionIdList;
+                } else {
+                    vendor = countMultiCloudResourcesRequest['vendor'];
+                    type = countMultiCloudResourcesRequest['type'];
+                    resourceIdList = countMultiCloudResourcesRequest['resource_id_list'];
+                    nameList = countMultiCloudResourcesRequest['name_list'];
+                    regionIdList = countMultiCloudResourcesRequest['region_id_list'];
+                }
+            }
+
+        
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling countMultiCloudResources.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (nameList !== null && nameList !== undefined) {
+                localVarQueryParameter['name_list'] = nameList;
+            }
+            if (regionIdList !== null && regionIdList !== undefined) {
+                localVarQueryParameter['region_id_list'] = regionIdList;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 手动从云厂商同步用户资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncMultiCloudResource(syncMultiCloudResourceRequest?: SyncMultiCloudResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/multicloud-resources/sync",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (syncMultiCloudResourceRequest !== null && syncMultiCloudResourceRequest !== undefined) {
+                if (syncMultiCloudResourceRequest instanceof SyncMultiCloudResourceRequest) {
+                    body = syncMultiCloudResourceRequest.body
+                } else {
+                    body = syncMultiCloudResourceRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户各种资源总数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5332,11 +5496,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户所有资源
+         * 查询租户所有资源：
+         *  - 查询租户所有资源等相关信息，便于租户详细了解资源总体情况。
+         *  - 请求参数provider（云服务名称），type（云资源类型），limit（查询条数）必填，单次最大查询条数：500。
+         *  - 返回信息包括：资源ID，资源名称，云服务名称，资源类型，项目ID，租户ID，区域ID，企业项目ID，资源标签，资源详细属性，资源ingest属性，uniagentID，uniagent状态，是否托管，是否可运维。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listResource(listResourceRequest?: ListResourceRequest) {
+        listResources(listResourcesRequest?: ListResourcesRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/resources",
@@ -5357,6 +5524,8 @@ export const ParamCreater = function () {
             let marker;
             
             let resourceIdList;
+            
+            let ipList;
             
             let name;
             
@@ -5393,74 +5562,120 @@ export const ParamCreater = function () {
             let epId;
             
             let isDelegated;
+            
+            let isCollected;
+            
+            let flavorName;
+            
+            let chargingMode;
+            
+            let offset;
+            
+            let enterpriseProjectId;
+            
+            let orderField;
+            
+            let direction;
+            
+            let showAssociatedGroups;
+            
+            let operable;
+            
+            let createSince;
+            
+            let createUntil;
 
-            if (listResourceRequest !== null && listResourceRequest !== undefined) {
-                if (listResourceRequest instanceof ListResourceRequest) {
-                    provider = listResourceRequest.provider;
-                    type = listResourceRequest.type;
-                    limit = listResourceRequest.limit;
-                    marker = listResourceRequest.marker;
-                    resourceIdList = listResourceRequest.resourceIdList;
-                    name = listResourceRequest.name;
-                    regionId = listResourceRequest.regionId;
-                    azId = listResourceRequest.azId;
-                    ipType = listResourceRequest.ipType;
-                    ip = listResourceRequest.ip;
-                    status = listResourceRequest.status;
-                    agentState = listResourceRequest.agentState;
-                    imageName = listResourceRequest.imageName;
-                    osType = listResourceRequest.osType;
-                    tag = listResourceRequest.tag;
-                    tagKey = listResourceRequest.tagKey;
-                    groupId = listResourceRequest.groupId;
-                    componentId = listResourceRequest.componentId;
-                    applicationId = listResourceRequest.applicationId;
-                    cceClusterId = listResourceRequest.cceClusterId;
-                    vpcId = listResourceRequest.vpcId;
-                    epId = listResourceRequest.epId;
-                    isDelegated = listResourceRequest.isDelegated;
+            if (listResourcesRequest !== null && listResourcesRequest !== undefined) {
+                if (listResourcesRequest instanceof ListResourcesRequest) {
+                    provider = listResourcesRequest.provider;
+                    type = listResourcesRequest.type;
+                    limit = listResourcesRequest.limit;
+                    marker = listResourcesRequest.marker;
+                    resourceIdList = listResourcesRequest.resourceIdList;
+                    ipList = listResourcesRequest.ipList;
+                    name = listResourcesRequest.name;
+                    regionId = listResourcesRequest.regionId;
+                    azId = listResourcesRequest.azId;
+                    ipType = listResourcesRequest.ipType;
+                    ip = listResourcesRequest.ip;
+                    status = listResourcesRequest.status;
+                    agentState = listResourcesRequest.agentState;
+                    imageName = listResourcesRequest.imageName;
+                    osType = listResourcesRequest.osType;
+                    tag = listResourcesRequest.tag;
+                    tagKey = listResourcesRequest.tagKey;
+                    groupId = listResourcesRequest.groupId;
+                    componentId = listResourcesRequest.componentId;
+                    applicationId = listResourcesRequest.applicationId;
+                    cceClusterId = listResourcesRequest.cceClusterId;
+                    vpcId = listResourcesRequest.vpcId;
+                    epId = listResourcesRequest.epId;
+                    isDelegated = listResourcesRequest.isDelegated;
+                    isCollected = listResourcesRequest.isCollected;
+                    flavorName = listResourcesRequest.flavorName;
+                    chargingMode = listResourcesRequest.chargingMode;
+                    offset = listResourcesRequest.offset;
+                    enterpriseProjectId = listResourcesRequest.enterpriseProjectId;
+                    orderField = listResourcesRequest.orderField;
+                    direction = listResourcesRequest.direction;
+                    showAssociatedGroups = listResourcesRequest.showAssociatedGroups;
+                    operable = listResourcesRequest.operable;
+                    createSince = listResourcesRequest.createSince;
+                    createUntil = listResourcesRequest.createUntil;
                 } else {
-                    provider = listResourceRequest['provider'];
-                    type = listResourceRequest['type'];
-                    limit = listResourceRequest['limit'];
-                    marker = listResourceRequest['marker'];
-                    resourceIdList = listResourceRequest['resource_id_list'];
-                    name = listResourceRequest['name'];
-                    regionId = listResourceRequest['region_id'];
-                    azId = listResourceRequest['az_id'];
-                    ipType = listResourceRequest['ip_type'];
-                    ip = listResourceRequest['ip'];
-                    status = listResourceRequest['status'];
-                    agentState = listResourceRequest['agent_state'];
-                    imageName = listResourceRequest['image_name'];
-                    osType = listResourceRequest['os_type'];
-                    tag = listResourceRequest['tag'];
-                    tagKey = listResourceRequest['tag_key'];
-                    groupId = listResourceRequest['group_id'];
-                    componentId = listResourceRequest['component_id'];
-                    applicationId = listResourceRequest['application_id'];
-                    cceClusterId = listResourceRequest['cce_cluster_id'];
-                    vpcId = listResourceRequest['vpc_id'];
-                    epId = listResourceRequest['ep_id'];
-                    isDelegated = listResourceRequest['is_delegated'];
+                    provider = listResourcesRequest['provider'];
+                    type = listResourcesRequest['type'];
+                    limit = listResourcesRequest['limit'];
+                    marker = listResourcesRequest['marker'];
+                    resourceIdList = listResourcesRequest['resource_id_list'];
+                    ipList = listResourcesRequest['ip_list'];
+                    name = listResourcesRequest['name'];
+                    regionId = listResourcesRequest['region_id'];
+                    azId = listResourcesRequest['az_id'];
+                    ipType = listResourcesRequest['ip_type'];
+                    ip = listResourcesRequest['ip'];
+                    status = listResourcesRequest['status'];
+                    agentState = listResourcesRequest['agent_state'];
+                    imageName = listResourcesRequest['image_name'];
+                    osType = listResourcesRequest['os_type'];
+                    tag = listResourcesRequest['tag'];
+                    tagKey = listResourcesRequest['tag_key'];
+                    groupId = listResourcesRequest['group_id'];
+                    componentId = listResourcesRequest['component_id'];
+                    applicationId = listResourcesRequest['application_id'];
+                    cceClusterId = listResourcesRequest['cce_cluster_id'];
+                    vpcId = listResourcesRequest['vpc_id'];
+                    epId = listResourcesRequest['ep_id'];
+                    isDelegated = listResourcesRequest['is_delegated'];
+                    isCollected = listResourcesRequest['is_collected'];
+                    flavorName = listResourcesRequest['flavor_name'];
+                    chargingMode = listResourcesRequest['charging_mode'];
+                    offset = listResourcesRequest['offset'];
+                    enterpriseProjectId = listResourcesRequest['enterprise_project_id'];
+                    orderField = listResourcesRequest['order_field'];
+                    direction = listResourcesRequest['direction'];
+                    showAssociatedGroups = listResourcesRequest['show_associated_groups'];
+                    operable = listResourcesRequest['operable'];
+                    createSince = listResourcesRequest['create_since'];
+                    createUntil = listResourcesRequest['create_until'];
                 }
             }
 
         
             if (provider === null || provider === undefined) {
-                throw new RequiredError('provider','Required parameter provider was null or undefined when calling listResource.');
+                throw new RequiredError('provider','Required parameter provider was null or undefined when calling listResources.');
             }
             if (provider !== null && provider !== undefined) {
                 localVarQueryParameter['provider'] = provider;
             }
             if (type === null || type === undefined) {
-                throw new RequiredError('type','Required parameter type was null or undefined when calling listResource.');
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listResources.');
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
             }
             if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listResource.');
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listResources.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -5470,6 +5685,9 @@ export const ParamCreater = function () {
             }
             if (resourceIdList !== null && resourceIdList !== undefined) {
                 localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (ipList !== null && ipList !== undefined) {
+                localVarQueryParameter['ip_list'] = ipList;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -5524,6 +5742,39 @@ export const ParamCreater = function () {
             }
             if (isDelegated !== null && isDelegated !== undefined) {
                 localVarQueryParameter['is_delegated'] = isDelegated;
+            }
+            if (isCollected !== null && isCollected !== undefined) {
+                localVarQueryParameter['is_collected'] = isCollected;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (orderField !== null && orderField !== undefined) {
+                localVarQueryParameter['order_field'] = orderField;
+            }
+            if (direction !== null && direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+            if (showAssociatedGroups !== null && showAssociatedGroups !== undefined) {
+                localVarQueryParameter['show_associated_groups'] = showAssociatedGroups;
+            }
+            if (operable !== null && operable !== undefined) {
+                localVarQueryParameter['operable'] = operable;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
             }
 
             options.queryParams = localVarQueryParameter;

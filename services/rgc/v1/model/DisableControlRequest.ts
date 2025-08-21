@@ -1,11 +1,11 @@
-import { ControlOperateReqBody } from './ControlOperateReqBody';
+import { DisableControlOperateReqBody } from './DisableControlOperateReqBody';
 
 
 export class DisableControlRequest {
-    public body?: ControlOperateReqBody;
+    public body?: DisableControlOperateReqBody;
     public constructor() { 
     }
-    public withBody(body: ControlOperateReqBody): DisableControlRequest {
+    public withBody(body: DisableControlOperateReqBody): DisableControlRequest {
         this['body'] = body;
         return this;
     }

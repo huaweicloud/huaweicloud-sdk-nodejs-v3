@@ -4,20 +4,21 @@ export class ListCustomerIpsRequest {
     private 'action_type'?: number;
     private 'affected_os'?: number;
     private 'attack_type'?: number;
-    private 'fw_instance_id'?: string;
     private 'ips_name'?: string;
-    public limit?: number;
-    private 'object_id'?: string;
-    public offset?: number;
-    private 'project_id'?: string;
+    private 'ips_id'?: string;
     public protocol?: number;
     public severity?: number;
     public software?: number;
+    private 'object_id'?: string;
     private 'enterprise_project_id'?: string;
-    public constructor(fwInstanceId?: string, limit?: number, objectId?: string, offset?: number, projectId?: string) { 
+    private 'fw_instance_id'?: string;
+    public limit?: number;
+    public offset?: number;
+    private 'project_id'?: string;
+    public constructor(objectId?: string, fwInstanceId?: string, limit?: number, offset?: number, projectId?: string) { 
+        this['object_id'] = objectId;
         this['fw_instance_id'] = fwInstanceId;
         this['limit'] = limit;
-        this['object_id'] = objectId;
         this['offset'] = offset;
         this['project_id'] = projectId;
     }
@@ -51,16 +52,6 @@ export class ListCustomerIpsRequest {
     public get attackType(): number | undefined {
         return this['attack_type'];
     }
-    public withFwInstanceId(fwInstanceId: string): ListCustomerIpsRequest {
-        this['fw_instance_id'] = fwInstanceId;
-        return this;
-    }
-    public set fwInstanceId(fwInstanceId: string  | undefined) {
-        this['fw_instance_id'] = fwInstanceId;
-    }
-    public get fwInstanceId(): string | undefined {
-        return this['fw_instance_id'];
-    }
     public withIpsName(ipsName: string): ListCustomerIpsRequest {
         this['ips_name'] = ipsName;
         return this;
@@ -71,8 +62,26 @@ export class ListCustomerIpsRequest {
     public get ipsName(): string | undefined {
         return this['ips_name'];
     }
-    public withLimit(limit: number): ListCustomerIpsRequest {
-        this['limit'] = limit;
+    public withIpsId(ipsId: string): ListCustomerIpsRequest {
+        this['ips_id'] = ipsId;
+        return this;
+    }
+    public set ipsId(ipsId: string  | undefined) {
+        this['ips_id'] = ipsId;
+    }
+    public get ipsId(): string | undefined {
+        return this['ips_id'];
+    }
+    public withProtocol(protocol: number): ListCustomerIpsRequest {
+        this['protocol'] = protocol;
+        return this;
+    }
+    public withSeverity(severity: number): ListCustomerIpsRequest {
+        this['severity'] = severity;
+        return this;
+    }
+    public withSoftware(software: number): ListCustomerIpsRequest {
+        this['software'] = software;
         return this;
     }
     public withObjectId(objectId: string): ListCustomerIpsRequest {
@@ -84,6 +93,30 @@ export class ListCustomerIpsRequest {
     }
     public get objectId(): string | undefined {
         return this['object_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListCustomerIpsRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): ListCustomerIpsRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId(): string | undefined {
+        return this['fw_instance_id'];
+    }
+    public withLimit(limit: number): ListCustomerIpsRequest {
+        this['limit'] = limit;
+        return this;
     }
     public withOffset(offset: number): ListCustomerIpsRequest {
         this['offset'] = offset;
@@ -98,27 +131,5 @@ export class ListCustomerIpsRequest {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
-    }
-    public withProtocol(protocol: number): ListCustomerIpsRequest {
-        this['protocol'] = protocol;
-        return this;
-    }
-    public withSeverity(severity: number): ListCustomerIpsRequest {
-        this['severity'] = severity;
-        return this;
-    }
-    public withSoftware(software: number): ListCustomerIpsRequest {
-        this['software'] = software;
-        return this;
-    }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ListCustomerIpsRequest {
-        this['enterprise_project_id'] = enterpriseProjectId;
-        return this;
-    }
-    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
-        this['enterprise_project_id'] = enterpriseProjectId;
-    }
-    public get enterpriseProjectId(): string | undefined {
-        return this['enterprise_project_id'];
     }
 }

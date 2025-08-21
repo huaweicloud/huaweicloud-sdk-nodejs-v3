@@ -1,4 +1,3 @@
-import { Tag } from './Tag';
 
 
 export class BatchListResourceResponseData {
@@ -9,15 +8,22 @@ export class BatchListResourceResponseData {
     public provider?: string;
     public type?: string;
     private 'project_id'?: string;
+    private 'project_name'?: string;
     private 'region_id'?: string;
     private 'ep_id'?: string;
-    public tags?: Array<Tag>;
+    private 'ep_name'?: string;
+    public tags?: object;
     private 'agent_id'?: string;
-    private 'agent_state'?: string;
-    public properties?: { [key: string]: object; };
+    private 'agent_state'?: BatchListResourceResponseDataAgentStateEnum | string;
+    public properties?: object;
     private 'ingest_properties'?: { [key: string]: string; };
     private 'is_delegated'?: boolean;
+    private 'inner_ip'?: string;
     public operable?: string;
+    private 'is_associate_group'?: boolean;
+    private 'associated_group_list'?: Array<string>;
+    private 'create_time'?: Date;
+    private 'update_time'?: Date;
     public constructor() { 
     }
     public withId(id: string): BatchListResourceResponseData {
@@ -66,6 +72,16 @@ export class BatchListResourceResponseData {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
+    public withProjectName(projectName: string): BatchListResourceResponseData {
+        this['project_name'] = projectName;
+        return this;
+    }
+    public set projectName(projectName: string  | undefined) {
+        this['project_name'] = projectName;
+    }
+    public get projectName(): string | undefined {
+        return this['project_name'];
+    }
     public withRegionId(regionId: string): BatchListResourceResponseData {
         this['region_id'] = regionId;
         return this;
@@ -86,7 +102,17 @@ export class BatchListResourceResponseData {
     public get epId(): string | undefined {
         return this['ep_id'];
     }
-    public withTags(tags: Array<Tag>): BatchListResourceResponseData {
+    public withEpName(epName: string): BatchListResourceResponseData {
+        this['ep_name'] = epName;
+        return this;
+    }
+    public set epName(epName: string  | undefined) {
+        this['ep_name'] = epName;
+    }
+    public get epName(): string | undefined {
+        return this['ep_name'];
+    }
+    public withTags(tags: object): BatchListResourceResponseData {
         this['tags'] = tags;
         return this;
     }
@@ -100,17 +126,17 @@ export class BatchListResourceResponseData {
     public get agentId(): string | undefined {
         return this['agent_id'];
     }
-    public withAgentState(agentState: string): BatchListResourceResponseData {
+    public withAgentState(agentState: BatchListResourceResponseDataAgentStateEnum | string): BatchListResourceResponseData {
         this['agent_state'] = agentState;
         return this;
     }
-    public set agentState(agentState: string  | undefined) {
+    public set agentState(agentState: BatchListResourceResponseDataAgentStateEnum | string  | undefined) {
         this['agent_state'] = agentState;
     }
-    public get agentState(): string | undefined {
+    public get agentState(): BatchListResourceResponseDataAgentStateEnum | string | undefined {
         return this['agent_state'];
     }
-    public withProperties(properties: { [key: string]: object; }): BatchListResourceResponseData {
+    public withProperties(properties: object): BatchListResourceResponseData {
         this['properties'] = properties;
         return this;
     }
@@ -134,8 +160,70 @@ export class BatchListResourceResponseData {
     public get isDelegated(): boolean | undefined {
         return this['is_delegated'];
     }
+    public withInnerIp(innerIp: string): BatchListResourceResponseData {
+        this['inner_ip'] = innerIp;
+        return this;
+    }
+    public set innerIp(innerIp: string  | undefined) {
+        this['inner_ip'] = innerIp;
+    }
+    public get innerIp(): string | undefined {
+        return this['inner_ip'];
+    }
     public withOperable(operable: string): BatchListResourceResponseData {
         this['operable'] = operable;
         return this;
     }
+    public withIsAssociateGroup(isAssociateGroup: boolean): BatchListResourceResponseData {
+        this['is_associate_group'] = isAssociateGroup;
+        return this;
+    }
+    public set isAssociateGroup(isAssociateGroup: boolean  | undefined) {
+        this['is_associate_group'] = isAssociateGroup;
+    }
+    public get isAssociateGroup(): boolean | undefined {
+        return this['is_associate_group'];
+    }
+    public withAssociatedGroupList(associatedGroupList: Array<string>): BatchListResourceResponseData {
+        this['associated_group_list'] = associatedGroupList;
+        return this;
+    }
+    public set associatedGroupList(associatedGroupList: Array<string>  | undefined) {
+        this['associated_group_list'] = associatedGroupList;
+    }
+    public get associatedGroupList(): Array<string> | undefined {
+        return this['associated_group_list'];
+    }
+    public withCreateTime(createTime: Date): BatchListResourceResponseData {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: Date  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): Date | undefined {
+        return this['create_time'];
+    }
+    public withUpdateTime(updateTime: Date): BatchListResourceResponseData {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: Date  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): Date | undefined {
+        return this['update_time'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchListResourceResponseDataAgentStateEnum {
+    ONLINE = 'ONLINE',
+    OFFLINE = 'OFFLINE',
+    INSTALLING = 'INSTALLING',
+    FAILED = 'FAILED',
+    UNINSTALLED = 'UNINSTALLED'
 }

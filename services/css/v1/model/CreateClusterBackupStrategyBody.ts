@@ -4,9 +4,12 @@ export class CreateClusterBackupStrategyBody {
     public period?: string;
     public prefix?: string;
     public keepday?: number;
+    public frequency?: string;
     public bucket?: string;
     public basePath?: string;
     public agency?: string;
+    public maxSnapshotBytesPerSeconds?: string;
+    public maxRestoreBytesPerSeconds?: string;
     public constructor(period?: string, prefix?: string, keepday?: number) { 
         this['period'] = period;
         this['prefix'] = prefix;
@@ -24,6 +27,10 @@ export class CreateClusterBackupStrategyBody {
         this['keepday'] = keepday;
         return this;
     }
+    public withFrequency(frequency: string): CreateClusterBackupStrategyBody {
+        this['frequency'] = frequency;
+        return this;
+    }
     public withBucket(bucket: string): CreateClusterBackupStrategyBody {
         this['bucket'] = bucket;
         return this;
@@ -34,6 +41,14 @@ export class CreateClusterBackupStrategyBody {
     }
     public withAgency(agency: string): CreateClusterBackupStrategyBody {
         this['agency'] = agency;
+        return this;
+    }
+    public withMaxSnapshotBytesPerSeconds(maxSnapshotBytesPerSeconds: string): CreateClusterBackupStrategyBody {
+        this['maxSnapshotBytesPerSeconds'] = maxSnapshotBytesPerSeconds;
+        return this;
+    }
+    public withMaxRestoreBytesPerSeconds(maxRestoreBytesPerSeconds: string): CreateClusterBackupStrategyBody {
+        this['maxRestoreBytesPerSeconds'] = maxRestoreBytesPerSeconds;
         return this;
     }
 }

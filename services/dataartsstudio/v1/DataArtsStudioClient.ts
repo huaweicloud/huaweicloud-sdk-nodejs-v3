@@ -191,9 +191,11 @@ import { CodeTableFieldVO } from './model/CodeTableFieldVO';
 import { CodeTableFieldValueUpdateVO } from './model/CodeTableFieldValueUpdateVO';
 import { CodeTableFieldValueVO } from './model/CodeTableFieldValueVO';
 import { CodeTableVO } from './model/CodeTableVO';
+import { ColumnConfig } from './model/ColumnConfig';
 import { ColumnDetails } from './model/ColumnDetails';
 import { ColumnInfo } from './model/ColumnInfo';
 import { ColumnLineage } from './model/ColumnLineage';
+import { ColumnLineageConfig } from './model/ColumnLineageConfig';
 import { ColumnLineageV2 } from './model/ColumnLineageV2';
 import { ColumnsList } from './model/ColumnsList';
 import { CommonConditionVO } from './model/CommonConditionVO';
@@ -517,6 +519,9 @@ import { ImportCatalogsRequest } from './model/ImportCatalogsRequest';
 import { ImportCatalogsRequestBody } from './model/ImportCatalogsRequestBody';
 import { ImportCatalogsResponse } from './model/ImportCatalogsResponse';
 import { ImportDataClassificationRuleDto } from './model/ImportDataClassificationRuleDto';
+import { ImportDataMapLineageRequest } from './model/ImportDataMapLineageRequest';
+import { ImportDataMapLineageRequestBody } from './model/ImportDataMapLineageRequestBody';
+import { ImportDataMapLineageResponse } from './model/ImportDataMapLineageResponse';
 import { ImportDataServiceExcelRequest } from './model/ImportDataServiceExcelRequest';
 import { ImportDataServiceExcelRequestBody } from './model/ImportDataServiceExcelRequestBody';
 import { ImportDataServiceExcelResponse } from './model/ImportDataServiceExcelResponse';
@@ -811,6 +816,7 @@ import { ModifySecurityAdminRequest } from './model/ModifySecurityAdminRequest';
 import { ModifySecurityAdminResponse } from './model/ModifySecurityAdminResponse';
 import { Namespace } from './model/Namespace';
 import { Node } from './model/Node';
+import { NodeLineageGuids } from './model/NodeLineageGuids';
 import { OBSCommonConfig } from './model/OBSCommonConfig';
 import { ObjectIdInfo } from './model/ObjectIdInfo';
 import { ObsFolder } from './model/ObsFolder';
@@ -1156,6 +1162,7 @@ import { StopFactorySupplementDataInstanceRequest } from './model/StopFactorySup
 import { StopFactorySupplementDataInstanceResponse } from './model/StopFactorySupplementDataInstanceResponse';
 import { SubCategoryDetailVO } from './model/SubCategoryDetailVO';
 import { SubInstanceResult } from './model/SubInstanceResult';
+import { SubNodeLineageConfig } from './model/SubNodeLineageConfig';
 import { SubjectParamsVO } from './model/SubjectParamsVO';
 import { SupplementDataRespRows } from './model/SupplementDataRespRows';
 import { SupplementDataRespSupplementDataInstanceTime } from './model/SupplementDataRespSupplementDataInstanceTime';
@@ -1164,6 +1171,7 @@ import { SyncStatusEnum } from './model/SyncStatusEnum';
 import { SyncStatusStatisticVO } from './model/SyncStatusStatisticVO';
 import { TableApprover } from './model/TableApprover';
 import { TableColumnDTO } from './model/TableColumnDTO';
+import { TableConfig } from './model/TableConfig';
 import { TableInfo } from './model/TableInfo';
 import { TableInfoV2 } from './model/TableInfoV2';
 import { TableLineage } from './model/TableLineage';
@@ -3921,6 +3929,26 @@ export class DataArtsStudioClient {
      */
     public importCatalogs(importCatalogsRequest?: ImportCatalogsRequest): Promise<ImportCatalogsResponse> {
         const options = ParamCreater().importCatalogs(importCatalogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 血缘导入接口，一次性获取所有作业算子的血缘。该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入血缘(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {ImportDataMapLineageRequestBody} importDataMapLineageRequestBody 导入血缘请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importDataMapLineage(importDataMapLineageRequest?: ImportDataMapLineageRequest): Promise<ImportDataMapLineageResponse> {
+        const options = ParamCreater().importDataMapLineage(importDataMapLineageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16630,6 +16658,51 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 血缘导入接口，一次性获取所有作业算子的血缘。该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importDataMapLineage(importDataMapLineageRequest?: ImportDataMapLineageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/datamap/lineage/import",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instance;
+
+            if (importDataMapLineageRequest !== null && importDataMapLineageRequest !== undefined) {
+                if (importDataMapLineageRequest instanceof ImportDataMapLineageRequest) {
+                    instance = importDataMapLineageRequest.instance;
+                    body = importDataMapLineageRequest.body
+                } else {
+                    instance = importDataMapLineageRequest['instance'];
+                    body = importDataMapLineageRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

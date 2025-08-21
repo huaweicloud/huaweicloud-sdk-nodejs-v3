@@ -2,7 +2,7 @@
 
 export class ListCertsRequest {
     private 'cluster_id'?: string;
-    public start?: string;
+    public offset?: string;
     public limit?: string;
     public certsType?: string;
     public constructor(clusterId?: string) { 
@@ -18,8 +18,8 @@ export class ListCertsRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withStart(start: string): ListCertsRequest {
-        this['start'] = start;
+    public withOffset(offset: string): ListCertsRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: string): ListCertsRequest {

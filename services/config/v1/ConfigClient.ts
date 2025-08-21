@@ -97,6 +97,7 @@ import { DisablePolicyAssignmentRequest } from './model/DisablePolicyAssignmentR
 import { DisablePolicyAssignmentResponse } from './model/DisablePolicyAssignmentResponse';
 import { EnablePolicyAssignmentRequest } from './model/EnablePolicyAssignmentRequest';
 import { EnablePolicyAssignmentResponse } from './model/EnablePolicyAssignmentResponse';
+import { FilterTagDetail } from './model/FilterTagDetail';
 import { FrozenStatus } from './model/FrozenStatus';
 import { GroupedResourceCount } from './model/GroupedResourceCount';
 import { HistoryItem } from './model/HistoryItem';
@@ -186,6 +187,7 @@ import { PolicyComplianceSummaryUnit } from './model/PolicyComplianceSummaryUnit
 import { PolicyDefinition } from './model/PolicyDefinition';
 import { PolicyDefinitionDefaultResourceTypes } from './model/PolicyDefinitionDefaultResourceTypes';
 import { PolicyFilterDefinition } from './model/PolicyFilterDefinition';
+import { PolicyFilterDefinitionV2 } from './model/PolicyFilterDefinitionV2';
 import { PolicyParameterDefinition } from './model/PolicyParameterDefinition';
 import { PolicyParameterValue } from './model/PolicyParameterValue';
 import { PolicyResource } from './model/PolicyResource';

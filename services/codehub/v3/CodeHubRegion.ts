@@ -15,6 +15,12 @@ export class CodeHubRegion {
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://codehub-ext.cn-southwest-2.myhuaweicloud.com"]);
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://codehub-ext.sa-brazil-1.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://codehub-ext.la-north-2.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://codehub-ext.ap-southeast-3.myhuaweicloud.com"]);
+    public static LA_SOUTH_2 = new Region("la-south-2", ["https://codeartsrepo-ext.la-south-2.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://repo.me-east-1.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://codeartsrepo-ext.tr-west-1.myhuaweicloud.com"]);
+    public static AF_SOUTH_1 = new Region("af-south-1", ["https://repo.af-south-1.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://repo.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -26,7 +32,13 @@ export class CodeHubRegion {
         "cn-south-2":CodeHubRegion.CN_SOUTH_2,
         "cn-southwest-2":CodeHubRegion.CN_SOUTHWEST_2,
         "sa-brazil-1":CodeHubRegion.SA_BRAZIL_1,
-        "la-north-2":CodeHubRegion.LA_NORTH_2
+        "la-north-2":CodeHubRegion.LA_NORTH_2,
+        "ap-southeast-3":CodeHubRegion.AP_SOUTHEAST_3,
+        "la-south-2":CodeHubRegion.LA_SOUTH_2,
+        "me-east-1":CodeHubRegion.ME_EAST_1,
+        "tr-west-1":CodeHubRegion.TR_WEST_1,
+        "af-south-1":CodeHubRegion.AF_SOUTH_1,
+        "af-north-1":CodeHubRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

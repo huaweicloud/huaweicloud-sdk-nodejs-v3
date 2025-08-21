@@ -1,5 +1,6 @@
 import { CustomPolicy } from './CustomPolicy';
 import { PolicyFilterDefinition } from './PolicyFilterDefinition';
+import { PolicyFilterDefinitionV2 } from './PolicyFilterDefinitionV2';
 import { PolicyParameterValue } from './PolicyParameterValue';
 import { ResourceTag } from './ResourceTag';
 
@@ -11,6 +12,7 @@ export class UpdatePolicyAssignmentResponse extends SdkResponse {
     public name?: string;
     public description?: string;
     private 'policy_filter'?: PolicyFilterDefinition;
+    private 'policy_filter_v2'?: PolicyFilterDefinitionV2;
     public period?: string;
     public state?: string;
     public created?: string;
@@ -56,6 +58,16 @@ export class UpdatePolicyAssignmentResponse extends SdkResponse {
     }
     public get policyFilter(): PolicyFilterDefinition | undefined {
         return this['policy_filter'];
+    }
+    public withPolicyFilterV2(policyFilterV2: PolicyFilterDefinitionV2): UpdatePolicyAssignmentResponse {
+        this['policy_filter_v2'] = policyFilterV2;
+        return this;
+    }
+    public set policyFilterV2(policyFilterV2: PolicyFilterDefinitionV2  | undefined) {
+        this['policy_filter_v2'] = policyFilterV2;
+    }
+    public get policyFilterV2(): PolicyFilterDefinitionV2 | undefined {
+        return this['policy_filter_v2'];
     }
     public withPeriod(period: string): UpdatePolicyAssignmentResponse {
         this['period'] = period;

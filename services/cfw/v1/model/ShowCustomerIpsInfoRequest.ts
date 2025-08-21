@@ -1,25 +1,15 @@
 
 
 export class ShowCustomerIpsInfoRequest {
-    private 'fw_instance_id'?: string;
     private 'ips_cfw_id'?: string;
     private 'object_id'?: string;
+    private 'fw_instance_id'?: string;
     private 'project_id'?: string;
-    public constructor(fwInstanceId?: string, ipsCfwId?: string, objectId?: string, projectId?: string) { 
-        this['fw_instance_id'] = fwInstanceId;
+    public constructor(ipsCfwId?: string, objectId?: string, fwInstanceId?: string, projectId?: string) { 
         this['ips_cfw_id'] = ipsCfwId;
         this['object_id'] = objectId;
+        this['fw_instance_id'] = fwInstanceId;
         this['project_id'] = projectId;
-    }
-    public withFwInstanceId(fwInstanceId: string): ShowCustomerIpsInfoRequest {
-        this['fw_instance_id'] = fwInstanceId;
-        return this;
-    }
-    public set fwInstanceId(fwInstanceId: string  | undefined) {
-        this['fw_instance_id'] = fwInstanceId;
-    }
-    public get fwInstanceId(): string | undefined {
-        return this['fw_instance_id'];
     }
     public withIpsCfwId(ipsCfwId: string): ShowCustomerIpsInfoRequest {
         this['ips_cfw_id'] = ipsCfwId;
@@ -40,6 +30,16 @@ export class ShowCustomerIpsInfoRequest {
     }
     public get objectId(): string | undefined {
         return this['object_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): ShowCustomerIpsInfoRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId(): string | undefined {
+        return this['fw_instance_id'];
     }
     public withProjectId(projectId: string): ShowCustomerIpsInfoRequest {
         this['project_id'] = projectId;

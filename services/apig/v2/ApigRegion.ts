@@ -31,6 +31,15 @@ export class ApigRegion {
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://apig.my-kualalumpur-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://apig.eu-west-0.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://apig.ru-moscow-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://apig.cn-south-4.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://apig.cn-east-5.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://apig.cn-north-12.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://apig.cn-east-4.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://apig.cn-southwest-3.myhuaweicloud.com"]);
+    public static CN_SOUTH_2 = new Region("cn-south-2", ["https://apig.cn-south-2.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://apig.cn-north-11.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://apig.ap-southeast-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://apig.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -58,7 +67,16 @@ export class ApigRegion {
         "me-east-1":ApigRegion.ME_EAST_1,
         "my-kualalumpur-1":ApigRegion.MY_KUALALUMPUR_1,
         "eu-west-0":ApigRegion.EU_WEST_0,
-        "ru-moscow-1":ApigRegion.RU_MOSCOW_1
+        "ru-moscow-1":ApigRegion.RU_MOSCOW_1,
+        "cn-south-4":ApigRegion.CN_SOUTH_4,
+        "cn-east-5":ApigRegion.CN_EAST_5,
+        "cn-north-12":ApigRegion.CN_NORTH_12,
+        "cn-east-4":ApigRegion.CN_EAST_4,
+        "cn-southwest-3":ApigRegion.CN_SOUTHWEST_3,
+        "cn-south-2":ApigRegion.CN_SOUTH_2,
+        "cn-north-11":ApigRegion.CN_NORTH_11,
+        "ap-southeast-5":ApigRegion.AP_SOUTHEAST_5,
+        "af-north-1":ApigRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

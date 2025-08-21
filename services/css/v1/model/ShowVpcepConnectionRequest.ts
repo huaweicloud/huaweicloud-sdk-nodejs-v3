@@ -2,7 +2,7 @@
 
 export class ShowVpcepConnectionRequest {
     private 'cluster_id'?: string;
-    public start?: number;
+    public offset?: number;
     public limit?: number;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
@@ -17,8 +17,8 @@ export class ShowVpcepConnectionRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withStart(start: number): ShowVpcepConnectionRequest {
-        this['start'] = start;
+    public withOffset(offset: number): ShowVpcepConnectionRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: number): ShowVpcepConnectionRequest {

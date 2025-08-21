@@ -3,8 +3,8 @@
 export class ShowAccessTopRequest {
     private 'project_id'?: string;
     private 'fw_instance_id'?: string;
-    public direction?: ShowAccessTopRequestDirectionEnum | string;
     public range?: ShowAccessTopRequestRangeEnum | number;
+    public direction?: ShowAccessTopRequestDirectionEnum | string;
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'vgw_id'?: Array<string>;
@@ -36,12 +36,12 @@ export class ShowAccessTopRequest {
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
-    public withDirection(direction: ShowAccessTopRequestDirectionEnum | string): ShowAccessTopRequest {
-        this['direction'] = direction;
-        return this;
-    }
     public withRange(range: ShowAccessTopRequestRangeEnum | number): ShowAccessTopRequest {
         this['range'] = range;
+        return this;
+    }
+    public withDirection(direction: ShowAccessTopRequestDirectionEnum | string): ShowAccessTopRequest {
+        this['direction'] = direction;
         return this;
     }
     public withStartTime(startTime: number): ShowAccessTopRequest {
@@ -104,18 +104,18 @@ export class ShowAccessTopRequest {
     * @export
     * @enum {string}
     */
-export enum ShowAccessTopRequestDirectionEnum {
-    IN2OUT = 'in2out',
-    OUT2IN = 'out2in'
+export enum ShowAccessTopRequestRangeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }
 /**
     * @export
     * @enum {string}
     */
-export enum ShowAccessTopRequestRangeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1,
-    NUMBER_2 = 2
+export enum ShowAccessTopRequestDirectionEnum {
+    IN2OUT = 'in2out',
+    OUT2IN = 'out2in'
 }
 /**
     * @export

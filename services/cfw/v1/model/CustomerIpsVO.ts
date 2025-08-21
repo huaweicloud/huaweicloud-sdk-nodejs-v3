@@ -3,14 +3,14 @@ import { Port } from './Port';
 
 
 export class CustomerIpsVO {
-    public action?: CustomerIpsVOActionEnum | number;
-    private 'affected_os'?: CustomerIpsVOAffectedOsEnum | number;
+    public action?: number;
+    private 'group_id'?: string;
+    private 'affected_os'?: number;
     private 'attack_type'?: number;
     private 'config_status'?: number;
     public contents?: Array<IpsContent>;
     public direction?: number;
     private 'dst_port'?: Port;
-    private 'group_id'?: string;
     private 'ips_cfw_id'?: string;
     private 'ips_id'?: string;
     private 'ips_name'?: string;
@@ -20,18 +20,28 @@ export class CustomerIpsVO {
     private 'src_port'?: Port;
     public constructor() { 
     }
-    public withAction(action: CustomerIpsVOActionEnum | number): CustomerIpsVO {
+    public withAction(action: number): CustomerIpsVO {
         this['action'] = action;
         return this;
     }
-    public withAffectedOs(affectedOs: CustomerIpsVOAffectedOsEnum | number): CustomerIpsVO {
+    public withGroupId(groupId: string): CustomerIpsVO {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withAffectedOs(affectedOs: number): CustomerIpsVO {
         this['affected_os'] = affectedOs;
         return this;
     }
-    public set affectedOs(affectedOs: CustomerIpsVOAffectedOsEnum | number  | undefined) {
+    public set affectedOs(affectedOs: number  | undefined) {
         this['affected_os'] = affectedOs;
     }
-    public get affectedOs(): CustomerIpsVOAffectedOsEnum | number | undefined {
+    public get affectedOs(): number | undefined {
         return this['affected_os'];
     }
     public withAttackType(attackType: number): CustomerIpsVO {
@@ -71,16 +81,6 @@ export class CustomerIpsVO {
     }
     public get dstPort(): Port | undefined {
         return this['dst_port'];
-    }
-    public withGroupId(groupId: string): CustomerIpsVO {
-        this['group_id'] = groupId;
-        return this;
-    }
-    public set groupId(groupId: string  | undefined) {
-        this['group_id'] = groupId;
-    }
-    public get groupId(): string | undefined {
-        return this['group_id'];
     }
     public withIpsCfwId(ipsCfwId: string): CustomerIpsVO {
         this['ips_cfw_id'] = ipsCfwId;
@@ -134,30 +134,4 @@ export class CustomerIpsVO {
     public get srcPort(): Port | undefined {
         return this['src_port'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CustomerIpsVOActionEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CustomerIpsVOAffectedOsEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1,
-    NUMBER_2 = 2,
-    NUMBER_3 = 3,
-    NUMBER_4 = 4,
-    NUMBER_5 = 5,
-    NUMBER_6 = 6,
-    NUMBER_7 = 7,
-    NUMBER_8 = 8,
-    NUMBER_9 = 9,
-    NUMBER_10 = 10
 }

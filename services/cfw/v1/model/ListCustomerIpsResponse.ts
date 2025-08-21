@@ -1,13 +1,13 @@
-import { HttpListCustomerIpsResponseData } from './HttpListCustomerIpsResponseData';
+import { CustomerIpsPageInfo } from './CustomerIpsPageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCustomerIpsResponse extends SdkResponse {
-    public data?: HttpListCustomerIpsResponseData;
+    public data?: CustomerIpsPageInfo;
     public constructor() { 
         super();
     }
-    public withData(data: HttpListCustomerIpsResponseData): ListCustomerIpsResponse {
+    public withData(data: CustomerIpsPageInfo): ListCustomerIpsResponse {
         this['data'] = data;
         return this;
     }

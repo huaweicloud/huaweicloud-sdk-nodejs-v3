@@ -2,7 +2,7 @@
 
 export class ListPipelinesRequest {
     private 'cluster_id'?: string;
-    public start?: string;
+    public offset?: string;
     public limit?: string;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
@@ -17,8 +17,8 @@ export class ListPipelinesRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withStart(start: string): ListPipelinesRequest {
-        this['start'] = start;
+    public withOffset(offset: string): ListPipelinesRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: string): ListPipelinesRequest {

@@ -2,7 +2,7 @@
 
 export class UpgradeDetailRequest {
     private 'cluster_id'?: string;
-    public start?: number;
+    public offset?: number;
     public limit?: number;
     private 'action_mode'?: string;
     public constructor(clusterId?: string) { 
@@ -18,8 +18,8 @@ export class UpgradeDetailRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withStart(start: number): UpgradeDetailRequest {
-        this['start'] = start;
+    public withOffset(offset: number): UpgradeDetailRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: number): UpgradeDetailRequest {

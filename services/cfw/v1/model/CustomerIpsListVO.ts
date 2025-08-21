@@ -8,7 +8,6 @@ export class CustomerIpsListVO {
     public content?: string;
     private 'dst_port_type'?: number;
     private 'dst_ports'?: string;
-    private 'group_id'?: string;
     private 'ips_cfw_id'?: string;
     private 'ips_id'?: string;
     private 'ips_name'?: string;
@@ -17,6 +16,7 @@ export class CustomerIpsListVO {
     public software?: number;
     private 'src_port_type'?: number;
     private 'src_ports'?: string;
+    private 'group_id'?: string;
     public constructor() { 
     }
     public withAction(action: number): CustomerIpsListVO {
@@ -76,16 +76,6 @@ export class CustomerIpsListVO {
     }
     public get dstPorts(): string | undefined {
         return this['dst_ports'];
-    }
-    public withGroupId(groupId: string): CustomerIpsListVO {
-        this['group_id'] = groupId;
-        return this;
-    }
-    public set groupId(groupId: string  | undefined) {
-        this['group_id'] = groupId;
-    }
-    public get groupId(): string | undefined {
-        return this['group_id'];
     }
     public withIpsCfwId(ipsCfwId: string): CustomerIpsListVO {
         this['ips_cfw_id'] = ipsCfwId;
@@ -148,5 +138,15 @@ export class CustomerIpsListVO {
     }
     public get srcPorts(): string | undefined {
         return this['src_ports'];
+    }
+    public withGroupId(groupId: string): CustomerIpsListVO {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
 }

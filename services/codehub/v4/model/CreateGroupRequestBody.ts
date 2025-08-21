@@ -5,7 +5,8 @@ export class CreateGroupRequestBody {
     private 'parent_id'?: number;
     public visibility?: CreateGroupRequestBodyVisibilityEnum | string;
     public description?: string;
-    public constructor() { 
+    public constructor(name?: string) { 
+        this['name'] = name;
     }
     public withName(name: string): CreateGroupRequestBody {
         this['name'] = name;

@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddFlowOutputsRequest } from './model/AddFlowOutputsRequest';
 import { AppQualityInfo } from './model/AppQualityInfo';
 import { AudioSelectorHlsSelection } from './model/AudioSelectorHlsSelection';
 import { AudioSelectorLangSelection } from './model/AudioSelectorLangSelection';
@@ -11,10 +12,16 @@ import { BatchShowIpBelongsRequest } from './model/BatchShowIpBelongsRequest';
 import { BatchShowIpBelongsResponse } from './model/BatchShowIpBelongsResponse';
 import { CallbackUrl } from './model/CallbackUrl';
 import { CdnIp } from './model/CdnIp';
+import { CesDimsItem } from './model/CesDimsItem';
+import { CesDimsItemDisplay } from './model/CesDimsItemDisplay';
+import { CesDimsItemDisplayId } from './model/CesDimsItemDisplayId';
+import { CesQueryRespQuery } from './model/CesQueryRespQuery';
 import { CreateDomainMappingRequest } from './model/CreateDomainMappingRequest';
 import { CreateDomainMappingResponse } from './model/CreateDomainMappingResponse';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
 import { CreateDomainResponse } from './model/CreateDomainResponse';
+import { CreateFlowOutputRequest } from './model/CreateFlowOutputRequest';
+import { CreateFlowOutputResponse } from './model/CreateFlowOutputResponse';
 import { CreateFlowsRequest } from './model/CreateFlowsRequest';
 import { CreateFlowsRequestBody } from './model/CreateFlowsRequestBody';
 import { CreateFlowsResponse } from './model/CreateFlowsResponse';
@@ -56,6 +63,8 @@ import { DeleteDomainMappingRequest } from './model/DeleteDomainMappingRequest';
 import { DeleteDomainMappingResponse } from './model/DeleteDomainMappingResponse';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteFlowOutputRequest } from './model/DeleteFlowOutputRequest';
+import { DeleteFlowOutputResponse } from './model/DeleteFlowOutputResponse';
 import { DeleteFlowRequest } from './model/DeleteFlowRequest';
 import { DeleteFlowResponse } from './model/DeleteFlowResponse';
 import { DeleteHarvestTaskRequest } from './model/DeleteHarvestTaskRequest';
@@ -91,6 +100,7 @@ import { FlowDetailRespBody } from './model/FlowDetailRespBody';
 import { FlowOutput } from './model/FlowOutput';
 import { FlowSource } from './model/FlowSource';
 import { FlowSourceDecryption } from './model/FlowSourceDecryption';
+import { FlowsOutput } from './model/FlowsOutput';
 import { GeoBlockingConfigInfo } from './model/GeoBlockingConfigInfo';
 import { GmCertificateInfo } from './model/GmCertificateInfo';
 import { HLSRecordConfig } from './model/HLSRecordConfig';
@@ -101,6 +111,16 @@ import { IPAuthInfo } from './model/IPAuthInfo';
 import { InputAudioSelector } from './model/InputAudioSelector';
 import { InputStreamInfo } from './model/InputStreamInfo';
 import { KeyChainInfo } from './model/KeyChainInfo';
+import { ListCesDimsInfoRequest } from './model/ListCesDimsInfoRequest';
+import { ListCesDimsInfoResponse } from './model/ListCesDimsInfoResponse';
+import { ListCesInstanceRequest } from './model/ListCesInstanceRequest';
+import { ListCesInstanceRequestBody } from './model/ListCesInstanceRequestBody';
+import { ListCesInstanceRequestBodyQuery } from './model/ListCesInstanceRequestBodyQuery';
+import { ListCesInstanceResponse } from './model/ListCesInstanceResponse';
+import { ListCesInstanceRspBodyAudio } from './model/ListCesInstanceRspBodyAudio';
+import { ListCesInstanceRspBodyInstances } from './model/ListCesInstanceRspBodyInstances';
+import { ListCesInstanceRspBodyMedialiveMpc } from './model/ListCesInstanceRspBodyMedialiveMpc';
+import { ListCesInstanceRspBodyPipeline } from './model/ListCesInstanceRspBodyPipeline';
 import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';
 import { ListDelayConfigResponse } from './model/ListDelayConfigResponse';
 import { ListFlowRespItem } from './model/ListFlowRespItem';
@@ -141,6 +161,8 @@ import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyFlowOutputRequest } from './model/ModifyFlowOutputRequest';
+import { ModifyFlowOutputResponse } from './model/ModifyFlowOutputResponse';
 import { ModifyFlowSourcesRequest } from './model/ModifyFlowSourcesRequest';
 import { ModifyFlowSourcesRequestBody } from './model/ModifyFlowSourcesRequestBody';
 import { ModifyFlowSourcesResponse } from './model/ModifyFlowSourcesResponse';
@@ -211,6 +233,8 @@ import { ShowDomainRequest } from './model/ShowDomainRequest';
 import { ShowDomainResponse } from './model/ShowDomainResponse';
 import { ShowFlowDetailRequest } from './model/ShowFlowDetailRequest';
 import { ShowFlowDetailResponse } from './model/ShowFlowDetailResponse';
+import { ShowOutputInfoRequest } from './model/ShowOutputInfoRequest';
+import { ShowOutputInfoResponse } from './model/ShowOutputInfoResponse';
 import { ShowPullSourcesConfigRequest } from './model/ShowPullSourcesConfigRequest';
 import { ShowPullSourcesConfigResponse } from './model/ShowPullSourcesConfigResponse';
 import { ShowRecordCallbackConfigRequest } from './model/ShowRecordCallbackConfigRequest';
@@ -240,6 +264,7 @@ import { UpdateDomainKeyChainRequest } from './model/UpdateDomainKeyChainRequest
 import { UpdateDomainKeyChainResponse } from './model/UpdateDomainKeyChainResponse';
 import { UpdateDomainRequest } from './model/UpdateDomainRequest';
 import { UpdateDomainResponse } from './model/UpdateDomainResponse';
+import { UpdateFlowOutputRequestBody } from './model/UpdateFlowOutputRequestBody';
 import { UpdateGeoBlockingConfigRequest } from './model/UpdateGeoBlockingConfigRequest';
 import { UpdateGeoBlockingConfigResponse } from './model/UpdateGeoBlockingConfigResponse';
 import { UpdateHarvestJobStatusRequest } from './model/UpdateHarvestJobStatusRequest';
@@ -336,6 +361,26 @@ export class LiveClient {
      */
     public createDomainMapping(createDomainMappingRequest?: CreateDomainMappingRequest): Promise<CreateDomainMappingResponse> {
         const options = ParamCreater().createDomainMapping(createDomainMappingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建转推输出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建转推输出
+     * @param {string} flowId 流id
+     * @param {Array<AddFlowOutputsRequest>} createFlowOutputRequestBody 创建output消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFlowOutput(createFlowOutputRequest?: CreateFlowOutputRequest): Promise<CreateFlowOutputResponse> {
+        const options = ParamCreater().createFlowOutput(createFlowOutputRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -603,6 +648,26 @@ export class LiveClient {
      */
     public deleteFlow(deleteFlowRequest?: DeleteFlowRequest): Promise<DeleteFlowResponse> {
         const options = ParamCreater().deleteFlow(deleteFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除转推输出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除转推输出
+     * @param {string} flowId 流id
+     * @param {string} outputName 输出名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFlowOutput(deleteFlowOutputRequest?: DeleteFlowOutputRequest): Promise<DeleteFlowOutputResponse> {
+        const options = ParamCreater().deleteFlowOutput(deleteFlowOutputRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1072,6 +1137,27 @@ export class LiveClient {
     }
 
     /**
+     * 更新转推输出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新转推输出
+     * @param {string} flowId 流id
+     * @param {string} outputName 输出名称
+     * @param {UpdateFlowOutputRequestBody} modifyFlowOutputRequestBody 修改output的消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyFlowOutput(modifyFlowOutputRequest?: ModifyFlowOutputRequest): Promise<ModifyFlowOutputResponse> {
+        const options = ParamCreater().modifyFlowOutput(modifyFlowOutputRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改流来源
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1220,6 +1306,27 @@ export class LiveClient {
      */
     public showFlowDetail(showFlowDetailRequest?: ShowFlowDetailRequest): Promise<ShowFlowDetailResponse> {
         const options = ParamCreater().showFlowDetail(showFlowDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询转推输出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询转推输出
+     * @param {string} flowId 流id
+     * @param {string} outputName 输出名称
+     * @param {'true'} [dataDisplay] true
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOutputInfo(showOutputInfoRequest?: ShowOutputInfoRequest): Promise<ShowOutputInfoResponse> {
+        const options = ParamCreater().showOutputInfo(showOutputInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1592,6 +1699,44 @@ export class LiveClient {
      */
     public updateTranscodingsTemplate(updateTranscodingsTemplateRequest?: UpdateTranscodingsTemplateRequest): Promise<UpdateTranscodingsTemplateResponse> {
         const options = ParamCreater().updateTranscodingsTemplate(updateTranscodingsTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增维度配置信息查询API
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 维度配置信息查询
+     * @param {string} namespace 命名空间，如 SYS.LIVE，与服务上报指标时使用的namespace一致。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCesDimsInfo(listCesDimsInfoRequest?: ListCesDimsInfoRequest): Promise<ListCesDimsInfoResponse> {
+        const options = ParamCreater().listCesDimsInfo(listCesDimsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增实例查询API
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例查询
+     * @param {ListCesInstanceRequestBody} listCesInstanceRequestBody 查询medialive维度(medialive_mpc、medialive_cdn、medialive_package、medialive_connect、medialive_tailor) medialive_mpc维度可以查询实例下的pipeline实例及pipeline下的音频实例
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCesInstance(listCesInstanceRequest?: ListCesInstanceRequest): Promise<ListCesInstanceResponse> {
+        const options = ParamCreater().listCesInstance(listCesInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2123,6 +2268,55 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建转推输出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFlowOutput(createFlowOutputRequest?: CreateFlowOutputRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/flows/outputs",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let flowId;
+
+            if (createFlowOutputRequest !== null && createFlowOutputRequest !== undefined) {
+                if (createFlowOutputRequest instanceof CreateFlowOutputRequest) {
+                    flowId = createFlowOutputRequest.flowId;
+                    body = createFlowOutputRequest.body
+                } else {
+                    flowId = createFlowOutputRequest['flow_id'];
+                    body = createFlowOutputRequest['body'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling createFlowOutput.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2670,6 +2864,56 @@ export const ParamCreater = function () {
             }
             if (flowId !== null && flowId !== undefined) {
                 localVarQueryParameter['flow_id'] = flowId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除转推输出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFlowOutput(deleteFlowOutputRequest?: DeleteFlowOutputRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/flows/outputs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flowId;
+            
+            let outputName;
+
+            if (deleteFlowOutputRequest !== null && deleteFlowOutputRequest !== undefined) {
+                if (deleteFlowOutputRequest instanceof DeleteFlowOutputRequest) {
+                    flowId = deleteFlowOutputRequest.flowId;
+                    outputName = deleteFlowOutputRequest.outputName;
+                } else {
+                    flowId = deleteFlowOutputRequest['flow_id'];
+                    outputName = deleteFlowOutputRequest['output_name'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling deleteFlowOutput.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+            if (outputName === null || outputName === undefined) {
+                throw new RequiredError('outputName','Required parameter outputName was null or undefined when calling deleteFlowOutput.');
+            }
+            if (outputName !== null && outputName !== undefined) {
+                localVarQueryParameter['output_name'] = outputName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3844,6 +4088,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新转推输出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyFlowOutput(modifyFlowOutputRequest?: ModifyFlowOutputRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/flows/outputs",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let flowId;
+            
+            let outputName;
+
+            if (modifyFlowOutputRequest !== null && modifyFlowOutputRequest !== undefined) {
+                if (modifyFlowOutputRequest instanceof ModifyFlowOutputRequest) {
+                    flowId = modifyFlowOutputRequest.flowId;
+                    outputName = modifyFlowOutputRequest.outputName;
+                    body = modifyFlowOutputRequest.body
+                } else {
+                    flowId = modifyFlowOutputRequest['flow_id'];
+                    outputName = modifyFlowOutputRequest['output_name'];
+                    body = modifyFlowOutputRequest['body'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling modifyFlowOutput.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+            if (outputName === null || outputName === undefined) {
+                throw new RequiredError('outputName','Required parameter outputName was null or undefined when calling modifyFlowOutput.');
+            }
+            if (outputName !== null && outputName !== undefined) {
+                localVarQueryParameter['output_name'] = outputName;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改流来源
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4186,6 +4489,63 @@ export const ParamCreater = function () {
             }
             if (flowId !== null && flowId !== undefined) {
                 localVarQueryParameter['flow_id'] = flowId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询转推输出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOutputInfo(showOutputInfoRequest?: ShowOutputInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/flows/outputs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flowId;
+            
+            let outputName;
+            
+            let dataDisplay;
+
+            if (showOutputInfoRequest !== null && showOutputInfoRequest !== undefined) {
+                if (showOutputInfoRequest instanceof ShowOutputInfoRequest) {
+                    flowId = showOutputInfoRequest.flowId;
+                    outputName = showOutputInfoRequest.outputName;
+                    dataDisplay = showOutputInfoRequest.dataDisplay;
+                } else {
+                    flowId = showOutputInfoRequest['flow_id'];
+                    outputName = showOutputInfoRequest['output_name'];
+                    dataDisplay = showOutputInfoRequest['data_display'];
+                }
+            }
+
+        
+            if (flowId === null || flowId === undefined) {
+                throw new RequiredError('flowId','Required parameter flowId was null or undefined when calling showOutputInfo.');
+            }
+            if (flowId !== null && flowId !== undefined) {
+                localVarQueryParameter['flow_id'] = flowId;
+            }
+            if (outputName === null || outputName === undefined) {
+                throw new RequiredError('outputName','Required parameter outputName was null or undefined when calling showOutputInfo.');
+            }
+            if (outputName !== null && outputName !== undefined) {
+                localVarQueryParameter['output_name'] = outputName;
+            }
+            if (dataDisplay !== null && dataDisplay !== undefined) {
+                localVarQueryParameter['data_display'] = dataDisplay;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4975,6 +5335,84 @@ export const ParamCreater = function () {
                     body = updateTranscodingsTemplateRequest.body
                 } else {
                     body = updateTranscodingsTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增维度配置信息查询API
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCesDimsInfo(listCesDimsInfoRequest?: ListCesDimsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ott/dims-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let namespace;
+
+            if (listCesDimsInfoRequest !== null && listCesDimsInfoRequest !== undefined) {
+                if (listCesDimsInfoRequest instanceof ListCesDimsInfoRequest) {
+                    namespace = listCesDimsInfoRequest.namespace;
+                } else {
+                    namespace = listCesDimsInfoRequest['namespace'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+                throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listCesDimsInfo.');
+            }
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增实例查询API
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCesInstance(listCesInstanceRequest?: ListCesInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ott/instances",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listCesInstanceRequest !== null && listCesInstanceRequest !== undefined) {
+                if (listCesInstanceRequest instanceof ListCesInstanceRequest) {
+                    body = listCesInstanceRequest.body
+                } else {
+                    body = listCesInstanceRequest['body'];
                 }
             }
 

@@ -1350,7 +1350,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎。
+     * @param {'mysql'} engine 引擎，暂只支持mysql。
      * @param {DeleteLogConfigResponseBody} logConfigs 待解除Lts配置请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
      * @param {*} [options] Override http request option.
@@ -2054,7 +2054,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎。
+     * @param {'mysql'} engine 引擎，暂只支持mysql。
      * @param {string} [enterpriseProjectId] 企业项目ID。默认为空。
      * @param {string} [instanceId] 实例ID。默认为空。
      * @param {string} [instanceName] 实例名称。默认为空。
@@ -3033,7 +3033,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎。
+     * @param {'mysql'} engine 引擎，暂只支持mysql。
      * @param {AddLogConfigResponseBody} request 关联LTS日志请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
      * @param {*} [options] Override http request option.

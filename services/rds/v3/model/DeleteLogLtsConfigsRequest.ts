@@ -33,9 +33,7 @@ export class DeleteLogLtsConfigsRequest {
     * @enum {string}
     */
 export enum DeleteLogLtsConfigsRequestEngineEnum {
-    MYSQL = 'mysql',
-    POSTGRESQL = 'postgresql',
-    SQLSERVER = 'sqlserver'
+    MYSQL = 'mysql'
 }
 /**
     * @export

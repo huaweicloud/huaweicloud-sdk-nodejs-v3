@@ -1,11 +1,11 @@
-import { ControlOperateReqBody } from './ControlOperateReqBody';
+import { EnableControlOperateReqBody } from './EnableControlOperateReqBody';
 
 
 export class EnableControlRequest {
-    public body?: ControlOperateReqBody;
+    public body?: EnableControlOperateReqBody;
     public constructor() { 
     }
-    public withBody(body: ControlOperateReqBody): EnableControlRequest {
+    public withBody(body: EnableControlOperateReqBody): EnableControlRequest {
         this['body'] = body;
         return this;
     }

@@ -33,9 +33,7 @@ export class SetLogLtsConfigsRequest {
     * @enum {string}
     */
 export enum SetLogLtsConfigsRequestEngineEnum {
-    MYSQL = 'mysql',
-    POSTGRESQL = 'postgresql',
-    SQLSERVER = 'sqlserver'
+    MYSQL = 'mysql'
 }
 /**
     * @export

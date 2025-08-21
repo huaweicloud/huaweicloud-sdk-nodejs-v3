@@ -3,7 +3,7 @@
 export class ListAiOpsRequest {
     private 'cluster_id'?: string;
     public limit?: number;
-    public start?: number;
+    public offset?: number;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
@@ -21,8 +21,8 @@ export class ListAiOpsRequest {
         this['limit'] = limit;
         return this;
     }
-    public withStart(start: number): ListAiOpsRequest {
-        this['start'] = start;
+    public withOffset(offset: number): ListAiOpsRequest {
+        this['offset'] = offset;
         return this;
     }
 }

@@ -1,13 +1,13 @@
 
 
 export class ListClustersDetailsRequest {
-    public start?: number;
+    public offset?: number;
     public limit?: number;
     public datastoreType?: string;
     public constructor() { 
     }
-    public withStart(start: number): ListClustersDetailsRequest {
-        this['start'] = start;
+    public withOffset(offset: number): ListClustersDetailsRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: number): ListClustersDetailsRequest {

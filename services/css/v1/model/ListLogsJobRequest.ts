@@ -2,7 +2,7 @@
 
 export class ListLogsJobRequest {
     private 'cluster_id'?: string;
-    public start?: number;
+    public offset?: number;
     public limit?: number;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
@@ -17,8 +17,8 @@ export class ListLogsJobRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withStart(start: number): ListLogsJobRequest {
-        this['start'] = start;
+    public withOffset(offset: number): ListLogsJobRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: number): ListLogsJobRequest {

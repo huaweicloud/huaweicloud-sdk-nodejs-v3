@@ -6,6 +6,7 @@ export class VatInvoiceRequestBody {
     private 'advanced_mode'?: boolean;
     private 'return_text_location'?: boolean;
     private 'page_num'?: number;
+    private 'ofd_to_image_mode'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): VatInvoiceRequestBody {
@@ -45,5 +46,15 @@ export class VatInvoiceRequestBody {
     }
     public get pageNum(): number | undefined {
         return this['page_num'];
+    }
+    public withOfdToImageMode(ofdToImageMode: boolean): VatInvoiceRequestBody {
+        this['ofd_to_image_mode'] = ofdToImageMode;
+        return this;
+    }
+    public set ofdToImageMode(ofdToImageMode: boolean  | undefined) {
+        this['ofd_to_image_mode'] = ofdToImageMode;
+    }
+    public get ofdToImageMode(): boolean | undefined {
+        return this['ofd_to_image_mode'];
     }
 }
