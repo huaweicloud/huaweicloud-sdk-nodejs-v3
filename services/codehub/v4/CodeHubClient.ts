@@ -119,6 +119,8 @@ import { CreateMergeRequestTemplateRequest } from './model/CreateMergeRequestTem
 import { CreateMergeRequestTemplateResponse } from './model/CreateMergeRequestTemplateResponse';
 import { CreateProjectMergeRequestApproverSettingRequest } from './model/CreateProjectMergeRequestApproverSettingRequest';
 import { CreateProjectMergeRequestApproverSettingResponse } from './model/CreateProjectMergeRequestApproverSettingResponse';
+import { CreateProjectProtectedBranchesRequest } from './model/CreateProjectProtectedBranchesRequest';
+import { CreateProjectProtectedBranchesResponse } from './model/CreateProjectProtectedBranchesResponse';
 import { CreateRepositoryFilePushPermissionDto } from './model/CreateRepositoryFilePushPermissionDto';
 import { CreateRepositoryLabelRequest } from './model/CreateRepositoryLabelRequest';
 import { CreateRepositoryLabelResponse } from './model/CreateRepositoryLabelResponse';
@@ -301,6 +303,8 @@ import { ListProjectMergeRequestCanBeAssignedUsersRequest } from './model/ListPr
 import { ListProjectMergeRequestCanBeAssignedUsersResponse } from './model/ListProjectMergeRequestCanBeAssignedUsersResponse';
 import { ListProjectNoteRequiredAttributesRequest } from './model/ListProjectNoteRequiredAttributesRequest';
 import { ListProjectNoteRequiredAttributesResponse } from './model/ListProjectNoteRequiredAttributesResponse';
+import { ListProjectProtectedBranchesRequest } from './model/ListProjectProtectedBranchesRequest';
+import { ListProjectProtectedBranchesResponse } from './model/ListProjectProtectedBranchesResponse';
 import { ListProjectSubgroupsAndRepositoriesRequest } from './model/ListProjectSubgroupsAndRepositoriesRequest';
 import { ListProjectSubgroupsAndRepositoriesResponse } from './model/ListProjectSubgroupsAndRepositoriesResponse';
 import { ListProjectWebhookLogsRequest } from './model/ListProjectWebhookLogsRequest';
@@ -408,7 +412,12 @@ import { PositionDto } from './model/PositionDto';
 import { PostMergeRequestParamsDtoForOpenApi } from './model/PostMergeRequestParamsDtoForOpenApi';
 import { PostNoteRequiredAttributeDto } from './model/PostNoteRequiredAttributeDto';
 import { ProjectCreatorDto } from './model/ProjectCreatorDto';
+import { ProjectProtectedActionResultApiDto } from './model/ProjectProtectedActionResultApiDto';
+import { ProjectProtectedBranchApiDto } from './model/ProjectProtectedBranchApiDto';
+import { ProjectSettingsInheritCfgDto } from './model/ProjectSettingsInheritCfgDto';
 import { ProjectSimpleDto } from './model/ProjectSimpleDto';
+import { ProtectedActionBasicApiDto } from './model/ProtectedActionBasicApiDto';
+import { ProtectedBranchBodyApiDto } from './model/ProtectedBranchBodyApiDto';
 import { ProtectedBranchProtectedActionBodyDto } from './model/ProtectedBranchProtectedActionBodyDto';
 import { PushEventPayloadDto } from './model/PushEventPayloadDto';
 import { PushRuleDevelopersDto } from './model/PushRuleDevelopersDto';
@@ -469,10 +478,12 @@ import { ReviewDto } from './model/ReviewDto';
 import { ReviewMergeRequestRequest } from './model/ReviewMergeRequestRequest';
 import { ReviewMergeRequestResponse } from './model/ReviewMergeRequestResponse';
 import { ReviewSettingParamDto } from './model/ReviewSettingParamDto';
+import { RoleBasicDto } from './model/RoleBasicDto';
 import { RoleSyncDto } from './model/RoleSyncDto';
 import { SSHKeyDto } from './model/SSHKeyDto';
 import { SendUserEmailVerifyCodeRequest } from './model/SendUserEmailVerifyCodeRequest';
 import { SendUserEmailVerifyCodeResponse } from './model/SendUserEmailVerifyCodeResponse';
+import { SettingsInheritCfgBodyApiDto } from './model/SettingsInheritCfgBodyApiDto';
 import { ShowActualHeadPipelineRequest } from './model/ShowActualHeadPipelineRequest';
 import { ShowActualHeadPipelineResponse } from './model/ShowActualHeadPipelineResponse';
 import { ShowAverageEvaluationRequest } from './model/ShowAverageEvaluationRequest';
@@ -553,6 +564,8 @@ import { ShowProjectMergeRequestSettingRequest } from './model/ShowProjectMergeR
 import { ShowProjectMergeRequestSettingResponse } from './model/ShowProjectMergeRequestSettingResponse';
 import { ShowProjectReviewSettingsRequest } from './model/ShowProjectReviewSettingsRequest';
 import { ShowProjectReviewSettingsResponse } from './model/ShowProjectReviewSettingsResponse';
+import { ShowProjectSettingsInheritCfgRequest } from './model/ShowProjectSettingsInheritCfgRequest';
+import { ShowProjectSettingsInheritCfgResponse } from './model/ShowProjectSettingsInheritCfgResponse';
 import { ShowProjectWatermarkRequest } from './model/ShowProjectWatermarkRequest';
 import { ShowProjectWatermarkResponse } from './model/ShowProjectWatermarkResponse';
 import { ShowProjectWebhookLogRequest } from './model/ShowProjectWebhookLogRequest';
@@ -669,6 +682,8 @@ import { UpdateProjectNoteRequiredAttributesRequest } from './model/UpdateProjec
 import { UpdateProjectNoteRequiredAttributesResponse } from './model/UpdateProjectNoteRequiredAttributesResponse';
 import { UpdateProjectReviewSettingsRequest } from './model/UpdateProjectReviewSettingsRequest';
 import { UpdateProjectReviewSettingsResponse } from './model/UpdateProjectReviewSettingsResponse';
+import { UpdateProjectSettingsInheritCfgRequest } from './model/UpdateProjectSettingsInheritCfgRequest';
+import { UpdateProjectSettingsInheritCfgResponse } from './model/UpdateProjectSettingsInheritCfgResponse';
 import { UpdateProjectWatermarkRequest } from './model/UpdateProjectWatermarkRequest';
 import { UpdateProjectWatermarkResponse } from './model/UpdateProjectWatermarkResponse';
 import { UpdateProjectWebhookRequest } from './model/UpdateProjectWebhookRequest';
@@ -3644,6 +3659,25 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取项目继承设置项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目继承设置项
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectSettingsInheritCfg(showProjectSettingsInheritCfgRequest?: ShowProjectSettingsInheritCfgRequest): Promise<ShowProjectSettingsInheritCfgResponse> {
+        const options = ParamCreater().showProjectSettingsInheritCfg(showProjectSettingsInheritCfgRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取项目水印设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3655,6 +3689,26 @@ export class CodeHubClient {
      */
     public showProjectWatermark(showProjectWatermarkRequest?: ShowProjectWatermarkRequest): Promise<ShowProjectWatermarkResponse> {
         const options = ParamCreater().showProjectWatermark(showProjectWatermarkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新项目继承设置项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新项目继承设置项
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {SettingsInheritCfgBodyApiDto} settingsInheritCfgBodyApiDto 更新项目继承设置项
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProjectSettingsInheritCfg(updateProjectSettingsInheritCfgRequest?: UpdateProjectSettingsInheritCfgRequest): Promise<UpdateProjectSettingsInheritCfgResponse> {
+        const options = ParamCreater().updateProjectSettingsInheritCfg(updateProjectSettingsInheritCfgRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3743,6 +3797,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 创建项目下保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建项目下保护分支
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {ProtectedBranchBodyApiDto} protectedBranchBodyApiDto 创建项目下保护分支
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProjectProtectedBranches(createProjectProtectedBranchesRequest?: CreateProjectProtectedBranchesRequest): Promise<CreateProjectProtectedBranchesResponse> {
+        const options = ParamCreater().createProjectProtectedBranches(createProjectProtectedBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除仓库保护分支
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3758,6 +3832,30 @@ export class CodeHubClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下保护分支列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下保护分支列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 保护分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {boolean} [userActions] **参数解释：** 是否使用actions权限点的返回内容。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {string} [view] **参数解释：** 参数值只有simple ，意为使用简单模式，只返回名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectProtectedBranches(listProjectProtectedBranchesRequest?: ListProjectProtectedBranchesRequest): Promise<ListProjectProtectedBranchesResponse> {
+        const options = ParamCreater().listProjectProtectedBranches(listProjectProtectedBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -13307,6 +13405,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取项目继承设置项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectSettingsInheritCfg(showProjectSettingsInheritCfgRequest?: ShowProjectSettingsInheritCfgRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/settings-inherit-cfg",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (showProjectSettingsInheritCfgRequest !== null && showProjectSettingsInheritCfgRequest !== undefined) {
+                if (showProjectSettingsInheritCfgRequest instanceof ShowProjectSettingsInheritCfgRequest) {
+                    projectId = showProjectSettingsInheritCfgRequest.projectId;
+                } else {
+                    projectId = showProjectSettingsInheritCfgRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectSettingsInheritCfg.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取项目水印设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13338,6 +13473,52 @@ export const ParamCreater = function () {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectWatermark.');
             }
 
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新项目继承设置项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProjectSettingsInheritCfg(updateProjectSettingsInheritCfgRequest?: UpdateProjectSettingsInheritCfgRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/projects/{project_id}/settings-inherit-cfg",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (updateProjectSettingsInheritCfgRequest !== null && updateProjectSettingsInheritCfgRequest !== undefined) {
+                if (updateProjectSettingsInheritCfgRequest instanceof UpdateProjectSettingsInheritCfgRequest) {
+                    projectId = updateProjectSettingsInheritCfgRequest.projectId;
+                    body = updateProjectSettingsInheritCfgRequest.body
+                } else {
+                    projectId = updateProjectSettingsInheritCfgRequest['project_id'];
+                    body = updateProjectSettingsInheritCfgRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateProjectSettingsInheritCfg.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -13528,6 +13709,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建项目下保护分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProjectProtectedBranches(createProjectProtectedBranchesRequest?: CreateProjectProtectedBranchesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/projects/{project_id}/protected-branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createProjectProtectedBranchesRequest !== null && createProjectProtectedBranchesRequest !== undefined) {
+                if (createProjectProtectedBranchesRequest instanceof CreateProjectProtectedBranchesRequest) {
+                    projectId = createProjectProtectedBranchesRequest.projectId;
+                    body = createProjectProtectedBranchesRequest.body
+                } else {
+                    projectId = createProjectProtectedBranchesRequest['project_id'];
+                    body = createProjectProtectedBranchesRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createProjectProtectedBranches.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除仓库保护分支
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13571,6 +13798,79 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目下保护分支列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectProtectedBranches(listProjectProtectedBranchesRequest?: ListProjectProtectedBranchesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/protected-branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let search;
+            
+            let userActions;
+            
+            let view;
+
+            if (listProjectProtectedBranchesRequest !== null && listProjectProtectedBranchesRequest !== undefined) {
+                if (listProjectProtectedBranchesRequest instanceof ListProjectProtectedBranchesRequest) {
+                    projectId = listProjectProtectedBranchesRequest.projectId;
+                    offset = listProjectProtectedBranchesRequest.offset;
+                    limit = listProjectProtectedBranchesRequest.limit;
+                    search = listProjectProtectedBranchesRequest.search;
+                    userActions = listProjectProtectedBranchesRequest.userActions;
+                    view = listProjectProtectedBranchesRequest.view;
+                } else {
+                    projectId = listProjectProtectedBranchesRequest['project_id'];
+                    offset = listProjectProtectedBranchesRequest['offset'];
+                    limit = listProjectProtectedBranchesRequest['limit'];
+                    search = listProjectProtectedBranchesRequest['search'];
+                    userActions = listProjectProtectedBranchesRequest['user_actions'];
+                    view = listProjectProtectedBranchesRequest['view'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectProtectedBranches.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (userActions !== null && userActions !== undefined) {
+                localVarQueryParameter['user_actions'] = userActions;
+            }
+            if (view !== null && view !== undefined) {
+                localVarQueryParameter['view'] = view;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
