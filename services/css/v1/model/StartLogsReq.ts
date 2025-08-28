@@ -4,6 +4,8 @@ export class StartLogsReq {
     public agency?: string;
     private 'log_base_path'?: string;
     private 'log_bucket'?: string;
+    private 'auto_enable'?: boolean;
+    public period?: string;
     private 'index_prefix'?: string;
     private 'keep_days'?: number;
     private 'target_cluster_id'?: string;
@@ -35,6 +37,20 @@ export class StartLogsReq {
     }
     public get logBucket(): string | undefined {
         return this['log_bucket'];
+    }
+    public withAutoEnable(autoEnable: boolean): StartLogsReq {
+        this['auto_enable'] = autoEnable;
+        return this;
+    }
+    public set autoEnable(autoEnable: boolean  | undefined) {
+        this['auto_enable'] = autoEnable;
+    }
+    public get autoEnable(): boolean | undefined {
+        return this['auto_enable'];
+    }
+    public withPeriod(period: string): StartLogsReq {
+        this['period'] = period;
+        return this;
     }
     public withIndexPrefix(indexPrefix: string): StartLogsReq {
         this['index_prefix'] = indexPrefix;

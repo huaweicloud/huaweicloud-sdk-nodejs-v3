@@ -4,6 +4,9 @@ export class GetLogBackupReq {
     private 'instance_name'?: string;
     public level?: string;
     private 'log_type'?: string;
+    public limit?: number;
+    private 'time_index'?: string;
+    public keyword?: string;
     public constructor(instanceName?: string, level?: string, logType?: string) { 
         this['instance_name'] = instanceName;
         this['level'] = level;
@@ -32,5 +35,23 @@ export class GetLogBackupReq {
     }
     public get logType(): string | undefined {
         return this['log_type'];
+    }
+    public withLimit(limit: number): GetLogBackupReq {
+        this['limit'] = limit;
+        return this;
+    }
+    public withTimeIndex(timeIndex: string): GetLogBackupReq {
+        this['time_index'] = timeIndex;
+        return this;
+    }
+    public set timeIndex(timeIndex: string  | undefined) {
+        this['time_index'] = timeIndex;
+    }
+    public get timeIndex(): string | undefined {
+        return this['time_index'];
+    }
+    public withKeyword(keyword: string): GetLogBackupReq {
+        this['keyword'] = keyword;
+        return this;
     }
 }

@@ -16,7 +16,6 @@ export class UpdateVideoScriptsReq {
     private 'model_asset_type'?: UpdateVideoScriptsReqModelAssetTypeEnum | string;
     private 'voice_config'?: VoiceConfig;
     private 'video_config'?: VideoConfig;
-    private 'scene_asset_id'?: string;
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
@@ -95,16 +94,6 @@ export class UpdateVideoScriptsReq {
     public get videoConfig(): VideoConfig | undefined {
         return this['video_config'];
     }
-    public withSceneAssetId(sceneAssetId: string): UpdateVideoScriptsReq {
-        this['scene_asset_id'] = sceneAssetId;
-        return this;
-    }
-    public set sceneAssetId(sceneAssetId: string  | undefined) {
-        this['scene_asset_id'] = sceneAssetId;
-    }
-    public get sceneAssetId(): string | undefined {
-        return this['scene_asset_id'];
-    }
     public withPrivData(privData: string): UpdateVideoScriptsReq {
         this['priv_data'] = privData;
         return this;
@@ -180,6 +169,5 @@ export enum UpdateVideoScriptsReqViewModeEnum {
     * @enum {string}
     */
 export enum UpdateVideoScriptsReqModelAssetTypeEnum {
-    HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
-    HUMAN_MODEL_3D = 'HUMAN_MODEL_3D'
+    HUMAN_MODEL_2D = 'HUMAN_MODEL_2D'
 }

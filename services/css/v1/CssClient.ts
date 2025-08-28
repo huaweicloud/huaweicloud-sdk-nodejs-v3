@@ -1266,11 +1266,11 @@ export class CssClient {
     }
 
     /**
-     * 该接口用于开启日志功能。
+     * 该接口用于开启集群的日志备份或日志采集功能开关。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 开启日志功能
+     * @summary 开启日志备份或日志采集功能
      * @param {string} clusterId 指定开启日志的集群ID。
      * @param {StartLogsReq} startLogsReq 开启日志请求体。
      * @param {'base_log_collect' | 'real_time_log_collect'} [action] action支持base_log_collect和real_time_log_collect两种，base就是之前历史的能力，real_time为实时采集能力，默认不传就是base，兼容之前的逻辑
@@ -1484,11 +1484,11 @@ export class CssClient {
     }
 
     /**
-     * 该接口用于修改集群名称。
+     * 该接口用于修改集群名称或描述。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改集群名称
+     * @summary 修改集群名称或描述
      * @param {string} clusterId 指定待更改集群名称的集群ID。
      * @param {UpdateClusterNameReq} updateClusterNameReq 
      * @param {*} [options] Override http request option.
@@ -1619,6 +1619,8 @@ export class CssClient {
      * @summary 节点替换
      * @param {string} clusterId 指定替换集群ID。
      * @param {string} instanceId 指定替换节点ID。
+     * @param {string} [migrateData] 是否迁移数据。
+     * @param {string} [agency] 委托名称，委托给CSS服务，允许CSS调用您的其他云服务。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4294,7 +4296,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于开启日志功能。
+         * 该接口用于开启集群的日志备份或日志采集功能开关。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4777,7 +4779,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改集群名称。
+         * 该接口用于修改集群名称或描述。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5087,19 +5089,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
             
             let instanceId;
+            
+            let migrateData;
+            
+            let agency;
 
             if (updateInstanceRequest !== null && updateInstanceRequest !== undefined) {
                 if (updateInstanceRequest instanceof UpdateInstanceRequest) {
                     clusterId = updateInstanceRequest.clusterId;
                     instanceId = updateInstanceRequest.instanceId;
+                    migrateData = updateInstanceRequest.migrateData;
+                    agency = updateInstanceRequest.agency;
                 } else {
                     clusterId = updateInstanceRequest['cluster_id'];
                     instanceId = updateInstanceRequest['instance_id'];
+                    migrateData = updateInstanceRequest['migrateData'];
+                    agency = updateInstanceRequest['agency'];
                 }
             }
 
@@ -5110,7 +5120,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstance.');
             }
+            if (migrateData !== null && migrateData !== undefined) {
+                localVarQueryParameter['migrateData'] = migrateData;
+            }
+            if (agency !== null && agency !== undefined) {
+                localVarQueryParameter['agency'] = agency;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

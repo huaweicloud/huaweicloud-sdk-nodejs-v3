@@ -29,6 +29,7 @@ export class SmartLiveJob {
     private 'live_job_log'?: LiveJobLog;
     private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
     private 'used_resource_type'?: SmartLiveJobUsedResourceTypeEnum | string;
+    private 'is_ai_mark_on'?: boolean;
     public constructor() { 
     }
     public withJobId(jobId: string): SmartLiveJob {
@@ -228,6 +229,16 @@ export class SmartLiveJob {
     }
     public get usedResourceType(): SmartLiveJobUsedResourceTypeEnum | string | undefined {
         return this['used_resource_type'];
+    }
+    public withIsAiMarkOn(isAiMarkOn: boolean): SmartLiveJob {
+        this['is_ai_mark_on'] = isAiMarkOn;
+        return this;
+    }
+    public set isAiMarkOn(isAiMarkOn: boolean  | undefined) {
+        this['is_ai_mark_on'] = isAiMarkOn;
+    }
+    public get isAiMarkOn(): boolean | undefined {
+        return this['is_ai_mark_on'];
     }
 }
 

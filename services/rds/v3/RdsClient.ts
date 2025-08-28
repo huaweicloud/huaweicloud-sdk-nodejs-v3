@@ -1350,6 +1350,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 解除LTS配置信息
      * @param {'mysql'} engine 引擎，暂只支持mysql。
      * @param {DeleteLogConfigResponseBody} logConfigs 待解除Lts配置请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
@@ -1766,6 +1767,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例的错误日志数据
      * @param {string} instanceId 实例ID。
      * @param {ErrorlogForLtsRequest} request 查询条件。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认en-us。
@@ -1850,6 +1852,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例大版本升级检查历史
      * @param {string} instanceId 实例ID
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
@@ -2054,6 +2057,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 获取LTS配置信息
      * @param {'mysql'} engine 引擎，暂只支持mysql。
      * @param {string} [enterpriseProjectId] 企业项目ID。默认为空。
      * @param {string} [instanceId] 实例ID。默认为空。
@@ -2211,6 +2215,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询预定义标签
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2402,6 +2407,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 获取指定实例详情
      * @param {SimplifiedInstancesRequest} simplifiedInstancesRequest 查询请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
      * @param {*} [options] Override http request option.
@@ -2444,6 +2450,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例慢日志的统计数据
      * @param {string} instanceId 实例ID。
      * @param {SlowLogStatisticsForLtsRequest} request 查询条件。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认en-us。
@@ -2514,6 +2521,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例的慢日志数据
      * @param {string} instanceId 实例ID。
      * @param {SlowlogForLtsRequest} request 查询条件。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认en-us。
@@ -2671,6 +2679,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例大版本升级历史信息
      * @param {string} instanceId 实例ID
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
@@ -3033,6 +3042,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 关联LTS配置信息
      * @param {'mysql'} engine 引擎，暂只支持mysql。
      * @param {AddLogConfigResponseBody} request 关联LTS日志请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
@@ -3240,6 +3250,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例可升级的目标版本
      * @param {string} instanceId 实例ID
      * @param {string} [xLanguage] 语言。默认en-us。
      * @param {*} [options] Override http request option.
@@ -3381,6 +3392,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询实例ipv4域名
      * @param {string} instanceId 实例ID。
      * @param {string} dnsType 实例域名类型，当前只支持private。
      * @param {string} [xLanguage] 语言
@@ -3635,6 +3647,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询大版本检查状态或升级状态
      * @param {string} instanceId 实例ID
      * @param {string} action 要查询的状态 check：查询升级预检查的状态。 upgrade：查询大板本升级的状态。
      * @param {string} [xLanguage] 语言。默认en-us。
@@ -4193,6 +4206,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary PostgreSQL数据库升级大版本
      * @param {string} instanceId 实例ID
      * @param {UpgradePgMajorVersion} upgradePgMajorVersion 
      * @param {*} [options] Override http request option.
@@ -4212,6 +4226,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 大版本升级前进行升级检查
      * @param {string} instanceId 实例ID
      * @param {PostgresqlPreCheckUpgradeMajorVersionReq} targetVersion 
      * @param {string} [xLanguage] 语言。默认en-us。
@@ -5325,6 +5340,7 @@ export class RdsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 数据库帐号授权
      * @param {string} instanceId 实例ID。
      * @param {DbUserPrivilegeRequest} dbUserPrivilegeRequest 授权请求体
      * @param {*} [options] Override http request option.

@@ -14,7 +14,6 @@ export class KernelModuleInfo {
     public hash?: string;
     public desc?: string;
     private 'record_time'?: number;
-    private 'first_scan_time'?: number;
     public constructor() { 
     }
     public withName(name: string): KernelModuleInfo {
@@ -80,15 +79,5 @@ export class KernelModuleInfo {
     }
     public get recordTime(): number | undefined {
         return this['record_time'];
-    }
-    public withFirstScanTime(firstScanTime: number): KernelModuleInfo {
-        this['first_scan_time'] = firstScanTime;
-        return this;
-    }
-    public set firstScanTime(firstScanTime: number  | undefined) {
-        this['first_scan_time'] = firstScanTime;
-    }
-    public get firstScanTime(): number | undefined {
-        return this['first_scan_time'];
     }
 }

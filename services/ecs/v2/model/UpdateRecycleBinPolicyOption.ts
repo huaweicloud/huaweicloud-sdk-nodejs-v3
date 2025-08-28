@@ -3,7 +3,9 @@
 export class UpdateRecycleBinPolicyOption {
     private 'retention_hour'?: number;
     private 'recycle_threshold_day'?: number;
-    public constructor() { 
+    public constructor(retentionHour?: number, recycleThresholdDay?: number) { 
+        this['retention_hour'] = retentionHour;
+        this['recycle_threshold_day'] = recycleThresholdDay;
     }
     public withRetentionHour(retentionHour: number): UpdateRecycleBinPolicyOption {
         this['retention_hour'] = retentionHour;

@@ -15,6 +15,7 @@ export class VideoConfig {
     private 'is_enable_super_resolution'?: boolean;
     private 'is_end_at_first_frame'?: boolean;
     private 'output_external_url'?: string;
+    private 'is_vocabulary_config_enable'?: boolean;
     public constructor(bitrate?: number, width?: number, height?: number) { 
         this['bitrate'] = bitrate;
         this['width'] = width;
@@ -113,6 +114,16 @@ export class VideoConfig {
     }
     public get outputExternalUrl(): string | undefined {
         return this['output_external_url'];
+    }
+    public withIsVocabularyConfigEnable(isVocabularyConfigEnable: boolean): VideoConfig {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+        return this;
+    }
+    public set isVocabularyConfigEnable(isVocabularyConfigEnable: boolean  | undefined) {
+        this['is_vocabulary_config_enable'] = isVocabularyConfigEnable;
+    }
+    public get isVocabularyConfigEnable(): boolean | undefined {
+        return this['is_vocabulary_config_enable'];
     }
 }
 

@@ -5,6 +5,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListSmartChatRoomsResponse extends SdkResponse {
     public count?: number;
     private 'count_concurrency'?: number;
+    private 'count_client_nums'?: number;
+    private 'count_client_nums_token'?: number;
     private 'smart_chat_rooms'?: Array<SmartChatRoomBaseInfo>;
     private 'X-Request-Id'?: string;
     public constructor() { 
@@ -23,6 +25,26 @@ export class ListSmartChatRoomsResponse extends SdkResponse {
     }
     public get countConcurrency(): number | undefined {
         return this['count_concurrency'];
+    }
+    public withCountClientNums(countClientNums: number): ListSmartChatRoomsResponse {
+        this['count_client_nums'] = countClientNums;
+        return this;
+    }
+    public set countClientNums(countClientNums: number  | undefined) {
+        this['count_client_nums'] = countClientNums;
+    }
+    public get countClientNums(): number | undefined {
+        return this['count_client_nums'];
+    }
+    public withCountClientNumsToken(countClientNumsToken: number): ListSmartChatRoomsResponse {
+        this['count_client_nums_token'] = countClientNumsToken;
+        return this;
+    }
+    public set countClientNumsToken(countClientNumsToken: number  | undefined) {
+        this['count_client_nums_token'] = countClientNumsToken;
+    }
+    public get countClientNumsToken(): number | undefined {
+        return this['count_client_nums_token'];
     }
     public withSmartChatRooms(smartChatRooms: Array<SmartChatRoomBaseInfo>): ListSmartChatRoomsResponse {
         this['smart_chat_rooms'] = smartChatRooms;

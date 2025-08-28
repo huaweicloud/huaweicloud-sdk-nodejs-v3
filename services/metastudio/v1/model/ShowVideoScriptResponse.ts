@@ -17,7 +17,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     private 'model_asset_type'?: ShowVideoScriptResponseModelAssetTypeEnum | string;
     private 'voice_config'?: VoiceConfig;
     private 'video_config'?: VideoConfig;
-    private 'scene_asset_id'?: string;
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
@@ -101,16 +100,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
     public get videoConfig(): VideoConfig | undefined {
         return this['video_config'];
-    }
-    public withSceneAssetId(sceneAssetId: string): ShowVideoScriptResponse {
-        this['scene_asset_id'] = sceneAssetId;
-        return this;
-    }
-    public set sceneAssetId(sceneAssetId: string  | undefined) {
-        this['scene_asset_id'] = sceneAssetId;
-    }
-    public get sceneAssetId(): string | undefined {
-        return this['scene_asset_id'];
     }
     public withPrivData(privData: string): ShowVideoScriptResponse {
         this['priv_data'] = privData;
@@ -237,6 +226,5 @@ export enum ShowVideoScriptResponseViewModeEnum {
     * @enum {string}
     */
 export enum ShowVideoScriptResponseModelAssetTypeEnum {
-    HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
-    HUMAN_MODEL_3D = 'HUMAN_MODEL_3D'
+    HUMAN_MODEL_2D = 'HUMAN_MODEL_2D'
 }

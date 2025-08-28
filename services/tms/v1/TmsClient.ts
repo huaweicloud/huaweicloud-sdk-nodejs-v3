@@ -26,6 +26,8 @@ import { ListTagKeysRequest } from './model/ListTagKeysRequest';
 import { ListTagKeysResponse } from './model/ListTagKeysResponse';
 import { ListTagValuesRequest } from './model/ListTagValuesRequest';
 import { ListTagValuesResponse } from './model/ListTagValuesResponse';
+import { ListTagsRequest } from './model/ListTagsRequest';
+import { ListTagsResponse } from './model/ListTagsResponse';
 import { ModifyPrefineTag } from './model/ModifyPrefineTag';
 import { PageInfoTagKeys } from './model/PageInfoTagKeys';
 import { PageInfoTagValues } from './model/PageInfoTagValues';
@@ -49,7 +51,9 @@ import { ShowTagQuotaResponse } from './model/ShowTagQuotaResponse';
 import { Tag } from './model/Tag';
 import { TagCreateResponseItem } from './model/TagCreateResponseItem';
 import { TagDeleteResponseItem } from './model/TagDeleteResponseItem';
+import { TagListErrorItem } from './model/TagListErrorItem';
 import { TagQuota } from './model/TagQuota';
+import { TagResponse } from './model/TagResponse';
 import { TagVo } from './model/TagVo';
 import { UpdatePredefineTagsRequest } from './model/UpdatePredefineTagsRequest';
 import { UpdatePredefineTagsResponse } from './model/UpdatePredefineTagsResponse';
@@ -266,6 +270,27 @@ export class TmsClient {
      */
     public listTagValues(listTagValuesRequest?: ListTagValuesRequest): Promise<ListTagValuesResponse> {
         const options = ParamCreater().listTagValues(listTagValuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定区域和实例类型中租户的所有标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询标签列表
+     * @param {string} resourceTypes 资源类型
+     * @param {string} projectId 项目ID
+     * @param {'resource'} tagTypes 标签类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
+        const options = ParamCreater().listTags(listTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -800,6 +825,66 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定区域和实例类型中租户的所有标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTags(listTagsRequest?: ListTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceTypes;
+            
+            let projectId;
+            
+            let tagTypes;
+
+            if (listTagsRequest !== null && listTagsRequest !== undefined) {
+                if (listTagsRequest instanceof ListTagsRequest) {
+                    resourceTypes = listTagsRequest.resourceTypes;
+                    projectId = listTagsRequest.projectId;
+                    tagTypes = listTagsRequest.tagTypes;
+                } else {
+                    resourceTypes = listTagsRequest['resource_types'];
+                    projectId = listTagsRequest['project_id'];
+                    tagTypes = listTagsRequest['tag_types'];
+                }
+            }
+
+        
+            if (resourceTypes === null || resourceTypes === undefined) {
+                throw new RequiredError('resourceTypes','Required parameter resourceTypes was null or undefined when calling listTags.');
+            }
+            if (resourceTypes !== null && resourceTypes !== undefined) {
+                localVarQueryParameter['resource_types'] = resourceTypes;
+            }
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listTags.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (tagTypes === null || tagTypes === undefined) {
+                throw new RequiredError('tagTypes','Required parameter tagTypes was null or undefined when calling listTags.');
+            }
+            if (tagTypes !== null && tagTypes !== undefined) {
+                localVarQueryParameter['tag_types'] = tagTypes;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -3,6 +3,8 @@
 export class UpdateInstanceRequest {
     private 'cluster_id'?: string;
     private 'instance_id'?: string;
+    public migrateData?: string;
+    public agency?: string;
     public constructor(clusterId?: string, instanceId?: string) { 
         this['cluster_id'] = clusterId;
         this['instance_id'] = instanceId;
@@ -26,5 +28,13 @@ export class UpdateInstanceRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withMigrateData(migrateData: string): UpdateInstanceRequest {
+        this['migrateData'] = migrateData;
+        return this;
+    }
+    public withAgency(agency: string): UpdateInstanceRequest {
+        this['agency'] = agency;
+        return this;
     }
 }

@@ -30,6 +30,7 @@ export class ShowSmartLiveResponse extends SdkResponse {
     private 'live_job_log'?: LiveJobLog;
     private 'relation_live_platform_info'?: PlatformLiveDetailInfo;
     private 'used_resource_type'?: ShowSmartLiveResponseUsedResourceTypeEnum | string;
+    private 'is_ai_mark_on'?: boolean;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -231,6 +232,16 @@ export class ShowSmartLiveResponse extends SdkResponse {
     }
     public get usedResourceType(): ShowSmartLiveResponseUsedResourceTypeEnum | string | undefined {
         return this['used_resource_type'];
+    }
+    public withIsAiMarkOn(isAiMarkOn: boolean): ShowSmartLiveResponse {
+        this['is_ai_mark_on'] = isAiMarkOn;
+        return this;
+    }
+    public set isAiMarkOn(isAiMarkOn: boolean  | undefined) {
+        this['is_ai_mark_on'] = isAiMarkOn;
+    }
+    public get isAiMarkOn(): boolean | undefined {
+        return this['is_ai_mark_on'];
     }
     public withXRequestId(xRequestId: string): ShowSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;

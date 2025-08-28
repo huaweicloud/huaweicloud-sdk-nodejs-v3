@@ -11,7 +11,10 @@ export class SmartChatRoomBaseInfo {
     private 'cover_url'?: string;
     private 'model_infos'?: ModelInfo;
     private 'voice_config'?: VoiceConfig;
+    private 'billing_mode'?: SmartChatRoomBaseInfoBillingModeEnum | string;
+    private 'reuse_resource'?: boolean;
     public concurrency?: number;
+    private 'client_nums'?: number;
     private 'voice_config_list'?: Array<VoiceConfigRsp>;
     private 'default_language'?: SmartChatRoomBaseInfoDefaultLanguageEnum | string;
     private 'create_time'?: string;
@@ -89,9 +92,39 @@ export class SmartChatRoomBaseInfo {
     public get voiceConfig(): VoiceConfig | undefined {
         return this['voice_config'];
     }
+    public withBillingMode(billingMode: SmartChatRoomBaseInfoBillingModeEnum | string): SmartChatRoomBaseInfo {
+        this['billing_mode'] = billingMode;
+        return this;
+    }
+    public set billingMode(billingMode: SmartChatRoomBaseInfoBillingModeEnum | string  | undefined) {
+        this['billing_mode'] = billingMode;
+    }
+    public get billingMode(): SmartChatRoomBaseInfoBillingModeEnum | string | undefined {
+        return this['billing_mode'];
+    }
+    public withReuseResource(reuseResource: boolean): SmartChatRoomBaseInfo {
+        this['reuse_resource'] = reuseResource;
+        return this;
+    }
+    public set reuseResource(reuseResource: boolean  | undefined) {
+        this['reuse_resource'] = reuseResource;
+    }
+    public get reuseResource(): boolean | undefined {
+        return this['reuse_resource'];
+    }
     public withConcurrency(concurrency: number): SmartChatRoomBaseInfo {
         this['concurrency'] = concurrency;
         return this;
+    }
+    public withClientNums(clientNums: number): SmartChatRoomBaseInfo {
+        this['client_nums'] = clientNums;
+        return this;
+    }
+    public set clientNums(clientNums: number  | undefined) {
+        this['client_nums'] = clientNums;
+    }
+    public get clientNums(): number | undefined {
+        return this['client_nums'];
     }
     public withVoiceConfigList(voiceConfigList: Array<VoiceConfigRsp>): SmartChatRoomBaseInfo {
         this['voice_config_list'] = voiceConfigList;
@@ -145,6 +178,15 @@ export class SmartChatRoomBaseInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartChatRoomBaseInfoBillingModeEnum {
+    CONCURRENCY = 'CONCURRENCY',
+    CLIENT = 'CLIENT',
+    CLIENT_TOKENS = 'CLIENT_TOKENS'
+}
 /**
     * @export
     * @enum {string}

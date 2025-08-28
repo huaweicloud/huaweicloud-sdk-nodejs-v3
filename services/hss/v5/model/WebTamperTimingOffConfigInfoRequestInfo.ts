@@ -1,9 +1,9 @@
-import { TimingRangeConfigInfo } from './TimingRangeConfigInfo';
+import { TimingRangeConfigRequestInfo } from './TimingRangeConfigRequestInfo';
 
 
 export class WebTamperTimingOffConfigInfoRequestInfo {
     private 'week_off_list'?: Array<number>;
-    private 'timing_range_list'?: Array<TimingRangeConfigInfo>;
+    private 'timing_range_list'?: Array<TimingRangeConfigRequestInfo>;
     public constructor() { 
     }
     public withWeekOffList(weekOffList: Array<number>): WebTamperTimingOffConfigInfoRequestInfo {
@@ -16,14 +16,14 @@ export class WebTamperTimingOffConfigInfoRequestInfo {
     public get weekOffList(): Array<number> | undefined {
         return this['week_off_list'];
     }
-    public withTimingRangeList(timingRangeList: Array<TimingRangeConfigInfo>): WebTamperTimingOffConfigInfoRequestInfo {
+    public withTimingRangeList(timingRangeList: Array<TimingRangeConfigRequestInfo>): WebTamperTimingOffConfigInfoRequestInfo {
         this['timing_range_list'] = timingRangeList;
         return this;
     }
-    public set timingRangeList(timingRangeList: Array<TimingRangeConfigInfo>  | undefined) {
+    public set timingRangeList(timingRangeList: Array<TimingRangeConfigRequestInfo>  | undefined) {
         this['timing_range_list'] = timingRangeList;
     }
-    public get timingRangeList(): Array<TimingRangeConfigInfo> | undefined {
+    public get timingRangeList(): Array<TimingRangeConfigRequestInfo> | undefined {
         return this['timing_range_list'];
     }
 }

@@ -22,6 +22,7 @@ export class WorkspaceRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://workspace.tr-west-1.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://workspace.cn-north-11.myhuaweicloud.com"]);
     public static AF_NORTH_1 = new Region("af-north-1", ["https://workspace.af-north-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://workspace.ap-southeast-2.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -40,7 +41,8 @@ export class WorkspaceRegion {
         "af-south-1":WorkspaceRegion.AF_SOUTH_1,
         "tr-west-1":WorkspaceRegion.TR_WEST_1,
         "cn-north-11":WorkspaceRegion.CN_NORTH_11,
-        "af-north-1":WorkspaceRegion.AF_NORTH_1
+        "af-north-1":WorkspaceRegion.AF_NORTH_1,
+        "ap-southeast-2":WorkspaceRegion.AP_SOUTHEAST_2
     };
   
     public static valueOf(regionId: string) {

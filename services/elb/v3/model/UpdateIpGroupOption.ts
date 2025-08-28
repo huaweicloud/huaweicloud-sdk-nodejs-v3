@@ -1,10 +1,10 @@
-import { UpadateIpGroupIpOption } from './UpadateIpGroupIpOption';
+import { UpdateIpGroupIpOption } from './UpdateIpGroupIpOption';
 
 
 export class UpdateIpGroupOption {
     public description?: string;
     public name?: string;
-    private 'ip_list'?: Array<UpadateIpGroupIpOption>;
+    private 'ip_list'?: Array<UpdateIpGroupIpOption>;
     public constructor() { 
     }
     public withDescription(description: string): UpdateIpGroupOption {
@@ -15,14 +15,14 @@ export class UpdateIpGroupOption {
         this['name'] = name;
         return this;
     }
-    public withIpList(ipList: Array<UpadateIpGroupIpOption>): UpdateIpGroupOption {
+    public withIpList(ipList: Array<UpdateIpGroupIpOption>): UpdateIpGroupOption {
         this['ip_list'] = ipList;
         return this;
     }
-    public set ipList(ipList: Array<UpadateIpGroupIpOption>  | undefined) {
+    public set ipList(ipList: Array<UpdateIpGroupIpOption>  | undefined) {
         this['ip_list'] = ipList;
     }
-    public get ipList(): Array<UpadateIpGroupIpOption> | undefined {
+    public get ipList(): Array<UpdateIpGroupIpOption> | undefined {
         return this['ip_list'];
     }
 }

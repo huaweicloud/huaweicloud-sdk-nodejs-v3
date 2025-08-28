@@ -2,6 +2,7 @@
 
 export class UpdateClusterNameReq {
     private 'display_name'?: string;
+    public desc?: string;
     public constructor(displayName?: string) { 
         this['display_name'] = displayName;
     }
@@ -14,5 +15,9 @@ export class UpdateClusterNameReq {
     }
     public get displayName(): string | undefined {
         return this['display_name'];
+    }
+    public withDesc(desc: string): UpdateClusterNameReq {
+        this['desc'] = desc;
+        return this;
     }
 }

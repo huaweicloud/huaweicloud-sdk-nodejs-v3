@@ -4,6 +4,7 @@ export class UpdateVirtualInterface {
     public name?: string;
     public description?: string;
     public bandwidth?: number;
+    public priority?: UpdateVirtualInterfacePriorityEnum | string;
     private 'remote_ep_group'?: Array<string>;
     private 'service_ep_group'?: Array<string>;
     private 'enable_bfd'?: boolean;
@@ -21,6 +22,10 @@ export class UpdateVirtualInterface {
     }
     public withBandwidth(bandwidth: number): UpdateVirtualInterface {
         this['bandwidth'] = bandwidth;
+        return this;
+    }
+    public withPriority(priority: UpdateVirtualInterfacePriorityEnum | string): UpdateVirtualInterface {
+        this['priority'] = priority;
         return this;
     }
     public withRemoteEpGroup(remoteEpGroup: Array<string>): UpdateVirtualInterface {
@@ -69,6 +74,14 @@ export class UpdateVirtualInterface {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateVirtualInterfacePriorityEnum {
+    NORMAL = 'normal',
+    LOW = 'low'
+}
 /**
     * @export
     * @enum {string}

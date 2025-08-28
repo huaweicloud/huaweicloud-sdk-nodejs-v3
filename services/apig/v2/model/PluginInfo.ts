@@ -104,7 +104,9 @@ export enum PluginInfoPluginTypeEnum {
     RATE_LIMIT = 'rate_limit',
     THIRD_AUTH = 'third_auth',
     PROXY_CACHE = 'proxy_cache',
-    PROXY_MIRROR = 'proxy_mirror'
+    PROXY_MIRROR = 'proxy_mirror',
+    OIDC_AUTH = 'oidc_auth',
+    JWT_AUTH = 'jwt_auth'
 }
 /**
     * @export

@@ -10,6 +10,7 @@ export class LayerConfig {
     private 'layer_type'?: LayerConfigLayerTypeEnum | string;
     private 'asset_id'?: string;
     private 'group_id'?: string;
+    private 'sequence_no'?: number;
     public position?: LayerPositionConfig;
     public size?: LayerSizeConfig;
     public rotation?: LayerRotationConfig;
@@ -48,6 +49,16 @@ export class LayerConfig {
     }
     public get groupId(): string | undefined {
         return this['group_id'];
+    }
+    public withSequenceNo(sequenceNo: number): LayerConfig {
+        this['sequence_no'] = sequenceNo;
+        return this;
+    }
+    public set sequenceNo(sequenceNo: number  | undefined) {
+        this['sequence_no'] = sequenceNo;
+    }
+    public get sequenceNo(): number | undefined {
+        return this['sequence_no'];
     }
     public withPosition(position: LayerPositionConfig): LayerConfig {
         this['position'] = position;

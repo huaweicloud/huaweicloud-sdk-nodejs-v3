@@ -116,6 +116,5 @@ export class VideoScriptBaseInfo {
     * @enum {string}
     */
 export enum VideoScriptBaseInfoModelAssetTypeEnum {
-    HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
-    HUMAN_MODEL_3D = 'HUMAN_MODEL_3D'
+    HUMAN_MODEL_2D = 'HUMAN_MODEL_2D'
 }

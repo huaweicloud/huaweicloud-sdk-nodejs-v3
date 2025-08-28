@@ -27,7 +27,14 @@ export class CtsRegion {
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://cts.na-mexico-1.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://cts.eu-west-101.myhuaweicloud.eu"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://cts.ap-southeast-4.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://cts.ap-southeast-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://cts.af-north-1.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://cts.tr-west-1.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://cts.cn-east-5.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://cts.cn-north-12.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://cts.cn-southwest-3.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://cts.cn-north-11.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://cts.cn-east-4.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://cts.me-east-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://cts.eu-west-0.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://cts.my-kualalumpur-1.myhuaweicloud.com"]);
@@ -57,7 +64,14 @@ export class CtsRegion {
         "na-mexico-1":CtsRegion.NA_MEXICO_1,
         "eu-west-101":CtsRegion.EU_WEST_101,
         "ap-southeast-4":CtsRegion.AP_SOUTHEAST_4,
+        "ap-southeast-5":CtsRegion.AP_SOUTHEAST_5,
+        "af-north-1":CtsRegion.AF_NORTH_1,
         "tr-west-1":CtsRegion.TR_WEST_1,
+        "cn-east-5":CtsRegion.CN_EAST_5,
+        "cn-north-12":CtsRegion.CN_NORTH_12,
+        "cn-southwest-3":CtsRegion.CN_SOUTHWEST_3,
+        "cn-north-11":CtsRegion.CN_NORTH_11,
+        "cn-east-4":CtsRegion.CN_EAST_4,
         "me-east-1":CtsRegion.ME_EAST_1,
         "eu-west-0":CtsRegion.EU_WEST_0,
         "my-kualalumpur-1":CtsRegion.MY_KUALALUMPUR_1,

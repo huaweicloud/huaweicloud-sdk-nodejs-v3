@@ -54,6 +54,10 @@ import { ChatResourceConfig } from './model/ChatResourceConfig';
 import { ChatResourceConfigInfo } from './model/ChatResourceConfigInfo';
 import { ChatSubtitleConfig } from './model/ChatSubtitleConfig';
 import { ChatVoiceConfig } from './model/ChatVoiceConfig';
+import { CheckRecallKnowledgeLibraryRequest } from './model/CheckRecallKnowledgeLibraryRequest';
+import { CheckRecallKnowledgeLibraryResponse } from './model/CheckRecallKnowledgeLibraryResponse';
+import { CheckVoiceAssetRequest } from './model/CheckVoiceAssetRequest';
+import { CheckVoiceAssetResponse } from './model/CheckVoiceAssetResponse';
 import { CoStreamerConfig } from './model/CoStreamerConfig';
 import { CommentData } from './model/CommentData';
 import { CommentLogInfo } from './model/CommentLogInfo';
@@ -108,6 +112,9 @@ import { CreateDigitalAssetResponse } from './model/CreateDigitalAssetResponse';
 import { CreateDigitalHumanBusinessCardReq } from './model/CreateDigitalHumanBusinessCardReq';
 import { CreateDigitalHumanBusinessCardRequest } from './model/CreateDigitalHumanBusinessCardRequest';
 import { CreateDigitalHumanBusinessCardResponse } from './model/CreateDigitalHumanBusinessCardResponse';
+import { CreateDocumentRequest } from './model/CreateDocumentRequest';
+import { CreateDocumentRequestBody } from './model/CreateDocumentRequestBody';
+import { CreateDocumentResponse } from './model/CreateDocumentResponse';
 import { CreateFASReq } from './model/CreateFASReq';
 import { CreateFacialAnimationsRequest } from './model/CreateFacialAnimationsRequest';
 import { CreateFacialAnimationsResponse } from './model/CreateFacialAnimationsResponse';
@@ -119,15 +126,27 @@ import { CreateHotQuestionResponse } from './model/CreateHotQuestionResponse';
 import { CreateHotWordsReq } from './model/CreateHotWordsReq';
 import { CreateHotWordsRequest } from './model/CreateHotWordsRequest';
 import { CreateHotWordsResponse } from './model/CreateHotWordsResponse';
+import { CreateInstructionLibraryReq } from './model/CreateInstructionLibraryReq';
+import { CreateInstructionLibraryRequest } from './model/CreateInstructionLibraryRequest';
+import { CreateInstructionLibraryResponse } from './model/CreateInstructionLibraryResponse';
+import { CreateInstructionReq } from './model/CreateInstructionReq';
+import { CreateInstructionRequest } from './model/CreateInstructionRequest';
+import { CreateInstructionResponse } from './model/CreateInstructionResponse';
 import { CreateIntentAndQuestionReq } from './model/CreateIntentAndQuestionReq';
 import { CreateIntentAndQuestionRequest } from './model/CreateIntentAndQuestionRequest';
 import { CreateIntentAndQuestionResponse } from './model/CreateIntentAndQuestionResponse';
 import { CreateInteractionRuleGroupRequest } from './model/CreateInteractionRuleGroupRequest';
 import { CreateInteractionRuleGroupResponse } from './model/CreateInteractionRuleGroupResponse';
+import { CreateInteractiveChatReq } from './model/CreateInteractiveChatReq';
+import { CreateInteractiveChatRequest } from './model/CreateInteractiveChatRequest';
+import { CreateInteractiveChatResponse } from './model/CreateInteractiveChatResponse';
 import { CreateKnowledgeIntentReq } from './model/CreateKnowledgeIntentReq';
 import { CreateKnowledgeIntentRequest } from './model/CreateKnowledgeIntentRequest';
 import { CreateKnowledgeIntentResponse } from './model/CreateKnowledgeIntentResponse';
 import { CreateKnowledgeIntentRsp } from './model/CreateKnowledgeIntentRsp';
+import { CreateKnowledgeLibraryReq } from './model/CreateKnowledgeLibraryReq';
+import { CreateKnowledgeLibraryRequest } from './model/CreateKnowledgeLibraryRequest';
+import { CreateKnowledgeLibraryResponse } from './model/CreateKnowledgeLibraryResponse';
 import { CreateKnowledgeQuestionReq } from './model/CreateKnowledgeQuestionReq';
 import { CreateKnowledgeQuestionRequest } from './model/CreateKnowledgeQuestionRequest';
 import { CreateKnowledgeQuestionResponse } from './model/CreateKnowledgeQuestionResponse';
@@ -139,6 +158,12 @@ import { CreateLargeFileResponse } from './model/CreateLargeFileResponse';
 import { CreateLivePlatformReq } from './model/CreateLivePlatformReq';
 import { CreateLivePlatformRequest } from './model/CreateLivePlatformRequest';
 import { CreateLivePlatformResponse } from './model/CreateLivePlatformResponse';
+import { CreateLlmConfigReq } from './model/CreateLlmConfigReq';
+import { CreateLlmConfigRequest } from './model/CreateLlmConfigRequest';
+import { CreateLlmConfigResponse } from './model/CreateLlmConfigResponse';
+import { CreateMcpServerReq } from './model/CreateMcpServerReq';
+import { CreateMcpServerRequest } from './model/CreateMcpServerRequest';
+import { CreateMcpServerResponse } from './model/CreateMcpServerResponse';
 import { CreateMetaStudioOrdersReq } from './model/CreateMetaStudioOrdersReq';
 import { CreateMetaStudioOrdersRequest } from './model/CreateMetaStudioOrdersRequest';
 import { CreateMetaStudioOrdersResponse } from './model/CreateMetaStudioOrdersResponse';
@@ -159,12 +184,21 @@ import { CreatePictureModelingByUrlJobResponse } from './model/CreatePictureMode
 import { CreatePictureModelingJobRequest } from './model/CreatePictureModelingJobRequest';
 import { CreatePictureModelingJobRequestBody } from './model/CreatePictureModelingJobRequestBody';
 import { CreatePictureModelingJobResponse } from './model/CreatePictureModelingJobResponse';
+import { CreatePluginConfigReq } from './model/CreatePluginConfigReq';
+import { CreatePluginConfigRequest } from './model/CreatePluginConfigRequest';
+import { CreatePluginConfigResponse } from './model/CreatePluginConfigResponse';
 import { CreateProductRequest } from './model/CreateProductRequest';
 import { CreateProductRequestBody } from './model/CreateProductRequestBody';
 import { CreateProductResponse } from './model/CreateProductResponse';
+import { CreateQuestionAnswerReq } from './model/CreateQuestionAnswerReq';
+import { CreateQuestionAnswerRequest } from './model/CreateQuestionAnswerRequest';
+import { CreateQuestionAnswerResponse } from './model/CreateQuestionAnswerResponse';
 import { CreateRobotReq } from './model/CreateRobotReq';
 import { CreateRobotRequest } from './model/CreateRobotRequest';
 import { CreateRobotResponse } from './model/CreateRobotResponse';
+import { CreateRoleReq } from './model/CreateRoleReq';
+import { CreateRoleRequest } from './model/CreateRoleRequest';
+import { CreateRoleResponse } from './model/CreateRoleResponse';
 import { CreateSisHotWords } from './model/CreateSisHotWords';
 import { CreateSmartChatRoomReq } from './model/CreateSmartChatRoomReq';
 import { CreateSmartChatRoomRequest } from './model/CreateSmartChatRoomRequest';
@@ -206,6 +240,7 @@ import { CreateWelcomeSpeechReq } from './model/CreateWelcomeSpeechReq';
 import { CreateWelcomeSpeechRequest } from './model/CreateWelcomeSpeechRequest';
 import { CreateWelcomeSpeechResponse } from './model/CreateWelcomeSpeechResponse';
 import { CustomPlatformAuthConfig } from './model/CustomPlatformAuthConfig';
+import { DefaultPluginInfo } from './model/DefaultPluginInfo';
 import { Delete2dModelTrainingJobRequest } from './model/Delete2dModelTrainingJobRequest';
 import { Delete2dModelTrainingJobResponse } from './model/Delete2dModelTrainingJobResponse';
 import { DeleteActiveCodeRequest } from './model/DeleteActiveCodeRequest';
@@ -220,28 +255,46 @@ import { DeleteDialogReportConfigRequest } from './model/DeleteDialogReportConfi
 import { DeleteDialogReportConfigResponse } from './model/DeleteDialogReportConfigResponse';
 import { DeleteDigitalHumanBusinessCardRequest } from './model/DeleteDigitalHumanBusinessCardRequest';
 import { DeleteDigitalHumanBusinessCardResponse } from './model/DeleteDigitalHumanBusinessCardResponse';
+import { DeleteDocumentRequest } from './model/DeleteDocumentRequest';
+import { DeleteDocumentResponse } from './model/DeleteDocumentResponse';
 import { DeleteFileRequest } from './model/DeleteFileRequest';
 import { DeleteFileResponse } from './model/DeleteFileResponse';
 import { DeleteHotQuestionRequest } from './model/DeleteHotQuestionRequest';
 import { DeleteHotQuestionResponse } from './model/DeleteHotQuestionResponse';
 import { DeleteHotWordsRequest } from './model/DeleteHotWordsRequest';
 import { DeleteHotWordsResponse } from './model/DeleteHotWordsResponse';
+import { DeleteInstructionLibraryRequest } from './model/DeleteInstructionLibraryRequest';
+import { DeleteInstructionLibraryResponse } from './model/DeleteInstructionLibraryResponse';
+import { DeleteInstructionRequest } from './model/DeleteInstructionRequest';
+import { DeleteInstructionResponse } from './model/DeleteInstructionResponse';
 import { DeleteInteractionRuleGroupRequest } from './model/DeleteInteractionRuleGroupRequest';
 import { DeleteInteractionRuleGroupResponse } from './model/DeleteInteractionRuleGroupResponse';
 import { DeleteKnowledgeIntentRequest } from './model/DeleteKnowledgeIntentRequest';
 import { DeleteKnowledgeIntentResponse } from './model/DeleteKnowledgeIntentResponse';
+import { DeleteKnowledgeLibraryRequest } from './model/DeleteKnowledgeLibraryRequest';
+import { DeleteKnowledgeLibraryResponse } from './model/DeleteKnowledgeLibraryResponse';
 import { DeleteKnowledgeQuestionRequest } from './model/DeleteKnowledgeQuestionRequest';
 import { DeleteKnowledgeQuestionResponse } from './model/DeleteKnowledgeQuestionResponse';
 import { DeleteKnowledgeSkillRequest } from './model/DeleteKnowledgeSkillRequest';
 import { DeleteKnowledgeSkillResponse } from './model/DeleteKnowledgeSkillResponse';
 import { DeleteLivePlatformRequest } from './model/DeleteLivePlatformRequest';
 import { DeleteLivePlatformResponse } from './model/DeleteLivePlatformResponse';
+import { DeleteLlmConfigRequest } from './model/DeleteLlmConfigRequest';
+import { DeleteLlmConfigResponse } from './model/DeleteLlmConfigResponse';
+import { DeleteMcpServerRequest } from './model/DeleteMcpServerRequest';
+import { DeleteMcpServerResponse } from './model/DeleteMcpServerResponse';
 import { DeletePacifyWordsRequest } from './model/DeletePacifyWordsRequest';
 import { DeletePacifyWordsResponse } from './model/DeletePacifyWordsResponse';
+import { DeletePluginConfigRequest } from './model/DeletePluginConfigRequest';
+import { DeletePluginConfigResponse } from './model/DeletePluginConfigResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
 import { DeleteProductResponse } from './model/DeleteProductResponse';
+import { DeleteQuestionAnswerRequest } from './model/DeleteQuestionAnswerRequest';
+import { DeleteQuestionAnswerResponse } from './model/DeleteQuestionAnswerResponse';
 import { DeleteRobotRequest } from './model/DeleteRobotRequest';
 import { DeleteRobotResponse } from './model/DeleteRobotResponse';
+import { DeleteRoleRequest } from './model/DeleteRoleRequest';
+import { DeleteRoleResponse } from './model/DeleteRoleResponse';
 import { DeleteSmartChatRoomRequest } from './model/DeleteSmartChatRoomRequest';
 import { DeleteSmartChatRoomResponse } from './model/DeleteSmartChatRoomResponse';
 import { DeleteSmartLiveRoomRequest } from './model/DeleteSmartLiveRoomRequest';
@@ -264,6 +317,12 @@ import { DigitalAssetSummary } from './model/DigitalAssetSummary';
 import { DigitalHumanBusinessCardJobInfo } from './model/DigitalHumanBusinessCardJobInfo';
 import { DigitalHumanModelingJobInfo } from './model/DigitalHumanModelingJobInfo';
 import { DigitalHumanVideo } from './model/DigitalHumanVideo';
+import { DocumentInfo } from './model/DocumentInfo';
+import { DocumentSegmentInfo } from './model/DocumentSegmentInfo';
+import { DocumentSegmentParam } from './model/DocumentSegmentParam';
+import { DocumentTaskInfo } from './model/DocumentTaskInfo';
+import { DownloadDocumentRequest } from './model/DownloadDocumentRequest';
+import { DownloadDocumentResponse } from './model/DownloadDocumentResponse';
 import { DownloadResultFileRequest } from './model/DownloadResultFileRequest';
 import { DownloadResultFileResponse } from './model/DownloadResultFileResponse';
 import { DownloadTemplateRequest } from './model/DownloadTemplateRequest';
@@ -301,6 +360,10 @@ import { InferenceActionMarkInfo } from './model/InferenceActionMarkInfo';
 import { InferenceEyeCorrectionMarkInfo } from './model/InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './model/InferenceVideoMarkInfo';
 import { InputInfo } from './model/InputInfo';
+import { InstructionInfo } from './model/InstructionInfo';
+import { InstructionLibraryInfo } from './model/InstructionLibraryInfo';
+import { InstructionReplyWordsInfo } from './model/InstructionReplyWordsInfo';
+import { InstructionSlotInfo } from './model/InstructionSlotInfo';
 import { InteractionRuleDetailInfo } from './model/InteractionRuleDetailInfo';
 import { InteractionRuleGroup } from './model/InteractionRuleGroup';
 import { InteractionRuleGroupDetail } from './model/InteractionRuleGroupDetail';
@@ -309,10 +372,13 @@ import { JobState } from './model/JobState';
 import { JobTag } from './model/JobTag';
 import { JobType } from './model/JobType';
 import { KnowledgeIntentInfo } from './model/KnowledgeIntentInfo';
+import { KnowledgeLibraryBaseInfo } from './model/KnowledgeLibraryBaseInfo';
+import { KnowledgeLibraryInfo } from './model/KnowledgeLibraryInfo';
 import { KnowledgeQuestionCreateInfo } from './model/KnowledgeQuestionCreateInfo';
 import { KnowledgeQuestionInfo } from './model/KnowledgeQuestionInfo';
 import { KnowledgeQuestionUpdateInfo } from './model/KnowledgeQuestionUpdateInfo';
 import { KnowledgeSkillInfo } from './model/KnowledgeSkillInfo';
+import { KnowledgeTypeEnum } from './model/KnowledgeTypeEnum';
 import { LanguageEnum } from './model/LanguageEnum';
 import { LargeFilesCreateReq } from './model/LargeFilesCreateReq';
 import { LayerConfig } from './model/LayerConfig';
@@ -334,18 +400,28 @@ import { ListDigitalHumanBusinessCardRequest } from './model/ListDigitalHumanBus
 import { ListDigitalHumanBusinessCardResponse } from './model/ListDigitalHumanBusinessCardResponse';
 import { ListDigitalHumanVideoRequest } from './model/ListDigitalHumanVideoRequest';
 import { ListDigitalHumanVideoResponse } from './model/ListDigitalHumanVideoResponse';
+import { ListDocumentInfoRequest } from './model/ListDocumentInfoRequest';
+import { ListDocumentInfoResponse } from './model/ListDocumentInfoResponse';
+import { ListDocumentSegmentRequest } from './model/ListDocumentSegmentRequest';
+import { ListDocumentSegmentResponse } from './model/ListDocumentSegmentResponse';
 import { ListFacialAnimationsDataRequest } from './model/ListFacialAnimationsDataRequest';
 import { ListFacialAnimationsDataResponse } from './model/ListFacialAnimationsDataResponse';
 import { ListHotQuestionRequest } from './model/ListHotQuestionRequest';
 import { ListHotQuestionResponse } from './model/ListHotQuestionResponse';
 import { ListHotWordsRequest } from './model/ListHotWordsRequest';
 import { ListHotWordsResponse } from './model/ListHotWordsResponse';
+import { ListInstructionLibraryRequest } from './model/ListInstructionLibraryRequest';
+import { ListInstructionLibraryResponse } from './model/ListInstructionLibraryResponse';
+import { ListInstructionRequest } from './model/ListInstructionRequest';
+import { ListInstructionResponse } from './model/ListInstructionResponse';
 import { ListInteractionRuleGroupsRequest } from './model/ListInteractionRuleGroupsRequest';
 import { ListInteractionRuleGroupsResponse } from './model/ListInteractionRuleGroupsResponse';
 import { ListJobOperationLogRequest } from './model/ListJobOperationLogRequest';
 import { ListJobOperationLogResponse } from './model/ListJobOperationLogResponse';
 import { ListKnowledgeIntentRequest } from './model/ListKnowledgeIntentRequest';
 import { ListKnowledgeIntentResponse } from './model/ListKnowledgeIntentResponse';
+import { ListKnowledgeLibraryRequest } from './model/ListKnowledgeLibraryRequest';
+import { ListKnowledgeLibraryResponse } from './model/ListKnowledgeLibraryResponse';
 import { ListKnowledgeQuestionRequest } from './model/ListKnowledgeQuestionRequest';
 import { ListKnowledgeQuestionResponse } from './model/ListKnowledgeQuestionResponse';
 import { ListKnowledgeSkillRequest } from './model/ListKnowledgeSkillRequest';
@@ -354,14 +430,24 @@ import { ListLivePlatformProductsRequest } from './model/ListLivePlatformProduct
 import { ListLivePlatformProductsResponse } from './model/ListLivePlatformProductsResponse';
 import { ListLivePlatformsRequest } from './model/ListLivePlatformsRequest';
 import { ListLivePlatformsResponse } from './model/ListLivePlatformsResponse';
+import { ListLlmConfigRequest } from './model/ListLlmConfigRequest';
+import { ListLlmConfigResponse } from './model/ListLlmConfigResponse';
+import { ListMcpServerRequest } from './model/ListMcpServerRequest';
+import { ListMcpServerResponse } from './model/ListMcpServerResponse';
 import { ListPacifyWordsRequest } from './model/ListPacifyWordsRequest';
 import { ListPacifyWordsResponse } from './model/ListPacifyWordsResponse';
 import { ListPictureModelingJobsRequest } from './model/ListPictureModelingJobsRequest';
 import { ListPictureModelingJobsResponse } from './model/ListPictureModelingJobsResponse';
+import { ListPluginConfigRequest } from './model/ListPluginConfigRequest';
+import { ListPluginConfigResponse } from './model/ListPluginConfigResponse';
 import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsResponse } from './model/ListProductsResponse';
+import { ListQuestionAnswerRequest } from './model/ListQuestionAnswerRequest';
+import { ListQuestionAnswerResponse } from './model/ListQuestionAnswerResponse';
 import { ListRobotRequest } from './model/ListRobotRequest';
 import { ListRobotResponse } from './model/ListRobotResponse';
+import { ListRoleRequest } from './model/ListRoleRequest';
+import { ListRoleResponse } from './model/ListRoleResponse';
 import { ListSmartChatJobRequest } from './model/ListSmartChatJobRequest';
 import { ListSmartChatJobResponse } from './model/ListSmartChatJobResponse';
 import { ListSmartChatRoomsRequest } from './model/ListSmartChatRoomsRequest';
@@ -413,8 +499,12 @@ import { LiveRoomInteractionRuleInfo } from './model/LiveRoomInteractionRuleInfo
 import { LiveShootScriptItem } from './model/LiveShootScriptItem';
 import { LiveVideoScriptInfo } from './model/LiveVideoScriptInfo';
 import { LiveWarningItem } from './model/LiveWarningItem';
+import { LlmConfigInfo } from './model/LlmConfigInfo';
+import { LlmSourceEnum } from './model/LlmSourceEnum';
 import { MaterialAssetMeta } from './model/MaterialAssetMeta';
 import { MaterialComponentInfo } from './model/MaterialComponentInfo';
+import { McpServerBaseInfo } from './model/McpServerBaseInfo';
+import { McpServerInfo } from './model/McpServerInfo';
 import { MobvoiConfig } from './model/MobvoiConfig';
 import { MobvoiVocabulary } from './model/MobvoiVocabulary';
 import { ModelInfo } from './model/ModelInfo';
@@ -439,6 +529,12 @@ import { PlatformLiveDetailInfo } from './model/PlatformLiveDetailInfo';
 import { PlatformLiveInfo } from './model/PlatformLiveInfo';
 import { PlatformProductInfo } from './model/PlatformProductInfo';
 import { PlayPolicy } from './model/PlayPolicy';
+import { PluginConfigInfo } from './model/PluginConfigInfo';
+import { PluginProviderEnum } from './model/PluginProviderEnum';
+import { PluginSourceEnum } from './model/PluginSourceEnum';
+import { PluginTypeEnum } from './model/PluginTypeEnum';
+import { PreviewDocumentSegmentRequest } from './model/PreviewDocumentSegmentRequest';
+import { PreviewDocumentSegmentResponse } from './model/PreviewDocumentSegmentResponse';
 import { PreviewInfo } from './model/PreviewInfo';
 import { ProductAssetReleation } from './model/ProductAssetReleation';
 import { ProductBasicInfo } from './model/ProductBasicInfo';
@@ -450,9 +546,12 @@ import { ProductMediaInfo } from './model/ProductMediaInfo';
 import { ProductTextInfo } from './model/ProductTextInfo';
 import { PublicCloudServiceOrder } from './model/PublicCloudServiceOrder';
 import { QueryTaskResultDTO } from './model/QueryTaskResultDTO';
+import { QuestionAnswerInfo } from './model/QuestionAnswerInfo';
 import { RTCLiveEventCallBackConfig } from './model/RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
+import { RecallKnowledgeLibraryInfo } from './model/RecallKnowledgeLibraryInfo';
+import { RecallKnowledgeLibraryRequestBody } from './model/RecallKnowledgeLibraryRequestBody';
 import { RelationProductInfo } from './model/RelationProductInfo';
 import { ReplicationAssetInfo } from './model/ReplicationAssetInfo';
 import { ReplicationEncInfo } from './model/ReplicationEncInfo';
@@ -469,7 +568,16 @@ import { RestoreAssetResponse } from './model/RestoreAssetResponse';
 import { ReviewConfig } from './model/ReviewConfig';
 import { RobotInfo } from './model/RobotInfo';
 import { RobotTypeEnum } from './model/RobotTypeEnum';
+import { RoleBusinessInfo } from './model/RoleBusinessInfo';
+import { RoleBusinessReq } from './model/RoleBusinessReq';
+import { RoleInfo } from './model/RoleInfo';
+import { RoleKnowledgeLibraryInfo } from './model/RoleKnowledgeLibraryInfo';
+import { RoleKnowledgeLibraryReq } from './model/RoleKnowledgeLibraryReq';
+import { RolePluginConfigInfo } from './model/RolePluginConfigInfo';
 import { RuleCommand } from './model/RuleCommand';
+import { SaveTtscTenantConfigsRequest } from './model/SaveTtscTenantConfigsRequest';
+import { SaveTtscTenantConfigsRequestBody } from './model/SaveTtscTenantConfigsRequestBody';
+import { SaveTtscTenantConfigsResponse } from './model/SaveTtscTenantConfigsResponse';
 import { SaveTtscVocabularyConfigsRequest } from './model/SaveTtscVocabularyConfigsRequest';
 import { SaveTtscVocabularyConfigsRequestBody } from './model/SaveTtscVocabularyConfigsRequestBody';
 import { SaveTtscVocabularyConfigsResponse } from './model/SaveTtscVocabularyConfigsResponse';
@@ -515,12 +623,18 @@ import { ShowDialogReportConfigRequest } from './model/ShowDialogReportConfigReq
 import { ShowDialogReportConfigResponse } from './model/ShowDialogReportConfigResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
 import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
+import { ShowDocumentInfoRequest } from './model/ShowDocumentInfoRequest';
+import { ShowDocumentInfoResponse } from './model/ShowDocumentInfoResponse';
 import { ShowHotQuestionRequest } from './model/ShowHotQuestionRequest';
 import { ShowHotQuestionResponse } from './model/ShowHotQuestionResponse';
 import { ShowHotWordsRequest } from './model/ShowHotWordsRequest';
 import { ShowHotWordsResponse } from './model/ShowHotWordsResponse';
 import { ShowHotWordsSwitchRequest } from './model/ShowHotWordsSwitchRequest';
 import { ShowHotWordsSwitchResponse } from './model/ShowHotWordsSwitchResponse';
+import { ShowInstructionLibraryRequest } from './model/ShowInstructionLibraryRequest';
+import { ShowInstructionLibraryResponse } from './model/ShowInstructionLibraryResponse';
+import { ShowInstructionRequest } from './model/ShowInstructionRequest';
+import { ShowInstructionResponse } from './model/ShowInstructionResponse';
 import { ShowJobAuditResultRequest } from './model/ShowJobAuditResultRequest';
 import { ShowJobAuditResultResponse } from './model/ShowJobAuditResultResponse';
 import { ShowJobUploadingAddressRequest } from './model/ShowJobUploadingAddressRequest';
@@ -529,12 +643,18 @@ import { ShowJobUploadingAddressRspPackageUrl } from './model/ShowJobUploadingAd
 import { ShowJobUploadingAddressRspSegmentUrl } from './model/ShowJobUploadingAddressRspSegmentUrl';
 import { ShowKnowledgeIntentRequest } from './model/ShowKnowledgeIntentRequest';
 import { ShowKnowledgeIntentResponse } from './model/ShowKnowledgeIntentResponse';
+import { ShowKnowledgeLibraryRequest } from './model/ShowKnowledgeLibraryRequest';
+import { ShowKnowledgeLibraryResponse } from './model/ShowKnowledgeLibraryResponse';
 import { ShowKnowledgeQuestionRequest } from './model/ShowKnowledgeQuestionRequest';
 import { ShowKnowledgeQuestionResponse } from './model/ShowKnowledgeQuestionResponse';
 import { ShowKnowledgeSkillRequest } from './model/ShowKnowledgeSkillRequest';
 import { ShowKnowledgeSkillResponse } from './model/ShowKnowledgeSkillResponse';
 import { ShowLivePlatformRequest } from './model/ShowLivePlatformRequest';
 import { ShowLivePlatformResponse } from './model/ShowLivePlatformResponse';
+import { ShowLlmConfigRequest } from './model/ShowLlmConfigRequest';
+import { ShowLlmConfigResponse } from './model/ShowLlmConfigResponse';
+import { ShowMcpServerRequest } from './model/ShowMcpServerRequest';
+import { ShowMcpServerResponse } from './model/ShowMcpServerResponse';
 import { ShowPacifyWordsIntentRequest } from './model/ShowPacifyWordsIntentRequest';
 import { ShowPacifyWordsIntentResponse } from './model/ShowPacifyWordsIntentResponse';
 import { ShowPacifyWordsRequest } from './model/ShowPacifyWordsRequest';
@@ -549,12 +669,20 @@ import { ShowPhotoDigitalHumanVideoRequest } from './model/ShowPhotoDigitalHuman
 import { ShowPhotoDigitalHumanVideoResponse } from './model/ShowPhotoDigitalHumanVideoResponse';
 import { ShowPictureModelingJobRequest } from './model/ShowPictureModelingJobRequest';
 import { ShowPictureModelingJobResponse } from './model/ShowPictureModelingJobResponse';
+import { ShowPluginConfigDefaultInfoRequest } from './model/ShowPluginConfigDefaultInfoRequest';
+import { ShowPluginConfigDefaultInfoResponse } from './model/ShowPluginConfigDefaultInfoResponse';
+import { ShowPluginConfigRequest } from './model/ShowPluginConfigRequest';
+import { ShowPluginConfigResponse } from './model/ShowPluginConfigResponse';
 import { ShowProductRequest } from './model/ShowProductRequest';
 import { ShowProductResponse } from './model/ShowProductResponse';
+import { ShowQuestionAnswerRequest } from './model/ShowQuestionAnswerRequest';
+import { ShowQuestionAnswerResponse } from './model/ShowQuestionAnswerResponse';
 import { ShowResourceUsageRequest } from './model/ShowResourceUsageRequest';
 import { ShowResourceUsageResponse } from './model/ShowResourceUsageResponse';
 import { ShowRobotRequest } from './model/ShowRobotRequest';
 import { ShowRobotResponse } from './model/ShowRobotResponse';
+import { ShowRoleRequest } from './model/ShowRoleRequest';
+import { ShowRoleResponse } from './model/ShowRoleResponse';
 import { ShowSmartChatJobRequest } from './model/ShowSmartChatJobRequest';
 import { ShowSmartChatJobResponse } from './model/ShowSmartChatJobResponse';
 import { ShowSmartChatRoomRequest } from './model/ShowSmartChatRoomRequest';
@@ -573,18 +701,23 @@ import { ShowTrainingSegmentInfoRequest } from './model/ShowTrainingSegmentInfoR
 import { ShowTrainingSegmentInfoResponse } from './model/ShowTrainingSegmentInfoResponse';
 import { ShowTtsAuditionFileRequest } from './model/ShowTtsAuditionFileRequest';
 import { ShowTtsAuditionFileResponse } from './model/ShowTtsAuditionFileResponse';
+import { ShowTtsJobRequest } from './model/ShowTtsJobRequest';
+import { ShowTtsJobResponse } from './model/ShowTtsJobResponse';
 import { ShowTtsPhoneticSymbolRequest } from './model/ShowTtsPhoneticSymbolRequest';
 import { ShowTtsPhoneticSymbolResponse } from './model/ShowTtsPhoneticSymbolResponse';
 import { ShowVideoMotionCaptureJobRequest } from './model/ShowVideoMotionCaptureJobRequest';
 import { ShowVideoMotionCaptureJobResponse } from './model/ShowVideoMotionCaptureJobResponse';
 import { ShowVideoScriptRequest } from './model/ShowVideoScriptRequest';
 import { ShowVideoScriptResponse } from './model/ShowVideoScriptResponse';
+import { ShowVocabularySwitchConfigsRequest } from './model/ShowVocabularySwitchConfigsRequest';
+import { ShowVocabularySwitchConfigsResponse } from './model/ShowVocabularySwitchConfigsResponse';
 import { ShowVoiceTrainingJobRequest } from './model/ShowVoiceTrainingJobRequest';
 import { ShowVoiceTrainingJobResponse } from './model/ShowVoiceTrainingJobResponse';
 import { ShowWelcomeSpeechRequest } from './model/ShowWelcomeSpeechRequest';
 import { ShowWelcomeSpeechResponse } from './model/ShowWelcomeSpeechResponse';
 import { ShowWelcomeSpeechSwitchRequest } from './model/ShowWelcomeSpeechSwitchRequest';
 import { ShowWelcomeSpeechSwitchResponse } from './model/ShowWelcomeSpeechSwitchResponse';
+import { SlotKnowledgeLibraryInfo } from './model/SlotKnowledgeLibraryInfo';
 import { SmartChatJobBaseInfo } from './model/SmartChatJobBaseInfo';
 import { SmartChatJobsReq } from './model/SmartChatJobsReq';
 import { SmartChatRoomBaseInfo } from './model/SmartChatRoomBaseInfo';
@@ -598,6 +731,9 @@ import { SmartLiveRoomBaseInfo } from './model/SmartLiveRoomBaseInfo';
 import { SmartTextLayerConfig } from './model/SmartTextLayerConfig';
 import { SmartVideoLayerConfig } from './model/SmartVideoLayerConfig';
 import { StandardPlatformApiConfig } from './model/StandardPlatformApiConfig';
+import { StartDocumentSegmentRequest } from './model/StartDocumentSegmentRequest';
+import { StartDocumentSegmentResponse } from './model/StartDocumentSegmentResponse';
+import { StartDocumentSegmentTaskReq } from './model/StartDocumentSegmentTaskReq';
 import { StartSmartChatJobRequest } from './model/StartSmartChatJobRequest';
 import { StartSmartChatJobResponse } from './model/StartSmartChatJobResponse';
 import { StartSmartLiveReq } from './model/StartSmartLiveReq';
@@ -628,7 +764,15 @@ import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TrainingVideoMarkInfo } from './model/TrainingVideoMarkInfo';
 import { TriggerProcess } from './model/TriggerProcess';
 import { TtsCallBackConfig } from './model/TtsCallBackConfig';
+import { TtsJobDetail } from './model/TtsJobDetail';
+import { TtsJobFile } from './model/TtsJobFile';
+import { TtscAssetExtraMeta } from './model/TtscAssetExtraMeta';
+import { TtscAssetFileInfo } from './model/TtscAssetFileInfo';
+import { TtscAudioxVoiceAssetMeta } from './model/TtscAudioxVoiceAssetMeta';
+import { TtscExternalVoiceAssetMeta } from './model/TtscExternalVoiceAssetMeta';
 import { TtscGroupAssetsConfig } from './model/TtscGroupAssetsConfig';
+import { TtscMobvoiVoiceAssetMeta } from './model/TtscMobvoiVoiceAssetMeta';
+import { TtscVoiceModelAssetMeta } from './model/TtscVoiceModelAssetMeta';
 import { Update2dModelTrainingJobReq } from './model/Update2dModelTrainingJobReq';
 import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
 import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJobResponse';
@@ -650,6 +794,14 @@ import { UpdateDigitalAssetRequestBody } from './model/UpdateDigitalAssetRequest
 import { UpdateDigitalAssetResponse } from './model/UpdateDigitalAssetResponse';
 import { UpdateDigitalHumanBusinessCardRequest } from './model/UpdateDigitalHumanBusinessCardRequest';
 import { UpdateDigitalHumanBusinessCardResponse } from './model/UpdateDigitalHumanBusinessCardResponse';
+import { UpdateDocumentRequest } from './model/UpdateDocumentRequest';
+import { UpdateDocumentRequestBody } from './model/UpdateDocumentRequestBody';
+import { UpdateDocumentResponse } from './model/UpdateDocumentResponse';
+import { UpdateDocumentSegmentInfoRequest } from './model/UpdateDocumentSegmentInfoRequest';
+import { UpdateDocumentSegmentInfoResponse } from './model/UpdateDocumentSegmentInfoResponse';
+import { UpdateDocumentSegmentParamRequest } from './model/UpdateDocumentSegmentParamRequest';
+import { UpdateDocumentSegmentParamResponse } from './model/UpdateDocumentSegmentParamResponse';
+import { UpdateDocumentSegmentReq } from './model/UpdateDocumentSegmentReq';
 import { UpdateHotQuestionReq } from './model/UpdateHotQuestionReq';
 import { UpdateHotQuestionRequest } from './model/UpdateHotQuestionRequest';
 import { UpdateHotQuestionResponse } from './model/UpdateHotQuestionResponse';
@@ -659,11 +811,20 @@ import { UpdateHotWordsResponse } from './model/UpdateHotWordsResponse';
 import { UpdateHotWordsSwitchReq } from './model/UpdateHotWordsSwitchReq';
 import { UpdateHotWordsSwitchRequest } from './model/UpdateHotWordsSwitchRequest';
 import { UpdateHotWordsSwitchResponse } from './model/UpdateHotWordsSwitchResponse';
+import { UpdateInstructionLibraryReq } from './model/UpdateInstructionLibraryReq';
+import { UpdateInstructionLibraryRequest } from './model/UpdateInstructionLibraryRequest';
+import { UpdateInstructionLibraryResponse } from './model/UpdateInstructionLibraryResponse';
+import { UpdateInstructionReq } from './model/UpdateInstructionReq';
+import { UpdateInstructionRequest } from './model/UpdateInstructionRequest';
+import { UpdateInstructionResponse } from './model/UpdateInstructionResponse';
 import { UpdateInteractionRuleGroupRequest } from './model/UpdateInteractionRuleGroupRequest';
 import { UpdateInteractionRuleGroupResponse } from './model/UpdateInteractionRuleGroupResponse';
 import { UpdateKnowledgeIntentReq } from './model/UpdateKnowledgeIntentReq';
 import { UpdateKnowledgeIntentRequest } from './model/UpdateKnowledgeIntentRequest';
 import { UpdateKnowledgeIntentResponse } from './model/UpdateKnowledgeIntentResponse';
+import { UpdateKnowledgeLibraryReq } from './model/UpdateKnowledgeLibraryReq';
+import { UpdateKnowledgeLibraryRequest } from './model/UpdateKnowledgeLibraryRequest';
+import { UpdateKnowledgeLibraryResponse } from './model/UpdateKnowledgeLibraryResponse';
 import { UpdateKnowledgeQuestionReq } from './model/UpdateKnowledgeQuestionReq';
 import { UpdateKnowledgeQuestionRequest } from './model/UpdateKnowledgeQuestionRequest';
 import { UpdateKnowledgeQuestionResponse } from './model/UpdateKnowledgeQuestionResponse';
@@ -673,6 +834,12 @@ import { UpdateKnowledgeSkillResponse } from './model/UpdateKnowledgeSkillRespon
 import { UpdateLivePlatformReq } from './model/UpdateLivePlatformReq';
 import { UpdateLivePlatformRequest } from './model/UpdateLivePlatformRequest';
 import { UpdateLivePlatformResponse } from './model/UpdateLivePlatformResponse';
+import { UpdateLlmConfigReq } from './model/UpdateLlmConfigReq';
+import { UpdateLlmConfigRequest } from './model/UpdateLlmConfigRequest';
+import { UpdateLlmConfigResponse } from './model/UpdateLlmConfigResponse';
+import { UpdateMcpServerReq } from './model/UpdateMcpServerReq';
+import { UpdateMcpServerRequest } from './model/UpdateMcpServerRequest';
+import { UpdateMcpServerResponse } from './model/UpdateMcpServerResponse';
 import { UpdateMobvoiHotWords } from './model/UpdateMobvoiHotWords';
 import { UpdatePacifyWordsReq } from './model/UpdatePacifyWordsReq';
 import { UpdatePacifyWordsRequest } from './model/UpdatePacifyWordsRequest';
@@ -683,12 +850,21 @@ import { UpdatePacifyWordsSwitchResponse } from './model/UpdatePacifyWordsSwitch
 import { UpdatePacifyWordsTriggerTimeReq } from './model/UpdatePacifyWordsTriggerTimeReq';
 import { UpdatePacifyWordsTriggerTimeRequest } from './model/UpdatePacifyWordsTriggerTimeRequest';
 import { UpdatePacifyWordsTriggerTimeResponse } from './model/UpdatePacifyWordsTriggerTimeResponse';
+import { UpdatePluginConfigReq } from './model/UpdatePluginConfigReq';
+import { UpdatePluginConfigRequest } from './model/UpdatePluginConfigRequest';
+import { UpdatePluginConfigResponse } from './model/UpdatePluginConfigResponse';
 import { UpdateProductRequest } from './model/UpdateProductRequest';
 import { UpdateProductRequestBody } from './model/UpdateProductRequestBody';
 import { UpdateProductResponse } from './model/UpdateProductResponse';
+import { UpdateQuestionAnswerReq } from './model/UpdateQuestionAnswerReq';
+import { UpdateQuestionAnswerRequest } from './model/UpdateQuestionAnswerRequest';
+import { UpdateQuestionAnswerResponse } from './model/UpdateQuestionAnswerResponse';
 import { UpdateRobotReq } from './model/UpdateRobotReq';
 import { UpdateRobotRequest } from './model/UpdateRobotRequest';
 import { UpdateRobotResponse } from './model/UpdateRobotResponse';
+import { UpdateRoleReq } from './model/UpdateRoleReq';
+import { UpdateRoleRequest } from './model/UpdateRoleRequest';
+import { UpdateRoleResponse } from './model/UpdateRoleResponse';
 import { UpdateSisHotWords } from './model/UpdateSisHotWords';
 import { UpdateSmartChatRoomRequest } from './model/UpdateSmartChatRoomRequest';
 import { UpdateSmartChatRoomResponse } from './model/UpdateSmartChatRoomResponse';
@@ -1861,6 +2037,7 @@ export class MetaStudioClient {
      * @param {string} [assetName] 输出视频资产名称。
      * @param {string} [jobType] 任务类型。 * 2D_DIGITAL_HUMAN_VIDEO: 分身数字人视频制作任务 * PHOTO_DIGITAL_HUMAN_VIDEO: 照片数字人视频制作任务
      * @param {string} [jobId] 任务ID。
+     * @param {Array<string>} [jobIds] 批量查询的任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2052,6 +2229,269 @@ export class MetaStudioClient {
      */
     public showPhotoDigitalHumanVideo(showPhotoDigitalHumanVideoRequest?: ShowPhotoDigitalHumanVideoRequest): Promise<ShowPhotoDigitalHumanVideoResponse> {
         const options = ParamCreater().showPhotoDigitalHumanVideo(showPhotoDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于上传文档。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传文档
+     * @param {string} knowledgeLibraryId 知识库ID
+     * @param {any} file 文档文件。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDocument(createDocumentRequest?: CreateDocumentRequest): Promise<CreateDocumentResponse> {
+        const options = ParamCreater().createDocument(createDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于批量删除文档。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除文档
+     * @param {Array<string>} deleteDocumentRequestBody 批量删除文档请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDocument(deleteDocumentRequest?: DeleteDocumentRequest): Promise<DeleteDocumentResponse> {
+        const options = ParamCreater().deleteDocument(deleteDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于下载文档。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载文档
+     * @param {string} documentId 文档ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadDocument(downloadDocumentRequest?: DownloadDocumentRequest): Promise<DownloadDocumentResponse> {
+        const options = ParamCreater().downloadDocument(downloadDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于分页查询文档列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询文档列表
+     * @param {string} knowledgeLibraryId 知识库ID
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [fileName] 文档名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDocumentInfo(listDocumentInfoRequest?: ListDocumentInfoRequest): Promise<ListDocumentInfoResponse> {
+        const options = ParamCreater().listDocumentInfo(listDocumentInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询文档详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询文档详情
+     * @param {string} documentId 文档ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDocumentInfo(showDocumentInfoRequest?: ShowDocumentInfoRequest): Promise<ShowDocumentInfoResponse> {
+        const options = ParamCreater().showDocumentInfo(showDocumentInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改文档
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改文档
+     * @param {string} documentId 文档ID。
+     * @param {any} file 文档文件。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDocument(updateDocumentRequest?: UpdateDocumentRequest): Promise<UpdateDocumentResponse> {
+        const options = ParamCreater().updateDocument(updateDocumentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于分页查询文档分段信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询文档分段信息
+     * @param {string} documentId 文档ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDocumentSegment(listDocumentSegmentRequest?: ListDocumentSegmentRequest): Promise<ListDocumentSegmentResponse> {
+        const options = ParamCreater().listDocumentSegment(listDocumentSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于文档分段效果预览。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 文档分段效果预览
+     * @param {string} documentId 文档ID。
+     * @param {DocumentSegmentParam} previewDocumentSegmentRequestBody 预览文档分段效果请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [previewLines] 预览行数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public previewDocumentSegment(previewDocumentSegmentRequest?: PreviewDocumentSegmentRequest): Promise<PreviewDocumentSegmentResponse> {
+        const options = ParamCreater().previewDocumentSegment(previewDocumentSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于开始文档分段任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开始文档分段
+     * @param {StartDocumentSegmentTaskReq} startDocumentSegmentRequestBody 开始文档分段任务请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startDocumentSegment(startDocumentSegmentRequest?: StartDocumentSegmentRequest): Promise<StartDocumentSegmentResponse> {
+        const options = ParamCreater().startDocumentSegment(startDocumentSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于文档分段内容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改文档分段内容
+     * @param {UpdateDocumentSegmentReq} updateDocumentSegmentInfoRequestBody 文档分段内容修改请求
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDocumentSegmentInfo(updateDocumentSegmentInfoRequest?: UpdateDocumentSegmentInfoRequest): Promise<UpdateDocumentSegmentInfoResponse> {
+        const options = ParamCreater().updateDocumentSegmentInfo(updateDocumentSegmentInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于更新文档分段配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新文档分段配置
+     * @param {string} documentId 文档ID。
+     * @param {DocumentSegmentParam} updateDocumentSegmentParamRequestBody 更新文档分段配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDocumentSegmentParam(updateDocumentSegmentParamRequest?: UpdateDocumentSegmentParamRequest): Promise<UpdateDocumentSegmentParamResponse> {
+        const options = ParamCreater().updateDocumentSegmentParam(updateDocumentSegmentParamRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -2436,6 +2876,243 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建指令集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建指令集
+     * @param {CreateInstructionLibraryReq} createInstructionLibraryRequestBody 创建指令集请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstructionLibrary(createInstructionLibraryRequest?: CreateInstructionLibraryRequest): Promise<CreateInstructionLibraryResponse> {
+        const options = ParamCreater().createInstructionLibrary(createInstructionLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除指令集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指令集
+     * @param {Array<string>} deleteInstructionLibraryRequestBody 指令集ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstructionLibrary(deleteInstructionLibraryRequest?: DeleteInstructionLibraryRequest): Promise<DeleteInstructionLibraryResponse> {
+        const options = ParamCreater().deleteInstructionLibrary(deleteInstructionLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询指令集列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指令集列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [name] 指令集名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstructionLibrary(listInstructionLibraryRequest?: ListInstructionLibraryRequest): Promise<ListInstructionLibraryResponse> {
+        const options = ParamCreater().listInstructionLibrary(listInstructionLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询指令集详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指令集详情
+     * @param {string} instructionLibraryId 指令集ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstructionLibrary(showInstructionLibraryRequest?: ShowInstructionLibraryRequest): Promise<ShowInstructionLibraryResponse> {
+        const options = ParamCreater().showInstructionLibrary(showInstructionLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改指令集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改指令集
+     * @param {string} instructionLibraryId 指令集ID。
+     * @param {UpdateInstructionLibraryReq} updateInstructionLibraryRequestBody 修改指令集请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstructionLibrary(updateInstructionLibraryRequest?: UpdateInstructionLibraryRequest): Promise<UpdateInstructionLibraryResponse> {
+        const options = ParamCreater().updateInstructionLibrary(updateInstructionLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建指令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建指令
+     * @param {CreateInstructionReq} createInstructionRequestBody 创建指令请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstruction(createInstructionRequest?: CreateInstructionRequest): Promise<CreateInstructionResponse> {
+        const options = ParamCreater().createInstruction(createInstructionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除指令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指令
+     * @param {Array<string>} deleteInstructionRequestBody 指令ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstruction(deleteInstructionRequest?: DeleteInstructionRequest): Promise<DeleteInstructionResponse> {
+        const options = ParamCreater().deleteInstruction(deleteInstructionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询指令列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指令列表
+     * @param {string} instructionLibraryId 指令集ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [name] 指令名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstruction(listInstructionRequest?: ListInstructionRequest): Promise<ListInstructionResponse> {
+        const options = ParamCreater().listInstruction(listInstructionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询指令详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指令详情
+     * @param {string} instructionId 指令ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstruction(showInstructionRequest?: ShowInstructionRequest): Promise<ShowInstructionResponse> {
+        const options = ParamCreater().showInstruction(showInstructionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改指令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改指令
+     * @param {string} instructionId 指令ID。
+     * @param {UpdateInstructionReq} updateInstructionRequestBody 修改指令请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstruction(updateInstructionRequest?: UpdateInstructionRequest): Promise<UpdateInstructionResponse> {
+        const options = ParamCreater().updateInstruction(updateInstructionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建智能直播间互动规则库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2525,6 +3202,29 @@ export class MetaStudioClient {
      */
     public updateInteractionRuleGroup(updateInteractionRuleGroupRequest?: UpdateInteractionRuleGroupRequest): Promise<UpdateInteractionRuleGroupResponse> {
         const options = ParamCreater().updateInteractionRuleGroup(updateInteractionRuleGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于交互助手对话。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 交互助手对话
+     * @param {CreateInteractiveChatReq} createInteractiveChatRequestBody 创建交互助手对话请求
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInteractiveChat(createInteractiveChatRequest?: CreateInteractiveChatRequest): Promise<CreateInteractiveChatResponse> {
+        const options = ParamCreater().createInteractiveChat(createInteractiveChatRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -2666,6 +3366,149 @@ export class MetaStudioClient {
      */
     public updateKnowledgeIntent(updateKnowledgeIntentRequest?: UpdateKnowledgeIntentRequest): Promise<UpdateKnowledgeIntentResponse> {
         const options = ParamCreater().updateKnowledgeIntent(updateKnowledgeIntentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于知识库召回测试。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 知识库召回测试
+     * @param {RecallKnowledgeLibraryRequestBody} checkRecallKnowledgeLibraryRequestBody 知识库召回测试请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkRecallKnowledgeLibrary(checkRecallKnowledgeLibraryRequest?: CheckRecallKnowledgeLibraryRequest): Promise<CheckRecallKnowledgeLibraryResponse> {
+        const options = ParamCreater().checkRecallKnowledgeLibrary(checkRecallKnowledgeLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建知识库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建知识库
+     * @param {CreateKnowledgeLibraryReq} createKnowledgeLibraryRequestBody 创建知识库请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createKnowledgeLibrary(createKnowledgeLibraryRequest?: CreateKnowledgeLibraryRequest): Promise<CreateKnowledgeLibraryResponse> {
+        const options = ParamCreater().createKnowledgeLibrary(createKnowledgeLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除知识库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除知识库
+     * @param {Array<string>} deleteKnowledgeLibraryRequestBody 知识库ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKnowledgeLibrary(deleteKnowledgeLibraryRequest?: DeleteKnowledgeLibraryRequest): Promise<DeleteKnowledgeLibraryResponse> {
+        const options = ParamCreater().deleteKnowledgeLibrary(deleteKnowledgeLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询知识库列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询知识库列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {'CN' | 'EN'} [language] 角色语言  * CN：中文  * EN：英文
+     * @param {'QUESTION_ANSWER' | 'DOCUMENT'} [knowledgeType] 知识库类型  * QUESTION_ANSWER：问答  * DOCUMENT：文档
+     * @param {string} [name] 知识库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKnowledgeLibrary(listKnowledgeLibraryRequest?: ListKnowledgeLibraryRequest): Promise<ListKnowledgeLibraryResponse> {
+        const options = ParamCreater().listKnowledgeLibrary(listKnowledgeLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询知识库详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询知识库详情
+     * @param {string} knowledgeLibraryId 知识库ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKnowledgeLibrary(showKnowledgeLibraryRequest?: ShowKnowledgeLibraryRequest): Promise<ShowKnowledgeLibraryResponse> {
+        const options = ParamCreater().showKnowledgeLibrary(showKnowledgeLibraryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改知识库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改知识库
+     * @param {string} knowledgeLibraryId 知识库ID。
+     * @param {UpdateKnowledgeLibraryReq} updateKnowledgeLibraryRequestBody 修改知识库请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKnowledgeLibrary(updateKnowledgeLibraryRequest?: UpdateKnowledgeLibraryRequest): Promise<UpdateKnowledgeLibraryResponse> {
+        const options = ParamCreater().updateKnowledgeLibrary(updateKnowledgeLibraryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -3121,6 +3964,242 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建大语言模型配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建大语言模型配置
+     * @param {CreateLlmConfigReq} createLlmConfigRequestBody 创建大语言模型配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLlmConfig(createLlmConfigRequest?: CreateLlmConfigRequest): Promise<CreateLlmConfigResponse> {
+        const options = ParamCreater().createLlmConfig(createLlmConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除大语言模型配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除大语言模型配置
+     * @param {Array<string>} deleteLlmConfigRequestBody 大语言模型配置ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLlmConfig(deleteLlmConfigRequest?: DeleteLlmConfigRequest): Promise<DeleteLlmConfigResponse> {
+        const options = ParamCreater().deleteLlmConfig(deleteLlmConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询大语言模型配置列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询大语言模型配置列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [name] 大语言模型配置名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLlmConfig(listLlmConfigRequest?: ListLlmConfigRequest): Promise<ListLlmConfigResponse> {
+        const options = ParamCreater().listLlmConfig(listLlmConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询大语言模型配置详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询大语言模型配置详情
+     * @param {string} llmConfigId 大语言模型配置ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLlmConfig(showLlmConfigRequest?: ShowLlmConfigRequest): Promise<ShowLlmConfigResponse> {
+        const options = ParamCreater().showLlmConfig(showLlmConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改大语言模型配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改大语言模型配置
+     * @param {string} llmConfigId 大语言模型配置ID。
+     * @param {UpdateLlmConfigReq} updateLlmConfigRequestBody 修改大语言模型配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLlmConfig(updateLlmConfigRequest?: UpdateLlmConfigRequest): Promise<UpdateLlmConfigResponse> {
+        const options = ParamCreater().updateLlmConfig(updateLlmConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建MCP服务端对接配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建MCP服务端对接配置
+     * @param {CreateMcpServerReq} createMcpServerRequestBody 创建MCP服务端对接配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createMcpServer(createMcpServerRequest?: CreateMcpServerRequest): Promise<CreateMcpServerResponse> {
+        const options = ParamCreater().createMcpServer(createMcpServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除MCP服务端对接配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除MCP服务端对接配置
+     * @param {Array<string>} deleteMcpServerRequestBody MCP服务端对接配置ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteMcpServer(deleteMcpServerRequest?: DeleteMcpServerRequest): Promise<DeleteMcpServerResponse> {
+        const options = ParamCreater().deleteMcpServer(deleteMcpServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询MCP服务端对接配置列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询MCP服务端对接配置列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [name] MCP服务端对接配置名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMcpServer(listMcpServerRequest?: ListMcpServerRequest): Promise<ListMcpServerResponse> {
+        const options = ParamCreater().listMcpServer(listMcpServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询MCP服务端对接配置详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询MCP服务端对接配置详情
+     * @param {string} mcpServerId MCP服务端对接配置ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMcpServer(showMcpServerRequest?: ShowMcpServerRequest): Promise<ShowMcpServerResponse> {
+        const options = ParamCreater().showMcpServer(showMcpServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改MCP服务端对接配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改MCP服务端对接配置
+     * @param {string} mcpServerId MCP服务端对接配置ID。
+     * @param {UpdateMcpServerReq} updateMcpServerRequestBody 修改MCP服务端对接配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMcpServer(updateMcpServerRequest?: UpdateMcpServerRequest): Promise<UpdateMcpServerResponse> {
+        const options = ParamCreater().updateMcpServer(updateMcpServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建一次性鉴权码，有效期5分钟，鉴权码只能使用一次，每次使用后需要重新获取。
      * &gt; 接口只能通过第三方后台调用，不能在浏览器前台直接调用，否则会有跨域问题。
      * 
@@ -3528,6 +4607,147 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建插件配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建插件配置
+     * @param {CreatePluginConfigReq} createPluginConfigRequestBody 创建插件配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPluginConfig(createPluginConfigRequest?: CreatePluginConfigRequest): Promise<CreatePluginConfigResponse> {
+        const options = ParamCreater().createPluginConfig(createPluginConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除插件配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除插件配置
+     * @param {Array<string>} deletePluginConfigRequestBody 插件配置ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePluginConfig(deletePluginConfigRequest?: DeletePluginConfigRequest): Promise<DeletePluginConfigResponse> {
+        const options = ParamCreater().deletePluginConfig(deletePluginConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询插件配置列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询插件配置列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {'BOCHA' | 'AMAP_WEATHER'} [pluginProvider] 插件供应商  * BOCHA:博查  * AMAP_WEATHER：高德天气
+     * @param {'WEATHER_QUERY' | 'WEB_SEARCH'} [pluginType] 插件类型  * WEATHER_QUERY：天气查询  * WEB_SEARCH：网络搜索
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPluginConfig(listPluginConfigRequest?: ListPluginConfigRequest): Promise<ListPluginConfigResponse> {
+        const options = ParamCreater().listPluginConfig(listPluginConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询插件配置详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询插件配置详情
+     * @param {string} pluginConfigId 插件配置ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPluginConfig(showPluginConfigRequest?: ShowPluginConfigRequest): Promise<ShowPluginConfigResponse> {
+        const options = ParamCreater().showPluginConfig(showPluginConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询插件配置默认信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询插件配置默认信息
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPluginConfigDefaultInfo(showPluginConfigDefaultInfoRequest?: ShowPluginConfigDefaultInfoRequest): Promise<ShowPluginConfigDefaultInfoResponse> {
+        const options = ParamCreater().showPluginConfigDefaultInfo(showPluginConfigDefaultInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改插件配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改插件配置
+     * @param {string} pluginConfigId 插件配置ID。
+     * @param {UpdatePluginConfigReq} updatePluginConfigRequestBody 修改插件配置请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePluginConfig(updatePluginConfigRequest?: UpdatePluginConfigRequest): Promise<UpdatePluginConfigResponse> {
+        const options = ParamCreater().updatePluginConfig(updatePluginConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * Create product
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3676,6 +4896,125 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建问答对。一个问答对包含一个标准问题，一个答案，若干个相似问题等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建问答对
+     * @param {CreateQuestionAnswerReq} createQuestionAnswerRequestBody 创建问答对请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createQuestionAnswer(createQuestionAnswerRequest?: CreateQuestionAnswerRequest): Promise<CreateQuestionAnswerResponse> {
+        const options = ParamCreater().createQuestionAnswer(createQuestionAnswerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除问答对。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除问答对
+     * @param {Array<string>} deleteQuestionAnswerRequestBody 问答对ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteQuestionAnswer(deleteQuestionAnswerRequest?: DeleteQuestionAnswerRequest): Promise<DeleteQuestionAnswerResponse> {
+        const options = ParamCreater().deleteQuestionAnswer(deleteQuestionAnswerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询问答对列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询问答对列表
+     * @param {string} knowledgeLibraryId 知识库ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [question] 问题。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listQuestionAnswer(listQuestionAnswerRequest?: ListQuestionAnswerRequest): Promise<ListQuestionAnswerResponse> {
+        const options = ParamCreater().listQuestionAnswer(listQuestionAnswerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询问答对详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询问答对详情
+     * @param {string} questionAnswerId 问答对ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuestionAnswer(showQuestionAnswerRequest?: ShowQuestionAnswerRequest): Promise<ShowQuestionAnswerResponse> {
+        const options = ParamCreater().showQuestionAnswer(showQuestionAnswerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改问答对。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改问答对
+     * @param {string} questionAnswerId 问答对ID。
+     * @param {UpdateQuestionAnswerReq} updateQuestionAnswerRequestBody 修改知识库意图请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateQuestionAnswer(updateQuestionAnswerRequest?: UpdateQuestionAnswerRequest): Promise<UpdateQuestionAnswerResponse> {
+        const options = ParamCreater().updateQuestionAnswer(updateQuestionAnswerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建应用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3810,6 +5149,124 @@ export class MetaStudioClient {
      */
     public validateRobot(validateRobotRequest?: ValidateRobotRequest): Promise<ValidateRobotResponse> {
         const options = ParamCreater().validateRobot(validateRobotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建角色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建角色
+     * @param {CreateRoleReq} createRoleRequestBody 创建角色请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRole(createRoleRequest?: CreateRoleRequest): Promise<CreateRoleResponse> {
+        const options = ParamCreater().createRole(createRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除角色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除角色
+     * @param {Array<string>} deleteRoleRequestBody 角色ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRole(deleteRoleRequest?: DeleteRoleRequest): Promise<DeleteRoleResponse> {
+        const options = ParamCreater().deleteRole(deleteRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询角色列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询角色列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [name] 角色名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRole(listRoleRequest?: ListRoleRequest): Promise<ListRoleResponse> {
+        const options = ParamCreater().listRole(listRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询角色详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询角色详情
+     * @param {string} roleId 角色ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRole(showRoleRequest?: ShowRoleRequest): Promise<ShowRoleResponse> {
+        const options = ParamCreater().showRole(showRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改角色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改角色
+     * @param {string} roleId 角色ID。
+     * @param {UpdateRoleReq} updateRoleRequestBody 修改角色请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRole(updateRoleRequest?: UpdateRoleRequest): Promise<UpdateRoleResponse> {
+        const options = ParamCreater().updateRole(updateRoleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -5096,6 +6553,85 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于校验音色模型是否可用，模型可用返回模型信息，不可用返回具体不可用的原因
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验音色模型是否可用（自研和第三方音色）
+     * @param {string} voiceAssetId 音色资产id
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkVoiceAsset(checkVoiceAssetRequest?: CheckVoiceAssetRequest): Promise<CheckVoiceAssetResponse> {
+        const options = ParamCreater().checkVoiceAsset(checkVoiceAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS语音合成任务记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TTS语音合成任务记录
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [jobId] 任务ID。
+     * @param {string} [jobType] 任务类型。 * AUDITION:试听任务 * ASYNC_JOB：异步任务 * WEBSOCKET：websocket接口合成任务
+     * @param {string} [ttsServiceEnum] tts版本。 * TTS_LLM: 530大模型（V7版本） * TTS_LLM_VC：530大模型VC版本（V7版本） * TTS_LAB：lab小模型（V5版本） * TTS_LAB_GPU：lab小模型GPU版本（V5版本） * GPU_CLONE：V4模型 * TTS_LLM_VQ：VQ模型（V10版本）
+     * @param {string} [businessType] 业务类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTtsJob(showTtsJobRequest?: ShowTtsJobRequest): Promise<ShowTtsJobResponse> {
+        const options = ParamCreater().showTtsJob(showTtsJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据英文单词返回对应音标列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取英文单词音标
+     * @param {string} word 英文单词
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页
+     * @param {number} [limit] 查询数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest): Promise<ShowTtsPhoneticSymbolResponse> {
+        const options = ParamCreater().showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于对外生成音频文件。每个预置音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
      * 
      * &gt; 使用本接口前，需要在MetaStudio控制台服务概览页面，开通“声音合成”的按需计费。
@@ -5143,6 +6679,53 @@ export class MetaStudioClient {
      */
     public createTtsAudition(createTtsAuditionRequest?: CreateTtsAuditionRequest): Promise<CreateTtsAuditionResponse> {
         const options = ParamCreater().createTtsAudition(createTtsAuditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS音频文件下载链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TTS异步任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAsyncTtsJob(showAsyncTtsJobRequest?: ShowAsyncTtsJobRequest): Promise<ShowAsyncTtsJobResponse> {
+        const options = ParamCreater().showAsyncTtsJob(showAsyncTtsJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS试听文件下载链接，返回List中包含当前已生产的试听文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TTS试听文件
+     * @param {string} jobId 任务ID。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest): Promise<ShowTtsAuditionFileResponse> {
+        const options = ParamCreater().showTtsAuditionFile(showTtsAuditionFileRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5261,7 +6844,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {string} [type] 自定义读法类型 CHINESE_G2P：拼音
+     * @param {string} [type] 自定义读法类型。 - CHINESE_G2P：拼音 - PHONETIC_SYMBOL：音标 - CONTINUUM：连读 - ALIAS：别名 - SAY_AS：数字英文读法
      * @param {string} [ttsServiceName] 声音模型名称
      * @param {string} [isVocabularyConfigEnable] 是否应用词表配置，从周边服务传递
      * @param {string} [groupId] 分组id
@@ -5302,6 +6885,30 @@ export class MetaStudioClient {
      */
     public listTtscVocabularyGroups(listTtscVocabularyGroupsRequest?: ListTtscVocabularyGroupsRequest): Promise<ListTtscVocabularyGroupsResponse> {
         const options = ParamCreater().listTtscVocabularyGroups(listTtscVocabularyGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于设置租户级配置，当前用于租户级自定义读法配置的全局开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置租户级配置
+     * @param {SaveTtscTenantConfigsRequestBody} saveTtscTenantConfigsRequestBody 设置租户级配置。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveTtscTenantConfigs(saveTtscTenantConfigsRequest?: SaveTtscTenantConfigsRequest): Promise<SaveTtscTenantConfigsResponse> {
+        const options = ParamCreater().saveTtscTenantConfigs(saveTtscTenantConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5360,59 +6967,11 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于获取TTS音频文件下载链接。
+     * 该接口用于获取租户级全局配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取TTS异步任务
-     * @param {string} jobId 任务ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAsyncTtsJob(showAsyncTtsJobRequest?: ShowAsyncTtsJobRequest): Promise<ShowAsyncTtsJobResponse> {
-        const options = ParamCreater().showAsyncTtsJob(showAsyncTtsJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于获取TTS试听文件下载链接，返回List中包含当前已生产的试听文件。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取TTS试听文件
-     * @param {string} jobId 任务ID。
-     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest): Promise<ShowTtsAuditionFileResponse> {
-        const options = ParamCreater().showTtsAuditionFile(showTtsAuditionFileRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 根据英文单词返回对应音标列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取英文单词音标
-     * @param {string} word 英文单词
+     * @summary 获取租户级全局配置
      * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -5420,11 +6979,12 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页
      * @param {number} [limit] 查询数量
+     * @param {string} [key] 类型 租户级自定义读法全局开关:vocabulary
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest): Promise<ShowTtsPhoneticSymbolResponse> {
-        const options = ParamCreater().showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest);
+    public showVocabularySwitchConfigs(showVocabularySwitchConfigsRequest?: ShowVocabularySwitchConfigsRequest): Promise<ShowVocabularySwitchConfigsResponse> {
+        const options = ParamCreater().showVocabularySwitchConfigs(showVocabularySwitchConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9176,6 +10736,8 @@ export const ParamCreater = function () {
             let jobType;
             
             let jobId;
+            
+            let jobIds;
 
             if (listDigitalHumanVideoRequest !== null && listDigitalHumanVideoRequest !== undefined) {
                 if (listDigitalHumanVideoRequest instanceof ListDigitalHumanVideoRequest) {
@@ -9195,6 +10757,7 @@ export const ParamCreater = function () {
                     assetName = listDigitalHumanVideoRequest.assetName;
                     jobType = listDigitalHumanVideoRequest.jobType;
                     jobId = listDigitalHumanVideoRequest.jobId;
+                    jobIds = listDigitalHumanVideoRequest.jobIds;
                 } else {
                     authorization = listDigitalHumanVideoRequest['Authorization'];
                     xSdkDate = listDigitalHumanVideoRequest['X-Sdk-Date'];
@@ -9212,6 +10775,7 @@ export const ParamCreater = function () {
                     assetName = listDigitalHumanVideoRequest['asset_name'];
                     jobType = listDigitalHumanVideoRequest['job_type'];
                     jobId = listDigitalHumanVideoRequest['job_id'];
+                    jobIds = listDigitalHumanVideoRequest['job_ids'];
                 }
             }
 
@@ -9251,6 +10815,9 @@ export const ParamCreater = function () {
             }
             if (jobId !== null && jobId !== undefined) {
                 localVarQueryParameter['job_id'] = jobId;
+            }
+            if (jobIds !== null && jobIds !== undefined) {
+                localVarQueryParameter['job_ids'] = jobIds;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -9805,6 +11372,824 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于上传文档。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDocument(createDocumentRequest?: CreateDocumentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/document",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let knowledgeLibraryId;
+            let file;
+            
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createDocumentRequest !== null && createDocumentRequest !== undefined) {
+                if (createDocumentRequest instanceof CreateDocumentRequest) {
+                    knowledgeLibraryId = createDocumentRequest.knowledgeLibraryId;
+                    file = createDocumentRequest.body?.file;
+                    authorization = createDocumentRequest.authorization;
+                    xSdkDate = createDocumentRequest.xSdkDate;
+                    xProjectId = createDocumentRequest.xProjectId;
+                    xAppUserId = createDocumentRequest.xAppUserId;
+                } else {
+                    knowledgeLibraryId = createDocumentRequest['knowledge_library_id'];
+                    file = createDocumentRequest['body']['file'];
+                    authorization = createDocumentRequest['Authorization'];
+                    xSdkDate = createDocumentRequest['X-Sdk-Date'];
+                    xProjectId = createDocumentRequest['X-Project-Id'];
+                    xAppUserId = createDocumentRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (knowledgeLibraryId === null || knowledgeLibraryId === undefined) {
+                throw new RequiredError('knowledgeLibraryId','Required parameter knowledgeLibraryId was null or undefined when calling createDocument.');
+            }
+            if (knowledgeLibraryId !== null && knowledgeLibraryId !== undefined) {
+                localVarQueryParameter['knowledge_library_id'] = knowledgeLibraryId;
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling createDocument.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于批量删除文档。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDocument(deleteDocumentRequest?: DeleteDocumentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/document/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteDocumentRequest !== null && deleteDocumentRequest !== undefined) {
+                if (deleteDocumentRequest instanceof DeleteDocumentRequest) {
+                    body = deleteDocumentRequest.body
+                    authorization = deleteDocumentRequest.authorization;
+                    xSdkDate = deleteDocumentRequest.xSdkDate;
+                    xProjectId = deleteDocumentRequest.xProjectId;
+                    xAppUserId = deleteDocumentRequest.xAppUserId;
+                } else {
+                    body = deleteDocumentRequest['body'];
+                    authorization = deleteDocumentRequest['Authorization'];
+                    xSdkDate = deleteDocumentRequest['X-Sdk-Date'];
+                    xProjectId = deleteDocumentRequest['X-Project-Id'];
+                    xAppUserId = deleteDocumentRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于下载文档。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadDocument(downloadDocumentRequest?: DownloadDocumentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/document/{document_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let documentId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (downloadDocumentRequest !== null && downloadDocumentRequest !== undefined) {
+                if (downloadDocumentRequest instanceof DownloadDocumentRequest) {
+                    documentId = downloadDocumentRequest.documentId;
+                    authorization = downloadDocumentRequest.authorization;
+                    xSdkDate = downloadDocumentRequest.xSdkDate;
+                    xProjectId = downloadDocumentRequest.xProjectId;
+                    xAppUserId = downloadDocumentRequest.xAppUserId;
+                } else {
+                    documentId = downloadDocumentRequest['document_id'];
+                    authorization = downloadDocumentRequest['Authorization'];
+                    xSdkDate = downloadDocumentRequest['X-Sdk-Date'];
+                    xProjectId = downloadDocumentRequest['X-Project-Id'];
+                    xAppUserId = downloadDocumentRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling downloadDocument.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于分页查询文档列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDocumentInfo(listDocumentInfoRequest?: ListDocumentInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/document",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let knowledgeLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let fileName;
+
+            if (listDocumentInfoRequest !== null && listDocumentInfoRequest !== undefined) {
+                if (listDocumentInfoRequest instanceof ListDocumentInfoRequest) {
+                    knowledgeLibraryId = listDocumentInfoRequest.knowledgeLibraryId;
+                    authorization = listDocumentInfoRequest.authorization;
+                    xSdkDate = listDocumentInfoRequest.xSdkDate;
+                    xProjectId = listDocumentInfoRequest.xProjectId;
+                    xAppUserId = listDocumentInfoRequest.xAppUserId;
+                    offset = listDocumentInfoRequest.offset;
+                    limit = listDocumentInfoRequest.limit;
+                    fileName = listDocumentInfoRequest.fileName;
+                } else {
+                    knowledgeLibraryId = listDocumentInfoRequest['knowledge_library_id'];
+                    authorization = listDocumentInfoRequest['Authorization'];
+                    xSdkDate = listDocumentInfoRequest['X-Sdk-Date'];
+                    xProjectId = listDocumentInfoRequest['X-Project-Id'];
+                    xAppUserId = listDocumentInfoRequest['X-App-UserId'];
+                    offset = listDocumentInfoRequest['offset'];
+                    limit = listDocumentInfoRequest['limit'];
+                    fileName = listDocumentInfoRequest['file_name'];
+                }
+            }
+
+        
+            if (knowledgeLibraryId === null || knowledgeLibraryId === undefined) {
+                throw new RequiredError('knowledgeLibraryId','Required parameter knowledgeLibraryId was null or undefined when calling listDocumentInfo.');
+            }
+            if (knowledgeLibraryId !== null && knowledgeLibraryId !== undefined) {
+                localVarQueryParameter['knowledge_library_id'] = knowledgeLibraryId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询文档详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDocumentInfo(showDocumentInfoRequest?: ShowDocumentInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/document/detail/{document_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let documentId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showDocumentInfoRequest !== null && showDocumentInfoRequest !== undefined) {
+                if (showDocumentInfoRequest instanceof ShowDocumentInfoRequest) {
+                    documentId = showDocumentInfoRequest.documentId;
+                    authorization = showDocumentInfoRequest.authorization;
+                    xSdkDate = showDocumentInfoRequest.xSdkDate;
+                    xProjectId = showDocumentInfoRequest.xProjectId;
+                    xAppUserId = showDocumentInfoRequest.xAppUserId;
+                } else {
+                    documentId = showDocumentInfoRequest['document_id'];
+                    authorization = showDocumentInfoRequest['Authorization'];
+                    xSdkDate = showDocumentInfoRequest['X-Sdk-Date'];
+                    xProjectId = showDocumentInfoRequest['X-Project-Id'];
+                    xAppUserId = showDocumentInfoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling showDocumentInfo.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改文档
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDocument(updateDocumentRequest?: UpdateDocumentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/document/update/{document_id}",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let documentId;
+            let file;
+            
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateDocumentRequest !== null && updateDocumentRequest !== undefined) {
+                if (updateDocumentRequest instanceof UpdateDocumentRequest) {
+                    documentId = updateDocumentRequest.documentId;
+                    file = updateDocumentRequest.body?.file;
+                    authorization = updateDocumentRequest.authorization;
+                    xSdkDate = updateDocumentRequest.xSdkDate;
+                    xProjectId = updateDocumentRequest.xProjectId;
+                    xAppUserId = updateDocumentRequest.xAppUserId;
+                } else {
+                    documentId = updateDocumentRequest['document_id'];
+                    file = updateDocumentRequest['body']['file'];
+                    authorization = updateDocumentRequest['Authorization'];
+                    xSdkDate = updateDocumentRequest['X-Sdk-Date'];
+                    xProjectId = updateDocumentRequest['X-Project-Id'];
+                    xAppUserId = updateDocumentRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling updateDocument.');
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling updateDocument.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于分页查询文档分段信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDocumentSegment(listDocumentSegmentRequest?: ListDocumentSegmentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/document-segment/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let documentId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDocumentSegmentRequest !== null && listDocumentSegmentRequest !== undefined) {
+                if (listDocumentSegmentRequest instanceof ListDocumentSegmentRequest) {
+                    documentId = listDocumentSegmentRequest.documentId;
+                    authorization = listDocumentSegmentRequest.authorization;
+                    xSdkDate = listDocumentSegmentRequest.xSdkDate;
+                    xProjectId = listDocumentSegmentRequest.xProjectId;
+                    xAppUserId = listDocumentSegmentRequest.xAppUserId;
+                    offset = listDocumentSegmentRequest.offset;
+                    limit = listDocumentSegmentRequest.limit;
+                } else {
+                    documentId = listDocumentSegmentRequest['document_id'];
+                    authorization = listDocumentSegmentRequest['Authorization'];
+                    xSdkDate = listDocumentSegmentRequest['X-Sdk-Date'];
+                    xProjectId = listDocumentSegmentRequest['X-Project-Id'];
+                    xAppUserId = listDocumentSegmentRequest['X-App-UserId'];
+                    offset = listDocumentSegmentRequest['offset'];
+                    limit = listDocumentSegmentRequest['limit'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+                throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling listDocumentSegment.');
+            }
+            if (documentId !== null && documentId !== undefined) {
+                localVarQueryParameter['document_id'] = documentId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于文档分段效果预览。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        previewDocumentSegment(previewDocumentSegmentRequest?: PreviewDocumentSegmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/document-segment/preview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let documentId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let previewLines;
+
+            if (previewDocumentSegmentRequest !== null && previewDocumentSegmentRequest !== undefined) {
+                if (previewDocumentSegmentRequest instanceof PreviewDocumentSegmentRequest) {
+                    documentId = previewDocumentSegmentRequest.documentId;
+                    body = previewDocumentSegmentRequest.body
+                    authorization = previewDocumentSegmentRequest.authorization;
+                    xSdkDate = previewDocumentSegmentRequest.xSdkDate;
+                    xProjectId = previewDocumentSegmentRequest.xProjectId;
+                    xAppUserId = previewDocumentSegmentRequest.xAppUserId;
+                    previewLines = previewDocumentSegmentRequest.previewLines;
+                } else {
+                    documentId = previewDocumentSegmentRequest['document_id'];
+                    body = previewDocumentSegmentRequest['body'];
+                    authorization = previewDocumentSegmentRequest['Authorization'];
+                    xSdkDate = previewDocumentSegmentRequest['X-Sdk-Date'];
+                    xProjectId = previewDocumentSegmentRequest['X-Project-Id'];
+                    xAppUserId = previewDocumentSegmentRequest['X-App-UserId'];
+                    previewLines = previewDocumentSegmentRequest['preview_lines'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+                throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling previewDocumentSegment.');
+            }
+            if (documentId !== null && documentId !== undefined) {
+                localVarQueryParameter['document_id'] = documentId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (previewLines !== null && previewLines !== undefined) {
+                localVarQueryParameter['preview_lines'] = previewLines;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于开始文档分段任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startDocumentSegment(startDocumentSegmentRequest?: StartDocumentSegmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/document-segment/segment",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (startDocumentSegmentRequest !== null && startDocumentSegmentRequest !== undefined) {
+                if (startDocumentSegmentRequest instanceof StartDocumentSegmentRequest) {
+                    body = startDocumentSegmentRequest.body
+                    authorization = startDocumentSegmentRequest.authorization;
+                    xSdkDate = startDocumentSegmentRequest.xSdkDate;
+                    xProjectId = startDocumentSegmentRequest.xProjectId;
+                    xAppUserId = startDocumentSegmentRequest.xAppUserId;
+                } else {
+                    body = startDocumentSegmentRequest['body'];
+                    authorization = startDocumentSegmentRequest['Authorization'];
+                    xSdkDate = startDocumentSegmentRequest['X-Sdk-Date'];
+                    xProjectId = startDocumentSegmentRequest['X-Project-Id'];
+                    xAppUserId = startDocumentSegmentRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于文档分段内容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDocumentSegmentInfo(updateDocumentSegmentInfoRequest?: UpdateDocumentSegmentInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/document-segment/update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateDocumentSegmentInfoRequest !== null && updateDocumentSegmentInfoRequest !== undefined) {
+                if (updateDocumentSegmentInfoRequest instanceof UpdateDocumentSegmentInfoRequest) {
+                    body = updateDocumentSegmentInfoRequest.body
+                    authorization = updateDocumentSegmentInfoRequest.authorization;
+                    xSdkDate = updateDocumentSegmentInfoRequest.xSdkDate;
+                    xProjectId = updateDocumentSegmentInfoRequest.xProjectId;
+                    xAppUserId = updateDocumentSegmentInfoRequest.xAppUserId;
+                } else {
+                    body = updateDocumentSegmentInfoRequest['body'];
+                    authorization = updateDocumentSegmentInfoRequest['Authorization'];
+                    xSdkDate = updateDocumentSegmentInfoRequest['X-Sdk-Date'];
+                    xProjectId = updateDocumentSegmentInfoRequest['X-Project-Id'];
+                    xAppUserId = updateDocumentSegmentInfoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于更新文档分段配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDocumentSegmentParam(updateDocumentSegmentParamRequest?: UpdateDocumentSegmentParamRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/document-segment/{document_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let documentId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateDocumentSegmentParamRequest !== null && updateDocumentSegmentParamRequest !== undefined) {
+                if (updateDocumentSegmentParamRequest instanceof UpdateDocumentSegmentParamRequest) {
+                    documentId = updateDocumentSegmentParamRequest.documentId;
+                    body = updateDocumentSegmentParamRequest.body
+                    authorization = updateDocumentSegmentParamRequest.authorization;
+                    xSdkDate = updateDocumentSegmentParamRequest.xSdkDate;
+                    xProjectId = updateDocumentSegmentParamRequest.xProjectId;
+                    xAppUserId = updateDocumentSegmentParamRequest.xAppUserId;
+                } else {
+                    documentId = updateDocumentSegmentParamRequest['document_id'];
+                    body = updateDocumentSegmentParamRequest['body'];
+                    authorization = updateDocumentSegmentParamRequest['Authorization'];
+                    xSdkDate = updateDocumentSegmentParamRequest['X-Sdk-Date'];
+                    xProjectId = updateDocumentSegmentParamRequest['X-Project-Id'];
+                    xAppUserId = updateDocumentSegmentParamRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (documentId === null || documentId === undefined) {
+            throw new RequiredError('documentId','Required parameter documentId was null or undefined when calling updateDocumentSegmentParam.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'document_id': documentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10927,6 +13312,716 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建指令集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstructionLibrary(createInstructionLibraryRequest?: CreateInstructionLibraryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/instruction-library",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createInstructionLibraryRequest !== null && createInstructionLibraryRequest !== undefined) {
+                if (createInstructionLibraryRequest instanceof CreateInstructionLibraryRequest) {
+                    body = createInstructionLibraryRequest.body
+                    authorization = createInstructionLibraryRequest.authorization;
+                    xSdkDate = createInstructionLibraryRequest.xSdkDate;
+                    xProjectId = createInstructionLibraryRequest.xProjectId;
+                    xAppUserId = createInstructionLibraryRequest.xAppUserId;
+                } else {
+                    body = createInstructionLibraryRequest['body'];
+                    authorization = createInstructionLibraryRequest['Authorization'];
+                    xSdkDate = createInstructionLibraryRequest['X-Sdk-Date'];
+                    xProjectId = createInstructionLibraryRequest['X-Project-Id'];
+                    xAppUserId = createInstructionLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除指令集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstructionLibrary(deleteInstructionLibraryRequest?: DeleteInstructionLibraryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/instruction-library/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteInstructionLibraryRequest !== null && deleteInstructionLibraryRequest !== undefined) {
+                if (deleteInstructionLibraryRequest instanceof DeleteInstructionLibraryRequest) {
+                    body = deleteInstructionLibraryRequest.body
+                    authorization = deleteInstructionLibraryRequest.authorization;
+                    xSdkDate = deleteInstructionLibraryRequest.xSdkDate;
+                    xProjectId = deleteInstructionLibraryRequest.xProjectId;
+                    xAppUserId = deleteInstructionLibraryRequest.xAppUserId;
+                } else {
+                    body = deleteInstructionLibraryRequest['body'];
+                    authorization = deleteInstructionLibraryRequest['Authorization'];
+                    xSdkDate = deleteInstructionLibraryRequest['X-Sdk-Date'];
+                    xProjectId = deleteInstructionLibraryRequest['X-Project-Id'];
+                    xAppUserId = deleteInstructionLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询指令集列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstructionLibrary(listInstructionLibraryRequest?: ListInstructionLibraryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/instruction-library",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listInstructionLibraryRequest !== null && listInstructionLibraryRequest !== undefined) {
+                if (listInstructionLibraryRequest instanceof ListInstructionLibraryRequest) {
+                    authorization = listInstructionLibraryRequest.authorization;
+                    xSdkDate = listInstructionLibraryRequest.xSdkDate;
+                    xProjectId = listInstructionLibraryRequest.xProjectId;
+                    xAppUserId = listInstructionLibraryRequest.xAppUserId;
+                    offset = listInstructionLibraryRequest.offset;
+                    limit = listInstructionLibraryRequest.limit;
+                    name = listInstructionLibraryRequest.name;
+                } else {
+                    authorization = listInstructionLibraryRequest['Authorization'];
+                    xSdkDate = listInstructionLibraryRequest['X-Sdk-Date'];
+                    xProjectId = listInstructionLibraryRequest['X-Project-Id'];
+                    xAppUserId = listInstructionLibraryRequest['X-App-UserId'];
+                    offset = listInstructionLibraryRequest['offset'];
+                    limit = listInstructionLibraryRequest['limit'];
+                    name = listInstructionLibraryRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询指令集详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstructionLibrary(showInstructionLibraryRequest?: ShowInstructionLibraryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/instruction-library/{instruction_library_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instructionLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showInstructionLibraryRequest !== null && showInstructionLibraryRequest !== undefined) {
+                if (showInstructionLibraryRequest instanceof ShowInstructionLibraryRequest) {
+                    instructionLibraryId = showInstructionLibraryRequest.instructionLibraryId;
+                    authorization = showInstructionLibraryRequest.authorization;
+                    xSdkDate = showInstructionLibraryRequest.xSdkDate;
+                    xProjectId = showInstructionLibraryRequest.xProjectId;
+                    xAppUserId = showInstructionLibraryRequest.xAppUserId;
+                } else {
+                    instructionLibraryId = showInstructionLibraryRequest['instruction_library_id'];
+                    authorization = showInstructionLibraryRequest['Authorization'];
+                    xSdkDate = showInstructionLibraryRequest['X-Sdk-Date'];
+                    xProjectId = showInstructionLibraryRequest['X-Project-Id'];
+                    xAppUserId = showInstructionLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (instructionLibraryId === null || instructionLibraryId === undefined) {
+            throw new RequiredError('instructionLibraryId','Required parameter instructionLibraryId was null or undefined when calling showInstructionLibrary.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'instruction_library_id': instructionLibraryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改指令集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstructionLibrary(updateInstructionLibraryRequest?: UpdateInstructionLibraryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/instruction-library/{instruction_library_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instructionLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateInstructionLibraryRequest !== null && updateInstructionLibraryRequest !== undefined) {
+                if (updateInstructionLibraryRequest instanceof UpdateInstructionLibraryRequest) {
+                    instructionLibraryId = updateInstructionLibraryRequest.instructionLibraryId;
+                    body = updateInstructionLibraryRequest.body
+                    authorization = updateInstructionLibraryRequest.authorization;
+                    xSdkDate = updateInstructionLibraryRequest.xSdkDate;
+                    xProjectId = updateInstructionLibraryRequest.xProjectId;
+                    xAppUserId = updateInstructionLibraryRequest.xAppUserId;
+                } else {
+                    instructionLibraryId = updateInstructionLibraryRequest['instruction_library_id'];
+                    body = updateInstructionLibraryRequest['body'];
+                    authorization = updateInstructionLibraryRequest['Authorization'];
+                    xSdkDate = updateInstructionLibraryRequest['X-Sdk-Date'];
+                    xProjectId = updateInstructionLibraryRequest['X-Project-Id'];
+                    xAppUserId = updateInstructionLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (instructionLibraryId === null || instructionLibraryId === undefined) {
+            throw new RequiredError('instructionLibraryId','Required parameter instructionLibraryId was null or undefined when calling updateInstructionLibrary.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instruction_library_id': instructionLibraryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建指令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstruction(createInstructionRequest?: CreateInstructionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/instruction",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createInstructionRequest !== null && createInstructionRequest !== undefined) {
+                if (createInstructionRequest instanceof CreateInstructionRequest) {
+                    body = createInstructionRequest.body
+                    authorization = createInstructionRequest.authorization;
+                    xSdkDate = createInstructionRequest.xSdkDate;
+                    xProjectId = createInstructionRequest.xProjectId;
+                    xAppUserId = createInstructionRequest.xAppUserId;
+                } else {
+                    body = createInstructionRequest['body'];
+                    authorization = createInstructionRequest['Authorization'];
+                    xSdkDate = createInstructionRequest['X-Sdk-Date'];
+                    xProjectId = createInstructionRequest['X-Project-Id'];
+                    xAppUserId = createInstructionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除指令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstruction(deleteInstructionRequest?: DeleteInstructionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/instruction/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteInstructionRequest !== null && deleteInstructionRequest !== undefined) {
+                if (deleteInstructionRequest instanceof DeleteInstructionRequest) {
+                    body = deleteInstructionRequest.body
+                    authorization = deleteInstructionRequest.authorization;
+                    xSdkDate = deleteInstructionRequest.xSdkDate;
+                    xProjectId = deleteInstructionRequest.xProjectId;
+                    xAppUserId = deleteInstructionRequest.xAppUserId;
+                } else {
+                    body = deleteInstructionRequest['body'];
+                    authorization = deleteInstructionRequest['Authorization'];
+                    xSdkDate = deleteInstructionRequest['X-Sdk-Date'];
+                    xProjectId = deleteInstructionRequest['X-Project-Id'];
+                    xAppUserId = deleteInstructionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询指令列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstruction(listInstructionRequest?: ListInstructionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/instruction",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instructionLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listInstructionRequest !== null && listInstructionRequest !== undefined) {
+                if (listInstructionRequest instanceof ListInstructionRequest) {
+                    instructionLibraryId = listInstructionRequest.instructionLibraryId;
+                    authorization = listInstructionRequest.authorization;
+                    xSdkDate = listInstructionRequest.xSdkDate;
+                    xProjectId = listInstructionRequest.xProjectId;
+                    xAppUserId = listInstructionRequest.xAppUserId;
+                    offset = listInstructionRequest.offset;
+                    limit = listInstructionRequest.limit;
+                    name = listInstructionRequest.name;
+                } else {
+                    instructionLibraryId = listInstructionRequest['instruction_library_id'];
+                    authorization = listInstructionRequest['Authorization'];
+                    xSdkDate = listInstructionRequest['X-Sdk-Date'];
+                    xProjectId = listInstructionRequest['X-Project-Id'];
+                    xAppUserId = listInstructionRequest['X-App-UserId'];
+                    offset = listInstructionRequest['offset'];
+                    limit = listInstructionRequest['limit'];
+                    name = listInstructionRequest['name'];
+                }
+            }
+
+        
+            if (instructionLibraryId === null || instructionLibraryId === undefined) {
+                throw new RequiredError('instructionLibraryId','Required parameter instructionLibraryId was null or undefined when calling listInstruction.');
+            }
+            if (instructionLibraryId !== null && instructionLibraryId !== undefined) {
+                localVarQueryParameter['instruction_library_id'] = instructionLibraryId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询指令详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstruction(showInstructionRequest?: ShowInstructionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/instruction/{instruction_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instructionId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showInstructionRequest !== null && showInstructionRequest !== undefined) {
+                if (showInstructionRequest instanceof ShowInstructionRequest) {
+                    instructionId = showInstructionRequest.instructionId;
+                    authorization = showInstructionRequest.authorization;
+                    xSdkDate = showInstructionRequest.xSdkDate;
+                    xProjectId = showInstructionRequest.xProjectId;
+                    xAppUserId = showInstructionRequest.xAppUserId;
+                } else {
+                    instructionId = showInstructionRequest['instruction_id'];
+                    authorization = showInstructionRequest['Authorization'];
+                    xSdkDate = showInstructionRequest['X-Sdk-Date'];
+                    xProjectId = showInstructionRequest['X-Project-Id'];
+                    xAppUserId = showInstructionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (instructionId === null || instructionId === undefined) {
+            throw new RequiredError('instructionId','Required parameter instructionId was null or undefined when calling showInstruction.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'instruction_id': instructionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改指令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstruction(updateInstructionRequest?: UpdateInstructionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/instruction/{instruction_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instructionId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateInstructionRequest !== null && updateInstructionRequest !== undefined) {
+                if (updateInstructionRequest instanceof UpdateInstructionRequest) {
+                    instructionId = updateInstructionRequest.instructionId;
+                    body = updateInstructionRequest.body
+                    authorization = updateInstructionRequest.authorization;
+                    xSdkDate = updateInstructionRequest.xSdkDate;
+                    xProjectId = updateInstructionRequest.xProjectId;
+                    xAppUserId = updateInstructionRequest.xAppUserId;
+                } else {
+                    instructionId = updateInstructionRequest['instruction_id'];
+                    body = updateInstructionRequest['body'];
+                    authorization = updateInstructionRequest['Authorization'];
+                    xSdkDate = updateInstructionRequest['X-Sdk-Date'];
+                    xProjectId = updateInstructionRequest['X-Project-Id'];
+                    xAppUserId = updateInstructionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (instructionId === null || instructionId === undefined) {
+            throw new RequiredError('instructionId','Required parameter instructionId was null or undefined when calling updateInstruction.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instruction_id': instructionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建智能直播间互动规则库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11220,6 +14315,72 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于交互助手对话。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInteractiveChat(createInteractiveChatRequest?: CreateInteractiveChatRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/chat",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createInteractiveChatRequest !== null && createInteractiveChatRequest !== undefined) {
+                if (createInteractiveChatRequest instanceof CreateInteractiveChatRequest) {
+                    body = createInteractiveChatRequest.body
+                    authorization = createInteractiveChatRequest.authorization;
+                    xSdkDate = createInteractiveChatRequest.xSdkDate;
+                    xProjectId = createInteractiveChatRequest.xProjectId;
+                    xAppUserId = createInteractiveChatRequest.xAppUserId;
+                } else {
+                    body = createInteractiveChatRequest['body'];
+                    authorization = createInteractiveChatRequest['Authorization'];
+                    xSdkDate = createInteractiveChatRequest['X-Sdk-Date'];
+                    xProjectId = createInteractiveChatRequest['X-Project-Id'];
+                    xAppUserId = createInteractiveChatRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11639,6 +14800,436 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'intent_id': intentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于知识库召回测试。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkRecallKnowledgeLibrary(checkRecallKnowledgeLibraryRequest?: CheckRecallKnowledgeLibraryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/knowledge-library/recall",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (checkRecallKnowledgeLibraryRequest !== null && checkRecallKnowledgeLibraryRequest !== undefined) {
+                if (checkRecallKnowledgeLibraryRequest instanceof CheckRecallKnowledgeLibraryRequest) {
+                    body = checkRecallKnowledgeLibraryRequest.body
+                    authorization = checkRecallKnowledgeLibraryRequest.authorization;
+                    xSdkDate = checkRecallKnowledgeLibraryRequest.xSdkDate;
+                    xProjectId = checkRecallKnowledgeLibraryRequest.xProjectId;
+                    xAppUserId = checkRecallKnowledgeLibraryRequest.xAppUserId;
+                } else {
+                    body = checkRecallKnowledgeLibraryRequest['body'];
+                    authorization = checkRecallKnowledgeLibraryRequest['Authorization'];
+                    xSdkDate = checkRecallKnowledgeLibraryRequest['X-Sdk-Date'];
+                    xProjectId = checkRecallKnowledgeLibraryRequest['X-Project-Id'];
+                    xAppUserId = checkRecallKnowledgeLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建知识库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createKnowledgeLibrary(createKnowledgeLibraryRequest?: CreateKnowledgeLibraryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/knowledge-library",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createKnowledgeLibraryRequest !== null && createKnowledgeLibraryRequest !== undefined) {
+                if (createKnowledgeLibraryRequest instanceof CreateKnowledgeLibraryRequest) {
+                    body = createKnowledgeLibraryRequest.body
+                    authorization = createKnowledgeLibraryRequest.authorization;
+                    xSdkDate = createKnowledgeLibraryRequest.xSdkDate;
+                    xProjectId = createKnowledgeLibraryRequest.xProjectId;
+                    xAppUserId = createKnowledgeLibraryRequest.xAppUserId;
+                } else {
+                    body = createKnowledgeLibraryRequest['body'];
+                    authorization = createKnowledgeLibraryRequest['Authorization'];
+                    xSdkDate = createKnowledgeLibraryRequest['X-Sdk-Date'];
+                    xProjectId = createKnowledgeLibraryRequest['X-Project-Id'];
+                    xAppUserId = createKnowledgeLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除知识库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKnowledgeLibrary(deleteKnowledgeLibraryRequest?: DeleteKnowledgeLibraryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/knowledge-library/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteKnowledgeLibraryRequest !== null && deleteKnowledgeLibraryRequest !== undefined) {
+                if (deleteKnowledgeLibraryRequest instanceof DeleteKnowledgeLibraryRequest) {
+                    body = deleteKnowledgeLibraryRequest.body
+                    authorization = deleteKnowledgeLibraryRequest.authorization;
+                    xSdkDate = deleteKnowledgeLibraryRequest.xSdkDate;
+                    xProjectId = deleteKnowledgeLibraryRequest.xProjectId;
+                    xAppUserId = deleteKnowledgeLibraryRequest.xAppUserId;
+                } else {
+                    body = deleteKnowledgeLibraryRequest['body'];
+                    authorization = deleteKnowledgeLibraryRequest['Authorization'];
+                    xSdkDate = deleteKnowledgeLibraryRequest['X-Sdk-Date'];
+                    xProjectId = deleteKnowledgeLibraryRequest['X-Project-Id'];
+                    xAppUserId = deleteKnowledgeLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询知识库列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKnowledgeLibrary(listKnowledgeLibraryRequest?: ListKnowledgeLibraryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/knowledge-library",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let language;
+            
+            let knowledgeType;
+            
+            let name;
+
+            if (listKnowledgeLibraryRequest !== null && listKnowledgeLibraryRequest !== undefined) {
+                if (listKnowledgeLibraryRequest instanceof ListKnowledgeLibraryRequest) {
+                    authorization = listKnowledgeLibraryRequest.authorization;
+                    xSdkDate = listKnowledgeLibraryRequest.xSdkDate;
+                    xProjectId = listKnowledgeLibraryRequest.xProjectId;
+                    xAppUserId = listKnowledgeLibraryRequest.xAppUserId;
+                    offset = listKnowledgeLibraryRequest.offset;
+                    limit = listKnowledgeLibraryRequest.limit;
+                    language = listKnowledgeLibraryRequest.language;
+                    knowledgeType = listKnowledgeLibraryRequest.knowledgeType;
+                    name = listKnowledgeLibraryRequest.name;
+                } else {
+                    authorization = listKnowledgeLibraryRequest['Authorization'];
+                    xSdkDate = listKnowledgeLibraryRequest['X-Sdk-Date'];
+                    xProjectId = listKnowledgeLibraryRequest['X-Project-Id'];
+                    xAppUserId = listKnowledgeLibraryRequest['X-App-UserId'];
+                    offset = listKnowledgeLibraryRequest['offset'];
+                    limit = listKnowledgeLibraryRequest['limit'];
+                    language = listKnowledgeLibraryRequest['language'];
+                    knowledgeType = listKnowledgeLibraryRequest['knowledge_type'];
+                    name = listKnowledgeLibraryRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (knowledgeType !== null && knowledgeType !== undefined) {
+                localVarQueryParameter['knowledge_type'] = knowledgeType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询知识库详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKnowledgeLibrary(showKnowledgeLibraryRequest?: ShowKnowledgeLibraryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/knowledge-library/{knowledge_library_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let knowledgeLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showKnowledgeLibraryRequest !== null && showKnowledgeLibraryRequest !== undefined) {
+                if (showKnowledgeLibraryRequest instanceof ShowKnowledgeLibraryRequest) {
+                    knowledgeLibraryId = showKnowledgeLibraryRequest.knowledgeLibraryId;
+                    authorization = showKnowledgeLibraryRequest.authorization;
+                    xSdkDate = showKnowledgeLibraryRequest.xSdkDate;
+                    xProjectId = showKnowledgeLibraryRequest.xProjectId;
+                    xAppUserId = showKnowledgeLibraryRequest.xAppUserId;
+                } else {
+                    knowledgeLibraryId = showKnowledgeLibraryRequest['knowledge_library_id'];
+                    authorization = showKnowledgeLibraryRequest['Authorization'];
+                    xSdkDate = showKnowledgeLibraryRequest['X-Sdk-Date'];
+                    xProjectId = showKnowledgeLibraryRequest['X-Project-Id'];
+                    xAppUserId = showKnowledgeLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (knowledgeLibraryId === null || knowledgeLibraryId === undefined) {
+            throw new RequiredError('knowledgeLibraryId','Required parameter knowledgeLibraryId was null or undefined when calling showKnowledgeLibrary.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'knowledge_library_id': knowledgeLibraryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改知识库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKnowledgeLibrary(updateKnowledgeLibraryRequest?: UpdateKnowledgeLibraryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/knowledge-library/{knowledge_library_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let knowledgeLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateKnowledgeLibraryRequest !== null && updateKnowledgeLibraryRequest !== undefined) {
+                if (updateKnowledgeLibraryRequest instanceof UpdateKnowledgeLibraryRequest) {
+                    knowledgeLibraryId = updateKnowledgeLibraryRequest.knowledgeLibraryId;
+                    body = updateKnowledgeLibraryRequest.body
+                    authorization = updateKnowledgeLibraryRequest.authorization;
+                    xSdkDate = updateKnowledgeLibraryRequest.xSdkDate;
+                    xProjectId = updateKnowledgeLibraryRequest.xProjectId;
+                    xAppUserId = updateKnowledgeLibraryRequest.xAppUserId;
+                } else {
+                    knowledgeLibraryId = updateKnowledgeLibraryRequest['knowledge_library_id'];
+                    body = updateKnowledgeLibraryRequest['body'];
+                    authorization = updateKnowledgeLibraryRequest['Authorization'];
+                    xSdkDate = updateKnowledgeLibraryRequest['X-Sdk-Date'];
+                    xProjectId = updateKnowledgeLibraryRequest['X-Project-Id'];
+                    xAppUserId = updateKnowledgeLibraryRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (knowledgeLibraryId === null || knowledgeLibraryId === undefined) {
+            throw new RequiredError('knowledgeLibraryId','Required parameter knowledgeLibraryId was null or undefined when calling updateKnowledgeLibrary.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'knowledge_library_id': knowledgeLibraryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12969,6 +16560,706 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建大语言模型配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLlmConfig(createLlmConfigRequest?: CreateLlmConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/llm-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createLlmConfigRequest !== null && createLlmConfigRequest !== undefined) {
+                if (createLlmConfigRequest instanceof CreateLlmConfigRequest) {
+                    body = createLlmConfigRequest.body
+                    authorization = createLlmConfigRequest.authorization;
+                    xSdkDate = createLlmConfigRequest.xSdkDate;
+                    xProjectId = createLlmConfigRequest.xProjectId;
+                    xAppUserId = createLlmConfigRequest.xAppUserId;
+                } else {
+                    body = createLlmConfigRequest['body'];
+                    authorization = createLlmConfigRequest['Authorization'];
+                    xSdkDate = createLlmConfigRequest['X-Sdk-Date'];
+                    xProjectId = createLlmConfigRequest['X-Project-Id'];
+                    xAppUserId = createLlmConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除大语言模型配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLlmConfig(deleteLlmConfigRequest?: DeleteLlmConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/llm-config/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteLlmConfigRequest !== null && deleteLlmConfigRequest !== undefined) {
+                if (deleteLlmConfigRequest instanceof DeleteLlmConfigRequest) {
+                    body = deleteLlmConfigRequest.body
+                    authorization = deleteLlmConfigRequest.authorization;
+                    xSdkDate = deleteLlmConfigRequest.xSdkDate;
+                    xProjectId = deleteLlmConfigRequest.xProjectId;
+                    xAppUserId = deleteLlmConfigRequest.xAppUserId;
+                } else {
+                    body = deleteLlmConfigRequest['body'];
+                    authorization = deleteLlmConfigRequest['Authorization'];
+                    xSdkDate = deleteLlmConfigRequest['X-Sdk-Date'];
+                    xProjectId = deleteLlmConfigRequest['X-Project-Id'];
+                    xAppUserId = deleteLlmConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询大语言模型配置列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLlmConfig(listLlmConfigRequest?: ListLlmConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/llm-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listLlmConfigRequest !== null && listLlmConfigRequest !== undefined) {
+                if (listLlmConfigRequest instanceof ListLlmConfigRequest) {
+                    authorization = listLlmConfigRequest.authorization;
+                    xSdkDate = listLlmConfigRequest.xSdkDate;
+                    xProjectId = listLlmConfigRequest.xProjectId;
+                    xAppUserId = listLlmConfigRequest.xAppUserId;
+                    offset = listLlmConfigRequest.offset;
+                    limit = listLlmConfigRequest.limit;
+                    name = listLlmConfigRequest.name;
+                } else {
+                    authorization = listLlmConfigRequest['Authorization'];
+                    xSdkDate = listLlmConfigRequest['X-Sdk-Date'];
+                    xProjectId = listLlmConfigRequest['X-Project-Id'];
+                    xAppUserId = listLlmConfigRequest['X-App-UserId'];
+                    offset = listLlmConfigRequest['offset'];
+                    limit = listLlmConfigRequest['limit'];
+                    name = listLlmConfigRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询大语言模型配置详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLlmConfig(showLlmConfigRequest?: ShowLlmConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/llm-config/{llm_config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let llmConfigId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showLlmConfigRequest !== null && showLlmConfigRequest !== undefined) {
+                if (showLlmConfigRequest instanceof ShowLlmConfigRequest) {
+                    llmConfigId = showLlmConfigRequest.llmConfigId;
+                    authorization = showLlmConfigRequest.authorization;
+                    xSdkDate = showLlmConfigRequest.xSdkDate;
+                    xProjectId = showLlmConfigRequest.xProjectId;
+                    xAppUserId = showLlmConfigRequest.xAppUserId;
+                } else {
+                    llmConfigId = showLlmConfigRequest['llm_config_id'];
+                    authorization = showLlmConfigRequest['Authorization'];
+                    xSdkDate = showLlmConfigRequest['X-Sdk-Date'];
+                    xProjectId = showLlmConfigRequest['X-Project-Id'];
+                    xAppUserId = showLlmConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (llmConfigId === null || llmConfigId === undefined) {
+            throw new RequiredError('llmConfigId','Required parameter llmConfigId was null or undefined when calling showLlmConfig.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'llm_config_id': llmConfigId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改大语言模型配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLlmConfig(updateLlmConfigRequest?: UpdateLlmConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/llm-config/{llm_config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let llmConfigId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateLlmConfigRequest !== null && updateLlmConfigRequest !== undefined) {
+                if (updateLlmConfigRequest instanceof UpdateLlmConfigRequest) {
+                    llmConfigId = updateLlmConfigRequest.llmConfigId;
+                    body = updateLlmConfigRequest.body
+                    authorization = updateLlmConfigRequest.authorization;
+                    xSdkDate = updateLlmConfigRequest.xSdkDate;
+                    xProjectId = updateLlmConfigRequest.xProjectId;
+                    xAppUserId = updateLlmConfigRequest.xAppUserId;
+                } else {
+                    llmConfigId = updateLlmConfigRequest['llm_config_id'];
+                    body = updateLlmConfigRequest['body'];
+                    authorization = updateLlmConfigRequest['Authorization'];
+                    xSdkDate = updateLlmConfigRequest['X-Sdk-Date'];
+                    xProjectId = updateLlmConfigRequest['X-Project-Id'];
+                    xAppUserId = updateLlmConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (llmConfigId === null || llmConfigId === undefined) {
+            throw new RequiredError('llmConfigId','Required parameter llmConfigId was null or undefined when calling updateLlmConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'llm_config_id': llmConfigId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建MCP服务端对接配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createMcpServer(createMcpServerRequest?: CreateMcpServerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/mcp-server",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createMcpServerRequest !== null && createMcpServerRequest !== undefined) {
+                if (createMcpServerRequest instanceof CreateMcpServerRequest) {
+                    body = createMcpServerRequest.body
+                    authorization = createMcpServerRequest.authorization;
+                    xSdkDate = createMcpServerRequest.xSdkDate;
+                    xProjectId = createMcpServerRequest.xProjectId;
+                    xAppUserId = createMcpServerRequest.xAppUserId;
+                } else {
+                    body = createMcpServerRequest['body'];
+                    authorization = createMcpServerRequest['Authorization'];
+                    xSdkDate = createMcpServerRequest['X-Sdk-Date'];
+                    xProjectId = createMcpServerRequest['X-Project-Id'];
+                    xAppUserId = createMcpServerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除MCP服务端对接配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteMcpServer(deleteMcpServerRequest?: DeleteMcpServerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/mcp-server/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteMcpServerRequest !== null && deleteMcpServerRequest !== undefined) {
+                if (deleteMcpServerRequest instanceof DeleteMcpServerRequest) {
+                    body = deleteMcpServerRequest.body
+                    authorization = deleteMcpServerRequest.authorization;
+                    xSdkDate = deleteMcpServerRequest.xSdkDate;
+                    xProjectId = deleteMcpServerRequest.xProjectId;
+                    xAppUserId = deleteMcpServerRequest.xAppUserId;
+                } else {
+                    body = deleteMcpServerRequest['body'];
+                    authorization = deleteMcpServerRequest['Authorization'];
+                    xSdkDate = deleteMcpServerRequest['X-Sdk-Date'];
+                    xProjectId = deleteMcpServerRequest['X-Project-Id'];
+                    xAppUserId = deleteMcpServerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询MCP服务端对接配置列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMcpServer(listMcpServerRequest?: ListMcpServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/mcp-server",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listMcpServerRequest !== null && listMcpServerRequest !== undefined) {
+                if (listMcpServerRequest instanceof ListMcpServerRequest) {
+                    authorization = listMcpServerRequest.authorization;
+                    xSdkDate = listMcpServerRequest.xSdkDate;
+                    xProjectId = listMcpServerRequest.xProjectId;
+                    xAppUserId = listMcpServerRequest.xAppUserId;
+                    offset = listMcpServerRequest.offset;
+                    limit = listMcpServerRequest.limit;
+                    name = listMcpServerRequest.name;
+                } else {
+                    authorization = listMcpServerRequest['Authorization'];
+                    xSdkDate = listMcpServerRequest['X-Sdk-Date'];
+                    xProjectId = listMcpServerRequest['X-Project-Id'];
+                    xAppUserId = listMcpServerRequest['X-App-UserId'];
+                    offset = listMcpServerRequest['offset'];
+                    limit = listMcpServerRequest['limit'];
+                    name = listMcpServerRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询MCP服务端对接配置详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMcpServer(showMcpServerRequest?: ShowMcpServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/mcp-server/{mcp_server_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let mcpServerId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showMcpServerRequest !== null && showMcpServerRequest !== undefined) {
+                if (showMcpServerRequest instanceof ShowMcpServerRequest) {
+                    mcpServerId = showMcpServerRequest.mcpServerId;
+                    authorization = showMcpServerRequest.authorization;
+                    xSdkDate = showMcpServerRequest.xSdkDate;
+                    xProjectId = showMcpServerRequest.xProjectId;
+                    xAppUserId = showMcpServerRequest.xAppUserId;
+                } else {
+                    mcpServerId = showMcpServerRequest['mcp_server_id'];
+                    authorization = showMcpServerRequest['Authorization'];
+                    xSdkDate = showMcpServerRequest['X-Sdk-Date'];
+                    xProjectId = showMcpServerRequest['X-Project-Id'];
+                    xAppUserId = showMcpServerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (mcpServerId === null || mcpServerId === undefined) {
+            throw new RequiredError('mcpServerId','Required parameter mcpServerId was null or undefined when calling showMcpServer.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'mcp_server_id': mcpServerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改MCP服务端对接配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMcpServer(updateMcpServerRequest?: UpdateMcpServerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/mcp-server/{mcp_server_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let mcpServerId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateMcpServerRequest !== null && updateMcpServerRequest !== undefined) {
+                if (updateMcpServerRequest instanceof UpdateMcpServerRequest) {
+                    mcpServerId = updateMcpServerRequest.mcpServerId;
+                    body = updateMcpServerRequest.body
+                    authorization = updateMcpServerRequest.authorization;
+                    xSdkDate = updateMcpServerRequest.xSdkDate;
+                    xProjectId = updateMcpServerRequest.xProjectId;
+                    xAppUserId = updateMcpServerRequest.xAppUserId;
+                } else {
+                    mcpServerId = updateMcpServerRequest['mcp_server_id'];
+                    body = updateMcpServerRequest['body'];
+                    authorization = updateMcpServerRequest['Authorization'];
+                    xSdkDate = updateMcpServerRequest['X-Sdk-Date'];
+                    xProjectId = updateMcpServerRequest['X-Project-Id'];
+                    xAppUserId = updateMcpServerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (mcpServerId === null || mcpServerId === undefined) {
+            throw new RequiredError('mcpServerId','Required parameter mcpServerId was null or undefined when calling updateMcpServer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'mcp_server_id': mcpServerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建一次性鉴权码，有效期5分钟，鉴权码只能使用一次，每次使用后需要重新获取。
          * &gt; 接口只能通过第三方后台调用，不能在浏览器前台直接调用，否则会有跨域问题。
          * 
@@ -14217,6 +18508,420 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建插件配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPluginConfig(createPluginConfigRequest?: CreatePluginConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/plugin-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createPluginConfigRequest !== null && createPluginConfigRequest !== undefined) {
+                if (createPluginConfigRequest instanceof CreatePluginConfigRequest) {
+                    body = createPluginConfigRequest.body
+                    authorization = createPluginConfigRequest.authorization;
+                    xSdkDate = createPluginConfigRequest.xSdkDate;
+                    xProjectId = createPluginConfigRequest.xProjectId;
+                    xAppUserId = createPluginConfigRequest.xAppUserId;
+                } else {
+                    body = createPluginConfigRequest['body'];
+                    authorization = createPluginConfigRequest['Authorization'];
+                    xSdkDate = createPluginConfigRequest['X-Sdk-Date'];
+                    xProjectId = createPluginConfigRequest['X-Project-Id'];
+                    xAppUserId = createPluginConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除插件配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePluginConfig(deletePluginConfigRequest?: DeletePluginConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/plugin-config/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deletePluginConfigRequest !== null && deletePluginConfigRequest !== undefined) {
+                if (deletePluginConfigRequest instanceof DeletePluginConfigRequest) {
+                    body = deletePluginConfigRequest.body
+                    authorization = deletePluginConfigRequest.authorization;
+                    xSdkDate = deletePluginConfigRequest.xSdkDate;
+                    xProjectId = deletePluginConfigRequest.xProjectId;
+                    xAppUserId = deletePluginConfigRequest.xAppUserId;
+                } else {
+                    body = deletePluginConfigRequest['body'];
+                    authorization = deletePluginConfigRequest['Authorization'];
+                    xSdkDate = deletePluginConfigRequest['X-Sdk-Date'];
+                    xProjectId = deletePluginConfigRequest['X-Project-Id'];
+                    xAppUserId = deletePluginConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询插件配置列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPluginConfig(listPluginConfigRequest?: ListPluginConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/plugin-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let pluginProvider;
+            
+            let pluginType;
+
+            if (listPluginConfigRequest !== null && listPluginConfigRequest !== undefined) {
+                if (listPluginConfigRequest instanceof ListPluginConfigRequest) {
+                    authorization = listPluginConfigRequest.authorization;
+                    xSdkDate = listPluginConfigRequest.xSdkDate;
+                    xProjectId = listPluginConfigRequest.xProjectId;
+                    xAppUserId = listPluginConfigRequest.xAppUserId;
+                    offset = listPluginConfigRequest.offset;
+                    limit = listPluginConfigRequest.limit;
+                    pluginProvider = listPluginConfigRequest.pluginProvider;
+                    pluginType = listPluginConfigRequest.pluginType;
+                } else {
+                    authorization = listPluginConfigRequest['Authorization'];
+                    xSdkDate = listPluginConfigRequest['X-Sdk-Date'];
+                    xProjectId = listPluginConfigRequest['X-Project-Id'];
+                    xAppUserId = listPluginConfigRequest['X-App-UserId'];
+                    offset = listPluginConfigRequest['offset'];
+                    limit = listPluginConfigRequest['limit'];
+                    pluginProvider = listPluginConfigRequest['plugin_provider'];
+                    pluginType = listPluginConfigRequest['plugin_type'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (pluginProvider !== null && pluginProvider !== undefined) {
+                localVarQueryParameter['plugin_provider'] = pluginProvider;
+            }
+            if (pluginType !== null && pluginType !== undefined) {
+                localVarQueryParameter['plugin_type'] = pluginType;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询插件配置详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPluginConfig(showPluginConfigRequest?: ShowPluginConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/plugin-config/{plugin_config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let pluginConfigId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPluginConfigRequest !== null && showPluginConfigRequest !== undefined) {
+                if (showPluginConfigRequest instanceof ShowPluginConfigRequest) {
+                    pluginConfigId = showPluginConfigRequest.pluginConfigId;
+                    authorization = showPluginConfigRequest.authorization;
+                    xSdkDate = showPluginConfigRequest.xSdkDate;
+                    xProjectId = showPluginConfigRequest.xProjectId;
+                    xAppUserId = showPluginConfigRequest.xAppUserId;
+                } else {
+                    pluginConfigId = showPluginConfigRequest['plugin_config_id'];
+                    authorization = showPluginConfigRequest['Authorization'];
+                    xSdkDate = showPluginConfigRequest['X-Sdk-Date'];
+                    xProjectId = showPluginConfigRequest['X-Project-Id'];
+                    xAppUserId = showPluginConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (pluginConfigId === null || pluginConfigId === undefined) {
+            throw new RequiredError('pluginConfigId','Required parameter pluginConfigId was null or undefined when calling showPluginConfig.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'plugin_config_id': pluginConfigId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询插件配置默认信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPluginConfigDefaultInfo(showPluginConfigDefaultInfoRequest?: ShowPluginConfigDefaultInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/plugin-config-default",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPluginConfigDefaultInfoRequest !== null && showPluginConfigDefaultInfoRequest !== undefined) {
+                if (showPluginConfigDefaultInfoRequest instanceof ShowPluginConfigDefaultInfoRequest) {
+                    authorization = showPluginConfigDefaultInfoRequest.authorization;
+                    xSdkDate = showPluginConfigDefaultInfoRequest.xSdkDate;
+                    xProjectId = showPluginConfigDefaultInfoRequest.xProjectId;
+                    xAppUserId = showPluginConfigDefaultInfoRequest.xAppUserId;
+                } else {
+                    authorization = showPluginConfigDefaultInfoRequest['Authorization'];
+                    xSdkDate = showPluginConfigDefaultInfoRequest['X-Sdk-Date'];
+                    xProjectId = showPluginConfigDefaultInfoRequest['X-Project-Id'];
+                    xAppUserId = showPluginConfigDefaultInfoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改插件配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePluginConfig(updatePluginConfigRequest?: UpdatePluginConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/plugin-config/{plugin_config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let pluginConfigId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updatePluginConfigRequest !== null && updatePluginConfigRequest !== undefined) {
+                if (updatePluginConfigRequest instanceof UpdatePluginConfigRequest) {
+                    pluginConfigId = updatePluginConfigRequest.pluginConfigId;
+                    body = updatePluginConfigRequest.body
+                    authorization = updatePluginConfigRequest.authorization;
+                    xSdkDate = updatePluginConfigRequest.xSdkDate;
+                    xProjectId = updatePluginConfigRequest.xProjectId;
+                    xAppUserId = updatePluginConfigRequest.xAppUserId;
+                } else {
+                    pluginConfigId = updatePluginConfigRequest['plugin_config_id'];
+                    body = updatePluginConfigRequest['body'];
+                    authorization = updatePluginConfigRequest['Authorization'];
+                    xSdkDate = updatePluginConfigRequest['X-Sdk-Date'];
+                    xProjectId = updatePluginConfigRequest['X-Project-Id'];
+                    xAppUserId = updatePluginConfigRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (pluginConfigId === null || pluginConfigId === undefined) {
+            throw new RequiredError('pluginConfigId','Required parameter pluginConfigId was null or undefined when calling updatePluginConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'plugin_config_id': pluginConfigId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * Create product
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14682,6 +19387,366 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建问答对。一个问答对包含一个标准问题，一个答案，若干个相似问题等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createQuestionAnswer(createQuestionAnswerRequest?: CreateQuestionAnswerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/question-answer",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createQuestionAnswerRequest !== null && createQuestionAnswerRequest !== undefined) {
+                if (createQuestionAnswerRequest instanceof CreateQuestionAnswerRequest) {
+                    body = createQuestionAnswerRequest.body
+                    authorization = createQuestionAnswerRequest.authorization;
+                    xSdkDate = createQuestionAnswerRequest.xSdkDate;
+                    xProjectId = createQuestionAnswerRequest.xProjectId;
+                    xAppUserId = createQuestionAnswerRequest.xAppUserId;
+                } else {
+                    body = createQuestionAnswerRequest['body'];
+                    authorization = createQuestionAnswerRequest['Authorization'];
+                    xSdkDate = createQuestionAnswerRequest['X-Sdk-Date'];
+                    xProjectId = createQuestionAnswerRequest['X-Project-Id'];
+                    xAppUserId = createQuestionAnswerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除问答对。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteQuestionAnswer(deleteQuestionAnswerRequest?: DeleteQuestionAnswerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/question-answer/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteQuestionAnswerRequest !== null && deleteQuestionAnswerRequest !== undefined) {
+                if (deleteQuestionAnswerRequest instanceof DeleteQuestionAnswerRequest) {
+                    body = deleteQuestionAnswerRequest.body
+                    authorization = deleteQuestionAnswerRequest.authorization;
+                    xSdkDate = deleteQuestionAnswerRequest.xSdkDate;
+                    xProjectId = deleteQuestionAnswerRequest.xProjectId;
+                    xAppUserId = deleteQuestionAnswerRequest.xAppUserId;
+                } else {
+                    body = deleteQuestionAnswerRequest['body'];
+                    authorization = deleteQuestionAnswerRequest['Authorization'];
+                    xSdkDate = deleteQuestionAnswerRequest['X-Sdk-Date'];
+                    xProjectId = deleteQuestionAnswerRequest['X-Project-Id'];
+                    xAppUserId = deleteQuestionAnswerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询问答对列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listQuestionAnswer(listQuestionAnswerRequest?: ListQuestionAnswerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/question-answer",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let knowledgeLibraryId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let question;
+
+            if (listQuestionAnswerRequest !== null && listQuestionAnswerRequest !== undefined) {
+                if (listQuestionAnswerRequest instanceof ListQuestionAnswerRequest) {
+                    knowledgeLibraryId = listQuestionAnswerRequest.knowledgeLibraryId;
+                    authorization = listQuestionAnswerRequest.authorization;
+                    xSdkDate = listQuestionAnswerRequest.xSdkDate;
+                    xProjectId = listQuestionAnswerRequest.xProjectId;
+                    xAppUserId = listQuestionAnswerRequest.xAppUserId;
+                    offset = listQuestionAnswerRequest.offset;
+                    limit = listQuestionAnswerRequest.limit;
+                    question = listQuestionAnswerRequest.question;
+                } else {
+                    knowledgeLibraryId = listQuestionAnswerRequest['knowledge_library_id'];
+                    authorization = listQuestionAnswerRequest['Authorization'];
+                    xSdkDate = listQuestionAnswerRequest['X-Sdk-Date'];
+                    xProjectId = listQuestionAnswerRequest['X-Project-Id'];
+                    xAppUserId = listQuestionAnswerRequest['X-App-UserId'];
+                    offset = listQuestionAnswerRequest['offset'];
+                    limit = listQuestionAnswerRequest['limit'];
+                    question = listQuestionAnswerRequest['question'];
+                }
+            }
+
+        
+            if (knowledgeLibraryId === null || knowledgeLibraryId === undefined) {
+                throw new RequiredError('knowledgeLibraryId','Required parameter knowledgeLibraryId was null or undefined when calling listQuestionAnswer.');
+            }
+            if (knowledgeLibraryId !== null && knowledgeLibraryId !== undefined) {
+                localVarQueryParameter['knowledge_library_id'] = knowledgeLibraryId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (question !== null && question !== undefined) {
+                localVarQueryParameter['question'] = question;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询问答对详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuestionAnswer(showQuestionAnswerRequest?: ShowQuestionAnswerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/question-answer/{question_answer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let questionAnswerId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showQuestionAnswerRequest !== null && showQuestionAnswerRequest !== undefined) {
+                if (showQuestionAnswerRequest instanceof ShowQuestionAnswerRequest) {
+                    questionAnswerId = showQuestionAnswerRequest.questionAnswerId;
+                    authorization = showQuestionAnswerRequest.authorization;
+                    xSdkDate = showQuestionAnswerRequest.xSdkDate;
+                    xProjectId = showQuestionAnswerRequest.xProjectId;
+                    xAppUserId = showQuestionAnswerRequest.xAppUserId;
+                } else {
+                    questionAnswerId = showQuestionAnswerRequest['question_answer_id'];
+                    authorization = showQuestionAnswerRequest['Authorization'];
+                    xSdkDate = showQuestionAnswerRequest['X-Sdk-Date'];
+                    xProjectId = showQuestionAnswerRequest['X-Project-Id'];
+                    xAppUserId = showQuestionAnswerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (questionAnswerId === null || questionAnswerId === undefined) {
+            throw new RequiredError('questionAnswerId','Required parameter questionAnswerId was null or undefined when calling showQuestionAnswer.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'question_answer_id': questionAnswerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改问答对。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateQuestionAnswer(updateQuestionAnswerRequest?: UpdateQuestionAnswerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/question-answer/{question_answer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let questionAnswerId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateQuestionAnswerRequest !== null && updateQuestionAnswerRequest !== undefined) {
+                if (updateQuestionAnswerRequest instanceof UpdateQuestionAnswerRequest) {
+                    questionAnswerId = updateQuestionAnswerRequest.questionAnswerId;
+                    body = updateQuestionAnswerRequest.body
+                    authorization = updateQuestionAnswerRequest.authorization;
+                    xSdkDate = updateQuestionAnswerRequest.xSdkDate;
+                    xProjectId = updateQuestionAnswerRequest.xProjectId;
+                    xAppUserId = updateQuestionAnswerRequest.xAppUserId;
+                } else {
+                    questionAnswerId = updateQuestionAnswerRequest['question_answer_id'];
+                    body = updateQuestionAnswerRequest['body'];
+                    authorization = updateQuestionAnswerRequest['Authorization'];
+                    xSdkDate = updateQuestionAnswerRequest['X-Sdk-Date'];
+                    xProjectId = updateQuestionAnswerRequest['X-Project-Id'];
+                    xAppUserId = updateQuestionAnswerRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (questionAnswerId === null || questionAnswerId === undefined) {
+            throw new RequiredError('questionAnswerId','Required parameter questionAnswerId was null or undefined when calling updateQuestionAnswer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'question_answer_id': questionAnswerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建应用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -15100,6 +20165,356 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建角色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRole(createRoleRequest?: CreateRoleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/role",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createRoleRequest !== null && createRoleRequest !== undefined) {
+                if (createRoleRequest instanceof CreateRoleRequest) {
+                    body = createRoleRequest.body
+                    authorization = createRoleRequest.authorization;
+                    xSdkDate = createRoleRequest.xSdkDate;
+                    xProjectId = createRoleRequest.xProjectId;
+                    xAppUserId = createRoleRequest.xAppUserId;
+                } else {
+                    body = createRoleRequest['body'];
+                    authorization = createRoleRequest['Authorization'];
+                    xSdkDate = createRoleRequest['X-Sdk-Date'];
+                    xProjectId = createRoleRequest['X-Project-Id'];
+                    xAppUserId = createRoleRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除角色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRole(deleteRoleRequest?: DeleteRoleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/wise-brain-manager/role/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteRoleRequest !== null && deleteRoleRequest !== undefined) {
+                if (deleteRoleRequest instanceof DeleteRoleRequest) {
+                    body = deleteRoleRequest.body
+                    authorization = deleteRoleRequest.authorization;
+                    xSdkDate = deleteRoleRequest.xSdkDate;
+                    xProjectId = deleteRoleRequest.xProjectId;
+                    xAppUserId = deleteRoleRequest.xAppUserId;
+                } else {
+                    body = deleteRoleRequest['body'];
+                    authorization = deleteRoleRequest['Authorization'];
+                    xSdkDate = deleteRoleRequest['X-Sdk-Date'];
+                    xProjectId = deleteRoleRequest['X-Project-Id'];
+                    xAppUserId = deleteRoleRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询角色列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRole(listRoleRequest?: ListRoleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/role",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listRoleRequest !== null && listRoleRequest !== undefined) {
+                if (listRoleRequest instanceof ListRoleRequest) {
+                    authorization = listRoleRequest.authorization;
+                    xSdkDate = listRoleRequest.xSdkDate;
+                    xProjectId = listRoleRequest.xProjectId;
+                    xAppUserId = listRoleRequest.xAppUserId;
+                    offset = listRoleRequest.offset;
+                    limit = listRoleRequest.limit;
+                    name = listRoleRequest.name;
+                } else {
+                    authorization = listRoleRequest['Authorization'];
+                    xSdkDate = listRoleRequest['X-Sdk-Date'];
+                    xProjectId = listRoleRequest['X-Project-Id'];
+                    xAppUserId = listRoleRequest['X-App-UserId'];
+                    offset = listRoleRequest['offset'];
+                    limit = listRoleRequest['limit'];
+                    name = listRoleRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询角色详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRole(showRoleRequest?: ShowRoleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/wise-brain-manager/role/{role_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roleId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showRoleRequest !== null && showRoleRequest !== undefined) {
+                if (showRoleRequest instanceof ShowRoleRequest) {
+                    roleId = showRoleRequest.roleId;
+                    authorization = showRoleRequest.authorization;
+                    xSdkDate = showRoleRequest.xSdkDate;
+                    xProjectId = showRoleRequest.xProjectId;
+                    xAppUserId = showRoleRequest.xAppUserId;
+                } else {
+                    roleId = showRoleRequest['role_id'];
+                    authorization = showRoleRequest['Authorization'];
+                    xSdkDate = showRoleRequest['X-Sdk-Date'];
+                    xProjectId = showRoleRequest['X-Project-Id'];
+                    xAppUserId = showRoleRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roleId === null || roleId === undefined) {
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling showRole.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'role_id': roleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改角色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRole(updateRoleRequest?: UpdateRoleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/wise-brain-manager/role/{role_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roleId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateRoleRequest !== null && updateRoleRequest !== undefined) {
+                if (updateRoleRequest instanceof UpdateRoleRequest) {
+                    roleId = updateRoleRequest.roleId;
+                    body = updateRoleRequest.body
+                    authorization = updateRoleRequest.authorization;
+                    xSdkDate = updateRoleRequest.xSdkDate;
+                    xProjectId = updateRoleRequest.xProjectId;
+                    xAppUserId = updateRoleRequest.xAppUserId;
+                } else {
+                    roleId = updateRoleRequest['role_id'];
+                    body = updateRoleRequest['body'];
+                    authorization = updateRoleRequest['Authorization'];
+                    xSdkDate = updateRoleRequest['X-Sdk-Date'];
+                    xProjectId = updateRoleRequest['X-Project-Id'];
+                    xAppUserId = updateRoleRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roleId === null || roleId === undefined) {
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateRole.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18952,6 +24367,274 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于校验音色模型是否可用，模型可用返回模型信息，不可用返回具体不可用的原因
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkVoiceAsset(checkVoiceAssetRequest?: CheckVoiceAssetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ttsc/check-voice-asset/{voice_asset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let voiceAssetId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (checkVoiceAssetRequest !== null && checkVoiceAssetRequest !== undefined) {
+                if (checkVoiceAssetRequest instanceof CheckVoiceAssetRequest) {
+                    voiceAssetId = checkVoiceAssetRequest.voiceAssetId;
+                    authorization = checkVoiceAssetRequest.authorization;
+                    xSdkDate = checkVoiceAssetRequest.xSdkDate;
+                    xProjectId = checkVoiceAssetRequest.xProjectId;
+                    xAppUserId = checkVoiceAssetRequest.xAppUserId;
+                } else {
+                    voiceAssetId = checkVoiceAssetRequest['voice_asset_id'];
+                    authorization = checkVoiceAssetRequest['Authorization'];
+                    xSdkDate = checkVoiceAssetRequest['X-Sdk-Date'];
+                    xProjectId = checkVoiceAssetRequest['X-Project-Id'];
+                    xAppUserId = checkVoiceAssetRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (voiceAssetId === null || voiceAssetId === undefined) {
+            throw new RequiredError('voiceAssetId','Required parameter voiceAssetId was null or undefined when calling checkVoiceAsset.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'voice_asset_id': voiceAssetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS语音合成任务记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTtsJob(showTtsJobRequest?: ShowTtsJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/tts-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let limit;
+            
+            let offset;
+            
+            let createSince;
+            
+            let createUntil;
+            
+            let jobId;
+            
+            let jobType;
+            
+            let ttsServiceEnum;
+            
+            let businessType;
+
+            if (showTtsJobRequest !== null && showTtsJobRequest !== undefined) {
+                if (showTtsJobRequest instanceof ShowTtsJobRequest) {
+                    authorization = showTtsJobRequest.authorization;
+                    xSdkDate = showTtsJobRequest.xSdkDate;
+                    xProjectId = showTtsJobRequest.xProjectId;
+                    xAppUserId = showTtsJobRequest.xAppUserId;
+                    limit = showTtsJobRequest.limit;
+                    offset = showTtsJobRequest.offset;
+                    createSince = showTtsJobRequest.createSince;
+                    createUntil = showTtsJobRequest.createUntil;
+                    jobId = showTtsJobRequest.jobId;
+                    jobType = showTtsJobRequest.jobType;
+                    ttsServiceEnum = showTtsJobRequest.ttsServiceEnum;
+                    businessType = showTtsJobRequest.businessType;
+                } else {
+                    authorization = showTtsJobRequest['Authorization'];
+                    xSdkDate = showTtsJobRequest['X-Sdk-Date'];
+                    xProjectId = showTtsJobRequest['X-Project-Id'];
+                    xAppUserId = showTtsJobRequest['X-App-UserId'];
+                    limit = showTtsJobRequest['limit'];
+                    offset = showTtsJobRequest['offset'];
+                    createSince = showTtsJobRequest['create_since'];
+                    createUntil = showTtsJobRequest['create_until'];
+                    jobId = showTtsJobRequest['job_id'];
+                    jobType = showTtsJobRequest['job_type'];
+                    ttsServiceEnum = showTtsJobRequest['tts_service_enum'];
+                    businessType = showTtsJobRequest['business_type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (jobType !== null && jobType !== undefined) {
+                localVarQueryParameter['job_type'] = jobType;
+            }
+            if (ttsServiceEnum !== null && ttsServiceEnum !== undefined) {
+                localVarQueryParameter['tts_service_enum'] = ttsServiceEnum;
+            }
+            if (businessType !== null && businessType !== undefined) {
+                localVarQueryParameter['business_type'] = businessType;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据英文单词返回对应音标列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/phonetic-symbol",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let word;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showTtsPhoneticSymbolRequest !== null && showTtsPhoneticSymbolRequest !== undefined) {
+                if (showTtsPhoneticSymbolRequest instanceof ShowTtsPhoneticSymbolRequest) {
+                    word = showTtsPhoneticSymbolRequest.word;
+                    xRequestId = showTtsPhoneticSymbolRequest.xRequestId;
+                    authorization = showTtsPhoneticSymbolRequest.authorization;
+                    xSdkDate = showTtsPhoneticSymbolRequest.xSdkDate;
+                    xProjectId = showTtsPhoneticSymbolRequest.xProjectId;
+                    xAppUserId = showTtsPhoneticSymbolRequest.xAppUserId;
+                    offset = showTtsPhoneticSymbolRequest.offset;
+                    limit = showTtsPhoneticSymbolRequest.limit;
+                } else {
+                    word = showTtsPhoneticSymbolRequest['word'];
+                    xRequestId = showTtsPhoneticSymbolRequest['X-Request-Id'];
+                    authorization = showTtsPhoneticSymbolRequest['Authorization'];
+                    xSdkDate = showTtsPhoneticSymbolRequest['X-Sdk-Date'];
+                    xProjectId = showTtsPhoneticSymbolRequest['X-Project-Id'];
+                    xAppUserId = showTtsPhoneticSymbolRequest['X-App-UserId'];
+                    offset = showTtsPhoneticSymbolRequest['offset'];
+                    limit = showTtsPhoneticSymbolRequest['limit'];
+                }
+            }
+
+        
+            if (word === null || word === undefined) {
+                throw new RequiredError('word','Required parameter word was null or undefined when calling showTtsPhoneticSymbol.');
+            }
+            if (word !== null && word !== undefined) {
+                localVarQueryParameter['word'] = word;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于对外生成音频文件。每个预置音色的计费标准详见[预置音色计费标准](metastudio_02_0060.xml)。
          * 
          * &gt; 使用本接口前，需要在MetaStudio控制台服务概览页面，开通“声音合成”的按需计费。
@@ -19094,6 +24777,143 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS音频文件下载链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAsyncTtsJob(showAsyncTtsJobRequest?: ShowAsyncTtsJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/async-jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showAsyncTtsJobRequest !== null && showAsyncTtsJobRequest !== undefined) {
+                if (showAsyncTtsJobRequest instanceof ShowAsyncTtsJobRequest) {
+                    jobId = showAsyncTtsJobRequest.jobId;
+                    authorization = showAsyncTtsJobRequest.authorization;
+                    xSdkDate = showAsyncTtsJobRequest.xSdkDate;
+                    xProjectId = showAsyncTtsJobRequest.xProjectId;
+                    xAppUserId = showAsyncTtsJobRequest.xAppUserId;
+                } else {
+                    jobId = showAsyncTtsJobRequest['job_id'];
+                    authorization = showAsyncTtsJobRequest['Authorization'];
+                    xSdkDate = showAsyncTtsJobRequest['X-Sdk-Date'];
+                    xProjectId = showAsyncTtsJobRequest['X-Project-Id'];
+                    xAppUserId = showAsyncTtsJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showAsyncTtsJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS试听文件下载链接，返回List中包含当前已生产的试听文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/audition-file/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showTtsAuditionFileRequest !== null && showTtsAuditionFileRequest !== undefined) {
+                if (showTtsAuditionFileRequest instanceof ShowTtsAuditionFileRequest) {
+                    jobId = showTtsAuditionFileRequest.jobId;
+                    xRequestId = showTtsAuditionFileRequest.xRequestId;
+                    authorization = showTtsAuditionFileRequest.authorization;
+                    xSdkDate = showTtsAuditionFileRequest.xSdkDate;
+                    xProjectId = showTtsAuditionFileRequest.xProjectId;
+                    xAppUserId = showTtsAuditionFileRequest.xAppUserId;
+                } else {
+                    jobId = showTtsAuditionFileRequest['job_id'];
+                    xRequestId = showTtsAuditionFileRequest['X-Request-Id'];
+                    authorization = showTtsAuditionFileRequest['Authorization'];
+                    xSdkDate = showTtsAuditionFileRequest['X-Sdk-Date'];
+                    xProjectId = showTtsAuditionFileRequest['X-Project-Id'];
+                    xAppUserId = showTtsAuditionFileRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showTtsAuditionFile.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -19641,6 +25461,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于设置租户级配置，当前用于租户级自定义读法配置的全局开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveTtscTenantConfigs(saveTtscTenantConfigsRequest?: SaveTtscTenantConfigsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ttsc/tenant-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (saveTtscTenantConfigsRequest !== null && saveTtscTenantConfigsRequest !== undefined) {
+                if (saveTtscTenantConfigsRequest instanceof SaveTtscTenantConfigsRequest) {
+                    body = saveTtscTenantConfigsRequest.body
+                    xRequestId = saveTtscTenantConfigsRequest.xRequestId;
+                    authorization = saveTtscTenantConfigsRequest.authorization;
+                    xSdkDate = saveTtscTenantConfigsRequest.xSdkDate;
+                    xProjectId = saveTtscTenantConfigsRequest.xProjectId;
+                    xAppUserId = saveTtscTenantConfigsRequest.xAppUserId;
+                } else {
+                    body = saveTtscTenantConfigsRequest['body'];
+                    xRequestId = saveTtscTenantConfigsRequest['X-Request-Id'];
+                    authorization = saveTtscTenantConfigsRequest['Authorization'];
+                    xSdkDate = saveTtscTenantConfigsRequest['X-Sdk-Date'];
+                    xProjectId = saveTtscTenantConfigsRequest['X-Project-Id'];
+                    xAppUserId = saveTtscTenantConfigsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于修改TTS租户级自定义读法配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19803,151 +25696,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取TTS音频文件下载链接。
+         * 该接口用于获取租户级全局配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showAsyncTtsJob(showAsyncTtsJobRequest?: ShowAsyncTtsJobRequest) {
+        showVocabularySwitchConfigs(showVocabularySwitchConfigsRequest?: ShowVocabularySwitchConfigsRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/ttsc/async-jobs/{job_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (showAsyncTtsJobRequest !== null && showAsyncTtsJobRequest !== undefined) {
-                if (showAsyncTtsJobRequest instanceof ShowAsyncTtsJobRequest) {
-                    jobId = showAsyncTtsJobRequest.jobId;
-                    authorization = showAsyncTtsJobRequest.authorization;
-                    xSdkDate = showAsyncTtsJobRequest.xSdkDate;
-                    xProjectId = showAsyncTtsJobRequest.xProjectId;
-                    xAppUserId = showAsyncTtsJobRequest.xAppUserId;
-                } else {
-                    jobId = showAsyncTtsJobRequest['job_id'];
-                    authorization = showAsyncTtsJobRequest['Authorization'];
-                    xSdkDate = showAsyncTtsJobRequest['X-Sdk-Date'];
-                    xProjectId = showAsyncTtsJobRequest['X-Project-Id'];
-                    xAppUserId = showAsyncTtsJobRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showAsyncTtsJob.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于获取TTS试听文件下载链接，返回List中包含当前已生产的试听文件。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/ttsc/audition-file/{job_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-            
-            let xRequestId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (showTtsAuditionFileRequest !== null && showTtsAuditionFileRequest !== undefined) {
-                if (showTtsAuditionFileRequest instanceof ShowTtsAuditionFileRequest) {
-                    jobId = showTtsAuditionFileRequest.jobId;
-                    xRequestId = showTtsAuditionFileRequest.xRequestId;
-                    authorization = showTtsAuditionFileRequest.authorization;
-                    xSdkDate = showTtsAuditionFileRequest.xSdkDate;
-                    xProjectId = showTtsAuditionFileRequest.xProjectId;
-                    xAppUserId = showTtsAuditionFileRequest.xAppUserId;
-                } else {
-                    jobId = showTtsAuditionFileRequest['job_id'];
-                    xRequestId = showTtsAuditionFileRequest['X-Request-Id'];
-                    authorization = showTtsAuditionFileRequest['Authorization'];
-                    xSdkDate = showTtsAuditionFileRequest['X-Sdk-Date'];
-                    xProjectId = showTtsAuditionFileRequest['X-Project-Id'];
-                    xAppUserId = showTtsAuditionFileRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showTtsAuditionFile.');
-            }
-            if (xRequestId !== undefined && xRequestId !== null) {
-                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 根据英文单词返回对应音标列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showTtsPhoneticSymbol(showTtsPhoneticSymbolRequest?: ShowTtsPhoneticSymbolRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/ttsc/phonetic-symbol",
+                url: "/v1/{project_id}/ttsc/tenant-configs",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -19955,8 +25711,6 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            
-            let word;
             
             let xRequestId;
             
@@ -19971,41 +25725,40 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let key;
 
-            if (showTtsPhoneticSymbolRequest !== null && showTtsPhoneticSymbolRequest !== undefined) {
-                if (showTtsPhoneticSymbolRequest instanceof ShowTtsPhoneticSymbolRequest) {
-                    word = showTtsPhoneticSymbolRequest.word;
-                    xRequestId = showTtsPhoneticSymbolRequest.xRequestId;
-                    authorization = showTtsPhoneticSymbolRequest.authorization;
-                    xSdkDate = showTtsPhoneticSymbolRequest.xSdkDate;
-                    xProjectId = showTtsPhoneticSymbolRequest.xProjectId;
-                    xAppUserId = showTtsPhoneticSymbolRequest.xAppUserId;
-                    offset = showTtsPhoneticSymbolRequest.offset;
-                    limit = showTtsPhoneticSymbolRequest.limit;
+            if (showVocabularySwitchConfigsRequest !== null && showVocabularySwitchConfigsRequest !== undefined) {
+                if (showVocabularySwitchConfigsRequest instanceof ShowVocabularySwitchConfigsRequest) {
+                    xRequestId = showVocabularySwitchConfigsRequest.xRequestId;
+                    authorization = showVocabularySwitchConfigsRequest.authorization;
+                    xSdkDate = showVocabularySwitchConfigsRequest.xSdkDate;
+                    xProjectId = showVocabularySwitchConfigsRequest.xProjectId;
+                    xAppUserId = showVocabularySwitchConfigsRequest.xAppUserId;
+                    offset = showVocabularySwitchConfigsRequest.offset;
+                    limit = showVocabularySwitchConfigsRequest.limit;
+                    key = showVocabularySwitchConfigsRequest.key;
                 } else {
-                    word = showTtsPhoneticSymbolRequest['word'];
-                    xRequestId = showTtsPhoneticSymbolRequest['X-Request-Id'];
-                    authorization = showTtsPhoneticSymbolRequest['Authorization'];
-                    xSdkDate = showTtsPhoneticSymbolRequest['X-Sdk-Date'];
-                    xProjectId = showTtsPhoneticSymbolRequest['X-Project-Id'];
-                    xAppUserId = showTtsPhoneticSymbolRequest['X-App-UserId'];
-                    offset = showTtsPhoneticSymbolRequest['offset'];
-                    limit = showTtsPhoneticSymbolRequest['limit'];
+                    xRequestId = showVocabularySwitchConfigsRequest['X-Request-Id'];
+                    authorization = showVocabularySwitchConfigsRequest['Authorization'];
+                    xSdkDate = showVocabularySwitchConfigsRequest['X-Sdk-Date'];
+                    xProjectId = showVocabularySwitchConfigsRequest['X-Project-Id'];
+                    xAppUserId = showVocabularySwitchConfigsRequest['X-App-UserId'];
+                    offset = showVocabularySwitchConfigsRequest['offset'];
+                    limit = showVocabularySwitchConfigsRequest['limit'];
+                    key = showVocabularySwitchConfigsRequest['key'];
                 }
             }
 
         
-            if (word === null || word === undefined) {
-                throw new RequiredError('word','Required parameter word was null or undefined when calling showTtsPhoneticSymbol.');
-            }
-            if (word !== null && word !== undefined) {
-                localVarQueryParameter['word'] = word;
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (key !== null && key !== undefined) {
+                localVarQueryParameter['key'] = key;
             }
             if (xRequestId !== undefined && xRequestId !== null) {
                 localVarHeaderParameter['X-Request-Id'] = String(xRequestId);

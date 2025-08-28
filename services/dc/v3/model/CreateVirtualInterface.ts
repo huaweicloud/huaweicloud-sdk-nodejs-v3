@@ -9,6 +9,7 @@ export class CreateVirtualInterface {
     private 'service_type'?: CreateVirtualInterfaceServiceTypeEnum | string;
     public vlan?: number;
     public bandwidth?: number;
+    public priority?: CreateVirtualInterfacePriorityEnum | string;
     private 'local_gateway_v4_ip'?: string;
     private 'remote_gateway_v4_ip'?: string;
     private 'address_family'?: string;
@@ -73,6 +74,10 @@ export class CreateVirtualInterface {
     }
     public withBandwidth(bandwidth: number): CreateVirtualInterface {
         this['bandwidth'] = bandwidth;
+        return this;
+    }
+    public withPriority(priority: CreateVirtualInterfacePriorityEnum | string): CreateVirtualInterface {
+        this['priority'] = priority;
         return this;
     }
     public withLocalGatewayV4Ip(localGatewayV4Ip: string): CreateVirtualInterface {
@@ -267,6 +272,14 @@ export enum CreateVirtualInterfaceServiceTypeEnum {
     VGW = 'VGW',
     GDGW = 'GDGW',
     LGW = 'LGW'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateVirtualInterfacePriorityEnum {
+    NORMAL = 'normal',
+    LOW = 'low'
 }
 /**
     * @export

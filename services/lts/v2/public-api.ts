@@ -191,6 +191,8 @@ export * from './model/ListLogGroupsRequest';
 export * from './model/ListLogGroupsResponse';
 export * from './model/ListLogHistogramRequest';
 export * from './model/ListLogHistogramResponse';
+export * from './model/ListLogStreamIndexRequest';
+export * from './model/ListLogStreamIndexResponse';
 export * from './model/ListLogStreamRequest';
 export * from './model/ListLogStreamResponse';
 export * from './model/ListLogStreamsRequest';

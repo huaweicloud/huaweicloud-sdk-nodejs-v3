@@ -6,7 +6,7 @@ export class WtpProtectHostDirResponseInfo {
     private 'exclude_file_path'?: string;
     private 'exclue_file_path'?: string;
     private 'local_backup_dir'?: string;
-    private 'protect_status'?: WtpProtectHostDirResponseInfoProtectStatusEnum | string;
+    private 'protect_status'?: string;
     public error?: string;
     public constructor() { 
     }
@@ -60,30 +60,18 @@ export class WtpProtectHostDirResponseInfo {
     public get localBackupDir(): string | undefined {
         return this['local_backup_dir'];
     }
-    public withProtectStatus(protectStatus: WtpProtectHostDirResponseInfoProtectStatusEnum | string): WtpProtectHostDirResponseInfo {
+    public withProtectStatus(protectStatus: string): WtpProtectHostDirResponseInfo {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: WtpProtectHostDirResponseInfoProtectStatusEnum | string  | undefined) {
+    public set protectStatus(protectStatus: string  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus(): WtpProtectHostDirResponseInfoProtectStatusEnum | string | undefined {
+    public get protectStatus(): string | undefined {
         return this['protect_status'];
     }
     public withError(error: string): WtpProtectHostDirResponseInfo {
         this['error'] = error;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum WtpProtectHostDirResponseInfoProtectStatusEnum {
-    CLOSED = 'closed',
-    OPENED = 'opened',
-    OPENING = 'opening',
-    CLOSING = 'closing',
-    OPEN_FAILED = 'open_failed'
 }

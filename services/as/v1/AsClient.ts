@@ -40,6 +40,8 @@ import { BatchUnprotectScalingInstancesResponse } from './model/BatchUnprotectSc
 import { BatchUnsetScalingInstancesStantbyRequest } from './model/BatchUnsetScalingInstancesStantbyRequest';
 import { BatchUnsetScalingInstancesStantbyResponse } from './model/BatchUnsetScalingInstancesStantbyResponse';
 import { CallbackLifeCycleHookOption } from './model/CallbackLifeCycleHookOption';
+import { CloseWarmPoolRequest } from './model/CloseWarmPoolRequest';
+import { CloseWarmPoolResponse } from './model/CloseWarmPoolResponse';
 import { CreateGroupScheduledTaskRequest } from './model/CreateGroupScheduledTaskRequest';
 import { CreateGroupScheduledTaskResponse } from './model/CreateGroupScheduledTaskResponse';
 import { CreateLifeCycleHookOption } from './model/CreateLifeCycleHookOption';
@@ -135,6 +137,8 @@ import { ListScalingTagInfosByTenantIdRequest } from './model/ListScalingTagInfo
 import { ListScalingTagInfosByTenantIdResponse } from './model/ListScalingTagInfosByTenantIdResponse';
 import { ListScalingV2PoliciesRequest } from './model/ListScalingV2PoliciesRequest';
 import { ListScalingV2PoliciesResponse } from './model/ListScalingV2PoliciesResponse';
+import { ListWarmPoolInstancesRequest } from './model/ListWarmPoolInstancesRequest';
+import { ListWarmPoolInstancesResponse } from './model/ListWarmPoolInstancesResponse';
 import { Matches } from './model/Matches';
 import { MetaData } from './model/MetaData';
 import { ModifyLb } from './model/ModifyLb';
@@ -153,6 +157,9 @@ import { PolicyInstanceQuotas } from './model/PolicyInstanceQuotas';
 import { PolicyInstanceResources } from './model/PolicyInstanceResources';
 import { PublicIp } from './model/PublicIp';
 import { PublicipResult } from './model/PublicipResult';
+import { PutWarmPoolOption } from './model/PutWarmPoolOption';
+import { PutWarmPoolRequest } from './model/PutWarmPoolRequest';
+import { PutWarmPoolResponse } from './model/PutWarmPoolResponse';
 import { QueryTagsOption } from './model/QueryTagsOption';
 import { ResourceTags } from './model/ResourceTags';
 import { Resources } from './model/Resources';
@@ -198,6 +205,8 @@ import { ShowScalingPolicyRequest } from './model/ShowScalingPolicyRequest';
 import { ShowScalingPolicyResponse } from './model/ShowScalingPolicyResponse';
 import { ShowScalingV2PolicyRequest } from './model/ShowScalingV2PolicyRequest';
 import { ShowScalingV2PolicyResponse } from './model/ShowScalingV2PolicyResponse';
+import { ShowWarmPoolRequest } from './model/ShowWarmPoolRequest';
+import { ShowWarmPoolResponse } from './model/ShowWarmPoolResponse';
 import { TagsMultiValue } from './model/TagsMultiValue';
 import { TagsSingleValue } from './model/TagsSingleValue';
 import { Topics } from './model/Topics';
@@ -218,6 +227,8 @@ import { UpdateScalingV2PolicyResponse } from './model/UpdateScalingV2PolicyResp
 import { UpdateScheduledTaskOption } from './model/UpdateScheduledTaskOption';
 import { VersionInfo } from './model/VersionInfo';
 import { VmMetaData } from './model/VmMetaData';
+import { WarmPoolInfo } from './model/WarmPoolInfo';
+import { WarmPoolInstance } from './model/WarmPoolInstance';
 
 export class AsClient {
     public static newBuilder(): ClientBuilder<AsClient> {
@@ -444,6 +455,25 @@ export class AsClient {
      */
     public batchUnsetScalingInstancesStantby(batchUnsetScalingInstancesStantbyRequest?: BatchUnsetScalingInstancesStantbyRequest): Promise<BatchUnsetScalingInstancesStantbyResponse> {
         const options = ParamCreater().batchUnsetScalingInstancesStantby(batchUnsetScalingInstancesStantbyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭伸缩组的暖池
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭暖池
+     * @param {string} scalingGroupId 伸缩组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public closeWarmPool(closeWarmPoolRequest?: CloseWarmPoolRequest): Promise<CloseWarmPoolResponse> {
+        const options = ParamCreater().closeWarmPool(closeWarmPoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1077,6 +1107,27 @@ export class AsClient {
     }
 
     /**
+     * 查询暖池内实例信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询暖池内实例信息
+     * @param {string} scalingGroupId 伸缩组ID
+     * @param {number} [limit] 查询的记录条数，不传默认20，最大可传入100
+     * @param {string} [marker] 查询暖池实例的分页marker
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWarmPoolInstances(listWarmPoolInstancesRequest?: ListWarmPoolInstancesRequest): Promise<ListWarmPoolInstancesResponse> {
+        const options = ParamCreater().listWarmPoolInstances(listWarmPoolInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 启用或停止一个指定弹性伸缩组。已停用状态的伸缩组，不会自动触发任何伸缩活动。当伸缩组正在进行伸缩活动，即使停用，正在进行的伸缩活动也不会立即停止。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1109,6 +1160,26 @@ export class AsClient {
      */
     public pauseScalingPolicy(pauseScalingPolicyRequest?: PauseScalingPolicyRequest): Promise<PauseScalingPolicyResponse> {
         const options = ParamCreater().pauseScalingPolicy(pauseScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启并修改暖池参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启暖池
+     * @param {string} scalingGroupId 伸缩组ID
+     * @param {PutWarmPoolOption} bodyparam 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public putWarmPool(putWarmPoolRequest?: PutWarmPoolRequest): Promise<PutWarmPoolResponse> {
+        const options = ParamCreater().putWarmPool(putWarmPoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1263,6 +1334,25 @@ export class AsClient {
      */
     public showScalingPolicy(showScalingPolicyRequest?: ShowScalingPolicyRequest): Promise<ShowScalingPolicyResponse> {
         const options = ParamCreater().showScalingPolicy(showScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询暖池信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询暖池信息
+     * @param {string} scalingGroupId 伸缩组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWarmPool(showWarmPoolRequest?: ShowWarmPoolRequest): Promise<ShowWarmPoolResponse> {
+        const options = ParamCreater().showWarmPool(showWarmPoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1973,6 +2063,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'scaling_group_id': scalingGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭伸缩组的暖池
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        closeWarmPool(closeWarmPoolRequest?: CloseWarmPoolRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autoscaling-api/{project_id}/scaling-groups/{scaling_group_id}/warm-pool",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let scalingGroupId;
+
+            if (closeWarmPoolRequest !== null && closeWarmPoolRequest !== undefined) {
+                if (closeWarmPoolRequest instanceof CloseWarmPoolRequest) {
+                    scalingGroupId = closeWarmPoolRequest.scalingGroupId;
+                } else {
+                    scalingGroupId = closeWarmPoolRequest['scaling_group_id'];
+                }
+            }
+
+        
+            if (scalingGroupId === null || scalingGroupId === undefined) {
+            throw new RequiredError('scalingGroupId','Required parameter scalingGroupId was null or undefined when calling closeWarmPool.');
+            }
+
             options.pathParams = { 'scaling_group_id': scalingGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3500,6 +3627,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询暖池内实例信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWarmPoolInstances(listWarmPoolInstancesRequest?: ListWarmPoolInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autoscaling-api/{project_id}/scaling-groups/{scaling_group_id}/warm-pool-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let scalingGroupId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listWarmPoolInstancesRequest !== null && listWarmPoolInstancesRequest !== undefined) {
+                if (listWarmPoolInstancesRequest instanceof ListWarmPoolInstancesRequest) {
+                    scalingGroupId = listWarmPoolInstancesRequest.scalingGroupId;
+                    limit = listWarmPoolInstancesRequest.limit;
+                    marker = listWarmPoolInstancesRequest.marker;
+                } else {
+                    scalingGroupId = listWarmPoolInstancesRequest['scaling_group_id'];
+                    limit = listWarmPoolInstancesRequest['limit'];
+                    marker = listWarmPoolInstancesRequest['marker'];
+                }
+            }
+
+        
+            if (scalingGroupId === null || scalingGroupId === undefined) {
+            throw new RequiredError('scalingGroupId','Required parameter scalingGroupId was null or undefined when calling listWarmPoolInstances.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'scaling_group_id': scalingGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 启用或停止一个指定弹性伸缩组。已停用状态的伸缩组，不会自动触发任何伸缩活动。当伸缩组正在进行伸缩活动，即使停用，正在进行的伸缩活动也不会立即停止。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3587,6 +3766,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'scaling_policy_id': scalingPolicyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启并修改暖池参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        putWarmPool(putWarmPoolRequest?: PutWarmPoolRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autoscaling-api/{project_id}/scaling-groups/{scaling_group_id}/warm-pool",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let scalingGroupId;
+
+            if (putWarmPoolRequest !== null && putWarmPoolRequest !== undefined) {
+                if (putWarmPoolRequest instanceof PutWarmPoolRequest) {
+                    scalingGroupId = putWarmPoolRequest.scalingGroupId;
+                    body = putWarmPoolRequest.body
+                } else {
+                    scalingGroupId = putWarmPoolRequest['scaling_group_id'];
+                    body = putWarmPoolRequest['body'];
+                }
+            }
+
+        
+            if (scalingGroupId === null || scalingGroupId === undefined) {
+            throw new RequiredError('scalingGroupId','Required parameter scalingGroupId was null or undefined when calling putWarmPool.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'scaling_group_id': scalingGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3892,6 +4117,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'scaling_policy_id': scalingPolicyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询暖池信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWarmPool(showWarmPoolRequest?: ShowWarmPoolRequest) {
+            const options = {
+                method: "GET",
+                url: "/autoscaling-api/{project_id}/scaling-groups/{scaling_group_id}/warm-pool",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let scalingGroupId;
+
+            if (showWarmPoolRequest !== null && showWarmPoolRequest !== undefined) {
+                if (showWarmPoolRequest instanceof ShowWarmPoolRequest) {
+                    scalingGroupId = showWarmPoolRequest.scalingGroupId;
+                } else {
+                    scalingGroupId = showWarmPoolRequest['scaling_group_id'];
+                }
+            }
+
+        
+            if (scalingGroupId === null || scalingGroupId === undefined) {
+            throw new RequiredError('scalingGroupId','Required parameter scalingGroupId was null or undefined when calling showWarmPool.');
+            }
+
+            options.pathParams = { 'scaling_group_id': scalingGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

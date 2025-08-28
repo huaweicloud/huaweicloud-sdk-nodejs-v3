@@ -3,7 +3,8 @@ import { UpdateRecycleBinOption } from './UpdateRecycleBinOption';
 
 export class UpdateRecycleBinReq {
     private 'recycle_bin'?: UpdateRecycleBinOption;
-    public constructor() { 
+    public constructor(recycleBin?: UpdateRecycleBinOption) { 
+        this['recycle_bin'] = recycleBin;
     }
     public withRecycleBin(recycleBin: UpdateRecycleBinOption): UpdateRecycleBinReq {
         this['recycle_bin'] = recycleBin;

@@ -3,6 +3,7 @@ import { ActionTagInfo } from './ActionTagInfo';
 
 export class HumanModel2DAssetMeta {
     private 'is_action_editable'?: boolean;
+    private 'is_live_copy'?: boolean;
     private 'is_real_background'?: boolean;
     private 'support_live'?: boolean;
     private 'model_version'?: HumanModel2DAssetMetaModelVersionEnum | string;
@@ -23,6 +24,16 @@ export class HumanModel2DAssetMeta {
     }
     public get isActionEditable(): boolean | undefined {
         return this['is_action_editable'];
+    }
+    public withIsLiveCopy(isLiveCopy: boolean): HumanModel2DAssetMeta {
+        this['is_live_copy'] = isLiveCopy;
+        return this;
+    }
+    public set isLiveCopy(isLiveCopy: boolean  | undefined) {
+        this['is_live_copy'] = isLiveCopy;
+    }
+    public get isLiveCopy(): boolean | undefined {
+        return this['is_live_copy'];
     }
     public withIsRealBackground(isRealBackground: boolean): HumanModel2DAssetMeta {
         this['is_real_background'] = isRealBackground;

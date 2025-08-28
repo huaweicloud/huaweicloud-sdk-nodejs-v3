@@ -1,0 +1,13 @@
+
+import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+
+export class ListAutoKillVirusStatusResponse extends SdkResponse {
+    public enabled?: boolean;
+    public constructor() { 
+        super();
+    }
+    public withEnabled(enabled: boolean): ListAutoKillVirusStatusResponse {
+        this['enabled'] = enabled;
+        return this;
+    }
+}

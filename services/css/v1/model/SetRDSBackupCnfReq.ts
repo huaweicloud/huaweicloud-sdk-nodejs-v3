@@ -7,6 +7,7 @@ export class SetRDSBackupCnfReq {
     public keepday?: number;
     public enable?: string;
     private 'delete_auto'?: string;
+    public frequency?: string;
     public constructor(enable?: string) { 
         this['enable'] = enable;
     }
@@ -39,5 +40,9 @@ export class SetRDSBackupCnfReq {
     }
     public get deleteAuto(): string | undefined {
         return this['delete_auto'];
+    }
+    public withFrequency(frequency: string): SetRDSBackupCnfReq {
+        this['frequency'] = frequency;
+        return this;
     }
 }

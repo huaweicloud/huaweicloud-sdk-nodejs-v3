@@ -5,7 +5,8 @@ export class UpgradingTheKernelBody {
     private 'upgrade_type'?: UpgradingTheKernelBodyUpgradeTypeEnum | string;
     private 'indices_backup_check'?: boolean;
     public agency?: string;
-    private 'check_load'?: boolean;
+    private 'cluster_load_check'?: boolean;
+    private 'batch_size'?: number;
     public constructor(targetImageId?: string, upgradeType?: string, indicesBackupCheck?: boolean, agency?: string) { 
         this['target_image_id'] = targetImageId;
         this['upgrade_type'] = upgradeType;
@@ -46,15 +47,25 @@ export class UpgradingTheKernelBody {
         this['agency'] = agency;
         return this;
     }
-    public withCheckLoad(checkLoad: boolean): UpgradingTheKernelBody {
-        this['check_load'] = checkLoad;
+    public withClusterLoadCheck(clusterLoadCheck: boolean): UpgradingTheKernelBody {
+        this['cluster_load_check'] = clusterLoadCheck;
         return this;
     }
-    public set checkLoad(checkLoad: boolean  | undefined) {
-        this['check_load'] = checkLoad;
+    public set clusterLoadCheck(clusterLoadCheck: boolean  | undefined) {
+        this['cluster_load_check'] = clusterLoadCheck;
     }
-    public get checkLoad(): boolean | undefined {
-        return this['check_load'];
+    public get clusterLoadCheck(): boolean | undefined {
+        return this['cluster_load_check'];
+    }
+    public withBatchSize(batchSize: number): UpgradingTheKernelBody {
+        this['batch_size'] = batchSize;
+        return this;
+    }
+    public set batchSize(batchSize: number  | undefined) {
+        this['batch_size'] = batchSize;
+    }
+    public get batchSize(): number | undefined {
+        return this['batch_size'];
     }
 }
 

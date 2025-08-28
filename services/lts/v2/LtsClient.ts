@@ -193,6 +193,8 @@ import { ListLogGroupsRequest } from './model/ListLogGroupsRequest';
 import { ListLogGroupsResponse } from './model/ListLogGroupsResponse';
 import { ListLogHistogramRequest } from './model/ListLogHistogramRequest';
 import { ListLogHistogramResponse } from './model/ListLogHistogramResponse';
+import { ListLogStreamIndexRequest } from './model/ListLogStreamIndexRequest';
+import { ListLogStreamIndexResponse } from './model/ListLogStreamIndexResponse';
 import { ListLogStreamRequest } from './model/ListLogStreamRequest';
 import { ListLogStreamResponse } from './model/ListLogStreamResponse';
 import { ListLogStreamsRequest } from './model/ListLogStreamsRequest';
@@ -1240,6 +1242,27 @@ export class LtsClient {
      */
     public listLogStream(listLogStreamRequest?: ListLogStreamRequest): Promise<ListLogStreamResponse> {
         const options = ParamCreater().listLogStream(listLogStreamRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询日志流索引。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询日志流索引
+     * @param {string} groupId 日志组ID，获取方式请参见：[获取项目ID，获取账号ID，日志组ID、日志流ID](lts_api_0006.xml)
+     * @param {string} streamId 日志流ID，获取方式请参见：[获取项目ID，获取账号ID，日志组ID、日志流ID](lts_api_0006.xml)
+     * @param {string} contentType **参数解释：** 用于定义消息体的格式，该字段填为：application/json;charset&#x3D;utf8。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogStreamIndex(listLogStreamIndexRequest?: ListLogStreamIndexRequest): Promise<ListLogStreamIndexResponse> {
+        const options = ParamCreater().listLogStreamIndex(listLogStreamIndexRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4339,6 +4362,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'log_group_id': logGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询日志流索引。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogStreamIndex(listLogStreamIndexRequest?: ListLogStreamIndexRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/groups/{group_id}/stream/{stream_id}/index/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let streamId;
+            
+            let contentType;
+
+            if (listLogStreamIndexRequest !== null && listLogStreamIndexRequest !== undefined) {
+                if (listLogStreamIndexRequest instanceof ListLogStreamIndexRequest) {
+                    groupId = listLogStreamIndexRequest.groupId;
+                    streamId = listLogStreamIndexRequest.streamId;
+                    contentType = listLogStreamIndexRequest.contentType;
+                } else {
+                    groupId = listLogStreamIndexRequest['group_id'];
+                    streamId = listLogStreamIndexRequest['stream_id'];
+                    contentType = listLogStreamIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listLogStreamIndex.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling listLogStreamIndex.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

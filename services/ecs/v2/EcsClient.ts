@@ -79,6 +79,9 @@ import { ChangeVpcResponse } from './model/ChangeVpcResponse';
 import { ChangeVpcSecurityGroups } from './model/ChangeVpcSecurityGroups';
 import { CloudServer } from './model/CloudServer';
 import { CpuOptions } from './model/CpuOptions';
+import { CreateLaunchTemplateRequest } from './model/CreateLaunchTemplateRequest';
+import { CreateLaunchTemplateRequestBody } from './model/CreateLaunchTemplateRequestBody';
+import { CreateLaunchTemplateResponse } from './model/CreateLaunchTemplateResponse';
 import { CreatePostPaidServersRequest } from './model/CreatePostPaidServersRequest';
 import { CreatePostPaidServersRequestBody } from './model/CreatePostPaidServersRequestBody';
 import { CreatePostPaidServersResponse } from './model/CreatePostPaidServersResponse';
@@ -132,6 +135,7 @@ import { InterfaceAttachment } from './model/InterfaceAttachment';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobEntities } from './model/JobEntities';
 import { LaunchTemplate } from './model/LaunchTemplate';
+import { LaunchTemplateOption } from './model/LaunchTemplateOption';
 import { Link } from './model/Link';
 import { ListCloudServersRequest } from './model/ListCloudServersRequest';
 import { ListCloudServersResponse } from './model/ListCloudServersResponse';
@@ -826,6 +830,25 @@ export class EcsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建启动模板。将创建一个全新的模板，并自动生成版本号为1的作为默认版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建模板
+     * @param {CreateLaunchTemplateRequestBody} createLaunchTemplateRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLaunchTemplate(createLaunchTemplateRequest?: CreateLaunchTemplateRequest): Promise<CreateLaunchTemplateResponse> {
+        const options = ParamCreater().createLaunchTemplate(createLaunchTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3312,6 +3335,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建启动模板。将创建一个全新的模板，并自动生成版本号为1的作为默认版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLaunchTemplate(createLaunchTemplateRequest?: CreateLaunchTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/launch-templates",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createLaunchTemplateRequest !== null && createLaunchTemplateRequest !== undefined) {
+                if (createLaunchTemplateRequest instanceof CreateLaunchTemplateRequest) {
+                    body = createLaunchTemplateRequest.body
+                } else {
+                    body = createLaunchTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

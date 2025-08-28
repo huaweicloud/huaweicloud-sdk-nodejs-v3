@@ -17,7 +17,10 @@ export class CreateSmartChatRoomReq {
     private 'voice_config'?: VoiceConfig;
     private 'voice_config_list'?: Array<ChatVoiceConfig>;
     private 'robot_id'?: string;
+    private 'billing_mode'?: CreateSmartChatRoomReqBillingModeEnum | string;
+    private 'reuse_resource'?: boolean;
     public concurrency?: number;
+    private 'client_nums'?: number;
     private 'default_language'?: CreateSmartChatRoomReqDefaultLanguageEnum | string;
     private 'background_config'?: BackgroundConfigInfo;
     private 'layer_config'?: Array<LayerConfig>;
@@ -99,9 +102,39 @@ export class CreateSmartChatRoomReq {
     public get robotId(): string | undefined {
         return this['robot_id'];
     }
+    public withBillingMode(billingMode: CreateSmartChatRoomReqBillingModeEnum | string): CreateSmartChatRoomReq {
+        this['billing_mode'] = billingMode;
+        return this;
+    }
+    public set billingMode(billingMode: CreateSmartChatRoomReqBillingModeEnum | string  | undefined) {
+        this['billing_mode'] = billingMode;
+    }
+    public get billingMode(): CreateSmartChatRoomReqBillingModeEnum | string | undefined {
+        return this['billing_mode'];
+    }
+    public withReuseResource(reuseResource: boolean): CreateSmartChatRoomReq {
+        this['reuse_resource'] = reuseResource;
+        return this;
+    }
+    public set reuseResource(reuseResource: boolean  | undefined) {
+        this['reuse_resource'] = reuseResource;
+    }
+    public get reuseResource(): boolean | undefined {
+        return this['reuse_resource'];
+    }
     public withConcurrency(concurrency: number): CreateSmartChatRoomReq {
         this['concurrency'] = concurrency;
         return this;
+    }
+    public withClientNums(clientNums: number): CreateSmartChatRoomReq {
+        this['client_nums'] = clientNums;
+        return this;
+    }
+    public set clientNums(clientNums: number  | undefined) {
+        this['client_nums'] = clientNums;
+    }
+    public get clientNums(): number | undefined {
+        return this['client_nums'];
     }
     public withDefaultLanguage(defaultLanguage: CreateSmartChatRoomReqDefaultLanguageEnum | string): CreateSmartChatRoomReq {
         this['default_language'] = defaultLanguage;
@@ -185,6 +218,15 @@ export class CreateSmartChatRoomReq {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSmartChatRoomReqBillingModeEnum {
+    CONCURRENCY = 'CONCURRENCY',
+    CLIENT = 'CLIENT',
+    CLIENT_TOKENS = 'CLIENT_TOKENS'
+}
 /**
     * @export
     * @enum {string}

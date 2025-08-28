@@ -140,7 +140,8 @@ export class CreateCertificateOption {
     */
 export enum CreateCertificateOptionTypeEnum {
     SERVER = 'server',
-    CLIENT = 'client'
+    CLIENT = 'client',
+    SERVER_SM = 'server_sm'
 }
 /**
     * @export
