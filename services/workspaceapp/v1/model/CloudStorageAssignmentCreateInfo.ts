@@ -10,8 +10,8 @@ export class CloudStorageAssignmentCreateInfo {
     public attach?: string;
     private 'attach_id'?: string;
     private 'attach_type'?: AttachType;
-    public errorMessage?: string;
-    public isSuccess?: boolean;
+    private 'error_message'?: string;
+    private 'is_success'?: boolean;
     public constructor() { 
     }
     public withId(id: string): CloudStorageAssignmentCreateInfo {
@@ -83,11 +83,23 @@ export class CloudStorageAssignmentCreateInfo {
         return this['attach_type'];
     }
     public withErrorMessage(errorMessage: string): CloudStorageAssignmentCreateInfo {
-        this['errorMessage'] = errorMessage;
+        this['error_message'] = errorMessage;
         return this;
     }
+    public set errorMessage(errorMessage: string  | undefined) {
+        this['error_message'] = errorMessage;
+    }
+    public get errorMessage(): string | undefined {
+        return this['error_message'];
+    }
     public withIsSuccess(isSuccess: boolean): CloudStorageAssignmentCreateInfo {
-        this['isSuccess'] = isSuccess;
+        this['is_success'] = isSuccess;
         return this;
+    }
+    public set isSuccess(isSuccess: boolean  | undefined) {
+        this['is_success'] = isSuccess;
+    }
+    public get isSuccess(): boolean | undefined {
+        return this['is_success'];
     }
 }

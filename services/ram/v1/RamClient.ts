@@ -344,11 +344,11 @@ export class RamClient {
     }
 
     /**
-     * 检索您正在共享资源的不同使用者或被共享资源给您的不同使用者并去除其中的重复项。
+     * 检索您正在共享资源的不同使用者或共享给您的不同资源所有者。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 检索资源使用者并去除其中的重复项
+     * @summary 检索不同的资源使用者或者资源所有者
      * @param {SearchDistinctSharedPrincipalsReqBody} searchDistinctSharedPrincipalsReqBody 
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
@@ -364,11 +364,11 @@ export class RamClient {
     }
 
     /**
-     * 检索共享资源的使用者。
+     * 检索共享资源的使用者或者共享给您的资源所有者。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 检索资源使用者
+     * @summary 检索资源使用者或者资源所有者
      * @param {SearchSharedPrincipalsReqBody} searchSharedPrincipalsReqBody 
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
@@ -384,11 +384,11 @@ export class RamClient {
     }
 
     /**
-     * 检索您添加到资源共享或被共享给您的不同资源并去除其中的重复项。
+     * 检索您添加到资源共享或被共享给您的不同资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 检索共享的资源并去除其中的重复项
+     * @summary 检索共享的不同资源
      * @param {SearchDistinctSharedResourcesReqBody} searchDistinctSharedResourcesReqBody 
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
      * @param {*} [options] Override http request option.
@@ -1279,7 +1279,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 检索您正在共享资源的不同使用者或被共享资源给您的不同使用者并去除其中的重复项。
+         * 检索您正在共享资源的不同使用者或共享给您的不同资源所有者。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1324,7 +1324,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 检索共享资源的使用者。
+         * 检索共享资源的使用者或者共享给您的资源所有者。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1369,7 +1369,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 检索您添加到资源共享或被共享给您的不同资源并去除其中的重复项。
+         * 检索您添加到资源共享或被共享给您的不同资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -3,6 +3,7 @@
 export class Port {
     private 'app_https_port'?: number;
     private 'app_amqps_port'?: number;
+    private 'app_mqtts_port'?: number;
     private 'device_coap_port'?: number;
     private 'device_coaps_port'?: number;
     private 'device_mqtt_port'?: number;
@@ -29,6 +30,16 @@ export class Port {
     }
     public get appAmqpsPort(): number | undefined {
         return this['app_amqps_port'];
+    }
+    public withAppMqttsPort(appMqttsPort: number): Port {
+        this['app_mqtts_port'] = appMqttsPort;
+        return this;
+    }
+    public set appMqttsPort(appMqttsPort: number  | undefined) {
+        this['app_mqtts_port'] = appMqttsPort;
+    }
+    public get appMqttsPort(): number | undefined {
+        return this['app_mqtts_port'];
     }
     public withDeviceCoapPort(deviceCoapPort: number): Port {
         this['device_coap_port'] = deviceCoapPort;

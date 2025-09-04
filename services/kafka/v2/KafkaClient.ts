@@ -23,6 +23,7 @@ import { BatchDeleteMessageDiagnosisReportsReq } from './model/BatchDeleteMessag
 import { BatchDeleteMessageDiagnosisReportsRequest } from './model/BatchDeleteMessageDiagnosisReportsRequest';
 import { BatchDeleteMessageDiagnosisReportsResponse } from './model/BatchDeleteMessageDiagnosisReportsResponse';
 import { BatchDeleteMessageDiagnosisRespResults } from './model/BatchDeleteMessageDiagnosisRespResults';
+import { BatchModifyGroupDescriptionReq } from './model/BatchModifyGroupDescriptionReq';
 import { BatchRestartOrDeleteInstanceReq } from './model/BatchRestartOrDeleteInstanceReq';
 import { BatchRestartOrDeleteInstanceRespResults } from './model/BatchRestartOrDeleteInstanceRespResults';
 import { BatchRestartOrDeleteInstancesRequest } from './model/BatchRestartOrDeleteInstancesRequest';
@@ -2135,7 +2136,7 @@ export class KafkaClient {
      * @summary 修改所有消费组
      * @param {string} engine 引擎。
      * @param {string} instanceId 实例ID。
-     * @param {GroupCreateReq} groupCreateRequestBody 请求消息。
+     * @param {BatchModifyGroupDescriptionReq} groupCreateRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

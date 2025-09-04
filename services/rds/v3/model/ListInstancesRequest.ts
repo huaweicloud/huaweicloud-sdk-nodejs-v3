@@ -13,6 +13,7 @@ export class ListInstancesRequest {
     public offset?: number;
     public limit?: number;
     public tags?: string;
+    private 'group_type'?: string;
     public constructor() { 
     }
     public withContentType(contentType: string): ListInstancesRequest {
@@ -98,6 +99,16 @@ export class ListInstancesRequest {
     public withTags(tags: string): ListInstancesRequest {
         this['tags'] = tags;
         return this;
+    }
+    public withGroupType(groupType: string): ListInstancesRequest {
+        this['group_type'] = groupType;
+        return this;
+    }
+    public set groupType(groupType: string  | undefined) {
+        this['group_type'] = groupType;
+    }
+    public get groupType(): string | undefined {
+        return this['group_type'];
     }
 }
 

@@ -30,6 +30,8 @@ import { AssetTree } from './model/AssetTree';
 import { AssignedUserInfo } from './model/AssignedUserInfo';
 import { AssociateDefectInfoVo } from './model/AssociateDefectInfoVo';
 import { AssociateIssueInfoVo } from './model/AssociateIssueInfoVo';
+import { AttachmentFileVo } from './model/AttachmentFileVo';
+import { AttachmentInfo } from './model/AttachmentInfo';
 import { AttachmentVo } from './model/AttachmentVo';
 import { AttributeChange } from './model/AttributeChange';
 import { AuthInfo } from './model/AuthInfo';
@@ -161,6 +163,8 @@ import { DeleteAssetTreeRequest } from './model/DeleteAssetTreeRequest';
 import { DeleteAssetTreeResponse } from './model/DeleteAssetTreeResponse';
 import { DeleteBasicAwByIdRequest } from './model/DeleteBasicAwByIdRequest';
 import { DeleteBasicAwByIdResponse } from './model/DeleteBasicAwByIdResponse';
+import { DeleteCacheFileRequest } from './model/DeleteCacheFileRequest';
+import { DeleteCacheFileResponse } from './model/DeleteCacheFileResponse';
 import { DeleteFacotrByIdRequest } from './model/DeleteFacotrByIdRequest';
 import { DeleteFacotrByIdResponse } from './model/DeleteFacotrByIdResponse';
 import { DeleteMindmapBackupByIdRequest } from './model/DeleteMindmapBackupByIdRequest';
@@ -177,6 +181,8 @@ import { DeleteTemplateByIdResponse } from './model/DeleteTemplateByIdResponse';
 import { DeleteTestCaseCommentRequest } from './model/DeleteTestCaseCommentRequest';
 import { DeleteTestCaseCommentResponse } from './model/DeleteTestCaseCommentResponse';
 import { DeleteTestCaseInfo } from './model/DeleteTestCaseInfo';
+import { DeleteTestReportCustomDetailByUriRequest } from './model/DeleteTestReportCustomDetailByUriRequest';
+import { DeleteTestReportCustomDetailByUriResponse } from './model/DeleteTestReportCustomDetailByUriResponse';
 import { DepParamInstance } from './model/DepParamInstance';
 import { DesignSummaryVo } from './model/DesignSummaryVo';
 import { DetailTestTypeCasePassRateVo } from './model/DetailTestTypeCasePassRateVo';
@@ -271,6 +277,8 @@ import { ListIssueTreeRequest } from './model/ListIssueTreeRequest';
 import { ListIssueTreeResponse } from './model/ListIssueTreeResponse';
 import { ListIteratorIssueTreeRequest } from './model/ListIteratorIssueTreeRequest';
 import { ListIteratorIssueTreeResponse } from './model/ListIteratorIssueTreeResponse';
+import { ListIteratorsInfoRequest } from './model/ListIteratorsInfoRequest';
+import { ListIteratorsInfoResponse } from './model/ListIteratorsInfoResponse';
 import { ListIteratorsRequest } from './model/ListIteratorsRequest';
 import { ListIteratorsResponse } from './model/ListIteratorsResponse';
 import { ListLinesUsingRequest } from './model/ListLinesUsingRequest';
@@ -389,6 +397,7 @@ import { RequirementsOverviewVo } from './model/RequirementsOverviewVo';
 import { ResourceChangeExternalVo } from './model/ResourceChangeExternalVo';
 import { ResourcePoolVo } from './model/ResourcePoolVo';
 import { ResultStepVo } from './model/ResultStepVo';
+import { ResultValueAttachmentFileVo } from './model/ResultValueAttachmentFileVo';
 import { ResultValueBackgroundInfoVo } from './model/ResultValueBackgroundInfoVo';
 import { ResultValueBoolean } from './model/ResultValueBoolean';
 import { ResultValueCustomReportListVo } from './model/ResultValueCustomReportListVo';
@@ -411,6 +420,7 @@ import { ResultValueListTestCaseListVo } from './model/ResultValueListTestCaseLi
 import { ResultValueListTestCaseReviewVo } from './model/ResultValueListTestCaseReviewVo';
 import { ResultValueListTestCaseVo } from './model/ResultValueListTestCaseVo';
 import { ResultValueListTestItemVo } from './model/ResultValueListTestItemVo';
+import { ResultValueListTestReportCustomDetailVo } from './model/ResultValueListTestReportCustomDetailVo';
 import { ResultValueListTestReportVo } from './model/ResultValueListTestReportVo';
 import { ResultValueListTestResultVo } from './model/ResultValueListTestResultVo';
 import { ResultValueListTestVersionVo } from './model/ResultValueListTestVersionVo';
@@ -442,6 +452,8 @@ import { SaveTaskSettingRequest } from './model/SaveTaskSettingRequest';
 import { SaveTaskSettingRequestBody } from './model/SaveTaskSettingRequestBody';
 import { SaveTaskSettingResponse } from './model/SaveTaskSettingResponse';
 import { SaveTemplateParam } from './model/SaveTemplateParam';
+import { SaveTestReportCustomDetailRequest } from './model/SaveTestReportCustomDetailRequest';
+import { SaveTestReportCustomDetailResponse } from './model/SaveTestReportCustomDetailResponse';
 import { Scene } from './model/Scene';
 import { ScenePageParam } from './model/ScenePageParam';
 import { SearchRequest } from './model/SearchRequest';
@@ -609,6 +621,8 @@ import { TestPlanJournalList } from './model/TestPlanJournalList';
 import { TestPlanVo } from './model/TestPlanVo';
 import { TestPoint } from './model/TestPoint';
 import { TestPointPageParam } from './model/TestPointPageParam';
+import { TestReportCustomDetailInfo } from './model/TestReportCustomDetailInfo';
+import { TestReportCustomDetailVo } from './model/TestReportCustomDetailVo';
 import { TestReportInfoRequestBody } from './model/TestReportInfoRequestBody';
 import { TestReportVo } from './model/TestReportVo';
 import { TestResultVo } from './model/TestResultVo';
@@ -643,10 +657,15 @@ import { UpdateTestCaseResultBean } from './model/UpdateTestCaseResultBean';
 import { UpdateTestCaseResultRequest } from './model/UpdateTestCaseResultRequest';
 import { UpdateTestCaseResultRequestBody } from './model/UpdateTestCaseResultRequestBody';
 import { UpdateTestCaseResultResponse } from './model/UpdateTestCaseResultResponse';
+import { UpdateTestReportCustomDetailByUriRequest } from './model/UpdateTestReportCustomDetailByUriRequest';
+import { UpdateTestReportCustomDetailByUriResponse } from './model/UpdateTestReportCustomDetailByUriResponse';
 import { UpdateUserDnsMappingRequest } from './model/UpdateUserDnsMappingRequest';
 import { UpdateUserDnsMappingResponse } from './model/UpdateUserDnsMappingResponse';
 import { UpdateVersionTestCaseRequest } from './model/UpdateVersionTestCaseRequest';
 import { UpdateVersionTestCaseResponse } from './model/UpdateVersionTestCaseResponse';
+import { UploadCacheFileRequest } from './model/UploadCacheFileRequest';
+import { UploadCacheFileRequestBody } from './model/UploadCacheFileRequestBody';
+import { UploadCacheFileResponse } from './model/UploadCacheFileResponse';
 import { UploadFile } from './model/UploadFile';
 import { UploadFileRes } from './model/UploadFileRes';
 import { UploadStepImgRequest } from './model/UploadStepImgRequest';
@@ -1161,6 +1180,29 @@ export class CloudtestClient {
     }
 
     /**
+     * 删除附件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除附件
+     * @param {string} projectId 项目ID，固定长度32位字符（字母和数字）。
+     * @param {string} [filePath] 删除附件路径
+     * @param {string} [uri] 附件Uri
+     * @param {string} [parentUri] 附件挂载资源Uri
+     * @param {boolean} [bakUp] 是否备份
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCacheFile(deleteCacheFileRequest?: DeleteCacheFileRequest): Promise<DeleteCacheFileResponse> {
+        const options = ParamCreater().deleteCacheFile(deleteCacheFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除因子
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1234,6 +1276,28 @@ export class CloudtestClient {
      */
     public deleteTestCaseComment(deleteTestCaseCommentRequest?: DeleteTestCaseCommentRequest): Promise<DeleteTestCaseCommentResponse> {
         const options = ParamCreater().deleteTestCaseComment(deleteTestCaseCommentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除测试报告自定义模块
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除测试报告自定义模块
+     * @param {string} projectId 项目ID，固定长度32位字符（字母和数字）。
+     * @param {string} versionUri 计划uri
+     * @param {string} reportUri 测试报告Uri
+     * @param {string} customInfoUri 测试报告自定义模块Uri
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest?: DeleteTestReportCustomDetailByUriRequest): Promise<DeleteTestReportCustomDetailByUriResponse> {
+        const options = ParamCreater().deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1582,6 +1646,25 @@ export class CloudtestClient {
      */
     public listIterators(listIteratorsRequest?: ListIteratorsRequest): Promise<ListIteratorsResponse> {
         const options = ParamCreater().listIterators(listIteratorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询迭代计划列表，包含统计信息，对版本强校验
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询迭代计划列表，包含统计信息，对版本强校验
+     * @param {IteratorVersionsQueryInfo} iteratorVersionsQueryInfo 查询迭代计划列表，包含统计信息请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIteratorsInfo(listIteratorsInfoRequest?: ListIteratorsInfoRequest): Promise<ListIteratorsInfoResponse> {
+        const options = ParamCreater().listIteratorsInfo(listIteratorsInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2223,6 +2306,28 @@ export class CloudtestClient {
      */
     public saveTaskSetting(saveTaskSettingRequest?: SaveTaskSettingRequest): Promise<SaveTaskSettingResponse> {
         const options = ParamCreater().saveTaskSetting(saveTaskSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建测试报告自定义模块
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建测试报告自定义模块
+     * @param {string} projectId 项目ID，固定长度32位字符（字母和数字）。
+     * @param {string} versionUri 计划uri
+     * @param {string} reportUri 测试报告Uri
+     * @param {TestReportCustomDetailInfo} testReportCustomDetailInfo 测试报告自定义模块信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveTestReportCustomDetail(saveTestReportCustomDetailRequest?: SaveTestReportCustomDetailRequest): Promise<SaveTestReportCustomDetailResponse> {
+        const options = ParamCreater().saveTestReportCustomDetail(saveTestReportCustomDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3415,6 +3520,29 @@ export class CloudtestClient {
     }
 
     /**
+     * 修改测试报告自定义模块
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改测试报告自定义模块
+     * @param {string} projectId 项目ID，固定长度32位字符（字母和数字）。
+     * @param {string} versionUri 计划uri
+     * @param {string} reportUri 测试报告Uri
+     * @param {string} customInfoUri 测试报告自定义模块Uri
+     * @param {TestReportCustomDetailInfo} testReportCustomDetailInfo 测试报告自定义模块信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTestReportCustomDetailByUri(updateTestReportCustomDetailByUriRequest?: UpdateTestReportCustomDetailByUriRequest): Promise<UpdateTestReportCustomDetailByUriResponse> {
+        const options = ParamCreater().updateTestReportCustomDetailByUri(updateTestReportCustomDetailByUriRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新用户DNS映射，执行器自定义映射
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3447,6 +3575,29 @@ export class CloudtestClient {
      */
     public updateVersionTestCase(updateVersionTestCaseRequest?: UpdateVersionTestCaseRequest): Promise<UpdateVersionTestCaseResponse> {
         const options = ParamCreater().updateVersionTestCase(updateVersionTestCaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传附件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传附件
+     * @param {string} projectId 项目uuid
+     * @param {any} file 上传的对象的内容。 
+     * @param {boolean} [override] 是否覆盖同名文件
+     * @param {string} [parentType] 附件挂载资源类型
+     * @param {string} [parentUri] 附件挂载资源Uri
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadCacheFile(uploadCacheFileRequest?: UploadCacheFileRequest): Promise<UploadCacheFileResponse> {
+        const options = ParamCreater().uploadCacheFile(uploadCacheFileRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5163,6 +5314,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除附件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCacheFile(deleteCacheFileRequest?: DeleteCacheFileRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/{project_id}/resources/temp-attachments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let filePath;
+            
+            let uri;
+            
+            let parentUri;
+            
+            let bakUp;
+
+            if (deleteCacheFileRequest !== null && deleteCacheFileRequest !== undefined) {
+                if (deleteCacheFileRequest instanceof DeleteCacheFileRequest) {
+                    projectId = deleteCacheFileRequest.projectId;
+                    filePath = deleteCacheFileRequest.filePath;
+                    uri = deleteCacheFileRequest.uri;
+                    parentUri = deleteCacheFileRequest.parentUri;
+                    bakUp = deleteCacheFileRequest.bakUp;
+                } else {
+                    projectId = deleteCacheFileRequest['project_id'];
+                    filePath = deleteCacheFileRequest['file_path'];
+                    uri = deleteCacheFileRequest['uri'];
+                    parentUri = deleteCacheFileRequest['parent_uri'];
+                    bakUp = deleteCacheFileRequest['bak_up'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteCacheFile.');
+            }
+            if (filePath !== null && filePath !== undefined) {
+                localVarQueryParameter['file_path'] = filePath;
+            }
+            if (uri !== null && uri !== undefined) {
+                localVarQueryParameter['uri'] = uri;
+            }
+            if (parentUri !== null && parentUri !== undefined) {
+                localVarQueryParameter['parent_uri'] = parentUri;
+            }
+            if (bakUp !== null && bakUp !== undefined) {
+                localVarQueryParameter['bak_up'] = bakUp;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除因子
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5344,6 +5561,64 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'testcase_id': testcaseId,'comment_id': commentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除测试报告自定义模块
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest?: DeleteTestReportCustomDetailByUriRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/{project_id}/versions/{version_uri}/test-reports/{report_uri}/custom-infos/{custom_info_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let versionUri;
+            
+            let reportUri;
+            
+            let customInfoUri;
+
+            if (deleteTestReportCustomDetailByUriRequest !== null && deleteTestReportCustomDetailByUriRequest !== undefined) {
+                if (deleteTestReportCustomDetailByUriRequest instanceof DeleteTestReportCustomDetailByUriRequest) {
+                    projectId = deleteTestReportCustomDetailByUriRequest.projectId;
+                    versionUri = deleteTestReportCustomDetailByUriRequest.versionUri;
+                    reportUri = deleteTestReportCustomDetailByUriRequest.reportUri;
+                    customInfoUri = deleteTestReportCustomDetailByUriRequest.customInfoUri;
+                } else {
+                    projectId = deleteTestReportCustomDetailByUriRequest['project_id'];
+                    versionUri = deleteTestReportCustomDetailByUriRequest['version_uri'];
+                    reportUri = deleteTestReportCustomDetailByUriRequest['report_uri'];
+                    customInfoUri = deleteTestReportCustomDetailByUriRequest['custom_info_uri'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteTestReportCustomDetailByUri.');
+            }
+            if (versionUri === null || versionUri === undefined) {
+            throw new RequiredError('versionUri','Required parameter versionUri was null or undefined when calling deleteTestReportCustomDetailByUri.');
+            }
+            if (reportUri === null || reportUri === undefined) {
+            throw new RequiredError('reportUri','Required parameter reportUri was null or undefined when calling deleteTestReportCustomDetailByUri.');
+            }
+            if (customInfoUri === null || customInfoUri === undefined) {
+            throw new RequiredError('customInfoUri','Required parameter customInfoUri was null or undefined when calling deleteTestReportCustomDetailByUri.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'report_uri': reportUri,'custom_info_uri': customInfoUri, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6180,6 +6455,44 @@ export const ParamCreater = function () {
                     body = listIteratorsRequest.body
                 } else {
                     body = listIteratorsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询迭代计划列表，包含统计信息，对版本强校验
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIteratorsInfo(listIteratorsInfoRequest?: ListIteratorsInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/iterators/info/batch-query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listIteratorsInfoRequest !== null && listIteratorsInfoRequest !== undefined) {
+                if (listIteratorsInfoRequest instanceof ListIteratorsInfoRequest) {
+                    body = listIteratorsInfoRequest.body
+                } else {
+                    body = listIteratorsInfoRequest['body'];
                 }
             }
 
@@ -7789,6 +8102,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'service_id': serviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建测试报告自定义模块
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveTestReportCustomDetail(saveTestReportCustomDetailRequest?: SaveTestReportCustomDetailRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_id}/versions/{version_uri}/test-reports/{report_uri}/custom-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let versionUri;
+            
+            let reportUri;
+
+            if (saveTestReportCustomDetailRequest !== null && saveTestReportCustomDetailRequest !== undefined) {
+                if (saveTestReportCustomDetailRequest instanceof SaveTestReportCustomDetailRequest) {
+                    projectId = saveTestReportCustomDetailRequest.projectId;
+                    versionUri = saveTestReportCustomDetailRequest.versionUri;
+                    reportUri = saveTestReportCustomDetailRequest.reportUri;
+                    body = saveTestReportCustomDetailRequest.body
+                } else {
+                    projectId = saveTestReportCustomDetailRequest['project_id'];
+                    versionUri = saveTestReportCustomDetailRequest['version_uri'];
+                    reportUri = saveTestReportCustomDetailRequest['report_uri'];
+                    body = saveTestReportCustomDetailRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling saveTestReportCustomDetail.');
+            }
+            if (versionUri === null || versionUri === undefined) {
+            throw new RequiredError('versionUri','Required parameter versionUri was null or undefined when calling saveTestReportCustomDetail.');
+            }
+            if (reportUri === null || reportUri === undefined) {
+            throw new RequiredError('reportUri','Required parameter reportUri was null or undefined when calling saveTestReportCustomDetail.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'report_uri': reportUri, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10584,6 +10957,73 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改测试报告自定义模块
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTestReportCustomDetailByUri(updateTestReportCustomDetailByUriRequest?: UpdateTestReportCustomDetailByUriRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/{project_id}/versions/{version_uri}/test-reports/{report_uri}/custom-infos/{custom_info_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let versionUri;
+            
+            let reportUri;
+            
+            let customInfoUri;
+
+            if (updateTestReportCustomDetailByUriRequest !== null && updateTestReportCustomDetailByUriRequest !== undefined) {
+                if (updateTestReportCustomDetailByUriRequest instanceof UpdateTestReportCustomDetailByUriRequest) {
+                    projectId = updateTestReportCustomDetailByUriRequest.projectId;
+                    versionUri = updateTestReportCustomDetailByUriRequest.versionUri;
+                    reportUri = updateTestReportCustomDetailByUriRequest.reportUri;
+                    customInfoUri = updateTestReportCustomDetailByUriRequest.customInfoUri;
+                    body = updateTestReportCustomDetailByUriRequest.body
+                } else {
+                    projectId = updateTestReportCustomDetailByUriRequest['project_id'];
+                    versionUri = updateTestReportCustomDetailByUriRequest['version_uri'];
+                    reportUri = updateTestReportCustomDetailByUriRequest['report_uri'];
+                    customInfoUri = updateTestReportCustomDetailByUriRequest['custom_info_uri'];
+                    body = updateTestReportCustomDetailByUriRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateTestReportCustomDetailByUri.');
+            }
+            if (versionUri === null || versionUri === undefined) {
+            throw new RequiredError('versionUri','Required parameter versionUri was null or undefined when calling updateTestReportCustomDetailByUri.');
+            }
+            if (reportUri === null || reportUri === undefined) {
+            throw new RequiredError('reportUri','Required parameter reportUri was null or undefined when calling updateTestReportCustomDetailByUri.');
+            }
+            if (customInfoUri === null || customInfoUri === undefined) {
+            throw new RequiredError('customInfoUri','Required parameter customInfoUri was null or undefined when calling updateTestReportCustomDetailByUri.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'report_uri': reportUri,'custom_info_uri': customInfoUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新用户DNS映射，执行器自定义映射
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10671,6 +11111,79 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'case_id': caseId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传附件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadCacheFile(uploadCacheFileRequest?: UploadCacheFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_id}/resources/temp-attachments",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let projectId;
+            let file;
+            
+            
+            let override;
+            
+            let parentType;
+            
+            let parentUri;
+
+            if (uploadCacheFileRequest !== null && uploadCacheFileRequest !== undefined) {
+                if (uploadCacheFileRequest instanceof UploadCacheFileRequest) {
+                    projectId = uploadCacheFileRequest.projectId;
+                    file = uploadCacheFileRequest.body?.file;
+                    override = uploadCacheFileRequest.override;
+                    parentType = uploadCacheFileRequest.parentType;
+                    parentUri = uploadCacheFileRequest.parentUri;
+                } else {
+                    projectId = uploadCacheFileRequest['project_id'];
+                    file = uploadCacheFileRequest['body']['file'];
+                    override = uploadCacheFileRequest['override'];
+                    parentType = uploadCacheFileRequest['parent_type'];
+                    parentUri = uploadCacheFileRequest['parent_uri'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling uploadCacheFile.');
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadCacheFile.');
+            }
+            if (override !== null && override !== undefined) {
+                localVarQueryParameter['override'] = override;
+            }
+            if (parentType !== null && parentType !== undefined) {
+                localVarQueryParameter['parent_type'] = parentType;
+            }
+            if (parentUri !== null && parentUri !== undefined) {
+                localVarQueryParameter['parent_uri'] = parentUri;
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -212,9 +212,13 @@ import { TagsSingleValue } from './model/TagsSingleValue';
 import { Topics } from './model/Topics';
 import { UpdateGroupScheduledTaskRequest } from './model/UpdateGroupScheduledTaskRequest';
 import { UpdateGroupScheduledTaskResponse } from './model/UpdateGroupScheduledTaskResponse';
+import { UpdateInstanceConfig } from './model/UpdateInstanceConfig';
 import { UpdateLifeCycleHookOption } from './model/UpdateLifeCycleHookOption';
 import { UpdateLifeCycleHookRequest } from './model/UpdateLifeCycleHookRequest';
 import { UpdateLifeCycleHookResponse } from './model/UpdateLifeCycleHookResponse';
+import { UpdateScalingConfigOption } from './model/UpdateScalingConfigOption';
+import { UpdateScalingConfigRequest } from './model/UpdateScalingConfigRequest';
+import { UpdateScalingConfigResponse } from './model/UpdateScalingConfigResponse';
 import { UpdateScalingGroupOption } from './model/UpdateScalingGroupOption';
 import { UpdateScalingGroupRequest } from './model/UpdateScalingGroupRequest';
 import { UpdateScalingGroupResponse } from './model/UpdateScalingGroupResponse';
@@ -1395,6 +1399,26 @@ export class AsClient {
      */
     public updateLifeCycleHook(updateLifeCycleHookRequest?: UpdateLifeCycleHookRequest): Promise<UpdateLifeCycleHookResponse> {
         const options = ParamCreater().updateLifeCycleHook(updateLifeCycleHookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改伸缩配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改伸缩配置
+     * @param {string} scalingConfigurationId 
+     * @param {UpdateScalingConfigOption} bodyparam 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateScalingConfig(updateScalingConfigRequest?: UpdateScalingConfigRequest): Promise<UpdateScalingConfigResponse> {
+        const options = ParamCreater().updateScalingConfig(updateScalingConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4260,6 +4284,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'scaling_group_id': scalingGroupId,'lifecycle_hook_name': lifecycleHookName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改伸缩配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateScalingConfig(updateScalingConfigRequest?: UpdateScalingConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autoscaling-api/v1/{project_id}/scaling_configuration/{scaling_configuration_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let scalingConfigurationId;
+
+            if (updateScalingConfigRequest !== null && updateScalingConfigRequest !== undefined) {
+                if (updateScalingConfigRequest instanceof UpdateScalingConfigRequest) {
+                    scalingConfigurationId = updateScalingConfigRequest.scalingConfigurationId;
+                    body = updateScalingConfigRequest.body
+                } else {
+                    scalingConfigurationId = updateScalingConfigRequest['scaling_configuration_id'];
+                    body = updateScalingConfigRequest['body'];
+                }
+            }
+
+        
+            if (scalingConfigurationId === null || scalingConfigurationId === undefined) {
+            throw new RequiredError('scalingConfigurationId','Required parameter scalingConfigurationId was null or undefined when calling updateScalingConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'scaling_configuration_id': scalingConfigurationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

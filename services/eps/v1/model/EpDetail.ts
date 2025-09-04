@@ -8,7 +8,8 @@ export class EpDetail {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     public type?: EpDetailTypeEnum | string;
-    public constructor(id?: string, name?: string, description?: string, status?: number, createdAt?: Date, updatedAt?: Date, type?: string) { 
+    private 'delete_flag'?: boolean;
+    public constructor(id?: string, name?: string, description?: string, status?: number, createdAt?: Date, updatedAt?: Date, type?: string, deleteFlag?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -16,6 +17,7 @@ export class EpDetail {
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['type'] = type;
+        this['delete_flag'] = deleteFlag;
     }
     public withId(id: string): EpDetail {
         this['id'] = id;
@@ -56,6 +58,16 @@ export class EpDetail {
     public withType(type: EpDetailTypeEnum | string): EpDetail {
         this['type'] = type;
         return this;
+    }
+    public withDeleteFlag(deleteFlag: boolean): EpDetail {
+        this['delete_flag'] = deleteFlag;
+        return this;
+    }
+    public set deleteFlag(deleteFlag: boolean  | undefined) {
+        this['delete_flag'] = deleteFlag;
+    }
+    public get deleteFlag(): boolean | undefined {
+        return this['delete_flag'];
     }
 }
 

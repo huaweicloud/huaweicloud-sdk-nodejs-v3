@@ -1954,6 +1954,7 @@ export class RdsClient {
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
      * @param {string} [tags] 根据实例标签键值对进行查询。 {key}表示标签键，不可以为空或重复。最大长度127个unicode字符。key不能为空或者空字符串，不能为空格，使用之前先trim前后半角空格。不能包含+/?#&amp;&#x3D;,%特殊字符。 {value}表示标签值，可以为空。最大长度255个unicode字符，使用之前先trim 前后半角空格。不能包含+/?#&amp;&#x3D;,%特殊字符。如果value为空，则表示any_value（查询任意value）。 如果同时使用多个标签键值对进行查询，中间使用逗号分隔开，最多包含10组。
+     * @param {string} [groupType] 查询flexusrds实例，传flexus。其他场景不传。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8840,6 +8841,8 @@ export const ParamCreater = function () {
             let limit;
             
             let tags;
+            
+            let groupType;
 
             if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
                 if (listInstancesRequest instanceof ListInstancesRequest) {
@@ -8855,6 +8858,7 @@ export const ParamCreater = function () {
                     offset = listInstancesRequest.offset;
                     limit = listInstancesRequest.limit;
                     tags = listInstancesRequest.tags;
+                    groupType = listInstancesRequest.groupType;
                 } else {
                     contentType = listInstancesRequest['Content-Type'];
                     xLanguage = listInstancesRequest['X-Language'];
@@ -8868,6 +8872,7 @@ export const ParamCreater = function () {
                     offset = listInstancesRequest['offset'];
                     limit = listInstancesRequest['limit'];
                     tags = listInstancesRequest['tags'];
+                    groupType = listInstancesRequest['group_type'];
                 }
             }
 
@@ -8901,6 +8906,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (groupType !== null && groupType !== undefined) {
+                localVarQueryParameter['group_type'] = groupType;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

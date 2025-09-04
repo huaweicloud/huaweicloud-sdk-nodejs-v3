@@ -500,6 +500,7 @@ export class LtsClient {
      * @summary 创建日志组
      * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
      * @param {CreateLogGroupParams} createLogGroupRequestBody 添加日志组的参数, 包含日志组的名称以及日志存储时间 天。
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目ID。获取方式请参见：[获取企业项目ID]。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** default。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2592,18 +2593,22 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (createLogGroupRequest !== null && createLogGroupRequest !== undefined) {
                 if (createLogGroupRequest instanceof CreateLogGroupRequest) {
                     contentType = createLogGroupRequest.contentType;
                     body = createLogGroupRequest.body
+                    enterpriseProjectId = createLogGroupRequest.enterpriseProjectId;
                 } else {
                     contentType = createLogGroupRequest['Content-Type'];
                     body = createLogGroupRequest['body'];
+                    enterpriseProjectId = createLogGroupRequest['enterprise_project_id'];
                 }
             }
 
@@ -2611,12 +2616,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -38,7 +38,6 @@ export class RocketMQRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://dms.sa-brazil-1.myhuaweicloud.com"]);
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://dms.cn-south-4.myhuaweicloud.com"]);
     public static CN_NORTH_12 = new Region("cn-north-12", ["https://dms.cn-north-12.myhuaweicloud.com"]);
-    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://dms.cn-southwest-3.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://dms.cn-north-11.myhuaweicloud.com"]);
     
 
@@ -75,7 +74,6 @@ export class RocketMQRegion {
         "sa-brazil-1":RocketMQRegion.SA_BRAZIL_1,
         "cn-south-4":RocketMQRegion.CN_SOUTH_4,
         "cn-north-12":RocketMQRegion.CN_NORTH_12,
-        "cn-southwest-3":RocketMQRegion.CN_SOUTHWEST_3,
         "cn-north-11":RocketMQRegion.CN_NORTH_11
     };
   

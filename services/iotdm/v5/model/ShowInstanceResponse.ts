@@ -13,6 +13,7 @@ export class ShowInstanceResponse extends SdkResponse {
     public name?: string;
     public flavor?: Flavor;
     public status?: string;
+    private 'region_id'?: string;
     public description?: string;
     private 'access_infos'?: Array<AccessInfo>;
     private 'create_time'?: string;
@@ -66,6 +67,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public withStatus(status: string): ShowInstanceResponse {
         this['status'] = status;
         return this;
+    }
+    public withRegionId(regionId: string): ShowInstanceResponse {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string  | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId(): string | undefined {
+        return this['region_id'];
     }
     public withDescription(description: string): ShowInstanceResponse {
         this['description'] = description;

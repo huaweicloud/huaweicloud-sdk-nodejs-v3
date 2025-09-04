@@ -37,6 +37,7 @@ import { ClientCert } from './model/ClientCert';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Conditions } from './model/Conditions';
+import { ConfigInfo } from './model/ConfigInfo';
 import { Configs } from './model/Configs';
 import { ConfigsGetBody } from './model/ConfigsGetBody';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
@@ -55,6 +56,8 @@ import { CreateRuleRequest } from './model/CreateRuleRequest';
 import { CreateShareCacheGroupsRequest } from './model/CreateShareCacheGroupsRequest';
 import { CreateShareCacheGroupsRequstBody } from './model/CreateShareCacheGroupsRequstBody';
 import { CreateShareCacheGroupsResponse } from './model/CreateShareCacheGroupsResponse';
+import { CreateSubscriptionTaskRequest } from './model/CreateSubscriptionTaskRequest';
+import { CreateSubscriptionTaskResponse } from './model/CreateSubscriptionTaskResponse';
 import { CreateTagsRequest } from './model/CreateTagsRequest';
 import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
 import { CreateTagsResponse } from './model/CreateTagsResponse';
@@ -69,6 +72,8 @@ import { DeleteRuleNewRequest } from './model/DeleteRuleNewRequest';
 import { DeleteRuleNewResponse } from './model/DeleteRuleNewResponse';
 import { DeleteShareCacheGroupsRequest } from './model/DeleteShareCacheGroupsRequest';
 import { DeleteShareCacheGroupsResponse } from './model/DeleteShareCacheGroupsResponse';
+import { DeleteSubscriptionTaskRequest } from './model/DeleteSubscriptionTaskRequest';
+import { DeleteSubscriptionTaskResponse } from './model/DeleteSubscriptionTaskResponse';
 import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
 import { DisableDomainRequest } from './model/DisableDomainRequest';
 import { DisableDomainResponse } from './model/DisableDomainResponse';
@@ -106,8 +111,16 @@ import { InheritConfigQuery } from './model/InheritConfigQuery';
 import { IpFilter } from './model/IpFilter';
 import { IpFrequencyLimit } from './model/IpFrequencyLimit';
 import { IpFrequencyLimitQuery } from './model/IpFrequencyLimitQuery';
+import { ListCdnDomainTopIpsRequest } from './model/ListCdnDomainTopIpsRequest';
+import { ListCdnDomainTopIpsResponse } from './model/ListCdnDomainTopIpsResponse';
+import { ListCdnDomainTopOriginUrlRequest } from './model/ListCdnDomainTopOriginUrlRequest';
+import { ListCdnDomainTopOriginUrlResponse } from './model/ListCdnDomainTopOriginUrlResponse';
 import { ListCdnDomainTopRefersRequest } from './model/ListCdnDomainTopRefersRequest';
 import { ListCdnDomainTopRefersResponse } from './model/ListCdnDomainTopRefersResponse';
+import { ListCdnDomainTopUasRequest } from './model/ListCdnDomainTopUasRequest';
+import { ListCdnDomainTopUasResponse } from './model/ListCdnDomainTopUasResponse';
+import { ListDomainClientStatsRequest } from './model/ListDomainClientStatsRequest';
+import { ListDomainClientStatsResponse } from './model/ListDomainClientStatsResponse';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { ListRuleDetailsRequest } from './model/ListRuleDetailsRequest';
@@ -116,6 +129,8 @@ import { ListShareCacheGroupsConfig } from './model/ListShareCacheGroupsConfig';
 import { ListShareCacheGroupsRecord } from './model/ListShareCacheGroupsRecord';
 import { ListShareCacheGroupsRequest } from './model/ListShareCacheGroupsRequest';
 import { ListShareCacheGroupsResponse } from './model/ListShareCacheGroupsResponse';
+import { ListSubscriptionTasksRequest } from './model/ListSubscriptionTasksRequest';
+import { ListSubscriptionTasksResponse } from './model/ListSubscriptionTasksResponse';
 import { LogObject } from './model/LogObject';
 import { Match } from './model/Match';
 import { ModifyAccountInfoRequest } from './model/ModifyAccountInfoRequest';
@@ -141,6 +156,9 @@ import { RuleResponse } from './model/RuleResponse';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
+import { SetStatsConfigBody } from './model/SetStatsConfigBody';
+import { SetStatsConfigRequest } from './model/SetStatsConfigRequest';
+import { SetStatsConfigResponse } from './model/SetStatsConfigResponse';
 import { ShareCacheGroupsRecord } from './model/ShareCacheGroupsRecord';
 import { ShowAppliedTemplateRecordRequest } from './model/ShowAppliedTemplateRecordRequest';
 import { ShowAppliedTemplateRecordResponse } from './model/ShowAppliedTemplateRecordResponse';
@@ -170,6 +188,8 @@ import { ShowLogsRequest } from './model/ShowLogsRequest';
 import { ShowLogsResponse } from './model/ShowLogsResponse';
 import { ShowQuotaRequest } from './model/ShowQuotaRequest';
 import { ShowQuotaResponse } from './model/ShowQuotaResponse';
+import { ShowStatsConfigsRequest } from './model/ShowStatsConfigsRequest';
+import { ShowStatsConfigsResponse } from './model/ShowStatsConfigsResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
 import { ShowTagsResponse } from './model/ShowTagsResponse';
 import { ShowTopDomainNamesRequest } from './model/ShowTopDomainNamesRequest';
@@ -187,13 +207,22 @@ import { SourcesConfig } from './model/SourcesConfig';
 import { SourcesConfigResponseBody } from './model/SourcesConfigResponseBody';
 import { SourcesDomainConfig } from './model/SourcesDomainConfig';
 import { SourcesRequestBody } from './model/SourcesRequestBody';
+import { StatsConfigDetails } from './model/StatsConfigDetails';
+import { SubscriptionTask } from './model/SubscriptionTask';
+import { SubscriptionTaskVo } from './model/SubscriptionTaskVo';
 import { TagMap } from './model/TagMap';
 import { TasksObject } from './model/TasksObject';
 import { TemplateApplyRequestBody } from './model/TemplateApplyRequestBody';
 import { TemplateConfigs } from './model/TemplateConfigs';
 import { TemplateItem } from './model/TemplateItem';
+import { TopIpSummary } from './model/TopIpSummary';
+import { TopOriginUrlSummary } from './model/TopOriginUrlSummary';
 import { TopReferSummary } from './model/TopReferSummary';
+import { TopUa } from './model/TopUa';
+import { TopUaSummary } from './model/TopUaSummary';
+import { TopUrl } from './model/TopUrl';
 import { TopUrlSummary } from './model/TopUrlSummary';
+import { TopUrlinReq } from './model/TopUrlinReq';
 import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
 import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigResponse';
 import { UpdateDomainMultiCertificatesRequest } from './model/UpdateDomainMultiCertificatesRequest';
@@ -216,6 +245,8 @@ import { UpdateRuleStatusRequest } from './model/UpdateRuleStatusRequest';
 import { UpdateShareCacheGroupsRequest } from './model/UpdateShareCacheGroupsRequest';
 import { UpdateShareCacheGroupsRequstBody } from './model/UpdateShareCacheGroupsRequstBody';
 import { UpdateShareCacheGroupsResponse } from './model/UpdateShareCacheGroupsResponse';
+import { UpdateSubscriptionTaskRequest } from './model/UpdateSubscriptionTaskRequest';
+import { UpdateSubscriptionTaskResponse } from './model/UpdateSubscriptionTaskResponse';
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UrlObject } from './model/UrlObject';
@@ -445,6 +476,25 @@ export class CdnClient {
     }
 
     /**
+     * create subscription task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建运营报表订阅任务
+     * @param {SubscriptionTaskVo} [subscriptionTaskVo] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubscriptionTask(createSubscriptionTaskRequest?: CreateSubscriptionTaskRequest): Promise<CreateSubscriptionTaskResponse> {
+        const options = ParamCreater().createSubscriptionTask(createSubscriptionTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用于创建资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -536,6 +586,25 @@ export class CdnClient {
      */
     public deleteShareCacheGroups(deleteShareCacheGroupsRequest?: DeleteShareCacheGroupsRequest): Promise<DeleteShareCacheGroupsResponse> {
         const options = ParamCreater().deleteShareCacheGroups(deleteShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * delete subscription task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除运营报表订阅任务
+     * @param {number} id 订阅任务id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSubscriptionTask(deleteSubscriptionTaskRequest?: DeleteSubscriptionTaskRequest): Promise<DeleteSubscriptionTaskResponse> {
+        const options = ParamCreater().deleteSubscriptionTask(deleteSubscriptionTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -658,6 +727,57 @@ export class CdnClient {
     }
 
     /**
+     * - 查询域名top ip统计分析数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名top ip统计分析数据
+     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
+     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType -  参数类型支持：flux(流量),req_num(请求数)
+     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
+     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCdnDomainTopIps(listCdnDomainTopIpsRequest?: ListCdnDomainTopIpsRequest): Promise<ListCdnDomainTopIpsResponse> {
+        const options = ParamCreater().listCdnDomainTopIps(listCdnDomainTopIpsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 查询域名top 回源URL数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名top回源URL数据
+     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
+     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType -  参数类型支持：flux(流量),req_num(请求数)
+     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCdnDomainTopOriginUrl(listCdnDomainTopOriginUrlRequest?: ListCdnDomainTopOriginUrlRequest): Promise<ListCdnDomainTopOriginUrlResponse> {
+        const options = ParamCreater().listCdnDomainTopOriginUrl(listCdnDomainTopOriginUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 查询TOP100 referer数据。
      * 
      * - 支持查询90天内的数据。
@@ -681,6 +801,61 @@ export class CdnClient {
      */
     public listCdnDomainTopRefers(listCdnDomainTopRefersRequest?: ListCdnDomainTopRefersRequest): Promise<ListCdnDomainTopRefersResponse> {
         const options = ParamCreater().listCdnDomainTopRefers(listCdnDomainTopRefersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 统计分析TOP UA统计数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名top ua统计分析数据
+     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
+     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType -  参数类型支持：flux(流量),req_num(请求数)
+     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
+     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCdnDomainTopUas(listCdnDomainTopUasRequest?: ListCdnDomainTopUasRequest): Promise<ListCdnDomainTopUasResponse> {
+        const options = ParamCreater().listCdnDomainTopUas(listCdnDomainTopUasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 按域名维度查询每天客户端访问详情统计。
+     * - 支持查询90天内的数据。
+     * - ip_num查询跨度只支持1天,uv查询跨度只支持5分钟。
+     * - 起始时间和结束时间，左闭右开，需要同时指定。如查询2022-07-12 00:00:00 到 2022-07-13 00:00:00 的数据，表示取 [2022-07-12 00:00:00, 2022-07-13 00:00:00)的统计数据。
+     * - ip_num开始时间、结束时间必须传毫秒级时间戳，必须为凌晨0点整时刻点，如果传的不是凌晨0点整时刻点，返回数据可能与预期不一致。
+     * - uv必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果传的不是5分钟时刻点，返回数据可能与预期不一致
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按域名维度查询每天客户端访问详情统计
+     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
+     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType -  客户端访问资源指标类别：  - ip_num (去重后ip访问数量) - uv(五分钟内的访问独立IP数，一个独立ip记一次。)
+     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainClientStats(listDomainClientStatsRequest?: ListDomainClientStatsRequest): Promise<ListDomainClientStatsResponse> {
+        const options = ParamCreater().listDomainClientStats(listDomainClientStatsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -756,6 +931,26 @@ export class CdnClient {
     }
 
     /**
+     * query subscription task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询运营报表订阅任务
+     * @param {number} [limit] - 每页显示的条目数量，默认值为5, 传入空或0时，会按默认处理
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0，默认为0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubscriptionTasks(listSubscriptionTasksRequest?: ListSubscriptionTasksRequest): Promise<ListSubscriptionTasksResponse> {
+        const options = ParamCreater().listSubscriptionTasks(listSubscriptionTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改租户配置，当前仅支持开启OBS和SCM委托授权。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -794,6 +989,25 @@ export class CdnClient {
      */
     public setChargeModes(setChargeModesRequest?: SetChargeModesRequest): Promise<SetChargeModesResponse> {
         const options = ParamCreater().setChargeModes(setChargeModesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 设置统计配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置统计配置
+     * @param {SetStatsConfigBody} [setStatsConfigBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setStatsConfig(setStatsConfigRequest?: SetStatsConfigRequest): Promise<SetStatsConfigResponse> {
+        const options = ParamCreater().setStatsConfig(setStatsConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1172,6 +1386,27 @@ export class CdnClient {
     }
 
     /**
+     * - 配置类型：目前支持，
+     * - 0：热点统计。
+     * - 1：ces上报。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询统计配置
+     * @param {number} configType - 配置类型 - 目前支持0：热点统计，1：ces上报
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatsConfigs(showStatsConfigsRequest?: ShowStatsConfigsRequest): Promise<ShowStatsConfigsResponse> {
+        const options = ParamCreater().showStatsConfigs(showStatsConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用于查询资源标签列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1444,6 +1679,26 @@ export class CdnClient {
      */
     public updateShareCacheGroups(updateShareCacheGroupsRequest?: UpdateShareCacheGroupsRequest): Promise<UpdateShareCacheGroupsResponse> {
         const options = ParamCreater().updateShareCacheGroups(updateShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * modify subscription task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改运营报表订阅任务
+     * @param {number} id 订阅任务id
+     * @param {SubscriptionTaskVo} [subscriptionTaskVo] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSubscriptionTask(updateSubscriptionTaskRequest?: UpdateSubscriptionTaskRequest): Promise<UpdateSubscriptionTaskResponse> {
+        const options = ParamCreater().updateSubscriptionTask(updateSubscriptionTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1889,6 +2144,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * create subscription task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubscriptionTask(createSubscriptionTaskRequest?: CreateSubscriptionTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/cdn/statistics/subscription-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createSubscriptionTaskRequest !== null && createSubscriptionTaskRequest !== undefined) {
+                if (createSubscriptionTaskRequest instanceof CreateSubscriptionTaskRequest) {
+                    body = createSubscriptionTaskRequest.body
+                } else {
+                    body = createSubscriptionTaskRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 用于创建资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2081,6 +2371,43 @@ export const ParamCreater = function () {
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling deleteShareCacheGroups.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * delete subscription task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSubscriptionTask(deleteSubscriptionTaskRequest?: DeleteSubscriptionTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/cdn/statistics/subscription-tasks/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteSubscriptionTaskRequest !== null && deleteSubscriptionTaskRequest !== undefined) {
+                if (deleteSubscriptionTaskRequest instanceof DeleteSubscriptionTaskRequest) {
+                    id = deleteSubscriptionTaskRequest.id;
+                } else {
+                    id = deleteSubscriptionTaskRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteSubscriptionTask.');
             }
 
             options.pathParams = { 'id': id, };
@@ -2409,6 +2736,195 @@ export const ParamCreater = function () {
         },
     
         /**
+         * - 查询域名top ip统计分析数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCdnDomainTopIps(listCdnDomainTopIpsRequest?: ListCdnDomainTopIpsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/top-ips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let groupBy;
+            
+            let serviceArea;
+            
+            let enterpriseProjectId;
+            
+            let includeRatio;
+
+            if (listCdnDomainTopIpsRequest !== null && listCdnDomainTopIpsRequest !== undefined) {
+                if (listCdnDomainTopIpsRequest instanceof ListCdnDomainTopIpsRequest) {
+                    startTime = listCdnDomainTopIpsRequest.startTime;
+                    endTime = listCdnDomainTopIpsRequest.endTime;
+                    domainName = listCdnDomainTopIpsRequest.domainName;
+                    statType = listCdnDomainTopIpsRequest.statType;
+                    groupBy = listCdnDomainTopIpsRequest.groupBy;
+                    serviceArea = listCdnDomainTopIpsRequest.serviceArea;
+                    enterpriseProjectId = listCdnDomainTopIpsRequest.enterpriseProjectId;
+                    includeRatio = listCdnDomainTopIpsRequest.includeRatio;
+                } else {
+                    startTime = listCdnDomainTopIpsRequest['start_time'];
+                    endTime = listCdnDomainTopIpsRequest['end_time'];
+                    domainName = listCdnDomainTopIpsRequest['domain_name'];
+                    statType = listCdnDomainTopIpsRequest['stat_type'];
+                    groupBy = listCdnDomainTopIpsRequest['group_by'];
+                    serviceArea = listCdnDomainTopIpsRequest['service_area'];
+                    enterpriseProjectId = listCdnDomainTopIpsRequest['enterprise_project_id'];
+                    includeRatio = listCdnDomainTopIpsRequest['include_ratio'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listCdnDomainTopIps.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listCdnDomainTopIps.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listCdnDomainTopIps.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listCdnDomainTopIps.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (groupBy !== null && groupBy !== undefined) {
+                localVarQueryParameter['group_by'] = groupBy;
+            }
+            if (serviceArea !== null && serviceArea !== undefined) {
+                localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (includeRatio !== null && includeRatio !== undefined) {
+                localVarQueryParameter['include_ratio'] = includeRatio;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 查询域名top 回源URL数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCdnDomainTopOriginUrl(listCdnDomainTopOriginUrlRequest?: ListCdnDomainTopOriginUrlRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/top-origin-urls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let groupBy;
+            
+            let enterpriseProjectId;
+            
+            let includeRatio;
+
+            if (listCdnDomainTopOriginUrlRequest !== null && listCdnDomainTopOriginUrlRequest !== undefined) {
+                if (listCdnDomainTopOriginUrlRequest instanceof ListCdnDomainTopOriginUrlRequest) {
+                    startTime = listCdnDomainTopOriginUrlRequest.startTime;
+                    endTime = listCdnDomainTopOriginUrlRequest.endTime;
+                    domainName = listCdnDomainTopOriginUrlRequest.domainName;
+                    statType = listCdnDomainTopOriginUrlRequest.statType;
+                    groupBy = listCdnDomainTopOriginUrlRequest.groupBy;
+                    enterpriseProjectId = listCdnDomainTopOriginUrlRequest.enterpriseProjectId;
+                    includeRatio = listCdnDomainTopOriginUrlRequest.includeRatio;
+                } else {
+                    startTime = listCdnDomainTopOriginUrlRequest['start_time'];
+                    endTime = listCdnDomainTopOriginUrlRequest['end_time'];
+                    domainName = listCdnDomainTopOriginUrlRequest['domain_name'];
+                    statType = listCdnDomainTopOriginUrlRequest['stat_type'];
+                    groupBy = listCdnDomainTopOriginUrlRequest['group_by'];
+                    enterpriseProjectId = listCdnDomainTopOriginUrlRequest['enterprise_project_id'];
+                    includeRatio = listCdnDomainTopOriginUrlRequest['include_ratio'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listCdnDomainTopOriginUrl.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listCdnDomainTopOriginUrl.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listCdnDomainTopOriginUrl.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listCdnDomainTopOriginUrl.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (groupBy !== null && groupBy !== undefined) {
+                localVarQueryParameter['group_by'] = groupBy;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (includeRatio !== null && includeRatio !== undefined) {
+                localVarQueryParameter['include_ratio'] = includeRatio;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 查询TOP100 referer数据。
          * 
          * - 支持查询90天内的数据。
@@ -2498,6 +3014,193 @@ export const ParamCreater = function () {
             }
             if (includeRatio !== null && includeRatio !== undefined) {
                 localVarQueryParameter['include_ratio'] = includeRatio;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 统计分析TOP UA统计数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCdnDomainTopUas(listCdnDomainTopUasRequest?: ListCdnDomainTopUasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/top-uas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let groupBy;
+            
+            let serviceArea;
+            
+            let enterpriseProjectId;
+            
+            let includeRatio;
+
+            if (listCdnDomainTopUasRequest !== null && listCdnDomainTopUasRequest !== undefined) {
+                if (listCdnDomainTopUasRequest instanceof ListCdnDomainTopUasRequest) {
+                    startTime = listCdnDomainTopUasRequest.startTime;
+                    endTime = listCdnDomainTopUasRequest.endTime;
+                    domainName = listCdnDomainTopUasRequest.domainName;
+                    statType = listCdnDomainTopUasRequest.statType;
+                    groupBy = listCdnDomainTopUasRequest.groupBy;
+                    serviceArea = listCdnDomainTopUasRequest.serviceArea;
+                    enterpriseProjectId = listCdnDomainTopUasRequest.enterpriseProjectId;
+                    includeRatio = listCdnDomainTopUasRequest.includeRatio;
+                } else {
+                    startTime = listCdnDomainTopUasRequest['start_time'];
+                    endTime = listCdnDomainTopUasRequest['end_time'];
+                    domainName = listCdnDomainTopUasRequest['domain_name'];
+                    statType = listCdnDomainTopUasRequest['stat_type'];
+                    groupBy = listCdnDomainTopUasRequest['group_by'];
+                    serviceArea = listCdnDomainTopUasRequest['service_area'];
+                    enterpriseProjectId = listCdnDomainTopUasRequest['enterprise_project_id'];
+                    includeRatio = listCdnDomainTopUasRequest['include_ratio'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listCdnDomainTopUas.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listCdnDomainTopUas.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listCdnDomainTopUas.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listCdnDomainTopUas.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (groupBy !== null && groupBy !== undefined) {
+                localVarQueryParameter['group_by'] = groupBy;
+            }
+            if (serviceArea !== null && serviceArea !== undefined) {
+                localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (includeRatio !== null && includeRatio !== undefined) {
+                localVarQueryParameter['include_ratio'] = includeRatio;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 按域名维度查询每天客户端访问详情统计。
+         * - 支持查询90天内的数据。
+         * - ip_num查询跨度只支持1天,uv查询跨度只支持5分钟。
+         * - 起始时间和结束时间，左闭右开，需要同时指定。如查询2022-07-12 00:00:00 到 2022-07-13 00:00:00 的数据，表示取 [2022-07-12 00:00:00, 2022-07-13 00:00:00)的统计数据。
+         * - ip_num开始时间、结束时间必须传毫秒级时间戳，必须为凌晨0点整时刻点，如果传的不是凌晨0点整时刻点，返回数据可能与预期不一致。
+         * - uv必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果传的不是5分钟时刻点，返回数据可能与预期不一致
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainClientStats(listDomainClientStatsRequest?: ListDomainClientStatsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/domain-client-stats",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let serviceArea;
+            
+            let enterpriseProjectId;
+
+            if (listDomainClientStatsRequest !== null && listDomainClientStatsRequest !== undefined) {
+                if (listDomainClientStatsRequest instanceof ListDomainClientStatsRequest) {
+                    startTime = listDomainClientStatsRequest.startTime;
+                    endTime = listDomainClientStatsRequest.endTime;
+                    domainName = listDomainClientStatsRequest.domainName;
+                    statType = listDomainClientStatsRequest.statType;
+                    serviceArea = listDomainClientStatsRequest.serviceArea;
+                    enterpriseProjectId = listDomainClientStatsRequest.enterpriseProjectId;
+                } else {
+                    startTime = listDomainClientStatsRequest['start_time'];
+                    endTime = listDomainClientStatsRequest['end_time'];
+                    domainName = listDomainClientStatsRequest['domain_name'];
+                    statType = listDomainClientStatsRequest['stat_type'];
+                    serviceArea = listDomainClientStatsRequest['service_area'];
+                    enterpriseProjectId = listDomainClientStatsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listDomainClientStats.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listDomainClientStats.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listDomainClientStats.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listDomainClientStats.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (serviceArea !== null && serviceArea !== undefined) {
+                localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2681,6 +3384,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * query subscription task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubscriptionTasks(listSubscriptionTasksRequest?: ListSubscriptionTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/cdn/statistics/subscription-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listSubscriptionTasksRequest !== null && listSubscriptionTasksRequest !== undefined) {
+                if (listSubscriptionTasksRequest instanceof ListSubscriptionTasksRequest) {
+                    limit = listSubscriptionTasksRequest.limit;
+                    offset = listSubscriptionTasksRequest.offset;
+                } else {
+                    limit = listSubscriptionTasksRequest['limit'];
+                    offset = listSubscriptionTasksRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改租户配置，当前仅支持开启OBS和SCM委托授权。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2754,6 +3501,41 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 设置统计配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setStatsConfig(setStatsConfigRequest?: SetStatsConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/cdn/statistics/stats-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setStatsConfigRequest !== null && setStatsConfigRequest !== undefined) {
+                if (setStatsConfigRequest instanceof SetStatsConfigRequest) {
+                    body = setStatsConfigRequest.body
+                } else {
+                    body = setStatsConfigRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -3789,6 +4571,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * - 配置类型：目前支持，
+         * - 0：热点统计。
+         * - 1：ces上报。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatsConfigs(showStatsConfigsRequest?: ShowStatsConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/cdn/statistics/stats-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configType;
+
+            if (showStatsConfigsRequest !== null && showStatsConfigsRequest !== undefined) {
+                if (showStatsConfigsRequest instanceof ShowStatsConfigsRequest) {
+                    configType = showStatsConfigsRequest.configType;
+                } else {
+                    configType = showStatsConfigsRequest['config_type'];
+                }
+            }
+
+        
+            if (configType === null || configType === undefined) {
+                throw new RequiredError('configType','Required parameter configType was null or undefined when calling showStatsConfigs.');
+            }
+            if (configType !== null && configType !== undefined) {
+                localVarQueryParameter['config_type'] = configType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 用于查询资源标签列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4462,6 +5286,49 @@ export const ParamCreater = function () {
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling updateShareCacheGroups.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * modify subscription task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSubscriptionTask(updateSubscriptionTaskRequest?: UpdateSubscriptionTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/cdn/statistics/subscription-tasks/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateSubscriptionTaskRequest !== null && updateSubscriptionTaskRequest !== undefined) {
+                if (updateSubscriptionTaskRequest instanceof UpdateSubscriptionTaskRequest) {
+                    id = updateSubscriptionTaskRequest.id;
+                    body = updateSubscriptionTaskRequest.body
+                } else {
+                    id = updateSubscriptionTaskRequest['id'];
+                    body = updateSubscriptionTaskRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSubscriptionTask.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

@@ -21,6 +21,7 @@ export * from './model/BatchDeleteMessageDiagnosisReportsReq';
 export * from './model/BatchDeleteMessageDiagnosisReportsRequest';
 export * from './model/BatchDeleteMessageDiagnosisReportsResponse';
 export * from './model/BatchDeleteMessageDiagnosisRespResults';
+export * from './model/BatchModifyGroupDescriptionReq';
 export * from './model/BatchRestartOrDeleteInstanceReq';
 export * from './model/BatchRestartOrDeleteInstanceRespResults';
 export * from './model/BatchRestartOrDeleteInstancesRequest';

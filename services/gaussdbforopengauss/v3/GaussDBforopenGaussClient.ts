@@ -82,6 +82,7 @@ import { CreateScheduleTaskResponse } from './model/CreateScheduleTaskResponse';
 import { CreateSlowLogDownloadRequest } from './model/CreateSlowLogDownloadRequest';
 import { CreateSlowLogDownloadResponse } from './model/CreateSlowLogDownloadResponse';
 import { DataStroeErrorResponse } from './model/DataStroeErrorResponse';
+import { DatabaseSchemaTableResult } from './model/DatabaseSchemaTableResult';
 import { DatastoreOption } from './model/DatastoreOption';
 import { DatastoreResult } from './model/DatastoreResult';
 import { DatastoresResult } from './model/DatastoresResult';
@@ -134,6 +135,9 @@ import { ExecuteCrossCloudDisasterSwitchoverRequest } from './model/ExecuteCross
 import { ExecuteCrossCloudDisasterSwitchoverResponse } from './model/ExecuteCrossCloudDisasterSwitchoverResponse';
 import { ExecuteCrossCloudReleaseDisasterRequest } from './model/ExecuteCrossCloudReleaseDisasterRequest';
 import { ExecuteCrossCloudReleaseDisasterResponse } from './model/ExecuteCrossCloudReleaseDisasterResponse';
+import { ExportSlowSqlRequest } from './model/ExportSlowSqlRequest';
+import { ExportSlowSqlResponse } from './model/ExportSlowSqlResponse';
+import { ExportTableVolumeRequestBody } from './model/ExportTableVolumeRequestBody';
 import { FeatureResult } from './model/FeatureResult';
 import { Flavor } from './model/Flavor';
 import { FlavorErrorResponse } from './model/FlavorErrorResponse';
@@ -279,6 +283,9 @@ import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
 import { ListRestoreTimesResponse } from './model/ListRestoreTimesResponse';
 import { ListScheduleTaskRequest } from './model/ListScheduleTaskRequest';
 import { ListScheduleTaskResponse } from './model/ListScheduleTaskResponse';
+import { ListSchemaAndTableRequest } from './model/ListSchemaAndTableRequest';
+import { ListSchemaAndTableRequestBody } from './model/ListSchemaAndTableRequestBody';
+import { ListSchemaAndTableResponse } from './model/ListSchemaAndTableResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
 import { ListSupportKernelPluginsRequest } from './model/ListSupportKernelPluginsRequest';
@@ -1302,6 +1309,27 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 表信息导出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 表信息导出
+     * @param {string} instanceId **参数解释**: 实例ID。 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及。 
+     * @param {ExportTableVolumeRequestBody} exportSlowSqlRequestBody 导出慢SQL列表请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportSlowSql(exportSlowSqlRequest?: ExportSlowSqlRequest): Promise<ExportSlowSqlResponse> {
+        const options = ParamCreater().exportSlowSql(exportSlowSqlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 安装插件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2314,6 +2342,27 @@ export class GaussDBforopenGaussClient {
      */
     public listScheduleTask(listScheduleTaskRequest?: ListScheduleTaskRequest): Promise<ListScheduleTaskResponse> {
         const options = ParamCreater().listScheduleTask(listScheduleTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别SQL文本中的表信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 识别SQL文本中的表信息
+     * @param {string} instanceId 实例ID
+     * @param {ListSchemaAndTableRequestBody} listSchemaAndTableRequestBody 查询table和schema请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言, 默认值为en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSchemaAndTable(listSchemaAndTableRequest?: ListSchemaAndTableRequest): Promise<ListSchemaAndTableResponse> {
+        const options = ParamCreater().listSchemaAndTable(listSchemaAndTableRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5540,6 +5589,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 表信息导出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportSlowSql(exportSlowSqlRequest?: ExportSlowSqlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/table-volume/export",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (exportSlowSqlRequest !== null && exportSlowSqlRequest !== undefined) {
+                if (exportSlowSqlRequest instanceof ExportSlowSqlRequest) {
+                    instanceId = exportSlowSqlRequest.instanceId;
+                    body = exportSlowSqlRequest.body
+                    xLanguage = exportSlowSqlRequest.xLanguage;
+                } else {
+                    instanceId = exportSlowSqlRequest['instance_id'];
+                    body = exportSlowSqlRequest['body'];
+                    xLanguage = exportSlowSqlRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling exportSlowSql.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 安装插件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8386,6 +8488,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别SQL文本中的表信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSchemaAndTable(listSchemaAndTableRequest?: ListSchemaAndTableRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/parse/schema-table",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listSchemaAndTableRequest !== null && listSchemaAndTableRequest !== undefined) {
+                if (listSchemaAndTableRequest instanceof ListSchemaAndTableRequest) {
+                    instanceId = listSchemaAndTableRequest.instanceId;
+                    body = listSchemaAndTableRequest.body
+                    xLanguage = listSchemaAndTableRequest.xLanguage;
+                } else {
+                    instanceId = listSchemaAndTableRequest['instance_id'];
+                    body = listSchemaAndTableRequest['body'];
+                    xLanguage = listSchemaAndTableRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSchemaAndTable.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

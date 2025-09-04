@@ -7,7 +7,8 @@ export class LogoffUserSessionReq {
     public title?: string;
     private 'delay_time'?: number;
     private 'transaction_id'?: string;
-    public constructor(messageType?: number, delayTime?: number) { 
+    public constructor(sessionIds?: Array<string>, messageType?: number, delayTime?: number) { 
+        this['session_ids'] = sessionIds;
         this['message_type'] = messageType;
         this['delay_time'] = delayTime;
     }

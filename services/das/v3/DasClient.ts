@@ -15,6 +15,9 @@ import { CancelShareConnectionsResponse } from './model/CancelShareConnectionsRe
 import { ChangeChargeModeBody } from './model/ChangeChargeModeBody';
 import { ChangeChargeModeRequest } from './model/ChangeChargeModeRequest';
 import { ChangeChargeModeResponse } from './model/ChangeChargeModeResponse';
+import { ChangeFullDeadLockSwitchRequest } from './model/ChangeFullDeadLockSwitchRequest';
+import { ChangeFullDeadLockSwitchRequestBody } from './model/ChangeFullDeadLockSwitchRequestBody';
+import { ChangeFullDeadLockSwitchResponse } from './model/ChangeFullDeadLockSwitchResponse';
 import { ChangeSqlLimitSwitchStatusBody } from './model/ChangeSqlLimitSwitchStatusBody';
 import { ChangeSqlLimitSwitchStatusRequest } from './model/ChangeSqlLimitSwitchStatusRequest';
 import { ChangeSqlLimitSwitchStatusResponse } from './model/ChangeSqlLimitSwitchStatusResponse';
@@ -32,6 +35,9 @@ import { CreateInstanceConnectionResponse } from './model/CreateInstanceConnecti
 import { CreateShareConnectionsRequest } from './model/CreateShareConnectionsRequest';
 import { CreateShareConnectionsRequestBody } from './model/CreateShareConnectionsRequestBody';
 import { CreateShareConnectionsResponse } from './model/CreateShareConnectionsResponse';
+import { CreateSnapshotsRequest } from './model/CreateSnapshotsRequest';
+import { CreateSnapshotsRequestBody } from './model/CreateSnapshotsRequestBody';
+import { CreateSnapshotsResponse } from './model/CreateSnapshotsResponse';
 import { CreateSpaceAnalysisTaskBody } from './model/CreateSpaceAnalysisTaskBody';
 import { CreateSpaceAnalysisTaskRequest } from './model/CreateSpaceAnalysisTaskRequest';
 import { CreateSpaceAnalysisTaskResponse } from './model/CreateSpaceAnalysisTaskResponse';
@@ -75,6 +81,9 @@ import { ExportTopSqlTemplatesDetailsResponse } from './model/ExportTopSqlTempla
 import { ExportTopSqlTrendDetailsRequest } from './model/ExportTopSqlTrendDetailsRequest';
 import { ExportTopSqlTrendDetailsResponse } from './model/ExportTopSqlTrendDetailsResponse';
 import { FeedbackInfo } from './model/FeedbackInfo';
+import { FullDeadLockListRespFullDeadlockList } from './model/FullDeadLockListRespFullDeadlockList';
+import { FullDeadLockListRespMysqlDeadlock } from './model/FullDeadLockListRespMysqlDeadlock';
+import { FullDeadLockListRespMysqlDeadlockMysqlTransactions } from './model/FullDeadLockListRespMysqlDeadlockMysqlTransactions';
 import { FullSql } from './model/FullSql';
 import { FullSqlDetail } from './model/FullSqlDetail';
 import { FullSqlTask } from './model/FullSqlTask';
@@ -139,6 +148,8 @@ import { ListRiskItemsRequest } from './model/ListRiskItemsRequest';
 import { ListRiskItemsResponse } from './model/ListRiskItemsResponse';
 import { ListRiskTrendRequest } from './model/ListRiskTrendRequest';
 import { ListRiskTrendResponse } from './model/ListRiskTrendResponse';
+import { ListSnapshotsRequest } from './model/ListSnapshotsRequest';
+import { ListSnapshotsResponse } from './model/ListSnapshotsResponse';
 import { ListSpaceAnalysisRequest } from './model/ListSpaceAnalysisRequest';
 import { ListSpaceAnalysisResponse } from './model/ListSpaceAnalysisResponse';
 import { ListSqlLimitRulesRequest } from './model/ListSqlLimitRulesRequest';
@@ -153,8 +164,11 @@ import { ParseSqlLimitRulesReq } from './model/ParseSqlLimitRulesReq';
 import { ParseSqlLimitRulesRequest } from './model/ParseSqlLimitRulesRequest';
 import { ParseSqlLimitRulesResponse } from './model/ParseSqlLimitRulesResponse';
 import { Process } from './model/Process';
+import { QueryLatestDeadLockRespMysqlDeadLock } from './model/QueryLatestDeadLockRespMysqlDeadLock';
+import { QueryLatestDeadLockRespMysqlDeadLockMysqlTransactions } from './model/QueryLatestDeadLockRespMysqlDeadLockMysqlTransactions';
 import { QueryRiskItemsItems } from './model/QueryRiskItemsItems';
 import { QueryRiskTrendMetric } from './model/QueryRiskTrendMetric';
+import { QuerySnapshotsRespItems } from './model/QuerySnapshotsRespItems';
 import { QuerySqlPlanBody } from './model/QuerySqlPlanBody';
 import { RegisterDbUserRequest } from './model/RegisterDbUserRequest';
 import { RegisterDbUserRequestBody } from './model/RegisterDbUserRequestBody';
@@ -166,8 +180,14 @@ import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
 import { ShowDbUserRequest } from './model/ShowDbUserRequest';
 import { ShowDbUserResponse } from './model/ShowDbUserResponse';
+import { ShowFullDeadLockListRequest } from './model/ShowFullDeadLockListRequest';
+import { ShowFullDeadLockListResponse } from './model/ShowFullDeadLockListResponse';
+import { ShowFullDeadLockSwitchRequest } from './model/ShowFullDeadLockSwitchRequest';
+import { ShowFullDeadLockSwitchResponse } from './model/ShowFullDeadLockSwitchResponse';
 import { ShowInstanceHealthReportRequest } from './model/ShowInstanceHealthReportRequest';
 import { ShowInstanceHealthReportResponse } from './model/ShowInstanceHealthReportResponse';
+import { ShowLatestDeadLockSnapshotRequest } from './model/ShowLatestDeadLockSnapshotRequest';
+import { ShowLatestDeadLockSnapshotResponse } from './model/ShowLatestDeadLockSnapshotResponse';
 import { ShowMetricNamesSupportRequest } from './model/ShowMetricNamesSupportRequest';
 import { ShowMetricNamesSupportResponse } from './model/ShowMetricNamesSupportResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
@@ -395,6 +415,27 @@ export class DasClient {
     }
 
     /**
+     * 设置全量死锁开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置全量死锁开关
+     * @param {string} instanceId 实例id
+     * @param {ChangeFullDeadLockSwitchRequestBody} changeFullDeadLockSwitchRequestBody 锁相关信息
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeFullDeadLockSwitch(changeFullDeadLockSwitchRequest?: ChangeFullDeadLockSwitchRequest): Promise<ChangeFullDeadLockSwitchResponse> {
+        const options = ParamCreater().changeFullDeadLockSwitch(changeFullDeadLockSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置SQL限流开关状态。目前仅支持MySQL数据库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -472,6 +513,27 @@ export class DasClient {
      */
     public createHealthReportTask(createHealthReportTaskRequest?: CreateHealthReportTaskRequest): Promise<CreateHealthReportTaskResponse> {
         const options = ParamCreater().createHealthReportTask(createHealthReportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建快照
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建快照
+     * @param {string} connectionId 连接id
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {CreateSnapshotsRequestBody} [createSnapshotsRequestBody] 需要的快照类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSnapshots(createSnapshotsRequest?: CreateSnapshotsRequest): Promise<CreateSnapshotsResponse> {
+        const options = ParamCreater().createSnapshots(createSnapshotsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1173,6 +1235,31 @@ export class DasClient {
     }
 
     /**
+     * 查询快照列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询快照列表
+     * @param {string} connectionId 连接id
+     * @param {number} module 锁类型， 检查死锁为2
+     * @param {number} startAt 开始时间
+     * @param {number} endAt 结束时间
+     * @param {number} [perPage] 每页返回的数量，默认值为10
+     * @param {number} [curPage] 当前页码，第一次查询的时候默认值为1
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSnapshots(listSnapshotsRequest?: ListSnapshotsRequest): Promise<ListSnapshotsResponse> {
+        const options = ParamCreater().listSnapshots(listSnapshotsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取空间分析数据列表。实例级别数据来源于文件系统，库级别和表级别数据来源于information_schema.tables表。空间&amp;元数据分析最多分析10000张表，若缺少库表空间数据，可能是因为数据库实例表个数过多或者账号未保存密码。如果为保存密码，请使用用户管理接口或页面录入数据库账号。 支持MySQL、GaussDB(for MySQL)和SQLServer引擎。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1360,6 +1447,50 @@ export class DasClient {
     }
 
     /**
+     * 获取全量死锁信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取全量死锁信息
+     * @param {string} instanceId 实例id
+     * @param {number} startAt 开始时间
+     * @param {number} endAt 结束时间
+     * @param {number} [pageNum] 当前页数
+     * @param {number} [pageSize] 每页返回数量，默认10
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFullDeadLockList(showFullDeadLockListRequest?: ShowFullDeadLockListRequest): Promise<ShowFullDeadLockListResponse> {
+        const options = ParamCreater().showFullDeadLockList(showFullDeadLockListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取全量死锁开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取全量死锁开关
+     * @param {string} instanceId 实例id
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFullDeadLockSwitch(showFullDeadLockSwitchRequest?: ShowFullDeadLockSwitchRequest): Promise<ShowFullDeadLockSwitchResponse> {
+        const options = ParamCreater().showFullDeadLockSwitch(showFullDeadLockSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取实例健康诊断报告内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1373,6 +1504,27 @@ export class DasClient {
      */
     public showInstanceHealthReport(showInstanceHealthReportRequest?: ShowInstanceHealthReportRequest): Promise<ShowInstanceHealthReportResponse> {
         const options = ParamCreater().showInstanceHealthReport(showInstanceHealthReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取死锁的快照信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取死锁的快照信息
+     * @param {string} connectionId 连接id
+     * @param {number} id 死锁id
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest?: ShowLatestDeadLockSnapshotRequest): Promise<ShowLatestDeadLockSnapshotResponse> {
+        const options = ParamCreater().showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2028,6 +2180,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置全量死锁开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeFullDeadLockSwitch(changeFullDeadLockSwitchRequest?: ChangeFullDeadLockSwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/set-fulldeadlock-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (changeFullDeadLockSwitchRequest !== null && changeFullDeadLockSwitchRequest !== undefined) {
+                if (changeFullDeadLockSwitchRequest instanceof ChangeFullDeadLockSwitchRequest) {
+                    instanceId = changeFullDeadLockSwitchRequest.instanceId;
+                    body = changeFullDeadLockSwitchRequest.body
+                    xLanguage = changeFullDeadLockSwitchRequest.xLanguage;
+                } else {
+                    instanceId = changeFullDeadLockSwitchRequest['instance_id'];
+                    body = changeFullDeadLockSwitchRequest['body'];
+                    xLanguage = changeFullDeadLockSwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeFullDeadLockSwitch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置SQL限流开关状态。目前仅支持MySQL数据库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2236,6 +2441,56 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建快照
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSnapshots(createSnapshotsRequest?: CreateSnapshotsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/connections/{connection_id}/instance/create-snapshot",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectionId;
+            
+            let xLanguage;
+
+            if (createSnapshotsRequest !== null && createSnapshotsRequest !== undefined) {
+                if (createSnapshotsRequest instanceof CreateSnapshotsRequest) {
+                    connectionId = createSnapshotsRequest.connectionId;
+                    xLanguage = createSnapshotsRequest.xLanguage;
+                    body = createSnapshotsRequest.body
+                } else {
+                    connectionId = createSnapshotsRequest['connection_id'];
+                    xLanguage = createSnapshotsRequest['X-Language'];
+                    body = createSnapshotsRequest['body'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling createSnapshots.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4452,6 +4707,95 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询快照列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSnapshots(listSnapshotsRequest?: ListSnapshotsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/connections/{connection_id}/instance/list-snapshots",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let connectionId;
+            
+            let module;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let perPage;
+            
+            let curPage;
+            
+            let xLanguage;
+
+            if (listSnapshotsRequest !== null && listSnapshotsRequest !== undefined) {
+                if (listSnapshotsRequest instanceof ListSnapshotsRequest) {
+                    connectionId = listSnapshotsRequest.connectionId;
+                    module = listSnapshotsRequest.module;
+                    startAt = listSnapshotsRequest.startAt;
+                    endAt = listSnapshotsRequest.endAt;
+                    perPage = listSnapshotsRequest.perPage;
+                    curPage = listSnapshotsRequest.curPage;
+                    xLanguage = listSnapshotsRequest.xLanguage;
+                } else {
+                    connectionId = listSnapshotsRequest['connection_id'];
+                    module = listSnapshotsRequest['module'];
+                    startAt = listSnapshotsRequest['start_at'];
+                    endAt = listSnapshotsRequest['end_at'];
+                    perPage = listSnapshotsRequest['per_page'];
+                    curPage = listSnapshotsRequest['cur_page'];
+                    xLanguage = listSnapshotsRequest['X-Language'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling listSnapshots.');
+            }
+            if (module === null || module === undefined) {
+                throw new RequiredError('module','Required parameter module was null or undefined when calling listSnapshots.');
+            }
+            if (module !== null && module !== undefined) {
+                localVarQueryParameter['module'] = module;
+            }
+            if (startAt === null || startAt === undefined) {
+                throw new RequiredError('startAt','Required parameter startAt was null or undefined when calling listSnapshots.');
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt === null || endAt === undefined) {
+                throw new RequiredError('endAt','Required parameter endAt was null or undefined when calling listSnapshots.');
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (perPage !== null && perPage !== undefined) {
+                localVarQueryParameter['per_page'] = perPage;
+            }
+            if (curPage !== null && curPage !== undefined) {
+                localVarQueryParameter['cur_page'] = curPage;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取空间分析数据列表。实例级别数据来源于文件系统，库级别和表级别数据来源于information_schema.tables表。空间&amp;元数据分析最多分析10000张表，若缺少库表空间数据，可能是因为数据库实例表个数过多或者账号未保存密码。如果为保存密码，请使用用户管理接口或页面录入数据库账号。 支持MySQL、GaussDB(for MySQL)和SQLServer引擎。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5007,6 +5351,129 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取全量死锁信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFullDeadLockList(showFullDeadLockListRequest?: ShowFullDeadLockListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/show-fulldeadlock-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let pageNum;
+            
+            let pageSize;
+            
+            let xLanguage;
+
+            if (showFullDeadLockListRequest !== null && showFullDeadLockListRequest !== undefined) {
+                if (showFullDeadLockListRequest instanceof ShowFullDeadLockListRequest) {
+                    instanceId = showFullDeadLockListRequest.instanceId;
+                    startAt = showFullDeadLockListRequest.startAt;
+                    endAt = showFullDeadLockListRequest.endAt;
+                    pageNum = showFullDeadLockListRequest.pageNum;
+                    pageSize = showFullDeadLockListRequest.pageSize;
+                    xLanguage = showFullDeadLockListRequest.xLanguage;
+                } else {
+                    instanceId = showFullDeadLockListRequest['instance_id'];
+                    startAt = showFullDeadLockListRequest['start_at'];
+                    endAt = showFullDeadLockListRequest['end_at'];
+                    pageNum = showFullDeadLockListRequest['page_num'];
+                    pageSize = showFullDeadLockListRequest['page_size'];
+                    xLanguage = showFullDeadLockListRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showFullDeadLockList.');
+            }
+            if (startAt === null || startAt === undefined) {
+                throw new RequiredError('startAt','Required parameter startAt was null or undefined when calling showFullDeadLockList.');
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt === null || endAt === undefined) {
+                throw new RequiredError('endAt','Required parameter endAt was null or undefined when calling showFullDeadLockList.');
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (pageNum !== null && pageNum !== undefined) {
+                localVarQueryParameter['page_num'] = pageNum;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取全量死锁开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFullDeadLockSwitch(showFullDeadLockSwitchRequest?: ShowFullDeadLockSwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/show-fulldeadlock-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showFullDeadLockSwitchRequest !== null && showFullDeadLockSwitchRequest !== undefined) {
+                if (showFullDeadLockSwitchRequest instanceof ShowFullDeadLockSwitchRequest) {
+                    instanceId = showFullDeadLockSwitchRequest.instanceId;
+                    xLanguage = showFullDeadLockSwitchRequest.xLanguage;
+                } else {
+                    instanceId = showFullDeadLockSwitchRequest['instance_id'];
+                    xLanguage = showFullDeadLockSwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showFullDeadLockSwitch.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取实例健康诊断报告内容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5057,6 +5524,61 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取死锁的快照信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest?: ShowLatestDeadLockSnapshotRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/connections/{connection_id}/instance/show-latestdeadlock-snapshot",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let connectionId;
+            
+            let id;
+            
+            let xLanguage;
+
+            if (showLatestDeadLockSnapshotRequest !== null && showLatestDeadLockSnapshotRequest !== undefined) {
+                if (showLatestDeadLockSnapshotRequest instanceof ShowLatestDeadLockSnapshotRequest) {
+                    connectionId = showLatestDeadLockSnapshotRequest.connectionId;
+                    id = showLatestDeadLockSnapshotRequest.id;
+                    xLanguage = showLatestDeadLockSnapshotRequest.xLanguage;
+                } else {
+                    connectionId = showLatestDeadLockSnapshotRequest['connection_id'];
+                    id = showLatestDeadLockSnapshotRequest['id'];
+                    xLanguage = showLatestDeadLockSnapshotRequest['X-Language'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showLatestDeadLockSnapshot.');
+            }
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling showLatestDeadLockSnapshot.');
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

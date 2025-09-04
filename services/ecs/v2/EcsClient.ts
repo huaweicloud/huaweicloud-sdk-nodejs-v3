@@ -36,6 +36,8 @@ import { BatchDeleteServerNicsResponse } from './model/BatchDeleteServerNicsResp
 import { BatchDeleteServerTagsRequest } from './model/BatchDeleteServerTagsRequest';
 import { BatchDeleteServerTagsRequestBody } from './model/BatchDeleteServerTagsRequestBody';
 import { BatchDeleteServerTagsResponse } from './model/BatchDeleteServerTagsResponse';
+import { BatchDetachVolumesRequest } from './model/BatchDetachVolumesRequest';
+import { BatchDetachVolumesResponse } from './model/BatchDetachVolumesResponse';
 import { BatchRebootServersRequest } from './model/BatchRebootServersRequest';
 import { BatchRebootServersRequestBody } from './model/BatchRebootServersRequestBody';
 import { BatchRebootServersResponse } from './model/BatchRebootServersResponse';
@@ -43,6 +45,10 @@ import { BatchRebootSeversOption } from './model/BatchRebootSeversOption';
 import { BatchResetServersPasswordRequest } from './model/BatchResetServersPasswordRequest';
 import { BatchResetServersPasswordRequestBody } from './model/BatchResetServersPasswordRequestBody';
 import { BatchResetServersPasswordResponse } from './model/BatchResetServersPasswordResponse';
+import { BatchResizeServersOption } from './model/BatchResizeServersOption';
+import { BatchResizeServersReq } from './model/BatchResizeServersReq';
+import { BatchResizeServersRequest } from './model/BatchResizeServersRequest';
+import { BatchResizeServersResponse } from './model/BatchResizeServersResponse';
 import { BatchStartServersOption } from './model/BatchStartServersOption';
 import { BatchStartServersRequest } from './model/BatchStartServersRequest';
 import { BatchStartServersRequestBody } from './model/BatchStartServersRequestBody';
@@ -120,6 +126,10 @@ import { EnclaveOptions } from './model/EnclaveOptions';
 import { EventResponse } from './model/EventResponse';
 import { EventResponseExecuteOptions } from './model/EventResponseExecuteOptions';
 import { EventResponseSource } from './model/EventResponseSource';
+import { ExecuteServerDumpRequest } from './model/ExecuteServerDumpRequest';
+import { ExecuteServerDumpResponse } from './model/ExecuteServerDumpResponse';
+import { ExecuteServerRedeployRequest } from './model/ExecuteServerRedeployRequest';
+import { ExecuteServerRedeployResponse } from './model/ExecuteServerRedeployResponse';
 import { Fault } from './model/Fault';
 import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
@@ -297,6 +307,7 @@ import { PrePaidServerSecurityGroup } from './model/PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './model/PrePaidServerTag';
 import { ProjectFlavorLimit } from './model/ProjectFlavorLimit';
 import { ProjectTag } from './model/ProjectTag';
+import { Promotion } from './model/Promotion';
 import { RecycleBinPolicys } from './model/RecycleBinPolicys';
 import { RegisterServerMonitorRequest } from './model/RegisterServerMonitorRequest';
 import { RegisterServerMonitorRequestBody } from './model/RegisterServerMonitorRequestBody';
@@ -354,6 +365,8 @@ import { ServerTag } from './model/ServerTag';
 import { ServerTagMatch } from './model/ServerTagMatch';
 import { ServerTags } from './model/ServerTags';
 import { ServerVolumeAttachment } from './model/ServerVolumeAttachment';
+import { ShowAppendableVolumeQuotaRequest } from './model/ShowAppendableVolumeQuotaRequest';
+import { ShowAppendableVolumeQuotaResponse } from './model/ShowAppendableVolumeQuotaResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowMetadataOptionsRequest } from './model/ShowMetadataOptionsRequest';
@@ -428,6 +441,7 @@ import { UpdateServerRequestBody } from './model/UpdateServerRequestBody';
 import { UpdateServerResponse } from './model/UpdateServerResponse';
 import { UpdateServerResult } from './model/UpdateServerResult';
 import { VolumeAttach } from './model/VolumeAttach';
+import { VolumeBatchDetachRequest } from './model/VolumeBatchDetachRequest';
 
 export class EcsClient {
     public static newBuilder(): ClientBuilder<EcsClient> {
@@ -635,6 +649,25 @@ export class EcsClient {
     }
 
     /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量卸载卷
+     * @param {string} volumeId 卷ID。
+     * @param {VolumeBatchDetachRequest} volumeBatchDetachRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDetachVolumes(batchDetachVolumesRequest?: BatchDetachVolumesRequest): Promise<BatchDetachVolumesResponse> {
+        const options = ParamCreater().batchDetachVolumes(batchDetachVolumesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据给定的云服务器ID列表，批量重启云服务器，一次最多可以重启1000台。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -665,6 +698,25 @@ export class EcsClient {
      */
     public batchResetServersPassword(batchResetServersPasswordRequest?: BatchResetServersPasswordRequest): Promise<BatchResetServersPasswordResponse> {
         const options = ParamCreater().batchResetServersPassword(batchResetServersPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量变更云服务器规格
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量变更云服务器规格
+     * @param {BatchResizeServersReq} batchResizeServersReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchResizeServers(batchResizeServersRequest?: BatchResizeServersRequest): Promise<BatchResizeServersResponse> {
+        const options = ParamCreater().batchResizeServers(batchResizeServersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1123,6 +1175,44 @@ export class EcsClient {
      */
     public disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest): Promise<DisassociateServerVirtualIpResponse> {
         const options = ParamCreater().disassociateServerVirtualIp(disassociateServerVirtualIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 触发云服务器内核dump
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 触发云服务器内核dump
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeServerDump(executeServerDumpRequest?: ExecuteServerDumpRequest): Promise<ExecuteServerDumpResponse> {
+        const options = ParamCreater().executeServerDump(executeServerDumpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重部署云服务器
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重部署云服务器
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeServerRedeploy(executeServerRedeployRequest?: ExecuteServerRedeployRequest): Promise<ExecuteServerRedeployResponse> {
+        const options = ParamCreater().executeServerRedeploy(executeServerRedeployRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2039,6 +2129,25 @@ export class EcsClient {
     }
 
     /**
+     * 查询包周期虚拟机可以追加卷数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询包周期虚拟机可以追加卷数量
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAppendableVolumeQuota(showAppendableVolumeQuotaRequest?: ShowAppendableVolumeQuotaRequest): Promise<ShowAppendableVolumeQuotaResponse> {
+        const options = ParamCreater().showAppendableVolumeQuota(showAppendableVolumeQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2916,6 +3025,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDetachVolumes(batchDetachVolumesRequest?: BatchDetachVolumesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/batchaction/detachvolumes/{volume_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let volumeId;
+
+            if (batchDetachVolumesRequest !== null && batchDetachVolumesRequest !== undefined) {
+                if (batchDetachVolumesRequest instanceof BatchDetachVolumesRequest) {
+                    volumeId = batchDetachVolumesRequest.volumeId;
+                    body = batchDetachVolumesRequest.body
+                } else {
+                    volumeId = batchDetachVolumesRequest['volume_id'];
+                    body = batchDetachVolumesRequest['body'];
+                }
+            }
+
+        
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchDetachVolumes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据给定的云服务器ID列表，批量重启云服务器，一次最多可以重启1000台。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2977,6 +3131,44 @@ export const ParamCreater = function () {
                     body = batchResetServersPasswordRequest.body
                 } else {
                     body = batchResetServersPasswordRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量变更云服务器规格
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchResizeServers(batchResizeServersRequest?: BatchResizeServersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/batch-resize",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchResizeServersRequest !== null && batchResizeServersRequest !== undefined) {
+                if (batchResizeServersRequest instanceof BatchResizeServersRequest) {
+                    body = batchResizeServersRequest.body
+                } else {
+                    body = batchResizeServersRequest['body'];
                 }
             }
 
@@ -3917,6 +4109,80 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'nic_id': nicId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 触发云服务器内核dump
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeServerDump(executeServerDumpRequest?: ExecuteServerDumpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/actions/trigger-crash-dump",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (executeServerDumpRequest !== null && executeServerDumpRequest !== undefined) {
+                if (executeServerDumpRequest instanceof ExecuteServerDumpRequest) {
+                    serverId = executeServerDumpRequest.serverId;
+                } else {
+                    serverId = executeServerDumpRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling executeServerDump.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重部署云服务器
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeServerRedeploy(executeServerRedeployRequest?: ExecuteServerRedeployRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/actions/redeploy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (executeServerRedeployRequest !== null && executeServerRedeployRequest !== undefined) {
+                if (executeServerRedeployRequest instanceof ExecuteServerRedeployRequest) {
+                    serverId = executeServerRedeployRequest.serverId;
+                } else {
+                    serverId = executeServerRedeployRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling executeServerRedeploy.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6222,6 +6488,43 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling revertRecycleBinServer.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询包周期虚拟机可以追加卷数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAppendableVolumeQuota(showAppendableVolumeQuotaRequest?: ShowAppendableVolumeQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/appendvolumequota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showAppendableVolumeQuotaRequest !== null && showAppendableVolumeQuotaRequest !== undefined) {
+                if (showAppendableVolumeQuotaRequest instanceof ShowAppendableVolumeQuotaRequest) {
+                    serverId = showAppendableVolumeQuotaRequest.serverId;
+                } else {
+                    serverId = showAppendableVolumeQuotaRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showAppendableVolumeQuota.');
             }
 
             options.pathParams = { 'server_id': serverId, };

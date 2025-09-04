@@ -161,6 +161,8 @@ import { ListAuditlogsResponse } from './model/ListAuditlogsResponse';
 import { ListAuditlogsResult } from './model/ListAuditlogsResult';
 import { ListAz2MigrateRequest } from './model/ListAz2MigrateRequest';
 import { ListAz2MigrateResponse } from './model/ListAz2MigrateResponse';
+import { ListBackupDownloadPolicyRequest } from './model/ListBackupDownloadPolicyRequest';
+import { ListBackupDownloadPolicyResponse } from './model/ListBackupDownloadPolicyResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
@@ -274,6 +276,9 @@ import { RestoreNewInstanceRequestBody } from './model/RestoreNewInstanceRequest
 import { RestoreNewInstanceResponse } from './model/RestoreNewInstanceResponse';
 import { RestorePoint } from './model/RestorePoint';
 import { RolesOption } from './model/RolesOption';
+import { SaveBackupDownloadPolicyRequest } from './model/SaveBackupDownloadPolicyRequest';
+import { SaveBackupDownloadPolicyRequestBody } from './model/SaveBackupDownloadPolicyRequestBody';
+import { SaveBackupDownloadPolicyResponse } from './model/SaveBackupDownloadPolicyResponse';
 import { ScheduledTasksRspSchedules } from './model/ScheduledTasksRspSchedules';
 import { SetAuditlogPolicyRequest } from './model/SetAuditlogPolicyRequest';
 import { SetAuditlogPolicyRequestBody } from './model/SetAuditlogPolicyRequestBody';
@@ -363,6 +368,9 @@ import { TagItem } from './model/TagItem';
 import { TagResponse } from './model/TagResponse';
 import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { Target } from './model/Target';
+import { UpdateBackupDownloadPolicyRequest } from './model/UpdateBackupDownloadPolicyRequest';
+import { UpdateBackupDownloadPolicyRequestBody } from './model/UpdateBackupDownloadPolicyRequestBody';
+import { UpdateBackupDownloadPolicyResponse } from './model/UpdateBackupDownloadPolicyResponse';
 import { UpdateClientNetworkRequest } from './model/UpdateClientNetworkRequest';
 import { UpdateClientNetworkResponse } from './model/UpdateClientNetworkResponse';
 import { UpdateConfigurationParameterRequest } from './model/UpdateConfigurationParameterRequest';
@@ -1193,6 +1201,24 @@ export class DdsClient {
     }
 
     /**
+     * 查询备份下载策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询备份下载策略
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBackupDownloadPolicy(listBackupDownloadPolicyRequest?: ListBackupDownloadPolicyRequest): Promise<ListBackupDownloadPolicyResponse> {
+        const options = ParamCreater().listBackupDownloadPolicy();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据指定条件查询备份列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1941,6 +1967,25 @@ export class DdsClient {
     }
 
     /**
+     * 创建备份下载策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建备份下载策略
+     * @param {SaveBackupDownloadPolicyRequestBody} saveBackupDownloadPolicyRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveBackupDownloadPolicy(saveBackupDownloadPolicyRequest?: SaveBackupDownloadPolicyRequest): Promise<SaveBackupDownloadPolicyResponse> {
+        const options = ParamCreater().saveBackupDownloadPolicy(saveBackupDownloadPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置审计日志策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2630,6 +2675,25 @@ export class DdsClient {
      */
     public switchoverReplicaSet(switchoverReplicaSetRequest?: SwitchoverReplicaSetRequest): Promise<SwitchoverReplicaSetResponse> {
         const options = ParamCreater().switchoverReplicaSet(switchoverReplicaSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新备份下载策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新备份下载策略
+     * @param {UpdateBackupDownloadPolicyRequestBody} updateBackupDownloadPolicyRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBackupDownloadPolicy(updateBackupDownloadPolicyRequest?: UpdateBackupDownloadPolicyRequest): Promise<UpdateBackupDownloadPolicyResponse> {
+        const options = ParamCreater().updateBackupDownloadPolicy(updateBackupDownloadPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4656,6 +4720,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询备份下载策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBackupDownloadPolicy() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/backups/download-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据指定条件查询备份列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6581,6 +6666,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建备份下载策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveBackupDownloadPolicy(saveBackupDownloadPolicyRequest?: SaveBackupDownloadPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/backups/download-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (saveBackupDownloadPolicyRequest !== null && saveBackupDownloadPolicyRequest !== undefined) {
+                if (saveBackupDownloadPolicyRequest instanceof SaveBackupDownloadPolicyRequest) {
+                    body = saveBackupDownloadPolicyRequest.body
+                } else {
+                    body = saveBackupDownloadPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置审计日志策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8124,6 +8247,44 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新备份下载策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBackupDownloadPolicy(updateBackupDownloadPolicyRequest?: UpdateBackupDownloadPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/backups/download-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateBackupDownloadPolicyRequest !== null && updateBackupDownloadPolicyRequest !== undefined) {
+                if (updateBackupDownloadPolicyRequest instanceof UpdateBackupDownloadPolicyRequest) {
+                    body = updateBackupDownloadPolicyRequest.body
+                } else {
+                    body = updateBackupDownloadPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

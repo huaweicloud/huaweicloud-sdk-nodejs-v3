@@ -5,8 +5,10 @@ import { PoliciesCloudStorage } from './PoliciesCloudStorage';
 import { PoliciesCustom } from './PoliciesCustom';
 import { PoliciesDisplay } from './PoliciesDisplay';
 import { PoliciesFileAndClipboard } from './PoliciesFileAndClipboard';
+import { PoliciesFolderRedirection } from './PoliciesFolderRedirection';
 import { PoliciesKeyboardMouse } from './PoliciesKeyboardMouse';
 import { PoliciesPeripherals } from './PoliciesPeripherals';
+import { PoliciesUrlRedirection } from './PoliciesUrlRedirection';
 import { PoliciesUserProfile } from './PoliciesUserProfile';
 import { Session } from './Session';
 import { VirtualChannel } from './VirtualChannel';
@@ -25,6 +27,8 @@ export class Policies {
     public custom?: PoliciesCustom;
     private 'cloud_storage'?: PoliciesCloudStorage;
     private 'user_profile'?: PoliciesUserProfile;
+    private 'url_redirection'?: PoliciesUrlRedirection;
+    private 'folder_redirection'?: PoliciesFolderRedirection;
     public constructor() { 
     }
     public withPeripherals(peripherals: PoliciesPeripherals): Policies {
@@ -104,5 +108,25 @@ export class Policies {
     }
     public get userProfile(): PoliciesUserProfile | undefined {
         return this['user_profile'];
+    }
+    public withUrlRedirection(urlRedirection: PoliciesUrlRedirection): Policies {
+        this['url_redirection'] = urlRedirection;
+        return this;
+    }
+    public set urlRedirection(urlRedirection: PoliciesUrlRedirection  | undefined) {
+        this['url_redirection'] = urlRedirection;
+    }
+    public get urlRedirection(): PoliciesUrlRedirection | undefined {
+        return this['url_redirection'];
+    }
+    public withFolderRedirection(folderRedirection: PoliciesFolderRedirection): Policies {
+        this['folder_redirection'] = folderRedirection;
+        return this;
+    }
+    public set folderRedirection(folderRedirection: PoliciesFolderRedirection  | undefined) {
+        this['folder_redirection'] = folderRedirection;
+    }
+    public get folderRedirection(): PoliciesFolderRedirection | undefined {
+        return this['folder_redirection'];
     }
 }

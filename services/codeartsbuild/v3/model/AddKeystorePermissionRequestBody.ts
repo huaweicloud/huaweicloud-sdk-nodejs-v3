@@ -6,6 +6,7 @@ export class AddKeystorePermissionRequestBody {
     public modify?: boolean;
     public usage?: boolean;
     private 'user_name'?: string;
+    private 'user_id'?: string;
     public setting?: boolean;
     private 'can_absent'?: boolean;
     public constructor(_delete?: boolean, keystoreId?: string, modify?: boolean, usage?: boolean, userName?: string, setting?: boolean, canAbsent?: boolean) { 
@@ -54,6 +55,16 @@ export class AddKeystorePermissionRequestBody {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserId(userId: string): AddKeystorePermissionRequestBody {
+        this['user_id'] = userId;
+        return this;
+    }
+    public set userId(userId: string  | undefined) {
+        this['user_id'] = userId;
+    }
+    public get userId(): string | undefined {
+        return this['user_id'];
     }
     public withSetting(setting: boolean): AddKeystorePermissionRequestBody {
         this['setting'] = setting;

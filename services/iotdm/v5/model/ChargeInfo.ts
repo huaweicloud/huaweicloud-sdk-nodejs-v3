@@ -6,6 +6,7 @@ export class ChargeInfo {
     private 'period_num'?: number;
     private 'is_auto_renew'?: boolean;
     private 'is_auto_pay'?: boolean;
+    private 'promotion_infos'?: string;
     public constructor(chargeMode?: string) { 
         this['charge_mode'] = chargeMode;
     }
@@ -58,5 +59,15 @@ export class ChargeInfo {
     }
     public get isAutoPay(): boolean | undefined {
         return this['is_auto_pay'];
+    }
+    public withPromotionInfos(promotionInfos: string): ChargeInfo {
+        this['promotion_infos'] = promotionInfos;
+        return this;
+    }
+    public set promotionInfos(promotionInfos: string  | undefined) {
+        this['promotion_infos'] = promotionInfos;
+    }
+    public get promotionInfos(): string | undefined {
+        return this['promotion_infos'];
     }
 }
