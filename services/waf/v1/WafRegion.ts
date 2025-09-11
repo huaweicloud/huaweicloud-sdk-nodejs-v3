@@ -33,6 +33,8 @@ export class WafRegion {
     public static EU_WEST_101 = new Region("eu-west-101", ["https://waf.eu-west-101.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://waf.ru-moscow-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://waf.ap-southeast-4.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://waf.ap-southeast-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://waf.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -62,7 +64,9 @@ export class WafRegion {
         "me-east-1":WafRegion.ME_EAST_1,
         "eu-west-101":WafRegion.EU_WEST_101,
         "ru-moscow-1":WafRegion.RU_MOSCOW_1,
-        "ap-southeast-4":WafRegion.AP_SOUTHEAST_4
+        "ap-southeast-4":WafRegion.AP_SOUTHEAST_4,
+        "ap-southeast-5":WafRegion.AP_SOUTHEAST_5,
+        "af-north-1":WafRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

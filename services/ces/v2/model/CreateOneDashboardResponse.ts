@@ -1,4 +1,4 @@
-import { DashBoardIdItem } from './DashBoardIdItem';
+import { DashBoardIdItemResp } from './DashBoardIdItemResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 

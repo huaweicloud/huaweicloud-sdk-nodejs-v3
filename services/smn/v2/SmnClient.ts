@@ -17,9 +17,16 @@ import { BatchCreateOrDeleteResourceTagsRequestBody } from './model/BatchCreateO
 import { BatchCreateOrDeleteResourceTagsResponse } from './model/BatchCreateOrDeleteResourceTagsResponse';
 import { BatchCreateSubscriptionsFilterPolicesRequest } from './model/BatchCreateSubscriptionsFilterPolicesRequest';
 import { BatchCreateSubscriptionsFilterPolicesResponse } from './model/BatchCreateSubscriptionsFilterPolicesResponse';
+import { BatchDeleteSubscriptionsByTopicRequest } from './model/BatchDeleteSubscriptionsByTopicRequest';
+import { BatchDeleteSubscriptionsByTopicResponse } from './model/BatchDeleteSubscriptionsByTopicResponse';
 import { BatchDeleteSubscriptionsFilterPolicesRequest } from './model/BatchDeleteSubscriptionsFilterPolicesRequest';
 import { BatchDeleteSubscriptionsFilterPolicesRequestBody } from './model/BatchDeleteSubscriptionsFilterPolicesRequestBody';
 import { BatchDeleteSubscriptionsFilterPolicesResponse } from './model/BatchDeleteSubscriptionsFilterPolicesResponse';
+import { BatchDeleteSubscriptionsRequest } from './model/BatchDeleteSubscriptionsRequest';
+import { BatchDeleteSubscriptionsRequestBody } from './model/BatchDeleteSubscriptionsRequestBody';
+import { BatchDeleteSubscriptionsRequestItemInfo } from './model/BatchDeleteSubscriptionsRequestItemInfo';
+import { BatchDeleteSubscriptionsResponse } from './model/BatchDeleteSubscriptionsResponse';
+import { BatchDeleteSubscriptionsResponseItemInfo } from './model/BatchDeleteSubscriptionsResponseItemInfo';
 import { BatchResult } from './model/BatchResult';
 import { BatchSubscriptionsFilterPolicesRequestBody } from './model/BatchSubscriptionsFilterPolicesRequestBody';
 import { BatchSubscriptionsFilterPolicesRequestBodyPolices } from './model/BatchSubscriptionsFilterPolicesRequestBodyPolices';
@@ -27,6 +34,8 @@ import { BatchUpdateSubscriptionsFilterPolicesRequest } from './model/BatchUpdat
 import { BatchUpdateSubscriptionsFilterPolicesResponse } from './model/BatchUpdateSubscriptionsFilterPolicesResponse';
 import { CancelSubscriptionRequest } from './model/CancelSubscriptionRequest';
 import { CancelSubscriptionResponse } from './model/CancelSubscriptionResponse';
+import { ConfirmSubscriptionRequest } from './model/ConfirmSubscriptionRequest';
+import { ConfirmSubscriptionResponse } from './model/ConfirmSubscriptionResponse';
 import { CountDetail } from './model/CountDetail';
 import { CreateApplicationEndpointRequest } from './model/CreateApplicationEndpointRequest';
 import { CreateApplicationEndpointRequestBody } from './model/CreateApplicationEndpointRequestBody';
@@ -60,12 +69,16 @@ import { DeleteNotifyPolicyRequest } from './model/DeleteNotifyPolicyRequest';
 import { DeleteNotifyPolicyResponse } from './model/DeleteNotifyPolicyResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
 import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
+import { DeleteSubscriptionsByTopicRequest } from './model/DeleteSubscriptionsByTopicRequest';
+import { DeleteSubscriptionsByTopicResponse } from './model/DeleteSubscriptionsByTopicResponse';
 import { DeleteTopicAttributeByNameRequest } from './model/DeleteTopicAttributeByNameRequest';
 import { DeleteTopicAttributeByNameResponse } from './model/DeleteTopicAttributeByNameResponse';
 import { DeleteTopicAttributesRequest } from './model/DeleteTopicAttributesRequest';
 import { DeleteTopicAttributesResponse } from './model/DeleteTopicAttributesResponse';
 import { DeleteTopicRequest } from './model/DeleteTopicRequest';
 import { DeleteTopicResponse } from './model/DeleteTopicResponse';
+import { DownloadHttpCertRequest } from './model/DownloadHttpCertRequest';
+import { DownloadHttpCertResponse } from './model/DownloadHttpCertResponse';
 import { GetHttpDetectResponseBodyDetail } from './model/GetHttpDetectResponseBodyDetail';
 import { HttpDetectRequestBody } from './model/HttpDetectRequestBody';
 import { HttpDetectRequestBodyExtension } from './model/HttpDetectRequestBodyExtension';
@@ -80,6 +93,9 @@ import { ListApplicationEndpointsRequest } from './model/ListApplicationEndpoint
 import { ListApplicationEndpointsResponse } from './model/ListApplicationEndpointsResponse';
 import { ListApplicationsRequest } from './model/ListApplicationsRequest';
 import { ListApplicationsResponse } from './model/ListApplicationsResponse';
+import { ListCloudServiceRequest } from './model/ListCloudServiceRequest';
+import { ListCloudServiceResponse } from './model/ListCloudServiceResponse';
+import { ListCloudServiceResponseItemInfo } from './model/ListCloudServiceResponseItemInfo';
 import { ListInstanceRequestBody } from './model/ListInstanceRequestBody';
 import { ListLogtankRequest } from './model/ListLogtankRequest';
 import { ListLogtankResponse } from './model/ListLogtankResponse';
@@ -89,6 +105,8 @@ import { ListMessageTemplatesRequest } from './model/ListMessageTemplatesRequest
 import { ListMessageTemplatesResponse } from './model/ListMessageTemplatesResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListProtocolsRequest } from './model/ListProtocolsRequest';
+import { ListProtocolsResponse } from './model/ListProtocolsResponse';
 import { ListResourceInstancesRequest } from './model/ListResourceInstancesRequest';
 import { ListResourceInstancesResponse } from './model/ListResourceInstancesResponse';
 import { ListResourceTagsRequest } from './model/ListResourceTagsRequest';
@@ -140,6 +158,8 @@ import { SumCountDetail } from './model/SumCountDetail';
 import { TagMatch } from './model/TagMatch';
 import { TagResource } from './model/TagResource';
 import { TopicAttribute } from './model/TopicAttribute';
+import { UnsubscribeSubscriptionRequest } from './model/UnsubscribeSubscriptionRequest';
+import { UnsubscribeSubscriptionResponse } from './model/UnsubscribeSubscriptionResponse';
 import { UpdateApplicationEndpointRequest } from './model/UpdateApplicationEndpointRequest';
 import { UpdateApplicationEndpointRequestBody } from './model/UpdateApplicationEndpointRequestBody';
 import { UpdateApplicationEndpointResponse } from './model/UpdateApplicationEndpointResponse';
@@ -265,6 +285,45 @@ export class SmnClient {
     }
 
     /**
+     * 批量删除订阅，每个订阅终端的删除结果在响应体中依次展示。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除订阅
+     * @param {BatchDeleteSubscriptionsRequestBody} batchDeleteSubscriptionsRequestBody 批量删除订阅请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSubscriptions(batchDeleteSubscriptionsRequest?: BatchDeleteSubscriptionsRequest): Promise<BatchDeleteSubscriptionsResponse> {
+        const options = ParamCreater().batchDeleteSubscriptions(batchDeleteSubscriptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除指定主题的订阅，每个订阅终端的删除结果在响应体中依次展示。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除指定主题的订阅
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {BatchDeleteSubscriptionsRequestBody} batchDeleteSubscriptionsRequestBody 批量删除的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSubscriptionsByTopic(batchDeleteSubscriptionsByTopicRequest?: BatchDeleteSubscriptionsByTopicRequest): Promise<BatchDeleteSubscriptionsByTopicResponse> {
+        const options = ParamCreater().batchDeleteSubscriptionsByTopic(batchDeleteSubscriptionsByTopicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除订阅者的消息过滤策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -314,6 +373,27 @@ export class SmnClient {
      */
     public cancelSubscription(cancelSubscriptionRequest?: CancelSubscriptionRequest): Promise<CancelSubscriptionResponse> {
         const options = ParamCreater().cancelSubscription(cancelSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 确认订阅主题消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 确认订阅
+     * @param {string} token 确认订阅Token信息。
+     * @param {string} [topicUrn] Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} [endpoint] 订阅终端地址。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public confirmSubscription(confirmSubscriptionRequest?: ConfirmSubscriptionRequest): Promise<ConfirmSubscriptionResponse> {
+        const options = ParamCreater().confirmSubscription(confirmSubscriptionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -503,6 +583,26 @@ export class SmnClient {
     }
 
     /**
+     * 删除指定主题的订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定主题的订阅
+     * @param {string} topicUrn Topic的唯一的资源标识。可以通过[查看主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} subscriptionUrn 订阅者的唯一的资源标识，可通过[查询订阅者列表](ListSubscriptions.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSubscriptionsByTopic(deleteSubscriptionsByTopicRequest?: DeleteSubscriptionsByTopicRequest): Promise<DeleteSubscriptionsByTopicResponse> {
+        const options = ParamCreater().deleteSubscriptionsByTopic(deleteSubscriptionsByTopicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -553,6 +653,43 @@ export class SmnClient {
      */
     public deleteTopicAttributes(deleteTopicAttributesRequest?: DeleteTopicAttributesRequest): Promise<DeleteTopicAttributesResponse> {
         const options = ParamCreater().deleteTopicAttributes(deleteTopicAttributesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载http消息校验证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载证书
+     * @param {string} certificateId 证书文件ID名称，格式为SMN-{RegionID}-{UUID}.pem
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadHttpCert(downloadHttpCertRequest?: DownloadHttpCertRequest): Promise<DownloadHttpCertResponse> {
+        const options = ParamCreater().downloadHttpCert(downloadHttpCertRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['content-type'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询授权云服务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询授权云服务列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudService(listCloudServiceRequest?: ListCloudServiceRequest): Promise<ListCloudServiceResponse> {
+        const options = ParamCreater().listCloudService();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -632,6 +769,24 @@ export class SmnClient {
      */
     public listProjectTags(listProjectTagsRequest?: ListProjectTagsRequest): Promise<ListProjectTagsResponse> {
         const options = ParamCreater().listProjectTags(listProjectTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询SMN支持的协议列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询协议列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProtocols(listProtocolsRequest?: ListProtocolsRequest): Promise<ListProtocolsResponse> {
+        const options = ParamCreater().listProtocols();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -928,6 +1083,25 @@ export class SmnClient {
      */
     public showNotifyPolicy(showNotifyPolicyRequest?: ShowNotifyPolicyRequest): Promise<ShowNotifyPolicyResponse> {
         const options = ParamCreater().showNotifyPolicy(showNotifyPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消订阅主题
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消订阅
+     * @param {string} subscriptionUrn 订阅者的唯一的资源标识，可通过[查询订阅者列表](ListSubscriptions.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unsubscribeSubscription(unsubscribeSubscriptionRequest?: UnsubscribeSubscriptionRequest): Promise<UnsubscribeSubscriptionResponse> {
+        const options = ParamCreater().unsubscribeSubscription(unsubscribeSubscriptionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1465,6 +1639,90 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除订阅，每个订阅终端的删除结果在响应体中依次展示。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSubscriptions(batchDeleteSubscriptionsRequest?: BatchDeleteSubscriptionsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/subscriptions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteSubscriptionsRequest !== null && batchDeleteSubscriptionsRequest !== undefined) {
+                if (batchDeleteSubscriptionsRequest instanceof BatchDeleteSubscriptionsRequest) {
+                    body = batchDeleteSubscriptionsRequest.body
+                } else {
+                    body = batchDeleteSubscriptionsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除指定主题的订阅，每个订阅终端的删除结果在响应体中依次展示。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSubscriptionsByTopic(batchDeleteSubscriptionsByTopicRequest?: BatchDeleteSubscriptionsByTopicRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/subscriptions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+
+            if (batchDeleteSubscriptionsByTopicRequest !== null && batchDeleteSubscriptionsByTopicRequest !== undefined) {
+                if (batchDeleteSubscriptionsByTopicRequest instanceof BatchDeleteSubscriptionsByTopicRequest) {
+                    topicUrn = batchDeleteSubscriptionsByTopicRequest.topicUrn;
+                    body = batchDeleteSubscriptionsByTopicRequest.body
+                } else {
+                    topicUrn = batchDeleteSubscriptionsByTopicRequest['topic_urn'];
+                    body = batchDeleteSubscriptionsByTopicRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling batchDeleteSubscriptionsByTopic.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除订阅者的消息过滤策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1573,6 +1831,60 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'subscription_urn': subscriptionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 确认订阅主题消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        confirmSubscription(confirmSubscriptionRequest?: ConfirmSubscriptionRequest) {
+            const options = {
+                method: "GET",
+                url: "/rest/v2/notifications/subscription/confirm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let token;
+            
+            let topicUrn;
+            
+            let endpoint;
+
+            if (confirmSubscriptionRequest !== null && confirmSubscriptionRequest !== undefined) {
+                if (confirmSubscriptionRequest instanceof ConfirmSubscriptionRequest) {
+                    token = confirmSubscriptionRequest.token;
+                    topicUrn = confirmSubscriptionRequest.topicUrn;
+                    endpoint = confirmSubscriptionRequest.endpoint;
+                } else {
+                    token = confirmSubscriptionRequest['token'];
+                    topicUrn = confirmSubscriptionRequest['topic_urn'];
+                    endpoint = confirmSubscriptionRequest['endpoint'];
+                }
+            }
+
+        
+            if (token === null || token === undefined) {
+                throw new RequiredError('token','Required parameter token was null or undefined when calling confirmSubscription.');
+            }
+            if (token !== null && token !== undefined) {
+                localVarQueryParameter['token'] = token;
+            }
+            if (topicUrn !== null && topicUrn !== undefined) {
+                localVarQueryParameter['topic_urn'] = topicUrn;
+            }
+            if (endpoint !== null && endpoint !== undefined) {
+                localVarQueryParameter['endpoint'] = endpoint;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1971,6 +2283,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除指定主题的订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSubscriptionsByTopic(deleteSubscriptionsByTopicRequest?: DeleteSubscriptionsByTopicRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/subscriptions/{subscription_urn}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+            
+            let subscriptionUrn;
+
+            if (deleteSubscriptionsByTopicRequest !== null && deleteSubscriptionsByTopicRequest !== undefined) {
+                if (deleteSubscriptionsByTopicRequest instanceof DeleteSubscriptionsByTopicRequest) {
+                    topicUrn = deleteSubscriptionsByTopicRequest.topicUrn;
+                    subscriptionUrn = deleteSubscriptionsByTopicRequest.subscriptionUrn;
+                } else {
+                    topicUrn = deleteSubscriptionsByTopicRequest['topic_urn'];
+                    subscriptionUrn = deleteSubscriptionsByTopicRequest['subscription_urn'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling deleteSubscriptionsByTopic.');
+            }
+            if (subscriptionUrn === null || subscriptionUrn === undefined) {
+            throw new RequiredError('subscriptionUrn','Required parameter subscriptionUrn was null or undefined when calling deleteSubscriptionsByTopic.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn,'subscription_urn': subscriptionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2084,6 +2440,64 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载http消息校验证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadHttpCert(downloadHttpCertRequest?: DownloadHttpCertRequest) {
+            const options = {
+                method: "GET",
+                url: "/smn/{certificate_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let certificateId;
+
+            if (downloadHttpCertRequest !== null && downloadHttpCertRequest !== undefined) {
+                if (downloadHttpCertRequest instanceof DownloadHttpCertRequest) {
+                    certificateId = downloadHttpCertRequest.certificateId;
+                } else {
+                    certificateId = downloadHttpCertRequest['certificate_id'];
+                }
+            }
+
+        
+            if (certificateId === null || certificateId === undefined) {
+            throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling downloadHttpCert.');
+            }
+
+            options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询授权云服务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudService() {
+            const options = {
+                method: "GET",
+                url: "/v2/notifications/cloud_service",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2253,6 +2667,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询SMN支持的协议列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProtocols() {
+            const options = {
+                method: "GET",
+                url: "/v2/notifications/protocols",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2912,6 +3347,46 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 取消订阅主题
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unsubscribeSubscription(unsubscribeSubscriptionRequest?: UnsubscribeSubscriptionRequest) {
+            const options = {
+                method: "GET",
+                url: "/rest/v2/notifications/subscription/unsubscribe",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let subscriptionUrn;
+
+            if (unsubscribeSubscriptionRequest !== null && unsubscribeSubscriptionRequest !== undefined) {
+                if (unsubscribeSubscriptionRequest instanceof UnsubscribeSubscriptionRequest) {
+                    subscriptionUrn = unsubscribeSubscriptionRequest.subscriptionUrn;
+                } else {
+                    subscriptionUrn = unsubscribeSubscriptionRequest['subscription_urn'];
+                }
+            }
+
+        
+            if (subscriptionUrn === null || subscriptionUrn === undefined) {
+                throw new RequiredError('subscriptionUrn','Required parameter subscriptionUrn was null or undefined when calling unsubscribeSubscription.');
+            }
+            if (subscriptionUrn !== null && subscriptionUrn !== undefined) {
+                localVarQueryParameter['subscription_urn'] = subscriptionUrn;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

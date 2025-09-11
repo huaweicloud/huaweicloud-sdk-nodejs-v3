@@ -2,9 +2,9 @@
 
 export class AuditAgentRequest {
     private 'db_id'?: string;
-    public mode?: AuditAgentRequestModeEnum | number;
+    public mode?: number;
     private 'agent_id'?: string;
-    private 'agent_type'?: AuditAgentRequestAgentTypeEnum | string;
+    private 'agent_type'?: string;
     private 'agent_os'?: AuditAgentRequestAgentOsEnum | string;
     private 'agent_ip'?: string;
     private 'agent_nic'?: string;
@@ -26,7 +26,7 @@ export class AuditAgentRequest {
     public get dbId(): string | undefined {
         return this['db_id'];
     }
-    public withMode(mode: AuditAgentRequestModeEnum | number): AuditAgentRequest {
+    public withMode(mode: number): AuditAgentRequest {
         this['mode'] = mode;
         return this;
     }
@@ -40,14 +40,14 @@ export class AuditAgentRequest {
     public get agentId(): string | undefined {
         return this['agent_id'];
     }
-    public withAgentType(agentType: AuditAgentRequestAgentTypeEnum | string): AuditAgentRequest {
+    public withAgentType(agentType: string): AuditAgentRequest {
         this['agent_type'] = agentType;
         return this;
     }
-    public set agentType(agentType: AuditAgentRequestAgentTypeEnum | string  | undefined) {
+    public set agentType(agentType: string  | undefined) {
         this['agent_type'] = agentType;
     }
-    public get agentType(): AuditAgentRequestAgentTypeEnum | string | undefined {
+    public get agentType(): string | undefined {
         return this['agent_type'];
     }
     public withAgentOs(agentOs: AuditAgentRequestAgentOsEnum | string): AuditAgentRequest {
@@ -102,22 +102,6 @@ export class AuditAgentRequest {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AuditAgentRequestModeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AuditAgentRequestAgentTypeEnum {
-    APP = 'APP',
-    DB = 'DB'
-}
 /**
     * @export
     * @enum {string}

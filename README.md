@@ -107,6 +107,7 @@ the [CHANGELOG.md](https://github.com/huaweicloud/huaweicloud-sdk-nodejs-v3/blob
     * [2.2  Use Temporary AK&SK](#22-use-temporary-aksk-top)
 * [3. Client Initialization](#3-client-initialization-top)
     * [3.1  Initialize client with specified Endpoint](#31-initialize-the-serviceclient-with-specified-endpoint-top)
+    * [3.2 User Agent](#32-user-agent-top)
 * [4. Send Request and Handle response](#4-send-requests-and-handle-responses-top)
 * [5. Troubleshooting](#5-troubleshooting-top)
     * [5.1  Original HTTP Listener](#51-original-http-listener-top)
@@ -209,6 +210,26 @@ const client = VpcClient.newBuilder()
     .withCredential(basicCredentials)
     .withEndpoint(endpoint)
     .withProxyAgent(proxy)
+    .build()
+```
+
+#### 3.2 User Agent [:top:](#user-manual-top)
+ 
+Additional information will be appended to the User-Agent in the request header by default since **v3.1.167**. It is used by service to identify what SDK language, java version, and platform info a client is using to call into their service, and a random identifier will be generated and appended to the User-Agent. The identifier will be stored in the user's home directory, as `~/.huaweicloud/application_id` on Linux and `C:\Users\USER_NAME\.huaweicloud\application_id` on Windows.
+ 
+The above information will be used to protect the security of your and your users' Huawei Cloud accounts.
+ 
+You can disable this automatic User-Agent augmentation by explicitly setting a custom User-Agent header value. The value is recommended to be less than 50 characters and should use US-ASCII visible characters:
+ 
+``` javascript
+const client = VpcClient.newBuilder()
+    .withCredential(basicCredentials)
+    .withEndpoint(endpoint)
+    .withProxyAgent(proxy)
+    // Append custom User-Agent information to replace the default
+    .withOptions({
+      customUserAgent: "huaweicloud-usdk-java/3.0; test-user-agent",
+    })
     .build()
 ```
 

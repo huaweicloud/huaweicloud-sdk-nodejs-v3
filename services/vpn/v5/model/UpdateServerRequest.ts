@@ -9,6 +9,7 @@ export class UpdateServerRequest {
     private 'ssl_options'?: UpdateServerRequestSslOptions;
     private 'client_auth_type'?: UpdateServerRequestClientAuthTypeEnum | string;
     private 'dns_servers'?: Array<string>;
+    private 'idp_name'?: string;
     public constructor() { 
     }
     public withClientCidr(clientCidr: string): UpdateServerRequest {
@@ -71,6 +72,16 @@ export class UpdateServerRequest {
     public get dnsServers(): Array<string> | undefined {
         return this['dns_servers'];
     }
+    public withIdpName(idpName: string): UpdateServerRequest {
+        this['idp_name'] = idpName;
+        return this;
+    }
+    public set idpName(idpName: string  | undefined) {
+        this['idp_name'] = idpName;
+    }
+    public get idpName(): string | undefined {
+        return this['idp_name'];
+    }
 }
 
 /**
@@ -79,5 +90,7 @@ export class UpdateServerRequest {
     */
 export enum UpdateServerRequestClientAuthTypeEnum {
     CERT = 'CERT',
-    LOCAL_PASSWORD = 'LOCAL_PASSWORD'
+    LOCAL_PASSWORD = 'LOCAL_PASSWORD',
+    IAM = 'IAM',
+    FEDERATED = 'FEDERATED'
 }

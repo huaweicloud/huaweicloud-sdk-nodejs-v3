@@ -17,6 +17,7 @@ import { AttachServerVolumeOption } from './model/AttachServerVolumeOption';
 import { AttachServerVolumeRequest } from './model/AttachServerVolumeRequest';
 import { AttachServerVolumeRequestBody } from './model/AttachServerVolumeRequestBody';
 import { AttachServerVolumeResponse } from './model/AttachServerVolumeResponse';
+import { AttachableQuantityForNic } from './model/AttachableQuantityForNic';
 import { BatchAddServerNicOption } from './model/BatchAddServerNicOption';
 import { BatchAddServerNicsRequest } from './model/BatchAddServerNicsRequest';
 import { BatchAddServerNicsRequestBody } from './model/BatchAddServerNicsRequestBody';
@@ -131,6 +132,7 @@ import { ExecuteServerDumpResponse } from './model/ExecuteServerDumpResponse';
 import { ExecuteServerRedeployRequest } from './model/ExecuteServerRedeployRequest';
 import { ExecuteServerRedeployResponse } from './model/ExecuteServerRedeployResponse';
 import { Fault } from './model/Fault';
+import { FixedIp } from './model/FixedIp';
 import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
 import { FlavorLink } from './model/FlavorLink';
@@ -142,6 +144,7 @@ import { Hypervisor } from './model/Hypervisor';
 import { Image } from './model/Image';
 import { InterfaceAttachableQuantity } from './model/InterfaceAttachableQuantity';
 import { InterfaceAttachment } from './model/InterfaceAttachment';
+import { InterfaceExt } from './model/InterfaceExt';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobEntities } from './model/JobEntities';
 import { LaunchTemplate } from './model/LaunchTemplate';
@@ -308,6 +311,7 @@ import { PrePaidServerTag } from './model/PrePaidServerTag';
 import { ProjectFlavorLimit } from './model/ProjectFlavorLimit';
 import { ProjectTag } from './model/ProjectTag';
 import { Promotion } from './model/Promotion';
+import { QueryFlavorCapacityAzInfo } from './model/QueryFlavorCapacityAzInfo';
 import { RecycleBinPolicys } from './model/RecycleBinPolicys';
 import { RegisterServerMonitorRequest } from './model/RegisterServerMonitorRequest';
 import { RegisterServerMonitorRequestBody } from './model/RegisterServerMonitorRequestBody';
@@ -367,6 +371,8 @@ import { ServerTags } from './model/ServerTags';
 import { ServerVolumeAttachment } from './model/ServerVolumeAttachment';
 import { ShowAppendableVolumeQuotaRequest } from './model/ShowAppendableVolumeQuotaRequest';
 import { ShowAppendableVolumeQuotaResponse } from './model/ShowAppendableVolumeQuotaResponse';
+import { ShowFlavorCapacityRequest } from './model/ShowFlavorCapacityRequest';
+import { ShowFlavorCapacityResponse } from './model/ShowFlavorCapacityResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowMetadataOptionsRequest } from './model/ShowMetadataOptionsRequest';
@@ -375,6 +381,8 @@ import { ShowRecycleBinRequest } from './model/ShowRecycleBinRequest';
 import { ShowRecycleBinResponse } from './model/ShowRecycleBinResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
 import { ShowResetPasswordFlagResponse } from './model/ShowResetPasswordFlagResponse';
+import { ShowServerAttachableNicNumRequest } from './model/ShowServerAttachableNicNumRequest';
+import { ShowServerAttachableNicNumResponse } from './model/ShowServerAttachableNicNumResponse';
 import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
 import { ShowServerBlockDeviceResponse } from './model/ShowServerBlockDeviceResponse';
 import { ShowServerGroupRequest } from './model/ShowServerGroupRequest';
@@ -2148,6 +2156,25 @@ export class EcsClient {
     }
 
     /**
+     * 查询flavor的容量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询flavor的容量
+     * @param {string} flavorId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFlavorCapacity(showFlavorCapacityRequest?: ShowFlavorCapacityRequest): Promise<ShowFlavorCapacityResponse> {
+        const options = ParamCreater().showFlavorCapacity(showFlavorCapacityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2217,6 +2244,25 @@ export class EcsClient {
      */
     public showServer(showServerRequest?: ShowServerRequest): Promise<ShowServerResponse> {
         const options = ParamCreater().showServer(showServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询虚拟机可挂载网卡
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟机可挂载网卡
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerAttachableNicNum(showServerAttachableNicNumRequest?: ShowServerAttachableNicNumRequest): Promise<ShowServerAttachableNicNumResponse> {
+        const options = ParamCreater().showServerAttachableNicNum(showServerAttachableNicNumRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6533,6 +6579,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询flavor的容量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFlavorCapacity(showFlavorCapacityRequest?: ShowFlavorCapacityRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/flavors/{flavor_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let flavorId;
+
+            if (showFlavorCapacityRequest !== null && showFlavorCapacityRequest !== undefined) {
+                if (showFlavorCapacityRequest instanceof ShowFlavorCapacityRequest) {
+                    flavorId = showFlavorCapacityRequest.flavorId;
+                } else {
+                    flavorId = showFlavorCapacityRequest['flavor_id'];
+                }
+            }
+
+        
+            if (flavorId === null || flavorId === undefined) {
+            throw new RequiredError('flavorId','Required parameter flavorId was null or undefined when calling showFlavorCapacity.');
+            }
+
+            options.pathParams = { 'flavor_id': flavorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询云服务器元数据配置，通过本接口，您可以查询指定云服务器的元数据配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6659,6 +6742,43 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServer.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询虚拟机可挂载网卡
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showServerAttachableNicNum(showServerAttachableNicNumRequest?: ShowServerAttachableNicNumRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/os-interface_extension",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showServerAttachableNicNumRequest !== null && showServerAttachableNicNumRequest !== undefined) {
+                if (showServerAttachableNicNumRequest instanceof ShowServerAttachableNicNumRequest) {
+                    serverId = showServerAttachableNicNumRequest.serverId;
+                } else {
+                    serverId = showServerAttachableNicNumRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerAttachableNicNum.');
             }
 
             options.pathParams = { 'server_id': serverId, };

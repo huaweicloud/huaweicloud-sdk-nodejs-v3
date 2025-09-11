@@ -3,19 +3,21 @@ import { AlarmLogRequestTime } from './AlarmLogRequestTime';
 
 export class AlarmLogRequest {
     public time?: AlarmLogRequestTime;
-    public risk?: AlarmLogRequestRiskEnum | string;
+    public risk?: Array<string>;
     public type?: string;
     public status?: AlarmLogRequestStatusEnum | string;
     public page?: number;
     public size?: number;
-    public constructor(time?: AlarmLogRequestTime) { 
+    public constructor(time?: AlarmLogRequestTime, page?: number, size?: number) { 
         this['time'] = time;
+        this['page'] = page;
+        this['size'] = size;
     }
     public withTime(time: AlarmLogRequestTime): AlarmLogRequest {
         this['time'] = time;
         return this;
     }
-    public withRisk(risk: AlarmLogRequestRiskEnum | string): AlarmLogRequest {
+    public withRisk(risk: Array<string>): AlarmLogRequest {
         this['risk'] = risk;
         return this;
     }
@@ -37,15 +39,6 @@ export class AlarmLogRequest {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AlarmLogRequestRiskEnum {
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH'
-}
 /**
     * @export
     * @enum {string}

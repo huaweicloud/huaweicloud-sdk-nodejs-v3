@@ -8,7 +8,7 @@ export class ResourceInstanceTagRequest {
     public tags?: Array<TagKeyValuesBean>;
     private 'tags_any'?: Array<TagKeyValuesBean>;
     private 'not_tags_any'?: Array<TagKeyValuesBean>;
-    private 'sys_tags'?: TagKeyValuesBean;
+    private 'sys_tags'?: Array<TagKeyValuesBean>;
     private 'without_any_tag'?: boolean;
     public constructor() { 
     }
@@ -50,14 +50,14 @@ export class ResourceInstanceTagRequest {
     public get notTagsAny(): Array<TagKeyValuesBean> | undefined {
         return this['not_tags_any'];
     }
-    public withSysTags(sysTags: TagKeyValuesBean): ResourceInstanceTagRequest {
+    public withSysTags(sysTags: Array<TagKeyValuesBean>): ResourceInstanceTagRequest {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: TagKeyValuesBean  | undefined) {
+    public set sysTags(sysTags: Array<TagKeyValuesBean>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags(): TagKeyValuesBean | undefined {
+    public get sysTags(): Array<TagKeyValuesBean> | undefined {
         return this['sys_tags'];
     }
     public withWithoutAnyTag(withoutAnyTag: boolean): ResourceInstanceTagRequest {

@@ -119,6 +119,8 @@ import { DeleteInstanceRetentionPolicyRequest } from './model/DeleteInstanceRete
 import { DeleteInstanceRetentionPolicyResponse } from './model/DeleteInstanceRetentionPolicyResponse';
 import { DeleteInstanceSignPolicyRequest } from './model/DeleteInstanceSignPolicyRequest';
 import { DeleteInstanceSignPolicyResponse } from './model/DeleteInstanceSignPolicyResponse';
+import { DeleteInstanceTagRequest } from './model/DeleteInstanceTagRequest';
+import { DeleteInstanceTagResponse } from './model/DeleteInstanceTagResponse';
 import { DeleteInstanceWebhookRequest } from './model/DeleteInstanceWebhookRequest';
 import { DeleteInstanceWebhookResponse } from './model/DeleteInstanceWebhookResponse';
 import { DeleteNamespaceAuthRequest } from './model/DeleteNamespaceAuthRequest';
@@ -1881,14 +1883,14 @@ export class SwrClient {
     }
 
     /**
-     * 创建触发器策略
+     * 创建触发器
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建触发器策略
+     * @summary 创建触发器
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
-     * @param {CreateWebhookPolicyRequestBody} createWebhookPolicyRequestBody 创建触发器策略需要的信息
+     * @param {CreateWebhookPolicyRequestBody} createWebhookPolicyRequestBody 创建触发器需要的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1986,11 +1988,11 @@ export class SwrClient {
     }
 
     /**
-     * 删除制品
+     * 删除制品版本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除制品
+     * @summary 删除制品版本
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
      * @param {string} repositoryName 仓库名称
@@ -2211,14 +2213,36 @@ export class SwrClient {
     }
 
     /**
-     * 删除触发器策略
+     * 删除制品Tag
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除触发器策略
+     * @summary 删除制品的Tag
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
-     * @param {number} policyId 触发器策略ID
+     * @param {string} repositoryName 仓库名称
+     * @param {string} tagName Tag名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceTag(deleteInstanceTagRequest?: DeleteInstanceTagRequest): Promise<DeleteInstanceTagResponse> {
+        const options = ParamCreater().deleteInstanceTag(deleteInstanceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除触发器
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除触发器
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {number} policyId 触发器ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2453,7 +2477,7 @@ export class SwrClient {
      * @param {string} reference 制品摘要
      * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
      * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
-     * @param {'signature.cosign'} [type] 附件类型，signature.cosign
+     * @param {'signature.cosign'} [type] 附件类型，支持的附件类型有：signature.cosign
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2467,13 +2491,13 @@ export class SwrClient {
     }
 
     /**
-     * 获取仓库实例的所有制品版本列表（此接口只在企业仓库实例版本大于25.6.0以上的版本才支持）
+     * 获取仓库实例的所有制品版本列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库实例的所有制品版本列表
      * @param {string} instanceId 企业仓库实例ID
-     * @param {number} [marker] 分页查询时的查询标记，使用上一次接口调用返回的nextMarker值。默认值为1。**注意：marker和limit参数需要配套使用。**
+     * @param {number} [marker] 分页查询时的查询标记，使用上一次接口调用返回的next_marker值。默认值为1。**注意：marker和limit参数需要配套使用。**
      * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：marker和limit参数需要配套使用。**
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2767,7 +2791,7 @@ export class SwrClient {
      *
      * @summary 按照标签检索资源列表
      * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
-     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询资源实例列表需要的信息
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询资源列表需要的信息
      * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
      * @param {number} [limit] 返回条数，默认为200，最小值为1，最大值为200。**注意：offset和limit参数需要配套使用。**
      * @param {*} [options] Override http request option.
@@ -3044,7 +3068,7 @@ export class SwrClient {
      * @summary 获取触发器执行任务列表
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
-     * @param {number} policyId 触发器策略ID
+     * @param {number} policyId 触发器ID
      * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
      * @param {number} [limit] 返回条数，默认为10，最大值为100。**注意：offset和limit参数需要配套使用，offset必须为0或者为limit的倍数。**
      * @param {string} [status] 状态，可选Initialized、Pending、InProgress、Succeed、Failed、Stopped
@@ -3061,11 +3085,11 @@ export class SwrClient {
     }
 
     /**
-     * 获取触发器策略列表
+     * 获取触发器列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取触发器策略列表
+     * @summary 获取触发器列表
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} [orderColumn] 排序字段，支持created_at、updated_at、name，默认为created_at
      * @param {'desc' | 'asc'} [orderType] 排序方式，支持desc、asc，默认desc;order_type需要与order_column配合使用
@@ -3137,7 +3161,7 @@ export class SwrClient {
      * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
      * @param {string} resourceId 资源id
      * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
-     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询子资源实例列表需要的信息
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询子资源列表需要的信息
      * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
      * @param {number} [limit] 返回条数，默认为200，最小值为1，最大值为200。**注意：offset和limit参数需要配套使用。**
      * @param {*} [options] Override http request option.
@@ -3194,11 +3218,11 @@ export class SwrClient {
     }
 
     /**
-     * 获取制品详情
+     * 获取制品版本详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取制品详情
+     * @summary 获取制品版本详情
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
      * @param {string} repositoryName 制品名称
@@ -3403,7 +3427,7 @@ export class SwrClient {
      *
      * @summary 按照标签检索资源数量
      * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
-     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询资源实例数量需要的信息
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询资源数量需要的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3459,14 +3483,14 @@ export class SwrClient {
     }
 
     /**
-     * 获取触发器策略详情
+     * 获取触发器详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取触发器策略详情
+     * @summary 获取触发器详情
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
-     * @param {number} policyId 触发器策略ID
+     * @param {number} policyId 触发器ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3488,7 +3512,7 @@ export class SwrClient {
      * @param {'instances'} resourceType 资源类型，支持的资源类型为：instances
      * @param {string} resourceId 资源id
      * @param {'namespaces'} subResourceType 子资源类型，支持的子资源类型为：namespaces
-     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询子资源实例数量需要的信息
+     * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 查询子资源数量需要的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3585,7 +3609,7 @@ export class SwrClient {
     }
 
     /**
-     * 更新公网访问白名单，更新为全量更新方式
+     * 更新公网访问白名单，更新方式为全量更新方式
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3755,15 +3779,15 @@ export class SwrClient {
     }
 
     /**
-     * 修改触发器策略
+     * 修改触发器
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改触发器策略
+     * @summary 修改触发器
      * @param {string} instanceId 企业仓库实例ID
      * @param {string} namespaceName 命名空间名称
      * @param {number} policyId 触发器ID
-     * @param {UpdateWebhookPolicyRequestBody} updateWebhookPolicyRequestBody 修改触发器策略需要的信息
+     * @param {UpdateWebhookPolicyRequestBody} updateWebhookPolicyRequestBody 修改触发器需要的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7472,7 +7496,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建触发器策略
+         * 创建触发器
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7733,7 +7757,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除制品
+         * 删除制品版本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8254,7 +8278,65 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除触发器策略
+         * 删除制品Tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceTag(deleteInstanceTagRequest?: DeleteInstanceTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/tags/{tag_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let tagName;
+
+            if (deleteInstanceTagRequest !== null && deleteInstanceTagRequest !== undefined) {
+                if (deleteInstanceTagRequest instanceof DeleteInstanceTagRequest) {
+                    instanceId = deleteInstanceTagRequest.instanceId;
+                    namespaceName = deleteInstanceTagRequest.namespaceName;
+                    repositoryName = deleteInstanceTagRequest.repositoryName;
+                    tagName = deleteInstanceTagRequest.tagName;
+                } else {
+                    instanceId = deleteInstanceTagRequest['instance_id'];
+                    namespaceName = deleteInstanceTagRequest['namespace_name'];
+                    repositoryName = deleteInstanceTagRequest['repository_name'];
+                    tagName = deleteInstanceTagRequest['tag_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceTag.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling deleteInstanceTag.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling deleteInstanceTag.');
+            }
+            if (tagName === null || tagName === undefined) {
+            throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling deleteInstanceTag.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'tag_name': tagName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除触发器
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8898,7 +8980,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取仓库实例的所有制品版本列表（此接口只在企业仓库实例版本大于25.6.0以上的版本才支持）
+         * 获取仓库实例的所有制品版本列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10575,7 +10657,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取触发器策略列表
+         * 获取触发器列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10935,7 +11017,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取制品详情
+         * 获取制品版本详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11544,7 +11626,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取触发器策略详情
+         * 获取触发器详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11858,7 +11940,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新公网访问白名单，更新为全量更新方式
+         * 更新公网访问白名单，更新方式为全量更新方式
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12296,7 +12378,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改触发器策略
+         * 修改触发器
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

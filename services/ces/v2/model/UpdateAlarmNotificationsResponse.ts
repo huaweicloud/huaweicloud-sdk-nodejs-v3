@@ -1,11 +1,11 @@
-import { Notification } from './Notification';
+import { NotificationResp } from './NotificationResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateAlarmNotificationsResponse extends SdkResponse {
     private 'notification_enabled'?: boolean;
-    private 'alarm_notifications'?: Array<Notification>;
-    private 'ok_notifications'?: Array<Notification>;
+    private 'alarm_notifications'?: Array<NotificationResp>;
+    private 'ok_notifications'?: Array<NotificationResp>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
     public constructor() { 
@@ -21,24 +21,24 @@ export class UpdateAlarmNotificationsResponse extends SdkResponse {
     public get notificationEnabled(): boolean | undefined {
         return this['notification_enabled'];
     }
-    public withAlarmNotifications(alarmNotifications: Array<Notification>): UpdateAlarmNotificationsResponse {
+    public withAlarmNotifications(alarmNotifications: Array<NotificationResp>): UpdateAlarmNotificationsResponse {
         this['alarm_notifications'] = alarmNotifications;
         return this;
     }
-    public set alarmNotifications(alarmNotifications: Array<Notification>  | undefined) {
+    public set alarmNotifications(alarmNotifications: Array<NotificationResp>  | undefined) {
         this['alarm_notifications'] = alarmNotifications;
     }
-    public get alarmNotifications(): Array<Notification> | undefined {
+    public get alarmNotifications(): Array<NotificationResp> | undefined {
         return this['alarm_notifications'];
     }
-    public withOkNotifications(okNotifications: Array<Notification>): UpdateAlarmNotificationsResponse {
+    public withOkNotifications(okNotifications: Array<NotificationResp>): UpdateAlarmNotificationsResponse {
         this['ok_notifications'] = okNotifications;
         return this;
     }
-    public set okNotifications(okNotifications: Array<Notification>  | undefined) {
+    public set okNotifications(okNotifications: Array<NotificationResp>  | undefined) {
         this['ok_notifications'] = okNotifications;
     }
-    public get okNotifications(): Array<Notification> | undefined {
+    public get okNotifications(): Array<NotificationResp> | undefined {
         return this['ok_notifications'];
     }
     public withNotificationBeginTime(notificationBeginTime: string): UpdateAlarmNotificationsResponse {

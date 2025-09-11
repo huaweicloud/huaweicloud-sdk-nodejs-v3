@@ -15,6 +15,7 @@ export class ElbRegion {
     public static CN_EAST_3 = new Region("cn-east-3", ["https://elb.cn-east-3.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://elb.cn-south-1.myhuaweicloud.com"]);
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://elb.cn-south-2.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://elb.cn-south-4.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://elb.cn-southwest-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://elb.ap-southeast-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://elb.ap-southeast-1.myhuaweicloud.com"]);
@@ -48,6 +49,7 @@ export class ElbRegion {
         "cn-east-3":ElbRegion.CN_EAST_3,
         "cn-south-1":ElbRegion.CN_SOUTH_1,
         "cn-south-2":ElbRegion.CN_SOUTH_2,
+        "cn-south-4":ElbRegion.CN_SOUTH_4,
         "cn-southwest-2":ElbRegion.CN_SOUTHWEST_2,
         "ap-southeast-2":ElbRegion.AP_SOUTHEAST_2,
         "ap-southeast-1":ElbRegion.AP_SOUTHEAST_1,

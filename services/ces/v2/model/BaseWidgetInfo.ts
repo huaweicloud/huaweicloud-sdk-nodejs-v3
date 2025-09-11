@@ -1,5 +1,5 @@
+import { BaseWidgetInfoLocation } from './BaseWidgetInfoLocation';
 import { BaseWidgetInfoProperties } from './BaseWidgetInfoProperties';
-import { UpdateWidgetInfoLocation } from './UpdateWidgetInfoLocation';
 import { WidgetMetric } from './WidgetMetric';
 
 
@@ -12,9 +12,9 @@ export class BaseWidgetInfo {
     public view?: BaseWidgetInfoViewEnum | string;
     private 'metric_display_mode'?: BaseWidgetInfoMetricDisplayModeEnum | string;
     public properties?: BaseWidgetInfoProperties;
-    public location?: UpdateWidgetInfoLocation;
+    public location?: BaseWidgetInfoLocation;
     public unit?: string;
-    public constructor(metrics?: Array<WidgetMetric>, title?: string, thresholdEnabled?: boolean, view?: string, metricDisplayMode?: string, location?: UpdateWidgetInfoLocation) { 
+    public constructor(metrics?: Array<WidgetMetric>, title?: string, thresholdEnabled?: boolean, view?: string, metricDisplayMode?: string, location?: BaseWidgetInfoLocation) { 
         this['metrics'] = metrics;
         this['title'] = title;
         this['threshold_enabled'] = thresholdEnabled;
@@ -72,7 +72,7 @@ export class BaseWidgetInfo {
         this['properties'] = properties;
         return this;
     }
-    public withLocation(location: UpdateWidgetInfoLocation): BaseWidgetInfo {
+    public withLocation(location: BaseWidgetInfoLocation): BaseWidgetInfo {
         this['location'] = location;
         return this;
     }

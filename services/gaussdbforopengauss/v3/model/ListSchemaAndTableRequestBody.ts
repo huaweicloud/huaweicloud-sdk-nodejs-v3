@@ -3,9 +3,8 @@
 export class ListSchemaAndTableRequestBody {
     private 'sql_text'?: string;
     private 'instance_id'?: string;
-    public constructor(sqlText?: string, instanceId?: string) { 
+    public constructor(sqlText?: string) { 
         this['sql_text'] = sqlText;
-        this['instance_id'] = instanceId;
     }
     public withSqlText(sqlText: string): ListSchemaAndTableRequestBody {
         this['sql_text'] = sqlText;

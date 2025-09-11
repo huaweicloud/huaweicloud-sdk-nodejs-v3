@@ -15,6 +15,8 @@ import { AddMemberV4Response } from './model/AddMemberV4Response';
 import { AssociateIssueDetail } from './model/AssociateIssueDetail';
 import { AssociatedTestCase } from './model/AssociatedTestCase';
 import { AttachWikiDetail } from './model/AttachWikiDetail';
+import { AttachmentEntity } from './model/AttachmentEntity';
+import { AttachmentVO } from './model/AttachmentVO';
 import { BatchAddMemberRequestV4 } from './model/BatchAddMemberRequestV4';
 import { BatchAddMembersV4Request } from './model/BatchAddMembersV4Request';
 import { BatchAddMembersV4RequestBody } from './model/BatchAddMembersV4RequestBody';
@@ -43,9 +45,16 @@ import { CheckProjectNameV4Request } from './model/CheckProjectNameV4Request';
 import { CheckProjectNameV4Response } from './model/CheckProjectNameV4Response';
 import { CommentUserV4 } from './model/CommentUserV4';
 import { CommitRecordDetail } from './model/CommitRecordDetail';
+import { ConditionVO } from './model/ConditionVO';
 import { CreateCustomfieldV1Req } from './model/CreateCustomfieldV1Req';
 import { CreateCustomfieldsRequest } from './model/CreateCustomfieldsRequest';
 import { CreateCustomfieldsResponse } from './model/CreateCustomfieldsResponse';
+import { CreateIpdProjectIssueAttachmentRequest } from './model/CreateIpdProjectIssueAttachmentRequest';
+import { CreateIpdProjectIssueAttachmentRequestBody } from './model/CreateIpdProjectIssueAttachmentRequestBody';
+import { CreateIpdProjectIssueAttachmentResponse } from './model/CreateIpdProjectIssueAttachmentResponse';
+import { CreateIpdProjectIssueRequest } from './model/CreateIpdProjectIssueRequest';
+import { CreateIpdProjectIssueRequestBody } from './model/CreateIpdProjectIssueRequestBody';
+import { CreateIpdProjectIssueResponse } from './model/CreateIpdProjectIssueResponse';
 import { CreateIssueRequestV4 } from './model/CreateIssueRequestV4';
 import { CreateIssueResponseV4Domain } from './model/CreateIssueResponseV4Domain';
 import { CreateIssueResponseV4ParentIssue } from './model/CreateIssueResponseV4ParentIssue';
@@ -65,6 +74,8 @@ import { CreateProjectModuleResponse } from './model/CreateProjectModuleResponse
 import { CreateProjectV4Request } from './model/CreateProjectV4Request';
 import { CreateProjectV4RequestBody } from './model/CreateProjectV4RequestBody';
 import { CreateProjectV4Response } from './model/CreateProjectV4Response';
+import { CreateScrumPlanToProjectRequest } from './model/CreateScrumPlanToProjectRequest';
+import { CreateScrumPlanToProjectResponse } from './model/CreateScrumPlanToProjectResponse';
 import { CreateSystemIssueRequestV4 } from './model/CreateSystemIssueRequestV4';
 import { CreateSystemIssueV4Request } from './model/CreateSystemIssueV4Request';
 import { CreateSystemIssueV4Response } from './model/CreateSystemIssueV4Response';
@@ -81,11 +92,15 @@ import { DeleteProjectModuleRequest } from './model/DeleteProjectModuleRequest';
 import { DeleteProjectModuleResponse } from './model/DeleteProjectModuleResponse';
 import { DeleteProjectV4Request } from './model/DeleteProjectV4Request';
 import { DeleteProjectV4Response } from './model/DeleteProjectV4Response';
+import { DeleteScrumPlanInProjectRequest } from './model/DeleteScrumPlanInProjectRequest';
+import { DeleteScrumPlanInProjectResponse } from './model/DeleteScrumPlanInProjectResponse';
 import { DemandStatisticResponseV4 } from './model/DemandStatisticResponseV4';
 import { DownloadAttachmentRequest } from './model/DownloadAttachmentRequest';
 import { DownloadAttachmentResponse } from './model/DownloadAttachmentResponse';
 import { DownloadImageFileRequest } from './model/DownloadImageFileRequest';
 import { DownloadImageFileResponse } from './model/DownloadImageFileResponse';
+import { DownloadIpdIssueAttachmentRequest } from './model/DownloadIpdIssueAttachmentRequest';
+import { DownloadIpdIssueAttachmentResponse } from './model/DownloadIpdIssueAttachmentResponse';
 import { FieldVO } from './model/FieldVO';
 import { GetProjectInfoV4ResultProject } from './model/GetProjectInfoV4ResultProject';
 import { GetProjectInfoV4ResultProjectCreator } from './model/GetProjectInfoV4ResultProjectCreator';
@@ -137,6 +152,8 @@ import { ListDomainNotAddedProjectsV4Request } from './model/ListDomainNotAddedP
 import { ListDomainNotAddedProjectsV4Response } from './model/ListDomainNotAddedProjectsV4Response';
 import { ListDomainNotAddedProjectsV4ResponseBodyCreator } from './model/ListDomainNotAddedProjectsV4ResponseBodyCreator';
 import { ListDomainNotAddedProjectsV4ResponseBodyProjects } from './model/ListDomainNotAddedProjectsV4ResponseBodyProjects';
+import { ListIpdProjectIssuesRequest } from './model/ListIpdProjectIssuesRequest';
+import { ListIpdProjectIssuesResponse } from './model/ListIpdProjectIssuesResponse';
 import { ListIssueAssociatedCommitsRequest } from './model/ListIssueAssociatedCommitsRequest';
 import { ListIssueAssociatedCommitsResponse } from './model/ListIssueAssociatedCommitsResponse';
 import { ListIssueCommentsV4Request } from './model/ListIssueCommentsV4Request';
@@ -209,6 +226,7 @@ import { MetricRequestV2DividendCustomFields } from './model/MetricRequestV2Divi
 import { ModuleOwner } from './model/ModuleOwner';
 import { NewCustomField } from './model/NewCustomField';
 import { OptionEntity } from './model/OptionEntity';
+import { PageInfoVO } from './model/PageInfoVO';
 import { PageVO } from './model/PageVO';
 import { ProjectChildModule } from './model/ProjectChildModule';
 import { ProjectModule } from './model/ProjectModule';
@@ -217,6 +235,7 @@ import { RemoveProjectResponse } from './model/RemoveProjectResponse';
 import { ScrumCustomField } from './model/ScrumCustomField';
 import { ScrumStatusFlowDirectToVo } from './model/ScrumStatusFlowDirectToVo';
 import { ScrumStatusFlowVo } from './model/ScrumStatusFlowVo';
+import { SearchIpdIssuesRequestBody } from './model/SearchIpdIssuesRequestBody';
 import { SearchIssuesRequest } from './model/SearchIssuesRequest';
 import { SearchIssuesResponse } from './model/SearchIssuesResponse';
 import { ShowBugDensityV2Request } from './model/ShowBugDensityV2Request';
@@ -229,6 +248,8 @@ import { ShowCurUserInfoRequest } from './model/ShowCurUserInfoRequest';
 import { ShowCurUserInfoResponse } from './model/ShowCurUserInfoResponse';
 import { ShowCurUserRoleRequest } from './model/ShowCurUserRoleRequest';
 import { ShowCurUserRoleResponse } from './model/ShowCurUserRoleResponse';
+import { ShowIpdAttachmentByWorkItemIdRequest } from './model/ShowIpdAttachmentByWorkItemIdRequest';
+import { ShowIpdAttachmentByWorkItemIdResponse } from './model/ShowIpdAttachmentByWorkItemIdResponse';
 import { ShowIssueCompletionRateRequest } from './model/ShowIssueCompletionRateRequest';
 import { ShowIssueCompletionRateResponse } from './model/ShowIssueCompletionRateResponse';
 import { ShowIssueConfigFieldsRequest } from './model/ShowIssueConfigFieldsRequest';
@@ -249,6 +270,10 @@ import { ShowProjectWorkHoursRequest } from './model/ShowProjectWorkHoursRequest
 import { ShowProjectWorkHoursRequestBody } from './model/ShowProjectWorkHoursRequestBody';
 import { ShowProjectWorkHoursResponse } from './model/ShowProjectWorkHoursResponse';
 import { ShowProjectWorkHoursResponseBodyWorkHours } from './model/ShowProjectWorkHoursResponseBodyWorkHours';
+import { ShowScrumIssueSeveritiesRequest } from './model/ShowScrumIssueSeveritiesRequest';
+import { ShowScrumIssueSeveritiesResponse } from './model/ShowScrumIssueSeveritiesResponse';
+import { ShowScrumPlansByConditionRequest } from './model/ShowScrumPlansByConditionRequest';
+import { ShowScrumPlansByConditionResponse } from './model/ShowScrumPlansByConditionResponse';
 import { ShowWorkItemWrokflowConfigRequest } from './model/ShowWorkItemWrokflowConfigRequest';
 import { ShowWorkItemWrokflowConfigResponse } from './model/ShowWorkItemWrokflowConfigResponse';
 import { ShowWorkflowTemplateRequest } from './model/ShowWorkflowTemplateRequest';
@@ -256,6 +281,7 @@ import { ShowWorkflowTemplateResponse } from './model/ShowWorkflowTemplateRespon
 import { SimpleProject } from './model/SimpleProject';
 import { SimpleUser } from './model/SimpleUser';
 import { SimpleUserIn } from './model/SimpleUserIn';
+import { SortInfo } from './model/SortInfo';
 import { StatusAttribute } from './model/StatusAttribute';
 import { StatusFlowDirectToVo } from './model/StatusFlowDirectToVo';
 import { StatusVo } from './model/StatusVo';
@@ -281,6 +307,8 @@ import { UpdateProjectModuleResponse } from './model/UpdateProjectModuleResponse
 import { UpdateProjectRequestV4 } from './model/UpdateProjectRequestV4';
 import { UpdateProjectV4Request } from './model/UpdateProjectV4Request';
 import { UpdateProjectV4Response } from './model/UpdateProjectV4Response';
+import { UpdateScrumPlanInProjectRequest } from './model/UpdateScrumPlanInProjectRequest';
+import { UpdateScrumPlanInProjectResponse } from './model/UpdateScrumPlanInProjectResponse';
 import { UpdateUserNickNameRequestV4 } from './model/UpdateUserNickNameRequestV4';
 import { UploadAttachmentsRequest } from './model/UploadAttachmentsRequest';
 import { UploadAttachmentsRequestBody } from './model/UploadAttachmentsRequestBody';
@@ -288,6 +316,7 @@ import { UploadAttachmentsResponse } from './model/UploadAttachmentsResponse';
 import { UploadIssueImgRequest } from './model/UploadIssueImgRequest';
 import { UploadIssueImgRequestBody } from './model/UploadIssueImgRequestBody';
 import { UploadIssueImgResponse } from './model/UploadIssueImgResponse';
+import { UserEntity } from './model/UserEntity';
 import { UserRequest } from './model/UserRequest';
 import { UserStatusStatistic } from './model/UserStatusStatistic';
 import { WorkHoursType } from './model/WorkHoursType';
@@ -893,6 +922,71 @@ export class ProjectManClient {
     }
 
     /**
+     * 创建IPD项目的工作项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建工作项
+     * @param {string} projectId devcloud项目的32位id
+     * @param {CreateIpdProjectIssueRequestBody} createIpdProjectIssueRequestBody 创建issue实体对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createIpdProjectIssue(createIpdProjectIssueRequest?: CreateIpdProjectIssueRequest): Promise<CreateIpdProjectIssueResponse> {
+        const options = ParamCreater().createIpdProjectIssue(createIpdProjectIssueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传issue附件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传issue附件
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} issueId 工作项Id
+     * @param {any} attachment 附件文件， 最大上传大小为200M
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createIpdProjectIssueAttachment(createIpdProjectIssueAttachmentRequest?: CreateIpdProjectIssueAttachmentRequest): Promise<CreateIpdProjectIssueAttachmentResponse> {
+        const options = ParamCreater().createIpdProjectIssueAttachment(createIpdProjectIssueAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Ipd项目的工作项列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目工作项列表
+     * @param {string} projectId devcloud项目的32位id
+     * @param {string} issueType 工作项分类：[Epic,FE,IR,RR,SR,US,AR,Bug,Task]
+     * @param {SearchIpdIssuesRequestBody} listIpdProjectIssuesRequestBody 查询issues实体对象,实体属性不能都为空
+     * @param {boolean} [isBacklog] 是否backlog查询
+     * @param {string} [srcDomainId] 提出项目Id
+     * @param {string} [view] 视图模式[tree,list]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpdProjectIssues(listIpdProjectIssuesRequest?: ListIpdProjectIssuesRequest): Promise<ListIpdProjectIssuesResponse> {
+        const options = ParamCreater().listIpdProjectIssues(listIpdProjectIssuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 工作项类型中查询字段模板列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1009,6 +1103,127 @@ export class ProjectManClient {
      */
     public transferWorkItemFlow(transferWorkItemFlowRequest?: TransferWorkItemFlowRequest): Promise<TransferWorkItemFlowResponse> {
         const options = ParamCreater().transferWorkItemFlow(transferWorkItemFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID下载工作项附件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据ID下载工作项附件
+     * @param {string} projectId 工作项所属项目Id
+     * @param {string} id 附件Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadIpdIssueAttachment(downloadIpdIssueAttachmentRequest?: DownloadIpdIssueAttachmentRequest): Promise<DownloadIpdIssueAttachmentResponse> {
+        const options = ParamCreater().downloadIpdIssueAttachment(downloadIpdIssueAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工作项附件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作项附件列表
+     * @param {string} projectId 工作项所属项目Id
+     * @param {string} issueId 工作项Id
+     * @param {string} [sourceProjectId] 原始需求跨项目时，提出项目Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIpdAttachmentByWorkItemId(showIpdAttachmentByWorkItemIdRequest?: ShowIpdAttachmentByWorkItemIdRequest): Promise<ShowIpdAttachmentByWorkItemIdResponse> {
+        const options = ParamCreater().showIpdAttachmentByWorkItemId(showIpdAttachmentByWorkItemIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增需求规划
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增需求规划
+     * @param {string} projectId project_id
+     * @param {string} [createScrumPlanToProjectRequestBody] RequestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createScrumPlanToProject(createScrumPlanToProjectRequest?: CreateScrumPlanToProjectRequest): Promise<CreateScrumPlanToProjectResponse> {
+        const options = ParamCreater().createScrumPlanToProject(createScrumPlanToProjectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除规划(支持批量)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除规划(支持批量)
+     * @param {string} projectId project_id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScrumPlanInProject(deleteScrumPlanInProjectRequest?: DeleteScrumPlanInProjectRequest): Promise<DeleteScrumPlanInProjectResponse> {
+        const options = ParamCreater().deleteScrumPlanInProject(deleteScrumPlanInProjectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目下当前用户可见的所有规划，分页
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下当前用户可见的所有规划，分页
+     * @param {string} projectId project_id
+     * @param {string} [showScrumPlansByConditionRequestBody] RequestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showScrumPlansByCondition(showScrumPlansByConditionRequest?: ShowScrumPlansByConditionRequest): Promise<ShowScrumPlansByConditionResponse> {
+        const options = ParamCreater().showScrumPlansByCondition(showScrumPlansByConditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新需求规划
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新需求规划
+     * @param {string} projectId project_id
+     * @param {string} planId plan_id
+     * @param {string} [updateScrumPlanInProjectRequestBody] RequestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateScrumPlanInProject(updateScrumPlanInProjectRequest?: UpdateScrumPlanInProjectRequest): Promise<UpdateScrumPlanInProjectResponse> {
+        const options = ParamCreater().updateScrumPlanInProject(updateScrumPlanInProjectRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2022,6 +2237,24 @@ export class ProjectManClient {
      */
     public uploadIssueImg(uploadIssueImgRequest?: UploadIssueImgRequest): Promise<UploadIssueImgResponse> {
         const options = ParamCreater().uploadIssueImg(uploadIssueImgRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有的严重程度
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有的严重程度
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showScrumIssueSeverities(showScrumIssueSeveritiesRequest?: ShowScrumIssueSeveritiesRequest): Promise<ShowScrumIssueSeveritiesResponse> {
+        const options = ParamCreater().showScrumIssueSeverities();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3270,6 +3503,188 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建IPD项目的工作项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createIpdProjectIssue(createIpdProjectIssueRequest?: CreateIpdProjectIssueRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/issues",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createIpdProjectIssueRequest !== null && createIpdProjectIssueRequest !== undefined) {
+                if (createIpdProjectIssueRequest instanceof CreateIpdProjectIssueRequest) {
+                    projectId = createIpdProjectIssueRequest.projectId;
+                    body = createIpdProjectIssueRequest.body
+                } else {
+                    projectId = createIpdProjectIssueRequest['project_id'];
+                    body = createIpdProjectIssueRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createIpdProjectIssue.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传issue附件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createIpdProjectIssueAttachment(createIpdProjectIssueAttachmentRequest?: CreateIpdProjectIssueAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/issues/{issue_id}/attachments/upload",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let projectId;
+            
+            let issueId;
+            let attachment;
+            
+
+            if (createIpdProjectIssueAttachmentRequest !== null && createIpdProjectIssueAttachmentRequest !== undefined) {
+                if (createIpdProjectIssueAttachmentRequest instanceof CreateIpdProjectIssueAttachmentRequest) {
+                    projectId = createIpdProjectIssueAttachmentRequest.projectId;
+                    issueId = createIpdProjectIssueAttachmentRequest.issueId;
+                    attachment = createIpdProjectIssueAttachmentRequest.body?.attachment;
+                } else {
+                    projectId = createIpdProjectIssueAttachmentRequest['project_id'];
+                    issueId = createIpdProjectIssueAttachmentRequest['issue_id'];
+                    attachment = createIpdProjectIssueAttachmentRequest['body']['attachment'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createIpdProjectIssueAttachment.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling createIpdProjectIssueAttachment.');
+            }
+            if (attachment === null || attachment === undefined) {
+            throw new RequiredError('attachment','Required parameter attachment was null or undefined when calling createIpdProjectIssueAttachment.');
+            }
+            if (attachment !== undefined) { 
+                localVarFormParams.append('attachment', attachment as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Ipd项目的工作项列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpdProjectIssues(listIpdProjectIssuesRequest?: ListIpdProjectIssuesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/issues/query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let issueType;
+            
+            let isBacklog;
+            
+            let srcDomainId;
+            
+            let view;
+
+            if (listIpdProjectIssuesRequest !== null && listIpdProjectIssuesRequest !== undefined) {
+                if (listIpdProjectIssuesRequest instanceof ListIpdProjectIssuesRequest) {
+                    projectId = listIpdProjectIssuesRequest.projectId;
+                    issueType = listIpdProjectIssuesRequest.issueType;
+                    body = listIpdProjectIssuesRequest.body
+                    isBacklog = listIpdProjectIssuesRequest.isBacklog;
+                    srcDomainId = listIpdProjectIssuesRequest.srcDomainId;
+                    view = listIpdProjectIssuesRequest.view;
+                } else {
+                    projectId = listIpdProjectIssuesRequest['project_id'];
+                    issueType = listIpdProjectIssuesRequest['issue_type'];
+                    body = listIpdProjectIssuesRequest['body'];
+                    isBacklog = listIpdProjectIssuesRequest['is_backlog'];
+                    srcDomainId = listIpdProjectIssuesRequest['src_domain_id'];
+                    view = listIpdProjectIssuesRequest['view'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIpdProjectIssues.');
+            }
+            if (issueType === null || issueType === undefined) {
+                throw new RequiredError('issueType','Required parameter issueType was null or undefined when calling listIpdProjectIssues.');
+            }
+            if (issueType !== null && issueType !== undefined) {
+                localVarQueryParameter['issue_type'] = issueType;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (isBacklog !== null && isBacklog !== undefined) {
+                localVarQueryParameter['is_backlog'] = isBacklog;
+            }
+            if (srcDomainId !== null && srcDomainId !== undefined) {
+                localVarQueryParameter['src_domain_id'] = srcDomainId;
+            }
+            if (view !== null && view !== undefined) {
+                localVarQueryParameter['view'] = view;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 工作项类型中查询字段模板列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3575,6 +3990,278 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID下载工作项附件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadIpdIssueAttachment(downloadIpdIssueAttachmentRequest?: DownloadIpdIssueAttachmentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/attachments/download/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let id;
+
+            if (downloadIpdIssueAttachmentRequest !== null && downloadIpdIssueAttachmentRequest !== undefined) {
+                if (downloadIpdIssueAttachmentRequest instanceof DownloadIpdIssueAttachmentRequest) {
+                    projectId = downloadIpdIssueAttachmentRequest.projectId;
+                    id = downloadIpdIssueAttachmentRequest.id;
+                } else {
+                    projectId = downloadIpdIssueAttachmentRequest['project_id'];
+                    id = downloadIpdIssueAttachmentRequest['id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling downloadIpdIssueAttachment.');
+            }
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling downloadIpdIssueAttachment.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工作项附件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIpdAttachmentByWorkItemId(showIpdAttachmentByWorkItemIdRequest?: ShowIpdAttachmentByWorkItemIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/attachments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueId;
+            
+            let sourceProjectId;
+
+            if (showIpdAttachmentByWorkItemIdRequest !== null && showIpdAttachmentByWorkItemIdRequest !== undefined) {
+                if (showIpdAttachmentByWorkItemIdRequest instanceof ShowIpdAttachmentByWorkItemIdRequest) {
+                    projectId = showIpdAttachmentByWorkItemIdRequest.projectId;
+                    issueId = showIpdAttachmentByWorkItemIdRequest.issueId;
+                    sourceProjectId = showIpdAttachmentByWorkItemIdRequest.sourceProjectId;
+                } else {
+                    projectId = showIpdAttachmentByWorkItemIdRequest['project_id'];
+                    issueId = showIpdAttachmentByWorkItemIdRequest['issue_id'];
+                    sourceProjectId = showIpdAttachmentByWorkItemIdRequest['source_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showIpdAttachmentByWorkItemId.');
+            }
+            if (issueId === null || issueId === undefined) {
+                throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling showIpdAttachmentByWorkItemId.');
+            }
+            if (issueId !== null && issueId !== undefined) {
+                localVarQueryParameter['issue_id'] = issueId;
+            }
+            if (sourceProjectId !== null && sourceProjectId !== undefined) {
+                localVarQueryParameter['source_project_id'] = sourceProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增需求规划
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createScrumPlanToProject(createScrumPlanToProjectRequest?: CreateScrumPlanToProjectRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/plan/{project_id}/management",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createScrumPlanToProjectRequest !== null && createScrumPlanToProjectRequest !== undefined) {
+                if (createScrumPlanToProjectRequest instanceof CreateScrumPlanToProjectRequest) {
+                    projectId = createScrumPlanToProjectRequest.projectId;
+                    body = createScrumPlanToProjectRequest.body
+                } else {
+                    projectId = createScrumPlanToProjectRequest['project_id'];
+                    body = createScrumPlanToProjectRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createScrumPlanToProject.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除规划(支持批量)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScrumPlanInProject(deleteScrumPlanInProjectRequest?: DeleteScrumPlanInProjectRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/plan/{project_id}/management",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (deleteScrumPlanInProjectRequest !== null && deleteScrumPlanInProjectRequest !== undefined) {
+                if (deleteScrumPlanInProjectRequest instanceof DeleteScrumPlanInProjectRequest) {
+                    projectId = deleteScrumPlanInProjectRequest.projectId;
+                } else {
+                    projectId = deleteScrumPlanInProjectRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteScrumPlanInProject.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目下当前用户可见的所有规划，分页
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showScrumPlansByCondition(showScrumPlansByConditionRequest?: ShowScrumPlansByConditionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/plan/{project_id}/managements",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (showScrumPlansByConditionRequest !== null && showScrumPlansByConditionRequest !== undefined) {
+                if (showScrumPlansByConditionRequest instanceof ShowScrumPlansByConditionRequest) {
+                    projectId = showScrumPlansByConditionRequest.projectId;
+                    body = showScrumPlansByConditionRequest.body
+                } else {
+                    projectId = showScrumPlansByConditionRequest['project_id'];
+                    body = showScrumPlansByConditionRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showScrumPlansByCondition.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新需求规划
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateScrumPlanInProject(updateScrumPlanInProjectRequest?: UpdateScrumPlanInProjectRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/plan/{project_id}/management/{plan_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let planId;
+
+            if (updateScrumPlanInProjectRequest !== null && updateScrumPlanInProjectRequest !== undefined) {
+                if (updateScrumPlanInProjectRequest instanceof UpdateScrumPlanInProjectRequest) {
+                    projectId = updateScrumPlanInProjectRequest.projectId;
+                    planId = updateScrumPlanInProjectRequest.planId;
+                    body = updateScrumPlanInProjectRequest.body
+                } else {
+                    projectId = updateScrumPlanInProjectRequest['project_id'];
+                    planId = updateScrumPlanInProjectRequest['plan_id'];
+                    body = updateScrumPlanInProjectRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateScrumPlanInProject.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling updateScrumPlanInProject.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'plan_id': planId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6041,6 +6728,27 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有的严重程度
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showScrumIssueSeverities() {
+            const options = {
+                method: "GET",
+                url: "/v2/issue-severity/all",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

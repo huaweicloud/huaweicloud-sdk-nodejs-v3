@@ -23,7 +23,7 @@ export class CreateInstancePeriodRequest {
     public tags?: Array<KeyValueBean>;
     private 'promotion_info'?: string;
     private 'is_auto_renew'?: number;
-    public constructor(name?: string, flavorRef?: string, vpcId?: string, availabilityZone?: string, nics?: Array<CreateInstancePeriodRequestNics>, securityGroups?: Array<CreateInstancePeriodRequestSecurityGroups>, region?: string, cloudServiceType?: string, chargingMode?: number, periodType?: number, periodNum?: number, subscriptionNum?: number, productInfos?: Array<CreateInstancePeriodRequestProductInfos>) { 
+    public constructor(name?: string, flavorRef?: string, vpcId?: string, availabilityZone?: string, nics?: Array<CreateInstancePeriodRequestNics>, securityGroups?: Array<CreateInstancePeriodRequestSecurityGroups>, region?: string, cloudServiceType?: string, chargingMode?: number, periodType?: number, periodNum?: number, subscriptionNum?: number, productInfos?: Array<CreateInstancePeriodRequestProductInfos>, isAutoRenew?: number) { 
         this['name'] = name;
         this['flavor_ref'] = flavorRef;
         this['vpc_id'] = vpcId;
@@ -37,6 +37,7 @@ export class CreateInstancePeriodRequest {
         this['period_num'] = periodNum;
         this['subscription_num'] = subscriptionNum;
         this['product_infos'] = productInfos;
+        this['is_auto_renew'] = isAutoRenew;
     }
     public withName(name: string): CreateInstancePeriodRequest {
         this['name'] = name;

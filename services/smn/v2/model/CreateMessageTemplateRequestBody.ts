@@ -4,9 +4,8 @@ export class CreateMessageTemplateRequestBody {
     private 'message_template_name'?: string;
     public protocol?: string;
     public content?: string;
-    public constructor(messageTemplateName?: string, protocol?: string, content?: string) { 
+    public constructor(messageTemplateName?: string, content?: string) { 
         this['message_template_name'] = messageTemplateName;
-        this['protocol'] = protocol;
         this['content'] = content;
     }
     public withMessageTemplateName(messageTemplateName: string): CreateMessageTemplateRequestBody {

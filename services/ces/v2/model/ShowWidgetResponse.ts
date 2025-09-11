@@ -1,32 +1,26 @@
-import { BaseWidgetInfoProperties } from './BaseWidgetInfoProperties';
-import { UpdateWidgetInfoLocation } from './UpdateWidgetInfoLocation';
+import { BaseWidgetInfoRespLocation } from './BaseWidgetInfoRespLocation';
+import { BaseWidgetInfoRespProperties } from './BaseWidgetInfoRespProperties';
 import { WidgetIdItem } from './WidgetIdItem';
 import { WidgetInfo } from './WidgetInfo';
-import { WidgetMetric } from './WidgetMetric';
+import { WidgetMetricResp } from './WidgetMetricResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowWidgetResponse extends SdkResponse {
     private 'widget_id'?: string;
     private 'group_id'?: string;
-    public metrics?: Array<WidgetMetric>;
+    public metrics?: Array<WidgetMetricResp>;
     public title?: string;
     public threshold?: number;
     private 'threshold_enabled'?: boolean;
     public view?: ShowWidgetResponseViewEnum | string;
     private 'metric_display_mode'?: ShowWidgetResponseMetricDisplayModeEnum | string;
-    public properties?: BaseWidgetInfoProperties;
-    public location?: UpdateWidgetInfoLocation;
+    public properties?: BaseWidgetInfoRespProperties;
+    public location?: BaseWidgetInfoRespLocation;
     public unit?: string;
     private 'create_time'?: number;
-    public constructor(metrics?: Array<WidgetMetric>, title?: string, thresholdEnabled?: boolean, view?: string, metricDisplayMode?: string, location?: UpdateWidgetInfoLocation) { 
+    public constructor() { 
         super();
-        this['metrics'] = metrics;
-        this['title'] = title;
-        this['threshold_enabled'] = thresholdEnabled;
-        this['view'] = view;
-        this['metric_display_mode'] = metricDisplayMode;
-        this['location'] = location;
     }
     public withWidgetId(widgetId: string): ShowWidgetResponse {
         this['widget_id'] = widgetId;
@@ -48,7 +42,7 @@ export class ShowWidgetResponse extends SdkResponse {
     public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withMetrics(metrics: Array<WidgetMetric>): ShowWidgetResponse {
+    public withMetrics(metrics: Array<WidgetMetricResp>): ShowWidgetResponse {
         this['metrics'] = metrics;
         return this;
     }
@@ -84,11 +78,11 @@ export class ShowWidgetResponse extends SdkResponse {
     public get metricDisplayMode(): ShowWidgetResponseMetricDisplayModeEnum | string | undefined {
         return this['metric_display_mode'];
     }
-    public withProperties(properties: BaseWidgetInfoProperties): ShowWidgetResponse {
+    public withProperties(properties: BaseWidgetInfoRespProperties): ShowWidgetResponse {
         this['properties'] = properties;
         return this;
     }
-    public withLocation(location: UpdateWidgetInfoLocation): ShowWidgetResponse {
+    public withLocation(location: BaseWidgetInfoRespLocation): ShowWidgetResponse {
         this['location'] = location;
         return this;
     }

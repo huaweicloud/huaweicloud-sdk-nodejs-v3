@@ -1,14 +1,14 @@
-import { ListAlarmResponseAlarms } from './ListAlarmResponseAlarms';
+import { ListAlarmRespBodyAlarms } from './ListAlarmRespBodyAlarms';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAlarmRulesResponse extends SdkResponse {
-    public alarms?: Array<ListAlarmResponseAlarms>;
+    public alarms?: Array<ListAlarmRespBodyAlarms>;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withAlarms(alarms: Array<ListAlarmResponseAlarms>): ListAlarmRulesResponse {
+    public withAlarms(alarms: Array<ListAlarmRespBodyAlarms>): ListAlarmRulesResponse {
         this['alarms'] = alarms;
         return this;
     }

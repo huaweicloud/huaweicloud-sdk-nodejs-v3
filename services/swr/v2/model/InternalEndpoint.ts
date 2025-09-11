@@ -15,7 +15,7 @@ export class InternalEndpoint {
     public description?: string;
     public status?: InternalEndpointStatusEnum | string;
     private 'status_text'?: string;
-    private 'created_at'?: Date;
+    private 'created_at'?: string;
     public constructor() { 
     }
     public withId(id: string): InternalEndpoint {
@@ -140,14 +140,14 @@ export class InternalEndpoint {
     public get statusText(): string | undefined {
         return this['status_text'];
     }
-    public withCreatedAt(createdAt: Date): InternalEndpoint {
+    public withCreatedAt(createdAt: string): InternalEndpoint {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date  | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): Date | undefined {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
 }

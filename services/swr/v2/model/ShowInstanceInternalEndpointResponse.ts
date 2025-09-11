@@ -16,7 +16,7 @@ export class ShowInstanceInternalEndpointResponse extends SdkResponse {
     public description?: string;
     public status?: ShowInstanceInternalEndpointResponseStatusEnum | string;
     private 'status_text'?: string;
-    private 'created_at'?: Date;
+    private 'created_at'?: string;
     public constructor() { 
         super();
     }
@@ -142,14 +142,14 @@ export class ShowInstanceInternalEndpointResponse extends SdkResponse {
     public get statusText(): string | undefined {
         return this['status_text'];
     }
-    public withCreatedAt(createdAt: Date): ShowInstanceInternalEndpointResponse {
+    public withCreatedAt(createdAt: string): ShowInstanceInternalEndpointResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date  | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): Date | undefined {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
 }

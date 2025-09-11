@@ -14,6 +14,7 @@ import { AttachBaremetalServerVolumeRequest } from './model/AttachBaremetalServe
 import { AttachBaremetalServerVolumeResponse } from './model/AttachBaremetalServerVolumeResponse';
 import { AttachVolumeBody } from './model/AttachVolumeBody';
 import { BandWidth } from './model/BandWidth';
+import { BareMetalModifyPortRequest } from './model/BareMetalModifyPortRequest';
 import { BaremetalServerTag } from './model/BaremetalServerTag';
 import { BatchCreateBaremetalServerTagsRequest } from './model/BatchCreateBaremetalServerTagsRequest';
 import { BatchCreateBaremetalServerTagsRequestBody } from './model/BatchCreateBaremetalServerTagsRequestBody';
@@ -62,6 +63,7 @@ import { FixedIps } from './model/FixedIps';
 import { FlavorDetailInfos } from './model/FlavorDetailInfos';
 import { FlavorInfo } from './model/FlavorInfo';
 import { FlavorInfos } from './model/FlavorInfos';
+import { FlavorResource } from './model/FlavorResource';
 import { FlavorsResp } from './model/FlavorsResp';
 import { GpuInfo } from './model/GpuInfo';
 import { Image } from './model/Image';
@@ -82,6 +84,8 @@ import { MetaDataInfo } from './model/MetaDataInfo';
 import { MetadataInfos } from './model/MetadataInfos';
 import { MetadataInstall } from './model/MetadataInstall';
 import { MetadataList } from './model/MetadataList';
+import { ModifyVmNicRequest } from './model/ModifyVmNicRequest';
+import { ModifyVmNicResponse } from './model/ModifyVmNicResponse';
 import { Nics } from './model/Nics';
 import { OSChangeReq } from './model/OSChangeReq';
 import { OsChange } from './model/OsChange';
@@ -117,6 +121,8 @@ import { ServerOsSchedulerHints } from './model/ServerOsSchedulerHints';
 import { ServerRemoteConsole } from './model/ServerRemoteConsole';
 import { ServersInfoType } from './model/ServersInfoType';
 import { ServersList } from './model/ServersList';
+import { ShowAvailableResourceRequest } from './model/ShowAvailableResourceRequest';
+import { ShowAvailableResourceResponse } from './model/ShowAvailableResourceResponse';
 import { ShowBaremetalServerInterfaceAttachmentsRequest } from './model/ShowBaremetalServerInterfaceAttachmentsRequest';
 import { ShowBaremetalServerInterfaceAttachmentsResponse } from './model/ShowBaremetalServerInterfaceAttachmentsResponse';
 import { ShowBaremetalServerTagsRequest } from './model/ShowBaremetalServerTagsRequest';
@@ -533,6 +539,26 @@ export class BmsClient {
     }
 
     /**
+     * 编辑port
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑port
+     * @param {string} nicId 
+     * @param {BareMetalModifyPortRequest} bareMetalModifyPortRequest This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyVmNic(modifyVmNicRequest?: ModifyVmNicRequest): Promise<ModifyVmNicResponse> {
+        const options = ParamCreater().modifyVmNic(modifyVmNicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重装裸金属服务器的操作系统。快速发放裸金属服务器支持裸金属服务器数据盘不变的情况下，使用原镜像重装系统盘。重装操作系统支持密码或者密钥注入
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -565,6 +591,24 @@ export class BmsClient {
      */
     public resetPwdOneClick(resetPwdOneClickRequest?: ResetPwdOneClickRequest): Promise<ResetPwdOneClickResponse> {
         const options = ParamCreater().resetPwdOneClick(resetPwdOneClickRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用资源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用资源
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvailableResource(showAvailableResourceRequest?: ShowAvailableResourceRequest): Promise<ShowAvailableResourceResponse> {
+        const options = ParamCreater().showAvailableResource();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1653,6 +1697,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 编辑port
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyVmNic(modifyVmNicRequest?: ModifyVmNicRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/baremetalservers/nics/{nic_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let nicId;
+
+            if (modifyVmNicRequest !== null && modifyVmNicRequest !== undefined) {
+                if (modifyVmNicRequest instanceof ModifyVmNicRequest) {
+                    nicId = modifyVmNicRequest.nicId;
+                    body = modifyVmNicRequest.body
+                } else {
+                    nicId = modifyVmNicRequest['nic_id'];
+                    body = modifyVmNicRequest['body'];
+                }
+            }
+
+        
+            if (nicId === null || nicId === undefined) {
+            throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling modifyVmNic.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'nic_id': nicId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重装裸金属服务器的操作系统。快速发放裸金属服务器支持裸金属服务器数据盘不变的情况下，使用原镜像重装系统盘。重装操作系统支持密码或者密钥注入
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1740,6 +1830,27 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用资源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvailableResource() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/baremetalservers/available_resource",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

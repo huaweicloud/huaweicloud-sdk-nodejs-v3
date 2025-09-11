@@ -1,6 +1,6 @@
-import { DashBoardIdItem } from './DashBoardIdItem';
-import { DashBoardNameItem } from './DashBoardNameItem';
-import { EnterpriseIdItem } from './EnterpriseIdItem';
+import { DashBoardIdItemResp } from './DashBoardIdItemResp';
+import { DashBoardNameItemResp } from './DashBoardNameItemResp';
+import { EnterpriseIdItemResp } from './EnterpriseIdItemResp';
 import { IsFavoriteItem } from './IsFavoriteItem';
 import { WidgetDisplayMode } from './WidgetDisplayMode';
 

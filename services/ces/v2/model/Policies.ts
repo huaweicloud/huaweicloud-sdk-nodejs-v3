@@ -1,27 +1,30 @@
 import { HierarchicalValue } from './HierarchicalValue';
+import { MetricExtraInfo } from './MetricExtraInfo';
 
 
 export class Policies {
     public namespace?: string;
     private 'dimension_name'?: string;
     private 'metric_name'?: string;
+    private 'extra_info'?: MetricExtraInfo;
     public period?: PoliciesPeriodEnum | number;
     public filter?: string;
     private 'comparison_operator'?: string;
     public value?: number;
     private 'hierarchical_value'?: HierarchicalValue;
     public unit?: string;
+    private 'selected_unit'?: string;
     public count?: number;
+    public type?: string;
     private 'alarm_level'?: number;
     private 'suppress_duration'?: PoliciesSuppressDurationEnum | number;
-    public constructor(namespace?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number, suppressDuration?: number) { 
+    public constructor(namespace?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number) { 
         this['namespace'] = namespace;
         this['metric_name'] = metricName;
         this['period'] = period;
         this['filter'] = filter;
         this['comparison_operator'] = comparisonOperator;
         this['count'] = count;
-        this['suppress_duration'] = suppressDuration;
     }
     public withNamespace(namespace: string): Policies {
         this['namespace'] = namespace;
@@ -46,6 +49,16 @@ export class Policies {
     }
     public get metricName(): string | undefined {
         return this['metric_name'];
+    }
+    public withExtraInfo(extraInfo: MetricExtraInfo): Policies {
+        this['extra_info'] = extraInfo;
+        return this;
+    }
+    public set extraInfo(extraInfo: MetricExtraInfo  | undefined) {
+        this['extra_info'] = extraInfo;
+    }
+    public get extraInfo(): MetricExtraInfo | undefined {
+        return this['extra_info'];
     }
     public withPeriod(period: PoliciesPeriodEnum | number): Policies {
         this['period'] = period;
@@ -83,8 +96,22 @@ export class Policies {
         this['unit'] = unit;
         return this;
     }
+    public withSelectedUnit(selectedUnit: string): Policies {
+        this['selected_unit'] = selectedUnit;
+        return this;
+    }
+    public set selectedUnit(selectedUnit: string  | undefined) {
+        this['selected_unit'] = selectedUnit;
+    }
+    public get selectedUnit(): string | undefined {
+        return this['selected_unit'];
+    }
     public withCount(count: number): Policies {
         this['count'] = count;
+        return this;
+    }
+    public withType(type: string): Policies {
+        this['type'] = type;
         return this;
     }
     public withAlarmLevel(alarmLevel: number): Policies {

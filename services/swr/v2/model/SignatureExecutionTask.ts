@@ -8,8 +8,8 @@ export class SignatureExecutionTask {
     private 'status_text'?: string;
     public namespace?: string;
     public repository?: string;
-    private 'created_at'?: Date;
-    private 'updated_at'?: Date;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public constructor() { 
     }
     public withId(id: number): SignatureExecutionTask {
@@ -58,24 +58,24 @@ export class SignatureExecutionTask {
         this['repository'] = repository;
         return this;
     }
-    public withCreatedAt(createdAt: Date): SignatureExecutionTask {
+    public withCreatedAt(createdAt: string): SignatureExecutionTask {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date  | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): Date | undefined {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: Date): SignatureExecutionTask {
+    public withUpdatedAt(updatedAt: string): SignatureExecutionTask {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date  | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): Date | undefined {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
 }

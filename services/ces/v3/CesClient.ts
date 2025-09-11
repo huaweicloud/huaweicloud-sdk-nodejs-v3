@@ -76,13 +76,13 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Agent任务列表
-     * @param {string} [instanceId] 主机id
-     * @param {'ECS' | 'BMS'} [instanceType] 主机类型，ECS弹性云服务器，BMS裸金属服务器
-     * @param {string} [invocationId] 任务id
-     * @param {'INSTALL' | 'UPDATE' | 'ROLLBACK' | 'RETRY' | 'SET_REMOTE_INSTALLER' | 'REMOTE_INSTALL'} [invocationType] 任务类型, INSTALL安装, UPDATE升级, ROLLBACK回退，RETRY重试，SET_REMOTE_INSTALLER设置远程安装主机，REMOTE_INSTALL执行远程安装
-     * @param {'telescope'} [invocationTarget] 任务对象, 支持 telescope监控
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {string} [instanceId] **参数解释**: 主机id **约束限制**: 不涉及 **取值范围**: 1到64个字符的字符串，且只包含字母、数字和连字符 **默认取值**: 不涉及 
+     * @param {'ECS' | 'BMS'} [instanceType] **参数解释**: 主机类型，仅支持ECS弹性云服务器和BMS裸金属服务器 **约束限制**: 不涉及 **取值范围**: - ECS: 弹性云服务器 - BMS：裸金属服务器 **默认取值**: 不涉及 
+     * @param {string} [invocationId] **参数解释**: 任务id **约束限制**: 不涉及 **取值范围**: 以字母或数字开头，后续可包含字母、数字、下划线或连字符的字符串，长度至少为 1 **默认取值**: 不涉及 
+     * @param {'INSTALL' | 'UPDATE' | 'ROLLBACK' | 'RETRY' | 'SET_REMOTE_INSTALLER' | 'REMOTE_INSTALL'} [invocationType] **参数解释**: 任务类型, 仅包含：INSTALL安装, UPDATE升级, ROLLBACK回退，RETRY重试，SET_REMOTE_INSTALLER设置远程安装主机，REMOTE_INSTALL执行远程安装。 **约束限制**: 不涉及。 **取值范围**: - INSTALL：安装 - UPDATE：升级 - ROLLBACK：回退 - RETRY：重试 - SET_REMOTE_INSTALLER：设置远程安装主机 - REMOTE_INSTALL：执行远程安装 **默认取值**: 不涉及 
+     * @param {'telescope'} [invocationTarget] **参数解释**: 任务对象, 支持telescope监控 **约束限制**: 不涉及。 **取值范围**: - telescope: 主机监控插件telescope **默认取值**: telescope。 
+     * @param {number} [offset] **参数解释**: 分页偏移量 **约束限制**: 不涉及 **取值范围**: 数字范围为[0,9999999999999] **默认取值**: 0 
+     * @param {number} [limit] **参数解释**: 分页大小。 **约束限制**: 不涉及。 **取值范围**: 数字范围为[1,100] **默认取值**: 100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -6,7 +6,7 @@ export class AuditLog {
     private 'resource_type'?: string;
     public resource?: string;
     public username?: string;
-    private 'op_time'?: Date;
+    private 'op_time'?: string;
     public constructor() { 
     }
     public withId(id: number): AuditLog {
@@ -35,14 +35,14 @@ export class AuditLog {
         this['username'] = username;
         return this;
     }
-    public withOpTime(opTime: Date): AuditLog {
+    public withOpTime(opTime: string): AuditLog {
         this['op_time'] = opTime;
         return this;
     }
-    public set opTime(opTime: Date  | undefined) {
+    public set opTime(opTime: string  | undefined) {
         this['op_time'] = opTime;
     }
-    public get opTime(): Date | undefined {
+    public get opTime(): string | undefined {
         return this['op_time'];
     }
 }

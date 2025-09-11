@@ -33,10 +33,13 @@ export class ListRdsDatabasesRequest {
     */
 export enum ListRdsDatabasesRequestDbTypeEnum {
     MYSQL = 'MYSQL',
+    ORACLE = 'ORACLE',
     POSTGRESQL = 'POSTGRESQL',
     SQLSERVER = 'SQLSERVER',
+    DAMENG = 'DAMENG',
     TAURUS = 'TAURUS',
     DWS = 'DWS',
+    KINGBASE = 'KINGBASE',
     MARIADB = 'MARIADB',
     GAUSSDBOPENGAUSS = 'GAUSSDBOPENGAUSS'
 }

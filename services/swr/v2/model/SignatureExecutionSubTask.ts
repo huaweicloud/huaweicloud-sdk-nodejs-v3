@@ -9,8 +9,8 @@ export class SignatureExecutionSubTask {
     public digest?: string;
     public status?: string;
     private 'status_text'?: string;
-    private 'created_at'?: Date;
-    private 'updated_at'?: Date;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public constructor() { 
     }
     public withId(id: number): SignatureExecutionSubTask {
@@ -57,24 +57,24 @@ export class SignatureExecutionSubTask {
     public get statusText(): string | undefined {
         return this['status_text'];
     }
-    public withCreatedAt(createdAt: Date): SignatureExecutionSubTask {
+    public withCreatedAt(createdAt: string): SignatureExecutionSubTask {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date  | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): Date | undefined {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: Date): SignatureExecutionSubTask {
+    public withUpdatedAt(updatedAt: string): SignatureExecutionSubTask {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date  | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): Date | undefined {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
 }

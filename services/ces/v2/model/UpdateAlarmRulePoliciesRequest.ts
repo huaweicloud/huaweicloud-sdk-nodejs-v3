@@ -1,9 +1,9 @@
-import { PoliciesReqV2 } from './PoliciesReqV2';
+import { UpdateAlarmRulePoliciesReqBodyV2 } from './UpdateAlarmRulePoliciesReqBodyV2';
 
 
 export class UpdateAlarmRulePoliciesRequest {
     private 'alarm_id'?: string;
-    public body?: PoliciesReqV2;
+    public body?: UpdateAlarmRulePoliciesReqBodyV2;
     public constructor(alarmId?: string) { 
         this['alarm_id'] = alarmId;
     }
@@ -17,7 +17,7 @@ export class UpdateAlarmRulePoliciesRequest {
     public get alarmId(): string | undefined {
         return this['alarm_id'];
     }
-    public withBody(body: PoliciesReqV2): UpdateAlarmRulePoliciesRequest {
+    public withBody(body: UpdateAlarmRulePoliciesReqBodyV2): UpdateAlarmRulePoliciesRequest {
         this['body'] = body;
         return this;
     }

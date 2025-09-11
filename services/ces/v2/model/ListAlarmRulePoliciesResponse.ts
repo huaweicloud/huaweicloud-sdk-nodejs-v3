@@ -1,14 +1,14 @@
-import { ListPolicy } from './ListPolicy';
+import { ListPolicyResp } from './ListPolicyResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAlarmRulePoliciesResponse extends SdkResponse {
-    public policies?: Array<ListPolicy>;
+    public policies?: Array<ListPolicyResp>;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withPolicies(policies: Array<ListPolicy>): ListAlarmRulePoliciesResponse {
+    public withPolicies(policies: Array<ListPolicyResp>): ListAlarmRulePoliciesResponse {
         this['policies'] = policies;
         return this;
     }

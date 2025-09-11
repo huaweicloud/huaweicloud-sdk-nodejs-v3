@@ -5,8 +5,8 @@ export class ArtifactTag {
     private 'repository_id'?: number;
     private 'artifact_id'?: number;
     public name?: string;
-    private 'push_time'?: Date;
-    private 'pull_time'?: Date;
+    private 'push_time'?: string;
+    private 'pull_time'?: string;
     public constructor() { 
     }
     public withId(id: number): ArtifactTag {
@@ -37,24 +37,24 @@ export class ArtifactTag {
         this['name'] = name;
         return this;
     }
-    public withPushTime(pushTime: Date): ArtifactTag {
+    public withPushTime(pushTime: string): ArtifactTag {
         this['push_time'] = pushTime;
         return this;
     }
-    public set pushTime(pushTime: Date  | undefined) {
+    public set pushTime(pushTime: string  | undefined) {
         this['push_time'] = pushTime;
     }
-    public get pushTime(): Date | undefined {
+    public get pushTime(): string | undefined {
         return this['push_time'];
     }
-    public withPullTime(pullTime: Date): ArtifactTag {
+    public withPullTime(pullTime: string): ArtifactTag {
         this['pull_time'] = pullTime;
         return this;
     }
-    public set pullTime(pullTime: Date  | undefined) {
+    public set pullTime(pullTime: string  | undefined) {
         this['pull_time'] = pullTime;
     }
-    public get pullTime(): Date | undefined {
+    public get pullTime(): string | undefined {
         return this['pull_time'];
     }
 }

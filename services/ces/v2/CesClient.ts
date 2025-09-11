@@ -8,24 +8,34 @@ import { AddResourcesReq } from './model/AddResourcesReq';
 import { AdditionalInfo } from './model/AdditionalInfo';
 import { AgentDimension } from './model/AgentDimension';
 import { AlarmDescription } from './model/AlarmDescription';
+import { AlarmDescriptionResp } from './model/AlarmDescriptionResp';
 import { AlarmEnabled } from './model/AlarmEnabled';
+import { AlarmEnabledResp } from './model/AlarmEnabledResp';
 import { AlarmHistoryItemV2 } from './model/AlarmHistoryItemV2';
 import { AlarmHistoryItemV2AlarmActions } from './model/AlarmHistoryItemV2AlarmActions';
 import { AlarmHistoryItemV2Condition } from './model/AlarmHistoryItemV2Condition';
 import { AlarmHistoryItemV2Metric } from './model/AlarmHistoryItemV2Metric';
 import { AlarmHistoryItemV2MetricDimensions } from './model/AlarmHistoryItemV2MetricDimensions';
 import { AlarmID } from './model/AlarmID';
+import { AlarmIDResp } from './model/AlarmIDResp';
 import { AlarmLevel } from './model/AlarmLevel';
 import { AlarmName } from './model/AlarmName';
+import { AlarmNameResp } from './model/AlarmNameResp';
 import { AlarmPolicyID } from './model/AlarmPolicyID';
 import { AlarmTemplateID } from './model/AlarmTemplateID';
+import { AlarmTemplateIDResp } from './model/AlarmTemplateIDResp';
 import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
 import { AlarmType } from './model/AlarmType';
+import { AlarmTypeResp } from './model/AlarmTypeResp';
 import { AssociationAlarmTemplate } from './model/AssociationAlarmTemplate';
 import { AsyncAssociateRGAndTemplatesReq } from './model/AsyncAssociateRGAndTemplatesReq';
 import { BaseWidgetInfo } from './model/BaseWidgetInfo';
+import { BaseWidgetInfoLocation } from './model/BaseWidgetInfoLocation';
 import { BaseWidgetInfoProperties } from './model/BaseWidgetInfoProperties';
+import { BaseWidgetInfoResp } from './model/BaseWidgetInfoResp';
+import { BaseWidgetInfoRespLocation } from './model/BaseWidgetInfoRespLocation';
+import { BaseWidgetInfoRespProperties } from './model/BaseWidgetInfoRespProperties';
 import { BatchCreateResourcesRequest } from './model/BatchCreateResourcesRequest';
 import { BatchCreateResourcesResponse } from './model/BatchCreateResourcesResponse';
 import { BatchDeleteAlarmRulesRequest } from './model/BatchDeleteAlarmRulesRequest';
@@ -51,6 +61,9 @@ import { BatchEnableAlarmPoliciesRequestBody } from './model/BatchEnableAlarmPol
 import { BatchEnableAlarmRulesRequest } from './model/BatchEnableAlarmRulesRequest';
 import { BatchEnableAlarmRulesResponse } from './model/BatchEnableAlarmRulesResponse';
 import { BatchEnableAlarmsRequestBody } from './model/BatchEnableAlarmsRequestBody';
+import { BatchListSpecifiedMetricDataRequest } from './model/BatchListSpecifiedMetricDataRequest';
+import { BatchListSpecifiedMetricDataRequestBody } from './model/BatchListSpecifiedMetricDataRequestBody';
+import { BatchListSpecifiedMetricDataResponse } from './model/BatchListSpecifiedMetricDataResponse';
 import { BatchUpdateNotificationMaskTimeRequest } from './model/BatchUpdateNotificationMaskTimeRequest';
 import { BatchUpdateNotificationMaskTimeRequestBody } from './model/BatchUpdateNotificationMaskTimeRequestBody';
 import { BatchUpdateNotificationMaskTimeResponse } from './model/BatchUpdateNotificationMaskTimeResponse';
@@ -65,9 +78,12 @@ import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
 import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
 import { BatchUpdateWidgetsResponse } from './model/BatchUpdateWidgetsResponse';
 import { CombRelation } from './model/CombRelation';
+import { CombResourceName } from './model/CombResourceName';
 import { ComparisonOperator } from './model/ComparisonOperator';
+import { ComparisonOperatorResp } from './model/ComparisonOperatorResp';
 import { Condition } from './model/Condition';
 import { Count } from './model/Count';
+import { CountResp } from './model/CountResp';
 import { CreateAlarmRulesRequest } from './model/CreateAlarmRulesRequest';
 import { CreateAlarmRulesResponse } from './model/CreateAlarmRulesResponse';
 import { CreateAlarmTemplateRequest } from './model/CreateAlarmTemplateRequest';
@@ -85,8 +101,10 @@ import { CreateResourceGroupRequestBody } from './model/CreateResourceGroupReque
 import { CreateResourceGroupResponse } from './model/CreateResourceGroupResponse';
 import { CreateTime } from './model/CreateTime';
 import { DashBoardIdItem } from './model/DashBoardIdItem';
+import { DashBoardIdItemResp } from './model/DashBoardIdItemResp';
 import { DashBoardInfo } from './model/DashBoardInfo';
 import { DashBoardNameItem } from './model/DashBoardNameItem';
+import { DashBoardNameItemResp } from './model/DashBoardNameItemResp';
 import { DataPointInfo } from './model/DataPointInfo';
 import { DelResourcesReq } from './model/DelResourcesReq';
 import { DeleteAlarmRuleResourcesRequest } from './model/DeleteAlarmRuleResourcesRequest';
@@ -95,35 +113,47 @@ import { DeleteDashboardsRequest } from './model/DeleteDashboardsRequest';
 import { DeleteDashboardsResponse } from './model/DeleteDashboardsResponse';
 import { DeleteOneWidgetRequest } from './model/DeleteOneWidgetRequest';
 import { DeleteOneWidgetResponse } from './model/DeleteOneWidgetResponse';
+import { DimNameResp } from './model/DimNameResp';
+import { DimValueResp } from './model/DimValueResp';
 import { Dimension } from './model/Dimension';
 import { DimensionInfo } from './model/DimensionInfo';
+import { DimensionInfoResp } from './model/DimensionInfoResp';
 import { DimensionNameAllowEmpty } from './model/DimensionNameAllowEmpty';
+import { DimensionNameAllowEmptyResp } from './model/DimensionNameAllowEmptyResp';
 import { DimensionNames } from './model/DimensionNames';
+import { DimensionResp } from './model/DimensionResp';
 import { EffectiveTimezone } from './model/EffectiveTimezone';
+import { EffectiveTimezoneResp } from './model/EffectiveTimezoneResp';
 import { EnableOneClickAlarmRequestBody } from './model/EnableOneClickAlarmRequestBody';
 import { EnableOneClickAlarmRequestBodyOneClickUpdateAlarms } from './model/EnableOneClickAlarmRequestBodyOneClickUpdateAlarms';
 import { EndDate } from './model/EndDate';
 import { EndTime } from './model/EndTime';
 import { EnterpriseIdItem } from './model/EnterpriseIdItem';
+import { EnterpriseIdItemResp } from './model/EnterpriseIdItemResp';
 import { EnterpriseProjectID } from './model/EnterpriseProjectID';
+import { EnterpriseProjectIDResp } from './model/EnterpriseProjectIDResp';
 import { EnterpriseProjectIdAndTags } from './model/EnterpriseProjectIdAndTags';
 import { EpResourceStatistics } from './model/EpResourceStatistics';
 import { EventDimensionName } from './model/EventDimensionName';
 import { ExtendInfo } from './model/ExtendInfo';
 import { ExtendRelationId } from './model/ExtendRelationId';
 import { ExtraInfo } from './model/ExtraInfo';
+import { ExtraInfoResp } from './model/ExtraInfoResp';
 import { Filter } from './model/Filter';
+import { FilterResp } from './model/FilterResp';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
 import { GroupID } from './model/GroupID';
 import { HierarchicalValue } from './model/HierarchicalValue';
+import { HierarchicalValueResp } from './model/HierarchicalValueResp';
 import { Instance } from './model/Instance';
 import { IsFavoriteItem } from './model/IsFavoriteItem';
 import { Level } from './model/Level';
+import { LevelResp } from './model/LevelResp';
 import { ListAgentDimensionInfoRequest } from './model/ListAgentDimensionInfoRequest';
 import { ListAgentDimensionInfoResponse } from './model/ListAgentDimensionInfoResponse';
 import { ListAlarmHistoriesRequest } from './model/ListAlarmHistoriesRequest';
 import { ListAlarmHistoriesResponse } from './model/ListAlarmHistoriesResponse';
-import { ListAlarmResponseAlarms } from './model/ListAlarmResponseAlarms';
+import { ListAlarmRespBodyAlarms } from './model/ListAlarmRespBodyAlarms';
 import { ListAlarmRulePoliciesRequest } from './model/ListAlarmRulePoliciesRequest';
 import { ListAlarmRulePoliciesResponse } from './model/ListAlarmRulePoliciesResponse';
 import { ListAlarmRuleResourcesRequest } from './model/ListAlarmRuleResourcesRequest';
@@ -153,7 +183,7 @@ import { ListOneClickAlarmRulesResponse } from './model/ListOneClickAlarmRulesRe
 import { ListOneClickAlarmsRequest } from './model/ListOneClickAlarmsRequest';
 import { ListOneClickAlarmsRespOneClickAlarms } from './model/ListOneClickAlarmsRespOneClickAlarms';
 import { ListOneClickAlarmsResponse } from './model/ListOneClickAlarmsResponse';
-import { ListPolicy } from './model/ListPolicy';
+import { ListPolicyResp } from './model/ListPolicyResp';
 import { ListRelationType } from './model/ListRelationType';
 import { ListResourceGroupsRequest } from './model/ListResourceGroupsRequest';
 import { ListResourceGroupsResponse } from './model/ListResourceGroupsResponse';
@@ -163,31 +193,49 @@ import { MaskName } from './model/MaskName';
 import { MaskResourceType } from './model/MaskResourceType';
 import { MaskStatus } from './model/MaskStatus';
 import { MaskType } from './model/MaskType';
-import { MetricDimension } from './model/MetricDimension';
+import { MetricDataPoint } from './model/MetricDataPoint';
+import { MetricDataPointDimensions } from './model/MetricDataPointDimensions';
 import { MetricDimensionName } from './model/MetricDimensionName';
+import { MetricDimensionResp } from './model/MetricDimensionResp';
+import { MetricDimensionSchema } from './model/MetricDimensionSchema';
+import { MetricDimensionStrResp } from './model/MetricDimensionStrResp';
 import { MetricExtraInfo } from './model/MetricExtraInfo';
+import { MetricExtraInfoResp } from './model/MetricExtraInfoResp';
 import { MetricName } from './model/MetricName';
+import { MetricNameResp } from './model/MetricNameResp';
+import { MetricNameSchema } from './model/MetricNameSchema';
 import { MultiMetricName } from './model/MultiMetricName';
+import { MultiMetricNameResp } from './model/MultiMetricNameResp';
 import { Namespace } from './model/Namespace';
 import { NamespaceAllowEmpty } from './model/NamespaceAllowEmpty';
+import { NamespaceAllowEmptyResp } from './model/NamespaceAllowEmptyResp';
 import { NamespaceAllowedEmpty } from './model/NamespaceAllowedEmpty';
+import { NamespaceAllowedEmptyResp } from './model/NamespaceAllowedEmptyResp';
+import { NamespaceResp } from './model/NamespaceResp';
+import { NamespaceSchema } from './model/NamespaceSchema';
 import { Notification } from './model/Notification';
 import { NotificationBeginTime } from './model/NotificationBeginTime';
+import { NotificationBeginTimeResp } from './model/NotificationBeginTimeResp';
 import { NotificationEnabled } from './model/NotificationEnabled';
+import { NotificationEnabledResp } from './model/NotificationEnabledResp';
 import { NotificationEndTime } from './model/NotificationEndTime';
+import { NotificationEndTimeResp } from './model/NotificationEndTimeResp';
 import { NotificationMaskCreateTime } from './model/NotificationMaskCreateTime';
 import { NotificationMaskID } from './model/NotificationMaskID';
 import { NotificationMaskUpdateTime } from './model/NotificationMaskUpdateTime';
+import { NotificationResp } from './model/NotificationResp';
 import { OneClickAlarmDescription } from './model/OneClickAlarmDescription';
 import { OneClickAlarmEnabled } from './model/OneClickAlarmEnabled';
 import { OneClickAlarmID } from './model/OneClickAlarmID';
+import { OneClickAlarmIDResp } from './model/OneClickAlarmIDResp';
 import { OneClickAlarmPolicy } from './model/OneClickAlarmPolicy';
 import { OneResourceGroupResp } from './model/OneResourceGroupResp';
 import { OneResourceGroupRespResourceStatistics } from './model/OneResourceGroupRespResourceStatistics';
+import { OverwriteResultResp } from './model/OverwriteResultResp';
 import { Period } from './model/Period';
+import { PeriodResp } from './model/PeriodResp';
 import { Policies } from './model/Policies';
 import { PoliciesInListResp } from './model/PoliciesInListResp';
-import { PoliciesReqV2 } from './model/PoliciesReqV2';
 import { Policy } from './model/Policy';
 import { PolicyEnabled } from './model/PolicyEnabled';
 import { PostAlarmsReqV2 } from './model/PostAlarmsReqV2';
@@ -209,9 +257,13 @@ import { ResourceTag } from './model/ResourceTag';
 import { ResourcesInListResp } from './model/ResourcesInListResp';
 import { ResourcesReqV2 } from './model/ResourcesReqV2';
 import { RollupDimension } from './model/RollupDimension';
+import { RollupDimensionResp } from './model/RollupDimensionResp';
 import { RollupEnable } from './model/RollupEnable';
+import { RollupEnableResp } from './model/RollupEnableResp';
 import { RollupFilter } from './model/RollupFilter';
+import { RollupFilterResp } from './model/RollupFilterResp';
 import { SMNUrn } from './model/SMNUrn';
+import { SMNUrnResp } from './model/SMNUrnResp';
 import { SelectedUnit } from './model/SelectedUnit';
 import { ShowAlarmTemplateRequest } from './model/ShowAlarmTemplateRequest';
 import { ShowAlarmTemplateResponse } from './model/ShowAlarmTemplateResponse';
@@ -222,18 +274,26 @@ import { ShowWidgetResponse } from './model/ShowWidgetResponse';
 import { StartDate } from './model/StartDate';
 import { StartTime } from './model/StartTime';
 import { SuppressDuration } from './model/SuppressDuration';
+import { SuppressDurationResp } from './model/SuppressDurationResp';
 import { TMSKey } from './model/TMSKey';
 import { TMSValue } from './model/TMSValue';
-import { Tag } from './model/Tag';
+import { TagResp } from './model/TagResp';
 import { TemplateDescription } from './model/TemplateDescription';
 import { TemplateID } from './model/TemplateID';
+import { TemplateIDResp } from './model/TemplateIDResp';
 import { TemplateName } from './model/TemplateName';
 import { TemplateType } from './model/TemplateType';
 import { ThresholdInfo } from './model/ThresholdInfo';
+import { ThresholdInfoResp } from './model/ThresholdInfoResp';
+import { TimeStampResp } from './model/TimeStampResp';
+import { Type } from './model/Type';
 import { Unit } from './model/Unit';
 import { UnitItem } from './model/UnitItem';
+import { UnitItemResp } from './model/UnitItemResp';
+import { UnitResp } from './model/UnitResp';
 import { UpdateAlarmNotificationsRequest } from './model/UpdateAlarmNotificationsRequest';
 import { UpdateAlarmNotificationsResponse } from './model/UpdateAlarmNotificationsResponse';
+import { UpdateAlarmRulePoliciesReqBodyV2 } from './model/UpdateAlarmRulePoliciesReqBodyV2';
 import { UpdateAlarmRulePoliciesRequest } from './model/UpdateAlarmRulePoliciesRequest';
 import { UpdateAlarmRulePoliciesResponse } from './model/UpdateAlarmRulePoliciesResponse';
 import { UpdateAlarmTemplateRequest } from './model/UpdateAlarmTemplateRequest';
@@ -248,7 +308,8 @@ import { UpdateNotificationMasksRequestBody } from './model/UpdateNotificationMa
 import { UpdateOneClickAlarmNotificationsRequest } from './model/UpdateOneClickAlarmNotificationsRequest';
 import { UpdateOneClickAlarmNotificationsRequestBody } from './model/UpdateOneClickAlarmNotificationsRequestBody';
 import { UpdateOneClickAlarmNotificationsResponse } from './model/UpdateOneClickAlarmNotificationsResponse';
-import { UpdatePolicy } from './model/UpdatePolicy';
+import { UpdatePolicyReq } from './model/UpdatePolicyReq';
+import { UpdatePolicyResp } from './model/UpdatePolicyResp';
 import { UpdateResourceGroupAssociationAlarmTemplateRequest } from './model/UpdateResourceGroupAssociationAlarmTemplateRequest';
 import { UpdateResourceGroupAssociationAlarmTemplateResponse } from './model/UpdateResourceGroupAssociationAlarmTemplateResponse';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
@@ -257,12 +318,15 @@ import { UpdateWidgetInfo } from './model/UpdateWidgetInfo';
 import { UpdateWidgetInfoLocation } from './model/UpdateWidgetInfoLocation';
 import { UpdateWidgetInfoProperties } from './model/UpdateWidgetInfoProperties';
 import { Value } from './model/Value';
+import { ValueResp } from './model/ValueResp';
 import { WidgetDisplayMode } from './model/WidgetDisplayMode';
 import { WidgetIdItem } from './model/WidgetIdItem';
 import { WidgetInfo } from './model/WidgetInfo';
 import { WidgetInfoWithId } from './model/WidgetInfoWithId';
 import { WidgetMetric } from './model/WidgetMetric';
 import { WidgetMetricName } from './model/WidgetMetricName';
+import { WidgetMetricNameResp } from './model/WidgetMetricNameResp';
+import { WidgetMetricResp } from './model/WidgetMetricResp';
 
 export class CesClient {
     public static newBuilder(): ClientBuilder<CesClient> {
@@ -455,6 +519,25 @@ export class CesClient {
     }
 
     /**
+     * 批量查询指标数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询指标数据
+     * @param {BatchListSpecifiedMetricDataRequestBody} batchListSpecifiedMetricDataRequestBody **参数解释**： 批量查询指标数据请求体。    **约束限制**： 不涉及。 **取值范围**： 不涉及。      **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchListSpecifiedMetricData(batchListSpecifiedMetricDataRequest?: BatchListSpecifiedMetricDataRequest): Promise<BatchListSpecifiedMetricDataResponse> {
+        const options = ParamCreater().batchListSpecifiedMetricData(batchListSpecifiedMetricDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量修改告警通知屏蔽规则的屏蔽时间
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -519,7 +602,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改一键告警关联告警规则的启用状态
-     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {string} oneClickAlarmId **参数解释**： 一键告警ID。 **约束限制**： 不涉及。 **取值范围**： 只能为字母或者数字，字符长度为[1,64] **默认取值**： 不涉及。 
      * @param {BatchEnableAlarmsRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -596,8 +679,8 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/复制/批量创建监控视图到指定的监控看板
-     * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
-     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控看板请求体
+     * @param {string} dashboardId **参数解释**: 监控看板id **约束限制**: 不涉及。 **取值范围**: 以db开头，包含22个字母和数字，长度为24个字符 **默认取值**: 不涉及。 
+     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] **参数解释**: 创建单指标条形图类型监控视图到指定监控看板请求体 **约束限制**: 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -635,7 +718,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/复制监控看板
-     * @param {CreateDashboardRequestBody} createOneDashboardRequestBody 创建监控看板请求体
+     * @param {CreateDashboardRequestBody} createOneDashboardRequestBody **参数解释**: 创建监控看板请求体 **约束限制**: 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -654,7 +737,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建资源分组（推荐）
-     * @param {CreateResourceGroupRequestBody} createResourceGroupRequestBody 创建资源分组请求体
+     * @param {CreateResourceGroupRequestBody} createResourceGroupRequestBody **参数解释** 创建资源分组请求体 **约束限制** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -712,7 +795,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定监控视图
-     * @param {string} widgetId 监控视图id
+     * @param {string} widgetId **参数解释**: 监控视图id。 **约束限制**: 不涉及。 **取值范围**: 字符串必须以wg开头，包含22个字母和数字，长度为24个字符。 **默认取值**: 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -726,14 +809,14 @@ export class CesClient {
     }
 
     /**
-     * 根据ECS/BMS资源ID查询磁盘、挂载点、进程、显卡、RAID控制器维度指标信息；维度NPU已经为原始值，不需要调用该接口进行额外查询获取指标信息
+     * 根据ECS/BMS资源ID及特殊维度值(仅支持磁盘、挂载点、进程、显卡、RAID控制器)查询该特殊维度对应的原始维度值；其他维度无需调用该接口
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询主机监控维度指标信息
+     * @summary 查询主机监控原始维度值
      * @param {string} instanceId **参数描述**： 资源ID，如：4270ff17-aba3-4138-89fa-820594c39755。 **约束限制**： 不涉及。 **取值范围**： 字符串长度为36。 **默认取值**： 不涉及。 
      * @param {'mount_point' | 'disk' | 'proc' | 'gpu' | 'raid'} dimName **参数描述**： 维度名称。 **约束限制**： 不涉及。 **取值范围**： 枚举类型，mount_point:挂载点，disk:磁盘，proc:进程，gpu:显卡，raid:RAID控制器。 **默认取值**： 不涉及。 
-     * @param {string} [dimValue] **参数描述**： 维度值。 **约束限制**： 不涉及。  **取值范围**： 32位字符串，如：2e84018fc8b4484b94e89aae212fe615。 **默认取值**： 不涉及。 
+     * @param {string} [dimValue] **参数描述**： 维度值(建议：同一个instance_id下相同dim_value对应的原始维度值origin_value是一样的，无需多次调用，建议根据instance_id + dim_value作为key进行缓存重复使用)。 **约束限制**： 不涉及。  **取值范围**： 32位字符串，如：2e84018fc8b4484b94e89aae212fe615。 **默认取值**： 不涉及。 
      * @param {number} [offset] **参数描述**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 最小值为0，最大值为2147483647。 **默认取值**： 0 
      * @param {number} [limit] **参数描述**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： 最小值为1，最大值为1000。 **默认取值**： 1000 
      * @param {*} [options] Override http request option.
@@ -787,9 +870,9 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警规则策略列表
-     * @param {string} alarmId 告警规则ID
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {string} alarmId **参数解释**： 告警规则ID。     **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22个数字或字母。字符长度为24 **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 0-10000 **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： 1-100 **默认取值**： 10 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -808,9 +891,9 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警规则资源列表
-     * @param {string} alarmId Alarm实例ID
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {string} alarmId **参数解释**： 告警规则ID。 **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位的字母或数字。          **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数描述**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 最小值为0，最大值为10000。 **默认取值**： 0 
+     * @param {number} [limit] **参数描述**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： 最小值为1，最大值为100。 **默认取值**： 10 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -829,15 +912,15 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警规则列表（推荐）
-     * @param {string} [alarmId] 告警规则ID
-     * @param {string} [name] 告警名称, 只能包含0-9/a-z/A-Z/_/-或汉字，长度1-128
-     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
-     * @param {string} [resourceId] 告警资源ID，多维度情况按字母升序排列并使用逗号分隔
-     * @param {string} [enterpriseProjectId] 企业项目ID
-     * @param {string} [productName] 产品层级跨纬规则查询时支持产品名称查询，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
-     * @param {'product' | 'dimension'} [resourceLevel] 产品层级跨纬规则查询时支持规则所属类型查询，resource_level取值为product即为产品层级跨纬规则，不填或者取值为dimension则为旧的规则类型
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {string} [alarmId] **参数解释**： 告警规则ID。 **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位的字母或数字。          **默认取值**： 不涉及。 
+     * @param {string} [name] **参数解释**： 告警名称。 **约束限制**： 不涉及。 **取值范围**： 只能包含0-9/a-z/A-Z/_/-或汉字，长度为[1,128]个字符。          **默认取值**： 不涉及。 
+     * @param {string} [namespace] **参数解释**： 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”。 **约束限制**： 不涉及。 **取值范围**： 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度在 0 到 32个字符之间。           **默认取值**： 不涉及。 
+     * @param {string} [resourceId] **参数解释**： 告警资源ID。 **约束限制**： 不涉及。 **取值范围**： 多维度情况按字母升序排列并使用逗号分隔。 长度为[0,700]个字符。        **默认取值**： 不涉及。 
+     * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 只能包含小写字母、数字、“-”、“_”，可以自定义企业项目ID，长度为36个字符。也可以为0（代表默认企业项目ID），all_granted_eps（代表所有企业项目ID）。           **默认取值**： 不涉及。 
+     * @param {string} [productName] **参数解释**： 产品层级跨维规则查询时支持产品名称查询，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,128]个字符。        **默认取值**： 不涉及。 
+     * @param {'product' | 'dimension'} [resourceLevel] **参数解释**： 产品层级跨维规则查询时支持规则所属类型查询，resource_level取值为product即为云产品类型，不填或者取值为dimension则为子维度类型。           **约束限制**： 不涉及。 **取值范围**： 枚举值。 - product：云产品。 - dimension：子维度。 **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： [0,10000]           **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： [1,100]           **默认取值**： 10 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -880,9 +963,10 @@ export class CesClient {
      * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
      * @param {number} [limit] 查询结果条数的限制值，取值范围为[1,100]，默认值为100
      * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
-     * @param {string} [dimName] 资源维度，多维度用\&quot;,\&quot;分割，只能包含0-9、a-z、A-Z、_、-、#、/、(、），每个维度的最大长度为32。字符串总长度最小为1，最大为131。
+     * @param {string} [dimName] 资源维度，必须以字母开头，多维度用\&quot;,\&quot;分隔，只能包含0-9/a-z/A-Z/_/-，每个维度的最大长度为32
      * @param {'system' | 'custom' | 'system_event' | 'custom_event' | 'system_custom_event'} [templateType] 模板类型(system代表默认指标模板，custom代表自定义指标模板，system_event代表默认事件模板，custom_event代表自定义事件模板，system_custom_event代表全部事件模板),不传返回全部指标模板
      * @param {string} [templateName] 告警模板的名称，以字母或汉字开头，可包含字母、数字、汉字、_、-，长度范围[1,128]，支持模糊匹配
+     * @param {string} [productName] 支持按照产品名称粒度进行查询告警模板，产品名称一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -901,7 +985,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询CES指定项目指定资源类型标签列表
-     * @param {'CES-alarm'} resourceType 资源类型。CES-alarm：告警规则
+     * @param {'CES-alarm'} resourceType **参数解释**： 资源类型。     **约束限制**： 不涉及。 **取值范围**： 只能为CES-alarm，代表告警规则。长度[1,32]个字符。      **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -920,11 +1004,11 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询监控看板列表
-     * @param {string} [enterpriseId] 企业项目Id
-     * @param {boolean} [isFavorite] 指定企业项目下监控看板是否收藏，true:收藏，false:未收藏，填此参数时，enterprise_id必填
-     * @param {string} [dashboardName] 监控看板名称
-     * @param {string} [dashboardId] 监控看板id
-     * @param {'monitor_dashboard' | 'other'} [dashboardType] 监控看板类型, monitor_dashboard表示监控大盘,other表示自定义看板
+     * @param {string} [enterpriseId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 只能包含小写字母、数字、“-”、“_”，可以自定义企业项目ID，长度为36个字符。也可以为0（代表默认企业项目ID），all_granted_eps（代表所有企业项目ID）。           **默认取值**： 不涉及。 
+     * @param {boolean} [isFavorite] **参数解释**： 指定企业项目下监控看板是否收藏。 **约束限制**： 填此参数时，enterprise_id必填。 **取值范围**： - true:收藏 - false:未收藏          **默认取值**： 不涉及。 
+     * @param {string} [dashboardName] **参数解释**： 监控看板名称。 **约束限制**： 不涉及。 **取值范围**： 长度为[1,128]个字符，只允许中文、英文、数字0-9、_和-          **默认取值**： 不涉及。 
+     * @param {string} [dashboardId] **参数解释**： 监控看板id。 **约束限制**： 不涉及。 **取值范围**： 以db开头，包含22个字母和数字，长度为24个字符 **默认取值**： 不涉及。 
+     * @param {'monitor_dashboard' | 'other'} [dashboardType] **参数解释**： 监控看板类型。 **约束限制**： 不涉及。 **取值范围**： - monitor_dashboard:表示监控大盘 - other:表示自定义看板 **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -943,7 +1027,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定监控看板下的监控视图列表
-     * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {string} dashboardId **参数解释**: 监控看板id **约束限制**: 不涉及。 **取值范围**: 以db开头，包含22个字母和数字，长度为24个字符 **默认取值**: 不涉及。 
      * @param {string} [groupId] 视图所在的分组id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -963,7 +1047,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警通知屏蔽资源列表
-     * @param {string} notificationMaskId 屏蔽规则ID
+     * @param {string} notificationMaskId **参数解释**： 屏蔽规则ID。    **约束限制**： 不涉及。 **取值范围**： 只能包含字母、数字，长度为[1,64]个字符。           **默认取值**： 不涉及。 
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
      * @param {*} [options] Override http request option.
@@ -1070,7 +1154,7 @@ export class CesClient {
      * @summary 查询资源分组下指定服务类别特定维度的资源列表
      * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
      * @param {string} service 服务类别，如SYS.ECS
-     * @param {string} [dimName] 资源维度信息，多个维度按字母序使用逗号分割
+     * @param {string} [dimName] 资源维度信息，多个维度按字母序使用逗号分隔
      * @param {string} [limit] 分页查询时每页的条目数，取值[1,100]，默认值为100
      * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
      * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [status] 按状态信息进行过滤，取值只能为health（已设置告警规则且无告警触发的资源）、unhealthy（已设置告警规则且有告警触发的资源）、no_alarm_rule（未设置告警规则的资源）
@@ -1136,7 +1220,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定监控视图信息
-     * @param {string} widgetId 监控视图id
+     * @param {string} widgetId **参数解释**: 监控视图id。 **约束限制**: 不涉及。 **取值范围**: 字符串必须以wg开头，包含22个字母和数字，长度为24个字符。 **默认取值**: 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1155,7 +1239,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改告警规则告警通知信息
-     * @param {string} alarmId 告警规则ID
+     * @param {string} alarmId **参数解释**： 告警规则ID **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位字母或数字。 **默认取值**： 不涉及。 
      * @param {PutAlarmNotificationReq} updateAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1175,8 +1259,8 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改告警规则策略(全量修改)
-     * @param {string} alarmId Alarm实例ID
-     * @param {PoliciesReqV2} updateAlarmRulePoliciesRequestBody 修改策略的请求体
+     * @param {string} alarmId **参数解释**： 告警规则ID。 **约束限制**： 不涉及。 **取值范围**： 以al开头，只能由大写字母、小写字母、数字组成，且长度为24个字符。           **默认取值**： 不涉及。 
+     * @param {UpdateAlarmRulePoliciesReqBodyV2} updateAlarmRulePoliciesRequestBody 修改策略的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1215,7 +1299,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改监控看板
-     * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {string} dashboardId **参数解释**: 监控看板id **约束限制**: 不涉及。 **取值范围**: 以db开头，包含22个字母和数字，长度为24个字符 **默认取值**: 不涉及。 
      * @param {UpdateDashboardRequestBody} updateDashboardRequestBody 修改监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1235,7 +1319,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改告警通知屏蔽规则
-     * @param {string} notificationMaskId 屏蔽规则ID
+     * @param {string} notificationMaskId **参数解释**： 屏蔽规则ID。    **约束限制**： 不涉及。 **取值范围**： 只能包含字母、数字，长度为[1,64]个字符。           **默认取值**： 不涉及。 
      * @param {UpdateNotificationMasksRequestBody} updateNotificationMaskRequestBody 修改通知屏蔽规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1665,6 +1749,44 @@ export const ParamCreater = function () {
                     body = batchEnableAlarmRulesRequest.body
                 } else {
                     body = batchEnableAlarmRulesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量查询指标数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchListSpecifiedMetricData(batchListSpecifiedMetricDataRequest?: BatchListSpecifiedMetricDataRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/batch-query-metric-data",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchListSpecifiedMetricDataRequest !== null && batchListSpecifiedMetricDataRequest !== undefined) {
+                if (batchListSpecifiedMetricDataRequest instanceof BatchListSpecifiedMetricDataRequest) {
+                    body = batchListSpecifiedMetricDataRequest.body
+                } else {
+                    body = batchListSpecifiedMetricDataRequest['body'];
                 }
             }
 
@@ -2244,7 +2366,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据ECS/BMS资源ID查询磁盘、挂载点、进程、显卡、RAID控制器维度指标信息；维度NPU已经为原始值，不需要调用该接口进行额外查询获取指标信息
+         * 根据ECS/BMS资源ID及特殊维度值(仅支持磁盘、挂载点、进程、显卡、RAID控制器)查询该特殊维度对应的原始维度值；其他维度无需调用该接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2724,6 +2846,8 @@ export const ParamCreater = function () {
             let templateType;
             
             let templateName;
+            
+            let productName;
 
             if (listAlarmTemplatesRequest !== null && listAlarmTemplatesRequest !== undefined) {
                 if (listAlarmTemplatesRequest instanceof ListAlarmTemplatesRequest) {
@@ -2733,6 +2857,7 @@ export const ParamCreater = function () {
                     dimName = listAlarmTemplatesRequest.dimName;
                     templateType = listAlarmTemplatesRequest.templateType;
                     templateName = listAlarmTemplatesRequest.templateName;
+                    productName = listAlarmTemplatesRequest.productName;
                 } else {
                     offset = listAlarmTemplatesRequest['offset'];
                     limit = listAlarmTemplatesRequest['limit'];
@@ -2740,6 +2865,7 @@ export const ParamCreater = function () {
                     dimName = listAlarmTemplatesRequest['dim_name'];
                     templateType = listAlarmTemplatesRequest['template_type'];
                     templateName = listAlarmTemplatesRequest['template_name'];
+                    productName = listAlarmTemplatesRequest['product_name'];
                 }
             }
 
@@ -2761,6 +2887,9 @@ export const ParamCreater = function () {
             }
             if (templateName !== null && templateName !== undefined) {
                 localVarQueryParameter['template_name'] = templateName;
+            }
+            if (productName !== null && productName !== undefined) {
+                localVarQueryParameter['product_name'] = productName;
             }
 
             options.queryParams = localVarQueryParameter;

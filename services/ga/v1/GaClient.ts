@@ -80,6 +80,8 @@ import { IpGroupDetail } from './model/IpGroupDetail';
 import { IpInfo } from './model/IpInfo';
 import { ListAcceleratorsRequest } from './model/ListAcceleratorsRequest';
 import { ListAcceleratorsResponse } from './model/ListAcceleratorsResponse';
+import { ListAllPopsRequest } from './model/ListAllPopsRequest';
+import { ListAllPopsResponse } from './model/ListAllPopsResponse';
 import { ListEndpointGroupsRequest } from './model/ListEndpointGroupsRequest';
 import { ListEndpointGroupsResponse } from './model/ListEndpointGroupsResponse';
 import { ListEndpointsRequest } from './model/ListEndpointsRequest';
@@ -99,6 +101,9 @@ import { ListResourcesByTagRequestBody } from './model/ListResourcesByTagRequest
 import { ListResourcesByTagResponse } from './model/ListResourcesByTagResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListTenantQuotasRequest } from './model/ListTenantQuotasRequest';
+import { ListTenantQuotasResponse } from './model/ListTenantQuotasResponse';
+import { ListTenantQuotasResponseBodyQuotas } from './model/ListTenantQuotasResponseBodyQuotas';
 import { ListenerAccessControlPolicy } from './model/ListenerAccessControlPolicy';
 import { ListenerAccessControlType } from './model/ListenerAccessControlType';
 import { ListenerDetail } from './model/ListenerDetail';
@@ -107,7 +112,9 @@ import { LogtankDetail } from './model/LogtankDetail';
 import { LogtankResourceType } from './model/LogtankResourceType';
 import { Match } from './model/Match';
 import { PageInfo } from './model/PageInfo';
+import { PopOuterDetail } from './model/PopOuterDetail';
 import { PortRange } from './model/PortRange';
+import { QuotaOuterResource } from './model/QuotaOuterResource';
 import { Region } from './model/Region';
 import { RemoveIpGroupIpRequest } from './model/RemoveIpGroupIpRequest';
 import { RemoveIpGroupIpRequestBody } from './model/RemoveIpGroupIpRequestBody';
@@ -968,6 +975,45 @@ export class GaClient {
      */
     public updateLogtank(updateLogtankRequest?: UpdateLogtankRequest): Promise<UpdateLogtankResponse> {
         const options = ParamCreater().updateLogtank(updateLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询pop列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询pop列表
+     * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
+     * @param {string} [marker] 分页查询的起始的资源ID，表示上一页最后一条查询资源记录的ID。不指定时表示查询第一页。 必须与limit一起使用。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAllPops(listAllPopsRequest?: ListAllPopsRequest): Promise<ListAllPopsResponse> {
+        const options = ParamCreater().listAllPops(listAllPopsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询配额列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配额列表
+     * @param {string} domainId 租户ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantQuotas(listTenantQuotasRequest?: ListTenantQuotasRequest): Promise<ListTenantQuotasResponse> {
+        const options = ParamCreater().listTenantQuotas(listTenantQuotasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2948,6 +2994,87 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'logtank_id': logtankId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询pop列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAllPops(listAllPopsRequest?: ListAllPopsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/pops",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listAllPopsRequest !== null && listAllPopsRequest !== undefined) {
+                if (listAllPopsRequest instanceof ListAllPopsRequest) {
+                    limit = listAllPopsRequest.limit;
+                    marker = listAllPopsRequest.marker;
+                } else {
+                    limit = listAllPopsRequest['limit'];
+                    marker = listAllPopsRequest['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询配额列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantQuotas(listTenantQuotasRequest?: ListTenantQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{domain_id}/ga/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+
+            if (listTenantQuotasRequest !== null && listTenantQuotasRequest !== undefined) {
+                if (listTenantQuotasRequest instanceof ListTenantQuotasRequest) {
+                    domainId = listTenantQuotasRequest.domainId;
+                } else {
+                    domainId = listTenantQuotasRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listTenantQuotas.');
+            }
+
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

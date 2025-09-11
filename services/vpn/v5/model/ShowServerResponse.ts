@@ -14,6 +14,7 @@ export class ShowServerResponse {
     private 'client_ca_certificates'?: Array<QueryClientCaCertificateBody>;
     private 'ssl_options'?: ShowServerResponseSslOptions;
     private 'dns_servers'?: Array<string>;
+    private 'idp_name'?: string;
     public status?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
@@ -112,6 +113,16 @@ export class ShowServerResponse {
     }
     public get dnsServers(): Array<string> | undefined {
         return this['dns_servers'];
+    }
+    public withIdpName(idpName: string): ShowServerResponse {
+        this['idp_name'] = idpName;
+        return this;
+    }
+    public set idpName(idpName: string  | undefined) {
+        this['idp_name'] = idpName;
+    }
+    public get idpName(): string | undefined {
+        return this['idp_name'];
     }
     public withStatus(status: string): ShowServerResponse {
         this['status'] = status;

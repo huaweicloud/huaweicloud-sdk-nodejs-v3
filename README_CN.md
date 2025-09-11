@@ -104,6 +104,7 @@ ts-node ./index.ts
     * [2.2 使用临时 AK 和 SK](#22-使用临时-ak-和-sk-top)
 * [3. 客户端初始化](#3-客户端初始化-top)
     * [3.1 指定云服务 Endpoint 方式](#31-指定云服务-endpoint-方式-top)
+    * [3.2 用户代理](#32-用户代理-top)
 * [4. 发送请求并查看响应](#4-发送请求并查看响应-top)
 * [5. 故障处理](#5-故障处理-top)
     * [5.1 HTTP 监听器](#51-http-监听器-top)
@@ -211,6 +212,27 @@ const client = VpcClient.newBuilder()
 **说明：**
 
 - `endpoint` 是华为云各服务应用区域和各服务的终端节点，详情请查看 [地区和终端节点](https://developer.huaweicloud.com/endpoint) 。
+
+#### 3.2 用户代理 [:top:](#用户手册-top)
+
+从**3.1.167**版本起，默认会在请求头User-Agent中附加额外信息，用于识别客户端调用服务时所使用的SDK语言、客户端库版本以及平台信息等。 User-Agent包含Java版本、操作系统和时区语言信息，同时会生成一个随机标识符追加到User-Agent信息中。随机标识符会存储在用户主目录下，linux为 `~/.huaweicloud/application_id`，windows为`C:\Users\USER_NAME\.huaweicloud\application_id`。
+ 
+上述信息将用于保护您及您的用户的华为云账号安全。
+ 
+您可以通过自定义User-Agent的方式关闭上述行为，自定义User-Agent信息建议长度不超过50个字符，仅可包含ASCII可打印字符：
+
+``` javascript
+// 初始化指定云服务的客户端 {Service}Client ，以初始化 VpcClient 为例
+const client = VpcClient.newBuilder()
+    .withCredential(basicCredentials)
+    .withEndpoint(endpoint)
+    .withProxyAgent(proxy)
+    .withOptions({
+      customUserAgent: "huaweicloud-usdk-java/3.0; test-user-agent",
+    })
+    .build()
+```
+
 
 ### 4. 发送请求并查看响应 [:top:](#用户手册-top)
 

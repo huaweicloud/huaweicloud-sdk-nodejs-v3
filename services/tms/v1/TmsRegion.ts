@@ -10,13 +10,15 @@ export class TmsRegion {
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://tms-intl.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://tms.eu-west-101.myhuaweicloud.eu"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://tms.ru-moscow-1.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://tms.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
         "cn-north-4":TmsRegion.CN_NORTH_4,
         "ap-southeast-1":TmsRegion.AP_SOUTHEAST_1,
         "eu-west-101":TmsRegion.EU_WEST_101,
-        "ru-moscow-1":TmsRegion.RU_MOSCOW_1
+        "ru-moscow-1":TmsRegion.RU_MOSCOW_1,
+        "my-kualalumpur-1":TmsRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {

@@ -7,7 +7,7 @@ export class Accessory {
     public size?: number;
     public digest?: string;
     public type?: AccessoryTypeEnum | string;
-    private 'created_at'?: Date;
+    private 'created_at'?: string;
     public constructor() { 
     }
     public withId(id: number): Accessory {
@@ -46,14 +46,14 @@ export class Accessory {
         this['type'] = type;
         return this;
     }
-    public withCreatedAt(createdAt: Date): Accessory {
+    public withCreatedAt(createdAt: string): Accessory {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date  | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): Date | undefined {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
 }

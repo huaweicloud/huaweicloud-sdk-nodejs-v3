@@ -92,7 +92,7 @@ export enum BatchCreateInvocationRequestBodyInvocationTypeEnum {
     UPDATE = 'UPDATE',
     ROLLBACK = 'ROLLBACK',
     RETRY = 'RETRY',
-    SET_REMOTE_INSTALL_HOST = 'SET_REMOTE_INSTALL_HOST',
+    SET_REMOTE_INSTALLER = 'SET_REMOTE_INSTALLER',
     REMOTE_INSTALL = 'REMOTE_INSTALL'
 }
 /**

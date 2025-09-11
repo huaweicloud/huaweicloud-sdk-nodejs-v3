@@ -12,6 +12,7 @@ export class CreateServerRequest {
     private 'client_ca_certificates'?: Array<CreateServerRequestClientCaCertificates>;
     private 'ssl_options'?: CreateServerRequestSslOptions;
     private 'dns_servers'?: Array<string>;
+    private 'idp_name'?: string;
     public constructor(clientCidr?: string, localSubnets?: Array<string>) { 
         this['client_cidr'] = clientCidr;
         this['local_subnets'] = localSubnets;
@@ -96,6 +97,16 @@ export class CreateServerRequest {
     public get dnsServers(): Array<string> | undefined {
         return this['dns_servers'];
     }
+    public withIdpName(idpName: string): CreateServerRequest {
+        this['idp_name'] = idpName;
+        return this;
+    }
+    public set idpName(idpName: string  | undefined) {
+        this['idp_name'] = idpName;
+    }
+    public get idpName(): string | undefined {
+        return this['idp_name'];
+    }
 }
 
 /**
@@ -111,5 +122,7 @@ export enum CreateServerRequestTunnelProtocolEnum {
     */
 export enum CreateServerRequestClientAuthTypeEnum {
     CERT = 'CERT',
-    LOCAL_PASSWORD = 'LOCAL_PASSWORD'
+    LOCAL_PASSWORD = 'LOCAL_PASSWORD',
+    IAM = 'IAM',
+    FEDERATED = 'FEDERATED'
 }

@@ -28,12 +28,13 @@ import { SdkException } from "./exception/SdkException";
 import { Region } from "./region/region";
 import { UserOptions } from "./UserOptions";
 import * as path from "path";
+import { generateDefaultUsageAgent } from './http/DefaultUserAgent';
 
 interface CredParams {
     ak?: string;
-    sk?: string,
-    project_id?: string,
-    domain_id?: string,
+    sk?: string;
+    project_id?: string;
+    domain_id?: string;
     [key: string]: any;
 }
 
@@ -93,19 +94,24 @@ export class ClientBuilder<T> {
 
     public build(): T {
         const axiosOptions: ClientOptions = {
-            disableSslVerification: true
+            disableSslVerification: true,
         };
         if (this.proxyAgent) {
             Object.assign(axiosOptions, { proxy: this.proxyAgent });
         }
-        if (this.userOptions?.customUserAgent) {
-            axiosOptions.headers = axiosOptions.headers || {};
-            axiosOptions.headers["User-Agent"] = this.userOptions.customUserAgent;
-        }
 
         if (this.userOptions?.axiosRequestConfig) {
+            if (this.userOptions?.axiosRequestConfig?.headers?.['User-Agent']) {
+                this.userOptions.axiosRequestConfig.headers['User-Agent'] = this.getDefaultUsageAgent(
+                    this.userOptions.axiosRequestConfig.headers['User-Agent'] as string
+                );
+            }
             axiosOptions.axiosRequestConfig = this.userOptions.axiosRequestConfig;
         }
+        if (!axiosOptions.headers) {
+            axiosOptions.headers = {};
+        }
+        axiosOptions.headers['User-Agent'] = this.getDefaultUsageAgent(this?.userOptions?.customUserAgent);
 
         if (!this.credential) {
             this.credential = this.getCredentialFromEnvironment();
@@ -141,7 +147,7 @@ export class ClientBuilder<T> {
      */
     private getCredentialFromEnvironment(): ICredential {
         const sdkType: any = process.env.HUAWEICLOUD_SDK_TYPE;
-        const credentialTYPE = this.whichCredential(sdkType)
+        const credentialTYPE = this.whichCredential(sdkType);
         return this.getInputParamCredential(credentialTYPE, this.envParams);
     }
 
@@ -192,5 +198,14 @@ export class ClientBuilder<T> {
         });
 
         return CredentialsType;
+    }
+
+    private getDefaultUsageAgent(customUserAgent?: string) {
+        const prefix = 'huaweicloud-usdk-nodejs/3.0';
+        if (customUserAgent && typeof customUserAgent === 'string') {
+            return `${prefix}; ${customUserAgent}`;
+        } else {
+            return generateDefaultUsageAgent(prefix);
+        }
     }
 }

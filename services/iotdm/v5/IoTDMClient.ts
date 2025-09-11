@@ -20,18 +20,30 @@ import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { Flavor } from './model/Flavor';
 import { ForwardingInfo } from './model/ForwardingInfo';
 import { IPWhiteList } from './model/IPWhiteList';
+import { InstanceFlavor } from './model/InstanceFlavor';
+import { InstanceTask } from './model/InstanceTask';
 import { IpAllowList } from './model/IpAllowList';
+import { ListInstanceFlavorsRequest } from './model/ListInstanceFlavorsRequest';
+import { ListInstanceFlavorsResponse } from './model/ListInstanceFlavorsResponse';
+import { ListInstanceTasksRequest } from './model/ListInstanceTasksRequest';
+import { ListInstanceTasksResponse } from './model/ListInstanceTasksResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { OperateWindow } from './model/OperateWindow';
+import { Page } from './model/Page';
 import { Port } from './model/Port';
 import { QueryInstanceSimplify } from './model/QueryInstanceSimplify';
 import { ResizeInstance } from './model/ResizeInstance';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RetryInstanceTaskRequest } from './model/RetryInstanceTaskRequest';
+import { RetryInstanceTaskResponse } from './model/RetryInstanceTaskResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
+import { ShowInstanceTaskRequest } from './model/ShowInstanceTaskRequest';
+import { ShowInstanceTaskResponse } from './model/ShowInstanceTaskResponse';
 import { Tag } from './model/Tag';
+import { TargetConfig } from './model/TargetConfig';
 import { UnbindInstanceTags } from './model/UnbindInstanceTags';
 import { UnbindInstanceTagsRequest } from './model/UnbindInstanceTagsRequest';
 import { UnbindInstanceTagsResponse } from './model/UnbindInstanceTagsResponse';
@@ -56,6 +68,28 @@ export class IoTDMClient {
         return __dirname;
     }
 
+
+    /**
+     * 用户可以调用此接口查询设备接入服务支持的实例规格列表。支持的实例规格请参见[[产品规格说明](https://support.huaweicloud.com/productdesc-iothub/iot_04_0014.html)](tag:hws)[[产品规格说明](https://support.huaweicloud.com/intl/zh-cn/productdesc-iothub/iot_04_0014.html)](tag:hws_hk)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例规格列表
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 取值范围：0-500的整数，默认为0。 
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-500的整数，默认为500。 
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
+     * @param {string} [instanceType] **参数说明**：实例类型。 **取值范围**： - standard：标准版实例 - enterprise：企业版实例 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceFlavors(listInstanceFlavorsRequest?: ListInstanceFlavorsRequest): Promise<ListInstanceFlavorsResponse> {
+        const options = ParamCreater().listInstanceFlavors(listInstanceFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 添加实例标签。
@@ -241,10 +275,130 @@ export class IoTDMClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 用户可以调用此接口查询设备接入实例任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例任务列表
+     * @param {string} instanceId **参数说明**：实例ID。 **取值范围**：长度不超过36，由小写字母[a-f]、数字、连接符（-）的组成。 
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 取值范围：0-500的整数，默认为0。 
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-500的整数，默认为500。 
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceTasks(listInstanceTasksRequest?: ListInstanceTasksRequest): Promise<ListInstanceTasksResponse> {
+        const options = ParamCreater().listInstanceTasks(listInstanceTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可以调用此接口对运行失败的实例任务进行重试。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试实例任务
+     * @param {string} instanceId **参数说明**：实例ID。 **取值范围**：长度不超过36，由小写字母[a-f]、数字、连接符（-）的组成。 
+     * @param {string} taskId 任务Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryInstanceTask(retryInstanceTaskRequest?: RetryInstanceTaskRequest): Promise<RetryInstanceTaskResponse> {
+        const options = ParamCreater().retryInstanceTask(retryInstanceTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可以调用此接口查询设备接入实例任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例任务详情
+     * @param {string} instanceId **参数说明**：实例ID。 **取值范围**：长度不超过36，由小写字母[a-f]、数字、连接符（-）的组成。 
+     * @param {string} taskId 任务Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceTask(showInstanceTaskRequest?: ShowInstanceTaskRequest): Promise<ShowInstanceTaskResponse> {
+        const options = ParamCreater().showInstanceTask(showInstanceTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 用户可以调用此接口查询设备接入服务支持的实例规格列表。支持的实例规格请参见[[产品规格说明](https://support.huaweicloud.com/productdesc-iothub/iot_04_0014.html)](tag:hws)[[产品规格说明](https://support.huaweicloud.com/intl/zh-cn/productdesc-iothub/iot_04_0014.html)](tag:hws_hk)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceFlavors(listInstanceFlavorsRequest?: ListInstanceFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/iotda-instances/flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let marker;
+            
+            let instanceType;
+
+            if (listInstanceFlavorsRequest !== null && listInstanceFlavorsRequest !== undefined) {
+                if (listInstanceFlavorsRequest instanceof ListInstanceFlavorsRequest) {
+                    offset = listInstanceFlavorsRequest.offset;
+                    limit = listInstanceFlavorsRequest.limit;
+                    marker = listInstanceFlavorsRequest.marker;
+                    instanceType = listInstanceFlavorsRequest.instanceType;
+                } else {
+                    offset = listInstanceFlavorsRequest['offset'];
+                    limit = listInstanceFlavorsRequest['limit'];
+                    marker = listInstanceFlavorsRequest['marker'];
+                    instanceType = listInstanceFlavorsRequest['instance_type'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 添加实例标签。
@@ -654,6 +808,153 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可以调用此接口查询设备接入实例任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceTasks(listInstanceTasksRequest?: ListInstanceTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/iotda-instances/{instance_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let marker;
+
+            if (listInstanceTasksRequest !== null && listInstanceTasksRequest !== undefined) {
+                if (listInstanceTasksRequest instanceof ListInstanceTasksRequest) {
+                    instanceId = listInstanceTasksRequest.instanceId;
+                    offset = listInstanceTasksRequest.offset;
+                    limit = listInstanceTasksRequest.limit;
+                    marker = listInstanceTasksRequest.marker;
+                } else {
+                    instanceId = listInstanceTasksRequest['instance_id'];
+                    offset = listInstanceTasksRequest['offset'];
+                    limit = listInstanceTasksRequest['limit'];
+                    marker = listInstanceTasksRequest['marker'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可以调用此接口对运行失败的实例任务进行重试。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryInstanceTask(retryInstanceTaskRequest?: RetryInstanceTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/iotda-instances/{instance_id}/tasks/{task_id}/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (retryInstanceTaskRequest !== null && retryInstanceTaskRequest !== undefined) {
+                if (retryInstanceTaskRequest instanceof RetryInstanceTaskRequest) {
+                    instanceId = retryInstanceTaskRequest.instanceId;
+                    taskId = retryInstanceTaskRequest.taskId;
+                } else {
+                    instanceId = retryInstanceTaskRequest['instance_id'];
+                    taskId = retryInstanceTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling retryInstanceTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling retryInstanceTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可以调用此接口查询设备接入实例任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceTask(showInstanceTaskRequest?: ShowInstanceTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/iotda-instances/{instance_id}/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (showInstanceTaskRequest !== null && showInstanceTaskRequest !== undefined) {
+                if (showInstanceTaskRequest instanceof ShowInstanceTaskRequest) {
+                    instanceId = showInstanceTaskRequest.instanceId;
+                    taskId = showInstanceTaskRequest.taskId;
+                } else {
+                    instanceId = showInstanceTaskRequest['instance_id'];
+                    taskId = showInstanceTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showInstanceTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

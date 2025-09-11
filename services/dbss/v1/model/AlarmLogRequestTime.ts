@@ -44,10 +44,10 @@ export class AlarmLogRequestTime {
     */
 export enum AlarmLogRequestTimeTimeRangeEnum {
     HALF_HOUR = 'HALF_HOUR',
-    HOUR = ' HOUR',
-    THREE_HOUR = ' THREE_HOUR',
-    TWELVE_HOUR = ' TWELVE_HOUR',
-    DAY = ' DAY',
-    WEEK = ' WEEK',
-    MONTH = ' MONTH;'
+    HOUR = 'HOUR',
+    THREE_HOUR = 'THREE_HOUR',
+    TWELVE_HOUR = 'TWELVE_HOUR',
+    DAY = 'DAY',
+    WEEK = 'WEEK',
+    MONTH = 'MONTH'
 }

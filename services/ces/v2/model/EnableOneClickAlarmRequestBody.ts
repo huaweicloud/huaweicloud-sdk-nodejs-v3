@@ -15,6 +15,7 @@ export class EnableOneClickAlarmRequestBody {
     private 'notification_manner'?: EnableOneClickAlarmRequestBodyNotificationMannerEnum | string;
     private 'notification_policy_ids'?: Array<string>;
     private 'is_reset'?: boolean;
+    private 'enabled_alarm_ids'?: Array<string>;
     private 'one_click_update_alarms'?: Array<EnableOneClickAlarmRequestBodyOneClickUpdateAlarms>;
     public constructor(oneClickAlarmId?: string, dimensionNames?: DimensionNames, notificationEnabled?: boolean) { 
         this['one_click_alarm_id'] = oneClickAlarmId;
@@ -130,6 +131,16 @@ export class EnableOneClickAlarmRequestBody {
     }
     public get isReset(): boolean | undefined {
         return this['is_reset'];
+    }
+    public withEnabledAlarmIds(enabledAlarmIds: Array<string>): EnableOneClickAlarmRequestBody {
+        this['enabled_alarm_ids'] = enabledAlarmIds;
+        return this;
+    }
+    public set enabledAlarmIds(enabledAlarmIds: Array<string>  | undefined) {
+        this['enabled_alarm_ids'] = enabledAlarmIds;
+    }
+    public get enabledAlarmIds(): Array<string> | undefined {
+        return this['enabled_alarm_ids'];
     }
     public withOneClickUpdateAlarms(oneClickUpdateAlarms: Array<EnableOneClickAlarmRequestBodyOneClickUpdateAlarms>): EnableOneClickAlarmRequestBody {
         this['one_click_update_alarms'] = oneClickUpdateAlarms;

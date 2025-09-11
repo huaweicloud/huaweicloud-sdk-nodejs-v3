@@ -1,14 +1,14 @@
-import { Dimension } from './Dimension';
+import { DimensionResp } from './DimensionResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAlarmRuleResourcesResponse extends SdkResponse {
-    public resources?: Array<Array<Dimension>>;
+    public resources?: Array<Array<DimensionResp>>;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withResources(resources: Array<Array<Dimension>>): ListAlarmRuleResourcesResponse {
+    public withResources(resources: Array<Array<DimensionResp>>): ListAlarmRuleResourcesResponse {
         this['resources'] = resources;
         return this;
     }

@@ -4,11 +4,14 @@ import { TimeRangeBean } from './TimeRangeBean';
 export class OperateLogGetRequest {
     public time?: TimeRangeBean;
     private 'user_name'?: string;
-    public action?: OperateLogGetRequestActionEnum | string;
+    public action?: string;
     public result?: OperateLogGetRequestResultEnum | string;
     public page?: string;
     public size?: string;
-    public constructor() { 
+    public constructor(time?: TimeRangeBean, page?: string, size?: string) { 
+        this['time'] = time;
+        this['page'] = page;
+        this['size'] = size;
     }
     public withTime(time: TimeRangeBean): OperateLogGetRequest {
         this['time'] = time;
@@ -24,7 +27,7 @@ export class OperateLogGetRequest {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withAction(action: OperateLogGetRequestActionEnum | string): OperateLogGetRequest {
+    public withAction(action: string): OperateLogGetRequest {
         this['action'] = action;
         return this;
     }
@@ -42,16 +45,6 @@ export class OperateLogGetRequest {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum OperateLogGetRequestActionEnum {
-    CREATE = 'CREATE',
-    DELETE = 'DELETE',
-    DOWNLOAD = 'DOWNLOAD',
-    UPDATE = 'UPDATE'
-}
 /**
     * @export
     * @enum {string}

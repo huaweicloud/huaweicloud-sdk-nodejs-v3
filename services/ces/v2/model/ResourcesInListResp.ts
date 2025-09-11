@@ -1,10 +1,10 @@
-import { MetricDimension } from './MetricDimension';
+import { MetricDimensionResp } from './MetricDimensionResp';
 
 
 export class ResourcesInListResp {
     private 'resource_group_id'?: string;
     private 'resource_group_name'?: string;
-    public dimensions?: Array<MetricDimension>;
+    public dimensions?: Array<MetricDimensionResp>;
     public constructor() { 
     }
     public withResourceGroupId(resourceGroupId: string): ResourcesInListResp {
@@ -27,7 +27,7 @@ export class ResourcesInListResp {
     public get resourceGroupName(): string | undefined {
         return this['resource_group_name'];
     }
-    public withDimensions(dimensions: Array<MetricDimension>): ResourcesInListResp {
+    public withDimensions(dimensions: Array<MetricDimensionResp>): ResourcesInListResp {
         this['dimensions'] = dimensions;
         return this;
     }

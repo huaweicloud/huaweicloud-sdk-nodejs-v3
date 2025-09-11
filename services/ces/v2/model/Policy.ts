@@ -14,6 +14,7 @@ export class Policy {
     public level?: number;
     public namespace?: string;
     private 'dimension_name'?: string;
+    public enabled?: boolean;
     public constructor(metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number) { 
         this['metric_name'] = metricName;
         this['period'] = period;
@@ -98,5 +99,9 @@ export class Policy {
     }
     public get dimensionName(): string | undefined {
         return this['dimension_name'];
+    }
+    public withEnabled(enabled: boolean): Policy {
+        this['enabled'] = enabled;
+        return this;
     }
 }

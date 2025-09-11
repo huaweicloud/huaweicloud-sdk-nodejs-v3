@@ -30,6 +30,12 @@ export class SmnRegion {
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://smn.my-kualalumpur-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://smn.ru-moscow-1.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://smn.ae-ad-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://smn.cn-south-4.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://smn.cn-east-5.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://smn.cn-east-4.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://smn.cn-north-12.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://smn.cn-north-11.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://smn.cn-southwest-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +62,13 @@ export class SmnRegion {
         "eu-west-0":SmnRegion.EU_WEST_0,
         "my-kualalumpur-1":SmnRegion.MY_KUALALUMPUR_1,
         "ru-moscow-1":SmnRegion.RU_MOSCOW_1,
-        "ae-ad-1":SmnRegion.AE_AD_1
+        "ae-ad-1":SmnRegion.AE_AD_1,
+        "cn-south-4":SmnRegion.CN_SOUTH_4,
+        "cn-east-5":SmnRegion.CN_EAST_5,
+        "cn-east-4":SmnRegion.CN_EAST_4,
+        "cn-north-12":SmnRegion.CN_NORTH_12,
+        "cn-north-11":SmnRegion.CN_NORTH_11,
+        "cn-southwest-3":SmnRegion.CN_SOUTHWEST_3
     };
   
     public static valueOf(regionId: string) {

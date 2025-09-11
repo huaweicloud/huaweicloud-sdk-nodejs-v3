@@ -50,7 +50,7 @@ export class DefaultHttpClient implements HttpClient {
 
     public constructor(options: ClientOptions = {}, endpoints?: string[]) {
         if (!endpoints) {
-            throw new SdkException("Endpoints cannot be empty.");
+            throw new SdkException('Endpoints cannot be empty.');
         }
 
         this.endpoints = endpoints;
@@ -61,8 +61,7 @@ export class DefaultHttpClient implements HttpClient {
         this._logger.debug('Initialized');
     }
 
-    public async sendRequest<T extends SdkResponse>(
-        httpRequest: IHttpRequest): Promise<DefaultHttpResponse<T>> {
+    public async sendRequest<T extends SdkResponse>(httpRequest: IHttpRequest): Promise<DefaultHttpResponse<T>> {
         try {
             this.retryCount = 0;
             const axiosResponse = await this._sendHttpRequest(httpRequest);
@@ -77,15 +76,10 @@ export class DefaultHttpClient implements HttpClient {
     }
 
     private _createAxiosInstance(): AxiosInstance {
-        const proxyAgent = this._defaultOptions.proxy
-            ? HttpsProxyAgent(this._defaultOptions.proxy)
-            : undefined;
+        const proxyAgent = this._defaultOptions.proxy ? HttpsProxyAgent(this._defaultOptions.proxy) : undefined;
         const axiosRequestConfig: AxiosRequestConfig = {
             maxContentLength: Infinity,
-            headers: Object.assign(
-                this._DEFAULT_HEADERS,
-                this._defaultOptions.headers,
-            ),
+            headers: Object.assign(this._DEFAULT_HEADERS, this._defaultOptions.headers),
             proxy: false,
             httpAgent: proxyAgent,
             httpsAgent: proxyAgent,
@@ -157,16 +151,19 @@ export class DefaultHttpClient implements HttpClient {
     }
 
     private buildResLog(response: AxiosResponse<any>) {
-        const { config: { url, method }, status, statusText, headers } = response;
+        const {
+            config: { url, method },
+            status,
+            statusText,
+            headers,
+        } = response;
         const statusStr = `${status ?? ''}${statusText ? `:${statusText}` : ''} `;
         const requestId = headers['x-request-id'];
         const responseLength = response.data ? JSON.stringify(response.data).length : 0;
         this._logger.debug(`Response: ${method?.toUpperCase()} ${statusStr} ${url} ${JSON.stringify(headers)} ${responseLength} ${requestId}`);
     }
 
-    private async _sendHttpRequest(
-        httpRequest: IHttpRequest,
-    ): Promise<AxiosResponse> {
+    private async _sendHttpRequest(httpRequest: IHttpRequest): Promise<AxiosResponse> {
         let { url, queryParams, method, data, headers } = httpRequest;
         headers = headers || {};
         url = stripTrailingSlash(url);
@@ -182,8 +179,8 @@ export class DefaultHttpClient implements HttpClient {
             paramsSerializer: {
                 serialize: (params: any) => {
                     return qsStringify(params);
-                }
-            }
+                },
+            },
         };
 
         if (httpRequest.axiosRequestConfig) {
@@ -203,10 +200,7 @@ export class DefaultHttpClient implements HttpClient {
         return this._axiosInstance(requestParams);
     }
 
-    private _formatHttpResponse<T>(
-        httpRequest: IHttpRequest,
-        axiosResponse: AxiosResponse
-    ): DefaultHttpResponse<T> {
+    private _formatHttpResponse<T>(httpRequest: IHttpRequest, axiosResponse: AxiosResponse): DefaultHttpResponse<T> {
         if (httpRequest['responseHeaders'] && axiosResponse.data) {
             const responseHeaders = httpRequest['responseHeaders'];
             for (const item of responseHeaders) {
@@ -245,7 +239,7 @@ function addUserAgentHeader(headers: any, customUserAgent?: string): void {
 
     const prefix = 'huaweicloud-usdk-nodejs/3.0';
     if (customUserAgent && typeof customUserAgent === 'string') {
-        headers['User-Agent'] = `${prefix} ${customUserAgent}`;
+        headers['User-Agent'] = customUserAgent;
     } else {
         headers['User-Agent'] = prefix;
     }
@@ -259,12 +253,12 @@ function stripTrailingSlash(url?: string): string {
 }
 
 export interface ClientOptions {
-    disableSslVerification?: boolean,
-    proxy?: string,
-    headers?: any,
-    logger?: Logger,
+    disableSslVerification?: boolean;
+    proxy?: string;
+    headers?: any;
+    logger?: Logger;
     logLevel?: LogLevel;
-    axiosRequestConfig?: AxiosRequestConfig
+    axiosRequestConfig?: AxiosRequestConfig;
 }
 
 function reSigner(config: AxiosRequestConfig, credential?: ICredential, httpRequest?: IHttpRequest) {
@@ -284,7 +278,7 @@ function reSigner(config: AxiosRequestConfig, credential?: ICredential, httpRequ
         ...httpRequest.headers,
         ...headerProperties,
         ...(config.headers && {
-            'content-type': config.headers['Content-Type']
+            'content-type': config.headers['Content-Type'],
         }),
     };
 
@@ -294,4 +288,3 @@ function reSigner(config: AxiosRequestConfig, credential?: ICredential, httpRequ
     const headers = AKSKSigner.sign(httpRequest, credential);
     config.headers = headers;
 }
-

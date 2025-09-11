@@ -12,9 +12,6 @@ import { ActionTagInfo } from './model/ActionTagInfo';
 import { ActiveCodeInfo } from './model/ActiveCodeInfo';
 import { AnimationItem } from './model/AnimationItem';
 import { AsrTypeEnum } from './model/AsrTypeEnum';
-import { AsrVocabularyAssociation } from './model/AsrVocabularyAssociation';
-import { AsrVocabularyInfo } from './model/AsrVocabularyInfo';
-import { AsrVocabularyTypeEnum } from './model/AsrVocabularyTypeEnum';
 import { AssessProperty } from './model/AssessProperty';
 import { AssessResult } from './model/AssessResult';
 import { AssetActionResult } from './model/AssetActionResult';
@@ -89,9 +86,6 @@ import { CreateActiveCodeRequest } from './model/CreateActiveCodeRequest';
 import { CreateActiveCodeResponse } from './model/CreateActiveCodeResponse';
 import { CreateAgencyWithRoleTypeRequest } from './model/CreateAgencyWithRoleTypeRequest';
 import { CreateAgencyWithRoleTypeResponse } from './model/CreateAgencyWithRoleTypeResponse';
-import { CreateAsrVocabularyReq } from './model/CreateAsrVocabularyReq';
-import { CreateAsrVocabularyRequest } from './model/CreateAsrVocabularyRequest';
-import { CreateAsrVocabularyResponse } from './model/CreateAsrVocabularyResponse';
 import { CreateAssetByReplicationInfoRequest } from './model/CreateAssetByReplicationInfoRequest';
 import { CreateAssetByReplicationInfoResponse } from './model/CreateAssetByReplicationInfoResponse';
 import { CreateAsyncTtsJobRequest } from './model/CreateAsyncTtsJobRequest';
@@ -247,8 +241,6 @@ import { DeleteActiveCodeRequest } from './model/DeleteActiveCodeRequest';
 import { DeleteActiveCodeResponse } from './model/DeleteActiveCodeResponse';
 import { DeleteAgencyWithRoleTypeRequest } from './model/DeleteAgencyWithRoleTypeRequest';
 import { DeleteAgencyWithRoleTypeResponse } from './model/DeleteAgencyWithRoleTypeResponse';
-import { DeleteAsrVocabularyRequest } from './model/DeleteAsrVocabularyRequest';
-import { DeleteAsrVocabularyResponse } from './model/DeleteAsrVocabularyResponse';
 import { DeleteAssetRequest } from './model/DeleteAssetRequest';
 import { DeleteAssetResponse } from './model/DeleteAssetResponse';
 import { DeleteDialogReportConfigRequest } from './model/DeleteDialogReportConfigRequest';
@@ -389,8 +381,6 @@ import { List2dModelTrainingJobRequest } from './model/List2dModelTrainingJobReq
 import { List2dModelTrainingJobResponse } from './model/List2dModelTrainingJobResponse';
 import { ListActiveCodeRequest } from './model/ListActiveCodeRequest';
 import { ListActiveCodeResponse } from './model/ListActiveCodeResponse';
-import { ListAsrVocabularyRequest } from './model/ListAsrVocabularyRequest';
-import { ListAsrVocabularyResponse } from './model/ListAsrVocabularyResponse';
 import { ListAssetSummaryRequest } from './model/ListAssetSummaryRequest';
 import { ListAssetSummaryResponse } from './model/ListAssetSummaryResponse';
 import { ListAssetSummarysReq } from './model/ListAssetSummarysReq';
@@ -506,7 +496,6 @@ import { MaterialComponentInfo } from './model/MaterialComponentInfo';
 import { McpServerBaseInfo } from './model/McpServerBaseInfo';
 import { McpServerInfo } from './model/McpServerInfo';
 import { MobvoiConfig } from './model/MobvoiConfig';
-import { MobvoiVocabulary } from './model/MobvoiVocabulary';
 import { ModelInfo } from './model/ModelInfo';
 import { MotionItem } from './model/MotionItem';
 import { MultipartUploadInfo } from './model/MultipartUploadInfo';
@@ -609,10 +598,6 @@ import { ShowActiveCodeRequest } from './model/ShowActiveCodeRequest';
 import { ShowActiveCodeResponse } from './model/ShowActiveCodeResponse';
 import { ShowAgencyRequest } from './model/ShowAgencyRequest';
 import { ShowAgencyResponse } from './model/ShowAgencyResponse';
-import { ShowAsrVocabularyAssociationRequest } from './model/ShowAsrVocabularyAssociationRequest';
-import { ShowAsrVocabularyAssociationResponse } from './model/ShowAsrVocabularyAssociationResponse';
-import { ShowAsrVocabularyRequest } from './model/ShowAsrVocabularyRequest';
-import { ShowAsrVocabularyResponse } from './model/ShowAsrVocabularyResponse';
 import { ShowAssetReplicationInfoRequest } from './model/ShowAssetReplicationInfoRequest';
 import { ShowAssetReplicationInfoResponse } from './model/ShowAssetReplicationInfoResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
@@ -717,6 +702,10 @@ import { ShowWelcomeSpeechRequest } from './model/ShowWelcomeSpeechRequest';
 import { ShowWelcomeSpeechResponse } from './model/ShowWelcomeSpeechResponse';
 import { ShowWelcomeSpeechSwitchRequest } from './model/ShowWelcomeSpeechSwitchRequest';
 import { ShowWelcomeSpeechSwitchResponse } from './model/ShowWelcomeSpeechSwitchResponse';
+import { SignAgreementRequest } from './model/SignAgreementRequest';
+import { SignAgreementResponse } from './model/SignAgreementResponse';
+import { SignSpecialAgreementRequest } from './model/SignSpecialAgreementRequest';
+import { SignSpecialAgreementResponse } from './model/SignSpecialAgreementResponse';
 import { SlotKnowledgeLibraryInfo } from './model/SlotKnowledgeLibraryInfo';
 import { SmartChatJobBaseInfo } from './model/SmartChatJobBaseInfo';
 import { SmartChatJobsReq } from './model/SmartChatJobsReq';
@@ -730,6 +719,7 @@ import { SmartLiveJob } from './model/SmartLiveJob';
 import { SmartLiveRoomBaseInfo } from './model/SmartLiveRoomBaseInfo';
 import { SmartTextLayerConfig } from './model/SmartTextLayerConfig';
 import { SmartVideoLayerConfig } from './model/SmartVideoLayerConfig';
+import { SpecialAgreementSignReq } from './model/SpecialAgreementSignReq';
 import { StandardPlatformApiConfig } from './model/StandardPlatformApiConfig';
 import { StartDocumentSegmentRequest } from './model/StartDocumentSegmentRequest';
 import { StartDocumentSegmentResponse } from './model/StartDocumentSegmentResponse';
@@ -779,9 +769,6 @@ import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJ
 import { UpdateActiveCodeReq } from './model/UpdateActiveCodeReq';
 import { UpdateActiveCodeRequest } from './model/UpdateActiveCodeRequest';
 import { UpdateActiveCodeResponse } from './model/UpdateActiveCodeResponse';
-import { UpdateAsrVocabularyReq } from './model/UpdateAsrVocabularyReq';
-import { UpdateAsrVocabularyRequest } from './model/UpdateAsrVocabularyRequest';
-import { UpdateAsrVocabularyResponse } from './model/UpdateAsrVocabularyResponse';
 import { UpdateBatchKnowledgeQuestionReq } from './model/UpdateBatchKnowledgeQuestionReq';
 import { UpdateBatchKnowledgeQuestionRequest } from './model/UpdateBatchKnowledgeQuestionRequest';
 import { UpdateBatchKnowledgeQuestionResponse } from './model/UpdateBatchKnowledgeQuestionResponse';
@@ -1113,150 +1100,6 @@ export class MetaStudioClient {
      */
     public showAgency(showAgencyRequest?: ShowAgencyRequest): Promise<ShowAgencyResponse> {
         const options = ParamCreater().showAgency(showAgencyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于创建热词表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建热词表
-     * @param {CreateAsrVocabularyReq} createAsrVocabularyRequestBody 创建热词表请求。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createAsrVocabulary(createAsrVocabularyRequest?: CreateAsrVocabularyRequest): Promise<CreateAsrVocabularyResponse> {
-        const options = ParamCreater().createAsrVocabulary(createAsrVocabularyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于删除热词表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除热词表
-     * @param {string} asrVocabularyId 热词表ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteAsrVocabulary(deleteAsrVocabularyRequest?: DeleteAsrVocabularyRequest): Promise<DeleteAsrVocabularyResponse> {
-        const options = ParamCreater().deleteAsrVocabulary(deleteAsrVocabularyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询热词表列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询热词表列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
-     * @param {number} [limit] 每页显示的条目数量。
-     * @param {'MOBVOI'} [vocabularyType] 词表类型。 &gt; MOBVOI:使用的语音识别服务为MOBVOI时选择此类型
-     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAsrVocabulary(listAsrVocabularyRequest?: ListAsrVocabularyRequest): Promise<ListAsrVocabularyResponse> {
-        const options = ParamCreater().listAsrVocabulary(listAsrVocabularyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询热词表详情。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询热词表详情
-     * @param {string} asrVocabularyId 热词表ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAsrVocabulary(showAsrVocabularyRequest?: ShowAsrVocabularyRequest): Promise<ShowAsrVocabularyResponse> {
-        const options = ParamCreater().showAsrVocabulary(showAsrVocabularyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询热词表关联详情。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询热词表关联详情
-     * @param {string} asrVocabularyId 热词表ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
-     * @param {number} [limit] 每页显示的条目数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAsrVocabularyAssociation(showAsrVocabularyAssociationRequest?: ShowAsrVocabularyAssociationRequest): Promise<ShowAsrVocabularyAssociationResponse> {
-        const options = ParamCreater().showAsrVocabularyAssociation(showAsrVocabularyAssociationRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于修改热词表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改热词表
-     * @param {string} asrVocabularyId 热词表ID。
-     * @param {UpdateAsrVocabularyReq} updateAsrVocabularyRequestBody 修改热词表请求。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateAsrVocabulary(updateAsrVocabularyRequest?: UpdateAsrVocabularyRequest): Promise<UpdateAsrVocabularyResponse> {
-        const options = ParamCreater().updateAsrVocabulary(updateAsrVocabularyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -5967,6 +5810,49 @@ export class MetaStudioClient {
     }
 
     /**
+     * 签署云服务声明。调用此接口前请知悉[[metastudio隐私协议](https://www.huaweicloud.com/declaration/tsa_metastudio.html)](tag:hws)[[metastudio隐私协议](https://www.huaweicloud.com/intl/en-us/declaration-sg/tsa-metastudio.html)](tag:hws_hk)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 签署云服务声明
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public signAgreement(signAgreementRequest?: SignAgreementRequest): Promise<SignAgreementResponse> {
+        const options = ParamCreater().signAgreement(signAgreementRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 签署特殊云服务声明,目前可签署自动支付协议。开启自动支付协议之后,调用下单接口时，华为云将进行自动扣费。若因账户余额不足导致扣费失败，系统会生成待支付订单，您可前往费用中心-我的订单查看，届时您需手动完成支付。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 签署特殊云服务声明
+     * @param {SpecialAgreementSignReq} signSpecialAgreementRequestBody 签署特殊协议请求
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public signSpecialAgreement(signSpecialAgreementRequest?: SignSpecialAgreementRequest): Promise<SignSpecialAgreementResponse> {
+        const options = ParamCreater().signSpecialAgreement(signSpecialAgreementRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 提交训练任务,执行该接口后,任务会进入审核状态,审核完成后会等待训练。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7979,442 +7865,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于创建热词表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createAsrVocabulary(createAsrVocabularyRequest?: CreateAsrVocabularyRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/digital-human-chat/asr-vocabulary",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (createAsrVocabularyRequest !== null && createAsrVocabularyRequest !== undefined) {
-                if (createAsrVocabularyRequest instanceof CreateAsrVocabularyRequest) {
-                    body = createAsrVocabularyRequest.body
-                    authorization = createAsrVocabularyRequest.authorization;
-                    xSdkDate = createAsrVocabularyRequest.xSdkDate;
-                    xProjectId = createAsrVocabularyRequest.xProjectId;
-                    xAppUserId = createAsrVocabularyRequest.xAppUserId;
-                } else {
-                    body = createAsrVocabularyRequest['body'];
-                    authorization = createAsrVocabularyRequest['Authorization'];
-                    xSdkDate = createAsrVocabularyRequest['X-Sdk-Date'];
-                    xProjectId = createAsrVocabularyRequest['X-Project-Id'];
-                    xAppUserId = createAsrVocabularyRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于删除热词表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteAsrVocabulary(deleteAsrVocabularyRequest?: DeleteAsrVocabularyRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/digital-human-chat/asr-vocabulary/{asr_vocabulary_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let asrVocabularyId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (deleteAsrVocabularyRequest !== null && deleteAsrVocabularyRequest !== undefined) {
-                if (deleteAsrVocabularyRequest instanceof DeleteAsrVocabularyRequest) {
-                    asrVocabularyId = deleteAsrVocabularyRequest.asrVocabularyId;
-                    authorization = deleteAsrVocabularyRequest.authorization;
-                    xSdkDate = deleteAsrVocabularyRequest.xSdkDate;
-                    xProjectId = deleteAsrVocabularyRequest.xProjectId;
-                    xAppUserId = deleteAsrVocabularyRequest.xAppUserId;
-                } else {
-                    asrVocabularyId = deleteAsrVocabularyRequest['asr_vocabulary_id'];
-                    authorization = deleteAsrVocabularyRequest['Authorization'];
-                    xSdkDate = deleteAsrVocabularyRequest['X-Sdk-Date'];
-                    xProjectId = deleteAsrVocabularyRequest['X-Project-Id'];
-                    xAppUserId = deleteAsrVocabularyRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (asrVocabularyId === null || asrVocabularyId === undefined) {
-            throw new RequiredError('asrVocabularyId','Required parameter asrVocabularyId was null or undefined when calling deleteAsrVocabulary.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'asr_vocabulary_id': asrVocabularyId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询热词表列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAsrVocabulary(listAsrVocabularyRequest?: ListAsrVocabularyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/digital-human-chat/asr-vocabulary",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-            
-            let offset;
-            
-            let limit;
-            
-            let vocabularyType;
-            
-            let language;
-
-            if (listAsrVocabularyRequest !== null && listAsrVocabularyRequest !== undefined) {
-                if (listAsrVocabularyRequest instanceof ListAsrVocabularyRequest) {
-                    authorization = listAsrVocabularyRequest.authorization;
-                    xSdkDate = listAsrVocabularyRequest.xSdkDate;
-                    xProjectId = listAsrVocabularyRequest.xProjectId;
-                    xAppUserId = listAsrVocabularyRequest.xAppUserId;
-                    offset = listAsrVocabularyRequest.offset;
-                    limit = listAsrVocabularyRequest.limit;
-                    vocabularyType = listAsrVocabularyRequest.vocabularyType;
-                    language = listAsrVocabularyRequest.language;
-                } else {
-                    authorization = listAsrVocabularyRequest['Authorization'];
-                    xSdkDate = listAsrVocabularyRequest['X-Sdk-Date'];
-                    xProjectId = listAsrVocabularyRequest['X-Project-Id'];
-                    xAppUserId = listAsrVocabularyRequest['X-App-UserId'];
-                    offset = listAsrVocabularyRequest['offset'];
-                    limit = listAsrVocabularyRequest['limit'];
-                    vocabularyType = listAsrVocabularyRequest['vocabulary_type'];
-                    language = listAsrVocabularyRequest['language'];
-                }
-            }
-
-        
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (vocabularyType !== null && vocabularyType !== undefined) {
-                localVarQueryParameter['vocabulary_type'] = vocabularyType;
-            }
-            if (language !== null && language !== undefined) {
-                localVarQueryParameter['language'] = language;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询热词表详情。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAsrVocabulary(showAsrVocabularyRequest?: ShowAsrVocabularyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/digital-human-chat/asr-vocabulary/{asr_vocabulary_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let asrVocabularyId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (showAsrVocabularyRequest !== null && showAsrVocabularyRequest !== undefined) {
-                if (showAsrVocabularyRequest instanceof ShowAsrVocabularyRequest) {
-                    asrVocabularyId = showAsrVocabularyRequest.asrVocabularyId;
-                    authorization = showAsrVocabularyRequest.authorization;
-                    xSdkDate = showAsrVocabularyRequest.xSdkDate;
-                    xProjectId = showAsrVocabularyRequest.xProjectId;
-                    xAppUserId = showAsrVocabularyRequest.xAppUserId;
-                } else {
-                    asrVocabularyId = showAsrVocabularyRequest['asr_vocabulary_id'];
-                    authorization = showAsrVocabularyRequest['Authorization'];
-                    xSdkDate = showAsrVocabularyRequest['X-Sdk-Date'];
-                    xProjectId = showAsrVocabularyRequest['X-Project-Id'];
-                    xAppUserId = showAsrVocabularyRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (asrVocabularyId === null || asrVocabularyId === undefined) {
-            throw new RequiredError('asrVocabularyId','Required parameter asrVocabularyId was null or undefined when calling showAsrVocabulary.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'asr_vocabulary_id': asrVocabularyId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询热词表关联详情。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAsrVocabularyAssociation(showAsrVocabularyAssociationRequest?: ShowAsrVocabularyAssociationRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/digital-human-chat/asr-vocabulary/association/{asr_vocabulary_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let asrVocabularyId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-            
-            let offset;
-            
-            let limit;
-
-            if (showAsrVocabularyAssociationRequest !== null && showAsrVocabularyAssociationRequest !== undefined) {
-                if (showAsrVocabularyAssociationRequest instanceof ShowAsrVocabularyAssociationRequest) {
-                    asrVocabularyId = showAsrVocabularyAssociationRequest.asrVocabularyId;
-                    authorization = showAsrVocabularyAssociationRequest.authorization;
-                    xSdkDate = showAsrVocabularyAssociationRequest.xSdkDate;
-                    xProjectId = showAsrVocabularyAssociationRequest.xProjectId;
-                    xAppUserId = showAsrVocabularyAssociationRequest.xAppUserId;
-                    offset = showAsrVocabularyAssociationRequest.offset;
-                    limit = showAsrVocabularyAssociationRequest.limit;
-                } else {
-                    asrVocabularyId = showAsrVocabularyAssociationRequest['asr_vocabulary_id'];
-                    authorization = showAsrVocabularyAssociationRequest['Authorization'];
-                    xSdkDate = showAsrVocabularyAssociationRequest['X-Sdk-Date'];
-                    xProjectId = showAsrVocabularyAssociationRequest['X-Project-Id'];
-                    xAppUserId = showAsrVocabularyAssociationRequest['X-App-UserId'];
-                    offset = showAsrVocabularyAssociationRequest['offset'];
-                    limit = showAsrVocabularyAssociationRequest['limit'];
-                }
-            }
-
-        
-            if (asrVocabularyId === null || asrVocabularyId === undefined) {
-            throw new RequiredError('asrVocabularyId','Required parameter asrVocabularyId was null or undefined when calling showAsrVocabularyAssociation.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'asr_vocabulary_id': asrVocabularyId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于修改热词表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateAsrVocabulary(updateAsrVocabularyRequest?: UpdateAsrVocabularyRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/digital-human-chat/asr-vocabulary/{asr_vocabulary_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let asrVocabularyId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (updateAsrVocabularyRequest !== null && updateAsrVocabularyRequest !== undefined) {
-                if (updateAsrVocabularyRequest instanceof UpdateAsrVocabularyRequest) {
-                    asrVocabularyId = updateAsrVocabularyRequest.asrVocabularyId;
-                    body = updateAsrVocabularyRequest.body
-                    authorization = updateAsrVocabularyRequest.authorization;
-                    xSdkDate = updateAsrVocabularyRequest.xSdkDate;
-                    xProjectId = updateAsrVocabularyRequest.xProjectId;
-                    xAppUserId = updateAsrVocabularyRequest.xAppUserId;
-                } else {
-                    asrVocabularyId = updateAsrVocabularyRequest['asr_vocabulary_id'];
-                    body = updateAsrVocabularyRequest['body'];
-                    authorization = updateAsrVocabularyRequest['Authorization'];
-                    xSdkDate = updateAsrVocabularyRequest['X-Sdk-Date'];
-                    xProjectId = updateAsrVocabularyRequest['X-Project-Id'];
-                    xAppUserId = updateAsrVocabularyRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (asrVocabularyId === null || asrVocabularyId === undefined) {
-            throw new RequiredError('asrVocabularyId','Required parameter asrVocabularyId was null or undefined when calling updateAsrVocabulary.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'asr_vocabulary_id': asrVocabularyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -22765,6 +22215,115 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 签署云服务声明。调用此接口前请知悉[[metastudio隐私协议](https://www.huaweicloud.com/declaration/tsa_metastudio.html)](tag:hws)[[metastudio隐私协议](https://www.huaweicloud.com/intl/en-us/declaration-sg/tsa-metastudio.html)](tag:hws_hk)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        signAgreement(signAgreementRequest?: SignAgreementRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/tenants/service-agreements/signed",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (signAgreementRequest !== null && signAgreementRequest !== undefined) {
+                if (signAgreementRequest instanceof SignAgreementRequest) {
+                    authorization = signAgreementRequest.authorization;
+                    xSdkDate = signAgreementRequest.xSdkDate;
+                    xProjectId = signAgreementRequest.xProjectId;
+                } else {
+                    authorization = signAgreementRequest['Authorization'];
+                    xSdkDate = signAgreementRequest['X-Sdk-Date'];
+                    xProjectId = signAgreementRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 签署特殊云服务声明,目前可签署自动支付协议。开启自动支付协议之后,调用下单接口时，华为云将进行自动扣费。若因账户余额不足导致扣费失败，系统会生成待支付订单，您可前往费用中心-我的订单查看，届时您需手动完成支付。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        signSpecialAgreement(signSpecialAgreementRequest?: SignSpecialAgreementRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/tenants/special-agreements/signed",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+
+            if (signSpecialAgreementRequest !== null && signSpecialAgreementRequest !== undefined) {
+                if (signSpecialAgreementRequest instanceof SignSpecialAgreementRequest) {
+                    body = signSpecialAgreementRequest.body
+                    authorization = signSpecialAgreementRequest.authorization;
+                    xSdkDate = signSpecialAgreementRequest.xSdkDate;
+                    xProjectId = signSpecialAgreementRequest.xProjectId;
+                } else {
+                    body = signSpecialAgreementRequest['body'];
+                    authorization = signSpecialAgreementRequest['Authorization'];
+                    xSdkDate = signSpecialAgreementRequest['X-Sdk-Date'];
+                    xProjectId = signSpecialAgreementRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

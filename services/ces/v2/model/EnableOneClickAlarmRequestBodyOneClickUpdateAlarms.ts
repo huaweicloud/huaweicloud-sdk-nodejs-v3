@@ -10,7 +10,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
     public namespace?: string;
     public policies?: Array<Policy>;
     public resources?: Array<Array<Dimension>>;
-    public type?: string;
+    public type?: EnableOneClickAlarmRequestBodyOneClickUpdateAlarmsTypeEnum | string;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
     private 'alarm_notifications'?: Array<Notification>;
@@ -51,7 +51,7 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
         this['resources'] = resources;
         return this;
     }
-    public withType(type: string): EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
+    public withType(type: EnableOneClickAlarmRequestBodyOneClickUpdateAlarmsTypeEnum | string): EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
         this['type'] = type;
         return this;
     }
@@ -131,6 +131,18 @@ export class EnableOneClickAlarmRequestBodyOneClickUpdateAlarms {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EnableOneClickAlarmRequestBodyOneClickUpdateAlarmsTypeEnum {
+    EVENT_SYS = 'EVENT.SYS',
+    EVENT_CUSTOM = 'EVENT.CUSTOM',
+    DNSHEALTHCHECK = 'DNSHealthCheck',
+    RESOURCE_GROUP = 'RESOURCE_GROUP',
+    MULTI_INSTANCE = 'MULTI_INSTANCE',
+    ALL_INSTANCE = 'ALL_INSTANCE'
+}
 /**
     * @export
     * @enum {string}

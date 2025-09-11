@@ -1,0 +1,123 @@
+import { ThresholdInfoResp } from './ThresholdInfoResp';
+
+
+export class BaseWidgetInfoRespProperties {
+    public filter?: BaseWidgetInfoRespPropertiesFilterEnum | string;
+    public topN?: number;
+    public order?: BaseWidgetInfoRespPropertiesOrderEnum | string;
+    public description?: string;
+    private 'last_week_compare_enable'?: boolean;
+    private 'yesterday_compare_enable'?: boolean;
+    private 'legend_location'?: BaseWidgetInfoRespPropertiesLegendLocationEnum | string;
+    private 'legend_values'?: Array<BaseWidgetInfoRespPropertiesLegendValuesEnum> | Array<string>;
+    public thresholds?: Array<ThresholdInfoResp>;
+    private 'is_all_compare_enable'?: boolean;
+    public constructor() { 
+    }
+    public withFilter(filter: BaseWidgetInfoRespPropertiesFilterEnum | string): BaseWidgetInfoRespProperties {
+        this['filter'] = filter;
+        return this;
+    }
+    public withTopN(topN: number): BaseWidgetInfoRespProperties {
+        this['topN'] = topN;
+        return this;
+    }
+    public withOrder(order: BaseWidgetInfoRespPropertiesOrderEnum | string): BaseWidgetInfoRespProperties {
+        this['order'] = order;
+        return this;
+    }
+    public withDescription(description: string): BaseWidgetInfoRespProperties {
+        this['description'] = description;
+        return this;
+    }
+    public withLastWeekCompareEnable(lastWeekCompareEnable: boolean): BaseWidgetInfoRespProperties {
+        this['last_week_compare_enable'] = lastWeekCompareEnable;
+        return this;
+    }
+    public set lastWeekCompareEnable(lastWeekCompareEnable: boolean  | undefined) {
+        this['last_week_compare_enable'] = lastWeekCompareEnable;
+    }
+    public get lastWeekCompareEnable(): boolean | undefined {
+        return this['last_week_compare_enable'];
+    }
+    public withYesterdayCompareEnable(yesterdayCompareEnable: boolean): BaseWidgetInfoRespProperties {
+        this['yesterday_compare_enable'] = yesterdayCompareEnable;
+        return this;
+    }
+    public set yesterdayCompareEnable(yesterdayCompareEnable: boolean  | undefined) {
+        this['yesterday_compare_enable'] = yesterdayCompareEnable;
+    }
+    public get yesterdayCompareEnable(): boolean | undefined {
+        return this['yesterday_compare_enable'];
+    }
+    public withLegendLocation(legendLocation: BaseWidgetInfoRespPropertiesLegendLocationEnum | string): BaseWidgetInfoRespProperties {
+        this['legend_location'] = legendLocation;
+        return this;
+    }
+    public set legendLocation(legendLocation: BaseWidgetInfoRespPropertiesLegendLocationEnum | string  | undefined) {
+        this['legend_location'] = legendLocation;
+    }
+    public get legendLocation(): BaseWidgetInfoRespPropertiesLegendLocationEnum | string | undefined {
+        return this['legend_location'];
+    }
+    public withLegendValues(legendValues: Array<BaseWidgetInfoRespPropertiesLegendValuesEnum> | Array<string>): BaseWidgetInfoRespProperties {
+        this['legend_values'] = legendValues;
+        return this;
+    }
+    public set legendValues(legendValues: Array<BaseWidgetInfoRespPropertiesLegendValuesEnum> | Array<string>  | undefined) {
+        this['legend_values'] = legendValues;
+    }
+    public get legendValues(): Array<BaseWidgetInfoRespPropertiesLegendValuesEnum> | Array<string> | undefined {
+        return this['legend_values'];
+    }
+    public withThresholds(thresholds: Array<ThresholdInfoResp>): BaseWidgetInfoRespProperties {
+        this['thresholds'] = thresholds;
+        return this;
+    }
+    public withIsAllCompareEnable(isAllCompareEnable: boolean): BaseWidgetInfoRespProperties {
+        this['is_all_compare_enable'] = isAllCompareEnable;
+        return this;
+    }
+    public set isAllCompareEnable(isAllCompareEnable: boolean  | undefined) {
+        this['is_all_compare_enable'] = isAllCompareEnable;
+    }
+    public get isAllCompareEnable(): boolean | undefined {
+        return this['is_all_compare_enable'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BaseWidgetInfoRespPropertiesFilterEnum {
+    TOPN = 'topN'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BaseWidgetInfoRespPropertiesOrderEnum {
+    ASC = 'asc',
+    DESC = 'desc'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BaseWidgetInfoRespPropertiesLegendLocationEnum {
+    HIDE = 'hide',
+    RIGHT = 'right',
+    BOTTOM = 'bottom'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BaseWidgetInfoRespPropertiesLegendValuesEnum {
+    LAST = 'last',
+    MAX = 'max',
+    MIN = 'min',
+    AVG = 'avg',
+    SUM = 'sum'
+}

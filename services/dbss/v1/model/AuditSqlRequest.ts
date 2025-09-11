@@ -3,7 +3,7 @@ import { AuditSqlRequestTime } from './AuditSqlRequestTime';
 
 export class AuditSqlRequest {
     public time?: AuditSqlRequestTime;
-    private 'risk_levels'?: AuditSqlRequestRiskLevelsEnum | string;
+    private 'risk_levels'?: string;
     private 'client_ip'?: string;
     private 'client_name'?: string;
     private 'db_ip'?: string;
@@ -15,21 +15,24 @@ export class AuditSqlRequest {
     public page?: number;
     public size?: number;
     private 'time_order'?: string;
-    public constructor(time?: AuditSqlRequestTime) { 
+    public constructor(time?: AuditSqlRequestTime, page?: number, size?: number, timeOrder?: string) { 
         this['time'] = time;
+        this['page'] = page;
+        this['size'] = size;
+        this['time_order'] = timeOrder;
     }
     public withTime(time: AuditSqlRequestTime): AuditSqlRequest {
         this['time'] = time;
         return this;
     }
-    public withRiskLevels(riskLevels: AuditSqlRequestRiskLevelsEnum | string): AuditSqlRequest {
+    public withRiskLevels(riskLevels: string): AuditSqlRequest {
         this['risk_levels'] = riskLevels;
         return this;
     }
-    public set riskLevels(riskLevels: AuditSqlRequestRiskLevelsEnum | string  | undefined) {
+    public set riskLevels(riskLevels: string  | undefined) {
         this['risk_levels'] = riskLevels;
     }
-    public get riskLevels(): AuditSqlRequestRiskLevelsEnum | string | undefined {
+    public get riskLevels(): string | undefined {
         return this['risk_levels'];
     }
     public withClientIp(clientIp: string): AuditSqlRequest {
@@ -130,15 +133,4 @@ export class AuditSqlRequest {
     public get timeOrder(): string | undefined {
         return this['time_order'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AuditSqlRequestRiskLevelsEnum {
-    HIGH = 'HIGH',
-    MEDIUM = 'MEDIUM',
-    LOW = 'LOW',
-    NO_RISK = 'NO_RISK'
 }

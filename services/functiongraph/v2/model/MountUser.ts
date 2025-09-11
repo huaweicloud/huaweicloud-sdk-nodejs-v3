@@ -1,30 +1,30 @@
 
 
 export class MountUser {
-    private 'user_id'?: string;
-    private 'user_group_id'?: string;
-    public constructor(userId?: string, userGroupId?: string) { 
+    private 'user_id'?: number;
+    private 'user_group_id'?: number;
+    public constructor(userId?: number, userGroupId?: number) { 
         this['user_id'] = userId;
         this['user_group_id'] = userGroupId;
     }
-    public withUserId(userId: string): MountUser {
+    public withUserId(userId: number): MountUser {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string  | undefined) {
+    public set userId(userId: number  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId(): string | undefined {
+    public get userId(): number | undefined {
         return this['user_id'];
     }
-    public withUserGroupId(userGroupId: string): MountUser {
+    public withUserGroupId(userGroupId: number): MountUser {
         this['user_group_id'] = userGroupId;
         return this;
     }
-    public set userGroupId(userGroupId: string  | undefined) {
+    public set userGroupId(userGroupId: number  | undefined) {
         this['user_group_id'] = userGroupId;
     }
-    public get userGroupId(): string | undefined {
+    public get userGroupId(): number | undefined {
         return this['user_group_id'];
     }
 }

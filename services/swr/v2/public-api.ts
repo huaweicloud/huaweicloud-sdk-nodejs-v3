@@ -117,6 +117,8 @@ export * from './model/DeleteInstanceRetentionPolicyRequest';
 export * from './model/DeleteInstanceRetentionPolicyResponse';
 export * from './model/DeleteInstanceSignPolicyRequest';
 export * from './model/DeleteInstanceSignPolicyResponse';
+export * from './model/DeleteInstanceTagRequest';
+export * from './model/DeleteInstanceTagResponse';
 export * from './model/DeleteInstanceWebhookRequest';
 export * from './model/DeleteInstanceWebhookResponse';
 export * from './model/DeleteNamespaceAuthRequest';

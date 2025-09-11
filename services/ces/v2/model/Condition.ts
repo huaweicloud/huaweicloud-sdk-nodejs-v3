@@ -1,10 +1,10 @@
+import { CombResourceName } from './CombResourceName';
 import { ResourceGroupTagRelation } from './ResourceGroupTagRelation';
-import { ResourceNameItem } from './ResourceNameItem';
 
 
 export class Condition {
     private 'enterprise_project_id'?: string;
-    private 'instance_name'?: ResourceNameItem;
+    private 'instance_name'?: CombResourceName;
     public tag?: ResourceGroupTagRelation;
     public constructor() { 
     }
@@ -18,14 +18,14 @@ export class Condition {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withInstanceName(instanceName: ResourceNameItem): Condition {
+    public withInstanceName(instanceName: CombResourceName): Condition {
         this['instance_name'] = instanceName;
         return this;
     }
-    public set instanceName(instanceName: ResourceNameItem  | undefined) {
+    public set instanceName(instanceName: CombResourceName  | undefined) {
         this['instance_name'] = instanceName;
     }
-    public get instanceName(): ResourceNameItem | undefined {
+    public get instanceName(): CombResourceName | undefined {
         return this['instance_name'];
     }
     public withTag(tag: ResourceGroupTagRelation): Condition {
