@@ -2006,7 +2006,7 @@ export class CceClient {
      *
      * @summary 查询指定节点池支持配置的参数内容
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodepoolId 节点池ID
+     * @param {string} nodepoolId **参数解释：** 节点池ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** - 节点池ID：修改指定节点池配置管理参数 - master：修改集群配置中心的配置管理参数  **默认取值：** 不涉及
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2393,7 +2393,7 @@ export class CceClient {
      *
      * @summary 修改指定节点池配置参数的值
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodepoolId 节点池ID
+     * @param {string} nodepoolId **参数解释：** 节点池ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** - 节点池ID：修改指定节点池配置管理参数 - master：修改集群配置中心的配置管理参数  **默认取值：** 不涉及
      * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateClusterConfigurationsBody} updateNodePoolConfigurationRequestBody 批量更新指定节点池配置参数的请求体
      * @param {*} [options] Override http request option.

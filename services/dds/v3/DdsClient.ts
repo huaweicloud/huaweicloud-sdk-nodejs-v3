@@ -119,6 +119,7 @@ import { DeleteSessionResponse } from './model/DeleteSessionResponse';
 import { DiffConfigurationRequest } from './model/DiffConfigurationRequest';
 import { DiffDetails } from './model/DiffDetails';
 import { DiskAutoExpansionPolicy } from './model/DiskAutoExpansionPolicy';
+import { DiskSetAutoExpansionPolicy } from './model/DiskSetAutoExpansionPolicy';
 import { DiskVolumes } from './model/DiskVolumes';
 import { DownloadErrorlogRequest } from './model/DownloadErrorlogRequest';
 import { DownloadErrorlogRequestBody } from './model/DownloadErrorlogRequestBody';
@@ -2129,7 +2130,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询磁盘自动扩容策略
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

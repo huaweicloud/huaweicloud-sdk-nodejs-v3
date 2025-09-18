@@ -676,7 +676,7 @@ export class RocketMQClient {
      * @summary 查询产品规格列表
      * @param {string} engine **参数解释**： 消息引擎的类型。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} type **参数解释**： 产品类型。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} productId **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [productId] **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 10。
      * @param {number} [offset] **参数解释**： 偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
@@ -2600,9 +2600,6 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
-            }
-            if (productId === null || productId === undefined) {
-                throw new RequiredError('productId','Required parameter productId was null or undefined when calling listEngineProducts.');
             }
             if (productId !== null && productId !== undefined) {
                 localVarQueryParameter['product_id'] = productId;

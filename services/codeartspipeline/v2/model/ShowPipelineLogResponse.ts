@@ -6,7 +6,6 @@ export class ShowPipelineLogResponse extends SdkResponse {
     private 'end_offset'?: string;
     private 'start_offset'?: string;
     public log?: string;
-    public location?: string;
     private 'step_run_id'?: string;
     public constructor() { 
         super();
@@ -43,10 +42,6 @@ export class ShowPipelineLogResponse extends SdkResponse {
     }
     public withLog(log: string): ShowPipelineLogResponse {
         this['log'] = log;
-        return this;
-    }
-    public withLocation(location: string): ShowPipelineLogResponse {
-        this['location'] = location;
         return this;
     }
     public withStepRunId(stepRunId: string): ShowPipelineLogResponse {

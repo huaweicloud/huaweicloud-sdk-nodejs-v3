@@ -15,8 +15,7 @@ export class UpdatePremiumInstanceResponse extends SdkResponse {
     private 'service_ip'?: string;
     private 'service_ipv6'?: string;
     public floatIp?: string;
-    public securityGroupId?: Array<string>;
-    public mgrSecurityGroupId?: string;
+    private 'security_group_ids'?: Array<string>;
     public status?: number;
     private 'run_status'?: number;
     private 'access_status'?: number;
@@ -111,13 +110,15 @@ export class UpdatePremiumInstanceResponse extends SdkResponse {
         this['floatIp'] = floatIp;
         return this;
     }
-    public withSecurityGroupId(securityGroupId: Array<string>): UpdatePremiumInstanceResponse {
-        this['securityGroupId'] = securityGroupId;
+    public withSecurityGroupIds(securityGroupIds: Array<string>): UpdatePremiumInstanceResponse {
+        this['security_group_ids'] = securityGroupIds;
         return this;
     }
-    public withMgrSecurityGroupId(mgrSecurityGroupId: string): UpdatePremiumInstanceResponse {
-        this['mgrSecurityGroupId'] = mgrSecurityGroupId;
-        return this;
+    public set securityGroupIds(securityGroupIds: Array<string>  | undefined) {
+        this['security_group_ids'] = securityGroupIds;
+    }
+    public get securityGroupIds(): Array<string> | undefined {
+        return this['security_group_ids'];
     }
     public withStatus(status: number): UpdatePremiumInstanceResponse {
         this['status'] = status;

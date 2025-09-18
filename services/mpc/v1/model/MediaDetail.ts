@@ -1,3 +1,4 @@
+import { FileMetaData } from './FileMetaData';
 import { OriginPara } from './OriginPara';
 import { OutputThumbnailPara } from './OutputThumbnailPara';
 import { OutputVideoPara } from './OutputVideoPara';
@@ -11,6 +12,7 @@ export class MediaDetail {
     private 'replace_sub_index'?: Array<string>;
     private 'output_thumbnail_para'?: OutputThumbnailPara;
     private 'output_watermark_paras'?: OutputWatermarkPara;
+    public metadata?: Array<FileMetaData>;
     public constructor() { 
     }
     public withFeatures(features: Array<string>): MediaDetail {
@@ -66,5 +68,9 @@ export class MediaDetail {
     }
     public get outputWatermarkParas(): OutputWatermarkPara | undefined {
         return this['output_watermark_paras'];
+    }
+    public withMetadata(metadata: Array<FileMetaData>): MediaDetail {
+        this['metadata'] = metadata;
+        return this;
     }
 }

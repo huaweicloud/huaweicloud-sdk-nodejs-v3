@@ -4,6 +4,7 @@ export class DiskAutoExpansionPolicy {
     private 'instance_id'?: string;
     public threshold?: number;
     public step?: number;
+    public size?: number;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -23,6 +24,10 @@ export class DiskAutoExpansionPolicy {
     }
     public withStep(step: number): DiskAutoExpansionPolicy {
         this['step'] = step;
+        return this;
+    }
+    public withSize(size: number): DiskAutoExpansionPolicy {
+        this['size'] = size;
         return this;
     }
 }

@@ -6,6 +6,7 @@ export class FullStagePluginsRelationVOPluginsList {
     private 'display_name'?: string;
     private 'plugin_name'?: string;
     public disabled?: boolean;
+    private 'db_record_name'?: string;
     private 'group_name'?: string;
     private 'group_type'?: string;
     private 'plugin_attribution'?: string;
@@ -16,6 +17,9 @@ export class FullStagePluginsRelationVOPluginsList {
     private 'version_attribution'?: string;
     private 'icon_url'?: string;
     private 'multi_step_editable'?: number;
+    public location?: string;
+    private 'publisher_unique_id'?: string;
+    private 'manifest_version'?: string;
     public standard?: boolean;
     public constructor() { 
     }
@@ -52,6 +56,16 @@ export class FullStagePluginsRelationVOPluginsList {
     public withDisabled(disabled: boolean): FullStagePluginsRelationVOPluginsList {
         this['disabled'] = disabled;
         return this;
+    }
+    public withDbRecordName(dbRecordName: string): FullStagePluginsRelationVOPluginsList {
+        this['db_record_name'] = dbRecordName;
+        return this;
+    }
+    public set dbRecordName(dbRecordName: string  | undefined) {
+        this['db_record_name'] = dbRecordName;
+    }
+    public get dbRecordName(): string | undefined {
+        return this['db_record_name'];
     }
     public withGroupName(groupName: string): FullStagePluginsRelationVOPluginsList {
         this['group_name'] = groupName;
@@ -146,6 +160,30 @@ export class FullStagePluginsRelationVOPluginsList {
     }
     public get multiStepEditable(): number | undefined {
         return this['multi_step_editable'];
+    }
+    public withLocation(location: string): FullStagePluginsRelationVOPluginsList {
+        this['location'] = location;
+        return this;
+    }
+    public withPublisherUniqueId(publisherUniqueId: string): FullStagePluginsRelationVOPluginsList {
+        this['publisher_unique_id'] = publisherUniqueId;
+        return this;
+    }
+    public set publisherUniqueId(publisherUniqueId: string  | undefined) {
+        this['publisher_unique_id'] = publisherUniqueId;
+    }
+    public get publisherUniqueId(): string | undefined {
+        return this['publisher_unique_id'];
+    }
+    public withManifestVersion(manifestVersion: string): FullStagePluginsRelationVOPluginsList {
+        this['manifest_version'] = manifestVersion;
+        return this;
+    }
+    public set manifestVersion(manifestVersion: string  | undefined) {
+        this['manifest_version'] = manifestVersion;
+    }
+    public get manifestVersion(): string | undefined {
+        return this['manifest_version'];
     }
     public withStandard(standard: boolean): FullStagePluginsRelationVOPluginsList {
         this['standard'] = standard;

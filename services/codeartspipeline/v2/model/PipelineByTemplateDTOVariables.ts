@@ -1,7 +1,7 @@
 
 
 export class PipelineByTemplateDTOVariables {
-    public name?: string;
+    public name?: object;
     public sequence?: number;
     public type?: string;
     public value?: string;
@@ -13,7 +13,7 @@ export class PipelineByTemplateDTOVariables {
     public limits?: Array<string>;
     public constructor() { 
     }
-    public withName(name: string): PipelineByTemplateDTOVariables {
+    public withName(name: object): PipelineByTemplateDTOVariables {
         this['name'] = name;
         return this;
     }

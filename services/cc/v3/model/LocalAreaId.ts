@@ -1,19 +1,19 @@
-import { AreaIdDef } from './AreaIdDef';
+import { LocalAreaIdDef } from './LocalAreaIdDef';
 
 
 export class LocalAreaId {
-    private 'local_area_id'?: AreaIdDef;
-    public constructor(localAreaId?: AreaIdDef) { 
+    private 'local_area_id'?: LocalAreaIdDef;
+    public constructor(localAreaId?: LocalAreaIdDef) { 
         this['local_area_id'] = localAreaId;
     }
-    public withLocalAreaId(localAreaId: AreaIdDef): LocalAreaId {
+    public withLocalAreaId(localAreaId: LocalAreaIdDef): LocalAreaId {
         this['local_area_id'] = localAreaId;
         return this;
     }
-    public set localAreaId(localAreaId: AreaIdDef  | undefined) {
+    public set localAreaId(localAreaId: LocalAreaIdDef  | undefined) {
         this['local_area_id'] = localAreaId;
     }
-    public get localAreaId(): AreaIdDef | undefined {
+    public get localAreaId(): LocalAreaIdDef | undefined {
         return this['local_area_id'];
     }
 }

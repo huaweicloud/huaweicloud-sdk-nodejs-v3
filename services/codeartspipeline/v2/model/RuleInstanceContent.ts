@@ -3,6 +3,7 @@ import { RuleInstanceProperty } from './RuleInstanceProperty';
 
 export class RuleInstanceContent {
     private 'group_name'?: string;
+    public editable?: boolean;
     public type?: string;
     private 'can_modify_when_inherit'?: boolean;
     public properties?: Array<RuleInstanceProperty>;
@@ -20,6 +21,10 @@ export class RuleInstanceContent {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
+    }
+    public withEditable(editable: boolean): RuleInstanceContent {
+        this['editable'] = editable;
+        return this;
     }
     public withType(type: string): RuleInstanceContent {
         this['type'] = type;

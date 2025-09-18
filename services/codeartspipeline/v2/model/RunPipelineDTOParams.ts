@@ -9,6 +9,7 @@ export class RunPipelineDTOParams {
     private 'git_url'?: string;
     private 'endpoint_id'?: string;
     private 'build_params'?: RunPipelineDTOParamsBuildParams;
+    private 'change_request_ids'?: Array<string>;
     public constructor(gitType?: string, gitUrl?: string) { 
         this['git_type'] = gitType;
         this['git_url'] = gitUrl;
@@ -76,5 +77,15 @@ export class RunPipelineDTOParams {
     }
     public get buildParams(): RunPipelineDTOParamsBuildParams | undefined {
         return this['build_params'];
+    }
+    public withChangeRequestIds(changeRequestIds: Array<string>): RunPipelineDTOParams {
+        this['change_request_ids'] = changeRequestIds;
+        return this;
+    }
+    public set changeRequestIds(changeRequestIds: Array<string>  | undefined) {
+        this['change_request_ids'] = changeRequestIds;
+    }
+    public get changeRequestIds(): Array<string> | undefined {
+        return this['change_request_ids'];
     }
 }

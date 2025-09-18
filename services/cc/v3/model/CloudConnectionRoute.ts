@@ -1,4 +1,5 @@
 import { CloudConnectionId } from './CloudConnectionId';
+import { Destination } from './Destination';
 import { DomainId } from './DomainId';
 import { InstanceId } from './InstanceId';
 import { ProjectId } from './ProjectId';
@@ -13,15 +14,16 @@ export class CloudConnectionRoute {
     private 'instance_id'?: string;
     private 'project_id'?: string;
     private 'region_id'?: string;
-    public type?: CloudConnectionRouteTypeEnum | string;
     public destination?: string;
-    public constructor(id?: string, cloudConnectionId?: string, domainId?: string, instanceId?: string, projectId?: string, regionId?: string) { 
+    public type?: CloudConnectionRouteTypeEnum | string;
+    public constructor(id?: string, cloudConnectionId?: string, domainId?: string, instanceId?: string, projectId?: string, regionId?: string, destination?: string) { 
         this['id'] = id;
         this['cloud_connection_id'] = cloudConnectionId;
         this['domain_id'] = domainId;
         this['instance_id'] = instanceId;
         this['project_id'] = projectId;
         this['region_id'] = regionId;
+        this['destination'] = destination;
     }
     public withId(id: string): CloudConnectionRoute {
         this['id'] = id;
@@ -77,12 +79,12 @@ export class CloudConnectionRoute {
     public get regionId(): string | undefined {
         return this['region_id'];
     }
-    public withType(type: CloudConnectionRouteTypeEnum | string): CloudConnectionRoute {
-        this['type'] = type;
-        return this;
-    }
     public withDestination(destination: string): CloudConnectionRoute {
         this['destination'] = destination;
+        return this;
+    }
+    public withType(type: CloudConnectionRouteTypeEnum | string): CloudConnectionRoute {
+        this['type'] = type;
         return this;
     }
 }

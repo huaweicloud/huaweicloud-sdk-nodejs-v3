@@ -16,6 +16,7 @@ export class ListGlobalConnectionBandwidthConfigs {
     private 'enable_area_bandwidth'?: boolean;
     private 'enable_change_95'?: boolean;
     private 'enable_spec_code'?: boolean;
+    private 'ces_enabled'?: boolean;
     public constructor(sizeRange?: Array<GlobalConnectionBandwidthSizeRange>, chargeMode?: Array<string>, services?: Array<string>, gcbType?: Array<string>, crossborder?: boolean, quotas?: Array<GlobalConnectionBandwidthQuotas>, slaLevel?: Array<string>, bindLimit?: number, enableAreaBandwidth?: boolean, enableChange95?: boolean) { 
         this['size_range'] = sizeRange;
         this['charge_mode'] = chargeMode;
@@ -139,6 +140,16 @@ export class ListGlobalConnectionBandwidthConfigs {
     }
     public get enableSpecCode(): boolean | undefined {
         return this['enable_spec_code'];
+    }
+    public withCesEnabled(cesEnabled: boolean): ListGlobalConnectionBandwidthConfigs {
+        this['ces_enabled'] = cesEnabled;
+        return this;
+    }
+    public set cesEnabled(cesEnabled: boolean  | undefined) {
+        this['ces_enabled'] = cesEnabled;
+    }
+    public get cesEnabled(): boolean | undefined {
+        return this['ces_enabled'];
     }
 }
 

@@ -7,6 +7,8 @@ export class PipelineByTemplateDTO {
     public description?: string;
     private 'is_publish'?: boolean;
     public sources?: Array<CodeSource>;
+    private 'security_level'?: number;
+    private 'confidentiality_code'?: string;
     public variables?: Array<PipelineByTemplateDTOVariables>;
     public constructor(name?: string, isPublish?: boolean, sources?: Array<CodeSource>) { 
         this['name'] = name;
@@ -34,6 +36,26 @@ export class PipelineByTemplateDTO {
     public withSources(sources: Array<CodeSource>): PipelineByTemplateDTO {
         this['sources'] = sources;
         return this;
+    }
+    public withSecurityLevel(securityLevel: number): PipelineByTemplateDTO {
+        this['security_level'] = securityLevel;
+        return this;
+    }
+    public set securityLevel(securityLevel: number  | undefined) {
+        this['security_level'] = securityLevel;
+    }
+    public get securityLevel(): number | undefined {
+        return this['security_level'];
+    }
+    public withConfidentialityCode(confidentialityCode: string): PipelineByTemplateDTO {
+        this['confidentiality_code'] = confidentialityCode;
+        return this;
+    }
+    public set confidentialityCode(confidentialityCode: string  | undefined) {
+        this['confidentiality_code'] = confidentialityCode;
+    }
+    public get confidentialityCode(): string | undefined {
+        return this['confidentiality_code'];
     }
     public withVariables(variables: Array<PipelineByTemplateDTOVariables>): PipelineByTemplateDTO {
         this['variables'] = variables;

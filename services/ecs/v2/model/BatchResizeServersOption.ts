@@ -9,7 +9,9 @@ export class BatchResizeServersOption {
     private 'cpu_options'?: CpuOptions;
     public mode?: string;
     public promotion?: Promotion;
-    public constructor() { 
+    public constructor(flavorRef?: string, servers?: Array<ServerId>) { 
+        this['flavorRef'] = flavorRef;
+        this['servers'] = servers;
     }
     public withFlavorRef(flavorRef: string): BatchResizeServersOption {
         this['flavorRef'] = flavorRef;

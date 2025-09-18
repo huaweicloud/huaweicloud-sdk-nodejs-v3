@@ -15,8 +15,6 @@ export class ShowPipelineTemplateDetailResponse extends SdkResponse {
     public variables?: Array<CustomVariable>;
     private 'creator_id'?: string;
     private 'updater_id'?: string;
-    private 'create_time'?: number;
-    private 'update_time'?: number;
     private 'is_collect'?: string;
     private 'is_show_source'?: boolean;
     public definition?: string;
@@ -100,26 +98,6 @@ export class ShowPipelineTemplateDetailResponse extends SdkResponse {
     }
     public get updaterId(): string | undefined {
         return this['updater_id'];
-    }
-    public withCreateTime(createTime: number): ShowPipelineTemplateDetailResponse {
-        this['create_time'] = createTime;
-        return this;
-    }
-    public set createTime(createTime: number  | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime(): number | undefined {
-        return this['create_time'];
-    }
-    public withUpdateTime(updateTime: number): ShowPipelineTemplateDetailResponse {
-        this['update_time'] = updateTime;
-        return this;
-    }
-    public set updateTime(updateTime: number  | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime(): number | undefined {
-        return this['update_time'];
     }
     public withIsCollect(isCollect: string): ShowPipelineTemplateDetailResponse {
         this['is_collect'] = isCollect;

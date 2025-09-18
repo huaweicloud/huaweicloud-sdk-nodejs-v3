@@ -19,6 +19,7 @@ export class PipelineDTO {
     private 'group_id'?: string;
     public id?: string;
     private 'concurrency_control'?: PipelineConcurrencyMgmt;
+    private 'security_level'?: number;
     public constructor(name?: string, isPublish?: boolean, definition?: string) { 
         this['name'] = name;
         this['is_publish'] = isPublish;
@@ -105,5 +106,15 @@ export class PipelineDTO {
     }
     public get concurrencyControl(): PipelineConcurrencyMgmt | undefined {
         return this['concurrency_control'];
+    }
+    public withSecurityLevel(securityLevel: number): PipelineDTO {
+        this['security_level'] = securityLevel;
+        return this;
+    }
+    public set securityLevel(securityLevel: number  | undefined) {
+        this['security_level'] = securityLevel;
+    }
+    public get securityLevel(): number | undefined {
+        return this['security_level'];
     }
 }

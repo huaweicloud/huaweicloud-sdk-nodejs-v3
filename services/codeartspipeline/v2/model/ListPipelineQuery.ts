@@ -1,11 +1,13 @@
 
 
 export class ListPipelineQuery {
+    private 'project_id'?: string;
     private 'project_ids'?: Array<string>;
     private 'component_id'?: string;
     public name?: string;
     public status?: Array<string>;
     private 'is_publish'?: boolean;
+    private 'creator_id'?: string;
     private 'creator_ids'?: Array<string>;
     private 'executor_ids'?: Array<string>;
     private 'start_time'?: string;
@@ -15,9 +17,21 @@ export class ListPipelineQuery {
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     private 'group_path_id'?: string;
-    private 'query_new'?: boolean;
     private 'by_group'?: boolean;
+    private 'is_banned'?: boolean;
+    private 'query_new'?: boolean;
+    private 'security_level_list'?: Array<number>;
     public constructor() { 
+    }
+    public withProjectId(projectId: string): ListPipelineQuery {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withProjectIds(projectIds: Array<string>): ListPipelineQuery {
         this['project_ids'] = projectIds;
@@ -56,6 +70,16 @@ export class ListPipelineQuery {
     }
     public get isPublish(): boolean | undefined {
         return this['is_publish'];
+    }
+    public withCreatorId(creatorId: string): ListPipelineQuery {
+        this['creator_id'] = creatorId;
+        return this;
+    }
+    public set creatorId(creatorId: string  | undefined) {
+        this['creator_id'] = creatorId;
+    }
+    public get creatorId(): string | undefined {
+        return this['creator_id'];
     }
     public withCreatorIds(creatorIds: Array<string>): ListPipelineQuery {
         this['creator_ids'] = creatorIds;
@@ -135,6 +159,26 @@ export class ListPipelineQuery {
     public get groupPathId(): string | undefined {
         return this['group_path_id'];
     }
+    public withByGroup(byGroup: boolean): ListPipelineQuery {
+        this['by_group'] = byGroup;
+        return this;
+    }
+    public set byGroup(byGroup: boolean  | undefined) {
+        this['by_group'] = byGroup;
+    }
+    public get byGroup(): boolean | undefined {
+        return this['by_group'];
+    }
+    public withIsBanned(isBanned: boolean): ListPipelineQuery {
+        this['is_banned'] = isBanned;
+        return this;
+    }
+    public set isBanned(isBanned: boolean  | undefined) {
+        this['is_banned'] = isBanned;
+    }
+    public get isBanned(): boolean | undefined {
+        return this['is_banned'];
+    }
     public withQueryNew(queryNew: boolean): ListPipelineQuery {
         this['query_new'] = queryNew;
         return this;
@@ -145,14 +189,14 @@ export class ListPipelineQuery {
     public get queryNew(): boolean | undefined {
         return this['query_new'];
     }
-    public withByGroup(byGroup: boolean): ListPipelineQuery {
-        this['by_group'] = byGroup;
+    public withSecurityLevelList(securityLevelList: Array<number>): ListPipelineQuery {
+        this['security_level_list'] = securityLevelList;
         return this;
     }
-    public set byGroup(byGroup: boolean  | undefined) {
-        this['by_group'] = byGroup;
+    public set securityLevelList(securityLevelList: Array<number>  | undefined) {
+        this['security_level_list'] = securityLevelList;
     }
-    public get byGroup(): boolean | undefined {
-        return this['by_group'];
+    public get securityLevelList(): Array<number> | undefined {
+        return this['security_level_list'];
     }
 }

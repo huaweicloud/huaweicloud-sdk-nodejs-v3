@@ -4,15 +4,13 @@ import { RuleContent } from './RuleContent';
 export class UpdateRuleReq {
     public type?: string;
     public name?: string;
-    private 'layout_content'?: string;
     private 'plugin_id'?: string;
     private 'plugin_name'?: string;
     private 'plugin_version'?: string;
     public content?: Array<RuleContent>;
-    public constructor(type?: string, name?: string, layoutContent?: string, content?: Array<RuleContent>) { 
+    public constructor(type?: string, name?: string, content?: Array<RuleContent>) { 
         this['type'] = type;
         this['name'] = name;
-        this['layout_content'] = layoutContent;
         this['content'] = content;
     }
     public withType(type: string): UpdateRuleReq {
@@ -22,16 +20,6 @@ export class UpdateRuleReq {
     public withName(name: string): UpdateRuleReq {
         this['name'] = name;
         return this;
-    }
-    public withLayoutContent(layoutContent: string): UpdateRuleReq {
-        this['layout_content'] = layoutContent;
-        return this;
-    }
-    public set layoutContent(layoutContent: string  | undefined) {
-        this['layout_content'] = layoutContent;
-    }
-    public get layoutContent(): string | undefined {
-        return this['layout_content'];
     }
     public withPluginId(pluginId: string): UpdateRuleReq {
         this['plugin_id'] = pluginId;

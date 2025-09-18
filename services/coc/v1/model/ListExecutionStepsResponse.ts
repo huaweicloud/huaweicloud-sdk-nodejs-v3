@@ -1,4 +1,4 @@
-import { ExcutionStep } from './ExcutionStep';
+import { ExecutionStep } from './ExecutionStep';
 import { OpsflowBaseResponse } from './OpsflowBaseResponse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -6,7 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListExecutionStepsResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
-    public data?: Array<ExcutionStep>;
+    public data?: Array<ExecutionStep>;
     public total?: number;
     private 'X-request-id'?: string;
     public constructor() { 
@@ -32,7 +32,7 @@ export class ListExecutionStepsResponse extends SdkResponse {
     public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
-    public withData(data: Array<ExcutionStep>): ListExecutionStepsResponse {
+    public withData(data: Array<ExecutionStep>): ListExecutionStepsResponse {
         this['data'] = data;
         return this;
     }

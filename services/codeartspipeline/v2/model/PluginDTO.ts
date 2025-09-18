@@ -1,5 +1,6 @@
 import { PluginDTOExecutionInfo } from './PluginDTOExecutionInfo';
 import { PluginDTOInputInfo } from './PluginDTOInputInfo';
+import { PluginDTOOutputInfo } from './PluginDTOOutputInfo';
 
 
 export class PluginDTO {
@@ -14,9 +15,12 @@ export class PluginDTO {
     private 'is_private'?: number;
     public region?: string;
     public maintainers?: string;
+    private 'plugin_composition_type'?: string;
+    private 'manifest_version'?: string;
     public version?: string;
     private 'version_description'?: string;
     private 'execution_info'?: PluginDTOExecutionInfo;
+    private 'output_info'?: Array<PluginDTOOutputInfo>;
     private 'input_info'?: Array<PluginDTOInputInfo>;
     public constructor(runtimeAttribution?: string, pluginName?: string, displayName?: string, businessType?: string, businessTypeDisplayName?: string, description?: string, version?: string, executionInfo?: PluginDTOExecutionInfo) { 
         this['runtime_attribution'] = runtimeAttribution;
@@ -120,6 +124,26 @@ export class PluginDTO {
         this['maintainers'] = maintainers;
         return this;
     }
+    public withPluginCompositionType(pluginCompositionType: string): PluginDTO {
+        this['plugin_composition_type'] = pluginCompositionType;
+        return this;
+    }
+    public set pluginCompositionType(pluginCompositionType: string  | undefined) {
+        this['plugin_composition_type'] = pluginCompositionType;
+    }
+    public get pluginCompositionType(): string | undefined {
+        return this['plugin_composition_type'];
+    }
+    public withManifestVersion(manifestVersion: string): PluginDTO {
+        this['manifest_version'] = manifestVersion;
+        return this;
+    }
+    public set manifestVersion(manifestVersion: string  | undefined) {
+        this['manifest_version'] = manifestVersion;
+    }
+    public get manifestVersion(): string | undefined {
+        return this['manifest_version'];
+    }
     public withVersion(version: string): PluginDTO {
         this['version'] = version;
         return this;
@@ -143,6 +167,16 @@ export class PluginDTO {
     }
     public get executionInfo(): PluginDTOExecutionInfo | undefined {
         return this['execution_info'];
+    }
+    public withOutputInfo(outputInfo: Array<PluginDTOOutputInfo>): PluginDTO {
+        this['output_info'] = outputInfo;
+        return this;
+    }
+    public set outputInfo(outputInfo: Array<PluginDTOOutputInfo>  | undefined) {
+        this['output_info'] = outputInfo;
+    }
+    public get outputInfo(): Array<PluginDTOOutputInfo> | undefined {
+        return this['output_info'];
     }
     public withInputInfo(inputInfo: Array<PluginDTOInputInfo>): PluginDTO {
         this['input_info'] = inputInfo;

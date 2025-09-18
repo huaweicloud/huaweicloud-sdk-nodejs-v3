@@ -6,10 +6,9 @@ export class ListEngineProductsRequest {
     private 'product_id'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(engine?: string, type?: string, productId?: string) { 
+    public constructor(engine?: string, type?: string) { 
         this['engine'] = engine;
         this['type'] = type;
-        this['product_id'] = productId;
     }
     public withEngine(engine: string): ListEngineProductsRequest {
         this['engine'] = engine;

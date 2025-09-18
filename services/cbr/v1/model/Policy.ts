@@ -11,6 +11,7 @@ export class Policy {
     private 'operation_type'?: PolicyOperationTypeEnum | string;
     public trigger?: PolicyTriggerResp;
     private 'associated_vaults'?: Array<PolicyAssociateVault>;
+    private 'policy_type'?: string;
     public constructor(enabled?: boolean, id?: string, name?: string, operationDefinition?: PolicyoODCreate, operationType?: string, trigger?: PolicyTriggerResp) { 
         this['enabled'] = enabled;
         this['id'] = id;
@@ -64,6 +65,16 @@ export class Policy {
     }
     public get associatedVaults(): Array<PolicyAssociateVault> | undefined {
         return this['associated_vaults'];
+    }
+    public withPolicyType(policyType: string): Policy {
+        this['policy_type'] = policyType;
+        return this;
+    }
+    public set policyType(policyType: string  | undefined) {
+        this['policy_type'] = policyType;
+    }
+    public get policyType(): string | undefined {
+        return this['policy_type'];
     }
 }
 

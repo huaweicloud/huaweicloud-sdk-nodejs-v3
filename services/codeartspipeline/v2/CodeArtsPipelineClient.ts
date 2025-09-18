@@ -5,6 +5,10 @@ import FormData from 'form-data';
 
 import { AcceptManualReviewRequest } from './model/AcceptManualReviewRequest';
 import { AcceptManualReviewResponse } from './model/AcceptManualReviewResponse';
+import { ActionsManualRunPipelineDTO } from './model/ActionsManualRunPipelineDTO';
+import { ActionsPipelineRunsPollingQueryDTO } from './model/ActionsPipelineRunsPollingQueryDTO';
+import { ActionsPipelineRunsQueryDTO } from './model/ActionsPipelineRunsQueryDTO';
+import { ActionsReRunPipelineDTO } from './model/ActionsReRunPipelineDTO';
 import { AgentPluginInfoQueryDTO } from './model/AgentPluginInfoQueryDTO';
 import { Artifact } from './model/Artifact';
 import { ArtifactHashCode } from './model/ArtifactHashCode';
@@ -44,6 +48,8 @@ import { CreateRuleSetReq } from './model/CreateRuleSetReq';
 import { CreateStrategyRequest } from './model/CreateStrategyRequest';
 import { CreateStrategyResponse } from './model/CreateStrategyResponse';
 import { CustomVariable } from './model/CustomVariable';
+import { DeleteActionsRunPipelineRequest } from './model/DeleteActionsRunPipelineRequest';
+import { DeleteActionsRunPipelineResponse } from './model/DeleteActionsRunPipelineResponse';
 import { DeleteBasicPluginRequest } from './model/DeleteBasicPluginRequest';
 import { DeleteBasicPluginResponse } from './model/DeleteBasicPluginResponse';
 import { DeletePipelineGroupRequest } from './model/DeletePipelineGroupRequest';
@@ -67,6 +73,10 @@ import { FullStagePluginsRelationVOAllSteps } from './model/FullStagePluginsRela
 import { FullStagePluginsRelationVOFullStagePluginsItemList } from './model/FullStagePluginsRelationVOFullStagePluginsItemList';
 import { FullStagePluginsRelationVOPluginsList } from './model/FullStagePluginsRelationVOPluginsList';
 import { JobRun } from './model/JobRun';
+import { ListActionsPipelineRunsByRunIdsRequest } from './model/ListActionsPipelineRunsByRunIdsRequest';
+import { ListActionsPipelineRunsByRunIdsResponse } from './model/ListActionsPipelineRunsByRunIdsResponse';
+import { ListActionsPipelineRunsRequest } from './model/ListActionsPipelineRunsRequest';
+import { ListActionsPipelineRunsResponse } from './model/ListActionsPipelineRunsResponse';
 import { ListAvailablePublisherRequest } from './model/ListAvailablePublisherRequest';
 import { ListAvailablePublisherResponse } from './model/ListAvailablePublisherResponse';
 import { ListBasePluginsNewPostRequest } from './model/ListBasePluginsNewPostRequest';
@@ -89,7 +99,6 @@ import { ListPipelineTemplatesQuery } from './model/ListPipelineTemplatesQuery';
 import { ListPipelineTemplatesRequest } from './model/ListPipelineTemplatesRequest';
 import { ListPipelineTemplatesResponse } from './model/ListPipelineTemplatesResponse';
 import { ListPipelinesPageLatestRun } from './model/ListPipelinesPageLatestRun';
-import { ListPipelinesPageLatestRunArtifactParams } from './model/ListPipelinesPageLatestRunArtifactParams';
 import { ListPipelinesPageLatestRunBuildParams } from './model/ListPipelinesPageLatestRunBuildParams';
 import { ListPipelinesPageLatestRunStageStatusList } from './model/ListPipelinesPageLatestRunStageStatusList';
 import { ListPipelinesPagePipelines } from './model/ListPipelinesPagePipelines';
@@ -114,12 +123,14 @@ import { ListStrategyResponse } from './model/ListStrategyResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { LogQuery } from './model/LogQuery';
+import { NewExtensionDataSourceBindings } from './model/NewExtensionDataSourceBindings';
 import { NewExtensionExecution } from './model/NewExtensionExecution';
 import { NewExtensionInputs } from './model/NewExtensionInputs';
 import { NewExtensionOutputs } from './model/NewExtensionOutputs';
 import { OutputRespOutputResult } from './model/OutputRespOutputResult';
 import { OutputRespStepOutputs } from './model/OutputRespStepOutputs';
 import { PackageInfo } from './model/PackageInfo';
+import { PageInfoBusinessTypeDefinitionVOAllSteps } from './model/PageInfoBusinessTypeDefinitionVOAllSteps';
 import { PageInfoBusinessTypeDefinitionVOData } from './model/PageInfoBusinessTypeDefinitionVOData';
 import { PageInfoBusinessTypeDefinitionVOPluginsList } from './model/PageInfoBusinessTypeDefinitionVOPluginsList';
 import { PageInfoOptionalSinglePluginVOData } from './model/PageInfoOptionalSinglePluginVOData';
@@ -156,7 +167,12 @@ import { PluginBasicDTO } from './model/PluginBasicDTO';
 import { PluginBasicVO } from './model/PluginBasicVO';
 import { PluginDTO } from './model/PluginDTO';
 import { PluginDTOExecutionInfo } from './model/PluginDTOExecutionInfo';
+import { PluginDTOExecutionInfoInnerExecutionInfo } from './model/PluginDTOExecutionInfoInnerExecutionInfo';
+import { PluginDTOExecutionInfoInnerExecutionInfoSteps } from './model/PluginDTOExecutionInfoInnerExecutionInfoSteps';
 import { PluginDTOInputInfo } from './model/PluginDTOInputInfo';
+import { PluginDTOOutputInfo } from './model/PluginDTOOutputInfo';
+import { PluginExecutionVO } from './model/PluginExecutionVO';
+import { PluginInstanceVOInputInfo } from './model/PluginInstanceVOInputInfo';
 import { PluginPartQueryDTO } from './model/PluginPartQueryDTO';
 import { PluginPartQueryVOListAgentPluginInputVO } from './model/PluginPartQueryVOListAgentPluginInputVO';
 import { PluginPartQueryVOListAgentPluginInputVOData } from './model/PluginPartQueryVOListAgentPluginInputVOData';
@@ -178,6 +194,8 @@ import { RemovePipelineResponse } from './model/RemovePipelineResponse';
 import { RequestRuleInstance } from './model/RequestRuleInstance';
 import { RetryPipelineRunRequest } from './model/RetryPipelineRunRequest';
 import { RetryPipelineRunResponse } from './model/RetryPipelineRunResponse';
+import { RetryRunActionsPipelineRequest } from './model/RetryRunActionsPipelineRequest';
+import { RetryRunActionsPipelineResponse } from './model/RetryRunActionsPipelineResponse';
 import { Rule } from './model/Rule';
 import { RuleContent } from './model/RuleContent';
 import { RuleInstance } from './model/RuleInstance';
@@ -185,6 +203,8 @@ import { RuleInstanceContent } from './model/RuleInstanceContent';
 import { RuleInstanceProperty } from './model/RuleInstanceProperty';
 import { RuleProperty } from './model/RuleProperty';
 import { RuleSet } from './model/RuleSet';
+import { RunActionsPipelineRequest } from './model/RunActionsPipelineRequest';
+import { RunActionsPipelineResponse } from './model/RunActionsPipelineResponse';
 import { RunPipelineDTO } from './model/RunPipelineDTO';
 import { RunPipelineDTOParams } from './model/RunPipelineDTOParams';
 import { RunPipelineDTOParamsBuildParams } from './model/RunPipelineDTOParamsBuildParams';
@@ -195,6 +215,8 @@ import { RunPipelineResponse } from './model/RunPipelineResponse';
 import { RunPipelineSource } from './model/RunPipelineSource';
 import { RunPipelineSourceParams } from './model/RunPipelineSourceParams';
 import { RunPipelineSourceParamsBuildParams } from './model/RunPipelineSourceParamsBuildParams';
+import { ShowActionsRunsDetailRequest } from './model/ShowActionsRunsDetailRequest';
+import { ShowActionsRunsDetailResponse } from './model/ShowActionsRunsDetailResponse';
 import { ShowBasicPluginRequest } from './model/ShowBasicPluginRequest';
 import { ShowBasicPluginResponse } from './model/ShowBasicPluginResponse';
 import { ShowInstanceStatusRequest } from './model/ShowInstanceStatusRequest';
@@ -1954,6 +1976,128 @@ export class CodeArtsPipelineClient {
      */
     public uploadPublisherIcon(uploadPublisherIconRequest?: UploadPublisherIconRequest): Promise<UploadPublisherIconResponse> {
         const options = ParamCreater().uploadPublisherIcon(uploadPublisherIconRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除gitcode流水线运行详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除gitcode流水线运行详情
+     * @param {string} domainId **参数解释**： 租户id。 **约束限制**： 不涉及。 **取值范围**： 32位字符，由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {string} pipelineId **参数解释**： 流水线ID，可以通过[查询流水线列表](ListPipelines.xml)接口，其中pipelines.pipelineId即为流水线ID。 **约束限制**： 不涉及。 **取值范围**： 32位字符，仅由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {string} pipelineRunId **参数解释**： 流水线运行实例ID，[运行流水线](RunPipeline.xml)接口的返回值即为流水线运行实例ID。 **约束限制**： 不涉及。 **取值范围**： 32位字符，仅由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteActionsRunPipeline(deleteActionsRunPipelineRequest?: DeleteActionsRunPipelineRequest): Promise<DeleteActionsRunPipelineResponse> {
+        const options = ParamCreater().deleteActionsRunPipeline(deleteActionsRunPipelineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询gitcode流水线运行记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询gitcode流水线运行记录
+     * @param {string} domainId **参数解释**： 租户id。 **约束限制**： 不涉及。 **取值范围**： 32位字符，由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {ActionsPipelineRunsQueryDTO} dto **参数解释**： 查询运行记录详情参数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listActionsPipelineRuns(listActionsPipelineRunsRequest?: ListActionsPipelineRunsRequest): Promise<ListActionsPipelineRunsResponse> {
+        const options = ParamCreater().listActionsPipelineRuns(listActionsPipelineRunsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询gitcode流水线action列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询gitcode流水线action列表
+     * @param {string} domainId **参数解释**： 租户id。 **约束限制**： 不涉及。 **取值范围**： 32位字符，由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {ActionsPipelineRunsPollingQueryDTO} [dto] **参数解释**： 查询参数详情。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listActionsPipelineRunsByRunIds(listActionsPipelineRunsByRunIdsRequest?: ListActionsPipelineRunsByRunIdsRequest): Promise<ListActionsPipelineRunsByRunIdsResponse> {
+        const options = ParamCreater().listActionsPipelineRunsByRunIds(listActionsPipelineRunsByRunIdsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重试运行gitcode流水线
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试运行gitcode流水线
+     * @param {string} domainId **参数解释**： 租户id。 **约束限制**： 不涉及。 **取值范围**： 32位字符，由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {ActionsReRunPipelineDTO} [dto] **参数解释**： 重试代码化流水线参数详情。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryRunActionsPipeline(retryRunActionsPipelineRequest?: RetryRunActionsPipelineRequest): Promise<RetryRunActionsPipelineResponse> {
+        const options = ParamCreater().retryRunActionsPipeline(retryRunActionsPipelineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 运行gitcode流水线
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 运行gitcode流水线
+     * @param {string} domainId **参数解释**： 租户ID。 **约束限制**： 不涉及。 **取值范围**： 32位字符，由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {ActionsManualRunPipelineDTO} [dto] **参数解释**： 手动触发详情。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runActionsPipeline(runActionsPipelineRequest?: RunActionsPipelineRequest): Promise<RunActionsPipelineResponse> {
+        const options = ParamCreater().runActionsPipeline(runActionsPipelineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询gitcode流水线运行详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询gitcode流水线运行详情
+     * @param {string} domainId **参数解释**： 租户id。 **约束限制**： 不涉及。 **取值范围**： 32位字符，由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {string} pipelineId **参数解释**： 流水线ID，可以通过[查询流水线列表](ListPipelines.xml)接口，其中pipelines.pipelineId即为流水线ID。 **约束限制**： 不涉及。 **取值范围**： 32位字符，仅由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {string} pipelineRunId **参数解释**： 流水线运行实例ID，[运行流水线](RunPipeline.xml)接口的返回值即为流水线运行实例ID。 **约束限制**： 不涉及。 **取值范围**： 32位字符，仅由数字和字母组成。 **默认取值**： 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showActionsRunsDetail(showActionsRunsDetailRequest?: ShowActionsRunsDetailRequest): Promise<ShowActionsRunsDetailResponse> {
+        const options = ParamCreater().showActionsRunsDetail(showActionsRunsDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5993,6 +6137,283 @@ export const ParamCreater = function () {
             options.data = localVarFormParams;
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除gitcode流水线运行详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteActionsRunPipeline(deleteActionsRunPipelineRequest?: DeleteActionsRunPipelineRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v6/{domain_id}/api/pac/pipelines/actions/{pipeline_id}/{pipeline_run_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+            
+            let pipelineId;
+            
+            let pipelineRunId;
+
+            if (deleteActionsRunPipelineRequest !== null && deleteActionsRunPipelineRequest !== undefined) {
+                if (deleteActionsRunPipelineRequest instanceof DeleteActionsRunPipelineRequest) {
+                    domainId = deleteActionsRunPipelineRequest.domainId;
+                    pipelineId = deleteActionsRunPipelineRequest.pipelineId;
+                    pipelineRunId = deleteActionsRunPipelineRequest.pipelineRunId;
+                } else {
+                    domainId = deleteActionsRunPipelineRequest['domain_id'];
+                    pipelineId = deleteActionsRunPipelineRequest['pipeline_id'];
+                    pipelineRunId = deleteActionsRunPipelineRequest['pipeline_run_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deleteActionsRunPipeline.');
+            }
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling deleteActionsRunPipeline.');
+            }
+            if (pipelineRunId === null || pipelineRunId === undefined) {
+            throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling deleteActionsRunPipeline.');
+            }
+
+            options.pathParams = { 'domain_id': domainId,'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询gitcode流水线运行记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listActionsPipelineRuns(listActionsPipelineRunsRequest?: ListActionsPipelineRunsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v6/{domain_id}/api/pac/pipelines/actions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (listActionsPipelineRunsRequest !== null && listActionsPipelineRunsRequest !== undefined) {
+                if (listActionsPipelineRunsRequest instanceof ListActionsPipelineRunsRequest) {
+                    domainId = listActionsPipelineRunsRequest.domainId;
+                    body = listActionsPipelineRunsRequest.body
+                } else {
+                    domainId = listActionsPipelineRunsRequest['domain_id'];
+                    body = listActionsPipelineRunsRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listActionsPipelineRuns.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询gitcode流水线action列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listActionsPipelineRunsByRunIds(listActionsPipelineRunsByRunIdsRequest?: ListActionsPipelineRunsByRunIdsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v6/{domain_id}/api/pac/pipelines/actions/list",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (listActionsPipelineRunsByRunIdsRequest !== null && listActionsPipelineRunsByRunIdsRequest !== undefined) {
+                if (listActionsPipelineRunsByRunIdsRequest instanceof ListActionsPipelineRunsByRunIdsRequest) {
+                    domainId = listActionsPipelineRunsByRunIdsRequest.domainId;
+                    body = listActionsPipelineRunsByRunIdsRequest.body
+                } else {
+                    domainId = listActionsPipelineRunsByRunIdsRequest['domain_id'];
+                    body = listActionsPipelineRunsByRunIdsRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listActionsPipelineRunsByRunIds.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重试运行gitcode流水线
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryRunActionsPipeline(retryRunActionsPipelineRequest?: RetryRunActionsPipelineRequest) {
+            const options = {
+                method: "POST",
+                url: "/v6/{domain_id}/api/pac/pipelines/actions/rerun",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (retryRunActionsPipelineRequest !== null && retryRunActionsPipelineRequest !== undefined) {
+                if (retryRunActionsPipelineRequest instanceof RetryRunActionsPipelineRequest) {
+                    domainId = retryRunActionsPipelineRequest.domainId;
+                    body = retryRunActionsPipelineRequest.body
+                } else {
+                    domainId = retryRunActionsPipelineRequest['domain_id'];
+                    body = retryRunActionsPipelineRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling retryRunActionsPipeline.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 运行gitcode流水线
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runActionsPipeline(runActionsPipelineRequest?: RunActionsPipelineRequest) {
+            const options = {
+                method: "POST",
+                url: "/v6/{domain_id}/api/pac/pipelines/actions/run",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (runActionsPipelineRequest !== null && runActionsPipelineRequest !== undefined) {
+                if (runActionsPipelineRequest instanceof RunActionsPipelineRequest) {
+                    domainId = runActionsPipelineRequest.domainId;
+                    body = runActionsPipelineRequest.body
+                } else {
+                    domainId = runActionsPipelineRequest['domain_id'];
+                    body = runActionsPipelineRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling runActionsPipeline.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询gitcode流水线运行详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showActionsRunsDetail(showActionsRunsDetailRequest?: ShowActionsRunsDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v6/{domain_id}/api/pac/pipelines/actions/{pipeline_id}/{pipeline_run_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+            
+            let pipelineId;
+            
+            let pipelineRunId;
+
+            if (showActionsRunsDetailRequest !== null && showActionsRunsDetailRequest !== undefined) {
+                if (showActionsRunsDetailRequest instanceof ShowActionsRunsDetailRequest) {
+                    domainId = showActionsRunsDetailRequest.domainId;
+                    pipelineId = showActionsRunsDetailRequest.pipelineId;
+                    pipelineRunId = showActionsRunsDetailRequest.pipelineRunId;
+                } else {
+                    domainId = showActionsRunsDetailRequest['domain_id'];
+                    pipelineId = showActionsRunsDetailRequest['pipeline_id'];
+                    pipelineRunId = showActionsRunsDetailRequest['pipeline_run_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showActionsRunsDetail.');
+            }
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showActionsRunsDetail.');
+            }
+            if (pipelineRunId === null || pipelineRunId === undefined) {
+            throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling showActionsRunsDetail.');
+            }
+
+            options.pathParams = { 'domain_id': domainId,'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

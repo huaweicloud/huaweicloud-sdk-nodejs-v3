@@ -1,4 +1,3 @@
-import { AreaIdDef } from './AreaIdDef';
 import { BillingMode } from './BillingMode';
 import { BillingModeEnum } from './BillingModeEnum';
 import { CreatedAt } from './CreatedAt';
@@ -6,9 +5,11 @@ import { Description } from './Description';
 import { DomainId } from './DomainId';
 import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { LocalAreaId } from './LocalAreaId';
+import { LocalAreaIdDef } from './LocalAreaIdDef';
 import { Name } from './Name';
 import { ProjectId } from './ProjectId';
 import { RemoteAreaId } from './RemoteAreaId';
+import { RemoteAreaIdDef } from './RemoteAreaIdDef';
 import { ResourceId } from './ResourceId';
 import { ResourceType } from './ResourceType';
 import { SpecCode } from './SpecCode';
@@ -29,8 +30,8 @@ export class BandwidthPackage {
     private 'updated_at'?: Date;
     private 'resource_id'?: string;
     private 'resource_type'?: BandwidthPackageResourceTypeEnum | string;
-    private 'local_area_id'?: AreaIdDef;
-    private 'remote_area_id'?: AreaIdDef;
+    private 'local_area_id'?: LocalAreaIdDef;
+    private 'remote_area_id'?: RemoteAreaIdDef;
     private 'spec_code'?: string;
     private 'billing_mode'?: BillingModeEnum;
     public tags?: Array<Tag>;
@@ -41,7 +42,7 @@ export class BandwidthPackage {
     private 'charge_mode'?: BandwidthPackageChargeModeEnum | string;
     public bandwidth?: number;
     private 'interflow_mode'?: BandwidthPackageInterflowModeEnum | string;
-    public constructor(id?: string, name?: string, domainId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, resourceId?: string, resourceType?: string, localAreaId?: AreaIdDef, remoteAreaId?: AreaIdDef, specCode?: string, billingMode?: BillingModeEnum) { 
+    public constructor(id?: string, name?: string, domainId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, resourceId?: string, resourceType?: string, localAreaId?: LocalAreaIdDef, remoteAreaId?: RemoteAreaIdDef, specCode?: string, billingMode?: BillingModeEnum) { 
         this['id'] = id;
         this['name'] = name;
         this['domain_id'] = domainId;
@@ -137,24 +138,24 @@ export class BandwidthPackage {
     public get resourceType(): BandwidthPackageResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
-    public withLocalAreaId(localAreaId: AreaIdDef): BandwidthPackage {
+    public withLocalAreaId(localAreaId: LocalAreaIdDef): BandwidthPackage {
         this['local_area_id'] = localAreaId;
         return this;
     }
-    public set localAreaId(localAreaId: AreaIdDef  | undefined) {
+    public set localAreaId(localAreaId: LocalAreaIdDef  | undefined) {
         this['local_area_id'] = localAreaId;
     }
-    public get localAreaId(): AreaIdDef | undefined {
+    public get localAreaId(): LocalAreaIdDef | undefined {
         return this['local_area_id'];
     }
-    public withRemoteAreaId(remoteAreaId: AreaIdDef): BandwidthPackage {
+    public withRemoteAreaId(remoteAreaId: RemoteAreaIdDef): BandwidthPackage {
         this['remote_area_id'] = remoteAreaId;
         return this;
     }
-    public set remoteAreaId(remoteAreaId: AreaIdDef  | undefined) {
+    public set remoteAreaId(remoteAreaId: RemoteAreaIdDef  | undefined) {
         this['remote_area_id'] = remoteAreaId;
     }
-    public get remoteAreaId(): AreaIdDef | undefined {
+    public get remoteAreaId(): RemoteAreaIdDef | undefined {
         return this['remote_area_id'];
     }
     public withSpecCode(specCode: string): BandwidthPackage {

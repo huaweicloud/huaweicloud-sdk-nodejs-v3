@@ -13,6 +13,9 @@ export class ShowStrategyResponse extends SdkResponse {
     private 'update_time'?: string;
     private 'is_valid'?: boolean;
     private 'rule_instances'?: Array<RuleInstance>;
+    public level?: string;
+    private 'is_public'?: boolean;
+    private 'is_legacy'?: boolean;
     public constructor() { 
         super();
     }
@@ -79,5 +82,29 @@ export class ShowStrategyResponse extends SdkResponse {
     }
     public get ruleInstances(): Array<RuleInstance> | undefined {
         return this['rule_instances'];
+    }
+    public withLevel(level: string): ShowStrategyResponse {
+        this['level'] = level;
+        return this;
+    }
+    public withIsPublic(isPublic: boolean): ShowStrategyResponse {
+        this['is_public'] = isPublic;
+        return this;
+    }
+    public set isPublic(isPublic: boolean  | undefined) {
+        this['is_public'] = isPublic;
+    }
+    public get isPublic(): boolean | undefined {
+        return this['is_public'];
+    }
+    public withIsLegacy(isLegacy: boolean): ShowStrategyResponse {
+        this['is_legacy'] = isLegacy;
+        return this;
+    }
+    public set isLegacy(isLegacy: boolean  | undefined) {
+        this['is_legacy'] = isLegacy;
+    }
+    public get isLegacy(): boolean | undefined {
+        return this['is_legacy'];
     }
 }

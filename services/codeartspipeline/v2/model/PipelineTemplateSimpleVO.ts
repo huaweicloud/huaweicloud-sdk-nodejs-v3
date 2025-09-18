@@ -14,8 +14,6 @@ export class PipelineTemplateSimpleVO {
     private 'creator_id'?: string;
     private 'creator_name'?: string;
     private 'updater_id'?: string;
-    private 'create_time'?: number;
-    private 'update_time'?: number;
     private 'is_collect'?: boolean;
     private 'is_show_source'?: string;
     public stages?: Array<PipelineTemplateSimpleVOStages>;
@@ -104,26 +102,6 @@ export class PipelineTemplateSimpleVO {
     }
     public get updaterId(): string | undefined {
         return this['updater_id'];
-    }
-    public withCreateTime(createTime: number): PipelineTemplateSimpleVO {
-        this['create_time'] = createTime;
-        return this;
-    }
-    public set createTime(createTime: number  | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime(): number | undefined {
-        return this['create_time'];
-    }
-    public withUpdateTime(updateTime: number): PipelineTemplateSimpleVO {
-        this['update_time'] = updateTime;
-        return this;
-    }
-    public set updateTime(updateTime: number  | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime(): number | undefined {
-        return this['update_time'];
     }
     public withIsCollect(isCollect: boolean): PipelineTemplateSimpleVO {
         this['is_collect'] = isCollect;

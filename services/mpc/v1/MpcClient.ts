@@ -33,9 +33,6 @@ import { CreateAnimatedGraphicsTaskResponse } from './model/CreateAnimatedGraphi
 import { CreateEditingJobReq } from './model/CreateEditingJobReq';
 import { CreateEditingJobRequest } from './model/CreateEditingJobRequest';
 import { CreateEditingJobResponse } from './model/CreateEditingJobResponse';
-import { CreateEncryptReq } from './model/CreateEncryptReq';
-import { CreateEncryptTaskRequest } from './model/CreateEncryptTaskRequest';
-import { CreateEncryptTaskResponse } from './model/CreateEncryptTaskResponse';
 import { CreateExtractTaskReq } from './model/CreateExtractTaskReq';
 import { CreateExtractTaskRequest } from './model/CreateExtractTaskRequest';
 import { CreateExtractTaskResponse } from './model/CreateExtractTaskResponse';
@@ -76,8 +73,6 @@ import { DeleteAnimatedGraphicsTaskRequest } from './model/DeleteAnimatedGraphic
 import { DeleteAnimatedGraphicsTaskResponse } from './model/DeleteAnimatedGraphicsTaskResponse';
 import { DeleteEditingJobRequest } from './model/DeleteEditingJobRequest';
 import { DeleteEditingJobResponse } from './model/DeleteEditingJobResponse';
-import { DeleteEncryptTaskRequest } from './model/DeleteEncryptTaskRequest';
-import { DeleteEncryptTaskResponse } from './model/DeleteEncryptTaskResponse';
 import { DeleteExtractTaskRequest } from './model/DeleteExtractTaskRequest';
 import { DeleteExtractTaskResponse } from './model/DeleteExtractTaskResponse';
 import { DeleteMediaProcessTaskRequest } from './model/DeleteMediaProcessTaskRequest';
@@ -102,7 +97,6 @@ import { DeleteTranscodingTaskRequest } from './model/DeleteTranscodingTaskReque
 import { DeleteTranscodingTaskResponse } from './model/DeleteTranscodingTaskResponse';
 import { DeleteWatermarkTemplateRequest } from './model/DeleteWatermarkTemplateRequest';
 import { DeleteWatermarkTemplateResponse } from './model/DeleteWatermarkTemplateResponse';
-import { EachEncryptRsp } from './model/EachEncryptRsp';
 import { EditAudioInfo } from './model/EditAudioInfo';
 import { EditHlsInfo } from './model/EditHlsInfo';
 import { EditSetting } from './model/EditSetting';
@@ -111,6 +105,7 @@ import { EditingJob } from './model/EditingJob';
 import { Encryption } from './model/Encryption';
 import { ErrorResponse } from './model/ErrorResponse';
 import { ExtractTask } from './model/ExtractTask';
+import { FileMetaData } from './model/FileMetaData';
 import { HlsEncrypt } from './model/HlsEncrypt';
 import { ImageWatermark } from './model/ImageWatermark';
 import { ImageWatermarkSetting } from './model/ImageWatermarkSetting';
@@ -123,8 +118,6 @@ import { ListAnimatedGraphicsTaskRequest } from './model/ListAnimatedGraphicsTas
 import { ListAnimatedGraphicsTaskResponse } from './model/ListAnimatedGraphicsTaskResponse';
 import { ListEditingJobRequest } from './model/ListEditingJobRequest';
 import { ListEditingJobResponse } from './model/ListEditingJobResponse';
-import { ListEncryptTaskRequest } from './model/ListEncryptTaskRequest';
-import { ListEncryptTaskResponse } from './model/ListEncryptTaskResponse';
 import { ListExtractTaskRequest } from './model/ListExtractTaskRequest';
 import { ListExtractTaskResponse } from './model/ListExtractTaskResponse';
 import { ListMediaProcessTaskRequest } from './model/ListMediaProcessTaskRequest';
@@ -536,76 +529,6 @@ export class MpcClient {
      */
     public listEditingJob(listEditingJobRequest?: ListEditingJobRequest): Promise<ListEditingJobResponse> {
         const options = ParamCreater().listEditingJob(listEditingJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 支持独立加密，包括创建、查询、删除独立加密任务。该API已废弃。
-     * 
-     * 约束：
-     *   - 只支持转码后的文件进行加密。
-     *   - 加密的文件必须是m3u8或者mpd结尾的文件。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 新建独立加密任务
-     * @param {CreateEncryptReq} createEncryptTaskRequestBody 创建独立加密请求体 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createEncryptTask(createEncryptTaskRequest?: CreateEncryptTaskRequest): Promise<CreateEncryptTaskResponse> {
-        const options = ParamCreater().createEncryptTask(createEncryptTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 取消独立加密任务。该API已废弃。
-     * 
-     * 约束：
-     * 
-     *   只能取消正在任务队列中排队的任务。已开始加密或已完成的加密任务不能取消。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 取消独立加密任务
-     * @param {string} taskId 任务ID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteEncryptTask(deleteEncryptTaskRequest?: DeleteEncryptTaskRequest): Promise<DeleteEncryptTaskResponse> {
-        const options = ParamCreater().deleteEncryptTask(deleteEncryptTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询独立加密任务状态。返回任务执行结果或当前状态。该API已废弃。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询独立加密任务
-     * @param {Array<string>} [taskId] 独立加密任务ID。一次最多10个 
-     * @param {'WAITING' | 'PROCESSING' | 'SUCCEEDED' | 'FAILED' | 'CANCELED'} [status] 任务状态。  取值如下： - WAITING：等待启动 - PROCESSING：处理中 - SUCCEEDED：处理成功 - FAILED：处理失败 - CANCELED：已取消 
-     * @param {string} [startTime] 起始时间。格式为yyyymmddhhmmss。必须是与时区无关的UTC时间，指定task_id时该参数无效。 
-     * @param {string} [endTime] 结束时间。格式为yyyymmddhhmmss。必须是与时区无关的UTC时间，指定task_id时该参数无效。 
-     * @param {number} [page] 分页编号。查询指定“task_id”时，该参数无效。  默认值：0。 
-     * @param {number} [size] 每页记录数。查询指定“task_id”时，该参数无效。  取值范围：[1,100]。  默认值：10。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listEncryptTask(listEncryptTaskRequest?: ListEncryptTaskRequest): Promise<ListEncryptTaskResponse> {
-        const options = ParamCreater().listEncryptTask(listEncryptTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2140,164 +2063,6 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['x-language'] = String(xLanguage);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 支持独立加密，包括创建、查询、删除独立加密任务。该API已废弃。
-         * 
-         * 约束：
-         *   - 只支持转码后的文件进行加密。
-         *   - 加密的文件必须是m3u8或者mpd结尾的文件。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createEncryptTask(createEncryptTaskRequest?: CreateEncryptTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/encryptions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createEncryptTaskRequest !== null && createEncryptTaskRequest !== undefined) {
-                if (createEncryptTaskRequest instanceof CreateEncryptTaskRequest) {
-                    body = createEncryptTaskRequest.body
-                } else {
-                    body = createEncryptTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 取消独立加密任务。该API已废弃。
-         * 
-         * 约束：
-         * 
-         *   只能取消正在任务队列中排队的任务。已开始加密或已完成的加密任务不能取消。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteEncryptTask(deleteEncryptTaskRequest?: DeleteEncryptTaskRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/encryptions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let taskId;
-
-            if (deleteEncryptTaskRequest !== null && deleteEncryptTaskRequest !== undefined) {
-                if (deleteEncryptTaskRequest instanceof DeleteEncryptTaskRequest) {
-                    taskId = deleteEncryptTaskRequest.taskId;
-                } else {
-                    taskId = deleteEncryptTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteEncryptTask.');
-            }
-            if (taskId !== null && taskId !== undefined) {
-                localVarQueryParameter['task_id'] = taskId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询独立加密任务状态。返回任务执行结果或当前状态。该API已废弃。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listEncryptTask(listEncryptTaskRequest?: ListEncryptTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/encryptions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let taskId;
-            
-            let status;
-            
-            let startTime;
-            
-            let endTime;
-            
-            let page;
-            
-            let size;
-
-            if (listEncryptTaskRequest !== null && listEncryptTaskRequest !== undefined) {
-                if (listEncryptTaskRequest instanceof ListEncryptTaskRequest) {
-                    taskId = listEncryptTaskRequest.taskId;
-                    status = listEncryptTaskRequest.status;
-                    startTime = listEncryptTaskRequest.startTime;
-                    endTime = listEncryptTaskRequest.endTime;
-                    page = listEncryptTaskRequest.page;
-                    size = listEncryptTaskRequest.size;
-                } else {
-                    taskId = listEncryptTaskRequest['task_id'];
-                    status = listEncryptTaskRequest['status'];
-                    startTime = listEncryptTaskRequest['start_time'];
-                    endTime = listEncryptTaskRequest['end_time'];
-                    page = listEncryptTaskRequest['page'];
-                    size = listEncryptTaskRequest['size'];
-                }
-            }
-
-        
-            if (taskId !== null && taskId !== undefined) {
-                localVarQueryParameter['task_id'] = taskId;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-            if (page !== null && page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-            if (size !== null && size !== undefined) {
-                localVarQueryParameter['size'] = size;
             }
 
             options.queryParams = localVarQueryParameter;

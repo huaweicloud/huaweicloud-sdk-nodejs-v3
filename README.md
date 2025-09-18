@@ -6,6 +6,9 @@ English | [简体中文](README_CN.md)
 
 <h1 align="center">Huawei Cloud Node.js Software Development Kit (Node.js SDK)</h1>
 
+[![GitHub Release](https://img.shields.io/github/v/release/huaweicloud/huaweicloud-sdk-nodejs-v3)](https://github.com/huaweicloud/huaweicloud-sdk-nodejs-v3/releases)
+[![License](https://img.shields.io/badge/license-Apache--2.0-green)](https://www.apache.org/licenses/LICENSE-2.0)
+
 The Huawei Cloud Node.js SDK allows you to easily work with Huawei Cloud services such as Elastic Compute Service (ECS)
 and Virtual Private Cloud (VPC) without the need to handle API related tasks.
 

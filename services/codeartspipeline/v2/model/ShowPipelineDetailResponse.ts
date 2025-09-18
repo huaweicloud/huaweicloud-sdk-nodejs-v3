@@ -27,6 +27,7 @@ export class ShowPipelineDetailResponse extends SdkResponse {
     public triggers?: Array<PipelineTrigger>;
     private 'group_id'?: string;
     public definition?: string;
+    private 'security_level'?: number;
     public constructor() { 
         super();
     }
@@ -185,5 +186,15 @@ export class ShowPipelineDetailResponse extends SdkResponse {
     public withDefinition(definition: string): ShowPipelineDetailResponse {
         this['definition'] = definition;
         return this;
+    }
+    public withSecurityLevel(securityLevel: number): ShowPipelineDetailResponse {
+        this['security_level'] = securityLevel;
+        return this;
+    }
+    public set securityLevel(securityLevel: number  | undefined) {
+        this['security_level'] = securityLevel;
+    }
+    public get securityLevel(): number | undefined {
+        return this['security_level'];
     }
 }

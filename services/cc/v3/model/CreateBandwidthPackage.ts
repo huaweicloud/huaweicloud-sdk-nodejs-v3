@@ -1,10 +1,12 @@
-import { AreaIdDef } from './AreaIdDef';
+import { CreatePrepaidOptions } from './CreatePrepaidOptions';
 import { Description } from './Description';
 import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { LocalAreaId } from './LocalAreaId';
+import { LocalAreaIdDef } from './LocalAreaIdDef';
 import { Name } from './Name';
 import { ProjectId } from './ProjectId';
 import { RemoteAreaId } from './RemoteAreaId';
+import { RemoteAreaIdDef } from './RemoteAreaIdDef';
 
 
 export class CreateBandwidthPackage {
@@ -12,8 +14,8 @@ export class CreateBandwidthPackage {
     public description?: string;
     private 'enterprise_project_id'?: string;
     private 'project_id'?: string;
-    private 'local_area_id'?: AreaIdDef;
-    private 'remote_area_id'?: AreaIdDef;
+    private 'local_area_id'?: LocalAreaIdDef;
+    private 'remote_area_id'?: RemoteAreaIdDef;
     private 'charge_mode'?: CreateBandwidthPackageChargeModeEnum | string;
     private 'billing_mode'?: CreateBandwidthPackageBillingModeEnum | number;
     public bandwidth?: number;
@@ -21,7 +23,8 @@ export class CreateBandwidthPackage {
     private 'resource_type'?: CreateBandwidthPackageResourceTypeEnum | string;
     private 'spec_code'?: string;
     private 'interflow_mode'?: CreateBandwidthPackageInterflowModeEnum | string;
-    public constructor(name?: string, projectId?: string, localAreaId?: AreaIdDef, remoteAreaId?: AreaIdDef, chargeMode?: string, billingMode?: number, bandwidth?: number) { 
+    private 'prepaid_options'?: CreatePrepaidOptions;
+    public constructor(name?: string, projectId?: string, localAreaId?: LocalAreaIdDef, remoteAreaId?: RemoteAreaIdDef, chargeMode?: string, billingMode?: number, bandwidth?: number) { 
         this['name'] = name;
         this['project_id'] = projectId;
         this['local_area_id'] = localAreaId;
@@ -58,24 +61,24 @@ export class CreateBandwidthPackage {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withLocalAreaId(localAreaId: AreaIdDef): CreateBandwidthPackage {
+    public withLocalAreaId(localAreaId: LocalAreaIdDef): CreateBandwidthPackage {
         this['local_area_id'] = localAreaId;
         return this;
     }
-    public set localAreaId(localAreaId: AreaIdDef  | undefined) {
+    public set localAreaId(localAreaId: LocalAreaIdDef  | undefined) {
         this['local_area_id'] = localAreaId;
     }
-    public get localAreaId(): AreaIdDef | undefined {
+    public get localAreaId(): LocalAreaIdDef | undefined {
         return this['local_area_id'];
     }
-    public withRemoteAreaId(remoteAreaId: AreaIdDef): CreateBandwidthPackage {
+    public withRemoteAreaId(remoteAreaId: RemoteAreaIdDef): CreateBandwidthPackage {
         this['remote_area_id'] = remoteAreaId;
         return this;
     }
-    public set remoteAreaId(remoteAreaId: AreaIdDef  | undefined) {
+    public set remoteAreaId(remoteAreaId: RemoteAreaIdDef  | undefined) {
         this['remote_area_id'] = remoteAreaId;
     }
-    public get remoteAreaId(): AreaIdDef | undefined {
+    public get remoteAreaId(): RemoteAreaIdDef | undefined {
         return this['remote_area_id'];
     }
     public withChargeMode(chargeMode: CreateBandwidthPackageChargeModeEnum | string): CreateBandwidthPackage {
@@ -142,6 +145,16 @@ export class CreateBandwidthPackage {
     public get interflowMode(): CreateBandwidthPackageInterflowModeEnum | string | undefined {
         return this['interflow_mode'];
     }
+    public withPrepaidOptions(prepaidOptions: CreatePrepaidOptions): CreateBandwidthPackage {
+        this['prepaid_options'] = prepaidOptions;
+        return this;
+    }
+    public set prepaidOptions(prepaidOptions: CreatePrepaidOptions  | undefined) {
+        this['prepaid_options'] = prepaidOptions;
+    }
+    public get prepaidOptions(): CreatePrepaidOptions | undefined {
+        return this['prepaid_options'];
+    }
 }
 
 /**
@@ -156,6 +169,8 @@ export enum CreateBandwidthPackageChargeModeEnum {
     * @enum {string}
     */
 export enum CreateBandwidthPackageBillingModeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
     NUMBER_3 = 3,
     NUMBER_4 = 4,
     NUMBER_5 = 5,

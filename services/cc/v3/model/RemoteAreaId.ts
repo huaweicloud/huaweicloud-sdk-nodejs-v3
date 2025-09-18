@@ -1,19 +1,19 @@
-import { AreaIdDef } from './AreaIdDef';
+import { RemoteAreaIdDef } from './RemoteAreaIdDef';
 
 
 export class RemoteAreaId {
-    private 'remote_area_id'?: AreaIdDef;
-    public constructor(remoteAreaId?: AreaIdDef) { 
+    private 'remote_area_id'?: RemoteAreaIdDef;
+    public constructor(remoteAreaId?: RemoteAreaIdDef) { 
         this['remote_area_id'] = remoteAreaId;
     }
-    public withRemoteAreaId(remoteAreaId: AreaIdDef): RemoteAreaId {
+    public withRemoteAreaId(remoteAreaId: RemoteAreaIdDef): RemoteAreaId {
         this['remote_area_id'] = remoteAreaId;
         return this;
     }
-    public set remoteAreaId(remoteAreaId: AreaIdDef  | undefined) {
+    public set remoteAreaId(remoteAreaId: RemoteAreaIdDef  | undefined) {
         this['remote_area_id'] = remoteAreaId;
     }
-    public get remoteAreaId(): AreaIdDef | undefined {
+    public get remoteAreaId(): RemoteAreaIdDef | undefined {
         return this['remote_area_id'];
     }
 }

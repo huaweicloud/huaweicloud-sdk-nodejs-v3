@@ -1,4 +1,5 @@
-import { PluginPartQueryVOListAgentPluginInputVOData } from './PluginPartQueryVOListAgentPluginInputVOData';
+import { PluginExecutionVO } from './PluginExecutionVO';
+import { PluginInstanceVOInputInfo } from './PluginInstanceVOInputInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -13,8 +14,8 @@ export class ShowPluginVersionResponse extends SdkResponse {
     private 'version_attribution'?: string;
     private 'plugin_composition_type'?: string;
     private 'plugin_attribution'?: string;
-    private 'input_info'?: Array<PluginPartQueryVOListAgentPluginInputVOData>;
-    private 'plugin_execution'?: object;
+    private 'input_info'?: Array<PluginInstanceVOInputInfo>;
+    private 'plugin_execution'?: PluginExecutionVO;
     private 'runtime_attribution'?: string;
     public constructor() { 
         super();
@@ -113,24 +114,24 @@ export class ShowPluginVersionResponse extends SdkResponse {
     public get pluginAttribution(): string | undefined {
         return this['plugin_attribution'];
     }
-    public withInputInfo(inputInfo: Array<PluginPartQueryVOListAgentPluginInputVOData>): ShowPluginVersionResponse {
+    public withInputInfo(inputInfo: Array<PluginInstanceVOInputInfo>): ShowPluginVersionResponse {
         this['input_info'] = inputInfo;
         return this;
     }
-    public set inputInfo(inputInfo: Array<PluginPartQueryVOListAgentPluginInputVOData>  | undefined) {
+    public set inputInfo(inputInfo: Array<PluginInstanceVOInputInfo>  | undefined) {
         this['input_info'] = inputInfo;
     }
-    public get inputInfo(): Array<PluginPartQueryVOListAgentPluginInputVOData> | undefined {
+    public get inputInfo(): Array<PluginInstanceVOInputInfo> | undefined {
         return this['input_info'];
     }
-    public withPluginExecution(pluginExecution: object): ShowPluginVersionResponse {
+    public withPluginExecution(pluginExecution: PluginExecutionVO): ShowPluginVersionResponse {
         this['plugin_execution'] = pluginExecution;
         return this;
     }
-    public set pluginExecution(pluginExecution: object  | undefined) {
+    public set pluginExecution(pluginExecution: PluginExecutionVO  | undefined) {
         this['plugin_execution'] = pluginExecution;
     }
-    public get pluginExecution(): object | undefined {
+    public get pluginExecution(): PluginExecutionVO | undefined {
         return this['plugin_execution'];
     }
     public withRuntimeAttribution(runtimeAttribution: string): ShowPluginVersionResponse {

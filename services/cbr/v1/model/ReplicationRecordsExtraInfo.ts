@@ -5,7 +5,7 @@ export class ReplicationRecordsExtraInfo {
     private 'fail_code'?: string;
     private 'fail_reason'?: string;
     private 'auto_trigger'?: boolean;
-    private 'destinatio_vault_id'?: string;
+    private 'destination_vault_id'?: string;
     public constructor() { 
     }
     public withProgress(progress: number): ReplicationRecordsExtraInfo {
@@ -42,14 +42,14 @@ export class ReplicationRecordsExtraInfo {
     public get autoTrigger(): boolean | undefined {
         return this['auto_trigger'];
     }
-    public withDestinatioVaultId(destinatioVaultId: string): ReplicationRecordsExtraInfo {
-        this['destinatio_vault_id'] = destinatioVaultId;
+    public withDestinationVaultId(destinationVaultId: string): ReplicationRecordsExtraInfo {
+        this['destination_vault_id'] = destinationVaultId;
         return this;
     }
-    public set destinatioVaultId(destinatioVaultId: string  | undefined) {
-        this['destinatio_vault_id'] = destinatioVaultId;
+    public set destinationVaultId(destinationVaultId: string  | undefined) {
+        this['destination_vault_id'] = destinationVaultId;
     }
-    public get destinatioVaultId(): string | undefined {
-        return this['destinatio_vault_id'];
+    public get destinationVaultId(): string | undefined {
+        return this['destination_vault_id'];
     }
 }

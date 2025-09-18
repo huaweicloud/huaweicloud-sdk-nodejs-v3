@@ -6,8 +6,7 @@ export class ListCloudConnectionQuotasRequest {
     private 'quota_type'?: ListCloudConnectionQuotasRequestQuotaTypeEnum | string;
     private 'cloud_connection_id'?: string;
     private 'region_id'?: string;
-    public constructor(quotaType?: string) { 
-        this['quota_type'] = quotaType;
+    public constructor() { 
     }
     public withLimit(limit: number): ListCloudConnectionQuotasRequest {
         this['limit'] = limit;

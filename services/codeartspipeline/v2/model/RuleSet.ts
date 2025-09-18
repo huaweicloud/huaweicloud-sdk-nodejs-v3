@@ -10,6 +10,7 @@ export class RuleSet {
     private 'is_valid'?: boolean;
     public level?: string;
     private 'is_public'?: boolean;
+    private 'is_legacy'?: boolean;
     public constructor(id?: string, name?: string, type?: string, operator?: string, operateTime?: number, isValid?: boolean) { 
         this['id'] = id;
         this['name'] = name;
@@ -71,5 +72,15 @@ export class RuleSet {
     }
     public get isPublic(): boolean | undefined {
         return this['is_public'];
+    }
+    public withIsLegacy(isLegacy: boolean): RuleSet {
+        this['is_legacy'] = isLegacy;
+        return this;
+    }
+    public set isLegacy(isLegacy: boolean  | undefined) {
+        this['is_legacy'] = isLegacy;
+    }
+    public get isLegacy(): boolean | undefined {
+        return this['is_legacy'];
     }
 }

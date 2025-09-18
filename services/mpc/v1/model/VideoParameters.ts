@@ -7,6 +7,7 @@ export class VideoParameters {
     public crf?: object;
     private 'max_bitrate'?: number;
     public bitrate?: number;
+    private 'buf_size'?: number;
     public profile?: number;
     public level?: number;
     public preset?: number;
@@ -50,6 +51,16 @@ export class VideoParameters {
     public withBitrate(bitrate: number): VideoParameters {
         this['bitrate'] = bitrate;
         return this;
+    }
+    public withBufSize(bufSize: number): VideoParameters {
+        this['buf_size'] = bufSize;
+        return this;
+    }
+    public set bufSize(bufSize: number  | undefined) {
+        this['buf_size'] = bufSize;
+    }
+    public get bufSize(): number | undefined {
+        return this['buf_size'];
     }
     public withProfile(profile: number): VideoParameters {
         this['profile'] = profile;

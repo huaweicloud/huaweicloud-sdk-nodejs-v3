@@ -1,5 +1,6 @@
 import { CreatedAt } from './CreatedAt';
 import { Description } from './Description';
+import { RegionId } from './RegionId';
 import { SiteGroupReferenceInfo } from './SiteGroupReferenceInfo';
 import { UUID64Identifier } from './UUID64Identifier';
 import { UpdatedAt } from './UpdatedAt';
@@ -10,18 +11,19 @@ export class GlobalConnectionBandwidthSites {
     public description?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
+    private 'region_id'?: string;
     private 'name_en'?: string;
     private 'name_cn'?: string;
     private 'site_code'?: string;
     private 'site_type'?: GlobalConnectionBandwidthSitesSiteTypeEnum | string;
     private 'service_list'?: string;
     private 'group_list'?: Array<SiteGroupReferenceInfo>;
-    private 'region_id'?: string;
     private 'public_border_group'?: string;
-    public constructor(id?: string, createdAt?: Date, updatedAt?: Date) { 
+    public constructor(id?: string, createdAt?: Date, updatedAt?: Date, regionId?: string) { 
         this['id'] = id;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
+        this['region_id'] = regionId;
     }
     public withId(id: string): GlobalConnectionBandwidthSites {
         this['id'] = id;
@@ -50,6 +52,16 @@ export class GlobalConnectionBandwidthSites {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withRegionId(regionId: string): GlobalConnectionBandwidthSites {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string  | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId(): string | undefined {
+        return this['region_id'];
     }
     public withNameEn(nameEn: string): GlobalConnectionBandwidthSites {
         this['name_en'] = nameEn;
@@ -110,16 +122,6 @@ export class GlobalConnectionBandwidthSites {
     }
     public get groupList(): Array<SiteGroupReferenceInfo> | undefined {
         return this['group_list'];
-    }
-    public withRegionId(regionId: string): GlobalConnectionBandwidthSites {
-        this['region_id'] = regionId;
-        return this;
-    }
-    public set regionId(regionId: string  | undefined) {
-        this['region_id'] = regionId;
-    }
-    public get regionId(): string | undefined {
-        return this['region_id'];
     }
     public withPublicBorderGroup(publicBorderGroup: string): GlobalConnectionBandwidthSites {
         this['public_border_group'] = publicBorderGroup;

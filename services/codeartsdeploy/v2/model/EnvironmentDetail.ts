@@ -7,6 +7,7 @@ export class EnvironmentDetail {
     public name?: string;
     public description?: string;
     public os?: string;
+    private 'project_id'?: string;
     private 'nick_name'?: string;
     private 'deploy_type'?: number;
     private 'created_time'?: string;
@@ -30,6 +31,16 @@ export class EnvironmentDetail {
     public withOs(os: string): EnvironmentDetail {
         this['os'] = os;
         return this;
+    }
+    public withProjectId(projectId: string): EnvironmentDetail {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withNickName(nickName: string): EnvironmentDetail {
         this['nick_name'] = nickName;

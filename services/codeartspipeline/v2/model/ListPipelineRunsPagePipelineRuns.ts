@@ -1,6 +1,6 @@
 import { ListPipelineRunsPageBuildParams } from './ListPipelineRunsPageBuildParams';
 import { ListPipelineRunsPageStageStatusList } from './ListPipelineRunsPageStageStatusList';
-import { ListPipelinesPageLatestRunArtifactParams } from './ListPipelinesPageLatestRunArtifactParams';
+import { PipelineLatestRunArtifactParams } from './PipelineLatestRunArtifactParams';
 
 
 export class ListPipelineRunsPagePipelineRuns {
@@ -13,7 +13,7 @@ export class ListPipelineRunsPagePipelineRuns {
     private 'run_number'?: number;
     private 'trigger_type'?: string;
     private 'build_params'?: ListPipelineRunsPageBuildParams;
-    private 'artifact_params'?: ListPipelinesPageLatestRunArtifactParams;
+    private 'artifact_params'?: PipelineLatestRunArtifactParams;
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'detail_url'?: string;
@@ -104,14 +104,14 @@ export class ListPipelineRunsPagePipelineRuns {
     public get buildParams(): ListPipelineRunsPageBuildParams | undefined {
         return this['build_params'];
     }
-    public withArtifactParams(artifactParams: ListPipelinesPageLatestRunArtifactParams): ListPipelineRunsPagePipelineRuns {
+    public withArtifactParams(artifactParams: PipelineLatestRunArtifactParams): ListPipelineRunsPagePipelineRuns {
         this['artifact_params'] = artifactParams;
         return this;
     }
-    public set artifactParams(artifactParams: ListPipelinesPageLatestRunArtifactParams  | undefined) {
+    public set artifactParams(artifactParams: PipelineLatestRunArtifactParams  | undefined) {
         this['artifact_params'] = artifactParams;
     }
-    public get artifactParams(): ListPipelinesPageLatestRunArtifactParams | undefined {
+    public get artifactParams(): PipelineLatestRunArtifactParams | undefined {
         return this['artifact_params'];
     }
     public withStartTime(startTime: number): ListPipelineRunsPagePipelineRuns {

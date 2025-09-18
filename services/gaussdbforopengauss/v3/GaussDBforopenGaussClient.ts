@@ -402,7 +402,6 @@ import { OpenGaussDatastoreOption } from './model/OpenGaussDatastoreOption';
 import { OpenGaussDatastoreResponse } from './model/OpenGaussDatastoreResponse';
 import { OpenGaussDatastoreResult } from './model/OpenGaussDatastoreResult';
 import { OpenGaussEnlargeVolume } from './model/OpenGaussEnlargeVolume';
-import { OpenGaussErrorResponse } from './model/OpenGaussErrorResponse';
 import { OpenGaussExpandCluster } from './model/OpenGaussExpandCluster';
 import { OpenGaussHa } from './model/OpenGaussHa';
 import { OpenGaussHaOption } from './model/OpenGaussHaOption';
@@ -4198,9 +4197,9 @@ export class GaussDBforopenGaussClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改重分布参数
-     * @param {string} instanceId 实例id
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及 **取值范围**: 只能由英文字母、数字组成，且长度为32个字符。 **默认取值**: 不涉及。
      * @param {RedistributionRequestBody} redistributionRequestBody 需要下发修改的参数名称和参数值。
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -3,6 +3,7 @@
 export class PluginBasicVO {
     private 'plugin_name'?: string;
     private 'display_name'?: string;
+    private 'db_record_name'?: string;
     public version?: string;
     private 'version_description'?: string;
     public description?: string;
@@ -21,6 +22,11 @@ export class PluginBasicVO {
     private 'usage_count'?: number;
     private 'runtime_attribution'?: string;
     public active?: number;
+    private 'version_state'?: string;
+    private 'publisher_unique_id'?: string;
+    public creator?: string;
+    private 'create_time'?: string;
+    private 'manifest_version'?: string;
     public constructor() { 
     }
     public withPluginName(pluginName: string): PluginBasicVO {
@@ -42,6 +48,16 @@ export class PluginBasicVO {
     }
     public get displayName(): string | undefined {
         return this['display_name'];
+    }
+    public withDbRecordName(dbRecordName: string): PluginBasicVO {
+        this['db_record_name'] = dbRecordName;
+        return this;
+    }
+    public set dbRecordName(dbRecordName: string  | undefined) {
+        this['db_record_name'] = dbRecordName;
+    }
+    public get dbRecordName(): string | undefined {
+        return this['db_record_name'];
     }
     public withVersion(version: string): PluginBasicVO {
         this['version'] = version;
@@ -198,5 +214,49 @@ export class PluginBasicVO {
     public withActive(active: number): PluginBasicVO {
         this['active'] = active;
         return this;
+    }
+    public withVersionState(versionState: string): PluginBasicVO {
+        this['version_state'] = versionState;
+        return this;
+    }
+    public set versionState(versionState: string  | undefined) {
+        this['version_state'] = versionState;
+    }
+    public get versionState(): string | undefined {
+        return this['version_state'];
+    }
+    public withPublisherUniqueId(publisherUniqueId: string): PluginBasicVO {
+        this['publisher_unique_id'] = publisherUniqueId;
+        return this;
+    }
+    public set publisherUniqueId(publisherUniqueId: string  | undefined) {
+        this['publisher_unique_id'] = publisherUniqueId;
+    }
+    public get publisherUniqueId(): string | undefined {
+        return this['publisher_unique_id'];
+    }
+    public withCreator(creator: string): PluginBasicVO {
+        this['creator'] = creator;
+        return this;
+    }
+    public withCreateTime(createTime: string): PluginBasicVO {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): string | undefined {
+        return this['create_time'];
+    }
+    public withManifestVersion(manifestVersion: string): PluginBasicVO {
+        this['manifest_version'] = manifestVersion;
+        return this;
+    }
+    public set manifestVersion(manifestVersion: string  | undefined) {
+        this['manifest_version'] = manifestVersion;
+    }
+    public get manifestVersion(): string | undefined {
+        return this['manifest_version'];
     }
 }

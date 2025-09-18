@@ -1,9 +1,19 @@
 
 
 export class ListRegionBandwidthPackageSpecificationsRequest {
+    public limit?: number;
+    public marker?: string;
     private 'local_region_id'?: string;
     private 'remote_region_id'?: string;
     public constructor() { 
+    }
+    public withLimit(limit: number): ListRegionBandwidthPackageSpecificationsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListRegionBandwidthPackageSpecificationsRequest {
+        this['marker'] = marker;
+        return this;
     }
     public withLocalRegionId(localRegionId: string): ListRegionBandwidthPackageSpecificationsRequest {
         this['local_region_id'] = localRegionId;

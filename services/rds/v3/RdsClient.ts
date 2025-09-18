@@ -306,6 +306,8 @@ import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListInstancesInfoDiagnosisRequest } from './model/ListInstancesInfoDiagnosisRequest';
 import { ListInstancesInfoDiagnosisResponse } from './model/ListInstancesInfoDiagnosisResponse';
+import { ListInstancesNoIndexTablesRequest } from './model/ListInstancesNoIndexTablesRequest';
+import { ListInstancesNoIndexTablesResponse } from './model/ListInstancesNoIndexTablesResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesSupportFastRestoreRequest } from './model/ListInstancesSupportFastRestoreRequest';
@@ -626,6 +628,8 @@ import { ShowSecondLevelMonitoringRequest } from './model/ShowSecondLevelMonitor
 import { ShowSecondLevelMonitoringResponse } from './model/ShowSecondLevelMonitoringResponse';
 import { ShowStorageUsedSpaceRequest } from './model/ShowStorageUsedSpaceRequest';
 import { ShowStorageUsedSpaceResponse } from './model/ShowStorageUsedSpaceResponse';
+import { ShowTaskDetailRequest } from './model/ShowTaskDetailRequest';
+import { ShowTaskDetailResponse } from './model/ShowTaskDetailResponse';
 import { ShowTdeStatusRequest } from './model/ShowTdeStatusRequest';
 import { ShowTdeStatusResponse } from './model/ShowTdeStatusResponse';
 import { ShowTransferPolicyRequest } from './model/ShowTransferPolicyRequest';
@@ -679,6 +683,7 @@ import { StopDatabaseProxyResponse } from './model/StopDatabaseProxyResponse';
 import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
 import { Storage } from './model/Storage';
+import { SubTaskInfo } from './model/SubTaskInfo';
 import { SupportFastRestoreList } from './model/SupportFastRestoreList';
 import { SwitchLogReplayRequest } from './model/SwitchLogReplayRequest';
 import { SwitchLogReplayRequestBody } from './model/SwitchLogReplayRequestBody';
@@ -695,6 +700,7 @@ import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { TargetConfig } from './model/TargetConfig';
 import { TargetInstanceRequest } from './model/TargetInstanceRequest';
 import { Task } from './model/Task';
+import { TaskDetailRequest } from './model/TaskDetailRequest';
 import { ToPeriodReq } from './model/ToPeriodReq';
 import { TransferBackupRequest } from './model/TransferBackupRequest';
 import { TransferBackupRequestBody } from './model/TransferBackupRequestBody';
@@ -3044,7 +3050,7 @@ export class RdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关联LTS配置信息
-     * @param {'mysql'} engine 引擎，暂只支持mysql。
+     * @param {'mysql'} engine 发动机类型。
      * @param {AddLogConfigResponseBody} request 关联LTS日志请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
      * @param {*} [options] Override http request option.
@@ -3601,6 +3607,26 @@ export class RdsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取任务信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务信息
+     * @param {string} instanceId 实例ID。
+     * @param {TaskDetailRequest} showTaskDetailRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTaskDetail(showTaskDetailRequest?: ShowTaskDetailRequest): Promise<ShowTaskDetailResponse> {
+        const options = ParamCreater().showTaskDetail(showTaskDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5455,6 +5481,27 @@ export class RdsClient {
      */
     public updateReadWeight(updateReadWeightRequest?: UpdateReadWeightRequest): Promise<UpdateReadWeightResponse> {
         const options = ParamCreater().updateReadWeight(updateReadWeightRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询无索引表诊断数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询无索引表诊断数据
+     * @param {string} instanceId 实例ID
+     * @param {boolean} newest 指定查询是否应侧重于检索最新或最新的特殊表。
+     * @param {string} tableType 表格类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesNoIndexTables(listInstancesNoIndexTablesRequest?: ListInstancesNoIndexTablesRequest): Promise<ListInstancesNoIndexTablesResponse> {
+        const options = ParamCreater().listInstancesNoIndexTables(listInstancesNoIndexTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13052,6 +13099,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取任务信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTaskDetail(showTaskDetailRequest?: ShowTaskDetailRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/task-center-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (showTaskDetailRequest !== null && showTaskDetailRequest !== undefined) {
+                if (showTaskDetailRequest instanceof ShowTaskDetailRequest) {
+                    instanceId = showTaskDetailRequest.instanceId;
+                    body = showTaskDetailRequest.body
+                } else {
+                    instanceId = showTaskDetailRequest['instance_id'];
+                    body = showTaskDetailRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showTaskDetail.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据实例id查询sqlserver TDE状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17613,6 +17706,64 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询无索引表诊断数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesNoIndexTables(listInstancesNoIndexTablesRequest?: ListInstancesNoIndexTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/no-index-tables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let newest;
+            
+            let tableType;
+
+            if (listInstancesNoIndexTablesRequest !== null && listInstancesNoIndexTablesRequest !== undefined) {
+                if (listInstancesNoIndexTablesRequest instanceof ListInstancesNoIndexTablesRequest) {
+                    instanceId = listInstancesNoIndexTablesRequest.instanceId;
+                    newest = listInstancesNoIndexTablesRequest.newest;
+                    tableType = listInstancesNoIndexTablesRequest.tableType;
+                } else {
+                    instanceId = listInstancesNoIndexTablesRequest['instance_id'];
+                    newest = listInstancesNoIndexTablesRequest['newest'];
+                    tableType = listInstancesNoIndexTablesRequest['table_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstancesNoIndexTables.');
+            }
+            if (newest === null || newest === undefined) {
+                throw new RequiredError('newest','Required parameter newest was null or undefined when calling listInstancesNoIndexTables.');
+            }
+            if (newest !== null && newest !== undefined) {
+                localVarQueryParameter['newest'] = newest;
+            }
+            if (tableType === null || tableType === undefined) {
+                throw new RequiredError('tableType','Required parameter tableType was null or undefined when calling listInstancesNoIndexTables.');
+            }
+            if (tableType !== null && tableType !== undefined) {
+                localVarQueryParameter['table_type'] = tableType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

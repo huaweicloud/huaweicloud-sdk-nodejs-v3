@@ -117,6 +117,7 @@ export * from './model/DeleteSessionResponse';
 export * from './model/DiffConfigurationRequest';
 export * from './model/DiffDetails';
 export * from './model/DiskAutoExpansionPolicy';
+export * from './model/DiskSetAutoExpansionPolicy';
 export * from './model/DiskVolumes';
 export * from './model/DownloadErrorlogRequest';
 export * from './model/DownloadErrorlogRequestBody';

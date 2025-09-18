@@ -6,7 +6,6 @@ export class ShowLtsInfoConfigResponse extends SdkResponse {
     public id?: string;
     public enabled?: boolean;
     public ltsIdInfo?: LtsIdInfo;
-    public enabale?: boolean;
     public constructor() { 
         super();
     }
@@ -20,10 +19,6 @@ export class ShowLtsInfoConfigResponse extends SdkResponse {
     }
     public withLtsIdInfo(ltsIdInfo: LtsIdInfo): ShowLtsInfoConfigResponse {
         this['ltsIdInfo'] = ltsIdInfo;
-        return this;
-    }
-    public withEnabale(enabale: boolean): ShowLtsInfoConfigResponse {
-        this['enabale'] = enabale;
         return this;
     }
 }

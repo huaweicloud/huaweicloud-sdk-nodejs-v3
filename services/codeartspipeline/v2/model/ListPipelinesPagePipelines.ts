@@ -13,6 +13,7 @@ export class ListPipelinesPagePipelines {
     private 'create_time'?: number;
     private 'latest_run'?: ListPipelinesPageLatestRun;
     private 'convert_sign'?: number;
+    private 'security_level'?: number;
     public constructor() { 
     }
     public withPipelineId(pipelineId: string): ListPipelinesPagePipelines {
@@ -118,5 +119,15 @@ export class ListPipelinesPagePipelines {
     }
     public get convertSign(): number | undefined {
         return this['convert_sign'];
+    }
+    public withSecurityLevel(securityLevel: number): ListPipelinesPagePipelines {
+        this['security_level'] = securityLevel;
+        return this;
+    }
+    public set securityLevel(securityLevel: number  | undefined) {
+        this['security_level'] = securityLevel;
+    }
+    public get securityLevel(): number | undefined {
+        return this['security_level'];
     }
 }

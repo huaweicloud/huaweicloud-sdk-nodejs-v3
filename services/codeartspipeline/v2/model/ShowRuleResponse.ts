@@ -6,8 +6,8 @@ export class ShowRuleResponse extends SdkResponse {
     public id?: string;
     public type?: string;
     public name?: string;
+    private 'is_valid'?: boolean;
     public version?: string;
-    private 'layout_content'?: string;
     private 'plugin_id'?: string;
     private 'plugin_name'?: string;
     private 'plugin_version'?: string;
@@ -31,19 +31,19 @@ export class ShowRuleResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
+    public withIsValid(isValid: boolean): ShowRuleResponse {
+        this['is_valid'] = isValid;
+        return this;
+    }
+    public set isValid(isValid: boolean  | undefined) {
+        this['is_valid'] = isValid;
+    }
+    public get isValid(): boolean | undefined {
+        return this['is_valid'];
+    }
     public withVersion(version: string): ShowRuleResponse {
         this['version'] = version;
         return this;
-    }
-    public withLayoutContent(layoutContent: string): ShowRuleResponse {
-        this['layout_content'] = layoutContent;
-        return this;
-    }
-    public set layoutContent(layoutContent: string  | undefined) {
-        this['layout_content'] = layoutContent;
-    }
-    public get layoutContent(): string | undefined {
-        return this['layout_content'];
     }
     public withPluginId(pluginId: string): ShowRuleResponse {
         this['plugin_id'] = pluginId;

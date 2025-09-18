@@ -1,3 +1,4 @@
+import { ExtensionExtendProp } from './ExtensionExtendProp';
 import { ExtensionValidation } from './ExtensionValidation';
 
 
@@ -11,6 +12,11 @@ export class PluginPartQueryVOListAgentPluginInputVOData {
     private 'workspace_id'?: string;
     public validation?: ExtensionValidation;
     private 'layout_content'?: string;
+    private 'extend_prop'?: ExtensionExtendProp;
+    private 'front_data_prop'?: string;
+    public label?: string;
+    public description?: string;
+    public required?: string;
     public constructor() { 
     }
     public withUniqueId(uniqueId: string): PluginPartQueryVOListAgentPluginInputVOData {
@@ -78,5 +84,37 @@ export class PluginPartQueryVOListAgentPluginInputVOData {
     }
     public get layoutContent(): string | undefined {
         return this['layout_content'];
+    }
+    public withExtendProp(extendProp: ExtensionExtendProp): PluginPartQueryVOListAgentPluginInputVOData {
+        this['extend_prop'] = extendProp;
+        return this;
+    }
+    public set extendProp(extendProp: ExtensionExtendProp  | undefined) {
+        this['extend_prop'] = extendProp;
+    }
+    public get extendProp(): ExtensionExtendProp | undefined {
+        return this['extend_prop'];
+    }
+    public withFrontDataProp(frontDataProp: string): PluginPartQueryVOListAgentPluginInputVOData {
+        this['front_data_prop'] = frontDataProp;
+        return this;
+    }
+    public set frontDataProp(frontDataProp: string  | undefined) {
+        this['front_data_prop'] = frontDataProp;
+    }
+    public get frontDataProp(): string | undefined {
+        return this['front_data_prop'];
+    }
+    public withLabel(label: string): PluginPartQueryVOListAgentPluginInputVOData {
+        this['label'] = label;
+        return this;
+    }
+    public withDescription(description: string): PluginPartQueryVOListAgentPluginInputVOData {
+        this['description'] = description;
+        return this;
+    }
+    public withRequired(required: string): PluginPartQueryVOListAgentPluginInputVOData {
+        this['required'] = required;
+        return this;
     }
 }

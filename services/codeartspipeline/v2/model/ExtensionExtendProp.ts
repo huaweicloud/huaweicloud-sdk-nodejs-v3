@@ -3,6 +3,7 @@
 export class ExtensionExtendProp {
     private 'api_options'?: string;
     private 'api_type'?: string;
+    private 'show_placeholder'?: string;
     public options?: string;
     private 'disabled_conditions'?: string;
     private 'visible_conditions'?: string;
@@ -27,6 +28,16 @@ export class ExtensionExtendProp {
     }
     public get apiType(): string | undefined {
         return this['api_type'];
+    }
+    public withShowPlaceholder(showPlaceholder: string): ExtensionExtendProp {
+        this['show_placeholder'] = showPlaceholder;
+        return this;
+    }
+    public set showPlaceholder(showPlaceholder: string  | undefined) {
+        this['show_placeholder'] = showPlaceholder;
+    }
+    public get showPlaceholder(): string | undefined {
+        return this['show_placeholder'];
     }
     public withOptions(options: string): ExtensionExtendProp {
         this['options'] = options;

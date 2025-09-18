@@ -7,6 +7,7 @@ export class RuleProperty {
     public operator?: string;
     public value?: string;
     private 'value_type'?: string;
+    private 'is_valid'?: boolean;
     public constructor(key?: string, type?: string, name?: string, value?: string, valueType?: string) { 
         this['key'] = key;
         this['type'] = type;
@@ -43,5 +44,15 @@ export class RuleProperty {
     }
     public get valueType(): string | undefined {
         return this['value_type'];
+    }
+    public withIsValid(isValid: boolean): RuleProperty {
+        this['is_valid'] = isValid;
+        return this;
+    }
+    public set isValid(isValid: boolean  | undefined) {
+        this['is_valid'] = isValid;
+    }
+    public get isValid(): boolean | undefined {
+        return this['is_valid'];
     }
 }

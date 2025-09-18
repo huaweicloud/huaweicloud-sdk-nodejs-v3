@@ -52,7 +52,17 @@ export enum CcConditionCategoryEnum {
     URL = 'url',
     IP = 'ip',
     IPV6 = 'ipv6',
+    ASN = 'asn',
     PARAMS = 'params',
     COOKIE = 'cookie',
-    HEADER = 'header'
+    REFERER = 'referer',
+    USER_AGENT = 'user-agent',
+    HEADER = 'header',
+    RESPONSE_CODE = 'response_code',
+    RESPONSE_HEADER = 'response_header',
+    RESPONSE_BODY = 'response_body',
+    REQUEST_BODY = 'request_body',
+    METHOD = 'method',
+    TLS_FINGERPRINT = 'tls_fingerprint',
+    TLS_JA3_FINGERPRINT = 'tls_ja3_fingerprint'
 }

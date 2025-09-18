@@ -1,5 +1,7 @@
 import { CreatedAt } from './CreatedAt';
 import { Description } from './Description';
+import { DirectionalConnection } from './DirectionalConnection';
+import { DirectionalConnectionList } from './DirectionalConnectionList';
 import { DomainId } from './DomainId';
 import { EnterpriseProjectId } from './EnterpriseProjectId';
 import { GcbAdminState } from './GcbAdminState';
@@ -45,9 +47,10 @@ export class GlobalConnectionBandwidth {
     public tags?: Array<Tag>;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
+    private 'directional_connections'?: Array<DirectionalConnection>;
     private 'enable_share'?: boolean;
     public instances?: Array<GlobalConnectionBandwidthAssociatedInstance>;
-    public constructor(id?: string, name?: string, domainId?: string, bordercross?: boolean, type?: string, chargeMode?: string, size?: number, createdAt?: Date, updatedAt?: Date) { 
+    public constructor(id?: string, name?: string, domainId?: string, bordercross?: boolean, type?: string, chargeMode?: string, size?: number, createdAt?: Date, updatedAt?: Date, directionalConnections?: Array<DirectionalConnection>) { 
         this['id'] = id;
         this['name'] = name;
         this['domain_id'] = domainId;
@@ -57,6 +60,7 @@ export class GlobalConnectionBandwidth {
         this['size'] = size;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
+        this['directional_connections'] = directionalConnections;
     }
     public withId(id: string): GlobalConnectionBandwidth {
         this['id'] = id;
@@ -219,6 +223,16 @@ export class GlobalConnectionBandwidth {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withDirectionalConnections(directionalConnections: Array<DirectionalConnection>): GlobalConnectionBandwidth {
+        this['directional_connections'] = directionalConnections;
+        return this;
+    }
+    public set directionalConnections(directionalConnections: Array<DirectionalConnection>  | undefined) {
+        this['directional_connections'] = directionalConnections;
+    }
+    public get directionalConnections(): Array<DirectionalConnection> | undefined {
+        return this['directional_connections'];
     }
     public withEnableShare(enableShare: boolean): GlobalConnectionBandwidth {
         this['enable_share'] = enableShare;

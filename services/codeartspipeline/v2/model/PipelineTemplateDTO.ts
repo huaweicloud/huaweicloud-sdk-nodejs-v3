@@ -5,7 +5,7 @@ export class PipelineTemplateDTO {
     public name?: string;
     public description?: string;
     public language?: string;
-    public variables?: CustomVariable;
+    public variables?: Array<CustomVariable>;
     public definition?: string;
     private 'is_system'?: boolean;
     private 'domain_id'?: string;
@@ -30,7 +30,7 @@ export class PipelineTemplateDTO {
         this['language'] = language;
         return this;
     }
-    public withVariables(variables: CustomVariable): PipelineTemplateDTO {
+    public withVariables(variables: Array<CustomVariable>): PipelineTemplateDTO {
         this['variables'] = variables;
         return this;
     }

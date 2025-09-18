@@ -400,7 +400,6 @@ export * from './model/OpenGaussDatastoreOption';
 export * from './model/OpenGaussDatastoreResponse';
 export * from './model/OpenGaussDatastoreResult';
 export * from './model/OpenGaussEnlargeVolume';
-export * from './model/OpenGaussErrorResponse';
 export * from './model/OpenGaussExpandCluster';
 export * from './model/OpenGaussHa';
 export * from './model/OpenGaussHaOption';

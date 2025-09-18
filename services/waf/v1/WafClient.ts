@@ -20,8 +20,18 @@ import { AttackActionCountItem } from './model/AttackActionCountItem';
 import { AttackTypeClassificationItem } from './model/AttackTypeClassificationItem';
 import { AttackTypeItem } from './model/AttackTypeItem';
 import { BandwidthStatisticsTimelineItem } from './model/BandwidthStatisticsTimelineItem';
+import { BatchDeleteCompositeHostsRequest } from './model/BatchDeleteCompositeHostsRequest';
+import { BatchDeleteCompositeHostsRequestBody } from './model/BatchDeleteCompositeHostsRequestBody';
+import { BatchDeleteCompositeHostsResponse } from './model/BatchDeleteCompositeHostsResponse';
+import { BatchDeletePoliciesRequest } from './model/BatchDeletePoliciesRequest';
+import { BatchDeletePoliciesRequestBody } from './model/BatchDeletePoliciesRequestBody';
+import { BatchDeletePoliciesResponse } from './model/BatchDeletePoliciesResponse';
 import { BindHost } from './model/BindHost';
 import { BlockPage } from './model/BlockPage';
+import { BotMBehaviorDetectionRule } from './model/BotMBehaviorDetectionRule';
+import { BotMDefenseLevel } from './model/BotMDefenseLevel';
+import { BotMDefenseStrategy } from './model/BotMDefenseStrategy';
+import { BotMRule } from './model/BotMRule';
 import { BotRequestDistributionsNormalBucket } from './model/BotRequestDistributionsNormalBucket';
 import { BotRequestTimeline } from './model/BotRequestTimeline';
 import { BotTypeDistributions } from './model/BotTypeDistributions';
@@ -53,6 +63,8 @@ import { ConfirmThreatMapRequest } from './model/ConfirmThreatMapRequest';
 import { ConfirmThreatMapResponse } from './model/ConfirmThreatMapResponse';
 import { ConfirmUserBundleRequest } from './model/ConfirmUserBundleRequest';
 import { ConfirmUserBundleResponse } from './model/ConfirmUserBundleResponse';
+import { CopyPolicyByIdRequest } from './model/CopyPolicyByIdRequest';
+import { CopyPolicyByIdResponse } from './model/CopyPolicyByIdResponse';
 import { CountItem } from './model/CountItem';
 import { CreateAntiTamperRuleRequest } from './model/CreateAntiTamperRuleRequest';
 import { CreateAntiTamperRuleResponse } from './model/CreateAntiTamperRuleResponse';
@@ -114,6 +126,11 @@ import { CreatePrivacyRuleResponse } from './model/CreatePrivacyRuleResponse';
 import { CreatePunishmentRuleRequest } from './model/CreatePunishmentRuleRequest';
 import { CreatePunishmentRuleRequestBody } from './model/CreatePunishmentRuleRequestBody';
 import { CreatePunishmentRuleResponse } from './model/CreatePunishmentRuleResponse';
+import { CreateSecurityReportSubscriptionRequest } from './model/CreateSecurityReportSubscriptionRequest';
+import { CreateSecurityReportSubscriptionRequestBody } from './model/CreateSecurityReportSubscriptionRequestBody';
+import { CreateSecurityReportSubscriptionRequestBodyReportContentSubscription } from './model/CreateSecurityReportSubscriptionRequestBodyReportContentSubscription';
+import { CreateSecurityReportSubscriptionRequestBodyStatPeriod } from './model/CreateSecurityReportSubscriptionRequestBodyStatPeriod';
+import { CreateSecurityReportSubscriptionResponse } from './model/CreateSecurityReportSubscriptionResponse';
 import { CreateValueListRequest } from './model/CreateValueListRequest';
 import { CreateValueListRequestBody } from './model/CreateValueListRequestBody';
 import { CreateValueListResponse } from './model/CreateValueListResponse';
@@ -160,6 +177,8 @@ import { DeletePrivacyRuleRequest } from './model/DeletePrivacyRuleRequest';
 import { DeletePrivacyRuleResponse } from './model/DeletePrivacyRuleResponse';
 import { DeletePunishmentRuleRequest } from './model/DeletePunishmentRuleRequest';
 import { DeletePunishmentRuleResponse } from './model/DeletePunishmentRuleResponse';
+import { DeleteSecurityReportSubscriptionRequest } from './model/DeleteSecurityReportSubscriptionRequest';
+import { DeleteSecurityReportSubscriptionResponse } from './model/DeleteSecurityReportSubscriptionResponse';
 import { DeleteValueListRequest } from './model/DeleteValueListRequest';
 import { DeleteValueListResponse } from './model/DeleteValueListResponse';
 import { DeleteWhiteBlackIpRuleRequest } from './model/DeleteWhiteBlackIpRuleRequest';
@@ -200,6 +219,8 @@ import { ListBandwidthTimelineRequest } from './model/ListBandwidthTimelineReque
 import { ListBandwidthTimelineResponse } from './model/ListBandwidthTimelineResponse';
 import { ListBotMRequestDistributionRequest } from './model/ListBotMRequestDistributionRequest';
 import { ListBotMRequestDistributionResponse } from './model/ListBotMRequestDistributionResponse';
+import { ListBotMRulesRequest } from './model/ListBotMRulesRequest';
+import { ListBotMRulesResponse } from './model/ListBotMRulesResponse';
 import { ListBotMScoreDistributionRequest } from './model/ListBotMScoreDistributionRequest';
 import { ListBotMScoreDistributionResponse } from './model/ListBotMScoreDistributionResponse';
 import { ListBotMTimelineRequest } from './model/ListBotMTimelineRequest';
@@ -254,6 +275,14 @@ import { ListRequestTimelineRequest } from './model/ListRequestTimelineRequest';
 import { ListRequestTimelineResponse } from './model/ListRequestTimelineResponse';
 import { ListResponseCodeTimelineRequest } from './model/ListResponseCodeTimelineRequest';
 import { ListResponseCodeTimelineResponse } from './model/ListResponseCodeTimelineResponse';
+import { ListSecurityReportHistoryPeriodResponseItems } from './model/ListSecurityReportHistoryPeriodResponseItems';
+import { ListSecurityReportHistoryPeriodResponseStatPeriod } from './model/ListSecurityReportHistoryPeriodResponseStatPeriod';
+import { ListSecurityReportHistoryPeriodsRequest } from './model/ListSecurityReportHistoryPeriodsRequest';
+import { ListSecurityReportHistoryPeriodsResponse } from './model/ListSecurityReportHistoryPeriodsResponse';
+import { ListSecurityReportSendingRecordResponseItems } from './model/ListSecurityReportSendingRecordResponseItems';
+import { ListSecurityReportSendingRecordResponseStatPeriod } from './model/ListSecurityReportSendingRecordResponseStatPeriod';
+import { ListSecurityReportSendingRecordsRequest } from './model/ListSecurityReportSendingRecordsRequest';
+import { ListSecurityReportSendingRecordsResponse } from './model/ListSecurityReportSendingRecordsResponse';
 import { ListSecurityReportSubscriptionsRequest } from './model/ListSecurityReportSubscriptionsRequest';
 import { ListSecurityReportSubscriptionsResponse } from './model/ListSecurityReportSubscriptionsResponse';
 import { ListStatisticsRequest } from './model/ListStatisticsRequest';
@@ -293,6 +322,38 @@ import { ResourceResponse } from './model/ResourceResponse';
 import { RouteBody } from './model/RouteBody';
 import { RouteServerBody } from './model/RouteServerBody';
 import { RuleInfo } from './model/RuleInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfoAttackTypeDistributionInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoAttackTypeDistributionInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoAverageInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoAverageInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoPeakInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoPeakInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline';
+import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline1';
+import { SecurityReportContentResponseReportContentSubscriptionInfoOverviewStatisticsListInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoOverviewStatisticsListInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoAverageInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoAverageInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoPeakInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoPeakInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline';
+import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline1';
+import { SecurityReportContentResponseReportContentSubscriptionInfoRequestStatisticsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoRequestStatisticsInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceUpstreamInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceUpstreamInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceWafInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceWafInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline';
+import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline1';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTimeline';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfo';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal404InfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal404InfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal500InfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal500InfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal502InfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal502InfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceIpsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceIpsInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceLocationsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceLocationsInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedDomainsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedDomainsInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedUrlsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedUrlsInfoList';
+import { SecurityReportContentResponseReportContentSubscriptionInfoTopDomains } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopDomains';
+import { SecurityReportContentResponseStatPeriod } from './model/SecurityReportContentResponseStatPeriod';
+import { SecurityReportSubscriptionResponseReportContentSubscription } from './model/SecurityReportSubscriptionResponseReportContentSubscription';
+import { SecurityReportSubscriptionResponseStatPeriod } from './model/SecurityReportSubscriptionResponseStatPeriod';
 import { SecurityReportSubscriptionSummaryResponse } from './model/SecurityReportSubscriptionSummaryResponse';
 import { ShareInfo } from './model/ShareInfo';
 import { ShowAnticrawlerRuleRequest } from './model/ShowAnticrawlerRuleRequest';
@@ -338,6 +399,10 @@ import { ShowPrivacyRuleRequest } from './model/ShowPrivacyRuleRequest';
 import { ShowPrivacyRuleResponse } from './model/ShowPrivacyRuleResponse';
 import { ShowPunishmentRuleRequest } from './model/ShowPunishmentRuleRequest';
 import { ShowPunishmentRuleResponse } from './model/ShowPunishmentRuleResponse';
+import { ShowSecurityReportContentRequest } from './model/ShowSecurityReportContentRequest';
+import { ShowSecurityReportContentResponse } from './model/ShowSecurityReportContentResponse';
+import { ShowSecurityReportSubscriptionRequest } from './model/ShowSecurityReportSubscriptionRequest';
+import { ShowSecurityReportSubscriptionResponse } from './model/ShowSecurityReportSubscriptionResponse';
 import { ShowSourceIpRequest } from './model/ShowSourceIpRequest';
 import { ShowSourceIpResponse } from './model/ShowSourceIpResponse';
 import { ShowSubscriptionInfoRequest } from './model/ShowSubscriptionInfoRequest';
@@ -353,6 +418,7 @@ import { TimeLineItem } from './model/TimeLineItem';
 import { TimeoutConfig } from './model/TimeoutConfig';
 import { TmsResourceTag } from './model/TmsResourceTag';
 import { TopDomainsCountItem } from './model/TopDomainsCountItem';
+import { TrafficDetectionConditionDTO } from './model/TrafficDetectionConditionDTO';
 import { TrafficMark } from './model/TrafficMark';
 import { TypedStatBucket } from './model/TypedStatBucket';
 import { UpdateAccessProgressRequest } from './model/UpdateAccessProgressRequest';
@@ -371,6 +437,9 @@ import { UpdateAnticrawlerRuleTypeResponse } from './model/UpdateAnticrawlerRule
 import { UpdateAntileakageRuleRequest } from './model/UpdateAntileakageRuleRequest';
 import { UpdateAntileakageRuleRequestBody } from './model/UpdateAntileakageRuleRequestBody';
 import { UpdateAntileakageRuleResponse } from './model/UpdateAntileakageRuleResponse';
+import { UpdateBotMCategoryStatusRequest } from './model/UpdateBotMCategoryStatusRequest';
+import { UpdateBotMCategoryStatusResponse } from './model/UpdateBotMCategoryStatusResponse';
+import { UpdateBotMRuleStatusRequestBody } from './model/UpdateBotMRuleStatusRequestBody';
 import { UpdateCcRuleRequest } from './model/UpdateCcRuleRequest';
 import { UpdateCcRuleRequestBody } from './model/UpdateCcRuleRequestBody';
 import { UpdateCcRuleResponse } from './model/UpdateCcRuleResponse';
@@ -430,6 +499,11 @@ import { UpdatePrivacyRuleResponse } from './model/UpdatePrivacyRuleResponse';
 import { UpdatePunishmentRuleRequest } from './model/UpdatePunishmentRuleRequest';
 import { UpdatePunishmentRuleRequestBody } from './model/UpdatePunishmentRuleRequestBody';
 import { UpdatePunishmentRuleResponse } from './model/UpdatePunishmentRuleResponse';
+import { UpdateSecurityReportSubscriptionRequest } from './model/UpdateSecurityReportSubscriptionRequest';
+import { UpdateSecurityReportSubscriptionRequestBody } from './model/UpdateSecurityReportSubscriptionRequestBody';
+import { UpdateSecurityReportSubscriptionRequestBodyReportContentSubscription } from './model/UpdateSecurityReportSubscriptionRequestBodyReportContentSubscription';
+import { UpdateSecurityReportSubscriptionRequestBodyStatPeriod } from './model/UpdateSecurityReportSubscriptionRequestBodyStatPeriod';
+import { UpdateSecurityReportSubscriptionResponse } from './model/UpdateSecurityReportSubscriptionResponse';
 import { UpdateValueListRequest } from './model/UpdateValueListRequest';
 import { UpdateValueListRequestBody } from './model/UpdateValueListRequestBody';
 import { UpdateValueListResponse } from './model/UpdateValueListResponse';
@@ -476,6 +550,48 @@ export class WafClient {
      */
     public applyCertificateToHost(applyCertificateToHostRequest?: ApplyCertificateToHostRequest): Promise<ApplyCertificateToHostResponse> {
         const options = ParamCreater().applyCertificateToHost(applyCertificateToHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除租户域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除租户域名
+     * @param {string} contentType 内容类型
+     * @param {BatchDeleteCompositeHostsRequestBody} batchDeleteCompositeHostsRequestBody 批量删除防护策略body
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS)的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteCompositeHosts(batchDeleteCompositeHostsRequest?: BatchDeleteCompositeHostsRequest): Promise<BatchDeleteCompositeHostsResponse> {
+        const options = ParamCreater().batchDeleteCompositeHosts(batchDeleteCompositeHostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除防护策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除防护策略
+     * @param {string} contentType 内容类型
+     * @param {BatchDeletePoliciesRequestBody} batchDeletePoliciesRequestBody 批量删除防护策略body
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS)的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeletePolicies(batchDeletePoliciesRequest?: BatchDeletePoliciesRequest): Promise<BatchDeletePoliciesResponse> {
+        const options = ParamCreater().batchDeletePolicies(batchDeletePoliciesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -620,6 +736,28 @@ export class WafClient {
      */
     public confirmUserBundle(confirmUserBundleRequest?: ConfirmUserBundleRequest): Promise<ConfirmUserBundleResponse> {
         const options = ParamCreater().confirmUserBundle(confirmUserBundleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据Id复制防护策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据Id复制防护策略
+     * @param {string} contentType 内容类型
+     * @param {string} srcPolicyId 源策略ID
+     * @param {string} destPolicyName 复制出的新策略名称
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS)的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyPolicyById(copyPolicyByIdRequest?: CopyPolicyByIdRequest): Promise<CopyPolicyByIdResponse> {
+        const options = ParamCreater().copyPolicyById(copyPolicyByIdRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1608,6 +1746,25 @@ export class WafClient {
      */
     public listBotMRequestDistribution(listBotMRequestDistributionRequest?: ListBotMRequestDistributionRequest): Promise<ListBotMRequestDistributionResponse> {
         const options = ParamCreater().listBotMRequestDistribution(listBotMRequestDistributionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询BotM所有规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询BotM所有规则
+     * @param {string} policyId policyid
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBotMRules(listBotMRulesRequest?: ListBotMRulesRequest): Promise<ListBotMRulesResponse> {
+        const options = ParamCreater().listBotMRules(listBotMRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2708,11 +2865,11 @@ export class WafClient {
     }
 
     /**
-     * 删除地理位置控制防护规则
+     * 查询地理位置控制防护规则详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除地理位置控制防护规则
+     * @summary 查询地理位置控制防护规则详情
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 地理位置控制防护规则id，规则id从查询地理位置控制防护规则列表（ListGeoipRule）接口获取，响应体的id字段
@@ -3167,6 +3324,28 @@ export class WafClient {
      */
     public updateAntileakageRule(updateAntileakageRuleRequest?: UpdateAntileakageRuleRequest): Promise<UpdateAntileakageRuleResponse> {
         const options = ParamCreater().updateAntileakageRule(updateAntileakageRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新BotM规则启用状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新BotM的Category[已知BOT检测/请求特征检测]启用状态
+     * @param {string} policyId policyId
+     * @param {string} categoryId 类别id
+     * @param {string} contentType 内容类型
+     * @param {UpdateBotMRuleStatusRequestBody} updateBotMCategoryStatusRequestBody 是否开启规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBotMCategoryStatus(updateBotMCategoryStatusRequest?: UpdateBotMCategoryStatusRequest): Promise<UpdateBotMCategoryStatusResponse> {
+        const options = ParamCreater().updateBotMCategoryStatus(updateBotMCategoryStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3663,6 +3842,153 @@ export class WafClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 创建安全报告订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建安全报告订阅
+     * @param {string} contentType content-type
+     * @param {CreateSecurityReportSubscriptionRequestBody} createSecurityReportSubscriptionRequest 创建安全报告订阅
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityReportSubscription(createSecurityReportSubscriptionRequest?: CreateSecurityReportSubscriptionRequest): Promise<CreateSecurityReportSubscriptionResponse> {
+        const options = ParamCreater().createSecurityReportSubscription(createSecurityReportSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除安全报告订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除安全报告订阅
+     * @param {string} subscriptionId 
+     * @param {string} contentType content-type
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecurityReportSubscription(deleteSecurityReportSubscriptionRequest?: DeleteSecurityReportSubscriptionRequest): Promise<DeleteSecurityReportSubscriptionResponse> {
+        const options = ParamCreater().deleteSecurityReportSubscription(deleteSecurityReportSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全报告历史统计周期列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全报告历史统计周期列表
+     * @param {string} contentType content-type
+     * @param {string} subscriptionId 订阅ID
+     * @param {number} [limit] 限制条目数量
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityReportHistoryPeriods(listSecurityReportHistoryPeriodsRequest?: ListSecurityReportHistoryPeriodsRequest): Promise<ListSecurityReportHistoryPeriodsResponse> {
+        const options = ParamCreater().listSecurityReportHistoryPeriods(listSecurityReportHistoryPeriodsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全报告发送记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全报告发送记录
+     * @param {string} contentType content-type
+     * @param {string} [reportName] 报告名称
+     * @param {string} [reportCategory] 报告类别
+     * @param {number} [limit] 限制条目数量
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityReportSendingRecords(listSecurityReportSendingRecordsRequest?: ListSecurityReportSendingRecordsRequest): Promise<ListSecurityReportSendingRecordsResponse> {
+        const options = ParamCreater().listSecurityReportSendingRecords(listSecurityReportSendingRecordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全报告内容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全报告内容
+     * @param {string} contentType content-type
+     * @param {string} reportId 报告ID
+     * @param {string} subscriptionId 订阅ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityReportContent(showSecurityReportContentRequest?: ShowSecurityReportContentRequest): Promise<ShowSecurityReportContentResponse> {
+        const options = ParamCreater().showSecurityReportContent(showSecurityReportContentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全报告订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全报告订阅
+     * @param {string} subscriptionId 安全报告订阅ID
+     * @param {string} contentType content-type
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityReportSubscription(showSecurityReportSubscriptionRequest?: ShowSecurityReportSubscriptionRequest): Promise<ShowSecurityReportSubscriptionResponse> {
+        const options = ParamCreater().showSecurityReportSubscription(showSecurityReportSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改安全报告的订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改安全报告的订阅
+     * @param {string} contentType content-type
+     * @param {string} subscriptionId 
+     * @param {UpdateSecurityReportSubscriptionRequestBody} updateDemoInfoRequestBody 修改安全报告订阅请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityReportSubscription(updateSecurityReportSubscriptionRequest?: UpdateSecurityReportSubscriptionRequest): Promise<UpdateSecurityReportSubscriptionResponse> {
+        const options = ParamCreater().updateSecurityReportSubscription(updateSecurityReportSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -3722,6 +4048,112 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除租户域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteCompositeHosts(batchDeleteCompositeHostsRequest?: BatchDeleteCompositeHostsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/composite-waf/hosts/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let contentType;
+            
+            let enterpriseProjectId;
+
+            if (batchDeleteCompositeHostsRequest !== null && batchDeleteCompositeHostsRequest !== undefined) {
+                if (batchDeleteCompositeHostsRequest instanceof BatchDeleteCompositeHostsRequest) {
+                    contentType = batchDeleteCompositeHostsRequest.contentType;
+                    body = batchDeleteCompositeHostsRequest.body
+                    enterpriseProjectId = batchDeleteCompositeHostsRequest.enterpriseProjectId;
+                } else {
+                    contentType = batchDeleteCompositeHostsRequest['Content-Type'];
+                    body = batchDeleteCompositeHostsRequest['body'];
+                    enterpriseProjectId = batchDeleteCompositeHostsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除防护策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeletePolicies(batchDeletePoliciesRequest?: BatchDeletePoliciesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/policies/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let contentType;
+            
+            let enterpriseProjectId;
+
+            if (batchDeletePoliciesRequest !== null && batchDeletePoliciesRequest !== undefined) {
+                if (batchDeletePoliciesRequest instanceof BatchDeletePoliciesRequest) {
+                    contentType = batchDeletePoliciesRequest.contentType;
+                    body = batchDeletePoliciesRequest.body
+                    enterpriseProjectId = batchDeletePoliciesRequest.enterpriseProjectId;
+                } else {
+                    contentType = batchDeletePoliciesRequest['Content-Type'];
+                    body = batchDeletePoliciesRequest['body'];
+                    enterpriseProjectId = batchDeletePoliciesRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4049,6 +4481,68 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据Id复制防护策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyPolicyById(copyPolicyByIdRequest?: CopyPolicyByIdRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/policies/{src_policy_id}/copy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let srcPolicyId;
+            
+            let destPolicyName;
+            
+            let enterpriseProjectId;
+
+            if (copyPolicyByIdRequest !== null && copyPolicyByIdRequest !== undefined) {
+                if (copyPolicyByIdRequest instanceof CopyPolicyByIdRequest) {
+                    contentType = copyPolicyByIdRequest.contentType;
+                    srcPolicyId = copyPolicyByIdRequest.srcPolicyId;
+                    destPolicyName = copyPolicyByIdRequest.destPolicyName;
+                    enterpriseProjectId = copyPolicyByIdRequest.enterpriseProjectId;
+                } else {
+                    contentType = copyPolicyByIdRequest['Content-Type'];
+                    srcPolicyId = copyPolicyByIdRequest['src_policy_id'];
+                    destPolicyName = copyPolicyByIdRequest['dest_policy_name'];
+                    enterpriseProjectId = copyPolicyByIdRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (srcPolicyId === null || srcPolicyId === undefined) {
+            throw new RequiredError('srcPolicyId','Required parameter srcPolicyId was null or undefined when calling copyPolicyById.');
+            }
+            if (destPolicyName === null || destPolicyName === undefined) {
+                throw new RequiredError('destPolicyName','Required parameter destPolicyName was null or undefined when calling copyPolicyById.');
+            }
+            if (destPolicyName !== null && destPolicyName !== undefined) {
+                localVarQueryParameter['dest_policy_name'] = destPolicyName;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'src_policy_id': srcPolicyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6741,6 +7235,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询BotM所有规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBotMRules(listBotMRulesRequest?: ListBotMRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/bot-manager",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+
+            if (listBotMRulesRequest !== null && listBotMRulesRequest !== undefined) {
+                if (listBotMRulesRequest instanceof ListBotMRulesRequest) {
+                    policyId = listBotMRulesRequest.policyId;
+                } else {
+                    policyId = listBotMRulesRequest['policy_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listBotMRules.');
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10095,7 +10626,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除地理位置控制防护规则
+         * 查询地理位置控制防护规则详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11270,6 +11801,66 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新BotM规则启用状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBotMCategoryStatus(updateBotMCategoryStatusRequest?: UpdateBotMCategoryStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/bot-manager/category/{category_id}/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let categoryId;
+            
+            let contentType;
+
+            if (updateBotMCategoryStatusRequest !== null && updateBotMCategoryStatusRequest !== undefined) {
+                if (updateBotMCategoryStatusRequest instanceof UpdateBotMCategoryStatusRequest) {
+                    policyId = updateBotMCategoryStatusRequest.policyId;
+                    categoryId = updateBotMCategoryStatusRequest.categoryId;
+                    contentType = updateBotMCategoryStatusRequest.contentType;
+                    body = updateBotMCategoryStatusRequest.body
+                } else {
+                    policyId = updateBotMCategoryStatusRequest['policy_id'];
+                    categoryId = updateBotMCategoryStatusRequest['category_id'];
+                    contentType = updateBotMCategoryStatusRequest['Content-Type'];
+                    body = updateBotMCategoryStatusRequest['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateBotMCategoryStatus.');
+            }
+            if (categoryId === null || categoryId === undefined) {
+            throw new RequiredError('categoryId','Required parameter categoryId was null or undefined when calling updateBotMCategoryStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId,'category_id': categoryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12625,6 +13216,373 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建安全报告订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityReportSubscription(createSecurityReportSubscriptionRequest?: CreateSecurityReportSubscriptionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/security-report/subscriptions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createSecurityReportSubscriptionRequest !== null && createSecurityReportSubscriptionRequest !== undefined) {
+                if (createSecurityReportSubscriptionRequest instanceof CreateSecurityReportSubscriptionRequest) {
+                    contentType = createSecurityReportSubscriptionRequest.contentType;
+                    body = createSecurityReportSubscriptionRequest.body
+                } else {
+                    contentType = createSecurityReportSubscriptionRequest['Content-Type'];
+                    body = createSecurityReportSubscriptionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除安全报告订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecurityReportSubscription(deleteSecurityReportSubscriptionRequest?: DeleteSecurityReportSubscriptionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/waf/security-report/subscriptions/{subscription_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subscriptionId;
+            
+            let contentType;
+
+            if (deleteSecurityReportSubscriptionRequest !== null && deleteSecurityReportSubscriptionRequest !== undefined) {
+                if (deleteSecurityReportSubscriptionRequest instanceof DeleteSecurityReportSubscriptionRequest) {
+                    subscriptionId = deleteSecurityReportSubscriptionRequest.subscriptionId;
+                    contentType = deleteSecurityReportSubscriptionRequest.contentType;
+                } else {
+                    subscriptionId = deleteSecurityReportSubscriptionRequest['subscription_id'];
+                    contentType = deleteSecurityReportSubscriptionRequest['Content-Type'];
+                }
+            }
+
+        
+            if (subscriptionId === null || subscriptionId === undefined) {
+            throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling deleteSecurityReportSubscription.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'subscription_id': subscriptionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全报告历史统计周期列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityReportHistoryPeriods(listSecurityReportHistoryPeriodsRequest?: ListSecurityReportHistoryPeriodsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/security-report/history-periods",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let subscriptionId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listSecurityReportHistoryPeriodsRequest !== null && listSecurityReportHistoryPeriodsRequest !== undefined) {
+                if (listSecurityReportHistoryPeriodsRequest instanceof ListSecurityReportHistoryPeriodsRequest) {
+                    contentType = listSecurityReportHistoryPeriodsRequest.contentType;
+                    subscriptionId = listSecurityReportHistoryPeriodsRequest.subscriptionId;
+                    limit = listSecurityReportHistoryPeriodsRequest.limit;
+                    offset = listSecurityReportHistoryPeriodsRequest.offset;
+                } else {
+                    contentType = listSecurityReportHistoryPeriodsRequest['Content-Type'];
+                    subscriptionId = listSecurityReportHistoryPeriodsRequest['subscription_id'];
+                    limit = listSecurityReportHistoryPeriodsRequest['limit'];
+                    offset = listSecurityReportHistoryPeriodsRequest['offset'];
+                }
+            }
+
+        
+            if (subscriptionId === null || subscriptionId === undefined) {
+                throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling listSecurityReportHistoryPeriods.');
+            }
+            if (subscriptionId !== null && subscriptionId !== undefined) {
+                localVarQueryParameter['subscription_id'] = subscriptionId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全报告发送记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityReportSendingRecords(listSecurityReportSendingRecordsRequest?: ListSecurityReportSendingRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/security-report/sending-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let reportName;
+            
+            let reportCategory;
+            
+            let limit;
+            
+            let offset;
+
+            if (listSecurityReportSendingRecordsRequest !== null && listSecurityReportSendingRecordsRequest !== undefined) {
+                if (listSecurityReportSendingRecordsRequest instanceof ListSecurityReportSendingRecordsRequest) {
+                    contentType = listSecurityReportSendingRecordsRequest.contentType;
+                    reportName = listSecurityReportSendingRecordsRequest.reportName;
+                    reportCategory = listSecurityReportSendingRecordsRequest.reportCategory;
+                    limit = listSecurityReportSendingRecordsRequest.limit;
+                    offset = listSecurityReportSendingRecordsRequest.offset;
+                } else {
+                    contentType = listSecurityReportSendingRecordsRequest['Content-Type'];
+                    reportName = listSecurityReportSendingRecordsRequest['report_name'];
+                    reportCategory = listSecurityReportSendingRecordsRequest['report_category'];
+                    limit = listSecurityReportSendingRecordsRequest['limit'];
+                    offset = listSecurityReportSendingRecordsRequest['offset'];
+                }
+            }
+
+        
+            if (reportName !== null && reportName !== undefined) {
+                localVarQueryParameter['report_name'] = reportName;
+            }
+            if (reportCategory !== null && reportCategory !== undefined) {
+                localVarQueryParameter['report_category'] = reportCategory;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全报告内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityReportContent(showSecurityReportContentRequest?: ShowSecurityReportContentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/security-reports/{report_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let reportId;
+            
+            let subscriptionId;
+
+            if (showSecurityReportContentRequest !== null && showSecurityReportContentRequest !== undefined) {
+                if (showSecurityReportContentRequest instanceof ShowSecurityReportContentRequest) {
+                    contentType = showSecurityReportContentRequest.contentType;
+                    reportId = showSecurityReportContentRequest.reportId;
+                    subscriptionId = showSecurityReportContentRequest.subscriptionId;
+                } else {
+                    contentType = showSecurityReportContentRequest['Content-Type'];
+                    reportId = showSecurityReportContentRequest['report_id'];
+                    subscriptionId = showSecurityReportContentRequest['subscription_id'];
+                }
+            }
+
+        
+            if (reportId === null || reportId === undefined) {
+            throw new RequiredError('reportId','Required parameter reportId was null or undefined when calling showSecurityReportContent.');
+            }
+            if (subscriptionId === null || subscriptionId === undefined) {
+                throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling showSecurityReportContent.');
+            }
+            if (subscriptionId !== null && subscriptionId !== undefined) {
+                localVarQueryParameter['subscription_id'] = subscriptionId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'report_id': reportId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全报告订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityReportSubscription(showSecurityReportSubscriptionRequest?: ShowSecurityReportSubscriptionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/security-report/subscriptions/{subscription_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subscriptionId;
+            
+            let contentType;
+
+            if (showSecurityReportSubscriptionRequest !== null && showSecurityReportSubscriptionRequest !== undefined) {
+                if (showSecurityReportSubscriptionRequest instanceof ShowSecurityReportSubscriptionRequest) {
+                    subscriptionId = showSecurityReportSubscriptionRequest.subscriptionId;
+                    contentType = showSecurityReportSubscriptionRequest.contentType;
+                } else {
+                    subscriptionId = showSecurityReportSubscriptionRequest['subscription_id'];
+                    contentType = showSecurityReportSubscriptionRequest['Content-Type'];
+                }
+            }
+
+        
+            if (subscriptionId === null || subscriptionId === undefined) {
+            throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling showSecurityReportSubscription.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'subscription_id': subscriptionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改安全报告的订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityReportSubscription(updateSecurityReportSubscriptionRequest?: UpdateSecurityReportSubscriptionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/waf/security-report/subscriptions/{subscription_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let subscriptionId;
+
+            if (updateSecurityReportSubscriptionRequest !== null && updateSecurityReportSubscriptionRequest !== undefined) {
+                if (updateSecurityReportSubscriptionRequest instanceof UpdateSecurityReportSubscriptionRequest) {
+                    contentType = updateSecurityReportSubscriptionRequest.contentType;
+                    subscriptionId = updateSecurityReportSubscriptionRequest.subscriptionId;
+                    body = updateSecurityReportSubscriptionRequest.body
+                } else {
+                    contentType = updateSecurityReportSubscriptionRequest['Content-Type'];
+                    subscriptionId = updateSecurityReportSubscriptionRequest['subscription_id'];
+                    body = updateSecurityReportSubscriptionRequest['body'];
+                }
+            }
+
+        
+            if (subscriptionId === null || subscriptionId === undefined) {
+            throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling updateSecurityReportSubscription.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'subscription_id': subscriptionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

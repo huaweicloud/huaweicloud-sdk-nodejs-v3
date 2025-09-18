@@ -4,7 +4,7 @@ export class PipelineSchedule {
     public uuid?: string;
     public type?: string;
     public name?: string;
-    public enable?: string;
+    public enable?: boolean;
     private 'days_of_week'?: Array<number>;
     private 'time_zone'?: string;
     public constructor() { 
@@ -21,7 +21,7 @@ export class PipelineSchedule {
         this['name'] = name;
         return this;
     }
-    public withEnable(enable: string): PipelineSchedule {
+    public withEnable(enable: boolean): PipelineSchedule {
         this['enable'] = enable;
         return this;
     }

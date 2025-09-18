@@ -1,3 +1,4 @@
+import { NewExtensionDataSourceBindings } from './NewExtensionDataSourceBindings';
 import { NewExtensionExecution } from './NewExtensionExecution';
 import { NewExtensionInputs } from './NewExtensionInputs';
 import { NewExtensionOutputs } from './NewExtensionOutputs';
@@ -13,6 +14,7 @@ export class ShowBasicPluginResponse extends SdkResponse {
     public version?: string;
     private 'version_description'?: string;
     public inputs?: Array<NewExtensionInputs>;
+    private 'data_source_bindings'?: Array<NewExtensionDataSourceBindings>;
     public outputs?: Array<NewExtensionOutputs>;
     public execution?: NewExtensionExecution;
     public constructor() { 
@@ -61,6 +63,16 @@ export class ShowBasicPluginResponse extends SdkResponse {
     public withInputs(inputs: Array<NewExtensionInputs>): ShowBasicPluginResponse {
         this['inputs'] = inputs;
         return this;
+    }
+    public withDataSourceBindings(dataSourceBindings: Array<NewExtensionDataSourceBindings>): ShowBasicPluginResponse {
+        this['data_source_bindings'] = dataSourceBindings;
+        return this;
+    }
+    public set dataSourceBindings(dataSourceBindings: Array<NewExtensionDataSourceBindings>  | undefined) {
+        this['data_source_bindings'] = dataSourceBindings;
+    }
+    public get dataSourceBindings(): Array<NewExtensionDataSourceBindings> | undefined {
+        return this['data_source_bindings'];
     }
     public withOutputs(outputs: Array<NewExtensionOutputs>): ShowBasicPluginResponse {
         this['outputs'] = outputs;

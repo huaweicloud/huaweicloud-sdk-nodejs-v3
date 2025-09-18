@@ -3,7 +3,9 @@
 export class SecurityOptions {
     private 'secure_boot_enabled'?: boolean;
     private 'tpm_enabled'?: boolean;
-    public constructor() { 
+    public constructor(secureBootEnabled?: boolean, tpmEnabled?: boolean) { 
+        this['secure_boot_enabled'] = secureBootEnabled;
+        this['tpm_enabled'] = tpmEnabled;
     }
     public withSecureBootEnabled(secureBootEnabled: boolean): SecurityOptions {
         this['secure_boot_enabled'] = secureBootEnabled;

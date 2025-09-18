@@ -1,4 +1,4 @@
-import { FullStagePluginsRelationVOAllSteps } from './FullStagePluginsRelationVOAllSteps';
+import { PageInfoBusinessTypeDefinitionVOAllSteps } from './PageInfoBusinessTypeDefinitionVOAllSteps';
 
 
 export class PageInfoBusinessTypeDefinitionVOPluginsList {
@@ -8,10 +8,12 @@ export class PageInfoBusinessTypeDefinitionVOPluginsList {
     public disabled?: boolean;
     private 'group_name'?: string;
     private 'group_type'?: string;
+    public standard?: boolean;
+    private 'db_record_name'?: string;
     private 'plugin_attribution'?: string;
     private 'plugin_composition_type'?: string;
     private 'runtime_attribution'?: string;
-    private 'all_steps'?: Array<FullStagePluginsRelationVOAllSteps>;
+    private 'all_steps'?: Array<PageInfoBusinessTypeDefinitionVOAllSteps>;
     public description?: string;
     private 'version_attribution'?: string;
     private 'icon_url'?: string;
@@ -75,6 +77,20 @@ export class PageInfoBusinessTypeDefinitionVOPluginsList {
     public get groupType(): string | undefined {
         return this['group_type'];
     }
+    public withStandard(standard: boolean): PageInfoBusinessTypeDefinitionVOPluginsList {
+        this['standard'] = standard;
+        return this;
+    }
+    public withDbRecordName(dbRecordName: string): PageInfoBusinessTypeDefinitionVOPluginsList {
+        this['db_record_name'] = dbRecordName;
+        return this;
+    }
+    public set dbRecordName(dbRecordName: string  | undefined) {
+        this['db_record_name'] = dbRecordName;
+    }
+    public get dbRecordName(): string | undefined {
+        return this['db_record_name'];
+    }
     public withPluginAttribution(pluginAttribution: string): PageInfoBusinessTypeDefinitionVOPluginsList {
         this['plugin_attribution'] = pluginAttribution;
         return this;
@@ -105,14 +121,14 @@ export class PageInfoBusinessTypeDefinitionVOPluginsList {
     public get runtimeAttribution(): string | undefined {
         return this['runtime_attribution'];
     }
-    public withAllSteps(allSteps: Array<FullStagePluginsRelationVOAllSteps>): PageInfoBusinessTypeDefinitionVOPluginsList {
+    public withAllSteps(allSteps: Array<PageInfoBusinessTypeDefinitionVOAllSteps>): PageInfoBusinessTypeDefinitionVOPluginsList {
         this['all_steps'] = allSteps;
         return this;
     }
-    public set allSteps(allSteps: Array<FullStagePluginsRelationVOAllSteps>  | undefined) {
+    public set allSteps(allSteps: Array<PageInfoBusinessTypeDefinitionVOAllSteps>  | undefined) {
         this['all_steps'] = allSteps;
     }
-    public get allSteps(): Array<FullStagePluginsRelationVOAllSteps> | undefined {
+    public get allSteps(): Array<PageInfoBusinessTypeDefinitionVOAllSteps> | undefined {
         return this['all_steps'];
     }
     public withDescription(description: string): PageInfoBusinessTypeDefinitionVOPluginsList {

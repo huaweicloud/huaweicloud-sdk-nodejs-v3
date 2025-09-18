@@ -2,9 +2,9 @@
 
 export class RunPipelineDTOParamsBuildParams {
     private 'build_type'?: string;
+    private 'event_type'?: string;
     private 'target_branch'?: string;
     public tag?: string;
-    private 'event_type'?: string;
     public constructor(buildType?: string) { 
         this['build_type'] = buildType;
     }
@@ -17,6 +17,16 @@ export class RunPipelineDTOParamsBuildParams {
     }
     public get buildType(): string | undefined {
         return this['build_type'];
+    }
+    public withEventType(eventType: string): RunPipelineDTOParamsBuildParams {
+        this['event_type'] = eventType;
+        return this;
+    }
+    public set eventType(eventType: string  | undefined) {
+        this['event_type'] = eventType;
+    }
+    public get eventType(): string | undefined {
+        return this['event_type'];
     }
     public withTargetBranch(targetBranch: string): RunPipelineDTOParamsBuildParams {
         this['target_branch'] = targetBranch;
@@ -31,15 +41,5 @@ export class RunPipelineDTOParamsBuildParams {
     public withTag(tag: string): RunPipelineDTOParamsBuildParams {
         this['tag'] = tag;
         return this;
-    }
-    public withEventType(eventType: string): RunPipelineDTOParamsBuildParams {
-        this['event_type'] = eventType;
-        return this;
-    }
-    public set eventType(eventType: string  | undefined) {
-        this['event_type'] = eventType;
-    }
-    public get eventType(): string | undefined {
-        return this['event_type'];
     }
 }

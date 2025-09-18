@@ -9,6 +9,7 @@ export class PageInfoBusinessTypeDefinitionVOData {
     public removable?: boolean;
     public cloneable?: boolean;
     public disabled?: boolean;
+    public addables?: Array<{ [key: string]: boolean; }>;
     public conditions?: Array<string>;
     private 'plugins_list'?: Array<PageInfoBusinessTypeDefinitionVOPluginsList>;
     public constructor() { 
@@ -57,6 +58,10 @@ export class PageInfoBusinessTypeDefinitionVOData {
     }
     public withDisabled(disabled: boolean): PageInfoBusinessTypeDefinitionVOData {
         this['disabled'] = disabled;
+        return this;
+    }
+    public withAddables(addables: Array<{ [key: string]: boolean; }>): PageInfoBusinessTypeDefinitionVOData {
+        this['addables'] = addables;
         return this;
     }
     public withConditions(conditions: Array<string>): PageInfoBusinessTypeDefinitionVOData {
