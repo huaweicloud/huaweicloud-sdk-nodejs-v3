@@ -19,26 +19,29 @@
  * under the License.
  */
 
-import { configure, getLogger } from 'log4js';
+import { configure, getLogger, isConfigured} from 'log4js';
 
-configure({
-    appenders: {
-        console: { type: 'stdout', layout: { type: 'colored' } },
-        dateFile: {
-            type: 'dateFile',
-            filename: `HuaweiCloud-SDK-Access.log`,
-            layout: {
-                type: 'pattern',
-                pattern: '[%d] [%p] - %l %m%n'
+if(!isConfigured()) {
+    configure({
+        appenders: {
+            console: { type: 'stdout', layout: { type: 'colored' } },
+            dateFile: {
+                type: 'dateFile',
+                filename: `HuaweiCloud-SDK-Access.log`,
+                layout: {
+                    type: 'pattern',
+                    pattern: '[%d] [%p] - %l %m%n'
+                },
+                compress: true,
+                daysToKeep: 7,
+                keepFileExt: true
             },
-            compress: true,
-            daysToKeep: 7,
-            keepFileExt: true
         },
-    },
-    categories: {
-        default: { appenders: ['console'], level: 'debug', enableCallStack: true }
-    }
-});
+        categories: {
+            default: { appenders: ['console'], level: 'debug', enableCallStack: true }
+        }
+    });
+}
+
 
 export const Logger4jInstance = getLogger();
