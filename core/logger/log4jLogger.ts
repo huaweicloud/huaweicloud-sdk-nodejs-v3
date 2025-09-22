@@ -19,7 +19,7 @@
  * under the License.
  */
 
-import { configure, getLogger, isConfigured} from 'log4js';
+import { configure, getLogger, isConfigured } from 'log4js';
 
 if(!isConfigured()) {
     configure({
