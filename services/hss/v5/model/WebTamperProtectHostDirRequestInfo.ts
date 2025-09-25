@@ -5,7 +5,8 @@ export class WebTamperProtectHostDirRequestInfo {
     private 'exclude_child_dir'?: string;
     private 'exclude_file_path'?: string;
     private 'local_backup_dir'?: string;
-    public constructor() { 
+    public constructor(protectDir?: string) { 
+        this['protect_dir'] = protectDir;
     }
     public withProtectDir(protectDir: string): WebTamperProtectHostDirRequestInfo {
         this['protect_dir'] = protectDir;

@@ -6,6 +6,7 @@ import { AccessProgress } from './model/AccessProgress';
 import { AccessStatusBody } from './model/AccessStatusBody';
 import { Action } from './model/Action';
 import { ActionDistributions } from './model/ActionDistributions';
+import { AlertNoticeConfig } from './model/AlertNoticeConfig';
 import { AlertNoticeConfigResponse } from './model/AlertNoticeConfigResponse';
 import { AlterWafProductInfo } from './model/AlterWafProductInfo';
 import { AntiTamperRuleResponseBody } from './model/AntiTamperRuleResponseBody';
@@ -16,16 +17,25 @@ import { AntileakageMapResponseBodyLocale } from './model/AntileakageMapResponse
 import { ApplyCertificateToHostRequest } from './model/ApplyCertificateToHostRequest';
 import { ApplyCertificateToHostRequestBody } from './model/ApplyCertificateToHostRequestBody';
 import { ApplyCertificateToHostResponse } from './model/ApplyCertificateToHostResponse';
+import { AsyncJobReqBody } from './model/AsyncJobReqBody';
 import { AttackActionCountItem } from './model/AttackActionCountItem';
 import { AttackTypeClassificationItem } from './model/AttackTypeClassificationItem';
 import { AttackTypeItem } from './model/AttackTypeItem';
 import { BandwidthStatisticsTimelineItem } from './model/BandwidthStatisticsTimelineItem';
+import { BatchDeleteCcRulesRequest } from './model/BatchDeleteCcRulesRequest';
+import { BatchDeleteCcRulesResponse } from './model/BatchDeleteCcRulesResponse';
 import { BatchDeleteCompositeHostsRequest } from './model/BatchDeleteCompositeHostsRequest';
 import { BatchDeleteCompositeHostsRequestBody } from './model/BatchDeleteCompositeHostsRequestBody';
 import { BatchDeleteCompositeHostsResponse } from './model/BatchDeleteCompositeHostsResponse';
 import { BatchDeletePoliciesRequest } from './model/BatchDeletePoliciesRequest';
 import { BatchDeletePoliciesRequestBody } from './model/BatchDeletePoliciesRequestBody';
 import { BatchDeletePoliciesResponse } from './model/BatchDeletePoliciesResponse';
+import { BatchUpdateBotMRuleActionRequest } from './model/BatchUpdateBotMRuleActionRequest';
+import { BatchUpdateBotMRuleActionRequestBody } from './model/BatchUpdateBotMRuleActionRequestBody';
+import { BatchUpdateBotMRuleActionResponse } from './model/BatchUpdateBotMRuleActionResponse';
+import { BatchUpdateGeoipRulesRequest } from './model/BatchUpdateGeoipRulesRequest';
+import { BatchUpdateGeoipRulesRequestBody } from './model/BatchUpdateGeoipRulesRequestBody';
+import { BatchUpdateGeoipRulesResponse } from './model/BatchUpdateGeoipRulesResponse';
 import { BindHost } from './model/BindHost';
 import { BlockPage } from './model/BlockPage';
 import { BotMBehaviorDetectionRule } from './model/BotMBehaviorDetectionRule';
@@ -66,6 +76,8 @@ import { ConfirmUserBundleResponse } from './model/ConfirmUserBundleResponse';
 import { CopyPolicyByIdRequest } from './model/CopyPolicyByIdRequest';
 import { CopyPolicyByIdResponse } from './model/CopyPolicyByIdResponse';
 import { CountItem } from './model/CountItem';
+import { CreateAlertNoticeConfigRequest } from './model/CreateAlertNoticeConfigRequest';
+import { CreateAlertNoticeConfigResponse } from './model/CreateAlertNoticeConfigResponse';
 import { CreateAntiTamperRuleRequest } from './model/CreateAntiTamperRuleRequest';
 import { CreateAntiTamperRuleResponse } from './model/CreateAntiTamperRuleResponse';
 import { CreateAntiTamperRulesRequestBody } from './model/CreateAntiTamperRulesRequestBody';
@@ -92,6 +104,8 @@ import { CreateCondition } from './model/CreateCondition';
 import { CreateCustomRuleRequest } from './model/CreateCustomRuleRequest';
 import { CreateCustomRuleRequestBody } from './model/CreateCustomRuleRequestBody';
 import { CreateCustomRuleResponse } from './model/CreateCustomRuleResponse';
+import { CreateEventExportJobRequest } from './model/CreateEventExportJobRequest';
+import { CreateEventExportJobResponse } from './model/CreateEventExportJobResponse';
 import { CreateGeoIpRuleRequestBody } from './model/CreateGeoIpRuleRequestBody';
 import { CreateGeoipRuleRequest } from './model/CreateGeoipRuleRequest';
 import { CreateGeoipRuleResponse } from './model/CreateGeoipRuleResponse';
@@ -126,6 +140,8 @@ import { CreatePrivacyRuleResponse } from './model/CreatePrivacyRuleResponse';
 import { CreatePunishmentRuleRequest } from './model/CreatePunishmentRuleRequest';
 import { CreatePunishmentRuleRequestBody } from './model/CreatePunishmentRuleRequestBody';
 import { CreatePunishmentRuleResponse } from './model/CreatePunishmentRuleResponse';
+import { CreateQuickAccessDomainRequest } from './model/CreateQuickAccessDomainRequest';
+import { CreateQuickAccessDomainResponse } from './model/CreateQuickAccessDomainResponse';
 import { CreateSecurityReportSubscriptionRequest } from './model/CreateSecurityReportSubscriptionRequest';
 import { CreateSecurityReportSubscriptionRequestBody } from './model/CreateSecurityReportSubscriptionRequestBody';
 import { CreateSecurityReportSubscriptionRequestBodyReportContentSubscription } from './model/CreateSecurityReportSubscriptionRequestBodyReportContentSubscription';
@@ -207,8 +223,12 @@ import { IpReputationRulesListInfo } from './model/IpReputationRulesListInfo';
 import { IpReputationRulesListInfoAction } from './model/IpReputationRulesListInfoAction';
 import { IpsItem } from './model/IpsItem';
 import { LeakageListInfo } from './model/LeakageListInfo';
+import { ListAntiTamperPolicyRulesRequest } from './model/ListAntiTamperPolicyRulesRequest';
+import { ListAntiTamperPolicyRulesResponse } from './model/ListAntiTamperPolicyRulesResponse';
 import { ListAnticrawlerRulesRequest } from './model/ListAnticrawlerRulesRequest';
 import { ListAnticrawlerRulesResponse } from './model/ListAnticrawlerRulesResponse';
+import { ListAntileakagePolicyRulesRequest } from './model/ListAntileakagePolicyRulesRequest';
+import { ListAntileakagePolicyRulesResponse } from './model/ListAntileakagePolicyRulesResponse';
 import { ListAntileakageRulesRequest } from './model/ListAntileakageRulesRequest';
 import { ListAntileakageRulesResponse } from './model/ListAntileakageRulesResponse';
 import { ListAntitamperRuleRequest } from './model/ListAntitamperRuleRequest';
@@ -227,23 +247,31 @@ import { ListBotMTimelineRequest } from './model/ListBotMTimelineRequest';
 import { ListBotMTimelineResponse } from './model/ListBotMTimelineResponse';
 import { ListBotMTopnRequestRequest } from './model/ListBotMTopnRequestRequest';
 import { ListBotMTopnRequestResponse } from './model/ListBotMTopnRequestResponse';
+import { ListCcPolicyRulesRequest } from './model/ListCcPolicyRulesRequest';
+import { ListCcPolicyRulesResponse } from './model/ListCcPolicyRulesResponse';
 import { ListCcRulesRequest } from './model/ListCcRulesRequest';
 import { ListCcRulesResponse } from './model/ListCcRulesResponse';
 import { ListCertificatesRequest } from './model/ListCertificatesRequest';
 import { ListCertificatesResponse } from './model/ListCertificatesResponse';
 import { ListCompositeHostsRequest } from './model/ListCompositeHostsRequest';
 import { ListCompositeHostsResponse } from './model/ListCompositeHostsResponse';
+import { ListCustomPolicyRulesRequest } from './model/ListCustomPolicyRulesRequest';
+import { ListCustomPolicyRulesResponse } from './model/ListCustomPolicyRulesResponse';
 import { ListCustomRulesRequest } from './model/ListCustomRulesRequest';
 import { ListCustomRulesResponse } from './model/ListCustomRulesResponse';
 import { ListEventItems } from './model/ListEventItems';
 import { ListEventRequest } from './model/ListEventRequest';
 import { ListEventResponse } from './model/ListEventResponse';
+import { ListGeoIpPolicyRulesRequest } from './model/ListGeoIpPolicyRulesRequest';
+import { ListGeoIpPolicyRulesResponse } from './model/ListGeoIpPolicyRulesResponse';
 import { ListGeoipRuleRequest } from './model/ListGeoipRuleRequest';
 import { ListGeoipRuleResponse } from './model/ListGeoipRuleResponse';
 import { ListHostRequest } from './model/ListHostRequest';
 import { ListHostResponse } from './model/ListHostResponse';
 import { ListHostRouteRequest } from './model/ListHostRouteRequest';
 import { ListHostRouteResponse } from './model/ListHostRouteResponse';
+import { ListIgnorePolicyRulesRequest } from './model/ListIgnorePolicyRulesRequest';
+import { ListIgnorePolicyRulesResponse } from './model/ListIgnorePolicyRulesResponse';
 import { ListIgnoreRuleRequest } from './model/ListIgnoreRuleRequest';
 import { ListIgnoreRuleResponse } from './model/ListIgnoreRuleResponse';
 import { ListInstance } from './model/ListInstance';
@@ -253,8 +281,12 @@ import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListIpGroupRequest } from './model/ListIpGroupRequest';
 import { ListIpGroupResponse } from './model/ListIpGroupResponse';
+import { ListIpReputationPolicyRulesRequest } from './model/ListIpReputationPolicyRulesRequest';
+import { ListIpReputationPolicyRulesResponse } from './model/ListIpReputationPolicyRulesResponse';
 import { ListIpReputationRulesRequest } from './model/ListIpReputationRulesRequest';
 import { ListIpReputationRulesResponse } from './model/ListIpReputationRulesResponse';
+import { ListLlmGuardPolicyRulesRequest } from './model/ListLlmGuardPolicyRulesRequest';
+import { ListLlmGuardPolicyRulesResponse } from './model/ListLlmGuardPolicyRulesResponse';
 import { ListNoticeConfigsRequest } from './model/ListNoticeConfigsRequest';
 import { ListNoticeConfigsResponse } from './model/ListNoticeConfigsResponse';
 import { ListOverviewsClassificationRequest } from './model/ListOverviewsClassificationRequest';
@@ -263,6 +295,8 @@ import { ListPolicyRequest } from './model/ListPolicyRequest';
 import { ListPolicyResponse } from './model/ListPolicyResponse';
 import { ListPremiumHostRequest } from './model/ListPremiumHostRequest';
 import { ListPremiumHostResponse } from './model/ListPremiumHostResponse';
+import { ListPrivacyPolicyRulesRequest } from './model/ListPrivacyPolicyRulesRequest';
+import { ListPrivacyPolicyRulesResponse } from './model/ListPrivacyPolicyRulesResponse';
 import { ListPrivacyRuleRequest } from './model/ListPrivacyRuleRequest';
 import { ListPrivacyRuleResponse } from './model/ListPrivacyRuleResponse';
 import { ListProtectableResourcesRequest } from './model/ListProtectableResourcesRequest';
@@ -299,9 +333,17 @@ import { ListValueListRequest } from './model/ListValueListRequest';
 import { ListValueListResponse } from './model/ListValueListResponse';
 import { ListWebBasicProtectionRulesRequest } from './model/ListWebBasicProtectionRulesRequest';
 import { ListWebBasicProtectionRulesResponse } from './model/ListWebBasicProtectionRulesResponse';
+import { ListWhiteblackipPolicyRulesRequest } from './model/ListWhiteblackipPolicyRulesRequest';
+import { ListWhiteblackipPolicyRulesResponse } from './model/ListWhiteblackipPolicyRulesResponse';
 import { ListWhiteblackipRuleRequest } from './model/ListWhiteblackipRuleRequest';
 import { ListWhiteblackipRuleResponse } from './model/ListWhiteblackipRuleResponse';
 import { Listener } from './model/Listener';
+import { LlmRuleInfo } from './model/LlmRuleInfo';
+import { LlmRuleInfoPromptDetectOpts } from './model/LlmRuleInfoPromptDetectOpts';
+import { LlmRuleInfoPromptDetectOptsAction } from './model/LlmRuleInfoPromptDetectOptsAction';
+import { LlmRuleInfoPromptDetectOptsActionResponse } from './model/LlmRuleInfoPromptDetectOptsActionResponse';
+import { LlmRuleInfoRespDetectOpts } from './model/LlmRuleInfoRespDetectOpts';
+import { LlmRuleInfoRespDetectOptsAction } from './model/LlmRuleInfoRespDetectOptsAction';
 import { LtsIdInfo } from './model/LtsIdInfo';
 import { MigrateCompositeHostsRequest } from './model/MigrateCompositeHostsRequest';
 import { MigrateCompositeHostsRequestBody } from './model/MigrateCompositeHostsRequestBody';
@@ -309,6 +351,9 @@ import { MigrateCompositeHostsResponse } from './model/MigrateCompositeHostsResp
 import { PolicyAction } from './model/PolicyAction';
 import { PolicyOption } from './model/PolicyOption';
 import { PolicyResponse } from './model/PolicyResponse';
+import { PolicyRuleIdRequestBody } from './model/PolicyRuleIdRequestBody';
+import { PolicyRuleIdRequestBodyPolicyRuleIds } from './model/PolicyRuleIdRequestBodyPolicyRuleIds';
+import { PolicyRuleIdResponseBodyPolicyRuleIds } from './model/PolicyRuleIdResponseBodyPolicyRuleIds';
 import { Premium } from './model/Premium';
 import { PremiumWafInstances } from './model/PremiumWafInstances';
 import { PremiumWafServer } from './model/PremiumWafServer';
@@ -322,35 +367,35 @@ import { ResourceResponse } from './model/ResourceResponse';
 import { RouteBody } from './model/RouteBody';
 import { RouteServerBody } from './model/RouteServerBody';
 import { RuleInfo } from './model/RuleInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfoAttackTypeDistributionInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoAttackTypeDistributionInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoAverageInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoAverageInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoPeakInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoPeakInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline';
-import { SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentSubscriptionInfoBandwidthStatisticsInfoTimeline1';
-import { SecurityReportContentResponseReportContentSubscriptionInfoOverviewStatisticsListInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoOverviewStatisticsListInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoAverageInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoAverageInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoPeakInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoPeakInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline';
-import { SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentSubscriptionInfoQpsStatisticsInfoTimeline1';
-import { SecurityReportContentResponseReportContentSubscriptionInfoRequestStatisticsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoRequestStatisticsInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceUpstreamInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceUpstreamInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceWafInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoResponseSourceWafInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline';
-import { SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentSubscriptionInfoResponseCodeStatisticsInfoTimeline1';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTimeline } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTimeline';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfo } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfo';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal404InfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal404InfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal500InfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal500InfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal502InfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAbnormalUrlsInfoAbnormal502InfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceIpsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceIpsInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceLocationsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackSourceLocationsInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedDomainsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedDomainsInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedUrlsInfoList } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopAttackedUrlsInfoList';
-import { SecurityReportContentResponseReportContentSubscriptionInfoTopDomains } from './model/SecurityReportContentResponseReportContentSubscriptionInfoTopDomains';
+import { SecurityReportContentResponseReportContentInfo } from './model/SecurityReportContentResponseReportContentInfo';
+import { SecurityReportContentResponseReportContentInfoAttackTypeDistributionInfoList } from './model/SecurityReportContentResponseReportContentInfoAttackTypeDistributionInfoList';
+import { SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfo } from './model/SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfo';
+import { SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoAverageInfoList } from './model/SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoAverageInfoList';
+import { SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoPeakInfoList } from './model/SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoPeakInfoList';
+import { SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoTimeline';
+import { SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfoTimeline1';
+import { SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo } from './model/SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo';
+import { SecurityReportContentResponseReportContentInfoQpsStatisticsInfo } from './model/SecurityReportContentResponseReportContentInfoQpsStatisticsInfo';
+import { SecurityReportContentResponseReportContentInfoQpsStatisticsInfoAverageInfoList } from './model/SecurityReportContentResponseReportContentInfoQpsStatisticsInfoAverageInfoList';
+import { SecurityReportContentResponseReportContentInfoQpsStatisticsInfoPeakInfoList } from './model/SecurityReportContentResponseReportContentInfoQpsStatisticsInfoPeakInfoList';
+import { SecurityReportContentResponseReportContentInfoQpsStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentInfoQpsStatisticsInfoTimeline';
+import { SecurityReportContentResponseReportContentInfoQpsStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentInfoQpsStatisticsInfoTimeline1';
+import { SecurityReportContentResponseReportContentInfoRequestStatisticsInfoList } from './model/SecurityReportContentResponseReportContentInfoRequestStatisticsInfoList';
+import { SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfo } from './model/SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfo';
+import { SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoResponseSourceUpstreamInfoList } from './model/SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoResponseSourceUpstreamInfoList';
+import { SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoResponseSourceWafInfoList } from './model/SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoResponseSourceWafInfoList';
+import { SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoTimeline } from './model/SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoTimeline';
+import { SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoTimeline1 } from './model/SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfoTimeline1';
+import { SecurityReportContentResponseReportContentInfoTimeline } from './model/SecurityReportContentResponseReportContentInfoTimeline';
+import { SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo } from './model/SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo';
+import { SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfoAbnormal404InfoList } from './model/SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfoAbnormal404InfoList';
+import { SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfoAbnormal500InfoList } from './model/SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfoAbnormal500InfoList';
+import { SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfoAbnormal502InfoList } from './model/SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfoAbnormal502InfoList';
+import { SecurityReportContentResponseReportContentInfoTopAttackSourceIpsInfoList } from './model/SecurityReportContentResponseReportContentInfoTopAttackSourceIpsInfoList';
+import { SecurityReportContentResponseReportContentInfoTopAttackSourceLocationsInfoList } from './model/SecurityReportContentResponseReportContentInfoTopAttackSourceLocationsInfoList';
+import { SecurityReportContentResponseReportContentInfoTopAttackedDomainsInfoList } from './model/SecurityReportContentResponseReportContentInfoTopAttackedDomainsInfoList';
+import { SecurityReportContentResponseReportContentInfoTopAttackedUrlsInfoList } from './model/SecurityReportContentResponseReportContentInfoTopAttackedUrlsInfoList';
+import { SecurityReportContentResponseReportContentInfoTopDomains } from './model/SecurityReportContentResponseReportContentInfoTopDomains';
 import { SecurityReportContentResponseStatPeriod } from './model/SecurityReportContentResponseStatPeriod';
 import { SecurityReportSubscriptionResponseReportContentSubscription } from './model/SecurityReportSubscriptionResponseReportContentSubscription';
 import { SecurityReportSubscriptionResponseStatPeriod } from './model/SecurityReportSubscriptionResponseStatPeriod';
@@ -409,6 +454,8 @@ import { ShowSubscriptionInfoRequest } from './model/ShowSubscriptionInfoRequest
 import { ShowSubscriptionInfoResponse } from './model/ShowSubscriptionInfoResponse';
 import { ShowValueListRequest } from './model/ShowValueListRequest';
 import { ShowValueListResponse } from './model/ShowValueListResponse';
+import { ShowWebProtectionRuleRequest } from './model/ShowWebProtectionRuleRequest';
+import { ShowWebProtectionRuleResponse } from './model/ShowWebProtectionRuleResponse';
 import { ShowWhiteBlackIpRuleRequest } from './model/ShowWhiteBlackIpRuleRequest';
 import { ShowWhiteBlackIpRuleResponse } from './model/ShowWhiteBlackIpRuleResponse';
 import { SimplePremiumWafHost } from './model/SimplePremiumWafHost';
@@ -439,6 +486,9 @@ import { UpdateAntileakageRuleRequestBody } from './model/UpdateAntileakageRuleR
 import { UpdateAntileakageRuleResponse } from './model/UpdateAntileakageRuleResponse';
 import { UpdateBotMCategoryStatusRequest } from './model/UpdateBotMCategoryStatusRequest';
 import { UpdateBotMCategoryStatusResponse } from './model/UpdateBotMCategoryStatusResponse';
+import { UpdateBotMRuleDefenseStrategyRequest } from './model/UpdateBotMRuleDefenseStrategyRequest';
+import { UpdateBotMRuleDefenseStrategyRequestBody } from './model/UpdateBotMRuleDefenseStrategyRequestBody';
+import { UpdateBotMRuleDefenseStrategyResponse } from './model/UpdateBotMRuleDefenseStrategyResponse';
 import { UpdateBotMRuleStatusRequestBody } from './model/UpdateBotMRuleStatusRequestBody';
 import { UpdateCcRuleRequest } from './model/UpdateCcRuleRequest';
 import { UpdateCcRuleRequestBody } from './model/UpdateCcRuleRequestBody';
@@ -463,6 +513,8 @@ import { UpdateHostResponse } from './model/UpdateHostResponse';
 import { UpdateIgnoreRuleRequest } from './model/UpdateIgnoreRuleRequest';
 import { UpdateIgnoreRuleRequestBody } from './model/UpdateIgnoreRuleRequestBody';
 import { UpdateIgnoreRuleResponse } from './model/UpdateIgnoreRuleResponse';
+import { UpdateInstanceRouteRequest } from './model/UpdateInstanceRouteRequest';
+import { UpdateInstanceRouteResponse } from './model/UpdateInstanceRouteResponse';
 import { UpdateIpGroupRequest } from './model/UpdateIpGroupRequest';
 import { UpdateIpGroupRequestBody } from './model/UpdateIpGroupRequestBody';
 import { UpdateIpGroupResponse } from './model/UpdateIpGroupResponse';
@@ -558,13 +610,40 @@ export class WafClient {
     }
 
     /**
+     * **参数解释：**
+     * 批量删除cc规则
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除cc规则
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {PolicyRuleIdRequestBody} [batchDeleteCcRulesRequestBody] **参数解释：** 批量删除CC防护规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteCcRules(batchDeleteCcRulesRequest?: BatchDeleteCcRulesRequest): Promise<BatchDeleteCcRulesResponse> {
+        const options = ParamCreater().batchDeleteCcRules(batchDeleteCcRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除租户域名
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除租户域名
      * @param {string} contentType 内容类型
-     * @param {BatchDeleteCompositeHostsRequestBody} batchDeleteCompositeHostsRequestBody 批量删除防护策略body
+     * @param {BatchDeleteCompositeHostsRequestBody} batchDeleteCompositeHostsRequestBody 批量删除域名body
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS)的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -592,6 +671,61 @@ export class WafClient {
      */
     public batchDeletePolicies(batchDeletePoliciesRequest?: BatchDeletePoliciesRequest): Promise<BatchDeletePoliciesResponse> {
         const options = ParamCreater().batchDeletePolicies(batchDeletePoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * **参数解释：**
+     * 批量更新BotM规则防护动作
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新BotM规则防护动作
+     * @param {string} policyId **参数解释：** policyId **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json
+     * @param {BatchUpdateBotMRuleActionRequestBody} batchUpdateBotMRuleActionRequestBody **参数解释：** 批量更新规则防护动作的请求体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateBotMRuleAction(batchUpdateBotMRuleActionRequest?: BatchUpdateBotMRuleActionRequest): Promise<BatchUpdateBotMRuleActionResponse> {
+        const options = ParamCreater().batchUpdateBotMRuleAction(batchUpdateBotMRuleActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * **参数解释：**
+     * 批量修改地理位置访问控制规则
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改地理位置访问控制规则
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {BatchUpdateGeoipRulesRequestBody} [batchUpdateGeoipRulesRequestBody] **参数解释：** 批量修改地理位置访问控制规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateGeoipRules(batchUpdateGeoipRulesRequest?: BatchUpdateGeoipRulesRequest): Promise<BatchUpdateGeoipRulesResponse> {
+        const options = ParamCreater().batchUpdateGeoipRules(batchUpdateGeoipRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -643,11 +777,11 @@ export class WafClient {
     }
 
     /**
-     * 根据Id查询IP情报防护规则
+     * 根据Id查询机房IP情报防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 根据Id查询地理位置防护规则
+     * @summary 根据Id查询机房IP情报防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** policyid **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** \&#39;\&#39;
      * @param {string} ruleId **参数解释：** geoipRuleId **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** \&#39;\&#39;
@@ -758,6 +892,35 @@ export class WafClient {
      */
     public copyPolicyById(copyPolicyByIdRequest?: CopyPolicyByIdRequest): Promise<CopyPolicyByIdResponse> {
         const options = ParamCreater().copyPolicyById(copyPolicyByIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * **参数解释：**
+     * 创建告警通知
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建告警通知
+     * @param {string} xLanguage **参数解释：** 语言，默认值为en-us。zh-cn（中文）/en-us（英文） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** zh-cn
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} enterpriseProjectId **参数解释：** 企业项目ID **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {AlertNoticeConfig} alertNoticeConfig **参数解释：** 请求Body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAlertNoticeConfig(createAlertNoticeConfigRequest?: CreateAlertNoticeConfigRequest): Promise<CreateAlertNoticeConfigResponse> {
+        const options = ParamCreater().createAlertNoticeConfig(createAlertNoticeConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -911,6 +1074,33 @@ export class WafClient {
      */
     public createCustomRule(createCustomRuleRequest?: CreateCustomRuleRequest): Promise<CreateCustomRuleResponse> {
         const options = ParamCreater().createCustomRule(createCustomRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * **参数解释：**
+     * 下发自定义导出攻击事件的异步任务
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下发自定义导出攻击事件的异步任务
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {AsyncJobReqBody} asyncJobReqBody **参数解释：** 下发自定义导出攻击事件的异步任务的请求体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createEventExportJob(createEventExportJobRequest?: CreateEventExportJobRequest): Promise<CreateEventExportJobResponse> {
+        const options = ParamCreater().createEventExportJob(createEventExportJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1609,6 +1799,30 @@ export class WafClient {
     }
 
     /**
+     * 查询所有策略网页防篡改
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略网页防篡改
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAntiTamperPolicyRules(listAntiTamperPolicyRulesRequest?: ListAntiTamperPolicyRulesRequest): Promise<ListAntiTamperPolicyRulesResponse> {
+        const options = ParamCreater().listAntiTamperPolicyRules(listAntiTamperPolicyRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询JS脚本反爬虫规则列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1625,6 +1839,30 @@ export class WafClient {
      */
     public listAnticrawlerRules(listAnticrawlerRulesRequest?: ListAnticrawlerRulesRequest): Promise<ListAnticrawlerRulesResponse> {
         const options = ParamCreater().listAnticrawlerRules(listAnticrawlerRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有策略防敏感信息泄漏规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略防敏感信息泄漏规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAntileakagePolicyRules(listAntileakagePolicyRulesRequest?: ListAntileakagePolicyRulesRequest): Promise<ListAntileakagePolicyRulesResponse> {
+        const options = ParamCreater().listAntileakagePolicyRules(listAntileakagePolicyRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1854,6 +2092,30 @@ export class WafClient {
     }
 
     /**
+     * 查询所有策略CC规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略CC规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCcPolicyRules(listCcPolicyRulesRequest?: ListCcPolicyRulesRequest): Promise<ListCcPolicyRulesResponse> {
+        const options = ParamCreater().listCcPolicyRules(listCcPolicyRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询cc规则列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1930,6 +2192,30 @@ export class WafClient {
     }
 
     /**
+     * 查询所有策略精准防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略精准防护规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomPolicyRules(listCustomPolicyRulesRequest?: ListCustomPolicyRulesRequest): Promise<ListCustomPolicyRulesResponse> {
+        const options = ParamCreater().listCustomPolicyRules(listCustomPolicyRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询精准防护规则列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1974,6 +2260,30 @@ export class WafClient {
      */
     public listEvent(listEventRequest?: ListEventRequest): Promise<ListEventResponse> {
         const options = ParamCreater().listEvent(listEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有策略地理位置访问控制
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略地理位置访问控制
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGeoIpPolicyRules(listGeoIpPolicyRulesRequest?: ListGeoIpPolicyRulesRequest): Promise<ListGeoIpPolicyRulesResponse> {
+        const options = ParamCreater().listGeoIpPolicyRules(listGeoIpPolicyRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2029,19 +2339,51 @@ export class WafClient {
     }
 
     /**
-     * 返回路由信息
+     * **参数解释：**
+     * 返回路由信息。
+     * &gt; 该API局点受限使用，后续将下线。
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取云模式域名路由信息
-     * @param {string} contentType 内容类型
-     * @param {string} instanceId 域名id，您可以通过调用查询云模式防护域名列表（ListHost）获取域名id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} instanceId **参数解释：** 域名id，您可以通过调用查询云模式防护域名列表（ListHost）获取域名id **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listHostRoute(listHostRouteRequest?: ListHostRouteRequest): Promise<ListHostRouteResponse> {
         const options = ParamCreater().listHostRoute(listHostRouteRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有策略全局白名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略全局白名单
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIgnorePolicyRules(listIgnorePolicyRulesRequest?: ListIgnorePolicyRulesRequest): Promise<ListIgnorePolicyRulesResponse> {
+        const options = ParamCreater().listIgnorePolicyRules(listIgnorePolicyRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2140,6 +2482,30 @@ export class WafClient {
     }
 
     /**
+     * 查询所有策略威胁情报控制规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略威胁情报控制规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpReputationPolicyRules(listIpReputationPolicyRulesRequest?: ListIpReputationPolicyRulesRequest): Promise<ListIpReputationPolicyRulesResponse> {
+        const options = ParamCreater().listIpReputationPolicyRules(listIpReputationPolicyRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询威胁情报规则列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2155,6 +2521,30 @@ export class WafClient {
      */
     public listIpReputationRules(listIpReputationRulesRequest?: ListIpReputationRulesRequest): Promise<ListIpReputationRulesResponse> {
         const options = ParamCreater().listIpReputationRules(listIpReputationRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有策略大模型防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略大模型防护规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLlmGuardPolicyRules(listLlmGuardPolicyRulesRequest?: ListLlmGuardPolicyRulesRequest): Promise<ListLlmGuardPolicyRulesResponse> {
+        const options = ParamCreater().listLlmGuardPolicyRules(listLlmGuardPolicyRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2249,6 +2639,30 @@ export class WafClient {
      */
     public listPremiumHost(listPremiumHostRequest?: ListPremiumHostRequest): Promise<ListPremiumHostResponse> {
         const options = ParamCreater().listPremiumHost(listPremiumHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有策略隐私屏蔽防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略隐私屏蔽防护规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrivacyPolicyRules(listPrivacyPolicyRulesRequest?: ListPrivacyPolicyRulesRequest): Promise<ListPrivacyPolicyRulesResponse> {
+        const options = ParamCreater().listPrivacyPolicyRules(listPrivacyPolicyRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2596,6 +3010,30 @@ export class WafClient {
      */
     public listWebBasicProtectionRules(listWebBasicProtectionRulesRequest?: ListWebBasicProtectionRulesRequest): Promise<ListWebBasicProtectionRulesResponse> {
         const options = ParamCreater().listWebBasicProtectionRules(listWebBasicProtectionRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有策略黑白名单防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有策略黑白名单防护规则
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWhiteblackipPolicyRules(listWhiteblackipPolicyRulesRequest?: ListWhiteblackipPolicyRulesRequest): Promise<ListWhiteblackipPolicyRulesResponse> {
+        const options = ParamCreater().listWhiteblackipPolicyRules(listWhiteblackipPolicyRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3354,6 +3792,34 @@ export class WafClient {
     }
 
     /**
+     * **参数解释：**
+     * 更新BotM行为检测规则的防护策略
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新BotM行为检测规则的防护策略
+     * @param {string} policyId **参数解释：** policyId **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json
+     * @param {UpdateBotMRuleDefenseStrategyRequestBody} updateBotMRuleDefenseStrategyRequestBody **参数解释：** 更新防护策略 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBotMRuleDefenseStrategy(updateBotMRuleDefenseStrategyRequest?: UpdateBotMRuleDefenseStrategyRequest): Promise<UpdateBotMRuleDefenseStrategyResponse> {
+        const options = ParamCreater().updateBotMRuleDefenseStrategy(updateBotMRuleDefenseStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新cc防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3525,6 +3991,34 @@ export class WafClient {
      */
     public updateIgnoreRule(updateIgnoreRuleRequest?: UpdateIgnoreRuleRequest): Promise<UpdateIgnoreRuleResponse> {
         const options = ParamCreater().updateIgnoreRule(updateIgnoreRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * **参数解释：**
+     * 更新云模式域名路由信息
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改云模式域名路由信息
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} instanceId **参数解释：** 域名Id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<RouteBody>} updateInstanceRouteRequestBody **参数解释：** 请求body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceRoute(updateInstanceRouteRequest?: UpdateInstanceRouteRequest): Promise<UpdateInstanceRouteResponse> {
+        const options = ParamCreater().updateInstanceRoute(updateInstanceRouteRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3844,6 +4338,28 @@ export class WafClient {
     }
 
     /**
+     * 快速接入，直接去修改用户的DNS记录，使域名快速接入WAF
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 域名快速接入WAF
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及**参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} instanceid **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [contentType] **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createQuickAccessDomain(createQuickAccessDomainRequest?: CreateQuickAccessDomainRequest): Promise<CreateQuickAccessDomainResponse> {
+        const options = ParamCreater().createQuickAccessDomain(createQuickAccessDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建安全报告订阅
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3989,6 +4505,33 @@ export class WafClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * **参数解释：**
+     * 根据Id查询Web防护规则
+     * **约束限制：**
+     * 不涉及
+     * **取值范围：**
+     * 不涉及
+     * **默认取值：**
+     * 不涉及
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据Id查询Web防护规则
+     * @param {string} ruleId **参数解释：** 防护规则ID **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [xLanguage] **参数解释：** 语言 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWebProtectionRule(showWebProtectionRuleRequest?: ShowWebProtectionRuleRequest): Promise<ShowWebProtectionRuleResponse> {
+        const options = ParamCreater().showWebProtectionRule(showWebProtectionRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -4048,6 +4591,55 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * **参数解释：**
+         * 批量删除cc规则
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteCcRules(batchDeleteCcRulesRequest?: BatchDeleteCcRulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/rule/cc/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (batchDeleteCcRulesRequest !== null && batchDeleteCcRulesRequest !== undefined) {
+                if (batchDeleteCcRulesRequest instanceof BatchDeleteCcRulesRequest) {
+                    contentType = batchDeleteCcRulesRequest.contentType;
+                    body = batchDeleteCcRulesRequest.body
+                } else {
+                    contentType = batchDeleteCcRulesRequest['Content-Type'];
+                    body = batchDeleteCcRulesRequest['body'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4159,6 +4751,115 @@ export const ParamCreater = function () {
         },
     
         /**
+         * **参数解释：**
+         * 批量更新BotM规则防护动作
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateBotMRuleAction(batchUpdateBotMRuleActionRequest?: BatchUpdateBotMRuleActionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/bot-manager/rule/batch-update-action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let contentType;
+
+            if (batchUpdateBotMRuleActionRequest !== null && batchUpdateBotMRuleActionRequest !== undefined) {
+                if (batchUpdateBotMRuleActionRequest instanceof BatchUpdateBotMRuleActionRequest) {
+                    policyId = batchUpdateBotMRuleActionRequest.policyId;
+                    contentType = batchUpdateBotMRuleActionRequest.contentType;
+                    body = batchUpdateBotMRuleActionRequest.body
+                } else {
+                    policyId = batchUpdateBotMRuleActionRequest['policy_id'];
+                    contentType = batchUpdateBotMRuleActionRequest['Content-Type'];
+                    body = batchUpdateBotMRuleActionRequest['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling batchUpdateBotMRuleAction.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * **参数解释：**
+         * 批量修改地理位置访问控制规则
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateGeoipRules(batchUpdateGeoipRulesRequest?: BatchUpdateGeoipRulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/rule/geoip/batch-update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (batchUpdateGeoipRulesRequest !== null && batchUpdateGeoipRulesRequest !== undefined) {
+                if (batchUpdateGeoipRulesRequest instanceof BatchUpdateGeoipRulesRequest) {
+                    contentType = batchUpdateGeoipRulesRequest.contentType;
+                    body = batchUpdateGeoipRulesRequest.body
+                } else {
+                    contentType = batchUpdateGeoipRulesRequest['Content-Type'];
+                    body = batchUpdateGeoipRulesRequest['body'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 变更包周期云模式waf规格。注：
          *  - 1.变更某产品规格的前提是必须已购买该产品 
          *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
@@ -4251,7 +4952,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据Id查询IP情报防护规则
+         * 根据Id查询机房IP情报防护规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4543,6 +5244,79 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'src_policy_id': srcPolicyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * **参数解释：**
+         * 创建告警通知
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAlertNoticeConfig(createAlertNoticeConfigRequest?: CreateAlertNoticeConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/waf/alert",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let xLanguage;
+            
+            let contentType;
+            
+            let enterpriseProjectId;
+
+            if (createAlertNoticeConfigRequest !== null && createAlertNoticeConfigRequest !== undefined) {
+                if (createAlertNoticeConfigRequest instanceof CreateAlertNoticeConfigRequest) {
+                    xLanguage = createAlertNoticeConfigRequest.xLanguage;
+                    contentType = createAlertNoticeConfigRequest.contentType;
+                    enterpriseProjectId = createAlertNoticeConfigRequest.enterpriseProjectId;
+                    body = createAlertNoticeConfigRequest.body
+                } else {
+                    xLanguage = createAlertNoticeConfigRequest['X-Language'];
+                    contentType = createAlertNoticeConfigRequest['Content-Type'];
+                    enterpriseProjectId = createAlertNoticeConfigRequest['enterpriseProjectId'];
+                    body = createAlertNoticeConfigRequest['body'];
+                }
+            }
+
+        
+            if (contentType === null || contentType === undefined) {
+                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createAlertNoticeConfig.');
+            }
+            if (contentType !== null && contentType !== undefined) {
+                localVarQueryParameter['Content-Type'] = contentType;
+            }
+            if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
+                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling createAlertNoticeConfig.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterpriseProjectId'] = enterpriseProjectId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4958,6 +5732,58 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * **参数解释：**
+         * 下发自定义导出攻击事件的异步任务
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createEventExportJob(createEventExportJobRequest?: CreateEventExportJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/event/job/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createEventExportJobRequest !== null && createEventExportJobRequest !== undefined) {
+                if (createEventExportJobRequest instanceof CreateEventExportJobRequest) {
+                    contentType = createEventExportJobRequest.contentType;
+                    body = createEventExportJobRequest.body
+                } else {
+                    contentType = createEventExportJobRequest['Content-Type'];
+                    body = createEventExportJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6768,6 +7594,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询所有策略网页防篡改
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAntiTamperPolicyRules(listAntiTamperPolicyRulesRequest?: ListAntiTamperPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/antitamper",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listAntiTamperPolicyRulesRequest !== null && listAntiTamperPolicyRulesRequest !== undefined) {
+                if (listAntiTamperPolicyRulesRequest instanceof ListAntiTamperPolicyRulesRequest) {
+                    projectid = listAntiTamperPolicyRulesRequest.projectid;
+                    policyids = listAntiTamperPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listAntiTamperPolicyRulesRequest.enterpriseProjectId;
+                    page = listAntiTamperPolicyRulesRequest.page;
+                    pagesize = listAntiTamperPolicyRulesRequest.pagesize;
+                    contentType = listAntiTamperPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listAntiTamperPolicyRulesRequest['projectid'];
+                    policyids = listAntiTamperPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listAntiTamperPolicyRulesRequest['enterprise_project_id'];
+                    page = listAntiTamperPolicyRulesRequest['page'];
+                    pagesize = listAntiTamperPolicyRulesRequest['pagesize'];
+                    contentType = listAntiTamperPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listAntiTamperPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询JS脚本反爬虫规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6842,6 +7741,79 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有策略防敏感信息泄漏规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAntileakagePolicyRules(listAntileakagePolicyRulesRequest?: ListAntileakagePolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/antileakage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listAntileakagePolicyRulesRequest !== null && listAntileakagePolicyRulesRequest !== undefined) {
+                if (listAntileakagePolicyRulesRequest instanceof ListAntileakagePolicyRulesRequest) {
+                    projectid = listAntileakagePolicyRulesRequest.projectid;
+                    policyids = listAntileakagePolicyRulesRequest.policyids;
+                    enterpriseProjectId = listAntileakagePolicyRulesRequest.enterpriseProjectId;
+                    page = listAntileakagePolicyRulesRequest.page;
+                    pagesize = listAntileakagePolicyRulesRequest.pagesize;
+                    contentType = listAntileakagePolicyRulesRequest.contentType;
+                } else {
+                    projectid = listAntileakagePolicyRulesRequest['projectid'];
+                    policyids = listAntileakagePolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listAntileakagePolicyRulesRequest['enterprise_project_id'];
+                    page = listAntileakagePolicyRulesRequest['page'];
+                    pagesize = listAntileakagePolicyRulesRequest['pagesize'];
+                    contentType = listAntileakagePolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listAntileakagePolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7574,6 +8546,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询所有策略CC规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCcPolicyRules(listCcPolicyRulesRequest?: ListCcPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/cc",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listCcPolicyRulesRequest !== null && listCcPolicyRulesRequest !== undefined) {
+                if (listCcPolicyRulesRequest instanceof ListCcPolicyRulesRequest) {
+                    projectid = listCcPolicyRulesRequest.projectid;
+                    policyids = listCcPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listCcPolicyRulesRequest.enterpriseProjectId;
+                    page = listCcPolicyRulesRequest.page;
+                    pagesize = listCcPolicyRulesRequest.pagesize;
+                    contentType = listCcPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listCcPolicyRulesRequest['projectid'];
+                    policyids = listCcPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listCcPolicyRulesRequest['enterprise_project_id'];
+                    page = listCcPolicyRulesRequest['page'];
+                    pagesize = listCcPolicyRulesRequest['pagesize'];
+                    contentType = listCcPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listCcPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询cc规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7825,6 +8870,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询所有策略精准防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCustomPolicyRules(listCustomPolicyRulesRequest?: ListCustomPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/custom",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listCustomPolicyRulesRequest !== null && listCustomPolicyRulesRequest !== undefined) {
+                if (listCustomPolicyRulesRequest instanceof ListCustomPolicyRulesRequest) {
+                    projectid = listCustomPolicyRulesRequest.projectid;
+                    policyids = listCustomPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listCustomPolicyRulesRequest.enterpriseProjectId;
+                    page = listCustomPolicyRulesRequest.page;
+                    pagesize = listCustomPolicyRulesRequest.pagesize;
+                    contentType = listCustomPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listCustomPolicyRulesRequest['projectid'];
+                    policyids = listCustomPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listCustomPolicyRulesRequest['enterprise_project_id'];
+                    page = listCustomPolicyRulesRequest['page'];
+                    pagesize = listCustomPolicyRulesRequest['pagesize'];
+                    contentType = listCustomPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listCustomPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询精准防护规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8004,6 +9122,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询所有策略地理位置访问控制
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGeoIpPolicyRules(listGeoIpPolicyRulesRequest?: ListGeoIpPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/geoip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listGeoIpPolicyRulesRequest !== null && listGeoIpPolicyRulesRequest !== undefined) {
+                if (listGeoIpPolicyRulesRequest instanceof ListGeoIpPolicyRulesRequest) {
+                    projectid = listGeoIpPolicyRulesRequest.projectid;
+                    policyids = listGeoIpPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listGeoIpPolicyRulesRequest.enterpriseProjectId;
+                    page = listGeoIpPolicyRulesRequest.page;
+                    pagesize = listGeoIpPolicyRulesRequest.pagesize;
+                    contentType = listGeoIpPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listGeoIpPolicyRulesRequest['projectid'];
+                    policyids = listGeoIpPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listGeoIpPolicyRulesRequest['enterprise_project_id'];
+                    page = listGeoIpPolicyRulesRequest['page'];
+                    pagesize = listGeoIpPolicyRulesRequest['pagesize'];
+                    contentType = listGeoIpPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listGeoIpPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询地理位置访问控制规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8142,7 +9333,15 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 返回路由信息
+         * **参数解释：**
+         * 返回路由信息。
+         * &gt; 该API局点受限使用，后续将下线。
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8189,6 +9388,79 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有策略全局白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIgnorePolicyRules(listIgnorePolicyRulesRequest?: ListIgnorePolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/ignore",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listIgnorePolicyRulesRequest !== null && listIgnorePolicyRulesRequest !== undefined) {
+                if (listIgnorePolicyRulesRequest instanceof ListIgnorePolicyRulesRequest) {
+                    projectid = listIgnorePolicyRulesRequest.projectid;
+                    policyids = listIgnorePolicyRulesRequest.policyids;
+                    enterpriseProjectId = listIgnorePolicyRulesRequest.enterpriseProjectId;
+                    page = listIgnorePolicyRulesRequest.page;
+                    pagesize = listIgnorePolicyRulesRequest.pagesize;
+                    contentType = listIgnorePolicyRulesRequest.contentType;
+                } else {
+                    projectid = listIgnorePolicyRulesRequest['projectid'];
+                    policyids = listIgnorePolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listIgnorePolicyRulesRequest['enterprise_project_id'];
+                    page = listIgnorePolicyRulesRequest['page'];
+                    pagesize = listIgnorePolicyRulesRequest['pagesize'];
+                    contentType = listIgnorePolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listIgnorePolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8441,6 +9713,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询所有策略威胁情报控制规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpReputationPolicyRules(listIpReputationPolicyRulesRequest?: ListIpReputationPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/ip-reputation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listIpReputationPolicyRulesRequest !== null && listIpReputationPolicyRulesRequest !== undefined) {
+                if (listIpReputationPolicyRulesRequest instanceof ListIpReputationPolicyRulesRequest) {
+                    projectid = listIpReputationPolicyRulesRequest.projectid;
+                    policyids = listIpReputationPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listIpReputationPolicyRulesRequest.enterpriseProjectId;
+                    page = listIpReputationPolicyRulesRequest.page;
+                    pagesize = listIpReputationPolicyRulesRequest.pagesize;
+                    contentType = listIpReputationPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listIpReputationPolicyRulesRequest['projectid'];
+                    policyids = listIpReputationPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listIpReputationPolicyRulesRequest['enterprise_project_id'];
+                    page = listIpReputationPolicyRulesRequest['page'];
+                    pagesize = listIpReputationPolicyRulesRequest['pagesize'];
+                    contentType = listIpReputationPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listIpReputationPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询威胁情报规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8508,6 +9853,79 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有策略大模型防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLlmGuardPolicyRules(listLlmGuardPolicyRulesRequest?: ListLlmGuardPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/llm-guards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listLlmGuardPolicyRulesRequest !== null && listLlmGuardPolicyRulesRequest !== undefined) {
+                if (listLlmGuardPolicyRulesRequest instanceof ListLlmGuardPolicyRulesRequest) {
+                    projectid = listLlmGuardPolicyRulesRequest.projectid;
+                    policyids = listLlmGuardPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listLlmGuardPolicyRulesRequest.enterpriseProjectId;
+                    page = listLlmGuardPolicyRulesRequest.page;
+                    pagesize = listLlmGuardPolicyRulesRequest.pagesize;
+                    contentType = listLlmGuardPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listLlmGuardPolicyRulesRequest['projectid'];
+                    policyids = listLlmGuardPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listLlmGuardPolicyRulesRequest['enterprise_project_id'];
+                    page = listLlmGuardPolicyRulesRequest['page'];
+                    pagesize = listLlmGuardPolicyRulesRequest['pagesize'];
+                    contentType = listLlmGuardPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listLlmGuardPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8788,6 +10206,79 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有策略隐私屏蔽防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrivacyPolicyRules(listPrivacyPolicyRulesRequest?: ListPrivacyPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/privacy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listPrivacyPolicyRulesRequest !== null && listPrivacyPolicyRulesRequest !== undefined) {
+                if (listPrivacyPolicyRulesRequest instanceof ListPrivacyPolicyRulesRequest) {
+                    projectid = listPrivacyPolicyRulesRequest.projectid;
+                    policyids = listPrivacyPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listPrivacyPolicyRulesRequest.enterpriseProjectId;
+                    page = listPrivacyPolicyRulesRequest.page;
+                    pagesize = listPrivacyPolicyRulesRequest.pagesize;
+                    contentType = listPrivacyPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listPrivacyPolicyRulesRequest['projectid'];
+                    policyids = listPrivacyPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listPrivacyPolicyRulesRequest['enterprise_project_id'];
+                    page = listPrivacyPolicyRulesRequest['page'];
+                    pagesize = listPrivacyPolicyRulesRequest['pagesize'];
+                    contentType = listPrivacyPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listPrivacyPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9933,6 +11424,79 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有策略黑白名单防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWhiteblackipPolicyRules(listWhiteblackipPolicyRulesRequest?: ListWhiteblackipPolicyRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{projectid}/waf/rule/whiteblackip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let policyids;
+            
+            let enterpriseProjectId;
+            
+            let page;
+            
+            let pagesize;
+            
+            let contentType;
+
+            if (listWhiteblackipPolicyRulesRequest !== null && listWhiteblackipPolicyRulesRequest !== undefined) {
+                if (listWhiteblackipPolicyRulesRequest instanceof ListWhiteblackipPolicyRulesRequest) {
+                    projectid = listWhiteblackipPolicyRulesRequest.projectid;
+                    policyids = listWhiteblackipPolicyRulesRequest.policyids;
+                    enterpriseProjectId = listWhiteblackipPolicyRulesRequest.enterpriseProjectId;
+                    page = listWhiteblackipPolicyRulesRequest.page;
+                    pagesize = listWhiteblackipPolicyRulesRequest.pagesize;
+                    contentType = listWhiteblackipPolicyRulesRequest.contentType;
+                } else {
+                    projectid = listWhiteblackipPolicyRulesRequest['projectid'];
+                    policyids = listWhiteblackipPolicyRulesRequest['policyids'];
+                    enterpriseProjectId = listWhiteblackipPolicyRulesRequest['enterprise_project_id'];
+                    page = listWhiteblackipPolicyRulesRequest['page'];
+                    pagesize = listWhiteblackipPolicyRulesRequest['pagesize'];
+                    contentType = listWhiteblackipPolicyRulesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling listWhiteblackipPolicyRules.');
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11866,6 +13430,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * **参数解释：**
+         * 更新BotM行为检测规则的防护策略
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBotMRuleDefenseStrategy(updateBotMRuleDefenseStrategyRequest?: UpdateBotMRuleDefenseStrategyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/bot-manager/rule/defense-strategy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let contentType;
+
+            if (updateBotMRuleDefenseStrategyRequest !== null && updateBotMRuleDefenseStrategyRequest !== undefined) {
+                if (updateBotMRuleDefenseStrategyRequest instanceof UpdateBotMRuleDefenseStrategyRequest) {
+                    policyId = updateBotMRuleDefenseStrategyRequest.policyId;
+                    contentType = updateBotMRuleDefenseStrategyRequest.contentType;
+                    body = updateBotMRuleDefenseStrategyRequest.body
+                } else {
+                    policyId = updateBotMRuleDefenseStrategyRequest['policy_id'];
+                    contentType = updateBotMRuleDefenseStrategyRequest['Content-Type'];
+                    body = updateBotMRuleDefenseStrategyRequest['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateBotMRuleDefenseStrategy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新cc防护规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12190,7 +13814,7 @@ export const ParamCreater = function () {
         updateHostAccessStatusOfUnderline(updateHostAccessStatusOfUnderlineRequest?: UpdateHostAccessStatusOfUnderlineRequest) {
             const options = {
                 method: "PUT",
-                url: "/v1/{project_id}/waf/instance/{instance_id}/access_status",
+                url: "/v1/{project_id}/waf/instance/{instance_id}/access-status",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -12357,6 +13981,66 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * **参数解释：**
+         * 更新云模式域名路由信息
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceRoute(updateInstanceRouteRequest?: UpdateInstanceRouteRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/waf/instance/{instance_id}/route",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let instanceId;
+
+            if (updateInstanceRouteRequest !== null && updateInstanceRouteRequest !== undefined) {
+                if (updateInstanceRouteRequest instanceof UpdateInstanceRouteRequest) {
+                    contentType = updateInstanceRouteRequest.contentType;
+                    instanceId = updateInstanceRouteRequest.instanceId;
+                    body = updateInstanceRouteRequest.body
+                } else {
+                    contentType = updateInstanceRouteRequest['Content-Type'];
+                    instanceId = updateInstanceRouteRequest['instance_id'];
+                    body = updateInstanceRouteRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceRoute.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12822,7 +14506,7 @@ export const ParamCreater = function () {
         updatePremiumHostAccessStatus(updatePremiumHostAccessStatusRequest?: UpdatePremiumHostAccessStatusRequest) {
             const options = {
                 method: "PUT",
-                url: "/v1/{project_id}/premium-waf/host/{host_id}/access_status",
+                url: "/v1/{project_id}/premium-waf/host/{host_id}/access-status",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -13221,6 +14905,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 快速接入，直接去修改用户的DNS记录，使域名快速接入WAF
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createQuickAccessDomain(createQuickAccessDomainRequest?: CreateQuickAccessDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{projectid}/waf/dns-domain/{instanceid}/access",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectid;
+            
+            let instanceid;
+            
+            let enterpriseProjectId;
+            
+            let contentType;
+
+            if (createQuickAccessDomainRequest !== null && createQuickAccessDomainRequest !== undefined) {
+                if (createQuickAccessDomainRequest instanceof CreateQuickAccessDomainRequest) {
+                    projectid = createQuickAccessDomainRequest.projectid;
+                    instanceid = createQuickAccessDomainRequest.instanceid;
+                    enterpriseProjectId = createQuickAccessDomainRequest.enterpriseProjectId;
+                    contentType = createQuickAccessDomainRequest.contentType;
+                } else {
+                    projectid = createQuickAccessDomainRequest['projectid'];
+                    instanceid = createQuickAccessDomainRequest['instanceid'];
+                    enterpriseProjectId = createQuickAccessDomainRequest['enterprise_project_id'];
+                    contentType = createQuickAccessDomainRequest['Content-Type'];
+                }
+            }
+
+        
+            if (projectid === null || projectid === undefined) {
+            throw new RequiredError('projectid','Required parameter projectid was null or undefined when calling createQuickAccessDomain.');
+            }
+            if (instanceid === null || instanceid === undefined) {
+            throw new RequiredError('instanceid','Required parameter instanceid was null or undefined when calling createQuickAccessDomain.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'projectid': projectid,'instanceid': instanceid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建安全报告订阅
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13583,6 +15326,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'subscription_id': subscriptionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * **参数解释：**
+         * 根据Id查询Web防护规则
+         * **约束限制：**
+         * 不涉及
+         * **取值范围：**
+         * 不涉及
+         * **默认取值：**
+         * 不涉及
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWebProtectionRule(showWebProtectionRuleRequest?: ShowWebProtectionRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/web-protection-rules/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ruleId;
+            
+            let xLanguage;
+
+            if (showWebProtectionRuleRequest !== null && showWebProtectionRuleRequest !== undefined) {
+                if (showWebProtectionRuleRequest instanceof ShowWebProtectionRuleRequest) {
+                    ruleId = showWebProtectionRuleRequest.ruleId;
+                    xLanguage = showWebProtectionRuleRequest.xLanguage;
+                } else {
+                    ruleId = showWebProtectionRuleRequest['rule_id'];
+                    xLanguage = showWebProtectionRuleRequest['X-Language'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showWebProtectionRule.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'rule_id': ruleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

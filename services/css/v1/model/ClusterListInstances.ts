@@ -11,6 +11,7 @@ export class ClusterListInstances {
     public ip?: string;
     public volume?: ClusterVolumeRsp;
     public resourceId?: string;
+    public subnetId?: string;
     public constructor() { 
     }
     public withStatus(status: string): ClusterListInstances {
@@ -47,6 +48,10 @@ export class ClusterListInstances {
     }
     public withResourceId(resourceId: string): ClusterListInstances {
         this['resourceId'] = resourceId;
+        return this;
+    }
+    public withSubnetId(subnetId: string): ClusterListInstances {
+        this['subnetId'] = subnetId;
         return this;
     }
 }

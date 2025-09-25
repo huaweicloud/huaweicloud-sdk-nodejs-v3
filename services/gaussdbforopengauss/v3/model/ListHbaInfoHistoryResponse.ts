@@ -3,20 +3,20 @@ import { HbaHistoryResult } from './HbaHistoryResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListHbaInfoHistoryResponse extends SdkResponse {
-    private 'hba_confs'?: Array<HbaHistoryResult>;
+    private 'hba_histories'?: Array<HbaHistoryResult>;
     private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withHbaConfs(hbaConfs: Array<HbaHistoryResult>): ListHbaInfoHistoryResponse {
-        this['hba_confs'] = hbaConfs;
+    public withHbaHistories(hbaHistories: Array<HbaHistoryResult>): ListHbaInfoHistoryResponse {
+        this['hba_histories'] = hbaHistories;
         return this;
     }
-    public set hbaConfs(hbaConfs: Array<HbaHistoryResult>  | undefined) {
-        this['hba_confs'] = hbaConfs;
+    public set hbaHistories(hbaHistories: Array<HbaHistoryResult>  | undefined) {
+        this['hba_histories'] = hbaHistories;
     }
-    public get hbaConfs(): Array<HbaHistoryResult> | undefined {
-        return this['hba_confs'];
+    public get hbaHistories(): Array<HbaHistoryResult> | undefined {
+        return this['hba_histories'];
     }
     public withTotalCount(totalCount: number): ListHbaInfoHistoryResponse {
         this['total_count'] = totalCount;

@@ -9,6 +9,7 @@ export class OrganizationPolicyUpdate {
     private 'policy_enabled'?: boolean;
     private 'policy_operation_definition'?: PolicyoODCreate;
     private 'policy_trigger'?: PolicyTriggerReq;
+    private 'effective_scope'?: string;
     public constructor() { 
     }
     public withName(name: string): OrganizationPolicyUpdate {
@@ -58,5 +59,15 @@ export class OrganizationPolicyUpdate {
     }
     public get policyTrigger(): PolicyTriggerReq | undefined {
         return this['policy_trigger'];
+    }
+    public withEffectiveScope(effectiveScope: string): OrganizationPolicyUpdate {
+        this['effective_scope'] = effectiveScope;
+        return this;
+    }
+    public set effectiveScope(effectiveScope: string  | undefined) {
+        this['effective_scope'] = effectiveScope;
+    }
+    public get effectiveScope(): string | undefined {
+        return this['effective_scope'];
     }
 }

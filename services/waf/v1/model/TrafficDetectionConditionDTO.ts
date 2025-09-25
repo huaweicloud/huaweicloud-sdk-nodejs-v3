@@ -6,7 +6,7 @@ export class TrafficDetectionConditionDTO {
     private 'match_field_index'?: string;
     private 'logical_operator'?: string;
     private 'match_contents'?: Array<string>;
-    private 'value_list_ref'?: string;
+    private 'value_list_res'?: string;
     public constructor() { 
     }
     public withId(id: string): TrafficDetectionConditionDTO {
@@ -53,14 +53,14 @@ export class TrafficDetectionConditionDTO {
     public get matchContents(): Array<string> | undefined {
         return this['match_contents'];
     }
-    public withValueListRef(valueListRef: string): TrafficDetectionConditionDTO {
-        this['value_list_ref'] = valueListRef;
+    public withValueListRes(valueListRes: string): TrafficDetectionConditionDTO {
+        this['value_list_res'] = valueListRes;
         return this;
     }
-    public set valueListRef(valueListRef: string  | undefined) {
-        this['value_list_ref'] = valueListRef;
+    public set valueListRes(valueListRes: string  | undefined) {
+        this['value_list_res'] = valueListRes;
     }
-    public get valueListRef(): string | undefined {
-        return this['value_list_ref'];
+    public get valueListRes(): string | undefined {
+        return this['value_list_res'];
     }
 }

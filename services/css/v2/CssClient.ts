@@ -20,6 +20,13 @@ import { CreateClusterResp } from './model/CreateClusterResp';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
 import { CreateClusterRolesBody } from './model/CreateClusterRolesBody';
 import { CreateClusterTagsBody } from './model/CreateClusterTagsBody';
+import { DeleteConfReqNew } from './model/DeleteConfReqNew';
+import { DeleteLogstashConfRequest } from './model/DeleteLogstashConfRequest';
+import { DeleteLogstashConfResponse } from './model/DeleteLogstashConfResponse';
+import { DeleteLogstashTemplateRequest } from './model/DeleteLogstashTemplateRequest';
+import { DeleteLogstashTemplateResponse } from './model/DeleteLogstashTemplateResponse';
+import { DeleteTemplateReqNew } from './model/DeleteTemplateReqNew';
+import { DiskEncryptionInfo } from './model/DiskEncryptionInfo';
 import { PayInfoBody } from './model/PayInfoBody';
 import { RestartClusterReq } from './model/RestartClusterReq';
 import { RestartClusterRequest } from './model/RestartClusterRequest';
@@ -142,6 +149,45 @@ export class CssClient {
      */
     public stopAutoCreateSnapshots(stopAutoCreateSnapshotsRequest?: StopAutoCreateSnapshotsRequest): Promise<StopAutoCreateSnapshotsResponse> {
         const options = ParamCreater().stopAutoCreateSnapshots(stopAutoCreateSnapshotsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除配置文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除配置文件
+     * @param {string} clusterId 指定删除配置文件的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。
+     * @param {DeleteConfReqNew} deleteConfReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLogstashConf(deleteLogstashConfRequest?: DeleteLogstashConfRequest): Promise<DeleteLogstashConfResponse> {
+        const options = ParamCreater().deleteLogstashConf(deleteLogstashConfRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * This interface is used to delete custom templates.
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Delete Custom Template
+     * @param {DeleteTemplateReqNew} deleteTemplateReqNew 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLogstashTemplate(deleteLogstashTemplateRequest?: DeleteLogstashTemplateRequest): Promise<DeleteLogstashTemplateResponse> {
+        const options = ParamCreater().deleteLogstashTemplate(deleteLogstashTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -364,6 +410,90 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除配置文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLogstashConf(deleteLogstashConfRequest?: DeleteLogstashConfRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/clusters/{cluster_id}/lgsconf/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (deleteLogstashConfRequest !== null && deleteLogstashConfRequest !== undefined) {
+                if (deleteLogstashConfRequest instanceof DeleteLogstashConfRequest) {
+                    clusterId = deleteLogstashConfRequest.clusterId;
+                    body = deleteLogstashConfRequest.body
+                } else {
+                    clusterId = deleteLogstashConfRequest['cluster_id'];
+                    body = deleteLogstashConfRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteLogstashConf.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * This interface is used to delete custom templates.
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLogstashTemplate(deleteLogstashTemplateRequest?: DeleteLogstashTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/lgsconf/deletetemplate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteLogstashTemplateRequest !== null && deleteLogstashTemplateRequest !== undefined) {
+                if (deleteLogstashTemplateRequest instanceof DeleteLogstashTemplateRequest) {
+                    body = deleteLogstashTemplateRequest.body
+                } else {
+                    body = deleteLogstashTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

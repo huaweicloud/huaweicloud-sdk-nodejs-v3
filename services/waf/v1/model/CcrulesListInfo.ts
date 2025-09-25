@@ -4,6 +4,8 @@ import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
 
 
 export class CcrulesListInfo {
+    public policyname?: string;
+    public priority?: number;
     public name?: string;
     public id?: string;
     public policyid?: string;
@@ -29,6 +31,14 @@ export class CcrulesListInfo {
     public producer?: number;
     public timestamp?: number;
     public constructor() { 
+    }
+    public withPolicyname(policyname: string): CcrulesListInfo {
+        this['policyname'] = policyname;
+        return this;
+    }
+    public withPriority(priority: number): CcrulesListInfo {
+        this['priority'] = priority;
+        return this;
     }
     public withName(name: string): CcrulesListInfo {
         this['name'] = name;

@@ -2,25 +2,10 @@ import { SetWtpProtectionStatusRequestInfo } from './SetWtpProtectionStatusReque
 
 
 export class SetWtpProtectionStatusInfoRequest {
-    private 'Content-Type'?: string;
-    public region?: string;
     private 'enterprise_project_id'?: string;
+    public region?: string;
     public body?: SetWtpProtectionStatusRequestInfo;
     public constructor() { 
-    }
-    public withContentType(contentType: string): SetWtpProtectionStatusInfoRequest {
-        this['Content-Type'] = contentType;
-        return this;
-    }
-    public set contentType(contentType: string  | undefined) {
-        this['Content-Type'] = contentType;
-    }
-    public get contentType(): string | undefined {
-        return this['Content-Type'];
-    }
-    public withRegion(region: string): SetWtpProtectionStatusInfoRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): SetWtpProtectionStatusInfoRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -31,6 +16,10 @@ export class SetWtpProtectionStatusInfoRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withRegion(region: string): SetWtpProtectionStatusInfoRequest {
+        this['region'] = region;
+        return this;
     }
     public withBody(body: SetWtpProtectionStatusRequestInfo): SetWtpProtectionStatusInfoRequest {
         this['body'] = body;

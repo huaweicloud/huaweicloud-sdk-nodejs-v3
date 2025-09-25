@@ -4,6 +4,7 @@ export class UpdateEsElbRequestBody {
     public enable?: boolean;
     public agency?: string;
     private 'elb_id'?: string;
+    public type?: string;
     public constructor(enable?: boolean) { 
         this['enable'] = enable;
     }
@@ -24,5 +25,9 @@ export class UpdateEsElbRequestBody {
     }
     public get elbId(): string | undefined {
         return this['elb_id'];
+    }
+    public withType(type: string): UpdateEsElbRequestBody {
+        this['type'] = type;
+        return this;
     }
 }

@@ -4,6 +4,7 @@ export class ChangeAntivirusPolicyRequestInfo {
     private 'policy_id'?: string;
     private 'policy_name'?: string;
     private 'start_type'?: string;
+    private 'scan_type'?: string;
     private 'scan_period'?: string;
     private 'scan_period_date'?: number;
     private 'scan_time'?: number;
@@ -54,6 +55,16 @@ export class ChangeAntivirusPolicyRequestInfo {
     }
     public get startType(): string | undefined {
         return this['start_type'];
+    }
+    public withScanType(scanType: string): ChangeAntivirusPolicyRequestInfo {
+        this['scan_type'] = scanType;
+        return this;
+    }
+    public set scanType(scanType: string  | undefined) {
+        this['scan_type'] = scanType;
+    }
+    public get scanType(): string | undefined {
+        return this['scan_type'];
     }
     public withScanPeriod(scanPeriod: string): ChangeAntivirusPolicyRequestInfo {
         this['scan_period'] = scanPeriod;

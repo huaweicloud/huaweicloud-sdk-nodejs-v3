@@ -1,4 +1,3 @@
-import { ListPrivilegedProcessResponseInfo } from './ListPrivilegedProcessResponseInfo';
 import { ListTimingOffConfigInfoResponseInfo } from './ListTimingOffConfigInfoResponseInfo';
 import { WtpProtectDirResponseInfo } from './WtpProtectDirResponseInfo';
 
@@ -14,7 +13,6 @@ export class ShowWebTamperHostPolicyResponse extends SdkResponse {
     private 'enable_privileged_process'?: boolean;
     private 'privileged_child_status'?: boolean;
     private 'privileged_process_path_list'?: Array<string>;
-    private 'privileged_process_info'?: ListPrivilegedProcessResponseInfo;
     public constructor() { 
         super();
     }
@@ -107,15 +105,5 @@ export class ShowWebTamperHostPolicyResponse extends SdkResponse {
     }
     public get privilegedProcessPathList(): Array<string> | undefined {
         return this['privileged_process_path_list'];
-    }
-    public withPrivilegedProcessInfo(privilegedProcessInfo: ListPrivilegedProcessResponseInfo): ShowWebTamperHostPolicyResponse {
-        this['privileged_process_info'] = privilegedProcessInfo;
-        return this;
-    }
-    public set privilegedProcessInfo(privilegedProcessInfo: ListPrivilegedProcessResponseInfo  | undefined) {
-        this['privileged_process_info'] = privilegedProcessInfo;
-    }
-    public get privilegedProcessInfo(): ListPrivilegedProcessResponseInfo | undefined {
-        return this['privileged_process_info'];
     }
 }

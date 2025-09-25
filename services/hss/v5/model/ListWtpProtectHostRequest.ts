@@ -1,24 +1,22 @@
 
 
 export class ListWtpProtectHostRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
+    public region?: string;
     private 'host_name'?: string;
     private 'host_id'?: string;
     private 'public_ip'?: string;
     private 'private_ip'?: string;
     private 'group_name'?: string;
     private 'os_type'?: string;
+    private 'asset_value'?: string;
+    public offset?: number;
+    public limit?: number;
     private 'protect_status'?: string;
     private 'wtp_status'?: string;
     private 'agent_status'?: string;
-    public limit?: number;
-    public offset?: number;
+    private 'rasp_status'?: string;
     public constructor() { 
-    }
-    public withRegion(region: string): ListWtpProtectHostRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListWtpProtectHostRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -29,6 +27,10 @@ export class ListWtpProtectHostRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withRegion(region: string): ListWtpProtectHostRequest {
+        this['region'] = region;
+        return this;
     }
     public withHostName(hostName: string): ListWtpProtectHostRequest {
         this['host_name'] = hostName;
@@ -90,6 +92,24 @@ export class ListWtpProtectHostRequest {
     public get osType(): string | undefined {
         return this['os_type'];
     }
+    public withAssetValue(assetValue: string): ListWtpProtectHostRequest {
+        this['asset_value'] = assetValue;
+        return this;
+    }
+    public set assetValue(assetValue: string  | undefined) {
+        this['asset_value'] = assetValue;
+    }
+    public get assetValue(): string | undefined {
+        return this['asset_value'];
+    }
+    public withOffset(offset: number): ListWtpProtectHostRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListWtpProtectHostRequest {
+        this['limit'] = limit;
+        return this;
+    }
     public withProtectStatus(protectStatus: string): ListWtpProtectHostRequest {
         this['protect_status'] = protectStatus;
         return this;
@@ -120,12 +140,14 @@ export class ListWtpProtectHostRequest {
     public get agentStatus(): string | undefined {
         return this['agent_status'];
     }
-    public withLimit(limit: number): ListWtpProtectHostRequest {
-        this['limit'] = limit;
+    public withRaspStatus(raspStatus: string): ListWtpProtectHostRequest {
+        this['rasp_status'] = raspStatus;
         return this;
     }
-    public withOffset(offset: number): ListWtpProtectHostRequest {
-        this['offset'] = offset;
-        return this;
+    public set raspStatus(raspStatus: string  | undefined) {
+        this['rasp_status'] = raspStatus;
+    }
+    public get raspStatus(): string | undefined {
+        return this['rasp_status'];
     }
 }

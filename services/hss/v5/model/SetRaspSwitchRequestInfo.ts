@@ -3,7 +3,9 @@
 export class SetRaspSwitchRequestInfo {
     private 'host_id_list'?: Array<string>;
     public status?: boolean;
-    public constructor() { 
+    public constructor(hostIdList?: Array<string>, status?: boolean) { 
+        this['host_id_list'] = hostIdList;
+        this['status'] = status;
     }
     public withHostIdList(hostIdList: Array<string>): SetRaspSwitchRequestInfo {
         this['host_id_list'] = hostIdList;

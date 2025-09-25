@@ -4,6 +4,7 @@ import { AudioTrack } from './AudioTrack';
 import { AvParameters } from './AvParameters';
 import { Crop } from './Crop';
 import { Encryption } from './Encryption';
+import { FileMetaData } from './FileMetaData';
 import { MultiAudio } from './MultiAudio';
 import { ObsObjInfo } from './ObsObjInfo';
 import { Subtitle } from './Subtitle';
@@ -30,6 +31,7 @@ export class CreateTranscodingReq {
     private 'multi_audio'?: MultiAudio;
     private 'video_process'?: VideoProcess;
     private 'audio_process'?: AudioProcess;
+    public metadata?: Array<FileMetaData>;
     public constructor(output?: ObsObjInfo) { 
         this['output'] = output;
     }
@@ -154,5 +156,9 @@ export class CreateTranscodingReq {
     }
     public get audioProcess(): AudioProcess | undefined {
         return this['audio_process'];
+    }
+    public withMetadata(metadata: Array<FileMetaData>): CreateTranscodingReq {
+        this['metadata'] = metadata;
+        return this;
     }
 }

@@ -6,8 +6,8 @@ import { WebTamperTimingOffConfigInfoRequestInfo } from './WebTamperTimingOffCon
 
 export class BatchStartWebTamperProtectionRequestInfo {
     private 'host_id_list'?: Array<string>;
-    private 'resource_id'?: string;
     private 'charging_mode'?: string;
+    private 'resource_id'?: string;
     public tags?: Array<TagInfo>;
     private 'protect_dir_info'?: WebTamperProtectDirRequestInfo;
     private 'enable_timing_off'?: boolean;
@@ -16,8 +16,9 @@ export class BatchStartWebTamperProtectionRequestInfo {
     private 'rasp_path'?: string;
     private 'enable_privileged_process'?: boolean;
     private 'privileged_process_info'?: WebTamperPrivilegedProcessRequestInfo;
-    public constructor(hostIdList?: Array<string>) { 
+    public constructor(hostIdList?: Array<string>, protectDirInfo?: WebTamperProtectDirRequestInfo) { 
         this['host_id_list'] = hostIdList;
+        this['protect_dir_info'] = protectDirInfo;
     }
     public withHostIdList(hostIdList: Array<string>): BatchStartWebTamperProtectionRequestInfo {
         this['host_id_list'] = hostIdList;
@@ -29,16 +30,6 @@ export class BatchStartWebTamperProtectionRequestInfo {
     public get hostIdList(): Array<string> | undefined {
         return this['host_id_list'];
     }
-    public withResourceId(resourceId: string): BatchStartWebTamperProtectionRequestInfo {
-        this['resource_id'] = resourceId;
-        return this;
-    }
-    public set resourceId(resourceId: string  | undefined) {
-        this['resource_id'] = resourceId;
-    }
-    public get resourceId(): string | undefined {
-        return this['resource_id'];
-    }
     public withChargingMode(chargingMode: string): BatchStartWebTamperProtectionRequestInfo {
         this['charging_mode'] = chargingMode;
         return this;
@@ -48,6 +39,16 @@ export class BatchStartWebTamperProtectionRequestInfo {
     }
     public get chargingMode(): string | undefined {
         return this['charging_mode'];
+    }
+    public withResourceId(resourceId: string): BatchStartWebTamperProtectionRequestInfo {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
     }
     public withTags(tags: Array<TagInfo>): BatchStartWebTamperProtectionRequestInfo {
         this['tags'] = tags;

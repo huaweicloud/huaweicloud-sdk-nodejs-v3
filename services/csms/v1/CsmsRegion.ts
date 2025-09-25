@@ -35,6 +35,7 @@ export class CsmsRegion {
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://kms.cn-north-11.myhuaweicloud.com"]);
     public static AF_NORTH_1 = new Region("af-north-1", ["https://kms.af-north-1.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://kms.cn-southwest-3.myhuaweicloud.com"]);
+    public static AF_SOUTH_1 = new Region("af-south-1", ["https://kms.af-south-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -66,7 +67,8 @@ export class CsmsRegion {
         "cn-north-12":CsmsRegion.CN_NORTH_12,
         "cn-north-11":CsmsRegion.CN_NORTH_11,
         "af-north-1":CsmsRegion.AF_NORTH_1,
-        "cn-southwest-3":CsmsRegion.CN_SOUTHWEST_3
+        "cn-southwest-3":CsmsRegion.CN_SOUTHWEST_3,
+        "af-south-1":CsmsRegion.AF_SOUTH_1
     };
   
     public static valueOf(regionId: string) {

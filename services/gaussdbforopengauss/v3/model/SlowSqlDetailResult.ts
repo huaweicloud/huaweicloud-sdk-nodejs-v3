@@ -1,6 +1,9 @@
 
 
 export class SlowSqlDetailResult {
+    private 'db_name'?: string;
+    private 'schema_name'?: string;
+    public sql?: string;
     private 'sql_id'?: string;
     private 'user_name'?: string;
     private 'client_ip'?: string;
@@ -22,6 +25,30 @@ export class SlowSqlDetailResult {
     private 'lock_count'?: number;
     private 'lock_time'?: number;
     public constructor() { 
+    }
+    public withDbName(dbName: string): SlowSqlDetailResult {
+        this['db_name'] = dbName;
+        return this;
+    }
+    public set dbName(dbName: string  | undefined) {
+        this['db_name'] = dbName;
+    }
+    public get dbName(): string | undefined {
+        return this['db_name'];
+    }
+    public withSchemaName(schemaName: string): SlowSqlDetailResult {
+        this['schema_name'] = schemaName;
+        return this;
+    }
+    public set schemaName(schemaName: string  | undefined) {
+        this['schema_name'] = schemaName;
+    }
+    public get schemaName(): string | undefined {
+        return this['schema_name'];
+    }
+    public withSql(sql: string): SlowSqlDetailResult {
+        this['sql'] = sql;
+        return this;
     }
     public withSqlId(sqlId: string): SlowSqlDetailResult {
         this['sql_id'] = sqlId;

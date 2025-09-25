@@ -1,15 +1,26 @@
 
 
 export class HostProtectHistoryResponseInfo {
+    private 'host_name'?: string;
     private 'occr_time'?: number;
+    private 'occur_time'?: number;
     private 'file_path'?: string;
     private 'file_operation'?: string;
-    private 'host_name'?: string;
     private 'host_ip'?: string;
-    private 'process_id'?: string;
+    private 'process_id'?: number;
     private 'process_name'?: string;
     private 'process_cmd'?: string;
     public constructor() { 
+    }
+    public withHostName(hostName: string): HostProtectHistoryResponseInfo {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
     }
     public withOccrTime(occrTime: number): HostProtectHistoryResponseInfo {
         this['occr_time'] = occrTime;
@@ -20,6 +31,16 @@ export class HostProtectHistoryResponseInfo {
     }
     public get occrTime(): number | undefined {
         return this['occr_time'];
+    }
+    public withOccurTime(occurTime: number): HostProtectHistoryResponseInfo {
+        this['occur_time'] = occurTime;
+        return this;
+    }
+    public set occurTime(occurTime: number  | undefined) {
+        this['occur_time'] = occurTime;
+    }
+    public get occurTime(): number | undefined {
+        return this['occur_time'];
     }
     public withFilePath(filePath: string): HostProtectHistoryResponseInfo {
         this['file_path'] = filePath;
@@ -41,16 +62,6 @@ export class HostProtectHistoryResponseInfo {
     public get fileOperation(): string | undefined {
         return this['file_operation'];
     }
-    public withHostName(hostName: string): HostProtectHistoryResponseInfo {
-        this['host_name'] = hostName;
-        return this;
-    }
-    public set hostName(hostName: string  | undefined) {
-        this['host_name'] = hostName;
-    }
-    public get hostName(): string | undefined {
-        return this['host_name'];
-    }
     public withHostIp(hostIp: string): HostProtectHistoryResponseInfo {
         this['host_ip'] = hostIp;
         return this;
@@ -61,14 +72,14 @@ export class HostProtectHistoryResponseInfo {
     public get hostIp(): string | undefined {
         return this['host_ip'];
     }
-    public withProcessId(processId: string): HostProtectHistoryResponseInfo {
+    public withProcessId(processId: number): HostProtectHistoryResponseInfo {
         this['process_id'] = processId;
         return this;
     }
-    public set processId(processId: string  | undefined) {
+    public set processId(processId: number  | undefined) {
         this['process_id'] = processId;
     }
-    public get processId(): string | undefined {
+    public get processId(): number | undefined {
         return this['process_id'];
     }
     public withProcessName(processName: string): HostProtectHistoryResponseInfo {

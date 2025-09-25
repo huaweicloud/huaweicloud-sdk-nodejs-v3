@@ -40,6 +40,7 @@ import { AllowIpRangesOptionIPv6 } from './model/AllowIpRangesOptionIPv6';
 import { AllowIpRangesResult } from './model/AllowIpRangesResult';
 import { AllowIpRangesResultIPv6 } from './model/AllowIpRangesResultIPv6';
 import { AllowUserBody } from './model/AllowUserBody';
+import { AllowVpcEndpointsResult } from './model/AllowVpcEndpointsResult';
 import { AssociateAgencyWithAllProjectsPermissionRequest } from './model/AssociateAgencyWithAllProjectsPermissionRequest';
 import { AssociateAgencyWithAllProjectsPermissionResponse } from './model/AssociateAgencyWithAllProjectsPermissionResponse';
 import { AssociateAgencyWithDomainPermissionRequest } from './model/AssociateAgencyWithDomainPermissionRequest';

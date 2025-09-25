@@ -49,8 +49,6 @@ export * from './model/DeleteQueueInfoRequest';
 export * from './model/DeleteQueueInfoResponse';
 export * from './model/DeleteUserRequest';
 export * from './model/DeleteUserResponse';
-export * from './model/EnableDnsRequest';
-export * from './model/EnableDnsResponse';
 export * from './model/ExchangeDetails';
 export * from './model/ListAvailableZonesRequest';
 export * from './model/ListAvailableZonesRespAvailableZones';

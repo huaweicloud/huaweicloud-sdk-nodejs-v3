@@ -16,9 +16,11 @@ export class ExportWebTamperHostRequestInfo {
     private 'wtp_status'?: string;
     public offset?: number;
     public limit?: number;
-    private 'export_size'?: number;
     private 'export_headers'?: Array<Array<string>>;
-    public constructor() { 
+    private 'export_size'?: number;
+    public constructor(exportHeaders?: Array<Array<string>>, exportSize?: number) { 
+        this['export_headers'] = exportHeaders;
+        this['export_size'] = exportSize;
     }
     public withHostId(hostId: string): ExportWebTamperHostRequestInfo {
         this['host_id'] = hostId;
@@ -158,16 +160,6 @@ export class ExportWebTamperHostRequestInfo {
         this['limit'] = limit;
         return this;
     }
-    public withExportSize(exportSize: number): ExportWebTamperHostRequestInfo {
-        this['export_size'] = exportSize;
-        return this;
-    }
-    public set exportSize(exportSize: number  | undefined) {
-        this['export_size'] = exportSize;
-    }
-    public get exportSize(): number | undefined {
-        return this['export_size'];
-    }
     public withExportHeaders(exportHeaders: Array<Array<string>>): ExportWebTamperHostRequestInfo {
         this['export_headers'] = exportHeaders;
         return this;
@@ -177,5 +169,15 @@ export class ExportWebTamperHostRequestInfo {
     }
     public get exportHeaders(): Array<Array<string>> | undefined {
         return this['export_headers'];
+    }
+    public withExportSize(exportSize: number): ExportWebTamperHostRequestInfo {
+        this['export_size'] = exportSize;
+        return this;
+    }
+    public set exportSize(exportSize: number  | undefined) {
+        this['export_size'] = exportSize;
+    }
+    public get exportSize(): number | undefined {
+        return this['export_size'];
     }
 }

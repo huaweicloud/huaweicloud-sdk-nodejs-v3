@@ -7,10 +7,11 @@ export class AppResponseInfo {
     private 'host_ip'?: string;
     private 'app_name'?: string;
     public version?: string;
-    private 'update_time'?: number;
-    private 'recent_scan_time'?: number;
+    private 'install_dir'?: string;
     private 'container_id'?: string;
     private 'container_name'?: string;
+    private 'recent_scan_time'?: number;
+    private 'update_time'?: number;
     public constructor() { 
     }
     public withAgentId(agentId: string): AppResponseInfo {
@@ -67,25 +68,15 @@ export class AppResponseInfo {
         this['version'] = version;
         return this;
     }
-    public withUpdateTime(updateTime: number): AppResponseInfo {
-        this['update_time'] = updateTime;
+    public withInstallDir(installDir: string): AppResponseInfo {
+        this['install_dir'] = installDir;
         return this;
     }
-    public set updateTime(updateTime: number  | undefined) {
-        this['update_time'] = updateTime;
+    public set installDir(installDir: string  | undefined) {
+        this['install_dir'] = installDir;
     }
-    public get updateTime(): number | undefined {
-        return this['update_time'];
-    }
-    public withRecentScanTime(recentScanTime: number): AppResponseInfo {
-        this['recent_scan_time'] = recentScanTime;
-        return this;
-    }
-    public set recentScanTime(recentScanTime: number  | undefined) {
-        this['recent_scan_time'] = recentScanTime;
-    }
-    public get recentScanTime(): number | undefined {
-        return this['recent_scan_time'];
+    public get installDir(): string | undefined {
+        return this['install_dir'];
     }
     public withContainerId(containerId: string): AppResponseInfo {
         this['container_id'] = containerId;
@@ -106,5 +97,25 @@ export class AppResponseInfo {
     }
     public get containerName(): string | undefined {
         return this['container_name'];
+    }
+    public withRecentScanTime(recentScanTime: number): AppResponseInfo {
+        this['recent_scan_time'] = recentScanTime;
+        return this;
+    }
+    public set recentScanTime(recentScanTime: number  | undefined) {
+        this['recent_scan_time'] = recentScanTime;
+    }
+    public get recentScanTime(): number | undefined {
+        return this['recent_scan_time'];
+    }
+    public withUpdateTime(updateTime: number): AppResponseInfo {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
     }
 }

@@ -8,6 +8,7 @@ import { PublicKibanaRespBody } from './PublicKibanaRespBody';
 
 export class ClusterList {
     public datastore?: ClusterListDatastore;
+    public snapshotPolicy?: object;
     public instances?: Array<ClusterListInstances>;
     public publicKibanaResp?: PublicKibanaRespBody;
     public elbWhiteList?: ElbWhiteListResp;
@@ -34,10 +35,16 @@ export class ClusterList {
     public period?: boolean;
     public bandwidthResourceId?: string;
     public ipv6Endpoint?: string;
+    public cmkId?: string;
+    public currentSubnetIds?: string;
     public constructor() { 
     }
     public withDatastore(datastore: ClusterListDatastore): ClusterList {
         this['datastore'] = datastore;
+        return this;
+    }
+    public withSnapshotPolicy(snapshotPolicy: object): ClusterList {
+        this['snapshotPolicy'] = snapshotPolicy;
         return this;
     }
     public withInstances(instances: Array<ClusterListInstances>): ClusterList {
@@ -142,6 +149,14 @@ export class ClusterList {
     }
     public withIpv6Endpoint(ipv6Endpoint: string): ClusterList {
         this['ipv6Endpoint'] = ipv6Endpoint;
+        return this;
+    }
+    public withCmkId(cmkId: string): ClusterList {
+        this['cmkId'] = cmkId;
+        return this;
+    }
+    public withCurrentSubnetIds(currentSubnetIds: string): ClusterList {
+        this['currentSubnetIds'] = currentSubnetIds;
         return this;
     }
 }

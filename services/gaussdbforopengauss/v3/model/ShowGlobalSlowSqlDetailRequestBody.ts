@@ -7,8 +7,9 @@ export class ShowGlobalSlowSqlDetailRequestBody {
     private 'end_time'?: number;
     private 'sql_id'?: string;
     private 'component_type'?: ShowGlobalSlowSqlDetailRequestBodyComponentTypeEnum | string;
-    public constructor(instanceId?: string, startTime?: number, endTime?: number, sqlId?: string, componentType?: string) { 
+    public constructor(instanceId?: string, nodeIds?: Array<string>, startTime?: number, endTime?: number, sqlId?: string, componentType?: string) { 
         this['instance_id'] = instanceId;
+        this['node_ids'] = nodeIds;
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['sql_id'] = sqlId;

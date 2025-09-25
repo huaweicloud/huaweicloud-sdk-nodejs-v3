@@ -92,8 +92,6 @@ export * from './model/DescribeGroupsRespGroup';
 export * from './model/DescribeGroupsRespGroupMembers';
 export * from './model/DiskusageEntity';
 export * from './model/DiskusageTopicEntity';
-export * from './model/EnableDnsRequest';
-export * from './model/EnableDnsResponse';
 export * from './model/ExtendProductInfoEntity';
 export * from './model/ExtendProductIosEntity';
 export * from './model/ExtendProductPropertiesEntity';

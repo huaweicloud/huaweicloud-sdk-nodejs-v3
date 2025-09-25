@@ -5,7 +5,9 @@ export class RouteBody {
     public cname?: string;
     public name?: string;
     public servers?: Array<RouteServerBody>;
-    public constructor() { 
+    public constructor(name?: string, servers?: Array<RouteServerBody>) { 
+        this['name'] = name;
+        this['servers'] = servers;
     }
     public withCname(cname: string): RouteBody {
         this['cname'] = cname;

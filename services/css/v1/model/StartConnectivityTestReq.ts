@@ -2,12 +2,18 @@ import { AddressAndPorts } from './AddressAndPorts';
 
 
 export class StartConnectivityTestReq {
-    public addressAndPorts?: Array<AddressAndPorts>;
+    private 'address_and_ports'?: Array<AddressAndPorts>;
     public constructor(addressAndPorts?: Array<AddressAndPorts>) { 
-        this['addressAndPorts'] = addressAndPorts;
+        this['address_and_ports'] = addressAndPorts;
     }
     public withAddressAndPorts(addressAndPorts: Array<AddressAndPorts>): StartConnectivityTestReq {
-        this['addressAndPorts'] = addressAndPorts;
+        this['address_and_ports'] = addressAndPorts;
         return this;
+    }
+    public set addressAndPorts(addressAndPorts: Array<AddressAndPorts>  | undefined) {
+        this['address_and_ports'] = addressAndPorts;
+    }
+    public get addressAndPorts(): Array<AddressAndPorts> | undefined {
+        return this['address_and_ports'];
     }
 }

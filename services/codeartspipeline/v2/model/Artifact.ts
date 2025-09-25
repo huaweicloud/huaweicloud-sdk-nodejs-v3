@@ -12,7 +12,7 @@ export class Artifact {
     private 'artifact_type'?: string;
     private 'hash_code'?: Array<ArtifactHashCode>;
     private 'job_id'?: string;
-    private 'build_no'?: number;
+    private 'build_no'?: string;
     private 'daily_build_number'?: string;
     private 'file_size'?: string;
     public constructor() { 
@@ -111,14 +111,14 @@ export class Artifact {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withBuildNo(buildNo: number): Artifact {
+    public withBuildNo(buildNo: string): Artifact {
         this['build_no'] = buildNo;
         return this;
     }
-    public set buildNo(buildNo: number  | undefined) {
+    public set buildNo(buildNo: string  | undefined) {
         this['build_no'] = buildNo;
     }
-    public get buildNo(): number | undefined {
+    public get buildNo(): string | undefined {
         return this['build_no'];
     }
     public withDailyBuildNumber(dailyBuildNumber: string): Artifact {

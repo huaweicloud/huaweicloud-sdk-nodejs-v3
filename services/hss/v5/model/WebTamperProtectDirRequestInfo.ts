@@ -4,9 +4,9 @@ import { WebTamperProtectHostDirRequestInfo } from './WebTamperProtectHostDirReq
 export class WebTamperProtectDirRequestInfo {
     private 'protect_dir_list'?: Array<WebTamperProtectHostDirRequestInfo>;
     private 'exclude_file_type'?: string;
-    private 'exclue_file_type'?: string;
     private 'protect_mode'?: string;
-    public constructor() { 
+    public constructor(protectDirList?: Array<WebTamperProtectHostDirRequestInfo>) { 
+        this['protect_dir_list'] = protectDirList;
     }
     public withProtectDirList(protectDirList: Array<WebTamperProtectHostDirRequestInfo>): WebTamperProtectDirRequestInfo {
         this['protect_dir_list'] = protectDirList;
@@ -27,16 +27,6 @@ export class WebTamperProtectDirRequestInfo {
     }
     public get excludeFileType(): string | undefined {
         return this['exclude_file_type'];
-    }
-    public withExclueFileType(exclueFileType: string): WebTamperProtectDirRequestInfo {
-        this['exclue_file_type'] = exclueFileType;
-        return this;
-    }
-    public set exclueFileType(exclueFileType: string  | undefined) {
-        this['exclue_file_type'] = exclueFileType;
-    }
-    public get exclueFileType(): string | undefined {
-        return this['exclue_file_type'];
     }
     public withProtectMode(protectMode: string): WebTamperProtectDirRequestInfo {
         this['protect_mode'] = protectMode;

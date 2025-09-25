@@ -26,6 +26,9 @@ import { ChangeSqlSwitchRequest } from './model/ChangeSqlSwitchRequest';
 import { ChangeSqlSwitchResponse } from './model/ChangeSqlSwitchResponse';
 import { ChangeTransactionSwitchStatusRequest } from './model/ChangeTransactionSwitchStatusRequest';
 import { ChangeTransactionSwitchStatusResponse } from './model/ChangeTransactionSwitchStatusResponse';
+import { CheckCredentialRequest } from './model/CheckCredentialRequest';
+import { CheckCredentialRequestBody } from './model/CheckCredentialRequestBody';
+import { CheckCredentialResponse } from './model/CheckCredentialResponse';
 import { CreateHealthReportReq } from './model/CreateHealthReportReq';
 import { CreateHealthReportTaskRequest } from './model/CreateHealthReportTaskRequest';
 import { CreateHealthReportTaskResponse } from './model/CreateHealthReportTaskResponse';
@@ -173,6 +176,9 @@ import { QuerySqlPlanBody } from './model/QuerySqlPlanBody';
 import { RegisterDbUserRequest } from './model/RegisterDbUserRequest';
 import { RegisterDbUserRequestBody } from './model/RegisterDbUserRequestBody';
 import { RegisterDbUserResponse } from './model/RegisterDbUserResponse';
+import { SaveCredentialRequest } from './model/SaveCredentialRequest';
+import { SaveCredentialRequestBody } from './model/SaveCredentialRequestBody';
+import { SaveCredentialResponse } from './model/SaveCredentialResponse';
 import { SetThresholdForMetricRequest } from './model/SetThresholdForMetricRequest';
 import { SetThresholdForMetricResponse } from './model/SetThresholdForMetricResponse';
 import { ShareConnUserInfo } from './model/ShareConnUserInfo';
@@ -184,6 +190,8 @@ import { ShowFullDeadLockListRequest } from './model/ShowFullDeadLockListRequest
 import { ShowFullDeadLockListResponse } from './model/ShowFullDeadLockListResponse';
 import { ShowFullDeadLockSwitchRequest } from './model/ShowFullDeadLockSwitchRequest';
 import { ShowFullDeadLockSwitchResponse } from './model/ShowFullDeadLockSwitchResponse';
+import { ShowHealthReportSettingsRequest } from './model/ShowHealthReportSettingsRequest';
+import { ShowHealthReportSettingsResponse } from './model/ShowHealthReportSettingsResponse';
 import { ShowInstanceHealthReportRequest } from './model/ShowInstanceHealthReportRequest';
 import { ShowInstanceHealthReportResponse } from './model/ShowInstanceHealthReportResponse';
 import { ShowLatestDeadLockSnapshotRequest } from './model/ShowLatestDeadLockSnapshotRequest';
@@ -226,6 +234,9 @@ import { TransactionSwitchReq } from './model/TransactionSwitchReq';
 import { UpdateDbUserRequest } from './model/UpdateDbUserRequest';
 import { UpdateDbUserRequestBody } from './model/UpdateDbUserRequestBody';
 import { UpdateDbUserResponse } from './model/UpdateDbUserResponse';
+import { UpdateHealthReportSettingsRequest } from './model/UpdateHealthReportSettingsRequest';
+import { UpdateHealthReportSettingsRequestBody } from './model/UpdateHealthReportSettingsRequestBody';
+import { UpdateHealthReportSettingsResponse } from './model/UpdateHealthReportSettingsResponse';
 import { UpdateSqlLimitRuleOption } from './model/UpdateSqlLimitRuleOption';
 import { UpdateSqlLimitRulesBody } from './model/UpdateSqlLimitRulesBody';
 import { UpdateSqlLimitRulesRequest } from './model/UpdateSqlLimitRulesRequest';
@@ -492,6 +503,26 @@ export class DasClient {
      */
     public changeTransactionSwitchStatus(changeTransactionSwitchStatusRequest?: ChangeTransactionSwitchStatusRequest): Promise<ChangeTransactionSwitchStatusResponse> {
         const options = ParamCreater().changeTransactionSwitchStatus(changeTransactionSwitchStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 测试AK/SK，测试用户AK/SK能否正常访问OBS桶。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 测试AK/SK
+     * @param {string} instanceId 实例ID。
+     * @param {CheckCredentialRequestBody} checkCredentialRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkCredential(checkCredentialRequest?: CheckCredentialRequest): Promise<CheckCredentialResponse> {
+        const options = ParamCreater().checkCredential(checkCredentialRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1199,6 +1230,8 @@ export class DasClient {
      * @summary 查询资源风险实例风险项
      * @param {string} datastoreType 数据库类型
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {number} [page] 页码，默认1
+     * @param {number} [limit] 每页记录数，默认20。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1405,6 +1438,26 @@ export class DasClient {
     }
 
     /**
+     * 保存AK/SK，用于后台任务访问OBS上传实例诊断报告
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 保存AK/SK
+     * @param {string} instanceId 实例ID。
+     * @param {SaveCredentialRequestBody} saveCredentialRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveCredential(saveCredentialRequest?: SaveCredentialRequest): Promise<SaveCredentialResponse> {
+        const options = ParamCreater().saveCredential(saveCredentialRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置指标阈值
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1483,6 +1536,25 @@ export class DasClient {
      */
     public showFullDeadLockSwitch(showFullDeadLockSwitchRequest?: ShowFullDeadLockSwitchRequest): Promise<ShowFullDeadLockSwitchResponse> {
         const options = ParamCreater().showFullDeadLockSwitch(showFullDeadLockSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看实例诊断报告设置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看实例诊断报告设置
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHealthReportSettings(showHealthReportSettingsRequest?: ShowHealthReportSettingsRequest): Promise<ShowHealthReportSettingsResponse> {
+        const options = ParamCreater().showHealthReportSettings(showHealthReportSettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1760,6 +1832,26 @@ export class DasClient {
      */
     public updateDbUser(updateDbUserRequest?: UpdateDbUserRequest): Promise<UpdateDbUserResponse> {
         const options = ParamCreater().updateDbUser(updateDbUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新实例诊断报告设置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新实例诊断报告设置
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateHealthReportSettingsRequestBody} updateHealthReportSettingsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHealthReportSettings(updateHealthReportSettingsRequest?: UpdateHealthReportSettingsRequest): Promise<UpdateHealthReportSettingsResponse> {
+        const options = ParamCreater().updateHealthReportSettings(updateHealthReportSettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2383,6 +2475,52 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 测试AK/SK，测试用户AK/SK能否正常访问OBS桶。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkCredential(checkCredentialRequest?: CheckCredentialRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/health-report/check-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (checkCredentialRequest !== null && checkCredentialRequest !== undefined) {
+                if (checkCredentialRequest instanceof CheckCredentialRequest) {
+                    instanceId = checkCredentialRequest.instanceId;
+                    body = checkCredentialRequest.body
+                } else {
+                    instanceId = checkCredentialRequest['instance_id'];
+                    body = checkCredentialRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkCredential.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -4602,14 +4740,22 @@ export const ParamCreater = function () {
             let datastoreType;
             
             let xLanguage;
+            
+            let page;
+            
+            let limit;
 
             if (listRiskItemsRequest !== null && listRiskItemsRequest !== undefined) {
                 if (listRiskItemsRequest instanceof ListRiskItemsRequest) {
                     datastoreType = listRiskItemsRequest.datastoreType;
                     xLanguage = listRiskItemsRequest.xLanguage;
+                    page = listRiskItemsRequest.page;
+                    limit = listRiskItemsRequest.limit;
                 } else {
                     datastoreType = listRiskItemsRequest['datastore_type'];
                     xLanguage = listRiskItemsRequest['X-Language'];
+                    page = listRiskItemsRequest['page'];
+                    limit = listRiskItemsRequest['limit'];
                 }
             }
 
@@ -4619,6 +4765,12 @@ export const ParamCreater = function () {
             }
             if (datastoreType !== null && datastoreType !== undefined) {
                 localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -5254,6 +5406,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 保存AK/SK，用于后台任务访问OBS上传实例诊断报告
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveCredential(saveCredentialRequest?: SaveCredentialRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/health-report/save-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (saveCredentialRequest !== null && saveCredentialRequest !== undefined) {
+                if (saveCredentialRequest instanceof SaveCredentialRequest) {
+                    instanceId = saveCredentialRequest.instanceId;
+                    body = saveCredentialRequest.body
+                } else {
+                    instanceId = saveCredentialRequest['instance_id'];
+                    body = saveCredentialRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling saveCredential.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置指标阈值
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5466,6 +5664,43 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看实例诊断报告设置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHealthReportSettings(showHealthReportSettingsRequest?: ShowHealthReportSettingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/health-report/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showHealthReportSettingsRequest !== null && showHealthReportSettingsRequest !== undefined) {
+                if (showHealthReportSettingsRequest instanceof ShowHealthReportSettingsRequest) {
+                    instanceId = showHealthReportSettingsRequest.instanceId;
+                } else {
+                    instanceId = showHealthReportSettingsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHealthReportSettings.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -6170,6 +6405,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'db_user_id': dbUserId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新实例诊断报告设置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHealthReportSettings(updateHealthReportSettingsRequest?: UpdateHealthReportSettingsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/health-report/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateHealthReportSettingsRequest !== null && updateHealthReportSettingsRequest !== undefined) {
+                if (updateHealthReportSettingsRequest instanceof UpdateHealthReportSettingsRequest) {
+                    instanceId = updateHealthReportSettingsRequest.instanceId;
+                    body = updateHealthReportSettingsRequest.body
+                } else {
+                    instanceId = updateHealthReportSettingsRequest['instance_id'];
+                    body = updateHealthReportSettingsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateHealthReportSettings.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

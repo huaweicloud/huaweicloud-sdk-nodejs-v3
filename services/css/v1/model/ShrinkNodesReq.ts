@@ -3,6 +3,7 @@
 export class ShrinkNodesReq {
     private 'migrate_data'?: string;
     private 'shrink_nodes'?: Array<string>;
+    private 'agency_name'?: string;
     public constructor(shrinkNodes?: Array<string>) { 
         this['shrink_nodes'] = shrinkNodes;
     }
@@ -25,5 +26,15 @@ export class ShrinkNodesReq {
     }
     public get shrinkNodes(): Array<string> | undefined {
         return this['shrink_nodes'];
+    }
+    public withAgencyName(agencyName: string): ShrinkNodesReq {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): string | undefined {
+        return this['agency_name'];
     }
 }

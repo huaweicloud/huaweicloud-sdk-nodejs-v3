@@ -11,6 +11,7 @@ export class ClusterDetailInstances {
     public azCode?: string;
     public ip?: string;
     public volume?: ShowClusterVolumeRsp;
+    public subnetId?: string;
     public constructor() { 
     }
     public withStatus(status: string): ClusterDetailInstances {
@@ -47,6 +48,10 @@ export class ClusterDetailInstances {
     }
     public withVolume(volume: ShowClusterVolumeRsp): ClusterDetailInstances {
         this['volume'] = volume;
+        return this;
+    }
+    public withSubnetId(subnetId: string): ClusterDetailInstances {
+        this['subnetId'] = subnetId;
         return this;
     }
 }

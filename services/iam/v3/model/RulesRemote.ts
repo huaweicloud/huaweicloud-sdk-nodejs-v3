@@ -4,6 +4,7 @@ export class RulesRemote {
     public type?: string;
     private 'any_one_of'?: Array<string>;
     private 'not_any_of'?: Array<string>;
+    public regex?: boolean;
     public constructor(type?: string) { 
         this['type'] = type;
     }
@@ -30,5 +31,9 @@ export class RulesRemote {
     }
     public get notAnyOf(): Array<string> | undefined {
         return this['not_any_of'];
+    }
+    public withRegex(regex: boolean): RulesRemote {
+        this['regex'] = regex;
+        return this;
     }
 }

@@ -109,11 +109,14 @@ import { BatchCreateSecurityPermissionSetMembersResponse } from './model/BatchCr
 import { BatchCreateSecurityPermissionSetPermissionsRequest } from './model/BatchCreateSecurityPermissionSetPermissionsRequest';
 import { BatchCreateSecurityPermissionSetPermissionsResponse } from './model/BatchCreateSecurityPermissionSetPermissionsResponse';
 import { BatchDeleteBaseDTO } from './model/BatchDeleteBaseDTO';
+import { BatchDeleteCategoryGroupDTO } from './model/BatchDeleteCategoryGroupDTO';
 import { BatchDeletePolicySetsDTO } from './model/BatchDeletePolicySetsDTO';
 import { BatchDeleteResourcePolicyDTO } from './model/BatchDeleteResourcePolicyDTO';
 import { BatchDeleteRuleGroupsBaseDTO } from './model/BatchDeleteRuleGroupsBaseDTO';
 import { BatchDeleteRulesBaseDTO } from './model/BatchDeleteRulesBaseDTO';
 import { BatchDeleteSecrecyLevelDTO } from './model/BatchDeleteSecrecyLevelDTO';
+import { BatchDeleteSecurityDataCategoriesRequest } from './model/BatchDeleteSecurityDataCategoriesRequest';
+import { BatchDeleteSecurityDataCategoriesResponse } from './model/BatchDeleteSecurityDataCategoriesResponse';
 import { BatchDeleteSecurityDataClassificationRuleRequest } from './model/BatchDeleteSecurityDataClassificationRuleRequest';
 import { BatchDeleteSecurityDataClassificationRuleResponse } from './model/BatchDeleteSecurityDataClassificationRuleResponse';
 import { BatchDeleteSecurityDynamicMaskingPoliciesRequest } from './model/BatchDeleteSecurityDynamicMaskingPoliciesRequest';
@@ -285,6 +288,8 @@ import { CreateOrUpdateEntitiesResponse } from './model/CreateOrUpdateEntitiesRe
 import { CreateSecrecyLevelDTO } from './model/CreateSecrecyLevelDTO';
 import { CreateSecurityAssignedQueueRequest } from './model/CreateSecurityAssignedQueueRequest';
 import { CreateSecurityAssignedQueueResponse } from './model/CreateSecurityAssignedQueueResponse';
+import { CreateSecurityDataCategoryRequest } from './model/CreateSecurityDataCategoryRequest';
+import { CreateSecurityDataCategoryResponse } from './model/CreateSecurityDataCategoryResponse';
 import { CreateSecurityDataClassificationCombineRuleRequest } from './model/CreateSecurityDataClassificationCombineRuleRequest';
 import { CreateSecurityDataClassificationCombineRuleResponse } from './model/CreateSecurityDataClassificationCombineRuleResponse';
 import { CreateSecurityDataClassificationRuleGroupRequest } from './model/CreateSecurityDataClassificationRuleGroupRequest';
@@ -333,6 +338,8 @@ import { CustomMetadata } from './model/CustomMetadata';
 import { CustomizedFieldsVO } from './model/CustomizedFieldsVO';
 import { CustomizedFieldsVOList } from './model/CustomizedFieldsVOList';
 import { DataCategoryDTO } from './model/DataCategoryDTO';
+import { DataCategoryInsertDTO } from './model/DataCategoryInsertDTO';
+import { DataCategoryUpdateDTO } from './model/DataCategoryUpdateDTO';
 import { DataClassificationCombineRuleCheckDTO } from './model/DataClassificationCombineRuleCheckDTO';
 import { DataClassificationCombineRuleCheckDTOCombineInputData } from './model/DataClassificationCombineRuleCheckDTOCombineInputData';
 import { DataClassificationCombineRuleDTO } from './model/DataClassificationCombineRuleDTO';
@@ -1250,6 +1257,8 @@ import { UpdatePermissionExpireTimeResultDTOResults } from './model/UpdatePermis
 import { UpdateSecrecyLevelDTO } from './model/UpdateSecrecyLevelDTO';
 import { UpdateSecurityAssignedQueueRequest } from './model/UpdateSecurityAssignedQueueRequest';
 import { UpdateSecurityAssignedQueueResponse } from './model/UpdateSecurityAssignedQueueResponse';
+import { UpdateSecurityDataCategoriesRequest } from './model/UpdateSecurityDataCategoriesRequest';
+import { UpdateSecurityDataCategoriesResponse } from './model/UpdateSecurityDataCategoriesResponse';
 import { UpdateSecurityDataClassificationCombineRuleRequest } from './model/UpdateSecurityDataClassificationCombineRuleRequest';
 import { UpdateSecurityDataClassificationCombineRuleResponse } from './model/UpdateSecurityDataClassificationCombineRuleResponse';
 import { UpdateSecurityDataClassificationRuleGroupRequest } from './model/UpdateSecurityDataClassificationRuleGroupRequest';
@@ -1621,6 +1630,26 @@ export class DataArtsStudioClient {
      */
     public batchCreateSecurityPermissionSetPermissions(batchCreateSecurityPermissionSetPermissionsRequest?: BatchCreateSecurityPermissionSetPermissionsRequest): Promise<BatchCreateSecurityPermissionSetPermissionsResponse> {
         const options = ParamCreater().batchCreateSecurityPermissionSetPermissions(batchCreateSecurityPermissionSetPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据分类。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据分类
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {BatchDeleteCategoryGroupDTO} batchDeleteSecurityDataCategoriesRequestBody 批量删除数据分类参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecurityDataCategories(batchDeleteSecurityDataCategoriesRequest?: BatchDeleteSecurityDataCategoriesRequest): Promise<BatchDeleteSecurityDataCategoriesResponse> {
+        const options = ParamCreater().batchDeleteSecurityDataCategories(batchDeleteSecurityDataCategoriesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2633,6 +2662,26 @@ export class DataArtsStudioClient {
      */
     public createSecurityAssignedQueue(createSecurityAssignedQueueRequest?: CreateSecurityAssignedQueueRequest): Promise<CreateSecurityAssignedQueueResponse> {
         const options = ParamCreater().createSecurityAssignedQueue(createSecurityAssignedQueueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据分类。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据分类
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {DataCategoryInsertDTO} createSecurityDataCategoryRequestBody 数据分类更新参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityDataCategory(createSecurityDataCategoryRequest?: CreateSecurityDataCategoryRequest): Promise<CreateSecurityDataCategoryResponse> {
+        const options = ParamCreater().createSecurityDataCategory(createSecurityDataCategoryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9249,6 +9298,27 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 修改数据分类。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据分类
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 数据分类id。
+     * @param {DataCategoryUpdateDTO} updateSecurityDataCategoriesRequestBody 数据分类更新参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityDataCategories(updateSecurityDataCategoriesRequest?: UpdateSecurityDataCategoriesRequest): Promise<UpdateSecurityDataCategoriesResponse> {
+        const options = ParamCreater().updateSecurityDataCategories(updateSecurityDataCategoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改组合识别规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -10859,6 +10929,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据分类。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecurityDataCategories(batchDeleteSecurityDataCategoriesRequest?: BatchDeleteSecurityDataCategoriesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/data-category/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (batchDeleteSecurityDataCategoriesRequest !== null && batchDeleteSecurityDataCategoriesRequest !== undefined) {
+                if (batchDeleteSecurityDataCategoriesRequest instanceof BatchDeleteSecurityDataCategoriesRequest) {
+                    workspace = batchDeleteSecurityDataCategoriesRequest.workspace;
+                    body = batchDeleteSecurityDataCategoriesRequest.body
+                } else {
+                    workspace = batchDeleteSecurityDataCategoriesRequest['workspace'];
+                    body = batchDeleteSecurityDataCategoriesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13358,6 +13473,51 @@ export const ParamCreater = function () {
                 } else {
                     workspace = createSecurityAssignedQueueRequest['workspace'];
                     body = createSecurityAssignedQueueRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据分类。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityDataCategory(createSecurityDataCategoryRequest?: CreateSecurityDataCategoryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/data-category",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createSecurityDataCategoryRequest !== null && createSecurityDataCategoryRequest !== undefined) {
+                if (createSecurityDataCategoryRequest instanceof CreateSecurityDataCategoryRequest) {
+                    workspace = createSecurityDataCategoryRequest.workspace;
+                    body = createSecurityDataCategoryRequest.body
+                } else {
+                    workspace = createSecurityDataCategoryRequest['workspace'];
+                    body = createSecurityDataCategoryRequest['body'];
                 }
             }
 
@@ -32633,6 +32793,59 @@ export const ParamCreater = function () {
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityAssignedQueue.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据分类。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityDataCategories(updateSecurityDataCategoriesRequest?: UpdateSecurityDataCategoriesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/data-category/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let id;
+
+            if (updateSecurityDataCategoriesRequest !== null && updateSecurityDataCategoriesRequest !== undefined) {
+                if (updateSecurityDataCategoriesRequest instanceof UpdateSecurityDataCategoriesRequest) {
+                    workspace = updateSecurityDataCategoriesRequest.workspace;
+                    id = updateSecurityDataCategoriesRequest.id;
+                    body = updateSecurityDataCategoriesRequest.body
+                } else {
+                    workspace = updateSecurityDataCategoriesRequest['workspace'];
+                    id = updateSecurityDataCategoriesRequest['id'];
+                    body = updateSecurityDataCategoriesRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityDataCategories.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

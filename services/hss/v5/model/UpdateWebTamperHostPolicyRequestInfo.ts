@@ -11,7 +11,8 @@ export class UpdateWebTamperHostPolicyRequestInfo {
     private 'rasp_path'?: string;
     private 'enable_privileged_process'?: boolean;
     private 'privileged_process_info'?: WebTamperPrivilegedProcessRequestInfo;
-    public constructor() { 
+    public constructor(protectDirInfo?: WebTamperProtectDirRequestInfo) { 
+        this['protect_dir_info'] = protectDirInfo;
     }
     public withProtectDirInfo(protectDirInfo: WebTamperProtectDirRequestInfo): UpdateWebTamperHostPolicyRequestInfo {
         this['protect_dir_info'] = protectDirInfo;

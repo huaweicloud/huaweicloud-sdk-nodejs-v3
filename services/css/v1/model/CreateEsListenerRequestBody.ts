@@ -5,6 +5,7 @@ export class CreateEsListenerRequestBody {
     private 'protocol_port'?: number;
     private 'server_cert_id'?: string;
     private 'ca_cert_id'?: string;
+    public type?: string;
     public constructor(protocol?: string, protocolPort?: number) { 
         this['protocol'] = protocol;
         this['protocol_port'] = protocolPort;
@@ -42,5 +43,9 @@ export class CreateEsListenerRequestBody {
     }
     public get caCertId(): string | undefined {
         return this['ca_cert_id'];
+    }
+    public withType(type: string): CreateEsListenerRequestBody {
+        this['type'] = type;
+        return this;
     }
 }

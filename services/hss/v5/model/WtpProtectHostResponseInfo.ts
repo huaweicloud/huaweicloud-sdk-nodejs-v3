@@ -1,4 +1,3 @@
-import { WtpRemoteBackupResponseInfo } from './WtpRemoteBackupResponseInfo';
 
 
 export class WtpProtectHostResponseInfo {
@@ -6,23 +5,26 @@ export class WtpProtectHostResponseInfo {
     private 'host_id'?: string;
     private 'public_ip'?: string;
     private 'private_ip'?: string;
-    public ipv6?: string;
+    private 'group_id'?: string;
     private 'group_name'?: string;
     private 'asset_value'?: string;
     private 'os_bit'?: string;
     private 'os_type'?: string;
     private 'protect_status'?: string;
+    private 'charging_mode'?: string;
+    private 'resource_id'?: string;
     private 'rasp_protect_status'?: string;
     private 'anti_tampering_times'?: number;
     private 'detect_tampering_times'?: number;
-    private 'last_detect_time'?: number;
-    private 'scheduled_shutdown_status'?: string;
     private 'os_name'?: string;
     private 'os_version'?: string;
     private 'host_status'?: string;
     private 'agent_status'?: string;
     private 'protect_dir_num'?: number;
-    private 'remote_backbup_info'?: WtpRemoteBackupResponseInfo;
+    private 'abnormal_dir_list'?: Array<string>;
+    private 'abnormal_reason'?: number;
+    private 'backup_host_id'?: string;
+    private 'interrupt_reason'?: string;
     public constructor() { 
     }
     public withHostName(hostName: string): WtpProtectHostResponseInfo {
@@ -65,9 +67,15 @@ export class WtpProtectHostResponseInfo {
     public get privateIp(): string | undefined {
         return this['private_ip'];
     }
-    public withIpv6(ipv6: string): WtpProtectHostResponseInfo {
-        this['ipv6'] = ipv6;
+    public withGroupId(groupId: string): WtpProtectHostResponseInfo {
+        this['group_id'] = groupId;
         return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
     public withGroupName(groupName: string): WtpProtectHostResponseInfo {
         this['group_name'] = groupName;
@@ -119,6 +127,26 @@ export class WtpProtectHostResponseInfo {
     public get protectStatus(): string | undefined {
         return this['protect_status'];
     }
+    public withChargingMode(chargingMode: string): WtpProtectHostResponseInfo {
+        this['charging_mode'] = chargingMode;
+        return this;
+    }
+    public set chargingMode(chargingMode: string  | undefined) {
+        this['charging_mode'] = chargingMode;
+    }
+    public get chargingMode(): string | undefined {
+        return this['charging_mode'];
+    }
+    public withResourceId(resourceId: string): WtpProtectHostResponseInfo {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
+    }
     public withRaspProtectStatus(raspProtectStatus: string): WtpProtectHostResponseInfo {
         this['rasp_protect_status'] = raspProtectStatus;
         return this;
@@ -148,26 +176,6 @@ export class WtpProtectHostResponseInfo {
     }
     public get detectTamperingTimes(): number | undefined {
         return this['detect_tampering_times'];
-    }
-    public withLastDetectTime(lastDetectTime: number): WtpProtectHostResponseInfo {
-        this['last_detect_time'] = lastDetectTime;
-        return this;
-    }
-    public set lastDetectTime(lastDetectTime: number  | undefined) {
-        this['last_detect_time'] = lastDetectTime;
-    }
-    public get lastDetectTime(): number | undefined {
-        return this['last_detect_time'];
-    }
-    public withScheduledShutdownStatus(scheduledShutdownStatus: string): WtpProtectHostResponseInfo {
-        this['scheduled_shutdown_status'] = scheduledShutdownStatus;
-        return this;
-    }
-    public set scheduledShutdownStatus(scheduledShutdownStatus: string  | undefined) {
-        this['scheduled_shutdown_status'] = scheduledShutdownStatus;
-    }
-    public get scheduledShutdownStatus(): string | undefined {
-        return this['scheduled_shutdown_status'];
     }
     public withOsName(osName: string): WtpProtectHostResponseInfo {
         this['os_name'] = osName;
@@ -219,14 +227,44 @@ export class WtpProtectHostResponseInfo {
     public get protectDirNum(): number | undefined {
         return this['protect_dir_num'];
     }
-    public withRemoteBackbupInfo(remoteBackbupInfo: WtpRemoteBackupResponseInfo): WtpProtectHostResponseInfo {
-        this['remote_backbup_info'] = remoteBackbupInfo;
+    public withAbnormalDirList(abnormalDirList: Array<string>): WtpProtectHostResponseInfo {
+        this['abnormal_dir_list'] = abnormalDirList;
         return this;
     }
-    public set remoteBackbupInfo(remoteBackbupInfo: WtpRemoteBackupResponseInfo  | undefined) {
-        this['remote_backbup_info'] = remoteBackbupInfo;
+    public set abnormalDirList(abnormalDirList: Array<string>  | undefined) {
+        this['abnormal_dir_list'] = abnormalDirList;
     }
-    public get remoteBackbupInfo(): WtpRemoteBackupResponseInfo | undefined {
-        return this['remote_backbup_info'];
+    public get abnormalDirList(): Array<string> | undefined {
+        return this['abnormal_dir_list'];
+    }
+    public withAbnormalReason(abnormalReason: number): WtpProtectHostResponseInfo {
+        this['abnormal_reason'] = abnormalReason;
+        return this;
+    }
+    public set abnormalReason(abnormalReason: number  | undefined) {
+        this['abnormal_reason'] = abnormalReason;
+    }
+    public get abnormalReason(): number | undefined {
+        return this['abnormal_reason'];
+    }
+    public withBackupHostId(backupHostId: string): WtpProtectHostResponseInfo {
+        this['backup_host_id'] = backupHostId;
+        return this;
+    }
+    public set backupHostId(backupHostId: string  | undefined) {
+        this['backup_host_id'] = backupHostId;
+    }
+    public get backupHostId(): string | undefined {
+        return this['backup_host_id'];
+    }
+    public withInterruptReason(interruptReason: string): WtpProtectHostResponseInfo {
+        this['interrupt_reason'] = interruptReason;
+        return this;
+    }
+    public set interruptReason(interruptReason: string  | undefined) {
+        this['interrupt_reason'] = interruptReason;
+    }
+    public get interruptReason(): string | undefined {
+        return this['interrupt_reason'];
     }
 }

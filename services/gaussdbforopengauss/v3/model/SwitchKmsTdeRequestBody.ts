@@ -4,7 +4,10 @@ export class SwitchKmsTdeRequestBody {
     private 'kms_tde_key_id'?: string;
     private 'kms_project_name'?: string;
     private 'kms_tde_status'?: SwitchKmsTdeRequestBodyKmsTdeStatusEnum | string;
-    public constructor() { 
+    public constructor(kmsTdeKeyId?: string, kmsProjectName?: string, kmsTdeStatus?: string) { 
+        this['kms_tde_key_id'] = kmsTdeKeyId;
+        this['kms_project_name'] = kmsProjectName;
+        this['kms_tde_status'] = kmsTdeStatus;
     }
     public withKmsTdeKeyId(kmsTdeKeyId: string): SwitchKmsTdeRequestBody {
         this['kms_tde_key_id'] = kmsTdeKeyId;

@@ -3,13 +3,13 @@ import { ListReadonlyNodesResult } from './ListReadonlyNodesResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListReadonlyNodesResponse extends SdkResponse {
-    public instances?: Array<ListReadonlyNodesResult>;
+    public nodes?: Array<ListReadonlyNodesResult>;
     private 'max_readonly_node_num'?: number;
     public constructor() { 
         super();
     }
-    public withInstances(instances: Array<ListReadonlyNodesResult>): ListReadonlyNodesResponse {
-        this['instances'] = instances;
+    public withNodes(nodes: Array<ListReadonlyNodesResult>): ListReadonlyNodesResponse {
+        this['nodes'] = nodes;
         return this;
     }
     public withMaxReadonlyNodeNum(maxReadonlyNodeNum: number): ListReadonlyNodesResponse {

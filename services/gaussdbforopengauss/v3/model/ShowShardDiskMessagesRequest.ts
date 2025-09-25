@@ -1,0 +1,38 @@
+
+
+export class ShowShardDiskMessagesRequest {
+    private 'X-Language'?: ShowShardDiskMessagesRequestXLanguageEnum | string;
+    private 'instance_id'?: string;
+    public constructor(instanceId?: string) { 
+        this['instance_id'] = instanceId;
+    }
+    public withXLanguage(xLanguage: ShowShardDiskMessagesRequestXLanguageEnum | string): ShowShardDiskMessagesRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: ShowShardDiskMessagesRequestXLanguageEnum | string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): ShowShardDiskMessagesRequestXLanguageEnum | string | undefined {
+        return this['X-Language'];
+    }
+    public withInstanceId(instanceId: string): ShowShardDiskMessagesRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowShardDiskMessagesRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
+}

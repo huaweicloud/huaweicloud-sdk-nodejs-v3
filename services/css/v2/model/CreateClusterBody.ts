@@ -6,11 +6,13 @@ import { CreateClusterPublicIpReq } from './CreateClusterPublicIpReq';
 import { CreateClusterPublicKibanaReq } from './CreateClusterPublicKibanaReq';
 import { CreateClusterRolesBody } from './CreateClusterRolesBody';
 import { CreateClusterTagsBody } from './CreateClusterTagsBody';
+import { DiskEncryptionInfo } from './DiskEncryptionInfo';
 import { PayInfoBody } from './PayInfoBody';
 
 
 export class CreateClusterBody {
     public name?: string;
+    public desc?: string;
     public backupStrategy?: CreateClusterBackupStrategyBody;
     public roles?: Array<CreateClusterRolesBody>;
     public nics?: CreateClusterInstanceNicsBody;
@@ -25,14 +27,21 @@ export class CreateClusterBody {
     public loadBalance?: CreateClusterLoadBalance;
     public publicKibanaReq?: CreateClusterPublicKibanaReq;
     public payInfo?: PayInfoBody;
-    public constructor(name?: string, roles?: Array<CreateClusterRolesBody>, nics?: CreateClusterInstanceNicsBody, datastore?: CreateClusterDatastoreBody) { 
+    private 'ipv6_enable'?: boolean;
+    public diskEncryption?: DiskEncryptionInfo;
+    public constructor(name?: string, roles?: Array<CreateClusterRolesBody>, nics?: CreateClusterInstanceNicsBody, availabilityZone?: string, datastore?: CreateClusterDatastoreBody) { 
         this['name'] = name;
         this['roles'] = roles;
         this['nics'] = nics;
+        this['availability_zone'] = availabilityZone;
         this['datastore'] = datastore;
     }
     public withName(name: string): CreateClusterBody {
         this['name'] = name;
+        return this;
+    }
+    public withDesc(desc: string): CreateClusterBody {
+        this['desc'] = desc;
         return this;
     }
     public withBackupStrategy(backupStrategy: CreateClusterBackupStrategyBody): CreateClusterBody {
@@ -101,6 +110,20 @@ export class CreateClusterBody {
     }
     public withPayInfo(payInfo: PayInfoBody): CreateClusterBody {
         this['payInfo'] = payInfo;
+        return this;
+    }
+    public withIpv6Enable(ipv6Enable: boolean): CreateClusterBody {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
+    }
+    public withDiskEncryption(diskEncryption: DiskEncryptionInfo): CreateClusterBody {
+        this['diskEncryption'] = diskEncryption;
         return this;
     }
 }

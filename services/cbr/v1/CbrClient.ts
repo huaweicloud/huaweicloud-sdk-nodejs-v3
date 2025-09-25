@@ -112,6 +112,8 @@ import { ListDomainProjectsRequest } from './model/ListDomainProjectsRequest';
 import { ListDomainProjectsResponse } from './model/ListDomainProjectsResponse';
 import { ListExternalVaultRequest } from './model/ListExternalVaultRequest';
 import { ListExternalVaultResponse } from './model/ListExternalVaultResponse';
+import { ListFeaturesRequest } from './model/ListFeaturesRequest';
+import { ListFeaturesResponse } from './model/ListFeaturesResponse';
 import { ListOpLogsRequest } from './model/ListOpLogsRequest';
 import { ListOpLogsResponse } from './model/ListOpLogsResponse';
 import { ListOrganizationPoliciesRequest } from './model/ListOrganizationPoliciesRequest';
@@ -195,6 +197,8 @@ import { ShowCheckpointRequest } from './model/ShowCheckpointRequest';
 import { ShowCheckpointResponse } from './model/ShowCheckpointResponse';
 import { ShowDomainRequest } from './model/ShowDomainRequest';
 import { ShowDomainResponse } from './model/ShowDomainResponse';
+import { ShowFeatureRequest } from './model/ShowFeatureRequest';
+import { ShowFeatureResponse } from './model/ShowFeatureResponse';
 import { ShowMemberDetailRequest } from './model/ShowMemberDetailRequest';
 import { ShowMemberDetailResponse } from './model/ShowMemberDetailResponse';
 import { ShowMembersDetailRequest } from './model/ShowMembersDetailRequest';
@@ -915,6 +919,27 @@ export class CbrClient {
     }
 
     /**
+     * 查询服务支持的特性列表
+     * &gt; 该接口目前属于公测阶段，部分region暂时无法使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务支持的特性列表
+     * @param {number} [limit] 每页显示条目数，正整数
+     * @param {number} [offset] 偏移值,正整数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFeatures(listFeaturesRequest?: ListFeaturesRequest): Promise<ListFeaturesResponse> {
+        const options = ParamCreater().listFeatures(listFeaturesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询任务列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1284,6 +1309,28 @@ export class CbrClient {
      */
     public showDomain(showDomainRequest?: ShowDomainRequest): Promise<ShowDomainResponse> {
         const options = ParamCreater().showDomain(showDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询服务指定特性
+     * &gt; 该接口目前属于公测阶段，部分region暂时无法使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定特性
+     * @param {string} featureKey 特性key, 当前支持： - replication.enable - replication.source_region - replication.destination_regions - replication.destination_dgw_regions - features.backup_double_az
+     * @param {number} [limit] 每页显示条目数，正整数
+     * @param {number} [offset] 偏移值,正整数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFeature(showFeatureRequest?: ShowFeatureRequest): Promise<ShowFeatureResponse> {
+        const options = ParamCreater().showFeature(showFeatureRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3196,6 +3243,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询服务支持的特性列表
+         * &gt; 该接口目前属于公测阶段，部分region暂时无法使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFeatures(listFeaturesRequest?: ListFeaturesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/cbr-features",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listFeaturesRequest !== null && listFeaturesRequest !== undefined) {
+                if (listFeaturesRequest instanceof ListFeaturesRequest) {
+                    limit = listFeaturesRequest.limit;
+                    offset = listFeaturesRequest.offset;
+                } else {
+                    limit = listFeaturesRequest['limit'];
+                    offset = listFeaturesRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询任务列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4109,6 +4201,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'source_project_id': sourceProjectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询服务指定特性
+         * &gt; 该接口目前属于公测阶段，部分region暂时无法使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFeature(showFeatureRequest?: ShowFeatureRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/cbr-features/{feature_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let featureKey;
+            
+            let limit;
+            
+            let offset;
+
+            if (showFeatureRequest !== null && showFeatureRequest !== undefined) {
+                if (showFeatureRequest instanceof ShowFeatureRequest) {
+                    featureKey = showFeatureRequest.featureKey;
+                    limit = showFeatureRequest.limit;
+                    offset = showFeatureRequest.offset;
+                } else {
+                    featureKey = showFeatureRequest['feature_key'];
+                    limit = showFeatureRequest['limit'];
+                    offset = showFeatureRequest['offset'];
+                }
+            }
+
+        
+            if (featureKey === null || featureKey === undefined) {
+            throw new RequiredError('featureKey','Required parameter featureKey was null or undefined when calling showFeature.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'feature_key': featureKey, };
             options.headers = localVarHeaderParameter;
             return options;
         },

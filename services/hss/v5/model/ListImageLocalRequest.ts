@@ -22,6 +22,7 @@ export class ListImageLocalRequest {
     private 'pod_id'?: string;
     private 'pod_name'?: string;
     private 'app_name'?: string;
+    private 'has_container'?: boolean;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListImageLocalRequest {
@@ -221,5 +222,15 @@ export class ListImageLocalRequest {
     }
     public get appName(): string | undefined {
         return this['app_name'];
+    }
+    public withHasContainer(hasContainer: boolean): ListImageLocalRequest {
+        this['has_container'] = hasContainer;
+        return this;
+    }
+    public set hasContainer(hasContainer: boolean  | undefined) {
+        this['has_container'] = hasContainer;
+    }
+    public get hasContainer(): boolean | undefined {
+        return this['has_container'];
     }
 }

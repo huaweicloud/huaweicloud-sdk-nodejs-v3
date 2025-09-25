@@ -610,6 +610,8 @@ import { ShowRestoreAvailableTablesRequest } from './model/ShowRestoreAvailableT
 import { ShowRestoreAvailableTablesResponse } from './model/ShowRestoreAvailableTablesResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
+import { ShowSlowLogDetailRequest } from './model/ShowSlowLogDetailRequest';
+import { ShowSlowLogDetailResponse } from './model/ShowSlowLogDetailResponse';
 import { ShowSlowLogStatisticsItem } from './model/ShowSlowLogStatisticsItem';
 import { ShowSlowLogStatisticsRequest } from './model/ShowSlowLogStatisticsRequest';
 import { ShowSlowLogStatisticsRequestBody } from './model/ShowSlowLogStatisticsRequestBody';
@@ -623,6 +625,9 @@ import { ShowSqlFilterRuleResponse } from './model/ShowSqlFilterRuleResponse';
 import { ShowStarRocksDatabaseUserRequest } from './model/ShowStarRocksDatabaseUserRequest';
 import { ShowStarRocksDatabaseUserResponse } from './model/ShowStarRocksDatabaseUserResponse';
 import { ShowStarRocksDatabaseUsersUserDetails } from './model/ShowStarRocksDatabaseUsersUserDetails';
+import { ShowStarRocksSlowLogDetail } from './model/ShowStarRocksSlowLogDetail';
+import { ShowStarRocksSlowlogSensitiveStatusRequest } from './model/ShowStarRocksSlowlogSensitiveStatusRequest';
+import { ShowStarRocksSlowlogSensitiveStatusResponse } from './model/ShowStarRocksSlowlogSensitiveStatusResponse';
 import { ShowStarrocksParamsRequest } from './model/ShowStarrocksParamsRequest';
 import { ShowStarrocksParamsResponse } from './model/ShowStarrocksParamsResponse';
 import { ShowTableMetaInfoRequest } from './model/ShowTableMetaInfoRequest';
@@ -771,6 +776,9 @@ import { UpdateProxySessionConsistenceResponse } from './model/UpdateProxySessio
 import { UpdateServerlessPolicy } from './model/UpdateServerlessPolicy';
 import { UpdateServerlessPolicyRequest } from './model/UpdateServerlessPolicyRequest';
 import { UpdateServerlessPolicyResponse } from './model/UpdateServerlessPolicyResponse';
+import { UpdateSlowlogSensitiveStatusRequest } from './model/UpdateSlowlogSensitiveStatusRequest';
+import { UpdateSlowlogSensitiveStatusRequestBody } from './model/UpdateSlowlogSensitiveStatusRequestBody';
+import { UpdateSlowlogSensitiveStatusResponse } from './model/UpdateSlowlogSensitiveStatusResponse';
 import { UpdateSlowlogSensitiveSwitchRequest } from './model/UpdateSlowlogSensitiveSwitchRequest';
 import { UpdateSlowlogSensitiveSwitchRequestBody } from './model/UpdateSlowlogSensitiveSwitchRequestBody';
 import { UpdateSlowlogSensitiveSwitchResponse } from './model/UpdateSlowlogSensitiveSwitchResponse';
@@ -3356,6 +3364,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 获取StarRocks实例内核慢日志信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取StarRocks实例内核慢日志信息
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。 
+     * @param {LtsLogSlowQueryRequest} showSlowLogDetailRequestBody 查询日志请求体。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSlowLogDetail(showSlowLogDetailRequest?: ShowSlowLogDetailRequest): Promise<ShowSlowLogDetailResponse> {
+        const options = ParamCreater().showSlowLogDetail(showSlowLogDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询慢日志统计信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3431,6 +3460,26 @@ export class GaussDBClient {
      */
     public showSqlFilterRule(showSqlFilterRuleRequest?: ShowSqlFilterRuleRequest): Promise<ShowSqlFilterRuleResponse> {
         const options = ParamCreater().showSqlFilterRule(showSqlFilterRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询StarRocks实例慢日志脱敏状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询StarRocks实例慢日志脱敏状态
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStarRocksSlowlogSensitiveStatus(showStarRocksSlowlogSensitiveStatusRequest?: ShowStarRocksSlowlogSensitiveStatusRequest): Promise<ShowStarRocksSlowlogSensitiveStatusResponse> {
+        const options = ParamCreater().showStarRocksSlowlogSensitiveStatus(showStarRocksSlowlogSensitiveStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4136,6 +4185,27 @@ export class GaussDBClient {
      */
     public updateServerlessPolicy(updateServerlessPolicyRequest?: UpdateServerlessPolicyRequest): Promise<UpdateServerlessPolicyResponse> {
         const options = ParamCreater().updateServerlessPolicy(updateServerlessPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或关闭StarRocks实例慢日志脱敏状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或关闭StarRocks实例慢日志脱敏状态
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {UpdateSlowlogSensitiveStatusRequestBody} updateSlowlogSensitiveStatusRequestBody **参数解释**：  开启或关闭慢日志脱敏状态请求体。  **约束限制**：  不涉及。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSlowlogSensitiveStatus(updateSlowlogSensitiveStatusRequest?: UpdateSlowlogSensitiveStatusRequest): Promise<UpdateSlowlogSensitiveStatusResponse> {
+        const options = ParamCreater().updateSlowlogSensitiveStatus(updateSlowlogSensitiveStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12208,6 +12278,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取StarRocks实例内核慢日志信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSlowLogDetail(showSlowLogDetailRequest?: ShowSlowLogDetailRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/slow-logs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showSlowLogDetailRequest !== null && showSlowLogDetailRequest !== undefined) {
+                if (showSlowLogDetailRequest instanceof ShowSlowLogDetailRequest) {
+                    instanceId = showSlowLogDetailRequest.instanceId;
+                    body = showSlowLogDetailRequest.body
+                    xLanguage = showSlowLogDetailRequest.xLanguage;
+                } else {
+                    instanceId = showSlowLogDetailRequest['instance_id'];
+                    body = showSlowLogDetailRequest['body'];
+                    xLanguage = showSlowLogDetailRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSlowLogDetail.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询慢日志统计信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12405,6 +12528,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询StarRocks实例慢日志脱敏状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStarRocksSlowlogSensitiveStatus(showStarRocksSlowlogSensitiveStatusRequest?: ShowStarRocksSlowlogSensitiveStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/slowlog-sensitive",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showStarRocksSlowlogSensitiveStatusRequest !== null && showStarRocksSlowlogSensitiveStatusRequest !== undefined) {
+                if (showStarRocksSlowlogSensitiveStatusRequest instanceof ShowStarRocksSlowlogSensitiveStatusRequest) {
+                    instanceId = showStarRocksSlowlogSensitiveStatusRequest.instanceId;
+                    xLanguage = showStarRocksSlowlogSensitiveStatusRequest.xLanguage;
+                } else {
+                    instanceId = showStarRocksSlowlogSensitiveStatusRequest['instance_id'];
+                    xLanguage = showStarRocksSlowlogSensitiveStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showStarRocksSlowlogSensitiveStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -14217,6 +14384,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateServerlessPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或关闭StarRocks实例慢日志脱敏状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSlowlogSensitiveStatus(updateSlowlogSensitiveStatusRequest?: UpdateSlowlogSensitiveStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/slowlog-sensitive",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateSlowlogSensitiveStatusRequest !== null && updateSlowlogSensitiveStatusRequest !== undefined) {
+                if (updateSlowlogSensitiveStatusRequest instanceof UpdateSlowlogSensitiveStatusRequest) {
+                    instanceId = updateSlowlogSensitiveStatusRequest.instanceId;
+                    body = updateSlowlogSensitiveStatusRequest.body
+                    xLanguage = updateSlowlogSensitiveStatusRequest.xLanguage;
+                } else {
+                    instanceId = updateSlowlogSensitiveStatusRequest['instance_id'];
+                    body = updateSlowlogSensitiveStatusRequest['body'];
+                    xLanguage = updateSlowlogSensitiveStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSlowlogSensitiveStatus.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -16,6 +16,8 @@ export class GetUpgradeDetailInfo {
     public migrateParam?: string;
     public finalAzInfoMap?: string;
     public currentNodeDetail?: Array<CurrentNodeDetail>;
+    public batchSize?: number;
+    public currentBatchNodes?: string;
     public constructor() { 
     }
     public withId(id: string): GetUpgradeDetailInfo {
@@ -68,6 +70,14 @@ export class GetUpgradeDetailInfo {
     }
     public withCurrentNodeDetail(currentNodeDetail: Array<CurrentNodeDetail>): GetUpgradeDetailInfo {
         this['currentNodeDetail'] = currentNodeDetail;
+        return this;
+    }
+    public withBatchSize(batchSize: number): GetUpgradeDetailInfo {
+        this['batchSize'] = batchSize;
+        return this;
+    }
+    public withCurrentBatchNodes(currentBatchNodes: string): GetUpgradeDetailInfo {
+        this['currentBatchNodes'] = currentBatchNodes;
         return this;
     }
 }

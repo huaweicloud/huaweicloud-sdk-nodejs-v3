@@ -7,8 +7,8 @@ export class BackupPolicy {
     private 'differential_period'?: string;
     private 'rate_limit'?: number;
     private 'prefetch_block'?: number;
-    private 'filesplit_size'?: number;
     private 'file_split_size'?: number;
+    private 'filesplit_size'?: number;
     private 'enable_standby_backup'?: boolean;
     public constructor(keepDays?: number, startTime?: string, period?: string, differentialPeriod?: string) { 
         this['keep_days'] = keepDays;
@@ -70,16 +70,6 @@ export class BackupPolicy {
     public get prefetchBlock(): number | undefined {
         return this['prefetch_block'];
     }
-    public withFilesplitSize(filesplitSize: number): BackupPolicy {
-        this['filesplit_size'] = filesplitSize;
-        return this;
-    }
-    public set filesplitSize(filesplitSize: number  | undefined) {
-        this['filesplit_size'] = filesplitSize;
-    }
-    public get filesplitSize(): number | undefined {
-        return this['filesplit_size'];
-    }
     public withFileSplitSize(fileSplitSize: number): BackupPolicy {
         this['file_split_size'] = fileSplitSize;
         return this;
@@ -89,6 +79,16 @@ export class BackupPolicy {
     }
     public get fileSplitSize(): number | undefined {
         return this['file_split_size'];
+    }
+    public withFilesplitSize(filesplitSize: number): BackupPolicy {
+        this['filesplit_size'] = filesplitSize;
+        return this;
+    }
+    public set filesplitSize(filesplitSize: number  | undefined) {
+        this['filesplit_size'] = filesplitSize;
+    }
+    public get filesplitSize(): number | undefined {
+        return this['filesplit_size'];
     }
     public withEnableStandbyBackup(enableStandbyBackup: boolean): BackupPolicy {
         this['enable_standby_backup'] = enableStandbyBackup;

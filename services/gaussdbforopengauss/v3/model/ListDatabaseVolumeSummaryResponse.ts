@@ -1,4 +1,5 @@
-import { ComponentInfoResult } from './ComponentInfoResult';
+import { CnComponentInfoResult } from './CnComponentInfoResult';
+import { DnComponentInfoResult } from './DnComponentInfoResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -7,8 +8,8 @@ export class ListDatabaseVolumeSummaryResponse extends SdkResponse {
     private 'data_disk_usage'?: string;
     private 'space_usage_growth_per_day'?: string;
     private 'estimated_remaining_days'?: string;
-    private 'cn_components'?: Array<ComponentInfoResult>;
-    private 'dn_components'?: Array<ComponentInfoResult>;
+    private 'cn_components'?: Array<CnComponentInfoResult>;
+    private 'dn_components'?: Array<DnComponentInfoResult>;
     public constructor() { 
         super();
     }
@@ -52,24 +53,24 @@ export class ListDatabaseVolumeSummaryResponse extends SdkResponse {
     public get estimatedRemainingDays(): string | undefined {
         return this['estimated_remaining_days'];
     }
-    public withCnComponents(cnComponents: Array<ComponentInfoResult>): ListDatabaseVolumeSummaryResponse {
+    public withCnComponents(cnComponents: Array<CnComponentInfoResult>): ListDatabaseVolumeSummaryResponse {
         this['cn_components'] = cnComponents;
         return this;
     }
-    public set cnComponents(cnComponents: Array<ComponentInfoResult>  | undefined) {
+    public set cnComponents(cnComponents: Array<CnComponentInfoResult>  | undefined) {
         this['cn_components'] = cnComponents;
     }
-    public get cnComponents(): Array<ComponentInfoResult> | undefined {
+    public get cnComponents(): Array<CnComponentInfoResult> | undefined {
         return this['cn_components'];
     }
-    public withDnComponents(dnComponents: Array<ComponentInfoResult>): ListDatabaseVolumeSummaryResponse {
+    public withDnComponents(dnComponents: Array<DnComponentInfoResult>): ListDatabaseVolumeSummaryResponse {
         this['dn_components'] = dnComponents;
         return this;
     }
-    public set dnComponents(dnComponents: Array<ComponentInfoResult>  | undefined) {
+    public set dnComponents(dnComponents: Array<DnComponentInfoResult>  | undefined) {
         this['dn_components'] = dnComponents;
     }
-    public get dnComponents(): Array<ComponentInfoResult> | undefined {
+    public get dnComponents(): Array<DnComponentInfoResult> | undefined {
         return this['dn_components'];
     }
 }

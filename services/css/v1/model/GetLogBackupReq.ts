@@ -7,9 +7,8 @@ export class GetLogBackupReq {
     public limit?: number;
     private 'time_index'?: string;
     public keyword?: string;
-    public constructor(instanceName?: string, level?: string, logType?: string) { 
+    public constructor(instanceName?: string, logType?: string) { 
         this['instance_name'] = instanceName;
-        this['level'] = level;
         this['log_type'] = logType;
     }
     public withInstanceName(instanceName: string): GetLogBackupReq {

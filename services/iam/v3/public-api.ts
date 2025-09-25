@@ -38,6 +38,7 @@ export * from './model/AllowIpRangesOptionIPv6';
 export * from './model/AllowIpRangesResult';
 export * from './model/AllowIpRangesResultIPv6';
 export * from './model/AllowUserBody';
+export * from './model/AllowVpcEndpointsResult';
 export * from './model/AssociateAgencyWithAllProjectsPermissionRequest';
 export * from './model/AssociateAgencyWithAllProjectsPermissionResponse';
 export * from './model/AssociateAgencyWithDomainPermissionRequest';

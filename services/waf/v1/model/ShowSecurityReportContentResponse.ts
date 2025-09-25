@@ -1,4 +1,4 @@
-import { SecurityReportContentResponseReportContentSubscriptionInfo } from './SecurityReportContentResponseReportContentSubscriptionInfo';
+import { SecurityReportContentResponseReportContentInfo } from './SecurityReportContentResponseReportContentInfo';
 import { SecurityReportContentResponseStatPeriod } from './SecurityReportContentResponseStatPeriod';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -11,7 +11,8 @@ export class ShowSecurityReportContentResponse extends SdkResponse {
     private 'report_category'?: string;
     private 'topic_urn'?: string;
     private 'subscription_type'?: string;
-    private 'report_content_subscription_info'?: SecurityReportContentResponseReportContentSubscriptionInfo;
+    private 'report_content_info'?: SecurityReportContentResponseReportContentInfo;
+    private 'create_time'?: number;
     private 'stat_period'?: SecurityReportContentResponseStatPeriod;
     public constructor() { 
         super();
@@ -86,15 +87,25 @@ export class ShowSecurityReportContentResponse extends SdkResponse {
     public get subscriptionType(): string | undefined {
         return this['subscription_type'];
     }
-    public withReportContentSubscriptionInfo(reportContentSubscriptionInfo: SecurityReportContentResponseReportContentSubscriptionInfo): ShowSecurityReportContentResponse {
-        this['report_content_subscription_info'] = reportContentSubscriptionInfo;
+    public withReportContentInfo(reportContentInfo: SecurityReportContentResponseReportContentInfo): ShowSecurityReportContentResponse {
+        this['report_content_info'] = reportContentInfo;
         return this;
     }
-    public set reportContentSubscriptionInfo(reportContentSubscriptionInfo: SecurityReportContentResponseReportContentSubscriptionInfo  | undefined) {
-        this['report_content_subscription_info'] = reportContentSubscriptionInfo;
+    public set reportContentInfo(reportContentInfo: SecurityReportContentResponseReportContentInfo  | undefined) {
+        this['report_content_info'] = reportContentInfo;
     }
-    public get reportContentSubscriptionInfo(): SecurityReportContentResponseReportContentSubscriptionInfo | undefined {
-        return this['report_content_subscription_info'];
+    public get reportContentInfo(): SecurityReportContentResponseReportContentInfo | undefined {
+        return this['report_content_info'];
+    }
+    public withCreateTime(createTime: number): ShowSecurityReportContentResponse {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: number  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): number | undefined {
+        return this['create_time'];
     }
     public withStatPeriod(statPeriod: SecurityReportContentResponseStatPeriod): ShowSecurityReportContentResponse {
         this['stat_period'] = statPeriod;

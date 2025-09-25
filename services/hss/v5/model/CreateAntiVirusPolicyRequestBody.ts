@@ -4,6 +4,7 @@ export class CreateAntiVirusPolicyRequestBody {
     private 'policy_name'?: string;
     private 'start_type'?: string;
     private 'scan_period'?: string;
+    private 'scan_type'?: string;
     private 'scan_period_date'?: number;
     private 'scan_time'?: number;
     private 'scan_hour'?: number;
@@ -53,6 +54,16 @@ export class CreateAntiVirusPolicyRequestBody {
     }
     public get scanPeriod(): string | undefined {
         return this['scan_period'];
+    }
+    public withScanType(scanType: string): CreateAntiVirusPolicyRequestBody {
+        this['scan_type'] = scanType;
+        return this;
+    }
+    public set scanType(scanType: string  | undefined) {
+        this['scan_type'] = scanType;
+    }
+    public get scanType(): string | undefined {
+        return this['scan_type'];
     }
     public withScanPeriodDate(scanPeriodDate: number): CreateAntiVirusPolicyRequestBody {
         this['scan_period_date'] = scanPeriodDate;

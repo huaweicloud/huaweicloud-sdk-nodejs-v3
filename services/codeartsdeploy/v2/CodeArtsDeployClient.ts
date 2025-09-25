@@ -22,12 +22,9 @@ import { BatchUpdateApplicationPermissionsResponse } from './model/BatchUpdateAp
 import { BatchUpdatePermissionLevelRequest } from './model/BatchUpdatePermissionLevelRequest';
 import { BatchUpdatePermissionLevelRequestBody } from './model/BatchUpdatePermissionLevelRequestBody';
 import { BatchUpdatePermissionLevelResponse } from './model/BatchUpdatePermissionLevelResponse';
-import { CancelInfo } from './model/CancelInfo';
 import { CheckCanCreateRequest } from './model/CheckCanCreateRequest';
 import { CheckCanCreateResponse } from './model/CheckCanCreateResponse';
 import { CheckCanCreateResponseBodyResult } from './model/CheckCanCreateResponseBodyResult';
-import { CheckDeployStatusRequest } from './model/CheckDeployStatusRequest';
-import { CheckDeployStatusResponse } from './model/CheckDeployStatusResponse';
 import { CheckIsDuplicateAppNameRequest } from './model/CheckIsDuplicateAppNameRequest';
 import { CheckIsDuplicateAppNameResponse } from './model/CheckIsDuplicateAppNameResponse';
 import { CheckWhetherHostGroupCanBeCreatedRequest } from './model/CheckWhetherHostGroupCanBeCreatedRequest';
@@ -179,11 +176,7 @@ import { ShowProjectSuccessRateRequest } from './model/ShowProjectSuccessRateReq
 import { ShowProjectSuccessRateResponse } from './model/ShowProjectSuccessRateResponse';
 import { StartDeployTaskRequest } from './model/StartDeployTaskRequest';
 import { StartDeployTaskResponse } from './model/StartDeployTaskResponse';
-import { StateInfo } from './model/StateInfo';
 import { Step } from './model/Step';
-import { StepInfo } from './model/StepInfo';
-import { StopDeployTaskRequest } from './model/StopDeployTaskRequest';
-import { StopDeployTaskResponse } from './model/StopDeployTaskResponse';
 import { TaskBaseBody } from './model/TaskBaseBody';
 import { TaskBaseResponseBody } from './model/TaskBaseResponseBody';
 import { TaskInfo } from './model/TaskInfo';
@@ -757,28 +750,6 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 获取部署任务状态
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取部署任务状态
-     * @param {string} taskId task_id
-     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
-     * @param {string} [recordId] record_id
-     * @param {boolean} [stepState] 是否返回部署任务各步骤的状态， true返回， false不返回
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkDeployStatus(checkDeployStatusRequest?: CheckDeployStatusRequest): Promise<CheckDeployStatusResponse> {
-        const options = ParamCreater().checkDeployStatus(checkDeployStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 应用下创建环境。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -990,28 +961,6 @@ export class CodeArtsDeployClient {
      */
     public updateEnvironmentPermission(updateEnvironmentPermissionRequest?: UpdateEnvironmentPermissionRequest): Promise<UpdateEnvironmentPermissionResponse> {
         const options = ParamCreater().updateEnvironmentPermission(updateEnvironmentPermissionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 停止部署任务
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 停止部署任务
-     * @param {string} taskId task_id
-     * @param {string} recordId record_id
-     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
-     * @param {string} emptyRequestBody EmptyRequestBody
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public stopDeployTask(stopDeployTaskRequest?: StopDeployTaskRequest): Promise<StopDeployTaskResponse> {
-        const options = ParamCreater().stopDeployTask(stopDeployTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2844,65 +2793,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取部署任务状态
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkDeployStatus(checkDeployStatusRequest?: CheckDeployStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/tasks/{task_id}/state",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let taskId;
-            
-            let contentType;
-            
-            let recordId;
-            
-            let stepState;
-
-            if (checkDeployStatusRequest !== null && checkDeployStatusRequest !== undefined) {
-                if (checkDeployStatusRequest instanceof CheckDeployStatusRequest) {
-                    taskId = checkDeployStatusRequest.taskId;
-                    contentType = checkDeployStatusRequest.contentType;
-                    recordId = checkDeployStatusRequest.recordId;
-                    stepState = checkDeployStatusRequest.stepState;
-                } else {
-                    taskId = checkDeployStatusRequest['task_id'];
-                    contentType = checkDeployStatusRequest['Content-Type'];
-                    recordId = checkDeployStatusRequest['record_id'];
-                    stepState = checkDeployStatusRequest['step_state'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling checkDeployStatus.');
-            }
-            if (recordId !== null && recordId !== undefined) {
-                localVarQueryParameter['record_id'] = recordId;
-            }
-            if (stepState !== null && stepState !== undefined) {
-                localVarQueryParameter['step_state'] = stepState;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 应用下创建环境。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3484,66 +3374,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'application_id': applicationId,'environment_id': environmentId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 停止部署任务
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        stopDeployTask(stopDeployTaskRequest?: StopDeployTaskRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/tasks/{task_id}/records/{record_id}/stop",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let taskId;
-            
-            let recordId;
-            
-            let contentType;
-
-            if (stopDeployTaskRequest !== null && stopDeployTaskRequest !== undefined) {
-                if (stopDeployTaskRequest instanceof StopDeployTaskRequest) {
-                    taskId = stopDeployTaskRequest.taskId;
-                    recordId = stopDeployTaskRequest.recordId;
-                    contentType = stopDeployTaskRequest.contentType;
-                    body = stopDeployTaskRequest.body
-                } else {
-                    taskId = stopDeployTaskRequest['task_id'];
-                    recordId = stopDeployTaskRequest['record_id'];
-                    contentType = stopDeployTaskRequest['Content-Type'];
-                    body = stopDeployTaskRequest['body'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling stopDeployTask.');
-            }
-            if (recordId === null || recordId === undefined) {
-            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling stopDeployTask.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'task_id': taskId,'record_id': recordId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -1,25 +1,19 @@
 
 
 export class ListHostRaspProtectHistoryInfoRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
+    public region?: string;
     private 'host_id'?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public limit?: number;
     public offset?: number;
     private 'alarm_level'?: number;
-    public severity?: string;
-    private 'protect_status'?: string;
     public constructor(startTime?: number, endTime?: number, limit?: number, offset?: number) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['limit'] = limit;
         this['offset'] = offset;
-    }
-    public withRegion(region: string): ListHostRaspProtectHistoryInfoRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListHostRaspProtectHistoryInfoRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -30,6 +24,10 @@ export class ListHostRaspProtectHistoryInfoRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withRegion(region: string): ListHostRaspProtectHistoryInfoRequest {
+        this['region'] = region;
+        return this;
     }
     public withHostId(hostId: string): ListHostRaspProtectHistoryInfoRequest {
         this['host_id'] = hostId;
@@ -78,19 +76,5 @@ export class ListHostRaspProtectHistoryInfoRequest {
     }
     public get alarmLevel(): number | undefined {
         return this['alarm_level'];
-    }
-    public withSeverity(severity: string): ListHostRaspProtectHistoryInfoRequest {
-        this['severity'] = severity;
-        return this;
-    }
-    public withProtectStatus(protectStatus: string): ListHostRaspProtectHistoryInfoRequest {
-        this['protect_status'] = protectStatus;
-        return this;
-    }
-    public set protectStatus(protectStatus: string  | undefined) {
-        this['protect_status'] = protectStatus;
-    }
-    public get protectStatus(): string | undefined {
-        return this['protect_status'];
     }
 }

@@ -7,9 +7,13 @@ export class ShowIkThesaurusResponse extends SdkResponse {
     public mainObj?: string;
     public stopObj?: string;
     public synonymObj?: string;
+    public staticMainObj?: string;
+    public staticStopObj?: string;
+    public extraMainObj?: string;
+    public extraStopObj?: string;
+    public updateTime?: string;
     public updateDetails?: string;
     public clusterId?: string;
-    public operateStatus?: string;
     public id?: string;
     public constructor() { 
         super();
@@ -34,16 +38,32 @@ export class ShowIkThesaurusResponse extends SdkResponse {
         this['synonymObj'] = synonymObj;
         return this;
     }
+    public withStaticMainObj(staticMainObj: string): ShowIkThesaurusResponse {
+        this['staticMainObj'] = staticMainObj;
+        return this;
+    }
+    public withStaticStopObj(staticStopObj: string): ShowIkThesaurusResponse {
+        this['staticStopObj'] = staticStopObj;
+        return this;
+    }
+    public withExtraMainObj(extraMainObj: string): ShowIkThesaurusResponse {
+        this['extraMainObj'] = extraMainObj;
+        return this;
+    }
+    public withExtraStopObj(extraStopObj: string): ShowIkThesaurusResponse {
+        this['extraStopObj'] = extraStopObj;
+        return this;
+    }
+    public withUpdateTime(updateTime: string): ShowIkThesaurusResponse {
+        this['updateTime'] = updateTime;
+        return this;
+    }
     public withUpdateDetails(updateDetails: string): ShowIkThesaurusResponse {
         this['updateDetails'] = updateDetails;
         return this;
     }
     public withClusterId(clusterId: string): ShowIkThesaurusResponse {
         this['clusterId'] = clusterId;
-        return this;
-    }
-    public withOperateStatus(operateStatus: string): ShowIkThesaurusResponse {
-        this['operateStatus'] = operateStatus;
         return this;
     }
     public withId(id: string): ShowIkThesaurusResponse {

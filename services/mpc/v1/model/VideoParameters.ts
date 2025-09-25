@@ -14,6 +14,7 @@ export class VideoParameters {
     private 'max_iframes_interval'?: number;
     private 'bframes_count'?: number;
     private 'frame_rate'?: number;
+    private 'frame_rate_float'?: number;
     public width?: number;
     public height?: number;
     private 'black_cut'?: number;
@@ -103,6 +104,16 @@ export class VideoParameters {
     }
     public get frameRate(): number | undefined {
         return this['frame_rate'];
+    }
+    public withFrameRateFloat(frameRateFloat: number): VideoParameters {
+        this['frame_rate_float'] = frameRateFloat;
+        return this;
+    }
+    public set frameRateFloat(frameRateFloat: number  | undefined) {
+        this['frame_rate_float'] = frameRateFloat;
+    }
+    public get frameRateFloat(): number | undefined {
+        return this['frame_rate_float'];
     }
     public withWidth(width: number): VideoParameters {
         this['width'] = width;

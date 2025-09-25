@@ -9,12 +9,13 @@ export class AddKeystorePermissionRequestBody {
     private 'user_id'?: string;
     public setting?: boolean;
     private 'can_absent'?: boolean;
-    public constructor(_delete?: boolean, keystoreId?: string, modify?: boolean, usage?: boolean, userName?: string, setting?: boolean, canAbsent?: boolean) { 
+    public constructor(_delete?: boolean, keystoreId?: string, modify?: boolean, usage?: boolean, userName?: string, userId?: string, setting?: boolean, canAbsent?: boolean) { 
         this['delete'] = _delete;
         this['keystore_id'] = keystoreId;
         this['modify'] = modify;
         this['usage'] = usage;
         this['user_name'] = userName;
+        this['user_id'] = userId;
         this['setting'] = setting;
         this['can_absent'] = canAbsent;
     }

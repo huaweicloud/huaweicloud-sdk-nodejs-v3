@@ -32,5 +32,8 @@ export class ListAllProvidersRequest {
     */
 export enum ListAllProvidersRequestXLanguageEnum {
     ZH_CN = 'zh-cn',
-    EN_US = 'en-us'
+    EN_US = 'en-us',
+    FR_FR = 'fr-fr',
+    ES_US = 'es-us',
+    PT_BR = 'pt-br'
 }

@@ -1,5 +1,4 @@
 import { Billing } from './Billing';
-import { CbcOrderResult } from './CbcOrderResult';
 import { ResourceResp } from './ResourceResp';
 import { Tag } from './Tag';
 import { VaultBindRules } from './VaultBindRules';
@@ -22,15 +21,13 @@ export class VaultCreateResource {
     private 'auto_expand'?: boolean;
     private 'smn_notify'?: boolean;
     public threshold?: number;
-    public errText?: string;
-    public retCode?: string;
-    public orders?: Array<CbcOrderResult>;
     private 'backup_name_prefix'?: string;
     private 'demand_billing'?: boolean;
     private 'cbc_delete_count'?: number;
     public frozen?: boolean;
     private 'sys_lock_source_service'?: string;
     public locked?: boolean;
+    private 'availability_zone'?: string;
     public constructor(billing?: Billing, id?: string, name?: string, projectId?: string, providerId?: string, resources?: Array<ResourceResp>) { 
         this['billing'] = billing;
         this['id'] = id;
@@ -157,18 +154,6 @@ export class VaultCreateResource {
         this['threshold'] = threshold;
         return this;
     }
-    public withErrText(errText: string): VaultCreateResource {
-        this['errText'] = errText;
-        return this;
-    }
-    public withRetCode(retCode: string): VaultCreateResource {
-        this['retCode'] = retCode;
-        return this;
-    }
-    public withOrders(orders: Array<CbcOrderResult>): VaultCreateResource {
-        this['orders'] = orders;
-        return this;
-    }
     public withBackupNamePrefix(backupNamePrefix: string): VaultCreateResource {
         this['backup_name_prefix'] = backupNamePrefix;
         return this;
@@ -216,5 +201,15 @@ export class VaultCreateResource {
     public withLocked(locked: boolean): VaultCreateResource {
         this['locked'] = locked;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): VaultCreateResource {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

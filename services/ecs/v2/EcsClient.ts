@@ -381,6 +381,9 @@ import { ShowRecycleBinRequest } from './model/ShowRecycleBinRequest';
 import { ShowRecycleBinResponse } from './model/ShowRecycleBinResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
 import { ShowResetPasswordFlagResponse } from './model/ShowResetPasswordFlagResponse';
+import { ShowSerialConsoleActionsOption } from './model/ShowSerialConsoleActionsOption';
+import { ShowSerialConsoleActionsRequest } from './model/ShowSerialConsoleActionsRequest';
+import { ShowSerialConsoleActionsResponse } from './model/ShowSerialConsoleActionsResponse';
 import { ShowServerAttachableNicNumRequest } from './model/ShowServerAttachableNicNumRequest';
 import { ShowServerAttachableNicNumResponse } from './model/ShowServerAttachableNicNumResponse';
 import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
@@ -429,6 +432,10 @@ import { UpdateRecycleBinRequest } from './model/UpdateRecycleBinRequest';
 import { UpdateRecycleBinResponse } from './model/UpdateRecycleBinResponse';
 import { UpdateScheduledEventRequest } from './model/UpdateScheduledEventRequest';
 import { UpdateScheduledEventResponse } from './model/UpdateScheduledEventResponse';
+import { UpdateSerialConsoleOptionsOption } from './model/UpdateSerialConsoleOptionsOption';
+import { UpdateSerialConsoleOptionsRequest } from './model/UpdateSerialConsoleOptionsRequest';
+import { UpdateSerialConsoleOptionsRequestBody } from './model/UpdateSerialConsoleOptionsRequestBody';
+import { UpdateSerialConsoleOptionsResponse } from './model/UpdateSerialConsoleOptionsResponse';
 import { UpdateServerAddress } from './model/UpdateServerAddress';
 import { UpdateServerAutoTerminateTimeRequest } from './model/UpdateServerAutoTerminateTimeRequest';
 import { UpdateServerAutoTerminateTimeRequestBody } from './model/UpdateServerAutoTerminateTimeRequestBody';
@@ -2231,6 +2238,25 @@ export class EcsClient {
     }
 
     /**
+     * 获取云服务器云主机串口登录地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取串口登录地址
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSerialConsoleActions(showSerialConsoleActionsRequest?: ShowSerialConsoleActionsRequest): Promise<ShowSerialConsoleActionsResponse> {
+        const options = ParamCreater().showSerialConsoleActions(showSerialConsoleActionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询弹性云服务器的详细信息。
      * 
      * 该接口支持查询弹性云服务器的计费方式，以及是否被冻结。
@@ -2462,6 +2488,26 @@ export class EcsClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置云服务器云主机串口登录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置云服务器云主机串口登录
+     * @param {string} serverId 云服务器ID。
+     * @param {UpdateSerialConsoleOptionsRequestBody} updateSerialConsoleOptionsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSerialConsoleOptions(updateSerialConsoleOptionsRequest?: UpdateSerialConsoleOptionsRequest): Promise<UpdateSerialConsoleOptionsResponse> {
+        const options = ParamCreater().updateSerialConsoleOptions(updateSerialConsoleOptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -6711,6 +6757,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取云服务器云主机串口登录地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSerialConsoleActions(showSerialConsoleActionsRequest?: ShowSerialConsoleActionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/actions/serial-console",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (showSerialConsoleActionsRequest !== null && showSerialConsoleActionsRequest !== undefined) {
+                if (showSerialConsoleActionsRequest instanceof ShowSerialConsoleActionsRequest) {
+                    serverId = showSerialConsoleActionsRequest.serverId;
+                } else {
+                    serverId = showSerialConsoleActionsRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showSerialConsoleActions.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询弹性云服务器的详细信息。
          * 
          * 该接口支持查询弹性云服务器的计费方式，以及是否被冻结。
@@ -7175,6 +7258,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置云服务器云主机串口登录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSerialConsoleOptions(updateSerialConsoleOptionsRequest?: UpdateSerialConsoleOptionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/{server_id}/serial-console-options",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+
+            if (updateSerialConsoleOptionsRequest !== null && updateSerialConsoleOptionsRequest !== undefined) {
+                if (updateSerialConsoleOptionsRequest instanceof UpdateSerialConsoleOptionsRequest) {
+                    serverId = updateSerialConsoleOptionsRequest.serverId;
+                    body = updateSerialConsoleOptionsRequest.body
+                } else {
+                    serverId = updateSerialConsoleOptionsRequest['server_id'];
+                    body = updateSerialConsoleOptionsRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateSerialConsoleOptions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

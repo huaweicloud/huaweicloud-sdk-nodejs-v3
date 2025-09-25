@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CheckAgencyResponse extends SdkResponse {
     public id?: string;
     public name?: string;
+    public version?: string;
     public duration?: string;
     private 'domain_id'?: string;
     private 'is_valid'?: boolean;
@@ -16,6 +17,10 @@ export class CheckAgencyResponse extends SdkResponse {
     }
     public withName(name: string): CheckAgencyResponse {
         this['name'] = name;
+        return this;
+    }
+    public withVersion(version: string): CheckAgencyResponse {
+        this['version'] = version;
         return this;
     }
     public withDuration(duration: string): CheckAgencyResponse {

@@ -18,6 +18,7 @@ import { BindPublicReqEip } from './model/BindPublicReqEip';
 import { BindPublicReqEipBandWidth } from './model/BindPublicReqEipBandWidth';
 import { BindPublicReqEipReq } from './model/BindPublicReqEipReq';
 import { CertificatesResource } from './model/CertificatesResource';
+import { CertsRecordsDatastore } from './model/CertsRecordsDatastore';
 import { ChangeClusterSubnetRequest } from './model/ChangeClusterSubnetRequest';
 import { ChangeClusterSubnetResponse } from './model/ChangeClusterSubnetResponse';
 import { ChangeModeReq } from './model/ChangeModeReq';
@@ -41,7 +42,6 @@ import { ClusterLogRecord } from './model/ClusterLogRecord';
 import { ClusterVolumeRsp } from './model/ClusterVolumeRsp';
 import { ConfigListRsp } from './model/ConfigListRsp';
 import { Confs } from './model/Confs';
-import { Confsetting } from './model/Confsetting';
 import { Connections } from './model/Connections';
 import { CreateAiOpsRequest } from './model/CreateAiOpsRequest';
 import { CreateAiOpsRequestBody } from './model/CreateAiOpsRequestBody';
@@ -78,9 +78,7 @@ import { CreateSnapshotReq } from './model/CreateSnapshotReq';
 import { CreateSnapshotRequest } from './model/CreateSnapshotRequest';
 import { CreateSnapshotResponse } from './model/CreateSnapshotResponse';
 import { CurrentNodeDetail } from './model/CurrentNodeDetail';
-import { CustomCertsResource } from './model/CustomCertsResource';
 import { CustomTemplates } from './model/CustomTemplates';
-import { DefaultCertsResource } from './model/DefaultCertsResource';
 import { DeleteAiOpsRequest } from './model/DeleteAiOpsRequest';
 import { DeleteAiOpsResponse } from './model/DeleteAiOpsResponse';
 import { DeleteClusterRequest } from './model/DeleteClusterRequest';
@@ -102,10 +100,9 @@ import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
 import { DownloadCertRequest } from './model/DownloadCertRequest';
 import { DownloadCertResponse } from './model/DownloadCertResponse';
 import { ElbWhiteListResp } from './model/ElbWhiteListResp';
+import { Elbv3Listener } from './model/Elbv3Listener';
 import { EnableOrDisableElbRequest } from './model/EnableOrDisableElbRequest';
 import { EnableOrDisableElbResponse } from './model/EnableOrDisableElbResponse';
-import { EsHealthIpgroupResource } from './model/EsHealthIpgroupResource';
-import { EsHealthmonitorsResource } from './model/EsHealthmonitorsResource';
 import { EsIpgroupResource } from './model/EsIpgroupResource';
 import { EsListenerRequest } from './model/EsListenerRequest';
 import { EsListenerResponse } from './model/EsListenerResponse';
@@ -160,15 +157,18 @@ import { ListYmlsJobRequest } from './model/ListYmlsJobRequest';
 import { ListYmlsJobResponse } from './model/ListYmlsJobResponse';
 import { ListYmlsRequest } from './model/ListYmlsRequest';
 import { ListYmlsResponse } from './model/ListYmlsResponse';
+import { ListenerIpGroup } from './model/ListenerIpGroup';
 import { LoadCustomThesaurusReq } from './model/LoadCustomThesaurusReq';
 import { LoadbalancersResource } from './model/LoadbalancersResource';
 import { LogConfiguration } from './model/LogConfiguration';
 import { LogList } from './model/LogList';
+import { Member } from './model/Member';
 import { PayInfoBody } from './model/PayInfoBody';
 import { PeriodReq } from './model/PeriodReq';
 import { PermissionInfo } from './model/PermissionInfo';
 import { Pipelines } from './model/Pipelines';
 import { PublicKibanaRespBody } from './model/PublicKibanaRespBody';
+import { RealTimeLogCollect } from './model/RealTimeLogCollect';
 import { ResetPasswordReq } from './model/ResetPasswordReq';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordResponse } from './model/ResetPasswordResponse';
@@ -525,11 +525,11 @@ export class CssClient {
     }
 
     /**
-     * 该接口用于es监听器配置。
+     * 该接口用于集群负载均衡监听器配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary es监听器配置。
+     * @summary 集群负载均衡监听器配置。
      * @param {string} clusterId 指定待更改集群名称的集群ID。
      * @param {CreateEsListenerRequestBody} createEsListenerRequestBody 
      * @param {*} [options] Override http request option.
@@ -723,11 +723,11 @@ export class CssClient {
     }
 
     /**
-     * 该接口打开或关闭es负载均衡器。
+     * 该接口为集群打开或关闭负载均衡器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 打开或关闭es负载均衡器
+     * @summary 为集群打开或关闭负载均衡器
      * @param {string} clusterId 指定待更改的集群ID。
      * @param {UpdateEsElbRequestBody} [updateEsElbRequestBody] 
      * @param {*} [options] Override http request option.
@@ -864,7 +864,7 @@ export class CssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取目标镜像ID
+     * @summary 获取可升级的目标镜像ID
      * @param {string} clusterId 待升级的集群的ID。
      * @param {string} upgradeType 升级目标版本类型： - same：相同版本。 - cross： 跨版本。
      * @param {string} [offset] 指定查询起始值，默认值为0。
@@ -1120,11 +1120,11 @@ export class CssClient {
     }
 
     /**
-     * 该接口用于获取该esELB的信息，以及页面需要展示健康检查状态。
+     * 该接口用于获取集群的负载均衡器信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取该esELB的信息，以及页面需要展示健康检查状态
+     * @summary 获取集群的负载均衡器信息
      * @param {string} clusterId 指定待查询的集群ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1504,11 +1504,11 @@ export class CssClient {
     }
 
     /**
-     * 该接口用于更新es监听器。
+     * 该接口用于更新集群负载均衡监听器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新es监听器
+     * @summary 更新集群负载均衡监听器
      * @param {string} clusterId 指定待操作的集群ID。
      * @param {string} listenerId 指定待操作得监听器ID。
      * @param {UpdateEsListenerRequestBody} updateEsListenerRequestBody 
@@ -1861,7 +1861,7 @@ export class CssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取升级详情信息
+     * @summary 获取集群升级或切换AZ的详情信息
      * @param {string} clusterId 待升级的集群的ID。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {number} [limit] 查询返回终端节点服务的连接列表限制每页个数，即每页返回的个数。
@@ -2726,7 +2726,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于es监听器配置。
+         * 该接口用于集群负载均衡监听器配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3137,7 +3137,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口打开或关闭es负载均衡器。
+         * 该接口为集群打开或关闭负载均衡器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3995,7 +3995,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取该esELB的信息，以及页面需要展示健康检查状态。
+         * 该接口用于获取集群的负载均衡器信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4825,7 +4825,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于更新es监听器。
+         * 该接口用于更新集群负载均衡监听器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -23,6 +23,7 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public subnetId?: string;
     public securityGroupId?: string;
     public vpcepIp?: string;
+    public vpcepIpv6Address?: string;
     public bandwidthSize?: number;
     public httpsEnable?: boolean;
     public diskEncrypted?: boolean;
@@ -35,6 +36,11 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public failedReason?: ClusterDetailFailedReasons;
     public period?: boolean;
     public bandwidthResourceId?: string;
+    public ipv6Endpoint?: string;
+    public supportVpcep?: boolean;
+    public cmkId?: string;
+    public orderId?: string;
+    public currentSubnetIds?: string;
     public constructor() { 
         super();
     }
@@ -98,6 +104,10 @@ export class ShowClusterDetailResponse extends SdkResponse {
         this['vpcepIp'] = vpcepIp;
         return this;
     }
+    public withVpcepIpv6Address(vpcepIpv6Address: string): ShowClusterDetailResponse {
+        this['vpcepIpv6Address'] = vpcepIpv6Address;
+        return this;
+    }
     public withBandwidthSize(bandwidthSize: number): ShowClusterDetailResponse {
         this['bandwidthSize'] = bandwidthSize;
         return this;
@@ -144,6 +154,26 @@ export class ShowClusterDetailResponse extends SdkResponse {
     }
     public withBandwidthResourceId(bandwidthResourceId: string): ShowClusterDetailResponse {
         this['bandwidthResourceId'] = bandwidthResourceId;
+        return this;
+    }
+    public withIpv6Endpoint(ipv6Endpoint: string): ShowClusterDetailResponse {
+        this['ipv6Endpoint'] = ipv6Endpoint;
+        return this;
+    }
+    public withSupportVpcep(supportVpcep: boolean): ShowClusterDetailResponse {
+        this['supportVpcep'] = supportVpcep;
+        return this;
+    }
+    public withCmkId(cmkId: string): ShowClusterDetailResponse {
+        this['cmkId'] = cmkId;
+        return this;
+    }
+    public withOrderId(orderId: string): ShowClusterDetailResponse {
+        this['orderId'] = orderId;
+        return this;
+    }
+    public withCurrentSubnetIds(currentSubnetIds: string): ShowClusterDetailResponse {
+        this['currentSubnetIds'] = currentSubnetIds;
         return this;
     }
 }

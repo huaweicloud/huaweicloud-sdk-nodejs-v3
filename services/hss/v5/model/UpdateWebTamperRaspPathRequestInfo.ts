@@ -2,7 +2,8 @@
 
 export class UpdateWebTamperRaspPathRequestInfo {
     private 'rasp_path'?: string;
-    public constructor() { 
+    public constructor(raspPath?: string) { 
+        this['rasp_path'] = raspPath;
     }
     public withRaspPath(raspPath: string): UpdateWebTamperRaspPathRequestInfo {
         this['rasp_path'] = raspPath;

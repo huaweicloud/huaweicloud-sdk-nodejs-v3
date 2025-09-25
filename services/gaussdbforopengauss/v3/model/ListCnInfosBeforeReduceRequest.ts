@@ -1,19 +1,19 @@
 
 
 export class ListCnInfosBeforeReduceRequest {
-    private 'X-Language'?: string;
+    private 'X-Language'?: ListCnInfosBeforeReduceRequestXLanguageEnum | string;
     private 'instance_id'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
-    public withXLanguage(xLanguage: string): ListCnInfosBeforeReduceRequest {
+    public withXLanguage(xLanguage: ListCnInfosBeforeReduceRequestXLanguageEnum | string): ListCnInfosBeforeReduceRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string  | undefined) {
+    public set xLanguage(xLanguage: ListCnInfosBeforeReduceRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage(): string | undefined {
+    public get xLanguage(): ListCnInfosBeforeReduceRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withInstanceId(instanceId: string): ListCnInfosBeforeReduceRequest {
@@ -26,4 +26,13 @@ export class ListCnInfosBeforeReduceRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCnInfosBeforeReduceRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
 }

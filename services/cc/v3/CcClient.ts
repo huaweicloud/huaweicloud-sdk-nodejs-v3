@@ -2615,6 +2615,7 @@ export class CcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询大区互通类型的带宽包资源规格列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
      * @param {number} [offset] （索引位置，偏移量）， 从offset指定的下一条数据开始查询。 查询第一页数据时，不需要传入此参数，查询后续页码数据时，将查询前一页数据时响应体中的值带入此参数（action为count时无此参数） 从第一条数据偏移offset条数据后开始查询，如果action为filter默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数。
      * @param {Array<string>} [localAreaId] 根据本端大区ID过滤带宽包资源规格列表。
      * @param {Array<string>} [remoteAreaId] 根据对端大区ID过滤带宽包资源规格列表。
@@ -7863,6 +7864,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let limit;
+            
             let offset;
             
             let localAreaId;
@@ -7871,10 +7874,12 @@ export const ParamCreater = function () {
 
             if (listAreaBandwidthPackageSpecificationsRequest !== null && listAreaBandwidthPackageSpecificationsRequest !== undefined) {
                 if (listAreaBandwidthPackageSpecificationsRequest instanceof ListAreaBandwidthPackageSpecificationsRequest) {
+                    limit = listAreaBandwidthPackageSpecificationsRequest.limit;
                     offset = listAreaBandwidthPackageSpecificationsRequest.offset;
                     localAreaId = listAreaBandwidthPackageSpecificationsRequest.localAreaId;
                     remoteAreaId = listAreaBandwidthPackageSpecificationsRequest.remoteAreaId;
                 } else {
+                    limit = listAreaBandwidthPackageSpecificationsRequest['limit'];
                     offset = listAreaBandwidthPackageSpecificationsRequest['offset'];
                     localAreaId = listAreaBandwidthPackageSpecificationsRequest['local_area_id'];
                     remoteAreaId = listAreaBandwidthPackageSpecificationsRequest['remote_area_id'];
@@ -7882,6 +7887,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }

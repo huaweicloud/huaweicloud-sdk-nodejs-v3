@@ -1,10 +1,10 @@
-import { OpenGaussUpgradeRequest } from './OpenGaussUpgradeRequest';
+import { UpgradeRequestBody } from './UpgradeRequestBody';
 
 
 export class UpgradeInstanceVersionRequest {
     private 'X-Language'?: string;
     private 'instance_id'?: string;
-    public body?: OpenGaussUpgradeRequest;
+    public body?: UpgradeRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -28,7 +28,7 @@ export class UpgradeInstanceVersionRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: OpenGaussUpgradeRequest): UpgradeInstanceVersionRequest {
+    public withBody(body: UpgradeRequestBody): UpgradeInstanceVersionRequest {
         this['body'] = body;
         return this;
     }

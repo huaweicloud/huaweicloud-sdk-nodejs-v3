@@ -66,8 +66,6 @@ import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
 import { DiagnosisRep } from './model/DiagnosisRep';
 import { DiagnosisReportResp } from './model/DiagnosisReportResp';
-import { EnableDnsRequest } from './model/EnableDnsRequest';
-import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExportDlqMessageReq } from './model/ExportDlqMessageReq';
 import { ExportDlqMessageRequest } from './model/ExportDlqMessageRequest';
 import { ExportDlqMessageResponse } from './model/ExportDlqMessageResponse';
@@ -143,8 +141,8 @@ import { RocketMQProductSupportFeaturesEntity } from './model/RocketMQProductSup
 import { SendDlqMessageRequest } from './model/SendDlqMessageRequest';
 import { SendDlqMessageResponse } from './model/SendDlqMessageResponse';
 import { SendMessageProperties } from './model/SendMessageProperties';
+import { SendMessageRep } from './model/SendMessageRep';
 import { SendMessageRequest } from './model/SendMessageRequest';
-import { SendMessageResp } from './model/SendMessageResp';
 import { SendMessageResponse } from './model/SendMessageResponse';
 import { ShowConsumerConnectionsRequest } from './model/ShowConsumerConnectionsRequest';
 import { ShowConsumerConnectionsResponse } from './model/ShowConsumerConnectionsResponse';
@@ -515,25 +513,6 @@ export class RocketMQClient {
      */
     public deleteUser(deleteUserRequest?: DeleteUserRequest): Promise<DeleteUserResponse> {
         const options = ParamCreater().deleteUser(deleteUserRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 开启RocketMQ实例域名访问能力。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 开启RocketMQ实例域名访问能力
-     * @param {string} instanceId 实例ID，从[查询所有实例列表](ListInstances.xml)获取实例ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
-        const options = ParamCreater().enableDns(enableDnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -954,7 +933,7 @@ export class RocketMQClient {
      * @summary 发送消息
      * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {SendMessageResp} sendMessageBody **参数解释**： 发送消息请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。。
+     * @param {SendMessageRep} sendMessageBody **参数解释**： 发送消息请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2197,43 +2176,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 开启RocketMQ实例域名访问能力。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        enableDns(enableDnsRequest?: EnableDnsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/rocketmq/instances/{instance_id}/dns",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-
-            if (enableDnsRequest !== null && enableDnsRequest !== undefined) {
-                if (enableDnsRequest instanceof EnableDnsRequest) {
-                    instanceId = enableDnsRequest.instanceId;
-                } else {
-                    instanceId = enableDnsRequest['instance_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

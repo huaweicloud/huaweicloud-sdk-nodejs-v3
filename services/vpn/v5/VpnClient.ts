@@ -39,6 +39,11 @@ import { CreateConnectionMonitorRequest } from './model/CreateConnectionMonitorR
 import { CreateConnectionMonitorRequestBody } from './model/CreateConnectionMonitorRequestBody';
 import { CreateConnectionMonitorRequestBodyContent } from './model/CreateConnectionMonitorRequestBodyContent';
 import { CreateConnectionMonitorResponse } from './model/CreateConnectionMonitorResponse';
+import { CreateP2cRequestEip } from './model/CreateP2cRequestEip';
+import { CreateP2cVgwRequest } from './model/CreateP2cVgwRequest';
+import { CreateP2cVgwRequestBody } from './model/CreateP2cVgwRequestBody';
+import { CreateP2cVgwRequestBodyContent } from './model/CreateP2cVgwRequestBodyContent';
+import { CreateP2cVgwResponse } from './model/CreateP2cVgwResponse';
 import { CreateRequestEip } from './model/CreateRequestEip';
 import { CreateResourcesTagsRequestBody } from './model/CreateResourcesTagsRequestBody';
 import { CreateResponseVpnConnection } from './model/CreateResponseVpnConnection';
@@ -87,6 +92,8 @@ import { DeleteConnectionMonitorRequest } from './model/DeleteConnectionMonitorR
 import { DeleteConnectionMonitorResponse } from './model/DeleteConnectionMonitorResponse';
 import { DeleteP2cVgwConnectionRequest } from './model/DeleteP2cVgwConnectionRequest';
 import { DeleteP2cVgwConnectionResponse } from './model/DeleteP2cVgwConnectionResponse';
+import { DeleteP2cVgwRequest } from './model/DeleteP2cVgwRequest';
+import { DeleteP2cVgwResponse } from './model/DeleteP2cVgwResponse';
 import { DeleteResourcesTagsRequestBody } from './model/DeleteResourcesTagsRequestBody';
 import { DeleteVgwRequest } from './model/DeleteVgwRequest';
 import { DeleteVgwResponse } from './model/DeleteVgwResponse';
@@ -567,6 +574,45 @@ export class VpnClient {
      */
     public updateCgw(updateCgwRequest?: UpdateCgwRequest): Promise<UpdateCgwResponse> {
         const options = ParamCreater().updateCgw(updateCgwRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建终端入云VPN网关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建P2C VPN网关
+     * @param {CreateP2cVgwRequestBody} createP2cVgwRequestBody 请求参数对象
+     * @param {string} [xClientToken] 幂等性标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createP2cVgw(createP2cVgwRequest?: CreateP2cVgwRequest): Promise<CreateP2cVgwResponse> {
+        const options = ParamCreater().createP2cVgw(createP2cVgwRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据P2C VPN网关ID，删除指定的VPN网关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除P2C VPN网关
+     * @param {string} p2cVgwId P2C VPN网关实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteP2cVgw(deleteP2cVgwRequest?: DeleteP2cVgwRequest): Promise<DeleteP2cVgwResponse> {
+        const options = ParamCreater().deleteP2cVgw(deleteP2cVgwRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2439,6 +2485,88 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'customer_gateway_id': customerGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建终端入云VPN网关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createP2cVgw(createP2cVgwRequest?: CreateP2cVgwRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/p2c-vpn-gateways",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xClientToken;
+
+            if (createP2cVgwRequest !== null && createP2cVgwRequest !== undefined) {
+                if (createP2cVgwRequest instanceof CreateP2cVgwRequest) {
+                    body = createP2cVgwRequest.body
+                    xClientToken = createP2cVgwRequest.xClientToken;
+                } else {
+                    body = createP2cVgwRequest['body'];
+                    xClientToken = createP2cVgwRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据P2C VPN网关ID，删除指定的VPN网关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteP2cVgw(deleteP2cVgwRequest?: DeleteP2cVgwRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/p2c-vpn-gateways/{p2c_vgw_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let p2cVgwId;
+
+            if (deleteP2cVgwRequest !== null && deleteP2cVgwRequest !== undefined) {
+                if (deleteP2cVgwRequest instanceof DeleteP2cVgwRequest) {
+                    p2cVgwId = deleteP2cVgwRequest.p2cVgwId;
+                } else {
+                    p2cVgwId = deleteP2cVgwRequest['p2c_vgw_id'];
+                }
+            }
+
+        
+            if (p2cVgwId === null || p2cVgwId === undefined) {
+            throw new RequiredError('p2cVgwId','Required parameter p2cVgwId was null or undefined when calling deleteP2cVgw.');
+            }
+
+            options.pathParams = { 'p2c_vgw_id': p2cVgwId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

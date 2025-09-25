@@ -2,6 +2,8 @@
 
 export class ShowMultiCloudClusterAuthRequest {
     private 'enterprise_project_id'?: string;
+    public offset?: number;
+    public limit?: number;
     private 'cluster_id'?: string;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
@@ -15,6 +17,14 @@ export class ShowMultiCloudClusterAuthRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withOffset(offset: number): ShowMultiCloudClusterAuthRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ShowMultiCloudClusterAuthRequest {
+        this['limit'] = limit;
+        return this;
     }
     public withClusterId(clusterId: string): ShowMultiCloudClusterAuthRequest {
         this['cluster_id'] = clusterId;

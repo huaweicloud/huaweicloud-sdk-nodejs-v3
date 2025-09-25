@@ -48,6 +48,7 @@ export class EventManagementResponseInfo {
     private 'event_details'?: string;
     private 'tag_list'?: Array<string>;
     private 'event_count'?: number;
+    private 'operate_type'?: string;
     public constructor() { 
     }
     public withEventId(eventId: string): EventManagementResponseInfo {
@@ -445,5 +446,15 @@ export class EventManagementResponseInfo {
     }
     public get eventCount(): number | undefined {
         return this['event_count'];
+    }
+    public withOperateType(operateType: string): EventManagementResponseInfo {
+        this['operate_type'] = operateType;
+        return this;
+    }
+    public set operateType(operateType: string  | undefined) {
+        this['operate_type'] = operateType;
+    }
+    public get operateType(): string | undefined {
+        return this['operate_type'];
     }
 }

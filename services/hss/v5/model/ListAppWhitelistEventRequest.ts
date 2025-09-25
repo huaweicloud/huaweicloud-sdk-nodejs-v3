@@ -7,7 +7,6 @@ export class ListAppWhitelistEventRequest {
     private 'end_time'?: number;
     private 'host_name'?: string;
     private 'host_ip'?: string;
-    private 'private_ip'?: string;
     private 'handle_status'?: string;
     public offset?: number;
     public limit?: number;
@@ -76,16 +75,6 @@ export class ListAppWhitelistEventRequest {
     }
     public get hostIp(): string | undefined {
         return this['host_ip'];
-    }
-    public withPrivateIp(privateIp: string): ListAppWhitelistEventRequest {
-        this['private_ip'] = privateIp;
-        return this;
-    }
-    public set privateIp(privateIp: string  | undefined) {
-        this['private_ip'] = privateIp;
-    }
-    public get privateIp(): string | undefined {
-        return this['private_ip'];
     }
     public withHandleStatus(handleStatus: string): ListAppWhitelistEventRequest {
         this['handle_status'] = handleStatus;

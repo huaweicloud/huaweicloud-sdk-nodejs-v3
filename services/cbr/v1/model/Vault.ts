@@ -23,6 +23,7 @@ export class Vault {
     public threshold?: number;
     private 'sys_lock_source_service'?: string;
     public locked?: boolean;
+    private 'availability_zone'?: string;
     public constructor(billing?: Billing, id?: string, name?: string, projectId?: string, providerId?: string, resources?: Array<ResourceResp>) { 
         this['billing'] = billing;
         this['id'] = id;
@@ -162,5 +163,15 @@ export class Vault {
     public withLocked(locked: boolean): Vault {
         this['locked'] = locked;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): Vault {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

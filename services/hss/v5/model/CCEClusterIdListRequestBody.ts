@@ -2,7 +2,9 @@
 
 export class CCEClusterIdListRequestBody {
     private 'cluster_id_list'?: Array<string>;
-    public constructor() { 
+    private 'detect_type'?: string;
+    public constructor(clusterIdList?: Array<string>) { 
+        this['cluster_id_list'] = clusterIdList;
     }
     public withClusterIdList(clusterIdList: Array<string>): CCEClusterIdListRequestBody {
         this['cluster_id_list'] = clusterIdList;
@@ -13,5 +15,15 @@ export class CCEClusterIdListRequestBody {
     }
     public get clusterIdList(): Array<string> | undefined {
         return this['cluster_id_list'];
+    }
+    public withDetectType(detectType: string): CCEClusterIdListRequestBody {
+        this['detect_type'] = detectType;
+        return this;
+    }
+    public set detectType(detectType: string  | undefined) {
+        this['detect_type'] = detectType;
+    }
+    public get detectType(): string | undefined {
+        return this['detect_type'];
     }
 }

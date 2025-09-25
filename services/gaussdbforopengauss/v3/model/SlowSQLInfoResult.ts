@@ -6,7 +6,7 @@ export class SlowSQLInfoResult {
     private 'user_name'?: string;
     private 'sql_text'?: string;
     private 'query_plan'?: string;
-    public calls?: string;
+    public calls?: number;
     private 'avg_exec_time'?: string;
     private 'avg_cpu_time'?: string;
     private 'avg_io_time'?: string;
@@ -62,7 +62,7 @@ export class SlowSQLInfoResult {
     public get queryPlan(): string | undefined {
         return this['query_plan'];
     }
-    public withCalls(calls: string): SlowSQLInfoResult {
+    public withCalls(calls: number): SlowSQLInfoResult {
         this['calls'] = calls;
         return this;
     }

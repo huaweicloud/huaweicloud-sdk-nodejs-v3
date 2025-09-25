@@ -13,10 +13,9 @@ export class UpdateSnapshotSettingReq {
     public keepday?: number;
     public frequency?: string;
     private 'delete_auto'?: string;
-    public constructor(bucket?: string, agency?: string, basePath?: string) { 
+    public constructor(bucket?: string, agency?: string) { 
         this['bucket'] = bucket;
         this['agency'] = agency;
-        this['base_path'] = basePath;
     }
     public withBucket(bucket: string): UpdateSnapshotSettingReq {
         this['bucket'] = bucket;

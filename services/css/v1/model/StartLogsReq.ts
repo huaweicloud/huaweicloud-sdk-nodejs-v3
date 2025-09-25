@@ -9,10 +9,7 @@ export class StartLogsReq {
     private 'index_prefix'?: string;
     private 'keep_days'?: number;
     private 'target_cluster_id'?: string;
-    public constructor(agency?: string, logBasePath?: string, logBucket?: string) { 
-        this['agency'] = agency;
-        this['log_base_path'] = logBasePath;
-        this['log_bucket'] = logBucket;
+    public constructor() { 
     }
     public withAgency(agency: string): StartLogsReq {
         this['agency'] = agency;

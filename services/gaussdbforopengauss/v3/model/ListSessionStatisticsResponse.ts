@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSessionStatisticsResponse extends SdkResponse {
     public total?: number;
-    public statistics?: Array<DimensionListResult>;
+    private 'statistics_list'?: Array<DimensionListResult>;
     public constructor() { 
         super();
     }
@@ -12,8 +12,14 @@ export class ListSessionStatisticsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withStatistics(statistics: Array<DimensionListResult>): ListSessionStatisticsResponse {
-        this['statistics'] = statistics;
+    public withStatisticsList(statisticsList: Array<DimensionListResult>): ListSessionStatisticsResponse {
+        this['statistics_list'] = statisticsList;
         return this;
+    }
+    public set statisticsList(statisticsList: Array<DimensionListResult>  | undefined) {
+        this['statistics_list'] = statisticsList;
+    }
+    public get statisticsList(): Array<DimensionListResult> | undefined {
+        return this['statistics_list'];
     }
 }

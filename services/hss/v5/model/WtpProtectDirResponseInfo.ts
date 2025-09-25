@@ -3,7 +3,6 @@ import { WtpProtectHostDirResponseInfo } from './WtpProtectHostDirResponseInfo';
 
 export class WtpProtectDirResponseInfo {
     private 'protect_dir_list'?: Array<WtpProtectHostDirResponseInfo>;
-    private 'exclue_file_type'?: string;
     private 'exclude_file_type'?: string;
     private 'protect_mode'?: string;
     public constructor() { 
@@ -17,16 +16,6 @@ export class WtpProtectDirResponseInfo {
     }
     public get protectDirList(): Array<WtpProtectHostDirResponseInfo> | undefined {
         return this['protect_dir_list'];
-    }
-    public withExclueFileType(exclueFileType: string): WtpProtectDirResponseInfo {
-        this['exclue_file_type'] = exclueFileType;
-        return this;
-    }
-    public set exclueFileType(exclueFileType: string  | undefined) {
-        this['exclue_file_type'] = exclueFileType;
-    }
-    public get exclueFileType(): string | undefined {
-        return this['exclue_file_type'];
     }
     public withExcludeFileType(excludeFileType: string): WtpProtectDirResponseInfo {
         this['exclude_file_type'] = excludeFileType;

@@ -819,7 +819,7 @@ export class ConfigClient {
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {string} [templateKey] 预定义合规包模板名称。
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {'zh-cn' | 'en-us' | 'fr-fr' | 'es-us' | 'pt-br'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -971,7 +971,7 @@ export class ConfigClient {
      *
      * @summary 查看预定义合规规则包模板
      * @param {string} templateId 合规规则包模板ID。
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {'zh-cn' | 'en-us' | 'fr-fr' | 'es-us' | 'pt-br'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1955,7 +1955,7 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户可见的区域
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {'zh-cn' | 'en-us' | 'fr-fr' | 'es-us' | 'pt-br'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {*} [options] Override http request option.
@@ -2122,7 +2122,7 @@ export class ConfigClient {
      * @summary 列举所有已对接的云服务
      * @param {number} [offset] 分页偏移
      * @param {number} [limit] 最大的返回数量
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {'zh-cn' | 'en-us' | 'fr-fr' | 'es-us' | 'pt-br'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2191,7 +2191,7 @@ export class ConfigClient {
      * @param {number} [offset] 分页偏移
      * @param {number} [limit] 最大的返回数量
      * @param {'tracked' | 'untracked'} [track] 资源是否默认收集
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {'zh-cn' | 'en-us' | 'fr-fr' | 'es-us' | 'pt-br'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

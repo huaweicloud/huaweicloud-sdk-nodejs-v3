@@ -21,6 +21,7 @@ export class VaultCreate {
     private 'demand_billing'?: boolean;
     private 'sys_lock_source_service'?: string;
     public locked?: boolean;
+    private 'availability_zone'?: string;
     public constructor(billing?: BillingCreate, name?: string, resources?: Array<ResourceCreate>) { 
         this['billing'] = billing;
         this['name'] = name;
@@ -143,5 +144,15 @@ export class VaultCreate {
     public withLocked(locked: boolean): VaultCreate {
         this['locked'] = locked;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): VaultCreate {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

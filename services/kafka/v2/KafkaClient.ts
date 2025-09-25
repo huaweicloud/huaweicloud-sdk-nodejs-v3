@@ -94,8 +94,6 @@ import { DescribeGroupsRespGroup } from './model/DescribeGroupsRespGroup';
 import { DescribeGroupsRespGroupMembers } from './model/DescribeGroupsRespGroupMembers';
 import { DiskusageEntity } from './model/DiskusageEntity';
 import { DiskusageTopicEntity } from './model/DiskusageTopicEntity';
-import { EnableDnsRequest } from './model/EnableDnsRequest';
-import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExtendProductInfoEntity } from './model/ExtendProductInfoEntity';
 import { ExtendProductIosEntity } from './model/ExtendProductIosEntity';
 import { ExtendProductPropertiesEntity } from './model/ExtendProductPropertiesEntity';
@@ -856,25 +854,6 @@ export class KafkaClient {
      */
     public deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest?: DeleteKafkaUserClientQuotaTaskRequest): Promise<DeleteKafkaUserClientQuotaTaskResponse> {
         const options = ParamCreater().deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 开启Kafka实例域名访问后，客户端可以通过域名连接Kafka实例。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 开启Kafka实例域名访问能力
-     * @param {string} instanceId 实例ID，从[查询所有实例列表](ListInstancesDetails.xml)获取实例ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
-        const options = ParamCreater().enableDns(enableDnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3636,43 +3615,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 开启Kafka实例域名访问后，客户端可以通过域名连接Kafka实例。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        enableDns(enableDnsRequest?: EnableDnsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/kafka/instances/{instance_id}/dns",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-
-            if (enableDnsRequest !== null && enableDnsRequest !== undefined) {
-                if (enableDnsRequest instanceof EnableDnsRequest) {
-                    instanceId = enableDnsRequest.instanceId;
-                } else {
-                    instanceId = enableDnsRequest['instance_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
-            }
-
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -10,6 +10,7 @@ export class OrganizationPolicyCreate {
     private 'policy_enabled'?: boolean;
     private 'policy_operation_definition'?: PolicyoODCreate;
     private 'policy_trigger'?: PolicyTriggerReq;
+    private 'effective_scope'?: string;
     public constructor(name?: string, operationType?: string, policyName?: string, policyEnabled?: boolean, policyOperationDefinition?: PolicyoODCreate, policyTrigger?: PolicyTriggerReq) { 
         this['name'] = name;
         this['operation_type'] = operationType;
@@ -75,6 +76,16 @@ export class OrganizationPolicyCreate {
     }
     public get policyTrigger(): PolicyTriggerReq | undefined {
         return this['policy_trigger'];
+    }
+    public withEffectiveScope(effectiveScope: string): OrganizationPolicyCreate {
+        this['effective_scope'] = effectiveScope;
+        return this;
+    }
+    public set effectiveScope(effectiveScope: string  | undefined) {
+        this['effective_scope'] = effectiveScope;
+    }
+    public get effectiveScope(): string | undefined {
+        return this['effective_scope'];
     }
 }
 

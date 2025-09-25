@@ -4,7 +4,9 @@ export class ListRecommendOfficialTemplateRequestBody {
     private 'git_url'?: string;
     public branch?: string;
     public tags?: string;
-    public constructor() { 
+    public constructor(gitUrl?: string, branch?: string) { 
+        this['git_url'] = gitUrl;
+        this['branch'] = branch;
     }
     public withGitUrl(gitUrl: string): ListRecommendOfficialTemplateRequestBody {
         this['git_url'] = gitUrl;

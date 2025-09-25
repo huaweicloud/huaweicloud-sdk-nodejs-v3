@@ -9,7 +9,8 @@ export class ListAgentInstallScriptRequest {
     private 'outside_group_id'?: string;
     private 'batch_install'?: boolean;
     public type?: ListAgentInstallScriptRequestTypeEnum | string;
-    public constructor(osArch?: string) { 
+    public constructor(osType?: string, osArch?: string) { 
+        this['os_type'] = osType;
         this['os_arch'] = osArch;
     }
     public withRegion(region: string): ListAgentInstallScriptRequest {

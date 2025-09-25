@@ -14,6 +14,7 @@ export class OrganizationPolicy {
     private 'policy_trigger'?: PolicyTriggerReq;
     public status?: string;
     private 'domain_name'?: string;
+    private 'effective_scope'?: string;
     public constructor(id?: string, name?: string, operationType?: string, domainId?: string, policyName?: string, policyEnabled?: boolean, policyOperationDefinition?: PolicyoODCreate, policyTrigger?: PolicyTriggerReq, status?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -110,6 +111,16 @@ export class OrganizationPolicy {
     }
     public get domainName(): string | undefined {
         return this['domain_name'];
+    }
+    public withEffectiveScope(effectiveScope: string): OrganizationPolicy {
+        this['effective_scope'] = effectiveScope;
+        return this;
+    }
+    public set effectiveScope(effectiveScope: string  | undefined) {
+        this['effective_scope'] = effectiveScope;
+    }
+    public get effectiveScope(): string | undefined {
+        return this['effective_scope'];
     }
 }
 

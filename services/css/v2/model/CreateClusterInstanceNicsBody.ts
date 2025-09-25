@@ -4,6 +4,7 @@ export class CreateClusterInstanceNicsBody {
     public vpcId?: string;
     public netId?: string;
     public securityGroupId?: string;
+    public ips?: Array<string>;
     public constructor(vpcId?: string, netId?: string, securityGroupId?: string) { 
         this['vpcId'] = vpcId;
         this['netId'] = netId;
@@ -19,6 +20,10 @@ export class CreateClusterInstanceNicsBody {
     }
     public withSecurityGroupId(securityGroupId: string): CreateClusterInstanceNicsBody {
         this['securityGroupId'] = securityGroupId;
+        return this;
+    }
+    public withIps(ips: Array<string>): CreateClusterInstanceNicsBody {
+        this['ips'] = ips;
         return this;
     }
 }

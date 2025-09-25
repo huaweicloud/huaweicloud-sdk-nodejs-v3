@@ -11,7 +11,7 @@ export class ServerlessPodInfo {
     private 'pod_ip'?: string;
     private 'protect_status'?: string;
     private 'detect_result'?: string;
-    public status?: object;
+    public status?: string;
     private 'create_time'?: number;
     public constructor() { 
     }
@@ -103,7 +103,7 @@ export class ServerlessPodInfo {
     public get detectResult(): string | undefined {
         return this['detect_result'];
     }
-    public withStatus(status: object): ServerlessPodInfo {
+    public withStatus(status: string): ServerlessPodInfo {
         this['status'] = status;
         return this;
     }

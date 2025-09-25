@@ -24,6 +24,7 @@ export class VaultGet {
     public threshold?: number;
     private 'sys_lock_source_service'?: string;
     public locked?: boolean;
+    private 'availability_zone'?: string;
     private 'updated_at'?: string;
     public version?: string;
     public constructor(billing?: Billing, id?: string, name?: string, projectId?: string, providerId?: string, resources?: Array<ResourceResp>, updatedAt?: string) { 
@@ -166,6 +167,16 @@ export class VaultGet {
     public withLocked(locked: boolean): VaultGet {
         this['locked'] = locked;
         return this;
+    }
+    public withAvailabilityZone(availabilityZone: string): VaultGet {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
     public withUpdatedAt(updatedAt: string): VaultGet {
         this['updated_at'] = updatedAt;
