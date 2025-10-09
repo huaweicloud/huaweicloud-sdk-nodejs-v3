@@ -5,8 +5,7 @@ import { NodeItem } from './NodeItem';
 export class RemoveNodesSpec {
     public login?: Login;
     public nodes?: Array<NodeItem>;
-    public constructor(login?: Login, nodes?: Array<NodeItem>) { 
-        this['login'] = login;
+    public constructor(nodes?: Array<NodeItem>) { 
         this['nodes'] = nodes;
     }
     public withLogin(login: Login): RemoveNodesSpec {

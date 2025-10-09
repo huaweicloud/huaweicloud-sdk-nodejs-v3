@@ -177,11 +177,11 @@ export class CssClient {
     }
 
     /**
-     * This interface is used to delete custom templates.
+     * 此接口用于删除自定义模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary Delete Custom Template
+     * @summary 删除自定义模板
      * @param {DeleteTemplateReqNew} deleteTemplateReqNew 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -461,7 +461,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * This interface is used to delete custom templates.
+         * 此接口用于删除自定义模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -2,6 +2,7 @@
 
 export class CustomerUpgradeDatabaseVersionReqNew {
     private 'is_delayed'?: boolean;
+    private 'second_switch'?: boolean;
     public constructor() { 
     }
     public withIsDelayed(isDelayed: boolean): CustomerUpgradeDatabaseVersionReqNew {
@@ -13,5 +14,15 @@ export class CustomerUpgradeDatabaseVersionReqNew {
     }
     public get isDelayed(): boolean | undefined {
         return this['is_delayed'];
+    }
+    public withSecondSwitch(secondSwitch: boolean): CustomerUpgradeDatabaseVersionReqNew {
+        this['second_switch'] = secondSwitch;
+        return this;
+    }
+    public set secondSwitch(secondSwitch: boolean  | undefined) {
+        this['second_switch'] = secondSwitch;
+    }
+    public get secondSwitch(): boolean | undefined {
+        return this['second_switch'];
     }
 }

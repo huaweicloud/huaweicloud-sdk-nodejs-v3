@@ -39,6 +39,7 @@ export class ResponseVpnGateway {
     private 'supported_flavors'?: Array<string>;
     private 'supported_features'?: Array<string>;
     public tags?: Array<VpnResourceTag>;
+    private 'upgrade_info'?: ResponseVpnGatewayUpgradeInfoEnum | string;
     public constructor() { 
     }
     public withId(id: string): ResponseVpnGateway {
@@ -349,6 +350,16 @@ export class ResponseVpnGateway {
         this['tags'] = tags;
         return this;
     }
+    public withUpgradeInfo(upgradeInfo: ResponseVpnGatewayUpgradeInfoEnum | string): ResponseVpnGateway {
+        this['upgrade_info'] = upgradeInfo;
+        return this;
+    }
+    public set upgradeInfo(upgradeInfo: ResponseVpnGatewayUpgradeInfoEnum | string  | undefined) {
+        this['upgrade_info'] = upgradeInfo;
+    }
+    public get upgradeInfo(): ResponseVpnGatewayUpgradeInfoEnum | string | undefined {
+        return this['upgrade_info'];
+    }
 }
 
 /**
@@ -374,4 +385,13 @@ export enum ResponseVpnGatewayIpVersionEnum {
 export enum ResponseVpnGatewayNetworkTypeEnum {
     PUBLIC = 'public',
     PRIVATE = 'private'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ResponseVpnGatewayUpgradeInfoEnum {
+    READY = 'ready',
+    EXPIRING_SOON = 'expiring soon',
+    UNREADY = 'unready'
 }

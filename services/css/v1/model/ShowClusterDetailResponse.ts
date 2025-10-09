@@ -41,6 +41,7 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public cmkId?: string;
     public orderId?: string;
     public currentSubnetIds?: string;
+    public desc?: string;
     public constructor() { 
         super();
     }
@@ -174,6 +175,10 @@ export class ShowClusterDetailResponse extends SdkResponse {
     }
     public withCurrentSubnetIds(currentSubnetIds: string): ShowClusterDetailResponse {
         this['currentSubnetIds'] = currentSubnetIds;
+        return this;
+    }
+    public withDesc(desc: string): ShowClusterDetailResponse {
+        this['desc'] = desc;
         return this;
     }
 }

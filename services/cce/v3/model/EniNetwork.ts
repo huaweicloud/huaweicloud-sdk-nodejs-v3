@@ -5,8 +5,7 @@ export class EniNetwork {
     public eniSubnetId?: string;
     public eniSubnetCIDR?: string;
     public subnets?: Array<NetworkSubnet>;
-    public constructor(eniSubnetId?: string, subnets?: Array<NetworkSubnet>) { 
-        this['eniSubnetId'] = eniSubnetId;
+    public constructor(subnets?: Array<NetworkSubnet>) { 
         this['subnets'] = subnets;
     }
     public withEniSubnetId(eniSubnetId: string): EniNetwork {

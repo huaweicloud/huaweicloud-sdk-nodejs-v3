@@ -8,6 +8,7 @@ export class ClusterMetadata {
     public labels?: { [key: string]: string; };
     public creationTimestamp?: string;
     public updateTimestamp?: string;
+    public timezone?: string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -37,6 +38,10 @@ export class ClusterMetadata {
     }
     public withUpdateTimestamp(updateTimestamp: string): ClusterMetadata {
         this['updateTimestamp'] = updateTimestamp;
+        return this;
+    }
+    public withTimezone(timezone: string): ClusterMetadata {
+        this['timezone'] = timezone;
         return this;
     }
 }

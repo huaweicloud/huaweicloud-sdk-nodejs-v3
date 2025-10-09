@@ -1,5 +1,6 @@
 import { Login } from './Login';
 import { MigrateNodeExtendParam } from './MigrateNodeExtendParam';
+import { MigrateServerConfig } from './MigrateServerConfig';
 import { NodeItem } from './NodeItem';
 import { Runtime } from './Runtime';
 
@@ -9,10 +10,10 @@ export class MigrateNodesSpec {
     public extendParam?: MigrateNodeExtendParam;
     public login?: Login;
     public runtime?: Runtime;
+    public serverConfig?: MigrateServerConfig;
     public nodes?: Array<NodeItem>;
-    public constructor(os?: string, login?: Login, nodes?: Array<NodeItem>) { 
+    public constructor(os?: string, nodes?: Array<NodeItem>) { 
         this['os'] = os;
-        this['login'] = login;
         this['nodes'] = nodes;
     }
     public withOs(os: string): MigrateNodesSpec {
@@ -29,6 +30,10 @@ export class MigrateNodesSpec {
     }
     public withRuntime(runtime: Runtime): MigrateNodesSpec {
         this['runtime'] = runtime;
+        return this;
+    }
+    public withServerConfig(serverConfig: MigrateServerConfig): MigrateNodesSpec {
+        this['serverConfig'] = serverConfig;
         return this;
     }
     public withNodes(nodes: Array<NodeItem>): MigrateNodesSpec {

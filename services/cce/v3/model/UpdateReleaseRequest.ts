@@ -4,6 +4,7 @@ import { UpdateReleaseReqBody } from './UpdateReleaseReqBody';
 export class UpdateReleaseRequest {
     public name?: string;
     public namespace?: string;
+    private 'show_resources'?: string;
     private 'Content-Type'?: string;
     private 'cluster_id'?: string;
     public body?: UpdateReleaseReqBody;
@@ -20,6 +21,16 @@ export class UpdateReleaseRequest {
     public withNamespace(namespace: string): UpdateReleaseRequest {
         this['namespace'] = namespace;
         return this;
+    }
+    public withShowResources(showResources: string): UpdateReleaseRequest {
+        this['show_resources'] = showResources;
+        return this;
+    }
+    public set showResources(showResources: string  | undefined) {
+        this['show_resources'] = showResources;
+    }
+    public get showResources(): string | undefined {
+        return this['show_resources'];
     }
     public withContentType(contentType: string): UpdateReleaseRequest {
         this['Content-Type'] = contentType;

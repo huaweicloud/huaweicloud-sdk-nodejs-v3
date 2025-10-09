@@ -3,6 +3,7 @@ import { Login } from './Login';
 import { NodeExtendParam } from './NodeExtendParam';
 import { NodeNicSpec } from './NodeNicSpec';
 import { NodePublicIP } from './NodePublicIP';
+import { NodeSpecNodeNameTemplate } from './NodeSpecNodeNameTemplate';
 import { Runtime } from './Runtime';
 import { Storage } from './Storage';
 import { Taint } from './Taint';
@@ -21,8 +22,9 @@ export class NodeSpec {
     public publicIP?: NodePublicIP;
     public nodeNicSpec?: NodeNicSpec;
     public count?: number;
-    public billingMode?: number;
+    public billingMode?: NodeSpecBillingModeEnum | number;
     public taints?: Array<Taint>;
+    public waitPostInstallFinish?: boolean;
     public k8sTags?: { [key: string]: string; };
     public ecsGroupId?: string;
     public dedicatedHostId?: string;
@@ -33,10 +35,10 @@ export class NodeSpec {
     public hostnameConfig?: HostnameConfig;
     public serverEnterpriseProjectID?: string;
     public partition?: string;
-    public constructor(flavor?: string, az?: string, login?: Login, rootVolume?: Volume, dataVolumes?: Array<Volume>) { 
+    public nodeNameTemplate?: NodeSpecNodeNameTemplate;
+    public constructor(flavor?: string, az?: string, rootVolume?: Volume, dataVolumes?: Array<Volume>) { 
         this['flavor'] = flavor;
         this['az'] = az;
-        this['login'] = login;
         this['rootVolume'] = rootVolume;
         this['dataVolumes'] = dataVolumes;
     }
@@ -80,12 +82,16 @@ export class NodeSpec {
         this['count'] = count;
         return this;
     }
-    public withBillingMode(billingMode: number): NodeSpec {
+    public withBillingMode(billingMode: NodeSpecBillingModeEnum | number): NodeSpec {
         this['billingMode'] = billingMode;
         return this;
     }
     public withTaints(taints: Array<Taint>): NodeSpec {
         this['taints'] = taints;
+        return this;
+    }
+    public withWaitPostInstallFinish(waitPostInstallFinish: boolean): NodeSpec {
+        this['waitPostInstallFinish'] = waitPostInstallFinish;
         return this;
     }
     public withK8sTags(k8sTags: { [key: string]: string; }): NodeSpec {
@@ -128,4 +134,17 @@ export class NodeSpec {
         this['partition'] = partition;
         return this;
     }
+    public withNodeNameTemplate(nodeNameTemplate: NodeSpecNodeNameTemplate): NodeSpec {
+        this['nodeNameTemplate'] = nodeNameTemplate;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NodeSpecBillingModeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

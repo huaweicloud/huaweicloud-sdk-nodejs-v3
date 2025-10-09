@@ -10,6 +10,7 @@ export class NodeStatus {
     public privateIPv6IP?: string;
     public publicIP?: string;
     public deleteStatus?: DeleteStatus;
+    public configurationUpToDate?: boolean;
     public constructor() { 
     }
     public withPhase(phase: NodeStatusPhaseEnum | string): NodeStatus {
@@ -42,6 +43,10 @@ export class NodeStatus {
     }
     public withDeleteStatus(deleteStatus: DeleteStatus): NodeStatus {
         this['deleteStatus'] = deleteStatus;
+        return this;
+    }
+    public withConfigurationUpToDate(configurationUpToDate: boolean): NodeStatus {
+        this['configurationUpToDate'] = configurationUpToDate;
         return this;
     }
 }

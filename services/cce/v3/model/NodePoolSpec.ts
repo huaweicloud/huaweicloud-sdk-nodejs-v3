@@ -1,27 +1,30 @@
 import { ExtensionScaleGroup } from './ExtensionScaleGroup';
 import { NodeManagement } from './NodeManagement';
 import { NodePoolNodeAutoscaling } from './NodePoolNodeAutoscaling';
-import { NodeSpec } from './NodeSpec';
+import { NodeTemplate } from './NodeTemplate';
 import { SecurityID } from './SecurityID';
 
 
 export class NodePoolSpec {
     public type?: NodePoolSpecTypeEnum | string;
-    public nodeTemplate?: NodeSpec;
+    public nodeTemplate?: NodeTemplate;
     public initialNodeCount?: number;
     public autoscaling?: NodePoolNodeAutoscaling;
     public nodeManagement?: NodeManagement;
     public podSecurityGroups?: Array<SecurityID>;
     public extensionScaleGroups?: Array<ExtensionScaleGroup>;
     public customSecurityGroups?: Array<string>;
-    public constructor(nodeTemplate?: NodeSpec) { 
+    public taintPolicyOnExistingNodes?: string;
+    public labelPolicyOnExistingNodes?: string;
+    public userTagsPolicyOnExistingNodes?: string;
+    public constructor(nodeTemplate?: NodeTemplate) { 
         this['nodeTemplate'] = nodeTemplate;
     }
     public withType(type: NodePoolSpecTypeEnum | string): NodePoolSpec {
         this['type'] = type;
         return this;
     }
-    public withNodeTemplate(nodeTemplate: NodeSpec): NodePoolSpec {
+    public withNodeTemplate(nodeTemplate: NodeTemplate): NodePoolSpec {
         this['nodeTemplate'] = nodeTemplate;
         return this;
     }
@@ -47,6 +50,18 @@ export class NodePoolSpec {
     }
     public withCustomSecurityGroups(customSecurityGroups: Array<string>): NodePoolSpec {
         this['customSecurityGroups'] = customSecurityGroups;
+        return this;
+    }
+    public withTaintPolicyOnExistingNodes(taintPolicyOnExistingNodes: string): NodePoolSpec {
+        this['taintPolicyOnExistingNodes'] = taintPolicyOnExistingNodes;
+        return this;
+    }
+    public withLabelPolicyOnExistingNodes(labelPolicyOnExistingNodes: string): NodePoolSpec {
+        this['labelPolicyOnExistingNodes'] = labelPolicyOnExistingNodes;
+        return this;
+    }
+    public withUserTagsPolicyOnExistingNodes(userTagsPolicyOnExistingNodes: string): NodePoolSpec {
+        this['userTagsPolicyOnExistingNodes'] = userTagsPolicyOnExistingNodes;
         return this;
     }
 }

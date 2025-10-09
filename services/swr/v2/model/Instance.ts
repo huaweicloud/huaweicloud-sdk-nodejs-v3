@@ -24,6 +24,7 @@ export class Instance {
     private 'vpc_cidr'?: string;
     private 'subnet_name'?: string;
     private 'subnet_cidr'?: string;
+    private 'vpcep_service_id'?: string;
     public constructor() { 
     }
     public withId(id: string): Instance {
@@ -219,6 +220,16 @@ export class Instance {
     }
     public get subnetCidr(): string | undefined {
         return this['subnet_cidr'];
+    }
+    public withVpcepServiceId(vpcepServiceId: string): Instance {
+        this['vpcep_service_id'] = vpcepServiceId;
+        return this;
+    }
+    public set vpcepServiceId(vpcepServiceId: string  | undefined) {
+        this['vpcep_service_id'] = vpcepServiceId;
+    }
+    public get vpcepServiceId(): string | undefined {
+        return this['vpcep_service_id'];
     }
 }
 

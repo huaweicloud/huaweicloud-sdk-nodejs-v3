@@ -21,9 +21,8 @@ export class ReinstallNodeSpec {
     public extendParam?: ReinstallExtendParam;
     public hostnameConfig?: HostnameConfig;
     public securityReinforcementType?: ReinstallNodeSpecSecurityReinforcementTypeEnum | string;
-    public constructor(os?: string, login?: Login) { 
+    public constructor(os?: string) { 
         this['os'] = os;
-        this['login'] = login;
     }
     public withOs(os: string): ReinstallNodeSpec {
         this['os'] = os;

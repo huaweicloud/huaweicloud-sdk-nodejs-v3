@@ -2,7 +2,7 @@
 
 export class PersistentVolumeClaimMetadata {
     public name?: string;
-    public labels?: string;
+    public labels?: { [key: string]: string; };
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -10,7 +10,7 @@ export class PersistentVolumeClaimMetadata {
         this['name'] = name;
         return this;
     }
-    public withLabels(labels: string): PersistentVolumeClaimMetadata {
+    public withLabels(labels: { [key: string]: string; }): PersistentVolumeClaimMetadata {
         this['labels'] = labels;
         return this;
     }

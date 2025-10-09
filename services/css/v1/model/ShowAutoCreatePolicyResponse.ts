@@ -4,12 +4,16 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowAutoCreatePolicyResponse extends SdkResponse {
     public keepday?: number;
     public period?: string;
+    public frequency?: string;
     public prefix?: string;
     public bucket?: string;
     public basePath?: string;
     public agency?: string;
     public enable?: string;
-    public frequency?: string;
+    public indices?: string;
+    public snapshotCmkId?: string;
+    public maxSnapshotBytesPerSeconds?: string;
+    public maxRestoreBytesPerSeconds?: string;
     public constructor() { 
         super();
     }
@@ -19,6 +23,10 @@ export class ShowAutoCreatePolicyResponse extends SdkResponse {
     }
     public withPeriod(period: string): ShowAutoCreatePolicyResponse {
         this['period'] = period;
+        return this;
+    }
+    public withFrequency(frequency: string): ShowAutoCreatePolicyResponse {
+        this['frequency'] = frequency;
         return this;
     }
     public withPrefix(prefix: string): ShowAutoCreatePolicyResponse {
@@ -41,8 +49,20 @@ export class ShowAutoCreatePolicyResponse extends SdkResponse {
         this['enable'] = enable;
         return this;
     }
-    public withFrequency(frequency: string): ShowAutoCreatePolicyResponse {
-        this['frequency'] = frequency;
+    public withIndices(indices: string): ShowAutoCreatePolicyResponse {
+        this['indices'] = indices;
+        return this;
+    }
+    public withSnapshotCmkId(snapshotCmkId: string): ShowAutoCreatePolicyResponse {
+        this['snapshotCmkId'] = snapshotCmkId;
+        return this;
+    }
+    public withMaxSnapshotBytesPerSeconds(maxSnapshotBytesPerSeconds: string): ShowAutoCreatePolicyResponse {
+        this['maxSnapshotBytesPerSeconds'] = maxSnapshotBytesPerSeconds;
+        return this;
+    }
+    public withMaxRestoreBytesPerSeconds(maxRestoreBytesPerSeconds: string): ShowAutoCreatePolicyResponse {
+        this['maxRestoreBytesPerSeconds'] = maxRestoreBytesPerSeconds;
         return this;
     }
 }

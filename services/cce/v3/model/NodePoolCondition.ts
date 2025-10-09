@@ -1,7 +1,7 @@
 
 
 export class NodePoolCondition {
-    public type?: string;
+    public type?: NodePoolConditionTypeEnum | string;
     public status?: string;
     public lastProbeTime?: string;
     public lastTransitTime?: string;
@@ -9,7 +9,7 @@ export class NodePoolCondition {
     public message?: string;
     public constructor() { 
     }
-    public withType(type: string): NodePoolCondition {
+    public withType(type: NodePoolConditionTypeEnum | string): NodePoolCondition {
         this['type'] = type;
         return this;
     }
@@ -33,4 +33,21 @@ export class NodePoolCondition {
         this['message'] = message;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NodePoolConditionTypeEnum {
+    TAINTSYNCHRONIZING = 'TaintSynchronizing',
+    LABELSYNCHRONIZING = 'LabelSynchronizing',
+    USERTAGSSYNCHRONIZING = 'UserTagsSynchronizing',
+    CONFIGURATIONSYNCHRONIZING = 'ConfigurationSynchronizing',
+    SCALABLE = 'Scalable',
+    QUOTAINSUFFICIENT = 'QuotaInsufficient',
+    RESOURCEINSUFFICIENT = 'ResourceInsufficient',
+    UNEXPECTEDERROR = 'UnexpectedError',
+    LOCKEDBYORDER = 'LockedByOrder',
+    ERROR = 'Error'
 }

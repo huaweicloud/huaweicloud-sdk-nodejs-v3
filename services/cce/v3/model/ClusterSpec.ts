@@ -17,6 +17,7 @@ export class ClusterSpec {
     public flavor?: string;
     public version?: string;
     public platformVersion?: string;
+    public legacyVersion?: string;
     public description?: string;
     public customSan?: Array<string>;
     public ipv6enable?: boolean;
@@ -63,6 +64,10 @@ export class ClusterSpec {
     }
     public withPlatformVersion(platformVersion: string): ClusterSpec {
         this['platformVersion'] = platformVersion;
+        return this;
+    }
+    public withLegacyVersion(legacyVersion: string): ClusterSpec {
+        this['legacyVersion'] = legacyVersion;
         return this;
     }
     public withDescription(description: string): ClusterSpec {

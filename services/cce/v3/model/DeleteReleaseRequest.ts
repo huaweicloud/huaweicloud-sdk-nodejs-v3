@@ -3,6 +3,7 @@
 export class DeleteReleaseRequest {
     public name?: string;
     public namespace?: string;
+    private 'show_resources'?: string;
     private 'Content-Type'?: string;
     private 'cluster_id'?: string;
     public constructor(name?: string, namespace?: string, contentType?: string, clusterId?: string) { 
@@ -18,6 +19,16 @@ export class DeleteReleaseRequest {
     public withNamespace(namespace: string): DeleteReleaseRequest {
         this['namespace'] = namespace;
         return this;
+    }
+    public withShowResources(showResources: string): DeleteReleaseRequest {
+        this['show_resources'] = showResources;
+        return this;
+    }
+    public set showResources(showResources: string  | undefined) {
+        this['show_resources'] = showResources;
+    }
+    public get showResources(): string | undefined {
+        return this['show_resources'];
     }
     public withContentType(contentType: string): DeleteReleaseRequest {
         this['Content-Type'] = contentType;

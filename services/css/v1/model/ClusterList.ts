@@ -4,11 +4,12 @@ import { ClusterListInstances } from './ClusterListInstances';
 import { ClusterListTags } from './ClusterListTags';
 import { ElbWhiteListResp } from './ElbWhiteListResp';
 import { PublicKibanaRespBody } from './PublicKibanaRespBody';
+import { SnapshotPolicyResp } from './SnapshotPolicyResp';
 
 
 export class ClusterList {
     public datastore?: ClusterListDatastore;
-    public snapshotPolicy?: object;
+    public snapshotPolicy?: SnapshotPolicyResp;
     public instances?: Array<ClusterListInstances>;
     public publicKibanaResp?: PublicKibanaRespBody;
     public elbWhiteList?: ElbWhiteListResp;
@@ -37,13 +38,14 @@ export class ClusterList {
     public ipv6Endpoint?: string;
     public cmkId?: string;
     public currentSubnetIds?: string;
+    public desc?: string;
     public constructor() { 
     }
     public withDatastore(datastore: ClusterListDatastore): ClusterList {
         this['datastore'] = datastore;
         return this;
     }
-    public withSnapshotPolicy(snapshotPolicy: object): ClusterList {
+    public withSnapshotPolicy(snapshotPolicy: SnapshotPolicyResp): ClusterList {
         this['snapshotPolicy'] = snapshotPolicy;
         return this;
     }
@@ -157,6 +159,10 @@ export class ClusterList {
     }
     public withCurrentSubnetIds(currentSubnetIds: string): ClusterList {
         this['currentSubnetIds'] = currentSubnetIds;
+        return this;
+    }
+    public withDesc(desc: string): ClusterList {
+        this['desc'] = desc;
         return this;
     }
 }

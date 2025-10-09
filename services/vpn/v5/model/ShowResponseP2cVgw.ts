@@ -19,6 +19,7 @@ export class ShowResponseP2cVgw {
     private 'admin_state_up'?: boolean;
     private 'frozen_effect'?: number;
     public version?: string;
+    private 'upgrade_info'?: ShowResponseP2cVgwUpgradeInfoEnum | string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'applied_at'?: Date;
@@ -142,6 +143,16 @@ export class ShowResponseP2cVgw {
         this['version'] = version;
         return this;
     }
+    public withUpgradeInfo(upgradeInfo: ShowResponseP2cVgwUpgradeInfoEnum | string): ShowResponseP2cVgw {
+        this['upgrade_info'] = upgradeInfo;
+        return this;
+    }
+    public set upgradeInfo(upgradeInfo: ShowResponseP2cVgwUpgradeInfoEnum | string  | undefined) {
+        this['upgrade_info'] = upgradeInfo;
+    }
+    public get upgradeInfo(): ShowResponseP2cVgwUpgradeInfoEnum | string | undefined {
+        return this['upgrade_info'];
+    }
     public withCreatedAt(createdAt: Date): ShowResponseP2cVgw {
         this['created_at'] = createdAt;
         return this;
@@ -172,4 +183,14 @@ export class ShowResponseP2cVgw {
     public get appliedAt(): Date | undefined {
         return this['applied_at'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowResponseP2cVgwUpgradeInfoEnum {
+    READY = 'ready',
+    EXPIRING_SOON = 'expiring soon',
+    UNREADY = 'unready'
 }

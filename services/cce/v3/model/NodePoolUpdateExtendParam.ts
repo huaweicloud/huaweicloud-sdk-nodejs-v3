@@ -6,6 +6,7 @@ export class NodePoolUpdateExtendParam {
     private 'alpha.cce/postInstall'?: string;
     public spotPrice?: string;
     public securityReinforcementType?: NodePoolUpdateExtendParamSecurityReinforcementTypeEnum | string;
+    private 'alpha.cce/NodeImageID'?: string;
     public constructor() { 
     }
     public withAgencyName(agencyName: string): NodePoolUpdateExtendParam {
@@ -45,6 +46,16 @@ export class NodePoolUpdateExtendParam {
     public withSecurityReinforcementType(securityReinforcementType: NodePoolUpdateExtendParamSecurityReinforcementTypeEnum | string): NodePoolUpdateExtendParam {
         this['securityReinforcementType'] = securityReinforcementType;
         return this;
+    }
+    public withAlphaCceNodeImageID(alphaCceNodeImageID: string): NodePoolUpdateExtendParam {
+        this['alpha.cce/NodeImageID'] = alphaCceNodeImageID;
+        return this;
+    }
+    public set alphaCceNodeImageID(alphaCceNodeImageID: string  | undefined) {
+        this['alpha.cce/NodeImageID'] = alphaCceNodeImageID;
+    }
+    public get alphaCceNodeImageID(): string | undefined {
+        return this['alpha.cce/NodeImageID'];
     }
 }
 

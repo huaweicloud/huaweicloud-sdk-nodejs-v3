@@ -6,6 +6,7 @@ export class NodePoolMetadata {
     public annotations?: { [key: string]: string; };
     public updateTimestamp?: string;
     public creationTimestamp?: string;
+    public resourceVersion?: number;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -27,6 +28,10 @@ export class NodePoolMetadata {
     }
     public withCreationTimestamp(creationTimestamp: string): NodePoolMetadata {
         this['creationTimestamp'] = creationTimestamp;
+        return this;
+    }
+    public withResourceVersion(resourceVersion: number): NodePoolMetadata {
+        this['resourceVersion'] = resourceVersion;
         return this;
     }
 }

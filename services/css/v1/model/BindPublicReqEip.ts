@@ -3,7 +3,8 @@ import { BindPublicReqEipBandWidth } from './BindPublicReqEipBandWidth';
 
 export class BindPublicReqEip {
     private 'band_width'?: BindPublicReqEipBandWidth;
-    public constructor() { 
+    public constructor(bandWidth?: BindPublicReqEipBandWidth) { 
+        this['band_width'] = bandWidth;
     }
     public withBandWidth(bandWidth: BindPublicReqEipBandWidth): BindPublicReqEip {
         this['band_width'] = bandWidth;

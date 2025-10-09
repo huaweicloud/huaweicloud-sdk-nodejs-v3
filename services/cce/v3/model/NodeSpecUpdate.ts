@@ -12,6 +12,7 @@ import { Volume } from './Volume';
 
 export class NodeSpecUpdate {
     public flavor?: string;
+    public az?: string;
     public os?: string;
     public login?: Login;
     public rootVolumeUpdate?: Volume;
@@ -19,8 +20,8 @@ export class NodeSpecUpdate {
     public storage?: Storage;
     public runtime?: Runtime;
     public taints?: Array<Taint>;
+    public waitPostInstallFinish?: boolean;
     public k8sTags?: { [key: string]: string; };
-    public ecsGroupId?: string;
     public userTags?: Array<UserTag>;
     public nodeNameTemplate?: NodeSpecUpdateNodeNameTemplate;
     public initializedConditions?: Array<string>;
@@ -28,13 +29,14 @@ export class NodeSpecUpdate {
     public nodeNicSpecUpdate?: NodeSpecUpdateNodeNicSpecUpdate;
     public extendParam?: NodePoolUpdateExtendParam;
     public publicIP?: NodeEIPSpec;
-    public constructor(taints?: Array<Taint>, k8sTags?: { [key: string]: string; }, userTags?: Array<UserTag>) { 
-        this['taints'] = taints;
-        this['k8sTags'] = k8sTags;
-        this['userTags'] = userTags;
+    public constructor() { 
     }
     public withFlavor(flavor: string): NodeSpecUpdate {
         this['flavor'] = flavor;
+        return this;
+    }
+    public withAz(az: string): NodeSpecUpdate {
+        this['az'] = az;
         return this;
     }
     public withOs(os: string): NodeSpecUpdate {
@@ -65,12 +67,12 @@ export class NodeSpecUpdate {
         this['taints'] = taints;
         return this;
     }
-    public withK8sTags(k8sTags: { [key: string]: string; }): NodeSpecUpdate {
-        this['k8sTags'] = k8sTags;
+    public withWaitPostInstallFinish(waitPostInstallFinish: boolean): NodeSpecUpdate {
+        this['waitPostInstallFinish'] = waitPostInstallFinish;
         return this;
     }
-    public withEcsGroupId(ecsGroupId: string): NodeSpecUpdate {
-        this['ecsGroupId'] = ecsGroupId;
+    public withK8sTags(k8sTags: { [key: string]: string; }): NodeSpecUpdate {
+        this['k8sTags'] = k8sTags;
         return this;
     }
     public withUserTags(userTags: Array<UserTag>): NodeSpecUpdate {

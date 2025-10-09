@@ -150,6 +150,7 @@ import { CreateStarRocksDatabaseUserRequest } from './model/CreateStarRocksDatab
 import { CreateStarRocksDatabaseUserResponse } from './model/CreateStarRocksDatabaseUserResponse';
 import { CreateStarrocksInstanceRequest } from './model/CreateStarrocksInstanceRequest';
 import { CreateStarrocksInstanceResponse } from './model/CreateStarrocksInstanceResponse';
+import { CustomScalingConfig } from './model/CustomScalingConfig';
 import { DataBaseInfo } from './model/DataBaseInfo';
 import { DatabasePermission } from './model/DatabasePermission';
 import { DatabaseTablesInfo } from './model/DatabaseTablesInfo';
@@ -250,6 +251,7 @@ import { HtapLTSConfigResponseInstance } from './model/HtapLTSConfigResponseInst
 import { HtapLTSConfigResponseInstanceLtsConfigs } from './model/HtapLTSConfigResponseInstanceLtsConfigs';
 import { HtapLTSConfigResponseLtsConfigs } from './model/HtapLTSConfigResponseLtsConfigs';
 import { HtapNodeInfoResponseBodyNodeList } from './model/HtapNodeInfoResponseBodyNodeList';
+import { HtapQueryQueueRule } from './model/HtapQueryQueueRule';
 import { HtapStorageTypeStorageType } from './model/HtapStorageTypeStorageType';
 import { IncrementalBackups } from './model/IncrementalBackups';
 import { InstanceDatabaseVersionInfo } from './model/InstanceDatabaseVersionInfo';
@@ -356,6 +358,7 @@ import { LtsLogErrorDetail } from './model/LtsLogErrorDetail';
 import { LtsLogErrorQueryRequest } from './model/LtsLogErrorQueryRequest';
 import { LtsLogSlowDetail } from './model/LtsLogSlowDetail';
 import { LtsLogSlowQueryRequest } from './model/LtsLogSlowQueryRequest';
+import { MetricCondition } from './model/MetricCondition';
 import { ModifyAliasRequest } from './model/ModifyAliasRequest';
 import { ModifyAutoExpandPolicyReq } from './model/ModifyAutoExpandPolicyReq';
 import { ModifyAutoExpandPolicyRequest } from './model/ModifyAutoExpandPolicyRequest';
@@ -433,6 +436,8 @@ import { NodeSqlFilterRulePattern } from './model/NodeSqlFilterRulePattern';
 import { NodesWeight } from './model/NodesWeight';
 import { OpenMysqlProxyRequestBody } from './model/OpenMysqlProxyRequestBody';
 import { OperateAuditLogRequestV3Body } from './model/OperateAuditLogRequestV3Body';
+import { OperateHtapQueryQueueControlReq } from './model/OperateHtapQueryQueueControlReq';
+import { OperateHtapQueryQueueRuleReq } from './model/OperateHtapQueryQueueRuleReq';
 import { OperateMultiTenantReq } from './model/OperateMultiTenantReq';
 import { OperateSqlFilterControlReq } from './model/OperateSqlFilterControlReq';
 import { OperateSqlFilterRuleReq } from './model/OperateSqlFilterRuleReq';
@@ -504,9 +509,12 @@ import { RestoreTimeInfo } from './model/RestoreTimeInfo';
 import { ResumeStarRocksDataReplication } from './model/ResumeStarRocksDataReplication';
 import { ResumeStarRocksDataReplicationRequest } from './model/ResumeStarRocksDataReplicationRequest';
 import { ResumeStarRocksDataReplicationResponse } from './model/ResumeStarRocksDataReplicationResponse';
+import { ScalingCondition } from './model/ScalingCondition';
+import { ScalingScene } from './model/ScalingScene';
 import { ScalingStrategyInfo } from './model/ScalingStrategyInfo';
 import { ScalingStrategyReqInfo } from './model/ScalingStrategyReqInfo';
 import { ScheduleTask } from './model/ScheduleTask';
+import { ServerlessScalingPolicy } from './model/ServerlessScalingPolicy';
 import { SetAuditLogPolicyRequest } from './model/SetAuditLogPolicyRequest';
 import { SetAuditLogPolicyRequestBody } from './model/SetAuditLogPolicyRequestBody';
 import { SetAuditLogPolicyResponse } from './model/SetAuditLogPolicyResponse';
@@ -514,6 +522,8 @@ import { SetGaussMySqlProxyWeightRequest } from './model/SetGaussMySqlProxyWeigh
 import { SetGaussMySqlProxyWeightResponse } from './model/SetGaussMySqlProxyWeightResponse';
 import { SetGaussMySqlQuotasRequest } from './model/SetGaussMySqlQuotasRequest';
 import { SetGaussMySqlQuotasResponse } from './model/SetGaussMySqlQuotasResponse';
+import { SetHtapQueryQueuesRuleRequest } from './model/SetHtapQueryQueuesRuleRequest';
+import { SetHtapQueryQueuesRuleResponse } from './model/SetHtapQueryQueuesRuleResponse';
 import { SetQuota } from './model/SetQuota';
 import { SetQuotasRequestBody } from './model/SetQuotasRequestBody';
 import { SetRecyclePolicyRequest } from './model/SetRecyclePolicyRequest';
@@ -578,6 +588,8 @@ import { ShowHtapErrorLogDetailRequest } from './model/ShowHtapErrorLogDetailReq
 import { ShowHtapErrorLogDetailResponse } from './model/ShowHtapErrorLogDetailResponse';
 import { ShowHtapLtsConfigRequest } from './model/ShowHtapLtsConfigRequest';
 import { ShowHtapLtsConfigResponse } from './model/ShowHtapLtsConfigResponse';
+import { ShowHtapQueryQueuesRuleRequest } from './model/ShowHtapQueryQueuesRuleRequest';
+import { ShowHtapQueryQueuesRuleResponse } from './model/ShowHtapQueryQueuesRuleResponse';
 import { ShowInstanceDatabaseVersionRequest } from './model/ShowInstanceDatabaseVersionRequest';
 import { ShowInstanceDatabaseVersionResponse } from './model/ShowInstanceDatabaseVersionResponse';
 import { ShowInstanceDatabasesForHtapRequest } from './model/ShowInstanceDatabasesForHtapRequest';
@@ -610,6 +622,10 @@ import { ShowRestoreAvailableTablesRequest } from './model/ShowRestoreAvailableT
 import { ShowRestoreAvailableTablesResponse } from './model/ShowRestoreAvailableTablesResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
+import { ShowServerlessComputeAbilityPolicyRequest } from './model/ShowServerlessComputeAbilityPolicyRequest';
+import { ShowServerlessComputeAbilityPolicyResponse } from './model/ShowServerlessComputeAbilityPolicyResponse';
+import { ShowServerlessScalingPolicyRequest } from './model/ShowServerlessScalingPolicyRequest';
+import { ShowServerlessScalingPolicyResponse } from './model/ShowServerlessScalingPolicyResponse';
 import { ShowSlowLogDetailRequest } from './model/ShowSlowLogDetailRequest';
 import { ShowSlowLogDetailResponse } from './model/ShowSlowLogDetailResponse';
 import { ShowSlowLogStatisticsItem } from './model/ShowSlowLogStatisticsItem';
@@ -632,6 +648,8 @@ import { ShowStarrocksParamsRequest } from './model/ShowStarrocksParamsRequest';
 import { ShowStarrocksParamsResponse } from './model/ShowStarrocksParamsResponse';
 import { ShowTableMetaInfoRequest } from './model/ShowTableMetaInfoRequest';
 import { ShowTableMetaInfoResponse } from './model/ShowTableMetaInfoResponse';
+import { ShowTaskDetailsRequest } from './model/ShowTaskDetailsRequest';
+import { ShowTaskDetailsResponse } from './model/ShowTaskDetailsResponse';
 import { ShrinkGaussMySqlProxyRequest } from './model/ShrinkGaussMySqlProxyRequest';
 import { ShrinkGaussMySqlProxyRequestBody } from './model/ShrinkGaussMySqlProxyRequestBody';
 import { ShrinkGaussMySqlProxyResponse } from './model/ShrinkGaussMySqlProxyResponse';
@@ -667,6 +685,7 @@ import { StarRocksInstanceInfoTagsInfoSysTags } from './model/StarRocksInstanceI
 import { StarRocksInstanceInfoTagsInfoTags } from './model/StarRocksInstanceInfoTagsInfoTags';
 import { StarRocksInstanceInfoVolume } from './model/StarRocksInstanceInfoVolume';
 import { StarRocksReplicationInfo } from './model/StarRocksReplicationInfo';
+import { SubTaskInfo } from './model/SubTaskInfo';
 import { SwitchAccessControlRequest } from './model/SwitchAccessControlRequest';
 import { SwitchAccessControlRequestBody } from './model/SwitchAccessControlRequestBody';
 import { SwitchAccessControlResponse } from './model/SwitchAccessControlResponse';
@@ -746,6 +765,8 @@ import { UpdateGaussMySqlInstanceSecurityGroupRequest } from './model/UpdateGaus
 import { UpdateGaussMySqlInstanceSecurityGroupResponse } from './model/UpdateGaussMySqlInstanceSecurityGroupResponse';
 import { UpdateGaussMySqlQuotasRequest } from './model/UpdateGaussMySqlQuotasRequest';
 import { UpdateGaussMySqlQuotasResponse } from './model/UpdateGaussMySqlQuotasResponse';
+import { UpdateHtapQueryQueuesControlRequest } from './model/UpdateHtapQueryQueuesControlRequest';
+import { UpdateHtapQueryQueuesControlResponse } from './model/UpdateHtapQueryQueuesControlResponse';
 import { UpdateInstanceConfigurationsRequest } from './model/UpdateInstanceConfigurationsRequest';
 import { UpdateInstanceConfigurationsRequestBody } from './model/UpdateInstanceConfigurationsRequestBody';
 import { UpdateInstanceConfigurationsResponse } from './model/UpdateInstanceConfigurationsResponse';
@@ -773,9 +794,14 @@ import { UpdateProxyPrivateDnsNameRequest } from './model/UpdateProxyPrivateDnsN
 import { UpdateProxyPrivateDnsNameResponse } from './model/UpdateProxyPrivateDnsNameResponse';
 import { UpdateProxySessionConsistenceRequest } from './model/UpdateProxySessionConsistenceRequest';
 import { UpdateProxySessionConsistenceResponse } from './model/UpdateProxySessionConsistenceResponse';
+import { UpdateServerlessComputeAbilityPolicy } from './model/UpdateServerlessComputeAbilityPolicy';
+import { UpdateServerlessComputeAbilityPolicyRequest } from './model/UpdateServerlessComputeAbilityPolicyRequest';
+import { UpdateServerlessComputeAbilityPolicyResponse } from './model/UpdateServerlessComputeAbilityPolicyResponse';
 import { UpdateServerlessPolicy } from './model/UpdateServerlessPolicy';
 import { UpdateServerlessPolicyRequest } from './model/UpdateServerlessPolicyRequest';
 import { UpdateServerlessPolicyResponse } from './model/UpdateServerlessPolicyResponse';
+import { UpdateServerlessScalingPolicyRequest } from './model/UpdateServerlessScalingPolicyRequest';
+import { UpdateServerlessScalingPolicyResponse } from './model/UpdateServerlessScalingPolicyResponse';
 import { UpdateSlowlogSensitiveStatusRequest } from './model/UpdateSlowlogSensitiveStatusRequest';
 import { UpdateSlowlogSensitiveStatusRequestBody } from './model/UpdateSlowlogSensitiveStatusRequestBody';
 import { UpdateSlowlogSensitiveStatusResponse } from './model/UpdateSlowlogSensitiveStatusResponse';
@@ -3364,6 +3390,46 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询Serverless算力策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Serverless算力策略
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerlessComputeAbilityPolicy(showServerlessComputeAbilityPolicyRequest?: ShowServerlessComputeAbilityPolicyRequest): Promise<ShowServerlessComputeAbilityPolicyResponse> {
+        const options = ParamCreater().showServerlessComputeAbilityPolicy(showServerlessComputeAbilityPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Serverless自定义扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Serverless自定义扩容策略
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerlessScalingPolicy(showServerlessScalingPolicyRequest?: ShowServerlessScalingPolicyRequest): Promise<ShowServerlessScalingPolicyResponse> {
+        const options = ParamCreater().showServerlessScalingPolicy(showServerlessScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取StarRocks实例内核慢日志信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3502,6 +3568,28 @@ export class GaussDBClient {
      */
     public showTableMetaInfo(showTableMetaInfoRequest?: ShowTableMetaInfoRequest): Promise<ShowTableMetaInfoResponse> {
         const options = ParamCreater().showTableMetaInfo(showTableMetaInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取TaurusDB异步任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TaurusDB异步任务详情
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} jobId **参数解释**：  任务ID。  **约束限制**：   不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} jobName **参数解释**：  任务名称。  **约束限制**：   不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTaskDetails(showTaskDetailsRequest?: ShowTaskDetailsRequest): Promise<ShowTaskDetailsResponse> {
+        const options = ParamCreater().showTaskDetails(showTaskDetailsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4172,6 +4260,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 设置Serverless算力策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置Serverless算力策略
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {UpdateServerlessComputeAbilityPolicy} updateServerlessComputeAbilityPolicyRequestBody **参数解释**:  设置Serverless配置参数请求体。  **约束限制**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateServerlessComputeAbilityPolicy(updateServerlessComputeAbilityPolicyRequest?: UpdateServerlessComputeAbilityPolicyRequest): Promise<UpdateServerlessComputeAbilityPolicyResponse> {
+        const options = ParamCreater().updateServerlessComputeAbilityPolicy(updateServerlessComputeAbilityPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置Serverless配置策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4185,6 +4294,27 @@ export class GaussDBClient {
      */
     public updateServerlessPolicy(updateServerlessPolicyRequest?: UpdateServerlessPolicyRequest): Promise<UpdateServerlessPolicyResponse> {
         const options = ParamCreater().updateServerlessPolicy(updateServerlessPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置Serverless自定义扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置Serverless自定义扩容策略
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ServerlessScalingPolicy} updateServerlessScalingPolicyRequestBody **参数解释**：  设置Serverless扩容策略请求体。  **约束限制**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateServerlessScalingPolicy(updateServerlessScalingPolicyRequest?: UpdateServerlessScalingPolicyRequest): Promise<UpdateServerlessScalingPolicyResponse> {
+        const options = ParamCreater().updateServerlessScalingPolicy(updateServerlessScalingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5328,6 +5458,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 设置当前查询队列阈值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置当前查询队列阈值
+     * @param {string} xLanguage **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us。
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，严格匹配UUID规则。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，且长度为36个字符。  **默认值**：  不涉及。
+     * @param {OperateHtapQueryQueueRuleReq} setHtapQueryQueuesRuleRequestBody **参数解释**：  设置查询当前查询队列阈值请求体。  **约束限制**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setHtapQueryQueuesRule(setHtapQueryQueuesRuleRequest?: SetHtapQueryQueuesRuleRequest): Promise<SetHtapQueryQueuesRuleResponse> {
+        const options = ParamCreater().setHtapQueryQueuesRule(setHtapQueryQueuesRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库账户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5453,6 +5604,26 @@ export class GaussDBClient {
      */
     public showHtapLtsConfig(showHtapLtsConfigRequest?: ShowHtapLtsConfigRequest): Promise<ShowHtapLtsConfigResponse> {
         const options = ParamCreater().showHtapLtsConfig(showHtapLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前查询队列开关和阈值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前查询队列开关和阈值
+     * @param {string} xLanguage **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us。
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，严格匹配UUID规则。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，且长度为36个字符。  **默认值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHtapQueryQueuesRule(showHtapQueryQueuesRuleRequest?: ShowHtapQueryQueuesRuleRequest): Promise<ShowHtapQueryQueuesRuleResponse> {
+        const options = ParamCreater().showHtapQueryQueuesRule(showHtapQueryQueuesRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5670,6 +5841,27 @@ export class GaussDBClient {
      */
     public updateClickHouseSlowLogSensitiveStatus(updateClickHouseSlowLogSensitiveStatusRequest?: UpdateClickHouseSlowLogSensitiveStatusRequest): Promise<UpdateClickHouseSlowLogSensitiveStatusResponse> {
         const options = ParamCreater().updateClickHouseSlowLogSensitiveStatus(updateClickHouseSlowLogSensitiveStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或者关闭查询队列功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或者关闭查询队列功能
+     * @param {string} xLanguage **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us。
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，严格匹配UUID规则。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，且长度为36个字符。  **默认值**：  不涉及。
+     * @param {OperateHtapQueryQueueControlReq} updateHtapQueryQueuesControlRequestBody **参数解释**：  开启或者关闭查询队列请求体。  **约束限制**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHtapQueryQueuesControl(updateHtapQueryQueuesControlRequest?: UpdateHtapQueryQueuesControlRequest): Promise<UpdateHtapQueryQueuesControlResponse> {
+        const options = ParamCreater().updateHtapQueryQueuesControl(updateHtapQueryQueuesControlRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12278,6 +12470,94 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Serverless算力策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showServerlessComputeAbilityPolicy(showServerlessComputeAbilityPolicyRequest?: ShowServerlessComputeAbilityPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/serverless/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showServerlessComputeAbilityPolicyRequest !== null && showServerlessComputeAbilityPolicyRequest !== undefined) {
+                if (showServerlessComputeAbilityPolicyRequest instanceof ShowServerlessComputeAbilityPolicyRequest) {
+                    instanceId = showServerlessComputeAbilityPolicyRequest.instanceId;
+                    xLanguage = showServerlessComputeAbilityPolicyRequest.xLanguage;
+                } else {
+                    instanceId = showServerlessComputeAbilityPolicyRequest['instance_id'];
+                    xLanguage = showServerlessComputeAbilityPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showServerlessComputeAbilityPolicy.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Serverless自定义扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showServerlessScalingPolicy(showServerlessScalingPolicyRequest?: ShowServerlessScalingPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/serverless/scaling-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showServerlessScalingPolicyRequest !== null && showServerlessScalingPolicyRequest !== undefined) {
+                if (showServerlessScalingPolicyRequest instanceof ShowServerlessScalingPolicyRequest) {
+                    instanceId = showServerlessScalingPolicyRequest.instanceId;
+                    xLanguage = showServerlessScalingPolicyRequest.xLanguage;
+                } else {
+                    instanceId = showServerlessScalingPolicyRequest['instance_id'];
+                    xLanguage = showServerlessScalingPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showServerlessScalingPolicy.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取StarRocks实例内核慢日志信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12625,6 +12905,71 @@ export const ParamCreater = function () {
             }
             if (tableName !== null && tableName !== undefined) {
                 localVarQueryParameter['table_name'] = tableName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取TaurusDB异步任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTaskDetails(showTaskDetailsRequest?: ShowTaskDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/task-center-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let jobId;
+            
+            let jobName;
+            
+            let xLanguage;
+
+            if (showTaskDetailsRequest !== null && showTaskDetailsRequest !== undefined) {
+                if (showTaskDetailsRequest instanceof ShowTaskDetailsRequest) {
+                    instanceId = showTaskDetailsRequest.instanceId;
+                    jobId = showTaskDetailsRequest.jobId;
+                    jobName = showTaskDetailsRequest.jobName;
+                    xLanguage = showTaskDetailsRequest.xLanguage;
+                } else {
+                    instanceId = showTaskDetailsRequest['instance_id'];
+                    jobId = showTaskDetailsRequest['job_id'];
+                    jobName = showTaskDetailsRequest['job_name'];
+                    xLanguage = showTaskDetailsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showTaskDetails.');
+            }
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showTaskDetails.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (jobName === null || jobName === undefined) {
+                throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling showTaskDetails.');
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -14347,6 +14692,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置Serverless算力策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateServerlessComputeAbilityPolicy(updateServerlessComputeAbilityPolicyRequest?: UpdateServerlessComputeAbilityPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3.1/{project_id}/instances/{instance_id}/serverless/policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateServerlessComputeAbilityPolicyRequest !== null && updateServerlessComputeAbilityPolicyRequest !== undefined) {
+                if (updateServerlessComputeAbilityPolicyRequest instanceof UpdateServerlessComputeAbilityPolicyRequest) {
+                    instanceId = updateServerlessComputeAbilityPolicyRequest.instanceId;
+                    body = updateServerlessComputeAbilityPolicyRequest.body
+                    xLanguage = updateServerlessComputeAbilityPolicyRequest.xLanguage;
+                } else {
+                    instanceId = updateServerlessComputeAbilityPolicyRequest['instance_id'];
+                    body = updateServerlessComputeAbilityPolicyRequest['body'];
+                    xLanguage = updateServerlessComputeAbilityPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateServerlessComputeAbilityPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置Serverless配置策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14384,6 +14782,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateServerlessPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置Serverless自定义扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateServerlessScalingPolicy(updateServerlessScalingPolicyRequest?: UpdateServerlessScalingPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/serverless/scaling-policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateServerlessScalingPolicyRequest !== null && updateServerlessScalingPolicyRequest !== undefined) {
+                if (updateServerlessScalingPolicyRequest instanceof UpdateServerlessScalingPolicyRequest) {
+                    instanceId = updateServerlessScalingPolicyRequest.instanceId;
+                    body = updateServerlessScalingPolicyRequest.body
+                    xLanguage = updateServerlessScalingPolicyRequest.xLanguage;
+                } else {
+                    instanceId = updateServerlessScalingPolicyRequest['instance_id'];
+                    body = updateServerlessScalingPolicyRequest['body'];
+                    xLanguage = updateServerlessScalingPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateServerlessScalingPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -17237,6 +17688,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置当前查询队列阈值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setHtapQueryQueuesRule(setHtapQueryQueuesRuleRequest?: SetHtapQueryQueuesRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/query-queue/rules",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let instanceId;
+
+            if (setHtapQueryQueuesRuleRequest !== null && setHtapQueryQueuesRuleRequest !== undefined) {
+                if (setHtapQueryQueuesRuleRequest instanceof SetHtapQueryQueuesRuleRequest) {
+                    xLanguage = setHtapQueryQueuesRuleRequest.xLanguage;
+                    instanceId = setHtapQueryQueuesRuleRequest.instanceId;
+                    body = setHtapQueryQueuesRuleRequest.body
+                } else {
+                    xLanguage = setHtapQueryQueuesRuleRequest['X-Language'];
+                    instanceId = setHtapQueryQueuesRuleRequest['instance_id'];
+                    body = setHtapQueryQueuesRuleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setHtapQueryQueuesRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库账户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17592,6 +18096,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前查询队列开关和阈值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHtapQueryQueuesRule(showHtapQueryQueuesRuleRequest?: ShowHtapQueryQueuesRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/query-queue/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+            
+            let instanceId;
+
+            if (showHtapQueryQueuesRuleRequest !== null && showHtapQueryQueuesRuleRequest !== undefined) {
+                if (showHtapQueryQueuesRuleRequest instanceof ShowHtapQueryQueuesRuleRequest) {
+                    xLanguage = showHtapQueryQueuesRuleRequest.xLanguage;
+                    instanceId = showHtapQueryQueuesRuleRequest.instanceId;
+                } else {
+                    xLanguage = showHtapQueryQueuesRuleRequest['X-Language'];
+                    instanceId = showHtapQueryQueuesRuleRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHtapQueryQueuesRule.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18162,6 +18710,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateClickHouseSlowLogSensitiveStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或者关闭查询队列功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHtapQueryQueuesControl(updateHtapQueryQueuesControlRequest?: UpdateHtapQueryQueuesControlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/htap/query-queue/switch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let instanceId;
+
+            if (updateHtapQueryQueuesControlRequest !== null && updateHtapQueryQueuesControlRequest !== undefined) {
+                if (updateHtapQueryQueuesControlRequest instanceof UpdateHtapQueryQueuesControlRequest) {
+                    xLanguage = updateHtapQueryQueuesControlRequest.xLanguage;
+                    instanceId = updateHtapQueryQueuesControlRequest.instanceId;
+                    body = updateHtapQueryQueuesControlRequest.body
+                } else {
+                    xLanguage = updateHtapQueryQueuesControlRequest['X-Language'];
+                    instanceId = updateHtapQueryQueuesControlRequest['instance_id'];
+                    body = updateHtapQueryQueuesControlRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateHtapQueryQueuesControl.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

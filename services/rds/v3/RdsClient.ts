@@ -17,10 +17,12 @@ import { AllowDbUserPrivilegeResponse } from './model/AllowDbUserPrivilegeRespon
 import { AllowSqlserverDbUserPrivilegeRequest } from './model/AllowSqlserverDbUserPrivilegeRequest';
 import { AllowSqlserverDbUserPrivilegeResponse } from './model/AllowSqlserverDbUserPrivilegeResponse';
 import { ApiVersion } from './model/ApiVersion';
+import { ApplicableInstanceInfo } from './model/ApplicableInstanceInfo';
 import { ApplyConfigurationAsyncRequest } from './model/ApplyConfigurationAsyncRequest';
 import { ApplyConfigurationAsyncResponse } from './model/ApplyConfigurationAsyncResponse';
 import { ApplyConfigurationRequest } from './model/ApplyConfigurationRequest';
 import { ApplyConfigurationResponseApplyResults } from './model/ApplyConfigurationResponseApplyResults';
+import { ApplyHistoryInfo } from './model/ApplyHistoryInfo';
 import { AttachEipRequest } from './model/AttachEipRequest';
 import { AttachEipResponse } from './model/AttachEipResponse';
 import { Auditlog } from './model/Auditlog';
@@ -268,6 +270,8 @@ import { ListBusinessPartnersRequest } from './model/ListBusinessPartnersRequest
 import { ListBusinessPartnersResponse } from './model/ListBusinessPartnersResponse';
 import { ListCollationsRequest } from './model/ListCollationsRequest';
 import { ListCollationsResponse } from './model/ListCollationsResponse';
+import { ListConfigurationApplyHistoriesRequest } from './model/ListConfigurationApplyHistoriesRequest';
+import { ListConfigurationApplyHistoriesResponse } from './model/ListConfigurationApplyHistoriesResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
 import { ListConfigurationsResponse } from './model/ListConfigurationsResponse';
 import { ListDatabaseUserRoleRequest } from './model/ListDatabaseUserRoleRequest';
@@ -304,6 +308,8 @@ import { ListInstanceParamHistoriesRequest } from './model/ListInstanceParamHist
 import { ListInstanceParamHistoriesResponse } from './model/ListInstanceParamHistoriesResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
+import { ListInstancesConfigurationsRequest } from './model/ListInstancesConfigurationsRequest';
+import { ListInstancesConfigurationsResponse } from './model/ListInstancesConfigurationsResponse';
 import { ListInstancesInfoDiagnosisRequest } from './model/ListInstancesInfoDiagnosisRequest';
 import { ListInstancesInfoDiagnosisResponse } from './model/ListInstancesInfoDiagnosisResponse';
 import { ListInstancesNoIndexTablesRequest } from './model/ListInstancesNoIndexTablesRequest';
@@ -1615,6 +1621,28 @@ export class RdsClient {
     }
 
     /**
+     * 查询参数组应用历史
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数组应用历史
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。  **约束限制**：  不涉及。  **取值范围**：  大于等于0  **默认取值**：  0
+     * @param {number} [limit] **参数解释**：  查询记录数。默认为10，不能为负数，最小值为1，最大值为100。  **约束限制**：  不涉及。  **取值范围**：  [1, 100]  **默认取值**：  10
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigurationApplyHistories(listConfigurationApplyHistoriesRequest?: ListConfigurationApplyHistoriesRequest): Promise<ListConfigurationApplyHistoriesResponse> {
+        const options = ParamCreater().listConfigurationApplyHistories(listConfigurationApplyHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取参数模板列表，包括所有数据库的默认参数模板和用户创建的参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1966,6 +1994,28 @@ export class RdsClient {
      */
     public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
         const options = ParamCreater().listInstances(listInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用参数模版的实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用参数模版的实例列表
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。  **约束限制**：  不涉及。  **取值范围**：  大于等于0  **默认取值**：  0
+     * @param {number} [limit] **参数解释**：  查询记录数。默认为10，不能为负数，最小值为1，最大值为100。  **约束限制**：  不涉及。  **取值范围**：  [1, 100]  **默认取值**：  10
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesConfigurations(listInstancesConfigurationsRequest?: ListInstancesConfigurationsRequest): Promise<ListInstancesConfigurationsResponse> {
+        const options = ParamCreater().listInstancesConfigurations(listInstancesConfigurationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7963,6 +8013,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询参数组应用历史
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigurationApplyHistories(listConfigurationApplyHistoriesRequest?: ListConfigurationApplyHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{config_id}/apply-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configId;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (listConfigurationApplyHistoriesRequest !== null && listConfigurationApplyHistoriesRequest !== undefined) {
+                if (listConfigurationApplyHistoriesRequest instanceof ListConfigurationApplyHistoriesRequest) {
+                    configId = listConfigurationApplyHistoriesRequest.configId;
+                    offset = listConfigurationApplyHistoriesRequest.offset;
+                    limit = listConfigurationApplyHistoriesRequest.limit;
+                    xLanguage = listConfigurationApplyHistoriesRequest.xLanguage;
+                } else {
+                    configId = listConfigurationApplyHistoriesRequest['config_id'];
+                    offset = listConfigurationApplyHistoriesRequest['offset'];
+                    limit = listConfigurationApplyHistoriesRequest['limit'];
+                    xLanguage = listConfigurationApplyHistoriesRequest['X-Language'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listConfigurationApplyHistories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取参数模板列表，包括所有数据库的默认参数模板和用户创建的参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8965,6 +9074,65 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用参数模版的实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesConfigurations(listInstancesConfigurationsRequest?: ListInstancesConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{config_id}/query-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configId;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (listInstancesConfigurationsRequest !== null && listInstancesConfigurationsRequest !== undefined) {
+                if (listInstancesConfigurationsRequest instanceof ListInstancesConfigurationsRequest) {
+                    configId = listInstancesConfigurationsRequest.configId;
+                    offset = listInstancesConfigurationsRequest.offset;
+                    limit = listInstancesConfigurationsRequest.limit;
+                    xLanguage = listInstancesConfigurationsRequest.xLanguage;
+                } else {
+                    configId = listInstancesConfigurationsRequest['config_id'];
+                    offset = listInstancesConfigurationsRequest['offset'];
+                    limit = listInstancesConfigurationsRequest['limit'];
+                    xLanguage = listInstancesConfigurationsRequest['X-Language'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listInstancesConfigurations.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'config_id': configId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

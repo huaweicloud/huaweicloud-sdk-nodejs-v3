@@ -3,7 +3,8 @@ import { UpdateServerRequest } from './UpdateServerRequest';
 
 export class UpdateServerRequestBody {
     private 'vpn_server'?: UpdateServerRequest;
-    public constructor() { 
+    public constructor(vpnServer?: UpdateServerRequest) { 
+        this['vpn_server'] = vpnServer;
     }
     public withVpnServer(vpnServer: UpdateServerRequest): UpdateServerRequestBody {
         this['vpn_server'] = vpnServer;

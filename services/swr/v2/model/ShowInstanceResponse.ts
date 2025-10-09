@@ -25,6 +25,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'vpc_cidr'?: string;
     private 'subnet_name'?: string;
     private 'subnet_cidr'?: string;
+    private 'vpcep_service_id'?: string;
     public constructor() { 
         super();
     }
@@ -221,6 +222,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get subnetCidr(): string | undefined {
         return this['subnet_cidr'];
+    }
+    public withVpcepServiceId(vpcepServiceId: string): ShowInstanceResponse {
+        this['vpcep_service_id'] = vpcepServiceId;
+        return this;
+    }
+    public set vpcepServiceId(vpcepServiceId: string  | undefined) {
+        this['vpcep_service_id'] = vpcepServiceId;
+    }
+    public get vpcepServiceId(): string | undefined {
+        return this['vpcep_service_id'];
     }
 }
 

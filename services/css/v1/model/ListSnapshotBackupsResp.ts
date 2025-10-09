@@ -10,16 +10,12 @@ export class ListSnapshotBackupsResp {
     public clusterName?: string;
     public name?: string;
     public status?: string;
-    public updated?: string;
     public backupType?: string;
     public backupMethod?: string;
-    public backupExpectedStartTime?: string;
-    public backupKeepDay?: number;
-    public backupPeriod?: string;
+    public backupFrequency?: string;
     public indices?: string;
     public totalShards?: number;
     public failedShards?: number;
-    public version?: string;
     public restoreStatus?: string;
     public startTime?: number;
     public endTime?: number;
@@ -58,10 +54,6 @@ export class ListSnapshotBackupsResp {
         this['status'] = status;
         return this;
     }
-    public withUpdated(updated: string): ListSnapshotBackupsResp {
-        this['updated'] = updated;
-        return this;
-    }
     public withBackupType(backupType: string): ListSnapshotBackupsResp {
         this['backupType'] = backupType;
         return this;
@@ -70,16 +62,8 @@ export class ListSnapshotBackupsResp {
         this['backupMethod'] = backupMethod;
         return this;
     }
-    public withBackupExpectedStartTime(backupExpectedStartTime: string): ListSnapshotBackupsResp {
-        this['backupExpectedStartTime'] = backupExpectedStartTime;
-        return this;
-    }
-    public withBackupKeepDay(backupKeepDay: number): ListSnapshotBackupsResp {
-        this['backupKeepDay'] = backupKeepDay;
-        return this;
-    }
-    public withBackupPeriod(backupPeriod: string): ListSnapshotBackupsResp {
-        this['backupPeriod'] = backupPeriod;
+    public withBackupFrequency(backupFrequency: string): ListSnapshotBackupsResp {
+        this['backupFrequency'] = backupFrequency;
         return this;
     }
     public withIndices(indices: string): ListSnapshotBackupsResp {
@@ -92,10 +76,6 @@ export class ListSnapshotBackupsResp {
     }
     public withFailedShards(failedShards: number): ListSnapshotBackupsResp {
         this['failedShards'] = failedShards;
-        return this;
-    }
-    public withVersion(version: string): ListSnapshotBackupsResp {
-        this['version'] = version;
         return this;
     }
     public withRestoreStatus(restoreStatus: string): ListSnapshotBackupsResp {
