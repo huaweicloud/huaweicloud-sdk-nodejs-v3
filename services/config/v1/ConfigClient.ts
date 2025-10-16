@@ -143,6 +143,8 @@ import { ListPolicyStatesByDomainIdRequest } from './model/ListPolicyStatesByDom
 import { ListPolicyStatesByDomainIdResponse } from './model/ListPolicyStatesByDomainIdResponse';
 import { ListPolicyStatesByResourceIdRequest } from './model/ListPolicyStatesByResourceIdRequest';
 import { ListPolicyStatesByResourceIdResponse } from './model/ListPolicyStatesByResourceIdResponse';
+import { ListPolicyStatesStatisticsRequest } from './model/ListPolicyStatesStatisticsRequest';
+import { ListPolicyStatesStatisticsResponse } from './model/ListPolicyStatesStatisticsResponse';
 import { ListProvidersRequest } from './model/ListProvidersRequest';
 import { ListProvidersResponse } from './model/ListProvidersResponse';
 import { ListRegionsRequest } from './model/ListRegionsRequest';
@@ -194,6 +196,7 @@ import { PolicyResource } from './model/PolicyResource';
 import { PolicyResourceComplianceSummary } from './model/PolicyResourceComplianceSummary';
 import { PolicyState } from './model/PolicyState';
 import { PolicyStateRequestBody } from './model/PolicyStateRequestBody';
+import { PolicyStatesStatistics } from './model/PolicyStatesStatistics';
 import { QueryInfo } from './model/QueryInfo';
 import { QueryRunRequestBody } from './model/QueryRunRequestBody';
 import { Region } from './model/Region';
@@ -1517,6 +1520,24 @@ export class ConfigClient {
      */
     public listPolicyStatesByResourceId(listPolicyStatesByResourceIdRequest?: ListPolicyStatesByResourceIdRequest): Promise<ListPolicyStatesByResourceIdResponse> {
         const options = ParamCreater().listPolicyStatesByResourceId(listPolicyStatesByResourceIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前账号合规统计趋势
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前账号合规统计趋势
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPolicyStatesStatistics(listPolicyStatesStatisticsRequest?: ListPolicyStatesStatisticsRequest): Promise<ListPolicyStatesStatisticsResponse> {
+        const options = ParamCreater().listPolicyStatesStatistics();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5304,6 +5325,27 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前账号合规统计趋势
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPolicyStatesStatistics() {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-states/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

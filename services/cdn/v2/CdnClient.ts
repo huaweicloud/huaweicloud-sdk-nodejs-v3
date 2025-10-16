@@ -62,7 +62,7 @@ import { CreateTagsRequest } from './model/CreateTagsRequest';
 import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
 import { CreateTagsResponse } from './model/CreateTagsResponse';
 import { CreateTemplateRequestBody } from './model/CreateTemplateRequestBody';
-import { Criteria } from './model/Criteria';
+import { CriteriaItem } from './model/CriteriaItem';
 import { CustomArgs } from './model/CustomArgs';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';

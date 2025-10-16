@@ -3,8 +3,9 @@
 export class ForceRedirect {
     private 'switch'?: number;
     private 'redirect_type'?: string;
-    public constructor(_switch?: number) { 
+    public constructor(_switch?: number, redirectType?: string) { 
         this['switch'] = _switch;
+        this['redirect_type'] = redirectType;
     }
     public withSwitch(_switch: number): ForceRedirect {
         this['switch'] = _switch;

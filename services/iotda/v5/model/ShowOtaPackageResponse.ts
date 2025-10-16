@@ -8,6 +8,8 @@ export class ShowOtaPackageResponse extends SdkResponse {
     private 'app_id'?: string;
     private 'package_type'?: string;
     private 'product_id'?: string;
+    private 'product_name'?: string;
+    private 'module_name'?: string;
     public version?: string;
     private 'support_source_versions'?: Array<string>;
     public description?: string;
@@ -56,6 +58,26 @@ export class ShowOtaPackageResponse extends SdkResponse {
     }
     public get productId(): string | undefined {
         return this['product_id'];
+    }
+    public withProductName(productName: string): ShowOtaPackageResponse {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
+    }
+    public withModuleName(moduleName: string): ShowOtaPackageResponse {
+        this['module_name'] = moduleName;
+        return this;
+    }
+    public set moduleName(moduleName: string  | undefined) {
+        this['module_name'] = moduleName;
+    }
+    public get moduleName(): string | undefined {
+        return this['module_name'];
     }
     public withVersion(version: string): ShowOtaPackageResponse {
         this['version'] = version;

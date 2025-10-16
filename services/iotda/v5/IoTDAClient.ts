@@ -103,6 +103,9 @@ import { CreateMessageRequest } from './model/CreateMessageRequest';
 import { CreateMessageResponse } from './model/CreateMessageResponse';
 import { CreateOrDeleteDeviceInGroupRequest } from './model/CreateOrDeleteDeviceInGroupRequest';
 import { CreateOrDeleteDeviceInGroupResponse } from './model/CreateOrDeleteDeviceInGroupResponse';
+import { CreateOtaModule } from './model/CreateOtaModule';
+import { CreateOtaModuleRequest } from './model/CreateOtaModuleRequest';
+import { CreateOtaModuleResponse } from './model/CreateOtaModuleResponse';
 import { CreateOtaPackage } from './model/CreateOtaPackage';
 import { CreateOtaPackageRequest } from './model/CreateOtaPackageRequest';
 import { CreateOtaPackageResponse } from './model/CreateOtaPackageResponse';
@@ -160,6 +163,8 @@ import { DeleteFunctionsRequest } from './model/DeleteFunctionsRequest';
 import { DeleteFunctionsResponse } from './model/DeleteFunctionsResponse';
 import { DeleteHarmonySoftBusRequest } from './model/DeleteHarmonySoftBusRequest';
 import { DeleteHarmonySoftBusResponse } from './model/DeleteHarmonySoftBusResponse';
+import { DeleteOtaModuleRequest } from './model/DeleteOtaModuleRequest';
+import { DeleteOtaModuleResponse } from './model/DeleteOtaModuleResponse';
 import { DeleteOtaPackageRequest } from './model/DeleteOtaPackageRequest';
 import { DeleteOtaPackageResponse } from './model/DeleteOtaPackageResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
@@ -256,6 +261,8 @@ import { ListFunctionsRequest } from './model/ListFunctionsRequest';
 import { ListFunctionsResponse } from './model/ListFunctionsResponse';
 import { ListHarmonySoftBusRequest } from './model/ListHarmonySoftBusRequest';
 import { ListHarmonySoftBusResponse } from './model/ListHarmonySoftBusResponse';
+import { ListOtaModulesRequest } from './model/ListOtaModulesRequest';
+import { ListOtaModulesResponse } from './model/ListOtaModulesResponse';
 import { ListOtaPackageInfoRequest } from './model/ListOtaPackageInfoRequest';
 import { ListOtaPackageInfoResponse } from './model/ListOtaPackageInfoResponse';
 import { ListProductsRequest } from './model/ListProductsRequest';
@@ -279,11 +286,14 @@ import { ListRulesResponse } from './model/ListRulesResponse';
 import { ListSecurityProfilesRequest } from './model/ListSecurityProfilesRequest';
 import { ListSecurityProfilesResponse } from './model/ListSecurityProfilesResponse';
 import { MessageResult } from './model/MessageResult';
+import { ModuleDTO } from './model/ModuleDTO';
+import { ModuleSearchDTO } from './model/ModuleSearchDTO';
 import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
 import { MysqlForwarding } from './model/MysqlForwarding';
 import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
 import { ObsLocation } from './model/ObsLocation';
+import { OtaModuleInfo } from './model/OtaModuleInfo';
 import { OtaPackageInfo } from './model/OtaPackageInfo';
 import { Page } from './model/Page';
 import { PageInfo } from './model/PageInfo';
@@ -369,6 +379,8 @@ import { ShowDevicesInGroupRequest } from './model/ShowDevicesInGroupRequest';
 import { ShowDevicesInGroupResponse } from './model/ShowDevicesInGroupResponse';
 import { ShowHarmonySoftBusRequest } from './model/ShowHarmonySoftBusRequest';
 import { ShowHarmonySoftBusResponse } from './model/ShowHarmonySoftBusResponse';
+import { ShowOtaModuleRequest } from './model/ShowOtaModuleRequest';
+import { ShowOtaModuleResponse } from './model/ShowOtaModuleResponse';
 import { ShowOtaPackageRequest } from './model/ShowOtaPackageRequest';
 import { ShowOtaPackageResponse } from './model/ShowOtaPackageResponse';
 import { ShowProductRequest } from './model/ShowProductRequest';
@@ -454,6 +466,9 @@ import { UpdateDeviceResponse } from './model/UpdateDeviceResponse';
 import { UpdateDeviceShadowDesiredDataRequest } from './model/UpdateDeviceShadowDesiredDataRequest';
 import { UpdateDeviceShadowDesiredDataResponse } from './model/UpdateDeviceShadowDesiredDataResponse';
 import { UpdateFlowControlPolicy } from './model/UpdateFlowControlPolicy';
+import { UpdateOtaModule } from './model/UpdateOtaModule';
+import { UpdateOtaModuleRequest } from './model/UpdateOtaModuleRequest';
+import { UpdateOtaModuleResponse } from './model/UpdateOtaModuleResponse';
 import { UpdateProduct } from './model/UpdateProduct';
 import { UpdateProductRequest } from './model/UpdateProductRequest';
 import { UpdateProductResponse } from './model/UpdateProductResponse';
@@ -973,7 +988,7 @@ export class IoTDAClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询批量任务列表
-     * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - createMessages: 批量创建消息任务 - updateDeviceShadows：批量配置设备影子任务 - updateDevices：批量更新设备任务
+     * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - moduleUpgrade: 模块升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - createMessages: 批量创建消息任务 - updateDeviceShadows：批量配置设备影子任务 - updateDevices：批量更新设备任务
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的任务列表，不携带该参数则会查询该用户下所有任务列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [status] **参数说明**：批量任务的状态，可选参数。 **取值范围**： - Initializing: 初始化中。 - Waitting: 等待中。 - Processing: 执行中。 - Success: 成功。 - Fail: 失败。 - PartialSuccess: 部分成功。 - Stopped: 停止。 - Stopping: 停止中。
@@ -2758,6 +2773,111 @@ export class IoTDAClient {
     }
 
     /**
+     * 用户可调用此接口创建产品的OTA模块,同一产品下最多自定义10个OTA模块。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建OTA模块
+     * @param {CreateOtaModule} createOtaModuleRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOtaModule(createOtaModuleRequest?: CreateOtaModuleRequest): Promise<CreateOtaModuleResponse> {
+        const options = ParamCreater().createOtaModule(createOtaModuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可调用此接口删除产品对应的OTA模块
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除OTA模块
+     * @param {string} moduleId **参数说明**：OTA模块ID，平台自动生成，用于唯一标识一个模块，创建模块后获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOtaModule(deleteOtaModuleRequest?: DeleteOtaModuleRequest): Promise<DeleteOtaModuleResponse> {
+        const options = ParamCreater().deleteOtaModule(deleteOtaModuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可调用此接口查询指定产品的OTA模块列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询OTA模块列表
+     * @param {string} appId **参数说明**：资源空间ID。存在多资源空间的用户需要使用该接口时，建议携带该参数指定查询指定资源空间的升级包列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [[创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)](tag:hws)[[创建产品](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0050.html)](tag:hws_hk)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。  **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOtaModules(listOtaModulesRequest?: ListOtaModulesRequest): Promise<ListOtaModulesResponse> {
+        const options = ParamCreater().listOtaModules(listOtaModulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可调用此接口查询OTA模块详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询OTA模块详情
+     * @param {string} moduleId **参数说明**：OTA模块ID，平台自动生成，用于唯一标识一个模块，创建模块后获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOtaModule(showOtaModuleRequest?: ShowOtaModuleRequest): Promise<ShowOtaModuleResponse> {
+        const options = ParamCreater().showOtaModule(showOtaModuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可调用此接口修改对应的OTA模块的别名和描述。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改OTA模块
+     * @param {string} moduleId **参数说明**：OTA模块ID，平台自动生成，用于唯一标识一个模块，创建模块后获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
+     * @param {UpdateOtaModule} updateOtaModuleRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOtaModule(updateOtaModuleRequest?: UpdateOtaModuleRequest): Promise<UpdateOtaModuleResponse> {
+        const options = ParamCreater().updateOtaModule(updateOtaModuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用户可调用此接口创建升级包关联OBS对象
      * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
      * 
@@ -2806,7 +2926,7 @@ export class IoTDAClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询OTA升级包列表
-     * @param {string} packageType **参数说明**：升级包类型。 **取值范围**：软件包必须设置为：softwarePackage，固件包必须设置为：firmwarePackage。
+     * @param {string} packageType **参数说明**：升级包类型。 **取值范围**：软件包必须设置为：softwarePackage，固件包必须设置为：firmwarePackage, OTA模块升级包必须设置为：modulePackage。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {string} [appId] **参数说明**：资源空间ID。存在多资源空间的用户需要使用该接口时，建议携带该参数指定查询指定资源空间的升级包列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [[创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)](tag:hws)[[创建产品](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0050.html)](tag:hws_hk)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -9340,6 +9460,267 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'device_id': deviceId,'message_id': messageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可调用此接口创建产品的OTA模块,同一产品下最多自定义10个OTA模块。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOtaModule(createOtaModuleRequest?: CreateOtaModuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/ota-upgrades/modules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createOtaModuleRequest !== null && createOtaModuleRequest !== undefined) {
+                if (createOtaModuleRequest instanceof CreateOtaModuleRequest) {
+                    body = createOtaModuleRequest.body
+                    instanceId = createOtaModuleRequest.instanceId;
+                } else {
+                    body = createOtaModuleRequest['body'];
+                    instanceId = createOtaModuleRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可调用此接口删除产品对应的OTA模块
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOtaModule(deleteOtaModuleRequest?: DeleteOtaModuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/ota-upgrades/modules/{module_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let moduleId;
+            
+            let instanceId;
+
+            if (deleteOtaModuleRequest !== null && deleteOtaModuleRequest !== undefined) {
+                if (deleteOtaModuleRequest instanceof DeleteOtaModuleRequest) {
+                    moduleId = deleteOtaModuleRequest.moduleId;
+                    instanceId = deleteOtaModuleRequest.instanceId;
+                } else {
+                    moduleId = deleteOtaModuleRequest['module_id'];
+                    instanceId = deleteOtaModuleRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (moduleId === null || moduleId === undefined) {
+            throw new RequiredError('moduleId','Required parameter moduleId was null or undefined when calling deleteOtaModule.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'module_id': moduleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可调用此接口查询指定产品的OTA模块列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOtaModules(listOtaModulesRequest?: ListOtaModulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/ota-upgrades/modules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let appId;
+            
+            let instanceId;
+            
+            let productId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listOtaModulesRequest !== null && listOtaModulesRequest !== undefined) {
+                if (listOtaModulesRequest instanceof ListOtaModulesRequest) {
+                    appId = listOtaModulesRequest.appId;
+                    instanceId = listOtaModulesRequest.instanceId;
+                    productId = listOtaModulesRequest.productId;
+                    limit = listOtaModulesRequest.limit;
+                    marker = listOtaModulesRequest.marker;
+                    offset = listOtaModulesRequest.offset;
+                } else {
+                    appId = listOtaModulesRequest['app_id'];
+                    instanceId = listOtaModulesRequest['Instance-Id'];
+                    productId = listOtaModulesRequest['product_id'];
+                    limit = listOtaModulesRequest['limit'];
+                    marker = listOtaModulesRequest['marker'];
+                    offset = listOtaModulesRequest['offset'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling listOtaModules.');
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (productId !== null && productId !== undefined) {
+                localVarQueryParameter['product_id'] = productId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可调用此接口查询OTA模块详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOtaModule(showOtaModuleRequest?: ShowOtaModuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/ota-upgrades/modules/{module_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let moduleId;
+            
+            let instanceId;
+
+            if (showOtaModuleRequest !== null && showOtaModuleRequest !== undefined) {
+                if (showOtaModuleRequest instanceof ShowOtaModuleRequest) {
+                    moduleId = showOtaModuleRequest.moduleId;
+                    instanceId = showOtaModuleRequest.instanceId;
+                } else {
+                    moduleId = showOtaModuleRequest['module_id'];
+                    instanceId = showOtaModuleRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (moduleId === null || moduleId === undefined) {
+            throw new RequiredError('moduleId','Required parameter moduleId was null or undefined when calling showOtaModule.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'module_id': moduleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可调用此接口修改对应的OTA模块的别名和描述。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOtaModule(updateOtaModuleRequest?: UpdateOtaModuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/ota-upgrades/modules/{module_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let moduleId;
+            
+            let instanceId;
+
+            if (updateOtaModuleRequest !== null && updateOtaModuleRequest !== undefined) {
+                if (updateOtaModuleRequest instanceof UpdateOtaModuleRequest) {
+                    moduleId = updateOtaModuleRequest.moduleId;
+                    body = updateOtaModuleRequest.body
+                    instanceId = updateOtaModuleRequest.instanceId;
+                } else {
+                    moduleId = updateOtaModuleRequest['module_id'];
+                    body = updateOtaModuleRequest['body'];
+                    instanceId = updateOtaModuleRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (moduleId === null || moduleId === undefined) {
+            throw new RequiredError('moduleId','Required parameter moduleId was null or undefined when calling updateOtaModule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'module_id': moduleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

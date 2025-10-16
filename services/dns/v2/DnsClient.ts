@@ -37,6 +37,11 @@ import { BatchUpdateRecordSet } from './model/BatchUpdateRecordSet';
 import { BatchUpdateRecordSetWithLineRequest } from './model/BatchUpdateRecordSetWithLineRequest';
 import { BatchUpdateRecordSetWithLineRequestBody } from './model/BatchUpdateRecordSetWithLineRequestBody';
 import { BatchUpdateRecordSetWithLineResponse } from './model/BatchUpdateRecordSetWithLineResponse';
+import { CreateAuthorizeTxtRecordRequest } from './model/CreateAuthorizeTxtRecordRequest';
+import { CreateAuthorizeTxtRecordRequestBody } from './model/CreateAuthorizeTxtRecordRequestBody';
+import { CreateAuthorizeTxtRecordResponse } from './model/CreateAuthorizeTxtRecordResponse';
+import { CreateAuthorizeTxtRecordVerificationRequest } from './model/CreateAuthorizeTxtRecordVerificationRequest';
+import { CreateAuthorizeTxtRecordVerificationResponse } from './model/CreateAuthorizeTxtRecordVerificationResponse';
 import { CreateCustomLineRequest } from './model/CreateCustomLineRequest';
 import { CreateCustomLineRequestBody } from './model/CreateCustomLineRequestBody';
 import { CreateCustomLineResponse } from './model/CreateCustomLineResponse';
@@ -173,6 +178,7 @@ import { PublicZoneLines } from './model/PublicZoneLines';
 import { PublicZoneResp } from './model/PublicZoneResp';
 import { QueryRecordSetWithLineAndTagsResp } from './model/QueryRecordSetWithLineAndTagsResp';
 import { QueryRecordSetWithLineResp } from './model/QueryRecordSetWithLineResp';
+import { RecordInfo } from './model/RecordInfo';
 import { RecordsetData } from './model/RecordsetData';
 import { ResolverRuleParam } from './model/ResolverRuleParam';
 import { ResourceItem } from './model/ResourceItem';
@@ -190,6 +196,8 @@ import { SetRecordSetsStatusRequestBody } from './model/SetRecordSetsStatusReque
 import { SetRecordSetsStatusResponse } from './model/SetRecordSetsStatusResponse';
 import { ShowApiInfoRequest } from './model/ShowApiInfoRequest';
 import { ShowApiInfoResponse } from './model/ShowApiInfoResponse';
+import { ShowAuthorizeTxtRecordRequest } from './model/ShowAuthorizeTxtRecordRequest';
+import { ShowAuthorizeTxtRecordResponse } from './model/ShowAuthorizeTxtRecordResponse';
 import { ShowDnssecConfigRequest } from './model/ShowDnssecConfigRequest';
 import { ShowDnssecConfigResponse } from './model/ShowDnssecConfigResponse';
 import { ShowDomainQuotaRequest } from './model/ShowDomainQuotaRequest';
@@ -500,6 +508,52 @@ export class DnsClient {
      */
     public batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest?: BatchUpdateRecordSetWithLineRequest): Promise<BatchUpdateRecordSetWithLineResponse> {
         const options = ParamCreater().batchUpdateRecordSetWithLine(batchUpdateRecordSetWithLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当创建子域名时提示“域名与其他租户冲突，你需要添加TXT授权校验”，通过调用当前接口生成子域名授权的TXT记录验证信息。
+     * 
+     * **[公网域名为全局资源，请选择“华北-北京四（cn-north-4）”区域调用。](tag:hws)**
+     * **[公网域名为全局资源，请选择“亚太-新加坡（ap-southeast-3）”区域调用。](tag:hws_hk)**
+     * 
+     * &gt; TXT记录验证信息生成后，请前往主域名所属的DNS服务商处添加相应的TXT类型解析记录，主机记录和记录值与验证信息保持一致。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建公网子域名授权
+     * @param {CreateAuthorizeTxtRecordRequestBody} createAuthorizeTxtRecordRequestBody 创建公网子域名授权请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAuthorizeTxtRecord(createAuthorizeTxtRecordRequest?: CreateAuthorizeTxtRecordRequest): Promise<CreateAuthorizeTxtRecordResponse> {
+        const options = ParamCreater().createAuthorizeTxtRecord(createAuthorizeTxtRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户在主域名所属DNS服务商处添加TXT类型解析记录后，调用当前接口验证子域名授权状态。
+     * 
+     * **[公网域名为全局资源，请选择“华北-北京四（cn-north-4）”区域调用。](tag:hws)**
+     * **[公网域名为全局资源，请选择“亚太-新加坡（ap-southeast-3）”区域调用。](tag:hws_hk)**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 验证公网子域名授权
+     * @param {string} id 授权请求ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAuthorizeTxtRecordVerification(createAuthorizeTxtRecordVerificationRequest?: CreateAuthorizeTxtRecordVerificationRequest): Promise<CreateAuthorizeTxtRecordVerificationResponse> {
+        const options = ParamCreater().createAuthorizeTxtRecordVerification(createAuthorizeTxtRecordVerificationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1171,6 +1225,28 @@ export class DnsClient {
      */
     public showApiInfo(showApiInfoRequest?: ShowApiInfoRequest): Promise<ShowApiInfoResponse> {
         const options = ParamCreater().showApiInfo(showApiInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询已生成的子域名授权TXT记录验证信息。
+     * 
+     * **[公网域名为全局资源，请选择“华北-北京四（cn-north-4）”区域调用。](tag:hws)**
+     * **[公网域名为全局资源，请选择“亚太-新加坡（ap-southeast-3）”区域调用。](tag:hws_hk)**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网子域名授权
+     * @param {string} zoneName 待创建的子域名。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAuthorizeTxtRecord(showAuthorizeTxtRecordRequest?: ShowAuthorizeTxtRecordRequest): Promise<ShowAuthorizeTxtRecordResponse> {
+        const options = ParamCreater().showAuthorizeTxtRecord(showAuthorizeTxtRecordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2598,6 +2674,89 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'zone_id': zoneId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当创建子域名时提示“域名与其他租户冲突，你需要添加TXT授权校验”，通过调用当前接口生成子域名授权的TXT记录验证信息。
+         * 
+         * **[公网域名为全局资源，请选择“华北-北京四（cn-north-4）”区域调用。](tag:hws)**
+         * **[公网域名为全局资源，请选择“亚太-新加坡（ap-southeast-3）”区域调用。](tag:hws_hk)**
+         * 
+         * &gt; TXT记录验证信息生成后，请前往主域名所属的DNS服务商处添加相应的TXT类型解析记录，主机记录和记录值与验证信息保持一致。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAuthorizeTxtRecord(createAuthorizeTxtRecordRequest?: CreateAuthorizeTxtRecordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/authorize-txtrecord",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAuthorizeTxtRecordRequest !== null && createAuthorizeTxtRecordRequest !== undefined) {
+                if (createAuthorizeTxtRecordRequest instanceof CreateAuthorizeTxtRecordRequest) {
+                    body = createAuthorizeTxtRecordRequest.body
+                } else {
+                    body = createAuthorizeTxtRecordRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户在主域名所属DNS服务商处添加TXT类型解析记录后，调用当前接口验证子域名授权状态。
+         * 
+         * **[公网域名为全局资源，请选择“华北-北京四（cn-north-4）”区域调用。](tag:hws)**
+         * **[公网域名为全局资源，请选择“亚太-新加坡（ap-southeast-3）”区域调用。](tag:hws_hk)**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAuthorizeTxtRecordVerification(createAuthorizeTxtRecordVerificationRequest?: CreateAuthorizeTxtRecordVerificationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/authorize-txtrecord/{id}/verify",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (createAuthorizeTxtRecordVerificationRequest !== null && createAuthorizeTxtRecordVerificationRequest !== undefined) {
+                if (createAuthorizeTxtRecordVerificationRequest instanceof CreateAuthorizeTxtRecordVerificationRequest) {
+                    id = createAuthorizeTxtRecordVerificationRequest.id;
+                } else {
+                    id = createAuthorizeTxtRecordVerificationRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling createAuthorizeTxtRecordVerification.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4175,6 +4334,49 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'version': version, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询已生成的子域名授权TXT记录验证信息。
+         * 
+         * **[公网域名为全局资源，请选择“华北-北京四（cn-north-4）”区域调用。](tag:hws)**
+         * **[公网域名为全局资源，请选择“亚太-新加坡（ap-southeast-3）”区域调用。](tag:hws_hk)**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAuthorizeTxtRecord(showAuthorizeTxtRecordRequest?: ShowAuthorizeTxtRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/authorize-txtrecord",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let zoneName;
+
+            if (showAuthorizeTxtRecordRequest !== null && showAuthorizeTxtRecordRequest !== undefined) {
+                if (showAuthorizeTxtRecordRequest instanceof ShowAuthorizeTxtRecordRequest) {
+                    zoneName = showAuthorizeTxtRecordRequest.zoneName;
+                } else {
+                    zoneName = showAuthorizeTxtRecordRequest['zone_name'];
+                }
+            }
+
+        
+            if (zoneName === null || zoneName === undefined) {
+                throw new RequiredError('zoneName','Required parameter zoneName was null or undefined when calling showAuthorizeTxtRecord.');
+            }
+            if (zoneName !== null && zoneName !== undefined) {
+                localVarQueryParameter['zone_name'] = zoneName;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

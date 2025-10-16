@@ -60,7 +60,7 @@ export * from './model/CreateTagsRequest';
 export * from './model/CreateTagsRequestBody';
 export * from './model/CreateTagsResponse';
 export * from './model/CreateTemplateRequestBody';
-export * from './model/Criteria';
+export * from './model/CriteriaItem';
 export * from './model/CustomArgs';
 export * from './model/DeleteDomainRequest';
 export * from './model/DeleteDomainResponse';

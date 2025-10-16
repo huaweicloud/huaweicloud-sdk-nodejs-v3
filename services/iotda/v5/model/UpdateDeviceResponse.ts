@@ -1,4 +1,5 @@
 import { AuthInfoRes } from './AuthInfoRes';
+import { ModuleDTO } from './ModuleDTO';
 import { TagV5DTO } from './TagV5DTO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -23,6 +24,7 @@ export class UpdateDeviceResponse extends SdkResponse {
     private 'connection_status_update_time'?: string;
     private 'active_time'?: string;
     public tags?: Array<TagV5DTO>;
+    public modules?: Array<ModuleDTO>;
     private 'extension_info'?: object;
     public constructor() { 
         super();
@@ -197,6 +199,10 @@ export class UpdateDeviceResponse extends SdkResponse {
     }
     public withTags(tags: Array<TagV5DTO>): UpdateDeviceResponse {
         this['tags'] = tags;
+        return this;
+    }
+    public withModules(modules: Array<ModuleDTO>): UpdateDeviceResponse {
+        this['modules'] = modules;
         return this;
     }
     public withExtensionInfo(extensionInfo: object): UpdateDeviceResponse {

@@ -23,6 +23,8 @@ import { ApplyConfigurationAsyncResponse } from './model/ApplyConfigurationAsync
 import { ApplyConfigurationRequest } from './model/ApplyConfigurationRequest';
 import { ApplyConfigurationResponseApplyResults } from './model/ApplyConfigurationResponseApplyResults';
 import { ApplyHistoryInfo } from './model/ApplyHistoryInfo';
+import { ArticlePropertiesRequest } from './model/ArticlePropertiesRequest';
+import { ArticlePropertiesResponse } from './model/ArticlePropertiesResponse';
 import { AttachEipRequest } from './model/AttachEipRequest';
 import { AttachEipResponse } from './model/AttachEipResponse';
 import { Auditlog } from './model/Auditlog';
@@ -122,6 +124,13 @@ import { CreateSqlserverDatabaseRequest } from './model/CreateSqlserverDatabaseR
 import { CreateSqlserverDatabaseResponse } from './model/CreateSqlserverDatabaseResponse';
 import { CreateSqlserverDbUserRequest } from './model/CreateSqlserverDbUserRequest';
 import { CreateSqlserverDbUserResponse } from './model/CreateSqlserverDbUserResponse';
+import { CreateSubscription4InstanceInfo } from './model/CreateSubscription4InstanceInfo';
+import { CreateSubscription4PublicationInfo } from './model/CreateSubscription4PublicationInfo';
+import { CreateSubscriptionInfo } from './model/CreateSubscriptionInfo';
+import { CreateSubscriptionInfoInitializeInfo } from './model/CreateSubscriptionInfoInitializeInfo';
+import { CreateSubscriptionRequest } from './model/CreateSubscriptionRequest';
+import { CreateSubscriptionRequestBody } from './model/CreateSubscriptionRequestBody';
+import { CreateSubscriptionResponse } from './model/CreateSubscriptionResponse';
 import { CreateXelLogDownloadRequest } from './model/CreateXelLogDownloadRequest';
 import { CreateXelLogDownloadRequestBody } from './model/CreateXelLogDownloadRequestBody';
 import { CreateXelLogDownloadResponse } from './model/CreateXelLogDownloadResponse';
@@ -178,6 +187,9 @@ import { DeletePostgresqlExtensionRequest } from './model/DeletePostgresqlExtens
 import { DeletePostgresqlExtensionResponse } from './model/DeletePostgresqlExtensionResponse';
 import { DeletePostgresqlHbaConfRequest } from './model/DeletePostgresqlHbaConfRequest';
 import { DeletePostgresqlHbaConfResponse } from './model/DeletePostgresqlHbaConfResponse';
+import { DeletePublicationRequest } from './model/DeletePublicationRequest';
+import { DeletePublicationRequestBody } from './model/DeletePublicationRequestBody';
+import { DeletePublicationResponse } from './model/DeletePublicationResponse';
 import { DeleteRdSforMySqlProxyRequest } from './model/DeleteRdSforMySqlProxyRequest';
 import { DeleteRdSforMySqlProxyResponse } from './model/DeleteRdSforMySqlProxyResponse';
 import { DeleteSqlLimitRequest } from './model/DeleteSqlLimitRequest';
@@ -248,6 +260,10 @@ import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceResponse } from './model/InstanceResponse';
 import { InstanceRestartRequsetBody } from './model/InstanceRestartRequsetBody';
 import { InstancesWeight } from './model/InstancesWeight';
+import { JobScheduleDailyFrequencyInfo } from './model/JobScheduleDailyFrequencyInfo';
+import { JobScheduleDurationInfo } from './model/JobScheduleDurationInfo';
+import { JobScheduleFrequencyInfo } from './model/JobScheduleFrequencyInfo';
+import { JobScheduleOneTimeOccurrenceInfo } from './model/JobScheduleOneTimeOccurrenceInfo';
 import { LDatastore } from './model/LDatastore';
 import { LinksInfoResponse } from './model/LinksInfoResponse';
 import { ListApiVersionNewRequest } from './model/ListApiVersionNewRequest';
@@ -282,6 +298,10 @@ import { ListDatastoresRequest } from './model/ListDatastoresRequest';
 import { ListDatastoresResponse } from './model/ListDatastoresResponse';
 import { ListDbUsersRequest } from './model/ListDbUsersRequest';
 import { ListDbUsersResponse } from './model/ListDbUsersResponse';
+import { ListDistributionRequest } from './model/ListDistributionRequest';
+import { ListDistributionResponse } from './model/ListDistributionResponse';
+import { ListDistributorInstancesRequest } from './model/ListDistributorInstancesRequest';
+import { ListDistributorInstancesResponse } from './model/ListDistributorInstancesResponse';
 import { ListDrInfosRequest } from './model/ListDrInfosRequest';
 import { ListDrInfosResponse } from './model/ListDrInfosResponse';
 import { ListDrRelationsRequest } from './model/ListDrRelationsRequest';
@@ -353,6 +373,8 @@ import { ListPredefinedTagRequest } from './model/ListPredefinedTagRequest';
 import { ListPredefinedTagResponse } from './model/ListPredefinedTagResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListPublicationsRequest } from './model/ListPublicationsRequest';
+import { ListPublicationsResponse } from './model/ListPublicationsResponse';
 import { ListRdSforMySqlProxyRequest } from './model/ListRdSforMySqlProxyRequest';
 import { ListRdSforMySqlProxyResponse } from './model/ListRdSforMySqlProxyResponse';
 import { ListRdSforMysqlProxyFlavorsRequest } from './model/ListRdSforMysqlProxyFlavorsRequest';
@@ -393,6 +415,8 @@ import { ListSslCertDownloadLinkRequest } from './model/ListSslCertDownloadLinkR
 import { ListSslCertDownloadLinkResponse } from './model/ListSslCertDownloadLinkResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
+import { ListSubscriberInstancesRequest } from './model/ListSubscriberInstancesRequest';
+import { ListSubscriberInstancesResponse } from './model/ListSubscriberInstancesResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListUpdateBackupEnhancePolicyRequest } from './model/ListUpdateBackupEnhancePolicyRequest';
@@ -419,6 +443,9 @@ import { ModifyParamRequest } from './model/ModifyParamRequest';
 import { ModifyPostgresqlHbaConfRequest } from './model/ModifyPostgresqlHbaConfRequest';
 import { ModifyPostgresqlHbaConfResponse } from './model/ModifyPostgresqlHbaConfResponse';
 import { ModifyProxyWeightRequest } from './model/ModifyProxyWeightRequest';
+import { ModifyPublicationRequest } from './model/ModifyPublicationRequest';
+import { ModifyPublicationResponse } from './model/ModifyPublicationResponse';
+import { ModifyPublicationsRequestBody } from './model/ModifyPublicationsRequestBody';
 import { ModifyRdSforMySqlProxyRouteModeRequest } from './model/ModifyRdSforMySqlProxyRouteModeRequest';
 import { ModifyRdSforMySqlProxyRouteModeResponse } from './model/ModifyRdSforMySqlProxyRouteModeResponse';
 import { MsdtcHostOption } from './model/MsdtcHostOption';
@@ -433,6 +460,7 @@ import { OffSiteBackupForList } from './model/OffSiteBackupForList';
 import { OffSiteBackupPolicy } from './model/OffSiteBackupPolicy';
 import { OffsiteBackupInstance } from './model/OffsiteBackupInstance';
 import { OpenProxyRequest } from './model/OpenProxyRequest';
+import { OperateUsedJobSchedule } from './model/OperateUsedJobSchedule';
 import { OpsWindowRequest } from './model/OpsWindowRequest';
 import { ParaGroupDatastore } from './model/ParaGroupDatastore';
 import { ParamGroupHistoryResult } from './model/ParamGroupHistoryResult';
@@ -468,9 +496,14 @@ import { ProxyInfoFlavorInfo } from './model/ProxyInfoFlavorInfo';
 import { ProxyInfoNodes } from './model/ProxyInfoNodes';
 import { ProxyNode } from './model/ProxyNode';
 import { ProxyReadonlyInstances } from './model/ProxyReadonlyInstances';
+import { PublicationTableFilterInfoRequest } from './model/PublicationTableFilterInfoRequest';
+import { PublicationTableFilterInfoResponse } from './model/PublicationTableFilterInfoResponse';
+import { PublicationTableInfoRequest } from './model/PublicationTableInfoRequest';
+import { PublicationTableInfoResponse } from './model/PublicationTableInfoResponse';
 import { PwdResetRequest } from './model/PwdResetRequest';
 import { QueryDRInfoRequest } from './model/QueryDRInfoRequest';
 import { QueryProxyResponseV3 } from './model/QueryProxyResponseV3';
+import { QueryPublicationInfo } from './model/QueryPublicationInfo';
 import { Quotas } from './model/Quotas';
 import { RdsUpgradePrecheckV3Req } from './model/RdsUpgradePrecheckV3Req';
 import { ReadonlyInstances } from './model/ReadonlyInstances';
@@ -480,6 +513,8 @@ import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
 import { ReduceVolumeObject } from './model/ReduceVolumeObject';
 import { ReduceVolumeRequestBody } from './model/ReduceVolumeRequestBody';
 import { RelatedInstance } from './model/RelatedInstance';
+import { ReplicationInstanceInfo } from './model/ReplicationInstanceInfo';
+import { ReplicationUserInfo } from './model/ReplicationUserInfo';
 import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
 import { ResetViewSqlStatisticsRequest } from './model/ResetViewSqlStatisticsRequest';
@@ -690,6 +725,8 @@ import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
 import { Storage } from './model/Storage';
 import { SubTaskInfo } from './model/SubTaskInfo';
+import { SubscriptionOption } from './model/SubscriptionOption';
+import { SubscriptionOptionsResult } from './model/SubscriptionOptionsResult';
 import { SupportFastRestoreList } from './model/SupportFastRestoreList';
 import { SwitchLogReplayRequest } from './model/SwitchLogReplayRequest';
 import { SwitchLogReplayRequestBody } from './model/SwitchLogReplayRequestBody';
@@ -785,6 +822,7 @@ import { UpgradeLargeVersionRequest } from './model/UpgradeLargeVersionRequest';
 import { UpgradeLargeVersionResponse } from './model/UpgradeLargeVersionResponse';
 import { UpgradePgMajorVersion } from './model/UpgradePgMajorVersion';
 import { UpgradeReports } from './model/UpgradeReports';
+import { UsedJobSchedule } from './model/UsedJobSchedule';
 import { UserForCreation } from './model/UserForCreation';
 import { UserForList } from './model/UserForList';
 import { UserWithPrivilege } from './model/UserWithPrivilege';
@@ -5663,6 +5701,27 @@ export class RdsClient {
     }
 
     /**
+     * 创建订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建订阅
+     * @param {string} instanceId 实例ID
+     * @param {CreateSubscriptionRequestBody} createSubscriptionRequestBody 创建订阅请求体。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest): Promise<CreateSubscriptionResponse> {
+        const options = ParamCreater().createSubscription(createSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除MSDTC相关主机host地址
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5675,6 +5734,27 @@ export class RdsClient {
      */
     public deleteMsdtcLocalHost(deleteMsdtcLocalHostRequest?: DeleteMsdtcLocalHostRequest): Promise<DeleteMsdtcLocalHostResponse> {
         const options = ParamCreater().deleteMsdtcLocalHost(deleteMsdtcLocalHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除发布
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除发布
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {DeletePublicationRequestBody} [deletePublicationRequestBody] 删除发布请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePublication(deletePublicationRequest?: DeletePublicationRequest): Promise<DeletePublicationResponse> {
+        const options = ParamCreater().deletePublication(deletePublicationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5792,6 +5872,48 @@ export class RdsClient {
     }
 
     /**
+     * 查询当前实例配置的分发服务器
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前实例配置的分发服务器
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDistribution(listDistributionRequest?: ListDistributionRequest): Promise<ListDistributionResponse> {
+        const options = ParamCreater().listDistribution(listDistributionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可配置为当前实例分发服务器的实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可配置为当前实例分发服务器的实例列表
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDistributorInstances(listDistributorInstancesRequest?: ListDistributorInstancesRequest): Promise<ListDistributorInstancesResponse> {
+        const options = ParamCreater().listDistributorInstances(listDistributorInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云市场引擎商品列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5828,6 +5950,31 @@ export class RdsClient {
      */
     public listMsdtcHosts(listMsdtcHostsRequest?: ListMsdtcHostsRequest): Promise<ListMsdtcHostsResponse> {
         const options = ParamCreater().listMsdtcHosts(listMsdtcHostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例发布信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例发布信息
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {string} [publicationName] 发布名（模糊匹配）
+     * @param {string} [publicationDbName] 发布数据库名（模糊匹配）
+     * @param {string} [subscriberInstanceId] 订阅实例id
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPublications(listPublicationsRequest?: ListPublicationsRequest): Promise<ListPublicationsResponse> {
+        const options = ParamCreater().listPublications(listPublicationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5882,6 +6029,30 @@ export class RdsClient {
     }
 
     /**
+     * 查询可配置为当前实例订阅服务器的实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可配置为当前实例订阅服务器的实例列表
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {string} [subscriberInstanceId] 实例ID
+     * @param {string} [subscriberInstanceName] 实例名
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubscriberInstances(listSubscriberInstancesRequest?: ListSubscriberInstancesRequest): Promise<ListSubscriberInstancesResponse> {
+        const options = ParamCreater().listSubscriberInstances(listSubscriberInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改实例字符集。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5895,6 +6066,28 @@ export class RdsClient {
      */
     public modifyCollation(modifyCollationRequest?: ModifyCollationRequest): Promise<ModifyCollationResponse> {
         const options = ParamCreater().modifyCollation(modifyCollationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改发布
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改发布
+     * @param {string} instanceId 实例ID
+     * @param {string} publicationId 发布ID
+     * @param {ModifyPublicationsRequestBody} modifyPublicationRequestBody 修改发布请求体。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyPublication(modifyPublicationRequest?: ModifyPublicationRequest): Promise<ModifyPublicationResponse> {
+        const options = ParamCreater().modifyPublication(modifyPublicationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -18189,6 +18382,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/subscriptions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createSubscriptionRequest !== null && createSubscriptionRequest !== undefined) {
+                if (createSubscriptionRequest instanceof CreateSubscriptionRequest) {
+                    instanceId = createSubscriptionRequest.instanceId;
+                    body = createSubscriptionRequest.body
+                    xLanguage = createSubscriptionRequest.xLanguage;
+                } else {
+                    instanceId = createSubscriptionRequest['instance_id'];
+                    body = createSubscriptionRequest['body'];
+                    xLanguage = createSubscriptionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createSubscription.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除MSDTC相关主机host地址
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18225,6 +18471,56 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除发布
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePublication(deletePublicationRequest?: DeletePublicationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/publications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deletePublicationRequest !== null && deletePublicationRequest !== undefined) {
+                if (deletePublicationRequest instanceof DeletePublicationRequest) {
+                    instanceId = deletePublicationRequest.instanceId;
+                    xLanguage = deletePublicationRequest.xLanguage;
+                    body = deletePublicationRequest.body
+                } else {
+                    instanceId = deletePublicationRequest['instance_id'];
+                    xLanguage = deletePublicationRequest['X-Language'];
+                    body = deletePublicationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deletePublication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -18526,6 +18822,109 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前实例配置的分发服务器
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDistribution(listDistributionRequest?: ListDistributionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/distribution",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listDistributionRequest !== null && listDistributionRequest !== undefined) {
+                if (listDistributionRequest instanceof ListDistributionRequest) {
+                    instanceId = listDistributionRequest.instanceId;
+                    xLanguage = listDistributionRequest.xLanguage;
+                } else {
+                    instanceId = listDistributionRequest['instance_id'];
+                    xLanguage = listDistributionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDistribution.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可配置为当前实例分发服务器的实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDistributorInstances(listDistributorInstancesRequest?: ListDistributorInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/distributors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDistributorInstancesRequest !== null && listDistributorInstancesRequest !== undefined) {
+                if (listDistributorInstancesRequest instanceof ListDistributorInstancesRequest) {
+                    instanceId = listDistributorInstancesRequest.instanceId;
+                    xLanguage = listDistributorInstancesRequest.xLanguage;
+                    offset = listDistributorInstancesRequest.offset;
+                    limit = listDistributorInstancesRequest.limit;
+                } else {
+                    instanceId = listDistributorInstancesRequest['instance_id'];
+                    xLanguage = listDistributorInstancesRequest['X-Language'];
+                    offset = listDistributorInstancesRequest['offset'];
+                    limit = listDistributorInstancesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDistributorInstances.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询云市场引擎商品列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18635,6 +19034,86 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例发布信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPublications(listPublicationsRequest?: ListPublicationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/publications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let publicationName;
+            
+            let publicationDbName;
+            
+            let subscriberInstanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listPublicationsRequest !== null && listPublicationsRequest !== undefined) {
+                if (listPublicationsRequest instanceof ListPublicationsRequest) {
+                    instanceId = listPublicationsRequest.instanceId;
+                    xLanguage = listPublicationsRequest.xLanguage;
+                    publicationName = listPublicationsRequest.publicationName;
+                    publicationDbName = listPublicationsRequest.publicationDbName;
+                    subscriberInstanceId = listPublicationsRequest.subscriberInstanceId;
+                    offset = listPublicationsRequest.offset;
+                    limit = listPublicationsRequest.limit;
+                } else {
+                    instanceId = listPublicationsRequest['instance_id'];
+                    xLanguage = listPublicationsRequest['X-Language'];
+                    publicationName = listPublicationsRequest['publication_name'];
+                    publicationDbName = listPublicationsRequest['publication_db_name'];
+                    subscriberInstanceId = listPublicationsRequest['subscriber_instance_id'];
+                    offset = listPublicationsRequest['offset'];
+                    limit = listPublicationsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listPublications.');
+            }
+            if (publicationName !== null && publicationName !== undefined) {
+                localVarQueryParameter['publication_name'] = publicationName;
+            }
+            if (publicationDbName !== null && publicationDbName !== undefined) {
+                localVarQueryParameter['publication_db_name'] = publicationDbName;
+            }
+            if (subscriberInstanceId !== null && subscriberInstanceId !== undefined) {
+                localVarQueryParameter['subscriber_instance_id'] = subscriberInstanceId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -18788,6 +19267,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询可配置为当前实例订阅服务器的实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubscriberInstances(listSubscriberInstancesRequest?: ListSubscriberInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/subscribers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let subscriberInstanceId;
+            
+            let subscriberInstanceName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSubscriberInstancesRequest !== null && listSubscriberInstancesRequest !== undefined) {
+                if (listSubscriberInstancesRequest instanceof ListSubscriberInstancesRequest) {
+                    instanceId = listSubscriberInstancesRequest.instanceId;
+                    xLanguage = listSubscriberInstancesRequest.xLanguage;
+                    subscriberInstanceId = listSubscriberInstancesRequest.subscriberInstanceId;
+                    subscriberInstanceName = listSubscriberInstancesRequest.subscriberInstanceName;
+                    offset = listSubscriberInstancesRequest.offset;
+                    limit = listSubscriberInstancesRequest.limit;
+                } else {
+                    instanceId = listSubscriberInstancesRequest['instance_id'];
+                    xLanguage = listSubscriberInstancesRequest['X-Language'];
+                    subscriberInstanceId = listSubscriberInstancesRequest['subscriber_instance_id'];
+                    subscriberInstanceName = listSubscriberInstancesRequest['subscriber_instance_name'];
+                    offset = listSubscriberInstancesRequest['offset'];
+                    limit = listSubscriberInstancesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSubscriberInstances.');
+            }
+            if (subscriberInstanceId !== null && subscriberInstanceId !== undefined) {
+                localVarQueryParameter['subscriber_instance_id'] = subscriberInstanceId;
+            }
+            if (subscriberInstanceName !== null && subscriberInstanceName !== undefined) {
+                localVarQueryParameter['subscriber_instance_name'] = subscriberInstanceName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改实例字符集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18836,6 +19388,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改发布
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyPublication(modifyPublicationRequest?: ModifyPublicationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/publications/{publication_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let publicationId;
+            
+            let xLanguage;
+
+            if (modifyPublicationRequest !== null && modifyPublicationRequest !== undefined) {
+                if (modifyPublicationRequest instanceof ModifyPublicationRequest) {
+                    instanceId = modifyPublicationRequest.instanceId;
+                    publicationId = modifyPublicationRequest.publicationId;
+                    body = modifyPublicationRequest.body
+                    xLanguage = modifyPublicationRequest.xLanguage;
+                } else {
+                    instanceId = modifyPublicationRequest['instance_id'];
+                    publicationId = modifyPublicationRequest['publication_id'];
+                    body = modifyPublicationRequest['body'];
+                    xLanguage = modifyPublicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyPublication.');
+            }
+            if (publicationId === null || publicationId === undefined) {
+            throw new RequiredError('publicationId','Required parameter publicationId was null or undefined when calling modifyPublication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'publication_id': publicationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

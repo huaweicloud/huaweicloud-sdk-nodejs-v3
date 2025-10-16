@@ -33,6 +33,8 @@ import { ListSingleStreamFramerateRequest } from './model/ListSingleStreamFramer
 import { ListSingleStreamFramerateResponse } from './model/ListSingleStreamFramerateResponse';
 import { ListSnapshotDataRequest } from './model/ListSnapshotDataRequest';
 import { ListSnapshotDataResponse } from './model/ListSnapshotDataResponse';
+import { ListTranscodeConcurrencyNumRequest } from './model/ListTranscodeConcurrencyNumRequest';
+import { ListTranscodeConcurrencyNumResponse } from './model/ListTranscodeConcurrencyNumResponse';
 import { ListTranscodeDataRequest } from './model/ListTranscodeDataRequest';
 import { ListTranscodeDataResponse } from './model/ListTranscodeDataResponse';
 import { ListUpStreamDetailRequest } from './model/ListUpStreamDetailRequest';
@@ -55,6 +57,7 @@ import { StreamPortrait } from './model/StreamPortrait';
 import { TimeValue } from './model/TimeValue';
 import { TrafficData } from './model/TrafficData';
 import { TrafficSummaryData } from './model/TrafficSummaryData';
+import { TranscodeConNumData } from './model/TranscodeConNumData';
 import { TranscodeData } from './model/TranscodeData';
 import { TranscodeSpec } from './model/TranscodeSpec';
 import { TranscodeSummary } from './model/TranscodeSummary';
@@ -361,6 +364,30 @@ export class LiveClient {
      */
     public listSnapshotData(listSnapshotDataRequest?: ListSnapshotDataRequest): Promise<ListSnapshotDataResponse> {
         const options = ParamCreater().listSnapshotData(listSnapshotDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询推流域名下的转码路数，根据输入时间点和时间粒度，返回转码路数。
+     * 最大查询跨度1天，最大查询周期90天，数据延迟5分钟。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询推流域名转码路数
+     * @param {Array<string>} publishDomains 推流域名列表，最多支持查询100个域名，多个域名以逗号分隔。  若查询多个域名，则返回的是多个域名合并数据。 
+     * @param {string} [app] 应用名称
+     * @param {60 | 300 | 3600} [interval] 查询数据的时间粒度。支持60, 300（默认值）和3600秒。不传值时，使用默认值300秒。 
+     * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度1天，最大查询周期90天。  若参数为空，默认查询1天数据。 
+     * @param {string} [endTime] 结束时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度1天，最大查询周期90天。  若参数为空，默认为当前时间。结束时间需大于起始时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTranscodeConcurrencyNum(listTranscodeConcurrencyNumRequest?: ListTranscodeConcurrencyNumRequest): Promise<ListTranscodeConcurrencyNumResponse> {
+        const options = ParamCreater().listTranscodeConcurrencyNum(listTranscodeConcurrencyNumRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1437,6 +1464,75 @@ export const ParamCreater = function () {
         
             if (publishDomain !== null && publishDomain !== undefined) {
                 localVarQueryParameter['publish_domain'] = publishDomain;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询推流域名下的转码路数，根据输入时间点和时间粒度，返回转码路数。
+         * 最大查询跨度1天，最大查询周期90天，数据延迟5分钟。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTranscodeConcurrencyNum(listTranscodeConcurrencyNumRequest?: ListTranscodeConcurrencyNumRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/stats/transcode/concurrency",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let publishDomains;
+            
+            let app;
+            
+            let interval;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listTranscodeConcurrencyNumRequest !== null && listTranscodeConcurrencyNumRequest !== undefined) {
+                if (listTranscodeConcurrencyNumRequest instanceof ListTranscodeConcurrencyNumRequest) {
+                    publishDomains = listTranscodeConcurrencyNumRequest.publishDomains;
+                    app = listTranscodeConcurrencyNumRequest.app;
+                    interval = listTranscodeConcurrencyNumRequest.interval;
+                    startTime = listTranscodeConcurrencyNumRequest.startTime;
+                    endTime = listTranscodeConcurrencyNumRequest.endTime;
+                } else {
+                    publishDomains = listTranscodeConcurrencyNumRequest['publish_domains'];
+                    app = listTranscodeConcurrencyNumRequest['app'];
+                    interval = listTranscodeConcurrencyNumRequest['interval'];
+                    startTime = listTranscodeConcurrencyNumRequest['start_time'];
+                    endTime = listTranscodeConcurrencyNumRequest['end_time'];
+                }
+            }
+
+        
+            if (publishDomains === null || publishDomains === undefined) {
+                throw new RequiredError('publishDomains','Required parameter publishDomains was null or undefined when calling listTranscodeConcurrencyNum.');
+            }
+            if (publishDomains !== null && publishDomains !== undefined) {
+                localVarQueryParameter['publish_domains'] = publishDomains;
+            }
+            if (app !== null && app !== undefined) {
+                localVarQueryParameter['app'] = app;
+            }
+            if (interval !== null && interval !== undefined) {
+                localVarQueryParameter['interval'] = interval;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;

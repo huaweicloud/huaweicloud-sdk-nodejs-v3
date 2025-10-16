@@ -233,6 +233,7 @@ import { ExecuteRedistributionClusterResponse } from './model/ExecuteRedistribut
 import { ExpandInstanceStorage } from './model/ExpandInstanceStorage';
 import { ExpandInstanceStorageRequest } from './model/ExpandInstanceStorageRequest';
 import { ExpandInstanceStorageResponse } from './model/ExpandInstanceStorageResponse';
+import { ExpandPreparationRequestBody } from './model/ExpandPreparationRequestBody';
 import { ExportDatabaseUsersRequest } from './model/ExportDatabaseUsersRequest';
 import { ExportDatabaseUsersResponse } from './model/ExportDatabaseUsersResponse';
 import { ExportUserAuthorityRequest } from './model/ExportUserAuthorityRequest';
@@ -466,6 +467,8 @@ import { ResizeClusterWithExistedNodesRequest } from './model/ResizeClusterWithE
 import { ResizeClusterWithExistedNodesRequestBody } from './model/ResizeClusterWithExistedNodesRequestBody';
 import { ResizeClusterWithExistedNodesResponse } from './model/ResizeClusterWithExistedNodesResponse';
 import { ResizeInfo } from './model/ResizeInfo';
+import { ResizePreparationRequest } from './model/ResizePreparationRequest';
+import { ResizePreparationResponse } from './model/ResizePreparationResponse';
 import { ResourceTag } from './model/ResourceTag';
 import { RestartClusterRequest } from './model/RestartClusterRequest';
 import { RestartClusterRequestBody } from './model/RestartClusterRequestBody';
@@ -523,6 +526,8 @@ import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowQueryDetailRequest } from './model/ShowQueryDetailRequest';
 import { ShowQueryDetailResponse } from './model/ShowQueryDetailResponse';
+import { ShowResizePreparationRequest } from './model/ShowResizePreparationRequest';
+import { ShowResizePreparationResponse } from './model/ShowResizePreparationResponse';
 import { ShowResourceStatisticsRequest } from './model/ShowResourceStatisticsRequest';
 import { ShowResourceStatisticsResponse } from './model/ShowResourceStatisticsResponse';
 import { ShowWorkloadPlanRequest } from './model/ShowWorkloadPlanRequest';
@@ -3646,6 +3651,26 @@ export class DwsClient {
     }
 
     /**
+     * 下发扩容配置文件，完成扩容准备工作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群扩容前检查
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {ExpandPreparationRequestBody} resizePreparationRequestBody **参数解释**： 扩容/添加空闲节点操作请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizePreparation(resizePreparationRequest?: ResizePreparationRequest): Promise<ResizePreparationResponse> {
+        const options = ParamCreater().resizePreparation(resizePreparationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重启集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4087,6 +4112,25 @@ export class DwsClient {
      */
     public showQueryDetail(showQueryDetailRequest?: ShowQueryDetailRequest): Promise<ShowQueryDetailResponse> {
         const options = ParamCreater().showQueryDetail(showQueryDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取扩容准备信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询节点列表
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResizePreparation(showResizePreparationRequest?: ShowResizePreparationRequest): Promise<ShowResizePreparationResponse> {
+        const options = ParamCreater().showResizePreparation(showResizePreparationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11704,6 +11748,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 下发扩容配置文件，完成扩容准备工作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizePreparation(resizePreparationRequest?: ResizePreparationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/resize-with-existed-nodes/preparation",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (resizePreparationRequest !== null && resizePreparationRequest !== undefined) {
+                if (resizePreparationRequest instanceof ResizePreparationRequest) {
+                    clusterId = resizePreparationRequest.clusterId;
+                    body = resizePreparationRequest.body
+                } else {
+                    clusterId = resizePreparationRequest['cluster_id'];
+                    body = resizePreparationRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling resizePreparation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重启集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12684,6 +12774,43 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'query_id': queryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取扩容准备信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResizePreparation(showResizePreparationRequest?: ShowResizePreparationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/resize-with-existed-nodes/preparation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showResizePreparationRequest !== null && showResizePreparationRequest !== undefined) {
+                if (showResizePreparationRequest instanceof ShowResizePreparationRequest) {
+                    clusterId = showResizePreparationRequest.clusterId;
+                } else {
+                    clusterId = showResizePreparationRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showResizePreparation.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

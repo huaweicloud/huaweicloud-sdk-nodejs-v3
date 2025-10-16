@@ -7,11 +7,10 @@ export class DomainBody {
     public sources?: Array<SourcesRequestBody>;
     private 'service_area'?: DomainBodyServiceAreaEnum | string;
     private 'enterprise_project_id'?: string;
-    public constructor(domainName?: string, businessType?: string, sources?: Array<SourcesRequestBody>, serviceArea?: string) { 
+    public constructor(domainName?: string, businessType?: string, sources?: Array<SourcesRequestBody>) { 
         this['domain_name'] = domainName;
         this['business_type'] = businessType;
         this['sources'] = sources;
-        this['service_area'] = serviceArea;
     }
     public withDomainName(domainName: string): DomainBody {
         this['domain_name'] = domainName;

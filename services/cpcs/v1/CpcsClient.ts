@@ -3,12 +3,19 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AccessKeyInfo } from './model/AccessKeyInfo';
+import { AddClusterPortRequest } from './model/AddClusterPortRequest';
+import { AddClusterPortResponse } from './model/AddClusterPortResponse';
 import { AppInfo } from './model/AppInfo';
 import { AppResourceInfo } from './model/AppResourceInfo';
 import { AssociateAppsRequest } from './model/AssociateAppsRequest';
 import { AssociateAppsRequestBody } from './model/AssociateAppsRequestBody';
 import { AssociateAppsResponse } from './model/AssociateAppsResponse';
 import { AssociationInfo } from './model/AssociationInfo';
+import { AuthObject } from './model/AuthObject';
+import { AuthObjectAuth } from './model/AuthObjectAuth';
+import { AuthObjectAuthAccessKey } from './model/AuthObjectAuthAccessKey';
+import { AuthObjectScope } from './model/AuthObjectScope';
+import { AuthObjectScopeCluster } from './model/AuthObjectScopeCluster';
 import { AuthorizeAccessKeysRequest } from './model/AuthorizeAccessKeysRequest';
 import { AuthorizeAccessKeysRequestBody } from './model/AuthorizeAccessKeysRequestBody';
 import { AuthorizeAccessKeysResponse } from './model/AuthorizeAccessKeysResponse';
@@ -22,6 +29,8 @@ import { CancelAuthorizeAccessKeysResponse } from './model/CancelAuthorizeAccess
 import { CcspClusterInfo } from './model/CcspClusterInfo';
 import { CcspInstanceInfo } from './model/CcspInstanceInfo';
 import { CcspServiceInfo } from './model/CcspServiceInfo';
+import { CheckClusterPortRequest } from './model/CheckClusterPortRequest';
+import { CheckClusterPortResponse } from './model/CheckClusterPortResponse';
 import { CloudServiceInfo } from './model/CloudServiceInfo';
 import { CreateAppAccessKeyRequest } from './model/CreateAppAccessKeyRequest';
 import { CreateAppAccessKeyRequestBody } from './model/CreateAppAccessKeyRequestBody';
@@ -32,6 +41,7 @@ import { CreateAppResponse } from './model/CreateAppResponse';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterRequestBody } from './model/CreateClusterRequestBody';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
+import { CreateElbClusterPortRequestBody } from './model/CreateElbClusterPortRequestBody';
 import { Datapoint } from './model/Datapoint';
 import { DeAuthorizeAccessKeysRequestBody } from './model/DeAuthorizeAccessKeysRequestBody';
 import { DeleteAccessKeyRequest } from './model/DeleteAccessKeyRequest';
@@ -40,11 +50,14 @@ import { DeleteAppRequest } from './model/DeleteAppRequest';
 import { DeleteAppResponse } from './model/DeleteAppResponse';
 import { DeleteCcspClusterRequest } from './model/DeleteCcspClusterRequest';
 import { DeleteCcspClusterResponse } from './model/DeleteCcspClusterResponse';
+import { DeleteClusterPortRequest } from './model/DeleteClusterPortRequest';
+import { DeleteClusterPortResponse } from './model/DeleteClusterPortResponse';
 import { DisAssociateAppsRequestBody } from './model/DisAssociateAppsRequestBody';
 import { DisableCcspInstanceRequest } from './model/DisableCcspInstanceRequest';
 import { DisableCcspInstanceResponse } from './model/DisableCcspInstanceResponse';
 import { DisassociateAppsRequest } from './model/DisassociateAppsRequest';
 import { DisassociateAppsResponse } from './model/DisassociateAppsResponse';
+import { ElbClusterPortReponseBody } from './model/ElbClusterPortReponseBody';
 import { EnableCcspInstanceRequest } from './model/EnableCcspInstanceRequest';
 import { EnableCcspInstanceResponse } from './model/EnableCcspInstanceResponse';
 import { ImageInfo } from './model/ImageInfo';
@@ -53,6 +66,8 @@ import { KmsInfo } from './model/KmsInfo';
 import { KmsResourceInfo } from './model/KmsResourceInfo';
 import { ListCcspTenantImagesRequest } from './model/ListCcspTenantImagesRequest';
 import { ListCcspTenantImagesResponse } from './model/ListCcspTenantImagesResponse';
+import { ListClusterPortRequest } from './model/ListClusterPortRequest';
+import { ListClusterPortResponse } from './model/ListClusterPortResponse';
 import { ResourceDistribution } from './model/ResourceDistribution';
 import { ShowAccessKeyRequest } from './model/ShowAccessKeyRequest';
 import { ShowAccessKeyResponse } from './model/ShowAccessKeyResponse';
@@ -62,6 +77,9 @@ import { ShowAppListRequest } from './model/ShowAppListRequest';
 import { ShowAppListResponse } from './model/ShowAppListResponse';
 import { ShowAssociationListRequest } from './model/ShowAssociationListRequest';
 import { ShowAssociationListResponse } from './model/ShowAssociationListResponse';
+import { ShowAuditLogRequest } from './model/ShowAuditLogRequest';
+import { ShowAuditLogResponse } from './model/ShowAuditLogResponse';
+import { ShowAuditLogResponseBodyAuditRecords } from './model/ShowAuditLogResponseBodyAuditRecords';
 import { ShowAvailableAzRequest } from './model/ShowAvailableAzRequest';
 import { ShowAvailableAzResponse } from './model/ShowAvailableAzResponse';
 import { ShowAvailableAzResponsebodyAvailabilityZone } from './model/ShowAvailableAzResponsebodyAvailabilityZone';
@@ -77,10 +95,47 @@ import { ShowClusterAccessKeyListResponse } from './model/ShowClusterAccessKeyLi
 import { ShowClusterAccessKeyListResponseBodyResult } from './model/ShowClusterAccessKeyListResponseBodyResult';
 import { ShowClusterUriRequest } from './model/ShowClusterUriRequest';
 import { ShowClusterUriResponse } from './model/ShowClusterUriResponse';
+import { ShowResourceDetailAccessKeyRequest } from './model/ShowResourceDetailAccessKeyRequest';
+import { ShowResourceDetailAccessKeyResponse } from './model/ShowResourceDetailAccessKeyResponse';
+import { ShowResourceDetailAccessKeyResponseBodyAkList } from './model/ShowResourceDetailAccessKeyResponseBodyAkList';
+import { ShowResourceDetailCertificateRequest } from './model/ShowResourceDetailCertificateRequest';
+import { ShowResourceDetailCertificateResponse } from './model/ShowResourceDetailCertificateResponse';
+import { ShowResourceDetailCertificateResponseBodyCertificateList } from './model/ShowResourceDetailCertificateResponseBodyCertificateList';
 import { ShowResourceInfoRequest } from './model/ShowResourceInfoRequest';
 import { ShowResourceInfoResponse } from './model/ShowResourceInfoResponse';
+import { ShowStatisticCertificateRequest } from './model/ShowStatisticCertificateRequest';
+import { ShowStatisticCertificateResponse } from './model/ShowStatisticCertificateResponse';
+import { ShowStatisticInterfaceRequest } from './model/ShowStatisticInterfaceRequest';
+import { ShowStatisticInterfaceResponse } from './model/ShowStatisticInterfaceResponse';
+import { ShowStatisticInterfaceResponseBodyMetrics } from './model/ShowStatisticInterfaceResponseBodyMetrics';
+import { ShowStatisticResourceRequest } from './model/ShowStatisticResourceRequest';
+import { ShowStatisticResourceResponse } from './model/ShowStatisticResourceResponse';
+import { ShowStatisticResourceResponseBodyDatapoints } from './model/ShowStatisticResourceResponseBodyDatapoints';
+import { ShowStatisticSecretKeyRequest } from './model/ShowStatisticSecretKeyRequest';
+import { ShowStatisticSecretKeyResponse } from './model/ShowStatisticSecretKeyResponse';
+import { ShowStatusAppItem } from './model/ShowStatusAppItem';
+import { ShowStatusAppRequest } from './model/ShowStatusAppRequest';
+import { ShowStatusAppResponse } from './model/ShowStatusAppResponse';
+import { ShowStatusClusterItem } from './model/ShowStatusClusterItem';
+import { ShowStatusClusterRequest } from './model/ShowStatusClusterRequest';
+import { ShowStatusClusterResponse } from './model/ShowStatusClusterResponse';
+import { ShowStatusInstanceItem } from './model/ShowStatusInstanceItem';
+import { ShowStatusInstanceItemInstanceList } from './model/ShowStatusInstanceItemInstanceList';
+import { ShowStatusInstanceRequest } from './model/ShowStatusInstanceRequest';
+import { ShowStatusInstanceResponse } from './model/ShowStatusInstanceResponse';
+import { ShowStatusServiceRequest } from './model/ShowStatusServiceRequest';
+import { ShowStatusServiceResponse } from './model/ShowStatusServiceResponse';
+import { ShowStatusServiceResponseBodyServerList } from './model/ShowStatusServiceResponseBodyServerList';
 import { ShowVmMonitorRequest } from './model/ShowVmMonitorRequest';
 import { ShowVmMonitorResponse } from './model/ShowVmMonitorResponse';
+import { StatisticalCharacteristic } from './model/StatisticalCharacteristic';
+import { SwitchCpcsTokenRequest } from './model/SwitchCpcsTokenRequest';
+import { SwitchCpcsTokenResponse } from './model/SwitchCpcsTokenResponse';
+import { SwitchTokenResponseAk } from './model/SwitchTokenResponseAk';
+import { SwitchTokenResponseUser } from './model/SwitchTokenResponseUser';
+import { SwitchTokenResponseUserDomain } from './model/SwitchTokenResponseUserDomain';
+import { VendorCertificateStatistic } from './model/VendorCertificateStatistic';
+import { VendorKeyStatistic } from './model/VendorKeyStatistic';
 import { VsmResourceInfo } from './model/VsmResourceInfo';
 
 export class CpcsClient {
@@ -98,6 +153,26 @@ export class CpcsClient {
         return __dirname;
     }
 
+
+    /**
+     * 创建集群模式端口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建集群模式端口
+     * @param {string} clusterId 集群ID
+     * @param {CreateElbClusterPortRequestBody} [createElbClusterPortRequestBody] 创建集群模式端口请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addClusterPort(addClusterPortRequest?: AddClusterPortRequest): Promise<AddClusterPortResponse> {
+        const options = ParamCreater().addClusterPort(addClusterPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 创建密码服务集群与应用绑定关系
@@ -193,6 +268,27 @@ export class CpcsClient {
      */
     public cancelAuthorizeAccessKeys(cancelAuthorizeAccessKeysRequest?: CancelAuthorizeAccessKeysRequest): Promise<CancelAuthorizeAccessKeysResponse> {
         const options = ParamCreater().cancelAuthorizeAccessKeys(cancelAuthorizeAccessKeysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检测该端口关联的监听器、后端服务器组是否正确无误。
+     * &gt; 该接口调用后会根据实际情况，更新检查结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检测集群模式端口是否正常
+     * @param {string} clusterId 集群ID
+     * @param {string} id 端口的id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkClusterPort(checkClusterPortRequest?: CheckClusterPortRequest): Promise<CheckClusterPortResponse> {
+        const options = ParamCreater().checkClusterPort(checkClusterPortRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -321,6 +417,28 @@ export class CpcsClient {
     }
 
     /**
+     * 删除集群模式端口。
+     * &gt; 由于端口可能被租户二次修改过，并用于其他业务,所以删除会有几个不同选项，具体查看参数说明。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除集群模式端口
+     * @param {string} clusterId 集群ID
+     * @param {string} id 端口的id
+     * @param {'DELETE_DB' | 'TRY_DELETE' | 'FORCE_DELETE'} type DELETE_DB 仅删除CPCS数据库中的记录，不删除elb资源。 TRY_DELETE 当被删除的端口的wrong字段为false时，删除elb资源。不为false时仅删除数据库。 FORCE_DELETE 删除cpcs数据库和elb资源
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClusterPort(deleteClusterPortRequest?: DeleteClusterPortRequest): Promise<DeleteClusterPortResponse> {
+        const options = ParamCreater().deleteClusterPort(deleteClusterPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 停用密码服务实例的业务功能
      * &gt; 只有当密码服务实例处于“启用”状态时，方可调用此接口
      * 
@@ -396,6 +514,25 @@ export class CpcsClient {
      */
     public listCcspTenantImages(listCcspTenantImagesRequest?: ListCcspTenantImagesRequest): Promise<ListCcspTenantImagesResponse> {
         const options = ParamCreater().listCcspTenantImages(listCcspTenantImagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出当前集群下的所有集群模式端口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群模式端口列表
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterPort(listClusterPortRequest?: ListClusterPortRequest): Promise<ListClusterPortResponse> {
+        const options = ParamCreater().listClusterPort(listClusterPortRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -488,6 +625,28 @@ export class CpcsClient {
      */
     public showAssociationList(showAssociationListRequest?: ShowAssociationListRequest): Promise<ShowAssociationListResponse> {
         const options = ParamCreater().showAssociationList(showAssociationListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询平台审计日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询平台审计日志
+     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
+     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [startTime] 开始时间
+     * @param {number} [endTime] 结束时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAuditLog(showAuditLogRequest?: ShowAuditLogRequest): Promise<ShowAuditLogResponse> {
+        const options = ParamCreater().showAuditLog(showAuditLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -627,6 +786,60 @@ export class CpcsClient {
     }
 
     /**
+     * 获取所监控或者统计的AK详情列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取AK详情
+     * @param {string} [clusterId] 集群id，默认空字符串，默认查询所有集群
+     * @param {string} [appId] 应用id，默认空字符串，默认查询所有的应用
+     * @param {string} [serviceType] 密码服务类型，默认空字符串，默认查询所有密码服务类型
+     * @param {string} [algorithmType] 算法类型，默认空字符串，0：国密，1：国际
+     * @param {string} [certificateType] 证书类型，默认空字符串，0：根证书，1：业务证书
+     * @param {number} [pageSize] 页面大小，不超过1500
+     * @param {number} [pageNum] 页数，默认1
+     * @param {number} [from] 查询起始时间戳，毫秒级时间戳，默认为0，默认从三天前查询
+     * @param {string} [to] 查询终止时间戳，毫秒级时间戳，默认为0，默认查询到当前时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceDetailAccessKey(showResourceDetailAccessKeyRequest?: ShowResourceDetailAccessKeyRequest): Promise<ShowResourceDetailAccessKeyResponse> {
+        const options = ParamCreater().showResourceDetailAccessKey(showResourceDetailAccessKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取所监控或者统计的证书详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取证书详情
+     * @param {string} [clusterId] 集群id，默认空字符串，默认查询所有集群
+     * @param {string} [appId] 应用id，默认空字符串，默认查询所有的应用
+     * @param {string} [serviceType] 密码服务类型，默认空字符串，默认查询所有密码服务类型
+     * @param {string} [algorithmType] 算法类型，默认空字符串，0：国密，1：国际
+     * @param {string} [certificateType] 证书类型，默认空字符串，0：根证书，1：业务证书
+     * @param {number} [pageSize] 页面大小，不超过1500
+     * @param {number} [pageNum] 页数，默认1
+     * @param {number} [from] 查询起始时间戳，毫秒级时间戳，默认为0，默认从三天前查询
+     * @param {number} [to] 查询终止时间戳，毫秒级时间戳，默认为0，默认查询到当前时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceDetailCertificate(showResourceDetailCertificateRequest?: ShowResourceDetailCertificateRequest): Promise<ShowResourceDetailCertificateResponse> {
+        const options = ParamCreater().showResourceDetailCertificate(showResourceDetailCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户的资源分布信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -637,6 +850,222 @@ export class CpcsClient {
      */
     public showResourceInfo(showResourceInfoRequest?: ShowResourceInfoRequest): Promise<ShowResourceInfoResponse> {
         const options = ParamCreater().showResourceInfo();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取CPCS中证书分布统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取证书分布统计信息
+     * @param {string} [clusterId] 集群id，默认为空，默认查询所有集群
+     * @param {string} [appId] 应用id，默认为空，默认查询所有app
+     * @param {number} [from] 查询的初始时间戳，毫秒级时间戳，默认查询前三天
+     * @param {number} [to] 查询的终止时间戳，毫秒级时间戳，默认查询到当前时间
+     * @param {number} [period] 统计周期，默认为1，五分钟为一个周期
+     * @param {string} [filter] 统计值，默认为min:最小值
+     * @param {string} [algorithm] 算法，有：“sm2”,\&quot;rsa\&quot;
+     * @param {string} [algorithmType] 算法类型，0：国密算法，1：国际算法
+     * @param {string} [certificateType] 证书类型，0：根证书，1：业务证书
+     * @param {string} [serverType] 密码服务类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatisticCertificate(showStatisticCertificateRequest?: ShowStatisticCertificateRequest): Promise<ShowStatisticCertificateResponse> {
+        const options = ParamCreater().showStatisticCertificate(showStatisticCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取CPCS中接口调用统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取接口调用统计信息
+     * @param {string} [clusterId] 集群id，默认为空，默认查询所有集群
+     * @param {string} [appId] 应用id，默认为空，默认查询所有app
+     * @param {number} [from] 查询的初始时间戳，毫秒级时间戳，默认查询前三天
+     * @param {number} [to] 查询的终止时间戳，毫秒级时间戳，默认查询到当前时间
+     * @param {number} [period] 统计周期，默认为1，五分钟为一个周期
+     * @param {string} [filter] 统计值，默认为min:最小值
+     * @param {string} [algorithm] 算法，有：“sm2”,\&quot;rsa\&quot;
+     * @param {string} [algorithmType] 算法类型，0：国密算法，1：国际算法
+     * @param {string} [certificateType] 证书类型，0：根证书，1：业务证书
+     * @param {string} [serverType] 密码服务类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatisticInterface(showStatisticInterfaceRequest?: ShowStatisticInterfaceRequest): Promise<ShowStatisticInterfaceResponse> {
+        const options = ParamCreater().showStatisticInterface(showStatisticInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取CPCS中\\资源总量统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源总量统计信息
+     * @param {string} [clusterId] 集群id，默认为空，默认查询所有集群
+     * @param {string} [appId] 应用id，默认为空，默认查询所有app
+     * @param {number} [from] 查询的初始时间戳，毫秒级时间戳，默认查询前三天
+     * @param {number} [to] 查询的终止时间戳，毫秒级时间戳，默认查询到当前时间
+     * @param {number} [period] 统计周期，默认为1，五分钟为一个周期
+     * @param {string} [filter] 统计值，默认为min:最小值
+     * @param {string} [algorithm] 算法，有：“sm2”,\&quot;rsa\&quot;
+     * @param {string} [algorithmType] 算法类型，0：国密算法，1：国际算法
+     * @param {string} [certificateType] 证书类型，0：根证书，1：业务证书
+     * @param {string} [serverType] 密码服务类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatisticResource(showStatisticResourceRequest?: ShowStatisticResourceRequest): Promise<ShowStatisticResourceResponse> {
+        const options = ParamCreater().showStatisticResource(showStatisticResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取CPCS中密钥分布统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取密钥分布统计信息
+     * @param {string} [clusterId] 集群id，默认为空，默认查询所有集群
+     * @param {string} [appId] 应用id，默认为空，默认查询所有app
+     * @param {number} [from] 查询的初始时间戳，毫秒级时间戳，默认查询前三天
+     * @param {number} [to] 查询的终止时间戳，毫秒级时间戳，默认查询到当前时间
+     * @param {number} [period] 统计周期，默认为1，五分钟为一个周期
+     * @param {string} [filter] 统计值，默认为min:最小值
+     * @param {string} [algorithm] 算法，有：“sm2”,\&quot;rsa\&quot;
+     * @param {string} [algorithmType] 算法类型，0：国密算法，1：国际算法
+     * @param {string} [certificateType] 证书类型，0：根证书，1：业务证书
+     * @param {string} [serverType] 密码服务类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatisticSecretKey(showStatisticSecretKeyRequest?: ShowStatisticSecretKeyRequest): Promise<ShowStatisticSecretKeyResponse> {
+        const options = ParamCreater().showStatisticSecretKey(showStatisticSecretKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CPCS服务创建的应用状态监控
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取应用状态监控
+     * @param {string} [clusterId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {string} [appId] 应用ID，默认空字符串，默认查询所有应用。
+     * @param {string} [instanceId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {number} [from] 查询范围起始时间，毫秒时间戳，默认为0，默认查询三天前。
+     * @param {number} [to] 查询范围终止时间，毫秒时间戳，默认为0，默认查询到当前时间。
+     * @param {number} [period] 数据统计周期，默认0，默认为5分钟。
+     * @param {string} [filter] 统计类型，默认min，默认用统计周期中数据的最小值。
+     * @param {string} [serverType] 服务类型，默认空字符串，默认查询所有服务类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatusApp(showStatusAppRequest?: ShowStatusAppRequest): Promise<ShowStatusAppResponse> {
+        const options = ParamCreater().showStatusApp(showStatusAppRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CPCS服务创建的集群的状态监控
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群监控信息
+     * @param {string} [clusterId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {string} [appId] 应用ID，默认空字符串，默认查询所有应用。
+     * @param {string} [instanceId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {number} [from] 查询范围起始时间，毫秒时间戳，默认为0，默认查询三天前。
+     * @param {number} [to] 查询范围终止时间，毫秒时间戳，默认为0，默认查询到当前时间。
+     * @param {number} [period] 数据统计周期，默认0，默认为5分钟。
+     * @param {string} [filter] 统计类型，默认min，默认用统计周期中数据的最小值。
+     * @param {string} [serverType] 服务类型，默认空字符串，默认查询所有服务类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatusCluster(showStatusClusterRequest?: ShowStatusClusterRequest): Promise<ShowStatusClusterResponse> {
+        const options = ParamCreater().showStatusCluster(showStatusClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CPCS服务创建的密码服务实例的状态监控
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例监控信息
+     * @param {string} [clusterId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {string} [appId] 应用ID，默认空字符串，默认查询所有应用。
+     * @param {string} [instanceId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {number} [from] 查询范围起始时间，毫秒时间戳，默认为0，默认查询三天前。
+     * @param {number} [to] 查询范围终止时间，毫秒时间戳，默认为0，默认查询到当前时间。
+     * @param {number} [period] 数据统计周期，默认0，默认为5分钟。
+     * @param {string} [filter] 统计类型，默认min，默认用统计周期中数据的最小值。
+     * @param {string} [serverType] 服务类型，默认空字符串，默认查询所有服务类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatusInstance(showStatusInstanceRequest?: ShowStatusInstanceRequest): Promise<ShowStatusInstanceResponse> {
+        const options = ParamCreater().showStatusInstance(showStatusInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CPCS服务的状态监控
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取服务监控信息
+     * @param {string} [clusterId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {string} [appId] 应用ID，默认空字符串，默认查询所有应用。
+     * @param {string} [instanceId] 集群ID，默认空字符串，默认查询所有集群。
+     * @param {number} [from] 查询范围起始时间，毫秒时间戳，默认为0，默认查询三天前。
+     * @param {number} [to] 查询范围终止时间，毫秒时间戳，默认为0，默认查询到当前时间。
+     * @param {number} [period] 数据统计周期，默认0，默认为5分钟。
+     * @param {string} [filter] 统计类型，默认min，默认用统计周期中数据的最小值。
+     * @param {string} [serverType] 服务类型，默认空字符串，默认查询所有服务类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatusService(showStatusServiceRequest?: ShowStatusServiceRequest): Promise<ShowStatusServiceResponse> {
+        const options = ParamCreater().showStatusService(showStatusServiceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -669,10 +1098,72 @@ export class CpcsClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 使用aksk换取cpcs token
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary AK/SK 换取Cpcs token
+     * @param {AuthObject} auth 鉴权请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchCpcsToken(switchCpcsTokenRequest?: SwitchCpcsTokenRequest): Promise<SwitchCpcsTokenResponse> {
+        const options = ParamCreater().switchCpcsToken(switchCpcsTokenRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-CPCS-Token'];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 创建集群模式端口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addClusterPort(addClusterPortRequest?: AddClusterPortRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dew/cpcs/cluster/{cluster_id}/port",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (addClusterPortRequest !== null && addClusterPortRequest !== undefined) {
+                if (addClusterPortRequest instanceof AddClusterPortRequest) {
+                    clusterId = addClusterPortRequest.clusterId;
+                    body = addClusterPortRequest.body
+                } else {
+                    clusterId = addClusterPortRequest['cluster_id'];
+                    body = addClusterPortRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addClusterPort.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 创建密码服务集群与应用绑定关系
@@ -894,6 +1385,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检测该端口关联的监听器、后端服务器组是否正确无误。
+         * &gt; 该接口调用后会根据实际情况，更新检查结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkClusterPort(checkClusterPortRequest?: CheckClusterPortRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dew/cpcs/cluster/{cluster_id}/port/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let id;
+
+            if (checkClusterPortRequest !== null && checkClusterPortRequest !== undefined) {
+                if (checkClusterPortRequest instanceof CheckClusterPortRequest) {
+                    clusterId = checkClusterPortRequest.clusterId;
+                    id = checkClusterPortRequest.id;
+                } else {
+                    clusterId = checkClusterPortRequest['cluster_id'];
+                    id = checkClusterPortRequest['id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling checkClusterPort.');
+            }
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling checkClusterPort.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1143,6 +1679,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除集群模式端口。
+         * &gt; 由于端口可能被租户二次修改过，并用于其他业务,所以删除会有几个不同选项，具体查看参数说明。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClusterPort(deleteClusterPortRequest?: DeleteClusterPortRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dew/cpcs/cluster/{cluster_id}/port/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let id;
+            
+            let type;
+
+            if (deleteClusterPortRequest !== null && deleteClusterPortRequest !== undefined) {
+                if (deleteClusterPortRequest instanceof DeleteClusterPortRequest) {
+                    clusterId = deleteClusterPortRequest.clusterId;
+                    id = deleteClusterPortRequest.id;
+                    type = deleteClusterPortRequest.type;
+                } else {
+                    clusterId = deleteClusterPortRequest['cluster_id'];
+                    id = deleteClusterPortRequest['id'];
+                    type = deleteClusterPortRequest['type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteClusterPort.');
+            }
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteClusterPort.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling deleteClusterPort.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 停用密码服务实例的业务功能
          * &gt; 只有当密码服务实例处于“启用”状态时，方可调用此接口
          * 
@@ -1324,6 +1916,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出当前集群下的所有集群模式端口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterPort(listClusterPortRequest?: ListClusterPortRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/cluster/{cluster_id}/port",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterPortRequest !== null && listClusterPortRequest !== undefined) {
+                if (listClusterPortRequest instanceof ListClusterPortRequest) {
+                    clusterId = listClusterPortRequest.clusterId;
+                } else {
+                    clusterId = listClusterPortRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterPort.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1582,6 +2211,64 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询平台审计日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAuditLog(showAuditLogRequest?: ShowAuditLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/platform/audit-log",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageSize;
+            
+            let pageNum;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (showAuditLogRequest !== null && showAuditLogRequest !== undefined) {
+                if (showAuditLogRequest instanceof ShowAuditLogRequest) {
+                    pageSize = showAuditLogRequest.pageSize;
+                    pageNum = showAuditLogRequest.pageNum;
+                    startTime = showAuditLogRequest.startTime;
+                    endTime = showAuditLogRequest.endTime;
+                } else {
+                    pageSize = showAuditLogRequest['page_size'];
+                    pageNum = showAuditLogRequest['page_num'];
+                    startTime = showAuditLogRequest['start_time'];
+                    endTime = showAuditLogRequest['end_time'];
+                }
+            }
+
+        
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNum !== null && pageNum !== undefined) {
+                localVarQueryParameter['page_num'] = pageNum;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1917,6 +2604,192 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取所监控或者统计的AK详情列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceDetailAccessKey(showResourceDetailAccessKeyRequest?: ShowResourceDetailAccessKeyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/resource/access-key",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let serviceType;
+            
+            let algorithmType;
+            
+            let certificateType;
+            
+            let pageSize;
+            
+            let pageNum;
+            
+            let from;
+            
+            let to;
+
+            if (showResourceDetailAccessKeyRequest !== null && showResourceDetailAccessKeyRequest !== undefined) {
+                if (showResourceDetailAccessKeyRequest instanceof ShowResourceDetailAccessKeyRequest) {
+                    clusterId = showResourceDetailAccessKeyRequest.clusterId;
+                    appId = showResourceDetailAccessKeyRequest.appId;
+                    serviceType = showResourceDetailAccessKeyRequest.serviceType;
+                    algorithmType = showResourceDetailAccessKeyRequest.algorithmType;
+                    certificateType = showResourceDetailAccessKeyRequest.certificateType;
+                    pageSize = showResourceDetailAccessKeyRequest.pageSize;
+                    pageNum = showResourceDetailAccessKeyRequest.pageNum;
+                    from = showResourceDetailAccessKeyRequest.from;
+                    to = showResourceDetailAccessKeyRequest.to;
+                } else {
+                    clusterId = showResourceDetailAccessKeyRequest['cluster_id'];
+                    appId = showResourceDetailAccessKeyRequest['app_id'];
+                    serviceType = showResourceDetailAccessKeyRequest['service_type'];
+                    algorithmType = showResourceDetailAccessKeyRequest['algorithm_type'];
+                    certificateType = showResourceDetailAccessKeyRequest['certificate_type'];
+                    pageSize = showResourceDetailAccessKeyRequest['page_size'];
+                    pageNum = showResourceDetailAccessKeyRequest['page_num'];
+                    from = showResourceDetailAccessKeyRequest['from'];
+                    to = showResourceDetailAccessKeyRequest['to'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (serviceType !== null && serviceType !== undefined) {
+                localVarQueryParameter['service_type'] = serviceType;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
+            }
+            if (certificateType !== null && certificateType !== undefined) {
+                localVarQueryParameter['certificate_type'] = certificateType;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNum !== null && pageNum !== undefined) {
+                localVarQueryParameter['page_num'] = pageNum;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取所监控或者统计的证书详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceDetailCertificate(showResourceDetailCertificateRequest?: ShowResourceDetailCertificateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/resource/certificates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let serviceType;
+            
+            let algorithmType;
+            
+            let certificateType;
+            
+            let pageSize;
+            
+            let pageNum;
+            
+            let from;
+            
+            let to;
+
+            if (showResourceDetailCertificateRequest !== null && showResourceDetailCertificateRequest !== undefined) {
+                if (showResourceDetailCertificateRequest instanceof ShowResourceDetailCertificateRequest) {
+                    clusterId = showResourceDetailCertificateRequest.clusterId;
+                    appId = showResourceDetailCertificateRequest.appId;
+                    serviceType = showResourceDetailCertificateRequest.serviceType;
+                    algorithmType = showResourceDetailCertificateRequest.algorithmType;
+                    certificateType = showResourceDetailCertificateRequest.certificateType;
+                    pageSize = showResourceDetailCertificateRequest.pageSize;
+                    pageNum = showResourceDetailCertificateRequest.pageNum;
+                    from = showResourceDetailCertificateRequest.from;
+                    to = showResourceDetailCertificateRequest.to;
+                } else {
+                    clusterId = showResourceDetailCertificateRequest['cluster_id'];
+                    appId = showResourceDetailCertificateRequest['app_id'];
+                    serviceType = showResourceDetailCertificateRequest['service_type'];
+                    algorithmType = showResourceDetailCertificateRequest['algorithm_type'];
+                    certificateType = showResourceDetailCertificateRequest['certificate_type'];
+                    pageSize = showResourceDetailCertificateRequest['page_size'];
+                    pageNum = showResourceDetailCertificateRequest['page_num'];
+                    from = showResourceDetailCertificateRequest['from'];
+                    to = showResourceDetailCertificateRequest['to'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (serviceType !== null && serviceType !== undefined) {
+                localVarQueryParameter['service_type'] = serviceType;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
+            }
+            if (certificateType !== null && certificateType !== undefined) {
+                localVarQueryParameter['certificate_type'] = certificateType;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNum !== null && pageNum !== undefined) {
+                localVarQueryParameter['page_num'] = pageNum;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户的资源分布信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1933,6 +2806,750 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取CPCS中证书分布统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatisticCertificate(showStatisticCertificateRequest?: ShowStatisticCertificateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/certificate/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let algorithm;
+            
+            let algorithmType;
+            
+            let certificateType;
+            
+            let serverType;
+
+            if (showStatisticCertificateRequest !== null && showStatisticCertificateRequest !== undefined) {
+                if (showStatisticCertificateRequest instanceof ShowStatisticCertificateRequest) {
+                    clusterId = showStatisticCertificateRequest.clusterId;
+                    appId = showStatisticCertificateRequest.appId;
+                    from = showStatisticCertificateRequest.from;
+                    to = showStatisticCertificateRequest.to;
+                    period = showStatisticCertificateRequest.period;
+                    filter = showStatisticCertificateRequest.filter;
+                    algorithm = showStatisticCertificateRequest.algorithm;
+                    algorithmType = showStatisticCertificateRequest.algorithmType;
+                    certificateType = showStatisticCertificateRequest.certificateType;
+                    serverType = showStatisticCertificateRequest.serverType;
+                } else {
+                    clusterId = showStatisticCertificateRequest['cluster_id'];
+                    appId = showStatisticCertificateRequest['app_id'];
+                    from = showStatisticCertificateRequest['from'];
+                    to = showStatisticCertificateRequest['to'];
+                    period = showStatisticCertificateRequest['period'];
+                    filter = showStatisticCertificateRequest['filter'];
+                    algorithm = showStatisticCertificateRequest['algorithm'];
+                    algorithmType = showStatisticCertificateRequest['algorithm_type'];
+                    certificateType = showStatisticCertificateRequest['certificate_type'];
+                    serverType = showStatisticCertificateRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (algorithm !== null && algorithm !== undefined) {
+                localVarQueryParameter['algorithm'] = algorithm;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
+            }
+            if (certificateType !== null && certificateType !== undefined) {
+                localVarQueryParameter['certificate_type'] = certificateType;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取CPCS中接口调用统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatisticInterface(showStatisticInterfaceRequest?: ShowStatisticInterfaceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/interface/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let algorithm;
+            
+            let algorithmType;
+            
+            let certificateType;
+            
+            let serverType;
+
+            if (showStatisticInterfaceRequest !== null && showStatisticInterfaceRequest !== undefined) {
+                if (showStatisticInterfaceRequest instanceof ShowStatisticInterfaceRequest) {
+                    clusterId = showStatisticInterfaceRequest.clusterId;
+                    appId = showStatisticInterfaceRequest.appId;
+                    from = showStatisticInterfaceRequest.from;
+                    to = showStatisticInterfaceRequest.to;
+                    period = showStatisticInterfaceRequest.period;
+                    filter = showStatisticInterfaceRequest.filter;
+                    algorithm = showStatisticInterfaceRequest.algorithm;
+                    algorithmType = showStatisticInterfaceRequest.algorithmType;
+                    certificateType = showStatisticInterfaceRequest.certificateType;
+                    serverType = showStatisticInterfaceRequest.serverType;
+                } else {
+                    clusterId = showStatisticInterfaceRequest['cluster_id'];
+                    appId = showStatisticInterfaceRequest['app_id'];
+                    from = showStatisticInterfaceRequest['from'];
+                    to = showStatisticInterfaceRequest['to'];
+                    period = showStatisticInterfaceRequest['period'];
+                    filter = showStatisticInterfaceRequest['filter'];
+                    algorithm = showStatisticInterfaceRequest['algorithm'];
+                    algorithmType = showStatisticInterfaceRequest['algorithm_type'];
+                    certificateType = showStatisticInterfaceRequest['certificate_type'];
+                    serverType = showStatisticInterfaceRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (algorithm !== null && algorithm !== undefined) {
+                localVarQueryParameter['algorithm'] = algorithm;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
+            }
+            if (certificateType !== null && certificateType !== undefined) {
+                localVarQueryParameter['certificate_type'] = certificateType;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取CPCS中\\资源总量统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatisticResource(showStatisticResourceRequest?: ShowStatisticResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/resource/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let algorithm;
+            
+            let algorithmType;
+            
+            let certificateType;
+            
+            let serverType;
+
+            if (showStatisticResourceRequest !== null && showStatisticResourceRequest !== undefined) {
+                if (showStatisticResourceRequest instanceof ShowStatisticResourceRequest) {
+                    clusterId = showStatisticResourceRequest.clusterId;
+                    appId = showStatisticResourceRequest.appId;
+                    from = showStatisticResourceRequest.from;
+                    to = showStatisticResourceRequest.to;
+                    period = showStatisticResourceRequest.period;
+                    filter = showStatisticResourceRequest.filter;
+                    algorithm = showStatisticResourceRequest.algorithm;
+                    algorithmType = showStatisticResourceRequest.algorithmType;
+                    certificateType = showStatisticResourceRequest.certificateType;
+                    serverType = showStatisticResourceRequest.serverType;
+                } else {
+                    clusterId = showStatisticResourceRequest['cluster_id'];
+                    appId = showStatisticResourceRequest['app_id'];
+                    from = showStatisticResourceRequest['from'];
+                    to = showStatisticResourceRequest['to'];
+                    period = showStatisticResourceRequest['period'];
+                    filter = showStatisticResourceRequest['filter'];
+                    algorithm = showStatisticResourceRequest['algorithm'];
+                    algorithmType = showStatisticResourceRequest['algorithm_type'];
+                    certificateType = showStatisticResourceRequest['certificate_type'];
+                    serverType = showStatisticResourceRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (algorithm !== null && algorithm !== undefined) {
+                localVarQueryParameter['algorithm'] = algorithm;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
+            }
+            if (certificateType !== null && certificateType !== undefined) {
+                localVarQueryParameter['certificate_type'] = certificateType;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取CPCS中密钥分布统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatisticSecretKey(showStatisticSecretKeyRequest?: ShowStatisticSecretKeyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/secret-key/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let algorithm;
+            
+            let algorithmType;
+            
+            let certificateType;
+            
+            let serverType;
+
+            if (showStatisticSecretKeyRequest !== null && showStatisticSecretKeyRequest !== undefined) {
+                if (showStatisticSecretKeyRequest instanceof ShowStatisticSecretKeyRequest) {
+                    clusterId = showStatisticSecretKeyRequest.clusterId;
+                    appId = showStatisticSecretKeyRequest.appId;
+                    from = showStatisticSecretKeyRequest.from;
+                    to = showStatisticSecretKeyRequest.to;
+                    period = showStatisticSecretKeyRequest.period;
+                    filter = showStatisticSecretKeyRequest.filter;
+                    algorithm = showStatisticSecretKeyRequest.algorithm;
+                    algorithmType = showStatisticSecretKeyRequest.algorithmType;
+                    certificateType = showStatisticSecretKeyRequest.certificateType;
+                    serverType = showStatisticSecretKeyRequest.serverType;
+                } else {
+                    clusterId = showStatisticSecretKeyRequest['cluster_id'];
+                    appId = showStatisticSecretKeyRequest['app_id'];
+                    from = showStatisticSecretKeyRequest['from'];
+                    to = showStatisticSecretKeyRequest['to'];
+                    period = showStatisticSecretKeyRequest['period'];
+                    filter = showStatisticSecretKeyRequest['filter'];
+                    algorithm = showStatisticSecretKeyRequest['algorithm'];
+                    algorithmType = showStatisticSecretKeyRequest['algorithm_type'];
+                    certificateType = showStatisticSecretKeyRequest['certificate_type'];
+                    serverType = showStatisticSecretKeyRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (algorithm !== null && algorithm !== undefined) {
+                localVarQueryParameter['algorithm'] = algorithm;
+            }
+            if (algorithmType !== null && algorithmType !== undefined) {
+                localVarQueryParameter['algorithm_type'] = algorithmType;
+            }
+            if (certificateType !== null && certificateType !== undefined) {
+                localVarQueryParameter['certificate_type'] = certificateType;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CPCS服务创建的应用状态监控
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatusApp(showStatusAppRequest?: ShowStatusAppRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/app/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let instanceId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let serverType;
+
+            if (showStatusAppRequest !== null && showStatusAppRequest !== undefined) {
+                if (showStatusAppRequest instanceof ShowStatusAppRequest) {
+                    clusterId = showStatusAppRequest.clusterId;
+                    appId = showStatusAppRequest.appId;
+                    instanceId = showStatusAppRequest.instanceId;
+                    from = showStatusAppRequest.from;
+                    to = showStatusAppRequest.to;
+                    period = showStatusAppRequest.period;
+                    filter = showStatusAppRequest.filter;
+                    serverType = showStatusAppRequest.serverType;
+                } else {
+                    clusterId = showStatusAppRequest['cluster_id'];
+                    appId = showStatusAppRequest['app_id'];
+                    instanceId = showStatusAppRequest['instance_id'];
+                    from = showStatusAppRequest['from'];
+                    to = showStatusAppRequest['to'];
+                    period = showStatusAppRequest['period'];
+                    filter = showStatusAppRequest['filter'];
+                    serverType = showStatusAppRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CPCS服务创建的集群的状态监控
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatusCluster(showStatusClusterRequest?: ShowStatusClusterRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/cluster/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let instanceId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let serverType;
+
+            if (showStatusClusterRequest !== null && showStatusClusterRequest !== undefined) {
+                if (showStatusClusterRequest instanceof ShowStatusClusterRequest) {
+                    clusterId = showStatusClusterRequest.clusterId;
+                    appId = showStatusClusterRequest.appId;
+                    instanceId = showStatusClusterRequest.instanceId;
+                    from = showStatusClusterRequest.from;
+                    to = showStatusClusterRequest.to;
+                    period = showStatusClusterRequest.period;
+                    filter = showStatusClusterRequest.filter;
+                    serverType = showStatusClusterRequest.serverType;
+                } else {
+                    clusterId = showStatusClusterRequest['cluster_id'];
+                    appId = showStatusClusterRequest['app_id'];
+                    instanceId = showStatusClusterRequest['instance_id'];
+                    from = showStatusClusterRequest['from'];
+                    to = showStatusClusterRequest['to'];
+                    period = showStatusClusterRequest['period'];
+                    filter = showStatusClusterRequest['filter'];
+                    serverType = showStatusClusterRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CPCS服务创建的密码服务实例的状态监控
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatusInstance(showStatusInstanceRequest?: ShowStatusInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/instance/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let instanceId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let serverType;
+
+            if (showStatusInstanceRequest !== null && showStatusInstanceRequest !== undefined) {
+                if (showStatusInstanceRequest instanceof ShowStatusInstanceRequest) {
+                    clusterId = showStatusInstanceRequest.clusterId;
+                    appId = showStatusInstanceRequest.appId;
+                    instanceId = showStatusInstanceRequest.instanceId;
+                    from = showStatusInstanceRequest.from;
+                    to = showStatusInstanceRequest.to;
+                    period = showStatusInstanceRequest.period;
+                    filter = showStatusInstanceRequest.filter;
+                    serverType = showStatusInstanceRequest.serverType;
+                } else {
+                    clusterId = showStatusInstanceRequest['cluster_id'];
+                    appId = showStatusInstanceRequest['app_id'];
+                    instanceId = showStatusInstanceRequest['instance_id'];
+                    from = showStatusInstanceRequest['from'];
+                    to = showStatusInstanceRequest['to'];
+                    period = showStatusInstanceRequest['period'];
+                    filter = showStatusInstanceRequest['filter'];
+                    serverType = showStatusInstanceRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CPCS服务的状态监控
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatusService(showStatusServiceRequest?: ShowStatusServiceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dew/cpcs/service/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let appId;
+            
+            let instanceId;
+            
+            let from;
+            
+            let to;
+            
+            let period;
+            
+            let filter;
+            
+            let serverType;
+
+            if (showStatusServiceRequest !== null && showStatusServiceRequest !== undefined) {
+                if (showStatusServiceRequest instanceof ShowStatusServiceRequest) {
+                    clusterId = showStatusServiceRequest.clusterId;
+                    appId = showStatusServiceRequest.appId;
+                    instanceId = showStatusServiceRequest.instanceId;
+                    from = showStatusServiceRequest.from;
+                    to = showStatusServiceRequest.to;
+                    period = showStatusServiceRequest.period;
+                    filter = showStatusServiceRequest.filter;
+                    serverType = showStatusServiceRequest.serverType;
+                } else {
+                    clusterId = showStatusServiceRequest['cluster_id'];
+                    appId = showStatusServiceRequest['app_id'];
+                    instanceId = showStatusServiceRequest['instance_id'];
+                    from = showStatusServiceRequest['from'];
+                    to = showStatusServiceRequest['to'];
+                    period = showStatusServiceRequest['period'];
+                    filter = showStatusServiceRequest['filter'];
+                    serverType = showStatusServiceRequest['server_type'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2025,6 +3642,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用aksk换取cpcs token
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchCpcsToken(switchCpcsTokenRequest?: SwitchCpcsTokenRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dew/cpcs/token/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (switchCpcsTokenRequest !== null && switchCpcsTokenRequest !== undefined) {
+                if (switchCpcsTokenRequest instanceof SwitchCpcsTokenRequest) {
+                    body = switchCpcsTokenRequest.body
+                } else {
+                    body = switchCpcsTokenRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

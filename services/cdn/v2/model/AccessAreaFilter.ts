@@ -6,7 +6,10 @@ export class AccessAreaFilter {
     private 'content_value'?: string;
     public area?: string;
     private 'exception_ip'?: string;
-    public constructor() { 
+    public constructor(type?: string, contentType?: string, area?: string) { 
+        this['type'] = type;
+        this['content_type'] = contentType;
+        this['area'] = area;
     }
     public withType(type: string): AccessAreaFilter {
         this['type'] = type;

@@ -113,7 +113,7 @@ import { CreateSqlLimitTaskRequestBody } from './model/CreateSqlLimitTaskRequest
 import { CreateSqlLimitTaskResponse } from './model/CreateSqlLimitTaskResponse';
 import { CreateWdrSnapshotRequest } from './model/CreateWdrSnapshotRequest';
 import { CreateWdrSnapshotResponse } from './model/CreateWdrSnapshotResponse';
-import { CreateWdrSnapshotResponseBody } from './model/CreateWdrSnapshotResponseBody';
+import { CustomerPluginInfoResult } from './model/CustomerPluginInfoResult';
 import { DataIoTime } from './model/DataIoTime';
 import { DataStroeErrorResponse } from './model/DataStroeErrorResponse';
 import { DatabaseForListTableResult } from './model/DatabaseForListTableResult';
@@ -411,8 +411,14 @@ import { ListScheduleTaskResponse } from './model/ListScheduleTaskResponse';
 import { ListSchemaAndTableRequest } from './model/ListSchemaAndTableRequest';
 import { ListSchemaAndTableRequestBody } from './model/ListSchemaAndTableRequestBody';
 import { ListSchemaAndTableResponse } from './model/ListSchemaAndTableResponse';
+import { ListSessionMemoryContextRequest } from './model/ListSessionMemoryContextRequest';
+import { ListSessionMemoryContextResponse } from './model/ListSessionMemoryContextResponse';
 import { ListSessionStatisticsRequest } from './model/ListSessionStatisticsRequest';
 import { ListSessionStatisticsResponse } from './model/ListSessionStatisticsResponse';
+import { ListSessionTopSqlStatisticsRequest } from './model/ListSessionTopSqlStatisticsRequest';
+import { ListSessionTopSqlStatisticsResponse } from './model/ListSessionTopSqlStatisticsResponse';
+import { ListSessionWaitEventStatisticsRequest } from './model/ListSessionWaitEventStatisticsRequest';
+import { ListSessionWaitEventStatisticsResponse } from './model/ListSessionWaitEventStatisticsResponse';
 import { ListSlowSqlDetailsRequest } from './model/ListSlowSqlDetailsRequest';
 import { ListSlowSqlDetailsResponse } from './model/ListSlowSqlDetailsResponse';
 import { ListSlowSqlsRequest } from './model/ListSlowSqlsRequest';
@@ -560,7 +566,10 @@ import { ScheduleTaskDetail } from './model/ScheduleTaskDetail';
 import { SchemaTableDefinitionResult } from './model/SchemaTableDefinitionResult';
 import { SearchAutoEnlargePolicyRequest } from './model/SearchAutoEnlargePolicyRequest';
 import { SearchAutoEnlargePolicyResponse } from './model/SearchAutoEnlargePolicyResponse';
+import { SessionMemoryContextInfoResult } from './model/SessionMemoryContextInfoResult';
 import { SessionQueryInfoOption } from './model/SessionQueryInfoOption';
+import { SessionTopSqlStatisticInfo } from './model/SessionTopSqlStatisticInfo';
+import { SessionWaitEventStatisticInfo } from './model/SessionWaitEventStatisticInfo';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
 import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
 import { SetBackupPolicyResponse } from './model/SetBackupPolicyResponse';
@@ -710,7 +719,6 @@ import { SwitchShardRequest } from './model/SwitchShardRequest';
 import { SwitchShardRequestBody } from './model/SwitchShardRequestBody';
 import { SwitchShardResponse } from './model/SwitchShardResponse';
 import { SwitchWdrSnapshotRequestBody } from './model/SwitchWdrSnapshotRequestBody';
-import { SwitchWdrSnapshotResponseBody } from './model/SwitchWdrSnapshotResponseBody';
 import { SwitchWdrSnapshotStatusRequest } from './model/SwitchWdrSnapshotStatusRequest';
 import { SwitchWdrSnapshotStatusResponse } from './model/SwitchWdrSnapshotStatusResponse';
 import { SwitchoverReq } from './model/SwitchoverReq';
@@ -2138,7 +2146,7 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 查询限流任务详情
+     * 查询数据库占用空间大小列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2479,8 +2487,8 @@ export class GaussDBforopenGaussClient {
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
      * @param {Date} [startTime] **参数解释**: 开始时间。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 默认当天0点（UTC时区）。
      * @param {Date} [endTime] **参数解释**: 结束时间。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 默认当前时间（UTC时区）。
-     * @param {number} [offset] **参数描述** 偏移量。 **约束限制**: 不涉及。 **取值范围** 大于等于0。 **默认值** 0 
-     * @param {number} [limit] **参数描述** 每页显示的条目数量。 **约束限制**: 不涉及。 **取值范围** [1, 100] **默认值** 10 
+     * @param {number} [offset] **参数解释** 偏移量。 **约束限制**: 不涉及。 **取值范围** 大于等于0。 **默认值** 0 
+     * @param {number} [limit] **参数解释** 每页显示的条目数量。 **约束限制**: 不涉及。 **取值范围** [1, 100] **默认值** 10 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2501,8 +2509,8 @@ export class GaussDBforopenGaussClient {
      * @summary 查询客户端接入认证配置
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
-     * @param {number} [offset] **参数描述**: 分页符。从第一条数据偏移offset页数据后开始查询。例如，该参数指定为1，limit指定为10，则只展示第11-20条数据。 **约束限制**: 不涉及。 **取值范围**: [0, 2^31-1] **默认值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。 
-     * @param {number} [limit] **参数描述**: 每页显示的条目数量。 **约束限制**: 不涉及。 **取值范围**: [1, 100] **默认值**: 10 
+     * @param {number} [offset] **参数解释**: 分页符。从第一条数据偏移offset页数据后开始查询。例如，该参数指定为1，limit指定为10，则只展示第11-20条数据。 **约束限制**: 不涉及。 **取值范围**: [0, 2^31-1] **默认值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。 
+     * @param {number} [limit] **参数解释**: 每页显示的条目数量。 **约束限制**: 不涉及。 **取值范围**: [1, 100] **默认值**: 10 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2842,8 +2850,10 @@ export class GaussDBforopenGaussClient {
      *
      * @summary 查询插件列表
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
-     * @param {string} [pluginName] **参数解释**: 查询插件名。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 用户Token。 通过调用IAM服务[获取用户token](https://support.huaweicloud.com/intl/zh-cn/api-iam/iam_30_0001.html)。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {number} [offset] **参数解释**: 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。例如：该参数指定为1，limit指定为10，则只展示第2-11条数据。 **约束限制**: 不涉及。 **取值范围**: [0, 2^31-1] **默认取值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。 
+     * @param {number} [limit] **参数解释**: 查询记录数。例如该参数设定为10，则查询结果最多只显示10条记录。 **约束限制**: 不涉及。 **取值范围**: [1, 100] **默认取值**: 默认为100。 
+     * @param {'postgis'} [pluginName] **参数解释**: 插件包名称。 **约束限制**: 不涉及。 **取值范围**: - postgis  **默认取值**: 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3097,6 +3107,30 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 查询数据库实例节点的会话内存上下文列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询会话内存上下文列表
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {string} nodeId **参数解释**: 节点ID。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {string} sessionId **参数解释**: 会话ID。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {number} offset **参数解释**: 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。例如：该参数指定为0，limit指定为10，则只展示第1~10条数据。 **约束限制**: 不涉及。 **取值范围**: [0, 2^31-1] **默认取值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。
+     * @param {number} limit **参数解释**: 查询记录数。例如该参数设定为10，则查询结果最多只显示10条记录。 **约束限制**: 不涉及。 **取值范围**: [1, 100] **默认取值**: 默认为100。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSessionMemoryContext(listSessionMemoryContextRequest?: ListSessionMemoryContextRequest): Promise<ListSessionMemoryContextResponse> {
+        const options = ParamCreater().listSessionMemoryContext(listSessionMemoryContextRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库实例节点的实时会话统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3114,6 +3148,50 @@ export class GaussDBforopenGaussClient {
      */
     public listSessionStatistics(listSessionStatisticsRequest?: ListSessionStatisticsRequest): Promise<ListSessionStatisticsResponse> {
         const options = ParamCreater().listSessionStatistics(listSessionStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实时会话Top SQL统计。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实时会话Top SQL统计
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {number} offset **参数解释**: 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。例如：该参数指定为0，limit指定为10，则只展示第1~10条数据。 **约束限制**: 不涉及。 **取值范围**: [0, 2^31-1] **默认取值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。
+     * @param {number} limit **参数解释**: 查询记录数。例如该参数设定为10，则查询结果最多只显示10条记录。 **约束限制**: 不涉及。 **取值范围**: [1, 100] **默认取值**: 默认为100。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSessionTopSqlStatistics(listSessionTopSqlStatisticsRequest?: ListSessionTopSqlStatisticsRequest): Promise<ListSessionTopSqlStatisticsResponse> {
+        const options = ParamCreater().listSessionTopSqlStatistics(listSessionTopSqlStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实时会话Top等待事件统计。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实时会话Top等待事件统计
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {number} offset **参数解释**: 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。例如：该参数指定为0，limit指定为10，则只展示第1~10条数据。 **约束限制**: 不涉及。 **取值范围**: [0, 2^31-1] **默认取值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。
+     * @param {number} limit **参数解释**: 查询记录数。例如该参数设定为10，则查询结果最多只显示10条记录。 **约束限制**: 不涉及。 **取值范围**: [1, 100] **默认取值**: 默认为100。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSessionWaitEventStatistics(listSessionWaitEventStatisticsRequest?: ListSessionWaitEventStatisticsRequest): Promise<ListSessionWaitEventStatisticsResponse> {
+        const options = ParamCreater().listSessionWaitEventStatistics(listSessionWaitEventStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9118,7 +9196,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询限流任务详情
+         * 查询数据库占用空间大小列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11065,25 +11143,39 @@ export const ParamCreater = function () {
             
             let instanceId;
             
-            let pluginName;
-            
             let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let pluginName;
 
             if (listPluginInfoListRequest !== null && listPluginInfoListRequest !== undefined) {
                 if (listPluginInfoListRequest instanceof ListPluginInfoListRequest) {
                     instanceId = listPluginInfoListRequest.instanceId;
-                    pluginName = listPluginInfoListRequest.pluginName;
                     xLanguage = listPluginInfoListRequest.xLanguage;
+                    offset = listPluginInfoListRequest.offset;
+                    limit = listPluginInfoListRequest.limit;
+                    pluginName = listPluginInfoListRequest.pluginName;
                 } else {
                     instanceId = listPluginInfoListRequest['instance_id'];
-                    pluginName = listPluginInfoListRequest['plugin_name'];
                     xLanguage = listPluginInfoListRequest['X-Language'];
+                    offset = listPluginInfoListRequest['offset'];
+                    limit = listPluginInfoListRequest['limit'];
+                    pluginName = listPluginInfoListRequest['plugin_name'];
                 }
             }
 
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listPluginInfoList.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
@@ -11729,6 +11821,91 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询数据库实例节点的会话内存上下文列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSessionMemoryContext(listSessionMemoryContextRequest?: ListSessionMemoryContextRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/session/memory-context",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let sessionId;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (listSessionMemoryContextRequest !== null && listSessionMemoryContextRequest !== undefined) {
+                if (listSessionMemoryContextRequest instanceof ListSessionMemoryContextRequest) {
+                    instanceId = listSessionMemoryContextRequest.instanceId;
+                    nodeId = listSessionMemoryContextRequest.nodeId;
+                    sessionId = listSessionMemoryContextRequest.sessionId;
+                    offset = listSessionMemoryContextRequest.offset;
+                    limit = listSessionMemoryContextRequest.limit;
+                    xLanguage = listSessionMemoryContextRequest.xLanguage;
+                } else {
+                    instanceId = listSessionMemoryContextRequest['instance_id'];
+                    nodeId = listSessionMemoryContextRequest['node_id'];
+                    sessionId = listSessionMemoryContextRequest['session_id'];
+                    offset = listSessionMemoryContextRequest['offset'];
+                    limit = listSessionMemoryContextRequest['limit'];
+                    xLanguage = listSessionMemoryContextRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSessionMemoryContext.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listSessionMemoryContext.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (sessionId === null || sessionId === undefined) {
+                throw new RequiredError('sessionId','Required parameter sessionId was null or undefined when calling listSessionMemoryContext.');
+            }
+            if (sessionId !== null && sessionId !== undefined) {
+                localVarQueryParameter['session_id'] = sessionId;
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listSessionMemoryContext.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listSessionMemoryContext.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库实例节点的实时会话统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11800,6 +11977,136 @@ export const ParamCreater = function () {
             }
             if (order !== null && order !== undefined) {
                 localVarQueryParameter['order'] = order;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实时会话Top SQL统计。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSessionTopSqlStatistics(listSessionTopSqlStatisticsRequest?: ListSessionTopSqlStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/session/statistic/top-sql",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (listSessionTopSqlStatisticsRequest !== null && listSessionTopSqlStatisticsRequest !== undefined) {
+                if (listSessionTopSqlStatisticsRequest instanceof ListSessionTopSqlStatisticsRequest) {
+                    instanceId = listSessionTopSqlStatisticsRequest.instanceId;
+                    offset = listSessionTopSqlStatisticsRequest.offset;
+                    limit = listSessionTopSqlStatisticsRequest.limit;
+                    xLanguage = listSessionTopSqlStatisticsRequest.xLanguage;
+                } else {
+                    instanceId = listSessionTopSqlStatisticsRequest['instance_id'];
+                    offset = listSessionTopSqlStatisticsRequest['offset'];
+                    limit = listSessionTopSqlStatisticsRequest['limit'];
+                    xLanguage = listSessionTopSqlStatisticsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSessionTopSqlStatistics.');
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listSessionTopSqlStatistics.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listSessionTopSqlStatistics.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实时会话Top等待事件统计。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSessionWaitEventStatistics(listSessionWaitEventStatisticsRequest?: ListSessionWaitEventStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/session/statistic/wait-event",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (listSessionWaitEventStatisticsRequest !== null && listSessionWaitEventStatisticsRequest !== undefined) {
+                if (listSessionWaitEventStatisticsRequest instanceof ListSessionWaitEventStatisticsRequest) {
+                    instanceId = listSessionWaitEventStatisticsRequest.instanceId;
+                    offset = listSessionWaitEventStatisticsRequest.offset;
+                    limit = listSessionWaitEventStatisticsRequest.limit;
+                    xLanguage = listSessionWaitEventStatisticsRequest.xLanguage;
+                } else {
+                    instanceId = listSessionWaitEventStatisticsRequest['instance_id'];
+                    offset = listSessionWaitEventStatisticsRequest['offset'];
+                    limit = listSessionWaitEventStatisticsRequest['limit'];
+                    xLanguage = listSessionWaitEventStatisticsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSessionWaitEventStatistics.');
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listSessionWaitEventStatistics.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listSessionWaitEventStatistics.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

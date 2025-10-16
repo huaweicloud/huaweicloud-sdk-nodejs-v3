@@ -1,40 +1,25 @@
+import { CustomerPluginInfoResult } from './CustomerPluginInfoResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListPluginInfoListResponse extends SdkResponse {
-    private 'plugin_name'?: string;
-    public port?: string;
-    private 'plugin_version'?: string;
-    public installed?: string;
+    private 'total_count'?: number;
+    public plugins?: Array<CustomerPluginInfoResult>;
     public constructor() { 
         super();
     }
-    public withPluginName(pluginName: string): ListPluginInfoListResponse {
-        this['plugin_name'] = pluginName;
+    public withTotalCount(totalCount: number): ListPluginInfoListResponse {
+        this['total_count'] = totalCount;
         return this;
     }
-    public set pluginName(pluginName: string  | undefined) {
-        this['plugin_name'] = pluginName;
+    public set totalCount(totalCount: number  | undefined) {
+        this['total_count'] = totalCount;
     }
-    public get pluginName(): string | undefined {
-        return this['plugin_name'];
+    public get totalCount(): number | undefined {
+        return this['total_count'];
     }
-    public withPort(port: string): ListPluginInfoListResponse {
-        this['port'] = port;
-        return this;
-    }
-    public withPluginVersion(pluginVersion: string): ListPluginInfoListResponse {
-        this['plugin_version'] = pluginVersion;
-        return this;
-    }
-    public set pluginVersion(pluginVersion: string  | undefined) {
-        this['plugin_version'] = pluginVersion;
-    }
-    public get pluginVersion(): string | undefined {
-        return this['plugin_version'];
-    }
-    public withInstalled(installed: string): ListPluginInfoListResponse {
-        this['installed'] = installed;
+    public withPlugins(plugins: Array<CustomerPluginInfoResult>): ListPluginInfoListResponse {
+        this['plugins'] = plugins;
         return this;
     }
 }

@@ -98,6 +98,9 @@ import { DeleteDatabaseUserRequestBody } from './model/DeleteDatabaseUserRequest
 import { DeleteDatabaseUserResponse } from './model/DeleteDatabaseUserResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteIpRequest } from './model/DeleteIpRequest';
+import { DeleteIpRequestBody } from './model/DeleteIpRequestBody';
+import { DeleteIpResponse } from './model/DeleteIpResponse';
 import { DeleteKillOpRuleListRequest } from './model/DeleteKillOpRuleListRequest';
 import { DeleteKillOpRuleListRequestBody } from './model/DeleteKillOpRuleListRequestBody';
 import { DeleteKillOpRuleListResponse } from './model/DeleteKillOpRuleListResponse';
@@ -931,6 +934,26 @@ export class DdsClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除集群的Shard/Config IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除集群的Shard/Config IP
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {DeleteIpRequestBody} deleteIpRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIp(deleteIpRequest?: DeleteIpRequest): Promise<DeleteIpResponse> {
+        const options = ParamCreater().deleteIp(deleteIpRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2909,7 +2932,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 数据库补丁升级
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpgradeDatabaseVersionRequestBody} upgradeDatabaseVersionRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4103,6 +4126,52 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstance.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除集群的Shard/Config IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIp(deleteIpRequest?: DeleteIpRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteIpRequest !== null && deleteIpRequest !== undefined) {
+                if (deleteIpRequest instanceof DeleteIpRequest) {
+                    instanceId = deleteIpRequest.instanceId;
+                    body = deleteIpRequest.body
+                } else {
+                    instanceId = deleteIpRequest['instance_id'];
+                    body = deleteIpRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

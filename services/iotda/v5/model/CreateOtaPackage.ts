@@ -5,6 +5,7 @@ export class CreateOtaPackage {
     private 'app_id'?: string;
     private 'package_type'?: string;
     private 'product_id'?: string;
+    private 'module_name'?: string;
     public version?: string;
     private 'support_source_versions'?: Array<string>;
     public description?: string;
@@ -46,6 +47,16 @@ export class CreateOtaPackage {
     }
     public get productId(): string | undefined {
         return this['product_id'];
+    }
+    public withModuleName(moduleName: string): CreateOtaPackage {
+        this['module_name'] = moduleName;
+        return this;
+    }
+    public set moduleName(moduleName: string  | undefined) {
+        this['module_name'] = moduleName;
+    }
+    public get moduleName(): string | undefined {
+        return this['module_name'];
     }
     public withVersion(version: string): CreateOtaPackage {
         this['version'] = version;

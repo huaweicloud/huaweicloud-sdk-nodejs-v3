@@ -73,6 +73,7 @@ import { BatchUpdateNotificationMasksResponse } from './model/BatchUpdateNotific
 import { BatchUpdateOneClickAlarmPoliciesEnabledStateRequest } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateRequest';
 import { BatchUpdateOneClickAlarmPoliciesEnabledStateResponse } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateResponse';
 import { BatchUpdateOneClickAlarmsEnabledStateRequest } from './model/BatchUpdateOneClickAlarmsEnabledStateRequest';
+import { BatchUpdateOneClickAlarmsEnabledStateRequestBody } from './model/BatchUpdateOneClickAlarmsEnabledStateRequestBody';
 import { BatchUpdateOneClickAlarmsEnabledStateResponse } from './model/BatchUpdateOneClickAlarmsEnabledStateResponse';
 import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
 import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
@@ -603,7 +604,7 @@ export class CesClient {
      *
      * @summary 批量修改一键告警关联告警规则的启用状态
      * @param {string} oneClickAlarmId **参数解释**： 一键告警ID。 **约束限制**： 不涉及。 **取值范围**： 只能为字母或者数字，字符长度为[1,64] **默认取值**： 不涉及。 
-     * @param {BatchEnableAlarmsRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
+     * @param {BatchUpdateOneClickAlarmsEnabledStateRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -7,6 +7,7 @@ export class Config {
     private 'vocabulary_id'?: string;
     private 'digit_norm'?: ConfigDigitNormEnum | string;
     private 'need_word_info'?: ConfigNeedWordInfoEnum | string;
+    private 'auto_language_detect'?: ConfigAutoLanguageDetectEnum | string;
     public constructor(audioFormat?: string, property?: string) { 
         this['audio_format'] = audioFormat;
         this['property'] = property;
@@ -65,6 +66,16 @@ export class Config {
     public get needWordInfo(): ConfigNeedWordInfoEnum | string | undefined {
         return this['need_word_info'];
     }
+    public withAutoLanguageDetect(autoLanguageDetect: ConfigAutoLanguageDetectEnum | string): Config {
+        this['auto_language_detect'] = autoLanguageDetect;
+        return this;
+    }
+    public set autoLanguageDetect(autoLanguageDetect: ConfigAutoLanguageDetectEnum | string  | undefined) {
+        this['auto_language_detect'] = autoLanguageDetect;
+    }
+    public get autoLanguageDetect(): ConfigAutoLanguageDetectEnum | string | undefined {
+        return this['auto_language_detect'];
+    }
 }
 
 /**
@@ -121,6 +132,14 @@ export enum ConfigDigitNormEnum {
     * @enum {string}
     */
 export enum ConfigNeedWordInfoEnum {
+    YES = 'yes',
+    NO = 'no'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ConfigAutoLanguageDetectEnum {
     YES = 'yes',
     NO = 'no'
 }

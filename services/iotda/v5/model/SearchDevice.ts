@@ -1,3 +1,4 @@
+import { ModuleSearchDTO } from './ModuleSearchDTO';
 
 
 export class SearchDevice {
@@ -16,6 +17,7 @@ export class SearchDevice {
     public groups?: object;
     public status?: string;
     public tags?: object;
+    public modules?: Array<ModuleSearchDTO>;
     public marker?: string;
     public constructor() { 
     }
@@ -149,6 +151,10 @@ export class SearchDevice {
     }
     public withTags(tags: object): SearchDevice {
         this['tags'] = tags;
+        return this;
+    }
+    public withModules(modules: Array<ModuleSearchDTO>): SearchDevice {
+        this['modules'] = modules;
         return this;
     }
     public withMarker(marker: string): SearchDevice {

@@ -199,8 +199,6 @@ import { GetClusterFlavorSpecsResponse } from './model/GetClusterFlavorSpecsResp
 import { GetClusterQuotaBodyQuotas } from './model/GetClusterQuotaBodyQuotas';
 import { GetClusterQuotaRequest } from './model/GetClusterQuotaRequest';
 import { GetClusterQuotaResponse } from './model/GetClusterQuotaResponse';
-import { GetClusterSupportConfigurationRequest } from './model/GetClusterSupportConfigurationRequest';
-import { GetClusterSupportConfigurationResponse } from './model/GetClusterSupportConfigurationResponse';
 import { GetCustomizeTagsRequest } from './model/GetCustomizeTagsRequest';
 import { GetCustomizeTagsResponse } from './model/GetCustomizeTagsResponse';
 import { GetLabelsRequest } from './model/GetLabelsRequest';
@@ -465,6 +463,8 @@ import { ShowClusterEndpointsRequest } from './model/ShowClusterEndpointsRequest
 import { ShowClusterEndpointsResponse } from './model/ShowClusterEndpointsResponse';
 import { ShowClusterRequest } from './model/ShowClusterRequest';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
+import { ShowClusterSupportConfigurationRequest } from './model/ShowClusterSupportConfigurationRequest';
+import { ShowClusterSupportConfigurationResponse } from './model/ShowClusterSupportConfigurationResponse';
 import { ShowClusterUpgradeInfoRequest } from './model/ShowClusterUpgradeInfoRequest';
 import { ShowClusterUpgradeInfoResponse } from './model/ShowClusterUpgradeInfoResponse';
 import { ShowFeatureGatesRequest } from './model/ShowFeatureGatesRequest';
@@ -1349,29 +1349,6 @@ export class CceClient {
     }
 
     /**
-     * 该API用于根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取集群支持的可配置参数列表
-     * @param {string} contentType 消息体的类型（格式）
-     * @param {string} [clusterType] **参数解释**： 该参数用于过滤集群架构 **约束限制**： 不涉及 **取值范围**： - ARM64: 仅获取鲲鹏集群支持的配置项  **默认取值**： 不涉及
-     * @param {string} [clusterVersion] **参数解释**： 该参数用于获取指定集群版本支持的配置项 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
-     * @param {string} [clusterID] **参数解释**： 该参数用于获取指定集群支持的配置项 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
-     * @param {string} [networkMode] **参数解释**： 该参数用于过滤掉集群网络模型相关配置项 **约束限制**： 不涉及 **取值范围**： - eni: 过滤掉云原生网络2.0模型相关配置  **默认取值**： 不涉及
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getClusterSupportConfiguration(getClusterSupportConfigurationRequest?: GetClusterSupportConfigurationRequest): Promise<GetClusterSupportConfigurationResponse> {
-        const options = ParamCreater().getClusterSupportConfiguration(getClusterSupportConfigurationRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该API用于查询自定义标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2113,6 +2090,29 @@ export class CceClient {
      */
     public showClusterEndpoints(showClusterEndpointsRequest?: ShowClusterEndpointsRequest): Promise<ShowClusterEndpointsResponse> {
         const options = ParamCreater().showClusterEndpoints(showClusterEndpointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群支持的可配置参数列表
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} [clusterType] **参数解释**： 该参数用于过滤集群架构 **约束限制**： 不涉及 **取值范围**： - ARM64: 仅获取鲲鹏集群支持的配置项  **默认取值**： 不涉及
+     * @param {string} [clusterVersion] **参数解释**： 该参数用于获取指定集群版本支持的配置项 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
+     * @param {string} [clusterID] **参数解释**： 该参数用于获取指定集群支持的配置项 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
+     * @param {string} [networkMode] **参数解释**： 该参数用于过滤掉集群网络模型相关配置项 **约束限制**： 不涉及 **取值范围**： - eni: 过滤掉云原生网络2.0模型相关配置  **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterSupportConfiguration(showClusterSupportConfigurationRequest?: ShowClusterSupportConfigurationRequest): Promise<ShowClusterSupportConfigurationResponse> {
+        const options = ParamCreater().showClusterSupportConfiguration(showClusterSupportConfigurationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5726,71 +5726,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getClusterSupportConfiguration(getClusterSupportConfigurationRequest?: GetClusterSupportConfigurationRequest) {
-            const options = {
-                method: "GET",
-                url: "/api/v3/clusters/configuration/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let clusterType;
-            
-            let clusterVersion;
-            
-            let clusterID;
-            
-            let networkMode;
-
-            if (getClusterSupportConfigurationRequest !== null && getClusterSupportConfigurationRequest !== undefined) {
-                if (getClusterSupportConfigurationRequest instanceof GetClusterSupportConfigurationRequest) {
-                    contentType = getClusterSupportConfigurationRequest.contentType;
-                    clusterType = getClusterSupportConfigurationRequest.clusterType;
-                    clusterVersion = getClusterSupportConfigurationRequest.clusterVersion;
-                    clusterID = getClusterSupportConfigurationRequest.clusterID;
-                    networkMode = getClusterSupportConfigurationRequest.networkMode;
-                } else {
-                    contentType = getClusterSupportConfigurationRequest['Content-Type'];
-                    clusterType = getClusterSupportConfigurationRequest['clusterType'];
-                    clusterVersion = getClusterSupportConfigurationRequest['clusterVersion'];
-                    clusterID = getClusterSupportConfigurationRequest['clusterID'];
-                    networkMode = getClusterSupportConfigurationRequest['networkMode'];
-                }
-            }
-
-        
-            if (clusterType !== null && clusterType !== undefined) {
-                localVarQueryParameter['clusterType'] = clusterType;
-            }
-            if (clusterVersion !== null && clusterVersion !== undefined) {
-                localVarQueryParameter['clusterVersion'] = clusterVersion;
-            }
-            if (clusterID !== null && clusterID !== undefined) {
-                localVarQueryParameter['clusterID'] = clusterID;
-            }
-            if (networkMode !== null && networkMode !== undefined) {
-                localVarQueryParameter['networkMode'] = networkMode;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该API用于查询自定义标签
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7474,6 +7409,71 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterSupportConfiguration(showClusterSupportConfigurationRequest?: ShowClusterSupportConfigurationRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/clusters/configuration/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let clusterType;
+            
+            let clusterVersion;
+            
+            let clusterID;
+            
+            let networkMode;
+
+            if (showClusterSupportConfigurationRequest !== null && showClusterSupportConfigurationRequest !== undefined) {
+                if (showClusterSupportConfigurationRequest instanceof ShowClusterSupportConfigurationRequest) {
+                    contentType = showClusterSupportConfigurationRequest.contentType;
+                    clusterType = showClusterSupportConfigurationRequest.clusterType;
+                    clusterVersion = showClusterSupportConfigurationRequest.clusterVersion;
+                    clusterID = showClusterSupportConfigurationRequest.clusterID;
+                    networkMode = showClusterSupportConfigurationRequest.networkMode;
+                } else {
+                    contentType = showClusterSupportConfigurationRequest['Content-Type'];
+                    clusterType = showClusterSupportConfigurationRequest['clusterType'];
+                    clusterVersion = showClusterSupportConfigurationRequest['clusterVersion'];
+                    clusterID = showClusterSupportConfigurationRequest['clusterID'];
+                    networkMode = showClusterSupportConfigurationRequest['networkMode'];
+                }
+            }
+
+        
+            if (clusterType !== null && clusterType !== undefined) {
+                localVarQueryParameter['clusterType'] = clusterType;
+            }
+            if (clusterVersion !== null && clusterVersion !== undefined) {
+                localVarQueryParameter['clusterVersion'] = clusterVersion;
+            }
+            if (clusterID !== null && clusterID !== undefined) {
+                localVarQueryParameter['clusterID'] = clusterID;
+            }
+            if (networkMode !== null && networkMode !== undefined) {
+                localVarQueryParameter['networkMode'] = networkMode;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

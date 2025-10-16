@@ -10,7 +10,8 @@ export class CacheRules {
     private 'force_cache'?: string;
     private 'url_parameter_type'?: string;
     private 'url_parameter_value'?: string;
-    public constructor(ttlUnit?: string, priority?: number) { 
+    public constructor(matchType?: string, ttlUnit?: string, priority?: number) { 
+        this['match_type'] = matchType;
         this['ttl_unit'] = ttlUnit;
         this['priority'] = priority;
     }

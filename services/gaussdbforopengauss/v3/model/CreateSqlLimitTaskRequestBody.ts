@@ -5,6 +5,7 @@ export class CreateSqlLimitTaskRequestBody {
     private 'task_scope'?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    private 'sql_model'?: string;
     private 'limit_type'?: string;
     private 'limit_type_value'?: string;
     private 'key_words'?: string;
@@ -49,6 +50,16 @@ export class CreateSqlLimitTaskRequestBody {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withSqlModel(sqlModel: string): CreateSqlLimitTaskRequestBody {
+        this['sql_model'] = sqlModel;
+        return this;
+    }
+    public set sqlModel(sqlModel: string  | undefined) {
+        this['sql_model'] = sqlModel;
+    }
+    public get sqlModel(): string | undefined {
+        return this['sql_model'];
     }
     public withLimitType(limitType: string): CreateSqlLimitTaskRequestBody {
         this['limit_type'] = limitType;

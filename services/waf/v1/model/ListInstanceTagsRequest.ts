@@ -2,9 +2,11 @@
 
 export class ListInstanceTagsRequest {
     private 'Content-Type'?: string;
+    public resourceid?: string;
     private 'enterprise_project_id'?: string;
-    public constructor(contentType?: string) { 
+    public constructor(contentType?: string, resourceid?: string) { 
         this['Content-Type'] = contentType;
+        this['resourceid'] = resourceid;
     }
     public withContentType(contentType: string): ListInstanceTagsRequest {
         this['Content-Type'] = contentType;
@@ -15,6 +17,10 @@ export class ListInstanceTagsRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withResourceid(resourceid: string): ListInstanceTagsRequest {
+        this['resourceid'] = resourceid;
+        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListInstanceTagsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

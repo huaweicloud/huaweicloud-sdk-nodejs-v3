@@ -4,6 +4,7 @@ export class ObsLocation {
     private 'region_name'?: string;
     private 'bucket_name'?: string;
     private 'object_key'?: string;
+    private 'sign_method'?: string;
     public sign?: string;
     public constructor(regionName?: string, bucketName?: string, objectKey?: string) { 
         this['region_name'] = regionName;
@@ -39,6 +40,16 @@ export class ObsLocation {
     }
     public get objectKey(): string | undefined {
         return this['object_key'];
+    }
+    public withSignMethod(signMethod: string): ObsLocation {
+        this['sign_method'] = signMethod;
+        return this;
+    }
+    public set signMethod(signMethod: string  | undefined) {
+        this['sign_method'] = signMethod;
+    }
+    public get signMethod(): string | undefined {
+        return this['sign_method'];
     }
     public withSign(sign: string): ObsLocation {
         this['sign'] = sign;

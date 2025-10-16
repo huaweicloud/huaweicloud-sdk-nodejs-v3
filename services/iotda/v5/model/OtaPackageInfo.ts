@@ -5,6 +5,8 @@ export class OtaPackageInfo {
     private 'app_id'?: string;
     private 'package_type'?: string;
     private 'product_id'?: string;
+    private 'product_name'?: string;
+    private 'module_name'?: string;
     public version?: string;
     private 'support_source_versions'?: Array<string>;
     public description?: string;
@@ -51,6 +53,26 @@ export class OtaPackageInfo {
     }
     public get productId(): string | undefined {
         return this['product_id'];
+    }
+    public withProductName(productName: string): OtaPackageInfo {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
+    }
+    public withModuleName(moduleName: string): OtaPackageInfo {
+        this['module_name'] = moduleName;
+        return this;
+    }
+    public set moduleName(moduleName: string  | undefined) {
+        this['module_name'] = moduleName;
+    }
+    public get moduleName(): string | undefined {
+        return this['module_name'];
     }
     public withVersion(version: string): OtaPackageInfo {
         this['version'] = version;
